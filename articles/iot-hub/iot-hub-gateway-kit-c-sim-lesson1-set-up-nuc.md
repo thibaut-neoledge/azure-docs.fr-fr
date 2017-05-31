@@ -17,10 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
-ms.openlocfilehash: 399ac2d571b65503da7d9cc47d2dec9aa5e4c3d7
-ms.lasthandoff: 01/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b87974be9570f7d03fe84ae0a1d1fa7e346ff189
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 01/25/2017
 ## <a name="what-you-will-do"></a>Procédure à suivre
 
 - Configurez l’Intel NUC comme passerelle IoT.
-- Installez le package du kit de développement logiciel (SDK) Gateway Azure IoT sur Intel NUC.
+- Installez le package Azure IoT Edge sur Intel NUC.
 - Exécutez un exemple d’application « hello_world » sur Intel NUC pour vérifier le bon fonctionnement de la passerelle.
 Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
@@ -86,9 +87,9 @@ Vous devez disposer d’un clavier et d’un écran pour obtenir l’adresse IP 
    Il est plus efficace et plus productif d’utiliser Intel NUC à partir d’un ordinateur hôte. Vous avez besoin de l’adresse IP, du nom d’utilisateur et du mot de passe pour vous connecter à NUC par le biais d’un client SSH. Voici un exemple d’utilisation d’un client SSH sur macOS.
    ![Client SSH exécuté sur macOS](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## <a name="install-the-azure-iot-gateway-sdk-package"></a>Installation du package du Kit de développement logiciel (SDK) Gateway Azure IoT
+## <a name="install-the-azure-iot-edge-package"></a>Installer le package Azure IoT Edge
 
-Le package du kit de développement logiciel (SDK) Gateway Azure IoT contient les fichiers binaires précompilés du Kit de développement logiciel (SDK) et de ses dépendances. Ces fichiers binaires sont : le kit de développement logiciel (SDK) Gateway Azure IoT, le Kit de développement logiciel (SDK) Azure IoT et les outils correspondants. Le package contient également un exemple d’application « hello_world » qui est utilisé pour vérifier le bon fonctionnement de la passerelle. Le Kit de développement logiciel (SDK) constitue la partie principale de la passerelle. Pour installer le package, procédez comme suit :
+Le package Azure IoT Edge contient les fichiers binaires précompilés du kit de développement logiciel (SDK) et de ses dépendances. Ces fichiers binaires sont Azure IoT Edge, le kit de développement logiciel (SDK) Azure IoT et les outils correspondants. Le package contient également un exemple d’application « hello_world » qui est utilisé pour vérifier le bon fonctionnement de la passerelle. IoT Edge constitue la partie principale de la passerelle. Pour installer le package, procédez comme suit :
 
 1. Ajoutez le référentiel cloud IoT en exécutant les commandes suivantes dans une fenêtre de terminal :
 
@@ -115,9 +116,9 @@ Le package du kit de développement logiciel (SDK) Gateway Azure IoT contient le
 
    Une fois le package installé, Intel NUC doit fonctionner en tant que passerelle.
 
-## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Exécution de l’exemple d’application « hello_world » du Kit de développement logiciel (SDK) Gateway Azure IoT
+## <a name="run-the-azure-iot-edge-helloworld-sample-application"></a>Exécution de l’exemple d’application « hello_world » d’Azure IoT Edge
 
-Accédez à `azureiotgatewaysdk/samples` et exécutez l’exemple d’application « hello_world ». Cet exemple d’application crée une passerelle à partir du fichier `hello_world.json` et utilise les composants fondamentaux de l’architecture du Kit de développement logiciel (SDK) Gateway Azure IoT pour consigner le message « Hello World » dans un fichier toutes les 5 secondes.
+Accédez à `azureiotgatewaysdk/samples` et exécutez l’exemple d’application « hello_world ». Cet exemple d’application crée une passerelle à partir du fichier `hello_world.json` et utilise les composants fondamentaux de l’architecture Azure IoT Edge pour consigner le message « Hello World » dans un fichier toutes les 5 secondes.
 
 Vous pouvez exécuter l’exemple d’application « hello_world » en exécutant la commande suivante :
 

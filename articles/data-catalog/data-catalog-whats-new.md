@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 03/03/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ef4517191084148ff3810226c927ee45a61b2c49
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9f9754aef4f1e933163cd80862c84ba8281def80
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ Des mises à jour **d’Azure Data Catalog** sont publiées régulièrement. Com
 Depuis la semaine du 16 septembre 2016, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
 
 * Prise en charge des sources de données IBM DB2. Les utilisateurs peuvent désormais inscrire et découvrir les bases de données, tables et vues DB2.
-* Prise en charge des sources de données Azure DocumentDB. Les utilisateurs peuvent désormais inscrire et découvrir les bases de données et collections DocumentDB.
+* Prise en charge des sources de données Azure Cosmos DB. Les utilisateurs peuvent désormais inscrire et découvrir les bases de données et collections Cosmos DB.
 * Prise en charge de la personnalisation du nom du catalogue dans le portail Data Catalog. Les administrateurs de Catalog peuvent désormais saisir du texte qui s’affiche dans le titre du portail (nom de l’organisation, par exemple).
 
 ## <a name="whats-new-for-the-week-of-august-26-2016-release"></a>Nouveautés de la version de la semaine du 26 août 2016

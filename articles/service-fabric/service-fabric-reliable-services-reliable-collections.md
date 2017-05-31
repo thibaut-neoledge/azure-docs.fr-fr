@@ -1,28 +1,29 @@
 ---
-title: "Enregistrer l’état de l’application dans les microservices Azure | Microsoft Docs"
+title: "Introduction aux Collections fiables dans les services avec état d’Azure Service Fabric | Microsoft Docs"
 description: "Les services avec état de Service Fabric fournissent des collections fiables qui vous permettent d’écrire des applications cloud hautement disponibles, évolutives et à faible latence."
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,vturecek
+editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 3/27/2017
+ms.date: 5/1/2017
 ms.author: mcoskun
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 6ac47fe040793f2ac4ff596880675df0b331143e
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: d0247ba0242af05ca6dcd8049ff9116683538fa5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduction aux Collections fiables dans les services avec état d’Azure Service Fabric
-Les Collections fiables vous permettent d’écrire des applications cloud hautement disponibles, évolutives et à faible latence comme si vous écriviez des applications informatiques uniques. Les classes dans l’espace de noms **Microsoft.ServiceFabric.Data.Collections** fournissent un ensemble de collections prêtes à l’emploi qui rendent automatiquement votre état hautement disponible. Les développeurs doivent programmer uniquement les API de Collection fiable et laisser les Collections fiables gérer l’état répliqué et local.
+Les Collections fiables vous permettent d’écrire des applications cloud hautement disponibles, évolutives et à faible latence comme si vous écriviez des applications informatiques uniques. Les classes dans l’espace de noms **Microsoft.ServiceFabric.Data.Collections** fournissent un ensemble de collections qui rendent automatiquement votre état hautement disponible. Les développeurs doivent programmer uniquement les API de Collection fiable et laisser les Collections fiables gérer l’état répliqué et local.
 
 La principale différence entre les Collections fiables et d'autres technologies de haute disponibilité (comme Redis, le service Table Azure et le service File d'attente Azure) est que l'état est conservé localement dans l'instance de service tout en étant également rendu hautement disponible. Cela signifie que :
 
@@ -48,127 +49,24 @@ Les API de Collections fiables sont une évolution des API de collections simu
 * Aucun paramètre de sortie : utilise `ConditionalValue<T>` pour renvoyer un paramètre booléen et une valeur au lieu de paramètres. `ConditionalValue<T>` est similaire à `Nullable<T>`, mais ne nécessite ne pas que T soit une structure.
 * Transactions : utilise un objet de transaction pour permettre à l'utilisateur de regrouper des actions sur plusieurs Collections fiables dans une transaction.
 
-Actuellement, **Microsoft.ServiceFabric.Data.Collections** contient deux collections :
+Actuellement, **Microsoft.ServiceFabric.Data.Collections** contient trois collections :
 
 * [Dictionnaire fiable](https://msdn.microsoft.com/library/azure/dn971511.aspx): représente une collection répliquée, transactionnelle et asynchrone de paires clé/valeur. Semblables à celles de **ConcurrentDictionary**, la clé et la valeur peuvent être de tout type.
 * [File d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx): représente une file d’attente FIFO stricte, répliquée, transactionnelle et asynchrone. Semblable à celle de **ConcurrentQueue**, la valeur peut être de tout type.
-
-## <a name="isolation-levels"></a>Niveaux d'isolement
-Le niveau d’isolement définit le degré auquel la transaction doit être isolée des modifications apportées par d’autres transactions.
-Il existe deux niveaux d'isolement pris en charge dans les Collections fiables :
-
-* **Lecture renouvelée**: spécifie que les instructions ne peuvent pas lire les données qui ont été modifiées, mais pas encore validées par d’autres transactions et qu’aucune autre transaction ne peut modifier des données qui ont été lues par la transaction actuelle avant la fin de celle-ci. Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-* **Instantané**: spécifie que les données lues par toute instruction dans une transaction sont la version transactionnellement cohérente des données qui existaient au début de la transaction.
-  La transaction ne peut reconnaître que les modifications de données qui ont été validées avant son démarrage.
-  Les modifications de données effectuées par d'autres transactions après le début de la transaction actuelle ne sont pas visibles pour les instructions qui s’exécutent dans la transaction actuelle.
-  C’est comme si les instructions d’une transaction obtenaient un instantané des données validées telles qu’elles existaient au début de la transaction.
-  Les instantanés sont cohérents sur les Collections fiables.
-  Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-
-Les Collections fiables choisissent automatiquement le niveau d'isolement à utiliser pour une opération de lecture donnée en fonction de l'opération et du rôle du réplica lors de la création de la transaction.
-Voici le tableau qui décrit les valeurs par défaut du niveau d’isolement pour les opérations Dictionnaire fiable et File d’attente fiable.
-
-| Fonctionnement \ Rôle | Primaire | Secondaire |
-| --- |:--- |:--- |
-| Lecture d'une seule entité |Lecture renouvelée |Instantané |
-| Énumération \ Décompte |Instantané |Instantané |
-
-> [!NOTE]
-> `IReliableDictionary.TryGetValueAsync` et `IReliableQueue.TryPeekAsync` sont des exemples typiques d’opérations à une seule entité.
-> 
-> 
-
-Le Dictionnaire fiable et la File d'attente fiable prennent en charge le protocole Read Your Writes.
-En d'autres termes, toute écriture dans une transaction sera visible pour une lecture suivante appartenant à la même transaction.
-
-## <a name="locking"></a>Verrouillage
-Dans les Collections fiables, toutes les transactions comptent deux phases : une transaction ne libère pas les verrous qu’elle a acquis tant qu’elle ne s’est pas terminée avec un abandon ou une validation.
-
-Dictionnaire fiable utilise le verrou au niveau des lignes pour toutes les opérations à une seule entité.
-File d’attente fiable compense la concurrence par une propriété FIFO transactionnelle stricte.
-File d’attente fiable utilise des verrous au niveau des opérations permettant une transaction avec `TryPeekAsync` et/ou `TryDequeueAsync`, et une transaction avec `EnqueueAsync` à la fois.
-Notez que pour conserver FIFO, si une opération `TryPeekAsync` ou `TryDequeueAsync` constate que la file d’attente fiable est vide, elles verrouilleront également `EnqueueAsync`.
-
-Les opérations d’écriture prennent toujours des verrous exclusifs.
-Pour les opérations de lecture, le verrou dépend de deux facteurs.
-Les opérations de lecture effectuées à l’aide de l’isolement d’instantané ne sont pas verrouillées.
-Les opérations de lecture renouvelée utilisent par défaut des verrous partagés.
-Toutefois, pour toutes les opérations de lecture qui prennent en charge la lecture renouvelée, l’utilisateur peut demander un verrou de mise à jour au lieu du verrou partagé.
-Un verrou de mise à jour est un verrou asymétrique utilisé pour éviter une forme courante de blocage qui se produit lorsque plusieurs transactions verrouillent les ressources pour des mises à jour éventuelles ultérieures.
-
-Vous trouverez ci-dessous la matrice de compatibilité de verrouillage :
-
-| Requête \ Accordé | Aucun | Partagé | Mettre à jour | Exclusif |
-| --- |:--- |:--- |:--- |:--- |
-| Partagé |Aucun conflit |Aucun conflit |Conflit |Conflit |
-| Mettre à jour |Aucun conflit |Aucun conflit |Conflit |Conflit |
-| Exclusif |Aucun conflit |Conflit |Conflit |Conflit |
-
-Notez qu’un argument de délai d’expiration dans les API de Collections fiables est utilisé comme détection de blocage.
-Par exemple, deux transactions (T1 et T2) essayent de lire et de mettre à jour K1.
-Elles peuvent être bloquées, car elles ont toutes deux le verrou partagé.
-Dans ce cas, l’une ou les deux opérations arrivent à expiration.
-
-Notez que le scénario de blocage ci-dessus est un exemple illustrant parfaitement en quoi le verrou de mise à jour peut empêcher les blocages.
-
-## <a name="persistence-model"></a>Modèle de persistance
-Le gestionnaire d’état fiable et les Collections fiables suivent un modèle de persistance appelé Journal et Point de contrôle.
-Il s’agit d’un modèle où chaque changement d’état est enregistré sur le disque et appliqué uniquement en mémoire.
-L’état complet proprement dit n’est conservé qu’occasionnellement (également appelé Point de contrôle).
-L'avantage fourni est le suivant : les deltas sont transformés en écritures séquentielles en mode ajouter uniquement sur disque pour améliorer les performances.
-
-Pour mieux comprendre le modèle de journal et de point de contrôle, penchons-nous d’abord sur le scénario de disque infini.
-Le gestionnaire d’état fiable enregistre chaque opération avant qu’elle ne soit répliquée.
-Cela permet à la Collection fiable d’appliquer uniquement l’opération en mémoire.
-Dans la mesure où les journaux sont conservés, même lorsque le réplica échoue et doit être redémarré, le Gestionnaire d'état fiable possède suffisamment d'informations dans ses journaux pour recréer toutes les opérations perdues par le réplica.
-Étant donné que le disque est infini, les enregistrements du journal n’ont jamais besoin d’être supprimés, et la Collection fiable ne doit gérer que l’état en mémoire.
-
-Maintenant, examinons le scénario de disque limité.
-À mesure que les journaux se remplissent, le gestionnaire d’état fiable manquera d’espace disque.
-Avant que cela n’arrive, le gestionnaire d’état fiable doit tronquer son journal pour accueillir les enregistrements plus récents.
-Il demande alors aux Collections fiables de contrôler leur état en mémoire sur disque.
-La responsabilité de la Collection fiable est de conserver son état jusqu'à ce point.
-Une fois que les Collections fiables ont terminé leur contrôle, le Gestionnaire d'état fiable peut tronquer le journal pour libérer de l'espace disque.
-Ainsi, lorsque le réplica doit être redémarré, les Collections fiables récupéreront leur état au point de contrôle et le Gestionnaire d'état fiable récupérera et lira toutes les modifications d'état qui se sont produites depuis le point de contrôle.
-
-> [!NOTE]
-> Le point de contrôle améliore également les performances de récupération dans les cas courants.
-> En effet, les points de contrôle contiennent uniquement les versions les plus récentes.
-> 
-> 
-
-## <a name="recommendations"></a>Recommandations
-* Ne modifiez pas un objet de type personnalisé renvoyé par les opérations de lecture (par exemple, `TryPeekAsync` ou `TryGetValueAsync`). Les Collections fiables, comme les Collections simultanées, renvoient une référence aux objets et non une copie.
-* Exécutez une copie complète de l’objet renvoyé de type personnalisé avant de le modifier. Comme les structures et les types intégrés ont une valeur de passage, vous n’avez pas besoin d’en effectuer une copie complète.
-* N’utilisez pas `TimeSpan.MaxValue` pour les délais d’attente. Les délais d’expiration doivent être utilisés pour détecter des blocages.
-* N’utilisez pas une transaction une fois qu’elle a été validée, abandonnée ou supprimée.
-* N’utilisez pas une énumération en dehors de l’étendue de transaction dans laquelle elle a été créée.
-* Ne créez pas une transaction au sein de l’instruction `using` d’une autre transaction, car cela peut provoquer des blocages.
-* Assurez-vous que votre implémentation de `IComparable<TKey>` est correcte. Le système en dépend pour la fusion des points de contrôle.
-* N’utilisez pas un verrou de mise à jour lors de la lecture d’un élément avec l’intention de le mettre à jour pour empêcher une certaine classe de blocages.
-* Envisagez de conserver vos éléments (par exemple TKey + TValue pour le Dictionnaire fiable) sous 80 Ko : plus le volume est petit, mieux c’est. Cela réduira la quantité d’utilisation du Large Object Heap, ainsi que les exigences d’E/S relatives au disque et au réseau. Dans de nombreux cas, cela permet également de réduire la réplication de données en double lorsque seule une petite partie de la valeur est mise à jour. La manière la plus courante pour y parvenir dans le Dictionnaire fiable consiste à diviser vos lignes en plusieurs lignes. 
-* Envisagez d’utiliser la fonctionnalité de sauvegarde et de restauration pour bénéficier de la récupération d’urgence.
-* Évitez de combiner des opérations à une seule entité et des opérations à plusieurs entités (par exemple `GetCountAsync`, `CreateEnumerableAsync`) dans la même transaction en raison des différents niveaux d’isolement.
-* Gérez l’exception InvalidOperationException. Les transactions des utilisateurs peuvent être annulées par le système pour diverses raisons. Par exemple, lorsque le Gestionnaire d’état fiable abandonne le rôle Principal ou qu’une transaction longue bloque la troncature du journal des transactions. Dans ce cas, l’utilisateur peut recevoir l’exception InvalidOperationException, indiquant que sa transaction a déjà été terminée. Dans l’hypothèse où l’arrêt de la transaction n’était pas demandé par l’utilisateur, la meilleure façon de gérer cette exception consiste à supprimer la transaction, vérifier si le jeton d’annulation a été signalé (ou si le rôle du réplica a été modifié) et, si ce n’est pas le cas, créer une nouvelle transaction, puis réessayer.  
-
-Voici quelques points à retenir :
-
-* Le délai d’expiration par défaut est de 4 secondes pour toutes les API de Collections fiables. La plupart des utilisateurs ne doivent pas remplacer ce délai.
-* Le jeton d'annulation par défaut est `CancellationToken.None` dans toutes les API de Collections fiables.
-* Le paramètre de type de clé (*TKey*) pour un Dictionnaire fiable doit implémenter correctement `GetHashCode()` et `Equals()`. Les clés doivent être immuables.
-* Pour obtenir un haut niveau de disponibilité pour les Collections fiables, chaque service doit avoir au moins une taille de jeu de réplicas cible minimum égale à 3.
-* Les opérations de lecture sur le secondaire peuvent lire des versions qui ne sont pas validées dans le quorum.
-  Cela signifie qu’une version des données lue à partir d’un seul secondaire peut présenter une progression erronée.
-  Bien sûr, les lectures à partir du principal sont toujours stables : la progression n’est jamais erronée.
+* [File d’attente simultanée fiable](service-fabric-reliable-services-reliable-concurrent-queue.md) : représente une file d’attente de classement de meilleur effort répliquée, transactionnelle et asynchrone, pour un débit élevé. Semblable à celle de **ConcurrentQueue**, la valeur peut être de tout type.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
+* [Instructions et recommandations relatives aux collections fiables](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Utilisation des collections fiables](service-fabric-work-with-reliable-collections.md)
-* [Notifications Reliable Services](service-fabric-reliable-services-notifications.md)
-* [Sauvegarde et restauration de Reliable Services (récupération d’urgence)](service-fabric-reliable-services-backup-restore.md)
-* [Configuration du Gestionnaire d’état fiable](service-fabric-reliable-services-configuration.md)
-* [Prise en main des services API Web de Fabric Service](service-fabric-reliable-services-communication-webapi.md)
-* [Utilisation avancée du modèle de programmation de services fiables](service-fabric-reliable-services-advanced-usage.md)
-* [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
+* [Transactions et verrous](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+* [Gestionnaire d’état fiable et éléments internes de collections](service-fabric-reliable-services-reliable-collections-internals.md)
+* Gestion des données
+  * [Sauvegarde et restauration](service-fabric-reliable-services-backup-restore.md)
+  * [Notifications](service-fabric-reliable-services-notifications.md)
+  * [Sérialisation de Collection fiable](service-fabric-reliable-services-reliable-collections-serialization.md)
+  * [Sérialisation et mise à niveau](service-fabric-application-upgrade-data-serialization.md)
+  * [Configuration du Gestionnaire d’état fiable](service-fabric-reliable-services-configuration.md)
+* Autres
+  * [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
+  * [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 

@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
+ms.date: 05/10/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6c0c6b24f9d669e7ed45e6b2acf2e75390e5e1f4
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 2bfbb3b8f7282ec8ae8abe9597230a3485221ecf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -44,13 +45,13 @@ Avec les mises à jour du système d’exploitation, le défi réside dans le fa
 
 En attendant, nous [fournissons un script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) qu’un administrateur de cluster peut utiliser pour lancer manuellement la correction de chaque nœud de manière sécurisée.
 
-### <a name="can-i-use-large-virtual-scale-sets-in-my-sf-cluster"></a>Puis-je utiliser de grands groupes identiques de machines virtuelles dans mon cluster Service Fabric ? 
+### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Puis-je utiliser de grands groupes identiques de machines virtuelles dans mon cluster Service Fabric ? 
 
 **Réponse courte** : Non. 
 
-**Réponse longue** : Bien que les grands groupes identiques de machines virtuelles (VMSS) puissent évoluer jusqu’à 1 000 instances de machines virtuelles, ils utilisent pour cela des groupes de positionnement (PG). Les domaines d’erreur (FD) et les domaines de mise à niveau (UD) ne sont cohérents qu’au sein d’un groupe de placement. Service Fabric utilise des domaines d’erreur et des domaines de mise à niveau pour prendre des décisions de placement de vos instances/réplicas de service. Étant donné que les domaines d’erreur et de mise à niveau ne sont comparables qu’au sein d’un groupe de placement, Service Fabric ne peut pas les utiliser. Par exemple, si VM1 dans PG1 a une topologie de FD = 0 et VM9 dans PG2 a une topologie de FD = 4, cela ne signifie pas que VM1 et VM2 se trouvent sur deux racks matériels différents. Par conséquent, Service Fabric ne peut pas dans ce cas utiliser les valeurs FD pour prendre des décisions de placement.
+**Réponse longue** : Bien que les grands groupes identiques de machines virtuelles puissent évoluer jusqu’à 1000 instances de machines virtuelles, ils utilisent pour cela des groupes de positionnement (PG). Les domaines d’erreur (FD) et les domaines de mise à niveau (UD) ne sont cohérents qu’au sein d’un groupe de placement. Service Fabric utilise des domaines d’erreur et des domaines de mise à niveau pour prendre des décisions de placement de vos instances/réplicas de service. Étant donné que les domaines d’erreur et de mise à niveau ne sont comparables qu’au sein d’un groupe de placement, Service Fabric ne peut pas les utiliser. Par exemple, si VM1 dans PG1 a une topologie de FD = 0 et VM9 dans PG2 a une topologie de FD = 4, cela ne signifie pas que VM1 et VM2 se trouvent sur deux racks matériels différents. Par conséquent, Service Fabric ne peut pas dans ce cas utiliser les valeurs FD pour prendre des décisions de placement.
 
-Il y a actuellement d’autres problèmes avec les groupes identiques de machines virtuelles volumineux, notamment l’absence de prise en charge de l’équilibrage de charge de niveau 4. Pour plus d’informations, consultez la page [Grands groupes identiques de machines virtuelles](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md).
+Il y a actuellement d’autres problèmes avec les groupes identiques de machines virtuelles volumineux, notamment l’absence de prise en charge de l’équilibrage de charge de niveau 4. Pour plus d’informations, consultez la page [Grands groupes identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
 
 
@@ -76,6 +77,17 @@ En général, non. Service Fabric stocke l’état sur des disques éphémères 
 
 Si vous souhaitez créer des clusters pour tester votre application avant de la déployer, nous vous recommandons de les créer dynamiquement dans le cadre de votre [pipeline d’intégration continue/de déploiement continu](service-fabric-set-up-continuous-integration.md).
 
+## <a name="container-support"></a>Support pour les conteneurs
+
+### <a name="why-are-my-containers-that-are-deployed-to-sf-are-unable-to-resolve-dns-addresses"></a>Pourquoi mes conteneurs déployés sur SF ne parviennent-ils pas à résoudre les adresses DNS ?
+
+Ce problème a été signalé sur les clusters version 5.6.204.9494 
+
+**Solution de contournement** : suivez les instructions de [ce document](service-fabric-dnsservice.md) pour activer le service DNS de Service Fabric dans votre cluster.
+
+**Correction** : mettez le cluster à niveau vers une version prise en charge supérieure à 5.6.204.9494, si une telle version est disponible. Si votre cluster est configuré pour se mettre à niveau automatiquement, le cluster se mettra automatiquement à niveau vers une version pour laquelle ce problème est résolu.
+
+  
 ## <a name="application-design"></a>Conception des applications
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Quel est le meilleur moyen d’interroger des données sur plusieurs partitions d’une collection fiable ?
@@ -104,7 +116,7 @@ Sachant que chaque objet doit être stocké trois fois (une copie principale et 
 
 Notez que ce calcul suppose également :
 
-- Que la répartition des données entre les partitions est à peu près uniforme ou que vous envoyez des mesures de charge au gestionnaire de ressources de cluster. Par défaut, Service Fabric équilibre la charge en fonction du nombre de réplicas. Dans notre exemple ci-dessus, cela placerait 10 réplicas principaux et 20 réplicas secondaires sur chaque nœud du cluster. Cela fonctionne bien pour la charge répartie équitablement entre les partitions. Si la charge n’est pas équilibrée, vous devez la signaler afin que le gestionnaire de ressources puisse regrouper des réplicas plus petits et autoriser des réplicas plus volumineux à consommer davantage de mémoire sur un nœud individuel.
+- Que la répartition des données entre les partitions est à peu près uniforme ou que vous envoyez des mesures de charge au Resource Manager du cluster. Par défaut, Service Fabric équilibre la charge en fonction du nombre de réplicas. Dans notre exemple ci-dessus, cela placerait 10 réplicas principaux et 20 réplicas secondaires sur chaque nœud du cluster. Cela fonctionne bien pour la charge répartie équitablement entre les partitions. Si la charge n’est pas équilibrée, vous devez la signaler afin que le Resource Manager puisse regrouper des réplicas plus petits et autoriser des réplicas plus volumineux à consommer davantage de mémoire sur un nœud individuel.
 
 - Que le service fiable en question est le seul à stocker l’état dans le cluster. Comme vous pouvez déployer plusieurs services dans un cluster, vous devez être conscient que les ressources de chacun devront exécuter et gérer son état.
 

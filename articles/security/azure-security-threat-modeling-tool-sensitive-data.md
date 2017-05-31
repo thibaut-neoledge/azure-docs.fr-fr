@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
-translationtype: Human Translation
-ms.sourcegitcommit: 8251f44200c11d3efcec04b7ac99857232b2f9ed
-ms.openlocfilehash: da8c5dc18fda8756bae26c37c12be8cefe99e29a
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9743711805d8502b60ee91bac5c91035a3cda5fe
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 02/15/2017
 | Application web | <ul><li>[S’assurer que le contenu sensible n’est pas mis en cache dans le navigateur](#cache-browser)</li><li>[Chiffrer les sections des fichiers de configuration de l’application web qui contiennent des données sensibles](#encrypt-data)</li><li>[Désactiver explicitement l’attribut HTML de saisie semi-automatique dans les formulaires et les entrées sensibles](#autocomplete-input)</li><li>[S’assurer que les données sensibles affichées sur l’écran de l’utilisateur sont masquées](#data-mask)</li></ul> | 
 | Base de données | <ul><li>[Implémenter le masquage des données dynamiques pour limiter l’exposition de données sensibles aux utilisateurs non privilégiés](#dynamic-users)</li><li>[S’assurer que les mots de passe sont stockés dans un format de hachage salé](#salted-hash)</li><li>[S’assurer que les données sensibles des colonnes de la base de données sont chiffrées](#db-encrypted)</li><li>[S’assurer que le chiffrement au niveau de la base de données est activé](#tde-enabled)</li><li>[S’assurer que les sauvegardes de base de données sont chiffrées](#backup)</li></ul> | 
 | API Web | <ul><li>[S’assurer que les données sensibles concernant l’API Web ne sont pas stockées dans le navigateur](#api-browser)</li></ul> | 
-| Azure Document DB | <ul><li>[Chiffrer les données sensibles stockées dans DocumentDB](#encrypt-docdb)</li></ul> | 
+| Azure Document DB | <ul><li>[Chiffrer les données sensibles stockées dans Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | Délimitation d’approbation de machine virtuelle Azure IaaS | <ul><li>[Utiliser Azure Disk Encryption pour chiffrer les disques utilisés par les machines virtuelles](#disk-vm)</li></ul> | 
 | Délimitation d’approbation Service Fabric | <ul><li>[Chiffrer les secrets dans les applications Service Fabric](#fabric-apps)</li></ul> | 
 | Dynamics CRM | <ul><li>[Effectuer la modélisation de sécurité et utiliser les divisions/équipes si nécessaire](#modeling-teams)</li><li>[Réduire l’accès pour partager la fonctionnalité sur les entités critiques](#entities)</li><li>[Former les utilisateurs aux risques liés à la fonctionnalité de partage Dynamics CRM et aux bonnes pratiques de sécurité](#good-practices)</li><li>[Inclure une règle de normes de développement interdisant l’affichage des détails de configuration dans la gestion des exceptions](#exception-mgmt)</li></ul> | 
@@ -37,7 +38,7 @@ ms.lasthandoff: 02/15/2017
 | Client mobile | <ul><li>[Chiffrer les données sensibles ou personnelles écrites dans le stockage local des téléphones](#pii-phones)</li><li>[Masquer les fichiers binaires générés avant la diffusion auprès des utilisateurs finaux](#binaries-end)</li></ul> | 
 | WCF | <ul><li>[Définir la valeur clientCredentialType sur Certificat ou Windows](#cert)</li><li>[Le mode de sécurité WCF n’est pas activé](#security)</li></ul> | 
 
-## <a name="a-idbinaries-infoaensure-that-binaries-are-obfuscated-if-they-contain-sensitive-information"></a><a id="binaries-info"></a>S’assurer que les fichiers binaires sont masqués s’ils contiennent des informations sensibles
+## <a id="binaries-info"></a>S’assurer que les fichiers binaires sont masqués s’ils contiennent des informations sensibles
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -48,7 +49,7 @@ ms.lasthandoff: 02/15/2017
 | Références              | N/A  |
 | Étapes | Assurez-vous que les fichiers binaires sont masqués s’ils contiennent des informations sensibles, comme des secrets industriels ou une logique métier sensible et irréversible. Cela permet d’arrêter l’ingénierie à rebours des assemblys. Les outils du type CryptoObfuscator peuvent être utilisés à cet effet. |
 
-## <a name="a-idefs-useraconsider-using-encrypted-file-system-efs-is-used-to-protect-confidential-user-specific-data"></a><a id="efs-user"></a>Utiliser le système de fichiers EFS pour protéger les données confidentielles spécifiques de l’utilisateur
+## <a id="efs-user"></a>Utiliser le système de fichiers EFS pour protéger les données confidentielles spécifiques de l’utilisateur
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -59,7 +60,7 @@ ms.lasthandoff: 02/15/2017
 | Références              | N/A  |
 | Étapes | Utilisez le système de fichiers EFS pour protéger les données confidentielles spécifiques de l’utilisateur des pirates disposant d’un accès physique à l’ordinateur. |
 
-## <a name="a-idfilesystemaensure-that-sensitive-data-stored-by-the-application-on-the-file-system-is-encrypted"></a><a id="filesystem"></a>S’assurer que les données sensibles stockées par l’application sur le système de fichiers sont chiffrées
+## <a id="filesystem"></a>S’assurer que les données sensibles stockées par l’application sur le système de fichiers sont chiffrées
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -70,7 +71,7 @@ ms.lasthandoff: 02/15/2017
 | Références              | N/A  |
 | Étapes | Assurez-vous que les données sensibles stockées par l’application sur le système de fichiers sont chiffrées (par exemple, en vous servant de DPAPI), si le système EFS ne peut pas être appliqué |
 
-## <a name="a-idcache-browseraensure-that-sensitive-content-is-not-cached-on-the-browser"></a><a id="cache-browser"></a>S’assurer que le contenu sensible n’est pas mis en cache dans le navigateur
+## <a id="cache-browser"></a>S’assurer que le contenu sensible n’est pas mis en cache dans le navigateur
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -123,7 +124,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
         }
 ``` 
 
-## <a name="a-idencrypt-dataaencrypt-sections-of-web-apps-configuration-files-that-contain-sensitive-data"></a><a id="encrypt-data"></a>Chiffrer les sections des fichiers de configuration de l’application web qui contiennent des données sensibles
+## <a id="encrypt-data"></a>Chiffrer les sections des fichiers de configuration de l’application web qui contiennent des données sensibles
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -131,10 +132,10 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Phase SDL               | Créer |  
 | Technologies applicables | Générique |
 | Attributs              | N/A  |
-| Références              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI (Chiffrement des sections de configuration dans ASP.NET 2.0 à l’aide de DPAPI)](https://msdn.microsoft.com/library/ff647398.aspx), [Specifying a Protected Configuration Provider (Spécification d’un fournisseur de configuration protégée)](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Using Azure Key Vault to protect application secrets (Utilisation d’Azure Key Vault pour protéger la confidentialité de l’application)](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
-| Étapes | Les fichiers de configuration tels que Web.config et appsettings.json sont souvent utilisés pour stocker des informations sensibles, comme les noms d’utilisateur, les mots de passe, les chaînes de connexion de base de données et les clés de chiffrement. Si vous ne protégez pas ces informations, votre application est vulnérable aux pirates ou aux personnes malveillantes qui veulent obtenir des informations sensibles, comme les noms d’utilisateur et les mots de passe de comptes, les noms de bases de données et les noms de serveurs. Selon le type de déploiement (azure/local), chiffrez les sections sensibles des fichiers de configuration à l’aide de DPAPI ou de services tels qu’Azure Key Vault. |
+| Références              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI (Chiffrement des sections de configuration dans ASP.NET 2.0 à l’aide de DPAPI)](https://msdn.microsoft.com/library/ff647398.aspx), [Spécification d’un fournisseur de configuration protégée](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Using Azure Key Vault to protect application secrets (Utilisation d’Azure Key Vault pour protéger la confidentialité de l’application)](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| Étapes | Les fichiers de configuration tels que web.config et appsettings.json sont souvent utilisés pour stocker des informations sensibles, comme les noms d’utilisateur, les mots de passe, les chaînes de connexion de base de données et les clés de chiffrement. Si vous ne protégez pas ces informations, votre application est vulnérable aux attaquants ou aux personnes malveillantes qui veulent obtenir des informations sensibles, comme les noms d’utilisateur et les mots de passe de comptes, les noms de bases de données et les noms de serveurs. Selon le type de déploiement (azure/local), chiffrez les sections sensibles des fichiers de configuration à l’aide de DPAPI ou de services tels qu’Azure Key Vault. |
 
-## <a name="a-idautocomplete-inputaexplicitly-disable-the-autocomplete-html-attribute-in-sensitive-forms-and-inputs"></a><a id="autocomplete-input"></a>Désactiver explicitement l’attribut HTML de saisie semi-automatique dans les formulaires et les entrées sensibles
+## <a id="autocomplete-input"></a>Désactiver explicitement l’attribut HTML de saisie semi-automatique dans les formulaires et les entrées sensibles
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -153,7 +154,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 </form>
 ```
 
-## <a name="a-iddata-maskaensure-that-sensitive-data-displayed-on-the-user-screen-is-masked"></a><a id="data-mask"></a>S’assurer que les données sensibles affichées sur l’écran de l’utilisateur sont masquées
+## <a id="data-mask"></a>S’assurer que les données sensibles affichées sur l’écran de l’utilisateur sont masquées
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -164,7 +165,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Références              | N/A  |
 | Étapes | Les données sensibles telles que les mots de passe, les numéros de carte de crédit, les numéros de sécurité sociale, etc. doivent être masquées à l’écran. Cela empêche les personnes non autorisées d’accéder aux données (par exemple, en épiant les mots de passe saisis, ou lorsque le support technique affiche le numéro de sécurité sociale de l’utilisateur). Assurez-vous que ces éléments de données ne sont pas visibles en texte brut et qu’ils sont masqués de manière appropriée. Cette opération doit être effectuée lorsque les éléments sont acceptés en entrée (par exemple, type d’entrée = « mot de passe ») et lors de l’affichage sur l’écran (par exemple, affichage des 4 derniers chiffres de la carte de crédit uniquement). |
 
-## <a name="a-iddynamic-usersaimplement-dynamic-data-masking-to-limit-sensitive-data-exposure-non-privileged-users"></a><a id="dynamic-users"></a>Implémenter le masquage des données dynamiques pour limiter l’exposition de données sensibles aux utilisateurs non privilégiés
+## <a id="dynamic-users"></a>Implémenter le masquage des données dynamiques pour limiter l’exposition de données sensibles aux utilisateurs non privilégiés
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -175,7 +176,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Références              | [Dynamic Data Masking (masquage des données dynamiques)](https://msdn.microsoft.com/library/mt130841) |
 | Étapes | Le masquage des données dynamiques vise à limiter l’exposition des données sensibles, empêchant ainsi les utilisateurs non autorisés d’afficher les données. Le masquage des données dynamiques ne vise pas à empêcher les utilisateurs de la base de données de se connecter directement à la base de données ni d’exécuter des requêtes exhaustives qui exposent partiellement les données sensibles. Le masquage des données dynamiques est complémentaire d’autres fonctionnalités de sécurité SQL Server (audit, chiffrement, sécurité au niveau des lignes, etc.) et il est fortement recommandé d’utiliser cette fonctionnalité en conjonction avec ces dernières afin d’optimiser la protection des données sensibles de la base de données. Cette fonctionnalité est prise en charge uniquement par SQL Server à partir de la version 2016 et par Azure SQL Database. |
 
-## <a name="a-idsalted-hashaensure-that-passwords-are-stored-in-salted-hash-format"></a><a id="salted-hash"></a>S’assurer que les mots de passe sont stockés dans un format de hachage salé
+## <a id="salted-hash"></a>S’assurer que les mots de passe sont stockés dans un format de hachage salé
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -186,7 +187,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Références              | [Password Hashing using .NET Crypto APIs (Hachage de mots de passe à l’aide des API de chiffrement .NET)](http://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
 | Étapes | Les mots de passe ne doivent pas être stockés dans les bases de données de magasin d’utilisateurs personnalisés. Au lieu de cela, les hachages de mot de passe doivent être stockés avec des valeurs salt. Assurez-vous que la valeur salt de l’utilisateur est toujours unique et que vous appliquez bcrypt, scrypt ou PBKDF2 avant de stocker le mot de passe, avec un nombre d’itérations de facteur de travail minimal de 150 000 boucles afin d’éliminer tout risque d’attaque par force brute.| 
 
-## <a name="a-iddb-encryptedaensure-that-sensitive-data-in-database-columns-is-encrypted"></a><a id="db-encrypted"></a>S’assurer que les données sensibles des colonnes de la base de données sont chiffrées
+## <a id="db-encrypted"></a>S’assurer que les données sensibles des colonnes de la base de données sont chiffrées
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -197,7 +198,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Références              | [Liste de vérification : chiffrement des données sensibles](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [Chiffrer une colonne de données](https://msdn.microsoft.com/library/ms179331), [ENCRYPTBYCERT (Transact-SQL)](https://msdn.microsoft.com/library/ms188061) |
 | Étapes | Les données sensibles, comme les numéros de carte de crédit, doivent être chiffrées dans la base de données. Les données peuvent être chiffrées par le biais du chiffrement au niveau colonne ou par une fonction de l’application utilisant les fonctions de chiffrement. |
 
-## <a name="a-idtde-enabledaensure-that-database-level-encryption-tde-is-enabled"></a><a id="tde-enabled"></a>S’assurer que le chiffrement au niveau de la base de données est activé
+## <a id="tde-enabled"></a>S’assurer que le chiffrement au niveau de la base de données est activé
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -208,18 +209,18 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Références              | [Présentation du chiffrement transparent des données (TDE)](https://technet.microsoft.com/library/bb934049(v=sql.105).aspx) |
 | Étapes | La fonction Transparent Data Encryption (TDE) de SQL Server permet de chiffrer les données sensibles dans une base de données et de protéger les clés utilisées pour chiffrer les données avec un certificat. Cela empêche toute personne ne disposant pas des clés d’utiliser les données. TDE protège les données au repos, ce qui signifie les données et les fichiers journaux. Cette fonctionnalité permet de se conformer aux nombreuses lois, réglementations et directives établies dans de nombreux secteurs. |
 
-## <a name="a-idbackupaensure-that-database-backups-are-encrypted"></a><a id="backup"></a>S’assurer que les sauvegardes de base de données sont chiffrées
+## <a id="backup"></a>S’assurer que les sauvegardes de base de données sont chiffrées
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | Composant               | Base de données | 
 | Phase SDL               | Créer |  
-| Technologies applicables | SQL Azure, local |
+| Technologies applicables | SQL Azure, OnPrem |
 | Attributs              | Version SQL - V12, Version SQL - MsSQL2014 |
 | Références              | [Chiffrement de sauvegarde](https://msdn.microsoft.com/library/dn449489) |
 | Étapes | SQL Server peut chiffrer les données lors de la création d’une sauvegarde. En spécifiant l’algorithme de chiffrement et le chiffreur (certificat ou clé asymétrique) lors de la création d’une sauvegarde, il est possible de créer un fichier de sauvegarde chiffré. |
 
-## <a name="a-idapi-browseraensure-that-sensitive-data-relevant-to-web-api-is-not-stored-in-browsers-storage"></a><a id="api-browser"></a>S’assurer que les données sensibles concernant l’API Web ne sont pas stockées dans le navigateur
+## <a id="api-browser"></a>S’assurer que les données sensibles concernant l’API Web ne sont pas stockées dans le navigateur
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -243,7 +244,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 };
 ```
 
-## <a name="a-idencrypt-docdbaencrypt-sensitive-data-stored-in-documentdb"></a><a id="encrypt-docdb"></a>Chiffrer les données sensibles stockées dans DocumentDB
+## <a id="encrypt-docdb"></a>Chiffrer les données sensibles stockées dans Cosmos DB
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -254,7 +255,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Références              | N/A  |
 | Étapes | Chiffrez les données sensibles au niveau de l’application avant de les stocker dans la base de données de document ou de stocker toute donnée sensible dans d’autres solutions de stockage, comme le stockage Azure ou Azure SQL| 
 
-## <a name="a-iddisk-vmause-azure-disk-encryption-to-encrypt-disks-used-by-virtual-machines"></a><a id="disk-vm"></a>Utiliser Azure Disk Encryption pour chiffrer les disques utilisés par les machines virtuelles
+## <a id="disk-vm"></a>Utiliser Azure Disk Encryption pour chiffrer les disques utilisés par les machines virtuelles
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -265,7 +266,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Références              | [Utilisation de la fonctionnalité Azure Disk Encryption pour chiffrer les disques utilisés par vos machines virtuelles](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
 | Étapes | <p>Azure Disk Encryption est une nouvelle fonctionnalité qui est actuellement disponible en version préliminaire. Cette fonctionnalité vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. La fonctionnalité est intégrée à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque. Azure Disk Encryption convient pour les trois scénarios de chiffrement client suivants :</p><ul><li>Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir des fichiers VHD chiffrés par le client et des clés de chiffrement fournies par le client, qui sont stockées dans Azure Key Vault.</li><li>Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir d’Azure Marketplace.</li><li>Activation du chiffrement sur des machines virtuelles IaaS existantes et fonctionnant déjà dans Azure.</li></ul>| 
 
-## <a name="a-idfabric-appsaencrypt-secrets-in-service-fabric-applications"></a><a id="fabric-apps"></a>Chiffrer les secrets dans les applications Service Fabric
+## <a id="fabric-apps"></a>Chiffrer les secrets dans les applications Service Fabric
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -276,7 +277,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Références              | [Gestion des secrets dans des applications Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-application-secret-management/) |
 | Étapes | Les secrets peuvent être des informations sensibles quelconques, notamment des chaînes de connexion de stockage, des mots de passe ou d’autres valeurs qui ne doivent pas être traitées en texte brut. Utilisez Azure Key Vault pour gérer les clés et les secrets dans les applications Service Fabric. |
 
-## <a name="a-idmodeling-teamsaperform-security-modeling-and-use-business-unitsteams-where-required"></a><a id="modeling-teams"></a>Effectuer la modélisation de sécurité et utiliser les divisions/équipes si nécessaire
+## <a id="modeling-teams"></a>Effectuer la modélisation de sécurité et utiliser les divisions/équipes si nécessaire
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -287,7 +288,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Références              | N/A  |
 | Étapes | Effectuez la modélisation de sécurité et utilisez les divisions/équipes si nécessaire |
 
-## <a name="a-identitiesaminimize-access-to-share-feature-on-critical-entities"></a><a id="entities"></a>Réduire l’accès pour partager la fonctionnalité sur les entités critiques
+## <a id="entities"></a>Réduire l’accès pour partager la fonctionnalité sur les entités critiques
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -298,7 +299,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Références              | N/A  |
 | Étapes | Réduisez l’accès pour partager la fonctionnalité sur les entités critiques |
 
-## <a name="a-idgood-practicesatrain-users-on-the-risks-associated-with-the-dynamics-crm-share-feature-and-good-security-practices"></a><a id="good-practices"></a>Former les utilisateurs aux risques liés à la fonctionnalité de partage Dynamics CRM et aux bonnes pratiques de sécurité
+## <a id="good-practices"></a>Former les utilisateurs aux risques liés à la fonctionnalité de partage Dynamics CRM et aux bonnes pratiques de sécurité
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -309,7 +310,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Références              | N/A  |
 | Étapes | Formez les utilisateurs aux risques liés à la fonctionnalité de partage Dynamics CRM et aux bonnes pratiques de sécurité |
 
-## <a name="a-idexception-mgmtainclude-a-development-standards-rule-proscribing-showing-config-details-in-exception-management"></a><a id="exception-mgmt"></a>Inclure une règle de normes de développement interdisant l’affichage des détails de configuration dans la gestion des exceptions
+## <a id="exception-mgmt"></a>Inclure une règle de normes de développement interdisant l’affichage des détails de configuration dans la gestion des exceptions
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -320,7 +321,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Références              | N/A  |
 | Étapes | Incluez une règle de normes de développement interdisant l’affichage des détails de configuration dans la gestion des exceptions en dehors du développement. Testez cette procédure lors de vérifications de code ou d’un contrôle périodique.|
 
-## <a name="a-idsse-previewause-azure-storage-service-encryption-sse-for-data-at-rest-preview"></a><a id="sse-preview"></a>Utiliser Azure Storage Service Encryption pour les données au repos (version préliminaire)
+## <a id="sse-preview"></a>Utiliser Azure Storage Service Encryption pour les données au repos (version préliminaire)
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -331,7 +332,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Références              | [Azure Storage Service Encryption pour les données au repos (version préliminaire)](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) |
 | Étapes | <p>Azure Storage Service Encryption pour les données au repos vous aide à protéger vos données pour répondre aux engagements de votre organisation en matière de sécurité et de conformité. Avec cette fonctionnalité, Azure Storage chiffre automatiquement vos données avant de les rendre persistantes dans le stockage et les déchiffre avant la récupération. La gestion du chiffrement, du déchiffrement et des clés est totalement transparente pour les utilisateurs. SSE s’applique uniquement aux objets blob de blocs, aux objets blob de pages et aux objets blob d’ajout. Les autres types de données, y compris les tables, les files d’attente et les fichiers, ne sont pas chiffrés.</p><p>Flux de travail de chiffrement et de déchiffrement :</p><ul><li>Le client active le chiffrement sur le compte de stockage</li><li>Lorsque le client écrit de nouvelles données (PUT Blob, PUT Block, PUT Page, etc.) pour le stockage Blob, chaque écriture est chiffrée à l’aide du chiffrement AES 256 bits, l’un des algorithmes de chiffrement par blocs les plus puissants disponibles</li><li>Lorsque le client a besoin d’accéder aux données (GET Blob, etc.), ces dernières sont automatiquement déchiffrées avant d’être renvoyées à l’utilisateur</li><li>Si le chiffrement est désactivé, les nouvelles écritures ne sont plus chiffrées et les données chiffrées existantes restent chiffrées jusqu’à ce qu’elles soient réécrites par l’utilisateur. Lorsque le chiffrement est activé, les écritures dans Blob Storage sont chiffrées. L’état des données ne change pas lorsque l’utilisateur bascule entre l’activation et la désactivation du chiffrement pour le compte de stockage</li><li>Toutes les clés de chiffrement sont stockées, chiffrées et gérées par Microsoft</li></ul><p>Actuellement, les clés utilisées pour le chiffrement sont gérées par Microsoft. Microsoft crée initialement les clés, puis gère le stockage sécurisé des clés ainsi que leur rotation régulière, conformément à la politique interne de Microsoft en la matière. À l’avenir, les clients pourront gérer leurs propres clés de chiffrement et fournir un chemin de migration des clés gérées par Microsoft en clés gérées par le client.</p>| 
 
-## <a name="a-idclient-storageause-client-side-encryption-to-store-sensitive-data-in-azure-storage"></a><a id="client-storage"></a>Utiliser le chiffrement côté client pour stocker les données sensibles dans le stockage Azure
+## <a id="client-storage"></a>Utiliser le chiffrement côté client pour stocker les données sensibles dans le stockage Azure
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -342,7 +343,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Références              | [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l’aide d’Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Storing Data Securely in Azure Blob Storage with Azure Encryption Extensions (Stockage sécurisé des données dans le stockage Blob Azure avec les extensions de chiffrement Azure)](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
 | Étapes | <p>La bibliothèque cliente de stockage Azure pour le package NuGet .NET prend en charge le chiffrement des données au sein des applications clientes avant le chargement vers le stockage Azure, et le déchiffrement des données pendant leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration à Azure Key Vault pour la gestion des clés de compte de stockage. Voici une brève description du fonctionnement du chiffrement côté client :</p><ul><li>Le Kit de développement logiciel (SDK) client de stockage Azure génère une clé de chiffrement de contenu (CEK) qui est une clé symétrique à usage unique</li><li>Les données du client sont chiffrées à l’aide de cette clé de chiffrement de contenu</li><li>La clé de chiffrement de contenu est ensuite encapsulée (chiffrée) à l’aide de la clé de chiffrement de clés (KEK). La clé de chiffrement de clés est identifiée par un identificateur de clé et peut être une paire de clés asymétriques ou une clé symétrique pouvant être gérée localement ou stockée dans Azure Key Vault. Le client Storage n’a jamais accès à la clé de chiffrement de clés. Il appelle simplement l'algorithme d’encapsulage de clés fourni par Key Vault. Si besoin est, les clients peuvent choisir d’utiliser des fournisseurs personnalisés pour l’encapsulage/le désencapsulage de clés</li><li>Les données chiffrées sont ensuite téléchargées sur le service Azure Storage. Vérifiez les liens dans la section Références pour en savoir plus sur l’implémentation de bas niveau.</li></ul>|
 
-## <a name="a-idpii-phonesaencrypt-sensitive-or-pii-data-written-to-phones-local-storage"></a><a id="pii-phones"></a>Chiffrer les données sensibles ou personnelles écrites dans le stockage local des téléphones
+## <a id="pii-phones"></a>Chiffrer les données sensibles ou personnelles écrites dans le stockage local des téléphones
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -392,7 +393,7 @@ Si l’application n’est pas une application d’entreprise, utilisez le keyst
         }
 ```
 
-## <a name="a-idbinaries-endaobfuscate-generated-binaries-before-distributing-to-end-users"></a><a id="binaries-end"></a>Masquer les fichiers binaires générés avant la diffusion auprès des utilisateurs finaux
+## <a id="binaries-end"></a>Masquer les fichiers binaires générés avant la diffusion auprès des utilisateurs finaux
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -403,7 +404,7 @@ Si l’application n’est pas une application d’entreprise, utilisez le keyst
 | Références              | [Crypto Obfuscator For .Net (CryptoObfuscator pour .NET)](http://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | Étapes | Les fichiers binaires générés (assemblys dans fichiers apk) doivent être masqués pour arrêter l’ingénierie à rebours des assemblys. Des outils tels que CryptoObfuscator peuvent être utilisés à cet effet. |
 
-## <a name="a-idcertaset-clientcredentialtype-to-certificate-or-windows"></a><a id="cert"></a>Définir la valeur clientCredentialType sur Certificat ou Windows
+## <a id="cert"></a>Définir la valeur clientCredentialType sur Certificat ou Windows
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -422,13 +423,13 @@ La configuration du fournisseur de services WCF suivante utilise un UsernameToke
 ``` 
 Définissez la valeur clientCredentialType sur Certificat ou Windows. 
 
-## <a name="a-idsecurityawcf-security-mode-is-not-enabled"></a><a id="security"></a>Le mode de sécurité WCF n’est pas activé
+## <a id="security"></a>Le mode de sécurité WCF n’est pas activé
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | Composant               | WCF | 
 | Phase SDL               | Créer |  
-| Technologies applicables | Générique, .NET Framework 3 |
+| Technologies applicables | Générique, .NET Framework 3 |
 | Attributs              | Mode de sécurité - Transport, Mode de sécurité - Messages |
 | Références              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html), [Fundamentals of WCF Security CoDe Magazine (Notions de base de sécurité WCF dans CoDe Magazine)](http://www.codemag.com/article/0611051) |
 | Étapes | Aucune sécurité liée au transport ou aux messages n’a été définie. Les applications qui transmettent des messages sans sécurité liée au transport ou aux messages ne peuvent pas garantir l’intégrité ou la confidentialité des messages. Lorsqu’une liaison de sécurité WCF est définie sur Aucune, la sécurité liée au transport et aux messages est désactivée. |
@@ -465,3 +466,4 @@ Mode de sécurité - L’ensemble des liaisons de service offre cinq modes de s�
   </bindings> 
 </system.serviceModel> 
 ```
+

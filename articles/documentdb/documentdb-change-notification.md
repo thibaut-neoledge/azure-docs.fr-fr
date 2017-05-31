@@ -1,14 +1,15 @@
 ---
 redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 1b5ec3cb1c2aba86570c6f1753d9142c0d0349ce
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 58c0ea0bd8bda994c8314d2866304cb3ab367bfd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="notifications-for-new-or-changed-documentdb-resources-using-logic-apps"></a>Notifications relatives aux ressources DocumentDB nouvelles ou modifiées à l’aide de Logic Apps
+# <a name="notifications-for-new-or-changed-azure-cosmos-db-resources-using-logic-apps"></a>Notifications relatives aux ressources Azure Cosmos DB nouvelles ou modifiées à l’aide de Logic Apps
 L’idée de cet article m’est venue à la lecture d’une question figurant sur l’un des forums de la communauté Azure DocumentDB. La question était **DocumentDB prend-il en charge les notifications relatives aux ressources modifiées**?
 
 J’ai travaillé de nombreuses années sur BizTalk Server, et il s’agit d’un scénario très courant dans l’utilisation de l’ [adaptateur métier WCF](https://msdn.microsoft.com/library/bb798128.aspx). J’ai donc décidé de voir si je pouvais dupliquer cette fonctionnalité dans DocumentDB pour les documents nouveaux et/ou modifiés.
@@ -18,7 +19,7 @@ Cet article fournit une vue d’ensemble des composants de la solution de notifi
 ## <a name="use-case"></a>Cas d’utilisation
 Voici le cas d’utilisation sur lequel porte cet article.
 
-DocumentDB est le dépôt des documents FHIR (Fast Healthcare Interoperability Resources) HL7 (Health Level Seven International). Supposons que votre base de données DocumentDB associée à votre API et à une application logique constituent un serveur FHIR HL7.  Un établissement de soins de santé stocke les données de la patientèle dans la base de données DocumentDB « Patients ». Il existe plusieurs collections dans la base de données des patients : Clinical, Identification, etc. Les informations sur les patients figurent sous Identification.  Une collection est nommée « Patient ».
+Azure Cosmos DB est le référentiel des documents FHIR (Fast Healthcare Interoperability Resources) HL7 (Health Level Seven International). Supposons que votre base de données Azure Cosmos DB associée à votre API et à une application logique constituent un serveur FHIR HL7.  Un établissement de soins de santé stocke les données de la patientèle dans la base de données Azure Cosmos DB « Patients ». Il existe plusieurs collections dans la base de données des patients : Clinical, Identification, etc. Les informations sur les patients figurent sous Identification.  Une collection est nommée « Patient ».
 
 Le service de cardiologie effectue le suivi des données personnelles relatives à la santé et à l’exercice. La recherche des enregistrements nouveaux ou modifiés des patients prend du temps. Le service informatique a donc pour mission d’identifier un moyen qui permettrait la réception d’une notification relative aux enregistrements des patients nouveaux ou modifiés.  
 
@@ -1113,7 +1114,4 @@ Le secret consiste à prévoir et à modéliser votre flux de travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Veuillez télécharger et utiliser le code de l’application logique fourni sur [GitHub](https://github.com/HEDIDIN/DocDbNotifications). Je vous invite à effectuer la génération à partir de l’application et à envoyer les modifications apportées au dépôt. 
-
-Pour en savoir plus sur DocumentDB, consultez le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/)associé.
-
 

@@ -1,25 +1,25 @@
 ---
 title: API, SDK et ressources .NET Core Azure DocumentDB | Microsoft Docs
 description: "Découvrez l’API et le Kit de développement logiciel (SDK) .NET Code, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) .NET Core de DocumentDB."
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: d5552615bfa663f4604e29839ecf8f5fc25c328f
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: cb53a57be75f89390312473a2c80923514b295c2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/20/2017
 > * [Node.JS](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -57,6 +57,15 @@ Le Kit de développement logiciel (SDK) .NET Core de DocumentDB offre les mêmes
 
 > [!NOTE] 
 > Le SDK .NET Core de DocumentDB utilisé n’est pas encore compatible avec les applications de la plateforme Windows universelle (UWP). Si un Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+
+*    Prise en charge ajoutée pour la fonctionnalité Unité de requête par minute (RU/m).
+*    Prise en charge ajoutée pour un nouveau niveau de cohérence nommé ConsistentPrefix.
+*    Prise en charge ajoutée pour les mesures de requête liées aux partitions individuelles.
+*    Prise en charge ajoutée pour la limitation de la taille du jeton de continuation concernant les requêtes.
+*    Prise en charge ajoutée pour un suivi plus détaillé des demandes ayant échoué.
+*    Améliorations de certaines performances du Kit de développement logiciel (SDK).
 
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
@@ -108,6 +117,7 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.3.0](#1.3.0) |10 mai 2017 |--- |
 | [1.2.2](#1.2.2) |19 avril 2017 |--- |
 | [1.2.1](#1.2.1) |29 mars 2017 |--- |
 | [1.2.0](#1.2.0) |25 mars 2017 |--- |
@@ -118,6 +128,6 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 | [0.1.0-preview](#0.1.0-preview) |15 novembre 2016 |31 décembre 2016 |
 
 ## <a name="see-also"></a>Voir aussi
-Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
+Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). 
 
 

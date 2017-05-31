@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 05/09/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: b942f934ecb25083d779096dc628e342870edc26
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 360073c0ed75552e62e69ce72b225ba35a2a3e09
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -31,19 +31,17 @@ Pour aider les clients à prévenir les menaces, à les détecter et à y répon
 >
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
-1. Sélectionnez la mosaïque **Recommandations** dans le panneau **Security Center**.  Le panneau **Recommandations** s’ouvre.
-   ![Panneau Security Center][1]
-2. Dans le panneau **Recommandations**, sélectionnez **Activer la collecte des données pour des abonnements**.  Cette opération ouvre le panneau **Activer la collecte de données** .
+1. Dans le panneau **Recommandations**, sélectionnez **Activer la collecte des données pour des abonnements**.  Cette opération ouvre le panneau **Activer la collecte de données** .
    ![Panneau Recommandations][2]
-3. Sur le panneau **Activer la collecte des données** , sélectionnez votre abonnement. Le panneau **Stratégie de sécurité** de cet abonnement s’ouvre.
-4. Dans le panneau **Stratégie de sécurité**, sélectionnez **Activée** sous **Collecte des données** pour collecter automatiquement les journaux. L’activation de la collecte de données configure l’extension de surveillance sur toutes les machines virtuelles prises en charge, actuelles et nouvelles, de l’abonnement.
+2. Sur le panneau **Activer la collecte des données** , sélectionnez votre abonnement. Le panneau **Stratégie de sécurité** de cet abonnement s’ouvre.
+3. Dans le panneau **Stratégie de sécurité**, sélectionnez **Activée** sous **Collecte des données** pour collecter automatiquement les journaux. L’activation de la collecte de données configure l’extension de surveillance sur toutes les machines virtuelles prises en charge, actuelles et nouvelles, de l’abonnement.
 
    ![Panneau Stratégie de sécurité][3]
 
-5. Sélectionnez **Enregistrer**.
-6. Sélectionnez **Choisir un compte de stockage par région**. Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Si vous ne choisissez pas un compte de stockage pour chaque région, un compte de stockage est créé pour vous et placé dans le groupe de ressources securitydata. Dans cet exemple, nous choisissons **newstoracct**. Vous pouvez modifier le compte de stockage ultérieurement en revenant à la stratégie de sécurité de votre abonnement et en choisissant un autre compte de stockage.
+4. Sélectionnez **Enregistrer**.
+5. Sélectionnez **Choisir un compte de stockage par région**. Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Si vous ne choisissez pas un compte de stockage pour chaque région, un compte de stockage est créé pour vous et placé dans le groupe de ressources securitydata. Dans cet exemple, nous choisissons **newstoracct**. Vous pouvez modifier le compte de stockage ultérieurement en revenant à la stratégie de sécurité de votre abonnement et en choisissant un autre compte de stockage.
    ![Choisir un compte de stockage][4]
-7. Sélectionnez **OK**.
+6. Sélectionnez **OK**.
 
 > [!NOTE]
 > Nous vous recommandons d’activer la collecte de données et de choisir un compte de stockage au niveau de l’abonnement en premier. Bien que vous puissiez définir les stratégies de sécurité au niveau du groupe de ressources et au niveau de l’abonnement Azure, la configuration de la collecte des données et du compte de stockage intervient uniquement au niveau de l’abonnement.
@@ -81,7 +79,6 @@ Cet article vous a montré comment implémenter la recommandation de Security Ce
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/): découvrez les dernières nouvelles et informations sur la sécurité Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/security-center-blade.png
 [2]: ./media/security-center-enable-data-collection/recommendations.png
 [3]: ./media/security-center-enable-data-collection/data-collection.png
 [4]: ./media/security-center-enable-data-collection/storage-account.png

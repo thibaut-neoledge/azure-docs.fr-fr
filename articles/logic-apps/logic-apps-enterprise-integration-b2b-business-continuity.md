@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: e28c1410145d8da168a73e74251ac037997d1752
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 197df490690754730425231f358fde31d17dcfad
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -45,7 +45,7 @@ Les charges de travail B2B impliquent des transactions monétaires telles que de
 
 4. La continuité des activités dans le compte d’intégration Logic Apps est conçue pour prendre en charge des protocoles basés sur B2B : X12, AS2 et EDIFACT.  Pour une procédure détaillée, sélectionnez les liens correspondants.
 
-5. Il est recommandé de déployer toutes les ressources de la région primaire dans une région secondaire. Les ressources de la région primaire incluent Azure SQL Database ou Azure DocumentDB, Azure Service Bus/Azure Event Hubs (utilisés pour la messagerie), la gestion des API Azure et la fonctionnalité Logic Apps d’Azure App Service.   
+5. Il est recommandé de déployer toutes les ressources de la région primaire dans une région secondaire. Les ressources de la région primaire incluent Azure SQL Database ou Azure Cosmos DB, Azure Service Bus/Azure Event Hubs (utilisés pour la messagerie), la gestion des API Azure et la fonctionnalité Logic Apps d’Azure App Service.   
 
 6. Établissez une connexion entre la région primaire et la région secondaire. Pour extraire l’état d’exécution d’une région primaire, créez une application logique dans une région secondaire. Il doit avoir un déclencheur et une action. Le déclencheur doit se connecter au compte d’intégration d’une région primaire. Le déclencheur doit se connecter au compte d’intégration d’une région secondaire. Selon l’intervalle de temps, le déclencheur interroge la table d’état d’exécution de la région primaire et extrait les nouveaux enregistrements, le cas échéant. L’action les met à jour dans le compte d’intégration de la région secondaire. Ce processus permet d’obtenir un état de runtime incrémentiel depuis la région primaire vers la région secondaire.
 

@@ -1,10 +1,11 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: 48380d1fd5394cc32b4e868a82f456497bc4a915
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 28af0300f7027ccce8207d0f767490bddd4bf532
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 
@@ -19,8 +20,8 @@ Dans ce cas, deux ressources sont à votre disposition :
   
   * La différence entre les données opérationnelles, qui sont lues et écrites par les applications, et les données analytiques, qui sont utilisées pour l’analyse décisionnelle (BI), pour vous aider à choisir la technologie adaptée à vos besoins.
   * Un rapide récapitulatif de la technologie relationnelle.
-  * Une introduction aux différentes technologies NoSQL Azure : DocumentDB, stockage de table, HBase et HDInsight.
+  * Une introduction aux différentes technologies NoSQL Azure : Azure Cosmos DB, stockage de table, HBase et HDInsight.
   * Une comparaison des technologies NoSQL et de la base de données SQL Azure. 
-  * Quand utiliser Azure DocumentDB Table storage HBase HDInsight ou une base de données SQL.
+  * Quand utiliser Azure Cosmos DB ou Table storage HBase HDInsight ou une base de données SQL.
 
 

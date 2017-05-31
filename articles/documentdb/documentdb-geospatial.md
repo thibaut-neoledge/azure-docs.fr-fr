@@ -1,88 +1,95 @@
 ---
-title: "Utilisation de données géospatiales dans Azure DocumentDB | Microsoft Docs"
-description: "Comprendre comment créer, indexer et interroger les objets spatiaux avec Azure DocumentDB."
-services: documentdb
+title: "Utilisation de données géospatiales dans Azure Cosmos DB | Microsoft Docs"
+description: "Comprendre comment créer, indexer et interroger les objets spatiaux avec Azure Cosmos DB et l’API DocumentDB."
+services: cosmosdb
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: monicar
 ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/20/2016
+ms.date: 05/08/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 382eecf863f1e4798533034f915101c08dd4f448
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 28391e63b7224b97e48f126360872dadc6214788
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="working-with-geospatial-and-geojson-location-data-in-documentdb"></a>Utilisation de données d’emplacement géospatiales et GeoJSON dans DocumentDB
-Cet article est une introduction aux fonctionnalités géospatiales dans [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
+# <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Utilisation de données d’emplacement géospatiales et GeoJSON dans Azure Cosmos DB
+Cet article est une introduction aux fonctionnalités géospatiales dans [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
-* Comment puis-je stocker des données spatiales dans Azure DocumentDB ?
-* Comment puis-je interroger des données géographiques dans Azure DocumentDB dans SQL et LINQ ?
-* Comment puis-je activer ou désactiver l'indexation spatiale dans DocumentDB ?
+* Comment puis-je stocker des données spatiales dans Azure Cosmos DB ?
+* Comment puis-je interroger des données géospaciales dans Azure Cosmos DB dans SQL et LINQ ?
+* Comment puis-je activer ou désactiver l’indexation spatiale dans Azure Cosmos DB ?
 
-Consultez ce [projet GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) pour obtenir des échantillons de code.
+Cet article montre comment utiliser les données spatiales avec l’API DocumentDB. Consultez ce [projet GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) pour obtenir des échantillons de code.
 
 ## <a name="introduction-to-spatial-data"></a>Présentation des données spatiales
 Les données spatiales décrivent la position et la forme des objets dans l'espace. Dans la plupart des applications, ils correspondent aux objets sur terre, c'est-à-dire aux données géographiques. Les données spatiales peuvent servir à représenter l'emplacement d'une personne, d'un point d'intérêt ou de la limite d'une ville ou un lac. Les scénarios d'utilisation courants impliquent souvent des requêtes de proximité, comme « rechercher tous les cafés près de mon emplacement actuel ». 
 
 ### <a name="geojson"></a>GeoJSON
-DocumentDB prend en charge l’indexation et l’interrogation des données de point géospatiales représentées à l’aide de la [spécification GeoJSON](https://tools.ietf.org/html/rfc7946). Les structures de données GeoJSON sont toujours des objets JSON valides, afin de pouvoir les stocker et les interroger à l'aide de DocumentDB, sans bibliothèques ou outils spécialisés. Les kits de développement logiciel (SDK) DocumentDB fournissent des classes d'assistance et des méthodes qui facilitent la manipulation des données spatiales. 
+Azure Cosmos DB prend en charge l’indexation et l’interrogation des données de point géospatiales représentées à l’aide de la [spécification GeoJSON](https://tools.ietf.org/html/rfc7946). Les structures de données GeoJSON sont toujours des objets JSON valides, afin de pouvoir les stocker et les interroger à l’aide d’Azure Cosmos DB, sans bibliothèques ou outils spécialisés. Les kits de développement logiciel (SDK) Azure Cosmos DB fournissent des classes d’assistance et des méthodes qui facilitent la manipulation des données spatiales. 
 
 ### <a name="points-linestrings-and-polygons"></a>Points, LineStrings et polygones
-Un **point** désigne une position unique dans l'espace. Dans les données géographiques, un point représente l’emplacement exact, qui peut être une adresse postale d’une épicerie, un kiosque, une voiture ou une ville.  Un point est représenté dans GeoJSON (et DocumentDB) à l'aide de sa paire de coordonnées ou de longitude et latitude. Voici un exemple JSON pour un point.
+Un **point** désigne une position unique dans l'espace. Dans les données géographiques, un point représente l’emplacement exact, qui peut être une adresse postale d’une épicerie, un kiosque, une voiture ou une ville.  Un point est représenté dans GeoJSON (et Azure Cosmos DB) à l’aide de sa paire de coordonnées ou de longitude et latitude. Voici un exemple JSON pour un point.
 
-**Points dans DocumentDB**
+**Points dans Azure Cosmos DB**
 
-    {
-       "type":"Point",
-       "coordinates":[ 31.9, -4.8 ]
-    }
+```json
+{
+    "type":"Point",
+    "coordinates":[ 31.9, -4.8 ]
+}
+```
 
 > [!NOTE]
 > La spécification GeoJSON spécifie la longitude d’abord, puis la latitude. Comme dans d'autres applications de mappage, la longitude et la latitude sont des angles et sont exprimées en degrés. Les valeurs de longitude sont mesurées à partir du premier méridien et sont comprises entre -180 et 180 degrés. Les valeurs de latitude sont mesurées à partir de l'Équateur et sont comprises entre -90 et 90 degrés. 
 > 
-> DocumentDB interprète les coordonnées représentées par le système de référence WGS-84. Voir ci-dessous pour plus d'informations sur les systèmes de coordonnées de référence.
+> Azure Cosmos DB interprète les coordonnées représentées par le système de référence WGS-84. Voir ci-dessous pour plus d'informations sur les systèmes de coordonnées de référence.
 > 
 > 
 
-Cela peut être incorporé dans un document DocumentDB, comme illustré dans cet exemple d'un profil utilisateur contenant des données d'emplacement :
+Cela peut être incorporé dans un document Azure Cosmos DB, comme illustré dans cet exemple de profil utilisateur contenant des données d’emplacement :
 
-**Utilisation de profil avec emplacement stocké dans DocumentDB**
+**Utilisation de profil avec emplacement stocké dans Azure Cosmos DB**
 
-    {
-       "id":"documentdb-profile",
-       "screen_name":"@DocumentDB",
-       "city":"Redmond",
-       "topics":[ "NoSQL", "Javascript" ],
-       "location":{
-          "type":"Point",
-          "coordinates":[ 31.9, -4.8 ]
-       }
+```json
+{
+    "id":"documentdb-profile",
+    "screen_name":"@CosmosDB",
+    "city":"Redmond",
+    "topics":[ "global", "distributed" ],
+    "location":{
+        "type":"Point",
+        "coordinates":[ 31.9, -4.8 ]
     }
+}
+```
 
-En plus des points, GeoJSON prend en charge les polygones et LineStrings. **LineStrings** représentent une série de deux ou plusieurs points dans l'espace et les segments de ligne qui les connectent. Dans les données géographiques, les LineStrings sont généralement utilisées pour représenter les autoroutes ou les cours d’eau. Un **polygone** est une limite de points reliés qui constitue une LineString fermée. Les polygones sont couramment utilisés pour représenter des formations naturelles comme des lacs ou des juridictions politiques comme les villes et les États. Voici un exemple de polygone dans DocumentDB. 
+En plus des points, GeoJSON prend en charge les polygones et LineStrings. **LineStrings** représentent une série de deux ou plusieurs points dans l'espace et les segments de ligne qui les connectent. Dans les données géographiques, les LineStrings sont généralement utilisées pour représenter les autoroutes ou les cours d’eau. Un **polygone** est une limite de points reliés qui constitue une LineString fermée. Les polygones sont couramment utilisés pour représenter des formations naturelles comme des lacs ou des juridictions politiques comme les villes et les États. Voici un exemple de polygone dans Azure Cosmos DB. 
 
-**Polygones dans DocumentDB**
+**Polygones dans GeoJSON**
 
-    {
-       "type":"Polygon",
-       "coordinates":[
-           [ 31.8, -5 ],
-           [ 31.8, -4.7 ],
-           [ 32, -4.7 ],
-           [ 32, -5 ],
-           [ 31.8, -5 ]
-       ]
-    }
+```json
+{
+    "type":"Polygon",
+    "coordinates":[
+        [ 31.8, -5 ],
+        [ 31.8, -4.7 ],
+        [ 32, -4.7 ],
+        [ 32, -5 ],
+        [ 31.8, -5 ]
+    ]
+}
+```
 
 > [!NOTE]
 > La spécification GeoJSON impose que, pour les polygones valides, la dernière paire de coordonnées fournie soit identique à la première, pour créer une forme fermée.
@@ -91,62 +98,66 @@ En plus des points, GeoJSON prend en charge les polygones et LineStrings. **Line
 > 
 > 
 
-En plus des points, des LineStrings et des polygones, GeoJSON spécifie également la représentation pour le regroupement de plusieurs emplacements géographiques, ainsi que l’association de propriétés arbitraires avec la géolocalisation comme **fonctionnalité**. Étant donné que ces objets sont des JSON valides, ils peuvent tous être stockés et traités dans DocumentDB. Cependant, DocumentDB prend uniquement en charge l’indexation automatique des points.
+En plus des points, des LineStrings et des polygones, GeoJSON spécifie également la représentation pour le regroupement de plusieurs emplacements géographiques, ainsi que l’association de propriétés arbitraires avec la géolocalisation comme **fonctionnalité**. Étant donné que ces objets sont des JSON valides, ils peuvent tous être stockés et traités dans Azure Cosmos DB. Cependant, Azure Cosmos DB prend uniquement en charge l’indexation automatique des points.
 
 ### <a name="coordinate-reference-systems"></a>Coordination des systèmes de référence
 Étant donné que la forme de la terre est irrégulière, les coordonnées des données géospatiales sont représentées dans de nombreux systèmes de coordonnées de référence (CRS), chacun ayant ses propres images de référence et unités de mesure. Par exemple, le « National Grid of Britain » est un système de référence très précis pour le Royaume-Uni, mais pas à l'extérieur. 
 
-Le CRS moderne le plus populaire est le World Geodetic System [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). Les périphériques GPS et de nombreux services de mappage, notamment les API Bing Maps et Google Maps, utilisent le WGS-84. DocumentDB prend en charge l'indexation et l'interrogation de données géographiques à l'aide de la CRS WGS 84 uniquement. 
+Le CRS moderne le plus populaire est le World Geodetic System [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). Les périphériques GPS et de nombreux services de mappage, notamment les API Bing Maps et Google Maps, utilisent le WGS-84. Azure Cosmos DB prend en charge l’indexation et l’interrogation de données géographiques uniquement à l’aide du CRS WGS-84. 
 
 ## <a name="creating-documents-with-spatial-data"></a>Création de documents avec les données spatiales
-Lorsque vous créez des documents qui contiennent des valeurs GeoJSON, ils sont automatiquement indexés avec un index spatial conformément à la stratégie d'indexation de la collection. Si vous travaillez avec un Kit de développement logiciel (SDK) DocumentDB dans un langage saisi dynamiquement comme Python ou Node.js, vous devez créer un GeoJSON valide.
+Lorsque vous créez des documents qui contiennent des valeurs GeoJSON, ils sont automatiquement indexés avec un index spatial conformément à la stratégie d'indexation de la collection. Si vous travaillez avec un Kit de développement logiciel (SDK) Azure Cosmos DB dans un langage saisi dynamiquement comme Python ou Node.js, vous devez créer un GeoJSON valide.
 
 **Création d’un document avec les données géographiques dans Node.js**
 
-    var userProfileDocument = {
-       "name":"documentdb",
-       "location":{
-          "type":"Point",
-          "coordinates":[ -122.12, 47.66 ]
-       }
-    };
+```json
+var userProfileDocument = {
+    "name":"documentdb",
+    "location":{
+        "type":"Point",
+        "coordinates":[ -122.12, 47.66 ]
+    }
+};
 
-    client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfileDocument, (err, created) => {
-        // additional code within the callback
-    });
+client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfileDocument, (err, created) => {
+    // additional code within the callback
+});
+```
 
-Si vous travaillez avec les Kits de développement logiciel (SDK) .NET (ou Java), vous pouvez utiliser les nouvelles classes de points et de polygones dans l'espace de noms Microsoft.Azure.Documents.Spatial pour incorporer des informations d'emplacement au sein des objets de votre application. Ces classes permettent de simplifier la sérialisation et la désérialisation de données spatiales dans GeoJSON.
+Si vous travaillez avec les API DocumentDB, vous pouvez utiliser les classes `Point` et `Polygon` dans l’espace de noms `Microsoft.Azure.Documents.Spatial` pour incorporer des informations d’emplacement au sein des objets de votre application. Ces classes permettent de simplifier la sérialisation et la désérialisation de données spatiales dans GeoJSON.
 
 **Création d’un document avec les données géographiques dans .NET**
 
-    using Microsoft.Azure.Documents.Spatial;
+```json
+using Microsoft.Azure.Documents.Spatial;
 
-    public class UserProfile
-    {
-        [JsonProperty("name")]
-        public string Name { get; set; }
+public class UserProfile
+{
+    [JsonProperty("name")]
+    public string Name { get; set; }
 
-        [JsonProperty("location")]
-        public Point Location { get; set; }
+    [JsonProperty("location")]
+    public Point Location { get; set; }
 
-        // More properties
-    }
+    // More properties
+}
 
-    await client.CreateDocumentAsync(
-        UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
-        new UserProfile 
-        { 
-            Name = "documentdb", 
-            Location = new Point (-122.12, 47.66) 
-        });
+await client.CreateDocumentAsync(
+    UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
+    new UserProfile 
+    { 
+        Name = "documentdb", 
+        Location = new Point (-122.12, 47.66) 
+    });
+```
 
 Si vous n'avez pas les informations de latitude et de longitude, mais disposez des adresses physiques ou du nom d'emplacement comme la ville ou le pays, vous pouvez rechercher les coordonnées réelles à l'aide d'un service de géocodage comme Bing Maps REST Services. En savoir plus sur le géocodage de Bing Maps [ici](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## <a name="querying-spatial-types"></a>Interrogation des types spatiaux
-Maintenant que nous avons vu comment insérer des données géographiques, examinons comment interroger ces données à l'aide de DocumentDB avec SQL et LINQ.
+Maintenant que nous avons vu comment insérer des données géospatiales, voyons comment interroger ces données à l’aide d’Azure Cosmos DB avec SQL et LINQ.
 
 ### <a name="spatial-sql-built-in-functions"></a>Fonctions spatiales SQL intégrées
-DocumentDB prend en charge les fonctions intégrées Open Geospatial Consortium (OGC) suivantes pour les requêtes géospatiales. Pour plus d'informations sur l'ensemble complet de fonctions intégrées dans le langage SQL, reportez-vous à [Requête DocumentDB](documentdb-sql-query.md).
+Azure Cosmos DB prend en charge les fonctions intégrées Open Geospatial Consortium (OGC) suivantes pour les requêtes géospatiales. Pour plus d’informations sur l’ensemble complet de fonctions intégrées dans le langage SQL, reportez-vous à [Requête Azure Cosmos DB](documentdb-sql-query.md).
 
 <table>
 <tr>
@@ -211,11 +222,11 @@ Les arguments de polygone dans ST_WITHIN peuvent contenir un seul cercle. Cela 
     }]
 
 > [!NOTE]
-> Tout comme pour les types non correspondants dans une requête DocumentDB, si la valeur de l'emplacement spécifié dans un argument est incorrecte ou non valide, elle prend alors la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.     
+> Tout comme pour les types non correspondants dans une requête Azure Cosmos DB, si la valeur de l’emplacement spécifié dans un argument est incorrecte ou non valide, elle prend alors la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.     
 > 
 > 
 
-DocumentDB prend également en charge les requêtes inversées. Vous pouvez, par exemple, indexer des polygones ou des lignes dans DocumentDB, puis interroger les zones qui contiennent un point spécifique. Ce modèle est généralement utilisé dans la logistique pour identifier lorsqu’un camion entre ou quitte une région spécifiée, par exemple. 
+Azure Cosmos DB prend également en charge les requêtes inversées. Vous pouvez, par exemple, indexer des polygones ou des lignes dans Azure Cosmos DB, puis interroger les zones qui contiennent un point spécifique. Ce modèle est généralement utilisé dans la logistique pour identifier lorsqu’un camion entre ou quitte une région spécifiée, par exemple. 
 
 **Requête**
 
@@ -266,7 +277,7 @@ Vous pouvez aussi utiliser ces fonctions pour valider des polygones. Par exemple
 ### <a name="linq-querying-in-the-net-sdk"></a>Interrogation LINQ dans le Kit de développement logiciel (SDK) .NET
 Le Kit de développement logiciel (SDK) .NET DocumentDB fournit également les méthodes de stub `Distance()` et `Within()` pour une utilisation dans des expressions LINQ. Le fournisseur DocumentDB LINQ traduit ces appels de méthode pour les appels de fonction intégrés SQL équivalents (ST_DISTANCE et ST_WITHIN, respectivement). 
 
-Voici un exemple d'une requête LINQ qui recherche tous les documents de la collection DocumentDB dont la valeur « location » est dans un rayon de 30 kilomètres du point spécifié à l'aide de LINQ.
+Voici un exemple d’une requête LINQ qui recherche tous les documents de la collection Azure Cosmos DB dont la valeur « location » est dans un rayon de 30 kilomètres du point spécifié à l’aide de LINQ.
 
 **Requête LINQ de distance**
 
@@ -299,17 +310,17 @@ De même, voici une requête pour rechercher tous les documents dont la « loca
     }
 
 
-Maintenant que nous avons vu l'interrogation de documents à l'aide de LINQ et SQL, examinons comment configurer DocumentDB pour l'indexation spatiale.
+Maintenant que nous avons expliqué l’interrogation de documents à l’aide de LINQ et SQL, voyons comment configurer Azure Cosmos DB pour l’indexation spatiale.
 
 ## <a name="indexing"></a>Indexation
-Comme décrit dans le livre [Schema Agnostic Indexing with Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) , nous avons conçu le moteur de base de données DocumentDB pour être véritablement indépendant du schéma et fournir une assistance exceptionnelle pour JSON. Le moteur de base de données optimisé en écriture de DocumentDB comprend les données spatiales (points, polygones et lignes) représentées dans la norme GeoJSON en mode natif.
+Comme décrit dans le livre [Schema Agnostic Indexing with Azure Cosmos DB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), nous avons conçu le moteur de base de données Azure Cosmos DB pour être véritablement indépendant du schéma et fournir une assistance exceptionnelle pour JSON. Le moteur de base de données optimisé en écriture d’Azure Cosmos DB comprend les données spatiales (points, polygones et lignes) représentées dans la norme GeoJSON en mode natif.
 
-En bref, la géométrie est projetée à partir des coordonnées géodésiques sur un plan 2D, puis divisée progressivement en cellules à l'aide un **quadtree**. Ces cellules sont mappées en 1D selon l'emplacement de la cellule dans une **courbe de remplissage d'espace de Hilbert**qui permet de préserver la localité des points. En outre lorsque les données d'emplacement sont indexées, il passe par un processus connu sous le nom de **pavage**, c'est-à-dire que toutes les cellules qui se croisent à un emplacement sont identifiées et stockées en tant que clés dans l'index DocumentDB. Au moment de la requête, des arguments comme les points et les polygones sont également fractionnés pour extraire les plages d’ID de cellule appropriées, puis utilisés pour récupérer des données à partir de l’index.
+En bref, la géométrie est projetée à partir des coordonnées géodésiques sur un plan 2D, puis divisée progressivement en cellules à l'aide un **quadtree**. Ces cellules sont mappées en 1D selon l'emplacement de la cellule dans une **courbe de remplissage d'espace de Hilbert**qui permet de préserver la localité des points. En outre, lorsque les données d’emplacement sont indexées, elles passent par un processus connu sous le nom de **pavage**, c’est-à-dire que toutes les cellules qui se croisent à un emplacement sont identifiées et stockées en tant que clés dans l’index Azure Cosmos DB. Au moment de la requête, des arguments comme les points et les polygones sont également fractionnés pour extraire les plages d’ID de cellule appropriées, puis utilisés pour récupérer des données à partir de l’index.
 
 Si vous spécifiez une stratégie d'indexation qui inclut un index spatial pour /* (tous les chemins d'accès), tous les points trouvés dans la collection sont indexés pour des requêtes spatiales efficaces (ST_WITHIN et ST_DISTANCE). Les index spatiaux n'ont pas une valeur de précision et utilisent toujours une valeur de précision par défaut.
 
 > [!NOTE]
-> DocumentDB prend en charge l’indexation automatique des Points, des Polygones et des LineStrings
+> Azure Cosmos DB prend en charge l’indexation automatique des points, polygones et lineStrings.
 > 
 > 
 
@@ -383,11 +394,11 @@ Voici comment vous pouvez modifier un regroupement existant pour tirer parti de 
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez appris à utiliser la prise en charge géographique dans DocumentDB, vous pouvez :
+Maintenant que vous avez appris à utiliser la prise en charge géospatiale dans Azure Cosmos DB, vous pouvez :
 
 * Commencer à coder avec les [exemples de code .NET Geospatial sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
-* Découvrir l’interrogation géographique sur le [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
-* En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
-* En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md)
+* Découvrir l’interrogation géospatiale dans [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
+* En savoir plus sur les [requêtes Azure Cosmos DB](documentdb-sql-query.md)
+* En savoir plus sur les [stratégies d’indexation Azure Cosmos DB](documentdb-indexing-policies.md)
 
 

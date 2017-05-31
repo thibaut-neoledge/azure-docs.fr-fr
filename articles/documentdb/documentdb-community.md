@@ -1,48 +1,49 @@
 ---
-title: "Communauté, actualités et événements d’Azure DocumentDB | Microsoft Docs"
-description: "Rejoignez la Communauté DocumentDB Azure pour établir des relations, faire la démonstration de votre travail et approfondir vos connaissances."
-services: documentdb
+title: "Communauté, actualités et événements d’Azure Cosmos DB | Microsoft Docs"
+description: "Rejoignez la Communauté Azure Cosmos DB pour établir des relations, faire la démonstration de votre travail et approfondir vos connaissances."
+services: cosmosdb
 documentationcenter: 
 author: aliuy
 manager: jhubbard
 editor: mimig
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: a7c366d29cf163c9c30c72751a992a0ebb3462cd
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a630467a2b5866e675bf008ae8d5d321a44389a3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="community-portal"></a>Portail de la communauté
 ## <a name="community-spotlight"></a>Actualités de la Communauté
-Confiez-nous la promotion de votre projet ! Dévoilez le projet exceptionnel sur lequel vous travaillez avec DocumentDB et nous vous aiderons à partager votre génie avec le monde entier. Pour nous soumettre votre projet, envoyez-nous un courrier électronique à l’adresse : [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+Confiez-nous la promotion de votre projet ! Dévoilez le projet exceptionnel sur lequel vous travaillez avec Azure Cosmos DB, la pile DocumentDB de nouvelle génération, et nous vous aiderons à partager votre génie avec le monde entier. Pour nous soumettre votre projet, envoyez-nous un courrier électronique à l’adresse : [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 ### <a name="documentdb-lumenize"></a>documentdb-lumenize
 *par Larry Maccherone*
 
-Agrégations (Groupe par, Tableau croisé dynamique et le Cube à N dimensions) et transformation de séries chronologiques en tant que procédures stockées dans DocumentDB.
+Agrégations (Groupe par, Tableau croisé dynamique et le Cube à N dimensions) et transformation de séries chronologiques en tant que procédures stockées dans l’API Azure Cosmos DB.
 
 Découvrez plus d’informations à ce sujet sur [GitHub](https://github.com/lmaccherone/documentdb-lumenize) et [npm](https://www.npmjs.com/package/lumenize).
 
 ### <a name="documentdb-studio"></a>Studio DocumentDB
 *par Ming Liu*
 
-Visionneuse/explorateur de gestion client pour le service Microsoft Azure DocumentDB.
+Visionneuse/explorateur de gestion client pour le service d’API Azure Cosmos DB.
 
 Découvrez plus d’informations à ce sujet sur [GitHub](https://github.com/mingaliu/DocumentDBStudio).
 
 ### <a name="doqmentdb"></a>DocumentDB
 *par Arial Mashraki*
 
-DoQmentDB est un client Node.js basé sur les promesses, qui fournit une couche de type MongoDB sur DocumentDB.
+DoQmentDB est un client Node.js basé sur les promesses, qui fournit une couche de type MongoDB sur Azure Cosmos DB.
 
 Découvrez plus d’informations à ce sujet sur [GitHub](https://github.com/a8m/doqmentdb) et [npm](https://www.npmjs.com/package/doqmentdb).
 
@@ -56,21 +57,21 @@ Découvrez plus d’informations à ce sujet sur [GitHub](https://github.com/jco
 ### <a name="swagger-rest-api-for-documentdb"></a>API REST Swagger pour DocumentDB
 *par Howard Edidin*
 
-Fichier Swagger d’API REST DocumentDB qui peut être facilement déployé en tant qu’application API.
+Fichier Swagger d’API REST Azure Cosmos DB qui peut être facilement déployé en tant qu’application API.
 
 Découvrez plus d’informations à ce sujet sur [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
 ### <a name="fluent-plugin-documentdb"></a>fluent-plugin-documentdb
 *par Yoichi Kawasaki*
 
-fluent-plugin-documentdb est un plug-in Fluentd pour la création de sortie vers Azure DocumentDB.
+fluent-plugin-documentdb est un plug-in Fluentd pour la création de sortie vers l’API Azure Cosmos DB.
 
 Découvrez plus d’informations à ce sujet sur [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) et [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
 
-*Retrouvez d’autres projets Open source DocumentDB sur [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
+*Retrouvez d’autres projets Open source Azure Cosmos DB sur [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
 
 ## <a name="news-blogs-and-articles"></a>Nouveautés, blogs et articles
-Pour vous tenir informé des dernières nouveautés et fonctionnalités DocumentDB, suivez-nous sur [notre blog](https://azure.microsoft.com/blog/tag/documentdb/).
+Pour vous tenir informé des dernières nouveautés et fonctionnalités Azure Cosmos DB, suivez-nous sur [notre blog](https://azure.microsoft.com/blog/tag/documentdb/).
 
 **Publications de la Communauté :**
 
@@ -231,10 +232,10 @@ Ces projets sont activement développés par l’équipe Azure DocumentDB, en co
 | --- | --- | --- |
 | Documentation |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[Site web de documentation](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Connecteur Hadoop |[Azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
-| Outil de migration de données |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Centre de téléchargement Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
+| Outil de migration de données |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=46436) |
 
-## <a name="documentdb-wizards"></a>Assistants DocumentDB
-Les assistants DocumentDB sont des responsables de la communauté qui ont fait preuve d’un dévouement exemplaire pour aider d’autres utilisateurs à optimiser leur utilisation d’Azure DocumentDB. Ils partagent leur passion, leur connaissance du monde réel et leur expertise technique avec la communauté, mais aussi avec l’équipe DocumentDB.
+## <a name="azure-cosmos-db-wizards"></a>Assistants Azure Cosmos DB
+Les assistants Azure Cosmos DB sont des responsables de la communauté qui ont fait preuve d’un dévouement exemplaire pour aider d’autres utilisateurs à optimiser leur utilisation d’Azure Cosmos DB, la nouvelle génération d’Azure DocumentDB. Ils partagent leur passion, leur connaissance du monde réel et leur expertise technique avec la communauté, mais aussi avec l’équipe Azure Cosmos DB.
 
 | Assistant | Photo |
 | --- | --- |
@@ -247,6 +248,6 @@ Les assistants DocumentDB sont des responsables de la communauté qui ont fait p
 |  [Santosh Hari](https://twitter.com/_s_hari) |[![Santosh Hari](./media/documentdb-community/wizard-santosh-hari.jpg)](https://twitter.com/_s_hari) |
 | [Matías Quaranta](https://twitter.com/ealsur) |[![Matías Quaranta](./media/documentdb-community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) |
 
-Vous voulez devenir assistant DocumentDB ? Il n’existe aucun critère défini pour devenir assistant DocumentDB. Nous évaluons entre autres l’intérêt des contributions des candidats aux forums en ligne tels que StackOverflow et MSDN, les wikis et le contenu en ligne, les conférences et les groupes d’utilisateurs, les podcasts, les sites web, les blogs et les réseaux sociaux, et enfin les articles et les livres. Vous pouvez vous porter vous-même candidat ou désigner quelqu’un d’autre en [nous envoyant un message](mailto:askdocdb@microsoft.com).
+Vous souhaitez devenir assistant Azure Cosmos DB ? Il n’existe aucun critère défini pour devenir assistant Azure Cosmos DB. Nous évaluons entre autres l’intérêt des contributions des candidats aux forums en ligne tels que StackOverflow et MSDN, les wikis et le contenu en ligne, les conférences et les groupes d’utilisateurs, les podcasts, les sites web, les blogs et les réseaux sociaux, et enfin les articles et les livres. Vous pouvez vous porter vous-même candidat ou désigner quelqu’un d’autre en [nous envoyant un message](mailto:askdocdb@microsoft.com).
 
 

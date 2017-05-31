@@ -12,11 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 86055605be6fe264fcb53b26d87a36bcba568a53
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ab08c126b746ad6f8a835585b7e9773a505e8317
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,7 +35,7 @@ Le point de terminaison Azure Active Directory (Azure AD) v2.0 prend en charge l
 Vous devez inscrire chaque application qui utilise le point de terminaison v2.0 dans le [portail d’inscription Microsoft Application](https://apps.dev.microsoft.com). Le processus d’inscription des applications collecte les valeurs suivantes et les affecte à votre application :
 
 * un **ID d’application** qui identifie de manière unique votre application ;
-* un **URI de redirection** que vous pouvez utiliser pour diriger les réponses vers votre application ;
+* un **URI de redirection** que vous pouvez utiliser pour renvoyer les réponses à votre application ;
 * quelques valeurs spécifiques au scénario.
 
 Pour en savoir plus, découvrez comment [inscrire une application](active-directory-v2-app-registration.md).
@@ -92,9 +95,9 @@ Une API web peut recevoir des jetons d’accès de tous types d’applications, 
 
 ![Flux d’authentification d’API web](../../media/active-directory-v2-flows/convergence_scenarios_webapi.png)
 
-Pour en savoir plus sur les codes d'autorisation, les jetons d'actualisation et la procédure détaillée de récupération des jetons d’accès, consultez la rubrique sur le [protocole OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
-
 Pour savoir comment sécuriser une API web avec des jetons d’accès OAuth2, consultez les exemples de code d’API Web de notre [section Prise en main](active-directory-appmodel-v2-overview.md#getting-started).
+
+Dans de nombreux cas, les API web doivent également envoyer des demandes à d’autres API web en aval, sécurisées par Azure Active Directory.  Pour ce faire, elles peuvent utiliser le flux **Au nom de** d’Azure AD, qui permet d’échanger un jeton d’accès entrant contre un autre jeton d’accès à utiliser pour les demandes sortantes.  Le flux Au nom de du point de terminaison v2.0 est détaillé [ici](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## <a name="mobile-and-native-apps"></a>Applications mobiles et natives
 Les applications installées sur un appareil, comme les applications de bureau et les applications mobiles nécessitent bien souvent un accès à des services principaux ou à des API web, qui stockent les données et exécutent des fonctions pour le compte d’un utilisateur. Ces applications peuvent ajouter des fonctionnalités de connexion et d’autorisation à des services principaux à l’aide du [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
@@ -112,7 +115,7 @@ Dans ce flux, l'application reçoit des jetons directement du point de terminais
 
 Pour voir ce scénario dans la pratique, exécutez l'un des exemples de code de page unique de la section [Mise en route](active-directory-appmodel-v2-overview.md#getting-started) .
 
-### <a name="daemons-and-server-side-apps"></a>Applications démons et côté serveur
+## <a name="daemons-and-server-side-apps"></a>Applications démons et côté serveur
 Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans interaction d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API web. Ces applications peuvent s'authentifier et récupérer des jetons à l'aide de l'identité d'application plutôt qu'avec l'identité déléguée d'un utilisateur avec le flux des informations d'identification du client OAuth 2.0.
 
 Dans ce flux, l’application interagit directement avec le point de terminaison `/token` pour obtenir des points de terminaison :
@@ -120,18 +123,4 @@ Dans ce flux, l’application interagit directement avec le point de terminaison
 ![Flux d’authentification d’applications démons](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
 Pour créer une application démon, consultez la documentation sur les informations d’identification des clients dans la section [Mise en route](active-directory-appmodel-v2-overview.md#getting-started) ou consultez [cet exemple d’application .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-
-## <a name="current-limitations"></a>Limitations actuelles
-Actuellement, les types d’application dans cette section ne sont pas pris en charge par le point de terminaison v2.0, mais ils le seront dans des développements futurs. D’autres limites et restrictions associées au point de terminaison v2.0 sont décrites dans la rubrique [Dois-je utiliser le point de terminaison v2.0 ?](active-directory-v2-limitations.md).
-
-### <a name="chained-web-apis-on-behalf-of"></a>API web chaînées (On-Behalf-Of)
-De nombreuses architectures incluent une API Web qui doit appeler une autre API Web en aval, toutes deux sécurisées par le point de terminaison v2.0. Ce scénario est courant dans les clients natifs qui disposent d’une API web backend, qui à son tour appelle une instance de services Microsoft Online tels qu’Office 365 ou l’API Graph.
-
-Ce scénario d’API web chaînée peut être pris en charge à l’aide de la concession des informations d’identification du porteur OAuth 2.0 JSON Web Token (JWT), également appelé flux [On-Behalf-Of](active-directory-v2-protocols.md). Le flux On-Behalf-Of n’est pas actuellement implémenté dans le point de terminaison v2.0. Pour observer le fonctionnement de ce flux dans le service Azure AD disponible généralement, consultez [l’exemple de code On-Behalf-Of sur GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

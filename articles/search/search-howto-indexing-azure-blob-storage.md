@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/15/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: e14da5fa10533d922a6263e8f52a53c0eaa23393
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: faa6d403aa130738ae0b58ba1ffc828a1e37e9f4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -341,7 +342,7 @@ L’indexation d’objets blob peut être un processus long. Dans le cas où vou
 ## <a name="indexing-documents-along-with-related-data"></a>Indexation de documents et des données associées
 
 Vos documents peuvent être associés à des métadonnées (par exemple, le service qui a créé le document) qui sont stockées en tant que données structurées dans l’un des emplacements suivants.
--   Dans un magasin de données distinct, comme SQL Database ou DocumentDB.
+-   Dans un magasin de données distinct, comme SQL Database ou Azure Cosmos DB.
 -   Directement reliées à chaque document dans Stockage Blob Azure en tant que métadonnées personnalisées. (Pour plus d’informations, consultez [Définir et extraire les propriétés et métadonnées de ressources blob](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).)
 
 Vous pouvez indexer les documents ainsi que leurs métadonnées en affectant la même valeur de clé unique à chaque document et à ses métadonnées, et en spécifiant l’action `mergeOrUpload` pour chaque indexeur. Pour obtenir une description détaillée de cette solution, consultez l’article externe : [Combine documents with other data in Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Associer des documents à d’autres données dans Recherche Azure).

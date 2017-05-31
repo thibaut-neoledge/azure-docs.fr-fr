@@ -1,28 +1,31 @@
 ---
-title: "Modèle de conception de DocumentDB : applications de réseaux sociaux | Microsoft Docs"
-description: "En savoir plus sur un modèle de conception pour les réseaux sociaux en utilisant la souplesse du stockage de DocumentDB et d’autres services Azure."
+title: "Modèle de conception Azure Cosmos DB : applications de réseaux sociaux | Microsoft Docs"
+description: "Découvrez un modèle de conception destiné aux réseaux sociaux et tirant parti de la souplesse du stockage d’Azure Cosmos DB et d’autres services Azure."
 keywords: "applications de réseaux sociaux"
-services: documentdb
+services: cosmosdb
 author: ealsur
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 05/10/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: a49021d7887ee91da902e5c3dea8cbc6cb3de29d
-ms.lasthandoff: 03/17/2017
+redirect_url: https://aka.ms/acdbusecases
+ROBOTS: NOINDEX, NOFOLLOW
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: cdafca45ef6230af4a8730f0e2b7e41b237fa830
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="going-social-with-documentdb"></a>Réseaux sociaux avec DocumentDB
+# <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
 Vivre dans une société massivement interconnectée signifie qu’à un moment donné, vous intégrerez forcément un **réseau social**. Nous utilisons les réseaux sociaux pour rester en contact avec nos amis, nos collègues, notre famille ou parfois pour partager notre passion avec des personnes ayant des intérêts communs.
 
 En tant qu’ingénieurs ou développeurs, vous vous êtes sans doute demandé comment ces réseaux sociaux stockent et interconnectent nos données. Vous avez peut-être aussi décidé de créer ou de concevoir vous-même un nouveau réseau social pour un marché spécifique. C’est à ce moment que la question se pose : comment sont stockées toutes ces données ?
@@ -44,7 +47,7 @@ Pourquoi SQL n’est-il pas le meilleur choix dans ce scénario ? Examinons la s
 Nous pourrions, bien sûr, utiliser une instance SQL volumineuse avec suffisamment de puissance pour résoudre des milliers de requêtes avec ces nombreuses jointures pour présenter notre contenu, mais pourquoi procéder ainsi alors qu’une solution plus simple existe ?
 
 ## <a name="the-nosql-road"></a>L’utilisation de NoSQL
-Il existe des bases de données graphiques spéciales qui peuvent [s’exécuter sur Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure) mais elles sont assez onéreuses et requièrent des services IaaS (Infrastructure-as-a-Service, machines virtuelles principalement) et une maintenance. Pour cet article, je vais viser une solution plus économique qui fonctionne pour la plupart des scénarios et qui s’exécute sur la base de données NoSQL d’Azure, [DocumentDB](https://azure.microsoft.com/services/documentdb/). Avec une approche [NoSQL](https://en.wikipedia.org/wiki/NoSQL), le stockage des données au format JSON et l’application de la [dénormalisation](https://en.wikipedia.org/wiki/Denormalization), notre publication si compliquée auparavant peut être transformée en un seul [document](https://en.wikipedia.org/wiki/Document-oriented_database) :
+Il existe des bases de données graphiques spéciales qui peuvent [s’exécuter sur Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure) mais elles sont assez onéreuses et requièrent des services IaaS (Infrastructure-as-a-Service, machines virtuelles principalement) et une maintenance. Pour cet article, je vais viser une solution plus économique qui fonctionne pour la plupart des scénarios et qui s’exécute sur la base de données NoSQL d’Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). Avec une approche [NoSQL](https://en.wikipedia.org/wiki/NoSQL), le stockage des données au format JSON et l’application de la [dénormalisation](https://en.wikipedia.org/wiki/Denormalization), notre publication si compliquée auparavant peut être transformée en un seul [document](https://en.wikipedia.org/wiki/Document-oriented_database) :
 
     {
         "id":"ew12-res2-234e-544f",
@@ -103,13 +106,13 @@ La création de flux consiste simplement à créer des documents qui peuvent con
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Nous pourrions avoir un flux « récent » avec les publications classées par date de création, un flux « populaire » regroupant les publications ayant obtenu le plus grand nombre de J’aime dans les dernières 24 heures, nous pourrions même implémenter un flux personnalisé pour chaque utilisateur basé sur la logique, comme ses abonnés et ses centres d’intérêt, et cela sera toujours considéré comme une liste de publications. Le plus compliqué est de créer ces listes, mais les performances de lecture ne sont pas affectées. Une fois que nous avons obtenu une de ces listes, nous émettons une requête unique à DocumentDB à l’aide de l’ [opérateur IN](documentdb-sql-query.md#WhereClause) pour obtenir des pages de publications simultanément.
+Nous pourrions avoir un flux « récent » avec les publications classées par date de création, un flux « populaire » regroupant les publications ayant obtenu le plus grand nombre de J’aime dans les dernières 24 heures, nous pourrions même implémenter un flux personnalisé pour chaque utilisateur basé sur la logique, comme ses abonnés et ses centres d’intérêt, et cela sera toujours considéré comme une liste de publications. Le plus compliqué est de créer ces listes, mais les performances de lecture ne sont pas affectées. Une fois que nous avons obtenu l’une de ces listes, nous émettons une requête unique à Cosmos DB avec l’[opérateur IN](documentdb-sql-query.md#WhereClause) pour obtenir des pages de publications simultanément.
 
 Les flux de commentaires peuvent être créés à l’aide des processus d’arrière-plan d’[Azure App Services](https://azure.microsoft.com/services/app-service/) : [Webjobs](../app-service-web/web-sites-create-web-jobs.md). Lorsqu’une publication est créée, le traitement en arrière-plan peut être déclenché à l’aide de [files d’attente](../storage/storage-dotnet-how-to-use-queues.md) de [Stockage Azure](https://azure.microsoft.com/services/storage/) et de tâches webjobs déclenchées avec le [Kit de développement logiciel (SDK) Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md), implémentant la propagation ultérieure dans les flux basée sur notre propre logique personnalisée. 
 
 Les points et les J’aime attribués à une publication peuvent être traités de manière différée à l’aide de cette même technique pour créer un environnement cohérent.
 
-Cela est plus compliqué pour les abonnés. DocumentDB possède une limite de taille de document et la lecture ou l’écriture de documents volumineux peuvent avoir un incidence sur l’évolutivité de votre application. Vous pouvez donc envisager de stocker les abonnés en tant que document avec cette structure :
+Cela est plus compliqué pour les abonnés. Cosmos DB possède une limite de taille de document, et la lecture ou l’écriture de documents volumineux peuvent avoir une incidence sur l’évolutivité de votre application. Vous pouvez donc envisager de stocker les abonnés en tant que document avec cette structure :
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -134,7 +137,7 @@ Pour résoudre ce problème, nous pouvons utiliser une approche mixte. Dans le c
         "totalPoints":11342
     }
 
-Et le graphique réel d’abonnés peut être stocké dans les Tables de stockage Azure à l’aide d’une [Extension](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) qui permet le stockage et la récupération simples, de type « A-suit-B ». De cette façon, nous pouvons déléguer le processus d’extraction de la liste exacte des abonnés (lorsque nous en avons besoin) aux Tables de stockage Azure, mais pour une recherche rapide de chiffres, nous utilisons DocumentDB.
+Et le graphique réel d’abonnés peut être stocké dans les Tables de stockage Azure à l’aide d’une [Extension](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) qui permet le stockage et la récupération simples, de type « A-suit-B ». De cette façon, nous pouvons déléguer le processus d’extraction de la liste exacte des abonnés (lorsque nous en avons besoin) aux tables de stockage Azure, mais pour une recherche rapide de chiffres, nous utilisons Cosmos DB.
 
 ## <a name="the-ladder-pattern-and-data-duplication"></a>Duplication des données et modèle « Échelle »
 Comme vous l’avez peut-être remarqué dans le document JSON qui fait référence à une publication, il existe plusieurs occurrences d’un utilisateur. Et vous auriez raison. Cela signifie que les informations qui représentent un utilisateur peuvent être présentes à plusieurs endroits, en raison de la dénormalisation.
@@ -165,7 +168,7 @@ En examinant ces informations, nous pouvons rapidement détecter les information
 
 L’étape la plus petite est appelée UserChunk, l’information minimale qui identifie un utilisateur et qui est utilisée pour la duplication des données. En limitant la taille des données dupliquées uniquement aux informations que nous allons « afficher », nous réduisons la possibilité de mises à jour massives.
 
-L’étape intermédiaire est appelée Utilisateur. Ce sont les données complètes qui seront utilisées pour les requêtes qui dépendent le plus des performances sur DocumentDB, les données les plus consultées et les plus essentielles. Elles incluent les informations représentées par un UserChunk.
+L’étape intermédiaire est appelée Utilisateur. Ce sont les données complètes qui seront employées pour les requêtes qui dépendent le plus des performances sur Cosmos DB, les données les plus consultées et les plus essentielles. Elles incluent les informations représentées par un UserChunk.
 
 L’étape la plus importante est appelée Utilisateur étendu. Elle inclut toutes les informations utilisateur essentielles, ainsi que d’autres données qui ne nécessitent pas vraiment d’être lues rapidement ou dont l’utilisation est finale (par exemple, le processus de connexion). Ces données peuvent être stockées en dehors de DocumentDB, dans Azure SQL Database ou Azure Storage Tables.
 
@@ -221,11 +224,11 @@ Pour réaliser l’un de ces scénarios d’apprentissage, nous pouvons utiliser
 Une autre possibilité consiste à utiliser [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services) pour analyser le contenu de nos utilisateurs ; non seulement nous les comprenons mieux (en analysant ce qu’ils écrivent avec l’[API d’analyse de texte](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), mais nous pouvons également détecter le contenu indésirable ou réservé aux adultes et agir en conséquence avec l’[API Vision par ordinateur](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services inclut un grand nombre de solutions prêtes à l’emploi ne nécessitant aucune connaissance Machine Learning.
 
 ## <a name="a-planet-scale-social-experience"></a>Une expérience sociale à l’échelle de la planète
-Il existe un dernier sujet tout aussi important à traiter : **l’évolutivité**. Lors de la conception d’une architecture, il est essentiel que chaque composant puisse évoluer de manière autonome, soit parce que nous devons traiter plus de données ou que nous voulons une plus grande couverture géographique (voire les deux). Heureusement, DocumentDB offre une **solution clé en main** pour gérer une tâche aussi complexe.
+Il existe un dernier sujet tout aussi important à traiter : **l’évolutivité**. Lors de la conception d’une architecture, il est essentiel que chaque composant puisse évoluer de manière autonome, soit parce que nous devons traiter plus de données ou que nous voulons une plus grande couverture géographique (voire les deux). Heureusement, Cosmos DB offre une **solution clé en main** pour gérer une tâche aussi complexe.
 
-DocumentDB prend en charge nativement le [partitionnement dynamique](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) en créant automatiquement des partitions basées sur une **clé de partition** donnée (définie comme un des attributs dans vos documents). La définition de la clé de partition correcte doit être effectuée au moment de la conception et en tenant compte des [meilleures pratiques](documentdb-partition-data.md#designing-for-partitioning) disponibles ; dans le cas d’une expérience sociale, votre stratégie de partitionnement doit être alignée avec la manière dont vous interrogez (des lectures dans la même partition sont souhaitables) et écrivez (évitez les « zones réactives » en répartissant les écritures sur plusieurs partitions). Options disponibles : partitions basées sur une clé temporaire (jour/mois/semaine), par catégorie de contenu, par région géographique, par utilisateur ; tout cela dépend de la façon dont vous allez interroger les données et les présenter dans votre expérience sociale. 
+Cosmos DB prend en charge nativement le [partitionnement dynamique](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) en créant automatiquement des partitions basées sur une **clé de partition** donnée (définie comme l’un des attributs dans vos documents). La définition de la clé de partition correcte doit être effectuée au moment de la conception et en tenant compte des [meilleures pratiques](../cosmos-db/partition-data.md#designing-for-partitioning) disponibles ; dans le cas d’une expérience sociale, votre stratégie de partitionnement doit être alignée avec la manière dont vous interrogez (des lectures dans la même partition sont souhaitables) et écrivez (évitez les « zones réactives » en répartissant les écritures sur plusieurs partitions). Options disponibles : partitions basées sur une clé temporaire (jour/mois/semaine), par catégorie de contenu, par région géographique, par utilisateur ; tout cela dépend de la façon dont vous allez interroger les données et les présenter dans votre expérience sociale. 
 
-Il est intéressant de noter que DocumentDB exécutera vos requêtes (y compris les [agrégats](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) de façon transparente sur toutes vos partitions, et vous n’avez pas besoin ajouter une logique à mesure que vos données augmentent.
+Cosmos DB exécute vos requêtes (y compris les [agrégats](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) de façon transparente sur toutes vos partitions, et vous n’avez pas besoin d’ajouter de logique à mesure que vos données augmentent.
 
 Avec le temps, le trafic et la consommation des ressources augmenteront (mesurés en unité de requête ou [RU](documentdb-request-units.md)). Vous lirez et écrirez plus fréquemment à mesure que votre base d’utilisateurs se développe et ces utilisateurs créeront et liront plus de contenus ; la possibilité de **mise à l’échelle de votre débit** est donc indispensable. Augmenter vos RU est très facile : nous pouvons le faire en quelques clics sur le portail Azure ou en [émettant des commandes via l’API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
 
@@ -235,7 +238,7 @@ Imaginez que les choses continuent de s’améliorer et que des utilisateurs d�
 
 Mais vous constatez rapidement que leur expérience avec votre plate-forme n’est pas optimale car ils sont si éloignés de votre région opérationnelle que la latence est catastrophique et risquerait de les dissuader d’utiliser votre plate-forme. Mais il existe un moyen facile de **développer votre visibilité globale** !
 
-DocumentDB vous permet de [répliquer vos données globalement](documentdb-portal-global-replication.md) et en toute transparence en quelques clics, et de choisir automatiquement parmi les régions disponibles à partir de votre [code client](documentdb-developing-with-multiple-regions.md). Cela signifie également que vous pouvez avoir [plusieurs régions de basculement](documentdb-regional-failovers.md). 
+Cosmos DB vous permet de [répliquer vos données globalement](../cosmos-db/tutorial-global-distribution-documentdb.md) et de manière transparente en quelques clics, mais aussi de choisir automatiquement parmi les régions disponibles à partir de votre [code client](../cosmos-db/tutorial-global-distribution-documentdb.md). Cela signifie également que vous pouvez avoir [plusieurs régions de basculement](documentdb-regional-failovers.md). 
 
 Lorsque vous répliquez vos données globalement, vous devez vous assurer que vos clients peuvent en tirer parti. Si vous utilisez un serveur web frontal ou accédez aux API à partir de clients mobiles, vous pouvez déployer [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) et cloner votre Azure App Service sur toutes les régions de votre choix en utilisant une [configuration des performances](../app-service-web/web-sites-traffic-manager.md) pour prendre en charge votre couverture étendue globale. Lorsque vos clients accèdent à votre serveur frontal ou API, ils seront redirigés vers l’instance App Service la plus proche, qui à son tour, se connecte au réplica DocumentDB local.
 
@@ -246,11 +249,7 @@ Cet article tente de vous éclairer sur les alternatives de création de réseau
 
 ![Diagramme de l’interaction entre les services Azure pour les réseaux sociaux](./media/documentdb-social-media-apps/social-media-apps-azure-solution.png)
 
-La vérité est qu’il n’existe aucune solution parfaite pour ce type de scénarios. C’est la synergie créée par la combinaison d’excellents services qui nous permet de créer des expériences exceptionnelles : la rapidité et la liberté d’Azure DocumentDB pour une application sociale intéressante, l’intelligence d’une solution de recherche de premier ordre comme Azure Search, la flexibilité d’Azure App Services pour héberger non pas des applications indépendantes du langage, mais des processus d’arrière-plan puissants et les outils Azure Storage et Azure SQL Database extensibles pour le stockage de grandes quantités de données et la puissance d’analyse d’Azure Machine Learning pour créer les connaissances et l’intelligence décisionnelle capables de fournir des commentaires à nos processus et de nous aider à présenter le bon contenu aux utilisateurs appropriés.
+En réalité, il n’existe aucune solution parfaite pour ce type de scénario. C’est la synergie créée par la combinaison d’excellents services qui nous permet de concevoir des expériences exceptionnelles  : la rapidité et la liberté d’Azure Cosmos DB pour une application sociale intéressante, l’intelligence d’une solution de recherche de premier ordre comme Azure Search, la flexibilité d’Azure App Services pour héberger non pas des applications indépendantes du langage, mais des processus d’arrière-plan puissants, ainsi que les outils de stockage Azure et Azure SQL Database extensibles pour le stockage de grandes quantités de données et la puissance d’analyse d’Azure Machine Learning pour créer les connaissances et l’intelligence décisionnelle capables de fournir des commentaires à nos processus et de nous aider à présenter le bon contenu aux utilisateurs appropriés.
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur la modélisation des données avec l’article [Modélisation des données dans DocumentDB](documentdb-modeling-data.md) . Si vous êtes intéressé par d’autres cas d’utilisation de DocumentDB, consultez [Cas d’utilisation courants de DocumentDB](documentdb-use-cases.md).
-
-Ou apprenez-en plus sur DocumentDB en suivant le [parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
-
+Pour en savoir plus sur les cas d’usage de Cosmos DB, consultez [Common Cosmos DB use cases (Exemples d’utilisation courants Cosmos DB)](documentdb-use-cases.md).

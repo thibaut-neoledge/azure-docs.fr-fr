@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2017
-ms.author: deli; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 9eab48d40c3d9db896724d3bdb574d89fdab2796
-ms.lasthandoff: 04/04/2017
+ms.author: LADocs; deli
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 3faa238b882c88f1a0eb59a4e7a2f8bb6d6e6b9b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -87,7 +88,10 @@ Félicitations, vous avez maintenant une application logique en état de fonctio
 - Répertorier les fichiers dans le dossier racine
 - Mettre à jour un fichier
 
-## <a name="get-help"></a>Obtenir de l’aide
+## <a name="view-the-swagger"></a>Afficher Swagger
+Consultez les [détails sur Swagger](/connectors/fileconnector/). 
+
+## <a name="get-help"></a>Obtenir de l'aide
 
 Pour poser des questions ou y répondre et voir ce que font les autres utilisateurs d’Azure Logic Apps, visitez le [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
