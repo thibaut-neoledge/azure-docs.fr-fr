@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 05/12/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: db3a68e532775728099854a46d1ad0841e38b4a8
-ms.openlocfilehash: 3161a05a051ba741cf76e149f7b5e5a4324be0a4
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -27,7 +28,7 @@ L’API REST d’alerte Log Analytics vous permet de créer et de gérer des ale
 
 L’API REST de recherche Log Analytics est un service RESTful qui est accessible par le biais de l’API REST Azure Resource Manager. Ce document présente des exemples montrant comment accéder à l’API à partir d’une ligne de commande PowerShell en utilisant [ARMClient](https://github.com/projectkudu/ARMClient), outil en ligne de commande open source qui simplifie l’appel de l’API Azure Resource Manager. L'utilisation d’ARMClient et de PowerShell est une des nombreuses options vous permettant d’accéder à l'API de recherche Log Analytics. Grâce à ces outils, vous pouvez utiliser l'API RESTful Azure Resource Manager pour effectuer des appels vers les espaces de travail OMS et exécuter en leur sein des commandes de recherche. L'API produira pour vous des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats, par programme, de différentes manières.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 Actuellement, les alertes peuvent être créées uniquement avec une recherche enregistrée dans Log Analytics.  Vous pouvez consulter l’ [API REST de recherche de journal](log-analytics-log-search-api.md) pour plus d’informations.
 
 ## <a name="schedules"></a>Planifications
@@ -69,6 +70,9 @@ Voici un exemple de réponse pour une planification.
 ### <a name="creating-a-schedule"></a>Création d'une planification
 Utilisez la méthode Put avec un ID de planification unique pour créer une planification.  Notez que deux planifications ne peuvent pas avoir le même ID, même si elles sont associées à d’autres recherches enregistrées.  Quand vous créez une planification dans la console OMS, un GUID est créé pour l’ID de la planification.
 
+> [!NOTE]
+> Le nom de l’ensemble des recherches enregistrées, des planifications et des actions créées avec l’API Log Analytics doit être en minuscules.
+
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
@@ -107,6 +111,9 @@ Utilisez la méthode Get avec l’ID d’action pour récupérer une action part
 
 ### <a name="creating-or-editing-actions"></a>Création ou modification des actions
 Utilisez la méthode Put avec un ID d’action propre à la planification pour créer une activité.  Quand vous créez une action dans la console OMS, un GUID est défini pour l’ID d’action.
+
+> [!NOTE]
+> Le nom de l’ensemble des recherches enregistrées, des planifications et des actions créées avec l’API Log Analytics doit être en minuscules.
 
 Utilisez la méthode Put avec un ID d’action existant pour la même recherche enregistrée afin de modifier cette planification.  Le corps de la demande doit inclure l’ETag de la planification.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7be3471cd5cd22b5d05aed6e2cb51840a20bb89b
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: b7b7347fef8ea6f6bf643e98bbcc0a6292c083ed
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -49,7 +49,7 @@ Voici ce que vous devez faire :
 7. Activez la réplication des machines virtuelles.
 7. Exécutez un test de basculement afin de vérifier que tout fonctionne bien.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 **Configuration requise pour la prise en charge** | **Détails**
 --- | ---
@@ -224,10 +224,11 @@ Le service Mobilité est installé sur toutes les machines virtuelles VMware que
 
 Avant de commencer :
 
+- Votre compte d’utilisateur Azure doit disposer de certaines [autorisations](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) pour activer la réplication d’une machine virtuelle dans Azure.
 - Lorsque vous ajoutez ou modifiez des machines virtuelles, il peut être nécessaire d’attendre 15 minutes ou plus avant que les modifications n’entrent en vigueur et qu’elles apparaissent dans le portail.
 - Vous pouvez consulter l’heure de la dernière découverte des machines virtuelles dans **Serveurs de configuration** > **Last Contact At (Dernier contact à)**.
 - Pour ajouter des machines virtuelles sans attendre la découverte planifiée, mettez en surbrillance le serveur de configuration (sans cliquer dessus) et cliquez sur **Actualiser**.
-* Si une machine virtuelle est prête pour l’installation Push, le serveur de processus installe automatiquement le service Mobilité lorsque vous activez la réplication.
+- Si une machine virtuelle est prête pour l’installation Push, le serveur de processus installe automatiquement le service Mobilité lorsque vous activez la réplication.
 
 
 ### <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
@@ -298,7 +299,20 @@ Nous vous recommandons de vérifier les propriétés de la machine virtuelle et 
      - Par exemple, si une machine source présente deux cartes réseau et que la taille de la machine cible en accepte quatre, la machine cible présentera deux cartes. Si la machine source inclut deux cartes, mais que la taille cible prise en charge accepte une seule carte, la machine cible présentera une seule carte.     
    - Si la machine virtuelle possède plusieurs cartes réseau, elles se connectent toutes au même réseau.
    - Si la machine virtuelle possède plusieurs cartes réseau, la première qui s’affiche dans la liste devient la carte réseau *par défaut* dans la machine virtuelle Azure.
-5. Dans **Disques**, vous pouvez voir le système d’exploitation de la machine virtuelle et les disques de données qui seront répliqués.
+4. Dans **Disques**, vous pouvez voir le système d’exploitation de la machine virtuelle et les disques de données qui seront répliqués.
+
+#### <a name="managed-disks"></a>Disques gérés
+
+Dans **Calcul et réseau** > **Propriétés de calcul**, vous pouvez définir « Utiliser des disques gérés » sur « Oui » pour la machine virtuelle si vous souhaitez attacher des disques gérés sur votre ordinateur au basculement vers Azure. Les disques gérés simplifient la gestion des disques des machines virtuelles Azure IaaS, en gérant les comptes de stockage associés aux disques de machines virtuelles. En savoir plus sur les [disques gérés](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview)
+
+   - Les disques gérés sont créés et attachés à la machine virtuelle uniquement lors d’un basculement vers Azure. Lors de l’activation de la protection, les données des machines locales continuent à se répliquer sur des comptes de stockage.  Des disques gérés ne peuvent être créés que pour des machines virtuelles déployées à l’aide du modèle de déploiement de gestionnaire de ressources.  
+
+   - Lorsque vous définissez « Utiliser des disques gérés » sur « Oui », seuls les groupes à haute disponibilité dont la propriété « Utiliser des disques gérés » est sur « Oui » sont sélectionnables. Il en est ainsi car les machines virtuelles avec disques gérés ne peuvent faire partie que de groupes à haute disponibilité avec la propriété « Utiliser des disques gérés » définie sur « Oui ». Vérifiez que vous créez des groupes à haute disponibilité avec la propriété « Utiliser des disques gérés » activée si vous comptez utiliser des disques gérés au basculement.  De même, lorsque vous définissez « Utiliser des disques gérés » sur « Non », seuls les groupes à haute disponibilité dont la propriété « Utiliser des disques gérés » est sur « Non » sont sélectionnables. [En savoir plus sur les disques gérés et les groupes à haute disponibilité](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > Si le compte de stockage utilisé pour la réplication a été chiffré à un moment donné avec Storage Service Encryption, la création de disques gérés pendant le basculement échouera. Vous pouvez définir « Disques géré par utilisation » sur « Non » et réessayer la restauration ou désactiver la protection de la machine virtuelle et la protéger sur un compte de stockage dont le chiffrement de service de stockage n’a jamais été activé.
+  > [En savoir plus sur Storage Service Encryption et les disques gérés](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+
 
 ## <a name="run-a-test-failover"></a>Exécution d’un test de basculement
 

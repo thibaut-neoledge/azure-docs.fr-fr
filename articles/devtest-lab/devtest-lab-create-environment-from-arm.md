@@ -14,23 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 0fbe1af87594aacd2eee4f706429e3674548d3fd
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 0b402602ed80d9eef5313fb29ba2bd05644f11f8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 
 ---
 
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager
 
-Le [portail Azure ](http://go.microsoft.com/fwlink/p/?LinkID=525040) vous permet de [créer et d’ajouter facilement une machine virtuelle à un laboratoire](./devtest-lab-add-vm-with-artifacts.md). Cela fonctionne bien pour la création d’une machine virtuelle à la fois. Toutefois, si l’environnement contient plusieurs machines virtuelles, chaque machine virtuelle doit être créée individuellement. Pour des scénarios comme une application web à plusieurs niveaux ou une batterie de serveurs SharePoint, un mécanisme est nécessaire pour permettre la création de plusieurs machines virtuelles en une seule étape. Les modèles Azure Resource Manager, vous permettent désormais de définir l’infrastructure et la configuration de votre solution Azure et de déployer de manière répétée plusieurs machines virtuelles dans un état cohérent. Cette fonctionnalité permet de bénéficier des avantages suivants :
+Le [portail Azure ](http://go.microsoft.com/fwlink/p/?LinkID=525040) vous permet de [créer et d’ajouter facilement une machine virtuelle à un laboratoire](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Cela fonctionne bien pour la création d’une machine virtuelle à la fois. Toutefois, si l’environnement contient plusieurs machines virtuelles, chaque machine virtuelle doit être créée individuellement. Pour des scénarios comme une application web à plusieurs niveaux ou une batterie de serveurs SharePoint, un mécanisme est nécessaire pour permettre la création de plusieurs machines virtuelles en une seule étape. Les modèles Azure Resource Manager, vous permettent désormais de définir l’infrastructure et la configuration de votre solution Azure et de déployer de manière répétée plusieurs machines virtuelles dans un état cohérent. Cette fonctionnalité permet de bénéficier des avantages suivants :
 
 - Les modèles Azure Resource Manager sont chargés directement à partir de votre référentiel de contrôle de code source (GitHub ou Team Services Git).
 - Suite à la configuration, vos utilisateurs peuvent créer un environnement en choisissant un modèle Azure Resource Manager à partir du portail Azure, ce qu’ils peuvent faire avec les autres types de [bases de machines virtuelles](./devtest-lab-comparing-vm-base-image-types.md).
 - Les ressources PaaS Azure peuvent être approvisionnées dans un environnement à partir d’un modèle Azure Resource Manager en plus des machines virtuelles IaaS.
 - Le coût des environnements peut être suivi dans le laboratoire en plus des machines virtuelles créées par d’autres types de bases.
 - Les utilisateurs ont le même contrôle de stratégie de machine virtuelle pour les environnements que pour des machines virtuelles d’un laboratoire unique.
+
+> [!NOTE]
+> Le déploiement d’un type de ressource Microsoft.DevTestLab/labs (ou ses types de ressource imbriqués, par exemple, Microsoft.DevTestLab/labs/virtualmachines) par l’intermédiaire des modèles ARM n’est pas encore pris en charge dans cette expérience. Pour déployer une machine, assurez-vous que vous utilisez Microsoft.Compute/virtualmachines. Vous trouverez d’autres exemples de modèles ARM dans la [galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-customdata/azuredeploy.json).
+>
+>
 
 ## <a name="configure-azure-resource-manager-template-repositories"></a>Configurer les référentiels du modèle Azure Resource Manager
 

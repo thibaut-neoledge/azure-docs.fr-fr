@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 58ee6e9cc14b01f10e20dfc3f289bfc6cc386e2a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: d66489b43e983f313028a846d2b7da1534c86b53
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -147,7 +148,7 @@ Non. Vous ne pouvez pas spécifier un suffixe DNS personnalisé pour vos réseau
 Oui. Toutes les interfaces réseau (NIC) attachées à une machine virtuelle déployée via le modèle de déploiement Resource Manager doivent être connectées à un réseau virtuel. Les machines virtuelles déployées via le modèle de déploiement classique peuvent éventuellement être connectées à un réseau virtuel.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Quels sont les différents types d’adresses IP que je peux attribuer aux machines virtuelles ?
-* **Privé :** attribué à chaque carte réseau sur chaque machine virtuelle. L’adresse est attribuée à l’aide de la méthode d’allocation statique ou dynamique. Les adresses IP privées sont affectées à partir de la plage que vous avez spécifiée dans les paramètres de sous-réseau de votre réseau virtuel. Les ressources déployées par le biais du modèle de déploiement classique reçoivent des adresses IP privées, même si elles ne sont pas connectées à un réseau virtuel. Une adresse IP privée dynamique reste associée à une ressource jusqu’à ce que la ressource soit libérée (machines virtuelles) ou supprimée (machines virtuelles ou emplacements de déploiement de service cloud). Une adresse IP privée statique reste associée à une ressource jusqu’à ce que la ressource soit supprimée.
+* **Privé :** attribué à chaque carte réseau sur chaque machine virtuelle. L’adresse est attribuée à l’aide de la méthode statique ou dynamique. Les adresses IP privées sont affectées à partir de la plage que vous avez spécifiée dans les paramètres de sous-réseau de votre réseau virtuel. Les ressources déployées par le biais du modèle de déploiement classique se voient attribuer des adresses IP privées, même si elles ne sont pas connectées à un réseau virtuel. Une adresse IP privée attribuée avec la méthode dynamique reste associée à une ressource jusqu’à ce que la ressource soit supprimée (machines virtuelles ou emplacements de déploiement de service cloud). Une adresse IP privée attribuée avec la méthode dynamique peut changer lorsqu’une machine virtuelle est redémarrée après avoir été arrêtée (désallouée). Une adresse IP privée attribuée avec la méthode statique reste associée à une ressource jusqu’à ce que la ressource soit supprimée. Si vous devez vous assurer que l’adresse IP privée d’une ressource ne change jamais tant que la ressource n’est pas supprimée, attribuez une adresse IP privée avec la méthode statique.
 * **Public :** attribué (facultatif) aux cartes réseau attachées aux machines virtuelles déployées via le modèle de déploiement Azure Resource Manager. L’adresse peut être attribuée à l’aide de la méthode d’allocation statique ou dynamique. Toutes les machines virtuelles et instances de rôle de services cloud déployées via le modèle de déploiement classique existent au sein d’un service cloud, qui se voit attribuer une adresse IP virtuelle publique *dynamique*. Une adresse IP *statique* publique, appelée [Adresse IP réservée](virtual-networks-reserved-public-ip.md), peut éventuellement être attribuée en tant qu’adresse IP virtuelle. Vous pouvez attribuer des adresses IP publiques à des machines virtuelles ou instances de rôle de services cloud individuelles déployées via le modèle de déploiement classique. Ces adresses sont appelées [Adresses IP publiques de niveau d’instance (ILPIP)](virtual-networks-instance-level-public-ip.md) et elles peuvent être attribuées de manière dynamique.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Puis-je réserver une adresse IP privée pour une machine virtuelle que je créerai ultérieurement ?
@@ -215,5 +216,5 @@ Oui. Vous pouvez utiliser des API REST pour les réseaux virtuels dans les modè
 Oui. En savoir plus sur l’utilisation des éléments suivants :
 - Le portail Azure pour déployer des réseaux virtuels via les modèles de déploiement [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) et [classique](virtual-networks-create-vnet-classic-pportal.md).
 - PowerShell pour gérer les réseaux virtuels déployés via les modèles de déploiement [Resource Manager](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) et [classique](/powershell/module/azure/?view=azuresmps-3.7.0).
-- [L’interface de ligne de commande (CLI) Azure](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) pour gérer les réseaux virtuels déployés via les deux modèles de déploiement.  
+- [Azure CLI](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) pour gérer les réseaux virtuels déployés via les deux modèles de déploiement.  
 

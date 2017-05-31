@@ -12,23 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 0b1d7bb2cbbeed2b41c22f19c1db49e81dadd4d7
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: c66c895eb9b905ea265341783c153a9554bd1259
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-authenticate-service-principal.md)
-> * [Interface de ligne de commande Azure](resource-group-authenticate-service-principal-cli.md)
-> * [Portail](resource-group-create-service-principal-portal.md)
->
->
 
 Si une application doit accéder à des ressources ou les modifier, vous devez configurer une application Azure Active Directory (AD) et lui accorder les autorisations nécessaires. Cette approche est préférable à l’exécution de l’application avec vos propres informations d’identification, car :
 
@@ -171,7 +165,7 @@ Votre application est maintenant configurée dans Azure Active Directory. Vous d
 
 Pour vous connecter via PowerShell, consultez [Fournir des informations d’identification via PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
 
-Pour vous connecter via l’interface de ligne de commande Azure, consultez [Fournir des informations d’identification via Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
+Pour vous connecter via Azure CLI, voir [Fournir des informations d’identification via Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
 
 Pour obtenir le jeton d’accès pour les opérations REST, consultez [Create the request](/rest/api/#create-the-request) (Créer la demande).
 
@@ -208,5 +202,5 @@ Les exemples d’applications suivants montrent comment ouvrir une session en ta
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour configurer une application mutualisée, consultez le [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 * Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md).  
-
+* Pour une liste des actions disponibles qui peuvent être autorisées ou refusées aux utilisateurs, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
 

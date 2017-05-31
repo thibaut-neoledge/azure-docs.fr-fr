@@ -1,6 +1,6 @@
 ---
 title: Guide de programmation pour Azure Event Hubs | Microsoft Docs
-description: "Décrit la programmation avec les concentrateurs d’événements Azure à l&quot;aide du Kit de développement logiciel (SDK) .NET d&quot;Azure."
+description: "Écrivez du code pour les concentrateurs d’événements Azure à l&quot;aide du Kit de développement logiciel (SDK) .NET d&quot;Azure."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,24 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 05/17/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d8a767e9149c6c5eca5b22f094ae924135fa7a2d
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 6d0a1501b97ddb2c819361b00a85ebec12f7b50e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="event-hubs-programming-guide"></a>Guide de programmation de concentrateurs d’événements
+
 Cet article décrit quelques scénarios courants de l’écriture de code à l’aide d’Azure Event Hubs et du kit de développement logiciel (SDK) .NET Azure. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](event-hubs-what-is-event-hubs.md).
 
 ## <a name="event-publishers"></a>Éditeurs d'événements
-Vous envoyez des événements vers un concentrateur d’événements soit en utilisant HTTP POST, soit via une connexion AMQP 1.0. Le choix entre les deux méthodes à utiliser à quel moment dépend du scénario spécifique qui est adressé. Les connexions AMQP 1.0 sont limitées en tant que connexions réparties dans Service Bus et sont plus appropriées dans les scénarios avec des volumes de messages plus importants fréquents et des conditions de latence plus faible, car elles fournissent un canal de messagerie permanent.
+
+Vous envoyez des événements vers un concentrateur d’événements soit en utilisant HTTP POST, soit via une connexion AMQP 1.0. Le choix entre les deux méthodes à utiliser et à quel moment dépend du scénario spécifique qui est adressé. Les connexions AMQP 1.0 sont limitées en tant que connexions réparties dans Service Bus et sont plus appropriées dans les scénarios avec des volumes de messages plus importants fréquents et des conditions de latence plus faible, car elles fournissent un canal de messagerie permanent.
 
 Les hubs d’événements sont créés et gérés à l’aide de la classe [NamespaceManager][] . L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) et [EventData][]. [EventHubClient][] fournit le canal de communication AMQP par le biais duquel les événements sont envoyés au concentrateur d’événements. La classe [EventData][] représente un événement et sert à publier des messages sur un concentrateur d’événements. Cette classe inclut le corps, certaines métadonnées et les informations d'en-tête sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData][] lorsqu’il traverse un concentrateur d’événements.
 
 ## <a name="get-started"></a>Prise en main
+
 Les classes .NET qui prennent en charge les concentrateurs d'événements font partie de l'assembly Microsoft.ServiceBus.dll. Le moyen le plus simple de référencer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus est de télécharger le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Vous pouvez également utiliser la [Console du gestionnaire de package](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) dans Visual Studio. Pour cela, entrez la commande suivante dans la fenêtre de la [console du gestionnaire du package](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
 
 ```

@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: aa161d2f6611cd7f1ef8fac8eebfde12eedd9fcf
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 5a0ac5b811812c8c03f7f63aae12b8699d248ebf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 
 # <a name="microsoftcommontextbox-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.TextBox
-Contrôle pouvant être utilisé pour modifier du texte non mis en forme.
+Contrôle pouvant être utilisé pour modifier du texte non mis en forme. Vous utilisez cet élément lors de la [création d’une application gérée Azure](managed-application-publishing.md).
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
@@ -58,6 +58,7 @@ Contrôle pouvant être utilisé pour modifier du texte non mis en forme.
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+* Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées Azure](managed-application-overview.md).
 * Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](managed-application-createuidefinition-elements.md).
 

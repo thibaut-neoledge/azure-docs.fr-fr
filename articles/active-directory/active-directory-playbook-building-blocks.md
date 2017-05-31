@@ -1,31 +1,33 @@
 ---
-title: "Blocs de construction du manuel de preuve de concept Azure Active Directory | Microsoft Docs"
+
+title: "Manuel de preuve de concept Azure Active Directory : Blocs de construction | Microsoft Docs"
 description: "Explorer et implémenter rapidement des scénarios de gestion des identités et des accès"
 services: active-directory
 keywords: azure active directory, manuel, preuve de concept, POC
 documentationcenter: 
 author: dstefanMSFT
-manager: asuthar
+manager: femila
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 05/04/2017
 ms.author: dstefan
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b6f26a338450619cef012467bf78b9469622ba08
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 9c81bc0c702d559eee8b5fbf2a0508697f4276a0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
-## <a name="catalog-of-actors"></a>Catalogue des acteurs
+## <a name="catalog-of-roles"></a>Catalogue des rôles
 
-| Acteur | Description | Responsabilité POC |
+| Rôle | Description | Responsabilité de la preuve de concept (PoC) |
 | --- | --- | --- |
 | **Équipe Architecture d’identités/Développement** | Cette équipe est généralement celle qui conçoit la solution, implémente les prototypes, gère les approbations et transmet les informations à l’équipe des opérations | Fournir les environnements et évaluer les différents scénarios du point de vue de la facilité de gestion |
 | **Équipe des opérations d’identité locale** | Gère les différentes sources d’identité en local : forêts Active Directory, annuaires LDAP, systèmes de RH et fournisseurs d’identité de fédération. | Fournir un accès aux ressources locales requises pour les scénarios POC.<br/>Elle doit intervenir aussi peu que possible|
@@ -151,7 +153,7 @@ Temps approximatif d’accomplissement : 60 minutes
 | Organisez une réunion de travail et suivez les étapes du didacticiel avec chaque acteur. | [Didacticiel : Intégration d’Azure Active Directory à ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Affectez l’application au groupe identifié dans les conditions préalables. Si la POC dispose d’un accès conditionnel dans l’étendue, vous pouvez y revenir ultérieurement et ajouter une authentification MFA ou autre. <br/>Cela lancera le processus d’approvisionnement (s’il a été configuré) |  [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Créer un groupe et ajouter des membres dans Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Utilisez le portail de gestion Azure AD pour ajouter l’application ServiceNow à partir de la galerie| [Portail de gestion Azure AD : Applications d’entreprise](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Nouveautés relatives à la gestion des applications d’entreprise dans Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
-| Dans le panneau Authentification unique de l’application ServiceNow, activez Authentification basée sur SAML |  |
+| Dans le panneau « Authentification unique » de l’application ServiceNow, activez « Authentification basée sur SAML » |  |
 | Complétez les champs URL de connexion et Identificateur avec votre URL ServiceNow<br/>Cochez la case Activer le nouveau certificat<br/>et enregistrez les paramètres |  |
 | Ouvrez le panneau Configurer ServiceNow en bas du volet pour afficher les instructions personnalisées vous permettant de configurer ServiceNow |  |
 | Suivez les instructions de configuration de ServiceNow |  |
@@ -184,7 +186,7 @@ Temps approximatif d’accomplissement : 15 minutes
 | Étape | les ressources |
 | --- | --- |
 | Installez l’extension de navigateur | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configurez l’application à partir de la galerie | [Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Galerie d’applications innovante et améliorée](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| Configurez l’application à partir de la galerie | [Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Galerie d’applications innovante et améliorée](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Affectez l’application au groupe identifié dans les conditions préalables | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
 | Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test disposant d’un accès |  |
@@ -210,7 +212,7 @@ Temps approximatif d’accomplissement : 30 minutes
 | Conditions préalables | les ressources |
 | --- | --- |
 | Liste des applications cibles et URL de connexion exactes au préalable. Par exemple, vous pouvez utiliser Twitter. | [Twitter sur la Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[S’inscrire sur Twitter](https://twitter.com/signup?lang=en) |
-| Informations d’identification partagées pour cette application SaaS. | [Partage de comptes à l’aide d’Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automated password roll-over for Facebook, Twitter and LinkedIn now in preview! (Version préliminaire de la substitution automatisée du mot de passe Azure AD pour Facebook, Twitter et LinkedIn) - Enterprise Mobility and Security Blog ](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Informations d’identification partagées pour cette application SaaS. | [Partage de comptes à l’aide d’Azure AD](active-directory-sharing-accounts.md)<br/>[Version préliminaire de la substitution automatisée du mot de passe Azure AD pour Facebook, Twitter et LinkedIn ! - Blog Enterprise Mobility and Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Informations d’identification pour au moins deux membres de l’équipe qui ont le même compte d’accès. Ils doivent faire partie d’un groupe de sécurité. | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
 | Accès administrateur local à un ordinateur afin de déployer l’extension du volet d’accès pour Internet Explorer, Chrome ou Firefox | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -219,7 +221,7 @@ Temps approximatif d’accomplissement : 30 minutes
 | Étape | les ressources |
 | --- | --- |
 | Installez l’extension de navigateur | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configurez l’application à partir de la galerie | [Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Galerie d’applications innovante et améliorée](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| Configurez l’application à partir de la galerie | [Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Galerie d’applications innovante et améliorée](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Affectez l’application au groupe identifié dans les conditions préalables lorsque vous leur affectez des informations d’identification | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
 | Connectez-vous en tant qu’utilisateurs différents en mesure d’accéder à l’application par le biais d’un **même compte partagé.**  |  |
@@ -287,7 +289,7 @@ Temps approximatif d’accomplissement : 60 minutes
 | Ajoutez un connecteur LDAP générique | [Référence technique au connecteur LDAP générique : Créer un connecteur](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
 | Créez des profils d’exécution pour le connecteur créé (importation complète, importation d’écart, synchronisation complète, synchronisation d’écart, exportation) | [Create a Management Agent Run Profile (Créer un profil d’exécution d’agent de gestion)](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Utilisation de connecteurs avec Azure AD Connect Sync Service Manager](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Exécutez le profil d’importation complète et vérifiez la présence d’objets dans l’espace de connecteur | [Search for a Connector Space Object (Rechercher un objet d’espace de connecteur)](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Utilisation de connecteurs avec Azure AD Connect Sync Service Manager : Espace de connecteur de recherche](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| Créez des règles de synchronisation afin que les objets de métaverse aient les attributs nécessaires pour les charges de travail | [Azure AD Connect Sync : Meilleures pratiques pour modifier la configuration par défaut : Modifications apportées aux règles de synchronisation](/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect Sync : Présentation de l’approvisionnement déclaratif](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync : Présentation des expressions d’approvisionnement déclaratif](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
+| Créez des règles de synchronisation afin que les objets de métaverse aient les attributs nécessaires pour les charges de travail | [Azure AD Connect Sync : Meilleures pratiques pour modifier la configuration par défaut : Modifications apportées aux règles de synchronisation](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect Sync : Présentation de l’approvisionnement déclaratif](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync : Présentation des expressions d’approvisionnement déclaratif](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Démarrez le cycle de synchronisation complète | [Planificateur Azure AD Connect Sync : Démarrer le planificateur](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | En cas de problème, procédez au dépannage | [Dépanner un objet qui bloque la synchronisation avec Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | Vérifiez qu’un utilisateur LDAP peut se connecter et accéder à l’application | https://myapps.microsoft.com |
@@ -381,8 +383,8 @@ Temps approximatif d’accomplissement : 15 minutes
 | Conditions préalables | les ressources |
 | --- | --- |
 | Activez la gestion des mots de passe en libre-service dans votre locataire. | [Réinitialisation de mot de passe Azure Active Directory pour les administrateurs informatiques](active-directory-passwords.md) |
-| Activez l’écriture différée de mot de passe pour gérer les mots de passe en local. Cela nécessite des versions spécifiques d’Azure AD Connect | [Configuration requise pour l’écriture différée de mot de passe](active-directory-passwords-getting-started.md#writeback-prerequisites) |
-| Identifiez les utilisateurs POC qui se serviront de cette fonctionnalité et vérifiez qu’ils sont bien membres d’un groupe de sécurité. Les utilisateurs doivent être des non-administrateurs pour présenter pleinement cette fonctionnalité | [Personnalisation : Gestion du mot de passe Azure AD : Limiter l’accès à la réinitialisation des mots de passe](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
+| Activez l’écriture différée de mot de passe pour gérer les mots de passe en local. Cela nécessite des versions spécifiques d’Azure AD Connect | [Configuration requise pour l’écriture différée de mot de passe](active-directory-passwords-writeback.md) |
+| Identifiez les utilisateurs POC qui se serviront de cette fonctionnalité et vérifiez qu’ils sont bien membres d’un groupe de sécurité. Les utilisateurs doivent être des non-administrateurs pour présenter pleinement cette fonctionnalité | [Personnalisation : Gestion du mot de passe Azure AD : Limiter l’accès à la réinitialisation des mots de passe](active-directory-passwords-writeback.md) |
 
 
 ### <a name="steps"></a>Étapes

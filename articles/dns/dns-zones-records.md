@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f15654f621bafb2617bdb456bbda0233db656be5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -66,9 +67,11 @@ Ces contraintes résultent des normes DNS. Il ne s’agit pas de limites posées
 
 ### <a name="ns-records"></a>Enregistrements NS
 
-Un jeu d’enregistrements NS est créé automatiquement au sommet (apex) de chaque zone (nom = « @ »), et est automatiquement supprimé lorsque la zone est supprimée (il ne peut pas être supprimé séparément).  Vous pouvez modifier la durée de vie de ce jeu d’enregistrements, mais pas les enregistrements. Ceux-ci sont en effet préconfigurés pour faire référence aux serveurs de noms le DNS Azure affectés à la zone.
+Le jeu d’enregistrements NS au sommet (apex) de la zone (nom = « @ ») est créé automatiquement avec chaque zone DNS, et est automatiquement supprimé lorsque la zone est supprimée (il ne peut pas être supprimé séparément).
 
-Vous pouvez créer et supprimer d’autres enregistrements NS de la zone, mais non au sommet (apex) de celle-ci.  Cela permet de configurer des zones enfants (voir [Délégation de sous-domaines dans Azure DNS](dns-domain-delegation.md)).
+Ce jeu d’enregistrements contient les noms des serveurs de noms Azure DNS attribués à la zone. Vous pouvez ajouter des serveurs de noms supplémentaires à ce jeu d’enregistrements NS, pour prendre en charge le co-hébergement de domaines avec plusieurs fournisseurs DNS. Vous pouvez également modifier la durée de vie et les métadonnées pour ce jeu d’enregistrements. Toutefois, vous ne pouvez pas supprimer ni modifier les serveurs de noms Azure DNS préremplis. 
+
+Notez que cela s’applique uniquement au jeu d’enregistrements NS défini à l’apex de la zone. Les autres jeux d’enregistrements NS dans votre zone (tels que ceux utilisés pour déléguer des zones enfants) peuvent être créés, modifiés et supprimés sans contrainte.
 
 ### <a name="soa-records"></a>Enregistrements SOA
 

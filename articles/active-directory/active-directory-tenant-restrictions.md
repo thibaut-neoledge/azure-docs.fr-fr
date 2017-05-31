@@ -12,17 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/10/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: c579c0866387a5eff17b4dbfe25a6cb7d1d47700
-ms.openlocfilehash: 4adf15e4767344d450b7411733a5d2f09cb9f06b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 7288f8fa173f8018570cd17aa7274f56a4eead41
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser les Restrictions du client pour gérer l’accès aux applications cloud SaaS
 
-Les organisations de grande taille qui se préoccupent de la sécurité veulent adopter les services cloud, comme Office 365, tout en s’assurant que leurs utilisateurs ne pourront pas accéder à des ressources non approuvées. En général, pour gérer l’accès, les entreprises limitent les noms de domaine ou les adresses IP. Cette approche échoue dans un monde où les applications SaaS sont hébergées dans un cloud public et s’exécutent sur des noms de domaine partagés comme outlook.office.com et login.microsoftonline.com. Le fait de bloquer ces adresses empêche les utilisateurs d’accéder à Outlook sur le web entièrement, au lieu de restreindre simplement leur accès à des identités et des ressources approuvées.
+Les organisations de grande taille qui se préoccupent de la sécurité veulent adopter les services cloud, comme Office 365, tout en s’assurant que leurs utilisateurs ne pourront accéder qu’à des ressources approuvées. En général, pour gérer l’accès, les entreprises limitent les noms de domaine ou les adresses IP. Cette approche échoue dans un monde où les applications SaaS sont hébergées dans un cloud public et s’exécutent sur des noms de domaine partagés comme outlook.office.com et login.microsoftonline.com. Le fait de bloquer ces adresses empêche les utilisateurs d’accéder à Outlook sur le web entièrement, au lieu de restreindre simplement leur accès à des identités et des ressources approuvées.
 
 La solution d’Azure Active Directory consiste en une fonctionnalité appelée Restrictions du client. Les Restrictions du client permettent aux organisations de contrôler l’accès aux applications cloud SaaS, en fonction du client Azure AD utilisé par les applications pour l’authentification unique. Par exemple, vous souhaitez peut-être autoriser l’accès aux applications Office 365 de votre organisation, tout en empêchant l’accès aux instances d’autres organisations de ces mêmes applications.  
 
@@ -30,7 +32,7 @@ Les Restrictions du client permettent aux organisations de spécifier la liste d
 
 Cet article se concentre sur les Restrictions du client pour Office 365, mais cette fonctionnalité doit fonctionner avec n’importe quelle application cloud SaaS qui utilise des protocoles d’authentification moderne avec Azure AD pour l’authentification unique. Si vous utilisez des applications SaaS avec un client Azure AD différent du client utilisé par Office 365, assurez-vous que tous les clients nécessaires sont autorisés. Pour plus d’informations sur les applications cloud SaaS, consultez [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/).
 
-## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+## <a name="how-it-works"></a>Fonctionnement
 
 La solution comprend les composants suivants : 
 
@@ -58,7 +60,7 @@ Pour utiliser les Restrictions du client, vos clients doivent être en mesure de
 
 La configuration suivante est nécessaire pour activer les Restrictions du client dans l’infrastructure de votre proxy. Ce guide est générique, donc consultez la documentation du fabricant de votre proxy pour obtenir les étapes d’implémentation spécifiques.
 
-#### <a name="prerequisites"></a>Composants requis
+#### <a name="prerequisites"></a>Conditions préalables
 
 - Le proxy doit être en mesure d’effectuer l’interception SSL, l’insertion d’en-tête HTTP et de filtrer les destinations à l’aide des noms de domaine complets/URL. 
 
@@ -101,7 +103,7 @@ L’administrateur du client spécifié en tant que client Restricted-Access-Con
 
 Comme pour les autres rapports dans le portail Azure, vous pouvez utiliser des filtres pour spécifier l’étendue de votre rapport. Vous pouvez filtrer par utilisateur, application, client ou intervalle de temps spécifique.
 
-## <a name="office-365-support-for-tenant-restrictions"></a>Prise en charge d’Office 365 pour les Restrictions du client
+## <a name="office-365-support"></a>Prise en charge d’Office 365
 
 Les applications Office 365 doivent répondre à deux critères pour prendre pleinement en charge les Restrictions du client :
 
@@ -112,7 +114,7 @@ Consultez [Updated Office 365 modern authentication](https://blogs.office.com/20
 
 Les Restrictions du client sont actuellement prises en charge par les applications Office 365 basées sur un navigateur (Portail Office, Yammer, sites SharePoint, Outlook sur le web, etc.). Pour les clients lourds (Outlook, Skype Entreprise, Word, Excel, PowerPoint, etc.) Les Restrictions du client peuvent uniquement être appliquées si l’authentification moderne est utilisée.  
 
-Les clients Outlook et Skype Entreprise qui prennent en charge l’authentification moderne peuvent continuer à utiliser les protocoles hérités sur les clients où l’authentification moderne n’est pas activée, contournant ainsi les Restrictions du client. Pour Outlook sur Windows, les clients peuvent choisir d’implémenter des restrictions qui empêchent les utilisateurs finaux d’ajouter des comptes de messagerie non approuvés à leurs profils. Par exemple, consultez le paramètre de stratégie de groupe [Empêcher l’ajout de comptes Exchange personnalisés](http://gpsearch.azurewebsites.net/default.aspx?ref=1). Pour Outlook sur des plateformes non Windows et Skype Entreprise sur toutes les plateformes, la prise en charge complète des Restrictions du client est attendue lorsque l’authentification moderne est activée comme paramètre par défaut à l’échelle du service.
+Les clients Outlook et Skype Entreprise qui prennent en charge l’authentification moderne peuvent continuer à utiliser les protocoles hérités sur les clients où l’authentification moderne n’est pas activée, contournant ainsi les Restrictions du client. Pour Outlook sur Windows, les clients peuvent choisir d’implémenter des restrictions qui empêchent les utilisateurs finaux d’ajouter des comptes de messagerie non approuvés à leurs profils. Par exemple, consultez le paramètre de stratégie de groupe [Empêcher l’ajout de comptes Exchange personnalisés](http://gpsearch.azurewebsites.net/default.aspx?ref=1). Pour Outlook sur les plateformes non Windows et pour Skype Entreprise sur toutes les plateformes, la prise en charge complète des Restrictions du client n’est actuellement pas disponible.
 
 ## <a name="testing"></a>Test
 
@@ -122,20 +124,15 @@ Si vous souhaitez tester la fonctionnalité Restrictions du client avant de l’
 
 Fiddler est un proxy de débogage web gratuit qui peut être utilisé pour capturer et modifier le trafic HTTP/HTTPS, notamment l’insertion d’en-têtes HTTP. Pour configurer Fiddler afin de tester les Restrictions du client, procédez comme suit :
 
-1.  [Téléchargez et installez Fiddler](http://www.telerik.com/fiddler).
-2.  Configurez Fiddler pour déchiffrer le trafic HTTPS, conformément à [la documentation d’aide de Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
-3.  Configurez Fiddler pour insérer les en-têtes *Restrict-Access-To-Tenants* et *Restrict-Access-Context* à l’aide de règles personnalisées :
+1.    [Téléchargez et installez Fiddler](http://www.telerik.com/fiddler).
+2.    Configurez Fiddler pour déchiffrer le trafic HTTPS, conformément à [la documentation d’aide de Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+3.    Configurez Fiddler pour insérer les en-têtes *Restrict-Access-To-Tenants* et *Restrict-Access-Context* à l’aide de règles personnalisées :
   1. Dans l’outil débogueur web Fiddler, sélectionnez le menu **Règles** et sélectionnez **Personnaliser les règles...** pour ouvrir le fichier CustomRules.
   2. Ajoutez les lignes suivantes au début de la fonction *OnBeforeRequest*. Remplacez le \<domaine du client\> par un domaine enregistré auprès de votre client, par exemple, contoso.onmicrosoft.com. Remplacez \<l’ID de répertoire\> par l’identificateur GUID Azure AD de votre client.
 
   ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){
-      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
-      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
-  }
+  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
   ```
-  >[!NOTE]
-  > L’extrait de code ci-dessus doit se situer sur une seule ligne. Il n’y a aucun retour chariot avant le crochet fermant.
 
   Si vous avez besoin d’autoriser plusieurs clients, utilisez une virgule pour séparer les noms des clients. Par exemple :
 
@@ -151,8 +148,8 @@ Après avoir configuré Fiddler, vous pouvez capturer le trafic en accédant au 
 
 En fonction des capacités de votre infrastructure de proxy, vous pourriez être en mesure d’étalonner le déploiement des paramètres pour vos utilisateurs. Voici deux options principales à prendre en compte :
 
-1.  Utilisez des fichiers PAC pour pointer les utilisateurs test vers une infrastructure de proxy test, tandis que les utilisateurs normaux continuent à utiliser l’infrastructure du proxy de production.
-2.  Certains serveurs proxy peuvent prendre en charge des configurations différentes à l’aide de groupes.
+1.    Utilisez des fichiers PAC pour pointer les utilisateurs test vers une infrastructure de proxy test, tandis que les utilisateurs normaux continuent à utiliser l’infrastructure du proxy de production.
+2.    Certains serveurs proxy peuvent prendre en charge des configurations différentes à l’aide de groupes.
 
 Consultez la documentation de votre serveur proxy pour obtenir des informations spécifiques.
 
@@ -161,9 +158,4 @@ Consultez la documentation de votre serveur proxy pour obtenir des informations 
 - En savoir plus sur [l’authentification moderne Office 365 mise à jour](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
 
 - Consultez les [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle Azure IoT (Windows) | Microsoft Docs"
-description: "Comment utiliser le Kit de développement logiciel (SDK) de la passerelle Azure IoT sous Windows pour créer un appareil simulé qui envoie les données de télémétrie à un IoT Hub via une passerelle."
+title: Simuler un appareil avec Azure IoT Edge (Windows) | Microsoft Docs
+description: "Comment utiliser Azure IoT Edge sous Windows pour créer un appareil simulé qui envoie les données de télémétrie à un IoT Hub via une passerelle IoT Edge."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: andbuc
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 458984f75eed3a7a3102c288798b55664afaa37d
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 0ea8483e19ddec447642a33c24c9ecdd9937ea11
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Utilisation du kit de développement logiciel (SDK) de la passerelle Azure IoT pour envoyer des messages appareil-à-cloud avec un appareil simulé (Windows)
+# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Utilisation d’Azure IoT Edge pour envoyer des messages appareil-à-cloud avec un appareil simulé (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
@@ -34,18 +35,18 @@ Avant de commencer, vous devez :
 Pour créer l'exemple :
 
 1. Ouvrez une **invite de commandes développeur pour VS 2015** ou une **invite de commandes développeur pour VS 2017**.
-2. Accédez au dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** .
-3. Exécutez le script **tools\\build.cmd**. Ce script crée un fichier de solution Visual Studio et génère la solution. Vous trouverez la solution Visual Studio dans le dossier **build** de votre copie locale du référentiel **azure-iot-gateway-sdk**. Des paramètres supplémentaires peuvent être accordés au script pour générer et exécuter des tests unitaires et de bout en bout. Ces paramètres sont **--run-unittests** et **--run-e2e-tests**, respectivement.
+2. Accédez au dossier racine de votre copie locale du référentiel **iot-edge**.
+3. Exécutez le script **tools\\build.cmd**. Ce script crée un fichier de solution Visual Studio et génère la solution. Vous trouverez la solution Visual Studio dans le dossier **build** de votre copie locale du référentiel **iot-edge**. Des paramètres supplémentaires peuvent être accordés au script pour générer et exécuter des tests unitaires et de bout en bout. Ces paramètres sont **--run-unittests** et **--run-e2e-tests**, respectivement.
 
 Pour exécuter l'exemple :
 
-Dans un éditeur de texte, ouvrez le fichier **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** dans votre copie locale du référentiel **azure-iot-gateway-sdk**. Ce fichier configure les modules dans l'exemple de passerelle :
+Dans un éditeur de texte, ouvrez le fichier **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** dans votre copie locale du référentiel **iot-edge**. Ce fichier configure les modules IoT Edge dans l'exemple de passerelle :
 
 * Le module **IoTHub** se connecte à votre hub IoT. Vous le configurez pour envoyer des données à votre hub IoT. Plus précisément, définissez la valeur **IoTHubName** sur le nom de votre IoT Hub et la valeur **IoTHubSuffix** sur **azure-devices.net**. Définissez la valeur de **Transport** sur « HTTP », « AMQP » ou « MQTT ». Actuellement, seul « HTTP » partage une connexion TCP pour tous les messages d’appareils. Si vous définissez la valeur sur « AMQP » ou « MQTT », la passerelle gère une connexion TCP à IoT Hub distincte pour chaque appareil.
 * Le module **mapping** mappe les adresses MAC des appareils simulés aux ID de vos appareils IoT Hub. Assurez-vous que les valeurs **deviceId** correspondent aux ID des deux appareils que vous avez ajoutés à votre IoT Hub et que les valeurs **deviceKey** contiennent les clés de vos deux appareils.
 * Les modules **BLE1** et **BLE2** sont les appareils simulés. Notez comment les adresses MAC du module correspondent à celles du module **mapping**.
 * Le module **Logger** consigne l’activité de votre passerelle dans un fichier.
-* Les valeurs de **module path** qui figurent dans l’exemple suivant supposent que vous avez cloné le référentiel du SDK de la passerelle IoT à la racine de votre lecteur **C:**. Si vous l’avez téléchargé vers un autre emplacement, vous devez modifier en conséquence les valeurs **module path** .
+* Les valeurs de **module path** qui figurent dans l’exemple suivant supposent que vous avez cloné le référentiel IoT Edge à la racine de votre lecteur **C:**. Si vous l’avez téléchargé vers un autre emplacement, vous devez modifier en conséquence les valeurs **module path** .
 * Le tableau **links** à la fin du fichier JSON se connecte les modules **BLE1** et **BLE2** au module **mapping**, et le module **mapping** au module **IoTHub**. Il garantit également que tous les messages sont consignés par le module **Logger** .
 
 ```
@@ -137,7 +138,7 @@ Enregistrez les modifications apportées au fichier de configuration.
 
 Pour exécuter l'exemple :
 
-1. Dans une invite de commande, accédez au dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk** .
+1. Accédez au dossier racine de votre copie locale du référentiel **azure-iot-gateway-sdk**.
 2. Exécutez la commande suivante :
    
     ```
@@ -146,10 +147,10 @@ Pour exécuter l'exemple :
 3. Vous pouvez utiliser l’outil [Explorateur d’appareils][lnk-device-explorer] ou [iothub-explorer][lnk-iothub-explorer] pour analyser les messages qu’IoT Hub reçoit de la passerelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous souhaitez approfondir vos connaissances sur le Kit de développement logiciel (SDK) de passerelle IoT et découvrir certains exemples de code, consultez les didacticiels de développement et les ressources suivants :
+Si vous souhaitez approfondir vos connaissances sur Azure IoT Edge et découvrir certains exemples de code, consultez les didacticiels de développement et les ressources suivants :
 
-* [Envoi de messages appareil-à-cloud à partir d’un appareil physique avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-physical-device]
-* [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk]
+* [Envoi de messages appareil-à-cloud à partir d’un appareil physique avec Azure IoT Edge][lnk-physical-device]
+* [Azure IoT Edge][lnk-gateway-sdk]
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
@@ -157,11 +158,11 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 * [Sécuriser votre solution IoT de bout en bout][lnk-securing]
 
 <!-- Links -->
-[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
+[lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
 [lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge/
 
 [lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
 

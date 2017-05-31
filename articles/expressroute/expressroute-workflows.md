@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 570a98aafca6babc5a7089880d4120c2a8f4a0d8
-ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -34,7 +36,7 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
    
    * Activer l'homologation privée Azure : vous devez activer cette homologation pour vous connecter aux machines virtuelles/services de cloud déployés au sein de réseaux virtuels.
    * Activer l'homologation publique Azure : vous devez activer l'homologation publique Azure si vous souhaitez vous connecter à des services Azure hébergés sur des adresses IP publiques. Cette étape est nécessaire pour accéder aux ressources Azure si vous avez choisi d'activer le routage par défaut pour l'homologation privée Azure.
-   * Activer l’homologation Microsoft : vous devez activer cette option pour accéder aux services Office 365 et CRM Online. 
+   * Activer l’homologation Microsoft : vous devez activer cette option pour accéder aux services Office 365 et Dynamics 365. 
      
      > [!IMPORTANT]
      > Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/appareil edge différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
@@ -115,10 +117,5 @@ Si l'état du préfixe public publié indique qu’une *validation est nécessai
   * [Création d’un circuit ExpressRoute](expressroute-howto-circuit-arm.md)
   * [Configuration du routage](expressroute-howto-routing-arm.md)
   * [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

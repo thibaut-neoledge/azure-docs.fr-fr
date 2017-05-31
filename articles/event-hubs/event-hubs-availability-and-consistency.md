@@ -12,31 +12,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 05/11/2017
 ms.author: sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 934ac698c09f2d7c130fe787994dc6fa12abbd2f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: bbc81a89f3be7b04c7a9e347ac1dae007515b042
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 ---
 
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilité et cohérence dans Event Hubs
 
 ## <a name="overview"></a>Vue d'ensemble
-Azure Event Hubs utilise un [modèle de partitionnement](event-hubs-what-is-event-hubs.md#partitions) pour améliorer la disponibilité et la parallélisation dans un concentrateur d’événements unique. Par exemple, si un concentrateur d’événements a quatre partitions et que l’une de ces partitions est déplacée d’un serveur à l’autre dans une opération d’équilibrage de charge, vous pouvez quand même envoyer et recevoir à partir des trois autres partitions. En outre, avoir davantage de partitions vous permet d’avoir plus lecteurs pour traiter vos données simultanément, ce qui améliore le débit global. Comprendre les implications en matière de partitionnement et de classement dans un système distribué est un aspect essentiel de la conception de la solution.
+Azure Event Hubs utilise un [modèle de partitionnement](event-hubs-features.md#partitions) pour améliorer la disponibilité et la parallélisation dans un concentrateur d’événements unique. Par exemple, si un concentrateur d’événements a quatre partitions et que l’une de ces partitions est déplacée d’un serveur à l’autre dans une opération d’équilibrage de charge, vous pouvez quand même envoyer et recevoir à partir des trois autres partitions. En outre, avoir davantage de partitions vous permet d’avoir plus lecteurs pour traiter vos données simultanément, ce qui améliore le débit global. Comprendre les implications en matière de partitionnement et de classement dans un système distribué est un aspect essentiel de la conception de la solution.
 
-Pour expliquer le compromis entre classement et disponibilité, reportez-vous au [théorème CAP](https://en.wikipedia.org/wiki/CAP_theorem), également connu sous le nom de théorème de Brewer. Ce théorème précise qu’il est nécessaire de choisir entre la cohérence, la disponibilité et la tolérance de la partition.
+Pour expliquer le compromis entre classement et disponibilité, reportez-vous au [théorème CAP](https://en.wikipedia.org/wiki/CAP_theorem), également connu sous le nom de théorème de Brewer. Ce théorème discute le choix entre la cohérence, la disponibilité et la tolérance de la partition.
 
 Le théorème de Brewer définit la cohérence et la disponibilité de la façon suivante :
-* Tolérance de la partition : la capacité d’un système de traitement de données à continuer le traitement des données même en cas de défaillance d’une partition.
-* Disponibilité : un nœud sans échec renvoie une réponse raisonnable dans un délai raisonnable (sans erreurs ou expirations de délai).
-* Cohérence : une lecture renvoie toujours la dernière écriture pour un client donné.
+* Tolérance de la partition : la capacité d’un système de traitement de données à continuer le traitement des données même en cas de défaillance d’une partition.
+* Disponibilité : un nœud sans échec renvoie une réponse raisonnable dans un délai raisonnable (sans erreurs ou expirations de délai).
+* Cohérence : une lecture renvoie toujours la dernière écriture pour un client donné.
 
 ## <a name="partition-tolerance"></a>Tolérance de la partition
-Event Hubs repose sur un modèle de données partitionné. Vous pouvez configurer le nombre de partitions dans votre concentrateur d’événements pendant l’installation, mais vous ne pouvez pas modifier cette valeur par la suite. Étant donné que vous devez utiliser des partitions avec Event Hubs, vous devez uniquement prendre une décision en matière de disponibilité et de cohérence de votre application.
+Event Hubs repose sur un modèle de données partitionné. Vous pouvez configurer le nombre de partitions dans votre concentrateur d’événements pendant l’installation, mais vous ne pouvez pas modifier cette valeur par la suite. Étant donné que vous devez utiliser des partitions avec Event Hubs, vous devez prendre une décision concernant la disponibilité et la cohérence de votre application.
 
-## <a name="availability"></a>Disponibilité
+## <a name="availability"></a>Availability
 La méthode la plus simple pour se familiariser avec Event Hubs est d’utiliser le comportement par défaut. Si vous créez un `EventHubClient` et que vous utilisez la méthode `Send`, les événements sont automatiquement distribués entre les partitions de votre concentrateur d’événements. Ce comportement offre le meilleur temps d’activité.
 
 Pour les cas d’utilisation qui exigent un temps d’activité maximum, ce modèle est conseillé.
@@ -44,9 +45,9 @@ Pour les cas d’utilisation qui exigent un temps d’activité maximum, ce mod�
 ## <a name="consistency"></a>Cohérence
 Dans certains scénarios, l’ordre des événements peut être important. Par exemple, vous souhaiterez peut-être que votre système principal traite une commande de mise à jour avant une commande de suppression. Dans ce cas, vous pouvez définir la clé de partition sur un événement, ou utiliser un objet `PartitionSender` pour envoyer uniquement les événements à une certaine partition. Cela garantit que ces événements sont lus dans l’ordre lorsqu’ils sont lus à partir de la partition.
 
-Avec ce type de configuration, vous devez garder à l’esprit que si la partition particulière à laquelle vous envoyez les événements n’est pas disponible, vous recevrez une réponse d’erreur. À titre de comparaison, si vous n’avez pas d’affinité avec une partition unique, le service Event Hubs envoie votre événement à la prochaine partition disponible.
+Avec cette configuration, gardez à l’esprit que si la partition particulière à laquelle vous envoyez les événements n’est pas disponible, vous recevrez une réponse d’erreur. À titre de comparaison, si vous n’avez pas d’affinité avec une partition unique, le service Event Hubs envoie votre événement à la prochaine partition disponible.
 
-Pour garantir le classement tout en optimisant aussi le temps d’activité, vous pouvez regrouper les événements dans le cadre de votre application de traitement des événements. Pour cela, le moyen le plus simple consiste à marquer votre événement avec une propriété de numéro de séquence personnalisée. Voici un exemple :
+Pour garantir le classement tout en optimisant aussi le temps d’activité, vous pouvez regrouper les événements dans le cadre de votre application de traitement des événements. Pour cela, le moyen le plus simple consiste à marquer votre événement avec une propriété de numéro de séquence personnalisée. Le code suivant montre un exemple :
 
 ```csharp
 // Get the latest sequence number from your application
@@ -59,11 +60,11 @@ data.Properties.Add("SequenceNumber", sequenceNumber);
 await eventHubClient.SendAsync(data);
 ```
 
-L’exemple précédent envoie votre événement à l’une des partitions disponibles dans votre concentrateur d’événements et définit le numéro de séquence correspondant à partir de votre application. Cette solution nécessite que l’état soit conservé par votre application de traitement, mais offre à vos expéditeurs un point de terminaison plus susceptible d’être disponible.
+L’exemple envoie votre événement à l’une des partitions disponibles dans votre concentrateur d’événements et définit le numéro de séquence correspondant à partir de votre application. Cette solution nécessite que l’état soit conservé par votre application de traitement, mais offre à vos expéditeurs un point de terminaison plus susceptible d’être disponible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
+* [Présentation du service Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Créer un concentrateur d’événements](event-hubs-create.md)
 
