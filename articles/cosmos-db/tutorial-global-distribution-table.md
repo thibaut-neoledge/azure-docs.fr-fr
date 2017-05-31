@@ -1,14 +1,14 @@
 ---
 title: "Didacticiel de distribution mondiale Azure Cosmos DB pour l’API Table | Microsoft Docs"
 description: "Découvrez comment configurer la distribution mondiale Azure Cosmos DB à l’aide de l’API Table."
-services: cosmosdb
+services: cosmos-db
 keywords: distribution mondiale, Table
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3282dd96fb51ba9eeb27560c6897211c55738f1e
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 63c9e530a4982e2e6e478fea56e015fc77851e1d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -33,12 +33,12 @@ Cet article décrit les tâches suivantes :
 > * Configurer la distribution mondiale à l’aide du portail Azure
 > * Configurer la distribution mondiale à l’aide de [l’API Table](table-introduction.md)
 
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Se connecter à une région de prédilection avec l’API Table
 
-Pour tirer parti de la [distribution mondiale](../documentdb/documentdb-distribute-data-globally.md), les applications clientes peuvent spécifier la liste ordonnée de préférences de régions à utiliser pour effectuer des opérations sur les documents. Pour ce faire, définissez la valeur de configuration `TablePreferredLocations` dans la configuration de l’application de la version préliminaire du kit de développement logiciel Azure Storage. Selon la configuration du compte Azure Cosmos DB, la disponibilité régionale actuelle et la liste de préférences spécifiée, le Kit de développement logiciel (SDK) Azure Storage choisit le point de terminaison optimal pour les opérations de lecture et d’écriture.
+Pour tirer parti de la [distribution mondiale](distribute-data-globally.md), les applications clientes peuvent spécifier la liste ordonnée de préférences de régions à utiliser pour effectuer des opérations sur les documents. Pour ce faire, définissez la valeur de configuration `TablePreferredLocations` dans la configuration de l’application de la version préliminaire du kit de développement logiciel Azure Storage. Selon la configuration du compte Azure Cosmos DB, la disponibilité régionale actuelle et la liste de préférences spécifiée, le Kit de développement logiciel (SDK) Azure Storage choisit le point de terminaison optimal pour les opérations de lecture et d’écriture.
 
 Le paramètre `TablePreferredLocations` doit contenir une liste séparée par des virgules des emplacements (de multihébergement) préférés pour les lectures. Chaque instance de client peut spécifier un sous-ensemble de ces régions dans l’ordre de préférence pour des lectures à faible latence. Les régions doivent être nommées à l’aide de leurs [noms d’affichage](https://msdn.microsoft.com/library/azure/gg441293.aspx), par exemple, `West US`.
 
@@ -56,11 +56,11 @@ Si la propriété `TablePreferredLocations` n’est pas définie, toutes les dem
     </appSettings>
 ```
 
-C’est ici que s’achève ce didacticiel. Découvrez comment gérer la cohérence de votre compte répliqué à l’échelle mondiale en lisant l’article [Niveaux de cohérence dans Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md). Pour plus d’informations sur le fonctionnement de la réplication de base de données à l’échelle mondiale dans Azure Cosmos DB, voir [Diffuser des données à l’échelle mondiale avec Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+C’est ici que s’achève ce didacticiel. Découvrez comment gérer la cohérence de votre compte répliqué à l’échelle mondiale en lisant l’article [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md). Pour plus d’informations sur le fonctionnement de la réplication de base de données à l’échelle mondiale dans Azure Cosmos DB, voir [Diffuser des données à l’échelle mondiale avec Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez effectué les tâches suivantes :
 
 > [!div class="checklist"]
 > * Configurer la distribution mondiale à l’aide du portail Azure
@@ -69,4 +69,4 @@ Dans ce didacticiel, vous avez appris à :
 Vous pouvez maintenant passer au didacticiel suivant pour apprendre à développer en local à l’aide de l’émulateur local Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Développer en local avec l’émulateur](../documentdb/documentdb-nosql-local-emulator.md)
+> [Développer en local avec l’émulateur](local-emulator.md)
