@@ -1,14 +1,14 @@
 ---
 title: "Didacticiel de diffusion mondiale d’Azure Cosmos DB pour l’API MongoDB | Documents Microsoft"
 description: "Découvrez comment configurer la diffusion mondiale d’Azure Cosmos DB à l’aide de l’API MongoDB."
-services: cosmosdb
+services: cosmos-db
 keywords: diffusion mondiale, MongoDB
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3cff5f474eac5be48cef1655ac312563c3ff473b
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 119ebb3f4966de08934c7d1fbd139229bda1d060
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -31,9 +31,9 @@ Cet article décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Configurer la diffusion mondiale à l’aide du portail Azure
-> * Configurer la diffusion mondiale à l’aide de [l’API MongoDB](../documentdb/documentdb-protocol-mongodb.md)
+> * Configurer la diffusion mondiale à l’aide de [l’API MongoDB](mongodb-introduction.md)
 
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>Vérification de votre configuration régionale avec l’API MongoDB
 La façon la plus simple de vérifier votre configuration globale au sein de l’API pour MongoDB consiste à exécuter la commande *isMaster()* à partir de l’interpréteur de commandes Mongo.
@@ -94,17 +94,17 @@ var tag = new Tag("region", "Southeast Asia");
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
 ```
 
-C’est ici que s’achève ce didacticiel. Découvrez comment gérer la cohérence de votre compte répliqué à l’échelle mondiale en lisant la section [Niveaux de cohérence dans Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md). Pour plus d’informations sur le fonctionnement de la réplication de base de données à l’échelle mondiale dans Azure Cosmos DB, voir [Diffuser des données à l’échelle mondiale avec Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+C’est ici que s’achève ce didacticiel. Découvrez comment gérer la cohérence de votre compte répliqué à l’échelle mondiale en lisant l’article [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md). Pour plus d’informations sur le fonctionnement de la réplication de base de données à l’échelle mondiale dans Azure Cosmos DB, voir [Diffuser des données à l’échelle mondiale avec Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez :
+Dans ce didacticiel, vous avez effectué les tâches suivantes :
 
 > [!div class="checklist"]
-> * Configurer la diffusion mondiale à l’aide du portail Azure
-> * Configurer la diffusion mondiale à l’aide des API DocumentDB
+> * Configurer la distribution mondiale à l’aide du portail Azure
+> * Configurer la distribution mondiale à l’aide des API DocumentDB
 
 Vous pouvez maintenant passer au didacticiel suivant pour apprendre à développer en local à l’aide de l’émulateur local Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Développer en local avec l’émulateur](../documentdb/documentdb-nosql-local-emulator.md)
+> [Développer en local avec l’émulateur](local-emulator.md)
