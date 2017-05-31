@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 3d32ded77382fe852682d63c96a66aacd141fdf6
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
-Ce document répertorie les opérations disponibles pour chaque fournisseur de ressources Microsoft Azure Resource Manager. Celles-ci peuvent être utilisées dans des rôles personnalisés pour fournir des autorisations de contrôle d’accès en fonction du rôle (RBAC) granulaires aux ressources dans Azure. Notez que cette liste n’est pas exhaustive et que des opérations peuvent être ajoutées ou supprimées à mesure que chaque fournisseur est mis à jour. Les chaînes d’opération sont au format `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Pour obtenir une liste complète et actuelle, utilisez `Get-AzureRmProviderOperation` (dans PowerShell) ou `azure provider operations show` (dans l’interface de ligne de commande Azure) pour répertorier les opérations des fournisseurs de ressources Azure.
+Ce document répertorie les opérations disponibles pour chaque fournisseur de ressources Microsoft Azure Resource Manager. Celles-ci peuvent être utilisées dans des rôles personnalisés pour fournir des autorisations de contrôle d’accès en fonction du rôle (RBAC) granulaires aux ressources dans Azure. Notez que cette liste n’est pas exhaustive et que des opérations peuvent être ajoutées ou supprimées à mesure que chaque fournisseur est mis à jour. Les chaînes d’opération sont au format `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Pour obtenir une liste complète et actuelle, utilisez `Get-AzureRmProviderOperation` (dans PowerShell) ou `azure provider operations show` (dans Azure CLI) pour répertorier les opérations des fournisseurs de ressources Azure.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 

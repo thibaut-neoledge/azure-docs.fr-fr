@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/17/2017
 ms.author: asgang
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 06ac75a40ed1dc97046836388bb7938dabd2b9ac
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: f78a857a795031f6188635091c76431cd5440d1c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/12/2017
 
 
 Cet article décrit la procédure de configuration de la réplication de machines virtuelles exécutées sur VMware dans Azure.
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cet article suppose que vous avez déjà effectué les opérations suivantes :
 
@@ -37,8 +38,9 @@ Cet article suppose que vous avez déjà effectué les opérations suivantes :
 
 ## <a name="enable-replication"></a>Activer la réplication
 #### <a name="before-you-start"></a>Avant de commencer
-Si vous effectuez une réplication de machines virtuelles VMware, prenez note des points suivants :
+Lors de la réplication de machines virtuelles VMware, prenez note des points suivants :
 
+* Votre compte d’utilisateur Azure doit disposer de certaines [autorisations](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) pour activer la réplication d’une machine virtuelle dans Azure.
 * Les machines virtuelles VMware sont découvertes toutes les 15 minutes, et il peut s’écouler 15 minutes ou plus entre leur découverte et leur affichage dans le portail. De même, la découverte peut prendre 15 minutes ou plus lorsque vous ajoutez un serveur vCenter ou un hôte vSphere.
 * La mise à jour avec les modifications de l’environnement sur la machine virtuelle (par exemple, l’installation d’outils VMware) peut aussi prendre plus de 15 minutes.
 * Vous pouvez vérifier l’heure de la dernière découverte de machines virtuelles VMware dans le champ **Dernier contact à** correspondant au serveur vCenter ou à l’hôte vSphere dans le panneau **Serveurs de configuration**.
@@ -105,19 +107,20 @@ Nous vous recommandons de vérifier les propriétés de la machine source. N’o
 ![Activer la réplication](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
 
 *Groupe de ressources*
-   
-  * Vous pouvez sélectionner un [groupe de ressources](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) dont l’ordinateur fera partie lors du post-basculement. Vous pouvez modifier ce paramètre avant le basculement. 
-  
+
+  * Vous pouvez sélectionner un [groupe de ressources](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) dont l’ordinateur fera partie lors du post-basculement. Vous pouvez modifier ce paramètre avant le basculement.
+
 > [!NOTE]
 > Après le basculement, si vous migrez l’ordinateur vers un autre groupe de ressources, les paramètres de protection de l’ordinateur ne seront plus adaptés.
- 
+
 *Groupes à haute disponibilité*
 
-Vous pouvez sélectionner un basculement de [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si votre ordinateur doit faire partie d’un post-basculement. Lorsque vous sélectionnez le groupe à haute disponibilité, prenez note de ce qui suit :
+Vous pouvez sélectionner un basculement de [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si votre ordinateur doit faire partie d’un post-basculement.
+Lorsque vous sélectionnez le groupe à haute disponibilité, prenez note de ce qui suit :
 
 * Seuls les groupes à haute disponibilité appartenant au groupe de ressources spécifié sont répertoriés.  
-* Les ordinateurs avec différents réseaux virtuels ne peuvent pas faire partie du même groupe à haute disponibilité. 
-* Seules les machines virtuelles de même taille peuvent faire partie du même groupe à haute disponibilité. 
+* Les ordinateurs avec différents réseaux virtuels ne peuvent pas faire partie du même groupe à haute disponibilité.
+* Seules les machines virtuelles de même taille peuvent faire partie du même groupe à haute disponibilité.
 
 *Propriétés du réseau*
 

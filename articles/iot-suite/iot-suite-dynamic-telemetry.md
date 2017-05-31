@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 05/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
-ms.openlocfilehash: 7fe03bcb918997971208554d030264d67bedb1ff
-ms.lasthandoff: 02/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: b79ff3ece2df4c5d22fb65a1a62c8e8c5f1e2bdc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>Utilisation de la télémétrie dynamique avec la solution préconfigurée de surveillance à distance
-## <a name="introduction"></a>Introduction
+
 La télémétrie dynamique vous permet de visualiser toutes les données de télémétrie envoyées vers la solution préconfigurée de surveillance à distance. Les appareils simulés déployés avec la solution préconfigurée envoient les données de télémétrie de température et d’humidité, que vous pouvez afficher sur le tableau de bord. Si vous personnalisez les appareils simulés existants, créez des appareils simulés ou connectez des appareils physiques sur la solution préconfigurée vers laquelle vous pouvez envoyer d’autres valeurs de télémétrie comme la température externe, les données RPM ou la vitesse du vent. Vous pouvez ensuite visualiser ces données de télémétrie supplémentaires sur le tableau de bord.
 
 Ce didacticiel utilise un appareil simulé Node.js simple que vous pouvez facilement modifier pour faire des essais avec les données de télémétrie dynamique.
@@ -40,29 +41,32 @@ Vous pouvez suivre ce didacticiel sur n’importe quel système d’exploitation
 [!INCLUDE [iot-suite-send-external-temperature](../../includes/iot-suite-send-external-temperature.md)]
 
 ## <a name="add-a-telemetry-type"></a>Ajouter un type de télémétrie
+
 L’étape suivante consiste à remplacer les données de télémétrie générées par l’appareil simulé Node.js par un nouveau jeu de valeurs :
 
 1. Arrêtez l’appareil simulé Node.js en tapant **Ctrl+C** dans l’invite de commandes ou l’interpréteur de commandes.
 2. Dans le fichier remote_monitoring.js, vous pouvez voir les valeurs de données de base pour la télémétrie existante de température, d’humidité et de température externe. Ajoutez une valeur de données de base pour **rpm** comme suit :
-   
-    ```
+
+    ```nodejs
     // Sensors data
     var temperature = 50;
     var humidity = 50;
     var externalTemperature = 55;
     var rpm = 200;
     ```
+
 3. L’appareil simulé Node.js utilise la fonction **generateRandomIncrement** dans le fichier remote_monitoring.js pour ajouter un incrément aléatoire aux valeurs de données de base. Rendez aléatoire la valeur **rpm** en ajoutant une ligne de code après les randomisations existantes comme suit :
-   
-    ```
+
+    ```nodejs
     temperature += generateRandomIncrement();
     externalTemperature += generateRandomIncrement();
     humidity += generateRandomIncrement();
     rpm += generateRandomIncrement();
     ```
+
 4. Ajoutez la nouvelle valeur rpm pour la charge utile JSON que l’appareil envoie vers IoT Hub :
-   
-    ```
+
+    ```nodejs
     var data = JSON.stringify({
       'DeviceID': deviceId,
       'Temperature': temperature,
@@ -71,24 +75,23 @@ L’étape suivante consiste à remplacer les données de télémétrie génér�
       'RPM': rpm
     });
     ```
+
 5. Exécutez l’appareil simulé Node.js à l’aide de la commande suivante :
-   
-    ```
-    node remote_monitoring.js
-    ```
+
+    `node remote_monitoring.js`
+
 6. Observez le nouveau type de télémétrie RPM qui s’affiche sur le graphique dans le tableau de bord :
 
 ![Ajouter les valeurs RPM au tableau de bord][image3]
 
 > [!NOTE]
 > Vous devrez peut-être désactiver, puis activer l’appareil Node.js sur la page **Appareils** du tableau de bord pour afficher immédiatement les changements.
-> 
-> 
 
 ## <a name="customize-the-dashboard-display"></a>Personnaliser l’affichage du tableau de bord
+
 Le message **Device-Info** peut inclure des métadonnées sur la télémétrie pouvant être envoyée par l’appareil vers IoT Hub. Ces métadonnées peuvent spécifier les types de télémétrie envoyés par l’appareil. Modifiez la valeur **deviceMetaData** dans le fichier remote_monitoring.js pour inclure une définition **Telemetry** à la suite de la définition **Commands**. L’extrait de code suivant illustre la définition **Commands** (veillez à ajouter un `,` après la définition **Commands**) :
 
-```
+```nodejs
 'Commands': [{
   'Name': 'SetTemperature',
   'Parameters': [{
@@ -119,12 +122,11 @@ Le message **Device-Info** peut inclure des métadonnées sur la télémétrie p
 
 > [!NOTE]
 > La solution de surveillance à distance utilise une correspondance non sensible à la casse pour comparer la définition des métadonnées avec les données du flux de télémétrie.
-> 
-> 
+
 
 Le fait d’ajouter une définition **Telemetry** comme le montre l’extrait de code précédent ne modifie pas le comportement du tableau de bord. Cependant, les métadonnées peuvent également inclure un attribut **DisplayName** pour personnaliser l’affichage dans le tableau de bord. Mettez à jour la définition des métadonnées **Telemetry** comme le montre l’extrait suivant :
 
-```
+```nodejs
 'Telemetry': [
 {
   'Name': 'Temperature',
@@ -150,15 +152,14 @@ La capture d’écran suivante montre de quelle manière ce changement modifie l
 
 > [!NOTE]
 > Vous devrez peut-être désactiver, puis activer l’appareil Node.js sur la page **Appareils** du tableau de bord pour afficher immédiatement les changements.
-> 
-> 
 
 ## <a name="filter-the-telemetry-types"></a>Filtrer les types de télémétrie
+
 Par défaut, le graphique du tableau de bord affiche toutes les séries de données dans le flux de télémétrie. Vous pouvez utiliser les métadonnées **Device-Info** pour supprimer l’affichage des types de télémétrie spécifiques sur le graphique. 
 
 Pour que le graphique affiche uniquement la télémétrie de température et d’humidité, omettez **ExternalTemperature** dans les métadonnées **Telemetry** **Device-Info** comme suit :
 
-```
+```nodejs
 'Telemetry': [
 {
   'Name': 'Temperature',
@@ -186,13 +187,13 @@ Cette modification affecte uniquement l’affichage du graphique. Les données *
 
 > [!NOTE]
 > Vous devrez peut-être désactiver, puis activer l’appareil Node.js sur la page **Appareils** du tableau de bord pour afficher immédiatement les changements.
-> 
-> 
 
 ## <a name="handle-errors"></a>des erreurs
+
 Pour qu’un flux de données s’affiche sur le graphique, son **Type** dans les métadonnées **Device-Info** doit correspondre au type de données des valeurs de télémétrie. Par exemple, si les métadonnées spécifient que le **Type** de données d’humidité est **int** et qu’un **double** est trouvé dans le flux de télémétrie, la télémétrie d’humidité ne s’affiche pas sur le graphique. Toutefois, les valeurs **d’humidité** sont toujours stockées et mises à disposition pour le traitement principal, quel qu’il soit.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Maintenant que vous savez comment utiliser la télémétrie dynamique, vous pouvez en savoir plus sur la manière dont les solutions préconfigurées utilisent les informations d’appareil : [Métadonnées relatives aux informations d’appareil dans la solution préconfigurée de surveillance à distance][lnk-devinfo].
 
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md

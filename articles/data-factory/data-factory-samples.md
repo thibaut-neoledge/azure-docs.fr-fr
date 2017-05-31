@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 05/16/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 446a7b585ca1204d49d76f71106799cbd2b0aa70
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 3013607e62a3ac532cb0c035130fe35e503a345c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -40,6 +41,7 @@ Le [dépôt GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory
 | [Pipeline hybride avec une instance locale d’Hadoop Hortonworks](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) |Cet exemple utilise un cluster Hadoop local comme cible de calcul pour exécuter des travaux dans Data Factory. La procédure est la même que pour ajouter d’autres cibles de calcul, telles qu’un cluster Hadoop HDInsight, dans le cloud. |
 | [Outil de conversion JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) |Cet outil vous permet de convertir des fichiers JSON depuis les versions antérieures à 2015-07-01-preview vers la version 2015-07-01-preview, qui est la plus récente (par défaut). |
 | [Exemple de fichier d’entrée U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |Il s’agit d’un exemple de fichier utilisé par une activité U-SQL. |
+| [Supprimer le fichier blob](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity) | Cet exemple présente un fichier C# qui peut être utilisé dans le cadre de l’activité ADF .net personnalisée pour supprimer des fichiers de l’emplacement d’objets Blob Azure source une fois que les fichiers ont été copiés.|
 
 ## <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 Vous trouverez les modèles Azure Resource Manager suivants pour Data Factory sur GitHub.
@@ -73,7 +75,7 @@ Vous pouvez utiliser la vignette **Exemples de pipelines** figurant dans la page
     ![Panneau Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Exemples dans Visual Studio
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Conditions préalables
 Les composants suivants doivent être installés sur votre ordinateur :
 
 * Visual Studio 2013 ou Visual Studio 2015
@@ -101,7 +103,7 @@ Les composants suivants doivent être installés sur votre ordinateur :
    3. Sélectionnez l’ **abonnement Azure** dans lequel vous voulez créer la fabrique de données.
    4. Sélectionnez le **groupe de ressources** pour la fabrique de données.
    5. Sélectionnez **États-Unis de l’Ouest**, **États-Unis de l’Est** ou **Europe du Nord** pour la **région**.
-   6. Cliquez sur **Next**.
+   6. Cliquez sur **Suivant**.
 6. Dans la page **Configurer des banques de données**, spécifiez une **base de données SQL Azure** et un **compte de stockage Azure** existants, ou créez-en des nouveaux, puis cliquez sur Suivant.
 7. Dans la page **Configurer le calcul**, sélectionnez les valeurs par défaut, puis cliquez sur **Suivant**.
 8. Dans la page **Résumé**, passez en revue tous les paramètres, puis cliquez sur **Suivant**.

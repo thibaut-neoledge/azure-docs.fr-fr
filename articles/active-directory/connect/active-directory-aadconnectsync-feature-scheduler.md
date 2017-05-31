@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/28/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: feb6e388a98cd6e133d010cada97f895140c3f4f
-ms.openlocfilehash: ee9a3b605c5445007f880a37e96c2326dd7c9b89
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: fe7f508ed1c4eb57663f7e252d286719af03dbb1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -45,7 +46,7 @@ Pour afficher vos paramètres de configuration en cours, accédez à PowerShell 
 
 Si le message **La commande de synchronisation ou l’applet de commande n’est pas disponible** apparaît lorsque vous exécutez cette applet de commande, le module PowerShell n'est pas chargé. Ce problème peut se produire si vous exécutez Azure AD Connect sur un contrôleur de domaine ou sur un serveur avec des niveaux de restriction PowerShell plus élevés que les paramètres par défaut. Si vous recevez cette erreur, exécutez `Import-Module ADSync` pour libérer l’applet de commande.
 
-* **AllowedSyncCycleInterval**. Fréquence maximale des synchronisations autorisée par Azure AD. Vous ne pouvez pas synchroniser plus fréquemment que ne le spécifie ce paramètre tout en maintenant la prise en charge.
+* **AllowedSyncCycleInterval**. L’intervalle de temps le plus court entre les cycles de synchronisation autorisé par Azure AD. Vous ne pouvez pas synchroniser plus fréquemment que ne le spécifie ce paramètre tout en maintenant la prise en charge.
 * **CurrentlyEffectiveSyncCycleInterval**. Planificateur actuellement en vigueur. La valeur est identique à celle de CustomizedSyncInterval (si ce paramètre est défini) si la fréquence n’est pas supérieure à AllowedSyncInterval. Si vous utilisez une version antérieure à 1.1.281 et que vous modifiez CustomizedSyncCycleInterval, cette modification prendra effet après le prochain cycle de synchronisation. À partir de la version 1.1.281, la modification prend effet immédiatement.
 * **CustomizedSyncCycleInterval**. Si vous souhaitez que le planificateur s’exécute à une fréquence autre que celle par défaut de 30 minutes, vous devez configurer ce paramètre. Dans l’image ci-dessus, le planificateur a été défini pour s’exécuter toutes les heures. Si vous choisissez une valeur inférieure à AllowedSyncInterval, ce dernier sera utilisé.
 * **NextSyncCyclePolicyType**. Delta ou Initial. Indique si la prochaine exécution doit uniquement traiter les modifications delta du processus ou si elle doit effectuer une importation et une synchronisation intégrales, ce qui aura pour effet de retraiter les nouvelles règles ou les règles modifiées.

@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 05/16/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 0637fb4d7c6cb8c3cfd4aab5d06571bd83f59683
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 183cb2ad4f2a80f9a0e1e7a33f1cacae006c0df4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -113,7 +114,7 @@ Par défaut, Data Factory utilise une unité de déplacement de données cloud u
 Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** sont les suivantes : 1 (par défaut), 2, 4, 8, 16, 32. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données.
 
 > [!NOTE]
-> Si vous avez besoin de plus d’unités de déplacement de données cloud pour un débit plus élevé, contactez le [support Azure](https://azure.microsoft.com/support/). Actuellement, un paramètre de 8 et plus fonctionne uniquement lorsque vous **copiez plusieurs fichiers à partir d’un stockage blob, d’une instance Data Lake Store, d’Amazon S3, d’un FTP cloud vers un stockage blob, une instance Data Lake Store ou Azure SQL Database**.
+> Si vous avez besoin de plus d’unités de déplacement de données cloud pour un débit plus élevé, contactez le [support Azure](https://azure.microsoft.com/support/). Actuellement, un paramètre de 8 et plus fonctionne uniquement lorsque vous **copiez plusieurs fichiers à partir d’un stockage blob, d’une instance Data Lake Store, d’Amazon S3, d’un FTP cloud, d’un SFTP cloud vers un stockage blob, une instance Data Lake Store ou Azure SQL Database**.
 >
 >
 
@@ -307,15 +308,15 @@ Si vous copiez des données depuis le **stockage Blob** vers **SQL Data Warehous
 * Pour des **bases de données relationnelles locales**, comme SQL Server et Oracle, qui requièrent l’utilisation d’une **passerelle de gestion des données**, voir la section [Considérations relatives à la passerelle de gestion des données](#considerations-for-data-management-gateway).
 
 ### <a name="nosql-stores"></a>Magasins NoSQL
-*(Inclut le Stockage Table et Azure DocumentDB)*
+*(Inclut le Stockage Table et Azure Cosmos DB)*
 
 * Pour le **Stockage Table**:
   * **Partition**: l’écriture de données en partitions entrelacées dégrade considérablement les performances. Classez vos données sources par clé de partition afin qu’elles soient insérées efficacement partition après partition, ou ajustez la logique pour écrire les données dans une seule partition.
-* Pour **DocumentDB**:
-  * **Taille de lot** : la propriété de **writeBatchSize** définit le nombre de demandes parallèles adressées au service DocumentDB pour la création de documents. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez la valeur **writeBatchSize** , car davantage de demandes parallèles sont envoyées à DocumentDB. Toutefois, regardez la limitation lorsque vous écrivez sur DocumentDB (le message d’erreur est « Le taux de demandes est élevé »). Différents facteurs peuvent entraîner la limitation, notamment la taille des documents, le nombre de termes dans les documents et la stratégie d’indexation de la collection cible. Pour obtenir un débit de copie plus élevé, songez à utiliser une meilleure collection, par exemple, S3.
+* Pour **Azure Cosmos DB** :
+  * **Taille de lot** : la propriété de **writeBatchSize** définit le nombre de demandes parallèles adressées au service Azure Cosmos DB pour la création de documents. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez la valeur **writeBatchSize** , car davantage de demandes parallèles sont envoyées à Azure Cosmos DB. Toutefois, regardez la limitation lorsque vous écrivez sur Azure Cosmos DB (le message d’erreur est « Le taux de demandes est élevé »). Différents facteurs peuvent entraîner la limitation, notamment la taille des documents, le nombre de termes dans les documents et la stratégie d’indexation de la collection cible. Pour obtenir un débit de copie plus élevé, songez à utiliser une meilleure collection, par exemple, S3.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>Considérations relatives à la sérialisation et à la désérialisation
-Une sérialisation et une désérialisation peuvent survenir quand le jeu de données d’entrée ou de sortie est un fichier. Actuellement, l’activité de copie prend en charge les formats de données Avro et texte (par exemple, CSV et TSV).
+Une sérialisation et une désérialisation peuvent survenir quand le jeu de données d’entrée ou de sortie est un fichier. Consultez la page [Formats de fichier et de compression pris en charge](data-factory-supported-file-and-compression-formats.md) qui présente des détails sur les formats de fichier pris en charge par activité de copie.
 
 **Comportement de copie**:
 
@@ -339,7 +340,7 @@ Lorsque votre jeu de données d’entrée ou de sortie est un fichier, vous pouv
 ## <a name="considerations-for-column-mapping"></a>Considérations relatives au mappage de colonnes
 Vous pouvez définir la propriété **columnMappings** dans l’activité de copie pour mapper la totalité ou un sous-ensemble des colonnes d’entrée aux colonnes de sortie. Une fois que le service de déplacement de données a lu les données de la source, il doit effectuer le mappage de colonnes sur les données avant d’écrire celles-ci sur le récepteur. Ce traitement supplémentaire réduit le débit de copie.
 
-Si votre banque de données source peut faire l’objet de requêtes, par exemple, s’il s’agit d’une banque de données relationnelle telle que SQL Database ou SQL Server ou s’il ne s’agit pas d’une banque NoSQL comme le Stockage Table ou DocumentDB, envisagez d’envoyer le filtrage de colonnes et la logique de réorganisation à la propriété **query** , au lieu d’utiliser le mappage de colonnes. Ainsi, la projection survient alors que le service de déplacement de données lit les données à partir de la banque de données source, la où elle est beaucoup plus efficace.
+Si votre banque de données source peut faire l’objet de requêtes, par exemple, s’il s’agit d’une banque de données relationnelle telle que SQL Database ou SQL Server ou s’il ne s’agit pas d’une banque NoSQL comme le Stockage Table ou Azure Cosmos DB, envisagez d’envoyer le filtrage de colonnes et la logique de réorganisation à la propriété **query** , au lieu d’utiliser le mappage de colonnes. Ainsi, la projection survient alors que le service de déplacement de données lit les données à partir de la banque de données source, la où elle est beaucoup plus efficace.
 
 ## <a name="considerations-for-data-management-gateway"></a>Considérations relatives à la passerelle de gestion des données
 Pour des recommandations relatives à la configuration de la passerelle, voir [Considérations relatives à l’utilisation de la passerelle de gestion des données](data-factory-data-management-gateway.md#considerations-for-using-gateway).
@@ -406,7 +407,7 @@ Voici des références relatives à la surveillance et au réglage des performan
 * Azure Storage (le Stockage Blob et le Stockage Table) : [Objectifs d’évolutivité d’Azure Storage](../storage/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité d’Azure Storage](../storage/storage-performance-checklist.md)
 * Base de données SQL Azure : vous pouvez [surveiller les performances](../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU)
 * Azure SQL Data Warehouse : sa capacité est mesurée en Data Warehouse Units (DWU) ; voir [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
-* Azure DocumentDB : [Niveaux de performances dans DocumentDB](../documentdb/documentdb-performance-levels.md)
+* Azure Cosmos DB : [Niveaux de performances d’Azure Cosmos DB](../documentdb/documentdb-performance-levels.md)
 * SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx)
 * Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx)
 

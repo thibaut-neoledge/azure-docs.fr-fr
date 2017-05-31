@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 05/09/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: b9eb9c7f59d0936364bad788ed3b6635b2453739
-ms.openlocfilehash: 9bcad7aaf7f1bd8c51dbfa88381276a70a4def5c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -24,7 +26,7 @@ ms.openlocfilehash: 9bcad7aaf7f1bd8c51dbfa88381276a70a4def5c
 
 Le contrôle d’accès en fonction du rôle permet aux administrateurs clients d’obtenir des élévations temporaires d’accès grâce auxquelles ils peuvent accorder des autorisations plus élevées que la normale. Un administrateur client peut s’élever lui-même au rôle d’administrateur des accès utilisateur si nécessaire. Ce rôle donne à l’administrateur client les autorisations nécessaires pour accorder à lui-même ou à d’autres des rôles au niveau de l’étendue « / ».
 
-Cette fonctionnalité est importante, car elle permet à l’administrateur client d’afficher tous les abonnements qui existent dans une organisation. Elle permet également aux applications d’automatisation (comme la facturation et les audits) d’accéder à tous les abonnements et de fournir une vue précise de l’état de l’organisation du point de vue de la gestion des actifs ou de la facturation.  
+Cette fonctionnalité est importante, car elle permet à l’administrateur client d’afficher tous les abonnements qui existent dans une organisation. Elle permet également aux applications d’automatisation (comme la facturation et les audits) d’accéder à tous les abonnements et de fournir une vue précise de l’état de l’organisation pour la facturation et la gestion des actifs.  
 
 ## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>Utiliser elevateAccess pour donner l’accès client
 
@@ -106,9 +108,4 @@ Lorsque vous appelez *elevateAccess*, vous créez une attribution de rôle pour 
 - En savoir plus sur la [gestion du contrôle d’accès en fonction du rôle à l’aide de REST](role-based-access-control-manage-access-rest.md)
 
 - [Gérer les attributions d’accès](role-based-access-control-manage-assignments.md) dans le Portail Azure
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

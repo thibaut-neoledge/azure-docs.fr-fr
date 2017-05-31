@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: e9171844e2fbac7a4e734be9144b30d1bbd0397f
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: f36ce029acebfccdfa84122a86ea3a642c048b8c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -37,7 +38,7 @@ Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font
 
 | Limitation | Hubs gratuits et S1 | Hubs S2 | Hubs S3 | 
 | -------- | ------- | ------- | ------- |
-| Opérations de registre des identités (création, récupération, création de listes, mise à jour, suppression) | 1,67/s/unité (100/min/unité) | 1,67/s/unité (100/min/unité) | 83,33/s/unité (5 000/min/unité) |
+| Opérations de registre des identités (création, récupération, création de listes, mise à jour, suppression) | 1,67/s/unité (100/min/unité) | 1.67/s/unité (100/min/unité) | 83,33/s/unité (5 000/min/unité) |
 | Connexions d’appareils | 100/s ou 12/s/unité maximum <br/> Par exemple, deux unités S1 équivalent à 2\*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9\*12) sur vos unités. | 120/s/unité | 6 000/s/unité |
 | Envois appareil-à-cloud | 100/s ou 12/s/unité maximum <br/> Par exemple, deux unités S1 équivalent à 2\*12 = 24/s, mais vous obtenez au moins 100/s sur vos unités. Avec neuf unités S1, vous obtenez 108/sec (9\*12) sur vos unités. | 120/s/unité | 6 000/s/unité |
 | Envois cloud-à-appareil | 1.67/s/unité (100/min/unité) | 1.67/s/unité (100/min/unité) | 83.33/s/unité (5 000/min/unité) |
@@ -76,6 +77,12 @@ IoT Hub applique d’autres limites à ses différentes fonctionnalités.
 
 > [!NOTE]
 > Actuellement, le nombre maximal d’appareils que vous pouvez connecter à un IoT Hub unique est 500 000. Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/en-us/support/options/).
+
+## <a name="latency"></a>Latence
+IoT Hub s’efforce de fournir une faible latence pour toutes les opérations. Toutefois, en raison des conditions du réseau et d’autres facteurs imprévisibles, il ne peut pas garantir une latence maximale. Lors de la conception de votre solution, évitez de faire des suppositions concernant la latence maximale de toute opération IoT Hub. Approvisionnez votre concentrateur IoT dans la région Azure la plus proche de vos périphériques et envisagez d’exécuter les opérations Azure IoT Edge sensibles à la latence sur le périphérique ou sur une passerelle proche de celui-ci.
+
+Plusieurs unités IoT Hub affectent la limitation comme décrit précédemment, mais ne fournissent pas d’avantages ni de garanties supplémentaires en termes de latence.
+En cas d’augmentations inattendues de latence des opérations, contactez le [Support Microsoft](https://azure.microsoft.com/en-us/support/options/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :

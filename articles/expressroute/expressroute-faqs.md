@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 5b7e2d8df2723f77aa8283d9faab22656198ed47
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3f9fb86a5bf63d24432c1ba9945a4da6cf794f13
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -66,7 +67,7 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 
 ### <a name="microsoft-peering"></a>Homologation Microsoft
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* La plupart des services Dynamics 365 (anciennement appelé CRM Online)
+* Dynamics 365 (anciennement CRM Online)
   * Dynamics 365 pour les ventes
   * Dynamics 365 pour le service client
   * Dynamics 365 pour le service après-vente
@@ -193,7 +194,7 @@ ExpressRoute Premium est un ensemble de fonctionnalités répertoriées ci-desso
 * Augmentation de la limite de la table d’itinéraires de 4 000 à 10 000 itinéraires pour l’homologation privée.
 * Augmentation du nombre de réseaux virtuels qui peuvent être connectés à un circuit ExpressRoute (la valeur par défaut est 10). Pour plus d’informations, consultez le tableau ci-dessous.
 * Connectivité globale sur le réseau principal Microsoft. Vous pouvez désormais lier un réseau virtuel dans une région géopolitique à un circuit ExpressRoute d’une autre région. **Exemple :** vous pouvez lier un réseau virtuel créé en Europe de l’Ouest à un circuit ExpressRoute créé dans la Silicon Valley. **Autre exemple :** sur l’homologation publique, des préfixes d’autres régions géopolitiques sont annoncés de sorte que vous pouvez vous connecter, par exemple, à SQL Azure en Europe de l’Ouest à partir d’un circuit dans la Silicon Valley.
-* Connectivité aux services Office 365 et CRM Online.
+* Connectivité à Office 365 et Dynamics 365.
 
 ### <a name="how-many-vnets-can-i-link-to-an-expressroute-circuit-if-i-enabled-expressroute-premium"></a>Combien de réseaux virtuels est-il possible de lier à un circuit ExpressRoute en cas d’abonnement à ExpressRoute Premium ?
 Les tableaux suivants indiquent les limites ExpressRoute et le nombre de réseaux virtuels par circuit ExpressRoute.
@@ -215,31 +216,31 @@ Consultez la page de [tarification](https://azure.microsoft.com/pricing/details/
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>Dois-je payer pour ExpressRoute Premium en plus des frais ExpressRoute standard ?
 Oui. Les frais d’ExpressRoute Premium s’ajoutent aux frais de circuit ExpressRoute et aux frais du fournisseur de connectivité.
 
-## <a name="expressroute-and-office-365-services-and-crm-online"></a>ExpressRoute, services Office 365 et CRM Online
+## <a name="expressroute-for-office-365-and-dynamics-365"></a>ExpressRoute pour Office 365 et Dynamics 365
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-crm-online"></a>Comment créer un circuit ExpressRoute pour se connecter à des services Office 365 et CRM Online ?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-dynamics-365"></a>Comment créer un circuit ExpressRoute pour se connecter à des services Office 365 et Dynamics 365 ?
 1. Consultez la [page des conditions préalables d’ExpressRoute](expressroute-prerequisites.md) pour vérifier que vous avez respecté les conditions.
 2. Passez en revue la liste des fournisseurs de services et les emplacements dans la rubrique [Partenaires et emplacements ExpressRoute](expressroute-locations.md) pour vous assurer que vos besoins de connectivité sont remplis.
 3. Planifiez vos besoins en capacité en consultant la page [Planification réseau et optimisation des performances pour Office 365](http://aka.ms/tune/).
 4. Suivez les étapes répertoriées dans les flux de travail ci-dessous pour configurer la connectivité [Flux de travail ExpressRoute d’approvisionnement du circuit et états du circuit](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Assurez-vous d’avoir activé le module complémentaire ExpressRoute lors de la configuration de la connectivité aux services Office 365 et CRM Online.
+> Assurez-vous d’avoir activé le module complémentaire ExpressRoute lors de la configuration de la connectivité aux services Office 365 et Dynamics 365.
 > 
 > 
 
-### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-crm-online"></a>Dois-je activer l’homologation publique Azure pour me connecter aux services Office 365 et CRM Online ?
+### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-dynamics-365"></a>Dois-je activer l’homologation publique Azure pour me connecter aux services Office 365 et Dynamics 365 ?
 Non, vous devez uniquement activer l’homologation Microsoft. Le trafic d'authentification vers Azure AD sera envoyé par l’homologation Microsoft. 
 
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-crm-online"></a>Mes circuits ExpressRoute existants peuvent-ils prendre en charge la connectivité aux services Office 365 et CRM Online ?
+### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Mes circuits ExpressRoute existants peuvent-ils prendre en charge la connectivité aux services Office 365 et Dynamics 365 ?
 Oui. Votre circuit ExpressRoute existant peut être configuré pour prendre en charge la connectivité aux services Office 365. Assurez-vous d'avoir une capacité suffisante pour vous connecter aux services Office 365 et d’avoir activé le module complémentaire premium. [Planification réseau et optimisation des performances pour Office 365](http://aka.ms/tune/) vous aidera à prévoir vos besoins de connectivité. Voir également [Création et modification d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md).
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>Quels services Office 365 sont accessibles via une connexion ExpressRoute ?
 Reportez-vous à la page [URL et plages d’adresses IP Office 365](http://aka.ms/o365endpoints) pour obtenir une liste à jour des services pris en charge par le biais d’ExpressRoute.
 
-### <a name="how-much-does-expressroute-for-office-365-services-and-crm-online-cost"></a>Combien coûte ExpressRoute pour les services Office 365 et CRM Online ?
-Les services Office 365 et CRM Online nécessitent l'activation d'un module premium complémentaire. La [page de tarification](https://azure.microsoft.com/pricing/details/expressroute/) fournit des informations détaillées sur les coûts d’ExpressRoute.
+### <a name="how-much-does-expressroute-for-office-365-services-and-dynamics-365-cost"></a>Combien coûte ExpressRoute pour les services Office 365 et Dynamics 365 ?
+Les services Office 365 et Dynamics 365 nécessitent l'activation d'un module premium complémentaire. La [page de tarification](https://azure.microsoft.com/pricing/details/expressroute/) fournit des informations détaillées sur les coûts d’ExpressRoute.
 
 ### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>Quelles régions sont prises en charge dans ExpressRoute pour Office 365 ?
 Consultez la rubrique [Partenaires et emplacements ExpressRoute](expressroute-locations.md) pour obtenir la liste des partenaires et des emplacements où ExpressRoute est pris en charge.

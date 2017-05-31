@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 4646521531e839e4751b4f01f7a66876dac96b57
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 196a4b8f77145f83e46b4b23e148bb3a9dffc1b5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.PasswordBox
-Contrôle qui peut être utilisé pour indiquer et confirmer un mot de passe.
+Contrôle qui peut être utilisé pour indiquer et confirmer un mot de passe. Vous utilisez cet élément lors de la [création d’une application gérée Azure](managed-application-publishing.md).
 
 ## <a name="ui-sample"></a>Exemple d’interface utilisateur
 ![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
@@ -60,6 +60,7 @@ Contrôle qui peut être utilisé pour indiquer et confirmer un mot de passe.
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+* Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées Azure](managed-application-overview.md).
 * Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](managed-application-createuidefinition-elements.md).
 

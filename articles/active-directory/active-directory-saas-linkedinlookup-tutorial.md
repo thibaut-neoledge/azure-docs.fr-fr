@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: f343d8dbbd80de1a50b625e949377aa7c48d0cae
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: a4160a89c6a06222a9239d996fcca822e1a50382
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -33,7 +33,7 @@ L’intégration de LinkedIn Lookup à Azure AD vous fait bénéficier des avant
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à LinkedIn Lookup, vous avez besoin des éléments suivants :
 
@@ -104,7 +104,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** afin d’activer l’authentification unique.
  
     ![Configurer l’authentification unique](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_samlbase.png)
 
@@ -145,13 +145,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     | --- | --- |    
     | department| user.department |
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
+   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
 
-       a. Click **Add attribute** to open the attribute details page add the department attribute as shown below-
+   a. Cliquez sur **Ajouter un attribut** pour ouvrir la page de détails de l’attribut ajouter cet attribut comme illustré ci-dessous-
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
+   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
    
-       b. Click **Ok** to save the attribute.
+   b. Cliquez sur **OK** pour enregistrer l’attribut.
 
 10. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
@@ -165,7 +165,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedIn_metadata_03.png)
 
-13. Cliquez sur **Activer** pour activer l’authentification unique. L’état de l’authentification unique passe de **Non connecté** à **Connecté**.
+13. Cliquez sur **Activer** pour activer l’authentification unique. L’état de l’authentification unique passe de **Non connecté** à **Connecté**
 
     ![Configurer l’authentification unique](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedIn_admin_05.png)
 
@@ -184,7 +184,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-LinkedInlookup-tutorial/create_aaduser_01.png) 
 
-2. Accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+2. Allez dans **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-LinkedInlookup-tutorial/create_aaduser_02.png) 
 

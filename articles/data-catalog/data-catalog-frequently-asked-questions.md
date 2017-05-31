@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76cc9c79851cc040e6a36c5499a77c0d95948154
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: c91f840077ccd9e55a403533c97a852542f0d326
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -108,7 +110,7 @@ Utilisez le forum Azure Data Catalog pour signaler des problèmes, partager des
 Nous travaillons activement à l’ajout de sources de données supplémentaires à Azure Data Catalog. S'il existe une source de données que vous souhaitez voir prise en charge, veuillez la suggérer (ou faites part de votre accord si elle a déjà été suggérée) dans le forum [Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="q-how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Q : Comment Azure Data Catalog est-il lié au catalogue de données dans Power BI pour Office 365 ?
-Vous pouvez considérer Azure Data Catalog comme une évolution de Data Catalog. Le service Azure Data Catalog offre des fonctionnalités de découverte et de publication de sources de données similaires, mais il est axé sur des scénarios plus larges et ne dépend pas d’Office 365. Peu après la mise à disposition générale d’Azure Data Catalog, les deux catalogues fusionneront pour ne former qu’un seul service.
+Vous pouvez considérer Azure Data Catalog comme une évolution de Data Catalog dans Power BI. À partir de printemps 2017, Azure Data Catalog est utilisé pour activer le partage et la découverte de requêtes dans Excel 2016 et Power Query pour Excel. Les fonctions Data Catalog d’Excel sont disponibles pour les utilisateurs disposant de licences Power BI Pro.
 
 ## <a name="q-what-permissions-does-a-user-need-to-register-assets-with-azure-data-catalog"></a>Q : Quelles sont les autorisations dont a besoin un utilisateur pour inscrire des ressources auprès d’Azure Data Catalog ?
 L’utilisateur exécutant l’outil de référencement pour Azure Data Catalog a besoin d’autorisations sur la source de données qui lui permettront de lire les métadonnées de la source. Si l'utilisateur choisit d’inclure également un aperçu, il doit aussi disposer des autorisations qui lui permettent de lire les données à partir des objets en cours d'inscription.
@@ -127,9 +129,4 @@ R : Pour mettre à jour les métadonnées pour les ressources de données qui s
 
 ## <a name="q-my-question-isnt-answered-here--what-should-i-do"></a>Q : Je n’ai pas trouvé de réponse à ma question ici. Que dois-je faire ?
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

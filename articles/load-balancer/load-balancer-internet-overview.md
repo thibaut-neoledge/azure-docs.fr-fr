@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 2684e09daa3554a5768a96ae18757a669e221efe
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1a0f69e6530f1ab3734e1a44e5be056aacb0fff0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -29,7 +30,7 @@ Pour un service cloud contenant des instances de rôles Web ou de rôles de trav
 
 Le fichier *servicedefinition.csdef* contient la configuration de point de terminaison et lorsque vous avez plusieurs instances de rôle pour un déploiement de rôle Web ou de travail, l’équilibrage de charge sera configuré pour celui-ci. Pour ajouter des instances à votre déploiement de cloud, vous devez modifier le nombre d’instances dans le fichier de configuration de service (.csfg).
 
-La figure suivante présente un point de terminaison à charge équilibrée pour le trafic Web chiffré partagé entre trois machines virtuelles pour les ports TCP public et privé 80. Celles-ci sont incluses dans un jeu d’équilibrage de la charge.
+La figure suivante présente un point de terminaison à charge équilibrée pour le trafic Web partagé entre trois machines virtuelles pour les ports TCP public et privé 80. Celles-ci sont incluses dans un jeu d’équilibrage de la charge.
 
 ![exemple d’équilibrage de charge public](./media/load-balancer-internet-overview/IC727496.png))
 

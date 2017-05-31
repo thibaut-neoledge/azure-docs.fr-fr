@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/13/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 5acfbfbe7327fc28fa909e6ef7e0f9b6ce8b0e54
-ms.openlocfilehash: e0be8f4617c2fdbe1cb6fe2f904bf9ea7056c55e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 8cb8aff4c3035ef8557e0ae0d254fcd750a9228a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -41,7 +43,7 @@ Si vous n’êtes pas familiarisé avec le proxy d’application, vous pouvez en
 > S’il s’agit de votre première utilisation du proxy d’application, choisissez une application qui est déjà configurée pour l’authentification par mot de passe. Le proxy d’application prend en charge d’autres types d’authentification, mais les applications basées sur un mot de passe sont les plus faciles à exploiter rapidement. 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur.
-2. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Ajouter**.
+2. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Nouvelle application**.
 
   ![Ajouter une application d’entreprise](./media/application-proxy-publish-azure-portal/add-app.png)
 
@@ -97,9 +99,4 @@ Dans votre navigateur, accédez à l’URL externe que vous avez configurée au 
 - [Télécharger des connecteurs](active-directory-application-proxy-enable.md) et [créer des groupes de connecteurs](active-directory-application-proxy-connectors-azure-portal.md) pour publier des applications sur des réseaux et emplacements distincts
 
 - [Configurer l’authentification unique](application-proxy-sso-azure-portal.md) pour votre application récemment publiée
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 61f09a6f103b9cedaf19f1128a21fa8d5df974a1
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: ff505246bef15d180e3844558d68a425df60c35f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -102,7 +103,7 @@ Maintenant que vous avez sélectionné le point de restauration, choisissez une 
    * Restaurer la totalité de la machine virtuelle
    * Restaurer des disques sauvegardés
 
-Le Portail fournit une option Création rapide pour la machine virtuelle restaurée. Si vous souhaitez personnaliser la configuration de la machine virtuelle ou les noms des ressources créées lors du choix de la machine virtuelle, utilisez PowerShell ou le portail pour restaurer les disques sauvegardés, utilisez les commandes PowerShell pour les joindre au choix de configuration de la machine virtuelle ou utilisez le modèle fourni avec les disques de restauration pour personnaliser la machine virtuelle restaurée. Pour plus d’informations sur la façon de restaurer une machine virtuelle possédant plusieurs cartes réseau ou sous équilibrage de charge, voir [Restauration d’une machine virtuelle avec des configurations de réseau spéciales](#restoring-vms-with-special-network-configurations). 
+Le Portail fournit une option Création rapide pour la machine virtuelle restaurée. Si vous souhaitez personnaliser la configuration de la machine virtuelle ou les noms des ressources créées lors du choix de la machine virtuelle, utilisez PowerShell ou le portail pour restaurer les disques sauvegardés, utilisez les commandes PowerShell pour les joindre au choix de configuration de la machine virtuelle ou utilisez le modèle fourni avec les disques de restauration pour personnaliser la machine virtuelle restaurée. Pour plus d’informations sur la façon de restaurer une machine virtuelle possédant plusieurs cartes réseau ou sous équilibrage de charge, voir [Restauration d’une machine virtuelle avec des configurations de réseau spéciales](#restoring-vms-with-special-network-configurations). Si votre machine virtuelle Windows utilise des [licences HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), vous devez restaurer des disques et utiliser PowerShell/modèle comme indiqué ci-dessous pour créer la machine virtuelle et veiller à spécifier LicenseType comme « Windows_Server » lors de la création de machines virtuelles pour profiter des avantages HUB sur la machine virtuelle restaurée. 
  
 ## <a name="create-a-new-vm-from-restore-point"></a>Créer une machine virtuelle à partir du point de restauration
 Si ce n’est pas encore fait, [sélectionnez un point de restauration](#restoring-vms-with-special-network-configurations) avant de procéder à la création d’une machine virtuelle à partir du point de restauration. Une fois le point de restauration sélectionné, sur le panneau **Configuration de la restauration**, entrez ou sélectionnez des valeurs pour chacun des champs suivants :
@@ -194,6 +195,7 @@ Après avoir entré les valeurs requises, acceptez les *Conditions générales*,
 * Les extensions présentes au cours de la configuration de sauvegarde sont installées, mais pas activées. En cas de problème, réinstallez les extensions. 
 * Si la machine virtuelle sauvegardée a une IP statique, la machine virtuelle restaurée aura une adresse IP dynamique après la restauration pour éviter tout conflit lors de la création d’une machine virtuelle restaurée. En savoir plus sur la façon dont vous pouvez [ajouter une adresse IP statique à la machine virtuelle restaurée](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * La machine virtuelle restaurée n’aura pas de valeur de disponibilité définie. Nous recommandons d’utiliser l’option de restauration des disques et [d’ajouter un groupe à haute disponibilité](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) lors de la création d’une machine virtuelle depuis PowerShell ou de modèles à l’aide de disques restaurés. 
+
 
 ## <a name="backup-for-restored-vms"></a>Sauvegarde de machines virtuelles restaurées
 Si vous avez restauré une machine virtuelle sur le même groupe de ressources avec le même nom que la machine virtuelle sauvegardée d’origine, la sauvegarde se poursuit sur la machine virtuelle après la restauration. Si vous avez restauré une machine virtuelle sur un autre groupe de ressources ou si vous avez spécifié un autre nom pour la machine virtuelle restaurée, celle-ci est traitée comme une machine virtuelle nouvelle et vous devez configurer la sauvegarde pour la machine virtuelle restaurée.

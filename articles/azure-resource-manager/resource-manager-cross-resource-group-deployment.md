@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/11/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 942e3b4fbc9a954eae0cc609e800d0fe0b882475
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 1436b39fdb9a66a00903442496cc5203b47c1bcb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -30,7 +30,7 @@ Le groupe de ressources est le conteneur de cycle de vie de l’application et s
 
 ## <a name="example-template"></a>Exemple de modèle
 
-Pour cibler une autre ressource, vous devez utiliser un modèle imbriqué ou lié au cours du déploiement. Le type de ressource `Microsoft.Resources/deployments` fournit un paramètre `resourceGroup` qui vous permet de spécifier un groupe de ressources différent de celui utilisé par le modèle de parent. Tous les groupes de ressources doivent exister avant l’exécution du déploiement. L’exemple suivant déploie deux comptes de stockage, un dans le groupe de ressources spécifié pendant le déploiement et l’autre dans un groupe de ressources nommé `crossResourceGroupDeployment` :
+Pour cibler une autre ressource, vous devez utiliser un modèle imbriqué ou lié au cours du déploiement. Le type de ressource `Microsoft.Resources/deployments` fournit un paramètre `resourceGroup` qui vous permet de spécifier un autre groupe de ressources pour le déploiement imbriqué. Tous les groupes de ressources doivent exister avant l’exécution du déploiement. L’exemple suivant déploie deux comptes de stockage, un dans le groupe de ressources spécifié pendant le déploiement et l’autre dans un groupe de ressources nommé `crossResourceGroupDeployment` :
 
 ```json
 {
@@ -123,3 +123,4 @@ Une fois le déploiement terminé, deux groupes de ressources s’affichent. Cha
 * Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déploiement d’un modèle privé avec un jeton SAP](resource-manager-powershell-sas-token.md).
+
