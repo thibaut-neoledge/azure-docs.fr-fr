@@ -3,7 +3,7 @@ title: "Développer des solutions intégrées avec SQL Data Warehouse | Micros
 description: "Outils et partenaires proposant des solutions s’intégrant avec SQL Data Warehouse. "
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f

@@ -1,13 +1,13 @@
 ---
 title: "Kit de développement logiciel (SDK) et ressources de l’API .NET Table Azure Cosmos DB | Microsoft Docs"
 description: "Découvrez l’API Table Azure Cosmos DB, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

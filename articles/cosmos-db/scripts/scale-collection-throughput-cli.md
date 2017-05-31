@@ -1,14 +1,14 @@
 ---
 title: "Script CLI Azure - Mettre à l’échelle le débit d’un conteneur Azure Cosmos DB | Microsoft Docs"
 description: "Exemple de script CLI Azure - Mettre à l’échelle le débit d’un conteneur Azure Cosmos DB"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample

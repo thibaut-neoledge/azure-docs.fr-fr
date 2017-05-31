@@ -1,14 +1,14 @@
 ---
 title: "Script PowerShell Azure - Obtenir la chaîne de connexion à Azure Cosmos DB pour les applications MongoDB | Microsoft Docs"
 description: "Exemple de script PowerShell Azure - Obtenir la chaîne de connexion à Azure Cosmos DB pour les applications MongoDB"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: PowerShell
 ms.topic: article
