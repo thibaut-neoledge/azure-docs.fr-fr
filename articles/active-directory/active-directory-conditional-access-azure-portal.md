@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/02/2017
+ms.date: 05/11/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 85a59eddf3c453ee112f279d439c94853b2f62b5
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 5a1ce66e02943caedd52976c5dcb3cf75c23bd49
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="conditional-access-in-azure-active-directory---preview"></a>Accès conditionnel dans Azure Active Directory - version préliminaire
+# <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](active-directory-conditional-access-azure-portal.md)
-> * [Portail Azure Classic](active-directory-conditional-access.md)
-
-
-Le comportement décrit dans cette rubrique correspond à une [version préliminaire](active-directory-preview-explainer.md).
+> * [portail Azure Classic](active-directory-conditional-access.md)
 
 Tout d’abord, dans un appareil où mobilité et cloud occupent le premier plan, Azure Active Directory autorise une authentification unique sur les appareils, applications et services depuis n’importe où. Avec la prolifération des appareils (y compris des appareils BYOD), des réseaux d’entreprise externes et des applications SaaS tierces, les professionnels de l’informatique sont confrontés à deux objectifs contradictoires :
 
@@ -117,13 +114,17 @@ En sélectionnant des applications cloud, vous définissez celles auxquelles s�
 
 - **Comment** - Tant que l’accès à vos applications s’effectue dans des conditions que vous pouvez contrôler, il est inutile d’imposer des contrôles supplémentaires sur les modalités d’accès de vos utilisateurs à vos applications cloud. Toutefois, les choses peuvent être différentes si l’accès à vos applications cloud s’effectue notamment à partir de réseaux non approuvés ou d’appareils non conformes. Dans une instruction de condition, vous pouvez définir certaines conditions d’accès qui précisent des exigences supplémentaires concernant le mode d’accès à vos applications.
 
-    ![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
+    ![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
 ## <a name="conditions"></a>Conditions
 
 Dans l’implémentation actuelle d’Azure Active Directory, vous pouvez définir des conditions pour les aspects suivants :
 
+- **Risque à la connexion** : un risque à la connexion est un objet qui permet à Azure Active Directory de déterminer la probabilité (haute, moyenne ou faible) qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. Dans cet objet, la probabilité (haute, moyenne ou faible) est stockée sous forme d’un attribut appelé [niveau de risque de connexion](active-directory-reporting-risk-events.md#risk-level). Cet objet est généré lors de la connexion d’un utilisateur si des risques de connexion ont été détectés par Azure Active Directory. Pour en savoir plus, voir [Connexions risquées](active-directory-identityprotection.md#risky-sign-ins).  
+Vous pouvez utiliser le niveau de risque de connexion calculé en tant que condition dans une stratégie d’accès conditionnel. 
+
+    ![Conditions](./media/active-directory-conditional-access-azure-portal/22.png)
 
 - **Plateformes d’appareils** – La plateforme d’appareils se caractérise par le système d’exploitation qui s’exécute sur votre appareil (Android, iOS, Windows Phone ou Windows). Vous pouvez définir les plateformes d’appareils incluses et celles qui sont exclues d’une stratégie.  
 Pour utiliser des plateformes d’appareils dans la stratégie, commencez par régler les options de configuration sur **Oui**, puis sélectionnez une, plusieurs ou l’ensemble des plateformes d’appareils auxquelles s’applique la stratégie. Si vous sélectionnez certaines plateformes d’appareils, la stratégie ne s’applique qu’à celles-ci. Dans ce cas, la stratégie est sans effet sur les connexions aux autres plateformes prises en charge.
@@ -140,65 +141,6 @@ Vous pouvez soit inclure tous les emplacements ou toutes les adresses IP approuv
 L’authentification héritée concerne les clients qui utilisent l’authentification de base, comme les anciens clients Office qui n’exploitent pas l’authentification moderne. Pour l’instant, l’accès conditionnel ne fonctionne pas avec l’authentification héritée.
 
     ![Conditions](./media/active-directory-conditional-access-azure-portal/04.png)
-
-
-## <a name="what-you-should-know"></a>Ce que vous devez savoir
-
-### <a name="do-i-need-to-assign-a-user-to-my-policy"></a>Dois-je affecter un utilisateur à ma stratégie ?
-
-Lorsque vous configurez une stratégie d’accès conditionnel, vous devez lui affecter au moins un groupe. Une stratégie d’accès conditionnel, à laquelle aucun utilisateur ou groupe n’est affecté, n’est jamais déclenchée.
-
-Lorsque vous prévoyez d’affecter plusieurs utilisateurs et groupes à une stratégie, vous devez y aller progressivement en n’affectant qu’un utilisateur ou groupe, puis en testant votre configuration. Si votre stratégie fonctionne comme prévu, ajoutez-lui d’autres affectations.  
-
-
-### <a name="how-are-assignments-evaluated"></a>Comment les affectations sont-elles évaluées ?
-
-Toutes les attributions sont reliées par l’opérateur logique **AND**. Si vous configurez plusieurs affectations, elles doivent toutes être satisfaites pour que la stratégie soit déclenchée.  
-
-Pour configurer une condition d’emplacement applicable à toutes les connexions non établies depuis le réseau de votre organisation, vous devez :
-
-- inclure **tous les emplacements**,
-- exclure **toutes les adresses IP approuvées**.
-
-### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Que se passe-t-il si vous avez configuré des stratégies dans le portail Azure Classic et le portail Azure ?  
-Azure Active Directory applique les deux stratégies et l’utilisateur n’obtient l’accès que si toutes les conditions requises sont remplies.
-
-### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Que se passe-t-il si vous avez des stratégies dans le portail Intune Silverlight et le portail Azure ?
-Azure Active Directory applique les deux stratégies et l’utilisateur n’obtient l’accès que si toutes les conditions requises sont remplies.
-
-### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Que se passe-t-il si j’ai configuré plusieurs stratégies pour le même utilisateur ?  
-À chaque connexion, Azure Active Directory évalue toutes les stratégies et vérifie que toutes les conditions requises sont remplies avant d’accorder l’accès à l’utilisateur.
-
-
-### <a name="does-conditional-access-work-with-exchange-activesync"></a>L’accès conditionnel fonctionne-t-il avec Exchange ActiveSync ?
-
-Oui, vous pouvez utiliser Exchange ActiveSync dans une stratégie d’accès conditionnel.
-
-
-### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>Que se passe-t-il si je demande une authentification multifacteur et un appareil conforme ?
-
-Actuellement, l’utilisateur est invité à utiliser l’authentification multifacteur, quel que soit l’appareil.
-
-
-## <a name="what-you-should-avoid-doing"></a>Ce que vous devez éviter
-
-L’infrastructure d’accès conditionnel vous offre une souplesse de configuration exceptionnelle. Toutefois, une grande souplesse signifie également que vous devez examiner chaque stratégie de configuration avant de la mettre en œuvre afin d’éviter des résultats indésirables. Dans ce contexte, prêtez une attention particulière à l’affectation de jeux complets comme par exemple **tous les utilisateurs / groupes / applications cloud**.
-
-Dans votre environnement, vous devez éviter les configurations suivantes :
-
-
-**Pour tous les utilisateurs, toutes les applications cloud :**
-
-- **Bloquer l’accès** : cette configuration bloque toute votre organisation, ce qui n’est pas une bonne idée.
-
-- **Exiger un appareil conforme** : pour les utilisateurs qui n’ont pas encore inscrit leurs appareils, cette stratégie bloque tout accès, notamment l’accès au portail Intune. Si vous êtes un administrateur sans appareil inscrit, cette stratégie vous bloque et vous ne pouvez pas retourner dans le portail Azure pour modifier la stratégie.
-
-- **Exiger la jonction de domaine** : ce blocage d’accès par stratégie peut également bloquer l’accès pour tous les utilisateurs de votre organisation si vous n’avez pas encore d’appareil joint à un domaine.
-
-
-**Pour tous les utilisateurs, toutes les applications cloud, toutes les plates-formes d’appareils :**
-
-- **Bloquer l’accès** : cette configuration bloque toute votre organisation, ce qui n’est pas une bonne idée.
 
 
 ## <a name="common-scenarios"></a>Scénarios courants
@@ -228,3 +170,4 @@ De nombreux clients Intune utilisent l’accès conditionnel pour vérifier que 
 
 Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
+Pour plus d’informations sur les éléments à connaître ce que vous devez évite lors de la configuration des stratégies d’accès conditionnel, consultez 

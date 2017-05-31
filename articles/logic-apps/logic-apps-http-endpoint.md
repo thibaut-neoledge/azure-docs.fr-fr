@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: jehollan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e0bf2edebfda479532a2ce71deff4623179910f3
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 32a5cfdb520c745dbd0fa5c433849bd3783a364e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -275,6 +276,10 @@ Voici à quoi ressemble désormais le schéma JSON pour l’action **Response**�
 #### <a name="q-what-about-url-security"></a>Q : Qu’en est-il de la sécurité de l’URL ?
 
 R : Les URL de rappel de l’application logique sont générées de façon sécurisée par Azure via une signature d’accès partagé (SAP). Cette signature est transmise directement comme paramètre de requête et doit être validée avant que votre application logique puisse être déclenchée. Azure génère cette signature via la combinaison unique d’une clé secrète par application logique, du nom du déclencheur et de l’opération qui est effectuée. Ainsi, à moins que quelqu’un ait accès à la clé secrète de l’application logique, personne ne peut générer de signature valide.
+
+   > [!NOTE]
+   > Pour les systèmes de production/sécurisés, nous recommandons vivement d’appeler votre application logique directement à partir du navigateur, car une clé d’accès partagé est incluse dans l’URL, et en raison de l’incapacité à gérer les stratégies de contenu sécurisé lorsque les domaines sont partagés entre clients de l’application logique.
+
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>Q : Puis-je configurer des points de terminaison HTTP de façon plus poussée ?
 

@@ -1,25 +1,25 @@
 ---
 title: "API Java, Kit de développement logiciel (SDK) et ressources Azure DocumentsDB | Microsoft Docs"
 description: "Découvrez l&quot;API et le Kit de développement logiciel (SDK) Java, y compris les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Java DocumentDB."
-services: documentdb
+services: cosmosdb
 documentationcenter: java
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 05/10/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 40ea65f692d1e2cbc39a6c65b2f8b255282e34cc
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 11fb5aa52a99414d8b7052d2a9904c260d4cdc9a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/20/2017
 > * [Node.JS](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -52,6 +52,11 @@ ms.lasthandoff: 04/20/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
+* Prise en charge ajoutée de la fonctionnalité Unité de requête par minute (RU/m).
+* Prise en charge ajoutée pour un nouveau niveau de cohérence nommé ConsistentPrefix.
+* Correction d’un bogue de lecture de collection en mode de session.
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 * Activation de la prise en charge de la collection partitionnée avec au minimum 2 500 RU/seconde et des incréments d’évolution de 100 RU/seconde.
@@ -151,7 +156,7 @@ Microsoft fournira une notification au moins **12 mois** avant le retrait d’u
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit de développement logiciel (SDK) actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du Kit de développement logiciel (SDK) dès que possible.
 
-Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le service.
+Toute requête envoyée à Cosmos DB qui utilise un SDK supprimé est rejetée par le service.
 
 > [!WARNING]
 > Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Java antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
@@ -162,6 +167,7 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |10 mai 2017 |--- |
 | [1.10.0](#1.10.0) |11 mars 2017 |--- |
 | [1.9.6](#1.9.6) |21 février 2017 |--- |
 | [1.9.5](#1.9.5) |31 janvier 2017 |--- |
@@ -194,6 +200,6 @@ Toute requête à DocumentDB utilisant un Kit SDK supprimé est rejetée par le 
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>Voir aussi
-Pour en savoir plus sur DocumentDB, consultez la page du service [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) .
+Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 
 

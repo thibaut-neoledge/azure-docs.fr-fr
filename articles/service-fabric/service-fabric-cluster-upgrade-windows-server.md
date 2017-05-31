@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0c62f84993c83619cd55f9081450deaf0b21c090
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -112,6 +113,10 @@ Suivez ces étapes pour mettre à niveau votre cluster vers une version prise en
 > Si vous utilisez un cluster qui n’est pas connecté à Internet, vous devrez consulter régulièrement le blog de l’équipe Service Fabric pour être averti de la disponibilité des nouvelles versions. Le système n’affiche pas d’avertissement concernant l’intégrité du cluster vous alertant en cas de disponibilité d’une nouvelle version.  
 >
 >
+
+#### <a name="auto-provisioning-vs-manual-provisioning"></a>Approvisionnement automatique vs. approvisionnement manuel
+Pour activer le téléchargement et l’inscription automatiques pour la dernière version du code, configurez le service de mise à jour de Service Fabric. Reportez-vous à Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt dans le [package autonome](service-fabric-cluster-standalone-package-contents.md) pour plus d’instructions.
+Pour le processus manuel, procédez comme suit.
 
 Modifiez la configuration du cluster pour définir la propriété suivante sur false avant de commencer la mise à niveau d’une configuration.
 

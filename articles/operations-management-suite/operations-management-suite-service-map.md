@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: aca6cd69647406d0140d8b0d0cba8e4690b04ae1
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: ce71f8cd842746e6e236f4a2034ba3ee3001586c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -53,7 +54,7 @@ Les agents Carte de service rassemblent des informations sur tous les processus 
 
 Les ordinateurs peuvent être développés sur le mappage de manière à afficher les processus en cours d’exécution avec les connexions réseau actives pendant la période sélectionnée.  Lorsqu’un ordinateur distant avec un agent Carte de service est développé pour afficher les détails du processus, seuls les processus qui communiquent avec l’ordinateur ciblé sont affichés.  Le nombre d’ordinateurs frontaux sans agent qui se connectent à l’ordinateur ciblé est indiqué à gauche des processus auxquels ils se connectent.  Si l’ordinateur actif se connecte à un ordinateur principal sans agent, ce serveur principal est inclus dans un groupe de ports du serveur, avec d’autres connexions vers le même numéro de port.
 
-Par défaut, les mappages Carte de service affichent les 10 dernières minutes des informations de dépendance.  À l’aide des contrôles de temps en haut à gauche, les mappages peuvent être interrogés selon des plages horaires d’historique, jusqu’à une échelle d’une heure, pour montrer l’aspect passé des dépendances, par exemple, pendant un incident ou avant une modification.    Les données Carte de service sont stockées pendant 30 jours dans les espaces de travail payants et pendant 7 jours dans les espaces de travail gratuits.
+Par défaut, les mappages Carte de service affichent les 30 dernières minutes des informations de dépendance.  À l’aide des contrôles de temps en haut à gauche, les mappages peuvent être interrogés selon des plages horaires d’historique, jusqu’à une échelle d’une heure, pour montrer l’aspect passé des dépendances, par exemple, pendant un incident ou avant une modification.    Les données Carte de service sont stockées pendant 30 jours dans les espaces de travail payants et pendant 7 jours dans les espaces de travail gratuits.
 
 ## <a name="status-badges-and-border-coloring"></a>Badges d’état et couleur de bordure
 En bas de chaque serveur dans le mappage, une liste de badges état affiche des informations sur l’état du serveur.  Les badges indiquent qu’il existe des informations pertinentes concernant le serveur provenant d'une des intégrations de solutions OMS.  En cliquant sur un badge, vous accédez directement aux détails de l’état dans le volet droit.  Les badges d’état actuellement disponibles incluent les alertes, les modifications, la sécurité et les mises à jour.
@@ -88,7 +89,7 @@ Les groupes de clients sont des zones sur la carte qui représentent des ordinat
 
 ![Groupes de clients](media/oms-service-map/client-groups.png)
 
-Pour afficher les adresses IP des serveurs d’un groupe de clients, sélectionnez le groupe.  Le contenu du groupe apparaît dans le panneau Propriétés.
+Pour afficher les adresses IP des serveurs d’un groupe de clients, sélectionnez le groupe.  Le contenu du groupe s’affiche dans le panneau Propriétés.
 
 ![Propriétés du groupe de clients](media/oms-service-map/client-group-properties.png)
 
@@ -109,7 +110,7 @@ L'option Charger la carte du serveur permet d’accéder à une nouvelle carte a
 L'option Afficher les liens réflexifs redessine le nœud du serveur, y compris les liens réflexifs, qui représentent les connexions TCP qui commencent et se terminent sur des processus au sein du serveur.  Si des liens réflexifs sont affichés, le menu passe à Masquer les liens réflexifs, permettant aux utilisateurs d'afficher ou de masquer les liens réflexifs.
 
 ## <a name="computer-summary"></a>Résumé de l’ordinateur
-Le volet Résumé de l’ordinateur inclut une vue d’ensemble du système d’exploitation d’un serveur et du nombre de dépendances avec une grande variété de données issues d’autres solutions OMS, notamment les mesures de performances, le suivi des modifications, la sécurité, les mises à jour, etc.
+Le volet Résumé de l’ordinateur inclut une vue d’ensemble du système d’exploitation d’un serveur et du nombre de dépendances avec des données issues d’autres solutions OMS, notamment les mesures de performances, le suivi des modifications, la sécurité, les mises à jour, etc.
 
 ![Résumé de l’ordinateur](media/oms-service-map/machine-summary.png)
 
@@ -143,6 +144,17 @@ Carte de service intègre la recherche dans les journaux pour afficher un nombre
 
 ![Événements du journal](media/oms-service-map/log-events.png)
 
+## <a name="oms-service-desk-integration"></a>Intégration du service d’assistance OMS
+L’intégration de Carte de service avec IT Service Management Connector est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail OMS.  L’intégration dans Service Map est intitulée « Service d’assistance ».  [Pour plus d’informations sur l’activation et la configuration du connecteur ITSM.](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)
+
+Le panneau du service d’assistance affiche une liste de tous les événements de gestion des services informatiques pour le serveur sélectionné pendant la période sélectionnée.  Le serveur affiche une icône si des éléments sont en cours et le panneau du service d’assistance répertorie les alertes.
+![Panneau du service d’assistance](media/oms-service-map/service-desk.png)
+
+Cliquez sur « Afficher élément de travail » pour ouvrir l’élément dans votre solution ITSM connectée.
+
+Cliquez sur « Afficher dans la recherche dans les journaux » pour afficher les détails de l’élément dans la recherche.
+
+
 ## <a name="oms-change-tracking-integration"></a>Intégration du suivi des modifications OMS
 L’intégration de Carte de service avec le suivi des modifications est automatique lorsque les deux solutions sont activées et configurées dans votre espace de travail OMS.
 
@@ -172,7 +184,7 @@ Le panneau de mises à jour de la machine affiche les données de la solution de
 ![Volet de suivi des modifications de l’ordinateur](media/oms-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
-Les données d’inventaire des ordinateurs et processus Carte de service peuvent faire l’objet d’une [recherche](../log-analytics/log-analytics-log-searches.md) dans Log Analytics.  Cela peut s’appliquer à de nombreux scénarios, y compris la planification de la migration, l’analyse de la capacité, la détection et la résolution des problèmes de performances ad hoc.
+Les données d’inventaire des ordinateurs et processus Carte de service peuvent faire l’objet d’une [recherche](../log-analytics/log-analytics-log-searches.md) dans Log Analytics.  Ces données peuvent s’appliquer à de nombreux scénarios, y compris la planification de la migration, l’analyse de la capacité, la détection et la résolution des problèmes de performances ad hoc à la demande.
 
 Un enregistrement est généré par heure pour chaque processus et ordinateur unique en plus des enregistrements générés quand un processus ou ordinateur démarre ou est intégré à Carte de service.  Les propriétés de ces enregistrements sont décrites dans les tableaux suivants.  Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Ordinateur dans l’API ARM ServiceMap.  Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API ARM ServiceMap.  Le champ ResourceName_s correspond au champ du nom de la ressource ARM correspondante. Remarque : à mesure que les fonctionnalités Service Map se développent, ces champs sont susceptibles d’être modifiés.
 
@@ -199,7 +211,7 @@ Les enregistrements de type **ServiceMapComputer_CL** ont des données d’inven
 | DnsNames_s | tableau de noms DNS |
 | OperatingSystemFamily_s | Windows ou Linux |
 | OperatingSystemFullName_s | nom complet du système d’exploitation  |
-| Bitness_s | nombre de bits de l’ordinateur (32 bits) ou (64 bits) |
+| Bitness_s | nombre de bits de la machine (32 bits) ou (64 bits) |
 | PhysicalMemory_d | mémoire physique en Mo |
 | Cpus_d | nombre de processeurs |
 | CpuSpeed_d | vitesse du processeur en MHz|
@@ -270,7 +282,7 @@ Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
-## <a name="rest-api"></a>API REST
+## <a name="rest-api"></a>de l’API REST
 L’ensemble des données relatives au serveur, au processus et aux dépendances dans Carte de service est disponible via [l’API REST Carte de service](https://docs.microsoft.com/rest/api/servicemap/).
 
 
