@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 05/04/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 82bc44b20158a22dfae0d6c8fbf5f1c1f4577c91
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 3d0508c5cc31ab9fda728596895aaab8e4cb7814
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -115,22 +116,22 @@ Une fois que l’utilisateur est authentifié à l’aide d’Azure AD, il est 
 
 Chaque interaction du schéma présenté dans la Figure X représente un scénario de contrôle d’accès qui peut être couvert par Azure AD. Une description de chaque scénario est disponible ci-dessous :
 
-1.L’accès conditionnel aux applications hébergées en local : vous pouvez utiliser des appareils inscrits avec des stratégies d’accès pour les applications qui sont configurées pour utiliser les services AD FS avec Windows Server 2012 R2. Pour plus d’informations sur la configuration d’un accès conditionnel en local, consultez la rubrique [Configuration d'un accès conditionnel en local à l'aide du service d'inscription d'appareils Azure Active Directory](active-directory-conditional-access.md).
+1. Accès conditionnel aux applications hébergées en local : vous pouvez utiliser des appareils inscrits avec des stratégies d’accès pour les applications qui sont configurées de manière à utiliser les services AD FS avec Windows Server 2012 R2. Pour plus d’informations sur la configuration d’un accès conditionnel en local, consultez la rubrique [Configuration d'un accès conditionnel en local à l'aide du service d'inscription d'appareils Azure Active Directory](active-directory-conditional-access.md).
 
-2.Contrôle d’accès pour le portail de gestion Azure : Azure a également la possibilité de contrôler l’accès au portail de gestion à l’aide de RBAC (contrôle d’accès en fonction du rôle). Cette méthode permet aux entreprises de limiter la quantité d’opérations qu’un individu peut effectuer une fois qu’il a accès au portail de gestion Azure. En utilisant RBAC pour contrôler l’accès au portail, les administrateurs informatiques peuvent déléguer l’accès à l’aide des approches de gestion de l’accès suivantes :
+2. Contrôle d’accès au portail Azure : Azure vous permet également de contrôler l’accès au portail à l’aide du contrôle d’accès en fonction du rôle (RBAC). Cette méthode permet aux entreprises de limiter la quantité d’opérations qu’un individu peut effectuer dans le portail Azure. En utilisant le contrôle d’accès en fonction du rôle pour contrôler l’accès au portail, les administrateurs informatiques peuvent déléguer l’accès à l’aide des approches de gestion de l’accès suivantes :
 
 * Affectation de rôles basés sur les groupes : vous pouvez affecter l’accès aux groupes Azure AD qui peuvent être synchronisés à partir de votre Active Directory local. Cela vous permet d’exploiter les investissements existants effectués par votre organisation dans les outils et processus pour la gestion des groupes. Vous pouvez également utiliser la fonctionnalité de gestion déléguée des groupes d’Azure AD Premium.
 * Exploitation des rôles intégrés dans Azure : vous pouvez utiliser trois rôles (Propriétaire, Contributeur et Lecteur), pour vous assurer que les utilisateurs et groupes sont uniquement autorisés à effectuer les tâches dont ils ont besoin pour faire leur travail.
 * Accès granulaire aux ressources : vous pouvez affecter des rôles aux utilisateurs et aux groupes pour un abonnement spécifique, un groupe de ressources ou une ressource Azure individuelle comme un site web ou une base de données. De cette façon, vous pouvez vous assurer que les utilisateurs ont accès à toutes les ressources dont ils ont besoin, et non aux ressources qu’ils n’ont pas besoin de gérer.
 
 > [!NOTE]
-> Pour plus d’informations sur cette fonctionnalité, consultez la rubrique [Contrôle d’accès en fonction du rôle dans Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) . Pour les développeurs qui créent des applications et veulent personnaliser le contrôle d’accès pour celles-ci, il est également possible d’utiliser les rôles d’application Azure AD pour l’autorisation. Passez en revue cet [exemple WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) sur la manière de créer votre application de sorte qu’elle utilise cette fonctionnalité.
+> Si vous créez des applications et souhaitez personnaliser le contrôle d’accès pour celles-ci, il est également possible d’utiliser les rôles d’application Azure AD pour l’autorisation. Passez en revue cet [exemple WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) sur la manière de créer votre application de sorte qu’elle utilise cette fonctionnalité.
 >
 >
 
-3.Accès conditionnel pour les applications Office 365 avec Microsoft Intune : les administrateurs informatiques peuvent configurer des stratégies d’appareil d’accès conditionnel pour sécuriser les ressources d’entreprise, tout en autorisant les travailleurs de l’information à accéder aux services sur les appareils compatibles. Pour plus d’informations, consultez la rubrique [Stratégies d’accès conditionnel basées sur les appareils pour les services Office 365](active-directory-conditional-access-device-policies.md).
+3. Accès conditionnel pour les applications Office 365 avec Microsoft Intune : les administrateurs informatiques peuvent configurer des stratégies d’appareil d’accès conditionnel pour sécuriser les ressources d’entreprise, tout en autorisant les travailleurs de l’information à accéder aux services sur les appareils conformes. Pour plus d’informations, consultez la rubrique [Stratégies d’accès conditionnel basées sur les appareils pour les services Office 365](active-directory-conditional-access-device-policies.md).
 
-4.Accès conditionnel pour les applications SaaS : [cette fonction](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé. Vous pouvez appliquer les règles d’authentification multifacteur à tous les utilisateurs affectés à l’application, ou uniquement aux utilisateurs au sein de groupes de sécurité spécifiques. Les utilisateurs qui accèdent à l’application à partir d’une adresse IP qui appartient au réseau de l’organisation peuvent être exclus de l’obligation d’une authentification multifacteur.
+4. Accès conditionnel pour les applications SaaS : [cette fonctionnalité](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) vous permet de configurer des règles d’accès pour l’authentification multifacteur pour chaque application et de bloquer l’accès des utilisateurs qui ne sont pas connectés à un réseau approuvé. Vous pouvez appliquer les règles d’authentification multifacteur à tous les utilisateurs affectés à l’application, ou uniquement aux utilisateurs au sein de groupes de sécurité spécifiques. Les utilisateurs qui accèdent à l’application à partir d’une adresse IP qui appartient au réseau de l’organisation peuvent être exclus de l’obligation d’une authentification multifacteur.
 
 Étant donné que les options de contrôle d’accès utilisent une approche multicouche, la comparaison entre ces options n’est pas pertinente pour cette tâche. Assurez-vous que vous exploitez toutes les options disponibles pour chaque scénario dont vous devez contrôler l’accès à vos ressources.
 

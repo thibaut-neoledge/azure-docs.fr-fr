@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/05/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f9f29cd20020ec5e6538bf1dd31e89c2f7adcc92
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: df37f4e7975f1f399398d5c881d17cbe3833ee45
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -37,7 +38,7 @@ Le tableau suivant fournit une liste d’environnements de calcul pris en charge
 ## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>Versions de HDInsight prises en charge dans Azure Data Factory
 Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d'une version crée une version spécifique de la distribution de la plateforme de données Hortonworks (HDP) et un ensemble de composants qui sont contenus dans cette distribution. Microsoft met systématiquement à jour la liste des versions prises en charge de HDInsight pour fournir les derniers correctifs et composants de l’écosystème Hadoop. HDInsight 3.2 est déconseillé depuis le 01/04/2017 ; pour plus d’informations, consultez la page [Versions de HDInsight prises en charge](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-Ceci influe sur les fabriques de données Azure Data Factory existantes, où des activités sont en cours d’exécution sur des clusters HDInsight 3.2. Nous recommandons aux utilisateurs de suivre les instructions ci-dessous pour mettre à jour les fabriques de données concernées.
+Ceci influe sur les fabriques de données Azure Data Factory existantes, où des activités sont en cours d’exécution sur des clusters HDInsight 3.2. Nous recommandons aux utilisateurs de suivre les instructions de la section suivante pour mettre à jour les fabriques de données concernées :
 
 ### <a name="for-linked-services-pointing-to-your-own-hdinsight-clusters"></a>Pour les services liés qui pointent vers vos propres clusters HDInsight
 * **Services liés HDInsight qui pointent vers vos propres clusters HDInsight version 3.2 ou antérieure :**
@@ -58,24 +59,24 @@ Ceci influe sur les fabriques de données Azure Data Factory existantes, où des
 ### <a name="for-hdinsight-on-demand-linked-services"></a>Pour les services liés à la demande HDInsight
 * **La version 3.2 ou antérieure est spécifiée dans la définition JSON des services liés à la demande HDInsight :**
   
-  Azure Data Factory permettra la prise en charge de la création de clusters HDInsight version 3.3 ou ultérieure à la demande à partir du **05/05/2017**. Par ailleurs, la fin du support des services liés HDInsight 3.2 à la demande sera étendue jusqu’au **05/07/2017**.  
+  Azure Data Factory prend en charge la création de clusters HDInsight à la demande en version 3.3 ou ultérieure à partir du **15/05/2017**. Par ailleurs, la fin du support des services liés à HDInsight 3.2 à la demande est étendue jusqu’au **15/07/2017**.  
 
   **Recommandations :** 
   * Effectuez des tests pour vérifier la compatibilité des activités qui font référence à ces services liés avec [la dernière version de HDInsight prise en charge](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) selon les informations documentées sur les pages [Composants Hadoop disponibles avec différentes versions de HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) et [Notes de publication de Hortonworks associées aux versions de HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
-  * Avant le **05/07/2017**, mettez à jour la propriété Version de la définition JSON des services liés HDI à la demande vers [la dernière version de HDInsight prise en charge](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) pour obtenir les derniers correctifs et composants de l’écosystème Hadoop. Vous trouverez la définition JSON détaillée sur la page [Exemple de service lié à la demande Azure HDInsight](#azure-hdinsight-on-demand-linked-service). 
+  * D’ici au **15/07/2017**, mettez à jour la propriété Version dans la définition JSON des services liés à HDInsight à la demande avec [la version de HDInsight la plus récente prise en charge](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) pour obtenir les derniers correctifs et composants de l’écosystème Hadoop. Vous trouverez la définition JSON détaillée sur la page [Exemple de service lié à la demande Azure HDInsight](#azure-hdinsight-on-demand-linked-service). 
 
 * **Version non spécifiée dans les services liés HDInsight à la demande :**
   
-  Azure Data Factory permettra la prise en charge de la création de clusters HDInsight version 3.3 ou ultérieure à la demande à partir du **05/05/2017**. Par ailleurs, la fin du support des services liés HDInsight 3.2 à la demande sera étendue jusqu’au **05/07/2017**. 
+  Azure Data Factory prend en charge la création de clusters HDInsight à la demande en version 3.3 ou ultérieure à partir du **15/05/2017**. Par ailleurs, la fin du support des services liés à HDInsight 3.2 à la demande est étendue jusqu’au **15/07/2017**. 
 
-  Avant le **05/05/2017**, la valeur par défaut des propriétés version et osType, si elles sont vides, est la suivante : 
+  D’ici au **15/05/2017**, si elles sont laissées vides, les valeurs par défaut des propriétés version et osType sont les suivantes : 
 
   | Propriété | Valeur par défaut | Requis |
   | --- | --- | --- |
   Version    | HDI 3.1 pour un cluster Windows et HDI 3.2 pour un cluster Linux.| Non
   osType | Windows (valeur par défaut) | Non
 
-  Après le **05/05/2017**, la valeur par défaut des propriétés version et osType, si elles sont vides, est la suivante :
+  Après le **15/05/2017**, si elles sont laissées vides, les valeurs par défaut des propriétés version et osType sont les suivantes :
 
   | Propriété | Valeur par défaut | Requis |
   | --- | --- | --- |
@@ -83,12 +84,12 @@ Ceci influe sur les fabriques de données Azure Data Factory existantes, où des
   osType | Linux (valeur par défaut)    | Non
 
   **Recommandations :** 
-  * Avant le **05/05/2017**, mettez à jour le service lié de façon à définir explicitement la combinaison version - osType attendue dans la définition JSON des services liés HDInsight à la demande. Vous pouvez spécifier la version 3.2 pour assurer une compatibilité descendante. 
-  * Entre le**05/05/2017** et le **05/07/2017**, effectuez des tests pour vérifier la compatibilité des activités qui font référence à ces services liés avec [la dernière version de HDInsight prise en charge](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) selon les informations documentées sur les pages [Composants Hadoop disponibles avec différentes versions de HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) et [Notes de publication de Hortonworks associées aux versions de HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
-  * Avant le **07/05/2017**, définissez la propriété Version de la définition JSON des services liés HDInsight à la demande sur [la dernière version de HDInsight prise en charge](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) ou utilisez la valeur par défaut, HDInsight 3.5, pour obtenir les derniers correctifs et composants de l’écosystème Hadoop. Vous trouverez la définition JSON détaillée sur la page [Exemple de service lié à la demande Azure HDInsight](#azure-hdinsight-on-demand-linked-service).
+  * D’ici au **05/15/2017**, mettez à jour le service lié de façon à définir explicitement la combinaison Version - osType attendue dans la définition JSON des services liés à HDInsight à la demande. Vous pouvez spécifier la version 3.2 pour assurer une compatibilité descendante. 
+  * Entre le **15/05/2017** et le **15/07/2017**, effectuez des tests pour vérifier la compatibilité des activités qui référencent ces services liés avec [la dernière version de HDInsight prise en charge](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) selon les informations documentées dans [Composants Hadoop disponibles avec les différentes versions de HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) et [Notes de publication de Hortonworks associées aux versions de HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
+  * D’ici au **15/07/2017**, définissez la propriété Version de la définition JSON des services liés à HDInsight à la demande sur [la dernière version de HDInsight prise en charge](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) ou utilisez la valeur par défaut, qui est HDInsight 3.5, pour obtenir les derniers correctifs et composants de l’écosystème Hadoop. Vous trouverez la définition JSON détaillée sur la page [Exemple de service lié à la demande Azure HDInsight](#azure-hdinsight-on-demand-linked-service).
 
 >[!Note]
->Actuellement, Azure Data Factory ne prend pas en charge les clusters HDInsight avec Azure Data Lake Store comme magasin principal. Vous devrez utiliser le Stockage Azure comme magasin principal des clusters HDInsight. 
+>Actuellement, Azure Data Factory ne prend pas en charge les clusters HDInsight avec Azure Data Lake Store comme magasin principal. Utilisez Stockage Azure comme magasin principal pour les clusters HDInsight. 
 >  
 >  
 
@@ -137,7 +138,7 @@ Pour utiliser un cluster HDInsight Windows, définissez **osType** sur **windows
 > [!IMPORTANT]
 > Le cluster HDInsight crée un **conteneur par défaut** dans le stockage d’objets blob que vous avez spécifié dans le JSON (**linkedServiceName**). HDInsight ne supprime pas ce conteneur lorsque le cluster est supprimé. Ce comportement est normal. Avec le service lié HDInsight à la demande, un cluster HDInsight est créé à chaque fois qu’une tranche doit être traitée, à moins qu’il n’existe un cluster activé (**timeToLive**), et est supprimé une fois le traitement activé. 
 > 
-> Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Le nom de ces conteneurs suit un modèle : « **nomdevotrefabriquededonnéesadf**-**nomduservicelié**-horodatage ». Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
+> Comme un nombre croissant de tranches sont traitées, vous voyez un grand nombre de conteneurs dans votre stockage d’objets blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
 > 
 > 
 
@@ -146,10 +147,10 @@ Pour utiliser un cluster HDInsight Windows, définissez **osType** sur **windows
 | --- | --- | --- |
 | type |La propriété de type doit être définie sur **HDInsightOnDemand**. |Oui |
 | clusterSize |Nombre de nœuds worker/données dans le cluster. Le cluster HDInsight est créé avec 2 nœuds principaux et le nombre de nœuds worker que vous spécifiez pour cette propriété. Les nœuds étant de taille Standard_D3 à 4 cœurs, un cluster à 4 nœuds de travail prend 24 cœurs (4\*4 = 16 nœuds pour les nœuds de travail + 2\*4 = 8 cœurs pour les nœuds principaux). Pour plus d’informations sur le niveau Standard_D3, voir [Création de clusters Hadoop basés sur Linux dans HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). |yes |
-| timetolive |La durée d’inactivité autorisée pour le cluster HDInsight à la demande. Spécifie la durée pendant laquelle le cluster HDInsight à la demande reste actif après l’achèvement d’une exécution d’activité s’il n’existe aucun autre travail actif dans le cluster.<br/><br/>Par exemple, si une exécution d’activité prend 6 minutes et si la propriété TimeToLive est définie sur 5 minutes, le cluster reste actif pendant 5 minutes après les 6 minutes du traitement de l’exécution d’activité. Si une autre exécution d’activité intervient dans la fenêtre de 6 minutes, elle est traitée par le même cluster.<br/><br/>La création d’un cluster HDInsight à la demande étant une opération coûteuse (elle peut prendre du temps), utilisez ce paramètre selon le besoin pour améliorer les performances d’une fabrique de données en réutilisant un cluster HDInsight à la demande.<br/><br/>Si vous définissez la valeur de la propriété TimeToLive sur 0, le cluster est supprimé dès que l’exécution d’activité est traitée. En revanche, si vous définissez une valeur élevée, le cluster peut rester inactif inutilement entraînant des coûts élevés. Par conséquent, il est important de définir la valeur appropriée en fonction de vos besoins.<br/><br/>Plusieurs pipelines peuvent partager la même instance du cluster HDInsight à la demande si la valeur de la propriété TimeToLive est correctement définie. |Oui |
+| timetolive |La durée d’inactivité autorisée pour le cluster HDInsight à la demande. Spécifie la durée pendant laquelle le cluster HDInsight à la demande reste actif après l’achèvement d’une exécution d’activité s’il n’existe aucun autre travail actif dans le cluster.<br/><br/>Par exemple, si une exécution d’activité prend 6 minutes et si la propriété TimeToLive est définie sur 5 minutes, le cluster reste actif pendant 5 minutes après les 6 minutes du traitement de l’exécution d’activité. Si une autre exécution d’activité intervient dans la fenêtre de 6 minutes, elle est traitée par le même cluster.<br/><br/>La création d’un cluster HDInsight à la demande étant une opération coûteuse (elle peut prendre du temps), utilisez ce paramètre selon le besoin pour améliorer les performances d’une fabrique de données en réutilisant un cluster HDInsight à la demande.<br/><br/>Si vous définissez la valeur de la propriété TimeToLive sur 0, le cluster est supprimé dès que l’exécution d’activité est traitée. En revanche, si vous définissez une valeur élevée, le cluster peut rester inactif inutilement entraînant des coûts élevés. Par conséquent, il est important de définir la valeur appropriée en fonction de vos besoins.<br/><br/>Plusieurs pipelines peuvent partager l’instance du cluster HDInsight à la demande si la valeur de la propriété timetolive est correctement définie. |Oui |
 | version |Version du cluster HDInsight. La valeur par défaut est 3.1 pour le cluster Windows et 3.2 pour le cluster Linux. |Non |
-| linkedServiceName |Le service lié Azure Storage utilisé par le cluster à la demande pour le stockage et le traitement des données. <p>Actuellement, vous ne pouvez pas créer un cluster HDInsight à la demande qui utilise un Azure Data Lake Store en guise de stockage. Si vous souhaitez stocker les données de résultat à partir du traitement HDInsight dans un Azure Data Lake Store, utilisez une activité de copie pour copier les données du stockage Blob Azure dans Azure Data Lake Store.</p>  | Oui |
-| additionalLinkedServiceNames |Spécifie les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les enregistrer en votre nom. |Non |
+| linkedServiceName | Le service lié Azure Storage utilisé par le cluster à la demande pour le stockage et le traitement des données. Le cluster HDInsight est créé dans la même région que ce compte de stockage Azure.<p>Actuellement, vous ne pouvez pas créer un cluster HDInsight à la demande qui utilise un Azure Data Lake Store en guise de stockage. Si vous souhaitez stocker les données de résultat à partir du traitement HDInsight dans un Azure Data Lake Store, utilisez une activité de copie pour copier les données du stockage Blob Azure dans Azure Data Lake Store. </p>  | Oui |
+| additionalLinkedServiceNames |Spécifie les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les enregistrer en votre nom. Ces comptes de stockage doivent être dans la même région que le cluster HDInsight, qui est créé dans la même région que le compte de stockage spécifié par linkedServiceName. |Non |
 | osType |Type de système d'exploitation. Les valeurs autorisées sont Windows (par défaut) et Linux. |Non |
 | hcatalogLinkedServiceName |Le nom du service lié à SQL Azure pointant vers la base de données HCatalog. Le cluster HDInsight à la demande est créé en utilisant Azure SQL Database en tant que metastore. |Non |
 
@@ -218,21 +219,21 @@ Vous pouvez spécifier les tailles du nœud principal, du nœud de données et d
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| headNodeSize |Spécifie la taille du nœud principal. La valeur par défaut est Standard_D3. Consultez la section **Spécification des tailles de nœud** ci-dessous pour plus d’informations. |Non |
+| headNodeSize |Spécifie la taille du nœud principal. La valeur par défaut est Standard_D3. Pour plus d’informations, consultez la section **Spécification des tailles de nœud**. |Non |
 | dataNodeSize |Spécifie la taille du nœud de données. La valeur par défaut est Standard_D3. |Non |
 | zookeeperNodeSize |Spécifie la taille du nœud ZooKeeper. La valeur par défaut est Standard_D3. |Non |
 
 #### <a name="specifying-node-sizes"></a>Spécification des tailles de nœud
-Pour connaître les valeurs de chaîne à spécifier pour les propriétés ci-dessus, voir [Tailles des machines virtuelles dans Azure](../virtual-machines/linux/sizes.md). Les valeurs doivent être conformes aux **applets de commande et API** référencées dans l’article. Comme vous pouvez le voir dans l’article, le nœud de données de grande taille (par défaut) possède 7 Go de mémoire, ce qui risque de s’avérer insuffisant pour votre scénario. 
+Pour connaître les valeurs des chaînes à spécifier pour les propriétés mentionnées dans la section précédente, consultez [Tailles des machines virtuelles](../virtual-machines/linux/sizes.md). Les valeurs doivent être conformes aux **applets de commande et API** référencées dans l’article. Comme vous pouvez le voir dans l’article, le nœud de données de grande taille (par défaut) a 7 Go de mémoire, ce qui risque de s’avérer insuffisant pour votre scénario. 
 
-Si vous souhaitez créer des nœuds principaux et des nœuds de travail de taille D4, vous devez spécifier la valeur **Standard_D4** pour les propriétés headNodeSize et dataNodeSize. 
+Si vous voulez créer des nœuds principaux et des nœuds worker de taille D4, spécifiez la valeur **Standard_D4** pour les propriétés headNodeSize et dataNodeSize. 
 
 ```json
 "headNodeSize": "Standard_D4",    
 "dataNodeSize": "Standard_D4",
 ```
 
-Si vous spécifiez une valeur incorrecte pour ces propriétés, vous risquez de rencontrer l’ **erreur** suivante : Impossible de créer le cluster. Exception: Unable to complete the cluster create operation. Operation failed with code ’400’. (L’opération a échoué avec le code « 400 ».) Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. Lorsque vous recevez ce message d’erreur, vérifiez que vous utilisez les noms d’**applet de commande et d’API** figurant dans le tableau référencé dans l’article ci-dessus.  
+Si vous spécifiez une valeur incorrecte pour ces propriétés, vous risquez de rencontrer l’ **erreur** suivante : Impossible de créer le cluster. Exception: Unable to complete the cluster create operation. Operation failed with code ’400’. (L’opération a échoué avec le code « 400 ».) Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. Quand vous recevez ce message d’erreur, vérifiez que vous utilisez les noms d’**applet de commande et d’API** figurant dans l’article [Tailles des machines virtuelles](../virtual-machines/linux/sizes.md).  
 
 ## <a name="bring-your-own-compute-environment"></a>Apportez votre propre environnement de calcul
 Dans ce type de configuration, les utilisateurs peuvent inscrire un environnement de calcul existant en tant que service lié dans Data Factory. L'environnement de calcul est géré par l'utilisateur et le service Data Factory l'utilise pour exécuter les activités.
@@ -306,7 +307,7 @@ Ajoutez « **.\<nom région\>** » au nom de votre compte Batch pour la propri
 "accountName": "mybatchaccount.eastus"
 ```
 
-Une autre option consiste à fournir le point de terminaison batchUri comme indiqué ci-dessous.  
+Une autre option consiste à fournir le point de terminaison batchUri comme indiqué dans l’exemple suivant.  
 
 ```json
 "accountName": "adfteam",
@@ -379,7 +380,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON.
 | autorisation |Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur de la fabrique de données et une fois la connexion OAuth effectuée. |Oui |
 | subscriptionId |ID d’abonnement Azure |Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). |
 | resourceGroupName |Nom du groupe de ressources Azure |Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
-| sessionId |ID de session issu de la session d'autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement dans l’éditeur de la fabrique de données. |Oui |
+| sessionId |ID de session issu de la session d'autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement dans Data Factory Editor. |Oui |
 
 Le code d’autorisation que vous avez généré à l’aide du bouton **Autoriser** expire au bout d’un certain temps. Consultez le tableau suivant pour connaître les délais d’expiration associés aux différents types de comptes d’utilisateur. Le message d’erreur suivant peut s’afficher à **l’expiration du jeton** d’authentification : Erreur de l’opération d’informations d’identification : invalid_grant - AADSTS70002: Erreur de validation des informations d’identification. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
 
@@ -388,7 +389,7 @@ Le code d’autorisation que vous avez généré à l’aide du bouton **Autoris
 | Comptes d’utilisateurs NON gérés par Azure Active Directory (@hotmail.com, @live.com, @outlook.com, par exemple) |12 heures |
 | Comptes d’utilisateurs gérés par Azure Active Directory (AAD) |14 jours après la dernière exécution de tranche de données. <br/><br/>90 jours, si une tranche basée sur un service lié OAuth est exécutée au moins une fois tous les 14 jours. |
 
-Pour éviter ou résoudre cette erreur, vous devez accorder une nouvelle autorisation à l’aide du bouton **Autoriser** au moment de l’**expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés sessionId et authorization à l’aide du code fourni dans la section suivante. 
+Pour éviter ou résoudre cette erreur, accordez une nouvelle autorisation à l’aide du bouton **Autoriser** au moment de **l’expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer par programmation des valeurs pour les propriétés sessionId et authorization à l’aide du code fourni dans la section suivante : 
 
 ### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Pour générer les valeurs des propriétés sessionId et authorization au moyen d’un programme
 Le code suivant génère les valeurs des propriétés **sessionId** et **authorization**.  

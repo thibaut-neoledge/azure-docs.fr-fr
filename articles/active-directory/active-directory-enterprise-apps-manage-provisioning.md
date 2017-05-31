@@ -1,6 +1,6 @@
 ---
-title: "Gestion de l’approvisionnement d’utilisateurs pour les applications d’entreprise dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment gérer l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise à l’aide de la version préliminaire d’Azure Active Directory"
+title: "Gestion de l’approvisionnement d’utilisateurs pour les applications d’entreprise dans Azure Active Directory | Microsoft Docs"
+description: "Découvrez comment gérer l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise à l’aide d’Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: asmalser
@@ -12,23 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/12/2016
+ms.date: 05/04/2017
 ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 103eade46452d979705e06dd77441f42d7a514b8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 6cb0269e87f7ecffe7030b86237fb88fd58ef77b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="preview-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>Version préliminaire : Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le nouveau portail Azure
-Cet article explique comment utiliser le [portail Azure](https://portal.azure.com) pour gérer l’approvisionnement et l’annulation de l’approvisionnement automatiques de comptes d’utilisateur pour les applications qui les prennent en charge, en particulier celles qui ont été ajoutées depuis la catégorie « Sélection » de la [galerie d’applications Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Cette expérience de gestion du nouveau portail Azure est actuellement en version préliminaire publique. Cet article décrit les nouvelles fonctionnalités, ainsi que les quelques limitations temporaires appliquées pendant la durée de la version préliminaire. [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)
+# <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le portail Azure
+Cet article explique comment utiliser le [portail Azure](https://portal.azure.com) pour gérer l’approvisionnement et l’annulation de l’approvisionnement automatiques de comptes d’utilisateur pour les applications qui les prennent en charge, en particulier celles qui ont été ajoutées depuis la catégorie « Sélection » de la [galerie d’applications Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Pour en savoir plus sur l’approvisionnement automatique de comptes d’utilisateur, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md).
 
-Pour en savoir plus sur l’approvisionnement automatique de comptes d’utilisateur, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md).
-
-## <a name="finding-your-apps-in-the-new-portal"></a>Recherche de vos applications dans le nouveau portail
-Depuis septembre 2016, toutes les applications qui ont été configurées pour l’authentification unique dans un annuaire par un administrateur d’annuaire à l’aide de la [galerie d’applications Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) du [portail Azure Classic](https://manage.windowsazure.com) peuvent être affichées et gérées dans le nouveau portail Azure.
-
-Ces applications se trouvent dans la section **Applications d’entreprise** du nouveau portail Azure, qui est accessible via le menu **Plus de services** dans la zone de navigation de gauche. Les applications d’entreprise sont des applications qui ont été déployées et sont utilisées au sein de votre organisation.
+## <a name="finding-your-apps-in-the-portal"></a>Recherche de vos applications dans le portail
+Toutes les applications configurées pour une l’authentification unique dans un répertoire par un administrateur d’annuaire à l’aide de la [Galerie d’applications Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) peuvent être affichées et gérées dans le [portail Azure](https://portal.azure.com). Les applications se trouvent dans la section **Plus de services** &gt; **Applications d’entreprise** du portail. Les applications d’entreprise sont des applications qui sont déployées et utilisées au sein de votre organisation.
 
 ![Panneau Applications d’entreprise][0]
 
@@ -59,13 +57,13 @@ Il existe un ensemble préconfiguré de mappages entre les objets utilisateur Az
 
 ![Panneau de ressources d’application][2]
 
-Les personnalisations prises en charge pendant la période de la première version préliminaire incluent :
+Les personnalisations prises en charge sont notamment les suivantes :
 
 * L’activation et la désactivation des mappages d’objets spécifiques, par exemple entre l’objet utilisateur Azure AD et l’objet utilisateur de l’application SaaS.
 * La modification des attributs qui circulent entre l’objet utilisateur Azure AD et l’objet utilisateur de l’application. Pour plus d’informations sur le mappage d’attributs, voir [Présentation des types de mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
-* Le filtrage des actions d’approvisionnement qui doivent être exécutées par Azure AD sur l’application cible, ce qui est une nouvelle fonctionnalité du portail Azure. Plutôt qu’Azure AD synchronise entièrement les objets, vous pouvez limiter les actions exécutées. Par exemple, si vous sélectionnez uniquement **Mettre à jour**, Azure AD met à jour les comptes d’utilisateur d’une application et n’en crée pas de nouveaux. Si vous sélectionnez uniquement **Créer**, Azure crée des comptes d’utilisateur, mais ne met pas à jour les comptes existants. Cette fonctionnalité permet aux administrateurs de créer des mappages différents pour les flux de travail de création et de mise à jour de comptes. La pleine possibilité de créer plusieurs mappages par application est prévue ultérieurement au cours de la période de la version préliminaire.
+* Le filtrage des actions d’approvisionnement qu’effectue Azure AD sur l’application ciblée. Plutôt qu’Azure AD synchronise entièrement les objets, vous pouvez limiter les actions exécutées. Par exemple, si vous sélectionnez uniquement **Mettre à jour**, Azure AD met à jour les comptes d’utilisateur d’une application et n’en crée pas de nouveaux. Si vous sélectionnez uniquement **Créer**, Azure crée des comptes d’utilisateur, mais ne met pas à jour les comptes existants. Cette fonctionnalité permet aux administrateurs de créer des mappages différents pour les flux de travail de création et de mise à jour de comptes.
 
-### <a name="settings"></a>Settings
+### <a name="settings"></a>Paramètres
 Cette section permet aux administrateurs de démarrer et d’arrêter le service d’approvisionnement d’Azure AD pour l’application sélectionnée, et au besoin d’effacer le cache d’approvisionnement et de redémarrer le service.
 
 Si c’est la première fois que l’approvisionnement est activé pour une application, activez le service en définissant le paramètre **État de la configuration** sur **Activé**. Le service d’approvisionnement d’Azure AD exécute alors une synchronisation initiale, durant laquelle il lit les utilisateurs affectés dans la section **Utilisateurs et groupes**, interroge l’application cible à leur sujet, puis effectue les actions d’approvisionnement définies dans la section **Mappages** d’Azure AD. Au cours de ce processus, le service d’approvisionnement stocke des données en cache sur les comptes d’utilisateur qu’il gère, de sorte que les opérations d’annulation de l’approvisionnement n’ont aucun effet sur les comptes non gérés des applications cibles qui n’ont jamais été concernés par l’affectation. Après la synchronisation initiale, le service d’approvisionnement synchronise automatiquement les objets utilisateur et groupe toutes les dix minutes.
@@ -79,12 +77,12 @@ Cette section fournit des informations supplémentaires sur le fonctionnement du
 
 Elle contient également des liens vers le **rapport d’activité d’approvisionnement**, qui fournit un journal de tous les utilisateurs et les groupes créés, mis à jour et supprimés entre Azure AD et l’application cible, et vers le **rapport d’erreurs d’approvisionnement**, qui fournit des messages d’erreur plus détaillés pour les objets utilisateur et groupe dont la lecture, la création, la mise à jour ou la suppression a échoué. 
 
+##<a name="feedback"></a>Commentaires
+
+Nous espérons que vous appréciez votre expérience Azure AD. Continuez à nous faire part de vos commentaires. Publiez vos commentaires et vos idées d’amélioration dans la section du **portail Admin** de notre [forum de commentaires](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nous sommes très heureux de créer chaque jour des nouveautés et de pouvoir bénéficier de vos commentaires pour concevoir et définir de nouvelles créations.
+
+
 [0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

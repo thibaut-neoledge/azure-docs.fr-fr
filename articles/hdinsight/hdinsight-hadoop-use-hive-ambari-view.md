@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 05/05/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 511d6dd1933f44cd0cb5ba800972a7c112a24c04
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 489e84f136ffc7aba00159ba53153bdd178c42b1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/12/2017
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Ambari est un utilitaire de gestion et de surveillance fourni avec les clusters HDInsight sous Linux. L’une des fonctionnalités offertes par Ambari est une interface utilisateur web qui peut être utilisée pour exécuter des requêtes Hive. Il s’agit de la **vue Hive**, qui fait partie des vues Ambari fournies avec votre cluster HDInsight.
+Découvrez comment exécuter des requêtes Hive avec l’affichage Ambari Hive. Ambari est un utilitaire de gestion et de surveillance fourni avec les clusters HDInsight sous Linux. L’une des fonctionnalités offertes par Ambari est une interface utilisateur web qui peut être utilisée pour exécuter des requêtes Hive.
 
 > [!NOTE]
 > Ambari offre de nombreuses fonctionnalités qui ne sont pas traitées dans ce document. Pour plus d’informations, consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Ambari](hdinsight-hadoop-manage-ambari.md).
@@ -45,21 +46,22 @@ Pour accéder à Ambari Views à partir du portail Azure, sélectionnez votre cl
 
 ![section liens rapides](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
-Vous pouvez aussi ouvrir directement Ambari en accédant à https://CLUSTERNAME.azurehdinsight.net dans un navigateur web. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight. Sélectionnez l’ensemble de carrés dans le menu de la page en regard du lien **Admin** pour répertorier les vues disponibles. Sélectionnez la vue **Hive**.
+Vous pouvez aussi ouvrir directement Ambari en accédant à https://CLUSTERNAME.azurehdinsight.net dans un navigateur web. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight. Pour répertorier les vues disponibles, sélectionnez l’ensemble de carrés dans le menu. Pour ouvrir la vue, sélectionnez l’entrée **vue Hive**.
 
-![Sélection des vues Ambari](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png).
+![Sélection des vues Ambari](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png).
 
 > [!NOTE]
-> En accédant à Ambari, vous êtes invité à vous authentifier sur le site. Saisissez l’administrateur (`admin` par défaut), le nom du compte et le mot de passe que vous avez utilisés lors de la création du cluster.
+> En accédant à Ambari, vous êtes invité à vous authentifier sur le site. Saisissez le nom du compte et le mot de passe de l’administrateur (`admin` par défaut) que vous avez utilisés lors de la création du cluster.
 
-Une page similaire à celle ci-dessous doit s'afficher :
+Une page similaire à celle ci-dessous doit s’afficher :
 
-![Image de la page de vue hive, contenant une section de l’éditeur de requête](./media/hdinsight-hadoop-use-hive-ambari-view/hiveview.png)
+![Image de la page de vue hive, contenant une section de l’éditeur de requête](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
 ## <a name="view-tables"></a>Afficher les tables
-Dans la section **Explorateur de bases de données** de la page, sélectionnez l’entrée **par défaut** dans l’onglet **Bases de données**. Cette opération affiche une liste de tables dans la base de données par défaut. Pour un nouveau cluster HDInsight, une seule table doit exister : **hivesampletable**.
 
-![explorateur de base de données avec la base de données par défaut étendue](./media/hdinsight-hadoop-use-hive-ambari-view/databaseexplorer.png)
+Dans la section **Explorateur de bases de données** de la page, sélectionnez l’entrée **par défaut** dans l’onglet **Bases de données**. Une liste de tables s’affiche dans la base de données par défaut. HDInsight inclut une table nommée **hivesampletable**.
+
+![explorateur de base de données avec la base de données par défaut étendue](./media/hdinsight-hadoop-use-hive-ambari-view/database-explorer.png)
 
 Étant donné que les tables sont ajoutées à travers la procédure décrite dans ce document, vous pouvez utiliser l’icône Actualiser dans l’angle supérieur droit de l’Explorateur de base de données pour actualiser la liste.
 
@@ -79,16 +81,16 @@ Pour exécuter une requête Hive, utilisez les étapes suivantes à partir de l�
 
     Ces instructions effectuent les opérations suivantes :
 
-   * **DROP TABLE** : supprime la table et le fichier de données, au cas où la table existe déjà.
+   * `DROP TABLE` : supprime la table et le fichier de données, si la table existe déjà.
 
-   * **CREATE EXTERNAL TABLE** : crée une nouvelle table « externe » dans Hive.
+   * `CREATE EXTERNAL TABLE` : crée une nouvelle table « externe » dans Hive.
    Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
 
-   * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
+   * `ROW FORMAT` : formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
 
-   * **STORED AS TEXTFILE LOCATION** : indique à Hive où sont stockées les données (répertoire example/data) et qu'elles sont stockées sous forme de texte.
+   * `STORED AS TEXTFILE LOCATION` : où sont stockées les données et qu’elles sont stockées sous forme de texte.
 
-   * **SELECT** : sélectionne toutes les lignes dont la colonne t4 contient la valeur [ERROR].
+   * `SELECT` : sélectionne toutes les lignes où la colonne t4 contient la valeur [ERROR].
 
      > [!NOTE]
      > Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, par exemple, par un processus de téléchargement de données automatisé ou une autre opération MapReduce. La suppression d'une table externe ne supprime *pas* les données, mais seulement la définition de la table.
@@ -110,7 +112,7 @@ Pour exécuter une requête Hive, utilisez les étapes suivantes à partir de l�
 
 4. Sélectionnez les quatre premières lignes de cette requête, puis sélectionnez **Exécuter**. Notez qu’aucun résultat n’est renvoyé à la fin de la tâche. Si vous utilisez le bouton **Exécuter** alors que vous avez sélectionné une partie de la requête, seules les instructions sélectionnées sont exécutées. Dans ce cas, la sélection n’inclut pas l’instruction finale qui consiste à extraire des lignes de la table. Si vous sélectionnez uniquement cette ligne et que vous utilisez le bouton **Exécuter**, vous devriez obtenir les résultats attendus.
 
-5. Pour ajouter une nouvelle feuille de calcul, utilisez le bouton **Nouvelle feuille de calcul** au bas de **l’Éditeur de requête**. Dans la nouvelle feuille de calcul, entrez les instructions HiveQL suivantes :
+5. Pour ajouter une feuille de calcul, utilisez le bouton **Nouvelle feuille de calcul** au bas de l’**Éditeur de requête**. Dans la nouvelle feuille de calcul, entrez les instructions HiveQL suivantes :
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -121,9 +123,9 @@ Pour exécuter une requête Hive, utilisez les étapes suivantes à partir de l�
 
    * **CREATE TABLE IF NOT EXISTS** : crée une table, si elle n'existe pas déjà. Étant donné que le mot clé **EXTERNAL** n’est pas utilisé, une table interne est créée. Une table interne est stockée dans l’entrepôt de données Hive et gérée intégralement par Hive. Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
-   * **STORED AS ORC** : stocke les données dans un format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
+   * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.
 
-   * **INSERT OVERWRITE ... SELECT** : sélectionne les lignes de la table **log4jLogs** qui contiennent [ERROR], puis insère les données dans la table **errorLogs**.
+   * **INSERT OVERWRITE ... SELECT** : sélectionne les lignes de la table **log4jLogs** qui contiennent `[ERROR]`, puis insère les données dans la table **errorLogs**.
 
      Utilisez le bouton **Exécuter** pour exécuter cette requête. L’onglet **Résultats** ne contient pas d’informations lorsque la requête ne retourne aucune ligne. L’état doit être **SUCCEEDED** une fois la requête terminée.
 
@@ -133,7 +135,7 @@ Sélectionnez l’icône **Paramètres** à droite de l’éditeur.
 
 ![Icône Paramètres de l’affichage Hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-settings-icon.png)
 
-Les paramètres peuvent être utilisés pour modifier différents paramètres Hive, par exemple, pour passer du moteur d’exécution Tez (par défaut) à MapReduce pour Hive.
+Les paramètres peuvent être utilisés pour modifier les différents paramètres Hive. Par exemple, remplacer le moteur d’exécution pour Hive Tez (la valeur par défaut) par MapReduce.
 
 ### <a name="visualization"></a>Visualisation
 
@@ -141,7 +143,7 @@ Sélectionnez l’icône __Visualisation__ à droite de l’éditeur.
 
 ![Icône Visualisation de l’affichage Hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visualization-icon.png)
 
-L’interface de visualisation s’ouvre, et vous pouvez y créer des visualisations de données retournées par la requête. Voici un exemple de visualisation à l’aide des données de la table `hivesampletable` fournie avec HDInsight.
+Dans l’interface de visualisation, vous pouvez créer des visualisations de données renvoyées par la requête. L’image ci-après est un exemple de visualisation à l’aide des données de `hivesampletable` fournie avec HDInsight :
 
 ![Exemple de visualisation](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visualization.png)
 
@@ -151,7 +153,7 @@ Sélectionnez l’icône **Visual Explain** à droite de l’éditeur.
 
 ![Icône Visual Explain de l’affichage Hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visual-explain-icon.png)
 
-Il s’agit de la vue **Visual Explain** de la requête, qui peut être utile pour comprendre le déroulement de requêtes complexes. Vous pouvez afficher un équivalent textuel de cette vue à l’aide du bouton **Expliquer** de l’éditeur de requête.
+La vue **Visual Explain** de la requête peut être utile pour comprendre le déroulement de requêtes complexes. Vous pouvez afficher un équivalent textuel de cette vue à l’aide du bouton **Expliquer** de l’éditeur de requête.
 
 ![image de visual explain](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
 
@@ -161,7 +163,7 @@ Sélectionnez l'icône **Tez** à droite de l'éditeur.
 
 ![Icône Tez de l’affichage Hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-tez-icon.png)
 
-Cette opération affiche le graphe orienté acyclique (DAG) utilisé par Tez pour cette requête, s’il est disponible. Si vous souhaitez afficher le DAG pour les requêtes que vous avez exécutées par le passé ou déboguer le processus Tez, utilisez plutôt la [vue Tez](hdinsight-debug-ambari-tez-view.md) .
+Si Tez a été utilisé pour résoudre la requête, le graphe orienté acyclique (DAG) s’affiche. Si vous souhaitez afficher le DAG pour les requêtes que vous avez exécutées par le passé ou déboguer le processus Tez, utilisez plutôt la [vue Tez](hdinsight-debug-ambari-tez-view.md) .
 
 ### <a name="notifications"></a>Notifications
 
@@ -192,15 +194,15 @@ Les notifications sont des messages qui sont générés lors de l’exécution d
 
 ## <a name="query-history"></a>Historique des requêtes
 
-Le bouton **Historique** en haut de la vue Hive vous permet d’afficher les requêtes que vous avez exécutées précédemment. Utilisez-le maintenant et sélectionnez certaines des requêtes que vous avez exécutées précédemment. Lorsque vous sélectionnez une requête, elle s’ouvre dans l’éditeur de requête.
+Le bouton **Historique** en haut de la vue Hive vous permet d’afficher les requêtes exécutées précédemment. Utilisez-le maintenant et sélectionnez l’une des requêtes que vous avez exécutées précédemment. Lorsque vous sélectionnez une requête, elle s’ouvre dans l’éditeur de requête.
 
 ## <a name="user-defined-functions-udf"></a>Fonctions définies par l’utilisateur (UDF)
 
 Hive peut également être étendu via des **fonctions définies par l'utilisateur (UDF)**. Une fonction UDF vous permet d'implémenter une fonctionnalité ou une logique qui n'est pas facilement modelée en HiveQL.
 
-L’onglet UDF en haut de l’affichage Hive vous permet de déclarer et d’enregistrer un ensemble d’UDF qui peuvent être utilisées avec **l’éditeur de requête**.
+L’onglet UDF en haut de l’affichage Hive vous permet de déclarer et d’enregistrer un ensemble d’UDF. Ces UDF peuvent être utilisés avec les **l’éditeur de requête**.
 
-Une fois que vous avez ajouté une fonction UDF à l’affichage Hive, un bouton **Insérer des fonctions UDF** s’affiche au bas de **l’éditeur de requête**. La sélection de ce bouton affiche une liste déroulante des UDF définies dans l’affichage Hive. La sélection d’une fonction UDF ajoute des instructions HiveQL à votre requête pour activer l’UDF.
+Une fois que vous avez ajouté une fonction UDF à l’affichage Hive, un bouton **Insérer des fonctions UDF** s’affiche au bas de **l’éditeur de requête**. La sélection de cette entrée affiche une liste déroulante des UDF définis dans l’affichage Hive. La sélection d’une fonction UDF ajoute des instructions HiveQL à votre requête pour activer l’UDF.
 
 Par exemple, si vous avez défini une fonction UDF avec les propriétés suivantes :
 
@@ -221,12 +223,13 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
 Vous pouvez ensuite utiliser la fonction UDF dans votre requête. Par exemple, `SELECT myawesomeudf(name) FROM people;`.
 
-Pour plus d’informations sur l’utilisation des fonctions UDF avec Hive sur HDInsight, consultez les articles suivants :
+Pour plus d’informations sur l’utilisation des UDF avec Hive sur HDInsight, consultez les documents suivants :
 
 * [Utilisation de Python avec Hive et Pig dans HDInsight](hdinsight-python.md)
 * [Comment ajouter une UDF personnalisée Hive à HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a id="nextsteps"></a>Étapes suivantes
+
 Pour obtenir des informations générales sur Hive dans HDInsight.
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)

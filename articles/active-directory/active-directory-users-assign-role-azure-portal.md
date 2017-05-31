@@ -1,5 +1,6 @@
 ---
-title: "Attribution de rôles d’administrateur à un utilisateur dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
+
+title: "Affectation de rôles d’administrateur à un utilisateur dans Azure Active Directory | Microsoft Docs"
 description: "Expliquez comment modifier les informations administratives d’un utilisateur dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,16 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
-ms.openlocfilehash: 3778964172946fa928e2a908943f50897957eb42
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: ebbadff39c736ec7364999f7644694e8a177073f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory-preview"></a>Attribution de rôles d’administrateur à un utilisateur dans la version préliminaire d’Azure Active Directory
-Cet article explique comment affecter un rôle administratif à un utilisateur dans la version préliminaire d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md) Pour en savoir plus sur l’ajout d’utilisateurs dans votre organisation, consultez [Ajout de nouveaux utilisateurs à Azure Active Directory](active-directory-users-create-azure-portal.md). Par défaut, les utilisateurs ajoutés ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez leur attribuer des rôles à tout moment.
+# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Affecter des rôles d’administrateur à un utilisateur dans Azure Active Directory
+Cet article explique comment affecter un rôle d’administration à un utilisateur dans Azure Active Directory (Azure AD). Pour en savoir plus sur l’ajout d’utilisateurs dans votre organisation, consultez [Ajout de nouveaux utilisateurs à Azure Active Directory](active-directory-users-create-azure-portal.md). Par défaut, les utilisateurs ajoutés ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez leur attribuer des rôles à tout moment.
 
 ## <a name="assign-a-role-to-a-user"></a>Affecter un rôle à un utilisateur
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
@@ -43,9 +46,4 @@ Cet article explique comment affecter un rôle administratif à un utilisateur d
 * [Modifier les informations de travail d’un utilisateur](active-directory-users-work-info-azure-portal.md)
 * [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 * [Suppression d’un utilisateur dans Azure AD](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Afficher toutes les applications d’entreprise que je peux gérer dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
+title: "Afficher toutes les applications d’entreprise que je peux gérer dans Azure Active Directory | Microsoft Docs"
 description: "Comment afficher la liste des applications d’entreprise que vous avez l’autorisation de gérer dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33b036537211e3bdeacba7f388aca334404385cb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 14b335d14d893640d469508d6f34b4e7ec6bee8b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory-preview"></a>Afficher toutes les applications d’entreprise que je peux gérer dans la version préliminaire d’Azure Active Directory
-Vous pouvez gérer vos applications d’entreprise dans la version préliminaire d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)  Cela comprend l’affichage des applications que vous pouvez gérer, l’affectation de groupes ou d’utilisateurs à une application, le maintien des propriétés pour l’application, comme le nom d’application/le logo, et même la désactivation d’une application afin qu’aucun utilisateur ne puisse s’y connecter.
+# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Afficher toutes les applications d’entreprise que je peux gérer dans Azure Active Directory
+Vous pouvez gérer vos applications d’entreprise dans Azure Active Directory (Azure AD). Cela comprend l’affichage des applications que vous pouvez gérer, l’affectation de groupes ou d’utilisateurs à une application, le maintien des propriétés pour l’application, comme le nom d’application/le logo, et même la désactivation d’une application afin qu’aucun utilisateur ne puisse s’y connecter.
 
 ## <a name="how-do-i-view-all-my-apps"></a>Comment afficher toutes mes applications ?
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
@@ -36,9 +38,4 @@ Vous pouvez gérer vos applications d’entreprise dans la version préliminaire
 * [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Désactiver les connexions utilisateur pour une application d’entreprise](active-directory-coreapps-disable-app-azure-portal.md)
 * [Modifier le nom ou le logo d’une application d’entreprise dans la version préliminaire d’Azure Active Directory](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

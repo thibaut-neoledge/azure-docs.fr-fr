@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2016
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 9443a00232420d58dea52ed01f31a4ef964a1620
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -34,6 +36,7 @@ ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
 | Connexions à partir d’appareils potentiellement infectés |2 heures |4 heures |8 heures |
 | Utilisateurs ayant une activité de connexion anormale |2 heures |4 heures |8 heures |
 | Utilisateurs avec des informations d’identification volées |2 heures |4 heures |8 heures |
+| Toute l’activité de connexion des utilisateurs |2 heures |4 heures |8 heures |
 | **Rapports d’application** | | | |
 | Activité d’approvisionnement de compte |2 heures |4 heures |8 heures |
 | Erreurs de configuration de compte |2 heures |4 heures |8 heures |
@@ -52,12 +55,5 @@ ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
 | Utilisation de RMS |2 heures |4 heures |8 heures |
 | Utilisation d’un appareil RMS |2 heures |4 heures |8 heures |
 | Utilisation d’applications fonctionnant avec RMS |2 heures |4 heures |8 heures |
-| **Rapports sur la version préliminaire privée** | | | |
-| Toute l’activité de connexion des utilisateurs |2 heures |4 heures |8 heures |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

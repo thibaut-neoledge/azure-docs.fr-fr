@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/04/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9519719a63387cb8c341c72e262c2aeaacc3cd4a
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: a694d01281cfdc4559f779f18b92d0412d59cf45
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/12/2017
 ## <a name="what-are-dynamic-groups"></a>Qu'est-ce-que les groupes dynamiques ?
 La configuration dynamique de l’appartenance au groupe de sécurité pour Azure Active Directory (Azure AD) est disponible dans le [portail Azure](https://portal.azure.com). Les administrateurs peuvent définir des règles pour remplir les groupes créés dans Azure Active Directory en fonction d'attributs utilisateur (par exemple, userType, département ou pays). Cela permet d'ajouter automatiquement des membres à un groupe de sécurité ou d'en supprimer en fonction des modifications apportées à leurs attributs. Ces groupes permettent d’accorder l’accès à des applications ou à des ressources cloud (telles que des sites et documents SharePoint), et d’attribuer des licences à des utilisateurs. En savoir plus sur les groupes dynamiques dans [Groupes dédiés dans Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md).
 
-Avec un abonnement AAD Premium P1 ou P2, le portail Azure vous permet désormais de créer des règles avancées pour activer des appartenances dynamiques plus complexes basées sur les attributs pour des groupes Azure Active Directory. Pour en savoir plus sur la création de règles avancées, consultez la rubrique [Utilisation d’attributs pour créer des règles avancées pour l’appartenance au groupe dans la version préliminaire d’Azure Active Directory](active-directory-groups-dynamic-membership-azure-portal.md).
+Avec un abonnement AAD Premium P1 ou P2, le portail Azure vous permet désormais de créer des règles avancées pour activer des appartenances dynamiques plus complexes basées sur les attributs pour des groupes Azure Active Directory. Pour en savoir plus sur la création de règles avancées, consultez la rubrique [Utilisation d’attributs pour créer des règles avancées pour l’appartenance au groupe dans Azure Active Directory](active-directory-groups-dynamic-membership-azure-portal.md).
 
 ## <a name="what-are-the-built-in-dynamic-groups"></a>Que sont les groupes dynamiques intégrés ?
 Le groupe dynamique **Tous les utilisateurs** permet à des administrateurs de locataires de créer un groupe contenant tous les utilisateurs dans le locataire en un seul clic. Par défaut, le groupe **Tous les utilisateurs** inclut tous les utilisateurs du répertoire, dont les invités et les utilisateurs externes.

@@ -1,6 +1,7 @@
 ---
-title: "Afficher tous les groupes existants dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
-description: "Comment afficher ou rechercher des groupes dans la version préliminaire d’Azure Active Directory"
+
+title: "Afficher tous les groupes existants dans Azure Active Directory | Microsoft Docs"
+description: Comment afficher ou rechercher des groupes dans Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 3546ae6951a514108e62f8840a601930aa1ac4c2
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1cc8b9194433840df9ce16baf1a0ec2c3dd08ad9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Afficher ou rechercher vos groupes d’utilisateurs dans Azure Active Directory
-Cet article explique comment afficher tous les groupes dans la version préliminaire d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md) L’une des principales fonctionnalités de la gestion des utilisateurs Azure Active Directory (Azure AD) est la possibilité de créer des groupes que vous pouvez remplir avec vos utilisateurs. Un groupe vous permet d’effectuer différentes tâches de gestion, par exemple l’attribution de licences ou autorisations à plusieurs utilisateurs simultanément.
+Cet article explique comment afficher tous les groupes dans Azure Active Directory (Azure AD). L’une des fonctionnalités de gestion des utilisateurs Azure AD est que vous pouvez utiliser des groupes pour effectuer des tâches de gestion telles que l’attribution de licences ou d’autorisations à un certain nombre d’utilisateurs à la fois.
 
 ## <a name="how-do-i-see-all-the-groups"></a>Comment afficher tous les groupes ?
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.

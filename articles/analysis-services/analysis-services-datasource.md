@@ -15,33 +15,32 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 04/14/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
-ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
-ms.lasthandoff: 01/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: aebabd15e781e726def545960ce3c1ec7674c530
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="datasource-connections"></a>Connexions de source de données
 Les modèles de données dans Azure Analysis Services peuvent nécessiter différents fournisseurs de données lors de la connexion à certaines sources de données. Dans certains cas, les modèles tabulaires de connexion aux sources de données à l’aide de fournisseurs natifs tels que SQL Server Native Client (SQLNCLI11) peuvent renvoyer une erreur.
 
-Par exemple : si vous disposez d’un modèle de données en mémoire ou de requête directe qui se connecte à une source de données cloud telle que la base de données SQL Azure, si vous utilisez des fournisseurs natifs autres que SQLOLEDB, vous pouvez voir le message d’erreur : **« Le fournisseur 'SQLNCLI11.1' n’est pas enregistré »**.
-
-Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et que vous utilisez des fournisseurs natifs, vous pouvez voir le message d’erreur : **« Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMITE' »**.
+Pour les modèles de données en mémoire ou DirectQuery qui se connectent à une source de données cloud comme Azure SQL Database, si vous utilisez des fournisseurs natifs autres que SQLOLEDB, vous pouvez voir le message d’erreur : **« Le fournisseur ’SQLNCLI11.1’ n’est pas inscrit »**. Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et que vous utilisez des fournisseurs natifs, vous pouvez voir le message d’erreur : **« Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMITE' »**.
 
 ## <a name="data-source-providers"></a>Fournisseurs de sources de données
-Les fournisseurs de source de données suivants sont pris en charge pour les modèles de données en mémoire ou DirectQuery lors de la connexion à des sources de données locales ou dans le cloud :
+Les fournisseurs de source de données suivants sont pris en charge pour les modèles de données en mémoire ou DirectQuery lors de la connexion à des sources de données locales ou dans le cloud :
 
 ### <a name="cloud"></a>Cloud
-| **Source de données** | **En mémoire** | **Requête directe** |
+| **Source de données** | **En mémoire** | **DirectQuery** |
 |  --- | --- | --- |
 | Azure SQL Data Warehouse |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server |
 | Azure SQL Database |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
 
 ### <a name="on-premises-via-gateway"></a>Local (via une passerelle)
-|**Source de données** | **En mémoire** | **Requête directe** |
+|**Source de données** | **En mémoire** | **DirectQuery** |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0 |Fournisseur de données .NET Framework pour SQL Server |
+| SQL Server |SQL Server Native Client 11.0 |Fournisseur de données .NET Framework pour SQL Server |
 | SQL Server |Fournisseur Microsoft OLE DB pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
 | SQL Server |Fournisseur de données .NET Framework pour SQL Server |Fournisseur de données .NET Framework pour SQL Server | |
 | Oracle |Fournisseur Microsoft OLE DB pour Oracle |Fournisseur de données Oracle pour .NET | |
@@ -76,6 +75,7 @@ Pour les sources de données cloud :
 * Si vous utilisez l’authentification SQL, l’emprunt d’identité doit être le compte de service.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous disposez de sources de données locales, veillez à installer la [Passerelle locale](analysis-services-gateway.md). Pour en savoir plus sur la gestion de votre serveur dans SSDT ou SSMS, consultez [Gérer votre serveur](analysis-services-manage.md).
+Si vous disposez de sources de données locales, veillez à installer la [Passerelle locale](analysis-services-gateway.md).   
+Pour en savoir plus sur la gestion de votre serveur dans SSDT ou SSMS, consultez [Gérer votre serveur](analysis-services-manage.md).
 
 

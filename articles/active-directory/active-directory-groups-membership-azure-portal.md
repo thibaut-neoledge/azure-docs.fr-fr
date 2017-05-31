@@ -1,5 +1,6 @@
 ---
-title: "Gérer les groupes dont votre groupe fait partie dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
+
+title: "Gérer les groupes dont votre groupe fait partie dans Azure Active Directory | Microsoft Docs"
 description: "Les groupes peuvent contenir d’autres groupes dans Azure Active Directory. Voici comment gérer ces adhésions."
 services: active-directory
 documentationcenter: 
@@ -12,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 8e0563f3490186a19dd9418ebf7beac7dd8dd046
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 08e04a6590176c4084ca47b4bd6cbb22500eca2d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Gérer les groupes auxquels un groupe appartient dans votre client Azure Active Directory
-Les groupes peuvent contenir d’autres groupes dans la version préliminaire d’Azure Active Directory. [Nouveautés de la version préliminaire](active-directory-preview-explainer.md) Voici comment gérer ces adhésions.
+Les groupes peuvent contenir d’autres groupes dans Azure Active Directory. Voici comment gérer ces adhésions.
 
 ## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>Comment trouver les groupes dont mon groupe est membre ?
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
@@ -34,7 +36,7 @@ Les groupes peuvent contenir d’autres groupes dans la version préliminaire d�
 
    ![Ouvrir le panneau de groupes](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
 4. Dans le panneau **Utilisateurs et groupes - Tous les groupes** , sélectionnez un groupe.
-5. Dans le panneau **Groupe - *NomGroupe***, sélectionnez **Appartenances aux groupes**.
+5. Dans le panneau **Groupe - *Nom_groupe***, sélectionnez **Appartenances aux groupes**.
 
    ![Ouverture du panneau Appartenances aux groupes](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
 6. Pour ajouter votre groupe en tant que membre d’un autre groupe, dans le panneau **Groupe - Appartenances aux groupes**, sélectionnez la commande **Ajouter**.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 21cdfbbc457aad1cd3b1a5b20745eee4286a78bb
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: cf2a063acb2a36af2ff71f45159b2e23c9971b32
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -94,8 +94,7 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 * **Configuration du serveur DNS personnalisée** : le service de la gestion des API dépend de plusieurs services Azure. Si la gestion des API est hébergée dans un réseau virtuel comportant un serveur DNS personnalisé, il doit résoudre les noms d’hôte de ces services Azure. Veuillez suivre [ce](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guide sur la configuration de serveurs DNS personnalisée. Consultez le tableau des ports ci-dessous et les autres exigences en matière de réseau pour référence.
 
 > [!IMPORTANT]
-> Si vous utilisez un serveur de DNS personnalisé pour le réseau virtuel, nous vous recommandons de le configurer **avant** d’y déployer un service Gestion des API. Sinon, nous devrons redémarrer le CloudService hébergeant le service, pour lui permettre de récupérer les nouveaux paramètres du serveur DNS.
->
+> Si vous utilisez des serveurs DNS personnalisés pour le réseau virtuel, nous vous recommandons de le configurer **avant** d’y déployer un service Gestion des API. Sinon, vous devez mettre à jour le service Gestion des API chaque fois que vous changez les serveurs DNS en exécutant l’[opération Appliquer une configuration réseau](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservices#ApiManagementServices_ApplyNetworkConfigurationUpdates)
 
 * **Ports requis pour la gestion des API** : le trafic entrant et sortant dans un sous-réseau dans lequel est déployée la gestion des API peut être contrôlé à l’aide du [groupe de sécurité réseau][Network Security Group]. Si ces ports ne sont pas disponibles, la gestion des API risque de ne pas fonctionner correctement et d’être inaccessible. Le blocage d’un ou plusieurs de ces ports constitue un autre problème de configuration courant lorsque vous utilisez la gestion des API dans un réseau virtuel.
 
@@ -109,13 +108,14 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 | * / 1433 |Règle de trafic sortant |TCP |Dépendance sur SQL Azure |VIRTUAL_NETWORK / INTERNET |Externe et interne |
 | * / 11000 - 11999 |Règle de trafic sortant |TCP |Dépendance Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |Externe et interne |
 | * / 14000 - 14999 |Règle de trafic sortant |TCP |Dépendance Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |Externe et interne |
-| * / 9350 - 9354 |Règle de trafic sortant |TCP |Dépendance sur Service Bus |VIRTUAL_NETWORK / INTERNET |Externe et interne |
-| * / 5671 |Règle de trafic sortant |AMQP |Dépendance pour la stratégie Journaliser dans Event Hub |VIRTUAL_NETWORK / INTERNET |Externe et interne |
+| * / 5671 |Règle de trafic sortant |AMQP |Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance |VIRTUAL_NETWORK / INTERNET |Externe et interne |
 | 6381 - 6383 / 6381 - 6383 |Trafic entrant et sortant |UDP |Dépendance sur Cache Redis |VIRTUAL_NETWORK / VIRTUAL_NETWORK |Externe et interne |-
 | * / 445 |Règle de trafic sortant |TCP |Dépendance sur le partage de fichiers Azure pour GIT |VIRTUAL_NETWORK / INTERNET |Externe et interne |
 | * / * | Trafic entrant |TCP |Équilibrage de charge de l’infrastructure Azure | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |Externe et interne |
 
 * **Fonctionnalité SSL** : pour activer la génération et la validation de la chaîne de certification SSL, le service de gestion des API nécessite une connectivité réseau sortante vers ocsp.msocsp.com, mscrl.microsoft.com et crl.microsoft.com.
+
+* **Métriques et surveillance de l’intégrité** : connectivité réseau sortante aux points de terminaison de la surveillance Azure, qui se résolvent sous les domaines suivants : global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net.
 
 * **Configuration d’Express Route** : une configuration client courante consiste à définir un itinéraire par défaut (0.0.0.0/0), ce qui force le trafic Internet sortant à circuler sur site. Ce flux de trafic interrompt la connectivité avec la gestion des API Azure, car le trafic sortant peut être bloqué sur site, ou faire l’objet d’une opération NAT sur un jeu d’adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure. La solution consiste à définir un (ou plusieurs) itinéraires définis par l’utilisateur ([UDR][UDRs]) sur le sous-réseau qui contient la gestion des API Azure. Un itinéraire défini par l'utilisateur définit des itinéraires spécifiques au sous-réseau qui seront respectés au lieu de l'itinéraire par défaut.
   Si possible, il est recommandé d'utiliser la configuration suivante :

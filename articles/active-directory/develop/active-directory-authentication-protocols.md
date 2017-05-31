@@ -14,10 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 51c6a8ae17821d4eb00bf26612bc6e1e434ebbd9
-ms.lasthandoff: 04/17/2017
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 27c582436bd57adfb5e8edb0f63c0f206db66c89
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -30,7 +32,8 @@ Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’au
 * [Métadonnées de fédération](active-directory-federation-metadata.md) : découvrez comment trouver et interpréter les documents de métadonnées générés par Azure AD.
 * [OAuth 2.0 dans Azure AD](active-directory-protocols-oauth-code.md) : découvrez comment implémenter OAuth 2.0 dans Azure AD.
 * [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) : découvrez comment utiliser OAuth 2.0, un protocole d’autorisation, pour l’authentification.
-* [Appels de service à service](active-directory-protocols-oauth-service-to-service.md) : découvrez comment utiliser les flux d’octroi d’informations d’identification client OAuth 2.0 pour les appels de service à service.
+* [Appels de service à service avec les informations d’identification du client](active-directory-protocols-oauth-service-to-service.md) : découvrez comment utiliser les flux d’octroi d’informations d’identification du client OAuth 2.0 pour les appels de service à service.
+* [Appels de service à service avec le flux Pour le compte de](active-directory-protocols-oauth-on-behalf-of.md) : découvrez comment utiliser les flux Pour le compte de OAuth 2.0 pour les appels de service à service.
 * [Informations de référence sur le protocole SAML](active-directory-saml-protocol-reference.md) : découvrez les profils SAML d’authentification unique et de déconnexion unique d’Azure AD.
 
 ## <a name="see-also"></a>Voir aussi
@@ -39,5 +42,4 @@ Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’au
 [Utilisation d’Azure AD pour l’authentification](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Exemples de code Azure Active Directory](active-directory-code-samples.md)
-
 

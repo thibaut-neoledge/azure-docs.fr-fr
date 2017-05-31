@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 05/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 52b7728c3fc702e37f5c5fe3d6544117a11464e8
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: c23e7404f9eee6f1246cafc72c6733546cc82934
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -26,6 +27,8 @@ ms.lasthandoff: 03/30/2017
 > [!div class="op_single_selector"]
 > * [Portail Azure](application-gateway-web-application-firewall-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
+
+Découvrez comment créer une passerelle d’application avec un pare-feu d’applications web activé ou comment ajouter des pare-feu d’applications web à une passerelle d’application existante.
 
 Le pare-feu d’applications web (WAF, Web Application Firewall) d’Azure Application Gateway protège les applications web des attaques basées sur le web courantes comme l’injection de code SQL, les attaques de script de site à site et les piratages de session.
 
@@ -39,65 +42,53 @@ L’article suivant montre comment [ajouter un pare-feu d’applications web à 
 
 Si vous avez lu la rubrique [Création d’une passerelle Application Gateway avec PowerShell](application-gateway-create-gateway-arm.md), vous connaissez les paramètres de référence (SKU) à configurer lors de la création d’une passerelle d’application. WAF inclut des paramètres supplémentaires à définir lors de la configuration de la référence SKU sur une passerelle d’application. Aucune autre modification n’est nécessaire sur la passerelle d’application elle-même.
 
-**SKU** - Une passerelle Application Gateway standard sans WAF prend en charge les tailles **Standard\_Small**, **Standard\_Medium** et **Standard\_Large**. Avec l’introduction de WAF, deux autres SKU sont disponibles : **WAF\_Medium** et **WAF\_Large**. WAF n’est pas pris en charge sur les petites passerelles d’application.
-
-**Niveau** - Les valeurs disponibles sont **Standard** ou **WAF**. Lorsque vous utilisez un pare-feu d’applications web, vous devez choisir **WAF**.
-
-**Mode** - Ce paramètre indique le mode de WAF. Les valeurs autorisées sont **Détection** et **Prévention**. Lorsque WAF est configuré en mode de détection, toutes les menaces sont stockées dans un fichier journal. En mode de prévention, les événements sont toujours consignés, mais l’attaquant reçoit une erreur d’autorisation de type 403 de la part de la passerelle d’application.
+| **Paramètre** | **Détails**
+|---|---|
+|**Référence (SKU)** |Une passerelle d’application normale sans WAF prend en charge les tailles **Standard\_Small**, **Standard\_Medium** et **Standard\_Large**. Avec l’introduction de WAF, deux autres SKU sont disponibles : **WAF\_Medium** et **WAF\_Large**. WAF n’est pas pris en charge sur les petites passerelles d’application.|
+|**Niveau** | Les valeurs disponibles sont **Standard** ou **WAF**. Lorsque vous utilisez un pare-feu d’applications web, vous devez choisir **WAF**.|
+|**Mode** | Ce paramètre indique le mode de WAF. Les valeurs autorisées sont **Détection** et **Prévention**. Lorsque WAF est configuré en mode de détection, toutes les menaces sont stockées dans un fichier journal. En mode de prévention, les événements sont toujours consignés, mais l’attaquant reçoit une erreur d’autorisation de type 403 de la part de la passerelle d’application.|
 
 ## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Ajout d’un pare-feu d’applications web à une passerelle d’application existante
 
 Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir [Utilisation de Windows PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-### <a name="step-1"></a>Étape 1 :
+1. Connectez-vous à votre compte Azure.
 
-Connectez-vous à votre compte Azure.
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
-```powershell
-Login-AzureRmAccount
-```
+2. Sélectionnez l’abonnement à utiliser pour ce scénario.
 
-### <a name="step-2"></a>Étape 2 :
+    ```powershell
+    Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
+    ```
 
-Sélectionnez l’abonnement à utiliser pour ce scénario.
+3. Récupérez la passerelle à laquelle vous ajoutez un pare-feu d’applications web.
 
-```powershell
-Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
-```
+    ```powershell
+    $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
+    ```
 
-### <a name="step-3"></a>Étape 3
+1. Configurez la référence SKU du pare-feu d’applications web. Les tailles disponibles sont **WAF\_Large** et **WAF\_Medium**. Lorsque le pare-feu d’application web est utilisé, le niveau doit être **WAF**, la capacité doit être confirmée lors de la définition de la référence (SKU).
 
-Récupérez la passerelle à laquelle vous ajoutez un pare-feu d’applications web.
+    ```powershell
+    $gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF -Capacity 2
+    ```
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
-```
+1. Configurez les paramètres WAF comme indiqué dans l’exemple suivant :
 
-### <a name="step-4"></a>Étape 4
+   Pour **FirewallMode**, les valeurs disponibles sont Prévention et Détection.
 
-Configurez la référence SKU du pare-feu d’applications web. Les tailles disponibles sont **WAF\_Large** et **WAF\_Medium**. Lorsque le pare-feu d’application web est utilisé, le niveau doit être **WAF**, la capacité doit être confirmée lors de la définition de la référence (SKU).
+    ```powershell
+    $gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
+    ```
 
-```powershell
-$gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF -Capacity 2
-```
+1. Mettez à jour la passerelle d’application avec les paramètres définis à l’étape précédente.
 
-### <a name="step-5"></a>Étape 5
-
-Configurez les paramètres WAF comme indiqué dans l’exemple suivant :
-
-Pour le paramètre **WafMode** , les valeurs disponibles sont prévention et détection.
-
-```powershell
-$gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
-```
-
-### <a name="step-6"></a>Étape 6
-
-Mettez à jour la passerelle d’application avec les paramètres définis à l’étape précédente.
-
-```powershell
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
-```
+    ```powershell
+    Set-AzureRmApplicationGateway -ApplicationGateway $gw
+    ```
 
 Cette commande met à jour la passerelle d’application avec le pare-feu d’applications web. Il est recommandé de consulter la rubrique [Diagnostics Application Gateway](application-gateway-diagnostics.md) pour comprendre comment afficher les journaux de votre passerelle d’application. En raison des critères de sécurité inhérents à WAF, les journaux doivent être régulièrement examinés pour comprendre la politique de sécurité appliquée à vos applications web.
 
@@ -107,35 +98,19 @@ Les étapes suivantes vous guident lors du processus de création d’une passer
 
 Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Pour plus d’informations, voir [Utilisation de Windows PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-### <a name="step-1"></a>Étape 1 :
+1. Connectez-vous à Azure en exécutant `Login-AzureRmAccount`. Vous êtes invité à vous authentifier avec vos informations d’identification.
 
-Connexion à Azure
+1. Vérifiez les abonnements pour le compte en exécutant `Get-AzureRmSubscription`.
 
-```powershell
-Login-AzureRmAccount
-```
+1. Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
-Vous êtes invité à vous authentifier à l’aide de vos informations d’identification.
+    ```powershell
+    Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
+    ```
 
-### <a name="step-2"></a>Étape 2 :
+### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Vérifiez les abonnements associés au compte.
-
-```powershell
-Get-AzureRmSubscription
-```
-
-### <a name="step-3"></a>Étape 3
-
-Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
-
-```powershell
-Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
-```
-
-### <a name="step-4"></a>Étape 4
-
-Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant).
+Créez un groupe de ressources pour la passerelle d’application.
 
 ```powershell
 New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
@@ -148,154 +123,67 @@ Dans l’exemple précédent, nous avons créé un groupe de ressources appelé 
 > [!NOTE]
 > Si vous devez configurer une sonde personnalisée pour votre passerelle Application Gateway, consultez [Création d’une passerelle Application Gateway avec des sondes personnalisées à l’aide de PowerShell](application-gateway-create-probe-ps.md). Pour plus d’informations, découvrez les [sondes personnalisées et l’analyse du fonctionnement](application-gateway-probe-overview.md) .
 
-### <a name="step-5"></a>Étape 5
+### <a name="configure-virtual-network"></a>Configurer un réseau virtuel
 
-Affectez une plage d’adresses au sous-réseau utilisé pour la passerelle Application Gateway elle-même.
+Application Gateway nécessite son propre sous-réseau. Dans cette étape, vous créez un réseau virtuel avec un espace d’adressage de 10.0.0.0/16 et deux sous-réseaux, un pour la passerelle d’application et un pour les membres du pool principal.
 
 ```powershell
+# Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
 $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
-```
 
-> [!NOTE]
-> Le sous-réseau d’une application doit avoir un masque 28 bits minimum. Cette valeur offre 10 adresses disponibles dans le sous-réseau pour les instances de la passerelle Application Gateway. Avec un sous-réseau plus petit, vous risquez de ne plus pouvoir ajouter d’autres instances de votre passerelle d’application à l’avenir.
-
-
-### <a name="step-6"></a>Étape 6
-
-Affectez une plage d’adresses au pool d’adresses principales.
-
-```powershell
+# Create a subnet configuration object for the backend pool members subnet
 $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
-```
 
-### <a name="step-7"></a>Étape 7
-
-Créez un réseau virtuel avec les sous-réseaux précédents dans le groupe de ressources créé à l’étape : [Création du groupe de ressources](#create-the-resource-group)
-
-```powershell
+# Create the virtual network with the previous created subnets
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
 ```
 
-### <a name="step-8"></a>Étape 8
+### <a name="configure-public-ip-address"></a>Configurer une adresse IP publique
 
-Récupérez les ressources de réseau virtuel et les ressources de sous-réseau à utiliser dans les étapes suivantes :
-
-```powershell
-$vnet = Get-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
-$gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -VirtualNetwork $vnet
-$nicSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appsubnet' -VirtualNetwork $vnet
-```
-
-### <a name="step-9"></a>Étape 9
-
-Créez une ressource IP publique à utiliser pour la passerelle d’application. Cette adresse IP publique est utilisée dans une des étapes suivantes :
+Pour pouvoir traiter les demandes externes, la passerelle d’application nécessite une adresse IP publique. Cette adresse IP publique ne doit pas avoir un `DomainNameLabel` défini pour être utilisé par la passerelle d’application.
 
 ```powershell
+# Create a public IP address for use with the application gateway. Defining the domainnamelabel during creation is not supported for use with application gateway
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
 ```
 
-> [!IMPORTANT]
-> La passerelle Application Gateway ne prend pas en charge l’utilisation d’une adresse IP publique créée avec un nom de domaine défini. Seule une adresse IP publique avec un nom de domaine créé dynamiquement est prise en charge. Si vous avez besoin d’un nom DNS convivial pour la passerelle Application Gateway, il est recommandé d’utiliser un enregistrement cname comme alias.
-
-
-### <a name="step-10"></a>Étape 10
-
-Avant de créer la passerelle d’application, vous devez installer tous les éléments de configuration. Les étapes suivantes permettent de créer les éléments de configuration nécessaires à une ressource Application Gateway.
-
-Créez une configuration IP de passerelle application : ce paramètre détermine quel sous-réseau utilise la passerelle Application Gateway. Au démarrage, la passerelle Application Gateway sélectionne une adresse IP du sous-réseau configuré et achemine le trafic réseau vers les adresses IP du pool IP principal. Gardez à l’esprit que chaque instance utilise une adresse IP unique.
+### <a name="configure-the-application-gateway"></a>Configurer la passerelle Application Gateway
 
 ```powershell
+# Create a IP configuration. This configures what subnet the Application Gateway uses. When Application Gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
-```
 
-### <a name="step-11"></a>Étape 11
-
-Configurez le pool d’adresses IP principales avec les adresses IP des serveurs web principaux. Il s’agit des adresses IP qui recevront le trafic réseau provenant du point de terminaison IP frontal. Remplacez les adresses IP suivantes pour ajouter vos propres points de terminaison d’adresse IP d’application.
-
-```powershell
+# Create a backend pool to hold the addresses or NICs for the application that application gateway is protecting.
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
-```
 
-### <a name="step-12"></a>Étape 12
-
-Téléchargez le certificat à utiliser sur les ressources du pool principal pour lequel le chiffrement SSL est activé.
-
-```powershell
+# Upload the authenication certificate that will be used to communicate with the backend servers
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile <full path to .cer file>
-```
 
-### <a name="step-13"></a>Étape 13
-
-Configurez les paramètres http principaux de la passerelle d’application. Affectez le certificat téléchargé à l’étape précédente aux paramètres http.
-
-```powershell
+# Conifugre the backend HTTP settings to be used to define how traffic is routed to the backend pool. The authenication certificate used in the previous step is added to the backend http settings.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
-```
 
-### <a name="step-14"></a>Étape 14
-
-Configurez le port IP frontal pour le point de terminaison IP public. Ce port est le port auquel les utilisateurs finaux se connectent.
-
-```powershell
+# Create a frontend port to be used by the listener.
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
-```
 
-### <a name="step-15"></a>Étape 15
-
-Créez une configuration IP frontale : ce paramètre mappe une adresse IP privée ou publique au composant frontal de la passerelle d’application. L’étape suivante associe l’adresse IP publique à l’étape précédente à la configuration IP frontale.
-
-```powershell
+# Create a frontend IP configuration to associate the public IP address with the application gateway
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
-```
 
-### <a name="step-16"></a>Étape 16
-
-Configurez le certificat pour la passerelle d’application. Ce certificat sert à chiffrer et à chiffrer à nouveau le trafic sur la passerelle d’application.
-
-```powershell
+# Configure the certificate for the application gateway. This certificate is used to decrypt and re-encrypt the traffic on the application gateway.
 $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
-```
 
-### <a name="step-17"></a>Étape 17
-
-Créez l’écouteur HTTP pour la passerelle d’application. Affectez la configuration IP frontale, le port et le certificat SSL à utiliser.
-
-```powershell
+# Create the HTTP listener for the application gateway. Assign the front-end ip configuration, port, and ssl certificate to use.
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
-```
 
-### <a name="step-18"></a>Étape 18
-
-Créez une règle d'acheminement d'équilibrage de charge nommée qui configure le comportement d'équilibrage de charge. Dans cet exemple, une simple règle de type tourniquet (round robin) est créée.
-
-```powershell
+#Create a load balancer routing rule that configures the load balancer behavior. In this example, a basic round robin rule is created.
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-```
 
-### <a name="step-19"></a>Étape 19
-
-Configurez la taille d'instance de la passerelle Application Gateway.
-
-```powershell
+# Configure the SKU of the application gateway
 $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
-```
 
-> [!NOTE]
-> Vous pouvez choisir entre **WAF\_Medium** et **WAF\_Large**. Lorsque vous utilisez WAF, le niveau est toujours **WAF**. La capacité est un nombre compris entre 1 et 10.
-
-### <a name="step-20"></a>Étape 20
-
-Configurez le mode WAF. Les valeurs acceptables sont **Prévention** et **Détection**.
-
-```powershell
+#Configure the waf configuration settings.
 $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
-```
 
-### <a name="step-21"></a>Étape 21
-
-Créez une passerelle Application Gateway avec tous les éléments de configuration de la procédure précédente. Dans notre exemple, la passerelle Application Gateway est appelée « appgwtest ».
-
-```powershell
+# Create the application gateway utilizing all the previously created configuration objects
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
 ```
 

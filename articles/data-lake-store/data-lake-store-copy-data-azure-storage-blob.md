@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
-ms.openlocfilehash: 9f8635cd028d7d0d6a69faf6c2dc1de05dc5bb36
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: c7ccd172440ae36844c7a5863a9f9d55a05411f9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -175,6 +176,9 @@ Dans cette section, vous apprenez à utiliser AdlCopy pour copier des données d
 ## <a name="performance-considerations-for-using-adlcopy"></a>Considérations de performances sur l’utilisation d’AdlCopy
 
 AdlCopy prend en charge la copie de données contenant des milliers de fichiers et dossiers. Toutefois, si vous rencontrez des problèmes lors de la copie d’un jeu de données volumineux, vous pouvez distribuer les fichiers et dossiers dans des sous-dossiers plus petits. AdlCopy est conçu pour les copies ad hoc. Si vous tentez de copier des données sur une base périodique, vous envisagez d’utiliser [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md), qui fournit une gestion complète des opérations de copie.
+
+## <a name="release-notes"></a>Notes de publication
+* 1.0.13 – si vous copiez des données sur le même compte Azure Data Lake Store sur plusieurs commandes adlcopy, il n’est pas nécessaire de saisir à nouveau vos informations d’identification pour chaque exécution. Adlcopy met alors en cache ces informations sur plusieurs exécutions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)

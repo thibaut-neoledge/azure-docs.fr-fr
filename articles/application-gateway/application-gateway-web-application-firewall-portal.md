@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 05/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 9f16384a3944c3943dbfc094aaba37a24969e949
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 224aa0db2feb7a83bec5b4ec46140046d10f012e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -29,19 +30,17 @@ ms.lasthandoff: 03/30/2017
 > * [Portail Azure](application-gateway-web-application-firewall-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
 
-Le pare-feu d’applications web (WAF, Web Application Firewall) d’Azure Application Gateway protège les applications web des attaques basées sur le web courantes comme l’injection de code SQL, les attaques de script de site à site et les piratages de session. L’application web protège contre la plupart des 10 plus courantes vulnérabilités web de l’OWASP.
+Découvrez comment créer une passerelle d’application avec le pare-feu d’applications web activé.
 
-La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud.
-L’application offre de nombreuses fonctionnalités Application Delivery Controller (ADC), notamment : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc.
-Pour obtenir une liste complète des fonctionnalités prises en charge, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md)
+Le pare-feu d’applications web (WAF, Web Application Firewall) d’Azure Application Gateway protège les applications web des attaques basées sur le web courantes comme l’injection de code SQL, les attaques de script de site à site et les piratages de session. L’application web protège contre la plupart des 10 plus courantes vulnérabilités web de l’OWASP.
 
 ## <a name="scenarios"></a>Scénarios
 
 Dans cet article, il existe deux scénarios :
 
-Dans le premier scénario, vous allez apprendre à [ajouter des pare-feu d’applications web à une passerelle d’application existante](#add-web-application-firewall-to-an-existing-application-gateway).
+Dans le premier scénario, vous découvrez comment [créer une passerelle d’application avec le pare-feu d’applications web](#create-an-application-gateway-with-web-application-firewall)
 
-Dans le second scénario, vous allez apprendre à [créer une passerelle d’application avec le pare-feu d’applications web](#create-an-application-gateway-with-web-application-firewall)
+Dans le second scénario, vous découvrez comment [ajouter des pare-feu d’applications web à une passerelle d’application existante](#add-web-application-firewall-to-an-existing-application-gateway).
 
 ![Exemple de scénario][scenario]
 
@@ -54,33 +53,31 @@ La passerelle Application Gateway Azure requiert son propre sous-réseau. Lorsqu
 
 ##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> Ajout d’un pare-feu d’applications web à une passerelle Application Gateway existante
 
-Ce scénario met à jour une passerelle d’application existante afin de prendre en charge des pare-feu d’applications web en mode de prévention.
+Cet exemple met à jour une passerelle d’application existante afin de prendre en charge des pare-feu d’applications web en mode de prévention.
 
-### <a name="step-1"></a>Étape 1 :
+1. Allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur la passerelle d’application existante dans le panneau **Toutes les ressources**. Si l’abonnement déjà sélectionné a plusieurs ressources, vous pouvez entrer le nom dans **Filtrer par nom...** pour accéder facilement à la zone DNS.
 
-Accédez au portail Azure et sélectionnez une passerelle Application Gateway existante.
+   ![Création d’une passerelle Application Gateway][1]
 
-![Création d’une passerelle Application Gateway][1]
+1. Cliquez sur **Pare-feu d’applications web** et mettez à jour les paramètres de la passerelle Application Gateway. Lorsque vous avez terminé, cliquez sur **Enregistrer**
 
-### <a name="step-2"></a>Étape 2
+    Les paramètres permettant de mettre à jour une passerelle d’application existante afin de prendre en charge des pare-feu d’applications web sont les suivants :
 
-Cliquez sur **Pare-feu d’applications web** et mettez à jour les paramètres de la passerelle Application Gateway. Lorsque vous avez terminé, cliquez sur **Enregistrer**
+   | **Paramètre** | **Valeur** | **Détails**
+   |---|---|---|
+   |**Mise à niveau vers le niveau WAF**| Activé | Ceci définit le niveau de la passerelle d’application au niveau WAF.|
+   |**État du pare-feu**| Activé | Activé | Ce paramètre active le pare-feu sur le WAF.|
+   |**Mode du pare-feu** | Prévention | Ce paramètre spécifique comment le pare-feu d’application web traite le trafic malveillant. Le mode de **Détection** consigne uniquement les événements, tandis que le mode de **Prévention** consigne les événements et bloque le trafic malveillant.|
+   |**Ensemble de règles**|3.0|Ce paramètre détermine l’[ensemble de règles principal](application-gateway-web-application-firewall-overview.md#core-rule-sets) qui est utilisé pour protéger les membres du pool principal.|
+   |**Configurer des règles désactivées**|varie|Pour éviter les faux positifs potentiels, ce paramètre vous permet de désactiver certaines [règles et certains groupes de règles](application-gateway-crs-rulegroups-rules.md).|
 
-Les paramètres permettant de mettre à jour une passerelle d’application existante afin de prendre en charge des pare-feu d’applications web sont les suivants :
+    >[!NOTE]
+    > Lors de la mise à niveau d’une passerelle Application Gateway existante vers la référence SKU WAF, la taille de la référence (SKU) devient **moyen**. Cela peut être reconfiguré une fois la configuration terminée.
 
-* **Mise à niveau vers la couche WAF** - Ce paramètre est requis pour configurer WAF.
-* **État du pare-feu** - Ce paramètre désactive ou active le pare-feu d’applications web.
-* **Mode pare-feu** - Ce paramètre spécifique comment le pare-feu d’applications web traite le trafic malveillant. Le mode de **Détection** consigne uniquement les événements, tandis que le mode de **Prévention** consigne les événements et bloque le trafic malveillant.
-* **Jeu de règles** - Ce paramètre détermine le [jeu de règles de base](application-gateway-web-application-firewall-overview.md#core-rule-sets) qui est utilisé pour protéger les membres du pool principal.
-* **Configurer les règles désactivées** - Pour éviter les faux positifs potentiels, ce paramètre vous permet de désactiver certaines [et certains groupes de règles](application-gateway-crs-rulegroups-rules.md).
+    ![panneau montrant les paramètres de base][2-1]
 
->[!NOTE]
-> Lors de la mise à niveau d’une passerelle Application Gateway existante vers la référence SKU WAF, la taille de la référence (SKU) devient **moyen**. Cela peut être reconfiguré une fois la configuration terminée.
-
-![panneau montrant les paramètres de base][2]
-
-> [!NOTE]
-> Pour afficher les journaux de pare-feu d’applications web, les diagnostics doivent être activés et ApplicationGatewayFirewallLog doit être sélectionné. Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à 2 n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles ne sont pas disponibles lorsque vous utilisez des pare-feu d’applications web.
+    > [!NOTE]
+    > Pour afficher les journaux de pare-feu d’applications web, les diagnostics doivent être activés et ApplicationGatewayFirewallLog doit être sélectionné. Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à 2 n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles ne sont pas disponibles lorsque vous utilisez des pare-feu d’applications web.
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>créer une passerelle d’application avec le pare-feu d’applications web
 
@@ -91,97 +88,63 @@ Ce scénario va :
 * créer un sous-réseau appelé Appgatewaysubnet qui utilise 10.0.0.0/28 comme bloc CIDR ;
 * configurer un certificat pour le déchargement SSL.
 
-### <a name="step-1"></a>Étape 1
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free).
+1. Dans le volet Favoris, cliquez sur **Nouveau**.
+1. Dans le panneau **Nouveau**, cliquez sur **Mise en réseau**. Dans le panneau **Mise en réseau**, cliquez sur **Application Gateway**, comme indiqué dans l’image suivante :
+1. Accédez au portail Azure, cliquez sur **Nouveau** > **Mise en réseau** > **Application Gateway**
 
-Accédez au portail Azure, cliquez sur **Nouveau** > **Mise en réseau** > **Application Gateway**
+    ![Création d’une passerelle Application Gateway][1]
 
-![Création d’une passerelle Application Gateway][1-1]
+1. Dans le panneau **De base** qui s’affiche, entrez les valeurs suivantes et cliquez sur **OK** :
 
-### <a name="step-2"></a>Étape 2 :
+   | **Paramètre** | **Valeur** | **Détails**
+   |---|---|---|
+   |**Nom**|AdatumAppGateway|Nom de la passerelle Application Gateway|
+   |**Niveau**|WAF|Les valeurs disponibles sont Standard et WAF. Consultez la page [Pare-feu d’applications web (WAF)](application-gateway-web-application-firewall-overview.md) pour en savoir plus sur WAF.|
+   |**Taille de la référence (SKU)**|Moyenne|Si vous sélectionnez le niveau Standard, vous avez le choix entre Petite, Moyenne et Grande. Si vous choisissez le niveau WAF, les options sont limitées à Moyenne et Grande.|
+   |**Nombre d’instances**|2|Nombre d’instances de la passerelle Application Gateway pour la haute disponibilité. Un nombre d’instances de 1 doit être utilisé uniquement à des fins de test.|
+   |**Abonnement**|[Votre abonnement]|Sélectionnez l’abonnement dans lequel créer la passerelle de l’application.|
+   |**Groupe de ressources**|**Créer un nouveau :** AdatumAppGatewayRG|Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné. Pour plus d’informations sur les groupes de ressources, consultez l’article [Présentation de Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
+   |**Emplacement**|Ouest des États-Unis||
 
-Remplissez ensuite les informations de base relatives à la passerelle Application Gateway. Veillez à choisir le niveau **WAF** . Lorsque vous avez terminé, cliquez sur **OK**
+   ![panneau montrant les paramètres de base][2-2]
 
-Les informations nécessaires pour les paramètres de base sont les suivantes :
+1. Dans le panneau **Paramètres** qui s’affiche sous **Réseau virtuel**, cliquez sur **Choisir un réseau virtuel**. Vous accédez alors au panneau **Choisir un réseau virtuel**.  Cliquez sur **Créer un nouveau** pour ouvrir le panneau **Créer un réseau virtuel**.
 
-* **Nom** -Nom de la passerelle Application Gateway.
-* **Niveau** - Le niveau de la passerelle Application Gateway. Les options disponibles sont **Standard** et **WAF**. Le pare-feu d’applications web est uniquement disponible au niveau WAF.
-* **Taille de la référence (SKU)** - Taille de la passerelle Application Gateway. Les options disponibles sont **Moyen** et **Grand**.
-* **Nombre d’instances** - Nombre d’instances. Cette valeur doit être un nombre compris entre **2** et **10**.
-* **Groupe de ressources** - Groupe de ressources destiné à contenir la passerelle Application Gateway. Il peut s’agir d’un groupe de ressources existant ou nouveau.
-* **Emplacement** - Région de la passerelle Application Gateway. Il s’agit du même emplacement que celui du groupe de ressources. *Cette notion est importante, dans la mesure où le réseau virtuel et l’adresse IP publique doivent se trouver au même endroit que la passerelle*.
+   ![choisir un réseau virtuel][2]
 
-![panneau montrant les paramètres de base][2-2]
+1. Dans le panneau **Créer un réseau virtuel**, entrez les valeurs suivantes, puis cliquez sur **OK**. Les panneaux **Créer un réseau virtuel** et **Choisir un réseau virtuel** se ferment. Le champ **Sous-réseau** du panneau **Paramètres** est aussi automatiquement renseigné avec le nom du sous-réseau sélectionné.
 
-> [!NOTE]
-> Vous pouvez choisir un nombre d’instances de 1 à des fins de test. Il est important de savoir que n’importe quel nombre d’instances inférieur à 2 n’est pas couvert par le contrat SLA et n’est donc pas recommandé. Les petites passerelles ne sont pas prises en charge dans les scénarios de pare-feu d’applications web.
+   |**Paramètre** | **Valeur** | **Détails** |
+   |---|---|---|
+   |**Nom**|AdatumAppGatewayVNET|Nom de la passerelle Application Gateway|
+   |**Espace d’adressage**|10.0.0.0/16| Espace d’adressage du réseau virtuel|
+   |**Nom du sous-réseau**|AppGatewaySubnet|Nom du sous-réseau de la passerelle Application Gateway|
+   |**Plage d’adresses de sous-réseau**|10.0.0.0/28| Ce sous-réseau autorise plusieurs sous-réseaux supplémentaires dans le réseau virtuel pour les membres du pool principal|
 
-### <a name="step-3"></a>Étape 3
+1. Dans le panneau **Paramètres**, sous **Configuration d’adresse IP frontale**, choisissez **Public** comme **Type d’adresse IP**.
 
-Une fois les paramètres de base définis, l’étape suivante consiste à définir le réseau virtuel à utiliser. Le réseau virtuel héberge l’application pour laquelle la passerelle Application Gateway effectue l’équilibrage de charge.
+1. Dans le panneau **Paramètres**, sous **Adresse IP publique**, cliquez sur **Choisir une adresse IP publique** pour accédez au panneau **Choisir une adresse IP publique**, puis cliquez sur **créer**.
 
-Cliquez sur **Choisir un réseau virtuel** pour configurer le réseau virtuel.
+   ![choisir une adresse ip publique][3]
 
-![panneau montrant les paramètres de la passerelle Application Gateway][3]
+1. Dans le panneau **Créer une adresse IP publique**, acceptez la valeur par défaut et cliquez sur **OK**. Les panneaux **Choisir une adresse IP publique** et **Créer une adresse IP publique** se ferment et le champ **Adresse IP publique** est renseigné avec l’adresse IP publique choisie.
 
-### <a name="step-4"></a>Étape 4
+1. Dans le panneau **Paramètres**, sous **Configuration de l’écouteur**, cliquez sur **HTTP** sous **Protocole**. Un certificat est requis pour utiliser **https**. La clé privée du certificat est nécessaire de sorte qu’un export .pfx du certificat soit requis, ainsi que le mot de passer du fichier.
 
-Dans le panneau **Choisir un réseau virtuel** , cliquez sur **Créer nouveau**
+1. Configurez les paramètres **WAF** spécifiques.
 
-Bien que cela ne soit pas expliqué dans ce scénario, un réseau virtuel peut être sélectionné à ce stade.  Si un réseau virtuel existant est utilisé, il est important de savoir que le réseau virtuel a besoin d’un sous-réseau vide ou d’un sous-réseau contenant uniquement des ressources Application Gateway pour pouvoir être utilisé.
+   |**Paramètre** | **Valeur** | **Détails** |
+   |---|---|---|
+   |**État du pare-feu**| Activé| Ce paramètre active ou désactive WAF.|
+   |**Mode du pare-feu** | Prévention| Ce paramètre détermine les actions effectuées par WAF concernant le trafic malveillant. Si le mode de **détection** est choisi, le trafic est uniquement consigné.  Si le mode de **prévention** est choisi, le trafic est consigné et bloqué avec une réponse d’erreur d’autorisation 403.|
 
-![panneau Choisir un réseau virtuel][4]
 
-### <a name="step-5"></a>Étape 5
+1. Consultez la page Résumé et cliquez sur **OK**.  La passerelle Application Gateway est maintenant mise en file d’attente et créée.
 
-Remplissez les informations de réseau dans le panneau **Créer un réseau virtuel** comme décrit dans la description du précédent [scénario](#scenario) .
+1. Une fois la passerelle Application Gateway créée, accédez à celle-ci dans le portail pour poursuivre sa configuration.
 
-![panneau Créer un réseau virtuel avec informations saisies][5]
-
-### <a name="step-6"></a>Étape 6
-
-Une fois le réseau virtuel créé, l’étape suivante consiste à définir l’adresse IP frontale de la passerelle Application Gateway. À ce stade, le choix se résume à une adresse IP privée ou publique pour le serveur frontal. Le choix dépend si l’application est accessible sur Internet ou en interne uniquement. Ce scénario suppose l’utilisation d’une adresse IP publique. Pour choisir une adresse IP privée, il est possible de cliquer sur le bouton **Privé** . Une adresse IP affectée automatiquement est choisie, ou vous pouvez cocher la case **Choisir une adresse IP privée spécifique** pour en saisir une manuellement.
-
-Cliquez sur **Choisir une adresse IP publique**. Si une adresse IP publique existante est disponible, elle peut être choisie à ce stade Dans ce scénario, vous créez une nouvelle adresse IP publique. Cliquez sur **Create new**
-
-![Panneau Choisir une adresse IP publique][6]
-
-### <a name="step-7"></a>Étape 7
-
-Attribuez ensuite un nom convivial à l’adresse IP publique et cliquez sur **OK**
-
-![Panneau Créer une adresse IP publique][7]
-
-### <a name="step-8"></a>Étape 8
-
-Ensuite, vous configurez l’écouteur.  Si **http** est utilisé, il n’y a rien d’autre à configurer. Vous pouvez alors cliquer sur **OK**. Une configuration supplémentaire est requise pour utiliser **https**.
-
-Un certificat est requis pour utiliser **https**. La clé privée du certificat est nécessaire de sorte qu’un export .pfx du certificat soit requis, ainsi que le mot de passer du fichier.
-
-Cliquez sur **HTTPS**, puis sur l’icône de **dossier** situé à côté de la zone de texte **Charger un certificat PFX**.
-Accédez au fichier de certificat .pfx sur votre système de fichiers. Une fois sélectionné, donnez un nom convivial au certificat et tapez le mot de passe du fichier .pfx.
-
-Une fois terminé, cliquez sur **OK** pour passer en revue les paramètres de la passerelle Application Gateway.
-
-![section Configuration de l’écouteur du panneau Paramètres][8]
-
-### <a name="step-9"></a>Étape 9
-
-Configurez les paramètres **WAF** spécifiques.
-
-* **État du pare-feu** - Ce paramètre active ou désactive WAF.
-* **Mode pare-feu** - Ce paramètre détermine les actions effectuées par WAF concernant le trafic malveillant. Si le mode de **détection** est choisi, le trafic est uniquement consigné.  Si le mode de **prévention** est choisi, le trafic est consigné et bloqué avec une réponse d’erreur d’autorisation 403.
-
-![Paramètres du pare-feu d’applications web][9]
-
-### <a name="step-10"></a>Étape 10
-
-Consultez la page Résumé et cliquez sur **OK**.  La passerelle Application Gateway est maintenant mise en file d’attente et créée.
-
-### <a name="step-11"></a>Étape 11
-
-Une fois la passerelle Application Gateway créée, accédez à celle-ci dans le portail pour poursuivre sa configuration.
-
-![Vue des ressources de la passerelle Application Gateway][10]
+    ![Vue des ressources de la passerelle Application Gateway][10]
 
 Ces étapes permettent de créer une passerelle Application Gateway de base avec les paramètres par défaut pour l’écouteur, le pool principal, les paramètres http principaux et les règles. Vous pouvez modifier ces paramètres en fonction de votre déploiement une fois l’approvisionnement réussi
 
@@ -199,15 +162,9 @@ Découvrez comment configurer le déchargement SSL et éviter à vos serveurs we
 <!--Image references-->
 [1]: ./media/application-gateway-web-application-firewall-portal/figure1.png
 [2]: ./media/application-gateway-web-application-firewall-portal/figure2.png
-[1-1]: ./media/application-gateway-web-application-firewall-portal/figure1-1.png
+[2-1]: ./media/application-gateway-web-application-firewall-portal/figure2-1.png
 [2-2]: ./media/application-gateway-web-application-firewall-portal/figure2-2.png
 [3]: ./media/application-gateway-web-application-firewall-portal/figure3.png
-[4]: ./media/application-gateway-web-application-firewall-portal/figure4.png
-[5]: ./media/application-gateway-web-application-firewall-portal/figure5.png
-[6]: ./media/application-gateway-web-application-firewall-portal/figure6.png
-[7]: ./media/application-gateway-web-application-firewall-portal/figure7.png
-[8]: ./media/application-gateway-web-application-firewall-portal/figure8.png
-[9]: ./media/application-gateway-web-application-firewall-portal/figure9.png
 [10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
 [scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
 

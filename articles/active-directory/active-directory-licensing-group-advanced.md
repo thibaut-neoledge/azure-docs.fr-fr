@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2017
+ms.date: 05/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a7240c52e9351a60e3cf577d8112862c7dc8d913
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: d4c509c43ff647f3d9b96ffd136073312a81049b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -115,8 +116,7 @@ Certains services Microsoft ne sont pas disponibles dans tous les emplacements. 
 Pour l’affectation d’une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si vos utilisateurs se trouvent à différents emplacements, assurez-vous de bien prendre en compte cette situation dans vos objets utilisateur avant d’ajouter des utilisateurs à des groupes avec licences.
 
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Utiliser PowerShell pour voir qui dispose de licences héritées et directes
-
-Pendant la période de version préliminaire d’Azure AD, PowerShell ne peut pas être utilisé pour contrôler entièrement les affectations de licence de groupe. Il peut toutefois être utilisé pour consulter des informations de base sur l’état de l’utilisateur et déterminer si des licences sont héritées d’un groupe ou affectées directement. L’exemple de code suivant montre comment un administrateur peut produire un rapport de base sur les affectations de licences.
+Si la gestion des licences est effectuée dans la préversion publique, PowerShell ne peut pas être utilisé pour contrôler entièrement les affectations de licence de groupe. Il peut toutefois être utilisé pour consulter des informations de base sur l’état de l’utilisateur et déterminer si des licences sont héritées d’un groupe ou affectées directement. L’exemple de code suivant montre comment un administrateur peut produire un rapport de base sur les affectations de licences.
 
 1. Exécutez l’applet de commande `connect-msolservice` pour vous authentifier et vous connecter à votre locataire.
 

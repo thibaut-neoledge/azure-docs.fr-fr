@@ -13,32 +13,47 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/08/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 831c55939ad3673aa8e44f165e18e826f64b54cc
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 022396a8bf0478414be179b9f7341a459ed2bc60
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="how-to-use-availability-sets"></a>Utilisation des groupes à haute disponibilité
 
-Dans ce tutoriel, vous allez découvrir comment augmenter la disponibilité de vos machines virtuelles en les plaçant dans un regroupement logique appelé groupe à haute disponibilité. Lorsque vous créez des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure répartit les machines virtuelles dans l’infrastructure sous-jacente. En cas de panne matérielle ou de tâches de maintenance planifiées sur la plateforme, l’utilisation des groupes à haute disponibilité garantit qu’au moins une machine virtuelle continue à s’exécuter.
+Ce didacticiel explique comment améliorer la disponibilité et la fiabilité de vos solutions de machine virtuelle sur Azure en utilisant une fonctionnalité appelée Groupes à haute disponibilité. Les groupes à haute disponibilité veillent à ce que les machines virtuelles que vous déployez sur Azure soient distribuées sur plusieurs clusters matériels isolés. Cela garantit que, si une défaillance matérielle ou logicielle se produit dans Azure, seul un sous-ensemble de vos machines virtuelles soit concerné et que votre solution globale reste disponible et opérationnelle dans la perspective des clients qui l’utilisent. 
 
-Les étapes de ce tutoriel peuvent être effectuées à l’aide de la dernière version du module [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
+
+> [!div class="checklist"]
+> * Créer un groupe à haute disponibilité
+> * Créer une machine virtuelle dans un groupe à haute disponibilité
+> * Vérifier les tailles de machines virtuelles disponibles
+
+Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="availability-set-overview"></a>Vue d’ensemble des groupes à haute disponibilité
 
-Des machines virtuelles peuvent être créées dans des regroupements logiques de matériel dans le centre de données Azure sous-jacent. Si vous créez au moins deux machines virtuelles, vos ressources de calcul et de stockage sont réparties dans le matériel, par exemple sur les serveurs, les commutateurs réseau et l’espace de stockage. Cette distribution assure la disponibilité de votre application si un composant matériel devait subir une maintenance. Les groupes à haute disponibilité vous permettent de définir ce regroupement logique.
+Un groupe à haute disponibilité est une fonctionnalité de regroupement logique que vous pouvez utiliser dans Azure pour vous assurer que les ressources de machine virtuelle que vous y incluez sont isolées les unes des autres lors de leur déploiement dans un centre de données Azure. Azure veille à ce que les machines virtuelles que vous placez dans un groupe à haute disponibilité s’exécutent sur plusieurs serveurs physiques, racks de calcul, unités de stockage et commutateurs réseau. Cela garantit qu’en cas de panne matérielle ou logicielle d’Azure, seul un sous-ensemble de vos machines virtuelles est affecté, et que votre application globale reste opérationnelle et disponible pour vos clients. L’utilisation de groupes à haute disponibilité est essentielle pour créer des solutions cloud fiables.
 
-Ils garantissent une haute disponibilité pour les machines virtuelles. Vous devez également vous assurer que vos applications sont aussi conçues pour tolérer des événements de maintenance ou des interruptions.
+Prenons l’exemple d’une solution basée sur une machine virtuelle classique dans laquelle vous disposez de 4 serveurs web frontaux et utilisez 2 machines virtuelles principales hébergeant une base de données. Avec Azure, vous pouvez définir deux groupes à haute disponibilité avant de déployer vos machines virtuelles : l’un pour le niveau « web » et l’autre pour le niveau « base de données ». Lorsque vous créez une machine virtuelle, vous pouvez spécifier le groupe à haute disponibilité en tant que paramètre pour la commande az vm create, de sorte qu’Azure veille automatiquement à ce que les machines virtuelles que vous créez dans le groupe disponible soient isolées sur plusieurs ressources matérielles. Cela signifie que, si le matériel sur lequel s’exécute l’une de vos machines virtuelles serveur web ou serveur de base de données rencontre un problème, vous savez que les autres instances de votre serveur web et de vos machines virtuelles de base de données continueront à s’exécuter correctement parce qu’elles se trouvent sur d’autres éléments matériels.
+
+Vous devriez toujours utiliser des groupes à haute disponibilité lorsque vous souhaitez déployer des solutions fiables basées sur des machines virtuelles dans Azure.
 
 ## <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 
 Vous pouvez créez un groupe à haute disponibilité avec la commande [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). Dans cet exemple, nous définissons le nombre de domaines de mise à jour et d’erreur sur *2* pour le groupe à haute disponibilité nommé *myAvailabilitySet* dans le groupe de ressources *myResourceGroupAvailability*.
+
+Créez un groupe de ressources.
+
+```powershell
+New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
+```
 
 
 ```powershell
@@ -159,9 +174,17 @@ Get-AzureRmVMSize `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à créer un groupe de machines virtuelles identiques. Passez au tutoriel suivant pour en savoir plus sur les groupes de machines virtuelles identiques.
+Dans ce didacticiel, vous avez appris à :
 
-[Créer un groupe de machines virtuelles identiques](tutorial-create-vmss.md)
+> [!div class="checklist"]
+> * Créer un groupe à haute disponibilité
+> * Créer une machine virtuelle dans un groupe à haute disponibilité
+> * Vérifier les tailles de machines virtuelles disponibles
+
+Passez au didacticiel suivant pour en savoir plus sur les groupes de machines virtuelles identiques.
+
+> [!div class="nextstepaction"]
+> [Créer un groupe de machines virtuelles identiques](tutorial-create-vmss.md)
 
 
 

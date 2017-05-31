@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
+ms.date: 05/04/2017
 ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3349f890391aec7fc6361b149d148d828cbe3b97
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c4e482e9f985553938ce132c617ba0b1a2128106
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -33,7 +34,7 @@ Cette fonctionnalité peut être utilisée conjointement avec la fonctionnalité
 Il existe deux cas d'utilisation de SCIM dans Azure Active Directory :
 
 * **Mise en service d’utilisateurs et de groupes pour les applications qui prennent en charge SCIM** : les applications qui prennent en charge SCIM 2.0 et utilisent les jetons de porteur OAuth d’Azure AD pour l’authentification fonctionneront avec Azure AD Directory dès la première utilisation.
-* **Créer votre propre solution d'attribution pour les applications qui prennent en charge d'autres attributions basées sur API** : pour les applications autres que SCIM, vous pouvez créer un point de terminaison SCIM pour la translation entre le point de terminaison SCIM d'Azure AD et l'API prise en charge par l'application pour l'attribution des utilisateurs.  Pour faciliter le développement d'un point de terminaison SCIM, nous fournissons des bibliothèques CLI, ainsi que des exemples de code qui vous indiquent comment fournir un point de terminaison SCIM et convertir les messages SCIM.  
+* **Créer votre propre solution d’approvisionnement pour les applications qui prennent en charge d’autres approvisionnements basés sur une API** : pour les applications autres que SCIM, vous pouvez créer un point de terminaison SCIM pour la translation entre le point de terminaison SCIM d’Azure AD et l’API prise en charge par l’application pour l’approvisionnement des utilisateurs.  Pour faciliter le développement d'un point de terminaison SCIM, nous fournissons des bibliothèques CLI, ainsi que des exemples de code qui vous indiquent comment fournir un point de terminaison SCIM et convertir les messages SCIM.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Mise en service d’utilisateurs et de groupes pour les applications qui prennent en charge SCIM
 Azure Active Directory peut être configuré pour attribuer automatiquement des utilisateurs et des groupes aux applications qui implémentent un service Web [Système de gestion d'identités inter-domaines 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) et acceptent des jetons de porteur OAuth pour l'authentification. Dans la spécification SCIM 2.0, applications doivent satisfaire aux conditions suivantes :
@@ -117,16 +118,16 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
 2. Accédez à **Active Directory > Répertoire > [votre répertoire] > Applications**, puis sélectionnez **Ajouter > Ajouter une application à partir de la galerie**.
 3. Sélectionnez l’onglet **Personnaliser** à gauche, entrez un nom tel qu'« Application de Test SCIM », puis cliquez sur l'icône de coche pour créer un objet d'application. Notez que l’objet d’application créé doit représenter l’application cible que vous devez configurer et sur laquelle mettre en œuvre l’authentification unique. Il ne s’agit pas d’un simple point de terminaison SCIM.
 
-![][2]
+  ![][2]
 
-1. Dans l'écran qui s'affiche, sélectionnez le deuxième bouton **Configurer l'approvisionnement de comptes** .
+4. Dans l'écran qui s'affiche, sélectionnez le deuxième bouton **Configurer l'approvisionnement de comptes** .
 2. Dans la boîte de dialogue, saisissez l’URL côté Internet et le port de votre point de terminaison SCIM. Le résultat pourrait être http://testmachine.contoso.com:9000 ou http://<adresse-ip>:9000/, où <adresse-ip> est l’adresse IP Internet exposée.  
-3. Cliquez sur **Suivant**, puis sur le bouton **Démarrer le test** pour qu'Azure Active Directory tente de se connecter au point de terminaison SCIM. Si les tentatives échouent, les informations de diagnostic seront affichées.  
-4. Si les tentatives de connexion à votre service web aboutissent, cliquez sur **Suivant** sur les écrans restants, puis cliquez sur **Terminer** pour quitter la boîte de dialogue.
-5. Dans l'écran qui s'affiche, sélectionnez le troisième bouton **Affecter des comptes** . Dans la section Utilisateurs et groupes qui en résulte, affectez les utilisateurs ou les groupes que vous souhaitez configurer pour lesquels vous souhaitez configurer l’application.
-6. Une fois les utilisateurs et les groupes affectés, cliquez sur l'onglet **Configurer** près du bord supérieur de l'écran.
-7. Sous **Approvisionnement de compte**, vérifiez que l'état est défini sur activé (On). 
-8. Sous **Outils**, cliquez sur **Redémarrer l'approvisionnement de compte** pour lancer le processus d'approvisionnement.
+5. Cliquez sur **Suivant**, puis sur le bouton **Démarrer le test** pour qu'Azure Active Directory tente de se connecter au point de terminaison SCIM. Si les tentatives échouent, les informations de diagnostic seront affichées.  
+6. Si les tentatives de connexion à votre service web aboutissent, cliquez sur **Suivant** sur les écrans restants, puis cliquez sur **Terminer** pour quitter la boîte de dialogue.
+7. Dans l'écran qui s'affiche, sélectionnez le troisième bouton **Affecter des comptes** . Dans la section Utilisateurs et groupes qui en résulte, affectez les utilisateurs ou les groupes que vous souhaitez configurer pour lesquels vous souhaitez configurer l’application.
+8. Une fois les utilisateurs et les groupes affectés, cliquez sur l'onglet **Configurer** près du bord supérieur de l'écran.
+9. Sous **Approvisionnement de compte**, vérifiez que l'état est défini sur activé (On). 
+10. Sous **Outils**, cliquez sur **Redémarrer l'approvisionnement de compte** pour lancer le processus d'approvisionnement.
 
 Notez que 5 à 10 minutes peuvent s’écouler avant que le processus de déploiement commence à envoyer des demandes au point de terminaison SCIM.  Un récapitulatif des tentatives de connexion est fourni sur l’onglet tableau de bord de l’application, et un rapport d’activité sur l’approvisionnement et les erreurs de configuration peut être téléchargé depuis l’onglet Rapports de l’annuaire.
 
@@ -666,7 +667,7 @@ La figure ci-dessous contient les messages qu’Azure Active Directory va envoye
 
 ## <a name="related-articles"></a>Articles connexes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-* [Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
+* [Automatiser l’approvisionnement/le déprovisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
 * [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
 * [Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Filtres d’étendue pour l’approvisionnement des utilisateurs](active-directory-saas-scoping-filters.md)
