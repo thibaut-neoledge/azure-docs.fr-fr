@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 62d5b9d1698dc8f0331fc9ced8fc9611055db06e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 4dc44ee33c7eee5baa3990ccbd754d3197d164e2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -29,46 +31,31 @@ Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de donnée
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-* **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Un abonnement Azure**. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Azure PowerShell**. Consultez la section Configuration requise de la rubrique [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-<!-- ################################ -->
-<!-- ################################ -->
+## <a name="running-the-snippets"></a>Exécution d’extraits de code
 
+Dans ce didacticiel, les extraits de code PowerShell utilisent ces variables pour stocker ces informations.
 
-## <a name="install-azure-powershell-10-or-greater"></a>Installer Azure PowerShell 1.0 ou versions ultérieures
-Consultez la section Configuration requise de la rubrique [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
+```
+$rg = "<ResourceGroupName>"
+$adls = "<DataLakeAccountName>"
+$adla = "<DataLakeAnalyticsAccountName>"
+$location = "East US 2"
+```
 
 ## <a name="manage-accounts"></a>Gérer les comptes
-Avant d'exécuter des travaux Data Lake Analytics, vous devez avoir un compte Data Lake Analytics. Contrairement à Azure HDInsight, vous ne payez pas pour un compte Analytics lorsque celui-ci n'exécute aucun travail.  Vous payez uniquement lorsqu'il exécute un travail.  Pour plus d'informations, consultez [Présentation d'Azure Data Lake Analytics](data-lake-analytics-overview.md).  
 
-### <a name="create-accounts"></a>Création de comptes
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeStoreName = "<DataLakeAccountName>"
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-    $location = "<Microsoft Data Center>"
+### <a name="create-a-data-lake-analytics-account"></a>Créer un compte Data Lake Analytics
 
-    Write-Host "Create a resource group ..." -ForegroundColor Green
-    New-AzureRmResourceGroup `
-        -Name  $resourceGroupName `
-        -Location $location
+```
+New-AzureRmResourceGroup -Name  $rg -Location $location
+New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
+New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
+```
 
-    Write-Host "Create a Data Lake account ..."  -ForegroundColor Green
-    New-AzureRmDataLakeStoreAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $dataLakeStoreName `
-        -Location $location 
-
-    Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
-    New-AzureRmDataLakeAnalyticsAccount `
-        -Name $dataLakeAnalyticsAccountName `
-        -ResourceGroupName $resourceGroupName `
-        -Location $location `
-        -DefaultDataLake $dataLakeStoreName
-
-    Write-Host "The newly created Data Lake Analytics account ..."  -ForegroundColor Green
-    Get-AzureRmDataLakeAnalyticsAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $dataLakeAnalyticsAccountName  
+### <a name="create-a-data-lake-analytics-account-using-a-template"></a>Créer un compte Data Lake Analytics à l’aide d’un modèle
 
 Vous pouvez également utiliser un modèle Groupe de ressources Azure. Vous trouverez un modèle permettant de créer un compte Data Lake Analytics et le compte Data Lake Store dépendant dans [l’Annexe A](#appendix-a). Enregistrez le modèle dans un fichier de modèle .json, puis utilisez le script PowerShell suivant pour l'appeler :
 
@@ -94,19 +81,11 @@ Vous pouvez également utiliser un modèle Groupe de ressources Azure. Vous trou
     New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters 
 
 
-### <a name="list-account"></a>Répertorier le compte
+### <a name="list-accounts"></a>Énumérer les comptes
+
 Répertorier les comptes Data Lake Analytics dans l’abonnement sélectionné
 
     Get-AzureRmDataLakeAnalyticsAccount
-
-La sortie est la suivante :
-
-    Id         : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/learn1021rg/providers/Microsoft.DataLakeAnalytics/accounts/learn1021adla
-    Location   : eastus2
-    Name       : learn1021adla
-    Properties : Microsoft.Azure.Management.DataLake.Analytics.Models.DataLakeAnalyticsAccountProperties
-    Tags       : {}
-    Type       : Microsoft.DataLakeAnalytics/accounts
 
 Répertorier les comptes Data Lake Analytics dans un groupe de ressources spécifique
 
@@ -373,10 +352,5 @@ Le modèle ARM suivant peut être utilisé pour déployer un compte Data Lake An
         }
       }
     }
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f4c63af2d873fb11c8503a30b104b9b7db7f74f0
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 7f708087dda4cfb7e998b42ce36632d5764c6c0e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c"></a>Déployer une machine virtuelle Azure à l’aide de C# #
+# <a name="deploy-an-azure-virtual-machine-using-c"></a>Déployer une machine virtuelle Azure avec C# #
 
 Cet article explique comment utiliser C# pour créer une machine virtuelle Azure et ses ressources de soutien.
 
@@ -34,15 +35,15 @@ Lors de cette étape, assurez-vous que Visual Studio est installé et que vous c
 
 1. Si vous ne l’avez pas déjà fait, installez [Visual Studio](https://www.visualstudio.com/).
 2. Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
-3. Dans **Modèles** > **Visual C#**, sélectionnez **Application console**, entrez le nom et l’emplacement du projet, puis cliquez sur **OK**.
+3. Dans **Modèles** > **Visual C#**, sélectionnez **Application console (.NET Framework)**, entrez le nom et l’emplacement du projet, puis cliquez sur **OK**.
 
 ## <a name="step-2-install-libraries"></a>Étape 2 : installation des bibliothèques
 
 Les packages NuGet sont le moyen le plus simple pour installer les bibliothèques dont vous avez besoin pour terminer ces étapes. Pour obtenir les bibliothèques dont vous avez besoin dans Visual Studio, suivez ces étapes :
 
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, et cliquez sur **Gérer les packages NuGet**, puis sur **Parcourir**.
-2. Entrez *Microsoft.IdentityModel.Clients.ActiveDirectory* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, cliquez sur **Gérer les packages NuGet** puis sur **Parcourir**.
+2. Entrez *Microsoft.IdentityModel.Clients.ActiveDirectory* dans la zone de recherche, sélectionnez votre projet, cliquez sur **Installer** puis suivez les instructions d’installation du package.
 3. En haut de la page, sélectionnez **Inclure la version préliminaire**. Tapez *Microsoft.Azure.Management.Compute* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
 4. Tapez *Microsoft.Azure.Management.Network* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
 5. Tapez *Microsoft.Azure.Management.Storage* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
@@ -54,7 +55,7 @@ Vous êtes maintenant prêt à utiliser les bibliothèques permettant de créer 
 
 Avant de commencer cette étape, assurez-vous que vous avez accès à un [principal de service Active Directory](../../resource-group-authenticate-service-principal.md). Dans le principal de service, vous obtenez le jeton d'authentification des demandes pour Azure Resource Manager.
 
-1. Ouvrez le fichier Program.cs du projet que vous avez créé, puis ajoutez les instructions suivantes au début du fichier :
+1. Ouvrez le fichier Program.cs du projet que vous avez créé, puis ajoutez les instructions using suivantes aux instructions au début du fichier :
    
     ```
     using Microsoft.Azure;
@@ -75,8 +76,8 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
     ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -88,9 +89,9 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
 
     Remplacez les valeurs suivantes :
     
-    - *{client-id}* avec l'identificateur de l'application Azure Active Directory. Vous pouvez trouver cet identifiant dans le panneau Propriétés de votre application AD. Pour trouver votre application Active Directory dans le portail Azure, cliquez sur **Azure Active Directory** dans le menu de ressources, puis cliquez sur **Inscriptions d’applications**.
-    - *{client-secret}* avec la clé d’accès de l’application Active Directory. Vous pouvez trouver cet identifiant dans le panneau Propriétés de votre application AD.
-    - *{tenant-id}* avec l’identificateur de client de votre abonnement. Vous trouverez l’identificateur de client dans le panneau Propriétés d’Azure Active Directory dans le portail Azure. Il porte le nom *ID de répertoire*.
+    - *client-id* avec l’identificateur de l’application Azure Active Directory. Vous pouvez trouver cet identifiant dans le panneau Propriétés de votre application AD. Pour trouver votre application Active Directory dans le portail Azure, cliquez sur **Azure Active Directory** dans le menu de ressources, puis cliquez sur **Inscriptions d’applications**.
+    - *client-secret* avec la clé d’accès de l’application Active Directory. Vous pouvez trouver cet identifiant dans le panneau Propriétés de votre application AD.
+    - *tenant-id* avec l’identificateur de locataire de votre abonnement. Vous trouverez l’identificateur de client dans le panneau Propriétés d’Azure Active Directory dans le portail Azure. Il porte le nom *ID de répertoire*.
 
 3. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main dans le fichier Program.cs :
    
@@ -101,7 +102,7 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
 
 4. Enregistrez le fichier Program.cs.
 
-## <a name="step-3-create-the-resources"></a>Étape 3 : création des ressources
+## <a name="step-4-create-the-resources"></a>Étape 4 : Créer les ressources
 
 ### <a name="register-the-providers-and-create-a-resource-group"></a>Inscrire les fournisseurs et créer un groupe de ressources
 
@@ -360,8 +361,8 @@ Une machine virtuelle a besoin d’une interface réseau pour communiquer sur le
                 new NetworkInterfaceIPConfiguration
                   {
                     Name = nicName,
-                    PublicIPAddress = pubipResponse,
-                    Subnet = subnetResponse
+                    PublicIPAddress = publicIP,
+                    Subnet = subnet
                   }
               }
           }

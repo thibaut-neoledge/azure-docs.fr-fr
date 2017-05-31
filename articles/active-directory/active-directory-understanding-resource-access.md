@@ -1,6 +1,6 @@
 ---
 title: "Présentation de l’accès aux ressources dans Azure | Microsoft Docs"
-description: "Cette rubrique explique les concepts relatifs à l&quot;utilisation des administrateurs des abonnements pour contrôler l&quot;accès aux ressources dans l’ensemble du portail Azure."
+description: "Cette rubrique explique les concepts relatifs à l’utilisation des administrateurs d’abonnements pour contrôler l’accès aux ressources dans l’ensemble du portail Azure."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 9906aa7ac4296089fd2e41897323e757b181a022
-ms.lasthandoff: 02/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: d9143c1ec2075f71659e8deaadc93d1972ea9a85
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---

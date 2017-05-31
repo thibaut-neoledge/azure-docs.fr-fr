@@ -1,0 +1,111 @@
+---
+title: "Didacticiel Adventure Works d’Azure Analysis Services | Microsoft Docs"
+description: "Présente le didacticiel Adventure Works d’Azure Analysis Services"
+services: analysis-services
+documentationcenter: 
+author: minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 05/26/2017
+ms.author: owend
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: b20adfa6c69488b848d4ca5bee2cb4baeca806b8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
+
+---
+# <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Didacticiel Adventure Works
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
+Ce didacticiel fournit des leçons sur la façon de créer et de déployer un modèle tabulaire au niveau de compatibilité 1400 à l’aide de [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+
+Si vous découvrez Analysis Services et la modélisation tabulaire, suivre ce didacticiel est la façon la plus rapide d’apprendre à créer un modèle tabulaire de base et de le déployer sur un serveur Analysis Services réel. Une fois toutes les conditions préalables satisfaites, cela vous prendra environ deux ou trois heures.  
+  
+## <a name="what-youll-learn"></a>Ce que vous allez apprendre   
+  
+-   Comment créer un projet de modèle tabulaire au **niveau de compatibilité 1400** dans SSDT.
+  
+-   Comment importer des données à partir d’une base de données relationnelle dans un projet de modèle tabulaire.  
+  
+-   Comment créer et gérer des relations entre les tables dans le modèle.  
+  
+-   Comment créer des colonnes calculées, des mesures et des indicateurs de performance clés qui permettent aux utilisateurs d’analyser des métriques métier critiques.  
+  
+-   Comment créer et gérer des perspectives et des hiérarchies qui permettent aux utilisateurs de parcourir plus facilement des données de modèle en fournissant des points de vue spécifiques à l’entreprise et à l’application.  
+  
+-   Comment créer des partitions qui divisent des données de table en sous-parties logiques qui peuvent être traitées indépendamment des autres partitions.  
+  
+-   Comment sécuriser des objets et données de modèle en créant des rôles avec des membres utilisateurs.  
+  
+-   Comment déployer un modèle tabulaire sur un serveur **Azure Analysis Services** ou un serveur SQL Server Analysis Services 2017 local.  
+  
+## <a name="prerequisites"></a>Prérequis  
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :  
+  
+-   Une instance d’Azure Analysis Services ou de SQL Server Analysis Services 2017 sur laquelle déployer votre modèle. Inscrivez-vous pour bénéficier d’un [essai gratuit d’Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) et [créez un serveur](../analysis-services-create-server.md). Ou inscrivez-vous et téléchargez [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
+
+-   Une base de données SQL Server ou SQL Azure avec l’[exemple de base de données AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Cet exemple de base de données inclut les données nécessaires pour suivre ce didacticiel. Téléchargez les [éditions gratuites de SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). Ou inscrivez-vous pour obtenir un [essai gratuit d’Azure SQL Database](https://azure.microsoft.com/services/sql-database/). 
+
+    **Important** : Si vous installez l’exemple de base de données sur un serveur SQL Server local et que vous déployez votre modèle sur un serveur Azure Analysis Services, une [passerelle de données locale](../analysis-services-gateway.md) est nécessaire.
+
+-   La dernière version de [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+
+-   La dernière version de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
+
+-   Une application cliente telle que [Power BI Desktop](https://powerbi.microsoft.com/desktop/) ou Excel. 
+
+## <a name="scenario"></a>Scénario  
+Ce didacticiel repose sur la société fictive Adventure Works Cycles. Adventure Works est une grande entreprise multinationale spécialisée dans la fabrication et la distribution de métaux et de pièces détachées de vélos pour les marchés de l’Amérique du Nord, de l’Europe et de l’Asie. Basée à Bothell, dans l’état de Washington, la société emploie 500 personnes. Par ailleurs, Adventure Works emploie plusieurs équipes commerciales régionales pour couvrir son marché. Vous êtes chargé de créer un modèle tabulaire afin de permettre aux utilisateurs commerciaux et marketing d’analyser les données des ventes sur Internet dans l’exemple de base de données AdventureWorksDW.  
+  
+Pour effectuer ce didacticiel, vous devez suivre plusieurs leçons. Chaque leçon comprend un certain nombre de tâches. Il est indispensable d’exécuter chaque tâche dans l’ordre pour effectuer la leçon. Une leçon peut comporter plusieurs tâches qui aboutissent au même résultat, mais la façon d’exécuter chaque tâche diffère légèrement. Le but est de montrer qu’il existe souvent plusieurs façons d’effectuer une tâche donnée et de vous tester sur l’utilisation des compétences acquises au cours des leçons et tâches précédentes.  
+  
+L’objectif des leçons est de vous guider dans la création d’un modèle tabulaire de base s’exécutant à l’aide des nombreuses fonctionnalités incluses dans SSDT. Étant donné que chaque leçon repose sur la leçon précédente, vous devez suivre les leçons dans l’ordre. Une fois que vous aurez terminé toutes les leçons, vous aurez créé et déployé l’exemple de modèle tabulaire Adventure Works Internet Sales sur un serveur Analysis Services.  
+  
+Ce didacticiel ne fournit pas de leçons ni d’informations sur la gestion d’un serveur Azure Analysis Services dans le portail Azure, sur la gestion d’un serveur ou d’une base de données déployée à l’aide de SSMS (SQL Server Management Studio) ou sur l’utilisation d’une application cliente de création de rapports permettant de se connecter à un modèle déployé afin de parcourir les données de modèle.  
+
+
+## <a name="lessons"></a>Leçons  
+Ce didacticiel comprend les leçons suivantes :  
+  
+|Leçon|Durée estimée|  
+|----------|------------------------------|  
+|[Leçon 1 : Créer un projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)|10 minutes|  
+|[Leçon 2 : Obtenir des données](../tutorials/aas-lesson-2-get-data.md)|10 minutes|  
+|[Leçon 3 : Marquer en tant que table de dates](../tutorials/aas-lesson-3-mark-as-date-table.md)|3 minutes|  
+|[Leçon 4 : Créer des relations](../tutorials/aas-lesson-4-create-relationships.md)|10 minutes|  
+|[Leçon 5 : Créer des colonnes calculées](../tutorials/aas-lesson-5-create-calculated-columns.md)|15 minutes|
+|[Leçon 6 : Créer des mesures](../tutorials/aas-lesson-6-create-measures.md)|30 minutes|  
+|[Leçon 7 : Afficher des indicateurs de performance clés](../tutorials/aas-lesson-7-create-key-performance-indicators.md)|15 minutes|  
+|[Leçon 8 : Créer des perspectives](../tutorials/aas-lesson-8-create-perspectives.md)|5 minutes|  
+|[Leçon 9 : Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md)|20 minutes|  
+|[Leçon 10 : Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md)|15 minutes|  
+|[Leçon 11 : Créer des rôles](../tutorials/aas-lesson-11-create-roles.md)|15 minutes|  
+|[Leçon 12 : Analyser dans Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)|5 minutes| 
+|[Leçon 13 : Déployer](../tutorials/aas-lesson-13-deploy.md)|5 minutes|  
+  
+## <a name="supplemental-lessons"></a>Leçons supplémentaires  
+Il n’est pas obligatoire de suivre ces leçons pour terminer le didacticiel, mais elles peuvent être utiles pour mieux comprendre les fonctionnalités avancées de création de modèles tabulaires.  
+  
+|Leçon|Durée estimée|  
+|----------|------------------------------|  
+|[Lignes de détails](../tutorials/aas-supplemental-lesson-detail-rows.md)|10 minutes|
+|[Sécurité dynamique](../tutorials/aas-supplemental-lesson-dynamic-security.md)|30 minutes|
+|[Hiérarchies déséquilibrées](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)|20 minutes| 
+
+  
+## <a name="next-steps"></a>Étapes suivantes  
+Pour commencer, consultez [Leçon 1 : Créer un projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+  
+  
+  
+
+

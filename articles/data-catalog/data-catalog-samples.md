@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/03/2017
+ms.date: 05/05/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2e84eb020b46fe89426e547b389715d6190fc03c
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0c76287232e578df695f73e5d9792ee457266db9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -27,14 +28,18 @@ Commencez à développer des applications Data Catalog à l’aide de l’API RE
 
 Voici les exemples disponibles sur GitHub :
 
-* [Prise en main d’Azure Data Catalog](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-get-started/)
+* [Prise en main d’Azure Data Catalog](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-get-started/)
   
   Exemple qui illustre comment s’authentifier avec Azure AD pour inscrire, rechercher et supprimer une ressource de données à l’aide de l’API REST Data Catalog.
-* [Inscription et annotation en bloc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
+* [Inscription et annotation en bloc](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-excel-register-data-assets/)
   
   Exemple qui montre comment inscrire en bloc les ressources de données à partir d’un classeur Excel à l’aide de l’API REST Data Catalog et d’Open XML.
-* [Outil d’importation/exportation](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
+* [Outil d’importation/exportation](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-import-export/)
   
   Exemple qui montre comment utiliser l’API REST Data Catalog pour extraire des ressources d’Azure Data Catalog et les sérialiser dans un fichier. Il montre aussi comment sélectionner un ensemble de ressources sérialisées au format JSON et les placer dans le catalogue. Cet exemple prend en charge l’exportation d’un sous-ensemble du catalogue à l’aide d’une requête de recherche.
+
+* [Importer en bloc des termes de glossaire](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
+
+    Cet exemple montre comment importer des glossaires depuis des fichiers CSV dans le glossaire ADC.
 
 

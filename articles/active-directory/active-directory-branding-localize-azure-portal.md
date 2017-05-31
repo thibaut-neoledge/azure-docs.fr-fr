@@ -1,5 +1,5 @@
 ---
-title: "Ajouter la personnalisation de votre société spécifique à une langue à votre page de connexion dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
+title: "Ajouter la personnalisation de votre société spécifique à une langue à votre page de connexion dans Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment ajouter des images et du texte de la société dans une langue spécifique à une page de connexion Azure"
 services: active-directory
 documentationcenter: 
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fece49df6a35f09ee73bb4b9ec4c33a0529a9f59
-ms.lasthandoff: 12/28/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: e1fe8d855386ceec39edbc985538cdf32d78a13b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="add-language-specific-company-branding-to-your-sign-in-page-in-the-azure-active-directory-preview"></a>Ajouter la personnalisation de votre société spécifique à une langue à votre page de connexion dans la version préliminaire d’Azure Active Directory
-Pour éviter toute confusion, de nombreuses entreprises veulent que tous les sites Web et services qu’elles gèrent aient un aspect similaire. La version préliminaire d’Azure Active Directory offre cette possibilité en vous permettant de personnaliser l’apparence la page de connexion pour qu’elle affiche le logo de votre société et sa palette de couleurs personnalisée. [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)  La page de connexion s’affiche lorsque vous vous connectez à Office 365 ou à d’autres applications Web qui utilisent Azure AD comme fournisseur d’identité. Vous interagissez avec cette page pour saisir vos informations d’identification.
+# <a name="add-language-specific-company-branding-to-your-sign-in-page-in-the-azure-active-directory"></a>Ajouter la personnalisation de votre société spécifique à une langue à votre page de connexion dans Azure Active Directory
+Pour éviter toute confusion, de nombreuses entreprises veulent que tous les sites Web et services qu’elles gèrent aient un aspect similaire. Azure Active Directory offre cette possibilité en vous permettant de personnaliser l’apparence la page de connexion pour qu’elle affiche le logo de votre société et sa palette de couleurs personnalisée. La page de connexion s’affiche lorsque vous vous connectez à Office 365 ou à d’autres applications Web qui utilisent Azure AD comme fournisseur d’identité. Vous interagissez avec cette page pour saisir vos informations d’identification.
 
 ## <a name="customizing-the-sign-in-page-for-another-language"></a>Personnalisation de la page de connexion pour une autre langue
 Vous pouvez ajouter des éléments de langage spécifiques à votre page de connexion personnalisée uniquement si vous avez déjà créé une page de connexion personnalisée, comme décrit dans [Ajouter votre marque à votre page de connexion](active-directory-branding-custom-signon-azure-portal.md). Vous pouvez configurer une page de connexion par répertoire avec un jeu d’éléments personnalisables par défaut. Une fois que vous avez configuré un jeu d’éléments de la page « par défaut », vous pouvez configurer des versions supplémentaires avec différents paramètres régionaux. Vous pouvez également combiner différents éléments. Par exemple, vous pouvez :

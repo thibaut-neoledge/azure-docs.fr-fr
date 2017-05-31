@@ -15,10 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 704403704bd52ba1fe1815345708ab4d2d2547af
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: d47447007c3bac51dc9ee0a17948ef9a42377a22
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
@@ -68,7 +69,7 @@ Pour obtenir une culture DevOps appropriée, toute l’infrastructure doit être
 * [Modèles Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Azure déploie la prise en charge de [cloud-init](http://cloud-init.io/) sur la plupart des distributions Linux qui le prennent en charge.  Actuellement, les machines virtuelles Ubuntu de Canonical sont déployées avec cloud-init activé par défaut.  Fedora, CentOS et RedHat RHEL prennent en charge cloud-init, mais les images Azure maintenues par RedHat ne disposent pas de cloud-init installé.  Pour utiliser cloud-init sur un système d’exploitation de la famille RedHat, vous devez créer une image personnalisée avec cloud-init installé.
+Azure déploie la prise en charge de [cloud-init](http://cloud-init.io/) sur la plupart des distributions Linux qui le prennent en charge.  Actuellement, les machines virtuelles Ubuntu de Canonical sont déployées avec cloud-init activé par défaut.  Fedora, CentOS et Red Hats RHEL prennent en charge cloud-init, mais les images Azure maintenues par RedHat ne disposent pas de cloud-init installé.  Pour utiliser cloud-init sur un système d’exploitation de la famille RedHat, vous devez créer une image personnalisée avec cloud-init installé.
 
 * [À l’aide de cloud-init sur les machines virtuelles Linux Azure](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

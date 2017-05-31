@@ -1,5 +1,5 @@
 ---
-title: "Gestion des noms de domaine personnalisés dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
+title: "Gestion des noms de domaine personnalisés dans Azure Active Directory | Microsoft Docs"
 description: "Concepts de gestion et procédures pour gérer un nom de domaine dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9dd64868be0899ebfc6414e0dc9e6e62d864e88e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: b483dcce0bec933e5dab6c990f4912cb596ebda0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="managing-custom-domain-names-in-your-azure-active-directory-preview"></a>Gestion des noms de domaine personnalisés dans la version préliminaire d’Azure Active Directory
-Un nom de domaine est une partie importante de l’identificateur de nombreuses ressources de répertoire : il fait partie du nom ou de l’adresse électronique d’un utilisateur, de l’adresse d’un groupe et parfois de l’URI ID d’application pour une application. Une ressource dans la version préliminaire d’Azure Active Directory (Azure AD) peut inclure un nom de domaine déjà vérifié comme appartenant au répertoire qui contient la ressource. [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)  Seul un administrateur général peut effectuer des tâches de gestion de domaine dans Azure AD.
+# <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
+Un nom de domaine est une partie importante de l’identificateur de nombreuses ressources de répertoire : il fait partie du nom ou de l’adresse électronique d’un utilisateur, de l’adresse d’un groupe et parfois de l’URI ID d’application pour une application. Une ressource dans Azure Active Directory (Azure AD) peut inclure un nom de domaine déjà vérifié comme appartenant au répertoire qui contient la ressource. Seul un administrateur général peut effectuer des tâches de gestion de domaine dans Azure AD.
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Définir le nom de domaine principal pour votre répertoire Azure AD
 Lors de la création du répertoire, le nom de domaine initial, par exemple « contoso.onmicrosoft.com », est également le nom de domaine principal. Le domaine principal est le nom de domaine par défaut pour un nouvel utilisateur lorsque vous créez un nouvel utilisateur. Cela simplifie le processus permettant à un administrateur de créer des utilisateurs dans le portail. Pour modifier le nom de domaine principal, procédez comme suit :
@@ -59,17 +61,12 @@ Pour supprimer un nom de domaine personnalisé, vous devez d’abord vous assure
 Vous devez modifier ou supprimer n’importe quelle ressource de ce type dans votre répertoire Azure AD pour pouvoir supprimer le nom de domaine personnalisé.
 
 ## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Utiliser PowerShell ou API Graph pour gérer les noms de domaine
-La plupart des tâches de gestion des noms de domaine dans Azure Active Directory peuvent également être accomplies à l’aide de Microsoft PowerShell, ou encore par programmation à l’aide d’API Graph d’Azure AD (en version préliminaire publique).
+La plupart des tâches de gestion des noms de domaine dans Azure Active Directory peuvent également être accomplies à l’aide de Microsoft PowerShell, ou encore par programmation à l’aide d’API Graph d’Azure AD.
 
 * [Utilisation de PowerShell pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Utilisation d’API Graph pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajouter des noms de domaines personnalisés](active-directory-domains-add-azure-portal.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

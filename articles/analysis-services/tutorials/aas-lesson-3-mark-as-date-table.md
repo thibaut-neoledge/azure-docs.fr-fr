@@ -1,0 +1,63 @@
+---
+title: "Leçon 3 du didacticiel Azure Analysis Services : Marquer en tant que Table de dates | Microsoft Docs"
+description: Explique comment marquer une table de dates dans le projet du didacticiel Azure Analysis Services.
+services: analysis-services
+documentationcenter: 
+author: minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 05/26/2017
+ms.author: owend
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 80c15b2115afca7342771d3f53d1742fc347ae1c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
+
+---
+# <a name="lesson-3-mark-as-date-table"></a>Leçon 3 : Marquer en tant que Table de dates
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
+Dans Leçon 2 : Obtenir les données, vous avez importé une table de dimension nommée DimDate. Dans votre modèle, cette table se nomme DimDate. Toutefois, elle peut également être appelée *Table de dates*, car elle contient des données de date et d’heure.  
+  
+Chaque fois que vous utilisez les fonctions Time Intelligence DAX dans les calculs (comme vous allez le faire plus tard pour créer des mesures), vous devez spécifier des propriétés de table de dates, qui correspondent à une *Table de dates* et à sa *Colonne de date* à identificateur unique.
+  
+Dans cette leçon, vous allez marquer la table DimDate comme étant la *Table de dates*, et la colonne de date (comprise dans la table de dates) comme étant la *Colonne de date* (à identificateur unique).  
+
+Avant de marquer la table de dates et la colonne de date, il peut être intéressant d’apporter quelques modifications visant à faciliter la compréhension de votre modèle. Notez que dans la table DimDate se trouve une colonne nommée **FullDateAlternateKey**. Elle contient une ligne pour chaque jour, pour chaque année civile incluse dans la table. Vous allez utiliser cette colonne très souvent dans les formules de mesure et dans les rapports. Cependant, FullDateAlternateKey n’est pas vraiment un bon identificateur pour cette colonne. Renommez cette colonne **Date** pour faciliter son identification et son utilisation dans les formules. Quand cela est possible, il est préférable de renommer les objets tels que les tables et les colonnes pour les rendre plus faciles à identifier dans SSDT et dans les applications clientes de création de rapports, telles que Power BI et Excel. 
+  
+Durée estimée pour suivre cette leçon : **3 minutes**  
+  
+## <a name="prerequisites"></a>Prérequis  
+Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 2 : Obtenir des données](../tutorials/aas-lesson-2-get-data.md). 
+
+### <a name="to-rename-the-fulldatealternatekey-column"></a>Pour renommer la colonne FullDateAlternateKey
+
+1.  Dans le Concepteur de modèles, cliquez sur la table **DimDate**.
+
+2.  Double-cliquez sur l’en-tête de la colonne **FullDateAlternateKey**, puis renommez-le **Date**.
+
+  
+### <a name="to-set-mark-as-date-table"></a>Pour marquer en tant que table de dates  
+  
+1.  Sélectionnez la colonne **Date**, puis, dans la fenêtre **Propriétés**, sous **Type de données**, vérifiez que **Date** est sélectionné.  
+  
+2.  Cliquez sur le menu **Table**, cliquez sur **Date**, puis cliquez sur **Marquer en tant que table de dates**.  
+  
+3.  Dans la boîte de dialogue **Marquer en tant que table de dates**, dans la zone de liste **Date**, sélectionnez la colonne **Date** comme identificateur unique. Elle est généralement sélectionnée par défaut. Cliquez sur **OK**. 
+
+    ![aas-lesson3-date-table](../tutorials/media/aas-lesson3-date-table.png)
+  
+
+## <a name="whats-next"></a>Et ensuite ?
+[Leçon 4 : Créer des relations](../tutorials/aas-lesson-4-create-relationships.md).
+  
+

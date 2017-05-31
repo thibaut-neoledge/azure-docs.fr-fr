@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 3155990d977d8b0849c9e0be92db11ad6567cd6e
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: fd52bd8e14ca9bdcd06fc820e5e03fb5feccc72f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -112,10 +113,10 @@ Cliquez sur la mosaïque **Recommandations** pour obtenir une liste de recommand
 
 ![Recommandations de sécurité dans le Centre de sécurité Azure][5]
 
-### <a name="resource-health"></a>Intégrité des ressources
-La vignette **Intégrité des ressources** affiche la posture de sécurité globale de votre environnement par type de ressource (machines virtuelles, applications web et autres ressources).   
+### <a name="security-state-of-azure-resources"></a>État de sécurité des ressources Azure
+La section **Prévention** du tableau de bord affiche la posture de sécurité globale de votre environnement par type de ressource (machines virtuelles, applications web et autres ressources).   
 
-Sélectionnez un type de ressource dans la vignette **Intégrité des ressources** pour afficher plus d’informations, notamment une liste des vulnérabilités de sécurité potentielles qui ont été identifiées. (Dans l’exemple ci-dessous, **Calcul** est sélectionné.)
+Sélectionnez un type de ressource dans la section **Prévention** pour afficher plus d’informations, notamment une liste des vulnérabilités de sécurité potentielles qui ont été identifiées. (Dans l’exemple ci-dessous, **Calcul** est sélectionné.)
 
 ![Mosaïque d’intégrité des ressources][6]
 

@@ -1,5 +1,5 @@
 ---
-title: "Prise en main de l’accès conditionnel dans Azure Active Directory – version préliminaire | Documents Microsoft"
+title: "Bien démarrer avec l’accès conditionnel dans Azure Active Directory | Microsoft Docs"
 description: "Testez l’accès conditionnel à l’aide d’une condition d’emplacement."
 services: active-directory
 keywords: "accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel"
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: ae60cd810b4beb26f714e2ea2566e5354c482fa8
-ms.openlocfilehash: 3022f5e27ddaf125161bbf7132b41a27024f40b6
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 52b65b24867906d0c574a323904d980e126bcbd2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="get-started-with-conditional-access-in-azure-active-directory---preview"></a>Prise en main de l’accès conditionnel dans Azure Active Directory – version préliminaire
-
-Le comportement décrit dans cette rubrique correspond à une [version préliminaire](active-directory-preview-explainer.md).
+# <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Bien démarrer avec l’accès conditionnel dans Azure Active Directory
 
 L’accès conditionnel est une fonctionnalité d’Azure Active Directory, qui vous permet de définir les conditions dans lesquelles les utilisateurs autorisés peuvent accéder à vos applications. 
 
@@ -34,7 +34,7 @@ Cette rubrique fournit des instructions pour tester un accès conditionnel en fo
 De nombreuses organisations veulent limiter l’utilisation de l’authentification multifacteur aux tentatives d’accès aux applications, qui n’émanent pas de l’intranet de l’entreprise. Azure Active Directory vous permet d’atteindre cet objectif facilement grâce à une stratégie d’accès conditionnel basée sur l’emplacement. Cette rubrique fournit des instructions détaillées pour configurer une stratégie de ce type. Celle-ci utilise des [adresses IP approuvées](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) pour faire la distinction entre les tentatives d’accès provenant de l’intranet de l’entreprise et celles provenant de tous les autres emplacements.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans cette rubrique suppose que vous connaissiez les concepts abordés dans [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
@@ -160,10 +160,5 @@ L’authentification multifacteur ne doit être requise que si la tentative de c
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l’accès conditionnel, consultez [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

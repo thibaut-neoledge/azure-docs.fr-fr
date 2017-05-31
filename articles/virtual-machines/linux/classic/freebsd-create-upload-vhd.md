@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2016
+ms.date: 05/08/2017
 ms.author: kyliel
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2d44a2d9a247ffce8bcf35152170562ac0b86710
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 7a92105f9d7be88311f2ecd89b22e35f3ad3bbac
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -33,7 +33,7 @@ Cet article vous montre comment créer et télécharger un disque dur virtuel (V
 Cet article part du principe que vous disposez des éléments suivants :
 
 * **Abonnement Azure**: si vous ne possédez pas de compte, vous pouvez en créer un en quelques minutes. Si vous disposez d’un abonnement MSDN, consultez [Crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Dans le cas contraire, découvrez comment [créer un compte d'essai gratuit](https://azure.microsoft.com/pricing/free-trial/).  
-* **Outils Azure PowerShell**: le module Azure PowerShell doit être installé et configuré de façon à utiliser votre abonnement Azure. Pour télécharger le module, consultez la page [Téléchargements Azure](https://azure.microsoft.com/downloads/). Un didacticiel sur l’installation et la configuration du module est disponible ici. Utilisez l’applet de commande [Téléchargements Azure](https://azure.microsoft.com/downloads/) pour télécharger le disque dur virtuel.
+* **Outils Azure PowerShell**: le module Azure PowerShell doit être installé et configuré de façon à utiliser votre abonnement Azure. Pour télécharger le module, consultez la page [Téléchargements Azure](https://azure.microsoft.com/downloads/). Un didacticiel expliquant comment installer et configurer le module est disponible ici. Utilisez l’applet de commande [Téléchargements Azure](https://azure.microsoft.com/downloads/) pour télécharger le disque dur virtuel.
 * **Système d’exploitation FreeBSD installé dans un fichier .vhd**: un système d’exploitation FreeBSD pris en charge doit être installé sur un disque dur virtuel. Plusieurs outils permettent de créer des fichiers .vhd. Par exemple, vous pouvez utiliser une solution de virtualisation comme Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions pour installer et utiliser Hyper-V, consultez la page [Installer Hyper-V et créer une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
@@ -41,7 +41,7 @@ Cet article part du principe que vous disposez des éléments suivants :
 >
 >
 
-Cette tâche comprend les cinq étapes suivantes.
+Cette tâche comprend les cinq étapes suivantes :
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>Étape 1 : préparation de l'image pour le téléchargement
 Sur la machine virtuelle où vous avez installé le système d’exploitation FreeBSD, effectuez les procédures suivantes :
@@ -52,12 +52,7 @@ Sur la machine virtuelle où vous avez installé le système d’exploitation Fr
         # service netif restart
 2. Activez SSH.
 
-    SSH est activé par défaut après l’installation à partir du disque. S’il n’est pas activé pour une raison quelconque ou si vous utilisez un disque dur virtuel FreeBSD directement, tapez ce qui suit :
-
-        # echo 'sshd_enable="YES"' >> /etc/rc.conf
-        # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
-        # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-        # service sshd restart
+    Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. Il est activé par défaut après l’installation à partir du disque FreeBSD. 
 3. Configurez une console série.
 
         # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
@@ -67,16 +62,16 @@ Sur la machine virtuelle où vous avez installé le système d’exploitation Fr
     Le compte racine est désactivé dans Azure. Cela signifie que vous devez utiliser sudo à partir d'un utilisateur sans privilège pour exécuter des commandes avec des privilèges élevés.
 
         # pkg install sudo
-   ;
+   
 5. Composants requis pour l'Agent Azure.
 
         # pkg install python27  
-        # pkg install Py27-setuptools27   
+        # pkg install Py27-setuptools  
         # ln -s /usr/local/bin/python2.7 /usr/bin/python   
         # pkg install git
 6. Installez l’Agent Azure.
 
-    La dernière version de l’agent Azure se trouve toujours sur [github](https://github.com/Azure/WALinuxAgent/releases). La version 2.0.10 + prend officiellement en charge FreeBSD 10 et 10.1 et la version 2.1.4 prend officiellement en charge FreeBSD 10.2 et les versions ultérieures.
+    La dernière version de l’agent Azure se trouve toujours sur [github](https://github.com/Azure/WALinuxAgent/releases). La version 2.0.10 + prend officiellement en charge FreeBSD 10 et 10.1 et la version 2.1.4 + (2.2.x inclus) prend officiellement en charge FreeBSD 10.2 et les versions ultérieures.
 
         # git clone https://github.com/Azure/WALinuxAgent.git  
         # cd WALinuxAgent  
@@ -109,8 +104,8 @@ Sur la machine virtuelle où vous avez installé le système d’exploitation Fr
         # waagent -version
         WALinuxAgent-2.1.4 running on freebsd 10.3
         Python: 2.7.11
-        # service –e | grep waagent
-        /etc/rc.d/waagent
+        # ps auxw | grep waagent
+        root   639   0.0  0.5 104620 17520 u0- I    05:17    0:00.20 python /usr/local/sbin/waagent -daemon (python2.7)
         # cat /var/log/waagent.log
 7. Annulez l’approvisionnement du système.
 
@@ -170,7 +165,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Utilisez la méthode par certificat pour télécharger un fichier .vhd
 1. Ouvrez la console Azure PowerShell.
 2. Entrez :  `Get-AzurePublishSettingsFile`.
-3. Une fenêtre de navigateur apparaît et vous invite à télécharger un fichier .publishsettings. Ce fichier contient des informations et un certificat pour votre abonnement Azure.
+3. Une fenêtre de navigateur apparaît et vous invite à télécharger le fichier .publishsettings. Ce fichier contient des informations et un certificat pour votre abonnement Azure.
 
     ![Page de téléchargement du navigateur](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. Enregistrez le fichier .publishsettings.
@@ -181,7 +176,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
    Pour plus d’informations sur l’installation et la configuration de PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="step-4-upload-the-vhd-file"></a>Étape 4 : téléchargement du fichier .vhd
-Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n’importe où dans votre stockage d’objets blob. Voici certains termes que vous utiliserez quand vous téléchargerez le fichier :
+Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n’importe où dans votre stockage d’objets blob. Voici certains termes que vous utiliserez quand vous chargez le fichier :
 
 * **BlobStorageURL** correspond à l’URL du compte de stockage que vous avez créé à l’étape 2.
 * **YourImagesFolder** est le conteneur au sein du stockage d’objets blob dans lequel vous souhaitez stocker vos images.

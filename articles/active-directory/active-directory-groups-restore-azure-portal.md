@@ -1,5 +1,6 @@
 ---
-title: "Restaurer un groupe Office 365 supprimé dans la préversion d’Azure Active Directory | Microsoft Docs"
+
+title: "Restaurer un groupe Office 365 supprimé dans Azure Active Directory | Microsoft Docs"
 description: "Comment restaurer un groupe supprimé, afficher les groupes pouvant être restaurés et supprimer de façon permanente un groupe dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4e2fe22953ff74214c0c20fdf2fabceeda63be35
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 473f3e464324cc2667428485235e3b942c736382
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
 
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Restaurer un groupe Office 365 supprimé dans Azure Active Directory
 
-Lorsque vous supprimez un groupe Office 365 dans la préversion d’Azure Active Directory (Azure AD), celui-ci est conservé, mais il n’est pas visible pendant 30 jours à partir de la date de suppression. De cette façon, le groupe et son contenu peuvent être restaurés au besoin. Cette fonctionnalité est limitée exclusivement aux groupes Office 365 dans Azure AD. Elle n’est pas disponible pour les groupes de sécurité et les groupes de distribution.
+Lorsque vous supprimez un groupe Office 365 dans Azure Active Directory (Azure AD), celui-ci est conservé, mais il n’est pas visible pendant 30 jours à partir de la date de suppression. De cette façon, le groupe et son contenu peuvent être restaurés au besoin. Cette fonctionnalité est limitée exclusivement aux groupes Office 365 dans Azure AD. Elle n’est pas disponible pour les groupes de sécurité et les groupes de distribution.
 
 Les autorisations requises pour restaurer un groupe peuvent être les suivantes :
 
@@ -37,8 +38,7 @@ Utilisateur | Peut restaurer n’importe quel groupe Office 365 supprimé dont i
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Affichage des groupes Office 365 supprimés disponibles pour la restauration
-Les applets de commande suivantes peuvent servir à afficher les groupes supprimés pour vérifier que ceux qui vous intéressent n’ont pas encore été supprimés de façon définitive. Ces applets de commande font partie du [module Azure Active Directory PowerShell V2 Preview](https://www.powershellgallery.com/packages/AzureADPreview). Pour plus d’informations sur ce module, consultez l’article [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0).
-Notez que les applets de commande pour la gestion de la suppression réversible et de la récupération sont en préversion publique et que nous devons parfois apporter des modifications majeures aux applets de commande en préversion. Pour cette raison, l’utilisation de ces applets de commande dans un environnement de production est déconseillée.
+Les applets de commande suivantes peuvent servir à afficher les groupes supprimés pour vérifier que ceux qui vous intéressent n’ont pas encore été supprimés de façon définitive. Ces cmdlets font partie du module [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/). Pour plus d’informations sur ce module, consultez l’article [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 1.    Exécutez l’applet de commande suivante pour afficher tous les groupes Office 365 supprimés dans votre locataire et dont la restauration est toujours possible.
   ```

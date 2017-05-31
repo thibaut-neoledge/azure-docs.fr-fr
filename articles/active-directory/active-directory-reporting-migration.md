@@ -1,4 +1,5 @@
 ---
+
 title: "Trouver les rapports d’activité dans le Portail Azure | Microsoft Docs"
 description: "Découvrez comment trouver les rapports d’activité Azure Active Directory sur le Portail Azure."
 services: active-directory
@@ -12,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2017
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: f2f5ed98df88df69ee300c9da94ad013a631b3b9
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7f6d82d211e9b3d25b0efe62ab8dd32f827b08ef
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -124,8 +126,8 @@ Dans le portail Azure, vous pouvez accéder aux rapports sur les événements à
 
 Pour plus d’informations sur les rapports de sécurité, consultez :
 
-- [Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory - version préliminaire](active-directory-reporting-security-user-at-risk.md)
-- [Rapport de connexions risquées dans le portail Azure Active Directory - version préliminaire](active-directory-reporting-security-risky-sign-ins.md)
+- [Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory](active-directory-reporting-security-user-at-risk.md)
+- [Rapports sur les connexions risquées dans le portail Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 
 ## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Comparaison des rapports d’activité entre le Portail Azure Classic et le Portail Azure

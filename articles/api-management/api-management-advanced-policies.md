@@ -3,7 +3,7 @@ title: "Stratégies avancées de la Gestion des API Azure | Microsoft Docs"
 description: "Découvrez les stratégies avancées disponibles dans la Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: bfadac7b34eca2ef1f9bcabc6e267ca9572990b8
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f9272946fe4a03a732aa686680bba054c8ef1688
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
@@ -35,18 +36,20 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 -   [Retry](#Retry) : effectue une nouvelle tentative d’exécution des instructions de stratégie incluses, si la condition est remplie et jusqu’à ce qu’elle le soit. L’exécution se répète à intervalles réguliers et ce jusqu’au nombre de tentatives défini.  
   
--   [Return response](#ReturnResponse) : abandonne l’exécution du pipeline et renvoie la réponse indiquée directement à l’appelant.  
+-   [Return response](#ReturnResponse) : abandonne l’exécution du pipeline et renvoie la réponse indiquée directement à l’appelant. 
   
 -   [Send one way request](#SendOneWayRequest) : envoie une demande à l’URL indiquée sans attendre de réponse.  
   
 -   [Send request](#SendRequest) : envoie une demande à l’URL indiquée.  
-  
--   [Set variable](api-management-advanced-policies.md#set-variable) : conserve une valeur dans une variable de [contexte](api-management-policy-expressions.md#ContextVariables) nommée pour permettre d’y accéder ultérieurement.  
-  
+
+-   [Définir le proxy HTTP](#SetHttpProxy) : vous permet de router les demandes transférées via un proxy HTTP.  
+
 -   [Set request method](#SetRequestMethod) : permet de modifier la méthode HTTP d’une demande.  
   
 -   [Set status code](#SetStatus) : permet de donner la valeur spécifiée au code d’état HTTP.  
   
+-   [Set variable](api-management-advanced-policies.md#set-variable) : conserve une valeur dans une variable de [contexte](api-management-policy-expressions.md#ContextVariables) nommée pour permettre d’y accéder ultérieurement.  
+
 -   [Trace](#Trace) : ajoute une chaîne à la sortie de l’[inspecteur d’API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
   
 -   [Wait](#Wait) : attend l’exécution des stratégies incluses [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) et [Control flow](api-management-advanced-policies.md#choose) pour continuer.  
@@ -620,6 +623,144 @@ status code and media type. If no example or schema found, the content is empty.
   
 -   **Étendues de la stratégie :** toutes les étendues  
   
+##  <a name="SetHttpProxy"></a> Définir le proxy HTTP  
+ La stratégie `proxy` vous permet de router les demandes transférées aux back-ends via un proxy HTTP. Seul HTTP (et pas HTTPS) est pris en charge entre la passerelle et le proxy. Authentification de base et NTLM uniquement.
+  
+### <a name="policy-statement"></a>Instruction de la stratégie  
+  
+```xml  
+<proxy url="http://hostname-or-ip:port" username="username" password="password" />  
+  
+```  
+  
+### <a name="example"></a>Exemple  
+Notez l’utilisation de [propriétés](api-management-howto-properties.md) en tant que valeurs du nom d’utilisateur et du mot de passe pour éviter de stocker des informations sensibles dans le document de stratégie.  
+  
+```xml  
+<proxy url="http://192.168.1.1:8080" username={{username}} password={{password}} />
+  
+```  
+  
+### <a name="elements"></a>Éléments  
+  
+|Élément|Description|Requis|  
+|-------------|-----------------|--------------|  
+|proxy|Élément racine|Oui|  
+
+### <a name="attributes"></a>Attributs  
+  
+|Attribut|Description|Requis|Default|  
+|---------------|-----------------|--------------|-------------|  
+|url="chaîne"|URL du proxy sous la forme http://host:port.|Oui|N/A |  
+|username="chaîne"|Nom d’utilisateur à utiliser pour l’authentification auprès du proxy.|Non|N/A |  
+|password="chaîne"|Mot de passe à utiliser pour l’authentification auprès du proxy.|Non|N/A |  
+
+### <a name="usage"></a>Usage  
+ Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+  
+-   **Sections de la stratégie :** inbound  
+  
+-   **Étendues de la stratégie :** toutes les étendues  
+
+##  <a name="SetRequestMethod"></a> Set request method  
+ La stratégie `set-method` permet de modifier la méthode d’une requête HTTP.  
+  
+### <a name="policy-statement"></a>Instruction de la stratégie  
+  
+```xml  
+<set-method>METHOD</set-method>  
+  
+```  
+  
+### <a name="example"></a>Exemple  
+ Cet exemple de stratégie, qui utilise la stratégie `set-method`, montre un exemple d’envoi d’un message à une salle de conversation Slack si le code de la réponse HTTP est supérieur ou égal à 500. Pour plus d’informations sur cet exemple, consultez la page [Utilisation de services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
+  
+```xml  
+<choose>  
+    <when condition="@(context.Response.StatusCode >= 500)">  
+      <send-one-way-request mode="new">  
+        <set-url>https://hooks.slack.com/services/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</set-url>  
+        <set-method>POST</set-method>  
+        <set-body>@{  
+                return new JObject(  
+                        new JProperty("username","APIM Alert"),  
+                        new JProperty("icon_emoji", ":ghost:"),  
+                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",  
+                                                context.Request.Method,  
+                                                context.Request.Url.Path + context.Request.Url.QueryString,  
+                                                context.Request.Url.Host,  
+                                                context.Response.StatusCode,  
+                                                context.Response.StatusReason,  
+                                                context.User.Email  
+                                                ))  
+                        ).ToString();  
+            }</set-body>  
+      </send-one-way-request>  
+    </when>  
+</choose>  
+  
+```  
+  
+### <a name="elements"></a>Éléments  
+  
+|Élément|Description|Requis|  
+|-------------|-----------------|--------------|  
+|set-method|Élément racine. La valeur de l’élément spécifie la méthode HTTP.|Oui|  
+  
+### <a name="usage"></a>Usage  
+ Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+  
+-   **Sections de la stratégie :** inbound, on-error  
+  
+-   **Étendues de la stratégie :** toutes les étendues  
+  
+##  <a name="SetStatus"></a> Set status code  
+ La stratégie `set-status` permet de donner la valeur spécifiée au code d’état HTTP.  
+  
+### <a name="policy-statement"></a>Instruction de la stratégie  
+  
+```xml  
+<set-status code="" reason=""/>  
+  
+```  
+  
+### <a name="example"></a>Exemple  
+ Cet exemple montre comment renvoyer une réponse 401 si le jeton d’autorisation n’est pas valide. Pour plus d’informations, consultez la page [Utiliser des services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
+  
+```xml  
+<choose>  
+  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
+    <return-response response-variable-name="existing response variable">  
+      <set-status code="401" reason="Unauthorized" />  
+      <set-header name="WWW-Authenticate" exists-action="override">  
+        <value>Bearer error="invalid_token"</value>  
+      </set-header>  
+    </return-response>  
+  </when>  
+</choose>  
+  
+```  
+  
+### <a name="elements"></a>Éléments  
+  
+|Élément|Description|Requis|  
+|-------------|-----------------|--------------|  
+|set-status|Élément racine.|Oui|  
+  
+### <a name="attributes"></a>Attributs  
+  
+|Attribut|Description|Requis|Default|  
+|---------------|-----------------|--------------|-------------|  
+|code="integer"|Code d’état HTTP à renvoyer.|Oui|N/A|  
+|reason="string"|Description du motif pour lequel le code d’état est renvoyé.|Oui|N/A|  
+  
+### <a name="usage"></a>Usage  
+ Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+  
+-   **Sections de la stratégie :** outbound, backend, on-error  
+  
+-   **Étendues de la stratégie :** toutes les étendues  
+
 ##  <a name="set-variable"></a> Set variable  
  La stratégie `set-variable` déclare une variable de [contexte](api-management-policy-expressions.md#ContextVariables) et lui affecte une valeur spécifiée par le biais d’une [expression](api-management-policy-expressions.md) ou d’un littéral chaîne. Si l’expression contient un littéral, il sera converti en chaîne et le type de la valeur sera `System.String`.  
   
@@ -720,106 +861,7 @@ status code and media type. If no example or schema found, the content is empty.
 -   System.Char?  
   
 -   System.DateTime?  
-  
-##  <a name="SetRequestMethod"></a> Set request method  
- La stratégie `set-method` permet de modifier la méthode d’une requête HTTP.  
-  
-### <a name="policy-statement"></a>Instruction de la stratégie  
-  
-```xml  
-<set-method>METHOD</set-method>  
-  
-```  
-  
-### <a name="example"></a>Exemple  
- Cet exemple de stratégie, qui utilise la stratégie `set-method`, montre un exemple d’envoi d’un message à une salle de conversation Slack si le code de la réponse HTTP est supérieur ou égal à 500. Pour plus d’informations sur cet exemple, consultez la page [Utilisation de services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
-  
-```xml  
-<choose>  
-    <when condition="@(context.Response.StatusCode >= 500)">  
-      <send-one-way-request mode="new">  
-        <set-url>https://hooks.slack.com/services/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</set-url>  
-        <set-method>POST</set-method>  
-        <set-body>@{  
-                return new JObject(  
-                        new JProperty("username","APIM Alert"),  
-                        new JProperty("icon_emoji", ":ghost:"),  
-                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",  
-                                                context.Request.Method,  
-                                                context.Request.Url.Path + context.Request.Url.QueryString,  
-                                                context.Request.Url.Host,  
-                                                context.Response.StatusCode,  
-                                                context.Response.StatusReason,  
-                                                context.User.Email  
-                                                ))  
-                        ).ToString();  
-            }</set-body>  
-      </send-one-way-request>  
-    </when>  
-</choose>  
-  
-```  
-  
-### <a name="elements"></a>Éléments  
-  
-|Élément|Description|Requis|  
-|-------------|-----------------|--------------|  
-|set-method|Élément racine. La valeur de l’élément spécifie la méthode HTTP.|Oui|  
-  
-### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
-  
--   **Sections de la stratégie :** inbound, on-error  
-  
--   **Étendues de la stratégie :** toutes les étendues  
-  
-##  <a name="SetStatus"></a> Set status code  
- La stratégie `set-status` permet de donner la valeur spécifiée au code d’état HTTP.  
-  
-### <a name="policy-statement"></a>Instruction de la stratégie  
-  
-```xml  
-<set-status code="" reason=""/>  
-  
-```  
-  
-### <a name="example"></a>Exemple  
- Cet exemple montre comment renvoyer une réponse 401 si le jeton d’autorisation n’est pas valide. Pour plus d’informations, consultez la page [Utiliser des services externes à partir du service Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
-  
-```xml  
-<choose>  
-  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
-    <return-response response-variable-name="existing response variable">  
-      <set-status code="401" reason="Unauthorized" />  
-      <set-header name="WWW-Authenticate" exists-action="override">  
-        <value>Bearer error="invalid_token"</value>  
-      </set-header>  
-    </return-response>  
-  </when>  
-</choose>  
-  
-```  
-  
-### <a name="elements"></a>Éléments  
-  
-|Élément|Description|Requis|  
-|-------------|-----------------|--------------|  
-|set-status|Élément racine.|Oui|  
-  
-### <a name="attributes"></a>Attributs  
-  
-|Attribut|Description|Requis|Default|  
-|---------------|-----------------|--------------|-------------|  
-|code="integer"|Code d’état HTTP à renvoyer.|Oui|N/A|  
-|reason="string"|Description du motif pour lequel le code d’état est renvoyé.|Oui|N/A|  
-  
-### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
-  
--   **Sections de la stratégie :** outbound, backend, on-error  
-  
--   **Étendues de la stratégie :** toutes les étendues  
-  
+
 ##  <a name="Trace"></a> Trace  
  La stratégie `trace` ajoute une chaîne à la sortie de [l’Inspecteur d’API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/). La stratégie s’exécute uniquement lorsque le traçage est déclenché, c’est-à-dire que l’en-tête de la demande `Ocp-Apim-Trace` est présent et a la valeur `true` et que l’en-tête de la demande `Ocp-Apim-Subscription-Key` est présent et contient une clé valide associée au compte Administrateur.  
   
