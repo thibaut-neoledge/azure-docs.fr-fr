@@ -14,13 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: b7ad7b91c6b836f26b45959ef65a99666a4bf69a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/08/2016
 
 
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Didacticiel : Processus de facturation EDIFACT à l’aide des Services BizTalk Azure
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Vous pouvez utiliser le portail BizTalk Services pour configurer et déployer des accords X12 et EDIFACT. Dans ce didacticiel, nous allons étudier comment créer un accord EDIFACT destiné à l’échange de factures entre partenaires commerciaux. Ce didacticiel a été rédigé à partir d’une solution de bout en bout faisant intervenir deux partenaires commerciaux, Northwind et Contoso qui échangent des messages EDIFACT.  
 
 ## <a name="sample-based-on-this-tutorial"></a>Exemple basé sur ce didacticiel
@@ -277,10 +282,5 @@ L’aspect le plus important du travail avec des lots est la publication réelle
 [16]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-16.PNG  
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG  
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

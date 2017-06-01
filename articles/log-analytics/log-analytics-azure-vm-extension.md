@@ -100,7 +100,7 @@ Pour les machines virtuelles Azure Resource Manager, utilisez l’exemple PowerS
 
 ```PowerShell
 Login-AzureRMAccount
-Select-AzureSubscription -SubscriptionId "**"
+Select-AzureRMSubscription -SubscriptionId "**"
 
 $workspaceName = "your workspace name"
 $VMresourcegroup = "**"
