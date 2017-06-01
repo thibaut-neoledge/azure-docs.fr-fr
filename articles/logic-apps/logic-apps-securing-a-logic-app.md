@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 86c293e735f766dbacc7d0b83574f254573d0de8
-ms.openlocfilehash: 3f119409e031ca2b88694a011916f52aa9ef5d36
-ms.lasthandoff: 02/15/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: ac52924d928b293f4b1b58f0c25375f890c51837
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -38,7 +39,7 @@ Lorsque vous utilisez une application logique déclenchée par une requête HTTP
 
 ### <a name="shared-access-signature"></a>Signature d’accès partagé
 
-Chaque point de terminaison de requête pour une application logique inclut une partie [Signature d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAP) dans l’URL. Chaque URL contient un paramètre de requête `sp`, `sv` et `sig`. Les autorisations sont spécifiées par `sp` et correspondent aux méthodes HTTP autorisées, `sv` est la version utilisée pour générer et `sig` est utilisé pour authentifier l’accès au déclencheur. La signature est générée à l’aide de l’algorithme SHA&256; avec une clé secrète sur tous les chemins d’accès à l’URL et les propriétés. La clé secrète n’est jamais exposée et publiée, et est chiffrée et stockée dans l’application logique. Votre application logique autorise uniquement les déclencheurs contenant une signature valide créée avec la clé secrète.
+Chaque point de terminaison de requête pour une application logique inclut une partie [Signature d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAP) dans l’URL. Chaque URL contient un paramètre de requête `sp`, `sv` et `sig`. Les autorisations sont spécifiées par `sp` et correspondent aux méthodes HTTP autorisées, `sv` est la version utilisée pour générer et `sig` est utilisé pour authentifier l’accès au déclencheur. La signature est générée à l’aide de l’algorithme SHA 256 avec une clé secrète sur tous les chemins d’accès à l’URL et les propriétés. La clé secrète n’est jamais exposée et publiée, et est chiffrée et stockée dans l’application logique. Votre application logique autorise uniquement les déclencheurs contenant une signature valide créée avec la clé secrète.
 
 #### <a name="regenerate-access-keys"></a>Régénération de clés d'accès
 
@@ -264,7 +265,7 @@ Logic Apps permet l’intégration plusieurs services afin de fournir une commun
 
 #### <a name="on-premises-data-gateway"></a>Passerelle de données locale
 
-La plupart des connecteurs d’applications logiques gérés fournissent une connectivité sécurisée aux systèmes locaux, notamment le système de fichiers, SQL, SharePoint, DB2, et bien d’autres encore.  La passerelle utilise des canaux chiffrés via Azure Service Bus pour relayer des données en local, et tout le trafic provient d’un trafic sortant sécurisé de l’agent de la passerelle.  Plus d’informations sur le fonctionnement de la passerelle sont fournies [dans cet article](logic-apps-gateway-install.md#how-the-gateway-works).
+De nombreux connecteurs gérés d’applications logiques fournissent une connectivité sécurisée aux systèmes locaux, notamment le système de fichiers, SQL, SharePoint, DB2 et bien d’autres encore. La passerelle transmet des données à partir de sources locales sur des canaux chiffrés via Azure Service Bus. Tout le trafic est initialisé en tant que trafic sortant de l’agent de passerelle sécurisé. En savoir plus sur le [fonctionnement de la passerelle de données](logic-apps-gateway-install.md#gateway-cloud-service).
 
 #### <a name="azure-api-management"></a>Gestion des API Azure
 

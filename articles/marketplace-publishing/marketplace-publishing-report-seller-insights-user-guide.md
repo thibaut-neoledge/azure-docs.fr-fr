@@ -15,336 +15,363 @@ ms.workload: na
 ms.date: 03/03/2017
 ms.author: v-dabosl
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: e168e9610cbe493618121c688e349064c877fc8a
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f5c6f94abdd87eb60eef7a0aa490dbde859be332
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="how-to-use-the-microsoft-azure-marketplace-seller-insights-portal"></a>Guide pratique pour utiliser le portail des insights de vendeur de Place de marché Microsoft Azure
-##<a name="onboarding"></a>Mise en route
+## <a name="onboarding"></a>Mise en route
 
 >[!NOTE]
->Administrateurs uniquement
+>Administrateurs uniquement.
+
+
+### <a name="overview-of-roles"></a>Présentation des rôles
 
 Cette section vous montre comment accéder au portail Seller Insights pour la première fois.
 
-###<a name="overview-of-roles"></a>Présentation des rôles
 
-![type de compte][5]
+![Type de compte][5]
 
-L’administrateur du portail des insights de vendeur a la possibilité d’ajouter, modifier et supprimer des utilisateurs.
+Utilisez l’administrateur du portail des insights de vendeur pour ajouter, modifier et supprimer des utilisateurs.
 
-Un utilisateur du portail des insights de vendeur a la possibilité d’afficher toutes les données disponibles pour votre organisation.
+Un utilisateur du portail des insights de vendeur peut consulter toutes les données disponibles pour votre organisation.
 
-Les administrateurs et les utilisateurs doivent s’authentifier à l’aide d’un compte Microsoft valide (LiveID http://signup.live.com) ou de votre compte de société. Veuillez vous assurer que l’ID entré est associé à une boîte aux lettres surveillée.
+Les administrateurs et les utilisateurs doivent s’authentifier à l’aide d’un compte Microsoft valide (LiveID, http://signup.live.com) ou du compte de votre entreprise. Assurez-vous que le nouvel ID de compte est associé à une boîte aux lettres surveillée.
 
-###<a name="invitation-to-activate-your-account"></a>Invitation à activer votre compte
+### <a name="invitation-to-activate-your-account"></a>Invitation à activer votre compte
 
-Dans l’idéal, avant toute connexion au portail des insights de vendeur, l’administrateur doit identifier les comptes des personnes qu’il souhaite configurer en tant qu’utilisateurs. Il peut s’agir de comptes Microsoft ou de comptes de société.
+Dans l’idéal, l’administrateur doit identifier les comptes des personnes qu’il souhaite configurer en tant qu’utilisateurs avant toute connexion au portail des insights de vendeur. Les comptes peuvent être un compte Microsoft ou un compte d’entreprise.
 
-Pour activer votre service, l’administrateur doit accéder à l’URL figurant dans l’e-mail d’invitation (https://reports.azure.com)
+Pour activer votre service, l’administrateur doit accéder à l’URL figurant dans l’e-mail d’invitation (https://reports.azure.com).
 
 >[!NOTE]
->Si l’adresse de courrier de l’administrateur est répertorié en tant que compte Microsoft et que vous n’avez pas créé de compte Microsoft associé à l’adresse de courrier à partir de laquelle vous avez reçu l’invitation, vous devrez le créer avant l’authentification en accédant à https://signup.live.command et en utilisant cette adresse de courrier.
+>Si l’adresse e-mail de l’administrateur est répertoriée comme un compte Microsoft et que vous n’avez pas créé de compte Microsoft associé à l’adresse e-mail sur laquelle vous avez reçu l’invitation, vous devrez créer le compte avant de vous connecter. Pour créer le compte, accédez à https://signup.live.command.
 
-###<a name="sign-in-to-the-portal"></a>Connexion au portail
+
+### <a name="sign-in-to-the-seller-insights-portal"></a>Connexion au portail des insights de vendeur
 
 1. Connectez-vous au portail des insights de vendeur en cliquant sur l’URL figurant dans l’e-mail qui vous a été envoyé.
 2. Entrez l’adresse e-mail et le mot de passe de l’administrateur.
-3. Cliquez sur le bouton Sign In (Se connecter).
-4. Commencez à administrer votre compte : ajoutez des utilisateurs, définissez des autorisations et modifiez des utilisateurs.
-5. Veillez à fournir à vos utilisateurs l’URL du portail.
+3. Cliquez sur le bouton **Se connecter**.
+4. Commencez à gérer votre compte. Ajoutez des utilisateurs, définissez des autorisations et modifiez des utilisateurs.
+5. Assurez-vous que vos utilisateurs disposent de l’URL pour le portail des insights de vendeur.
 
-![page de connexion][6]
+![Page de connexion][6]
 
-##<a name="signing-in"></a>Connexion
+## <a name="sign-in"></a>de connexion
 
-L’administrateur doit vous informer par e-mail que votre compte a été créé et vous fournir l’URL du portail des insights de vendeur (https://reports.azure.com).
+L’administrateur doit vous informer par e-mail de la création de votre compte et fournir l’URL du portail des insights de vendeur (https://reports.azure.com).
 
 >[!NOTE]
->L’administrateur est le propriétaire du compte qui publie effectivement les solutions sur la Place de marché Microsoft Azure.  Le propriétaire de ce compte peut fournir un accès à d’autres personnes.  Si vous avez accès au portail de publication en tant que coadministrateur, trouvez l’adresse de l’administrateur en procédant comme suit :
+>L’administrateur est le propriétaire du compte qui publie effectivement les solutions sur la Place de marché Microsoft Azure.  Le propriétaire de ce compte peut fournir un accès à d’autres personnes.  Si vous avez accès au portail de publication en tant que co-administrateur, recherchez l’adresse de l’administrateur en procédant comme suit :
 >1. Connectez-vous au portail de publication.
->2. Cliquez sur l’onglet Éditeurs.
+>2. Sélectionnez l’onglet **Éditeurs**.
 >3. Ouvrez l’éditeur en question (il n’y en a qu’un généralement).
->4. Cliquez sur « Administrateurs » dans le coin inférieur gauche.
->5. L’adresse de courrier d’administrateur que vous recherchez est étiquetée « Propriétaire ».
+>4. Cliquez sur **Administrateurs** dans l’angle inférieur gauche.
+>5. L’adresse e-mail de l’administrateur que vous recherchez est étiquetée *Propriétaire*.
 
 
-Vous pouvez vous connecter au portail des insights de vendeur à l’aide d’un compte Microsoft personnel ou d’un compte d’entreprise en fonction de celui que votre administrateur a utilisé lors de la configuration de votre profil.  Votre administrateur doit vous indiquer le compte à utiliser.
+Connectez-vous au portail des insights de vendeur à l’aide d’un compte Microsoft personnel ou d’un compte d’entreprise. Le type de compte varie en fonction de ce que votre administrateur a défini dans votre profil. Votre administrateur doit vous indiquer le compte que vous utiliserez.
 
-![type de compte][1]
+![Type de compte][1]
 
 
 
-***Bienvenue dans le portail des insights de vendeur !***
+**Bienvenue dans le portail des insights de vendeur !**
 
-1. Une fois que vous avez ouvert une session, vous accédez à la page « Résumé ».
+1. Une fois connecté, vous accédez à la page **Résumé**.
 2. Prenez quelques minutes pour lire la déclaration de confidentialité.
-3. Vous pouvez « Nous contacter » à tout moment par e-mail si vous avez des questions sur le portail des insights de vendeur.
+3. Vous pouvez **nous contacter** à tout moment par e-mail si vous avez des questions sur le portail des insights de vendeur.
 4. Vous pouvez parcourir le portail des insights de vendeur en utilisant les onglets en haut de la page.  Recherchez les onglets en haut des pages dans ce guide pour vous aider à vous orienter dans le portail des insights de vendeur.
-5. Cliquez sur l’émoticône pour envoyer des commentaires sur le portail des insights de vendeur.
+5. Cliquez sur l’émoticône pour envoyer à tout moment des commentaires concernant le portail des insights de vendeur.
 6. Cliquez sur votre nom en haut à droite pour vous déconnecter du portail des insights de vendeur quand vous le souhaitez.
 
-![page d’accueil par défaut][2]
+![Page d’accueil par défaut][2]
 
 
-##<a name="summary-view"></a>Vue Summary (Résumé)
+## <a name="summary-view"></a>Vue Summary (Résumé)
 
-1. Cliquez sur l’onglet « Summary » (Résumé).
-2. Renseignez le champ Start Date (Date de début) selon la période qui vous intéresse, puis cliquez sur « Apply » (Appliquer). Le système affichera des données sur 3 mois.
-3. Les données de tendance des nouvelles commandes pour la période de 3 mois que vous avez sélectionnée s’affichent ici.
-4. Les nouvelles commandes pour la période sélectionnée s’affichent ici par canal et par type d’offre.
-5. Sélectionnez une vue dans ce volet : Top 5 Markets (5 principaux marchés), Top 5 Performing Offers (5 offres les plus performantes) ou Top 5 Customers (5 principaux clients).
-6. Une tendance de paiement pour la période sélectionnée s’affiche ici pour les offres payantes. Si vous ne disposez que d’offres BYOL ou internes, ce volet ne s’affiche pas.
+1. Cliquez sur l’onglet **Résumé**.
+2. Indiquez la **date de début** de la période qui vous intéresse, puis cliquez sur **Appliquer**. L’équivalent de 3 mois de données s’affiche.
+3. Les données de tendance de nouvelles commandes pour la période de 3 mois que vous avez sélectionnée s’affichent ici.
+4. Les nouvelles commandes pour la période sélectionnée s’affichent ici par canal et type d’offre.
+5. Sélectionnez une vue dans ce volet. **5 principaux marchés**, **5 offres les plus performantes** ou **5 principaux clients**.
+6. La tendance de paiement pour la période sélectionnée s’affiche ici pour les offres payantes. Si vous ne disposez que d’offres BYOL ou internes, ce volet n’apparaît pas.
 
-![Vue summary (Résumé)][7]
+![Vue Summary (Résumé)][7]
 
-##<a name="orders-and-usage"></a>Vue Orders & usage (Commandes et utilisation)
-###<a name="overview"></a>Vue d'ensemble
+## <a name="orders-and-usage"></a>Vue Orders & usage (Commandes et utilisation)
+### <a name="overview"></a>Vue d'ensemble
 
-R : Dans le *volet A*, vous pouvez sélectionner l’onglet « Orders & usage » (Commandes et utilisation).  Vous pouvez alors sélectionner « Orders » (Commandes) ou « Usage » (Utilisation) dans les onglets « Report Type » (Type de rapport) et utiliser les curseurs pour sélectionner les données qui vous intéressent.
+R : Dans le *volet A*, vous pouvez sélectionner l’onglet **Commandes et utilisation**.  À partir de là, vous pouvez sélectionner **Commandes** ou **Utilisation** dans **Type de rapport**, puis utiliser les curseurs pour sélectionner les données qui vous intéressent.
 
-B. Dans le *volet B*, vous pouvez sélectionner vos données mensuelles : « Orders » (Commandes) ou « Usage » (Utilisation) en fonction de votre sélection sous « Report Type » (Type de rapport) dans le volet A. Les données présentées correspondent aux dates que vous avez entrées et aux filtres que vous avez appliqués à l’aide des curseurs du volet A.
+B. Dans le *volet B*, vous pouvez sélectionner vos données mensuelles. Sélectionnez **Commandes** ou **Utilisation** en fonction de votre sélection dans **Type de rapport** dans le volet A. Les données affichées reflètent les dates saisies et les filtres que vous avez appliqués à l’aide des curseurs dans le volet A.
 
-C. Dans le *volet C*, vous pouvez sélectionner vos données de tendance sur 3 mois : « Orders » (Commandes) ou « Usage » (Utilisation) en fonction de votre sélection sous « Report Type » (Type de rapport) dans le volet A. Les données présentées correspondent aux dates que vous avez entrées et aux filtres que vous avez appliqués à l’aide des curseurs du volet A.
+C. Dans le *volet C*, vous pouvez sélectionner vos données de tendance sur 3 mois. Sélectionnez **Commandes** ou **Utilisation** en fonction de votre sélection dans **Type de rapport** dans le volet A. Les données affichées reflètent les dates saisies et les filtres que vous avez appliqués à l’aide des curseurs dans le volet A.
 
-D. *Volet D* : ce volet présente les données relatives à chaque abonnement.  Les données sont téléchargeables à partir de ce volet au format Excel ou csv.
+D. Le *volet D* répertorie les données d’abonnement pour chaque individu.  Les données sont téléchargeables à partir de ce volet au format Excel ou CSV.
 
 ![Vue d’ensemble des commandes][8]
 ![Disposition de la vue d’ensemble des commandes][9]
 
-###<a name="orders"></a>Commandes
-####<a name="monthly-view---panel-a"></a>Vue mensuelle - volet A
+### <a name="orders"></a>Commandes
+#### <a name="monthly-view-panel-a"></a>Vue mensuelle - Volet A
 
-![Disposition du volet a][10]
+![Disposition du volet A][10]
 
-  1. Sélectionnez l’onglet « Orders & usage » (Commandes et utilisation) en haut de la fenêtre pour accéder à vos données de commandes et d’utilisation.
-  2. Sélectionnez « Orders » (Commandes) dans l’onglet « Report Type » (Type de rapport).
-  3. Utilisez le symbole « filtre » pour afficher ou masquer les segments présentés (« filtre avancé »).  Utilisez ces segments pour filtrer les données que vous souhaitez afficher selon les critères suivants : Azure License Type (Type de licence Azure), Marketplace License Type (Type de licence de Place de marché), Market (Marché), Offer Type (Type d’offre) et Preview Status (État de l’aperçu).  Cliquez sur l’onglet « Help » (Aide) pour obtenir les définitions de ces termes.
-  4. Sélectionnez la date de début qui vous intéresse, puis cliquez sur « Go » (OK).
+  1. Sélectionnez l’onglet **Commandes et utilisation** en haut de la fenêtre pour accéder à vos données de commandes et d’utilisation.
+  2. Sélectionnez **Commandes** dans **Type de rapport**.
+  3. Utilisez le symbole de filtre pour afficher ou masquer les options de segment.  Utilisez ces segments pour filtrer les données que vous souhaitez afficher selon les critères suivants : **Type de licence Azure**, **Type de licence de Place de marché**, **Marché**, **Type d’offre** et statut d’**aperçu**.  Cliquez sur l’onglet **Aide** pour obtenir les définitions de ces termes.
+  4. Sélectionnez la date de début qui vous intéresse, puis cliquez sur **OK**.
 
-![Vue mensuelle des commandes - volet a][14]
+![Vue mensuelle des commandes - Volet A][14]
 
-####<a name="monthly-view---panel-b"></a>Vue mensuelle - volet B
+#### <a name="monthly-view-panel-b"></a>Vue mensuelle - Volet B
 
-  ![Disposition du volet b][11]
+  ![Disposition du volet B][11]
 
-  1. Sélectionnez « Monthly View » (Vue mensuelle).
-  2. Les données du volet « Order Summary Details » (Résumé détaillé des commandes) sont affichées par canal : CSP, Direct Enterprise (Entreprise directe), Indirect Enterprise (Entreprise indirecte) et Web Direct (Direct web).
-  3. Pour la vue mensuelle, ce volet fournit les graphiques suivants :
-    - Orders by Market (Top 10) (10 principales commandes par marché)
-    - Orders by Offer Type (Top 10) (10 principales commandes par type d’offre)
-    - Orders by Azure License Type (Commandes par type de licence Azure)
-    - Orders by Marketplace License Type (Commandes par type de licence de Place de marché)
+  1. Sélectionnez **Vue mensuelle**.
+  2. Les données du volet Résumé détaillé des commandes sont affichées par canal : CSP, Entreprise directe, Entreprise indirecte et Direct web.
+  3. Pour **Vue mensuelle**, le volet **Résumé détaillé des commandes** fournit les graphiques suivants :
 
-![Vue mensuelle des commandes - volet b][15]
-
-####<a name="trend-view---panel-c"></a>Vue des tendances - volet C
-
-  ![Disposition du volet c][12]
-
-  1. Sélectionnez « Trend View » (Vue des tendances).
-  2. Sélectionnez les éléments que vous souhaitez afficher dans la liste déroulante « Subject Area » (Domaine), puis cliquez sur « Apply » (Appliquer).  La case « Select All » (Sélectionner tout) est activée par défaut.
-
-  ![Vue mensuelle des commandes - volet c - liste déroulante subject area (Domaine)][17]
-  3. À l’aide du symbole de filtre, sélectionnez les données souhaitées pour l’ensemble de vos sélections : « All » (Toutes) ou « Top 10 » (10 principales).  L’option sélectionnée par défaut est « Top 10 » (10 principales).
-
-  ![Vue mensuelle des commandes - volet c - symbole de filtre][18]
-  4. Passez la souris sur chaque barre des graphiques que vous avez sélectionnés pour afficher les données sous-jacentes.
-  5. Cliquez sur le symbole « + » pour afficher les données sous chacun des graphiques que vous avez choisi d’afficher.
-
-![Vue des tendances de commandes - volet c][16]
+* 10 principales commandes par marché
+* 10 premières commandes par titre de l’offre
+* Commandes par type de licence Azure
+* Commandes par type de licence de Place de marché
 
 
-####<a name="detailed-orders-data---panel-d"></a>Données de commandes détaillées - Volet D
+![Vue mensuelle des commandes - Volet B][15]
 
-  ![Disposition du volet d][13]
+#### <a name="trend-view-panel-c"></a>Vue des tendances - Volet C
 
-  1. Le volet Order Detail (Détail des commandes) présente les données de commandes détaillées.
-  2. Utilisez les filtres en haut de chaque colonne pour filtrer les données. Vous disposez d’un large éventail de commandes et de valeurs.
+  ![Disposition du volet C][12]
 
-  ![Vue mensuelle des commandes - volet d - filtres][20]
-  3. Sélectionnez le nombre d’éléments que vous souhaitez afficher par page : 10, 20 ou 50.
-  4. Téléchargez les données au format Excel ou csv pour une analyse hors connexion.
+  1. Sélectionnez **Vue des tendances**.
+  2. Sélectionnez les éléments que vous souhaitez afficher dans la liste **Domaine**, puis cliquez sur **Appliquer**. La case **Sélectionner tout** est activée par défaut.
 
-![Vue détaillée des commandes - volet d][19]
+  ![Vue mensuelle des commandes - Volet C - Liste Domaine][17]
 
-###<a name="usage"></a>Usage
-####<a name="monthly-view---panel-a"></a>Vue mensuelle - volet A
+  3. À l’aide du symbole de filtre, sélectionnez les données souhaitées pour l’ensemble de vos sélections : **Toutes** ou **10 principales**. La valeur par défaut est **10 principales**.
 
-  ![Disposition du volet a][10]
+  ![Vue mensuelle des commandes - Volet C - Symbole de filtre][18]
 
-  1. Sélectionnez l’onglet « Orders & usage » (Commandes et utilisation) en haut de la fenêtre pour accéder à vos données de commandes et d’utilisation.
-  2. Sélectionnez « Usage » (Utilisation) dans l’onglet « Report Type » (Type de rapport).
-  3. Utilisez le symbole « filtre » pour afficher ou masquer les segments présentés (« filtre avancé »).  Utilisez ces segments pour filtrer les données que vous souhaitez afficher selon les critères suivants : Azure License Type (Type de licence Azure), Marketplace License Type (Type de licence de Place de marché), Market (Marché), Offer Type (Type d’offre) et Preview Status (État de l’aperçu).  Cliquez sur l’onglet « Help » (Aide) pour obtenir les définitions de ces termes.
-  4. Sélectionnez la date de début qui vous intéresse, puis cliquez sur « Go » (OK).
+  4. Pointez le curseur sur chaque barre des graphiques que vous avez sélectionnés pour afficher les données sous-jacentes.
+  5. Utilisez le symbole  **+**  pour basculer vers un mode dans lequel les données situées en dessous des graphiques sélectionnés s’affichent.
 
-![Vue mensuelle de l’utilisation - volet a][21]
+![Vue des tendances de commandes - Volet C][16]
 
-####<a name="monthly-view---panel-b"></a>Vue mensuelle - volet B
 
-![Disposition du volet b][11]
+#### <a name="detailed-orders-data-panel-d"></a>Données de commandes détaillées - Volet D
 
-  1. Sélectionnez « Monthly View » (Vue mensuelle).
-  2. Les données du volet « Usage Summary Details » (Résumé détaillé de l’utilisation) sont indiquées en heures.
-  3. Pour la vue mensuelle, ce volet fournit les graphiques suivants :
-    - Usage by Market (Top 10) (10 principales utilisations par marché)
-    - Usage by Offer Type (Top 10) (10 principales utilisations par type d’offre)
-    - Usage by Azure License Type (Utilisation par type de licence Azure)
-    - Usage by Marketplace License Type (Utilisation par type de licence de Place de marché)
+  ![Disposition du volet D][13]
+
+  1. Le volet **Détail des commandes** présente les données de commandes détaillées.
+  2. Utilisez les filtres en haut de chaque colonne pour filtrer les données. Pour ce faire, vous disposez d’un large éventail de commandes et de valeurs.
+
+  ![Vue mensuelle des commandes - Volet D - Filtres][20]
+
+  3. Sélectionnez le nombre d’éléments par page que vous souhaitez afficher. Vous pouvez afficher 10, 20 ou 50 éléments par page.
+  4. Téléchargez les données au format Excel ou CSV pour une analyse hors connexion.
+
+![Vue détaillée des commandes - Volet D][19]
+
+### <a name="usage"></a>Usage
+#### <a name="monthly-view-panel-a"></a>Vue mensuelle - Volet A
+
+  ![Disposition du volet A][10]
+
+  1. Sélectionnez l’onglet **Commandes et utilisation** pour accéder à vos données de commandes et d’utilisation.
+  2. Sélectionnez **Utilisation** dans **Type de rapport**.
+  3. Utilisez le symbole de filtre pour afficher ou masquer les options de segment.  Utilisez ces segments pour filtrer les données que vous souhaitez afficher selon les critères suivants : **Type de licence Azure**, **Type de licence de Place de marché**, **Marché**, **Type d’offre**, statut d’**aperçu** et **Type d’utilisation**.  Cliquez sur l’onglet **Aide** pour obtenir les définitions de ces termes.
+  4. Sélectionnez la date de début qui vous intéresse, puis cliquez sur **OK**.
+
+![Vue mensuelle de l’utilisation - Volet A][21]
+
+#### <a name="monthly-view-panel-b"></a>Vue mensuelle - Volet B
+
+![Disposition du volet B][11]
+
+  1. Sélectionnez **Vue mensuelle**.
+  2. Les données du volet Résumé détaillé de l’utilisation sont indiquées en heures.
+  3. Pour **Vue mensuelle**, le volet **Résumé détaillé des commandes** fournit les graphiques suivants :
+
+* 10 principales commandes par marché
+* 10 premières commandes par titre de l’offre
+* Commandes par type de licence Azure
+* Commandes par type de licence de Place de marché
+
 
 >[!NOTE]
->Les données affichées correspondent aux filtres appliqués à l’aide des segments du volet A. Par exemple, les graphiques sont affichés pour une utilisation normalisée.
+>Les segments du volet A sont utilisés pour filtrer les données qui apparaissent dans le volet B. Par exemple, les graphiques sont définis sur **Utilisation normalisée**.
 
-![Vue mensuelle de l’utilisation - volet b][22]
+![Vue mensuelle de l’utilisation - Volet B][22]
 
-####<a name="trend-view---panel-c"></a>Vue des tendances - volet C
+#### <a name="trend-view-panel-c"></a>Vue des tendances - Volet C
 
-  ![Disposition du volet c][12]
+  ![Disposition du volet C][12]
 
-  1. Sélectionnez Trend View (Vue des tendances).
-  2. Sélectionnez les éléments que vous souhaitez afficher dans la liste déroulante « Subject Area » (Domaine), puis cliquez sur « Apply » (Appliquer).  La case « Select All » (Sélectionner tout) est activée par défaut.
+  1. Sélectionnez **Vue des tendances**.
+  2. Sélectionnez les éléments que vous souhaitez afficher dans la liste **Domaine**, puis cliquez sur **Appliquer**. La case **Sélectionner tout** est activée par défaut.
 
-  ![Vue mensuelle de l’utilisation - volet c - liste déroulante subject area (Domaine)][17]
-  3. À l’aide du symbole de filtre, sélectionnez les données souhaitées pour l’ensemble de vos sélections : « All » (Toutes) ou « Top 10 » (10 principales).  L’option sélectionnée par défaut est « Top 10 » (10 principales).
+  ![Vue mensuelle de l’utilisation - Volet C - Liste Domaine][17]
 
-  ![Vue mensuelle de l’utilisation - volet c - symbole de filtre][18]
-  4. Passez la souris sur chaque barre des graphiques que vous avez sélectionnés pour afficher les données sous-jacentes.
-  5. Cliquez sur le symbole « + » pour afficher les données sous chacun des graphiques que vous avez choisi d’afficher.
+  3. À l’aide du symbole de filtre, sélectionnez les données souhaitées pour l’ensemble de vos sélections : **Toutes** ou **10 principales**. La valeur par défaut est **10 principales**.
 
-![Vue des tendances d’utilisation - volet c][23]
+  ![Vue mensuelle de l’utilisation - Volet C - Symbole de filtre][18]
+
+  4. Pointez le curseur sur chaque barre des graphiques que vous avez sélectionnés pour afficher les données sous-jacentes.
+  5. Cliquez sur le symbole **+** pour afficher les données sous chacun des graphiques que vous avez choisi d’afficher.
+
+![Vue des tendances d’utilisation - Volet C][23]
 
 
-####<a name="detailed-usage-data---panel-d"></a>Données d’utilisation détaillées - volet D
+#### <a name="detailed-usage-data-panel-d"></a>Données d’utilisation détaillées - Volet D
 
-  ![Disposition du volet d][13]
+  ![Disposition du volet D][13]
 
-  1. Le volet Usage Detail (Détail de l’utilisation) présente les données de commandes détaillées.
-  2. Utilisez les filtres en haut de chaque colonne pour filtrer les données. Vous disposez d’un large éventail de commandes et de valeurs.
+  1. Le volet **Détail de l’utilisation** présente les données de commandes détaillées.
+  2. Utilisez les filtres en haut de chaque colonne pour filtrer les données. Pour ce faire, vous disposez d’un large éventail de commandes et de valeurs.
 
-  ![Vue mensuelle de l’utilisation - volet d - filtres][20]
-  3. Sélectionnez le nombre d’éléments que vous souhaitez afficher par page : 10, 20 ou 50.
-  4. Téléchargez les données au format Excel ou csv pour une analyse hors connexion.
+  ![Vue mensuelle de l’utilisation - Volet D - Filtres][20]
 
-![Vue mensuelle de l’utilisation - volet d][24]
-![Vue mensuelle de l’utilisation - volet d - télécharger le résultat][25]
+  3. Sélectionnez le nombre d’éléments par page que vous souhaitez afficher. Vous pouvez afficher 10, 20 ou 50 éléments par page.
+  4. Téléchargez les données au format Excel ou CSV pour une analyse hors connexion.
 
-###<a name="accessing-detailed-customer-data"></a>Accès aux données client détaillées
+![Vue mensuelle de l’utilisation - Volet D][24]
+![Vue mensuelle de l’utilisation - Volet D - Télécharger le résultat][25]
 
-  1. À partir du volet Order Detail (Détail des commandes), sous Orders (Commandes) ou Usage (Utilisation), cliquez sur l’ID d’abonnement Azure qui vous intéresse.  Notez que vous pouvez cliquer uniquement sur les types de licence de Place de marché non-BYOL. Par ailleurs, les ID d’abonnement BYOL sont masqués pour des raisons de sécurité.
+### <a name="accessing-detailed-customer-data"></a>Accès aux données client détaillées
+
+  1. Dans le volet **Détail des commandes**, cliquez sur l’ID d’abonnement Azure qui vous intéresse.  Vous pouvez uniquement cliquer sur les ID de type de licence de la Place de marché non BYOL. Les ID d’abonnement BYOL sont hachés pour des raisons de sécurité.
 
   ![Volet présentant les données de commandes et d’utilisation client détaillées][26]
-  2. Vous êtes redirigé vers l’onglet « Customer » (Client). Les données détaillées pour le client auquel est associé l’ID d’abonnement sont récupérées.
-  3. Vous pouvez télécharger les données au format Excel ou csv.
+
+  2. Vous êtes redirigé vers le volet **Données client détaillées**. Les données du client sont récupérées.
+  3. Vous pouvez télécharger les données au format Excel ou CSV.
 
 
 ![Volet présentant les données de commandes et d’utilisation client détaillées][27]
 
-###<a name="customer-data"></a>Données client
+### <a name="customer-data"></a>Données client
 
-  1. Sélectionnez l’onglet Customer (Client).
-  2. Utilisez les segments pour filtrer les données que vous souhaitez afficher par type de licence Azure ou type de licence de Place de marché.
-  3. Renseignez les champs « Start Date » (Date de début) et « End Date » (Date de fin) selon la période qui vous intéresse.
-  4. Les détails du résumé client par type de licence de Place de marché sont affichés.
-  5. Utilisez les filtres en haut de chaque colonne pour filtrer les données. Vous disposez d’un large éventail de commandes et de valeurs.
-  6. Téléchargez les données au format Excel ou csv.
+  1. Sélectionnez l’onglet **Client**.
+  2. Utilisez les segments pour filtrer les données que vous souhaitez afficher par **type de licence Azure** ou **type de licence de Place de marché**.
+  3. Renseignez les champs **Date de début** et **Date de fin** selon la période qui vous intéresse.
+  4. Les détails du résumé client par **type de licence de Place de marché** sont affichés.
+  5. Utilisez les filtres en haut de chaque colonne pour filtrer les données. Pour ce faire, vous disposez d’un large éventail de commandes et de valeurs.
+  6. Téléchargez les données au format Excel ou CSV.
 
 ![Volet des données client][28]
 
 
-##<a name="user-management"></a>User Management
+## <a name="user-management"></a>User Management
 
 >[!NOTE]
->Administrateurs uniquement
+>Administrateurs uniquement.
+
+
+### <a name="add-user"></a>Ajouter un utilisateur
 
 Cette section vous montre comment ajouter des utilisateurs ou modifier leurs autorisations dans le portail Seller Insights.
 
-###<a name="add-user"></a>Ajouter un utilisateur
 
-1. Sélectionnez l’onglet « User Management » (Gestion des utilisateurs).
-2. Pour ajouter un utilisateur, cliquez sur l’onglet « User Management » (Gestion des utilisateurs), puis cliquez sur « Add User » (Ajouter un utilisateur).
-3. Pour ajouter un utilisateur, entrez l’adresse e-mail associée à son compte Microsoft ou à un compte de société, puis cliquez sur « Continue » (Continuer).
+1. Sélectionnez l’onglet **Gestion des utilisateurs**.
+2. Pour ajouter un utilisateur, sélectionnez **Ajouter un utilisateur**.
+3. Entrez l’adresse e-mail associée à son compte Microsoft ou à un compte d’entreprise, puis cliquez sur **Continuer**.
 4. En tant qu’administrateur, vous pouvez attribuer aux utilisateurs un accès aux rapports en lecture seule.
-5. Entrez les informations détaillées sur l’utilisateur en remplissant les champs First Name (Prénom), Last Name (Nom) et Email (E-mail), puis cliquez sur « Continue » (Continuer).
-6. Cliquez sur les autorisations que vous souhaitez attribuer à l’utilisateur, puis cliquez sur « Continue » (Continuer).
-7. Vérifiez les informations que vous avez entrées, puis cliquez sur « Save » (Enregistrer) pour continuer.  L’ajout de l’utilisateur est terminé.
+5. Entrez les informations détaillées sur l’utilisateur en remplissant les champs **Prénom**, **Nom** et **E-mail**, puis cliquez sur **Continuer**.
+6. Cliquez sur les autorisations que vous souhaitez attribuer à l’utilisateur, puis cliquez sur **Continuer**.
+7. Vérifiez que les informations saisies sont correctes, puis cliquez sur **Enregistrer** pour continuer.  Vous venez d’ajouter un utilisateur.
 
 ![Volet d’ajout d’utilisateur][29]
 
 
-###<a name="edit-user"></a>Edit User
+### <a name="edit-user"></a>Edit User
 
-1. Sélectionnez l’onglet « User Management » (Gestion des utilisateurs), puis cliquez sur « Edit Users » (Modifier des utilisateurs).
-2. Recherchez l’utilisateur dont vous souhaitez modifier les autorisations.  Notez que vous pouvez également ajouter des utilisateurs à partir de cette fenêtre.
-3. Cliquez sur les autorisations utilisateur que vous souhaitez supprimer.  Notez que vous pouvez également supprimer un utilisateur à partir de cette fenêtre.
-4. Cliquez sur « Save » (Enregistrer) pour continuer.  La modification des autorisations de l’utilisateur est terminée.
+1. Sélectionnez l’onglet **Gestion des utilisateurs**, puis cliquez sur **Modifier des utilisateurs**.
+2. Recherchez l’utilisateur dont vous souhaitez modifier les autorisations.  Vous pouvez également ajouter de nouveaux utilisateurs. Cliquez sur **Add Users**.
+3. Cliquez sur les autorisations utilisateur que vous souhaitez supprimer.  Vous pouvez également supprimer un utilisateur. Cliquez sur **Supprimer l’utilisateur**.
+4. Cliquez sur **Enregistrer** pour continuer.  Vous avez modifié les autorisations de l’utilisateur.
 
 ![Volet de modification des utilisateurs][30]
 
-##<a name="help"></a>Aide
-
-##<a name="support-requests"></a>Demandes de support
+## <a name="help-support-requests"></a>Demandes d’aide et support
 
 
-###<a name="access-the-support-request-format"></a>Accès au formulaire de demande de support
 
-1. Sélectionnez l’onglet « Help » (Aide).
-2. Cliquez sur « Support & Documentation », puis « Start Request » (Envoyer une demande).
-3. Vous pouvez également envoyer une demande de support à l’aide du lien « Contact Us » (Nous contacter) en bas de chaque écran de l’application.
+
+### <a name="access-the-support-request-format"></a>Accès au formulaire de demande de support
+
+1. Sélectionnez l’onglet **Aide**.
+2. Cliquez sur **Support & Documentation**, puis **Envoyer une demande**.
+3. Vous pouvez également envoyer une demande de support à l’aide du lien **Nous contacter** en bas de chaque écran de l’application.
 4. Un nouvel onglet s’ouvre. Vous pouvez y formuler votre demande de support.
 
 ![Accès au formulaire de support][31]
 
-###<a name="review-helpful-information"></a>Vérification des informations utiles
+### <a name="review-helpful-information"></a>Vérification des informations utiles
 
-1. Pour envoyer une demande de support liée à vos rapports, sélectionnez « Reports and Insights » (Rapports et analyses) sous « Problem Type » (Type de problème).
-2. Sélectionnez une catégorie :  « Questions related to reports » (Questions liées aux rapports) ou « Other » (Autres).
-3. Plusieurs liens utiles, pouvant apporter une réponse à votre requête, s’affichent.  Vérifiez ces liens avant d’envoyer votre demande de support.
-4. Si vous avez toujours besoin d’envoyer une demande de support, cliquez sur « Start Request » (Envoyer une demande).
+1. Pour envoyer une demande de support liée à vos rapports, sélectionnez **Rapports et analyses** sous **Type de problème**.
+2. Sélectionnez une catégorie :  Vous disposez de l’option **Questions liées aux rapports** et **Autres**.
+3. Plusieurs liens utiles pouvant apporter une réponse à votre requête s’affichent.  Vérifiez ces liens avant d’envoyer votre demande de support.
+4. Si vous avez toujours besoin d’envoyer une demande de support, cliquez sur **Envoyer une demande**.
 
 ![Volet de modification des utilisateurs][32]
 
 
-###<a name="fill-out-and-submit-the-request"></a>Remplissage et envoi de la demande
+### <a name="fill-out-and-submit-the-request"></a>Remplissage et envoi de la demande
 
-1. Entrez vos informations de contact, le fuseau horaire, votre région et vos préférences linguistiques, puis cliquez sur « Continue » (Continuer).
-2. Donnez un titre à votre incident, et fournissez autant d’informations que possible.  Vous pouvez également charger des fichiers d’accompagnement avec des captures d’écran, etc. Cliquez ensuite sur « Submit » (Envoyer).
-3. Vous recevrez une confirmation indiquant que votre demande de support a bien été envoyée.
+1. Entrez vos coordonnées, le fuseau horaire, votre région et vos préférences linguistiques, puis cliquez sur **Continuer**.
+2. Donnez un titre à votre incident, et fournissez autant d’informations que possible.  Vous pouvez également télécharger des fichiers de prise en charge comme une capture d’écran, puis sélectionner **Envoyer**.
+3. Vous recevrez une confirmation indiquant que votre demande de support a été envoyée.
 4. Vous pouvez vérifier l’état de votre demande de support à tout moment.
 
 ![Accès au formulaire de support][33]
 
 
-##<a name="resetting-a-password"></a>Réinitialisation d’un mot de passe
+## <a name="reset-a-password"></a>Réinitialisation du mot de passe
 
-***Validation du mot de passe et du compte***
+**Validation du mot de passe et du compte**
 
-1. ***Vérifiez que le compte que vous utilisez est inscrit et que le mot de passe ne fonctionne pas.*** Si vous entrez un compte qui a été inscrit dans Azure Active Directory, vous êtes automatiquement invité à choisir le mode de connexion avec le compte, un compte professionnel ou scolaire (compte d’organisation) ou un compte LiveID personnel.
-2. Accédez à https://reports.azure.com et déconnectez-vous de tout compte avec lequel vous pouvez être connecté, ou ouvrez-le dans une fenêtre privée pour garantir qu’aucun autre compte n’est connecté.
-3. Entrez l’adresse e-mail de l’éditeur sans entrer de mot de passe. Vous êtes redirigé vers ***l’étape 4*** s’il est inscrit dans Azure Active Directory (les comptes d’administrateur sont inscrits comme n’importe quel compte d’organisation configuré par le compte d’administrateur).
-4. Choisissez Compte professionnel ou scolaire. Les comptes professionnels ou scolaires (comptes d’organisation) sont configurés par des sociétés qui sont inscrites auprès d’Azure, tandis que les comptes personnels (« LiveID ») sont des comptes personnels qui ont été inscrits auprès de Microsoft.
- * Notez que l’utilisateur a peut-être déjà configuré un compte LiveID avec son e-mail d’entreprise, que l’entreprise a par la suite intégré Azure et que le même e-mail a été inscrit en tant que compte d’organisation. Cela signifie que cet utilisateur peut avoir un compte LiveID avec le mot de passe utilisé pour créer le compte LiveID et un compte d’organisation avec un autre mot de passe utilisé par l’entreprise.
-5. Dans le portail des insights de vendeur, si vous sélectionnez Compte professionnel ou scolaire, vérifiez que vous utilisez la combinaison Compte d’organisation/mot de passe et non LiveID/mot de passe.
-6. Pour un compte d’organisation, vous êtes redirigé vers la page de connexion de l’éditeur.
-7. À ce stade, vérifiez que le mot de passe pour le compte d’organisation fonctionne ou pas. S’il ne fonctionne pas, passez à ***Réinitialisation du mot de passe***.
+1. *Vérifiez que le compte que vous utilisez est inscrit et que le mot de passe ne fonctionne pas.* Si vous entrez un compte qui est inscrit dans Azure Active Directory, il vous invite automatiquement à déterminer comment vous connecter avec le compte. Vous utiliserez un compte professionnel ou scolaire (compte de société), ou un compte Windows Live ID personnel.
+2. Accédez à https://reports.azure.com et déconnectez-vous des comptes avec lesquels vous pouvez être connecté. Vous pouvez également l’ouvrir dans une fenêtre privée afin de vous assurer qu'aucun autre compte n’est connecté.
+3. Entrez l’adresse e-mail de l’éditeur mais n’entrez pas de mot de passe. Ceci vous redirige vers l’*étape 4* si elle est inscrite dans Azure Active Directory.
 
-***Réinitialisation de mot de passe***
+  >[!NOTE]
+  >Les comptes d’administrateurs sont inscrits. Les comptes professionnels définis par le compte d’administrateur sont également inscrits.
 
-Essayez de réinitialiser votre mot de passe à l’aide de l’Assistant Réinitialisation du mot de passe libre-service en suivant les liens ci-dessous.
+4. Choisissez **Compte professionnel ou scolaire**. Les comptes professionnels ou scolaires (également appelés comptes de société) sont définis par des entreprises qui sont inscrites auprès d’Azure. Les comptes personnels (également appelés comptes LiveID) sont des comptes personnels inscrits auprès de Microsoft.
+
+  >[!NOTE]
+  >Un utilisateur peut configurer un compte LiveID à l’aide de l’adresse e-mail de son entreprise. Dans ce scénario, l’entreprise intègre ensuite Azure, et la même adresse e-mail est inscrite comme compte professionnel. Ainsi, cet utilisateur peut disposer d’un compte LiveID avec le mot de passe utilisé pour créer le compte LiveID. L’utilisateur peut également disposer d’un compte professionnel avec un mot de passe distinct utilisé par l’entreprise.
+
+5. Dans le portail des insights de vendeur, si vous sélectionnez **Compte professionnel ou scolaire**, vérifiez que vous utilisez la combinaison compte professionnel/mot de passe et non LiveID/mot de passe.
+6. Un compte professionnel redirige vers la page de connexion du serveur de publication.
+7. À ce stade, vérifiez que le mot de passe pour le compte professionnel fonctionne. S’il ne fonctionne pas, passez à la section « Réinitialiser le mot de passe » de cet article.
+
+
+
+**Réinitialisation de mot de passe**
+
+Essayez de réinitialiser votre mot de passe en utilisant les liens suivants.
 
 >[!NOTE]
->Remarque : Pour les comptes d’organisation configurés par le compte d’administrateur, si l’administrateur a activé la fonctionnalité correspondante, vous pouvez réinitialiser votre mot de passe. Dans le cas contraire, le formulaire de réinitialisation de mot de passe vous donne la possibilité de contacter votre administrateur.
+>Pour les comptes professionnels configurés par le compte d’administrateur, si l’administrateur a activé la fonctionnalité correspondante, vous pourrez réinitialiser votre mot de passe. Dans le cas contraire, le formulaire de réinitialisation de mot de passe vous donne la possibilité de contacter votre administrateur.
 
-****Compte Microsoft (LiveID) : https://account.live.com/ResetPassword.aspx**** ![réinitialisation du mot de passe du compte Microsoft][3]
+**Compte Microsoft (Identifiant Live) : https://account.live.com/ResetPassword.aspx**
+![Réinitialisation de mot de passe de compte Microsoft][3]
 
-****Compte professionnel ou scolaire (ID d’organisation) : https://passwordreset.microsoftonline.com/**** ![réinitialisation du mot de passe du compte professionnel ou scolaire][4]
+**Compte professionnel ou scolaire (ID d’organisation) : https://passwordreset.microsoftonline.com/**
+![Réinitialisation de mot de passe de compte professionnel ou scolaire][4]
 
 
-##<a name="have-other-feedback"></a>Vous avez d’autres commentaires ?
+## <a name="have-other-feedback"></a>Vous avez d’autres commentaires ?
 
-  1. Vous pouvez cliquer sur l’émoticône à tout moment pour fournir vos commentaires.
+  Vous pouvez cliquer sur l’émoticône à tout moment pour fournir vos commentaires.
 
 
   ![Formulaire de commentaires][34]

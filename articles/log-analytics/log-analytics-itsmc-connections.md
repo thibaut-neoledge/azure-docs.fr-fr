@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: v-jysur
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 283ae010aafe309bb09f7c49248b61717cb56dd0
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 732d968112913b252b40a37abc24f4de5d37999f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/08/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Connecter les produits/services ITSM à IT Service Management Connector (version préliminaire)
@@ -95,9 +95,8 @@ Exécutez le script en fournissant les informations requises suivantes :
 - Nom de groupe ressources
 - Emplacement
 - Détails du serveur Service Manager (nom du serveur, domaine, nom d’utilisateur et mot de passe)
-- URL de déploiement
-- Nom du site de votre application web
-- Nom du service BizTalk
+- Préfixe de nom de site pour votre application Web
+- Espace de noms ServiceBus.
 
 Le script crée l’application web en utilisant le nom que vous avez spécifié (avec quelques chaînes supplémentaires pour le rendre unique). Il génère **l’URL de l’application web**, **l’ID client** et la **clé secrète client**.
 
