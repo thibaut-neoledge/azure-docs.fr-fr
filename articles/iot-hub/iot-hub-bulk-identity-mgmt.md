@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 6d878b00094f573adc440d2384c426506fea0a40
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 9ea3896f73e0e97b89743d8b17c8fd1e723153c3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -120,6 +121,52 @@ L’exemple ci-après illustre les données de sortie :
 {"id":"Device5","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 ```
 
+Si un appareil comporte des données de représentation, elles sont également exportées avec les données de l’appareil. L’exemple ci-après illustre ce format. Toutes les données à partir de la ligne « twinETag » jusqu'à la fin sont des données de représentation.
+```
+{
+   "id":"export-6d84f075-0",
+   "eTag":"MQ==",
+   "status":"enabled",
+   "statusReason":"firstUpdate",
+   "authentication":null,
+   "twinETag":"AAAAAAAAAAI=",
+   "tags":{
+      "Location":"LivingRoom"
+   },
+   "properties":{
+      "desired":{
+         "Thermostat":{
+            "Temperature":75.1,
+            "Unit":"F"
+         },
+         "$metadata":{
+            "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+            "$lastUpdatedVersion":2,
+            "Thermostat":{
+               "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+               "$lastUpdatedVersion":2,
+               "Temperature":{
+                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+                  "$lastUpdatedVersion":2
+               },
+               "Unit":{
+                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+                  "$lastUpdatedVersion":2
+               }
+            }
+         },
+         "$version":2
+      },
+      "reported":{
+         "$metadata":{
+            "$lastUpdated":"2017-03-09T18:30:51.1309437Z"
+         },
+         "$version":1
+      }
+   }
+}
+```
+
 Si vous avez besoin d’accéder à ces données sous forme de code, vous pouvez facilement désérialiser ces données à l’aide de la classe **ExportImportDevice** . L’extrait de code C# suivant montre comment lire les informations d’appareil qui ont été exportées précédemment vers un objet blob de bloc :
 
 ```csharp
@@ -170,6 +217,8 @@ L’extrait de code C# suivant indique comment créer une tâche d’importation
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
+Cette méthode peut également être utilisée pour importer les données pour la représentation de l’appareil. Le format des données d’entrée est le même que celui indiqué dans la section **ExportDevicesAsync**. De cette façon, les données exportées peuvent aussi être réimportées. Le $metadata est facultatif.
+
 ## <a name="import-behavior"></a>Comportement d’importation
 
 Vous pouvez utiliser la méthode **ImportDevicesAsync** pour effectuer les opérations en bloc suivantes dans le registre des identités :
@@ -179,18 +228,21 @@ Vous pouvez utiliser la méthode **ImportDevicesAsync** pour effectuer les opér
 * Modifications d’état en bloc (activer ou désactiver des appareils)
 * Attribution en bloc de nouvelles clés d’authentification d’appareils
 * Auto-régénération en bloc des clés d’authentification d’appareils
+* Mise à jour en bloc de données de représentation
 
 Vous pouvez effectuer n’importe quelle combinaison des opérations précédentes en un seul appel **ImportDevicesAsync** . Vous pouvez, par exemple, inscrire de nouveaux appareils, tout en supprimant ou mettant à jour des appareils existants. Lorsqu’il est utilisé avec la méthode **ExportDevicesAsync** , tous les appareils peuvent être migrés complètement à partir d’un IoT Hub vers un autre.
+
+Si le fichier d’importation spécifie les métadonnées de représentation, ces métadonnées remplacent les métadonnées existantes de la représentation. Si ce n’est pas le cas, seuls les métadonnées `lastUpdateTime` sont mises en utilisant l’heure en cours. 
 
 Vous pouvez contrôler le processus d’importation par appareil en utilisant la propriété facultative **importMode** dans les données d’importation sérialisées pour chaque appareil. La propriété **importMode** propose les options suivantes :
 
 | importMode | Description |
 | --- | --- |
-| **createOrUpdate** |Si un appareil n’existe pas avec l’ **ID**spécifié, ce dernier a été inscrit récemment. <br/>Si l’appareil existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, sans tenir compte de la valeur **ETag** . |
-| **create** |Si un appareil n’existe pas avec l’ **ID**spécifié, ce dernier a été inscrit récemment. <br/>Si l’appareil existe déjà, une erreur est consignée dans le fichier journal. |
+| **createOrUpdate** |Si un appareil n’existe pas avec l’ **ID**spécifié, ce dernier a été inscrit récemment. <br/>Si l’appareil existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, sans tenir compte de la valeur **ETag** . <br> L’utilisateur peut éventuellement spécifier des données de représentation avec les données de l’appareil. L’etag de la représentation, si elle est spécifiée, est traitée indépendamment de l’etag de l’appareil. S’il existe une incompatibilité avec l’etag existant de la représentation, une erreur est consignée dans le fichier journal. |
+| **create** |Si un appareil n’existe pas avec l’ **ID**spécifié, ce dernier a été inscrit récemment. <br/>Si l’appareil existe déjà, une erreur est consignée dans le fichier journal. <br> L’utilisateur peut éventuellement spécifier des données de représentation avec les données de l’appareil. L’etag de la représentation, si elle est spécifiée, est traitée indépendamment de l’etag de l’appareil. S’il existe une incompatibilité avec l’etag existant de la représentation, une erreur est consignée dans le fichier journal. |
 | **update** |Si un appareil avec **l’ID** spécifié existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, sans tenir compte de la valeur **ETag**. <br/>Si l’appareil n’existe pas, une erreur est consignée dans le fichier journal. |
 | **updateIfMatchETag** |Si un appareil avec **l’ID** spécifié existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, mais uniquement si la valeur **ETag** correspond. <br/>Si l’appareil n’existe pas, une erreur est consignée dans le fichier journal. <br/>En cas d’incompatibilité de valeur **ETag** , une erreur est consignée dans le fichier journal. |
-| **createOrUpdateIfMatchETag** |Si un appareil n’existe pas avec l’ **ID**spécifié, ce dernier a été inscrit récemment. <br/>Si un appareil existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, mais uniquement si la valeur **ETag** correspond. <br/>En cas d’incompatibilité de valeur **ETag** , une erreur est consignée dans le fichier journal. |
+| **createOrUpdateIfMatchETag** |Si un appareil n’existe pas avec l’ **ID**spécifié, ce dernier a été inscrit récemment. <br/>Si un appareil existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, mais uniquement si la valeur **ETag** correspond. <br/>En cas d’incompatibilité de valeur **ETag** , une erreur est consignée dans le fichier journal. <br> L’utilisateur peut éventuellement spécifier des données de représentation avec les données de l’appareil. L’etag de la représentation, si elle est spécifiée, est traitée indépendamment de l’etag de l’appareil. S’il existe une incompatibilité avec l’etag existant de la représentation, une erreur est consignée dans le fichier journal. |
 | **delete** |Si un appareil avec **l’ID** spécifié existe déjà, il est supprimé sans tenir compte de la valeur **ETag**. <br/>Si l’appareil n’existe pas, une erreur est consignée dans le fichier journal. |
 | **deleteIfMatchETag** |Si un appareil avec **l’ID** spécifié existe déjà, il est supprimé, mais uniquement si la valeur **ETag** correspond. Si l’appareil n’existe pas, une erreur est consignée dans le fichier journal. <br/>En cas d’incompatibilité de valeur ETag, une erreur est consignée dans le fichier journal. |
 
@@ -355,11 +407,11 @@ Dans cet article, vous avez appris comment effectuer des opérations en bloc dan
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
 * [Guide du développeur IoT Hub][lnk-devguide]
-* [Simulation d’un appareil avec le Kit de développement logiciel (SDK) de la passerelle IoT][lnk-gateway]
+* [Simulation d’un appareil avec IoT Edge][lnk-iotedge]
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

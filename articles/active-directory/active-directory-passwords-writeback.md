@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9dc195040d0fa1321dff9ec97d9ca1e4770d325
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: fde08bfc3a73c54ee53b5d8efffd3001894416b3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -74,11 +74,23 @@ Lorsqu’un utilisateur fédéré ou disposant de la synchronisation du hachage 
 
     Nous avons un message spécifique pour la plupart de ces cas de figure et nous indiquons à l’utilisateur ce qu’il peut faire pour résoudre le problème.
 
-## <a name="scenarios-supported-for-password-writeback"></a>Scénarios pris en charge par l’écriture différée de mot de passe
+## <a name="configuring-password-writeback"></a>Configuration de l’écriture différée du mot de passe
 
 Nous vous recommandons d’utiliser la fonctionnalité de mise à jour automatique [d’Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) si vous souhaitez utiliser l’écriture différée de mot de passe.
 
-Des informations supplémentaires sur [le cycle de vie de la prise en charge d’Azure AD Sync et DirSync](connect/active-directory-aadconnect-dirsync-deprecated.md)
+DirSync et Azure AD Sync ne sont plus pris en charge pour l’activation de l’écriture différée du mot de passe. L’article [Mettre à niveau depuis DirSync et Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) contient des informations supplémentaires pour faciliter votre transition.
+
+Les étapes suivantes supposent que vous avez déjà configuré Azure AD Connect dans votre environnement à l’aide des paramètres [Express](./connect/active-directory-aadconnect-get-started-express.md) ou [Personnalisé](./connect/active-directory-aadconnect-get-started-custom.md).
+
+1. Pour configurer et activer le journal de l’écriture différée du mot de passe sur votre serveur Azure AD Connect et démarrer l’Assistant de configuration **Azure AD Connect**.
+2. Dans l’écran d’accueil, cliquez sur **Configurer**.
+3. Dans l’écran autres Tâches supplémentaires, cliquez sur **Personnaliser les options de synchronisation**, puis choisissez **Suivant**.
+4. Dans l’écran de connexion à Azure AD, entrez des informations d’identification d’Administrateur général et choisissez **Suivant**.
+5. Dans les écrans Connexion de vos annuaires et Filtrage domaine et unité organisationnelle, vous pouvez choisir **Suivant**.
+6. Dans l’écran des fonctionnalités facultatives, cochez la case en regard de **Écriture différée du mot de passe**, puis cliquez sur **Suivant**.
+   ![Activation de l’écriture différée du mot de passe dans Azure AD Connect][Writeback]
+7. Dans l’écran Prêt à configurer, cliquez sur **Configurer** et attendez la fin du processus.
+8. Lorsque Configuration terminée s’affiche, vous pouvez cliquer sur **Quitter**
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Conditions de licence pour l’écriture différée de mot de passe
 
@@ -149,7 +161,7 @@ Sont décrites ci-dessous les étapes de chiffrement de la procédure de réinit
 * **Étape 1 - Chiffrement du mot de passe avec la clé RSA de 2 048 bits** : lorsqu’un utilisateur envoie un mot de passe en vue de l’écriture différée au niveau local, celui-ci est préalablement chiffré avec une clé RSA de 2 048 bits.
 * **Étape 2 - Chiffrement de niveau package avec AES-GCM** : la méthode AES-GCM permet de chiffrer le package en totalité (mot de passe et métadonnées requises). Cela empêche toute personne ayant un accès direct au canal ServiceBus sous-jacent de visualiser/compromettre le contenu.
 * **Étape 3 - Toutes les communications passent par une connexion TLS / SSL** : toutes les communications avec ServiceBus transitent par un canal SSL/TLS. Cela protège le contenu contre les tiers non autorisés.
-*  **Renouvellement automatique des clés tous les 6 mois** : tous les 6 mois de façon automatique ou chaque fois que l’écriture différée du mot de passe est désactivée/réactivée sur Azure AD Connect, nous renouvelons toutes ces clés afin d’assurer la sécurité et la protection maximales du service.
+* **Renouvellement automatique des clés tous les 6 mois** : tous les 6 mois de façon automatique ou chaque fois que l’écriture différée du mot de passe est désactivée/réactivée sur Azure AD Connect, nous renouvelons toutes ces clés afin d’assurer la sécurité et la protection maximales du service.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Utilisation de la bande passante de l’écriture différée du mot de passe
 
@@ -172,7 +184,7 @@ La taille de chacun des messages décrits ci-dessus est généralement inférieu
 
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
-* [**Démarrage rapide**](active-directory-passwords-getting-started.md) : soyez rapidement opérationnel avec la gestion des mots de passe en libre-service d’Azure AD. 
+* [**Démarrage rapide**](active-directory-passwords-getting-started.md) : soyez rapidement opérationnel avec la gestion des mots de passe en libre-service Azure AD. 
 * [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.
 * [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
 * [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service pour vos utilisateurs grâce aux conseils figurant ici.
@@ -180,7 +192,7 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [**Stratégie**](active-directory-passwords-policy.md) : comprenez mieux et définissez les stratégies de mot de passe d’Azure AD.
 * [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation de mot de passe en libre-service.
 * [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qui se passe sous le capot pour mieux comprendre le fonctionnement.
-* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) - Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
+* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) : Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
 * [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec la réinitialisation de mot de passe en libre-service.
 
-
+[Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Activation de l’écriture différée du mot de passe dans Azure AD Connect"
