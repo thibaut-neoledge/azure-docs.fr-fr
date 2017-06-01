@@ -1,6 +1,6 @@
 ---
 title: "Présentation de la procédure de création et de déploiement d’une offre dans le Marketplace | Microsoft Docs"
-description: "Découvrez les étapes nécessaires pour devenir un développeur Microsoft approuvé, et pour créer et déployer une image de machine virtuelle, un modèle, un service de données ou un service de développement dans Azure Marketplace."
+description: "Découvrez les étapes nécessaires pour devenir un développeur Microsoft approuvé, et pour créer et déployer une image de machine virtuelle, un modèle, un service de données ou un service de développement dans la Place de marché Azure."
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -15,82 +15,96 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 49ffe988867ba70df5bd7757a64edc9aa813071d
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 87bd4e1d2b51857526b9137c09b7013c5221c698
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="how-to-publish-and-manage-an-offer-in-the-azure-marketplace"></a>Comment publier et gérer une offre dans Azure Marketplace
-Cet article a pour but d’aider les développeurs à créer, déployer et gérer leurs solutions répertoriées sur Azure Marketplace afin de la proposer à d’autres clients et partenaires Azure.
+# <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publier et gérer une offre dans la Place de marché Azure
+Cet article a pour but d’aider les développeurs à créer, déployer et gérer leurs solutions répertoriées sur la Place de marché Azure afin de la proposer à d’autres clients et partenaires Azure.
 
-## <a name="what-is-the-azure-marketplace"></a>Qu’est-ce qu’Azure Marketplace ?
-Tout comme un éditeur Azure, Azure Marketplace vous permet de distribuer et de vendre votre solution ou votre service innovant à d’autres développeurs, éditeurs de logiciels indépendants et professionnels de l’informatique qui souhaitent développer rapidement leurs applications cloud et leurs solutions mobiles. Si votre solution s'adresse aux utilisateurs professionnels, vous devriez opter pour le marketplace [AppSource](http://appsource.microsoft.com).
+## <a name="marketplace-publishing"></a>Publication sur la Place de marché
+En tant qu’éditeur Azure, vous pouvez distribuer et vendre votre solution ou votre service innovant à d’autres développeurs, éditeurs de logiciels indépendants et professionnels de l’informatique dans la Place de marché Azure. Sur la Place de marché, vous pouvez atteindre les clients qui souhaitent développer rapidement leurs applications cloud et solutions mobiles. Si votre solution s’adresse aux utilisateurs professionnels, vous pouvez opter pour la Place de marché [AppSource](http://appsource.microsoft.com).
 
 
 ## <a name="supported-types-of-solutions"></a>Types de solutions pris en charge
-La première étape en tant qu’éditeur est de définir le type de solution offert par votre entreprise. Azure Marketplace prend en charge les types d’offres suivantes :
+La première étape en tant qu’éditeur est de définir le type de solution offert par votre entreprise. La Place de marché prend en charge les types d’offres suivants :
 
 |Type de solution|Machine virtuelle|Modèle de solution|
 |---|---|---|
-|Définition|Images préconfigurées dans lesquelles un système d’exploitation et une ou plusieurs applications sont entièrement installés. Une image de machine virtuelle fournit les informations nécessaires pour créer et déployer des machines virtuelles dans le service Azure Virtual Machines.|Structure de données capable de référencer un ou plusieurs services Azure distincts, y compris des services publiés par d’autres vendeurs, afin de permettre aux abonnés Azure de déployer une ou plusieurs offres d’une seule façon coordonnée.|
-|Exemple|**Par exemple,** tout comme un éditeur Azure, vous avez créé et validé une machine virtuelle avec un service de base de données innovant suffisamment convaincant pour que d’autres abonnés Azure soient disposés à acquérir et déployer cette machine virtuelle dans leur environnement de services cloud.|**Par exemple,** tout comme un éditeur Azure, vous avez regroupé un ensemble de services sur Azure qui accélère le déploiement de services cloud avec un équilibrage de charge, une sécurité renforcée et une meilleure disponibilité. Les autres abonnés Azure peuvent gagner du temps en achetant le modèle de solution qui répond à leurs objectifs plutôt que de localiser, acheter, déployer et configurer manuellement des services Azure identiques ou similaires.|
+|**Définition**|Images préconfigurées dans lesquelles un système d’exploitation et une ou plusieurs applications sont entièrement installés. Une image de machine virtuelle fournit les informations nécessaires pour créer et déployer des machines virtuelles dans le service Azure Virtual Machines.|Structure de données capable de référencer un ou plusieurs services Azure distincts, y compris des services publiés par d’autres vendeurs. Les abonnés Azure peuvent l’utiliser pour déployer une ou plusieurs offres d’une seule façon coordonnée.|
+|**Exemple**|En tant qu’éditeur Azure, vous avez créé et validé une machine virtuelle avec un service de base de données innovant. Les autres abonnés Azure souhaitent acquérir et déployer cette machine virtuelle dans leurs environnements de service cloud.|En tant qu’éditeur Azure, vous avez regroupé un ensemble de services sur Azure qui accélère le déploiement de services cloud avec un équilibrage de charge, une sécurité renforcée et une haute disponibilité. Les autres abonnés Azure peuvent gagner du temps en achetant le modèle de solution qui répond à leurs objectifs. Ils n’ont plus besoin de localiser, d’acheter, de déployer et de configurer manuellement des services Azure identiques ou similaires.|
 
 > [!NOTE]
-> Notez que certaines étapes sont partagées entre les différents types de solutions tandis que d’autres sont propres à chaque type de solution. Cet article présente brièvement la procédure que vous devez suivre pour tous les types de solutions.
+> Certaines étapes sont partagées entre les différents types de solutions tandis que d’autres sont propres à chaque type de solution. Cet article présente brièvement la procédure que vous devez suivre pour tous les types de solutions.
 
-## <a name="how-to-publish-a-solution"></a>Publication d'une application
-![dessiner](media/marketplace-publishing-getting-started/img01.png)
+## <a name="publish-a-solution"></a>Publier une application
+![Nommer, inscrire, publier](media/marketplace-publishing-getting-started/img01.png)
 
-### <a name="1-nominate-your-solution-for-pre-approval"></a>1. Nommer votre solution pour une pré-approbation
-- Remplissez le formulaire de nomination de solution pour **Microsoft Azure Certified pour les machines virtuelles** [ici](https://createopportunity.azurewebsites.net)
+### <a name="nominate-your-solution-for-pre-approval"></a>Nommer votre solution pour une pré-approbation
+Pour publier une [solution](https://createopportunity.azurewebsites.net) de machine virtuelle sur la Place de marché, remplissez le **formulaire de proposition de solution** sur Microsoft Azure Certified.
 
 >[!NOTE]
-> Si vous travaillez avec un responsable de compte partenaire ou un responsable partenaire DX, demandez-lui de vous recommander pour le programme de certification d'Azure Certified OU accédez à la page Web[Microsoft Azure Certified](http://createopportunity.azurewebsites.net), remplissez le formulaire d’application et entrez l'adresse e-mail de votre responsable de compte partenaire ou responsable partenaire DX dans le champ Microsoft Sponsor Contact.
+> Si vous travaillez avec un responsable de compte partenaire ou un responsable partenaire DX, demandez-lui de recommander votre solution pour le programme de certification Azure Certified. Vous pouvez également accéder à la page web [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) et remplir le formulaire de demande. Entrez l’adresse de courrier de votre responsable de compte ou responsable partenaire DX dans le champ **Microsoft Sponsor Contact** (Coordonnées du sponsor Microsoft).
 
-Si les critères d'éligibilité sont reconnues par les [Politiques concernant la participation à la Place de marché Azure](http://go.microsoft.com/fwlink/?LinkID=526833) et que votre application est approuvée, nous travaillerons à vos côtés pour intégrer votre solution à Azure Marketplace.
+Si vous répondez aux critères d’éligibilité des [Politiques concernant la participation à la Place de marché Azure](http://go.microsoft.com/fwlink/?LinkID=526833) et que votre application est approuvée, nous travaillerons à vos côtés pour intégrer votre solution à la Place de marché.
 
-### <a name="2-register-your-account-as-a-microsoft-seller"></a>2. Inscrire votre compte en tant que vendeur Microsoft
-- [Inscrire votre compte Microsoft en tant que compte Microsoft Developer](marketplace-publishing-accounts-creation-registration.md)
+### <a name="register-your-account-as-a-microsoft-seller"></a>Inscrire votre compte en tant que vendeur Microsoft
+Inscrivez votre compte Microsoft en tant que [compte Microsoft Developer](marketplace-publishing-accounts-creation-registration.md).
 
-### <a name="3-publish-your-solution"></a>3. Publier votre solution
-1. Remplir les conditions préalables non techniques
-  - [Remplir les conditions préalables non techniques](marketplace-publishing-pre-requisites.md)
-  - [Conditions préalables techniques des machines virtuelles](marketplace-publishing-vm-image-creation-prerequisites.md)
-  - [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md)
-2. Créer votre offre
-  - [Ordinateur virtuel](marketplace-publishing-vm-image-creation.md)
-  - [Modèle de solution](marketplace-publishing-solution-template-creation.md)
-3. [Créer votre offre de contenu marketing](marketplace-publishing-push-to-staging.md)
-4. Tester votre offre dans un environnement intermédiaire
-  - [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md)
-  - [Tester votre offre de modèle de solution en mode intermédiaire](marketplace-publishing-solution-template-test-in-staging.md)
-5. [Déploiement de votre offre sur Azure Marketplace](marketplace-publishing-push-to-production.md)
+### <a name="publish-your-solution"></a>Publier votre solution
+Pour publier une solution sur la Place de marché, procédez comme suit :
+1. Remplissez les conditions préalables non techniques.
+
+    a. Remplissez [les conditions préalables non techniques](marketplace-publishing-pre-requisites.md).
+
+    b. Remplissez [les conditions préalables techniques liées aux machines virtuelles](marketplace-publishing-vm-image-creation-prerequisites.md).
+
+    c. Remplissez [les conditions préalables techniques liées au modèle de solution](marketplace-publishing-solution-template-creation-prerequisites.md).
+
+2. Créez votre offre.
+
+    a. Créez une offre de [machine virtuelle](marketplace-publishing-vm-image-creation.md).
+
+    b. Créez votre offre de [modèle de solution](marketplace-publishing-solution-template-creation.md).
+
+3. Créez votre offre de [contenu marketing](marketplace-publishing-push-to-staging.md).
+
+4. Testez votre offre dans un environnement intermédiaire.
+
+    a. Testez votre offre de machine virtuelle dans un [environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md).
+
+    b. Testez votre offre de modèle de solution dans un [environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md).
+
+5. Déployez votre offre sur la [Place de marché](marketplace-publishing-push-to-production.md).
 
 
-### <a name="virtual-machine-image-specific"></a>Propre à l’image de machine virtuelle
-* [Création d’une image de machine virtuelle locale](marketplace-publishing-vm-image-creation-on-premise.md)
-* [Créer une machine virtuelle exécutant Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Création d’une machine virtuelle exécutant Windows dans le portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Dépannage des problèmes courants rencontrés lors de la création du disque dur virtuel](marketplace-publishing-vm-image-creation-troubleshooting.md)
+### <a name="create-and-manage-a-virtual-machine-image"></a>Créer et gérer une image de machine virtuelle
+Créez et gérez une image de machine virtuelle à l’aide des ressources suivantes :
+* Créez une image de machine virtuelle [locale](marketplace-publishing-vm-image-creation-on-premise.md).
+* Créez une machine virtuelle exécutant [Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Créez une machine virtuelle exécutant [Linux dans le portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Résolvez les problèmes courants rencontrés lors de la [création du disque dur virtuel](marketplace-publishing-vm-image-creation-troubleshooting.md).
 
-## <a name="how-to-manage-your-solution"></a>Gestion de votre solution
-* [Guide de post-production pour les offres de machine virtuelle](marketplace-publishing-vm-image-post-publishing.md)
-* [Comment mettre à jour les détails non techniques d’une offre ou d’une référence (SKU)](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
-* [Comment mettre à jour les détails techniques d’une offre ou d’une référence (SKU)](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
-* [Comment ajouter une nouvelle référence (SKU) à une offre répertoriée](marketplace-publishing-vm-image-post-publishing.md#3-how-to-add-a-new-sku-under-a-listed-offer)
-* [Comment modifier le nombre de disques de données pour une référence (SKU) répertoriée](marketplace-publishing-vm-image-post-publishing.md#4-how-to-change-the-data-disk-count-for-a-listed-sku)
-* [Comment supprimer une offre répertoriée d’Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md)
-* [Comment supprimer une référence (SKU) répertoriée d’Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#6-how-to-delete-a-listed-sku-from-the-azure-marketplace)
-* [Comment supprimer la version actuelle d’une référence (SKU) répertoriée d’Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#7-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace)
-* [Comment restaurer des prix de vente aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#8-how-to-revert-listing-price-to-production-values)
-* [Comment restaurer un modèle de facturation aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
-* [Comment rétablir le paramètre de visibilité d’une référence (SKU) répertoriée à la valeur de la production](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
-* [Modification de « l'offre incitative revendeurs » des fournisseurs de solutions Cloud](marketplace-publishing-csp-incentive.md)
-* [Présentation de votre rapport Revenus](marketplace-publishing-report-payout.md)
+## <a name="manage-your-solution"></a>Gérer votre solution
+Gérez votre solution à l’aide des ressources suivantes :
+* [Lire le guide de post-production pour les offres de machine virtuelle](marketplace-publishing-vm-image-post-publishing.md)
+* [Mettre à jour les détails non techniques d’une offre ou d’une référence (SKU)](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
+* [Mettre à jour les détails techniques d’une offre ou d’une référence (SKU)](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
+* [Ajouter une nouvelle référence (SKU) à une offre répertoriée](marketplace-publishing-vm-image-post-publishing.md#3-how-to-add-a-new-sku-under-a-listed-offer)
+* [Modifier le nombre de disques de données pour une référence (SKU) répertoriée](marketplace-publishing-vm-image-post-publishing.md#4-how-to-change-the-data-disk-count-for-a-listed-sku)
+* [Supprimer une offre répertoriée de la Place de marché](marketplace-publishing-vm-image-post-publishing.md)
+* [Supprimer une référence (SKU) répertoriée de la Place de marché](marketplace-publishing-vm-image-post-publishing.md#6-how-to-delete-a-listed-sku-from-the-azure-marketplace)
+* [Supprimer la version actuelle d’une référence (SKU) répertoriée de la Place de marché](marketplace-publishing-vm-image-post-publishing.md#7-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace)
+* [Restaurer des prix aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#8-how-to-revert-listing-price-to-production-values)
+* [Restaurer un modèle de facturation aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
+* [Rétablir le paramètre de visibilité d’une référence (SKU) répertoriée à la valeur de production](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
+* [Affichage et modification de « l’offre incitative revendeurs » des fournisseurs de solutions Cloud dans la Place de marché Azure](marketplace-publishing-csp-incentive.md)
+* [Présentation de votre rapport de paiement](marketplace-publishing-report-payout.md)
 * [Obtenir de l’aide en tant qu’éditeur](marketplace-publishing-get-publisher-support.md)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
+[Configurer Azure PowerShell](marketplace-publishing-powershell-setup.md)
 

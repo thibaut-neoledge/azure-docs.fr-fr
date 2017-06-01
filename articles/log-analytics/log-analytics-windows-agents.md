@@ -3,7 +3,7 @@ title: "Connecter des ordinateurs Windows à Azure Log Analytics | Microsoft Doc
 description: "Cet article décrit les étapes à suivre pour connecter directement au service Log Analytics les ordinateurs Windows de votre infrastructure locale en utilisant une version personnalisée de Microsoft Monitoring Agent (MMA)."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
-ms.author: banders
+ms.date: 05/12/2017
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 0868eb2269b3675a132e106cd66740b0ce52b00a
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: d95ab33460d5d86b1d2f6d7f0d4e7a9040568c29
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -29,9 +30,9 @@ Cet article décrit les étapes à suivre pour connecter à des espaces de trava
 Vous pouvez installer des agents à l’aide du programme d’installation, de la ligne de commande, ou de la fonction Desired State Configuration (DSC) d’Azure Automation.  
 
 >[!NOTE]
-Pour les ordinateurs virtuels s’exécutant dans Azure, vous pouvez simplifier installation à l’aide de l’[extension de machine virtuelle](log-analytics-azure-vm-extension.md).
+Pour les machines virtuelles s’exécutant dans Azure, vous pouvez simplifier l’installation à l’aide de l’[extension de machine virtuelle](log-analytics-azure-vm-extension.md).
 
-Sur les ordinateurs disposant d’une connexion à Internet, l’agent utilisera la connexion à Internet pour envoyer des données à OMS. Pour les ordinateurs qui ne disposent pas de connectivité Internet, vous pouvez utiliser un serveur proxy ou la [passerelle OMS](log-analytics-oms-gateway.md).
+Sur les ordinateurs disposant d’une connexion à Internet, l’agent utilise cette dernière pour envoyer des données à OMS. Pour les ordinateurs qui ne disposent pas de connectivité Internet, vous pouvez utiliser un serveur proxy ou la [passerelle OMS](log-analytics-oms-gateway.md).
 
 Vous pouvez connecter très simplement vos ordinateurs Windows à OMS en 3 étapes :
 
@@ -43,15 +44,37 @@ Le schéma suivant illustre la relation entre vos ordinateurs Windows et OMS apr
 
 ![oms-direct-agent-diagram](./media/log-analytics-windows-agents/oms-direct-agent-diagram.png)
 
+Si vos stratégies de sécurité informatique n’autorisent pas les ordinateurs de votre réseau à se connecter à Internet, vous pouvez configurer vos ordinateurs pour qu’ils se connectent à la passerelle OMS. Pour plus d’informations et pour savoir comment configurer vos serveurs pour qu’ils communiquent par le biais d’une passerelle OMS avec le service OMS, consultez [Connecter des ordinateurs à OMS en utilisant la passerelle OMS](log-analytics-oms-gateway.md).
 
 ## <a name="system-requirements-and-required-configuration"></a>Configuration requise
 Avant d’installer ou de déployer des agents, passez en revue les informations suivantes afin d’avoir la certitude de répondre aux conditions requises.
 
 - Vous ne pouvez installer OMS MMA que sur les ordinateurs fonctionnant sous Windows Server 2008 SP 1 ou version ultérieure ou sous Windows 7 SP1 ou version ultérieure.
-- Vous avez besoin d’un abonnement OMS.  Pour plus d’informations, consultez l’article [Get started with Log Analytics](log-analytics-get-started.md)(Prise en main de Log Analytics).
+- Vous avez besoin d’un abonnement Azure.  Pour plus d’informations, consultez l’article [Prise en main de Log Analytics](log-analytics-get-started.md).
 - Chaque ordinateur Windows doit pouvoir se connecter à Internet à l’aide du protocole HTTPS ou de la passerelle OMS. Il peut s’agir d’une connexion directe, d’une connexion obtenue par un proxy ou bien établie via la passerelle OMS.
 - Vous pouvez installer OMS MMA sur des ordinateurs autonomes, des serveurs et des machines virtuelles. Si vous souhaitez connecter à OMS des machines virtuelles hébergées dans Azure, voir [Connecter des machines virtuelles Azure à Log Analytics](log-analytics-azure-vm-extension.md).
-- L’agent doit utiliser le port TCP 443 pour les différentes ressources. Pour plus d’informations, consultez la page [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md)(Configuration des paramètres de proxy et de pare-feu dans Log Analytics).
+- L’agent doit utiliser le port TCP 443 pour les différentes ressources.
+
+### <a name="network"></a>Réseau
+
+Pour que les agents Windows se connectent et s’inscrivent auprès du service OMS, ils doivent accéder aux ressources réseau, y compris les numéros de port et les URL de domaine.
+
+- Pour les serveurs proxy, vous devez vous assurer que les ressources de serveur proxy appropriées sont configurées dans les paramètres de l’agent.
+- Pour les pare-feu qui limitent l’accès à Internet, vous ou vos ingénieurs réseau devez configurer votre pare-feu pour qu’il autorise l’accès à OMS. Aucune action n’est nécessaire dans les paramètres de l’agent.
+
+Le tableau suivant présente les ressources nécessaires pour la communication.
+
+>[!NOTE]
+>Certaines des ressources suivantes mentionnent Operational Insights, qui était une version précédente d’OMS. Toutefois, les ressources répertoriées sont appelées à évoluer.
+
+| Ressource de l'agent | Ports | Ignorer l’inspection HTTPS |
+|---|---|---|
+| *.ods.opinsights.azure.com | 443 | Oui |
+| *.oms.opinsights.azure.com | 443 | Oui |
+| *.blob.core.windows.net | 443 | Oui |
+| *.azure-automation.net | 443 | Oui |
+
+
 
 ## <a name="download-the-agent-setup-file-from-oms"></a>Télécharger le fichier de configuration de l’agent sur OMS
 1. Dans le portail OMS, sur la page **Vue d’ensemble**, cliquez sur la mosaïque **Paramètres**.  Cliquez sur l’onglet **Sources connectées** , situé en haut de la page.  
@@ -65,7 +88,7 @@ Avant d’installer ou de déployer des agents, passez en revue les informations
 2. Sur la page d'accueil, cliquez sur **Suivant**.
 3. Dans la page Termes du contrat de licence, lisez les conditions de licence et cliquez sur **J’accepte**.
 4. Dans la page Dossier de destination, modifiez ou conservez le dossier d’installation par défaut, puis cliquez sur **Suivant**.
-5. Dans la page Options d’installation de l’Agent, vous pouvez soit connecter l’agent à Azure Log Analytics (OMS) ou à Operations Manager, soit laisser les options vides si vous souhaitez configurer l’agent ultérieurement. Cliquez sur **Next**.   
+5. Dans la page Options d’installation de l’Agent, vous pouvez soit connecter l’agent à Azure Log Analytics (OMS) ou à Operations Manager, soit laisser les options vides si vous souhaitez configurer l’agent ultérieurement. Cliquez sur **Suivant**.   
     - Si vous choisissez de vous connecter à Azure Log Analytics (OMS), collez l’**ID de l’espace de travail** et la **Clé de l’espace de travail (clé primaire)** que vous avez copiés dans le bloc-notes dans la procédure précédente, puis cliquez sur **Suivant**.  
         ![Coller l’ID et la clé primaire de l’espace de travail](./media/log-analytics-windows-agents/connect-workspace.png)
     - Si vous choisissez de vous connecter à Operations Manager, saisissez le **Nom du groupe d’administration**, le nom du **Serveur d’administration** et le **Port du serveur d’administration**, puis cliquez sur **Suivant**. Sur la page Compte d’action d’agent, choisissez le compte système local ou un compte de domaine local, puis cliquez sur **Suivant**.  
@@ -75,24 +98,96 @@ Avant d’installer ou de déployer des agents, passez en revue les informations
 7. Sur la page Configuration effectuée, cliquez sur **Terminer**.
 8. Lorsque vous avez terminé, **Microsoft Monitoring Agent** apparaît dans le **Panneau de configuration**. Vous pouvez y contrôler votre configuration et vérifier que l’agent est bien connecté à Operational Insights (OMS). Une fois connecté à OMS, l’agent affiche un message indiquant : **Microsoft Monitoring Agent est bien connecté au service Microsoft Operations Management Suite**
 
+## <a name="configure-proxy-settings"></a>Configuration des paramètres de proxy
+
+Vous pouvez utiliser la procédure suivante pour configurer les paramètres de proxy de Microsoft Monitoring Agent dans le Panneau de configuration. Vous devez utiliser cette procédure pour chaque serveur. Si vous devez configurer plusieurs serveurs, utilisez un script pour automatiser ce processus. Dans ce cas, suivez la procédure [Pour configurer les paramètres de proxy de Microsoft Monitoring Agent à l'aide d'un script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+
+### <a name="to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-control-panel"></a>Pour configurer les paramètres de proxy de Microsoft Monitoring Agent dans le Panneau de configuration
+1. Ouvrez le **Panneau de configuration**.
+2. Ouvrez **Microsoft Monitoring Agent**.
+3. Cliquez sur l'onglet **Paramètres de proxy** .  
+    ![Onglet Paramètres de proxy](./media/log-analytics-windows-agents/proxy-direct-agent-proxy.png)
+4. Sélectionnez **Utiliser un serveur proxy** et tapez l'URL et le numéro de port, si nécessaire, comme indiqué dans l'exemple. Si votre serveur proxy requiert une authentification, tapez le nom d'utilisateur et le mot de passe pour accéder au serveur proxy.
+
+
+### <a name="verify-agent-connectivity-to-oms"></a>Vérifier la connectivité de l’agent à OMS
+
+Vous pouvez facilement vérifier si vos agents communiquent avec OMS en procédant comme suit :
+
+1.    Sur l’ordinateur sur lequel l’agent Windows est installé, ouvrez le Panneau de configuration.
+2.    Ouvrez Microsoft Monitoring Agent.
+3.    Cliquez sur l’onglet Azure Log Analytics (OMS).
+4.    Dans la colonne État, vous devez voir que l’agent est correctement connecté au service Operations Management Suite.
+
+![agent connecté](./media/log-analytics-windows-agents/mma-connected.png)
+
+
+### <a name="to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script"></a>Pour configurer les paramètres de proxy de Microsoft Monitoring Agent à l'aide d'un script
+Copiez l'exemple suivant, mettez-le à jour avec les informations spécifiques à votre environnement, enregistrez-le avec l'extension de nom de fichier PS1, puis exécutez le script sur chaque ordinateur qui se connecte directement au service OMS.
+
+    param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
+
+    # First we get the Health Service configuration object.  We need to determine if we
+    #have the right update rollup with the API we need.  If not, no need to run the rest of the script.
+    $healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+
+    $proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
+
+    if (!$proxyMethod)
+    {
+         Write-Output 'Health Service proxy API not present, will not update settings.'
+         return
+    }
+
+    Write-Output "Clearing proxy settings."
+    $healthServiceSettings.SetProxyInfo('', '', '')
+
+    $ProxyUserName = $cred.username
+
+    Write-Output "Setting proxy to $ProxyDomainName with proxy username $ProxyUserName."
+    $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
+
+
+
 ## <a name="install-the-agent-using-the-command-line"></a>Installation de l’agent à l’aide de la ligne de commande
 - Modifiez, puis utilisez l’exemple suivant pour installer l’agent à l’aide de la ligne de commande. L’exemple effectue une installation entièrement sans assistance.
 
     >[!NOTE]
     Si vous souhaitez mettre à niveau un agent, vous devez utiliser l’API de script Log Analytics. Pour mettre à niveau un agent, consultez la section suivante.
 
-    ```
+    ```dos
     MMASetup-AMD64.exe /Q:A /R:N /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"
     ```
 
-L’agent utilise IExpress comme son auto-extracteur à l’aide de la commande `/c`. Vous pouvez afficher les commutateurs de ligne de commande à la page [Commutateurs de ligne de commande pour les packages de mise à jour logicielle IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages), puis mettre à jour l’exemple pour répondre à vos besoins.
+L’agent utilise IExpress comme son auto-extracteur à l’aide de la commande `/c`. Vous pouvez voir les commutateurs de ligne de commande à la page [Commutateurs de ligne de commande pour les packages de mise à jour logicielle IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages), puis mettre à jour l’exemple pour répondre à vos besoins.
 
-## <a name="upgrade-the-agent-and-add-a-workspace-using-a-script"></a>Mettre à niveau l’agent et ajouter un espace de travail à l’aide d’un script
-Vous pouvez mettre à niveau un agent et ajouter un espace de travail à l’aide de l’API de script Log Analytics avec l’exemple PowerShell suivant.
+|Options propres à MMA                   |Remarques         |
+|---------------------------------------|--------------|
+|ADD_OPINSIGHTS_WORKSPACE               | 1 = Configurer l’agent de façon à ce qu’il se connecte à un espace de travail                |
+|OPINSIGHTS_WORKSPACE_ID                | ID d’espace de travail (GUID) de l’espace de travail à ajouter                    |
+|OPINSIGHTS_WORKSPACE_KEY               | Clé d’espace de travail utilisée initialement pour l’authentification auprès de l’espace de travail |
+|OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Spécifie l’environnement cloud où se trouve l’espace de travail <br> 0 = cloud commercial Azure (par défaut) <br> 1 = Azure Government |
 
-```
+>[!NOTE]
+Si vous obtenez `Command line option syntax error.` lors de l’utilisation du paramètre `OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE`, vous pouvez utiliser la solution de contournement suivante :
+```dos
+MMASetup-AMD64.exe /C /T:.\MMAExtract
+cd .\MMAExtract
+setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+
+## Add a workspace using a script
+Add a workspace using the Log Analytics agent scripting API with the following example:
+
+```PowerShell
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 $mma.AddCloudWorkspace($workspaceId, $workspaceKey)
+$mma.ReloadConfiguration()
+```
+
+Pour ajouter un espace de travail dans Azure pour US Government, utilisez l’exemple de script suivant :
+```PowerShell
+$mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+$mma.AddCloudWorkspace($workspaceId, $workspaceKey, 1)
 $mma.ReloadConfiguration()
 ```
 
@@ -103,8 +198,8 @@ Si vous avez utilisé précédemment la ligne de commande ou un script pour inst
 
 Vous pouvez utiliser l’exemple de script suivant pour installer l’agent à l’aide de DSC dans Azure Automation. L’exemple installe l’agent 64 bits, identifié par la valeur `URI`. Vous pouvez également utiliser la version 32 bits en remplaçant la valeur de l’URI. Les URI pour les deux versions sont :
 
-- Agent Windows 64 bits - https://go.microsoft.com/fwlink/?LinkId=828603
-- Agent Windows 32 bits - https://go.microsoft.com/fwlink/?LinkId=828604
+- Agent Windows 64 bits - https://go.microsoft.com/fwlink/?LinkId=828603
+- Agent Windows 32 bits - https://go.microsoft.com/fwlink/?LinkId=828604
 
 
 >[!NOTE]
@@ -112,11 +207,11 @@ Cette procédure et cet exemple de script ne mettent pas à niveau un agent exis
 
 1. Importez le module DSC xPSDesiredStateConfiguration à partir de [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) dans Azure Automation.  
 2.    Créez des ressources variables Azure Automation pour *OPSINSIGHTS_WS_ID* et *OPSINSIGHTS_WS_KEY*. Affectez votre ID d’espace de travail OMS Log Analytics comme valeur *OPSINSIGHTS_WS_ID* et affectez la clé primaire de votre espace de travail comme valeur *OPSINSIGHTS_WS_KEY*.
-3.    Utilisez le script ci-dessous et enregistrez-le sous le nom MMAgent.ps1.
+3.    Utilisez le script suivant et enregistrez-le sous le nom MMAgent.ps1
 4.    Modifiez puis utilisez l’exemple suivant pour installer l’agent à l’aide de DSC dans Azure Automation. Importez MMAgent.ps1 dans Azure Automation à l’aide de l’interface ou de l’applet de commande Azure Automation.
-5.    Affectez un nœud à la configuration. En moins de 15 minutes, le nœud vérifiera sa configuration et le MMA sera poussé vers le nœud.
+5.    Affectez un nœud à la configuration. En moins de 15 minutes, le nœud vérifie sa configuration et l’agent MMA est poussé vers le nœud.
 
-```
+```PowerShell
 Configuration MMAgent
 {
     $OIPackageLocalPath = "C:\MMASetup-AMD64.exe"
@@ -157,7 +252,7 @@ Configuration MMAgent
 
 La `ProductId value` dans le script MMAgent.ps1 est propre à chaque version de l’agent. Lorsqu’une version mise à jour de chaque agent est publiée, la valeur ProductId change. Par conséquent, lors du changement de la valeur ProductId à l’avenir, vous trouverez la version de l’agent à l’aide d’un script simple. Une fois la dernière version de l’agent installée sur un serveur de test, vous pouvez utiliser le script suivant pour obtenir la valeur ProductId installée. À l’aide de la dernière valeur ProductId, vous pouvez mettre à jour la valeur dans le script MMAgent.ps1.
 
-```
+```PowerShell
 $InstalledApplications  = Get-ChildItem hklm:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
 
 
@@ -215,19 +310,8 @@ Si vous utilisez Operations Manager dans votre infrastructure informatique, vous
 8.    Sous **Compte d’action d’agent**, choisissez le compte système local ou un compte de domaine local.
 9.    Cliquez sur **OK** pour fermer la boîte de dialogue **Ajouter un groupe d’administration**, puis cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de l’agent Microsoft Monitoring Agent**.
 
-## <a name="optionally-configure-agents-to-use-the-oms-gateway"></a>Vous pouvez éventuellement configurer les agents afin qu’ils utilisent la passerelle OMS
-
-Si vos serveurs ou clients ne disposent pas de connexion à Internet, vous pouvez toujours utiliser OMS Log Analytics Forwarder pour qu’ils puissent envoyer des données à OMS avec la passerelle OMS.  Quand vous utilisez la passerelle, toutes les données des agents transitent par un seul serveur ayant accès à Internet. La passerelle transfère directement les données des agents à OMS sans analyser les données transférées.
-
-Consultez [Passerelle OMS](log-analytics-oms-gateway.md) pour en savoir plus sur la passerelle, y compris son installation et sa configuration.
-
-Pour plus d’informations sur la configuration de vos agents pour qu’ils utilisent un serveur proxy (c’est-à-dire ici la passerelle OMS), consultez [Configurer les paramètres de pare-feu et de proxy dans Log Analytics](log-analytics-proxy-firewall.md).
-
-## <a name="optionally-configure-proxy-and-firewall-settings"></a>Configuration des paramètres de pare-feu et de proxy (facultatif)
-Si les serveurs proxy ou les pare-feu de votre environnement limitent votre accès à Internet, consultez la page [Configurer les paramètres de pare-feu et de proxy dans Log Analytics](log-analytics-proxy-firewall.md) pour savoir comment configurer vos agents pour communiquer avec le service OMS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md) pour ajouter des fonctionnalités et collecter des données.
-- [Configurez les paramètres de proxy et de pare-feu dans Log Analytics](log-analytics-proxy-firewall.md) si votre organisation utilise un serveur proxy ou un pare-feu pour que les agents puissent communiquer avec le service Log Analytics.
 
