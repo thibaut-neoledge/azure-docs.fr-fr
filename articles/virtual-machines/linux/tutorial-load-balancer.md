@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 079289f385266293ecfce7cd02b1673a774afbbe
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 817f6763ba663de994a40aefcda31dc8466ef12a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -27,16 +28,17 @@ ms.lasthandoff: 05/15/2017
 L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce didacticiel, vous allez découvrir les différents composants de l’équilibreur de charge Azure qui répartissent le trafic et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer un équilibreur de charge Azure
+> * Crée un équilibrage de charge Azure
 > * Créer une sonde d’intégrité d’équilibreur de charge
 > * Créer des règles de trafic pour l’équilibrage de charge
 > * Utiliser cloud-init pour créer une application Node.js de base
 > * Créer des machines virtuelles et les attacher à un équilibreur de charge
-> * Afficher un équilibreur de charge en action
+> * Afficher un équilibrage de charge en action
 > * Ajouter et supprimer des machines virtuelles d’un équilibreur de charge
 
-Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. 
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="azure-load-balancer-overview"></a>Vue d’ensemble de l’équilibreur de charge Azure
 Un équilibreur de charge Azure est un équilibreur de charge de type Couche 4 (TCP, UDP) qui offre une haute disponibilité en répartissant le trafic entrant entre les machines virtuelles saines. Une sonde d’intégrité d’équilibreur de charge surveille un port donné sur chaque machine virtuelle et ne distribue le trafic que vers une machine virtuelle opérationnelle.
@@ -53,7 +55,7 @@ Si vous avez suivi le didacticiel précédent pour [créer un groupe de machines
 ## <a name="create-azure-load-balancer"></a>Créer un équilibreur de charge Azure
 Cette section explique en détail comment vous pouvez créer et configurer chaque composant de l’équilibreur de charge. Pour pouvoir créer votre équilibreur de charge, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupLoadBalancer* dans l’emplacement *westus*:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
@@ -290,7 +292,7 @@ az network nic ip-config address-pool add \
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel vous a montré comment créer un équilibreur de charge et y attacher des machines virtuelles. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment créer un équilibrage de charge et y attacher des machines virtuelles. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Crée un équilibrage de charge Azure
@@ -298,7 +300,7 @@ Ce didacticiel vous a montré comment créer un équilibreur de charge et y atta
 > * Créer des règles de trafic pour l’équilibrage de charge
 > * Utiliser cloud-init pour créer une application Node.js de base
 > * Créer des machines virtuelles et les attacher à un équilibreur de charge
-> * Afficher un équilibreur de charge en action
+> * Afficher un équilibrage de charge en action
 > * Ajouter et supprimer des machines virtuelles d’un équilibreur de charge
 
 Passez au didacticiel suivant pour en savoir plus sur les composants de réseau virtuel Azure.

@@ -1,14 +1,14 @@
 ---
 title: "Azure Cosmos DB : Comment effectuer des interrogations à l’aide de l’API DocumentDB ? | Microsoft Docs"
 description: "Apprenez à interroger à l’aide de l’API DocumentDB pour Azure Cosmos DB"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,17 +16,17 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 696ff01c7ac65215777cfe0ae3412ff91a09135b
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: feffc553a9aa931d96cec71c101674fce08a466b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB : Comment interroger avec l’API pour MongoDB ?
 
-[L’API pour MongoDB](../documentdb/documentdb-protocol-mongodb.md) d’Azure Cosmos DB prend en charge les [requêtes shell MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+[L’API pour MongoDB](mongodb-introduction.md) d’Azure Cosmos DB prend en charge les [requêtes shell MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
 Cet article décrit les tâches suivantes : 
 

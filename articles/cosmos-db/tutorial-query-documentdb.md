@@ -1,14 +1,14 @@
 ---
 title: "Comment effectuer des interrogation avec le langage SQL dans Azure Cosmos DB ? | Microsoft Docs"
 description: "Apprendre à interroger à l’aide de données DocumentDB avec le langage SQL dans Azure Cosmos DB"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: tutorial-develop
 ms.devlang: na
 ms.topic: article
@@ -17,17 +17,17 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dd34ff43e78175b0d6a6e38bbd1303070f6549ab
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: a2a562c06c6302b9548e758b4c6754ec13b6001d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB : Comment effectuer des interrogations avec le langage .SQL ?
 
-L’[API DocumentDB](../documentdb/documentdb-introduction.md) Azure Cosmos DB prend en charge l’interrogation de documents à l’aide de SQL. Cet article fournit un exemple de document et deux exemples de requêtes SQL et de résultats.
+L’[API DocumentDB](documentdb-introduction.md) Azure Cosmos DB prend en charge l’interrogation de documents à l’aide de SQL. Cet article fournit un exemple de document et deux exemples de requêtes SQL et de résultats.
 
 Cet article décrit les tâches suivantes : 
 
@@ -68,10 +68,10 @@ L’exemple de document suivant est utilisé pour les interrogations SQL de cet 
 ```
 ## <a name="where-can-i-run-sql-queries"></a>Où puis-je exécuter des requêtes SQL ?
 
-Vous pouvez exécuter des requêtes à l’aide de l’Explorateur de données dans le portail Azure, via l’[API REST et Kits de développement logiciel (SDK) ](../documentdb/documentdb-query-collections-query-explorer.md)et même l’[interface de requête](https://www.documentdb.com/sql/demo), qui exécute des requêtes sur un ensemble d’exemples de données existant.
+Vous pouvez exécuter des requêtes à l’aide de l’Explorateur de données dans le portail Azure, via l’[API REST et Kits de développement logiciel (SDK) ](documentdb-sdk-dotnet.md)et même l’[interface de requête](https://www.documentdb.com/sql/demo), qui exécute des requêtes sur un ensemble d’exemples de données existant.
 
 Pour plus d’informations sur les requêtes SQL, consultez :
-* [Requête SQL et syntaxe SQL](../documentdb/documentdb-sql-query.md)
+* [Requête SQL et syntaxe SQL](documentdb-sql-query.md)
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -89,23 +89,34 @@ Ce didacticiel suppose que vous ayez un compte et une collection Azure Cosmos DB
 
 **Résultats**
 
-    [{
-        "id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
-        "creationDate": 1431620472,
-        "isRegistered": true
-    }]
+```json
+{
+  "id": "WakefieldFamily",
+  "parents": [
+      { "familyName": "Wakefield", "givenName": "Robin" },
+      { "familyName": "Miller", "givenName": "Ben" }
+  ],
+  "children": [
+      {
+        "familyName": "Merriam", 
+        "givenName": "Jesse", 
+        "gender": "female", "grade": 1,
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+        ]
+      },
+      { 
+        "familyName": "Miller", 
+         "givenName": "Lisa", 
+         "gender": "female", 
+         "grade": 8 }
+  ],
+  "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+  "creationDate": 1431620462,
+  "isRegistered": false
+}
+```
 
 ## <a name="example-query-2"></a>Exemple de requête 2
 

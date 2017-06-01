@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 8a8a28e6491855434c4445bedd5644d7da109f8a
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -32,8 +32,6 @@ Votre application peut accéder à ces API de différentes manières :
 2. **Accès de l’application uniquement**: pour les applications qui exécutent des services démons et des tâches planifiées. L’identité de l’application se voit octroyer un accès direct aux ressources. Cette approche fonctionne pour les applications qui nécessitent un accès sans affichage (sans assistance) prolongé à Azure.
 
 Cette rubrique explique pas à pas comment créer une application qui met en œuvre ces deux méthodes d’autorisation. Elle montre comment effectuer chaque étape avec l’API REST ou C#. L’application MVC ASP.NET complète est disponible à l’adresse [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
-
-Le code de cette rubrique s’exécute comme une application web que vous pouvez tester à l’adresse [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense).
 
 ## <a name="what-the-web-app-does"></a>Ce que fait l’application web
 L’application web :

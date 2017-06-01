@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 05/07/2017
-ms.author: meetb;carlrab;sstein
+ms.date: 05/24/2017
+ms.author: meetb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 2c0dc1bef0bf2b7b78e8858943ad6e0ede214681
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 693bfdf7bb3d9d72fbd6ac42734ca261af7b492d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,10 +27,13 @@ ms.lasthandoff: 05/08/2017
 
 Ce guide de démarrage rapide indique comment utiliser [PHP](http://php.net/manual/en/intro-whatis.php) pour se connecter à une base de données SQL Azure, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données à partir des plateformes Mac OS, Ubuntu Linux et Windows.
 
+## <a name="prerequisites"></a>Composants requis
+
 Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
 
 - [Créer une base de données - Portail](sql-database-get-started-portal.md)
 - [Créer une base de données - CLI](sql-database-get-started-cli.md)
+- [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-php-and-database-communications-software"></a>Installer le logiciel de communication de la base de données et PHP
 
