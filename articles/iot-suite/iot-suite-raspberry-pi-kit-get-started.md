@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/26/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 0235058d17a55562271c0a98c47b9b12f8d27be6
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 5efb78c2c514bd0b21be842ddee5465fe4e4dcf9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -30,9 +30,9 @@ Les tutoriels de cette section vous montrent comment connecter un appareil Rasp
 
 | Didacticiel | Remarques | Langues |
 | -------- | ----- | --------- |
-| Télémétrie simulée (de base)| Simule des données de capteur. Utilise un Raspberry Pi autonome. | [C][lnk-c-simulator] [Node.js][lnk-node-simulator] |
-| Capteur réel (intermédiaire) | Utilise les données d’un capteur BME280 connecté à votre Raspberry Pi. | [C][lnk-c-basic] [Node.js][lnk-node-basic] |
-| Implémenter la mise à jour du microprogramme (avancé)| Utilise les données d’un capteur BME280 connecté à votre Raspberry Pi. Active les mises à jour de microprogramme à distance sur votre Raspberry Pi. | [C][lnk-c-advanced] [Node.js][lnk-node-advanced] |
+| Télémétrie simulée (de base)| Simule des données de capteur. Utilise un Raspberry Pi autonome. | [C][lnk-c-simulator], [Node.js][lnk-node-simulator] |
+| Capteur réel (intermédiaire) | Utilise les données d’un capteur BME280 connecté à votre Raspberry Pi. | [C][lnk-c-basic], [Node.js][lnk-node-basic] |
+| Implémenter la mise à jour du microprogramme (avancé)| Utilise les données d’un capteur BME280 connecté à votre Raspberry Pi. Active les mises à jour de microprogramme à distance sur votre Raspberry Pi. | [C][lnk-c-advanced], [Node.js][lnk-node-advanced] |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
