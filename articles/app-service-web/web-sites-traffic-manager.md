@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e5711e9c9d3ff70b38a4d19aa6be7b037cdb38aa
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 25502e4124442ed1853e3c3d9226107328c29316
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -48,7 +49,7 @@ Lorsque vous utilisez Azure Traffic Manager avec Azure, tenez compte des points 
 * Vous pouvez spécifier un seul point de terminaison d’application web par région dans un profil. Lorsque vous sélectionnez une application web comme point de terminaison pour une région, les autres applications web de cette région ne peuvent plus être sélectionnées pour ce profil.
 * Les points de terminaison d’applications web, que vous spécifiez dans un profil Azure Traffic Manager, s’affichent dans la section **Noms de domaine** de la page Configurer de l’application web du profil, mais ils ne sont pas configurables ici.
 * Lorsque vous avez ajouté une application web à un profil, l’ **URL du site** dans le tableau de bord de l’application web sur le portail affiche l’URL du domaine personnalisé de l’application web (s’il est défini). Sinon, elle affiche l’URL du profil Traffic Manager (par exemple, `contoso.trafficmgr.com`). Le nom de domaine direct de l’application web et l’URL de Traffic Manager sont tous deux affichés dans la page Configurer de l’application web dans la section **Noms de domaine** .
-* Vos noms de domaines personnalisés fonctionnent comme prévu, mais en plus de les ajouter à vos applications web, vous devez configurer votre carte DNS pour qu’elle pointe vers l’URL de Traffic Manager. Pour plus d’informations sur la configuration d’un domaine personnalisé pour une application web Azure, consultez la page [Configuration d’un nom de domaine personnalisé pour un site web Azure](web-sites-custom-domain-name.md).
+* Vos noms de domaines personnalisés fonctionnent comme prévu, mais en plus de les ajouter à vos applications web, vous devez configurer votre carte DNS pour qu’elle pointe vers l’URL de Traffic Manager. Pour plus d’informations sur la configuration d’un domaine personnalisé pour une application web Azure, consultez la page [Configuration d’un nom de domaine personnalisé pour un site web Azure](app-service-web-tutorial-custom-domain.md).
 * Vous ne pouvez ajouter que des applications web en mode standard à un profil Azure Traffic Manager.
 
 ## <a name="next-steps"></a>Étapes suivantes

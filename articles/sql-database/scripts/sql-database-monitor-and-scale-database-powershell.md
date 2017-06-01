@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 05/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b214b2d0317ff9e7adf2d75fe462a5ad9f640298
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: fab0994ff9ec4471e0a6814e681b2d3e36433301
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -32,7 +32,7 @@ Cet exemple de script PowerShell surveille les mesures de performances d’une b
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1 "Surveillance et mise à l’échelle d’une instance SQL Database unique")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Surveillance et mise à l’échelle d’une instance SQL Database unique")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 

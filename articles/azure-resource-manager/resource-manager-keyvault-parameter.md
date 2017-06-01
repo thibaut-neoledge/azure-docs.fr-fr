@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 23fb716997145152bd09d177b75973ad0b4ca9f3
-ms.openlocfilehash: 171cfe2a8750025914545701fa3423c7b9baa5f2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0bf872a44b8ed7cae53d2659aa7be878902130e9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -187,12 +189,6 @@ Pour générer dynamiquement l’ID de ressource pour une clé secrète de coffr
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir des informations générales sur les coffres de clés, consultez [Prise en main d’Azure Key Vault](../key-vault/key-vault-get-started.md).
-* Pour plus d’informations sur l’utilisation d’un coffre de clés avec une machine virtuelle, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
 * Pour obtenir des exemples complets de référencement de clés secrètes, consultez [Exemples de coffres de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

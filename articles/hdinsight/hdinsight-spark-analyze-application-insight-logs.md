@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 05/25/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 92d591054244ceb01adbfbd8ff027d47b04a6c83
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 02ecc95d97719908a18f615dc3e19af2a563cc73
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -36,7 +36,7 @@ Apprenez à utiliser Spark sur HDInsight pour analyser les données de télémé
 * Maîtrise de la création d’un cluster HDInsight sous Linux. Pour plus d’informations, consultez la rubrique [Création de Spark sur HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
   > [!IMPORTANT]
-  > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, voir [Obsolescence de HDInsight 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * Un navigateur Web.
 
@@ -89,7 +89,9 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
 
 3. Dans le premier champ (appelé **cellule**) de la page, entrez le texte suivant :
 
-        sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
+   ```python
+   sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
+   ```
 
     Ce code configure Spark pour accéder de manière récursive à la structure de répertoires des données d’entrée. Les données de télémétrie Application Insights sont consignées dans une structure de répertoires similaire à `/{telemetry type}/YYYY-MM-DD/{##}/`.
 
@@ -104,8 +106,10 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
         SparkContext and HiveContext created. Executing user code ...
 5. Une nouvelle cellule est créée sous la première. Entrez le texte suivant dans la nouvelle cellule. Remplacez `STORAGEACCOUNT` et `CONTAINER` respectivement par le nom du compte de stockage Azure et le nom du conteneur d’objets blob dans lequel figurent les données d’Application Insights.
 
-        %%bash
-        hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```python
+   %%bash
+   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```
 
     Utilisez **MAJ+ENTRÉE** pour exécuter cette cellule. Vous voyez un résultat similaire au texte suivant :
 
@@ -119,13 +123,17 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
 
 6. Dans la cellule suivante, entrez le code ci-après en remplaçant `WASB_PATH` par le chemin d’accès de l’étape précédente.
 
-        jsonFiles = sc.textFile('WASB_PATH')
-        jsonData = sqlContext.read.json(jsonFiles)
+   ```python
+   jsonFiles = sc.textFile('WASB_PATH')
+   jsonData = sqlContext.read.json(jsonFiles)
+   ```
 
     Un tableau de données est créé par ce code à partir des fichiers JSON exportés via processus d’exportation continue. Utilisez **MAJ+ENTRÉE** pour exécuter cette cellule.
 7. Dans la cellule suivante, entrez et exécutez la commande ci-dessous pour afficher le schéma Spark créé pour les fichiers JSON :
 
-        jsonData.printSchema()
+   ```python
+   jsonData.printSchema()
+   ```
 
     Le schéma sera différent pour chaque type de télémétrie. Voici un exemple de schéma généré pour les requêtes web (données stockées dans le sous-répertoire `Requests` ) :
 
@@ -191,8 +199,11 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
         |    |    |    |-- protocol: string (nullable = true)
 8. Utilisez les informations suivantes pour enregistrer le tableau de données comme tableau temporaire, puis exécutez une requête sur les données :
 
-        jsonData.registerTempTable("requests")
-        sqlContext.sql("select context.location.city from requests where context.location.city is not null")
+   ```python
+   jsonData.registerTempTable("requests")
+   df = sqlContext.sql("select context.location.city from requests where context.location.city is not null")
+   df.show()
+   ```
 
     Cette requête renvoie les informations de ville pour les 20 premiers enregistrements pour lesquelles la valeur context.location.city n’est pas nulle.
 
@@ -219,7 +230,9 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
 2. Dans l’angle supérieur droit de la page Jupyter, sélectionnez **Nouveau**, puis **Scala**. Un nouvel onglet de navigateur s’ouvre, contenant un bloc-notes Jupyter basé sur Scala.
 3. Dans le premier champ (appelé **cellule**) de la page, entrez le texte suivant :
 
-        sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
+   ```scala
+   sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
+   ```
 
     Ce code configure Spark pour accéder de manière récursive à la structure de répertoires des données d’entrée. Les données de télémétrie Application Insights sont consignées dans une structure de répertoires similaire à `/{telemetry type}/YYYY-MM-DD/{##}/`.
 
@@ -234,8 +247,10 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
         SparkContext and HiveContext created. Executing user code ...
 5. Une nouvelle cellule est créée sous la première. Entrez le texte suivant dans la nouvelle cellule. Remplacez `STORAGEACCOUNT` et `CONTAINER` respectivement par le nom du compte de stockage Azure et le nom du conteneur d’objets blob dans lequel figurent les journaux d’Application Insights.
 
-        %%bash
-        hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```scala
+   %%bash
+   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```
 
     Utilisez **MAJ+ENTRÉE** pour exécuter cette cellule. Vous voyez un résultat similaire au texte suivant :
 
@@ -249,13 +264,19 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
 
 6. Dans la cellule suivante, entrez le code ci-après en remplaçant `WASB\_PATH` par le chemin d’accès de l’étape précédente.
 
-        jsonFiles = sc.textFile('WASB_PATH')
-        jsonData = sqlContext.read.json(jsonFiles)
+   ```scala
+   var jsonFiles = sc.textFile('WASB_PATH')
+   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+   var jsonData = sqlContext.read.json(jsonFiles)
+   ```
 
     Un tableau de données est créé par ce code à partir des fichiers JSON exportés via processus d’exportation continue. Utilisez **MAJ+ENTRÉE** pour exécuter cette cellule.
+
 7. Dans la cellule suivante, entrez et exécutez la commande ci-dessous pour afficher le schéma Spark créé pour les fichiers JSON :
 
-        jsonData.printSchema
+   ```scala
+   jsonData.printSchema
+   ```
 
     Le schéma sera différent pour chaque type de télémétrie. Voici un exemple de schéma généré pour les requêtes web (données stockées dans le sous-répertoire `Requests` ) :
 
@@ -319,10 +340,13 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
         |    |    |    |-- hashTag: string (nullable = true)
         |    |    |    |-- host: string (nullable = true)
         |    |    |    |-- protocol: string (nullable = true)
+
 8. Utilisez les informations suivantes pour enregistrer le tableau de données comme tableau temporaire, puis exécutez une requête sur les données :
 
-        jsonData.registerTempTable("requests")
-        var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   ```scala
+   jsonData.registerTempTable("requests")
+   var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   ```
 
     Cette requête renvoie les informations de ville pour les 20 premiers enregistrements pour lesquelles la valeur context.location.city n’est pas nulle.
 

@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/07/2017
+ms.date: 05/24/2017
 ms.author: lbosq
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 99c1ce93f30a54fcf0d76b1367c2f9545258c1f9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4d3c3541749870b09aecc9efb63413f7c045e044
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,10 +27,13 @@ ms.lasthandoff: 05/08/2017
 
 Ce guide de démarrage rapide indique comment se connecter à une base de données SQL Azure avec [Node.js](https://nodejs.org/en/), puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données à partir des plateformes Windows, Ubuntu Linux et Mac.
 
-Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’un de ces guides :
+## <a name="prerequisites"></a>Composants requis
+
+Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
 
 - [Créer une base de données - Portail](sql-database-get-started-portal.md)
 - [Créer une base de données - CLI](sql-database-get-started-cli.md)
+- [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-nodejs"></a>Installer Node.js 
 
