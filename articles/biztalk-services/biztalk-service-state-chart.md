@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 331c03cd0819aa4935f9b486ff38f54d23d6a7fd
 ms.openlocfilehash: e3d5f89b1c8525f791e73667d6f7cd6a999ab971
+ms.contentlocale: fr-fr
 ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Ce que vous pouvez et ne pouvez pas faire avec l’état du service BizTalk
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Selon l'état actuel du service BizTalk, vous pouvez effectuer ou non certaines opérations sur celui-ci.
 
 Par exemple, vous approvisionnez un nouveau service BizTalk dans le portail Azure Classic. Quand il se termine correctement, le service BizTalk est à l’état `active`. À l’état actif, vous pouvez arrêter, interrompre et supprimer le service BizTalk. Si vous arrêtez le service BizTalk et que l’arrêt échoue, le service BizTalk passe à l’état `StopFailed`. À l’état `StopFailed`, vous pouvez redémarrer le service BizTalk. Si vous tentez une opération non autorisée, par exemple une reprise, l’erreur suivante se produit :
