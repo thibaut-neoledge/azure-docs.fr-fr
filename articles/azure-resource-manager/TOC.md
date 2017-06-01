@@ -64,7 +64,6 @@
 #### [Portail](resource-group-create-service-principal-portal.md)
 ### [API d’authentification pour l’accès aux abonnements](resource-manager-api-authentication.md)
 ### [Verrouiller des ressources](resource-group-lock-resources.md)
-### [Sécurité](best-practices-resource-manager-security.md)
 
 ## Définir des stratégies de ressources
 ### [Que sont les stratégies de ressources ?](resource-manager-policy.md)

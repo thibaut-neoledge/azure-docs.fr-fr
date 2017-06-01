@@ -130,6 +130,8 @@
     items:
     - name: Vue d’ensemble de la création de machines virtuelles
       href: creation-choices.md
+    - name: Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé
+      href: create-vm-specialized.md
     - name: Créer une machine virtuelle avec un modèle
       href: ps-template.md
     - name: 'Créer une machine virtuelle avec C#'
@@ -215,20 +217,6 @@
       href: expand-data-disks.md
     - name: Utiliser le lecteur D comme disque de données
       href: change-drive-letter.md
-    - name: Créer des machines virtuelles à l’aide de disques non gérés
-      items:
-      - name: Télécharger un disque dur virtuel
-        href: upload-image.md
-      - name: Créer une image non gérée
-        href: capture-image.md
-      - name: Créer une machine virtuelle non gérée à partir d’un disque dur virtuel généralisé
-        href: create-vm-generalized.md
-      - name: Copier une machine virtuelle
-        href: vhd-copy.md
-      - name: Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé
-        href: create-vm-specialized.md
-      - name: Attacher un disque de données non géré
-        href: attach-disk-portal.md
   - name: Mise en réseau de machines virtuelles
     href: ps-common-network-ref.md
     items:
@@ -341,10 +329,8 @@
       items:
       - name: Migrer d’Amazon Web Services (AWS) vers Azure
         href: aws-to-azure.md
-    - name: Charger et créer une machine virtuelle à partir d’un disque dur virtuel généralisé
-      href: upload-generalized-managed.md
-    - name: Charger et créer une machine virtuelle à partir d’un disque dur virtuel spécialisé
-      href: upload-specialized.md
+      - name: Charger et créer une machine virtuelle à partir d’un disque dur virtuel généralisé
+        href: upload-generalized-managed.md
     - name: Migrer de Classic vers Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:
