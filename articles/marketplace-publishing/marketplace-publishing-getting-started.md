@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 87bd4e1d2b51857526b9137c09b7013c5221c698
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -91,16 +91,16 @@ Créez et gérez une image de machine virtuelle à l’aide des ressources suiva
 ## <a name="manage-your-solution"></a>Gérer votre solution
 Gérez votre solution à l’aide des ressources suivantes :
 * [Lire le guide de post-production pour les offres de machine virtuelle](marketplace-publishing-vm-image-post-publishing.md)
-* [Mettre à jour les détails non techniques d’une offre ou d’une référence (SKU)](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
-* [Mettre à jour les détails techniques d’une offre ou d’une référence (SKU)](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
-* [Ajouter une nouvelle référence (SKU) à une offre répertoriée](marketplace-publishing-vm-image-post-publishing.md#3-how-to-add-a-new-sku-under-a-listed-offer)
-* [Modifier le nombre de disques de données pour une référence (SKU) répertoriée](marketplace-publishing-vm-image-post-publishing.md#4-how-to-change-the-data-disk-count-for-a-listed-sku)
+* [Mettre à jour les détails non techniques d’une offre ou d’une référence (SKU)](marketplace-publishing-vm-image-post-publishing.md#update-the-nontechnical-details-of-an-offer-or-a-sku)
+* [Mettre à jour les détails techniques d’une offre ou d’une référence (SKU)](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
+* [Ajouter une nouvelle référence (SKU) à une offre répertoriée](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
+* [Modifier le nombre de disques de données pour une référence (SKU) répertoriée](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
 * [Supprimer une offre répertoriée de la Place de marché](marketplace-publishing-vm-image-post-publishing.md)
-* [Supprimer une référence (SKU) répertoriée de la Place de marché](marketplace-publishing-vm-image-post-publishing.md#6-how-to-delete-a-listed-sku-from-the-azure-marketplace)
-* [Supprimer la version actuelle d’une référence (SKU) répertoriée de la Place de marché](marketplace-publishing-vm-image-post-publishing.md#7-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace)
-* [Restaurer des prix aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#8-how-to-revert-listing-price-to-production-values)
-* [Restaurer un modèle de facturation aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
-* [Rétablir le paramètre de visibilité d’une référence (SKU) répertoriée à la valeur de production](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
+* [Supprimer une référence (SKU) répertoriée de la Place de marché](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
+* [Supprimer la version actuelle d’une référence (SKU) répertoriée de la Place de marché](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
+* [Restaurer des prix aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
+* [Restaurer un modèle de facturation aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
+* [Rétablir le paramètre de visibilité d’une référence (SKU) répertoriée à la valeur de production](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
 * [Affichage et modification de « l’offre incitative revendeurs » des fournisseurs de solutions Cloud dans la Place de marché Azure](marketplace-publishing-csp-incentive.md)
 * [Présentation de votre rapport de paiement](marketplace-publishing-report-payout.md)
 * [Obtenir de l’aide en tant qu’éditeur](marketplace-publishing-get-publisher-support.md)
