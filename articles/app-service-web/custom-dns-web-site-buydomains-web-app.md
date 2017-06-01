@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c5c0b40d796130d93111545c93bedf86c374fd9
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 625eeefe94ec0d068cc9cc68b59c371697c786a8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -101,7 +102,7 @@ Si vous avez acheté le domaine personnalisé à partir du panneau **Domaines pe
 * La création du domaine personnalisé est peut-être réussie, mais le panneau n’a peut-être pas été actualisé. Essayez de rouvrir le panneau **Domaines personnalisés et SSL**.
 * Vous avez peut-être supprimé le domaine personnalisé à un moment donné. Vérifiez les journaux d’audit en cliquant sur **Paramètres** > **Journaux d’audit** dans le panneau principal de votre application. 
 * Le panneau **Domaines personnalisés et SSL** que vous consultez appartient peut-être à une application créée dans un autre abonnement Azure. Basculez vers une autre application dans un autre abonnement et vérifiez le panneau **Domaines personnalisés et SSL**.  
-    Dans le portail, vous ne pourrez pas voir ni gérer les domaines personnalisés créés dans un abonnement Azure différent de celui lié à l’application. Toutefois, si vous cliquez sur **Gestion avancée** dans le panneau **Gérer le domaine** du domaine, vous êtes redirigé vers le site web du fournisseur de domaine, où vous pouvez   [configurer manuellement votre domaine personnalisé comme n’importe quel domaine personnalisé externe](web-sites-custom-domain-name.md) 
+    Dans le portail, vous ne pourrez pas voir ni gérer les domaines personnalisés créés dans un abonnement Azure différent de celui lié à l’application. Toutefois, si vous cliquez sur **Gestion avancée** dans le panneau **Gérer le domaine** du domaine, vous êtes redirigé vers le site web du fournisseur de domaine, où vous pouvez   [configurer manuellement votre domaine personnalisé comme n’importe quel domaine personnalisé externe](app-service-web-tutorial-custom-domain.md) 
    pour les applications créées dans un autre abonnement Azure. 
 
 
