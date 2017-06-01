@@ -1,13 +1,13 @@
 ---
 title: "Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB | Microsoft Docs"
 description: "Découvrez comme le partitionnement fonctionne dans Azure Cosmos DB, comment configurer le partitionnement et les clés de partition, et comment choisir la clé de partition appropriée pour votre application."
-services: cosmosdb
+services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 920c6f810e723712b72f642b783f093bb5d4f7d4
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cd3b13b9988f51fd3755ced48714fdc18cf1ea3c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -66,7 +66,7 @@ Cosmos DB utilise le partitionnement basé sur le hachage. Lorsque vous écrivez
 Les conteneurs Azure Cosmos DB peuvent être créés comme étant « fixes » ou « illimités ». Les conteneurs de taille fixe ont une limite maximale de 10 Go et de 10 000 RU/s de débit. Certaines API permettent d’omettre la clé de partition pour les conteneurs de taille fixe. Pour créer un conteneur comme étant illimité, vous devez spécifier un débit minimum de 2500 RU/s.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Partitionnement et débit approvisionné
-Cosmos DB est conçu pour offrir des performances prévisibles. Lorsque vous créez un conteneur, vous réservez le débit en termes de **[d’unités de requête](../documentdb/documentdb-request-units.md) (RU) par seconde avec un ajout potentiel pour les unités de requête par minute**. Un coût en unités de demande proportionnel à la quantité de ressources système, comme le processeur, la mémoire et les E/S consommés par l’opération, est affecté à chaque demande. La lecture d’un document de 1 ko avec une cohérence de session consomme une unité de demande. Une lecture correspond à 1 RU, quel que soit le nombre d’éléments stockés ou le nombre de demandes simultanées en cours d’exécution. Les éléments plus volumineux nécessitent plus d’unités de demande selon leur taille. Si vous connaissez la taille de vos entités et le nombre de lectures nécessaires à prendre en charge pour votre application, vous pouvez approvisionner la quantité exacte de débit requis pour les besoins en lecture de votre application. 
+Cosmos DB est conçu pour offrir des performances prévisibles. Lorsque vous créez un conteneur, vous réservez le débit en termes de **[d’unités de requête](request-units.md) (RU) par seconde avec un ajout potentiel pour les unités de requête par minute**. Un coût en unités de demande proportionnel à la quantité de ressources système, comme le processeur, la mémoire et les E/S consommés par l’opération, est affecté à chaque demande. La lecture d’un document de 1 ko avec une cohérence de session consomme une unité de demande. Une lecture correspond à 1 RU, quel que soit le nombre d’éléments stockés ou le nombre de demandes simultanées en cours d’exécution. Les éléments plus volumineux nécessitent plus d’unités de demande selon leur taille. Si vous connaissez la taille de vos entités et le nombre de lectures nécessaires à prendre en charge pour votre application, vous pouvez approvisionner la quantité exacte de débit requis pour les besoins en lecture de votre application. 
 
 > [!NOTE]
 > Afin d’optimiser le débit total du conteneur, vous devez choisir une clé de partition qui vous permet de répartir uniformément les demandes entre certaines valeurs de clé de partition distinctes.
@@ -78,7 +78,7 @@ Cosmos DB est conçu pour offrir des performances prévisibles. Lorsque vous cr�
 Vous pouvez utiliser le portail Azure ou l’interface CLI Azure pour créer des conteneurs et les faire évoluer à tout moment. Cette section montre comment créer des conteneurs et spécifier la définition de clé de partition et le débit dans chacune des API prises en charge.
 
 ### <a name="documentdb-api"></a>API DocumentDB
-L’exemple suivant montre comment créer un conteneur (collection) à l’aide de l’API DocumentDB. Vous trouverez plus de détails dans [Partitionnement avec l’API DocumentDB](../documentdb/documentdb-partition-data.md).
+L’exemple suivant montre comment créer un conteneur (collection) à l’aide de l’API DocumentDB. Vous trouverez plus de détails dans [Partitionnement avec l’API DocumentDB](partition-data.md).
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -207,8 +207,8 @@ Vous pouvez également utiliser une approche à plusieurs niveaux/combinée qui 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, nous avons proposé une vue d’ensemble des concepts et bonnes pratiques pour le partitionnement avec l’API Azure Cosmos DB. 
 
-* Apprenez-en davantage sur le [débit approvisionné dans Azure Cosmos DB](../documentdb/documentdb-request-units.md)
-* En savoir plus sur la [distribution globale dans Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md)
+* Apprenez-en davantage sur le [débit approvisionné dans Azure Cosmos DB](request-units.md)
+* En savoir plus sur la [distribution globale dans Azure Cosmos DB](distribute-data-globally.md)
 
 
 

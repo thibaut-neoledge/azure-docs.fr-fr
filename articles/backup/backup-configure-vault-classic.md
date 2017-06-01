@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a7b55e3949cf8406f7c62e9dfd6cc1567d3a5996
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 52b7360230efd0a63e411339fe32f929a905391d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -49,8 +50,6 @@ Pour sauvegarder des fichiers et des dossiers d’un serveur ou d’un client, v
 
 ## <a name="download-the-vault-credential-file"></a>Téléchargement du fichier d’informations d’identification de coffre
 L’ordinateur local doit être authentifié avec un coffre de sauvegarde avant de pouvoir sauvegarder des données sur Azure. L’authentification s’effectue à l’aide des *informations d’identification du coffre*. Le fichier d’informations d’identification de coffre est téléchargé via un canal sécurisé depuis le portail Classic. La clé privée du certificat n’est pas conservée dans le portail ou le service.
-
-En savoir plus sur l’ [utilisation des informations d’identification de coffre pour s’authentifier auprès du service Backup](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
 ### <a name="to-download-the-vault-credential-file-to-a-local-machine"></a>Pour télécharger les informations d’identification de coffre sur un ordinateur local
 1. Dans le volet de navigation gauche, cliquez sur **Recovery Services**et sélectionnez le coffre de sauvegarde que vous avez créé.
@@ -116,7 +115,7 @@ Après avoir réalisé la sauvegarde initiale, la stratégie de sauvegarde crée
 3. Sur la page Mise en route de l’Assistant Planifier la sauvegarde, cliquez sur **Suivant**.
 4. Sur la page Sélectionner les éléments à sauvegarder, cliquez sur **Ajouter des éléments**.
 5. Sélectionnez les fichiers et les dossiers que vous souhaitez sauvegarder, puis cliquez sur **OK**.
-6. Cliquez sur **Next**.
+6. Cliquez sur **Suivant**.
 7. Sur la page **Spécifier une planification de la sauvegarde**, spécifiez la **planification de la sauvegarde**, puis cliquez sur **Suivant**.
 
     Vous pouvez planifier des sauvegardes quotidiennes (au maximum 3 fois par jour) ou hebdomadaires.

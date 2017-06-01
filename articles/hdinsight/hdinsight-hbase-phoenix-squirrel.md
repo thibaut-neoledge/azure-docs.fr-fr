@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: de997066642c72a0a9e1d7210a96a3904580e6ed
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4371092aa31db444c4ca0374b4b2e7d700029a8b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -30,7 +31,7 @@ Découvrez comment utiliser [Apache Phoenix](http://phoenix.apache.org/) dans HD
 >
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document fonctionnent uniquement pour les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Pour plus d’informations sur l’utilisation de Phoenix dans HDInsight sous Linux, consultez [Utilisation d’Apache Phoenix avec les clusters HBase basés sur Linux dans HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> Les étapes décrites dans ce document fonctionnent uniquement pour les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). Pour plus d’informations sur l’utilisation de Phoenix dans HDInsight sous Linux, consultez [Utilisation d’Apache Phoenix avec les clusters HBase basés sur Linux dans HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -206,7 +207,7 @@ L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil
   >
   >     Java.exe-jar [chemin d’accès du fichier jar SQuirreL]
 5. Cliquez sur **OK** pour confirmer la création du répertoire cible.
-6. La configuration par défaut installe les packages de base et standard.  Cliquez sur **Next**.
+6. La configuration par défaut installe les packages de base et standard.  Cliquez sur **Suivant**.
 7. Cliquez sur **Suivant** deux fois, puis sur **Terminé**.
 
 **Pour installer le pilote Phoenix**

@@ -16,10 +16,11 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 76e8fc27c87a427d7cb2527c2c53a5b463798610
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 5e91fd06fb2ae22496832d7afedb3f003edf7ea6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/12/2017
 Dans cet article, vous allez apprendre à vous connecter à un Hadoop sur le cluster HDInsight en utilisant le Bureau à distance et exécuter les tâches MapReduce à l’aide de la commande Hadoop.
 
 > [!IMPORTANT]
-> Le Bureau à distance n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Le Bureau à distance n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 >
 > Pour HDInsight 3.4 ou versions ultérieures, consultez [Utiliser MapReduce avec SSH](hdinsight-hadoop-use-mapreduce-ssh.md) pour plus d’informations sur la connexion au cluster HDInsight et l’exécution des travaux MapReduce.
 

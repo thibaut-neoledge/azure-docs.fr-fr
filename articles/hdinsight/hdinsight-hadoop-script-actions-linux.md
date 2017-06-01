@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/02/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 37f26e8af09c9ff77fad7f275769e90b82596881
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: aaa5134fafea387e63fc9c9819422d24de6baed0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/04/2017
 Découvrez comment personnaliser votre cluster HDInsight à l’aide de scripts bash. Les actions de script sont un moyen de personnaliser HDInsight pendant ou après la création du cluster.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="what-are-script-actions"></a>Définition des actions de script
 

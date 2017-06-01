@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 215f9baeda7cd0bcf3fd66893919575647849e7d
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 9de6a57671cf65c4aa5d8695d21e0932175b1183
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/22/2017
 
 ---
 # <a name="azure-active-directory-b2c-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C : personnalisation de l’interface utilisateur dans une stratégie personnalisée
@@ -30,14 +30,6 @@ Après avoir suivi cet article, vous disposerez d’une stratégie personnalisé
 ## <a name="prerequisites"></a>Composants requis
 
 Avant de poursuivre, vous suivre [Prise en main des stratégies personnalisées](active-directory-b2c-get-started-custom.md).  Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
-
-### <a name="confirming-your-b2c-tenant"></a>Confirmation de votre client B2C
-
-Étant donné que les stratégies personnalisées sont toujours en version préliminaire privée, vérifiez que votre client Azure Active Directory B2C est activé pour le téléchargement de stratégies personnalisées :
-
-1. Dans le [portail Azure](https://portal.azure.com), [basculez dans le contexte de votre client Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) et ouvrez le panneau Azure AD B2C.
-1. Cliquez sur **Toutes les stratégies**.
-1. Assurez-vous que **Télécharger stratégie** est disponible.  Si le bouton est désactivé, envoyez un e-mail à AADB2CPreview@microsoft.com.
 
 ## <a name="the-page-ui-customization-feature"></a>La fonctionnalité de personnalisation de l’interface utilisateur de page
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e650731c3186b47adeb0e799a852961c30338550
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: ec20115e8316b96d740e1966494096964ec884b1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -33,7 +34,7 @@ Azure Event Hubs permet de traiter d’énormes quantités de données provenant
 * Un cluster Apache Storm sur HDInsight version 3.5. Pour plus d’informations, voir [Prise en main de Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
     > [!IMPORTANT]
-    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Dépréciation d’HDInsight 3.3 et 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * Un [hub d’événements Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
@@ -242,6 +243,7 @@ Ces paramètres de configuration évitent les erreurs au moment de l’exécutio
     <includePluginDependencies>false</includePluginDependencies>
     <classpathScope>compile</classpathScope>
     <mainClass>${storm.topology}</mainClass>
+    <cleanupDaemonThreads>false</cleanupDaemonThreads>
     </configuration>
 </plugin>
 ```

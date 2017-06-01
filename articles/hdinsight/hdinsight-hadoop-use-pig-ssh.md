@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 04/14/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: edda959693061850248ba97795c2390a592cbb21
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 36ede2b1c2964f85c454ffd1a653c90296bb307a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/17/2017
 Découvrez comment exécuter interactivement des tâches Pig à partir d’une connexion SSH sur votre cluster HDInsight. Le langage de programmation Pig Latin permet de décrire les transformations appliquées aux données d’entrée pour produire le résultat souhaité.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a id="ssh"></a>Connexion avec SSH
 

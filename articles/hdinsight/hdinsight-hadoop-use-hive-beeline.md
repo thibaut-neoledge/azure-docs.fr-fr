@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 04/05/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b6c554a21e143e71dcc68e6c36fb25074dc95d5b
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: e75bc8b74f965a0d4509b6967f1cdc7fa32eec56
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -48,7 +48,7 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 * Un cluster Hadoop Linux sur HDInsight.
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, voir [Obsolescence de version de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * Un client SSH ou un client Beeline local. La plupart des étapes décrites dans ce document supposent que vous utilisez Beeline à partir d’une session SSH sur le cluster. Pour plus d’informations sur l’exécution de Beeline à partir de l’extérieur du cluster, voir la section [Utiliser Beeline à distance](#remote).
 
@@ -132,7 +132,7 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 
     * `SELECT` : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette requête renvoie la valeur **3**, car trois lignes contiennent cette valeur.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` : Hive tente d’appliquer le schéma à tous les fichiers dans le répertoire. Dans ce cas, le répertoire contient des fichiers qui ne correspondent pas au schéma. Pour éviter la présence de données parasites dans les résultats, cette instruction indique à Hive de retourner uniquement des données de fichiers se terminant par. log.
+    * `INPUT__FILE__NAME LIKE '%.log'` : Hive tente d’appliquer le schéma à tous les fichiers dans le répertoire. Dans ce cas, le répertoire contient des fichiers qui ne correspondent pas au schéma. Pour éviter que des données incorrectes n’apparaissent dans les résultats, cette instruction indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log.
 
   > [!NOTE]
   > Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, Par exemple, un processus de chargement de données automatisé ou une opération MapReduce.

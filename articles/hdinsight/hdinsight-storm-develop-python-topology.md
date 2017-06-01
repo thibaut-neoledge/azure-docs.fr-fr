@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 3fc4f193d72d578711285a5b4c2062be65cf354c
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: dabe1c2df99ab6070f2008d6eb980085390fb572
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 05/16/2017
 Découvrez comment créer une topologie Apache Storm qui utilise des composants Python. Apache Storm prend en charge plusieurs langages et vous permet de combiner des composants de plusieurs langages dans une même topologie. L’infrastructure de Flux (introduite avec Storm 0.10.0) permet de créer facilement des solutions qui utilisent des composants Python.
 
 > [!IMPORTANT]
-> Les informations contenues dans ce document ont été testées avec Storm sur HDInsight 3.5. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, voir [Dates d’obsolescence de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Les informations contenues dans ce document ont été testées avec Storm sur HDInsight 3.5. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 Le code de ce projet est disponible à l’adresse [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 

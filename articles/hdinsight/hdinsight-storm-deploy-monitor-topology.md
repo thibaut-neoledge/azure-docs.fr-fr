@@ -16,10 +16,11 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3dc3006d65fb257a8c2c3a27143349b5979a7e6f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 92c715015067363fa6d6b58f436891f4d38e19e5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -30,7 +31,7 @@ Le tableau de bord Storm vous permet de déployer et d’exécuter des topologie
 Le tableau de bord Storm et les fonctionnalités Storm des outils HDInsight s’appuient sur l’API REST Storm, qui peut être utilisée pour créer vos propres solutions d’analyse et de gestion.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un tableau de bord Storm sur un cluster HDInsight utilisant Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Les étapes décrites dans ce document nécessitent un tableau de bord Storm sur un cluster HDInsight utilisant Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 >
 > Pour plus d’informations sur le déploiement et la gestion des topologies avec un cluster HDInsight utilisant Linux, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
 

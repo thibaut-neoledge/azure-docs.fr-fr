@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 847d7c944d966f431f631d9d59c85b6307f72ceb
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 7576bf607a4bec60011ed0a009462f8cd3e0d598
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -39,7 +39,7 @@ Dans ce document, vous apprenez à utiliser l’interface utilisateur web d’Am
 L’interface utilisateur Web d’Ambari est fournie par défaut avec les clusters HDInsight utilisant le système d’exploitation Linux.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). 
 
 ## <a name="connectivity"></a>Connectivité
 

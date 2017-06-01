@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: b7b7347fef8ea6f6bf643e98bbcc0a6292c083ed
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: de45957d4531202005d6b38e8b218ffe023fa0b2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -272,10 +272,6 @@ Avant de commencer, visionnez une courte vidéo de présentation :
 
     ![Activer la réplication](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 13. Cliquez sur **Activer la réplication**. Vous pouvez suivre la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
-
-Une fois que vous activez la réplication, le service Mobilité est installé si vous avez configuré l’installation Push. Une fois que le service Mobilité bénéficie d’une installation Push sur une machine virtuelle, une tâche de protection démarre et échoue. Après cet échec, vous devez redémarrer manuellement chaque machine. Ensuite, la tâche de protection recommence et la réplication initiale se produit.
-
-
 
 ### <a name="view-and-manage-vm-properties"></a>Afficher et gérer les propriétés des machines virtuelles
 

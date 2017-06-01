@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/05/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 489e84f136ffc7aba00159ba53153bdd178c42b1
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 8789643474ac84d4509cd25206091e49925c9dcd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -38,7 +38,7 @@ Découvrez comment exécuter des requêtes Hive avec l’affichage Ambari Hive. 
 * Un cluster HDInsight sous Linux Pour plus d’informations sur la création d’un cluster, consultez [Prise en main de HDInsight sous Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="open-the-hive-view"></a>Ouvrir la vue Hive
 
