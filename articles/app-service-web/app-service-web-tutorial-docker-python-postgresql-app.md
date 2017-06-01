@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: beverst
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 554843c5f3161a45ff984b000944f546b44dd472
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ca086f76e50cb27f012bb2e7f05595be5fdcb241
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Créer une application web Docker Python et PostgreSQL dans Azure
@@ -355,16 +355,7 @@ Dans cette étape, vous déployez votre application Python Flask basée sur le c
 
 Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#create). 
 
-> [!NOTE] 
-> Un plan App Service représente la collection des ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent les ressources qu’il définit, ce qui vous permet de réduire les coûts lors de l’hébergement de plusieurs applications. 
-> 
-> Les plans App Service définissent : 
-> 
-> * Région (Europe du Nord, États-Unis de l’Est, Sud-Est asiatique, etc.) 
-> * Taille d’instance (« Petit », « Moyen » ou « Grand ») 
-> * Comptage (une, deux ou trois instances, etc.) 
-> * Référence (SKU) (gratuit, partagé, basique, standard, premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 L’exemple suivant crée un plan App Service Linux nommé `myAppServicePlan` en appliquant le niveau tarifaire S1 :
 

@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/05/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ae0b63bc338cb3e96eae4593b96265aafbcbc029
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3ad716fab4f5084c38c83f4bc90a616856666b38
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Créer une application web PHP et MySQL dans Azure
@@ -328,16 +328,7 @@ Dans cette étape, vous allez déployer votre application PHP connectée à MySQ
 
 Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#create). 
 
-> [!NOTE] 
-> Un plan App Service représente la collection des ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent les ressources qu’il définit, ce qui vous permet de réduire les coûts lors de l’hébergement de plusieurs applications. 
-> 
-> Les plans App Service définissent : 
-> 
-> * Région (Europe du Nord, États-Unis de l’Est, Sud-Est asiatique) 
-> * Taille d’instance (« Petit », « Moyen » ou « Grand ») 
-> * Comptage (une, deux ou trois instances, etc.) 
-> * Référence (SKU) (gratuit, partagé, basique, standard, premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 L’exemple suivant crée un plan App Service nommé _myAppServicePlan_ en indiquant le niveau tarifaire **Gratuit** :
 

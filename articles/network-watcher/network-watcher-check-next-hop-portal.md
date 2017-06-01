@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 95ecd8d4ef3dd7a956206e7c3e07c793db0111f7
-ms.openlocfilehash: 5fb85551d3c5fb8d1c63a965d89bae788000afe8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 5434b7972346821985c459fc4620805adb88676b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,14 +28,15 @@ ms.lasthandoff: 03/31/2017
 > [!div class="op_single_selector"]
 > - [Portail Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
-> - [INTERFACE DE LIGNE DE COMMANDE](network-watcher-check-next-hop-cli.md)
+> - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [API REST Azure](network-watcher-check-next-hop-rest.md)
 
 Tronçon suivant est une fonctionnalité de Network Watcher qui permet d’obtenir le type de tronçon suivant et l’adresse IP à partir d’une machine virtuelle spécifiée. Cette fonctionnalité est utile pour déterminer si le trafic sortant d’une machine virtuelle passe par une passerelle, Internet ou des réseaux virtuels pour atteindre sa destination.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce scénario repose sur l’hypothèse que vous avez déjà suivi la procédure décrite dans l’article [Create a Network Watcher (Créer une instance Network Watcher)](network-watcher-create.md) pour créer une instance Network Watcher. Ce scénario suppose également qu’un groupe de ressources avec une machine virtuelle valide existe et peut être utilisé.
+Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Create a Network Watcher (Créer une instance Network Watcher)](network-watcher-create.md) pour créer une instance Network Watcher. Ce scénario suppose également qu’un groupe de ressources avec une machine virtuelle valide existe et peut être utilisé.
 
 ## <a name="scenario"></a>Scénario
 
@@ -79,7 +81,7 @@ Si un routage personnalisé a été utilisé pour acheminer ce trafic, le routag
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment programmer la révision des paramètres de votre groupe de sécurité réseau sur la page [NSG Auditing with Network Watcher (Audit du Groupe de sécurité réseau avec Network Watcher)](network-watcher-nsg-auditing-powershell.md).
+Découvrez comment programmer la révision des paramètres de votre groupe de sécurité réseau sur la page [NSG Auditing with Network Watcher (Audit du Groupe de sécurité réseau avec Network Watcher)](network-watcher-nsg-auditing-powershell.md)
 
 [1]: ./media/network-watcher-check-next-hop-portal/figure1.png
 [2]: ./media/network-watcher-check-next-hop-portal/figure2.png

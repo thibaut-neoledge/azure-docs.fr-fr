@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
-ms.openlocfilehash: 84cd0c3eb2753a209d0aebda405f0b98a487140d
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2c967d759806b47862179ecf9e9a89801134192a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -174,7 +175,7 @@ Dans le cadre de la configuration, vous devez personnaliser les **Attributs du j
     | --- | --- |
     | Email |user.mail |
     | FirstName |user.givenname |
-    | Lastname |user.surname |
+    | LastName |user.surname |
     
     Pour chaque ligne de données dans le tableau ci-dessus, procédez comme suit :
     
@@ -226,7 +227,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
    3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    
    4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   5. Cliquez sur **Next**.
+   5. Cliquez sur **Suivant**.
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
    
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_07.png) 

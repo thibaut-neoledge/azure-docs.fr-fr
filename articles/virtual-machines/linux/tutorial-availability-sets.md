@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/22/2017
 ms.author: cynthn
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: b3bb7d9d14293aae78c3a1c2ac6badcc48dcbe2c
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: bfa4135600cb94d3947323219969872c2da7912b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -36,7 +36,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer une machine virtuelle dans un groupe à haute disponibilité
 > * Vérifier les tailles de machines virtuelles disponibles
 
-Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). Vous pouvez également utiliser [Cloud Shell](/azure/cloud-shell/quickstart) à partir de votre navigateur.
+Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. 
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 
 ## <a name="availability-set-overview"></a>Vue d’ensemble des groupes à haute disponibilité
 
@@ -53,7 +56,7 @@ Vous pouvez créer un groupe à haute disponibilité à l’aide de la commande 
 
 Créez un groupe de ressources.
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
 ```
 

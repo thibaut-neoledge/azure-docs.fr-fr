@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 05/14/2017
+wms.date: 05/31/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1811c325e240a6688b09f7260b33fbe19d022cea
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9ea73d39a8fcee82e749d20accdd3a3c30cba94e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -54,7 +54,7 @@ Tout d’abord, vous devez décider si vous souhaitez exécuter une base de donn
 | Taille maximale de la base de données dans un pool élastique | 2 Go | 250 Go | 500 Go | 500 Go |
 | Nombre maximal de bases de données par pool | 500  | 500 | 100 | 100 |
 | DTU max de la base de données unique | 5 | 100 | 4000 | 1 000 |
-| DTU max de la base de données dans un pool élastique | 5 | 100 | 4000 | 1 000 |
+| DTU max de la base de données dans un pool élastique | 5 | 3000 | 4000 | 1 000 |
 | Période de rétention de sauvegarde de bases de données | 7 jours | 35 jours | 35 jours | 35 jours |
 ||||||
 

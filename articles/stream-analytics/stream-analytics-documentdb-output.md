@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 01bf4188c40abb424c654a733c6d626f3bd694ba
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cb85dff7f8bf8a8715aaa9ecd02da59b9108915c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -42,7 +42,7 @@ L’intégration de Stream Analytics avec Cosmos DB vous permet d’insérer o
 Stream Analytics utilise une approche optimiste d’Upsert, c’est-à-dire que les mises à jour ne sont effectuées qu’en cas d’échec de l’insertion en raison d’un conflit d’ID de document. Cette mise à jour est effectuée par Stream Analytics sous la forme d’un correctif, de sorte que le document peut être partiellement mis à jour. Autrement dit, l’ajout de nouvelles propriétés ou le remplacement d’une propriété existante est effectué de façon incrémentielle. Notez que les modifications apportées aux valeurs des propriétés du tableau dans votre document JSON ont pour effet d’écraser l’intégralité du tableau. Les valeurs du tableau ne sont donc pas fusionnées.
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Partitionnement des données dans Cosmos DB
-Les [collections partitionnées](../documentdb/documentdb-partition-data.md#single-partition-and-partitioned-collections) Cosmos DB sont l’approche recommandée pour le partitionnement des données. 
+Les [collections partitionnées](../cosmos-db/partition-data.md) Cosmos DB sont l’approche recommandée pour le partitionnement des données. 
 
 Pour les collections Cosmos DB individuelles, Stream Analytics vous permet de partitionner vos données selon les modèles de requête et les besoins de performances de votre application. Chaque collection peut contenir jusqu’à 10 Go de données (maximum) et il n’existe actuellement aucun moyen de mettre à l’échelle une collection (ou de dépasser sa capacité). Pour une montée en puissance parallèle, Stream Analytics vous permet d’écrire dans plusieurs collections avec un préfixe donné (voir les détails d’utilisation ci-dessous). Stream Analytics utilise la stratégie cohérente du [programme de résolution de partition par hachage](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) en s’appuyant sur la colonne PartitionKey fournie par l’utilisateur pour partitionner ses enregistrements de sortie. Le nombre de collections avec le préfixe spécifié lors du démarrage de la tâche de streaming équivaut au nombre de partitions de sortie sur lesquelles la tâche écrit en parallèle (collections Cosmos DB = partitions de sortie). Pour une collection unique utilisant une méthode d’indexation différée axée uniquement sur les insertions, vous pouvez vous attendre à un débit d’écriture de 0,4 Mo/s. L’utilisation de plusieurs collections peut vous permettre d’atteindre un débit supérieur et des capacités accrues.
 
