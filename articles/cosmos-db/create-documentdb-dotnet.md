@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB : Développer une application web avec .NET et l’API DocumentDB | Microsoft Docs"
 description: "Cet article présente un exemple de code .NET que vous pouvez utiliser pour vous connecter à l’API Azure Cosmos DB DocumentDB, et pour l’interroger."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -16,18 +16,18 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2c05863d8a891f8edf95afa73782e2d498c9bc4e
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 899c710318fee46a93b3f54a68cb9027589f7177
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application web API DocumentDB avec .NET et le portail Azure
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des documents, des paires clé/valeur et des bases de données de graphiques, tous profitant de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
-Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite créer et déployer une application web de liste de tâches, basée sur [l’API .NET DocumentDB](../documentdb/documentdb-sdk-dotnet.md), comme illustré par la capture d’écran suivante. 
+Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite créer et déployer une application web de liste de tâches, basée sur [l’API .NET DocumentDB](documentdb-sdk-dotnet.md), comme illustré par la capture d’écran suivante. 
 
 ![Application To-Do avec des exemples de données](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
@@ -37,14 +37,17 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+<a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
+<a id="create-collection"></a>
 ## <a name="add-a-collection"></a>Ajouter une collection
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+<a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>Ajouter un exemple de données
 
 Vous pouvez maintenant ajouter des données à votre nouvelle collection grâce à l’Explorateur de données.
@@ -140,13 +143,13 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 Vous pouvez dès à présent revenir à l’Explorateur de données et voir la requête, modifier et travailler avec ces nouvelles données. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Examen des SLA dans le portail Azure
+## <a name="review-slas-in-the-azure-portal"></a>Examiner les SLA dans le Portail Azure
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le portail Azure en procédant de la façon suivante :
+Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante :
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
 2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
@@ -156,7 +159,7 @@ Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes 
 Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer une collection à l’aide de l’Explorateur de données et à exécuter une application web. Vous pouvez maintenant importer des données supplémentaires à votre compte Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importer des données dans Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Importer des données dans Azure Cosmos DB](import-data.md)
 
 
 

@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2016
+ms.date: 05/23/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 62c428215c5bd89789ae65bd420281a2f16f33a1
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 1d2b51f2a8a03a94b7ce92af54f89128bcfc9471
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/27/2017
 Cet article vous montre comment télécharger votre propre image de machine virtuelle généralisée afin de l’utiliser comme disque dur virtuel (VHD) pour créer des machines virtuelles. Pour en savoir plus sur les disques et les disques durs virtuels dans Microsoft Azure, consultez [À propos des disques et VHD pour machines virtuelles](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous pouvez également [charger](../../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) une machine virtuelle à l’aide du modèle Resource Manager.
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Vous pouvez également [charger](../upload-generalized-managed.md) une machine virtuelle à l’aide du modèle Resource Manager.
 
 ## <a name="prerequisites"></a>Composants requis
 Cet article suppose que vous disposez de :

@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 05/23/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4faa029062fef6495debd5d787a1d86f4747453b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,14 +27,17 @@ ms.lasthandoff: 05/08/2017
 
 Ce guide de démarrage rapide indique comment utiliser [C# et ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) pour se connecter à une base de données SQL Azure, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données à partir des plateformes Windows, Mac OS et Ubuntu Linux.
 
+## <a name="prerequisites"></a>Composants requis
+
 Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
 
 - [Créer une base de données - Portail](sql-database-get-started-portal.md)
 - [Créer une base de données - CLI](sql-database-get-started-cli.md)
+- [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-net"></a>Installer .NET
 
-Les étapes de cette section supposent que vous êtes familiarisé avec le développement à l’aide de .NET et que vous ne savez pas utiliser la base de données SQL Azure. Si vous êtes novice en développement avec .NET, consultez [Créer une application à l’aide de SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) et sélectionnez **C#** , puis sélectionnez votre système d’exploitation.
+Les étapes de cette section supposent que vous êtes familiarisé avec le développement à l’aide de .NET et que vous ne savez pas utiliser la base de données SQL Azure. Si vous êtes novice en développement avec .NET, consultez [Créer une application à l’aide de SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) et sélectionnez **C#** , puis sélectionnez votre système d’exploitation.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework et .NET Core**
 
@@ -312,6 +315,6 @@ namespace ConsoleApplication1
 - [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
 - [Documentation .NET](https://docs.microsoft.com/dotnet/).
 - [Se connecter et lancer des requêtes avec SSMS](sql-database-connect-query-ssms.md)
-- [Se connecter et lancer des requêtes avec code Visual Studio](sql-database-connect-query-vscode.md).
+- [Azure SQL Database : utilisez Visual Studio Code pour vous connecter et interroger des données](sql-database-connect-query-vscode.md).
 
 

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: e820ca068bd9be151c4241bb233806847855933c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ad0610c1aed8e21f322516a4b7ea41bf55cc200e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -30,7 +32,7 @@ Découvrez comment analyser les journaux des sites web à l'aide de Data Lake An
 
 ## <a name="prerequisites"></a>Configuration requise :
 * **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C++ installé**.
-* **Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5 ou ultérieure**.  Installez-le avec [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Kit SDK Microsoft Azure pour .NET version 2.5 ou ultérieure**.  Installez-le avec [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools pour Visual Studio](http://aka.ms/adltoolsvs)**.
 
     Une fois les Data Lake Tools pour Visual Studio installés, vous verrez un menu **Data Lake** dans Visual Studio :
@@ -43,7 +45,7 @@ Découvrez comment analyser les journaux des sites web à l'aide de Data Lake An
 * **Un compte Data Lake Analytics.**  Consultez [Créer un compte Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
 
     Data Lake Tools ne prend pas en charge la création de comptes Data Lake Analytics.  Par conséquent, vous devez le créer avec le portail Azure, Azure PowerShell, le Kit de développement logiciel (SDK) .NET ou Azure CLI.
-* **Télécharger les exemples de données sur le compte Data Lake Analytics.** Consultez [Pour copier des fichiers de données d’exemple](data-lake-analytics-get-started-portal.md#prepare-source-data).
+* **Télécharger les exemples de données sur le compte Data Lake Analytics.** Consultez [Pour copier des fichiers de données d’exemple](data-lake-analytics-get-started-portal.md).
 
     Pour lancer une tâche Data Lake Analytics, vous aurez besoin de données. Bien que Data Lake Tools prenne en charge le téléchargement de données, vous allez utiliser le portail pour télécharger les exemples de données, ce qui facilitera la progression dans ce didacticiel.
 
@@ -200,9 +202,4 @@ Pour afficher d’autres rubriques sur le développement :
 * [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
 * [Développer des opérateurs définis par l'utilisateur U-SQL pour des travaux Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

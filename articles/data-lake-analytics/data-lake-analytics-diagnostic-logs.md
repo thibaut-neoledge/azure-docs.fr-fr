@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
-ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
-ms.lasthandoff: 02/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 71a839d9c076d33c404a56bf0544666dc86eaa4d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -30,14 +31,6 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
 * Une liste des utilisateurs qui ont accédé aux données.
 * La fréquence à laquelle les données sont consultées.
 * La quantité de données stockées dans le compte.
-
-## <a name="prerequisites"></a>Composants requis
-
-* **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* **Activation de votre abonnement Azure** pour la version préliminaire publique de Data Lake Analytics. Consultez les [instructions](data-lake-analytics-get-started-portal.md).
-
-* **Compte Azure Data Lake Analytics**. Suivez les instructions de [Prise en main du service Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).
 
 ## <a name="enable-logging"></a>Activation de la journalisation
 

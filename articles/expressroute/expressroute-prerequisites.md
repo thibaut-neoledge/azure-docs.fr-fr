@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 679b6962633cd734a1b1e339e8422da5b9c4ddfd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 873a3b83bf85c7e2d6d299bd25ebb135c300aacb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -33,8 +33,8 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 
 ## <a name="connectivity-provider"></a>Fournisseur de connectivité
 
-* Vous pouvez travailler avec un [partenaire de connectivité ExpressRoute](expressroute-locations.md#partners) pour vous connecter à Microsoft Cloud. Vous pouvez établir une connexion entre votre réseau local et Microsoft de [trois façons différentes](expressroute-introduction.md). 
-* Si votre fournisseur n’est pas un partenaire de connectivité ExpressRoute, vous pouvez toujours vous connecter à Microsoft Cloud par le biais d’un [fournisseur de solutions d’interconnexion de clouds](expressroute-locations.md#c1partners).
+* Vous pouvez travailler avec un [partenaire de connectivité ExpressRoute](expressroute-locations.md#partners) pour vous connecter à Microsoft Cloud. Vous pouvez établir une connexion entre votre réseau local et Microsoft de [trois façons différentes](expressroute-introduction.md).
+* Si votre fournisseur n’est pas un partenaire de connectivité ExpressRoute, vous pouvez toujours vous connecter à Microsoft Cloud par le biais d’un [fournisseur de solutions d’interconnexion de clouds](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
 * **Connectivité redondante**: il n’est pas nécessaire d’assurer la redondance de la connectivité physique entre vous et votre fournisseur. Microsoft n’exige pas la configuration de sessions BGP redondantes entre ses routeurs et les routeurs d’homologation, même lorsque vous disposez simplement d’ [une seule connexion physique à une solution d’interconnexion de clouds](expressroute-faqs.md#onep2plink).

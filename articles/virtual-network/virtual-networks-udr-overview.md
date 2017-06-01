@@ -15,10 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 93920075a8ad8de4fd650d9cbbfd13b7bc18bf52
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 6274e0101f6fb0864c8d1efaef7fcde78b8760c3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -104,7 +105,7 @@ Si vous avez une connexion ExpressRoute entre votre réseau local et Azure, vous
 > 
 
 ## <a name="ip-forwarding"></a>Transfert IP
-Comme décrit ci-dessus, une des raisons principales pour créer un itinéraire défini par l’utilisateur est de transférer le trafic vers une appliance virtuelle. Une appliance virtuelle n’est rien de plus qu’une machine virtuelle qui exécute une application permettant de gérer le trafic réseau d’une certaine façon, comme un pare-feu ou un périphérique NAT.
+Comme décrit ci-dessus, l’une des raisons principales pour créer un itinéraire défini par l’utilisateur est de transférer le trafic vers une appliance virtuelle. Une appliance virtuelle n’est rien de plus qu’une machine virtuelle qui exécute une application permettant de gérer le trafic réseau d’une certaine façon, comme un pare-feu ou un périphérique NAT.
 
 La machine virtuelle d’appliance virtuelle doit être capable de recevoir le trafic entrant qui ne lui est pas adressé. Pour permettre à une machine virtuelle de recevoir le trafic adressé à d’autres destinations, vous devez activer le transfert IP pour la machine virtuelle. Il s’agit d’un paramètre Azure, pas d’un paramètre du système d’exploitation invité.
 

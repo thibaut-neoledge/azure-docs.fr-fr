@@ -3,7 +3,7 @@ title: "Dépannage détaillé du Bureau à distance | Microsoft Docs"
 description: "Revoir les étapes de dépannage détaillées pour les erreurs liées au Bureau à distance, quand vous ne pouvez pas vous connecter aux machines virtuelles Windows dans Azure"
 services: virtual-machines-windows
 documentationcenter: 
-author: iainfoulds
+author: genlin
 manager: timlt
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 12/20/2016
-ms.author: iainfou
+ms.date: 05/26/2017
+ms.author: genli
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2e84a7f8d0f8d15a808092deab8cc7a9bca1541d
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3ba81282cd7b58cc118497c14e911fc89815d6d4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,9 +28,9 @@ ms.lasthandoff: 04/27/2017
 Cet article décrit les étapes de dépannage détaillées pour diagnostiquer et résoudre les erreurs complexes du Bureau à distance pour les machines virtuelles basées Azure sur Windows.
 
 > [!IMPORTANT]
-> Pour éliminer les erreurs du Bureau à distance les plus courantes, veillez à lire [l’article sur la résolution des problèmes de base du Bureau à distance](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) avant de continuer.
+> Pour éliminer les erreurs du Bureau à distance les plus courantes, veillez à lire [l’article sur la résolution des problèmes de base du Bureau à distance](troubleshoot-rdp-connection.md) avant de continuer.
 
-Vous pouvez rencontrer un message d’erreur du Bureau à distance qui ne ressemble à aucun des messages d’erreur spécifiques couverts dans [le guide de résolution des problèmes de base du Bureau à distance](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Suivez ces étapes pour déterminer pourquoi le client Bureau à distance ne parvient pas à se connecter au service Bureau à distance sur la machine virtuelle Azure.
+Vous pouvez rencontrer un message d’erreur du Bureau à distance qui ne ressemble à aucun des messages d’erreur spécifiques couverts dans [le guide de résolution des problèmes de base du Bureau à distance](troubleshoot-rdp-connection.md). Suivez ces étapes pour déterminer pourquoi le client Bureau à distance ne parvient pas à se connecter au service Bureau à distance sur la machine virtuelle Azure.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -82,7 +82,7 @@ Vérifiez qu’un ordinateur directement connecté à Internet peut établir des
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
 
-Si vous n’avez pas d’ordinateur directement connecté à Internet, créez et testez une nouvelle machine virtuelle Azure dans un groupe de ressources ou service cloud. Pour plus d’informations, consultez [Création d’une machine virtuelle exécutant Windows dans Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Une fois le test terminé, supprimez la machine virtuelle et le groupe de ressources ou le service cloud.
+Si vous n’avez pas d’ordinateur directement connecté à Internet, créez et testez une nouvelle machine virtuelle Azure dans un groupe de ressources ou service cloud. Pour plus d’informations, consultez [Création d’une machine virtuelle exécutant Windows dans Azure](../virtual-machines-windows-hero-tutorial.md). Une fois le test terminé, supprimez la machine virtuelle et le groupe de ressources ou le service cloud.
 
 Si vous pouvez créer une connexion Bureau à distance avec un ordinateur directement connecté à Internet, recherchez sur votre périphérique de périmètre intranet d’entreprise :
 
@@ -99,10 +99,8 @@ Pour les machines virtuelles créées à l’aide du modèle de déploiement cla
 
 > [!NOTE]
 > Pour les machines virtuelles créées dans Resource Manager, passez à [Source 4 : groupes de sécurité réseau](#source-4-network-security-groups).
-> 
-> 
 
-Si vous ne disposez pas d’une autre machine virtuelle dans le même service cloud ou réseau virtuel, créez-en une. Suivez les étapes de [création d’une machine virtuelle exécutant Windows dans Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Une fois le test terminé, supprimez la machine virtuelle de test.
+Si vous ne disposez pas d’une autre machine virtuelle dans le même service cloud ou réseau virtuel, créez-en une. Suivez les étapes de [création d’une machine virtuelle exécutant Windows dans Azure](../virtual-machines-windows-hero-tutorial.md). Une fois le test terminé, supprimez la machine virtuelle de test.
 
 Si vous pouvez vous connecter à une machine virtuelle via le Bureau à distance dans le même service cloud ou réseau virtuel, vérifiez les paramètres suivants :
 
@@ -126,7 +124,7 @@ Pour plus d’informations, voir [Présentation du groupe de sécurité réseau]
 ## <a name="source-5-windows-based-azure-vm"></a>Source 5 : Machine virtuelle Azure Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Suivez les instructions de [cet article](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cet article est consacré à la réinitialisation du service Bureau à distance sur la machine virtuelle :
+Suivez les instructions de [cet article](reset-rdp.md). Cet article est consacré à la réinitialisation du service Bureau à distance sur la machine virtuelle :
 
 * activer la règle par défaut du pare-feu Windows Bureau à distance (port TCP 3389) ;
 * activer les connexions Bureau à distance en définissant la valeur de registre HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections sur 0.
@@ -146,10 +144,12 @@ Ouvrez ensuite une invite de commandes Azure PowerShell, puis remplacez le doss
 
 Indiquez ensuite le nom de votre abonnement Azure, le nom du service cloud et le nom de votre machine virtuelle (en supprimant les caractères < et >), puis exécutez les commandes suivantes.
 
-    $subscr="<Name of your Azure subscription>"
-    $serviceName="<Name of the cloud service that contains the target virtual machine>"
-    $vmName="<Name of the target virtual machine>"
-    .\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
+```powershell
+$subscr="<Name of your Azure subscription>"
+$serviceName="<Name of the cloud service that contains the target virtual machine>"
+$vmName="<Name of the target virtual machine>"
+.\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
+```
 
 Le nom d’abonnement correct apparaît dans la propriété *SubscriptionName* de l’affichage de la commande **Get-AzureSubscription** . Le nom du service cloud pour la machine virtuelle apparaît dans la colonne *ServiceName* de l’affichage de la commande **Get-AzureVM**.
 
@@ -157,37 +157,49 @@ Vérifiez si vous disposez du nouveau certificat. Ouvrez un composant logiciel e
 
 Lancez ensuite une session Azure PowerShell distante à l’aide de ces commandes.
 
-    $uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
-    $creds = Get-Credential
-    Enter-PSSession -ConnectionUri $uri -Credential $creds
+```powershell
+$uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
+$creds = Get-Credential
+Enter-PSSession -ConnectionUri $uri -Credential $creds
+```
 
 Une fois que vous avez entré les informations d’identification administrateur valides, vous devez visualiser une invite de commandes Azure PowerShell similaire à celle-ci :
 
-    [cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
+```powershell
+[cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
+```
 
 La première partie de l’invite de commande représente le nom de votre service cloud qui contient la machine virtuelle cible, qui peut être différent de « cloudservice4testing.cloudapp.net ». Vous pouvez maintenant émettre des commandes Azure PowerShell pour ce service cloud afin d’examiner les problèmes et de corriger la configuration.
 
 ### <a name="to-manually-correct-the-remote-desktop-services-listening-tcp-port"></a>Correction manuelle des Services Bureau à distance permettant l’écoute du port TCP
 À l’invite de la session Azure PowerShell à distance, exécutez cette commande.
 
-    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```powershell
+Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```
 
 La propriété PortNumber indique le numéro de port actuel. Si nécessaire, utilisez cette commande pour modifier le numéro de port du Bureau à distance afin de revenir à sa valeur par défaut (3389).
 
-    Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
+```powershell
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
+```
 
 Vérifiez que le port affiche désormais la valeur 3389 à l’aide de cette commande.
 
-    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```powershell
+Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```
 
 Quittez la session Azure PowerShell distante à l’aide de cette commande.
 
-    Exit-PSSession
+```powershell
+Exit-PSSession
+```
 
 Vérifiez que le point de terminaison du Bureau à distance de la machine virtuelle Azure utilise également le port TCP 3398 comme port interne. Redémarrez la machine virtuelle Azure puis testez de nouveau la connexion Bureau à distance.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-[Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows](reset-rdp.md)
 
 [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
 
