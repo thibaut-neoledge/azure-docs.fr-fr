@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6f50ced708cb79a39e190657e4720c515c09990f
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: ad4160abfef748033eeb84a2f07a37124ce3b4b1
 ms.contentlocale: fr-fr
 
 
@@ -47,14 +48,14 @@ Maintenant, vous devez inscrire votre application dans le *portail d’inscripti
 <add key="Tenant" value="common" />
 <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" /> 
 ```
-9. Remplacez `ClientId` par l’ID d’application que vous venez d’enregistrer
-10. Remplacez `redirectUri` par l’URL SSL de votre projet 
+<!-- Workaround for Docs conversion bug -->
+<ol start="9">
+<li>
+Remplacez `ClientId` par l’ID d’application que vous venez d’enregistrer
+</li>
+<li>
+Remplacez `redirectUri` par l’URL SSL de votre projet
+</li>
+</ol>
 <!-- End Docs -->
-
-> Remarque
-> ### <a name="restricting-users-from-only-one-organization-to-sign-in-to-your-application"></a>Autoriser uniquement les utilisateurs d’une seule organisation à se connecter à votre application
-> Votre application accepte par défaut des connexions de comptes personnels (y compris outlook.com, live.com et autres), ainsi que des comptes professionnels et scolaires de n’importe quelle société ou organisation ayant intégré Azure Active Directory. Si vous souhaitez que votre application accepte uniquement les connexions à partir d’une seule organisation, remplacez le paramètre `Tenant` dans `web.config` défini sur `Common` par le nom du client de l’organisation, par exemple `contoso.onmicrosoft.com`. Ensuite, définissez l’argument *ValidateIssuer* dans votre classe de démarrage OWIN sur `true`.
-Pour autoriser uniquement les utilisateurs de certaines organisations à se connecter, définissez `ValidateIssuer` sur `true` et utilisez le paramètre `ValidIssuers` pour créer une liste d’organisations.
-Une autre option consiste à implémenter une méthode personnalisée pour valider les émetteurs à l’aide de `IssuerValidator parameter`. Pour plus d’informations sur `TokenValidationParameters`, consultez [cet article MSDN](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters(v=vs.114).aspx).
-
 

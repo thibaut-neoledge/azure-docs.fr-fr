@@ -13,9 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: f836bffd0610224b5cb69f4f6836dbc55e0721a3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 071be50ff7f72ecd711b2c3036f39b70df01a6ba
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -123,7 +125,7 @@ Vous devrez ainsi modifier la ressource d’application web pour prendre une res
 
 Ce **packageUri** accepte l’uri de compte de stockage qui pointe vers le compte de stockage dans lequel vous allez télécharger le zip de package. Le Gestionnaire de ressources Azure s’appuie sur [Signatures d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md) pour balayer le package localement depuis le compte de stockage lorsque vous déployez le modèle. Ce processus sera automatisé via un script PowerShell qui téléchargera le package et appellera l’API de gestion Azure pour créer les clés requises et transférer ces informations dans le modèle en tant que paramètres (*_artifactsLocation* et *_artifactsLocationSasToken*). Vous devrez définir des paramètres pour le dossier et le nom de fichier dans lequel le package téléchargé sous le conteneur de stockage.
 
-Vous devez ensuite ajouter une autre ressource imbriquée pour configurer les liaisons du nom d’hôte et tirer parti d’un domaine personnalisé. Vous devez d’abord vous assurer que vous êtes propriétaire du nom d’hôte et configurer ce dernier pour qu’Azure le vérifie. Consultez [Configurer un nom de domaine personnalisé dans Azure App Service](web-sites-custom-domain-name.md). Une fois cette opération effectuée, vous pouvez ajouter les éléments suivants à votre modèle dans la section des ressources Microsoft.Web/sites :
+Vous devez ensuite ajouter une autre ressource imbriquée pour configurer les liaisons du nom d’hôte et tirer parti d’un domaine personnalisé. Vous devez d’abord vous assurer que vous êtes propriétaire du nom d’hôte et configurer ce dernier pour qu’Azure le vérifie. Consultez [Configurer un nom de domaine personnalisé dans Azure App Service](app-service-web-tutorial-custom-domain.md). Une fois cette opération effectuée, vous pouvez ajouter les éléments suivants à votre modèle dans la section des ressources Microsoft.Web/sites :
 
     {
         "apiVersion": "2015-08-01",
@@ -196,10 +198,5 @@ Le PowerShell suivant montre le déploiement complet appelant Deploy-azureresour
     Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
 
 À ce stade, votre application doit être déployée, et vous devez être en mesure d’y accéder via https://www.votredomainepersonnalisé.com
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

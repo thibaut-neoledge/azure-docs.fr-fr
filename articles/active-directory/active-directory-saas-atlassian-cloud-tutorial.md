@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8928581d9636f571008f965185eeb61b414a16e7
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: da9e5f015f93090f4efb00f6c3af07ba2f5503bc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -129,7 +130,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     >Vous pouvez obtenir la valeur exacte de votre **identificateur** à partir de l’écran Configuration SAML d’Atlassian Cloud.
     >
 
- 3. Cliquez sur **Next**.
+ 3. Cliquez sur **Suivant**.
  
 4. Sur la page **Configurer l’authentification unique sur Atlassian Cloud**, procédez comme suit :
 
@@ -217,7 +218,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
    2. Dans la zone de texte **Last Name**, tapez **Simon**.
    3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
    4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-   5. Cliquez sur **Next**.
+   5. Cliquez sur **Suivant**.
 
 7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
 
@@ -252,7 +253,7 @@ Connectez-vous à votre instance Atlassian Cloud avec des droits d’administra
  
 4. En cliquant sur le bouton **Créer un utilisateur**, une invitation électronique est envoyée à l’utilisateur, et une fois l’invitation acceptée, l’utilisateur est actif dans le système. 
 
-### <a name="assig-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique (SSO) Azure en lui accordant l’accès à Atlassian Cloud.
 

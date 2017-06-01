@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 488b16623300d80a53a61badee420de106c418b0
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c7fb1c796556baf09a34c4bc6ed71964071d5874
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -42,9 +43,6 @@ Vous devez tenir compte des informations suivantes avant de configurer la mise �
 * Vous pouvez mettre à l'échelle des ressources qui sont liées à votre service cloud. Pour plus d’informations sur la liaison des ressources, consultez la rubrique [Liaison d’une ressource à un service cloud](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
 * Pour activer la fonction de haute disponibilité de votre application, vous devez vous assurer qu’elle est déployée avec plusieurs instances de rôle. Pour plus d'informations, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/).
-
-> [!WARNING]
-> La mise à l’échelle automatique ne fonctionne qu’avec les comptes de stockage Azure Classic. Elle ne fonctionne pas avec les comptes de stockage Azure Resource Manager.
 
 ## <a name="schedule-scaling"></a>Planifier la mise à l'échelle
 Par défaut, tous les rôles ne suivent pas une planification spécifique. Par conséquent, les paramètres modifiés s’appliquent à toutes les heures et à tous les jours de l’année. Si vous le souhaitez, vous pouvez configurer une mise à l’échelle manuelle ou automatique pour un des modes suivants :

@@ -1,5 +1,5 @@
 ---
-title: "Mise à l’échelle automatique d’un service cloud dans le portail (portail Classic) | Microsoft Docs"
+title: "Mise à l’échelle automatique d’un service cloud dans le portail | Microsoft Docs"
 description: "Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour le rôle web ou de travail d’un service cloud dans Azure."
 services: cloud-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 7891fbd326340ed102f885e84993ef987e044023
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: e746decaea19477e52aba3ce714d8dd10140602e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/23/2017
 
 ---
 
@@ -44,19 +45,16 @@ Vous devez tenir compte des informations suivantes avant de configurer la mise �
 
 * Pour activer la fonction de haute disponibilité de votre application, vous devez vous assurer qu’elle est déployée avec plusieurs instances de rôle. Pour plus d'informations, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/).
 
-> [!WARNING]
-> La mise à l’échelle automatique ne fonctionne qu’avec les comptes de stockage Azure Classic. Elle ne fonctionne pas avec les comptes de stockage Azure Resource Manager.
-
 
 ## <a name="where-scale-is-located"></a>Emplacement de la mise à l’échelle
 Une fois votre service cloud sélectionné, le panneau du service cloud doit s’afficher.
 
 1. Dans le panneau du service cloud, sélectionnez le nom du service cloud dans la vignette **Rôles et instances** .   
    **IMPORTANT**: veillez à cliquer sur le rôle de service cloud, non sur l’instance de rôle qui se trouve sous le rôle.
-   
+
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Sélectionnez la vignette **Mise à l’échelle** .
-   
+
     ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>Mise à l’échelle automatique
@@ -78,25 +76,25 @@ Après avoir configuré le profil et les règles, sélectionnez l’icône **Enr
 Le profil définit un nombre minimum et maximum d’instance pour la mise à l’échelle, et également lorsque cette plage de mise à l’échelle est active.
 
 * **Toujours**
-  
+
     Toujours conserver cette plage d’instances disponible.  
-  
+
     ![Service cloud toujours mis à l’échelle](./media/cloud-services-how-to-scale-portal/select-always.png)
 * **Périodicité**
-  
+
     Choisissez un ensemble de jours de la semaine pour la mise à l’échelle.
-  
+
     ![Mise à l’échelle du service cloud avec une planification périodique](./media/cloud-services-how-to-scale-portal/select-recurrence.png)
 * **Date fixe**
-  
+
     Une plage de dates fixe pour la mise à l’échelle du rôle.
-  
+
     ![Mise à l’échelle du service cloud avec une date fixe](./media/cloud-services-how-to-scale-portal/select-fixed.png)
 
 Après avoir configuré le profil, sélectionnez le bouton **OK** en bas du panneau du profil.
 
 #### <a name="rule"></a>Règle
-Des règles sont ajoutées à un profil et représentent une condition de déclenchement de la mise à l’échelle. 
+Des règles sont ajoutées à un profil et représentent une condition de déclenchement de la mise à l’échelle.
 
 Le déclencheur de la règle est basé sur une mesure du service cloud (utilisation de l’UC, activité du disque ou activité réseau) à laquelle vous pouvez ajouter une valeur conditionnelle. Vous pouvez également définir le déclencheur en fonction d’une file d’attente de messages ou de mesures d’une autre ressource Azure associée à votre abonnement.
 
@@ -109,12 +107,11 @@ Accédez aux [Paramètres de mise à l’échelle](#where-scale-is-located) et d
 
 ![Paramètres de mise à l’échelle de services cloud avec profil et règle](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-Ce paramètre supprime la mise à l’échelle automatique du rôle, et vous pouvez définir le nombre d’instances directement. 
+Ce paramètre supprime la mise à l’échelle automatique du rôle, et vous pouvez définir le nombre d’instances directement.
 
 1. L’option de mise à l’échelle (manuelle ou automatique).
 2. Un curseur de nombre d’instances de rôle pour définir les instances de mise à l’échelle.
 3. Nombre d’instances pour la mise à l’échelle du rôle.
 
 Après avoir configuré les paramètres de mise à l’échelle, sélectionnez l’icône **Enregistrer** en haut.
-
 

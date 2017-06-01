@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 6563d1520149ae5ced7e2de80686ef1624ebb651
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3ae3e5d55454a33a35950057667f9648b63bb331
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Création d’une application ASP.NET dans Azure avec SQL Database
@@ -111,19 +111,7 @@ Nommez votre groupe de ressources **myResourceGroup** et cliquez sur **OK**.
 
 ### <a name="create-an-app-service-plan"></a>Créer un plan App Service
 
-Votre application web Azure nécessite également un _plan App Service_. 
-
-> [!NOTE]
-> Un plan App Service représente la collection des ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent les ressources qu’il définit, ce qui vous permet de réduire les coûts lors de l’hébergement de plusieurs applications. 
->
-> Les plans App Service définissent :
->
-> - Région (Europe du Nord, États-Unis de l’Est, Sud-Est asiatique)
-> - Taille d’instance (« Petit », « Moyen » ou « Grand »)
-> - Comptage (une, deux ou trois instances, etc.) 
-> - Référence (SKU) (gratuit, partagé, basique, standard, premium)
->
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 À côté de **Plan App Service**, cliquez sur **Nouveau**. 
 
@@ -427,9 +415,9 @@ Ces onglets affichent les nombreuses fonctionnalités exceptionnelles que vous p
 - Montée en puissance et augmentation de la taille des instances
 - Ajouter une authentification utilisateur
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Suppression des ressources
  
-Si vous n’avez pas besoin de ces ressources pour un autre didacticiel (voir [Étapes suivantes](#next)). Vous pouvez donc les supprimer en exécutant la commande suivante : 
+Si vous n’avez pas besoin de ces ressources pour un autre didacticiel (voir [Étapes suivantes](#next)), vous pouvez les supprimer en exécutant la commande suivante : 
   
 ```azurecli 
 az group delete --name myResourceGroup 

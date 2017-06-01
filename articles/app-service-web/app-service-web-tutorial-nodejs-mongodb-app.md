@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 25fec75615d2376f3e566b509536eadd03590c0e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 2a3d63b3829e750b62658d720522ae1abf89cd86
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Créer une application web Node.js et MongoDB dans Azure
@@ -33,9 +33,9 @@ Grâce à ce didacticiel, vous allez apprendre à :
 > * Créer une base de données MongoDB dans Azure
 > * Connecter une application Node.js à MongoDB
 > * Déploiement de l’application dans Azure
-> * Mettre à jour le modèle de données et redéployer l’application
-> * Diffuser des journaux de diagnostic à partir d’Azure
-> * Gérer l’application dans le portail Azure
+> * Mise à jour du modèle de données et redéploiement de l’application
+> * Diffusion des journaux de diagnostic à partir d’Azure
+> * Gestion de l’application dans le portail Azure
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -221,7 +221,7 @@ db: {
 ```
 
 > [!NOTE] 
-> L’option `ssl=true` est importante, car [Cosmos DB nécessite SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+> L’option `ssl=true` est importante, car [Cosmos DB nécessite SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
@@ -269,16 +269,7 @@ Dans cette étape, vous allez déployer dans Azure App Service votre application
 
 Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#create). 
 
-> [!NOTE] 
-> Un plan App Service représente la collection des ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent les ressources qu’il définit, ce qui vous permet de réduire les coûts lors de l’hébergement de plusieurs applications. 
-> 
-> Les plans App Service définissent : 
-> 
-> * Région (Europe du Nord, États-Unis de l’Est, Sud-Est asiatique) 
-> * Taille d’instance (« Petit », « Moyen » ou « Grand ») 
-> * Comptage (une, deux ou trois instances, etc.) 
-> * Référence (SKU) (gratuit, partagé, basique, standard, premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 L’exemple suivant crée un plan App Service nommé _myAppServicePlan_ en indiquant le niveau tarifaire **Gratuit** :
 
@@ -641,9 +632,9 @@ Ces onglets affichent les nombreuses fonctionnalités exceptionnelles que vous p
 * Montée en puissance et augmentation de la taille des instances
 * Ajouter une authentification utilisateur
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Suppression des ressources
  
-Si vous n’avez pas besoin de ces ressources pour un autre didacticiel (voir [Étapes suivantes](#next)), vous pouvez les supprimer en exécutant la commande suivante : 
+Si vous n’avez pas besoin de ces ressources pour un autre didacticiel (voir [Étapes suivantes](#next)), vous pouvez les supprimer en exécutant la commande suivante : 
   
 ```azurecli 
 az group delete --name myResourceGroup 
@@ -663,8 +654,8 @@ Dans ce didacticiel, vous avez appris à :
 > * Diffuser des journaux à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
-Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé vers celui-ci.
+Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à une application web.
 
 > [!div class="nextstepaction"] 
-> [Mapper un nom DNS personnalisé existant vers Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Mapper un nom DNS personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-domain.md)
 
