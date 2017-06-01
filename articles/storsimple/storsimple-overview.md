@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 27231cef19e7f624c2c09b0aae2ea3d503fb8e3d
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 8824568e9e4204a567cc08a10608cf835aa7164b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -189,13 +189,19 @@ Le processus de hiérarchisation du stockage se déroule comme suit :
 6. Microsoft Azure crée plusieurs réplicas des données dans son centre de données et dans un centre de données distant, ce qui permet de garantir la récupération des données en cas de sinistre. 
 7. Quand le serveur de fichiers demande des données stockées dans le cloud, StorSimple les retourne de façon transparente et stocke une copie au niveau SSD de l’appareil StorSimple.
 
+#### <a name="how-storsimple-manages-cloud-data"></a>Gestion des données cloud par StorSimple
+
+StorSimple déduplique les données client de l’ensemble des captures instantanées et données principales (données écrites par les hôtes). Alors que la déduplication est idéale pour bénéficier d’un stockage optimal, elle ne permet pas de savoir facilement ce qui réside dans le cloud. Les données principales à plusieurs niveaux et les données de captures instantanées se chevauchent. Un simple bloc de données dans le cloud peut être utilisé en tant que données principales à plusieurs niveaux et également être référencé par plusieurs captures instantanées. Chaque capture instantanée cloud garantit qu’une copie de toutes les données à un point dans le temps est verrouillée dans le cloud jusqu’à ce que cette capture instantanée soit supprimée.
+
+Les données sont supprimées du cloud uniquement lorsqu’il n’y a aucune référence à ces données. Par exemple, si vous prenez une capture instantanée cloud de toutes les données qui se trouvent dans l’appareil StorSimple, puis que vous supprimez certaines données principales, le volume de _données principales_ baisse immédiatement. Les _données cloud_, qui incluent les données à plusieurs niveaux et les sauvegardes, restent identiques. Ceci est dû au fait qu’une capture instantanée fait toujours référence aux données cloud. Une fois que la capture instantanée cloud est supprimée (ainsi que toutes les autres captures instantanées faisant référence à ces mêmes données), la consommation cloud baisse. Avant de supprimer les données cloud, vérifiez qu’aucune capture instantanée ne fait référence à ces données. Ce processus est appelé _garbage collection_. C’est un service en arrière-plan qui s’exécute sur l’appareil. La suppression des données cloud n’est pas immédiate, car le service garbage collection recherche les autres références à ces données avant la suppression. La vitesse du processus garbage collection dépend du nombre total de captures instantanées et du volume total de données. En règle générale, les données cloud sont nettoyées en moins d’une semaine.
+
+
 ### <a name="thin-provisioning"></a>Allocation dynamique
-L’allocation dynamique est une technologie de virtualisation dans laquelle le stockage disponible semble dépasser les ressources physiques. Plutôt que de réserver un espace de stockage suffisant à l’avance, StorSimple utilise l’allocation dynamique pour allouer juste assez d’espace pour répondre aux besoins actuels. La nature évolutive du stockage cloud simplifie cette approche, car StorSimple peut augmenter ou diminuer le stockage cloud pour répondre aux demandes changeantes. 
+L’allocation dynamique est une technologie de virtualisation dans laquelle le stockage disponible semble dépasser les ressources physiques. Plutôt que de réserver un espace de stockage suffisant à l’avance, StorSimple utilise l’allocation dynamique pour allouer juste assez d’espace pour répondre aux besoins actuels. La nature évolutive du stockage cloud simplifie cette approche, car StorSimple peut augmenter ou diminuer le stockage cloud pour répondre aux demandes changeantes.
 
 > [!NOTE]
 > Les volumes épinglés localement ne sont pas alloués de façon dynamique. Le stockage alloué à un volume local est approvisionné dans son intégralité lorsque le volume est créé.
-> 
-> 
+
 
 ### <a name="deduplication-and-compression"></a>Déduplication et compression
 Microsoft Azure StorSimple utilise la compression des données et la déduplication pour réduire encore davantage les besoins de stockage.
@@ -204,8 +210,7 @@ La déduplication réduit la quantité globale de données stockées en élimina
 
 > [!NOTE]
 > Les données sur les volumes épinglés localement ne sont pas dédupliquées ou compressées. Toutefois, les sauvegardes de volumes épinglés localement sont dédupliquées et compressées.
-> 
-> 
+
 
 ## <a name="storsimple-workload-summary"></a>Résumé des charges de travail StorSimple
 Voici un tableau résumant les charges de travail StorSimple prises en charge.

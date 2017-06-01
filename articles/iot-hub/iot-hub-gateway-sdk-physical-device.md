@@ -1,6 +1,6 @@
 ---
-title: "Utilisation d’un appareil physique avec le Kit de développement logiciel (SDK) Gateway Azure IoT | Microsoft Docs"
-description: "Guide pratique d’utilisation d’un appareil SensorTag de Texas Instruments pour envoyer des données à un IoT Hub via une passerelle s’exécutant sur un Raspberry Pi 3. La passerelle est construite à l’aide du Kit de développement logiciel (SDK) de Gateway Azure IoT."
+title: Utiliser un appareil physique avec Azure IoT Edge | Microsoft Docs
+description: "Guide pratique d’utilisation d’un appareil SensorTag de Texas Instruments pour envoyer des données à un IoT Hub via une passerelle IoT Edge s’exécutant sur un Raspberry Pi 3. La passerelle est créée à l’aide d’Azure IoT Edge."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: andbuc
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 962092622e6bbfcfc2376d0885e6806be9cb5abf
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 6cf31f57da5d903efc0e522ca606957f09b28bd6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-physical-device-linux"></a>Utilisation du kit de développement logiciel (SDK) de passerelle Azure IoT (version bêta) pour envoyer des messages appareil-à-cloud avec un appareil réel (Linux)
+# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-physical-device-linux"></a>Utiliser Azure IoT Edge pour envoyer des messages appareil-à-cloud avec un appareil physique (Linux)
 
-Cette procédure pas à pas de [l’exemple à faible consommation d’énergie Bluetooth][lnk-ble-samplecode] vous montre comment utiliser le [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-sdk] pour :
+Cette procédure pas à pas de [l’exemple à faible consommation d’énergie Bluetooth][lnk-ble-samplecode] vous montre comment utiliser [la passerelle Azure IoT Edge][lnk-sdk] pour :
 
 * Transférer la télémétrie appareil-vers-cloud vers IoT Hub à partir d’un appareil physique.
 * Achemine les commandes vers un appareil physique à partir d’IoT Hub.
@@ -35,16 +36,16 @@ Cette procédure pas à pas inclut les étapes suivantes :
 
 ## <a name="architecture"></a>Architecture
 
-La procédure pas à pas montre comment générer et exécuter une passerelle IoT sur un Raspberry Pi  3 exécutant Raspbian Linux. La passerelle est construite à l’aide du Kit de développement logiciel (SDK) de passerelle IoT. L’exemple utilise un appareil Texas Instruments SensorTag Bluetooth Low Energy (BLE) pour collecter des données de température.
+La procédure pas à pas vous montre comment générer et exécuter une passerelle IoT Edge sur un Raspberry Pi 3 exécutant Raspbian Linux. La passerelle est créée à l’aide d’IoT Edge. L’exemple utilise un appareil Texas Instruments SensorTag Bluetooth Low Energy (BLE) pour collecter des données de température.
 
-Lorsque vous exécutez la passerelle, celle-ci :
+Lorsque vous exécutez la passerelle IoT Edge, celle-ci :
 
 * Se connecte à un appareil SensorTag à l’aide du protocole Bluetooth Low Energy (BLE).
 * Se connecte à IoT Hub à l’aide du protocole HTTP.
 * Transfère les données de télémétrie à partir de l’appareil SensorTag vers IoT Hub.
 * Achemine les commandes vers l’appareil SensorTag à partir d’IoT Hub.
 
-La passerelle contient les modules suivants :
+La passerelle contient les modules IoT Edge suivants :
 
 * Un *module BLE* qui interagit avec un appareil BLE pour recevoir les données de température à partir de l’appareil et envoyer des commandes à l’appareil.
 * Un *module cloud-à-appareil BLE* qui traduit les messages JSON provenant du cloud en instructions BLE pour le *module BLE*.
@@ -211,52 +212,52 @@ Avant d’exécuter l’exemple, vous devez vérifier que votre Raspberry Pi 3
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
     ```
 
-Vous êtes maintenant prêt à exécuter l’exemple de passerelle BLE sur votre appareil Raspberry Pi 3.
+Vous êtes maintenant prêt à exécuter l’exemple de passerelle IoT Edge BLE sur votre appareil Raspberry Pi 3.
 
-## <a name="run-the-ble-gateway-sample"></a>Exécution de l’exemple de passerelle BLE
+## <a name="run-the-iot-edge-ble-sample"></a>Exécuter l’exemple BLE IoT Edge
 
-Pour exécuter l’exemple BLE, vous devez effectuer trois tâches :
+Pour exécuter l’exemple BLE IoT Edge, vous devez effectuer trois tâches :
 
 * Configurer deux exemples d’appareils dans votre IoT Hub.
-* Générer le Kit de développement logiciel (SDK) de passerelle IoT sur votre appareil Raspberry Pi 3.
+* Générer IoT Edge sur votre appareil Raspberry Pi 3.
 * Configurer et exécuter l’exemple de BLE sur votre appareil Raspberry Pi 3.
 
-Lors de la rédaction du présent article, le Kit de développement logiciel (SDK) de passerelle IoT prenait uniquement en charge les passerelles utilisant des modules BLE sur Linux.
+Lors de la rédaction du présent article, IoT Edge prenait uniquement en charge les passerelles utilisant des modules BLE sur Linux.
 
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>Configuration de deux exemples d’appareils dans votre IoT Hub
 
 * [Créer un IoT Hub][lnk-create-hub] dans votre abonnement Azure (vous aurez besoin du nom de votre concentrateur pour effectuer cette procédure pas à pas). Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
 * Ajoutez un appareil nommé **SensorTag_01** à votre IoT Hub et notez son ID et sa clé d’appareil. Vous pouvez vous servir des outils de [l’Explorateur d’appareils ou iothub-explorer][lnk-explorer-tools] pour ajouter cet appareil à l’IoT Hub que vous avez créé à l’étape précédente, et récupérer sa clé. Vous allez mapper cet appareil à l’appareil SensorTag lors de la configuration de la passerelle.
 
-### <a name="build-the-azure-iot-gateway-sdk-on-your-raspberry-pi-3"></a>Générer le Kit de développement logiciel (SDK) de passerelle Azure IoT sur votre Raspberry Pi 3
+### <a name="build-azure-iot-edge-on-your-raspberry-pi-3"></a>Générer Azure IoT Edge sur votre appareil Raspberry Pi 3
 
-Installez les dépendances pour le Kit de développement logiciel (SDK) de passerelle Azure IoT :
+Installer les dépendances pour Azure IoT Edge :
 
 `sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev`
 
-Utilisez les commandes suivantes pour cloner le Kit de développement logiciel (SDK) de passerelle IoT et tous ses sous-modules dans votre répertoire de base :
+Utilisez les commandes suivantes pour cloner IoT Edge et tous ses sous-modules dans votre répertoire de base :
 
 `cd ~`
 
-`git clone --recursive https://github.com/Azure/azure-iot-gateway-sdk.git`
+`git clone --recursive https://github.com/Azure/iot-edge.git`
 
-`cd azure-iot-gateway-sdk`
+`cd iot-edge`
 
 `git submodule update --init --recursive`
 
-Si vous disposez d’une copie complète du référentiel du Kit de développement logiciel (SDK) de passerelle IoT sur votre Raspberry Pi 3, vous pouvez générer la passerelle en utilisant la commande suivante à partir du dossier contenant le Kit de développement logiciel (SDK) :
+Si vous disposez d’une copie complète du dépôt IoT Edge sur votre Raspberry Pi 3, vous pouvez générer la passerelle en utilisant la commande suivante à partir du dossier contenant le Kit de développement logiciel (SDK) :
 
 `./tools/build.sh`
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configurer et exécuter l’exemple de BLE sur votre appareil Raspberry Pi 3
 
-Pour démarrer et exécuter l’exemple, vous devez configurer chaque module qui fait partie de la passerelle. Cette configuration est fournie dans un fichier JSON et vous devez configurer les cinq modules participants. Le référentiel contient un exemple de fichier JSON nommé **gateway\_sample.json** que vous pouvez utiliser comme point de départ pour créer votre propre fichier de configuration. Ce fichier se trouve dans le dossier **samples/ble_gateway_hl/src**, dans la copie locale du référentiel du Kit de développement logiciel (SDK) de passerelle IoT.
+Pour démarrer et exécuter l’exemple, vous devez configurer chaque module IoT Edge qui fait partie de la passerelle. Cette configuration est fournie dans un fichier JSON et vous devez configurer les cinq modules IoT Edge participants. Le référentiel contient un exemple de fichier JSON nommé **gateway\_sample.json** que vous pouvez utiliser comme point de départ pour créer votre propre fichier de configuration. Ce fichier se trouve dans le dossier **samples/ble_gateway_hl/src**, dans la copie locale du dépôt IoT Edge.
 
-Les sections suivantes décrivent comment modifier ce fichier de configuration pour l’exemple BLE, et supposent que le référentiel du Kit de développement logiciel (SDK) de passerelle IoT se trouve dans le dossier **/home/pi/azure-iot-gateway-sdk/** sur votre Raspberry Pi 3. Si le référentiel se trouve ailleurs, vous devez ajuster les chemins d’accès en conséquence.
+Les sections suivantes décrivent comment modifier ce fichier de configuration pour l’exemple BLE et supposent que le dépôt IoT Edge se trouve dans le dossier **/home/pi/iot-edge/** sur votre Raspberry Pi 3. Si le référentiel se trouve ailleurs, vous devez ajuster les chemins d’accès en conséquence.
 
 #### <a name="logger-configuration"></a>Configuration de l’enregistreur
 
-En supposant que le référentiel de la passerelle se trouve dans le dossier **/home/pi/azure-iot-gateway-sdk/**, configurez le module enregistreur comme suit :
+En supposant que le dépôt de la passerelle se trouve dans le dossier **/home/pi/iot-edge/**, configurez le module enregistreur comme suit :
 
 ```json
 {
@@ -411,7 +412,7 @@ Ajoutez l’adresse MAC de votre appareil SensorTag, ainsi que l’ID et la clé
 
 #### <a name="routing-configuration"></a>Configuration du routage
 
-La configuration suivante permet d’assurer l’acheminement suivant entre les modules :
+La configuration suivante permet d’assurer l’acheminement suivant entre les modules IoT Edge :
 
 * Le module **Enregistreur** reçoit et journalise tous les messages.
 * Le module **SensorTag** envoie les messages aux modules **mapping** et **BLE Printer**.
@@ -432,7 +433,7 @@ La configuration suivante permet d’assurer l’acheminement suivant entre les 
  ]
 ```
 
-Pour exécuter l’exemple, transmettez le chemin d’accès du fichier de configuration JSON en tant que paramètre au fichier binaire **ble\_gateway**. La commande suivante considère que vous utilisez le fichier de configuration **gateway_sample.json**. Exécutez-la à partir du répertoire **azure-iot-gateway-sdk directory** sur le Raspberry Pi :
+Pour exécuter l’exemple, transmettez le chemin d’accès du fichier de configuration JSON en tant que paramètre au fichier binaire **ble\_gateway**. La commande suivante considère que vous utilisez le fichier de configuration **gateway_sample.json**. Exécutez-la à partir du dossier **iot-edge** sur le Raspberry Pi :
 
 ```
 ./build/samples/ble_gateway/ble_gateway ./samples/ble_gateway/src/gateway_sample.json
@@ -440,7 +441,7 @@ Pour exécuter l’exemple, transmettez le chemin d’accès du fichier de confi
 
 Vous devrez peut-être appuyer sur le petit bouton situé sur l’appareil SensorTag pour le rendre détectable avant d’exécuter l’exemple.
 
-Lorsque vous exécutez l’exemple, vous pouvez vous servir de l’outil de [l’Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ou [iothub-explorer](https://github.com/Azure/iothub-explorer) pour surveiller les messages que la passerelle transfère à partir de l’appareil SensorTag.
+Lorsque vous exécutez l’exemple, vous pouvez vous servir de [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ou de l’outil [iothub-explorer](https://github.com/Azure/iothub-explorer) pour surveiller les messages que la passerelle IoT Edge transfère à partir de l’appareil SensorTag.
 
 ## <a name="send-cloud-to-device-messages"></a>Envoi de messages cloud vers appareil
 
@@ -502,19 +503,19 @@ Maintenant, vous pouvez envoyer l’une des commandes suivantes pour allumer les
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous souhaitez approfondir vos connaissances sur le Kit de développement logiciel (SDK) de passerelle IoT et découvrir certains exemples de code, consultez les didacticiels de développement et les ressources suivants :
+Si vous souhaitez approfondir vos connaissances sur Azure IoT Edge et découvrir certains exemples de code, consultez les tutoriels de développement et les ressources suivants :
 
-* [Kit de développement logiciel (SDK) de passerelle Azure IoT][lnk-sdk]
+* [Azure IoT Edge][lnk-sdk]
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
 * [Guide du développeur IoT Hub][lnk-devguide]
 
 <!-- Links -->
-[lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/ble_gateway
+[lnk-ble-samplecode]: https://github.com/Azure/iot-edge/tree/master/samples/ble_gateway
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
-[lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
+[lnk-sdk]: https://github.com/Azure/iot-edge/
 [lnk-noobs]: https://www.raspberrypi.org/documentation/installation/noobs.md
 [lnk-raspbian]: https://www.raspberrypi.org/downloads/raspbian/
 
