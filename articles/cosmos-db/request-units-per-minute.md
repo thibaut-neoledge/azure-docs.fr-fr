@@ -1,13 +1,13 @@
 ---
 title: "Azure CosmosDB : Unités de requête par minute (RU/m) | Microsoft Docs"
 description: "Découvrez comment réduire les coûts grâce aux unités de requête par minute."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: arnomicrosoft
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: acomet
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 878b7335fb5e09bc8704f7211cc6293ad6ea4bea
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: ea63b988a72801ae4c288048021a915b20a34794
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -112,7 +112,7 @@ await client.ReplaceOfferAsync(offerV2);
 
 Dans cette section, nous fournissons une vue d’ensemble des scénarios qui sont adaptés à l’activation des unités de demande par minute.
 
-**Environnement de développement/test :** convient bien. Durant la phase de développement, si vous testez votre application avec différentes charges de travail, les RU/m peuvent fournir la flexibilité nécessaire à ce stade. [L’émulateur](../documentdb/documentdb-nosql-local-emulator.md) est un excellent outil gratuit pour tester Azure Cosmos DB. Toutefois, si vous souhaitez démarrer dans un environnement cloud, vous aurez besoin d’une grande flexibilité avec des RU/m pour vos besoins de performances ad hoc. Vous passerez le plus de temps à développer, et moins à vous inquiéter des exigences de performances au départ. Nous recommandons de commencer avec la configuration minimale de RU/s et d’activer les RU/m.
+**Environnement de développement/test :** convient bien. Durant la phase de développement, si vous testez votre application avec différentes charges de travail, les RU/m peuvent fournir la flexibilité nécessaire à ce stade. [L’émulateur](local-emulator.md) est un excellent outil gratuit pour tester Azure Cosmos DB. Toutefois, si vous souhaitez démarrer dans un environnement cloud, vous aurez besoin d’une grande flexibilité avec des RU/m pour vos besoins de performances ad hoc. Vous passerez le plus de temps à développer, et moins à vous inquiéter des exigences de performances au départ. Nous recommandons de commencer avec la configuration minimale de RU/s et d’activer les RU/m.
 
 **Besoins de granularité imprévisibles, à pics, par minute :** Bien adapté – Économies : 25 à 75 %. Nous avons vu une nette amélioration des RU/m, et la plupart des scénarios de production entrent dans ce groupe. Si vous avez une charge de travail IoT qui connaît plusieurs pics par minute, si vous avez des requêtes en cours d’exécution lorsque votre système effectue une insertion en masse en même temps, vous aurez besoin de capacité supplémentaire pour gérer les pointes. Nous vous recommandons d’optimiser vos besoins en ressources en appliquant notre approche étape par étape ci-dessous.
 
@@ -175,8 +175,8 @@ var query = client.CreateDocumentQuery<Book>(
 
 Dans cet article, nous avons décrit le fonctionnement du partitionnement dans Azure Cosmos DB, la création de collections partitionnées et la sélection d’une clé de partition adéquate pour votre application.
 
-* Effectuez un test des performances et de la mise à l’échelle avec Azure Cosmos DB. Consultez la page [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](../documentdb/documentdb-performance-testing.md) pour obtenir un exemple.
-* Commencez à coder avec les [Kits de développement logiciel (SDK)](../documentdb/documentdb-sdk-dotnet.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
-* Informez-vous sur le [débit approvisionné](../documentdb/documentdb-request-units.md) dans Azure Cosmos DB 
+* Effectuez un test des performances et de la mise à l’échelle avec Azure Cosmos DB. Consultez la page [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](performance-testing.md) pour obtenir un exemple.
+* Commencez à coder avec les [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+* Informez-vous sur le [débit approvisionné](request-units.md) dans Azure Cosmos DB 
 
 

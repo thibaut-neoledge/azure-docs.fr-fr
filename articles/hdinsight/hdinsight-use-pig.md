@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 277966153733d0ce4610d711f3d2a96e3ff37ab8
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: e7519981642c438ca25b0479324ee159545bac8e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -38,7 +39,7 @@ Pig est une plateforme qui permet de créer des programmes pour Hadoop dans un l
 | [Bureau à distance](hdinsight-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 et 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence d’HDInsight 3.2 et 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a id="why"></a>Pourquoi utiliser Pig ?
 
@@ -108,7 +109,7 @@ HDInsight peut exécuter des tâches Pig Latin de différentes façons. Utilise
 | [Bureau à distance](hdinsight-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 et 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence d’HDInsight 3.2 et 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="pig-and-sql-server-integration-services"></a>Pig et SQL Server Integration Services
 

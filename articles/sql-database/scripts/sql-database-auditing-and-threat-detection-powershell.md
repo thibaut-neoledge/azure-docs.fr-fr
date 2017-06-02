@@ -9,30 +9,30 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: mvc
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/19/2017
+ms.date: 05/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 528cb66bee6717a10864a78498c5004337bece02
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 5bb1f0b4b6e548cf4164dae55d13cbebb660232f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
 # <a name="configure-sql-database-auditing-and-threat-detection-using-powershell"></a>Configurer l’audit et la détection des menaces SQL Database avec PowerShell
 
-Cet exemple de script PowerShell configure l’audit et la détection des menaces SQL Database. Pour exécuter cet exemple, assurez-vous que vous avez installé la dernière version d’[Azure PowerShell](/powershell/azure/overview).
+Cet exemple de script PowerShell configure l’audit et la détection des menaces SQL Database. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1 "Configurer l’audit et la détection des menaces")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configurer l’audit et la détection des menaces")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
