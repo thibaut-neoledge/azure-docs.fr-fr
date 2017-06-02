@@ -41,6 +41,7 @@
 ### [Intégration des machines pour la gestion](automation-dsc-onboarding.md)
 ### [Compilation de configurations d’état souhaité](automation-dsc-compile.md)
 ### [Déploiement continu avec Chocolatey](automation-dsc-cd-chocolatey.md)
+### [Transférer des données de rapport Azure Automation DSC à OMS Log Analytics](automation-dsc-diagnostics.md)
 ## Gérer les ressources Automation
 ### [Certificats](automation-certificates.md)
 ### [Connexions](automation-connections.md)

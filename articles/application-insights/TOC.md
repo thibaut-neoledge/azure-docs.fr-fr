@@ -116,7 +116,7 @@
 ### [Échantillonnage](app-insights-sampling.md)
 
 ## Gérer
-### [Gérer le quota et tarification](app-insights-pricing.md)
+### [Gérer la tarification et le volume des données](app-insights-pricing.md)
 ### [Analyse des performances des applications à l’aide d’Application Insights pour SCOM](app-insights-scom.md)
 
 ## Exportation

@@ -46,7 +46,7 @@ Utilisez ce code pour voir comment vous connecter à vos machines virtuelles et 
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, le groupe identique et les machines virtuelles, ainsi que toutes les ressources associées.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 

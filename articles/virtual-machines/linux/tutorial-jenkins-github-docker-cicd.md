@@ -70,13 +70,13 @@ runcmd:
 
 Pour pouvoir créer une machine virtuelle, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupJenkins* à l’emplacement *eastus* :
 
-```azurecli-interactive
+```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
 Créez maintenant une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create). Utilisez le paramètre `--custom-data` à transmettre dans votre fichier de configuration cloud-init. Indiquez le chemin complet vers *cloud-init-jenkins.txt* si vous avez enregistré le fichier en dehors de votre répertoire de travail actuel.
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
     --name myVM \
     --image UbuntuLTS \
@@ -89,7 +89,7 @@ Il faut quelques minutes pour que la machine virtuelle soit créée et configur�
 
 Pour que le trafic web puisse atteindre votre machine virtuelle, utilisez [az vm open-port](/cli/azure/vm#open-port) pour ouvrir le port *8080* pour le trafic Jenkins et le port *1337* pour l’application Node.js qui sert à exécuter un exemple d’application :
 
-```azurecli
+```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 --priority 1002
 ```
@@ -98,7 +98,7 @@ az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 
 ## <a name="configure-jenkins"></a>Configurer Jenkins
 Pour accéder à votre instance Jenkins, obtenez l’adresse IP publique de votre machine virtuelle :
 
-```azurecli
+```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
@@ -212,7 +212,7 @@ Pour voir l’intégralité du pipeline en action, modifiez à nouveau le fichie
 
 Si nécessaire, obtenez à nouveau l’adresse IP publique de votre machine virtuelle :
 
-```azurecli
+```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 

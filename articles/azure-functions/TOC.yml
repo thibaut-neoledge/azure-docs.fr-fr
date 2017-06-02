@@ -69,7 +69,7 @@
     href: functions-how-to-use-azure-function-app-settings.md
   - name: Déploiement continu pour Azure Functions
     href: functions-continuous-deployment.md
-  - name: Déployer des fonctions à l’aide d’infrastructure en tant que code
+  - name: Automatiser le déploiement de ressources
     href: functions-infrastructure-as-code.md
   - name: Surveillance d’Azure Functions
     href: functions-monitoring.md
@@ -85,35 +85,31 @@
   items:
   - name: Liaisons
     items:
-    - name: Liaisons Cosmos DB
+    - name: Stockage d'objets blob
+      href: functions-bindings-storage-blob.md
+    - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Liaisons de concentrateur d’événements
+    - name: Hub d’événements
       href: functions-bindings-event-hubs.md
-    - name: Liaisons HTTP et webhook
+    - name: Fichier externe
+      href: functions-bindings-external-file.md
+    - name: HTTP et webhooks
       href: functions-bindings-http-webhook.md
-    - name: Liaisons Mobile Apps
+    - name: "Mobile\_Apps"
       href: functions-bindings-mobile-apps.md
-    - name: Liaison de sortie du concentrateur de notification
+    - name: Notification Hubs
       href: functions-bindings-notification-hubs.md
-    - name: Déclencheurs et liaisons Service Bus pour les files d’attente et les rubriques
+    - name: Stockage de files d'attente
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Service Bus
       href: functions-bindings-service-bus.md
-    - name: Liaisons Sendgrid
-      href: functions-bindings-sendgrid.md
-    - name: Liaisons de stockage
-      items:
-      - name: Liaisons d’objets BLOB
-        href: functions-bindings-storage-blob.md
-      - name: Liaisons de la file d’attente
-        href: functions-bindings-storage-queue.md
-      - name: Liaisons de tableau
-        href: functions-bindings-storage-table.md
-      - name: Liaisons de fichier externe
-        href: functions-bindings-external-file.md
-    - name: Liaisons SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Déclencheur de minuteur
+    - name: Stockage de tables
+      href: functions-bindings-storage-table.md
+    - name: Minuteur
       href: functions-bindings-timer.md
-    - name: Liaison de sortie Twilio
+    - name: Twilio
       href: functions-bindings-twilio.md
   - name: Référence OpenAPI
     href: functions-api-definition.md     

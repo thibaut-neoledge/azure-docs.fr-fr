@@ -7,6 +7,7 @@ author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
 ms.topic: sample
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 152dfe6a9bafada83457d3518fbc3758dd34cde0

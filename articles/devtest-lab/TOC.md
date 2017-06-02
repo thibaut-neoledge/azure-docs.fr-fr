@@ -2,6 +2,7 @@
 ## [À propos d’Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepts](devtest-lab-concepts.md)
 ## Scénarios
+### [Utiliser des laboratoires à des fins de développement](devtest-lab-developer-lab.md)
 ### [Utiliser des laboratoires à des fins de formation](devtest-lab-training-lab.md)
 
 # Prise en main

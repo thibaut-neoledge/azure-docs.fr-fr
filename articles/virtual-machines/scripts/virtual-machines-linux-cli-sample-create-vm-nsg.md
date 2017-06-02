@@ -42,7 +42,7 @@ Ce script crée deux machines virtuelles et sécurise le trafic entrant vers les
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
