@@ -42,7 +42,7 @@ Ce script crée une machine virtuelle Azure, installe l’agent Operations Manag
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

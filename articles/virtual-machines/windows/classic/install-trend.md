@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: e2ccb78da419b12a9845d720efb5b0229d4f455b
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
 
@@ -35,8 +36,6 @@ Il peut arriver qu’une machine virtuelle existante créée à l’aide du port
 Si vous disposez d’un abonnement Trend Micro pour une solution locale, vous pouvez l’utiliser pour protéger vos machines virtuelles Azure. Si vous n’êtes pas encore client, vous pouvez vous inscrire pour une version d’évaluation. Pour plus d’informations sur cette solution, consultez le billet de blog [Extension de l’agent de machine virtuelle Microsoft Azure pour Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Installation de l'agent Deep Security sur une nouvelle machine virtuelle
-
-<!-- old portal [Azure classic portal](http://manage.windowsazure.com) -->
 
 Le [portail Azure](http://portal.azure.com) vous permet d’installer l’extension de sécurité Trend Micro lorsque vous utilisez une image de la **Place de marché** pour créer la machine virtuelle. La création d’une machine virtuelle unique à l’aide du portail est une méthode simple pour ajouter une protection Trend Micro.
 

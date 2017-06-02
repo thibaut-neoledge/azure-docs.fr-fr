@@ -12,10 +12,6 @@
 #### [Node.JS](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Utiliser une passerelle simulée
-#### [Simulation sur Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Simulation sur Windows](iot-hub-windows-iot-edge-get-started.md)
-
 ### Utiliser un appareil physique
 #### [Raspberry Pi avec Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi avec C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -31,6 +27,8 @@
 ##### [Configurer Intel NUC comme une passerelle](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Connecter la passerelle à IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Utiliser la passerelle pour la conversion de données](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [Utiliser un simulateur d’appareil en ligne](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [Gérer la messagerie de périphérique cloud avec iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Enregistrer les messages IoT Hub dans le stockage de données Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -48,15 +46,21 @@
 ### [Protocoles supplémentaires pris en charge](iot-hub-protocol-gateway.md)
 ## [Développement](iot-hub-how-to.md)
 ### [Guide du développeur](iot-hub-devguide.md)
-#### [Envoyer et recevoir des messages](iot-hub-devguide-messaging.md)
 #### [Guide des fonctionnalités appareil-à-cloud](iot-hub-devguide-d2c-guidance.md)
 #### [Guide des fonctionnalités cloud-à-appareil](iot-hub-devguide-c2d-guidance.md)
+#### [Envoyer et recevoir des messages](iot-hub-devguide-messaging.md)
+##### [Envoyer des messages appareil-à-cloud sur IoT Hub](iot-hub-devguide-messages-d2c.md)
+##### [Lire des messages appareil-à-cloud à partir du point de terminaison intégré](iot-hub-devguide-messages-read-builtin.md)
+##### [Utiliser des points de terminaison et des règles de routage personnalisés pour les messages appareil-à-cloud](iot-hub-devguide-messages-read-custom.md)
+##### [Envoyer des messages cloud-à-appareil à partir d’IoT Hub](iot-hub-devguide-messages-c2d.md)
+##### [Créer et lire des messages IoT Hub](iot-hub-devguide-messages-construct.md)
 #### [Charger des fichiers à partir d’un appareil](iot-hub-devguide-file-upload.md)
 #### [Gérer les identités des appareils](iot-hub-devguide-identity-registry.md)
 #### [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md)
 #### [Comprendre les représentations d’appareils](iot-hub-devguide-device-twins.md)
 #### [Appeler des méthodes directes sur un appareil](iot-hub-devguide-direct-methods.md)
 #### [Planifier des travaux sur plusieurs appareils](iot-hub-devguide-jobs.md)
+#### [Choisir un protocole de communication](iot-hub-devguide-protocols.md)
 #### [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md)
 #### [Langage de requête](iot-hub-devguide-query-language.md)
 #### [Quotas et limitation](iot-hub-devguide-quotas-throttling.md)
@@ -119,19 +123,23 @@
 ### [Architecture de la sécurité](iot-hub-security-architecture.md)
 ### [Sécuriser votre déploiement IoT](iot-hub-security-deployment.md)
 ## IoT Edge
+### Prise en main
+#### [Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### Simuler un appareil
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Utiliser un appareil réel](iot-hub-iot-edge-physical-device.md)
 
 # Référence
-## [Version préliminaire d’Azure CLI 2.0](/cli/azure/iot)
+## [Azure CLI 2.0](/cli/azure/iot)
 ## [.NET (service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (appareils)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (appareils)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Kits de développement logiciel (SDK) Azure IoT](http://azure.github.io/azure-iot-sdks/)
-## [Azure IoT Edge](http://azure.github.io/iot-edge/)
+## [Kits de développement logiciel (SDK) Node.js](http://azure.github.io/azure-iot-sdk-node/)
+## [SDK d’appareils C](https://azure.github.io/azure-iot-sdk-c/index.html)
+## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (fournisseur de ressources)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (identités des appareils)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
 ## [Représentations d’appareil physique](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)

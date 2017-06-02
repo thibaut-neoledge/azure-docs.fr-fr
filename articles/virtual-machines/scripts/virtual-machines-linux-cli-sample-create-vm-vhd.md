@@ -47,7 +47,7 @@ Vous pouvez télécharger le VHD que nous avons utilisé à partir de https://az
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n az-cli-vhd
 ```
 

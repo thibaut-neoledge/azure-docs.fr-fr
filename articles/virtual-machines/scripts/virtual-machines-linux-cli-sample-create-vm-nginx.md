@@ -56,7 +56,7 @@ apt-get -y install nginx
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

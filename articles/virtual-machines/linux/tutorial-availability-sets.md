@@ -56,12 +56,12 @@ Vous pouvez créer un groupe à haute disponibilité à l’aide de la commande 
 
 Créez un groupe de ressources.
 
-```azurecli-interactive
+```azurecli-interactive 
 az group create --name myResourceGroupAvailability --location eastus
 ```
 
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -77,7 +77,7 @@ Vous devez créer des machines virtuelles au sein du groupe à haute disponibili
 
 Lorsque vous créez une machine virtuelle à l’aide de la commande [az vm create](/cli/azure/vm#create), vous spécifiez le nom du groupe à haute disponibilité à l’aide du paramètre `--availability-set`.
 
-```azurecli
+```azurecli-interactive 
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
@@ -99,7 +99,7 @@ Une situation que vous pouvez rencontrer lorsque vous ajoutez des machines virtu
 
 Vous pouvez ajouter ultérieurement d’autres machines virtuelles au groupe à haute disponibilité, mais vous devez connaître les tailles des machines virtuelles qui sont disponibles sur le matériel. Utilisez [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes) pour répertorier toutes les tailles disponibles sur le cluster matériel pour le groupe à haute disponibilité.
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \

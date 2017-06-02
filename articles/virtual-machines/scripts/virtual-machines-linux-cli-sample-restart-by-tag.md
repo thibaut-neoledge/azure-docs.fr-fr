@@ -80,7 +80,7 @@ Ce script redémarre toutes les machines virtuelles dans le groupe de ressources
 
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer les groupes de ressources, les machines virtuelles et toutes les ressources associées.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 

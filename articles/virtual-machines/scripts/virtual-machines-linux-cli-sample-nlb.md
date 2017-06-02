@@ -42,7 +42,7 @@ Cet exemple de script crée tous les éléments nécessaires pour exécuter plus
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

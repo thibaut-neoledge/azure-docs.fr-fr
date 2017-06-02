@@ -1,57 +1,56 @@
-- name: "Content Moderator Documentation"
+- name: Documentation de Content Moderator
   href: ../index.md
-- name: "Overview"
+- name: Vue d'ensemble
   items: 
-  - name: "Learn about the Content Moderator API"
+  - name: En savoir plus sur l’API Content Moderator
     href: overview.md
-- name: "Get started"
+- name: Prise en main
   items: 
-  - name: "Get started with Content Moderator"
+  - name: Prise en main de Content Moderator
     href: quick-start.md
-- name: "How to"
+- name: Procédures
   items: 
-  - name: "Review tool user guide"
+  - name: Guide de l’utilisateur de l’outil de révision
     items:
-    - name: "Human in the loop"
+    - name: Opérateur humain dans la boucle
       href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: "Create team"
+    - name: Créer une équipe
       href: Review-Tool-User-Guide/Sign-up.md
-    - name: "Upload images"
+    - name: Charger des images
       href: Review-Tool-User-Guide/Upload-Images.md
-    - name: "Image reviews"
+    - name: Révisions d’images
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: "Text reviews"
+    - name: Révisions de texte
       href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: "Team and subteams"
+    - name: Équipe et sous-équipes
       href: Review-Tool-User-Guide/SubTeams.md
-    - name: "Using workflows"
+    - name: Utilisation de flux de travail
       href: Review-Tool-User-Guide/Workflows.md
-    - name: "Settings"
+    - name: Paramètres
       href: Review-Tool-User-Guide/Configure.md
-    - name: "View dashboard"
+    - name: Afficher le tableau de bord
       href: Review-Tool-User-Guide/View-Dashboard.md
-- name: "Reference"
+- name: Référence
   items: 
-  - name: "API Reference Guide"  
+  - name: Guide de référence sur l’API
+  
     href: api-reference.md
     items:
-  - name: "Review APIs"
+  - name: Consultation des API
     href: review-api.md
-  - name: "Review Authentication"
-    href: Review-API-Authentication.md
-  - name: "Image moderation"
+  - name: Modération d’image
     href: image-moderation-api.md
-  - name: "Text moderation"
+  - name: Modération de texte
     href: text-moderation-api.md
-  - name: "Text moderation - languages"
+  - name: Modération de texte - langues
     href: Text-Moderation-API-Languages.md
-  - name: "Video moderation"
+  - name: Modération de vidéo
     href: video-moderation-api.md
-- name: "Resources"
+- name: Ressources
   items:  
-  - name: "Windows SDK"
+  - name: Kit de développement logiciel (SDK) Windows
     href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
-  - name: "Samples"
+  - name: Exemples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
-  - name: "FAQ"
+  - name: Forum Aux Questions
     href: FAQs.md

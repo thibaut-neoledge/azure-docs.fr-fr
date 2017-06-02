@@ -378,7 +378,7 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
   Utilisez l’exemple suivant pour une machine virtuelle non gérée et non chiffrée
 
     ```
-    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.VirtualHardDisk.Uri -CreateOption "Attach"
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
     PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
     PS C:\> foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
      {

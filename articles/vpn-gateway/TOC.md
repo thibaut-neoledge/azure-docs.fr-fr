@@ -7,6 +7,7 @@
 ## [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md)
 ## [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md)
 ## [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md)
+## [À propos des exigences de chiffrement](vpn-gateway-about-compliance-crypto.md)
 ## [À propos des passerelles VPN et BGP](vpn-gateway-bgp-overview.md)
 ## [À propos de la connectivité hautement disponible](vpn-gateway-highlyavailable.md)
 
@@ -29,37 +30,41 @@
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Portail Azure (classique)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+## Configurer des stratégies IPsec/IKE sur des connexions
+### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 ## Configurer une connexion de réseau virtuel à réseau virtuel entre modèles de déploiement
 ### [Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## [Configurer la coexistence de connexions ExpressRoute et de site à site](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-## Configurer un tunneling forcé
-### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
-### [PowerShell (classique)](vpn-gateway-about-forced-tunneling.md)
 ## Configurer plusieurs connexions site à site
 ### [Portail Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (classique)](vpn-gateway-multi-site.md)
+## Connecter plusieurs appareils VPN en fonction de stratégies
+### [PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
 ## [Configurer BGP pour une passerelle VPN](vpn-gateway-bgp-resource-manager-ps.md)
+## Configurer un tunneling forcé
+### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
+### [PowerShell (classique)](vpn-gateway-about-forced-tunneling.md)
 ## [Configurer les connexions haut actif-actif](vpn-gateway-activeactive-rm-powershell.md)
+## Gérer les passerelles VPN Azure
+### [Réinitialiser une passerelle VPN](vpn-gateway-resetgw-classic.md)
+### [Supprimer une passerelle à l’aide du portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+### [Supprimer une passerelle à l’aide de PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [Supprimer une passerelle à l’aide de PowerShell (classique)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## Modifier les paramètres de la passerelle réseau locale
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [INTERFACE DE LIGNE DE COMMANDE](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Vérifier une connexion de passerelle VPN](vpn-gateway-verify-connection-resource-manager.md)
-## [Réinitialiser une passerelle VPN](vpn-gateway-resetgw-classic.md)
-## Supprimer une passerelle VPN
-### [Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
-### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-### [PowerShell (classique)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Configurer une passerelle VPN (déploiement classique)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Résolution des problèmes
 ### [Valider le débit VPN sur un réseau virtuel](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Référence
-## [PowerShell](/powershell/module/azurerm.network)
-## [PowerShell (classique)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
+## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
+## [PowerShell (classique)](/powershell/module/azure/?view=azuresmps-3.7.0#networking)
+## [REST](/rest/api/network/virtualnetworkgateways)
 ## [REST (classique)](https://msdn.microsoft.com/library/jj154113)
-## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
+## [Interface de ligne de commande Azure](/cli/azure/network/vnet-gateway)
 
 # Rubriques connexes
 ## [Réseau virtuel](/azure/virtual-network/)
