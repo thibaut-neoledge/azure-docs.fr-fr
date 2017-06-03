@@ -42,7 +42,7 @@ Cet exemple de script CLI crée deux pools élastiques et déplace une base de d
 
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

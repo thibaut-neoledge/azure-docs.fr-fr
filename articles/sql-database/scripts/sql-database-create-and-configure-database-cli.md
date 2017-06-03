@@ -42,7 +42,7 @@ Cet exemple de script CLI crée une base de données SQL Azure et configure une 
 
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
