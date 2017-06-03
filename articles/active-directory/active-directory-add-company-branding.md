@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/23/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
-ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: c558bd5f2b7fae91483cc2c6724c40442bb65045
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -205,12 +205,12 @@ Certains éléments personnalisables d’Azure AD peuvent être utilisés de pl
 
 | Nom | Description | Contraintes | Recommandations |
 | --- | --- | --- | --- |
-| Logo de bannière |Le logo de bannière s’affiche sur la page de connexion et sur le volet d’accès. |<p>JPG ou PNG</p><p>60 x&280; pixels</p><p>10 Ko</p> |<p>Utilisez le logo complet de votre organisation (y compris le pictogramme et le logo)</p><p>Maintenez-le sous 30 pixels pour éviter l’apparition de barres de défilement sur les périphériques mobiles</p><p>Ne doit pas dépasser 4 Ko</p><p>Utilisez un fichier PNG transparent (ne considérez pas que la page de connexion a toujours un arrière-plan blanc)</p> |
-| Logo de la mosaïque |(Actuellement non utilisé dans la page de connexion.) À l’avenir, ce texte pourrait être utilisé pour remplacer le pictogramme générique « Compte professionnel ou scolaire » à différents endroits. |<p>JPG ou PNG</p><p>120 x&120; pixels</p><p>10 Ko</p> |<p>Restez simple (pas de texte de petite taille), cette image peut être redimensionnée à 50 % |
+| Logo de bannière |Le logo de bannière s’affiche sur la page de connexion et sur le volet d’accès. |<p>JPG ou PNG</p><p>60x280 pixels</p><p>10 Ko</p> |<p>Utilisez le logo complet de votre organisation (y compris le pictogramme et le logo)</p><p>Maintenez-le sous 30 pixels pour éviter l’apparition de barres de défilement sur les périphériques mobiles</p><p>Ne doit pas dépasser 4 Ko</p><p>Utilisez un fichier PNG transparent (ne considérez pas que la page de connexion a toujours un arrière-plan blanc)</p> |
+| Logo de la mosaïque |(Actuellement non utilisé dans la page de connexion.) À l’avenir, ce texte pourrait être utilisé pour remplacer le pictogramme générique « Compte professionnel ou scolaire » à différents endroits. |<p>JPG ou PNG</p><p>120x120 pixels</p><p>10 Ko</p> |<p>Restez simple (pas de texte de petite taille), cette image peut être redimensionnée à 50 % |
 | </p> | | | |
 | Étiquette du nom d’utilisateur de la page de connexion |(Actuellement non utilisé dans la page de connexion.) À l’avenir, ce texte pourrait être utilisé pour remplacer la chaîne générique « Compte professionnel ou scolaire » à différents endroits. Vous pouvez définir par exemple « Compte Contoso » ou « ID Contoso ». |<p>Texte Unicode, jusqu'à 50 caractères</p><p>Texte brut uniquement (aucun lien ni balise HTML)</p> |<p>Court et simple</p><p>Demandez à vos utilisateurs comment ils font généralement référence au compte professionnel ou scolaire que vous leur fournissez.</p> |
 | Texte de la page de connexion |Ce texte « standard » apparaît sous le formulaire de la page de connexion et peut être utilisé pour communiquer des instructions supplémentaires ou des informations sur l’aide et l’assistance. |<p>Texte Unicode, jusqu'à 256 caractères</p><p>Texte brut uniquement (aucun lien ni balise HTML)</p> |Moins de 250 caractères (environ 3 lignes de texte) |
-| Illustration de la page de connexion |Cette illustration est une grande image qui s’affiche sur la page de connexion à gauche du formulaire. |<p>JPG ou PNG</p><p>1420 x&1200;</p><p>500 Ko</p> |<p>1420 x&1200; pixels</p><p>Important : la plus petite possible, idéalement moins de 200 Ko. Si cette image est trop grande, elle affecte les performances de la page de connexion lorsque l’image n’est pas mise en cache.</p><p>Cette image est presque toujours rognée, pour s’adapter aux différentes tailles d’écrans. Conservez les principaux éléments visuels dans l’angle supérieur gauche (en haut à droite pour les langues qui se lisent de droite à gauche), car le redimensionnement s’effectue à partir de l’angle inférieur droit vers l’angle supérieur gauche, à mesure que la fenêtre du navigateur se réduit.</p> |
+| Illustration de la page de connexion |Cette illustration est une grande image qui s’affiche sur la page de connexion à gauche du formulaire. |<p>JPG ou PNG</p><p>1420x1200</p><p>500 Ko</p> |<p>1420x1200 pixels</p><p>Important : la plus petite possible, idéalement moins de 200 Ko. Si cette image est trop grande, elle affecte les performances de la page de connexion lorsque l’image n’est pas mise en cache.</p><p>Cette image est presque toujours rognée, pour s’adapter aux différentes tailles d’écrans. Conservez les principaux éléments visuels dans l’angle supérieur gauche (en haut à droite pour les langues qui se lisent de droite à gauche), car le redimensionnement s’effectue à partir de l’angle inférieur droit vers l’angle supérieur gauche, à mesure que la fenêtre du navigateur se réduit.</p> |
 | Couleur d’arrière-plan de la page de connexion |La couleur d’arrière-plan de la page de connexion est utilisée dans la zone à gauche du formulaire de la page. |Il doit s’agir d’une couleur RVB au format hexadécimal (par exemple #FFFFFF) |<p>La couleur d’arrière-plan peut s’afficher à la place de la grande illustration pour les connexions à faible bande passante</p><p>Nous vous suggérons de choisir la couleur principale du Logo de la bannière</p> |
 
 ## <a name="next-steps"></a>Étapes suivantes
