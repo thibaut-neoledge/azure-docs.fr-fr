@@ -29,6 +29,10 @@ Cet exemple de script crée une Function App et un compte de stockage.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>Exemple de script
 
 Cet exemple crée une Function App Azure et ajoute la chaîne de connexion de stockage à un paramètre d’application.

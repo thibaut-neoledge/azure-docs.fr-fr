@@ -112,7 +112,7 @@ Procédez comme suit pour créer un utilisateur à l’aide de l’authentificat
 3. Dans la fenêtre de requête, entrez la requête suivante :
 
     ```sql
-    CREATE USER 'ApplicationUserUser' WITH PASSWORD = 'strong_password';
+    CREATE USER ApplicationUserUse' WITH PASSWORD = 'YourStrongPassword1';
     ```
 
 4. Dans la barre d’outils, cliquez sur **Exécuter** pour créer l’utilisateur.
@@ -120,8 +120,8 @@ Procédez comme suit pour créer un utilisateur à l’aide de l’authentificat
 5. Par défaut, l’utilisateur peut se connecter à la base de données, mais ne peut ni lire ni écrire des données. Pour accorder ces autorisations au nouvel utilisateur, exécutez les deux commandes suivantes dans une nouvelle fenêtre de requête.
 
     ```sql
-    ALTER ROLE db_datareader ADD MEMBER 'ApplicationUserUser';
-    ALTER ROLE db_datawriter ADD MEMBER 'ApplicationUserUser';
+    ALTER ROLE db_datareader ADD MEMBER ApplicationUserUser;
+    ALTER ROLE db_datawriter ADD MEMBER ApplicationUserUser;
     ```
 
 Nous vous recommandons de créer ces comptes non administrateurs au niveau de la base de données pour la connexion à votre base de données, sauf si vous avez besoin d’exécuter des tâches d’administrateur telles que la création de nouveaux utilisateurs. Consultez le [didacticiel Azure Active Directory](./sql-database-aad-authentication-configure.md) sur l’authentification via Azure Active Directory.

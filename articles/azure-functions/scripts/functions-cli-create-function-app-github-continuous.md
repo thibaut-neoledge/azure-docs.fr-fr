@@ -24,6 +24,10 @@ Cet exemple de script crée une Function App à l’aide du [plan de consommatio
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>Exemple de script
 
 Cet exemple crée une Function App Azure et déploie le code de fonction à partir de GitHub.
