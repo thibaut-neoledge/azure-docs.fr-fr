@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 05/30/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 14a5da0430b4eaaa61ef875e59454e2b6d88de91
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: aa27689f564aedf61174fecaae76b5bf60951482
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -94,7 +95,7 @@ Si vous souhaitez afficher ou modifier la définition JSON sous-jacente d’une 
 ## <a name="scale-set-scenarios"></a>Scénarios de groupe identique
 Cette section répertorie quelques scénarios de groupe identique classiques. Certains services Azure de niveau supérieur (comme Batch, Service Fabric, Container Service) utilisent également ces scénarios.
 
-* **Utiliser RDP ou SSH pour se connecter à des instances de groupe identique** – Un groupe identique est créé dans un réseau virtuel et les machines virtuelles individuelles du groupe ne se voient pas allouer d’adresses IP publiques. Cette stratégie évite la surcharge de gestion et de coût liée à l’attribution d’adresses IP publiques distinctes sur tous les nœuds dans la grille de calcul. Vous pouvez vous connecter à ces machines virtuelles à partir d’autres ressources dans votre réseau virtuel, par exemple les équilibreurs de charge et les machines virtuelles autonomes, qui peuvent être alloués à des adresses IP publiques.
+* **Utiliser RDP ou SSH pour se connecter à des instances de groupe identique** – Un groupe identique est créé dans un réseau virtuel et les machines virtuelles individuelles du groupe ne reçoivent pas d’adresses IP publiques. Cette stratégie évite la surcharge de gestion et de coût liée à l’attribution d’adresses IP publiques distinctes sur tous les nœuds dans la grille de calcul. Vous pouvez vous connecter à ces machines virtuelles à partir d’autres ressources dans votre réseau virtuel, par exemple les équilibreurs de charge et les machines virtuelles autonomes, auxquels vous pouvez allouer des adresses IP publiques.
 * **Se connecter à des machines virtuelles à l’aide de règles NAT** – Vous pouvez créer une adresse IP publique, l’affecter à un équilibreur de charge, puis définir un pool de règles NAT entrantes. Ces actions mappent les ports de l’adresse IP sur un port de machine virtuelle, dans le groupe identique. Par exemple :
   
   | Source | Port source | Destination | Port de destination |
@@ -115,7 +116,7 @@ Cette section répertorie quelques scénarios de groupe identique classiques. Ce
 
    [Cet exemple Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-app-gateway) et [cet exemple Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-app-gateway) utilisent Application Gateway.  
 
-* **Déploiement d’un groupe identique en tant que cluster de calcul dans un gestionnaire de cluster PaaS** – Les groupes identiques sont parfois décrits en tant que rôle de travail de la prochaine génération. Bien qu’il s’agisse d’une description valide, il est possible de confondre les fonctionnalités du groupe identique avec les fonctionnalités d’Azure Cloud Services. Dans un sens, les groupes identiques correspondent à un rôle de travail ou à une ressource de collaborateur. Ils sont une ressource de calcul généralisée indépendante de la plateforme/du service d’exécution, personnalisable et pouvant être intégrée à l’IaaS Azure Resource Manager.
+* **Déploiement d’un groupe identique en tant que cluster de calcul dans un gestionnaire de cluster PaaS** – Les groupes identiques sont parfois décrits en tant que rôle de travail de la prochaine génération. Bien qu’il s’agisse d’une description valide, il est possible de confondre les fonctionnalités du groupe identique avec les fonctionnalités d’Azure Cloud Services. Dans un sens, les groupes identiques correspondent à un rôle de travail ou à une ressource Worker. Ils sont une ressource de calcul généralisée indépendante de la plateforme/du service d’exécution, personnalisable et pouvant être intégrée à l’IaaS Azure Resource Manager.
   
    Un rôle de travail des Services cloud est limité en termes de prise en charge de la plate-forme/du service d’exécution (images de plateforme Windows uniquement). Cependant, il inclut également des services tels que l’échange d’adresses IP virtuelles, la configuration des paramètres de mise à niveau, et les paramètres spécifiques au déploiement du service d’exécution/de l’application. Ces services ne sont pas *encore* disponibles dans les groupes identiques. Ils peuvent être transmis par d’autres services PaaS de niveau supérieur, comme Azure Service Fabric. Vous pouvez envisager les groupes identiques comme une infrastructure prenant en charge PaaS. Les solutions PaaS, telles que [Service Fabric](https://azure.microsoft.com/services/service-fabric/), s’appuient sur cette infrastructure.
   
@@ -160,7 +161,7 @@ Cette section répertorie quelques scénarios de groupe identique classiques. Ce
 
 **Q.** Lorsque j’utilise plusieurs extensions dans un groupe identique, puis-je appliquer une séquence d’exécution ?
 
-**A.** Pas directement, mais pour l’extension customScript, votre script peut attendre que l’exécution d’une autre extension soit terminée (par exemple en [surveillant le journal d’extension](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Vous trouverez des conseils supplémentaires sur le séquencement d’extensions dans ce billet de blog : [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Séquencement d’extensions dans les groupes identiques de machines virtuelles Azure).
+**A.** Pas directement, mais pour l’extension customScript, votre script peut attendre que l’exécution d’une autre extension soit terminée. Vous trouverez des conseils supplémentaires sur le séquencement d’extensions dans ce billet de blog : [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Séquencement d’extensions dans les groupes identiques de machines virtuelles Azure).
 
 **Q.** Les groupes identiques fonctionnent-ils avec des ensembles haute disponibilité Azure ?
 

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 05/05/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 84f9677daebe13f54a54802b1b16cc6487a0b845
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -344,18 +344,24 @@ Une approche combinée est généralement utilisée pour la gestion d’une char
 
 ## <a name="pool-network-configuration"></a>Configuration du réseau de pools
 
-Lorsque vous créez un pool de nœuds de calcul dans Azure Batch, vous pouvez utiliser les API pour spécifier l’ID d’un [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) Azure dans lequel les nœuds de calcul du pool doivent être créés.
+Lorsque vous créez un pool de nœuds de calcul dans Azure Batch, vous pouvez spécifier l’ID de sous-réseau d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) Azure dans lequel les nœuds de calcul du pool doivent être créés.
 
 * Le réseau virtuel doit être :
 
    * Dans la même **région** Azure que le compte Azure Batch.
    * Dans le même **abonnement** que le compte Azure Batch.
 
-* Le réseau virtuel doit avoir un nombre suffisant **d’adresses IP** libres pour prendre en charge la propriété `targetDedicated` du pool. Si le sous-réseau n’a pas suffisamment d’adresses IP disponibles, le service Batch alloue partiellement les nœuds de calcul dans le pool et renvoie une erreur de redimensionnement.
+* Le type de réseau virtuel pris en charge dépend de la façon dont les pools sont alloués pour le compte Batch :
+    - Si le compte Batch a été créé avec la propriété **poolAllocationMode** définie sur « BatchService », le réseau virtuel spécifié doit être un réseau virtuel classique.
+    - Si le compte Batch a été créé avec la propriété **poolAllocationMode** définie sur « UserSubscription », le réseau virtuel spécifié peut être un réseau virtuel classique ou un réseau virtuel Azure Resource Manager. Les pools doivent être créés avec une configuration de machine virtuelle afin d’utiliser un réseau virtuel. Les pools créés avec une configuration de service cloud ne sont pas pris en charge.
+
+* Si le compte Batch a été créé avec la propriété **poolAllocationMode** définie sur « BatchService », vous devez accorder des autorisations pour que le principal de service Batch puisse accéder au réseau virtuel. Le principal de service Batch, nommé « Microsoft Azure Batch » ou « MicrosoftAzureBatch » doit avoir le rôle de [contrôle d’accès en fonction du rôle (RBAC) Collaborateur de machine virtuelle classique](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) pour le réseau virtuel spécifié. Si le rôle RBAC spécifié n’est pas fourni, le service Batch renvoie une errer 400 (Demande incorrecte).
+
+* Le sous-réseau spécifié doit avoir suffisamment **d’adresses IP** disponibles pour prendre en compte le nombre total de nœuds cibles ; autrement dit, la somme des propriétés `targetDedicatedNodes` et `targetLowPriorityNodes` du pool. Si le sous-réseau n’a pas suffisamment d’adresses IP disponibles, le service Batch alloue partiellement les nœuds de calcul dans le pool et renvoie une erreur de redimensionnement.
 
 * Le sous-réseau spécifié doit autoriser les communications à partir du service Batch pour pouvoir planifier des tâches sur les nœuds de calcul. Si la communication vers les nœuds de calcul est refusée par un **groupe de sécurité réseau (NSG)** associé au réseau virtuel, le service Batch définit l’état des nœuds de calcul comme **inutilisable**.
 
-* Si des groupes de sécurité réseau sont associés au réseau virtuel spécifié, la communication entrante doit être activée. Pour les pools Linux et Windows, les ports 29876 et 29877 doivent être activés. Vous pouvez éventuellement activer (ou filtrer) les ports 22 ou 3389 pour SSH sur les pools Linux ou pour RDP sur les pools Windows, respectivement.
+* Si le réseau virtuel spécifié possède des groupes de sécurité réseau associés, quelques ports système réservés doivent être activés pour les communications entrantes. Pour les pools créés avec une configuration de machine virtuelle, activez les ports 29876 et 29877, ainsi que le port 22 pour Linux et le port 3389 pour Windows. Pour les pools créés avec une configuration de service cloud, activez les ports 10100, 20100 et 30100. En outre, activez les connexions sortantes vers Stockage Azure sur le port 443.
 
 D’autres paramètres du réseau virtuel varient en fonction du mode d’allocation de pool du compte Batch.
 
@@ -415,16 +421,24 @@ Il peut s’avérer utile de gérer les échecs de tâche et d’application au 
 ### <a name="task-failure-handling"></a>Gestion des échecs de tâche
 Les échecs de tâche peuvent être classés suivant les catégories suivantes :
 
-* **Échecs de planification**
+* **Échecs de prétraitement**
 
-    Si le transfert des fichiers qui sont spécifiés pour une tâche échoue pour une raison quelconque, une *erreur de planification* est définie pour la tâche.
+    Si une tâche ne parvient pas à démarrer, une erreur de prétraitement est définie pour la tâche.  
 
-    Des erreurs de planification peuvent se produire si des fichiers de ressources de la tâche ont été déplacés, si le compte Storage n’est plus disponible ou si un autre problème est survenu qui a empêché la copie des fichiers sur le nœud.
+    Des erreurs de prétraitement peuvent se produire si des fichiers de ressources de la tâche ont été déplacés, si le compte Stockage n’est plus disponible ou si un autre problème ayant empêché la copie des fichiers sur le nœud est survenu.
+
+* **Échecs de chargement de fichier**
+
+    Si le chargement des fichiers qui sont spécifiés pour une tâche échoue pour une raison quelconque, une erreur de chargement est définie pour la tâche.
+
+    Des erreurs de chargement de fichier peuvent se produire si la SAP permettant d’accéder au Stockage Azure n’est pas valide ou n’accorde pas d’autorisations d’écriture, si le compte de stockage n’est plus disponible ou si un autre problème ayant empêché la copie des fichiers sur le nœud est survenu.    
+
 * **Échecs d’application**
 
     Le processus spécifié par la ligne de commande de la tâche peut également échouer. Il est considéré comme ayant échoué lorsqu’un code de sortie différent de zéro est renvoyé par le processus exécuté par la tâche (voir *Codes de sortie de tâche* dans la section ci-après).
 
     Pour les échecs d’application, vous pouvez configurer Batch pour relancer automatiquement la tâche autant de fois que vous l’aurez spécifié.
+
 * **Échecs de contrainte**
 
     Vous pouvez définir une contrainte qui spécifie la durée maximale d’exécution d’un travail ou d’une tâche, le *maxWallClockTime*. Cette opération peut se révéler utile pour terminer les tâches dont la progression échoue.
@@ -435,6 +449,7 @@ Les échecs de tâche peuvent être classés suivant les catégories suivantes 
 * `stderr` et `stdout`
 
     Pendant l’exécution, une application peut produire des diagnostics qui vous permettent de résoudre les problèmes. Comme mentionné dans la section plus haut [Fichiers et répertoires](#files-and-directories), le service Batch écrit des sorties et des sorties d’erreur standard dans des fichiers `stdout.txt` et `stderr.txt` du répertoire de tâche sur le nœud de calcul. Vous pouvez utiliser le portail Azure ou l’un des Kits de développement logiciel (SDK) Batch pour télécharger ces fichiers. Par exemple, vous pouvez récupérer ces fichiers et d’autres à des fins de résolution des problèmes en utilisant [ComputeNode.GetNodeFile][net_getfile_node] et [CloudTask.GetNodeFile][net_getfile_task] dans la bibliothèque .NET Batch.
+
 * **Codes de sortie de tâche**
 
     Comme mentionné précédemment, une tâche est marquée comme ayant échoué par le service Batch si le processus exécuté par la tâche retourne un code de sortie différent de zéro. Lorsqu’une tâche exécute un processus, Batch remplit la propriété de code de sortie de la tâche avec le *code de retour du processus*. Il est important de noter que le code de sortie d’une tâche **n’est pas** déterminé par le service Batch, mais par le processus proprement dit ou par le système d’exploitation sur lequel le processus est exécuté.
@@ -445,7 +460,7 @@ Les tâches peuvent parfois échouer ou être interrompues. L’application de l
 Un problème intermittent peut également provoquer la suspension d’une tâche ou ralentir son exécution. Vous pouvez définir l’intervalle d’exécution maximal d’une tâche. Si l’intervalle d’exécution maximal est dépassé, le service Batch interrompt l’application de la tâche.
 
 ### <a name="connecting-to-compute-nodes"></a>Se connecter aux nœuds de calcul
-Vous pouvez effectuer des actions supplémentaires de débogage et de résolution des problèmes en vous connectant à un nœud de calcul à distance. Vous pouvez utiliser le portail Azure pour télécharger un fichier RDP pour les nœuds Windows et obtenir des informations de connexion SSH pour les nœuds Linux. Vous pouvez également effectuer cette opération à l’aide des API Batch, par exemple [.NET Batch][net_rdpfile] ou [Python Batch](batch-linux-nodes.md#connect-to-linux-nodes).
+Vous pouvez effectuer des actions supplémentaires de débogage et de résolution des problèmes en vous connectant à un nœud de calcul à distance. Vous pouvez utiliser le portail Azure pour télécharger un fichier RDP pour les nœuds Windows et obtenir des informations de connexion SSH pour les nœuds Linux. Vous pouvez également effectuer cette opération à l’aide des API Batch, par exemple [.NET Batch][net_rdpfile] ou [Python Batch](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
 > Pour vous connecter à un nœud via RDP ou SSH, vous devez d’abord créer un utilisateur sur le nœud. Pour ce faire, vous pouvez utiliser le Portail Azure, [ajouter un compte d’utilisateur à un nœud][rest_create_user] en utilisant l’API REST Batch, appeler la méthode [ComputeNode.CreateComputeNodeUser][net_create_user] dans .NET Batch ou appeler la méthode [add_user][py_add_user] dans le module Python de Batch.

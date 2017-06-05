@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/25/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 74cd4dbf74afbf5e7e0e7d0b7aca49b5aa214b83
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -245,6 +245,13 @@ Vous pouvez effectuer un test de charge sur votre site web. Comme pour le test d
 Dans le panneau Vue d’ensemble, ouvrez **Paramètres**, **Tests de performance**. Lorsque vous créez un test, vous êtes invité à vous connecter à Visual Studio Team Services ou à créer un compte.
 
 Une fois le test terminé, les temps de réponse et les taux de réussite s’affichent.
+
+
+![Test de performance](./media/app-insights-monitor-web-app-availability/perf-test.png)
+
+> [!TIP]
+> Pour observer les effets d’un test de performances, utilisez [Flux temps réel](app-insights-live-stream.md) et [Profileur](app-insights-profiler.md).
+>
 
 ## <a name="automation"></a>Automatisation
 * [Utilisez des scripts PowerShell pour configurer un test de disponibilité](app-insights-powershell.md#add-an-availability-test) automatiquement.

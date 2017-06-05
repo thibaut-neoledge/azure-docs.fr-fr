@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 05/25/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: d987aa22379ede44da1b791f034d713a49ad486a
-ms.openlocfilehash: 16afaa32ebbf2723a6dc5eea8e668b7fc971b43e
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3a4382979dd6e18c0e94b4a989bb8289882eeb89
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,7 +32,7 @@ L’expéditeur du message peut aussi choisir divers paramètres de distribution
 Service Bus prend en charge deux modèles de messagerie distincts : *Azure Relay* et la *messagerie Service Bus*.
 
 ## <a name="azure-relay"></a>Azure Relay
-Le composant [WCF Relay](../service-bus-relay/service-bus-relay-overview.md) de Service Bus est un service centralisé (mais très équilibré au niveau de la charge) qui prend en charge différents protocoles de transport et normes de services web. Cela inclut SOAP, WS-* et même REST. Le [service de relais](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) fournit une gamme d’options de connectivité relais différentes et aide à négocier des connexions directes peer-to-peer quand c’est possible. Service Bus est optimisé pour les développeurs .NET qui utilisent Windows Communication Foundation (WCF), en ce qui concerne à la fois les performances et la convivialité, et fournit un accès complet à son service de relais via des interfaces SOAP et REST. Cela rend possible l’intégration de n'importe quel environnement de programmation SOAP ou REST à Service Bus.
+Le composant [Relais WCF](../service-bus-relay/relay-what-is-it.md) d’Azure Relay est un service centralisé (mais très équilibré au niveau de la charge) qui prend en charge différents protocoles de transport et normes de services web. Cela inclut SOAP, WS-* et même REST. Le [service de relais](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) fournit une gamme d’options de connectivité relais différentes et aide à négocier des connexions directes peer-to-peer quand c’est possible. Service Bus est optimisé pour les développeurs .NET qui utilisent Windows Communication Foundation (WCF), en ce qui concerne à la fois les performances et la convivialité, et fournit un accès complet à son service de relais via des interfaces SOAP et REST. Cela rend possible l’intégration de n'importe quel environnement de programmation SOAP ou REST à Service Bus.
 
 Le service de relais prend en charge la messagerie unidirectionnelle standard, la messagerie demande/réponse et la messagerie d’homologue à homologue. Il prend également en charge la distribution des événements sur Internet pour activer les scénarios de publication/abonnement et la communication par socket bidirectionnelle pour une efficacité accrue de point à point. Dans le modèle de messagerie par relais, un service local se connecte au service de relais via un port sortant et crée un socket bidirectionnel lié à des adresses de rendez-vous spécifiques. Le client peut ensuite communiquer avec le service local en envoyant des messages au service de relais en ciblant l'adresse de rendezvous. Le service de relais « relayera » ensuite les messages au service local via le socket bidirectionnel déjà en place. Le client n’a pas besoin d’une connexion directe au service local ni de savoir où se trouve le service, et le service local n’a pas besoin d’ouvrir de ports entrants sur le pare-feu.
 
@@ -47,7 +48,7 @@ Les principaux composants de l’infrastructure de la messagerie répartie Servi
 Comme pour l’infrastructure WCF Relay, la fonctionnalité de messagerie répartie est destinée aux programmeurs WCF et .NET Framework, ainsi que via REST.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suivantes.
+Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 89c19e9b64fc4e1fea68c717fd5f5e0e054ac10c
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cc85ae1c6642e763e57327c151ec68845f7673f7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -55,11 +55,9 @@ Azure Analysis Services prend en charge les modèles tabulaires aux niveaux de c
 ## <a name="data-sources"></a>Sources de données
 Les modèles de données déployés sur des serveurs dans Azure prennent en charge la connexion aux données sources locales dans votre entreprise ou dans le cloud. Combinez des données de sources de données locales et de cloud pour une solution BI hybride.
 
-![Sources de données](./media/analysis-services-overview/aas-overview-data-sources.png)
+Votre serveur se trouvant dans le cloud, la connexion aux sources de données de cloud est transparente. Lors de la connexion à des sources de données locales, la [passerelle de données locale](analysis-services-gateway.md) garantit des connexions rapides et sécurisées avec votre serveur dans le cloud.
 
-Votre serveur se trouvant dans le cloud, la connexion aux sources de données de cloud est transparente. Lors de la connexion à des sources de données locales, la [Passerelle de données locale](analysis-services-gateway.md) garantit des connexions rapides et sécurisées avec votre serveur Analysis Services dans le cloud.
-
-\* Modèles Tabular 1400 uniquement.
+Pour en savoir plus sur les sources de données locales prises en charge, consultez [Connexions de source de données](analysis-services-datasource.md).
 
 
 ## <a name="explore-your-data-from-anywhere"></a>Explorer vos données où que vous soyez

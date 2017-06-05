@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: briz
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ae476dbaf51ae90cc3c5948b0ec8901d7a536da
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -64,7 +65,7 @@ Dans chacune de ces cinq étapes, il existe plusieurs conditions destinées à l
     *Ressources supplémentaires* :  [Utiliser des méthodes directes][lnk-c2d-methods], [Appeler des méthodes directes sur un appareil][lnk-methods-devguide], [Utilisation des propriétés des représentations][lnk-twin-properties], [Planifier et diffuser des travaux][lnk-jobs], [Planifier des travaux sur plusieurs appareils][lnk-jobs-devguide].
 * **Surveillance** : surveiller l’intégrité globale de la collection d’appareils, l’état des opérations en cours et avertir les opérateurs des problèmes susceptibles de nécessiter leur attention.  Appliquez la représentation physique d’appareil pour autoriser les appareils à signaler des conditions de fonctionnement en temps réel et l’état des opérations de mise à jour. Créez des rapports de tableau de bord puissants qui font remonter les problèmes les plus immédiats à l’aide de requêtes sur la représentation physique d’appareil.
   
-    *Ressources supplémentaires* : [Utilisation des propriétés des représentations][lnk-twin-properties], [Référence - Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-query-language].
+    *Ressources supplémentaires* : [Utilisation des propriétés souhaitées pour configurer des appareils (Node)][lnk-twin-properties], [Référence - Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-query-language].
 * **Mise hors service** : remplacer ou retirer des appareils après une défaillance, un cycle de mise à niveau ou à la fin de leur durée de vie.  Utilisez la représentation d’appareil pour conserver les informations sur l’appareil si l’appareil physique est remplacé ou archivé en cas de mise hors service. Utilisez le registre des identités IoT Hub pour la révocation en toute sécurité des informations d’identification et des identités des appareils.
   
     *Ressources supplémentaires* : [Utilisation des propriétés des représentations][lnk-twin-properties], [Gérer les identités des appareils][lnk-identity-registry].

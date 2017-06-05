@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 278c5d4d6bf3b356b51ccb878285a7e35cc3a810
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: eb85d8ef6b29605d7e26b0d2139a4a95c35141fb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,110 +27,57 @@ ms.lasthandoff: 05/25/2017
 
 Découvrez comment utiliser le portail Azure pour créer des comptes Azure Data Lake Analytics, définir des travaux dans [U-SQL](data-lake-analytics-u-sql-get-started.md) et envoyer des travaux au service Data Lake Analytics. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
-Dans ce didacticiel, vous allez développer un travail qui lit un fichier TSV (valeurs séparées par des tabulations) et le convertir en fichier CSV (valeurs séparées par des virgules). Pour suivre ce didacticiel même à l'aide d'autres outils pris en charge, cliquez sur les onglets en haut de cette section. Une fois votre premier travail terminé, vous pouvez commencer à écrire des transformations de données plus complexes avec U-SQL.
-
 ## <a name="prerequisites"></a>Composants requis
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-* **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
+Avant de commencer ce didacticiel, vous devez disposer d’un **abonnement Azure**. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-data-lake-analytics-account"></a>Créer un compte Analytique Data Lake
-Vous devez disposer d'un compte Data Lake Analytics avant de pouvoir exécuter des travaux quelconques.
 
-Chaque compte Data Lake Analytics possède un compte Azure Data Lake Store dépendant.  Ce compte est désigné comme le compte Data Lake Store par défaut.  Vous pouvez créer le compte Data Lake Store au préalable ou lorsque vous créez votre compte Data Lake Analytics. Dans ce didacticiel, vous allez créer le compte Data Lake Store avec le compte Data Lake Analytics.
-
-**Créer un compte Data Lake Analytics**
+À présent, vous allez créer un compte Data Lake Analytics et un compte Data Lake Store simultanément.  Cette étape est simple et ne prend qu’environ 60 pour se terminer.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Nouveau** >  **Intelligence + analyse** > **Data Lake Analytics**.
-3. Sélectionnez les valeurs suivantes :
-
-    ![Volet du portail Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
-
+3. Sélectionnez des valeurs pour les éléments suivants :
    * **Nom** : donnez un nom à votre compte Data Lake Analytics (utilisez uniquement des lettres minuscules et des chiffres).
    * **Abonnement**: choisissez l’abonnement Azure utilisé pour le compte Analytics.
    * **Groupe de ressources**. Sélectionnez un groupe de ressources Azure existant ou créez-en un.
    * **Emplacement**. Sélectionnez un centre de données Azure pour le compte Data Lake Analytics.
    * **Data Lake Store** : suivez les instructions pour créer un compte Data Lake Store ou sélectionnez un compte existant. 
-4. Sélectionner un niveau tarifaire  
-5. Cliquez sur **Create**. Vous êtes redirigé vers l’écran d’accueil de votre portail où une nouvelle vignette s’affiche, indiquant « Déploiement d’Azure Data Lake Analytics ». Le processus de déploiement prend plusieurs minutes pour créer un compte Data Lake Analytics. Lorsque le compte est créé, le portail ouvre le compte dans un nouveau volet.
-
-Après la création d'un compte Data Lake Analytics, vous pouvez ajouter des comptes Data Lake Store et des comptes Azure Storage supplémentaires. Pour obtenir des instructions, consultez [Gestion des sources de données du compte Data Lake Analytics](data-lake-analytics-manage-use-portal.md).
-
-## <a name="prepare-source-data"></a>Préparer les données source
-Dans ce didacticiel, vous allez traiter des journaux de recherche.  Le journal de recherche peut être stocké dans Data Lake Store ou dans le stockage d’objets blobs Azure.
-
-Le portail Azure fournit une interface utilisateur pour la copie de fichiers de données d’exemple vers le compte Data Lake Store par défaut, y compris un fichier de journal de recherche.
-
-**Copier des fichiers de données d’exemple**
-
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre compte Data Lake Analytics.  Consultez [Gestion des comptes Data Lake Analytics](data-lake-analytics-get-started-portal.md) pour en créer un et ouvrir le compte dans le portail.
-2. Développez le volet **Bases**, puis cliquez sur **Explorer les exemples de scripts**. Ceci ouvre un autre volet appelé **Exemples de scripts**.
-
-    ![Volet d’exemple de script du portail Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-sample-scripts.png)
-3. Cliquez sur **Exemple de données manquantes** pour copier les fichiers d’exemple de données. Lorsque vous avez terminé, le portail affiche **Exemples de données mis à jour**.
-4. Dans le volet du compte Data Lake Analytics, cliquez sur **Explorateur de données** en haut.
-
-    ![Bouton Explorateur de données Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-data-explorer-button.png)
-
-    Ceci ouvre deux volets. L'un est l' **Explorateur de données**et l'autre est le compte Data Lake Store par défaut.
-5. Dans le volet du compte Data Lake Store par défaut, cliquez sur **Exemples** pour développer le dossier, puis cliquez sur **Données** pour développer le dossier. Vous devez voir les fichiers et dossiers suivants :
-
-   * AmbulanceData/
-   * AdsLog.tsv
-   * SearchLog.tsv
-   * version.txt
-   * WebLog.log
-
-     Dans ce didacticiel, nous utilisons SearchLog.tsv.
-
-Dans la pratique, vous programmez vos applications soit pour écrire les données dans des comptes de stockage liés, soit pour télécharger les données. Pour le téléchargement de fichiers, consultez [Téléchargement de données vers Data Lake Store](data-lake-analytics-manage-use-portal.md) ou [Téléchargement de données vers le stockage d’objets Blob](data-lake-analytics-manage-use-portal.md).
+4. Si vous le souhaitez, sélectionnez un niveau tarifaire pour votre compte Data Lake Analytics.
+5. Cliquez sur **Create**. 
 
 ## <a name="create-and-submit-data-lake-analytics-jobs"></a>Création et envoi de travaux Data Lake Analytics
 Une fois que vous avez préparé la source de données, vous pouvez démarrer le développement d'un script U-SQL.  
 
 **Pour soumettre un travail**
 
-1. Dans le volet du compte Data Lake Analytics du portail, cliquez sur **Nouveau travail**.
-
-    ![Bouton Nouveau travail Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job-button.png)
-
-    Si le volet ne s'affiche pas, consultez [Ouvrir un compte Data Lake Analytics à partir du portail](data-lake-analytics-manage-use-portal.md).
+1. À partir du compte Data Lake Analytics, cliquez sur **Nouveau travail**.
 2. Entrez le **Nom du travail**et le script U-SQL suivant :
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
+```
+@searchlog =
+    EXTRACT UserId          int,
+            Start           DateTime,
+            Region          string,
+            Query           string,
+            Duration        int?,
+            Urls            string,
+            ClickedUrls     string
+    FROM "/Samples/Data/SearchLog.tsv"
+    USING Extractors.Tsv();
 
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
+OUTPUT @searchlog   
+    TO "/Output/SearchLog-from-Data-Lake.csv"
+    USING Outputters.Csv();
+```
 
-    ![créer des travaux U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job.png)
 
-    Ce script U-SQL lit le fichier de données source avec **Extractors.Tsv()**, puis crée un fichier csv à l’aide d’**Outputters.Csv()**.
+Ce script U-SQL lit le fichier de données source avec **Extractors.Tsv()**, puis crée un fichier csv à l’aide d’**Outputters.Csv()**.
 
-    Ne modifiez pas les deux chemins d’accès, sauf si vous copiez le fichier source dans un autre emplacement.  Data Lake Analytics crée le dossier de sortie s’il n’existe pas encore.  Dans ce cas, nous utilisons des chemins d'accès simples et relatifs.  
-
-    Il est plus simple d'utiliser des chemins d'accès relatifs pour les fichiers stockés dans les comptes Data Lake par défaut. Vous pouvez également utiliser des chemins d’accès absolus.  Par exemple :
-
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-
-    Pour en savoir plus sur U-SQL, consultez [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) et [Référence du langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
-
-1. Cliquez sur **Soumettre le travail** en haut.   
-2. Attendez que l'état du travail passe à **Réussi**. Vous pouvez voir que l’exécution du travail a pris une minute environ.
-3. En cas d’échec du travail, consultez [Surveillance et dépannage des travaux Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-4. En bas du volet, cliquez sur l’onglet **Sortie**, puis sur `SearchLog-from-Data-Lake.csv`. Vous pouvez afficher un aperçu, télécharger, renommer et supprimer le fichier de sortie.
-
-    ![Propriétés du fichier de sortie du travail Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-output-file-properties.png)
+1. Cliquez sur **Envoyer le travail**.   
+2. Attendez que l'état du travail passe à **Réussi**.
+3. Si le travail échoue, consultez [Dépanner les travaux Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+4. Cliquez sur l’onglet **Sortie**, puis sur `SearchLog-from-Data-Lake.csv`. 
 
 ## <a name="see-also"></a>Voir aussi
 

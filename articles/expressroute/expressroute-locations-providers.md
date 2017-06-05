@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2017
-ms.author: cherylmc
+ms.date: 05/24/2017
+ms.author: kaanan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: b72acb9c1d2b746bfdc3ac724b9c8760e0d4b257
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 597c0840f5b8bca3c19c644782d7cac20833ce1a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
@@ -42,7 +42,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- |
-| **Amérique du Nord** |Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Ouest des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre Ouest des États-Unis, Centre du Canada, Est du Canada |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Miami, New York, Seattle, Silicon Valley, Washington DC, Montréal, Québec, Toronto |
+| **Amérique du Nord** |Est des États-Unis, Ouest des États-Unis, Est des États-Unis 2, Ouest des États-Unis 2, Centre des États-Unis, Centre-Sud des États-Unis, Centre-Nord des États-Unis, Centre Ouest des États-Unis, Centre du Canada, Est du Canada |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, Seattle, Silicon Valley, Washington DC, Montréal, Québec, Toronto |
 | **Amérique du Sud** |Sud du Brésil |São Paulo |
 | **Europe** |Europe du Nord, Europe de l’Ouest, Ouest du Royaume-Uni, Sud du Royaume-Uni |Amsterdam, Dublin, Londres, Newport (Pays de Galles), Paris |
 | **Asie** |Asie orientale, Asie du Sud-Est |Hong Kong, Singapour |
@@ -76,7 +76,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Chennai** | Airtel+, Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
-| **Denver** |CoreSite+ |
+| **Denver** |CoreSite |
 | **Dublin** |Colt, Telecity Group |
 | **Hong Kong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Las Vegas** |Level 3 Communications+, Megaport |
@@ -86,8 +86,8 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Miami** |Megaport |
 | **Montréal** |Bell Canada, Cologix |
 | **Mumbai** |Airtel+, Tata Communications |
-| **Newport (Nouvelle-Galles du Sud)** |Next Generation Data |
 | **New York** |Coresite, Equinix, Megaport, Zayo Group |
+| **Newport (Nouvelle-Galles du Sud)** |Next Generation Data |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Paris** |Interxion, Equinix |
 | **Québec** | Megaport |
@@ -129,7 +129,7 @@ Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windows
 | **Berlin** |Colt+, e-shelter, Megaport+ |
 | **Francfort** |Colt, Equinix, Interxion |
 
-## <a name="c1partners"></a>Connectivité via des fournisseurs de services non répertoriés
+## <a name="c1partners"></a>Connectivité via des fournisseurs Exchange
 Si votre fournisseur de connectivité ne se trouve pas dans la liste des sections précédentes, vous pouvez quand même créer une connexion.
 
 * Vérifiez auprès de votre fournisseur de connectivité s’il est connecté à l’un des échanges dans le tableau ci-dessous. Vous pouvez consulter les liens ci-dessous pour recueillir des informations supplémentaires sur les services proposés par les fournisseurs d’échange. Plusieurs fournisseurs de connectivité sont déjà connectés à des échanges Ethernet.
@@ -145,6 +145,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 * Commandez un circuit ExpressRoute avec échange en tant que fournisseur de connectivité pour se connecter à Microsoft.
   * Pour définir la connectivité, procédez de la manière décrite dans [Création d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md) .
 
+## <a name="c1partners"></a>Connectivité via d’autres fournisseurs de services
 | **Emplacement** | **Microsoft Exchange** | **Fournisseurs de connectivité** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | Eurofiber, Fastweb S.p.A, Nianet |
@@ -155,7 +156,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 | **Los Angeles** | Equinix |Transtelco |
 | **Madrid** | Level3 | Zertia |
 | **Montréal** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers |
-| **New York** |Equinix | Lightower |
+| **New York** |Equinix, Megaport | Lightower, Webair |
 | **Seattle** |Equinix | Alaska Communications |
 | **Silicon Valley** |Equinix | Cox Business, Windstream |
 | **Singapour** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |

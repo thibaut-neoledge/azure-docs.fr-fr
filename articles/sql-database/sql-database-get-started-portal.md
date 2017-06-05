@@ -9,18 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start create
+ms.custom: quick start create, mvc
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/03/2017
+ms.date: 05/30/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: dbed7fe1f6ffdb40d445a66890b63baaf7a57f54
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ab664eb8803037b0bf09399bf9d28059fec2e204
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -44,29 +44,43 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
 
 2. Sélectionnez **Bases de données** dans la page **Nouveau**, puis **Base de données SQL** dans la page **Bases de données**.
 
-    ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
+   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
-3. Remplissez le formulaire de base de données SQL avec les informations suivantes, comme indiqué dans l’illustration précédente :     
-   - Nom de la base de données : **mySampleDatabase**
-   - Groupe de ressources : **myResourceGroup**
-   - Source : **Exemple (AdventureWorksLT)**
+3. Remplissez le formulaire de base de données SQL avec les informations suivantes, comme indiqué dans l’illustration précédente :   
+
+   | Paramètre       | Valeur suggérée | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Nom de la base de données** | mySampleDatabase | Pour les noms de base de données valides, consultez [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
+   | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
+   | **Groupe de ressources**  | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
+   | **Source** | Exemple (AdventureWorksLT) | Charge le schéma et les données AdventureWorksLT schéma dans votre nouvelle base de données |
 
    > [!IMPORTANT]
    > Vous devez sélectionner l’exemple de base de données sur ce formulaire, car il est utilisé dans le reste de ce guide de démarrage rapide.
    > 
 
-4. Cliquez sur **Serveur**, puis remplissez le **formulaire Nouveau serveur** en spécifiant un nom de serveur global unique, fournissez un nom pour la connexion d’administrateur serveur et spécifiez le mot de passe de votre choix. 
+4. Remplissez le formulaire de serveur SQL Server (serveur logique) avec les informations suivantes, comme indiqué dans l’illustration précédente :   
+
+   | Paramètre       | Valeur suggérée | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
+   | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). |
+   | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins 8 caractères et contenir des caractères appartenant à trois des catégories suivantes : caractères en majuscules, caractères en minuscules, chiffres et caractères non alphanumériques. |
+   | **Abonnement** | Votre abonnement | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
+   | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
+   | **Emplacement** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |
 
    > [!IMPORTANT]
    > La connexion d’administrateur serveur et le mot de passe que vous spécifiez ici seront requis plus loin dans ce guide de démarrage rapide pour la connexion au serveur et à ses bases de données. Retenez ou enregistrez ces informations pour une utilisation ultérieure. 
    >  
 
-    ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
+   ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
+
 5. Une fois le formulaire rempli, cliquez sur **Sélectionner**.
 
 6. Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service et le niveau de performances pour votre nouvelle base de données. Utilisez le curseur pour sélectionner **20 DTU** et **250** Go de stockage. Pour plus d’informations sur les DTU, consultez la page [Qu’est-ce qu’un DTU ?](sql-database-what-is-a-dtu.md).
 
-    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
+   ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
 7. Après avoir sélectionné le nombre de DTU, cliquez sur **Appliquer**.  
 
@@ -74,35 +88,33 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
 
 9. Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
 
-    ![notification](./media/sql-database-get-started-portal/notification.png)
-
+   ![notification](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>créer une règle de pare-feu au niveau du serveur ;
 
 Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les applications et les outils externes de se connecter au serveur ou à toute base de données sur le serveur, sauf si une règle de pare-feu est créée pour ouvrir le pare-feu à des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur de base de données SQL](sql-database-firewall-configure.md) pour l’adresse IP de votre client afin de permettre la connectivité externe via le pare-feu de base de données SQL pour votre adresse IP uniquement. 
 
 > [!NOTE]
-> SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pourrez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
+> SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
 >
 
-1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page Bases de données SQL. La page de présentation de votre base de données s’ouvre, affiche le nom de serveur complet (tel que **mynewserver20170411.database.windows.net**) et fournit des options pour poursuivre la configuration.
+1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de présentation de votre base de données s’ouvre, affiche le nom de serveur complet (tel que **mynewserver20170313.database.windows.net**) et fournit des options pour poursuivre la configuration. Copiez ce nom de serveur complet pour une utilisation ultérieure.
 
    > [!IMPORTANT]
-   > Vous aurez besoin du nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants.
+   > Vous avez besoin du nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants.
    > 
 
-      ![nom du serveur](./media/sql-database-get-started-portal/server-name.png) 
+   ![nom du serveur](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils, comme illustré sur l’image précédente. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre. 
 
-      ![règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule.png) 
-
+   ![règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 3. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
 4. Cliquez sur **Save**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
 
-      ![définir la règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
+   ![définir la règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
 4. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 
@@ -110,6 +122,7 @@ Vous pouvez maintenant vous connecter au serveur SQL Database et à ses bases de
 
 > [!IMPORTANT]
 > Par défaut, l’accès via le pare-feu SQL Database est activé pour tous les services Azure. Cliquez sur **ÉTEINT** sur cette page pour le désactiver pour tous les services Azure.
+>
 
 ## <a name="query-the-sql-database"></a>Interroger la base de données SQL
 
@@ -117,19 +130,19 @@ Maintenant que vous avez créé un exemple de base de données dans Azure, nous 
 
 1. Sur la page SQL Database de votre base de données, cliquez sur **Outils** dans la barre d’outils. La page **Outils** s’ouvre.
 
-     ![menu Outils](./media/sql-database-get-started-portal/tools-menu.png) 
+   ![menu Outils](./media/sql-database-get-started-portal/tools-menu.png) 
 
 2. Cliquez sur **Éditeur de requêtes (version préliminaire)**, cochez la case **Conditions d’utilisation de la version préliminaire**, puis cliquez sur **OK**. La page de l’éditeur de requêtes s’ouvre.
 
 3. Cliquez sur **Connexion**, puis, lorsque vous y êtes invité, sélectionnez **Authentification du serveur SQL Server** et indiquez l’identifiant et le mot de passe de connexion administrateur créés précédemment.
 
-    ![se connecter](./media/sql-database-get-started-portal/login.png) 
+   ![se connecter](./media/sql-database-get-started-portal/login.png) 
 
 4. Cliquez sur **OK** pour vous connecter.
 
 5. Après vous être authentifié, saisissez la requête suivante dans le volet de l’éditeur de requête.
 
-   ```
+   ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
@@ -138,7 +151,7 @@ Maintenant que vous avez créé un exemple de base de données dans Azure, nous 
 
 6. Cliquez sur **Exécuter**, puis passez en revue les résultats de la requête dans le volet **Résultats**.
 
-    ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
+   ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
 7. Fermez la page **Éditeur de requêtes** et la page **Outils**.
 

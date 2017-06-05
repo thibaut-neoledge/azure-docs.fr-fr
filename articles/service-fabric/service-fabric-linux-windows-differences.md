@@ -15,25 +15,28 @@ ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: e2d21b28c482427c60f708171336e6901b50e544
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Différences entre Service Fabric sur Linux (version préliminaire) et Windows (mise à la disposition générale)
 
-Étant donné que Service Fabric sur Linux est une version préliminaire, certaines fonctionnalités sont prises en charge sur Windows, mais pas encore sur Linux. Les ensembles de fonctionnalités seront identiques lors de la mise à disposition générale de Service Fabric sur Linux.
+Étant donné que Service Fabric sur Linux est une version préliminaire, certaines fonctionnalités sont prises en charge sur Windows, mais pas encore sur Linux. Les ensembles de fonctionnalités seront identiques lors de la mise à disposition générale de Service Fabric sur Linux. Avec les versions à venir, cet écart de fonctionnalités sera réduit. Les différences suivantes existent entre les versions les plus récentes disponibles (c’est-à-dire entre la version 5.6 pour Windows et la version 5.5 pour Linux) : 
 
-* Les collections fiables (et les services avec état fiable) ne sont pas pris en charge sur Linux.
-* ReverseProxy n’est pas disponible sur Linux.
-* Le programme d’installation autonome n’est pas disponible sur Linux.
-* La validation de schéma XML pour les fichiers de manifeste n’est pas effectuée sur Linux. 
-* La redirection de console n’est pas prise en charge sur Linux. 
-* Le service d’analyse des erreurs n’est pas disponible sur Linux.
-* La prise en charge d’Azure Active Directory n’est pas disponible sur Linux.
-* Des équivalents de commandes d’interface de ligne de commande des commandes Powershell ne sont pas disponibles.
+* Les collections fiables (et les services avec état fiable) 
+* ReverseProxy 
+* Le programme d’installation autonome 
+* La validation de schéma XML pour les fichiers de manifeste 
+* La redirection de la console 
+* Le service d’analyse des erreurs
+* Docker Compose et les pilotes de journalisation et de volume pour les conteneurs 
+* La gestion des ressources pour les conteneurs et les services 
+* Service DNS
+* La prise en charge d’Azure Active Directory
+* Des équivalents de commandes d’interface de ligne de commande de certaines commandes Powershell 
 * Seul un sous-ensemble de commandes Powershell peut être exécuté sur un cluster Linux (comme expliqué en détail dans la section suivante).
 
 >[!NOTE]
