@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 ms.date: 2/28/2017
-ms.author: jrj;mausher;kevin;barbkess;elbutter
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fd35b0e5c57e47c5e79fe926f24fb21089cbf89a
-ms.lasthandoff: 04/18/2017
+ms.author: jrj;barbkess
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 70e0cb62ff9da5486e956a59a110e12093e90f5d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -143,7 +144,7 @@ SQL Data Warehouse offre un contrat de niveau de service pour les produits dans 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Témoignages de clients]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
+[Témoignages de clients]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blogs de l’équipe de conseil clientèle]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Demandes de fonctionnalités]: https://feedback.azure.com/forums/307516-sql-data-warehouse

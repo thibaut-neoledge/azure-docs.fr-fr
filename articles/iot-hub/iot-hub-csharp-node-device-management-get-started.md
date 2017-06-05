@@ -14,28 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: f03b8d192255a3c93284f3c5e898f68a1234644f
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: def3feb2760c0ec2bb9ff39c6ef8a85bb142a0a7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/19/2017
 
 
 ---
 # <a name="get-started-with-device-management-netnode"></a>Prise en main de la gestion d’appareils (.NET/Node)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
-## <a name="introduction"></a>Introduction
-Les applications principales peuvent utiliser des primitives dans Azure IoT Hub, à savoir la représentation d’appareil et les méthodes directes, pour démarrer et surveiller à distance les actions de gestion sur les appareils.  Cet article fournit des conseils et du code illustrant comment les applications principales et les appareils fonctionnent ensemble pour lancer et surveiller le redémarrage d’un appareil distant à l’aide d’IoT Hub.
-
-Pour démarrer et surveiller à distance les actions de gestion sur vos appareils à partir d’une application cloud principale, utilisez des primitives IoT Hub comme la [représentation d’appareil][lnk-devtwin] et les [méthodes directes][lnk-c2dmethod]. Ce didacticiel illustre comment une application principale et un appareil peuvent fonctionner ensemble pour vous permettre de lancer et de surveiller le redémarrage d’un appareil distant à partir d’IoT Hub.
-
-Vous utilisez une méthode directe pour lancer des actions de gestion d’appareils (redémarrage, réinitialisation des paramètres d’usine et mise à jour du microprogramme) à partir d’une application principale dans le cloud. L’appareil est chargé de :
-
-* Gérer la requête de méthode envoyée à partir d’IoT Hub.
-* Démarrer l’action correspondante spécifique à l’appareil sur l’appareil.
-* Fournir à IoT Hub des mises à jour de l’état via les propriétés signalées.
-
-Vous pouvez utiliser une application principale dans le cloud pour exécuter des requêtes sur la représentation d’appareil afin d’indiquer la progression des actions de gestion de votre appareil.
 
 Ce didacticiel vous explique les procédures suivantes :
 
@@ -216,22 +205,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 3. La réponse de l’appareil à la méthode directe s’affiche dans la console.
 
-## <a name="customize-and-extend-the-device-management-actions"></a>Personnaliser et étendre les actions de gestion d’appareils
-Vos solutions IoT peuvent étendre l’ensemble défini de modèles de gestion d’appareils ou activer des modèles personnalisés en utilisant les primitives de la méthode cloud-à-appareil et du jumeau d’appareil. La réinitialisation des paramètres d’usine, la mise à jour du microprogramme, la mise à jour logicielle, la gestion de l’alimentation, la gestion du réseau et de la connectivité, et le chiffrement des données sont d’autres exemples d’actions de gestion des appareils.
-
-## <a name="device-maintenance-windows"></a>Fenêtres de maintenance d’appareil
-En règle générale, vous configurez des appareils pour effectuer des actions à un moment qui minimise les interruptions et les temps d’arrêt.  Les fenêtres de maintenance d’appareil constituent un modèle couramment utilisé pour définir l’heure à laquelle un appareil doit mettre à jour sa configuration. Vos solutions principales peuvent utiliser les propriétés souhaitées de la représentation d’appareil pour définir et activer une stratégie sur votre appareil qui permet d’obtenir une fenêtre de maintenance. Lorsqu’un appareil reçoit la stratégie de fenêtre de maintenance, il peut utiliser la propriété signalée de la représentation d’appareil pour indiquer l’état de la stratégie. L’application principale peut ensuite utiliser des requêtes de représentation d’appareil pour certifier la conformité des appareils et de chaque stratégie.
-
-## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez utilisé une méthode directe pour déclencher un redémarrage à distance sur un appareil. Vous avez utilisé les propriétés signalées pour indiquer le moment du dernier redémarrage de l’appareil et vous avez interrogé le jumeau d’appareil pour découvrir l’heure du dernier redémarrage de l’appareil à partir du cloud.
-
-Pour approfondir la prise en main d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez :
-
-[Didacticiel : Mettre à jour un microprogramme][lnk-fwupdate]
-
-Pour savoir comment étendre votre solution IoT et planifier des appels de méthode sur plusieurs appareils, voir le didacticiel [Planifier et diffuser des travaux][lnk-tutorial-jobs].
-
-Pour approfondir la prise en main de IoT Hub, consultez l’article [Prise en main du Kit de développement logiciel (SDK) IoT Gateway][lnk-gateway-SDK].
+[!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 
 <!-- images and links -->
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
@@ -242,12 +216,9 @@ Pour approfondir la prise en main de IoT Hub, consultez l’article [Prise en ma
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-fwupdate]: iot-hub-node-node-firmware-update.md
 [Azure portal]: https://portal.azure.com/
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-[lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: b-hoedid
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: b996ed1889ec39de78dcee9bbcb18a5982fc5f7f
-ms.lasthandoff: 04/04/2017
+ms.author: LADocs; b-hoedid
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f68b27e007ad2de9e880f1fe0736d403f74dc80b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -46,12 +47,12 @@ Le projet comportait deux exigences principales :
 
 ## <a name="how-we-solved-the-problem"></a>Comment nous avons résolu le problème
 
-Nous avons choisi [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") comme référentiel pour les enregistrements de journal et d’erreur (DocumentDB fait référence aux enregistrements en tant que documents). Comme Azure Logic Apps dispose d’un modèle standard pour toutes les réponses, nous n’avons pas à créer un schéma personnalisé. Nous pouvons créer une application API pour **insérer** et**interroger** les enregistrements d’erreur et de journal. Nous pouvons également définir un schéma pour chaque enregistrement au sein de l’application API.  
+Nous avons choisi [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") comme référentiel pour les enregistrements de journal et d’erreur (Cosmos DB fait référence aux enregistrements en tant que documents). Comme Azure Logic Apps dispose d’un modèle standard pour toutes les réponses, nous n’avons pas à créer un schéma personnalisé. Nous pouvons créer une application API pour **insérer** et**interroger** les enregistrements d’erreur et de journal. Nous pouvons également définir un schéma pour chaque enregistrement au sein de l’application API.  
 
-Une autre exigence consistait à vider les enregistrements au-delà d’une certaine date. DocumentDB possède une propriété [Durée de vie](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Durée de vie") (TTL, Time To Live), qui nous a permis de définir une valeur **Durée de vie** pour chaque enregistrement ou pour toute une collection. Ainsi, nous n’avons plus à supprimer manuellement les enregistrements dans DocumentDB.
+Une autre exigence consistait à vider les enregistrements au-delà d’une certaine date. Cosmos DB possède une propriété [Durée de vie](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Durée de vie") (TTL, Time To Live), qui nous a permis de définir une valeur **Durée de vie** pour chaque enregistrement ou pour toute une collection. Ainsi, nous n’avons plus à supprimer manuellement les enregistrements dans Cosmos DB.
 
 > [!IMPORTANT]
-> Pour suivre ce didacticiel, vous devez créer une base de données DocumentDB et deux collections (Journalisation et Erreurs).
+> Pour suivre ce didacticiel, vous devez créer une base de données Cosmos DB et deux collections (Journalisation et Erreurs).
 
 ## <a name="create-the-logic-app"></a>Création de l’application logique
 
@@ -258,7 +259,7 @@ Voici le code source de l’application logique permettant de créer un enregist
 }             
 ```
 
-#### <a name="insert-error-into-documentdb--request"></a>Erreur d’insertion dans DocumentDB--Requête
+#### <a name="insert-error-into-cosmos-db--request"></a>Erreur d’insertion dans Cosmos DB--Requête
 
 ``` json
 
@@ -281,7 +282,7 @@ Voici le code source de l’application logique permettant de créer un enregist
 }
 ```
 
-#### <a name="insert-error-into-documentdb--response"></a>Erreur d’insertion dans DocumentDB--Réponse
+#### <a name="insert-error-into-cosmos-db--response"></a>Erreur d’insertion dans Cosmos DB--Réponse
 
 ``` json
 {
@@ -399,16 +400,16 @@ Lorsque vous disposez de la réponse, vous pouvez la transmettre à l’applicat
 ```
 
 
-## <a name="documentdb-repository-and-portal"></a>Référentiel et portail DocumentDB
+## <a name="cosmos-db-repository-and-portal"></a>Référentiel et portail Cosmos DB
 
-Notre solution a permis d’ajouter des fonctionnalités avec [DocumentDB](https://azure.microsoft.com/services/documentdb).
+Notre solution a permis d’ajouter des fonctionnalités avec [Cosmos DB](https://azure.microsoft.com/services/documentdb).
 
 ### <a name="error-management-portal"></a>Portail de gestion des erreurs
 
-Pour afficher les erreurs, vous pouvez créer une application web MVC afin d’afficher les enregistrements d’erreur à partir de DocumentDB. Les opérations **Liste**, **Détails**, **Modifier** et **Supprimer** sont incluses dans la version actuelle.
+Pour afficher les erreurs, vous pouvez créer une application web MVC afin d’afficher les enregistrements d’erreur à partir de Cosmos DB. Les opérations **Liste**, **Détails**, **Modifier** et **Supprimer** sont incluses dans la version actuelle.
 
 > [!NOTE]
-> Opération Modifier : DocumentDB remplace l’ensemble du document. Les enregistrements affichés dans les vues **Liste** et **Détail** représentent uniquement des exemples. Il ne s’agit pas d’enregistrements de rendez-vous de patients réels.
+> Opération Modifier : Cosmos DB remplace l’ensemble du document. Les enregistrements affichés dans les vues **Liste** et **Détail** représentent uniquement des exemples. Il ne s’agit pas d’enregistrements de rendez-vous de patients réels.
 
 Voici quelques exemples des détails de notre application MVC créée à l’aide de l’approche décrite précédemment.
 
@@ -492,3 +493,4 @@ Le code source de l’application API de gestion des exceptions Logic Apps est d
 * [Afficher d’autres exemples et scénarios d’applications logiques](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [En savoir plus sur la gestion des applications logiques](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Créer un modèle de déploiement automatisé d’applications logiques](../logic-apps/logic-apps-create-deploy-template.md)
+

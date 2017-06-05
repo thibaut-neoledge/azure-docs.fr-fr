@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: cfowler;mahender;glenga
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 045ec40811468eeffb25ed28ec5bfc84f074c19d
-ms.lasthandoff: 03/01/2017
+ms.custom: H1Hack27Feb2017, mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7fcf35b99cc410655f2a3b9b6961f5e3bef3aeb5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -57,10 +58,10 @@ Azure Functions fournit des modèles pour vous aider à mettre en œuvre les pri
 
 Azure Functions prend en charge les *déclencheurs*, qui permettent de démarrer l’exécution de votre code, et les *liaisons*, qui permettent de simplifier le codage des données d’entrée et de sortie. Pour obtenir une description détaillée des déclencheurs et des liaisons offerts par Azure Functions, consultez l’article [Informations de référence pour les développeurs sur les déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 
-## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Intégrations
+## <a name="integrations"></a>Intégrations
 Azure Functions s’intègre avec différents services Azure et services tiers. Ces services peuvent déclencher votre fonction et démarrer l’exécution, ou servir d’entrée et de sortie à votre code. Azure Functions prend en charge les intégrations de service suivantes. 
 
-* Document DB Azure
+* Azure Cosmos DB
 * Hubs d'événements Azure 
 * Azure Mobile Apps (tables)
 * Azure Notification Hubs
@@ -70,7 +71,7 @@ Azure Functions s’intègre avec différents services Azure et services tiers. 
 * Services locaux (à l’aide de Service Bus)
 * Twilio (messages SMS)
 
-## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Combien coûte Azure Functions ?
+## <a name="pricing"></a>Combien coûte Azure Functions ?
 Deux types de plans de tarification sont proposés pour Azure Functions. Choisissez celui qui correspond le mieux à vos besoins : 
 
 * **Plan de consommation** : lorsque votre fonction est exécutée, Azure fournit toutes les ressources de calcul nécessaires. Vous n’avez pas à vous préoccuper de la gestion des ressources et seul le temps d’exécution vous est facturé. 

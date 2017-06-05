@@ -3,7 +3,7 @@ title: "Suivi des dépendances dans Azure Application Insights | Microsoft Docs
 description: "Analysez l&quot;utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
-ms.lasthandoff: 03/16/2017
+ms.date: 05/04/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c31abf49a05f7911d4ec82db59efa2724ab7b49b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -31,7 +32,7 @@ Le moniteur de dépendance prêt à l’emploi signale les appels aux types de d
   * Bases de données SQL
   * Services web et WCF d’ASP.NET qui utilisent des liaisons HTTP
   * Appels HTTP locaux ou distants
-  * Azure DocumentDb, table, stockage d’objets blob et file d’attente
+  * Azure Cosmos DB, table, stockage d’objets blob et file d’attente
 * Pages web
   * Appels AJAX
 
@@ -119,9 +120,9 @@ Dans un autre cas, aucun appel de dépendance n’est particulièrement long. Ma
 
 Il semble y avoir un long délai après le premier appel de dépendance. Nous devons examiner notre code pour savoir pourquoi.
 
-### <a name="profiling-your-live-site"></a>Profilage de votre site dynamique
+### <a name="profile-your-live-site"></a>Profiler votre site en ligne
 
-Vous voulez savoir à quoi tout ce temps a été consacré ? Le profileur d’Application Insights effectue le suivi des appels HTTP vers votre site dynamique et vous indique les fonctions de votre code qui ont pris le plus de temps. Le profileur est actuellement en préversion limitée : vous pouvez [vous inscrire pour l’essayer](https://aka.ms/AIProfilerPreview).
+Vous voulez savoir à quoi tout ce temps a été consacré ? Le [profileur d’Application Insights](app-insights-profiler.md) effectue le suivi des appels HTTP vers votre site dynamique et vous indique les fonctions de votre code qui ont pris le plus de temps.
 
 ## <a name="failed-requests"></a>Demandes ayant échoué
 Les échecs de demandes peuvent également être associés à des échecs d’appels de dépendances. Là encore, nous pouvons tout parcourir d’un simple clic pour localiser le problème.

@@ -3,7 +3,7 @@ title: "Réseaux virtuels Azure et machines virtuelles Linux | Microsoft Docs"
 description: "Didacticiel : Gérer des réseaux virtuels Azure et des machines virtuelles Linux avec Azure CLI"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: davidmu1
+author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -13,200 +13,299 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2017
-ms.author: davidmu
+ms.date: 05/10/2017
+ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 1ac628b606a198bb437c02d00467d48462c34334
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: e843e444d2fe32f578c5a887b606db982920a9e0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Gérer des réseaux virtuels Azure et des machines virtuelles Linux avec Azure CLI
 
-Dans ce didacticiel, vous apprendrez à créer plusieurs machines virtuelles dans un réseau virtuel et à configurer leur connectivité réseau. Une fois cette opération terminée, une machine virtuelle frontale est accessible sur Internet à partir du port 22 pour les connexions SSH et à partir du port 80 pour les connexions HTTP. Une machine virtuelle principale avec une base de données MySQL est isolée et accessible uniquement à partir de la machine virtuelle frontale sur le port 3306.
+Les machines virtuelles Azure utilisent la gestion réseau Azure pour la communication réseau interne et externe. Ce didacticiel vous guide dans le déploiement de deux machines virtuelles et la configuration de la gestion réseau Azure pour celles-ci. Les exemples de ce didacticiel supposent que les machines virtuelles hébergent une application web avec un back-end de base de données. Le didacticiel ne comprend cependant pas le déploiement d’une application. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
-Les étapes de ce didacticiel peuvent être effectuées à l’aide de la dernière version [d’Azure CLI 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Déployer un réseau virtuel
+> * Créer un sous-réseau dans un réseau virtuel
+> * Attacher des machines virtuelles à un sous-réseau
+> * Gérer les adresses IP publiques des machines virtuelles
+> * Sécuriser le trafic internet entrant
+> * Sécuriser le trafic entre machines virtuelles
 
-## <a name="create-vm-and-vnet"></a>Créer une machine virtuelle et un réseau virtuel
+Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Pour trouver la version de CLI, exécutez `az --version`. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). Vous pouvez également utiliser [Cloud Shell](/azure/cloud-shell/quickstart) à partir de votre navigateur.
 
-Un réseau virtuel (VNet) Azure est une représentation de votre propre réseau dans le cloud. Il s’agit d’un isolement logique du cloud Azure dédié à votre abonnement. Un réseau virtuel comporte des sous-réseaux, des règles de connectivité vers ces sous-réseaux et des connexions entre les machines virtuelles et les sous-réseaux. Azure CLI facilite la création de toutes les ressources réseau dont vous avez besoin pour prendre en charge l’accès à vos machines virtuelles. 
+## <a name="vm-networking-overview"></a>Vue d’ensemble de la mise en réseau de machines virtuelles
 
-Avant de pouvoir créer d’autres ressources Azure, vous devez créer un groupe de ressources avec az group create. L’exemple suivant crée un groupe de ressources nommé *myRGNetwork* à l’emplacement *westus* :
+Les réseaux virtuels Azure permettent des connexions réseau sécurisées entre des machines virtuelles, Internet et d’autres services Azure SQL Database. Les réseaux virtuels sont divisés en segments logiques, appelés sous-réseaux. Les sous-réseaux sont utilisés pour contrôler le flux du réseau et comme une limite de sécurité. Quand vous déployez une machine virtuelle, elle inclut généralement une interface de réseau virtuel, qui est attachée à un sous-réseau.
+
+## <a name="deploy-virtual-network"></a>Déployer un réseau virtuel
+
+Pour ce didacticiel, un seul réseau virtuel est créé avec deux sous-réseaux. Un sous-réseau frontal pour l’hébergement d’une application web et un sous-réseau principal pour l’hébergement d’un serveur de base de données.
+
+Avant de pouvoir créer un réseau virtuel, créez un groupe de ressources avec [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé *myRGNetwork* à l’emplacement eastus.
 
 ```azurecli
-az group create --name myRGNetwork --location westus
+az group create --name myRGNetwork --location eastus
 ```
 
-Lorsque vous créez une machine virtuelle à l’aide d’Azure CLI, les ressources réseau nécessaires sont automatiquement créées en même temps. Créez *myFrontendVM* et ses ressources réseau de support avec [az vm create](https://docs.microsoft.com/cli/azure/vm#create) :
+### <a name="create-virtual-network"></a>Création d’un réseau virtuel
+
+Utilisez la commande [az network vnet create](/cli/azure/network/vnet#create) pour créer un réseau virtuel. Dans cet exemple, le réseau est nommé *mvVnet* et le préfixe d’adresse *10.0.0.0/16* lui est affecté. Un sous-réseau est également créé avec le nom *mySubnetFrontEnd* et le préfixe d’adresse *10.0.1.0/24*. Plus loin dans ce didacticiel, une machine virtuelle frontale est connectée à ce sous-réseau. 
+
+```azurecli
+az network vnet create \
+  --resource-group myRGNetwork \
+  --name myVnet \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name mySubnetFrontEnd \
+  --subnet-prefix 10.0.1.0/24
+```
+
+### <a name="create-subnet"></a>Créer un sous-réseau
+
+Un nouveau sous-réseau est ajouté au réseau virtuel à l’aide de la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#create). Dans cet exemple, le réseau est nommé *mySubnetBackEnd* et le préfixe d’adresse *10.0.2.0/24* lui est affecté. Ce sous-réseau est utilisé avec tous les services principaux.
+
+```azurecli
+az network vnet subnet create \
+  --resource-group myRGNetwork \
+  --vnet-name myVnet \
+  --name mySubnetBackEnd \
+  --address-prefix 10.0.2.0/24
+```
+
+À ce stade, un réseau a été créé et segmenté en deux sous-réseaux, un pour les services frontaux et un autre pour les services principaux. Dans la section suivante, des machines virtuelles sont créées et connectées à ces sous-réseaux.
+
+## <a name="understand-public-ip-address"></a>Présentation des adresses IP publiques
+
+Une adresse IP publique permet aux ressources Azure d’être accessibles sur Internet. Dans cette section du didacticiel, une machine virtuelle est créée pour montrer l’utilisation des adresses IP publiques.
+
+### <a name="allocation-method"></a>Méthode d’allocation
+
+Une adresse IP publique peut être allouée comme adresse dynamique ou statique. Par défaut, une adresse IP publique est allouée dynamiquement. Les adresses IP dynamiques sont libérées quand une machine virtuelle est désallouée. Ce comportement fait que l’adresse IP change lors de toute opération qui inclut une désallocation de la machine virtuelle.
+
+La méthode d’allocation peut être définie comme étant statique, ce qui garantit que l’adresse IP reste affectée à une machine virtuelle, même pendant qu’elle est désallouée. Quand vous utilisez une adresse IP allouée de manière statique, vous ne pouvez pas spécifier l’adresse IP elle-même. Au lieu de cela, elle est allouée à partir d’un pool d’adresses disponibles.
+
+### <a name="dynamic-allocation"></a>Allocation dynamique
+
+Quand vous créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create), la méthode d’allocation des adresse IP publiques par défaut est dynamique. Dans l’exemple suivant, une machine virtuelle est créée avec une adresse IP dynamique. 
 
 ```azurecli
 az vm create \
   --resource-group myRGNetwork \
-  --name myFrontendVM \
+  --name myFrontEndVM \
+  --vnet-name myVnet \
+  --subnet mySubnetFrontEnd \
+  --nsg myNSGFrontEnd \
+  --public-ip-address myFrontEndIP \
   --image UbuntuLTS \
   --generate-ssh-keys
 ```
 
-Une fois la machine virtuelle créée, notez l’adresse IP publique. Cette adresse sera utilisée dans les étapes suivantes du didacticiel :
+### <a name="static-allocation"></a>Allocation statique
 
-```bash
-{
-  "fqdns": "",
-  "id": "/subscriptions/{id}/resourceGroups/myRGNetwork/providers/Microsoft.Compute/virtualMachines/myFrontendVM",
-  "location": "westus",
-  "macAddress": "00-0D-3A-23-9A-49",
-  "powerState": "VM running",
-  "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "40.68.254.142",
-  "resourceGroup": "myRGNetwork"
-}
-```
+Lors de la création d’une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create), incluez l’argument `--public-ip-address-allocation static` pour affecter une adresse IP publique. Cette opération n’est pas montrée dans ce didacticiel, mais dans la section suivante, une adresse IP dynamique est changée en adresse statique. 
 
-Les ressources réseau suivantes ont été créées :
+### <a name="change-allocation-method"></a>Changer la méthode d’allocation
 
-- **myFrontendVMNSG** : groupe de sécurité réseau qui sécurise le trafic entrant vers *myFrontendVM*.
-- **myVMPublicIP** : adresse IP publique qui offre un accès Internet à *myFrontendVM*.
-- **myVMVMNic** : interface réseau virtuelle qui fournit une connectivité réseau à *myFrontendVM*.
-- **myVMVNET** : réseau virtuel auquel *myFrontendVM* est connecté.
+La méthode d’allocation d’adresse IP peut être changée avec la commande [az network public-ip update](/cli/azure/network/public-ip#update). Dans cet exemple, la méthode de l’allocation de l’adresse IP de la machine virtuelle frontale est changée en statique.
 
-## <a name="install-web-server"></a>Installer le serveur web
-
-Créez une connexion SSH avec *myFrontendVM*. Remplacez l’exemple d’adresse IP par l’adresse IP publique de la machine virtuelle :
-
-```bash
-ssh 40.68.254.142
-```
-
-Exécutez les commandes suivantes pour installer NGINX :
-
-```bash
-sudo apt-get -y update && sudo apt-get -y install nginx
-```
-
-Fermez la session SSH :
-
-```bash
-exit
-```
-
-## <a name="manage-internet-traffic"></a>Gérer le trafic internet
-
-Un groupe de sécurité réseau contient une liste de règles de sécurité qui autorisent ou rejettent le trafic réseau vers les ressources connectées à un réseau virtuel. Les groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des cartes réseau distinctes qui sont attachées aux machines virtuelles. L’ouverture et la fermeture de l’accès aux machines virtuelles par le biais des ports s’effectuent à l’aide des règles de groupe de sécurité réseau. Quand vous avez créé *myFrontendVM*, le port d’entrée 22 a été automatiquement ouvert pour la connectivité SSH.
-
-Ouvrez le port 80 sur *myFrontendVM* avec [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port) :
+Désallouez d’abord la machine virtuelle.
 
 ```azurecli
-az vm open-port --resource-group myRGNetwork --name myFrontendVM --port 80
+az vm deallocate --resource-group myRGNetwork --name myFrontEndVM
 ```
 
-Vous pouvez maintenant accéder à l’adresse IP publique de la machine virtuelle pour afficher le site NGINX.
-
-![Site par défaut NGINX](./media/quick-create-cli/nginx.png)
-
-## <a name="manage-internal-traffic"></a>Gérer le trafic interne
-
-La communication interne des machines virtuelles peut également être configurée à l’aide d’un groupe de sécurité réseau. Dans cette section, vous allez apprendre à créer un sous-réseau supplémentaire dans le réseau et à affecter un groupe de sécurité réseau au sous-réseau pour autoriser une connexion de *myFrontendVM* vers *myBackendVM* sur le port 3306. Le sous-réseau est ensuite affecté à la machine virtuelle lors de sa création.
-
-Ajoutez un groupe de sécurité réseau nommé *myBackendNSG* avec la commande [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create). 
+Utilisez la commande [az network public-ip update](/azure/network/public-ip#update) pour mettre à jour la méthode d’allocation. Dans ce cas, la `--allocaion-metod` est définie sur *statique*.
 
 ```azurecli
-az network nsg create \
- --resource-group myRGNetwork \
- --name myBackendNSG
+az network public-ip update --resource-group myRGNetwork --name myFrontEndIP --allocation-method static
 ```
 
-Configurez un port pour permettre à *myFrontendVM* et *myBackendVM* de communiquer dans le réseau virtuel. Ajoutez une règle de groupe de sécurité réseau qui autorise le trafic vers *myBackendSubnet* uniquement à partir de *myVMSubnet* avec [az network rule create](/cli/azure/network/rule#create) :
+Démarrez la machine virtuelle.
 
 ```azurecli
-az network nsg rule create \
- --resource-group myRGNetwork \
- --nsg-name myBackendNSG \
- --name com-rule \
- --access Allow \
- --protocol Tcp \
- --direction Inbound \
- --priority 100 \
- --source-address-prefix 10.0.0.0/24 \
- --source-port-range "*" \
- --destination-address-prefix "*" \
- --destination-port-range 3306
+az vm start --resource-group myRGNetwork --name myFrontEndVM --no-wait
 ```
 
-## <a name="add-back-end-subnet"></a>Ajouter un sous-réseau principal
+### <a name="no-public-ip-address"></a>Pas d’adresse IP publique
 
-Un sous-réseau est une ressource enfant d’un réseau virtuel, et permet de définir des segments d’espaces d’adressage dans un bloc CIDR, à l’aide de préfixes d’adresses IP. Les cartes d’interface réseau (NIC) peuvent être ajoutées aux sous-réseaux et connectées aux machines virtuelles, ce qui fournit une connectivité pour différentes charges de travail.
+Souvent, une machine virtuelle ne doit pas être accessible sur Internet. Pour créer une machine virtuelle sans adresse IP publique, utilisez l’argument `--public-ip-address ""` avec une paire de guillemets doubles vide. Cette configuration est montrée plus loin dans ce didacticiel.
 
-Ajoutez *myBackEndSubnet* à *myFrontendVMVNet* avec [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#create) :
+## <a name="secure-network-traffic"></a>sécurisent le trafic réseau
+
+Un groupe de sécurité réseau (NSG) contient une liste de règles de sécurité qui autorisent ou rejettent le trafic réseau vers les ressources connectées aux réseaux virtuels Azure (VNet). Les groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des interfaces réseau individuelles. Quand un groupe de sécurité réseau est associé à une interface réseau, il s’applique seulement à la machine virtuelle associée. Lorsqu’un NSG est associé à un sous-réseau, les règles s’appliquent à toutes les ressources connectées au sous-réseau. 
+
+### <a name="network-security-group-rules"></a>Règles de groupe de sécurité réseau
+
+Les règles de groupe de sécurité réseau définissent les ports réseau sur lesquels le trafic est autorisé ou refusé. Les règles peuvent comprendre des plages d’adresses IP sources et de destination, de façon à ce que le trafic soit contrôlé entre des systèmes ou des sous-réseaux spécifiques. Les règles de groupe de sécurité réseau ont également une priorité (entre 1 et 4 096). Les règles sont évaluées dans l’ordre des priorités. Une règle avec une priorité de 100 est évaluée avant une règle avec une priorité de 200.
+
+Tous les groupes de ressources réseau contiennent un ensemble de règles par défaut. Les règles par défaut ne peuvent pas être supprimées, mais comme la priorité la plus basse leur est attribuée, elles peuvent être remplacées par les règles que vous créez.
+
+- **Réseau virtuel** : le trafic en provenance et à destination d’un réseau virtuel est autorisé à la fois dans les directions entrante et sortante.
+- **Internet** : le trafic sortant est autorisé, mais le trafic entrant est bloqué.
+- **Équilibreur de charge** : autoriser l’équilibreur de charge d’Azure à tester l’intégrité de vos machines virtuelles et des instances de rôle. Si vous n’utilisez pas un groupe à charge équilibrée, vous pouvez remplacer cette règle.
+
+### <a name="create-network-security-groups"></a>Créer des groupes de sécurité réseau
+
+Un groupe de sécurité réseau peut être créé en même temps qu’une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create). Dans ce cas, le groupe de sécurité réseau est associé à l’interface réseau des machines virtuelles et une règle de groupe de sécurité réseau est créée automatiquement pour autoriser le trafic sur le port *22* depuis n’importe quelle destination. Plus tôt dans ce didacticiel, le groupe de sécurité réseau frontal a été créé automatiquement avec la machine virtuelle frontale. Une règle de groupe de sécurité réseau a également été créée automatiquement pour le port 22. 
+
+Dans certains cas, il peut être utile de créer au préalable un groupe de sécurité réseau, par exemple quand des règles SSH par défaut ne doivent pas être créées ou quand le groupe de sécurité réseau doit être attaché à un sous-réseau. 
+
+Utilisez la commande [az network nsg create](/cli/azure/network/nsg#create) pour créer un groupe de sécurité réseau.
 
 ```azurecli
-az network vnet subnet create \
- --address-prefix 10.0.1.0/24 \
- --name myBackendSubnet \
- --resource-group myRGNetwork \
- --vnet-name myFrontendVMVNET \
- --network-security-group myBackendNSG
+az network nsg create --resource-group myRGNetwork --name myNSGBackEnd
 ```
 
-## <a name="create-back-end-vm"></a>Créer une machine virtuelle principale
+Au lieu que le groupe de sécurité réseau soit associé à une interface réseau, il est associé à un sous-réseau. Dans cette configuration, toute machine virtuelle qui est attachée au sous-réseau hérite des règles du groupe de sécurité réseau.
 
-Créez *myBackendVM* à l’aide de *myBackendSubnet* avec [az vm create](/cli/azure/vm#create) :
+Mettez à jour le sous-réseau existant nommé *mySubnetBackEnd* avec le nouveau groupe de sécurité réseau.
+
+```azurecli
+az network vnet subnet update \
+  --resource-group myRGNetwork \
+  --vnet-name myVnet \
+  --name mySubnetBackEnd \
+  --network-security-group myNSGBackEnd
+```
+
+Créez maintenant une machine virtuelle attachée à *mySubnetBackEnd*. Notez que l’argument `--nsg` a comme valeur une paire de guillemets doubles vide. Vous n’avez pas besoin de créer un groupe de sécurité réseau avec la machine virtuelle. La machine virtuelle est attachée au sous-réseau principal, qui est protégé par le groupe de sécurité réseau principal créé au préalable. Ce groupe de sécurité réseau s’applique à la machine virtuelle. Notez aussi que l’argument `--public-ip-address` a comme valeur une paire de guillemets doubles vide. Cette configuration crée une machine virtuelle sans adresse IP publique. 
 
 ```azurecli
 az vm create \
   --resource-group myRGNetwork \
-  --name myBackendVM \
+  --name myBackEndVM \
+  --vnet-name myVnet \
+  --subnet mySubnetBackEnd \
+  --public-ip-address "" \
+  --nsg "" \
   --image UbuntuLTS \
-  --generate-ssh-keys \
-  --subnet myBackendSubnet \
-  --vnet-name myFrontendVMVNET \
-  --public-ip-address ""
-
+  --generate-ssh-keys
 ```
 
-## <a name="install-database"></a>Installer la base de données
+### <a name="secure-incoming-traffic"></a>Sécuriser le trafic entrant
 
-Pour ce tutoriel, vous devez copier la clé privée à partir de votre machine virtuelle de développement vers *myFrontendVM*. Dans un environnement de production, il est recommandé de créer des clés spécifiques à utiliser sur les machines virtuelles plutôt que d’utiliser --generate-ssh-keys lorsque vous créez les machines virtuelles. 
+Quand la machine virtuelle frontale a été créée, une règle de groupe de sécurité réseau a été créée pour autoriser le trafic entrant sur le port 22. Cette règle autorise les connexions SSH à la machine virtuelle. Pour cet exemple, le trafic doit également être autorisé sur le port *80*. Cette configuration rend accessible une application web sur la machine virtuelle.
 
-La machine virtuelle principale n’est pas censée être accessible publiquement. Dans cette section, vous allez apprendre à utiliser SSH pour vous connecter à *myFrontendVM*, puis à utiliser SSH pour vous connecter à *myBackendVM* à partir de *myFrontendVM*.
+Utilisez la commande [az network nsg rule create](/cli/azure/network/nsg/rule#create) pour créer une règle pour le port *80*.
 
-Remplacez l’exemple d’adresse IP par l’adresse IP publique de *myFrontendVM* :
-
-```bash
-scp ~/.ssh/id_rsa 40.68.254.142:~/.ssh/id_rsa
+```azurecli
+az network nsg rule create \
+  --resource-group myRGNetwork \
+  --nsg-name myNSGFrontEnd \
+  --name http \
+  --access allow \
+  --protocol Tcp \
+  --direction Inbound \
+  --priority 200 \
+  --source-address-prefix "*" \
+  --source-port-range "*" \
+  --destination-address-prefix "*" \
+  --destination-port-range 80
 ```
 
-Créez une connexion SSH avec *myFrontendVM*. Remplacez l’exemple d’adresse IP par l’adresse IP publique de *myFrontendVM* :
+La machine virtuelle frontale est maintenant accessible seulement sur le port *22* et sur le port *80*. Tout le trafic entrant est bloqué au niveau du groupe de sécurité réseau. Il peut être utile de visualiser les configurations des règles du groupe de sécurité réseau. Vous pouvez obtenir la configuration des règles de groupe de sécurité réseau avec la commande [az network rule list](/cli/azure/network/nsg/rule#list). 
 
-```bash
-ssh 40.68.254.142
+```azurecli
+az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGFrontEnd --output table
 ```
 
-À partir de *myFrontendVM*, connectez-vous à *myBackendVM* :
+Output:
 
-```bash
-ssh myBackendVM
+```azurecli
+Access    DestinationAddressPrefix      DestinationPortRange  Direction    Name                 Priority  Protocol    ProvisioningState    ResourceGroup    SourceAddressPrefix    SourcePortRange
+--------  --------------------------  ----------------------  -----------  -----------------  ----------  ----------  -------------------  ---------------  ---------------------  -----------------
+Allow     *                                               22  Inbound      default-allow-ssh        1000  Tcp         Succeeded            myRGNetwork      *                      *
+Allow     *                                               80  Inbound      http                      200  Tcp         Succeeded            myRGNetwork      *                      *
 ```
 
-Exécutez la commande suivante pour installer MySQL :
+### <a name="secure-vm-to-vm-traffic"></a>Sécuriser le trafic entre machines virtuelles
 
-```bash
-sudo apt-get -y install mysql-server
+Les règles de groupe de sécurité réseau peuvent également s’appliquer entre les machines virtuelles. Pour cet exemple, la machine virtuelle frontale doit communiquer avec la machine virtuelle principale sur les ports *22* et *3306*. Cette configuration autorise les connexions SSH à partir de la machine virtuelle frontale et permet aussi à une application sur la machine virtuelle frontale de communiquer avec une base de données MySQL principale. Tout autre trafic doit être bloqué entre la machine virtuelle frontale et la machine virtuelle principale.
+
+Utilisez la commande [az network nsg rule create](/cli/azure/network/nsg/rule#create) pour créer une règle pour le port 22. Notez que l’argument `--source-address-prefix` spécifie la valeur *10.0.1.0/24*. Cette configuration garantit que seul le trafic provenant du sous-réseau frontal est autorisé à travers le groupe de sécurité réseau.
+
+```azurecli
+az network nsg rule create \
+  --resource-group myRGNetwork \
+  --nsg-name myNSGBackEnd \
+  --name SSH \
+  --access Allow \
+  --protocol Tcp \
+  --direction Inbound \
+  --priority 100 \
+  --source-address-prefix 10.0.1.0/24 \
+  --source-port-range "*" \
+  --destination-address-prefix "*" \
+  --destination-port-range "22"
 ```
 
-Suivez les instructions de configuration de MySQL.
+Ajoutez maintenant une règle pour le trafic MySQL sur le port 3306.
 
-Fermez les sessions SSH :
-
-```bash
-exit
+```azurecli
+az network nsg rule create \
+  --resource-group myRGNetwork \
+  --nsg-name myNSGBackEnd \
+  --name MySQL \
+  --access Allow \
+  --protocol Tcp \
+  --direction Inbound \
+  --priority 200 \
+  --source-address-prefix 10.0.1.0/24 \
+  --source-port-range "*" \
+  --destination-address-prefix "*" \
+  --destination-port-range "3306"
 ```
 
-L’installation de MySQL montre comment une application peut être installée sur *myBackendVM*, mais MySQL n’est pas utilisé dans ce tutoriel.
+Enfin, comme les groupes de sécurité réseau ont une règle par défaut qui autorise tout le trafic entre les machines virtuelles d’un même réseau virtuel, vous pouvez créer une règle pour que les groupes de sécurité réseau principaux bloquent tout le trafic. Notez ici que `--priority` a la valeur *300*, qui est inférieure à la règle du groupe de sécurité réseau et à la règle MySQL. Cette configuration garantit que le trafic SSH et MySQL est toujours autorisé à travers le groupe de sécurité réseau.
+
+```azurecli
+az network nsg rule create \
+  --resource-group myRGNetwork \
+  --nsg-name myNSGBackEnd \
+  --name denyAll \
+  --access Deny \
+  --protocol Tcp \
+  --direction Inbound \
+  --priority 300 \
+  --source-address-prefix "*" \
+  --source-port-range "*" \
+  --destination-address-prefix "*" \
+  --destination-port-range "*"
+```
+
+La machine virtuelle principale est maintenant accessible seulement sur le port *22* et sur le port *3306* à partir du sous réseau frontal. Tout le trafic entrant est bloqué au niveau du groupe de sécurité réseau. Il peut être utile de visualiser les configurations des règles du groupe de sécurité réseau. Vous pouvez obtenir la configuration des règles de groupe de sécurité réseau avec la commande [az network rule list](/cli/azure/network/nsg/rule#list). 
+
+```azurecli
+az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGBackEnd --output table
+```
+
+Output:
+
+```azurecli
+Access    DestinationAddressPrefix    DestinationPortRange    Direction    Name       Priority  Protocol    ProvisioningState    ResourceGroup    SourceAddressPrefix    SourcePortRange
+--------  --------------------------  ----------------------  -----------  -------  ----------  ----------  -------------------  ---------------  ---------------------  -----------------
+Allow     *                           22                      Inbound      SSH             100  Tcp         Succeeded            myRGNetwork      10.0.1.0/24            *
+Allow     *                           3306                    Inbound      MySQL           200  Tcp         Succeeded            myRGNetwork      10.0.1.0/24            *
+Deny      *                           *                       Inbound      denyAll         300  Tcp         Succeeded            myRGNetwork      *                      *
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à créer et à sécuriser des réseaux Azure en rapport avec des machines virtuelles. Passez au tutoriel suivant pour apprendre à surveiller la sécurité des machines virtuelles avec Azure Security Center.
+Dans ce tutoriel, vous avez créé et sécurisé des réseaux Azure concernant les machines virtuelles. Vous avez appris à effectuer les actions suivantes :
 
-[Gérer la sécurité des machines virtuelles](./tutorial-azure-security.md)
+> [!div class="checklist"]
+> * Déployer un réseau virtuel
+> * Créer un sous-réseau dans un réseau virtuel
+> * Attacher des machines virtuelles à un sous-réseau
+> * Gérer les adresses IP publiques des machines virtuelles
+> * Sécuriser le trafic internet entrant
+> * Sécuriser le trafic entre machines virtuelles
+
+Passez au didacticiel suivant pour découvrir comment sécuriser les données sur des machines virtuelles avec Sauvegarde Azure. 
+
+> [!div class="nextstepaction"]
+> [Sauvegarder des machines virtuelles Linux dans Azure](./tutorial-backup-vms.md)

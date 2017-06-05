@@ -16,10 +16,10 @@ ms.date: 04/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b600b7d67de24eab5395f085a2a424159b14ff28
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a0a3b7ad7757439b5f73c38e759761f671ca2e17
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Rôles intégrés pour contrôle d’accès en fonction du rôle Azure
@@ -55,7 +55,7 @@ Cet article traite uniquement des différents rôles qui existent aujourd’hui.
 | [Collaborateurs de fabrique de données](#data-factory-contributor) |Créer et gérer des fabriques de données ainsi que leurs ressources enfants |
 | [Utilisateur de DevTest Labs](#devtest-labs-user) |Afficher tout et connecter, démarrer, redémarrer et arrêter les machines virtuelles |
 | [Contributeur de Zone DNS](#dns-zone-contributor) |Peut gérer des enregistrements et zones DNS |
-| [Collaborateur de compte DocumentDB](#documentdb-account-contributor) |Peut gérer les comptes DocumentDB |
+| [Contributeur de compte Azure Cosmos DB](#documentdb-account-contributor) |Peut gérer des comptes Azure Cosmos DB |
 | [Collaborateur de compte Intelligent Systems](#intelligent-systems-account-contributor) |Gérer les comptes Intelligent Systems |
 | [Lecteur de surveillance](#monitoring-reader) |Peut lire toutes les données de surveillance |
 | [Contributeur de surveillance](#monitoring-contributor) |Peut lire les données de surveillance et modifier les paramètres de surveillance |
@@ -365,8 +365,8 @@ Peut gérer des enregistrements et zones DNS
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lire les groupes de ressources |
 | Microsoft.Support/\* |Créer et gérer les tickets de support |
 
-### <a name="documentdb-account-contributor"></a>Collaborateur de compte DocumentDB
-Peut gérer les comptes DocumentDB
+### <a name="azure-cosmos-db-account-contributor"></a>Contributeur de compte Azure Cosmos DB
+Peut gérer des comptes Azure Cosmos DB
 
 | **Actions** |  |
 | --- | --- |

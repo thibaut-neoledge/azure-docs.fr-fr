@@ -1,6 +1,6 @@
 ---
-title: "Conversion de données sur une passerelle IoT avec le kit de développement logiciel (SDK) Gateway Azure IoT | Microsoft Docs"
-description: "Utilisez la passerelle IoT pour convertir le format des données de capteur via un module personnalisé dans le kit de développement logiciel (SDK) de la passerelle Azure IoT."
+title: "Conversion de données sur une passerelle IoT avec Azure IoT Edge | Documents Microsoft"
+description: "Utilisez une passerelle IoT pour convertir le format des données de capteur via un module personnalisé issu d’Azure IoT Edge."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,21 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d7897f1a7eee5fbb04cf43da0d0156a6b8fb11f6
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7bf9e64db91cb0fec37ff242bea94dbbd0833054
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-gateway-sdk"></a>Utilisation de la passerelle IoT pour la transformation de données de capteur avec le kit de développement logiciel (SDK) de la passerelle Azure IoT
+# <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>Utiliser une passerelle IoT pour la transformation des données de capteur avec Azure IoT Edge
 
 > [!NOTE]
 > Avant de commencer ce didacticiel, assurez-vous que vous avez suivi les leçons suivantes dans l’ordre :
 > * [Configurer Intel NUC comme passerelle IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 > * [Utilisation de la passerelle IoT pour connecter des objets au cloud - SensorTag pour Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
-Un des objectifs d’une passerelle IoT consiste à traiter les données collectées avant leur envoi vers le cloud. Le kit de développement logiciel (SDK) de la passerelle Azure IoT introduit des modules qui peuvent être créés et assemblés pour former le flux de travail de traitement de données. Un module reçoit un message, exécute une action sur celui-ci, puis le déplace sur d'autres modules pour un traitement ultérieur.
+Un des objectifs d’une passerelle IoT consiste à traiter les données collectées avant leur envoi vers le cloud. Azure IoT Edge introduit des modules qui peuvent être créés et assemblés pour former le flux de travail de traitement de données. Un module reçoit un message, exécute une action sur celui-ci, puis le déplace sur d'autres modules pour un traitement ultérieur.
 
 ## <a name="what-you-learn"></a>Contenu
 
@@ -39,7 +40,7 @@ Vous apprenez à créer un module pour convertir les messages de SensorTag en un
 
 * Créez un module pour convertir un message reçu au format .json.
 * Compilez le module.
-* Ajoutez le module à l’exemple d’application BLE à partir du SDK Gateway Azure IoT.
+* Ajoutez le module à l’exemple d’application BLE à partir de Azure IoT Edge.
 * Exécutez l'exemple d'application.
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
@@ -61,7 +62,7 @@ Vous apprenez à créer un module pour convertir les messages de SensorTag en un
    git clone https://github.com/Azure-Samples/iot-hub-c-intel-nuc-gateway-customized-module.git
    ```
 
-   Il s’agit d’un module natif du kit de développement logiciel (SDK) pour Azure Gateway écrit dans le langage de programmation C. Le module convertit le format des messages reçus dans celui qui suit :
+   Il s’agit d’un module Azure Edge écrit dans le langage de programmation C. Le module convertit le format des messages reçus dans celui qui suit :
 
    ```json
    {"deviceId": "Intel NUC Gateway", "messageId": 0, "temperature": 0.0}

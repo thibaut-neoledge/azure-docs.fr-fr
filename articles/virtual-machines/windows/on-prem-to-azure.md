@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 9da3cf830857211fe414f55e250e222b9d17438b
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 098904d8b5262d8a19d1c10003e0bcaa668ef2dc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -42,7 +43,7 @@ Vous pouvez charger des disques durs virtuels généralisés et spécialisés.
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Vous avez une instance AWS EC2 existante que vous voulez migrer vers Azure Managed Disks                                     | [Migrer d’Amazon Web Services (AWS) vers Azure Managed Disks](aws-to-azure.md)                           |
 | Vous avez une machine virtuelle sur une autre plateforme de virtualisation que vous aimeriez utiliser en tant qu’image pour créer plusieurs machines virtuelles Azure. | [Charger un disque dur virtuel généralisé dans Azure et créer une machine virtuelle à l’aide de Managed Disks](upload-generalized-managed.md) |
-| Vous avez une machine virtuelle unique personnalisée que vous souhaitez recréer dans Azure.                                                      | [Charger un disque dur virtuel spécialisé dans Azure et créer une machine virtuelle à l’aide de Managed Disks](upload-specialized.md)         |
+| Vous avez une machine virtuelle unique personnalisée que vous souhaitez recréer dans Azure.                                                      | [Charger un disque dur virtuel spécialisé dans Azure et créer une machine virtuelle à l’aide de Managed Disks](create-vm-specialized.md)         |
 
 
 ## <a name="overview-of-managed-disks"></a>Vue d’ensemble des disques gérés

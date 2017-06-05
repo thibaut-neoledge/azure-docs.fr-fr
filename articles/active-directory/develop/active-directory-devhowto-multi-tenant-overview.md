@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2017
 ms.author: skwan;bryanla
+ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 4b44b83d22c0d10466198df5cb3e820323fdba39
@@ -27,7 +28,7 @@ Si vous proposez une application SaaS (Software as a Service) à de nombreuses o
 
 Si vous avez une application existante qui possède son propre système de compte, ou prend en charge d’autres types de connexion auprès d’autres fournisseurs cloud, l’ajout de la connexion Azure AD à partir de n’importe quel client est simple. Inscrivez simplement votre application, ajoutez le code de connexion via OAuth2, OpenID Connect ou SAML, et placez un bouton « Se connecter avec Microsoft » dans votre application. Cliquez sur le bouton suivant pour en savoir plus sur la personnalisation de votre application.
 
-[![Bouton d’inscription][Connexion à AAD]][AAD-App-Branding]
+[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
 
 Cet article suppose que vous êtes déjà familiarisé avec la création d’une application à client unique pour Azure AD.  Si ce n’est pas le cas, retournez à la [page d’accueil du guide du développeur][AAD-Dev-Guide] et testez l’un de nos démarrages rapides !
 
@@ -62,7 +63,7 @@ La réponse de connexion envoyée à l’application contient un jeton représen
 
 Comme mentionné précédemment, les applications mutualisées doivent également fournir une expérience de connexion cohérente aux utilisateurs en suivant les directives de personnalisation des applications Azure Active Directory. Cliquez sur le bouton suivant pour en savoir plus sur la personnalisation de votre application.
 
-[![Bouton d’inscription][Connexion à AAD]][AAD-App-Branding]
+[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
 
 Intéressons-nous désormais de plus près à l’utilisation du point de terminaison /common et à l’implémentation de votre code.
 

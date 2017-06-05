@@ -11,26 +11,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: e1c65060c2862736c76b36676f95a88d8dbab4c6
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 39049c7a1e2a4d61ef62bd06cda9ef1bb2c50c0b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/05/2017
 
 ---
 
-# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups---public-preview"></a>Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs - Version préliminaire publique
+# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs
 > [!div class="op_single_selector"]
-> * [portail Azure](active-directory-application-proxy-connectors-azure-portal.md)
+> * [Portail Azure](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Portail Azure Classic](active-directory-application-proxy-connectors.md)
 >
 
 ## <a name="azure-ad-application-proxy-and-connector-groups"></a>Proxy d’application Azure AD et groupes de connecteurs
 
-Les clients utilisent le proxy d’application Azure AD pour obtenir toujours plus de scénarios et d’applications. C’est pourquoi nous avons rendu le proxy d’application encore plus flexible en activant davantage de topologies. Vous pouvez créer des groupes de connecteurs Proxy d’application, une nouvelle fonctionnalité permettant d’attribuer des connecteurs spécifiques pour servir des applications spécifiques. Cette fonctionnalité génère de nombreux cas d’utilisation qui n’étaient pas possibles auparavant pour le proxy d’application. Pendant la phase de la version préliminaire privée, nous avons observé que de grandes entreprises activaient des groupes de connecteurs pour améliorer leurs déploiements de proxy d’application en direct. 
+Les clients utilisent le proxy d’application Azure AD pour obtenir toujours plus de scénarios et d’applications. C’est pourquoi nous avons rendu le proxy d’application encore plus flexible en activant davantage de topologies. Vous pouvez créer des groupes de connecteurs Proxy d’application, une nouvelle fonctionnalité permettant d’attribuer des connecteurs spécifiques pour servir des applications spécifiques. Cette fonctionnalité génère de nombreux cas d’utilisation qui n’étaient pas possibles auparavant pour le proxy d’application. 
 
 Le concept de base est que chaque connecteur de proxy d’application est attribué à un groupe de connecteurs. Tous les connecteurs qui appartiennent au même groupe de connecteurs agissent comme un groupe distinct pour la haute disponibilité et l’équilibrage de charge. Tous les connecteurs appartiennent à un groupe par défaut. L’administrateur peut créer des groupes et modifier ces affectations dans le portail Azure. 
 

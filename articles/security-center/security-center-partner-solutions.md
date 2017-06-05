@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 05/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
-ms.openlocfilehash: 2d7ab8fbed1d4edb60416c7c6b7ae08ddbdec91a
-ms.lasthandoff: 02/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5ffc3253cf07018ad6fe9f0112c75c2e1495e5df
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,33 +35,30 @@ La mosaïque **Solutions de partenaire** du panneau **Security Center** vous per
 
 ![Mosaïque Solutions de partenaire][1]
 
-La mosaïque **Solutions de partenaire** affiche le nombre de solutions de partenaire et un récapitulatif de l’état de ces solutions.
-
-L’ **ÉTAT** d’une solution de partenaire peut être :
-
-* Protégé (vert) : aucun problème d’intégrité.
-* Défectueux (rouge) : problème d’intégrité nécessitant une action immédiate.
-* Arrêté (orange) : état d’intégrité non signalé par la solution.
-* Inconnu (orange) : intégrité de la solution inconnue pour l’instant en raison d’un échec de l’ajout d’une nouvelle ressource à la solution existante.
-* Non signalé (gris) : état non encore signalé par la solution (ce qui peut être le cas si celle-ci vient d’être connectée et est en cours de déploiement).
-
-Si aucune solution n’est intégrée à votre abonnement, la mosaïque indique qu’il n’y a aucune solution. Le fait de sélectionner la mosaïque **Solutions de partenaire** vous permet d’ouvrir le panneau **Recommandations** pour déployer des solutions de sécurité de partenaire.
-
-![Aucune solution de partenaire][2]
+La mosaïque **Solutions de partenaires** affiche le nombre de solutions de partenaires intégrées à votre abonnement. Si votre abonnement ne comporte aucune solution intégrée, la mosaïque indique zéro.
 
 Pour afficher l’intégrité de vos solutions de partenaire :
 
-1. Sélectionnez la vignette **Solutions de partenaires** . Un panneau vous présente la liste de vos solutions de partenaires connectées au Centre de sécurité.
+1. Sélectionnez la vignette **Solutions de partenaires** . Le panneau **Solutions de partenaires** vous présente la liste de vos solutions de partenaires connectées au Centre de sécurité.
 
    ![Solutions de partenaires][3]
-2. Sélectionnez une solution de partenaire. Dans cet exemple, sélectionnons la solution **F5-WAF2** .  Un panneau s'ouvre et affiche l'état de la solution partenaire et des ressources associées à cette solution. Sélectionnez **Console de solution** afin d’ouvrir l’expérience de gestion du partenaire pour cette solution.
+
+   L’état d’une solution de partenaire peut être :
+
+   * Protégé (vert) : aucun problème d’intégrité.
+   * Défectueux (rouge) : problème d’intégrité nécessitant une action immédiate.
+   * Arrêté (orange) : état d’intégrité non signalé par la solution.
+   * Inconnu (orange) : intégrité de la solution inconnue pour l’instant en raison d’un échec de l’ajout d’une nouvelle ressource à la solution existante.
+   * Non signalé (gris) : état non encore signalé par la solution (ce qui peut être le cas si celle-ci vient d’être connectée et est en cours de déploiement).
+
+2. Sélectionnez une solution de partenaire. Dans cet exemple, sélectionnons la solution **Qualys**.  Un panneau s'ouvre et affiche l'état de la solution partenaire et des ressources associées à cette solution. Sélectionnez **Console de solution** afin d’ouvrir l’expérience de gestion du partenaire pour cette solution.
 
    ![Détail de la solution partenaire][4]
-3. Revenez au panneau **F5-WAF2** et sélectionnez **Associer**. Le panneau **Associer les applications** s’ouvre. Il vous permet de connecter des ressources à la solution de partenaire.
+3. Revenez au panneau **Qualys** et sélectionnez **Associer la machine virtuelle**. Le panneau **Associer les applications** s’ouvre. Il vous permet de connecter des ressources à la solution de partenaire.
 
    ![Associer des ressources à la solution de partenaire][5]
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a présenté la mosaïque **Solutions de partenaire** du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
@@ -72,7 +70,6 @@ Ce document vous a présenté la mosaïque **Solutions de partenaire** du Centre
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png
-[2]: ./media/security-center-partner-solutions/no-partner-solutions-to-display.png
 [3]: ./media/security-center-partner-solutions/partner-solutions.png
 [4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
 [5]: ./media/security-center-partner-solutions/link-applications.png

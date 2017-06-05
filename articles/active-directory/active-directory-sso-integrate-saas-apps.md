@@ -1,4 +1,5 @@
 ---
+
 title: "Intégrer l’authentification unique Azure Active Directory aux applications SaaS | Microsoft Docs"
 description: "Activer l&quot;authentification unique, l&quot;approvisionnement de l&quot;utilisateur et la gestion centralisée de l&quot;accès aux applications SaaS dans Azure Active Directory Vue d’ensemble de l’intégration d’Azure Active Directory dans des applications SaaS."
 services: active-directory
@@ -13,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: a451ab54144222676e8063b764a6d22f44a690d7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -61,7 +64,7 @@ Pour plus d'informations sur le mappage d'identités d'application sur des ident
 ### <a name="understanding-the-users-log-in-experience"></a>Comprendre l’expérience de connexion de l'utilisateur
 Lorsque vous intégrez l'authentification unique pour une application en cours d'utilisation, il est important de savoir que l'expérience utilisateur en sera affectée. Pour toutes les applications, les utilisateurs commenceront à se servir de leurs informations d'identification Azure AD pour se connecter. Il se peut également qu’ils doivent utiliser un autre portail pour accéder aux applications.
 
-L'authentification unique pour certaines applications peut être effectuée sur l'interface de connexion de l'application. Mais, pour d’autres applications, l'utilisateur doit passer par un portail central (comme [Mes applications](http://myapps.microsoft.com) ou [Office&365;](http://portal.office.com/myapps)) pour se connecter. Pour en savoir plus sur les différents types d'authentification unique et leurs expériences utilisateur, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+L'authentification unique pour certaines applications peut être effectuée sur l'interface de connexion de l'application. Mais, pour d’autres applications, l'utilisateur doit passer par un portail central (comme [Mes applications](http://myapps.microsoft.com) ou [Office 365](http://portal.office.com/myapps)) pour se connecter. Pour en savoir plus sur les différents types d'authentification unique et leurs expériences utilisateur, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 En outre, la section *Suppression du consentement de l'utilisateur* de l’article [Guide pour les développeurs](active-directory-applications-guiding-developers-for-lob-applications.md) constitue une source d'informations précieuse.
 
@@ -70,13 +73,7 @@ Pour les applications SaaS figurant dans la galerie d’applications, Azure AD f
 
 Si l’application n’apparaît pas dans la galerie d’applications, vous pouvez [l’ajouter à la galerie d’applications Azure AD comme application personnalisée](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-Vous trouverez des informations beaucoup plus détaillées sur tous ces problèmes dans la bibliothèque Azure.com, en commençant par la rubrique [Qu'est-ce que l'accès aux applications et l'authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
+Vous trouverez des informations beaucoup plus détaillées sur tous ces problèmes dans la bibliothèque Azure.com, en commençant par la rubrique [Accès aux applications et authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="next-steps"></a>Étapes suivantes
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Consultez aussi l’[Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md).
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 4ef0118435020edc3a922c88a5a55400992cbc09
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 366c2c43ec50b0b6c47a25ea9b0e9d7109827429
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -66,7 +67,7 @@ Le [compte](#active-directory-account) destiné à la lecture et à l’écritur
 | Réinitialiser le mot de passe |Préparation pour l’activation de l’écriture différée du mot de passe |
 
 ## <a name="custom-settings-installation"></a>Installation à l’aide des paramètres personnalisés
-Quand vous recourez à des paramètres personnalisés, le compte utilisé pour la connexion à Active Directory doit être créé avant l’installation. Les autorisations que vous devez accorder à ce compte se trouvent sous [Créer le compte AD DS](#create-the-ad-ds-account).
+Précédemment, quand vous recourriez à des paramètres personnalisés, le compte utilisé pour la connexion à Active Directory devait être créé avant l’installation. Les autorisations que vous devez accorder à ce compte se trouvent sous [Créer le compte AD DS](#create-the-ad-ds-account). Avec Azure AD Connect version 1.1.524.0 et ultérieure, vous pouvez laisser l’Assistant Azure AD Connect créer le compte.
 
 | Page de l’Assistant | Informations d’identification collectées | Autorisations requises | Utilisation |
 | --- | --- | --- | --- |
@@ -86,9 +87,11 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 
 | Fonctionnalité | Autorisations |
 | --- | --- |
+| Fonctionnalité msDS-ConsistencyGuid |Autorisations en écriture sur l’attribut msDS-ConsistencyGuid documentées dans [Principes de conception Azure AD Connect - Utilisation de msDS-ConsistencyGuid en tant que sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
 | Synchronisation de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
 | Déploiement Exchange hybride |Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
-| Écriture différée du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) pour les utilisateurs. |
+| Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
+| Écriture différée du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../active-directory-passwords.md) pour les utilisateurs. |
 | Écriture différée des appareils |Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md). |
 | Écriture différée de groupe |Lire, créer, mettre à jour et supprimer des objets de groupe dans l’unité d’organisation où les groupes de distributions doivent se trouver. |
 
@@ -179,11 +182,13 @@ Un compte dans Azure AD est créé en vue de son utilisation par le service de s
 
 ![Compte AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 
-Le nom du serveur sur lequel le compte est utilisé peut être identifié dans la deuxième partie du nom d’utilisateur. Sur l’image, le nom du serveur est FABRIKAMCON. Si vous disposez de serveurs intermédiaires, chaque serveur a son propre compte. Il existe une limite de 10 comptes de service de synchronisation dans Azure AD.
+Le nom du serveur sur lequel le compte est utilisé peut être identifié dans la deuxième partie du nom d’utilisateur. Sur l’image, le nom du serveur est FABRIKAMCON. Si vous disposez de serveurs intermédiaires, chaque serveur a son propre compte.
 
 Le compte de service est créé avec un mot de passe long et complexe qui n’expire pas. Il se voit octroyer le rôle de **Compte de synchronisation de répertoires**. À ce titre, il est uniquement autorisé à effectuer des tâches de synchronisation de répertoires. Ce rôle intégré spécial ne peut pas être accordé en dehors de l’Assistant Azure AD Connect, et le portail Azure affiche ce compte avec le rôle **Utilisateur**.
 
-![Rôle de compte AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
+Il existe une limite de 20 comptes de service de synchronisation dans Azure AD. Pour obtenir la liste des comptes de service Azure AD existants dans Azure AD, exécutez l’applet de commande Azure AD PowerShell suivante : `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+
+Pour supprimer des comptes de service AD Azure inutilisés, exécutez l’applet de commande Azure AD PowerShell suivante :`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](../active-directory-aadconnect.md).

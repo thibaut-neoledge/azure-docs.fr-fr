@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fba7f5f33d1a0d39219a6790e1d5c6b4515b794c
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 29e8639a6f1f0c2733d24dda78975ea7cfb6107a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -107,7 +108,7 @@ La fonctionnalité de gestion des appareils de IoT Hub vous permet de gérer les
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Cette solution préconfigurée utilise trois travaux [Azure Stream Analytics][lnk-asa] (ASA) pour filtrer le flux de télémétrie des appareils :
 
-* *Tâche DeviceInfo* : envoie des données à un Event Hub qui achemine les messages relatifs à l’inscription de l’appareil dans le registre d’appareils de la solution (une base de données DocumentDB). Ce message est envoyé lorsqu’un appareil se connecte d’abord ou en réponse à une commande **Modifier l’état de l’appareil**.
+* *Tâche DeviceInfo* : envoie des données à un concentrateur d’événements qui achemine les messages relatifs à l’inscription de l’appareil dans le registre d’appareils de la solution (une base de données Azure Cosmos DB). Ce message est envoyé lorsqu’un appareil se connecte d’abord ou en réponse à une commande **Modifier l’état de l’appareil**.
 * *Tâche Telemetry* : envoie toutes les données de télémétrie brutes vers Azure Blob Storage pour un stockage à froid et calcule les données de télémétrie agrégées qui s’affichent dans le tableau de bord de la solution.
 * *Tâche Rules* : filtre le flux de télémétrie sur les valeurs qui dépassent les seuils de la règle et envoie les données vers un hub d’événements. Lorsqu’une règle se déclenche, la vue du tableau de bord du portail de la solution affiche cet événement sous la forme d’une nouvelle ligne dans la table d’historique des alarmes. Ces règles peuvent également déclencher une action basée sur les paramètres définis dans les vues **Règles** et **Actions** dans le portail de la solution.
 
@@ -117,10 +118,10 @@ Dans cette solution préconfigurée, les tâches ASA font partie du **serveur pr
 Dans cette solution préconfigurée, le processeur d’événements fait partie du **serveur principal de solution IoT** dans une [architecture de solution IoT][lnk-what-is-azure-iot] standard.
 
 Les tâches ASA **DeviceInfo** et **Rules** envoient leur sortie vers des Event hubs pour une transmission à d’autres services principaux. La solution utilise une instance [EventPocessorHost][lnk-event-processor], qui s’exécute dans une [tâche web][lnk-web-job], pour lire les messages à partir de ces Event hubs. L’événement **EventProcessorHost** utilise :
-- Les données **DeviceInfo** pour mettre à jour les données de l’appareil dans la base de données DocumentDB.
+- Les données **DeviceInfo** pour mettre à jour les données de l’appareil dans la base de données Cosmos DB.
 - Les données de **Règles** pour appeler l’application logique et mettre à jour l’affichage des alertes dans le portail de la solution.
 
-## <a name="device-identity-registry-device-twin-and-documentdb"></a>Registre d’identité des appareils, représentation d’appareil et DocumentDB
+## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Registre d’identité des appareils, jumeau d’appareil et Cosmos DB
 Chaque IoT hub inclut un [registre d’identité des appareils][lnk-identity-registry] qui stocke des clés d’appareils. IoT Hub utilise ces informations pour authentifier les appareils. Un appareil doit être enregistré et disposer d'une clé valide avant de se connecter au concentrateur.
 
 Une [représentation d’appareil][lnk-device-twin] est un document JSON géré par Iot Hub. Une représentation d’appareil contient :
@@ -129,9 +130,9 @@ Une [représentation d’appareil][lnk-device-twin] est un document JSON géré 
 - Les propriétés de votre choix que vous souhaitez envoyer à l’appareil. Vous pouvez définir ces propriétés dans le portail de la solution.
 - Des balises qui existent uniquement dans la représentation d’appareil et non sur l’appareil. Vous pouvez utiliser ces balises pour filtrer les listes d’appareils dans le portail de la solution.
 
-Cette solution utilise des représentations d’appareil pour gérer les métadonnées d’appareil. La solution utilise également une base de données DocumentDB pour stocker des données d’appareil supplémentaires propres à la solution comme les commandes prises en charge par chaque appareil et l’historique des commandes.
+Cette solution utilise des représentations d’appareil pour gérer les métadonnées d’appareil. La solution utilise également une base de données Cosmos DB pour stocker des données d’appareil supplémentaires propres à la solution comme les commandes prises en charge par chaque appareil et l’historique des commandes.
 
-La solution doit également conserver les informations dans le registre d'identité des appareils, synchronisé avec le contenu de la base de données DocumentDB. L’instance **EventProcessorHost** utilise les données de la tâche Stream Analytics **DeviceInfo** pour gérer la synchronisation.
+La solution doit également conserver les informations dans le registre d’identité des appareils, synchronisé avec le contenu de la base de données Cosmos DB. L’instance **EventProcessorHost** utilise les données de la tâche Stream Analytics **DeviceInfo** pour gérer la synchronisation.
 
 ## <a name="solution-portal"></a>Portail de la solution
 ![portail de la solution][img-dashboard]
@@ -168,3 +169,4 @@ Pour plus d’informations sur les architectures de solution IoT, consultez le d
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+

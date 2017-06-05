@@ -13,34 +13,41 @@
 ## Gérer les captures de paquets
 ### [Portail](network-watcher-packet-capture-manage-portal.md)
 ### [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-### [INTERFACE DE LIGNE DE COMMANDE](network-watcher-packet-capture-manage-cli.md)
+### [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
+### [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## Vérifier les flux IP vers et depuis une machine virtuelle
 ### [Portail](network-watcher-check-ip-flow-verify-portal.md)
 ### [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
-### [INTERFACE DE LIGNE DE COMMANDE](network-watcher-check-ip-flow-verify-cli.md)
+### [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
+### [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Analyser un tronçon suivant
 ### [Portail](network-watcher-check-next-hop-portal.md)
 ### [PowerShell](network-watcher-check-next-hop-powershell.md)
-### [INTERFACE DE LIGNE DE COMMANDE](network-watcher-check-next-hop-cli.md)
+### [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
+### [CLI 2.0](network-watcher-check-next-hop-cli.md)
 ### [REST](network-watcher-check-next-hop-rest.md)
 ## Afficher la topologie du réseau
 ### [PowerShell](network-watcher-topology-powershell.md)
-### [INTERFACE DE LIGNE DE COMMANDE](network-watcher-topology-cli.md)
+### [CLI 1.0](network-watcher-topology-cli-nodejs.md)
+### [CLI 2.0](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Résoudre les problèmes de connexions et de passerelle VPN
 ### [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-### [INTERFACE DE LIGNE DE COMMANDE](network-watcher-troubleshoot-manage-cli.md)
+### [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
+### [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 ### [REST](network-watcher-troubleshoot-manage-rest.md)
 ## Analyser l’affichage des groupes de sécurité réseau
 ### [PowerShell](network-watcher-security-group-view-powershell.md)
-### [INTERFACE DE LIGNE DE COMMANDE](network-watcher-security-group-view-cli.md)
+### [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
+### [CLI 2.0](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Configurer des journaux de flux NSG
 ### [Portail](network-watcher-nsg-flow-logging-portal.md)
 ### [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-### [INTERFACE DE LIGNE DE COMMANDE](network-watcher-nsg-flow-logging-cli.md)
+### [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
+### [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
 # Procédures
 ## [Surveiller une passerelle VPN à l’aide d’Azure Automation](network-watcher-monitor-with-azure-automation.md)

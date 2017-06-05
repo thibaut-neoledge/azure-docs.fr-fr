@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: d47a28b31569d26a7752fc830989e8050153be46
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 2fad3e3fb88d447b377ccfce052035640c1360c3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -29,17 +29,17 @@ Cet article répertorie certains termes courants utilisés dans les articles rel
 [Advanced Message Queuing Protocol (AMQP)](https://www.amqp.org/) est l’un des protocoles de messagerie que [IoT Hub](#iot-hub) prend en charge pour communiquer avec des appareils. Pour plus d’informations sur les protocoles de messagerie pris en charge par IoT Hub, consultez [Envoyer et recevoir des messages avec IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="azure-cli"></a>Interface de ligne de commande Azure
-L’[interface de ligne de commande Azure (Azure CLI)](../cli-install-nodejs.md) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version de l’interface CLI est implémentée à l’aide de Node.js.
+[Azure CLI](../cli-install-nodejs.md) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version de l’interface CLI est implémentée à l’aide de Node.js.
 
 ## <a name="azure-cli-20"></a>Azure CLI 2.0
-L’[interface de ligne de commande Azure 2.0 (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version préliminaire de l’interface CLI est implémentée à l’aide de Python.
+[Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version préliminaire de l’interface CLI est implémentée à l’aide de Python.
 
 
 ## <a name="azure-iot-device-sdks"></a>Kits de développement logiciel (SDK) d’appareils Azure IoT
 Des _Kits de développement logiciel (SDK) d’appareils_ sont disponibles pour plusieurs langages. Ils permettent de créer des [applications pour appareils](#device-app), qui interagissent avec un IoT Hub. Les didacticiels relatifs à IoT Hub expliquent comment utiliser ces Kits de développement logiciel (SDK) d’appareils. Le code source et des informations supplémentaires sur les Kits de développement logiciel d’appareils sont disponibles dans ce [référentiel](https://github.com/Azure/azure-iot-sdks) GitHub.
 
-## <a name="azure-iot-gateway-sdk"></a>Kit de développement logiciel (SDK) de la passerelle Azure IoT
-Ce Kit de développement logiciel (SDK) sert à écrire des applications permettant aux appareils connectés à la passerelle de communiquer avec [IoT Hub](#iot-hub). Les didacticiels relatifs à la passerelle IoT Hub expliquent comment utiliser ce Kit de développement Logiciel (SDK). Le code source et des informations supplémentaires sur le Kit de développement Logiciel (SDK) de passerelle Azure IoT sont disponibles dans ce [référentiel](https://github.com/Azure/azure-iot-gateway-sdk) GitHub.
+## <a name="azure-iot-edge"></a>Azure IoT Edge
+IoT Edge vous permet d’écrire des applications permettant aux appareils connectés à la passerelle de communiquer avec [IoT Hub](#iot-hub). Les didacticiels relatifs à IoT Edge expliquent comment utiliser ce service. Le code source et des informations supplémentaires sur Azure IoT Edge sont disponibles dans ce [référentiel](https://github.com/Azure/iot-edge) GitHub.
 
 ## <a name="azure-iot-service-sdks"></a>Kits de développement logiciel (SDK) de services Azure IoT
 Des _Kits de développement logiciel (SDK) de services_ sont disponibles pour plusieurs langages. Ils permettent de créer des [applications principales](#back-end-app) qui interagissent avec un IoT Hub. Les didacticiels relatifs à IoT Hub expliquent comment utiliser ces Kits de développement logiciel (SDK) de services. Le code source et des informations supplémentaires sur les Kits de développement logiciel de services sont disponibles dans ce [référentiel](https://github.com/Azure/azure-iot-sdks) GitHub.
@@ -80,7 +80,7 @@ Vous utilisez des chaînes de connexion dans votre code d’application afin d�
 Vous pouvez créer des [points de terminaison](iot-hub-devguide-endpoints.md) personnalisés sur un IoT Hub pour transmettre les messages envoyés à l’aide d’une [règle de routage](#routing-rules). Les points de terminaison personnalisés se connectent directement à un hub d’événements, à une file d’attente Service Bus ou à une rubrique Service Bus.
 
 ## <a name="custom-gateway"></a>Passerelle personnalisée
-Une passerelle assure la connectivité d’appareils qui ne peuvent pas se connecter directement à [IoT Hub](#iot-hub). Le [Kit de développement logiciel (SDK) de passerelle Azure IoT](#azure-iot-gateway-sdk) permet de construire des passerelles personnalisées qui implémentent une logique personnalisée pour gérer des messages et des conversions de protocole personnalisées.
+Une passerelle assure la connectivité d’appareils qui ne peuvent pas se connecter directement à [IoT Hub](#iot-hub). [Azure IoT Edge](#azure-iot-gateway-sdk) permet de construire des passerelles personnalisées qui implémentent une logique personnalisée pour gérer des messages, des conversions de protocole personnalisées et d’autres opérations.
 
 ## <a name="data-point-message"></a>Message de point de données
 Un message de point de données est un message d’[appareil-à-cloud](#device-to-cloud) qui contient des données de [télémétrie](#telemetry) telles que la vitesse du vent ou la température.
@@ -191,7 +191,7 @@ Votre serveur principal de solution peut utiliser des [travaux](iot-hub-devguide
 L’[API REST Travaux](https://docs.microsoft.com/rest/api/iothub/jobapi) vous permet de gérer les [travaux](#job) en cours d’exécution dans votre IoT Hub.
 
 ## <a name="module"></a>Module
-Dans le [Kit de développement logiciel (SDK) de passerelle Azure IoT](iot-hub-linux-gateway-sdk-get-started.md), un [module](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) est un composant qui effectue une tâche spécifique. Les tâches incluent l’ingestion de messages provenant d’appareils, la transformation de messages, ou l’envoi de messages à un IoT Hub. Un répartiteur est chargé du transfert des messages entre les modules. La Kit de développement logiciel (SDK) de passerelle Azure IoT inclut un ensemble d’exemples de modules. Vous pouvez également créer vos propres modules personnalisés.
+Dans [Azure IoT Edge](iot-hub-linux-gateway-sdk-get-started.md), un [module](iot-hub-linux-gateway-sdk-get-started.md) est un composant qui effectue une tâche spécifique. Les tâches incluent l’ingestion de messages provenant d’appareils, la transformation de messages, ou l’envoi de messages à un IoT Hub. Un répartiteur est chargé du transfert des messages entre les modules. Azure IoT Edge inclut un ensemble d’exemples de modules. Vous pouvez également créer vos propres modules personnalisés.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) est l’un des protocoles de messagerie qu’[IoT Hub](#iot-hub) prend en charge pour communiquer avec des appareils. Pour plus d’informations sur les protocoles de messagerie pris en charge par IoT Hub, consultez [Envoyer et recevoir des messages avec IoT Hub](iot-hub-devguide-messaging.md).

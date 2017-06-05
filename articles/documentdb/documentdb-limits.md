@@ -1,18 +1,13 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: 9c5fc17927d719330926c8242008b61f6c88a298
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 490ba561db6d3812d43c54d5f7554ef3bcfd4b66
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="default-quotas-for-documentdb"></a>Quotas par défaut pour DocumentDB
-
-DocumentDB est une base de données à l’échelle mondiale dans laquelle le débit et le stockage peuvent être mis à l’échelle pour gérer les besoins de votre application. Si vous avez des questions sur l’échelle fournie par DocumentDB, envoyez un e-mail à askdocdb@microsoft.com.
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

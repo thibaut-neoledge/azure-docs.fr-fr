@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/17/2017
+ms.date: 5/16/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
-ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 17e9f4f81c60d86f804d1d9e6df2014dd4568d75
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="preview-deploy-a-windows-container-to-service-fabric"></a>Aperçu : Déployer un conteneur Windows sur Service Fabric
+# <a name="deploy-a-windows-container-to-service-fabric"></a>Déployer un conteneur Windows sur Service Fabric
 > [!div class="op_single_selector"]
 > * [Déployer un conteneur Windows](service-fabric-deploy-container.md)
 > * [Déployer un conteneur Docker](service-fabric-deploy-container-linux.md)
@@ -29,10 +30,6 @@ ms.lasthandoff: 02/21/2017
 > 
 
 Cet article vous guide dans le processus de création des services dans des conteneurs Windows.
-
-> [!NOTE]
-> Cette fonctionnalité est disponible en version préliminaire pour Windows Server 2016.
->  
 
 Service Fabric dispose de plusieurs fonctionnalités de gestion des conteneurs, qui vous aident à créer des applications composées de microservices mis en conteneur. 
 
@@ -83,7 +80,7 @@ Pour déployer un cluster à l’aide d’ARM, choisissez l’option d’image *
 "vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
 "vmImageVersion": { "defaultValue": "latest","type": "string"     },  
 ```
-Vous pouvez également utiliser le [modèle ARM&5; nœuds ici](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) pour créer un cluster. Vous pouvez également lire [l’article de blog de Loek ici](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) sur l’utilisation des conteneurs de Service Fabric et Windows.
+Vous pouvez également utiliser le [modèle ARM 5 nœuds ici](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) pour créer un cluster. Vous pouvez également lire [l’article de blog de Loek ici](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) sur l’utilisation des conteneurs de Service Fabric et Windows.
 
 <a id="manually"></a>
 

@@ -3,7 +3,7 @@ title: Diagnostics intelligents des modifications des performances des applicati
 description: "Diagnostic automatique des pics d’activité ou des étapes de la télémétrie relative aux performances depuis votre application web."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

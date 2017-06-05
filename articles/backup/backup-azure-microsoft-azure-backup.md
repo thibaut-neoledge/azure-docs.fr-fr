@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
-ms.openlocfilehash: 1462ee0e247fb5d590a70d23ece5723a065b4140
-ms.lasthandoff: 01/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: e8838095d621957fe6b4ee50464154617e1c4740
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -69,9 +70,12 @@ Si vous ne souhaitez pas exécuter le serveur de base dans Azure, vous pouvez l�
 Vous pouvez dédupliquer le stockage DPM en vous servant de la fonction de déduplication Windows Server. En savoir plus sur le fonctionnement du [DPM et de la déduplication](https://technet.microsoft.com/library/dn891438.aspx) en cas de déploiement sur des ordinateurs virtuels Hyper-V.
 
 > [!NOTE]
-> Vous ne pouvez pas installer Azure Backup Server sur une machine s’exécutant comme contrôleur de domaine.
->
->
+> Le serveur de sauvegarde Azure est conçu pour s’exécuter sur un serveur dédié spécialisé. Vous ne pouvez pas installer le serveur de sauvegarde Azure sur :
+> - Un ordinateur servant de contrôleur de domaine
+> - Un ordinateur sur lequel est installé le rôle de serveur d’applications
+> - Un ordinateur qui est un serveur d’administration de System Center Operations Manager
+> - Un ordinateur sur lequel Exchange Server s’exécute
+> - Un ordinateur qui est un nœud d’un cluster
 
 Vous devez joindre le serveur de sauvegarde Azure à un domaine. Si vous envisagez de déplacer le serveur vers un autre domaine, il est recommandé de le faire avant d’installer le serveur de sauvegarde Azure. Le déplacement d’une machine Azure Backup Server vers un nouveau domaine après le déploiement *n’est pas pris en charge*.
 
@@ -253,8 +257,8 @@ Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès �
 * www.msftncsi.com
 * \*.Microsoft.com
 * \*.WindowsAzure.com
-* \**.microsoftonline.com
-* \**.windows.net
+* \*.microsoftonline.com
+* \*.windows.net
 
 Une fois la connectivité à Azure restaurée sur l’ordinateur Azure Backup Server, les opérations qui peuvent être exécutées sont déterminées par l’état de l’abonnement Azure. Le tableau ci-dessus comporte les détails des opérations autorisées une fois l’ordinateur « connecté ».
 

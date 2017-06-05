@@ -1,6 +1,6 @@
 ---
-title: Liaisons DocumentDB Azure Functions | Microsoft Docs
-description: "Découvrez comment utiliser des liaisons Azure DocumentDB dans Azure Functions."
+title: Liaisons Cosmos DB Azure Functions | Microsoft Docs
+description: "Découvrez comment utiliser des liaisons Azure Cosmos DB dans Azure Functions."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,49 +16,50 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/18/2016
 ms.author: chrande; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: e38c9187be42946df1e8059ba44f10f76d32d984
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2c0cb8ee1690f9b36b76c87247e3c7223876b269
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="azure-functions-documentdb-bindings"></a>Liaisons DocumentDB Azure Functions
+# <a name="azure-functions-cosmos-db-bindings"></a>Liaisons Cosmos DB Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Cet article explique comment configurer et coder des liaisons Azure DocumentDB dans Azure Functions. Azure Functions prend en charge des liaisons d’entrée et de sortie pour DocumentDB.
+Cet article explique comment configurer et coder des liaisons Azure Cosmos DB dans Azure Functions. Azure Functions prend en charge des liaisons d’entrée et de sortie pour Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Pour plus d’informations sur DocumentDB, consultez [Présentation de DocumentDB](../documentdb/documentdb-introduction.md) et [Générer une application de console DocumentDB](../documentdb/documentdb-get-started.md).
+Pour plus d’informations sur Cosmos DB, consultez les pages [Présentation de Cosmos DB](../documentdb/documentdb-introduction.md) et [Créer une application de console Cosmos DB](../documentdb/documentdb-get-started.md).
 
 <a id="docdbinput"></a>
 
-## <a name="documentdb-input-binding"></a>Liaison d’entrée DocumentDB
-La liaison d’entrée DocumentDB récupère un document DocumentDB et le transmet au paramètre d’entrée nommé de la fonction. L’ID du document peut être déterminé en fonction du déclencheur qui appelle la fonction. 
+## <a name="documentdb-api-input-binding"></a>Liaison d’entrée d’API DocumentDB
+La liaison d’entrée d’API DocumentDB récupère un document Cosmos DB et le transmet au paramètre d’entrée nommé de la fonction. L’ID du document peut être déterminé en fonction du déclencheur qui appelle la fonction. 
 
-La liaison d’entrée DocumentDB possède les propriétés suivantes dans *function.json* :
+La liaison d’entrée d’API DocumentDB possède les propriétés suivantes dans *function.json* :
 
 - `name` : nom de l’identificateur utilisé dans le code de fonctions pour le document.
 - `type` : doit être défini sur « documentdb ».
 - `databaseName` : la base de données contenant le document.
 - `collectionName` : collection contenant le document.
 - `id` : ID du document à récupérer. Cette propriété prend en charge les paramètres de liaison ; consultez la section [Lier aux propriétés d’entrée personnalisées dans une expression de liaison](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) de l’article [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
-- `sqlQuery` : une requête SQL DocumentDB utilisée pour récupérer plusieurs documents. La requête prend en charge les liaisons d’exécution. Par exemple : `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection` : le nom du paramètre d’application qui contient votre chaîne de connexion DocumentDB.
+- `sqlQuery` : requête SQL Cosmos DB utilisée pour récupérer plusieurs documents. La requête prend en charge les liaisons d’exécution. Par exemple : `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection` : nom du paramètre d’application qui contient votre chaîne de connexion Cosmos DB.
 - `direction` : doit être défini sur `"in"`.
 
 Les propriétés `id` et `sqlQuery` ne peuvent pas être spécifiées. Si `id` et `sqlQuery` ne sont pas définis, l’ensemble de la collection est récupéré.
 
-## <a name="using-a-documentdb-input-binding"></a>Utilisation d’une liaison d’entrée DocumentDB
+## <a name="using-a-documentdb-api-input-binding"></a>Utiliser une liaison d’entrée d’API DocumentDB
 
-* Dans les fonctions C# et F#, lorsque la fonction se termine correctement, toutes les modifications apportées au document d’entrée via les paramètres d’entrée nommés sont automatiques. 
+* Dans les fonctions C# et F#, lorsque la fonction se termine correctement, toutes les modifications apportées au document d’entrée par le biais des paramètres d’entrée nommés sont automatiquement conservées. 
 * Dans les fonctions JavaScript, les mises à jour ne sont pas effectuées une fois la fonction terminée. Utilisez plutôt `context.bindings.<documentName>In` et `context.bindings.<documentName>Out` pour effectuer les mises à jour. Consultez [l’exemple JavaScript](#injavascript).
 
 <a name="inputsample"></a>
 
 ## <a name="input-sample-for-single-document"></a>Exemple d’entrée pour un seul document
-Supposez que le tableau `bindings` de function.json contient la liaison d’entrée DocumentDB suivante :
+Supposez que le tableau `bindings` de function.json contient la liaison d’entrée d’API DocumentDB suivante :
 
 ```json
 {
@@ -67,7 +68,7 @@ Supposez que le tableau `bindings` de function.json contient la liaison d’entr
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
   "id" : "{queueTrigger}",
-  "connection": "MyAccount_DOCUMENTDB",     
+  "connection": "MyAccount_COSMOSDB",     
   "direction": "in"
 }
 ```
@@ -82,7 +83,7 @@ Consultez l’exemple dans le langage de votre choix pour voir comment utiliser 
 ### <a name="input-sample-in-c"></a>Exemple d’entrée en C# #
 
 ```cs
-// Change input document contents using DocumentDB input binding 
+// Change input document contents using DocumentDB API input binding 
 public static void Run(string myQueueItem, dynamic inputDocument)
 {   
   inputDocument.text = "This has changed.";
@@ -93,7 +94,7 @@ public static void Run(string myQueueItem, dynamic inputDocument)
 ### <a name="input-sample-in-f"></a>Exemple d’entrée en F# #
 
 ```fsharp
-(* Change input document contents using DocumentDB input binding *)
+(* Change input document contents using DocumentDB API input binding *)
 open FSharp.Interop.Dynamic
 let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
@@ -121,7 +122,7 @@ Pour ajouter un fichier `project.json`, consultez [F# package management](functi
 ### <a name="input-sample-in-javascript"></a>Exemple d’entrée en JavaScript
 
 ```javascript
-// Change input document contents using DocumentDB input binding, using context.bindings.inputDocumentOut
+// Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
 module.exports = function (context) {   
   context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
   context.bindings.inputDocumentOut.text = "This was updated!";
@@ -143,7 +144,7 @@ Dans cet exemple, le déclencheur de file d’attente fournit un paramètre `dep
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
     "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
-    "connection": "DocumentDBConnection"
+    "connection": "CosmosDBConnection"
 }
 ```
 
@@ -177,19 +178,19 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a id="docdboutput"></a>Liaison de sortie DocumentDB
-La liaison de sortie DocumentDB vous permet d’écrire un nouveau document dans une base de données Azure DocumentDB. Elle possède les propriétés suivantes dans *function.json* :
+## <a id="docdboutput"></a>Liaison de sortie d’API DocumentDB
+La liaison de sortie d’API DocumentDB vous permet d’écrire un nouveau document dans une base de données Azure Cosmos DB. Elle possède les propriétés suivantes dans *function.json* :
 
 - `name` : identificateur utilisé dans le code de fonctions pour le nouveau document.
 - `type` : doit être défini sur `"documentdb"`.
 - `databaseName` : base de données contenant la collection dans laquelle le nouveau document sera créé.
 - `collectionName` : collection dans laquelle le nouveau document sera créé.
 - `createIfNotExists` : valeur booléenne indiquant si la collection sera ou non créée si elle n’existe pas. La valeur par défaut est *false*. Cette configuration est due au fait que les collections sont créées avec un débit réservé, ce qui a des conséquences sur le plan tarifaire. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection` : nom du paramètre d’application qui contient votre chaîne de connexion DocumentDB.
+- `connection` : nom du paramètre d’application qui contient votre chaîne de connexion Cosmos DB.
 - `direction` : doit être défini sur `"out"`.
 
-## <a name="using-a-documentdb-output-binding"></a>Utilisation d’une liaison de sortie DocumentDB
-Cette section vous montre comment utiliser la liaison de sortie DocumentDB dans le code de votre fonction.
+## <a name="using-a-documentdb-api-output-binding"></a>Utilisation d’une liaison de sortie d’API DocumentDB
+Cette section vous montre comment utiliser la liaison de sortie d’API DocumentDB dans le code de votre fonction.
 
 Si vous écrivez dans le paramètre de sortie de votre fonction, par défaut, un nouveau document est généré dans votre base de données avec un GUID généré automatiquement en tant qu’ID de document. Vous pouvez spécifier l’ID du document de sortie en spécifiant la propriété JSON `id` dans le paramètre de sortie. 
 
@@ -200,8 +201,8 @@ Pour générer plusieurs documents, vous pouvez également vous lier à `ICollec
 
 <a name="outputsample"></a>
 
-## <a name="documentdb-output-binding-sample"></a>Exemple de liaison de sortie DocumentDB
-Supposez que le tableau `bindings` de function.json contient la liaison de sortie DocumentDB suivante :
+## <a name="documentdb-api-output-binding-sample"></a>Exemple de liaison de sortie d’API DocumentDB
+Supposons que le tableau `bindings` de function.json contient la liaison de sortie d’API DocumentDB suivante :
 
 ```json
 {
@@ -210,7 +211,7 @@ Supposez que le tableau `bindings` de function.json contient la liaison de sorti
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
   "createIfNotExists": true,
-  "connection": "MyAccount_DOCUMENTDB",     
+  "connection": "MyAccount_COSMOSDB",     
   "direction": "out"
 }
 ```
@@ -225,7 +226,7 @@ Et que vous disposez d’une liaison d’entrée de file d’attente pour une fi
 }
 ```
 
-Et que vous souhaitez créer des documents DocumentDB dans le format suivant pour chaque enregistrement :
+Et que vous souhaitez créer des documents Cosmos DB au format suivant pour chaque enregistrement :
 
 ```json
 {

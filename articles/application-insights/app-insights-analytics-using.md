@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 8485fd9350672dd0f41e2d5dada57a1940c43f16
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6c8df6b9804d082c8044cdb2420cc5ea42b9774f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -123,6 +124,16 @@ Sélectionnez le type de diagramme de votre choix :
 Si vous disposez de plusieurs colonnes de types appropriés, vous pouvez choisir les axes x et y et spécifier une colonne de dimensions avec laquelle fractionner les résultats.
 
 Par défaut, les résultats sont initialement affichés sous forme de table. Vous pouvez ensuite sélectionner le diagramme manuellement. Mais vous pouvez également utiliser la [directive render](app-insights-analytics-reference.md#render-directive) à la fin d’une requête pour sélectionner un diagramme.
+
+### <a name="analytics-diagnostics"></a>Diagnostic analytique
+
+
+Sur un graphique temporel, s’il existe un pic ou une chute brutal dans vos données, un point peut être mis en évidence sur la ligne. Cela indique que le diagnostic analytique a identifié une combinaison de propriétés qui filtrent le changement soudain. Cliquez sur le point pour obtenir plus de détails sur le filtre, et pour afficher la version filtrée. Cela peut vous aider à identifier l’origine de la modification. 
+
+[En savoir plus sur le diagnostic analytique](app-insights-analytics-diagnostics.md)
+
+
+![Diagnostic analytique](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Épingler au tableau de bord
 Vous pouvez épingler un diagramme ou une table à l’un de vos [tableaux de bord partagés](app-insights-dashboards.md) : cliquez simplement sur l’épingle. (Vous devrez peut-être [mettre à niveau le plan de tarification de votre application](app-insights-pricing.md) pour activer cette fonctionnalité.) 

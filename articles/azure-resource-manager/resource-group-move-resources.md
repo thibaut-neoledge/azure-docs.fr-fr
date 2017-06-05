@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: cc2a24b26b152671173770adfd4aefcfcb2512d4
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: f1b9beabfb0a92e5cc49d6af762693ae45a85e42
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -89,7 +89,7 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 * Data Lake Analytics
 * Data Lake Store
 * DNS
-* Base de données de documents
+* Azure Cosmos DB
 * Event Hubs
 * Clusters HDInsight - voir [Limitations de HDInsight](#hdinsight-limitations)
 * IoT Hubs
@@ -126,19 +126,20 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 
 * Service de contrôle d’intégrité hybride Active Directory
 * Application Gateway
+* Groupes à haute disponibilité comprenant des machines virtuelles avec des disques gérés
 * BizTalk Services
 * Service de conteneur
 * ExpressRoute
 * Laboratoires DevTest : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements n’est pas activé.
 * Dynamics LCS
+* Images créées à partir de disques gérés
+* Managed Disks
+* Applications gérées
 * Coffre Recovery Services : par ailleurs, ne déplacez pas les ressources de calcul, de réseau et de stockage associées au coffre Recovery Services. Consultez [Limitations de Recovery Services](#recovery-services-limitations).
 * Sécurité
+* Instantanés créés à partir de disques gérés
 * Machines virtuelles avec un certificat stocké dans Key Vault
 * Machines virtuelles avec des disques managés
-* Groupes à haute disponibilité comprenant des machines virtuelles avec des disques gérés
-* Managed Disks
-* Images créées à partir de disques gérés
-* Instantanés créés à partir de disques gérés
 * Réseaux virtuels (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Les machines virtuelles créées à partir de ressources de la Place de marché ne peuvent pas être déplacées entre des abonnements. La ressource doit être déprovisionnée dans l’abonnement actuel et déployée à nouveau dans le nouvel abonnement.
 
@@ -214,7 +215,7 @@ Lors du déplacement de ressources vers un nouvel abonnement, les restrictions s
 * L’abonnement cible ne doit pas contenir d’autres ressources classiques.
 * Le déplacement peut uniquement être demandé par le biais d’une API REST distincte pour les déplacements classiques. Les commandes de déplacement standard de Resource Manager ne fonctionnent pas lors du déplacement de ressources classiques vers un nouvel abonnement.
 
-Pour déplacer des ressources classiques vers un nouvel abonnement, veuillez utiliser le portail ou des opérations REST spécifiques aux ressources classiques. Pour plus d’informations sur le déplacement de ressources classiques via le portail, voir [Utilisation du portail](#use-portal). Pour utiliser REST, procédez comme suit :
+Pour déplacer des ressources classiques vers un nouvel abonnement, utilisez des opérations REST spécifiques aux ressources classiques. Pour utiliser REST, procédez comme suit :
 
 1. Vérifiez si l’abonnement source peut participer à un déplacement entre abonnements. Utilisez l’opération suivante :
 

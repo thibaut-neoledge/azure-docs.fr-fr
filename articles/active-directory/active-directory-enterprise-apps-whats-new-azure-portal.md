@@ -12,28 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2016
+ms.date: 05/04/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: d15020779b398dbcd055352dbf38822b1bd02b7c
-ms.openlocfilehash: 0f0cf786f91c75f7a514790dccfbfc1f05b67e56
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 36de09434ae5082e5f92dcc9a82bba88f5b89c85
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Nouveautés relatives à la gestion des applications d’entreprise dans Azure Active Directory 
 
-Le nouveau portail Azure propose des outils améliorés de gestion des applications d’entreprise (dont certains étaient déjà disponibles dans le portail Azure Classic), ainsi que de nouvelles fonctionnalités et fonctions qui simplifient et optimisent l’efficacité des applications.
+Azure Active Directory (Azure AD) propose des outils améliorés de gestion des applications d’entreprise, avec des fonctionnalités inédites permettant de simplifier et d’optimiser l’efficacité des applications.
 
-Les améliorations apportées à Azure AD dans le portail Azure sont notamment les suivantes :
+Les améliorations apportées à Azure AD dans le [portail Azure](https://portal.azure.com) sont notamment les suivantes.
 
-- Galerie d’applications innovante et améliorée, avec modèle de création d’application simplifié et prise en charge de tous les types d’application auxquels vous êtes habitué dans le portail Azure Classic. 
-- Nouvelle expérience de démarrage rapide avec pilote de la nouvelle application pour simplifier l’utilisation. 
-- Possibilité de configurer des stratégies en libre-service en quelques clics. 
-- Enfin, amélioration significative du proxy d’application, de la configuration de l’authentification unique et des fonctions d’apport de votre propre application, vous permettant d’être plus productif que jamais dans notre nouveau portail. Découvrez-en plus sur toutes les nouveautés ci-dessous.
+- Expérience de galerie d’applications améliorée, avec modèle de création d’application simplifié et prise en charge de tous les types d’applications auxquels vous êtes habitué. 
+- Nouvelle expérience de démarrage rapide avec un pilote de votre application pour vous aider à agir. 
+- Configuration de stratégies en libre-service en quelques clics. 
+- Améliorations du proxy d’application, de la configuration de l’authentification unique et des fonctions d’apport de votre propre application, vous permettant d’être plus productif qu’auparavant.
 
-## <a name="the-new-and-improved-application-gallery"></a>Galerie d’applications innovante et améliorée
+## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Amélioration de la galerie d’applications Azure Active Directory
 
-Maintenant, vous pouvez facilement ajouter toutes vos applications préférées à l’aide de notre nouvelle expérience simplifiée. Il peut s’agir d’applications de notre grande galerie, d’applications personnalisées étendues au cloud ou de nouvelles applications que vous êtes en train de développer.  Pour commencer à utiliser cette nouvelle capacité, cliquez sur le bouton **Add** (Ajouter) dans la vue d’ensemble **Enterprise Applications** (Applications d’entreprise) ou dans le panneau **All applications** (Toutes les applications).
+Ajoutez vos applications préférées, qu’elles proviennent de la [Galerie d’applications](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), qu’il s’agisse d’applications personnalisées que vous étendez au cloud ou qu’il s’agisse de nouvelles applications que vous développez.  Pour commencer à utiliser cette nouvelle capacité, cliquez sur **Ajouter** dans la vue d’ensemble **Applications d’entreprise** ou dans le panneau **Toutes les applications**.
  
   ![Ajout d'une application](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 
@@ -148,17 +150,12 @@ Une fois que vous avez ajouté un grand nombre de nouvelles applications, vous p
 
 ##<a name="feedback"></a>Commentaires
 
-Nous espérons que vous appréciez votre expérience d’utilisation de cette version préliminaire mise à jour. Continuez à nous faire part de vos commentaires. Publiez vos commentaires et vos idées d’amélioration dans la section du **portail Admin** de notre [forum de commentaires](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nous sommes très heureux de créer chaque jour des nouveautés et de pouvoir bénéficier de vos commentaires pour concevoir et définir de nouvelles créations.
+Nous espérons que vous appréciez votre expérience d’Azure AD améliorée. Continuez à nous faire part de vos commentaires. Publiez vos commentaires et vos idées d’amélioration dans la section du **portail Admin** de notre [forum de commentaires](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nous sommes très heureux de créer chaque jour des nouveautés et de pouvoir bénéficier de vos commentaires pour concevoir et définir de nouvelles créations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md).
 
 
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: e8f78602b293863b2e58160a5eb2cf8a5855576b
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 46e3852dc84265de41bb358f482dec06608e7efa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -51,7 +51,7 @@ Ce tutoriel vise à vous aider à créer des applications à l’aide des derni�
 > 
 
 ## <a name="create-the-web-app"></a>Créer l’application web
-Cette section vous montre comment structurer une nouvelle application web ASP.NET à l’aide de l’outil CLI dotnet. 
+Cette section vous montre comment structurer une nouvelle application web ASP.NET à l’aide de l’outil CLI .NET. 
 
 1. Entrez la commande suivante dans l'invite de commandes pour créer le dossier du projet et structurer l'application.
    
@@ -62,7 +62,7 @@ dotnet new mvc
 ```
 ![CLI dotnet - Générateur ASP.NET Core](./media/web-sites-create-web-app-using-vscode/dotnetcore-mvc-01.png)
 
-2. Pour installer les packages NuGet nécessaires, exécutez la commande suivante :
+2. Pour restaurer les packages NuGet nécessaires, exécutez la commande suivante :
    
     ```terminal
     dotnet restore

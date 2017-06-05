@@ -14,12 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 05/09/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 67663af0913a03f2001b4cce6f9f49ee91195026
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: bb58cd7a00bc8eb5eaf2ea5a7a8f7641b0502ed9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -109,7 +110,7 @@ Ajoutez l’autre serveur SQL Server au cluster.
     >[!WARNING]
    >Si vous utilisez des espaces de stockage et que vous ne désactivez pas la case à cocher **Ajouter la totalité du stockage disponible au cluster**, Windows détache les disques virtuels pendant le processus de mise en cluster. Par conséquent, ils n’apparaissent pas dans le Gestionnaire de disque ou dans l’Explorateur, jusqu’à ce que les espaces de stockage soient supprimés du cluster et rattachés à l’aide de PowerShell. Les espaces de stockage regroupent plusieurs disques dans des pools de stockage. Pour plus d’informations, consultez la page [Espaces de stockage](https://technet.microsoft.com/library/hh831739).
 
-1. Cliquez sur **Next**.
+1. Cliquez sur **Suivant**.
 
 1. Cliquez sur **Terminer**.
 
@@ -133,9 +134,9 @@ Dans cet exemple, le cluster Windows utilise un partage de fichiers pour créer 
 
    Utilisez **Assistant Création d’un dossier partagé** pour créer un partage.
 
-1. Dans **chemin d’accès du dossier**, cliquez sur **Parcourir** et recherchez ou créez le chemin d’accès du dossier partagé. Cliquez sur **Next**.
+1. Dans **chemin d’accès du dossier**, cliquez sur **Parcourir** et recherchez ou créez le chemin d’accès du dossier partagé. Cliquez sur **Suivant**.
 
-1. Dans **Nom, Description et Paramètres**, vérifiez le nom et le chemin d’accès du partage. Cliquez sur **Next**.
+1. Dans **Nom, Description et Paramètres**, vérifiez le nom et le chemin d’accès du partage. Cliquez sur **Suivant**.
 
 1. Dans **Autorisations du dossier partagé**, sélectionnez **Personnaliser les autorisations**. Cliquez sur **Personnalisé...**.
 
@@ -172,7 +173,7 @@ Ensuite, configurez le quorum du cluster.
 
 1. Dans **Configurer le témoin de partage de fichiers**, tapez le chemin d’accès du partage que vous avez créé. Cliquez sur **Suivant**.
 
-1. Vérifiez les paramètres dans **Confirmation**. Cliquez sur **Next**.
+1. Vérifiez les paramètres dans **Confirmation**. Cliquez sur **Suivant**.
 
 1. Cliquez sur **Terminer**.
 
@@ -237,7 +238,7 @@ Repeat these steps on the second SQL Server.
 
 1. Dans **Chemin d’accès du dossier**, cliquez sur **Parcourir** et recherchez ou créez le chemin d’accès du dossier partagé de la sauvegarde de la base de données. Cliquez sur **Suivant**.
 
-1. Dans **Nom, Description et Paramètres**, vérifiez le nom et le chemin d’accès du partage. Cliquez sur **Next**.
+1. Dans **Nom, Description et Paramètres**, vérifiez le nom et le chemin d’accès du partage. Cliquez sur **Suivant**.
 
 1. Dans **Autorisations du dossier partagé**, sélectionnez **Personnaliser les autorisations**. Cliquez sur **Personnalisé...**.
 
@@ -273,7 +274,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité en procédant comm
 
     ![Lancer l'Assistant Nouveau groupe de disponibilité](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
-2. Sur la page **Introduction**, cliquez sur **Suivant**. Dans la page **Spécifier le nom du groupe de disponibilité**, tapez le nom du groupe de disponibilité, par exemple **AG1** dans **Nom du groupe de disponibilité**. Cliquez sur **Next**.
+2. Sur la page **Introduction**, cliquez sur **Suivant**. Dans la page **Spécifier le nom du groupe de disponibilité**, tapez le nom du groupe de disponibilité, par exemple **AG1** dans **Nom du groupe de disponibilité**. Cliquez sur **Suivant**.
 
     ![Assistant Nouveau groupe de disponibilité, spécifier le nom du groupe de disponibilité](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
 
@@ -354,7 +355,7 @@ Sur les machines virtuelles Azure, un groupe de disponibilité SQL Serveur requi
    | Paramètre | Champ |
    | --- | --- |
    | **Nom** |Utilisez un nom pour l’équilibrage de charge, par exemple **sqlLB**. |
-   | **Schéma** |Interne |
+   | **Type** |Interne |
    | **Réseau virtuel** |Utilisez le nom de votre réseau virtuel Azure. |
    | **Sous-réseau** |Utilisez le nom du sous-réseau auquel appartient la machine virtuelle.  |
    | **Affectation d’adresses IP** |Statique |
@@ -381,6 +382,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
    | Paramètre | Description | Exemple
    | --- | --- |---
    | **Nom** | Tapez un nom. | SQLLBBE
+   | **Associé à** | Choisir dans la liste | Groupe à haute disponibilité
    | **Groupe à haute disponibilité** | Utilisez le nom du groupe à haute disponibilité auquel appartiennent vos machines virtuelles SQL Server. | sqlAvailabilitySet |
    | **Machines virtuelles** |Les deux noms des machines virtuelles SQL Server Azure | sqlserver-0, sqlserver-1
 
@@ -390,9 +392,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Pour le groupe à haute disponibilité, choisissez le groupe de disponibilité qui contient les serveurs SQL Server.
 
-1. Pour les machines virtuelles, incluez les deux serveurs SQL Server. N’incluez pas le serveur témoin de partage de fichiers. Votre sélection doit ressembler à l’image suivante :
-
-   ![Rechercher l’équilibrage de charge dans le groupe de ressources](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/88-configurebepool.png)
+1. Pour les machines virtuelles, incluez les deux serveurs SQL Server. N’incluez pas le serveur témoin de partage de fichiers.
 
 1. Cliquez sur **OK** pour créer le pool principal.
 
@@ -468,7 +468,7 @@ Pour tester la connexion :
 1. Utilisez l’utilitaire **sqlcmd** pour tester la connexion. Par exemple, le script suivant établit une connexion **sqlcmd** avec le réplica principal au moyen de l’écouteur avec une authentification Windows :
 
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
 
     Si l’écouteur utilise un port autre que le port par défaut (1433), spécifiez le port dans la chaîne de connexion. Par exemple, la commande sqlcmd suivante se connecte à un écouteur sur le port 1435 :

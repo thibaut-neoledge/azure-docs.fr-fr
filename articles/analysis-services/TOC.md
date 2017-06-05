@@ -1,11 +1,11 @@
 # Vue d'ensemble
-
 ## [Qu’est-ce qu’Azure Analysis Services ?](analysis-services-overview.md)
+## [Sources de données prises en charge](analysis-services-datasource.md)
 
-# Prise en main
-## [Créer un serveur](analysis-services-create-server.md)
-## [Déployer sur un serveur](analysis-services-deploy.md)
-## [Connexion](analysis-services-connect.md)
+# Démarrages rapides
+## [Créer un serveur – Portail](analysis-services-create-server.md)
+## [Déployer un modèle – SSDT](analysis-services-deploy.md)
+
 
 # Didacticiels
 ## Créer et déployer un modèle
@@ -18,7 +18,7 @@
 ### [Leçon 6 : Créer des mesures](tutorials/aas-lesson-6-create-measures.md)  
 ### [Leçon 7 : Afficher les indicateurs de performance clés](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 ### [Leçon 8 : Créer des perspectives](tutorials/aas-lesson-8-create-perspectives.md) 
-### [Leçon 9 : Créer des hiérarchies](tutorials/aas-lesson-9-create-hierarchies.md)  
+### [Leçon 9 : Créer des hiérarchies](tutorials/aas-lesson-9-create-hierarchies.md) 
 ### [Leçon 10 : Créer des partitions](tutorials/aas-lesson-10-create-partitions.md) 
 ### [Leçon 11 : Créer des rôles](tutorials/aas-lesson-11-create-roles.md)
 ### [Leçon 12 : Analyser dans Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
@@ -31,12 +31,12 @@
 ## [Gérer un serveur](analysis-services-manage.md)
 ## [Gestion des utilisateurs](analysis-services-manage-users.md)
 ## [Intégrer la passerelle de données locale](analysis-services-gateway.md)
+## [Connexion aux serveurs](analysis-services-connect.md)
 ## [Connexion avec Excel](analysis-services-connect-excel.md)
 ## [Connexion avec Power BI](analysis-services-connect-pbi.md)
 ## [Obtenir les bibliothèques clientes](analysis-services-data-providers.md)
 ## [Sauvegarde et restauration](analysis-services-backup.md)
 ## [Haute disponibilité](analysis-services-bcdr.md)
-## [Connexions de source de données](analysis-services-datasource.md)
 ## [Créer un fichier .odc](analysis-services-odc.md)
 
 # Référence

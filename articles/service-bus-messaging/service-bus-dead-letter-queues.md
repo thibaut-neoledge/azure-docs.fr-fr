@@ -12,26 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 05/17/2017
 ms.author: clemensv;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 2b118f285f822d6cba3a2db4130539e62aabd342
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c16bcf30ab96f79e59404a41852e4cd227e28b08
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
+
 Les files d’attente Service Bus et les abonnements aux rubriques fournissent une sous-file d’attente secondaire, appelée *file d’attente de lettres mortes*. La file d’attente de lettres mortes n’a pas besoin d’être explicitement créée et ne peut pas être supprimée ou gérée indépendamment de l’entité principale.
 
-L’objectif de la file d’attente de lettres mortes est de conserver les messages qui ne peuvent pas être remis aux destinataires ou simplement les messages qui n’ont pas pu être traités. Les messages peuvent alors être supprimés de la file d’attente de lettres mortes et inspectés. Une application peut, à l’aide d’un opérateur, corriger les problèmes et renvoyer le message, consigner le fait qu’une erreur s’est produite et/ou prendre des mesures correctives. 
+Cet article traite des files d’attente de lettres mortes dans Azure Service Bus. Une grande partie de la discussion est illustrée par l’[exemple de files d’attente de lettres mortes](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) qui se trouve sur GitHub.
+ 
+## <a name="the-dead-letter-queue"></a>La file d’attente de lettres mortes
+
+L’objectif de la file d’attente de lettres mortes est de conserver les messages qui ne peuvent pas être remis aux destinataires ou les messages qui n’ont pas pu être traités. Les messages peuvent alors être supprimés de la file d’attente de lettres mortes et inspectés. Une application peut, à l’aide d’un opérateur, corriger les problèmes et renvoyer le message, consigner le fait qu’une erreur s’est produite et prendre des mesures correctives. 
 
 Du point de vue de l’API et du protocole, la file d’attente de lettres mortes est essentiellement similaire à une autre file d’attente, sauf que les messages peuvent être envoyés uniquement via le mouvement de lettres mortes de l’entité parente. En outre, la durée de vie n’est pas observée, et vous ne pouvez pas supprimer un message d’une file d’attente de lettres mortes. La file d’attente de lettres mortes prend entièrement en charge la remise de verrou d’affichage et les opérations transactionnelles.
 
 Notez qu’il n’y a aucun nettoyage automatique de la file d’attente de lettres mortes. Les messages restent dans la file d’attente de lettres mortes jusqu’à ce que vous les récupériez explicitement et que vous appeliez [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CompleteAsync) sur le message de lettres mortes.
 
 ## <a name="moving-messages-to-the-dlq"></a>Déplacer des messages vers la file d’attente de lettres mortes
-Plusieurs activités dans Service Bus entraînent l’envoi des messages dans la file d’attente de lettres mortes à partir du moteur de messagerie lui-même. Une application peut également explicitement envoyer des messages dans la file d’attente de lettres mortes. 
+
+Plusieurs activités dans Service Bus entraînent l’envoi des messages dans la file d’attente de lettres mortes à partir du moteur de messagerie lui-même. Une application peut également explicitement déplacer des messages dans la file d’attente de lettres mortes. 
 
 Comme le message est déplacé par le service broker, deux propriétés sont ajoutées au message quand le service broker appelle sa version interne de la méthode [DeadLetter](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeadLetter_System_String_System_String_) sur le message : `DeadLetterReason` et `DeadLetterErrorDescription`.
 

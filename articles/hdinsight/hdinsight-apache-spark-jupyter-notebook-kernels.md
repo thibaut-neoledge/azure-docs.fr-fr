@@ -1,6 +1,7 @@
 ---
-title: "Utiliser différents noyaux avec des blocs-notes Jupyter sur des clusters Azure HDInsight Spark | Microsoft Docs"
-description: "Découvrez les noyaux PySpark, PySpark3 et Spark, que vous pouvez utiliser avec le bloc-notes Jupyter disponible avec les clusters Spark sur HDInsight sur Linux."
+title: Noyaux pour bloc-notes Jupyter sur les clusters Spark dans Azure HDInsight | Documents Microsoft
+description: "Découvrez les noyaux PySpark, PySpark3 et Spark pour bloc-notes Jupyter qui sont disponibles avec les clusters Spark sur Azure HDInsight."
+keywords: bloc-notes jupyter sur spark,jupyter spark
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,23 +10,24 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/15/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: bb5d6f5f9d500a133a6594e440f8db91f757f710
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: c5813341f0d70a3c04e915d243d2a9717cad1fc9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="jupyter-notebooks-kernels-with-apache-spark-clusters-in-hdinsight"></a>Noyaux de blocs-notes Jupyter avec les clusters Apache Spark dans HDInsight 
+# <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Noyaux pour bloc-notes Jupyter sur les clusters Spark dans Azure HDInsight 
 
-Les clusters HDInsight Spark fournissent des noyaux que vous pouvez utiliser avec le bloc-notes Jupyter pour tester vos applications Spark. Un noyau est un programme qui exécute et interprète votre code. Les deux noyaux sont les suivants :
+Les clusters Spark HDInsight fournissent des noyaux que vous pouvez utiliser avec le bloc-notes Jupyter sur Spark pour tester vos applications. Un noyau est un programme qui exécute et interprète votre code. Les trois noyaux sont les suivants :
 
 - **PySpark** : pour les applications écrites en Python2
 - **PySpark3** : pour les applications écrites en Python3
@@ -37,18 +39,18 @@ Dans cet article, vous allez apprendre à utiliser ces noyaux et découvrir les 
 
 * Un cluster Apache Spark dans HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="create-a-jupyter-notebook"></a>Créer un bloc-notes Jupyter
+## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Créer un bloc-notes Jupyter sur Spark HDInsight
 
 1. À partir du [portail Azure](https://portal.azure.com/), ouvrez votre cluster.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters). Le cluster est ouvert dans un nouveau panneau du portail.
 
 2. À partir de la section **Liens rapides** , cliquez sur **Tableaux de bord des clusters** pour ouvrir le panneau **Tableaux de bord des clusters**.  Si vous ne voyez pas **Liens rapides**, cliquez sur **Vue d’ensemble** dans le menu gauche du panneau.
 
-    ![Tableaux de bord des clusters](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "Tableaux de bord des clusters") 
+    ![Bloc-notes Jupyter sur Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-jupyter-notebook-on-spark.png "Bloc-notes Jupyter sur Spark") 
 
 3. Cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
    
    > [!NOTE]
-   > Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
+   > Vous pouvez également atteindre le bloc-notes Jupyter sur le cluster Spark en ouvrant l’URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
@@ -56,13 +58,13 @@ Dans cet article, vous allez apprendre à utiliser ces noyaux et découvrir les 
 
 3. Cliquez sur **Nouveau**, puis sur **Pyspark**, **PySpark3** ou **Spark** pour créer un bloc-notes. Utilisez le noyau Spark pour les applications Scala, le noyau PySpark pour les applications Python2 et le noyau PySpark3 pour les applications Python3.
    
-    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Créer un bloc-notes Jupyter") 
+    ![Noyaux pour bloc-notes Jupyter sur Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Noyaux pour bloc-notes Jupyter sur Spark") 
 
 4. Un bloc-notes s’ouvre avec le noyau que vous avez sélectionné.
 
-## <a name="benefits-of-using-these-kernels"></a>Avantages de l’utilisation de ces noyaux
+## <a name="benefits-of-using-the-kernels"></a>Avantages de l’utilisation des noyaux
 
-Voici quelques avantages de l’utilisation des nouveaux noyaux.
+Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-notes Jupyter sur des clusters Spark HDInsight.
 
 - **Contextes prédéfinis**. Avec les noyaux **PySpark**, **PySpark3** ou **Spark**, vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser vos applications. Ils sont disponibles par défaut. Ces contextes sont les suivants :
    
@@ -148,7 +150,7 @@ En cas de problèmes d’accès au compte de stockage pour le cluster, les Noteb
 
 ## <a name="supported-browser"></a>Navigateur pris en charge
 
-Les blocs-notes Jupyter s’exécutant sur des clusters HDInsight Spark sont pris en charge uniquement sur Google Chrome.
+Les blocs-notes Jupyter sur clusters Spark HDInsight sont pris en charge uniquement sur Google Chrome.
 
 ## <a name="feedback"></a>Commentaires
 Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec le temps. Les API pourront également être amenés à évoluer au fur et à mesure des évolutions des noyaux. Nous aimerions recevoir vos commentaires concernant l'utilisation de ces nouveaux noyaux. Cela nous est utile pour préparer la version finale de ces noyaux. Vous pouvez laisser vos commentaires/remarques sous la section **Commentaires** en dessous de cet article.

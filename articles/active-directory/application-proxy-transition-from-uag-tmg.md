@@ -1,6 +1,6 @@
 ---
-title: "Transition vers les proxys d’application Azure AD à partir de Microsoft Forefront | Microsoft Docs"
-description: "Couvre les notions de base sur comment passer des solutions Microsoft Forefront TMG et UAG aux proxys d’application Azure Active Directory."
+title: "Mise à niveau vers le proxy d’application Azure AD | Microsoft Docs"
+description: "Choisissez la meilleure solution de proxy si vous effectuez une mise à niveau à partir de Microsoft Forefront ou de Unified Access Gateway."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -11,17 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/27/2017
 ms.author: kgremban
-ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 6e95e9abac988ae54a401927a92bdb397dd63eed
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: e9d5caa4d11012744ce9f26648166371f3aa17ba
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/12/2017
 
 ---
-# <a name="transition-to-azure-ad-application-proxies-from-microsoft-forefront"></a>Transition vers les proxys d’application Azure AD à partir de Microsoft Forefront
+# <a name="upgrade-to-azure-ad-proxies-from-microsoft-forefront-or-unified-access-gateway"></a>Mise à niveau vers des proxys Azure Active Directory à partir de Microsoft Forefront ou de Unified Access Gateway
 
 Cet article décrit comment passer des solutions Microsoft Forefront Threat Management Gateway (TMG) et United Access Gateway (UAG) au proxy d’application Azure AD.
 
@@ -29,16 +28,16 @@ Pour plus d’informations sur la transition de Forefront TMG et UAG vers le pro
 
 ## <a name="functionality-details-for-the-conversion"></a>Informations sur la fonctionnalité pour la conversion
 
-|**Fonctionnalité TMG/UAG**|**Proxy d’application web/proxy d’application Azure AD**|
+|**Fonctionnalité TMG/UAG**|**Solution moderne**|
 |:-----|:-----|
-|Publication HTTP sélective pour les applications de navigateur|Disponible dans le proxy d’application web de Windows Server 2012 R2. Disponible dans le proxy d’application Azure AD actuel.|
-|Intégration d’Active Directory Federation Services (AD FS)|Disponible dans le proxy d’application web de Windows Server 2012 R2. Disponible dans le proxy d’application Azure AD actuel.|
-|Publication de protocoles riches (p. ex. Citrix, Lync, RDG)|Disponible dans le proxy d’application web de Windows Server 2012 R2. Disponible dans le proxy d’application Azure AD actuel.|
-|Pré-authentification pour ActiveSync (HTTP de base) et RDG|Actuellement indisponible dans le proxy d’application web ou le proxy d’application Azure AD.|
-|Portail|Utilisez Intune ou System Center pour le proxy d’application web. Utilisez le panneau d’accès Azure AD ou le lanceur d’applications Office 365 pour le proxy d’application Azure AD.|
-|Détection d’intégrité de point de terminaison|Utilisez Intune ou System Center.|
-|Tunneling SSH|Utilisez Windows SSL ou la fonctionnalité VPN.|
-|Pare-feu de couche 2/3|Utilisez les fonctionnalités de Windows Server.|
+|Publication HTTP sélective pour les applications de navigateur|Activation du Proxy d’application Azure AD|
+|Intégration d’Active Directory Federation Services (AD FS)|Activation du Proxy d’application Azure AD|
+|Publication de protocoles riches (p. ex. Citrix, Lync, RDG)|Activation du Proxy d’application Azure AD|
+|Portail|Panneau d’accès Azure AD ou lanceur d’applications Office 365 pour le proxy d’application Azure AD|
+|Détection d’intégrité de point de terminaison|Intune ou System Center|
+|Tunneling SSH|Windows SSL ou VPN|
+|Pare-feu de couche 2/3|Windows Server|
+|Pré-authentification pour ActiveSync (HTTP de base) et RDG|Aucune solution actuelle de Microsoft|
 |Pare-feu d’application web|Aucune solution actuelle de Microsoft.|
 |Passerelle web sécurisée (proxy de transfert)|Aucune solution actuelle de Microsoft.|
 

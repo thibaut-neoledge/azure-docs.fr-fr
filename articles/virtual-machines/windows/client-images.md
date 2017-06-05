@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b53bd4d9db9c1ca030a770e56427f35204b90ab3
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 61054d9e118a3c90dec3330004625a25102a08cc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,10 +28,10 @@ Vous pouvez utiliser Windows 7, Windows 8 ou Windows 10 dans Azure pour des scé
 ## <a name="subscription-eligibility"></a>Admissibilité à un abonnement
 Les abonnés Visual Studio actifs (les personnes qui ont acquis une licence d’abonnement Visual Studio) peuvent utiliser un client Windows à des fins de développement et de tests. Un client Windows peut être utilisé sur votre propre matériel et vos machines virtuelles Azure en cours d’exécution dans n’importe quel type d’abonnement Azure. Il ne peut pas être déployé ou utilisé dans Azure pour la production normale ou utilisé par des personnes qui ne sont pas des abonnés Visual Studio actifs.
 
-Pour votre commodité, certaines images Windows 10 disponibles sont disponibles dans la galerie Azure sous [eligible dev/test offers](#eligible-offers). Les abonnés Visual Studio dans n’importe quel type d’offre peuvent également [préparer et créer correctement](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) une image 64 bits de Windows 7, Windows 8 ou Windows 10, puis la [charger dans Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). L’utilisation reste limitée au développement/test par les abonnés Visual Studio actifs.
+Pour votre commodité, certaines images Windows 10 disponibles sont disponibles dans la galerie Azure sous [eligible dev/test offers](#eligible-offers). Les abonnés Visual Studio dans n’importe quel type d’offre peuvent également [préparer et créer correctement](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) une image 64 bits de Windows 7, Windows 8 ou Windows 10, puis la [charger dans Azure](upload-generalized-managed.md). L’utilisation reste limitée au développement/test par les abonnés Visual Studio actifs.
 
 ## <a name="eligible-offers"></a>Offres admissibles
-Le tableau suivant décrit en détail les ID d’offres admissibles pour le déploiement de Windows 10 par le biais de la galerie Azure. Les images Windows 10 sont uniquement visibles par les offres suivantes. Les abonnés Visual Studio qui doivent exécuter le client Windows dans un autre type d’offre doivent [préparer et créer correctement](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) une image 64 bits de Windows 7, Windows 8 ou Windows 10, [puis la charger dans Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Le tableau suivant décrit en détail les ID d’offres admissibles pour le déploiement de Windows 10 par le biais de la galerie Azure. Les images Windows 10 sont uniquement visibles par les offres suivantes. Les abonnés Visual Studio qui doivent exécuter le client Windows dans un autre type d’offre doivent [préparer et créer correctement](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) une image 64 bits de Windows 7, Windows 8 ou Windows 10, [puis la charger dans Azure](upload-generalized-managed.md).
 
 | Nom de l’offre | Numéro de l’offre | Images de client disponibles |
 |:--- |:---:|:---:|
@@ -44,15 +45,17 @@ Le tableau suivant décrit en détail les ID d’offres admissibles pour le dép
 | [Enterprise Dev/Test](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Vérification de votre abonnement Azure
-Si vous ne connaissez pas votre ID d’offre, vous pouvez l’obtenir dans le portail Azure ou le portail de compte.
+Si vous ne connaissez pas votre ID d’offre, vous pouvez l’obtenir via le portail Azure de l’une des manières suivantes :  
 
-L’ID d’offre d’abonnement est indiquée dans le panneau « Abonnements » dans le portail Azure :
+- Dans le panneau « Abonnements » :
 
-![Détails de l’ID de l’offre dans le portail Azure](./media/client-images/offer_id_azure_portal.png) 
+  ![Détails de l’ID de l’offre dans le portail Azure](./media/client-images/offer-id-azure-portal.png) 
+
+- Vous pouvez également cliquer sur **Facturation**, puis sur votre ID d’abonnement. L’ID d’offre s’affiche dans le panneau Facturation.
 
 Vous pouvez également voir l’ID d’offre dans [l’onglet « Abonnements »](http://account.windowsazure.com/Subscriptions) du portail de compte Azure :
 
-![Détails de l’ID de l’offre dans le portail de compte Azure](./media/client-images/offer_id_azure_account_portal.png) 
+![Détails de l’ID de l’offre dans le portail de compte Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez désormais déployer vos machines virtuelles à l’aide de [PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), de [modèles Resource Manager](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou de [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).

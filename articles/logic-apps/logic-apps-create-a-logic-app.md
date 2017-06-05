@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jehollan; estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6634f0ee88e68f2fcb09fd7534a88677e8efa029
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan; estfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services"></a>Créer votre premier flux de travail d’application logique pour automatiser les processus entre les applications cloud et les services cloud
 
-Vous pouvez automatiser des processus d’entreprise plus facilement et rapidement lorsque vous créez et exécutez des flux de travail et ce, sans avoir besoin d’écrire la plus petite ligne de code, grâce à [Azure Logic Apps](logic-apps-what-are-logic-apps.md). Le premier exemple indique comment créer un flux de travail d’application logique de base, qui vérifie la présence éventuelle de nouveau contenu dans un flux RSS, sur un site web. Lorsque de nouveaux éléments s’affichent dans le flux du site web, l’application logique envoie un e-mail depuis un compte Outlook ou Gmail.
+Vous pouvez automatiser des processus métier plus facilement et rapidement lorsque vous créez et exécutez des flux de travail et ce, sans avoir besoin d’écrire la plus petite ligne de code, grâce à [Azure Logic Apps](logic-apps-what-are-logic-apps.md). Le premier exemple indique comment créer un flux de travail d’application logique de base, qui vérifie la présence éventuelle de nouveau contenu dans un flux RSS, sur un site web. Lorsque de nouveaux éléments s’affichent dans le flux du site web, l’application logique envoie un e-mail depuis un compte Outlook ou Gmail.
 
 Pour créer et exécuter une application logique, vous avez besoin des éléments suivants :
 
@@ -39,7 +40,7 @@ En outre, cet exemple nécessite les éléments suivants :
     > [!TIP]
     > Si vous disposez d’un [compte Microsoft](https://account.microsoft.com/account) personnel, vous possédez un compte Outlook.com. Sinon, si vous disposez d’un compte Azure professionnel ou scolaire, vous possédez un compte **Office 365 Outlook**.
 
-* Un lien vers le flux RSS d’un site web. Cet exemple utilise le flux RSS pour le [site web MSDN Channel 9](https://channel9.msdn.com/) :`https://s.ch9.ms/Feeds/RSS`
+* Un lien vers le flux RSS d’un site web. Cet exemple utilise le [flux RSS pour les témoignages du site web CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss) : `http://rss.cnn.com/rss/cnn_topstories.rss`
 
 ## <a name="add-a-trigger-that-starts-your-workflow"></a>Ajouter un déclencheur qui démarre votre flux de travail
 
@@ -74,7 +75,7 @@ Un [*déclencheur*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) est 
      Vous pouvez également modifier la **fréquence** et l’**intervalle**. 
      Ces paramètres déterminent la fréquence à laquelle votre application logique recherche de nouveaux éléments et renvoie tous les éléments détectés pendant cet intervalle de temps.
 
-     Pour les besoins de cet exemple, nous allons rechercher tous les jours les nouveaux éléments postés sur le site web MSDN Channel 9.
+     Pour les besoins de cet exemple, nous allons rechercher tous les jours les témoignages publiés sur le site web CNN.
 
      ![Définir un déclencheur avec le flux RSS, la fréquence et l’intervalle](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 

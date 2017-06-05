@@ -16,14 +16,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7b4ae9281bca20949c37b2c797e4a1a677665929
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 198a8421636945bdf60c4ed519d065617a7fc287
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="azure-functions-storage-blob-bindings"></a>Liaisons d’objets blob Stockage Azure Functions
+# <a name="azure-functions-blob-storage-bindings"></a>Liaisons de Stockage Blob Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Cet article explique comment configurer et coder des liaisons d’objets blob Stockage Azure dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur, d’entrée et de sortie pour les objets blob Stockage Azure.
@@ -57,7 +58,7 @@ Notez les points suivants :
 * Pour `path`, consultez [Modèles de nom](#pattern) pour savoir comment mettre en forme les modèles de nom d’objet blob.
 * `connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le Portail Azure, l’éditeur standard sous l’onglet **Intégrer** configure ce paramètre d’application pour vous quand vous créez un compte de stockage ou en sélectionnez un. Pour créer manuellement ce paramètre d’application, consultez [Configurer ce paramètre d’application manuellement](functions-how-to-use-azure-function-app-settings.md). 
 
-Lors de l’exécution sur un plan Consommation, si une Function App est inactive, il peut y avoir jusqu’à 10 minutes par jour dans le traitement des nouveaux objets blob. Une fois la Function App en cours d’exécution, les objets blob sont traités plus rapidement. Pour éviter ce délai initial, utilisez un plan App Service régulier avec Toujours actif activé ou un autre mécanisme pour déclencher le traitement des objets blob, par exemple un message de file d’attente contenant le nom de l’objet blob. 
+Lors de l’exécution sur un plan de consommation, si une Function App est devenue inactive, le traitement des nouveaux objets blob peut prendre jusqu’à 10 minutes. Une fois la Function App en cours d’exécution, les objets blob sont traités plus rapidement. Pour éviter ce délai initial, utilisez un plan App Service régulier avec Toujours actif activé ou un autre mécanisme pour déclencher le traitement des objets blob, par exemple un message de file d’attente contenant le nom de l’objet blob. 
 
 En outre, consultez les sections suivantes pour plus d’informations :
 

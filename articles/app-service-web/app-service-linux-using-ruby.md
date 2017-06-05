@@ -1,6 +1,6 @@
 ---
-title: Utilisation de Ruby dans Azure App Service Web Apps sur Linux | Microsoft Docs
-description: Utilisation de Ruby dans Azure App Service Web Apps sur Linux.
+title: "Utilisation de Ruby dans l’application web Azure App Service sur Linux | Microsoft Docs"
+description: "Utilisation de Ruby dans l’application web Azure App Service sur Linux."
 keywords: azure app service, application web, faq, linux, oss, ruby
 services: app-service
 documentationCenter: 
@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: 8427034e5229000faf134bcd5b7174b0f7046321
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5aeef6f31dacb1b27c605d39a35a81bd0211e06a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="using-ruby-in-web-apps-on-linux"></a>Utilisation de Ruby dans Web Apps sur Linux #
+# <a name="using-ruby-in-web-app-on-linux"></a>Utilisation de Ruby dans Web App sur Linux #
 
 Lors de la dernière mise à jour de notre serveur principal, nous avons introduit la prise en charge de Ruby v.2.3. En définissant la configuration de votre application web Linux, vous pouvez modifier la pile d’applications.
 
@@ -45,10 +46,10 @@ Ensuite, le **panneau Créer** s’ouvre comme indiqué dans l’image suivante�
 Une fois votre application web Ruby créée, vous pouvez la déployer à l’aide de Git ou FTP.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Qu’est-ce qu’App Service sur Linux ?](app-service-linux-intro.md)
-* [Création d’applications Web dans App Service sur Linux](app-service-linux-how-to-create-a-web-app.md)
+* [Qu’est-ce que Web App sur Linux ?](app-service-linux-intro.md)
+* [Création d’applications web dans Web App sur Linux](app-service-linux-how-to-create-web-app.md)
 * [Déploiement Git local vers Azure App Service](app-service-deploy-local-git.md)
-* [FAQ Azure App Service Web Apps sous Linux](app-service-linux-faq.md)
+* [FAQ de l’application web Azure App Service sur Linux](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-ruby/New-Linux.png

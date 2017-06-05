@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/28/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: aeb0b665b8295bba30d8c6c47cc88e446693c91f
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 64b09448149b7e1efd8b76663a27b6c7ec1eb3c7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/01/2017
 Vous pouvez utiliser Azure IoT Hub et les Kits de développement logiciel (SDK) d’appareil Azure IoT pour créer des solutions Internet des objets (IoT).
 
 * Azure IoT Hub est un service entièrement géré dans le cloud qui connecte, surveille et gère vos appareils IoT en toute sécurité. Utilisez les Kits de développement (SDK) d’appareil Azure IoT pour implémenter vos appareils IoT.
-* Utilisez une passerelle IoT dans les scénarios IoT plus complexes où vous devez tenir compte de facteurs tels que les appareils hérités, les coûts de bande passante, les stratégies de sécurité et de confidentialité ou le traitement des données de périmètre. Dans ces scénarios, vous utilisez le Kit de développement logiciel (SDK) de passerelle Azure IoT pour créer un appareil de passerelle qui connecte des appareils à votre IoT Hub.
+* Utilisez une passerelle IoT dans les scénarios IoT plus complexes où vous devez tenir compte de facteurs tels que les appareils hérités, les coûts de bande passante, les stratégies de sécurité et de confidentialité ou le traitement des données de périmètre. Dans ces scénarios, vous utilisez Azure IoT Edge pour mettre en œuvre une passerelle qui connecte des appareils à votre IoT Hub.
 
-## <a name="what-do-the-tutorials-cover"></a>Ce qui est couvert par les tutoriels
+## <a name="what-the-tutorials-cover"></a>Ce que couvrent les tutoriels
 
 Ces tutoriels présentent Azure IoT Hub et les Kits de développement logiciel (SDK) d’appareil. Les tutoriels abordent des scénarios IoT courants pour faire la démonstration des fonctionnalités de IoT Hub. Ils illustrent également la manière dont IoT Hub peut être combiné avec d’autres services et outils Azure pour créer des solutions IoT plus puissantes. Dans les tutoriels, vous pouvez choisir d’utiliser des appareils IoT simulés ou réels. En outre, vous pouvez apprendre à utiliser une passerelle pour permettre aux appareils de se connecter à votre IoT Hub.
 
@@ -47,7 +47,7 @@ Vous pouvez choisir votre appareil réel ou simulé pour commencer.
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
 | Appareil simulé                | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth]              |
 
-En outre, vous pouvez utiliser une passerelle pour permettre aux appareils de se connecter à votre IoT Hub.
+En outre, vous pouvez utiliser une passerelle IoT Edge pour permettre aux appareils de se connecter à votre IoT Hub.
 
 | Appareil de passerelle               | Langage de programmation | Plateforme         |
 |------------------------------|----------------------|------------------|
@@ -84,8 +84,8 @@ Lorsque vous avez terminé ces tutoriels, vous pouvez explorer davantage les cap
 [Sim_Nd]: iot-hub-node-node-getstarted.md
 [Sim_Pyth]: iot-hub-python-getstarted.md
 [NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
-[Sim_Lnx]: iot-hub-linux-gateway-sdk-get-started.md
-[Sim_Win]: iot-hub-windows-gateway-sdk-get-started.md
+[Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
+[Sim_Win]: iot-hub-windows-iot-edge-get-started.md
 [Mg_IoT_Hub_Msg]: iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Dv]: iot-hub-device-management-iothub-explorer.md
 [Sv_IoT_Msg_Stor]: iot-hub-store-data-in-azure-table-storage.md

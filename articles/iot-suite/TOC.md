@@ -11,6 +11,7 @@
 ## [Présentation de la solution d’usine connectée](iot-suite-connected-factory-overview.md)
 ## [Procédure pas à pas pour la solution de surveillance à distance](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Procédure pas à pas pour la solution de maintenance prédictive](iot-suite-predictive-walkthrough.md)
+## [Procédure pas à pas de la solution d’usine connectée](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Connexion de votre Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
 ### Utiliser C
 #### [Données simulés](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
@@ -29,7 +30,6 @@
 ### [C sur Windows](iot-suite-connecting-devices.md)
 ### [C sur Linux](iot-suite-connecting-devices-linux.md)
 ### [Node.JS](iot-suite-connecting-devices-node.md)
-## [Connecter votre périphérique mbed](iot-suite-connecting-devices-mbed.md)
 ## [Connecter une application logique à la solution de surveillance à distance](iot-suite-logic-apps-tutorial.md)
 ## [Personnaliser une solution préconfigurée](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Utiliser la télémétrie dynamique avec la solution de surveillance à distance](iot-suite-dynamic-telemetry.md)

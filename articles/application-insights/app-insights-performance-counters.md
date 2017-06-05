@@ -3,7 +3,7 @@ title: "Compteurs de performances dans Application Insights | Microsoft Docs
 description: "Surveillez les compteurs de performances système et .NET personnalisés dans Application Insights."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights

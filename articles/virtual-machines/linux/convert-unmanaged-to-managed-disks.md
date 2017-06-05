@@ -15,10 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8429ee543d8cf838765ff9e8624390746474ee0d
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 6bab6cbd84c55e668f2caf9b9f94621eec982203
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -37,9 +38,6 @@ Vous ne pouvez pas convertir un disque non géré vers un disque géré s’il s
 
 ## <a name="convert-vm-to-azure-managed-disks"></a>Convertir une machine virtuelle vers Azure Managed Disks
 Cette section explique comment convertir vos machines virtuelles Azure existantes à partir de disques non gérés en disques gérés. Vous pouvez utiliser ce processus pour convertir des disques non gérés Premium (SSD) en disques gérés Premium, ou des disques non gérés Standard (HDD) en disques gérés Standard.
-
-> [!IMPORTANT]
-> Après avoir effectué la procédure suivante, un seul objet blob de blocs reste dans le conteneur de disques durs virtuels par défaut. Le nom du fichier est : « VMName.xxxxxxx.status ». Ne supprimez pas cet objet d’état restant. Les étapes suivantes devraient résoudre ce problème.
 
 1. Libérez la machine virtuelle avec la commande [az vm deallocate](/cli/azure/vm#deallocate). L’exemple suivant libère la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
 

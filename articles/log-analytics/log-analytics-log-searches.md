@@ -3,7 +3,7 @@ title: "Recherche de données à l’aide de recherches de journal dans Azure Lo
 description: "Les recherches de journal vous permettent de combiner et de mettre en corrélation toutes les données de l’ordinateur à partir de plusieurs sources dans votre environnement."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
-ms.author: banders
+ms.date: 05/16/2017
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: b005d0fb25483f3dce14133038d7759dff07fc7c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -149,7 +149,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>Pour effectuer une recherche à l'aide d'un opérateur booléen
-* Dans le champ de requête de recherche, tapez `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* Dans le champ de requête de recherche, tapez `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![Recherche avec des opérateurs booléens](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Bien que vous puissiez contrôler graphiquement l'intervalle de temps, et nous vous invitons à faire cela la plupart du temps, l’ajout d’un filtre de temps directement dans la requête présente certains avantages. Par exemple, cela fonctionne très bien avec les tableaux de bord qui vous permettent de remplacer le temps pour chaque vignette, quel que soit le sélecteur de temps *global* sur la page du tableau de bord. Pour plus d'informations, consultez [Questions relatives au temps dans le tableau de bord](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -271,7 +271,7 @@ C'est ce que la commande Measure permet de faire avec la fonction count(). Cette
 
 ![Recherche measure count](./media/log-analytics-log-searches/oms-search-measure-count-computer.png)
 
-Le champ **Computer** est toutefois simplement un champ utilisé *dans* chaque élément de données : aucune base de données relationnelle n’est impliquée, et il n’existe aucun objet ****distinct nulle part. Simplement, les valeurs *dans* les données peuvent décrire l’entité qui les a générées, ainsi qu’un certain nombre d’autres caractéristiques et aspects des données, d’où le terme *facette*. Toutefois, vous pouvez également les regrouper par d'autres champs. Étant donné que les résultats d’origine des près de 739 000 événements canalisés dans la commande Measure ont également un champ nommé **EventID**, vous pouvez appliquer la même technique pour regrouper par ce champ et obtenir un nombre d’événements par EventID :
+Le champ **Computer** est toutefois simplement un champ utilisé *dans* chaque élément de données : aucune base de données relationnelle n’est impliquée, et il n’existe aucun objet **Computer**distinct nulle part. Simplement, les valeurs *dans* les données peuvent décrire l’entité qui les a générées, ainsi qu’un certain nombre d’autres caractéristiques et aspects des données, d’où le terme *facette*. Toutefois, vous pouvez également les regrouper par d'autres champs. Étant donné que les résultats d’origine des près de 739 000 événements canalisés dans la commande Measure ont également un champ nommé **EventID**, vous pouvez appliquer la même technique pour regrouper par ce champ et obtenir un nombre d’événements par EventID :
 
 ```
 Type=Event | Measure count() by EventID

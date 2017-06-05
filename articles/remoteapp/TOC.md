@@ -24,6 +24,8 @@
 
 # Procédure
 
+## [Migrer des données utilisateur à partir d’Azure RemoteApp](remoteapp-migrate.md)
+## [Migrer vers Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Créer une collection RemoteApp
 ### [De quelle collection ai-je besoin ?](remoteapp-collections.md)
 ### [Création d’une collection cloud](remoteapp-create-cloud-deployment.md)
@@ -69,8 +71,3 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/remoteapp/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

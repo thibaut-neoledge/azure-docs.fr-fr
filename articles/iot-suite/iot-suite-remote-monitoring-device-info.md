@@ -13,38 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 9e1bcba086a9f70c689a5d7d7713a8ecdc764492
-ms.openlocfilehash: e41f5d5e6c5e1da8763c73978d2be9c7e61b8fff
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 25122729691867533a0489ff09770e096541d6fe
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Métadonnées relatives aux informations d’appareil dans la solution préconfigurée de surveillance à distance
+
 La solution préconfigurée de surveillance à distance Azure IoT Suite montre une approche de gestion des métadonnées d’appareil. Cet article décrit l’approche de cette solution pour vous permettre de comprendre :
 
 * Quelles métadonnées d’appareil sont stockées par la solution.
 * Comment la solution gère les métadonnées d’appareil.
 
 ## <a name="context"></a>Context
+
 La solution préconfigurée de surveillance à distance utilise [Azure IoT Hub][lnk-iot-hub] pour permettre à vos appareils d’envoyer des données vers le cloud. La solution stocke des informations sur les appareils dans trois emplacements différents :
 
 | Emplacement | Informations stockées | Implémentation |
 | -------- | ------------------ | -------------- |
 | Registre des identités | ID de l’appareil, clés d’authentification, état Activé | Intégré à IoT Hub |
 | Représentations d’appareil physique | Métadonnées : propriétés signalées, propriétés souhaitées, balises | Intégré à IoT Hub |
-| Base de données de documents | Historique des commandes et méthodes | Personnalisé pour la solution |
+| Cosmos DB | Historique des commandes et méthodes | Personnalisé pour la solution |
 
-IoT Hub inclut un [registre des identités des appareils][lnk-identity-registry] pour gérer l’accès à un IoT Hub et utilise des [jumeaux d’appareil][lnk-device-twin] pour gérer les métadonnées de l’appareil. Il inclut également un *registre des appareils* spécifique à la solution de surveillance à distance qui stocke l’historique des commandes et méthodes. La solution de surveillance à distance utilise une base de données [DocumentDB][lnk-docdb] pour implémenter un magasin personnalisé pour l’historique des commandes et méthodes.
+IoT Hub inclut un [registre des identités des appareils][lnk-identity-registry] pour gérer l’accès à un IoT Hub et utilise des [jumeaux d’appareil][lnk-device-twin] pour gérer les métadonnées de l’appareil. Il inclut également un *registre des appareils* spécifique à la solution de surveillance à distance qui stocke l’historique des commandes et méthodes. La solution de surveillance à distance utilise une base de données [Cosmos DB][lnk-docdb] afin d’implémenter un magasin personnalisé pour l’historique des commandes et méthodes.
 
 > [!NOTE]
-> La solution préconfigurée de surveillance à distance synchronise le registre des identités des appareils avec les informations dans la base de données DocumentDB. Les deux utilisent le même id d’appareil pour identifier chaque appareil connecté à votre IoT hub de manière unique.
-> 
-> 
+> La solution préconfigurée de surveillance à distance synchronise le registre des identités des appareils avec les informations de la base de données Cosmos DB. Les deux utilisent le même id d’appareil pour identifier chaque appareil connecté à votre IoT hub de manière unique.
 
 ## <a name="device-metadata"></a>Métadonnées de l’appareil
+
 IoT Hub gère un [jumeau d’appareil][lnk-device-twin] pour chaque appareil simulé et physique connecté à une solution de surveillance à distance. La solution utilise des jumeaux d’appareil pour gérer les métadonnées associées aux appareils. Un jumeau d’appareil est un document JSON géré par IoT Hub et la solution utilise l’API IoT Hub pour interagir avec les jumeaux d’appareil.
 
 Un jumeau d’appareil stocke trois types de métadonnées :
@@ -58,9 +60,9 @@ Les propriétés signalées à partir des appareils simulés sont par exemple le
 > [!NOTE]
 > Le code d’appareil simulé utilise uniquement les propriétés souhaitées **Desired.Config.TemperatureMeanValue** et **Desired.Config.TelemetryInterval** pour mettre à jour les propriétés signalées renvoyées à IoT Hub. Toutes les autres demandes de modification de propriétés souhaitées sont ignorées.
 
-Un document JSON sur les métadonnées relatives aux informations d’appareil stocké dans la base de données DocumentDB du registre des appareils possède la structure suivante :
+Un document JSON des métadonnées relatives aux informations d’appareil stocké dans la base de données Cosmos DB du registre des appareils présente la structure suivante :
 
-```
+```json
 {
   "DeviceProperties": {
     "DeviceID": "deviceid1",
@@ -79,18 +81,17 @@ Un document JSON sur les métadonnées relatives aux informations d’appareil s
 }
 ```
 
-
 > [!NOTE]
 > Les informations d’appareil peuvent également inclure des métadonnées permettant de décrire la télémétrie que l’appareil envoie au IoT Hub. La solution de surveillance à distance utilise ces métadonnées de télémétrie pour personnaliser la façon dont le tableau de bord affiche la [télémétrie dynamique][lnk-dynamic-telemetry].
-> 
-> 
 
 ## <a name="lifecycle"></a>Cycle de vie
-Lorsque vous créez un appareil pour la première fois dans le portail de solution, la solution crée une entrée dans la base de données DocumentDB pour stocker l’historique des commandes et méthodes. À ce stade, la solution crée également une entrée pour l’appareil dans le registre des identités des appareils, qui génère les clés utilisées par l’appareil pour s’authentifier avec IoT Hub. Elle crée également un jumeau d’appareil.
 
-Lorsqu’un appareil se connecte pour la première fois à la solution, il envoie les propriétés signalées et un message d’informations sur l’appareil. Les valeurs des propriétés signalées sont automatiquement enregistrées dans le jumeau d’appareil. Les propriétés signalées incluent le fabricant de l’appareil, le numéro du modèle, le numéro de série et une liste des méthodes prises en charge. Un message d’informations sur l’appareil inclut la liste des commandes prises en charge par l’appareil comprenant des informations sur les paramètres de commande. Lorsque la solution reçoit ce message, elle met à jour les informations sur l’appareil dans la base de données DocumentDB.
+Lorsque vous créez un appareil dans le portail de solution, la solution crée une entrée dans la base de données Cosmos DB pour stocker l’historique des commandes et méthodes. À ce stade, la solution crée également une entrée pour l’appareil dans le registre des identités des appareils, qui génère les clés utilisées par l’appareil pour s’authentifier avec IoT Hub. Elle crée également un jumeau d’appareil.
+
+Lorsqu’un appareil se connecte pour la première fois à la solution, il envoie les propriétés signalées et un message d’informations sur l’appareil. Les valeurs des propriétés signalées sont automatiquement enregistrées dans le jumeau d’appareil. Les propriétés signalées incluent le fabricant de l’appareil, le numéro du modèle, le numéro de série et une liste des méthodes prises en charge. Un message d’informations sur l’appareil inclut la liste des commandes prises en charge par l’appareil comprenant des informations sur les paramètres de commande. Lorsque la solution reçoit ce message, elle met à jour les informations de l’appareil dans la base de données Cosmos DB.
 
 ### <a name="view-and-edit-device-information-in-the-solution-portal"></a>Afficher et modifier les informations d’appareil dans le portail de la solution
+
 La liste des appareils du portail de solution affiche par défaut les propriétés d’appareil suivantes sous forme de colonnes : **Status**, **DeviceId**, **Manufacturer**, **Model Number**, **Serial Number**, **Firmware**, **Platform**, **Processor** et **Installed RAM**. Vous pouvez personnaliser les colonnes en cliquant sur **l’éditeur de colonne**. Les propriétés d’appareil **Latitude** et **Longitude** indiquent l’emplacement dans la Carte Bing sur le tableau de bord.
 
 ![Éditeur de colonne dans la liste des appareils][img-device-list]
@@ -99,19 +100,19 @@ Dans le volet **Informations sur l’appareil** du portail de solution, vous pou
 
 ![Volet d’informations sur l’appareil][img-device-edit]
 
-Vous pouvez utiliser le portail de la solution pour supprimer un appareil de votre solution. Lorsque vous supprimez un appareil, la solution supprime l’entrée de l’appareil du registre d’identité, puis supprime le jumeau d’appareil. La solution supprime également les informations relatives à l’appareil de la base de données DocumentDB. Avant de pouvoir supprimer un appareil, vous devez le désactiver.
+Vous pouvez utiliser le portail de la solution pour supprimer un appareil de votre solution. Lorsque vous supprimez un appareil, la solution supprime l’entrée de l’appareil du registre d’identité, puis supprime le jumeau d’appareil. La solution supprime également les informations relatives à l’appareil de la base de données Cosmos DB. Avant de pouvoir supprimer un appareil, vous devez le désactiver.
 
 ![Supprimer l’appareil][img-device-remove]
 
 ## <a name="device-information-message-processing"></a>Traitement des messages d’information d’appareil
-Les messages d’information d’appareil envoyés par un appareil sont différents des messages de télémétrie. Les messages d’information sur l’appareil incluent les commandes auxquelles répond un appareil et l’historique des commandes. IoT Hub lui-même n’a aucune connaissance des métadonnées contenues dans un message d’information d’appareil et traite le message de la même manière qu’il traite tout message appareil-à-cloud. Dans la solution de surveillance à distance, une tâche [Azure Stream Analytics][lnk-stream-analytics] (ASA) lit les messages issus de IoT Hub. Le travail **DeviceInfo** Stream Analytics filtre les messages contenant **« ObjectType » : « DeviceInfo »** et les transmet à l’instance hôte **EventProcessorHost** qui s’exécute dans une tâche web. La logique de l’instance **EventProcessorHost** utilise l’ID d’appareil pour rechercher l’enregistrement DocumentDB de l’appareil spécifique et le mettre à jour.
+
+Les messages d’information d’appareil envoyés par un appareil sont différents des messages de télémétrie. Les messages d’information sur l’appareil incluent les commandes auxquelles répond un appareil et l’historique des commandes. IoT Hub lui-même n’a aucune connaissance des métadonnées contenues dans un message d’information d’appareil et traite le message de la même manière qu’il traite tout message appareil-à-cloud. Dans la solution de surveillance à distance, une tâche [Azure Stream Analytics][lnk-stream-analytics] (ASA) lit les messages issus de IoT Hub. Le travail **DeviceInfo** Stream Analytics filtre les messages contenant **« ObjectType » : « DeviceInfo »** et les transmet à l’instance hôte **EventProcessorHost** qui s’exécute dans une tâche web. La logique de l’instance **EventProcessorHost** utilise l’ID d’appareil pour rechercher l’enregistrement Cosmos DB de l’appareil spécifique et le mettre à jour.
 
 > [!NOTE]
 > Un message d’information d’appareil est un message appareil-à-cloud standard. La solution fait la distinction entre les messages d’information d’appareil et les messages de télémétrie en utilisant des requêtes ASA.
-> 
-> 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Maintenant que vous savez comment personnaliser les solutions préconfigurées, vous pouvez explorer certaines des autres fonctions et fonctionnalités des solutions préconfigurées de la suite IoT :
 
 * [Présentation de la solution préconfigurée de maintenance prédictive][lnk-predictive-overview]

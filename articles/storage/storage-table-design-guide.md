@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 02/28/2017
 ms.author: jahogg
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 9da543dbebe8f35178233d91492b0aff21f10986
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5ddb234cc97b3113ec865f97195c871b9f2f40d3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de table Azure Storage : conception de tables évolutives et performantes
-## <a name="overview"></a>Vue d'ensemble
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 Pour concevoir des tables évolutives et performantes, vous devez prendre en compte un certain nombre de facteurs, tels que la performance, l'extensibilité et le coût. Si vous avez déjà conçu des schémas pour des bases de données relationnelles, ces considérations doivent vous être familières, mais s'il existe quelques similitudes entre le modèle de stockage du service de Table Azure et les modèles relationnels, il existe également plusieurs différences importantes. Ces différences conduisent généralement à des conceptions très différentes qui peuvent sembler absurdes ou incorrectes à une personne ayant une bonne connaissance des bases de données relationnelles, mais qui sont logiques pour une personne menant une conception pour un magasin de paires clé/valeur NoSQL comme celui du service de Table Azure. Bon nombre de différences de conception refléteront le fait que le service de Table est conçu pour prendre en charge des applications à l’échelle du cloud qui peuvent contenir des milliards d’entités (que la terminologie de base de données relationnelle appelle « des lignes ») de données ou des jeux de données devant prendre en charge des volumes de transactions très élevés : par conséquent, vous devez concevoir différemment la façon dont vous stockez vos données et comprendre comment fonctionne le service de Table. Un magasin de données NoSQL bien conçu améliore l'étendue de la mise à l'échelle de votre solution, pour un coût inférieur à celui d'une solution utilisant une base de données relationnelle. Ce guide fournit une aide relative à ces sujets.  
 
 ## <a name="about-the-azure-table-service"></a>À propos du service de Table Azure
@@ -261,7 +263,7 @@ De nombreuses applications ont des conditions d'utilisation pour l'utilisation d
 
 * [Modèle d’index secondaire intra-partition](#intra-partition-secondary-index-pattern) : stockez plusieurs copies de chaque entité en utilisant différentes valeurs de RowKey (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de RowKey.  
 * [Modèle d’index secondaire entre les partitions](#inter-partition-secondary-index-pattern) : stockez plusieurs copies de chaque entité à l’aide de différentes valeurs de RowKey dans des partitions ou des tables distinctes pour mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de RowKey.
-* [Modèle de fin de journal](#log-tail-pattern) : récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
+* [Modèle de fin de journal](#log-tail-pattern) : récupérez les entités *n* récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
 
 ## <a name="design-for-data-modification"></a>Conception pour la modification de données
 Cette section se concentre sur les considérations de conception pour optimiser les insertions, les mises à jour et les suppressions. Dans certains cas, vous devez évaluer le compromis entre les conceptions optimisées pour l'interrogation et celles optimisées pour la modification des données, comme vous le feriez dans les conceptions de bases de données relationnelles (bien que les techniques permettant de gérer les compromis de conception sont différentes dans une base de données relationnelle). La section [Modèles de conception de table](#table-design-patterns) décrit plusieurs modèles de conception détaillés pour le service de Table et apporte des informations sur certains de ces compromis. En pratique, vous constaterez que les nombreuses conceptions optimisées pour l'interrogation des entités fonctionnent aussi bien pour la modification des entités.  
@@ -296,7 +298,7 @@ Dans de nombreux cas, une conception visant à obtenir une interrogation efficac
 Les modèles suivants de la section [Modèles de conception de table](#table-design-patterns) répondent aux compromis entre la conception en vue d’une interrogation efficace et la conception en vue d’une modification de données efficace :  
 
 * [Modèle de clé composée](#compound-key-pattern) : utilisez les valeurs de **RowKey** composée pour permettre à un client de rechercher des données associées en utilisant une seule requête de pointage.  
-* [Modèle de fin de journal](#log-tail-pattern) : récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
+* [Modèle de fin de journal](#log-tail-pattern) : récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
 
 ## <a name="encrypting-table-data"></a>Chiffrement de données de table
 La bibliothèque cliente de stockage .NET Azure Storage prend en charge le chiffrement des propriétés de l’entité de chaîne pour les opérations d’insertion et de remplacement. Les chaînes chiffrées sont stockées sur le service en tant que propriétés binaires, et elles sont converties en chaînes après le déchiffrement.    
@@ -718,10 +720,10 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 * [Modèle de transactions cohérentes](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>Modèle de fin de journal
-Récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
+Récupérez les entités *n* récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
 
 #### <a name="context-and-problem"></a>Contexte et problème
-Une exigence courante est de pouvoir récupérer les entités plus récemment créées, par exemple les dix dernières dépenses revendications soumises par un employé. Les requêtes de table prennent en charge une opération de requête **$top** pour retourner les *n* premières entités en provenance d’un ensemble. Il n’existe aucune opération de requête équivalente pour retourner les n dernières entités d’un ensemble.  
+Une exigence courante est de pouvoir récupérer les entités plus récemment créées, par exemple les dix dernières dépenses revendications soumises par un employé. Les requêtes de table prennent en charge une opération de requête **$top** pour retourner les premières *n* entités en provenance d’un ensemble. Il n’existe aucune opération de requête équivalente pour retourner les n dernières entités d’un ensemble.  
 
 #### <a name="solution"></a>Solution
 Stockez les entités en utilisant une **RowKey** qui trie naturellement l’ordre inverse de date et d’heure par utilisation, pour que l’entrée la plus récente soit toujours la première dans la table.  

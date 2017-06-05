@@ -13,21 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 84ce4b288c23c7005ac92f18ee26af70479deb8d
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 4453876c126289f922d6d08d321707e1d10004e3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gestion des disques Azure avec l’interface de ligne de commande Azure
 
-Ce didacticiel décrit les différents disques de machines virtuelles et explique comment sélectionner une configuration de disque et comment créer et attacher des disques aux machines virtuelles Azure. Ce didacticiel couvre également la prise de captures instantanées de disque. 
+Les machines virtuelles utilisent des disques pour stocker leur système d’exploitation, leurs applications et leurs données. Lorsque vous créez une machine virtuelle, il est important de choisir une taille de disque et une configuration appropriées pour la charge de travail prévue. Ce didacticiel décrit le déploiement et la gestion des disques de machine virtuelle. Vous en apprendrez davantage sur les points suivants :
 
-Les étapes de ce didacticiel peuvent être effectuées à l’aide de la dernière version [d’interface de ligne de commande Azure 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Disques de système d’exploitation et disques temporaires
+> * Disques de données
+> * Disques Standard et Premium
+> * Performances des disques
+> * Attachement et préparation des disques de données
+> * Redimensionnement des disques
+> * Captures instantanées de disque
+
+Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). Vous pouvez également utiliser [Cloud Shell](/azure/cloud-shell/quickstart) à partir de votre navigateur.
 
 ## <a name="default-azure-disks"></a>Disques Azure par défaut
 
@@ -39,7 +48,7 @@ Lorsqu’une machine virtuelle Azure est créée, deux disques sont automatiquem
 
 ### <a name="temporary-disk-sizes"></a>Tailles du disque temporaire
 
-| Type | Taille de la machine virtuelle | Taille du disque temp. max. |
+| Type | Taille de la machine virtuelle | Taille maximale du disque temporaire (Go) |
 |----|----|----|
 | [Usage général](sizes-general.md) | Séries A et D | 800 |
 | [Optimisé pour le calcul](sizes-compute.md) | Série F | 800 |
@@ -274,6 +283,19 @@ az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez développé vos connaissances sur les disques de machine virtuelle. Passez au didacticiel suivant pour en apprendre davantage sur l’automatisation de la configuration de machine virtuelle.
+Ce didacticiel vous a apporté des connaissances concernant les disques de machine virtuelle, notamment concernant les points suivants :
 
-[How to customize a Linux virtual machine on first boot](./tutorial-automate-vm-deployment.md) (Comment personnaliser une machine virtuelle Linux au premier démarrage)
+> [!div class="checklist"]
+> * Disques de système d’exploitation et disques temporaires
+> * Disques de données
+> * Disques Standard et Premium
+> * Performances des disques
+> * Attachement et préparation des disques de données
+> * Redimensionnement des disques
+> * Captures instantanées de disque
+
+Passez au didacticiel suivant pour en apprendre davantage sur l’automatisation de la configuration de machine virtuelle.
+
+> [!div class="nextstepaction"]
+> [How to customize a Linux virtual machine on first boot](./tutorial-automate-vm-deployment.md) (Comment personnaliser une machine virtuelle Linux au premier démarrage)
+

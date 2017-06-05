@@ -12,21 +12,26 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/02/2017
 ms.author: antisch
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: d5ef87e6e7092820a65c5736c1942fd5cec57462
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5fe1e3595d9459e60b2fd54d6f17f6822731f453
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 ---
 
 # <a name="running-jobs-on-azure-batch-with-azure-cli"></a>Exécution de travaux sur Azure Batch avec l’interface Azure CLI
 
-Ce script crée une tâche Batch et ajoute une série de tâches au travail. Il explique également comment surveiller un travail et ses tâches.
-L’exécution de ce script suppose qu’un compte Batch a été défini, et qu’une application et un pool ont été configurés. Pour en savoir plus, consultez les [exemples de scripts](../batch-cli-samples.md) qui concernent chacune de ces rubriques.
+Ce script crée une tâche Batch et ajoute une série de tâches au travail. Il explique également comment surveiller un travail et ses tâches. Enfin, il montre comment interroger le service Batch efficacement pour obtenir des informations sur les tâches du travail.
 
-Si nécessaire, installez l’interface Azure CLI en suivant les instructions du [Guide d’installation Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), puis exécutez `az login` pour vous connecter à Azure.
+## <a name="prerequisites"></a>Conditions préalables
+
+- Installez Azure CLI en suivant les instructions fournies dans le [Guide d’installation d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), si ce n’est déjà fait.
+- Créez un compte Azure si vous n’en avez pas. Pour un exemple de script qui crée un compte, voir [Créer un compte Batch avec Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account).
+- Configurez une application à s’exécuter à partir d’une tâche de démarrage si vous ne l’avez pas encore fait. Pour un exemple de script qui crée une application et charge un package d’application dans Azure, voir [Ajout d’applications dans Azure Batch avec Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-add-application).
+- Configurer un pool sur lequel le travail sera exécuté. Pour un exemple de script qui crée un pool avec une configuration de service cloud ou une configuration de machine virtuelle, voir [Gérer des pools Azure Batch avec CLI Azure](https://docs.microsoft.com/azure/batch/batch-cli-sample-manage-pool).
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -34,7 +39,7 @@ Si nécessaire, installez l’interface Azure CLI en suivant les instructions d
 
 ## <a name="clean-up-job"></a>Travail de nettoyage
 
-Après avoir exécuté l’exemple de script ci-dessus, lancez la commande suivante pour supprimer le travail et toutes les tâches associées. Notez que le pool doit être supprimé séparément. Pour en savoir plus, consultez le [didacticiel sur la gestion des pools](./batch-cli-sample-manage-pool.md).
+Après avoir exécuté l’exemple de script ci-dessus, lancez la commande suivante pour supprimer le travail et toutes les tâches associées. Notez que le pool doit être supprimé séparément. Pour plus d’informations sur la création et la suppression de pools, voir [Gérer des pools Azure Batch avec CLI Azure](./batch-cli-sample-manage-pool.md).
 
 ```azurecli
 az batch job delete --job-id myjob
@@ -52,6 +57,7 @@ Ce script a recours aux commandes suivantes pour créer un travail et des tâche
 | [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#show) | Récupère les détails relatifs au travail Batch spécifié.  |
 | [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#create) | Ajoute une tâche au travail Batch spécifié.  |
 | [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#show) | Récupère les détails relatifs à une tâche du travail Batch spécifié.  |
+| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#list) | Répertorie les tâches associées au travail spécifié.  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

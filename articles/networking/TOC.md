@@ -1,8 +1,10 @@
 # Vue d'ensemble
 ## [À propos de la mise en réseau Azure](networking-overview.md)
 ## Architecture
+### [Centres de données virtuels](networking-virtual-datacenter.md)
 ### [Routage asymétrique avec plusieurs chemins d’accès réseau](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conceptions de réseau sécurisé](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Topologie hub-and-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 ### [Meilleures pratiques en matière de sécurité réseau](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Appliances virtuelles réseau hautement disponible](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Combiner les méthodes d’équilibrage de charge](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -43,6 +45,7 @@
 ### [Vérifier le flux IP pour une machine virtuelle](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Exemples de scripts
 ### [Interface de ligne de commande Azure](cli-samples.md)
+### [PowerShell](powershell-samples.md)
 ## Didacticiels
 ### [Équilibrer la charge des machines virtuelles](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connecter un ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)

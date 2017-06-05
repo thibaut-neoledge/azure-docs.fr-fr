@@ -1,6 +1,6 @@
 ---
-title: "Déployer sur Azure Analysis Services | Microsoft Docs"
-description: "Découvrez comment déployer un modèle tabulaire sur un serveur Azure Analysis Services."
+title: "Procéder à un déploiement sur Azure Analysis Services à l’aide de SSDT | Microsoft Docs"
+description: "Découvrez comment déployer un modèle tabulaire sur un serveur Azure Analysis Services à l’aide de SSDT."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -10,35 +10,35 @@ tags:
 ms.assetid: 5f1f0ae7-11de-4923-a3da-888b13a3638c
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 04/17/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 766120913d419ec8090a4f25d304f2d3cf9b6693
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 04b809a6fdd7b993a048a67f66a9851c2a7bf3d2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="deploy-to-azure-analysis-services"></a>Déployer sur Azure Analysis Services
-Une fois que vous avez créé un serveur dans votre abonnement Azure, vous êtes prêt à déployer une base de données de modèle tabulaire sur celui-ci. Vous pouvez utiliser SQL Server Data Tools (SSDT) pour créer et déployer un projet de modèle tabulaire sur lequel vous travaillez. Ou bien, vous pouvez utiliser SQL Server Management Studio (SSMS) pour déployer une base de données de modèle tabulaire existante à partir d’une instance Analysis Services.
+# <a name="deploy-a-model-from-ssdt"></a>Déployer un modèle à partir de SSDT
+Une fois que vous avez créé un serveur dans votre abonnement Azure, vous êtes prêt à déployer une base de données de modèle tabulaire sur celui-ci. Vous pouvez utiliser SQL Server Data Tools (SSDT) pour créer et déployer un projet de modèle tabulaire sur lequel vous travaillez. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Pour commencer, vous avez besoin des éléments suivants :
 
 * **Serveur Analysis Services** dans Azure. Pour en savoir plus, voir [Créer un serveur Analysis Services dans Azure](analysis-services-create-server.md).
-* **Projet de modèle tabulaire** dans SSDT ou un modèle tabulaire existant au niveau de compatibilité 1200 sur une instance Analysis Services. Vous ne l’avez jamais fait ? Essayez le [didacticiel Adventure Works](https://msdn.microsoft.com/library/hh231691.aspx).
+* **Projet de modèle tabulaire** dans SSDT ou modèle tabulaire existant au niveau de compatibilité 1200 ou ultérieur sur une instance Analysis Services. Vous ne l’avez jamais fait ? Essayez le [didacticiel Adventure Works](https://msdn.microsoft.com/library/hh231691.aspx).
 * **Passerelle locale** : si une ou plusieurs sources de données sont locales dans le réseau de votre entreprise, vous devez installer une [Passerelle de données locale](analysis-services-gateway.md). La passerelle est nécessaire pour que votre serveur se connecte dans le cloud à vos sources de données locales pour traiter et actualiser les données du modèle.
-
-## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Pour déployer un modèle tabulaire à partir de SSDT
-Pour déployer à partir de SSDT, veillez à utiliser la [dernière version](https://msdn.microsoft.com/library/mt204009.aspx).
 
 > [!TIP]
 > Avant de déployer, assurez-vous que vous pouvez traiter les données de vos tables. Dans SSDT, cliquez sur **Modèle** > **Traiter** > **Traiter tout**. Si le traitement échoue, le déploiement échouera également.
 > 
 > 
+
+## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Pour déployer un modèle tabulaire à partir de SSDT
 
 1. Avant de déployer, vous devez obtenir le nom du serveur. Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur**, copiez le nom du serveur.
    
@@ -56,9 +56,6 @@ Pour déployer à partir de SSDT, veillez à utiliser la [dernière version](htt
 
 C’est tout !
 
-## <a name="to-deploy-using-xmla-script"></a>Pour déployer à l’aide du script XMLA
-1. Dans SSMS, cliquez avec le bouton droit sur la base de données de modèle tabulaire que vous souhaitez déployer, cliquez sur **Script** > **Base de données de script en tant que** > **CRÉER vers**, puis choisissez un emplacement.
-2. Exécutez la requête sur l’instance de serveur sur laquelle vous souhaitez déployer. Si vous déployez sur le même serveur, vous devez au moins modifier la propriété **nom** dans le script XMLA.  
 
 ## <a name="but-something-went-wrong"></a>Une erreur s’est toutefois produite
 Si le déploiement échoue lors du déploiement de métadonnées, il est probable que SSDT n’ait pas pu se connecter à votre serveur. Vérifiez que vous pouvez vous connecter à votre serveur à l’aide de SSMS. Vérifiez ensuite que la propriété Serveur de déploiement du projet est correcte.

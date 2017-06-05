@@ -12,12 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: 5dd6701f25c69f5e870d3add79c312f9aeec6bf4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -118,10 +120,5 @@ Sur un appareil Android Samsung, des privilèges d’administrateur d’applicat
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 Si vous voyez l’ **erreur Keystore**, la raison peut en être que votre écran de verrouillage n’est pas configuré avec un code confidentiel. Pour contourner ce problème, désinstallez l’application Azure Authentificator, configurez un code confidentiel pour votre écran de verrouillage et réinstallez l’application.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

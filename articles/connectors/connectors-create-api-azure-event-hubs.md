@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: e776d095356e10ef47ca49e2a8b9f97d63fb80be
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: fd691f898e26bea0a304bcf52e5df9ee7db8b818
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -122,21 +123,10 @@ Sélectionnez cette action : **Envoyer un événement**
 
     Vous avez à présent défini une action permettant d’envoyer des événements à partir de votre application logique. 
 
-## <a name="technical-details"></a>Détails techniques
+## <a name="view-the-swagger"></a>Afficher Swagger
+Consultez les [détails sur Swagger](/connectors/eventhubs/). 
 
-### <a name="triggers"></a>Déclencheurs
-
-| Déclencheur | Description |
-| --- | --- |
-| When events are available in Event Hub (Lorsque les événements sont disponibles dans un hub Event Hubs) | Déclenchez un workflow lorsque les événements sont disponibles dans le hub Event Hubs spécifié. |
-
-### <a name="actions"></a>Actions
-
-| Action | Description |
-| --- | --- |
-| Envoyer un événement | Envoyez un événement au hub Event Hubs spécifié. |
-
-## <a name="get-help"></a>Obtenir de l’aide
+## <a name="get-help"></a>Obtenir de l'aide
 
 Pour poser des questions, répondre aux questions et voir ce que font les autres utilisateurs d’Azure Logic Apps, visitez le [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 

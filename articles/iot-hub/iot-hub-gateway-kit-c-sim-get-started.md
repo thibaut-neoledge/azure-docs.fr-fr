@@ -17,10 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
-ms.openlocfilehash: 06161c2950fbe99d2e4f9c1b416695a5f9f18ca4
-ms.lasthandoff: 01/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 916fa40d9ac857dfa72197b40c232834593d3891
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -38,16 +39,16 @@ Dans ce didacticiel, vous commencez par découvrir les principes fondamentaux du
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>Leçon 1 : Configuration de votre NUC
-![Diagramme de bout en bout pour la leçon&1;](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
+![Diagramme de bout en bout pour la leçon 1](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
 
-Dans cette leçon, vous configurez des NUC Intel (Next Unit of Computing) dans le Kit en tant que passerelle Azure IoT, installez le package du Kit de développement logiciel (SDK) Gateway Azure IoT sur la NUC et exécutez un exemple d’application pour vérifier la fonctionnalité de passerelle.
+Dans cette leçon, vous allez configurer des NUC Intel (Next Unit of Computing) dans le Kit en tant que passerelle Azure IoT, installer le package Azure IoT Edge sur les NUC et exécuter un exemple d’application pour vérifier la fonctionnalité de passerelle.
 
-*Durée estimée : 15 minutes*
+*Durée estimée : 15 minutes*
 
 Consultez [Configurer Intel NUC comme passerelle IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
 ## <a name="lesson-2-create-your-iot-hub"></a>Leçon 2 : Création de votre IoT Hub
-![Diagramme de bout en bout pour la leçon&2;](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
+![Diagramme de bout en bout pour la leçon 2](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
 
 Dans cette leçon, vous installez les outils et logiciels sur votre ordinateur hôte. Vous créez ensuite votre compte Azure gratuit, vous approvisionnez votre Azure IoT Hub et vous créez votre premier appareil dans l’IoT Hub.
 
@@ -68,7 +69,7 @@ Créez votre groupe de ressources, approvisionnez votre premier Azure IoT Hub et
 Accédez à [Créer un IoT Hub et enregistrer votre appareil](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 
 ## <a name="lesson-3-receive-messages-from-the-simulated-device-and-read-messages-from-your-iot-hub"></a>Leçon 3 : Recevoir des messages à partir de l’appareil simulé et lire des messages à partir de votre IoT Hub
-Dans cette leçon, vous utiliserez des scripts pour automatiser la configuration et l’exécution d’une application d'appareil simulé dans votre passerelle. L’application d'appareil simulé génère des exemples de données de température et les envoie à un module IoT Hub. Le module IoT Hub regroupe les données reçues et les envoie à votre IoT Hub via l’infrastructure de passerelle fournie dans le Kit de développement logiciel Gateway Azure IoT.
+Dans cette leçon, vous utiliserez des scripts pour automatiser la configuration et l’exécution d’une application d'appareil simulé dans votre passerelle. L’application d'appareil simulé génère des exemples de données de température et les envoie à un module IoT Hub. Le module IoT Hub regroupe les données reçues et les envoie à votre IoT Hub via l’infrastructure de passerelle fournie dans Azure IoT Edge.
 
 ![Diagramme de bout en bout pour la leçon 3](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson3.png)
 

@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 15/05/2017
 ms.author: adsolank;juliako;
-translationtype: Human Translation
-ms.sourcegitcommit: 7065d5e87dbf47153bc89b37b56af81927b8b92b
-ms.openlocfilehash: 902e872b224b267c989f741345efdd8ef3fa8ce3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 717a8ace8c469b0529ac3c98f22b8ee5a53b3d3b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -83,6 +85,10 @@ Azure Media Indexer 2 Preview prend en charge la reconnaissance vocale pour les 
 * Portugais [PtBr]
 * Arabe (égyptien) [ArEg]
 * Japonais [JaJp]
+
+## <a name="supported-file-types"></a>Types de fichiers pris en charge
+
+Pour plus d’informations sur les types de fichiers pris en charge, voir la section [codecs/format pris en charge](media-services-media-encoder-standard-formats.md#input-containerfile-formats).
 
 ## <a name="sample-code"></a>Exemple de code
 
@@ -278,10 +284,5 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 [Vue d’ensemble d’Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Démonstrations Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

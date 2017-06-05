@@ -1,6 +1,6 @@
 ---
 title: "Script Azure PowerShell - Configuration de la géoréplication d’une instance unique SQL Database | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Configuration de la géoréplication active pour une base de données unique SQL Azure à l’aide de PowerShell"
+description: "Exemple de script Azure PowerShell - Configurer la géoréplication active pour une base de données Azure SQL Database unique à l’aide de PowerShell"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -9,22 +9,22 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: mvc
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 05/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5572d1e7b7020846035362b0c4f3d3094df88443
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: b406c288f1e3eee7e92d690915ca0bdebe6cdb3d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
-# <a name="configure-active-geo-replication-for-a-single-azure-sql-database-using-powershell"></a>Configuration de la géoréplication active pour une base de données unique SQL Azure à l’aide de PowerShell
+# <a name="configure-active-geo-replication-for-a-single-azure-sql-database-using-powershell"></a>Configurer la géoréplication active pour une base de données Azure SQL Database unique à l’aide de PowerShell
 
 Cet exemple de script PowerShell configure la géoréplication active pour une base de données unique et la fait basculer vers le réplica secondaire.
 
@@ -32,7 +32,7 @@ Cet exemple de script PowerShell configure la géoréplication active pour une b
 
 ## <a name="sample-scripts"></a>Exemples de scripts
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1 "Configuration de la géoréplication active pour une base de données unique")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1?highlight=17-20 "Configurer la géoréplication active pour une base de données unique")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 

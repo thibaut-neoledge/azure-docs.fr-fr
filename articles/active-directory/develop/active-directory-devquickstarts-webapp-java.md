@@ -3,7 +3,7 @@ title: "Prise en main de l’application web Azure AD Java | Microsoft Docs"
 description: "Générer une application web Java qui connecte les utilisateurs avec un compte professionnel ou scolaire."
 services: active-directory
 documentationcenter: java
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: xerners
-translationtype: Human Translation
+ms.author: brandwe
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: a20017a63ebed745e2d101d556e93594325533dc
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/18/2017
 
 

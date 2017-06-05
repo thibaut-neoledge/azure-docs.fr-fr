@@ -3,7 +3,7 @@ title: "Visite guidée d’Analytics dans Azure Application Insights | Microsoft
 description: "Courts exemples de toutes les requêtes principales dans Analytics, outil de recherche puissant d’Application Insights."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
 ms.service: application-insights

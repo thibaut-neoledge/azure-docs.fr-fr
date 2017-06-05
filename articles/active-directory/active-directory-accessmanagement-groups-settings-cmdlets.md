@@ -12,23 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
-ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 49ba7e6d5d67b109632b08ce936357804c80da40
-ms.lasthandoff: 04/27/2017
+ms.date: 05/04/2017
+ms.author: rodejo
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 81fdae033afd90b77d3725f8c39b8a6c6bbc3812
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
 > [!IMPORTANT]
-> Ce contenu s’applique uniquement aux groupes unifiés, également appelés groupes Office 365. Ces applets de commande sont actuellement en préversion publique.
+> Ce contenu s’applique uniquement aux groupes unifiés, également appelés groupes Office 365. 
 
 Les paramètres des groupes Office 365 sont configurés à l’aide d’un objet Settings et d’un objet SettingsTemplate. Initialement, vous ne verrez aucun objet Settings dans votre répertoire. Cela signifie que votre répertoire est configuré avec les paramètres par défaut. Pour changer les paramètres par défaut, vous devez créer un objet de paramètres en utilisant un modèle de paramètres. Les modèles de paramètres sont définis par Microsoft. Il existe différents modèles de paramètres. Pour configurer les paramètres de groupe pour votre annuaire, vous utiliserez le modèle nommé « Group.Unified ». Pour configurer les paramètres de groupe d’un seul groupe, utilisez le modèle nommé « Group.Unified.Guest ». Ce modèle est utilisé pour gérer l’accès invité à un groupe. 
 
-Les applets de commande font partie du module Azure Active Directory PowerShell V2. Pour plus d’informations sur ce module et pour savoir comment télécharger et installer le module sur votre ordinateur, reportez-vous à [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). Notez que dans la mesure où ces applets de commande sont actuellement en préversion publique, vous devez installer la préversion du module qui se trouve [ici](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.85).
+Les applets de commande font partie du module Azure Active Directory PowerShell V2. Pour plus d’informations sur ce module et pour savoir comment télécharger et installer le module sur votre ordinateur, reportez-vous à [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). Vous pouvez installer la version 2 du module à partir d’[ici](https://www.powershellgallery.com/packages/AzureAD/).
+
+## <a name="retrieve-a-specific-settings-value"></a>Récupérer une valeur de paramètres spécifique
+Si vous connaissez le nom du paramètre à récupérer, vous pouvez utiliser la cmdlet ci-dessous pour récupérer la valeur de paramètre actuelle. Dans cet exemple, nous récupérons la valeur d’un paramètre nommé « UsageGuidelinesUrl ». Vous trouverez plus d’informations sur les paramètres de répertoire et leurs noms plus loin dans cet article.
+
+```powershell
+(Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+```
 
 ## <a name="create-settings-at-the-directory-level"></a>Créer des paramètres au niveau du répertoire
 Les étapes suivantes permettent de créer des paramètres au niveau du répertoire qui s’appliquent à tous les groupes unifiés du répertoire.

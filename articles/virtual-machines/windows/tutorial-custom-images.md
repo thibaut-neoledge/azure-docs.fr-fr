@@ -13,27 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/08/2017
 ms.author: cynthn
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: ab19073735816ebb32a9840ec03b31b358ccb565
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 773b37ec8f775d68f1faca0d252f3064c7de0317
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>Créer une image personnalisée d’une machine virtuelle Azure à l’aide de PowerShell
 
-Dans ce tutoriel, vous allez apprendre à définir votre propre image personnalisée d’une machine virtuelle Azure. Les images personnalisées vous permettent de créer des machines virtuelles à l’aide d’une image que vous avez déjà configurée. Les images personnalisées peuvent être utilisées pour amorcer le préchargement des fichiers binaires et applications, les configurations d’applications, les définitions de disques de données de machine virtuelle et les autres configurations de systèmes d’exploitation antérieurs. Lorsque vous créez une image personnalisée, la machine virtuelle que vous personnalisez, ainsi que tous les disques attachés, sont inclus dans l’image.
+Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des configurations comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. Ce didacticiel explique comment créer votre propre image personnalisée d’une machine virtuelle Azure. Vous allez apprendre à effectuer les actions suivantes :
 
-Les étapes de ce tutoriel peuvent être effectuées à l’aide de la dernière version du module [Azure PowerShell](/powershell/azure/overview).
+> [!div class="checklist"]
+> * Exécuter Sysprep et généraliser les machines virtuelles
+> * Créer une image personnalisée
+> * Créer une machine virtuelle à partir d’une image personnalisée
+> * Répertorier toutes les images dans votre abonnement
+> * Supprimer une image
+
+Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Les étapes ci-dessous expliquent comment prendre une machine virtuelle existante et la transformer en une image personnalisée réutilisable que vous pouvez utiliser pour créer de nouvelles instances de machines virtuelles.
 
-Pour exécuter l’exemple dans ce tutoriel, vous devez disposer d’une machine virtuelle. Si nécessaire, cet [exemple de script](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) peut en créer une pour vous. Au cours du tutoriel, remplacez les noms du groupe de ressources et de la machine virtuelle si nécessaire.
+Pour exécuter l’exemple dans ce didacticiel, vous devez disposer d’une machine virtuelle. Si nécessaire, cet [exemple de script](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) peut en créer une pour vous. Au cours du didacticiel, remplacez les noms du groupe de ressources et de la machine virtuelle si nécessaire.
 
 ## <a name="prepare-vm"></a>Préparer la machine virtuelle
 
@@ -169,11 +177,40 @@ New-AzureRmVM `
     -VM $vmConfig
 ```
 
+## <a name="image-management"></a>Gestion d’image 
+
+Voici quelques exemples de tâches d’images de gestion courantes et comment les exécuter à l’aide de PowerShell.
+
+Répertoriez toutes les images par nom.
+
+```powershell
+$images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images.name
+```
+
+Supprimez une image. Cet exemple supprime l’image nommée *myOldImage* à partir du groupe *myResourceGroup*.
+
+```powershell
+Remove-AzureRmImage `
+    -ImageName myOldImage `
+    -ResourceGroupName myResourceGroup
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez approfondi vos connaissances sur la création d’images de machine virtuelle personnalisées. Passez au tutoriel suivant pour en savoir plus sur les machines virtuelles hautement disponibles.
+Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 
-[Créer des machines virtuelles hautement disponibles](tutorial-availability-sets.md)
+> [!div class="checklist"]
+> * Exécuter Sysprep et généraliser les machines virtuelles
+> * Créer une image personnalisée
+> * Créer une machine virtuelle à partir d’une image personnalisée
+> * Répertorier toutes les images dans votre abonnement
+> * Supprimer une image
+
+Passez au didacticiel suivant pour en savoir plus sur les machines virtuelles hautement disponibles.
+
+> [!div class="nextstepaction"]
+> [Créer des machines virtuelles hautement disponibles](tutorial-availability-sets.md)
 
 
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 2254b06d37b9090e1ca5e4e7db83e35e732e01a3
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 0ef782a7bb7a98da2ec63c91732b3d5ddd959848
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -54,7 +55,7 @@ Suivez l’article pour effectuer les étapes de déploiement ci-dessous :
 
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 
 **Prérequis** | **Détails** |
@@ -188,7 +189,7 @@ Spécifiez le compte Azure Storage à utiliser pour la réplication, ainsi que l
 
     ![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png)
 
-    
+
 
 
 ## <a name="configure-replication-settings"></a>Configurer les paramètres de réplication
@@ -235,6 +236,8 @@ En savoir plus sur le [contrôle de la bande passante réseau](#network-bandwidt
 
 ## <a name="enable-replication"></a>Activer la réplication
 
+Avant de commencer, vérifiez que votre compte d’utilisateur Azure a les [autorisations](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) requises pour activer la réplication d’une nouvelle machine virtuelle dans Azure.
+
 Activez la réplication des machines virtuelles comme suit :          
 
 1. Cliquez sur **Répliquer l’application** > **Source**. Après avoir configuré la réplication pour la première fois, vous pouvez cliquer sur l’option **+Répliquer** pour activer la réplication des machines supplémentaires.
@@ -258,7 +261,7 @@ Activez la réplication des machines virtuelles comme suit :
 7. Dans **Propriétés** > **Configurer les propriétés**, choisissez le système d’exploitation des machines virtuelles sélectionnées, ainsi que le disque du système d’exploitation.
 8. Vérifiez que le nom de la machine virtuelle Azure (nom de la cible) est conforme à la [configuration requise pour les machines virtuelles Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 9. Par défaut, tous les disques de la machine virtuelle sont sélectionnés pour la réplication, mais vous pouvez décocher des disques afin de les exclure.
-    - Vous souhaitez peut-être exclure des disques pour réduire la bande passante de réplication. Par exemple, vous pouvez ne pas répliquer les disques contenant des données temporaires ou des données actualisées à chaque redémarrage d’une machine ou d’une application (telles que pagefile.sys ou tempdb dans Microsoft SQL Server). Vous pouvez exclure un disque de la réplication en le désélectionnant.
+    - Vous pouvez exclure des disques pour réduire la bande passante de réplication. Par exemple, vous pouvez ne pas répliquer les disques contenant des données temporaires ou des données actualisées à chaque redémarrage d’une machine ou d’une application (telles que pagefile.sys ou tempdb dans Microsoft SQL Server). Vous pouvez exclure un disque de la réplication en le désélectionnant.
     - Vous ne pouvez exclure que des disques de base. Vous ne pouvez pas exclure de disques de système d’exploitation.
     - Nous vous recommandons de ne pas exclure de disques dynamiques. Site Recovery ne peut pas déterminer si un disque dur virtuel à l’intérieur d’une machine virtuelle invitée est un disque de base ou dynamique. Si tous les disques de volume dynamique dépendants ne sont pas exclus, le disque dynamique protégé s’affichera comme un disque défectueux lors du basculement de la machine virtuelle, et les données de ce disque ne seront pas accessibles.
         - Une fois la réplication activée, vous ne pouvez pas ajouter ni supprimer de disques pour la réplication. Si vous voulez ajouter ou exclure un disque, vous devez désactiver la protection de la machine virtuelle, puis la réactiver.
@@ -301,7 +304,21 @@ Nous vous recommandons de vérifier les propriétés de la machine source.
 
 4. Les disques de données et du système d’exploitation de la machine virtuelle qui seront répliqués s’affichent dans **Disques** .
 
+#### <a name="managed-disks"></a>Disques gérés
 
+Dans **Calcul et réseau** > **Propriétés de calcul**, vous pouvez définir « Utiliser des disques managés » sur « Oui » pour la machine virtuelle si vous souhaitez attacher des disques managés à votre ordinateur lors de la migration vers Azure. Les disques managés simplifient la gestion des disques des machines virtuelles Azure IaaS, en gérant les comptes de stockage associés aux disques de machines virtuelles. [En savoir plus sur les disques managés](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview).
+
+   - Les disques managés sont créés et attachés à la machine virtuelle uniquement lors d’un basculement vers Azure. Lors de l’activation de la protection, les données des machines locales continuent à se répliquer sur des comptes de stockage.
+   Des disques managés ne peuvent être créés que pour des machines virtuelles déployées à l’aide du modèle de déploiement Resource Manager.
+
+  > [!NOTE]
+  > La restauration automatique d’Azure vers l’environnement local Hyper-V n’est actuellement pas prise en charge pour les ordinateurs avec disques managés. Ne définissez « Utiliser des disques managés » sur « Oui » que si vous avez l’intention de migrer cette machine vers Azure.
+
+   - Lorsque vous définissez « Utiliser des disques managés » sur « Oui », seuls les groupes à haute disponibilité du groupe de ressources dont la propriété « Utiliser des disques managés » est définie sur « Oui » sont sélectionnables. En effet, les machines virtuelles avec disques managés ne peuvent faire partie que de groupes à haute disponibilité dont la propriété « Utiliser des disques managés » est définie sur « Oui ». Vérifiez que vous créez des groupes à haute disponibilité avec la propriété « Utiliser des disques managés » activée si vous comptez utiliser des disques managés lors du basculement. De même, lorsque vous définissez « Utiliser des disques managés » sur « Non », seuls les groupes à haute disponibilité du groupe de ressources dont la propriété « Utiliser des disques managés » est définie sur « Non » sont sélectionnables. [En savoir plus sur les disques managés et les groupes à haute disponibilité](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > Si le compte de stockage utilisé pour la réplication a été chiffré à un moment donné avec Storage Service Encryption, la création de disques managés pendant le basculement échoue. Vous pouvez définir « Utiliser des disques managés » sur « Non » et réessayer la restauration ou désactiver la protection de la machine virtuelle et la protéger sur un compte de stockage dont le chiffrement de service de stockage n’a jamais été activé.
+  > [En savoir plus sur Storage Service Encryption et les disques managés](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 
 ## <a name="test-the-deployment"></a>test du déploiement
@@ -323,7 +340,7 @@ Pour tester le déploiement, vous pouvez exécuter un test de basculement pour u
 6. Si vous avez préparé les connexions après le basculement, vous devez être à même de vous connecter à la machine virtuelle Azure.
 7. Une fois que vous avez terminé, cliquez sur **Nettoyer le test de basculement de nettoyage** sur le plan de récupération. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations associées au test de basculement. Cette opération supprimera les machines virtuelles qui ont été créés au cours du test de basculement.
 
-Pour plus d’informations, voir l’article [Test de basculement vers Azure dans Site Recovery](site-recovery-test-failover-to-azure.md).
+Pour plus d’informations, consultez l’article [Test de basculement vers Azure dans Site Recovery](site-recovery-test-failover-to-azure.md).
 
 
 
@@ -394,5 +411,5 @@ Vous pouvez également utiliser l’applet de commande [Set-OBMachineSetting](ht
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez terminé la réplication initiale et testé le déploiement, vous pouvez appeler des basculements en cas de besoin. [Apprenez-en davantage](site-recovery-failover.md) sur les différents types de basculements et leur mode exécution.
+Une fois que vous avez terminé la réplication initiale et testé le déploiement, vous pouvez appeler des basculements en cas de besoin. [Apprenez-en davantage](site-recovery-failover.md) sur les différents types de basculement et leur mode exécution.
 

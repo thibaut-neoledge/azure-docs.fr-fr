@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: f09dd58f17b228d6381af95c40c5391886bbb8f1
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 845dd16c703362e9e64f02832a35c90e7e77e264
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -167,164 +168,9 @@ Pour résoudre les problèmes qui peuvent se produire lors d’une étape dans u
 
 Pour plus d’informations sur la résolution des problèmes relatifs aux applications logiques, consultez [Diagnostic des échecs d’applications logiques](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## <a name="technical-details"></a>Détails techniques
-## <a name="triggers"></a>Déclencheurs
-| Déclencheur | Description |
-| --- | --- |
-| Lorsqu’un enregistrement est créé |Déclenche un flux quand un objet est créé dans Dynamics 365. |
-| Lorsqu’un enregistrement est mis à jour |Déclenche un flux quand un objet est modifié dans Dynamics 365. |
-| Lorsqu’un enregistrement est supprimé |Déclenche un flux quand un objet est supprimé dans Dynamics 365. |
+## <a name="view-the-swagger"></a>Afficher Swagger
 
-## <a name="actions"></a>Actions
-| Action | Description |
-| --- | --- |
-| Répertorier les enregistrements |Cette opération récupère les enregistrements d’une entité. |
-| Créer un enregistrement |Cette opération crée un enregistrement pour une entité. |
-| Obtenir l’enregistrement |Cette opération récupère l’enregistrement spécifié pour une entité. |
-| Supprimer un enregistrement |Cette opération supprime un enregistrement à partir d’une collection d’entités. |
-| Mise à jour d’un enregistrement |Cette opération met à jour un enregistrement existant pour une entité. |
-
-### <a name="trigger-and-action-details"></a>Détail des déclencheurs et des actions
-Dans cette section, consultez les détails relatifs à chacun des déclencheurs et actions, y compris toutes les propriétés d’entrée requises ou facultatives et toute sortie correspondante associée au connecteur.
-
-#### <a name="when-a-record-is-created"></a>Lorsqu’un enregistrement est créé
-Déclenche un flux quand un objet est créé dans Dynamics 365.
-
-| Nom de la propriété | Nom complet | Description |
-| --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
-| table* |Nom de l’entité |Nom de l’entité |
-| $filter |Requête de filtre |Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées |
-| $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-ItemsList
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| value |array |
-
-#### <a name="when-a-record-is-updated"></a>Lorsqu’un enregistrement est mis à jour
-Déclenche un flux quand un objet est modifié dans Dynamics 365.
-
-| Nom de la propriété | Nom complet | Description |
-| --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
-| table* |Nom de l’entité |Nom de l’entité |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-ItemsList
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| value |array |
-
-#### <a name="when-a-record-is-deleted"></a>Lorsqu’un enregistrement est supprimé
-Déclenche un flux quand un objet est supprimé dans Dynamics 365.
-
-| Nom de la propriété | Nom complet | Description |
-| --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
-| table* |Nom de l’entité |Nom de l’entité |
-
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-ItemsList
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| value |array |
-
-#### <a name="list-records"></a>Répertorier les enregistrements
-Cette opération récupère les enregistrements d’une entité.
-
-| Nom de la propriété | Nom complet | Description |
-| --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
-| table* |Nom de l’entité |Nom de l’entité |
-| $filter |Requête de filtre |Requête de filtre ODATA pour limiter le nombre d’entrées renvoyées |
-| $orderby |Trier par |Requête orderBy ODATA pour spécifier l’ordre des entrées |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-ItemsList
-
-| Nom de la propriété | Type de données |
-| --- | --- |
-| value |array |
-
-#### <a name="create-a-new-record"></a>Créer un enregistrement
-Cette opération crée un enregistrement pour une entité.
-
-| Nom de la propriété | Nom complet | Description |
-| --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
-| table* |Nom de l’entité |Nom de l’entité |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Aucune.
-
-#### <a name="get-record"></a>Obtenir l’enregistrement
-Cette opération récupère l’enregistrement spécifié pour une entité.
-
-| Nom de la propriété | Nom complet | Description |
-| --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
-| table* |Nom de l’entité |Nom de l’entité |
-| id* |Identificateur d’élément |Indiquez l’identificateur de l’enregistrement |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Aucune.
-
-#### <a name="delete-a-record"></a>Supprimer un enregistrement
-Cette opération supprime un enregistrement à partir d’une collection d’entités.
-
-| Nom de la propriété | Nom complet | Description |
-| --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
-| table* |Nom de l’entité |Nom de l’entité |
-| id* |Identificateur d’élément |Indiquez l’identificateur de l’enregistrement |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-#### <a name="update-a-record"></a>Mise à jour d’un enregistrement
-Cette opération met à jour un enregistrement existant pour une entité.
-
-| Nom de la propriété | Nom complet | Description |
-| --- | --- | --- |
-| dataset* |Nom de l’organisation |Nom de l’organisation Dynamics 365, comme Contoso |
-| table* |Nom de l’entité |Nom de l’entité |
-| id* |Identificateur de l’enregistrement |Indiquez l’identificateur de l’enregistrement |
-
-Un astérisque (*) signifie que la propriété est requise.
-
-##### <a name="output-details"></a>Détails des résultats
-Aucune.
-
-## <a name="http-responses"></a>Réponses HTTP
-Les actions et déclencheurs peuvent renvoyer un ou plusieurs des codes d’état HTTP suivants :
-
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Acceptée |
-| 400 |Demande incorrecte |
-| 401 |Non autorisé |
-| 403 |Interdit |
-| 404 |Introuvable |
-| 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
-| default |L’opération a échoué. |
+Consultez les [détails sur Swagger](/connectors/crm/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).

@@ -3,7 +3,7 @@ title: "Analyse des performances et de l’utilisation pour les applications de 
 description: "Analysez l’utilisation et les performances de votre application de bureau Windows avec HockeyApp et Application Insights."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights

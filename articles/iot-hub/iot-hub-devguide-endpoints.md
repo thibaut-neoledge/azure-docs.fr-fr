@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: cdc50ec4bf98d7924ad5bf97c9a757f0bac01173
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b0b2e8f375fa0b80e4f933515e1e8a689478483e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -74,7 +75,7 @@ Pour connaître les limites du nombre de points de terminaison que vous pouvez a
 ## <a name="field-gateways"></a>Passerelles de champ
 Dans une solution IoT, une *passerelle de champ* se situe entre vos appareils et vos points de terminaison IoT Hub. Elle est généralement située près de vos appareils. Vos appareils communiquent directement avec la passerelle de champ à l’aide d’un protocole pris en charge. La passerelle de champ se connecte à un point de terminaison IoT Hub à l’aide d’un protocole pris en charge par ce dernier. Une passerelle de champ peut être un matériel très spécialisé ou un ordinateur à faible consommation d'énergie exécutant un logiciel qui accomplit de bout en bout le scénario pour lequel la passerelle est prévue.
 
-Vous pouvez utiliser le [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk] pour implémenter une passerelle de champ. Ces Kits de développement logiciel (SDK) offrent des fonctionnalités spécifiques comme la possibilité de multiplexer la communication à partir de plusieurs appareils sur la même connexion à IoT Hub.
+Vous pouvez utiliser [Azure IoT Edge][lnk-gateway-sdk] pour implémenter une passerelle de champ. IoT Edge offre des fonctionnalités spécifiques, comme la possibilité de multiplexer la communication à partir de plusieurs appareils sur la même connexion IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
@@ -83,7 +84,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * [Quotas et limitation][lnk-devguide-quotas]
 * [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt]
 
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 
 [img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
 [lnk-amqp]: https://www.amqp.org/

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: sethm;jotaub
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 7f3ddc2d7036b9951d4796cf4664f870a0c5f4b6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 612fb681ab0c8fe77652041f8a1fc23ad0d3428a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -92,9 +92,16 @@ Les signatures d’accès partagé sont un mécanisme d’authentification basé
 
 ## <a name="subscription-and-namespace-management"></a>Gestion des abonnements et des espaces de noms
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Migration d’un espace de noms vers un autre abonnement Azure
-Sur le Portail Azure, vous pouvez migrer les espaces de noms Service Bus vers un autre abonnement en suivant les instructions présentées [ici](../azure-resource-manager/resource-group-move-resources.md#use-portal). Si vous préférez utiliser PowerShell, suivez les instructions ci-dessous : 
 
-La séquence de commandes suivante déplace un espace de noms d'un abonnement Azure vers un autre. Pour exécuter cette opération, l'espace de noms doit être déjà actif, et l'utilisateur qui exécute les commandes PowerShell doit être administrateur des abonnements à la fois source et cible.
+Vous pouvez déplacer un espace de noms d’un abonnement Azure vers un autre, à l’aide du [portail Azure](https://portal.azure.com) ou de commandes PowerShell. Pour exécuter cette opération, l’espace de noms doit être déjà actif. L’utilisateur qui exécute les commandes doit être administrateur dans les abonnements source et cible.
+
+#### <a name="portal"></a>Portail
+
+Pour utiliser le Portail Azure et migrer les espaces de noms Service Bus vers un autre abonnement, suivez les instructions décrites [ici](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+
+#### <a name="powershell"></a>PowerShell
+
+La séquence suivante de commandes PowerShell déplace un espace de noms d’un abonnement Azure vers un autre. Pour exécuter cette opération, l'espace de noms doit être déjà actif, et l'utilisateur qui exécute les commandes PowerShell doit être administrateur des abonnements à la fois source et cible.
 
 ```powershell
 # Create a new resource group in target subscription

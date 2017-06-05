@@ -3,7 +3,7 @@ title: Forum aux questions sur Azure Application Insights | Microsoft Docs
 description: "Questions fréquentes sur Application Insights."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 191d9e1197c3526d2f72b972b7fada76dee84447
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 8a6a8027b93d0d5b353c41c103d2c9ad5faa70c1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -103,7 +104,7 @@ Une application de bureau que vous pouvez utiliser dans votre serveur web IIS po
 À partir d’applications web serveur :
 
 * Requêtes HTTP
-* [Dépendances](app-insights-asp-net-dependencies.md). Appels passés aux instances SQL Database ; appels HTTP vers des services externes ; Azure DocumentDB, table, stockage d’objets blob et file d’attente. 
+* [Dépendances](app-insights-asp-net-dependencies.md). Appels passés aux instances SQL Database ; appels HTTP vers des services externes ; Azure Cosmos DB, table, stockage d’objets blob et file d’attente. 
 * [Exceptions](app-insights-asp-net-exceptions.md) et arborescences des appels de procédure.
 * [Compteurs de performances](app-insights-performance-counters.md) : si vous utilisez [Status Monitor](app-insights-monitor-performance-live-website-now.md), la surveillance Azure (app-insights-azure-web-apps.md) ou le [writer collectd d’Application Insights](app-insights-java-collectd.md).
 * [Événements et mesures personnalisés](app-insights-api-custom-events-metrics.md) que vous codez.
@@ -171,6 +172,8 @@ Vous pouvez :
 Les données POST ne sont pas automatiquement consignées, mais vous pouvez utiliser un appel TrackTrace ; placez les données dans le paramètre message. Ce dernier présente une limite de taille plus longue que les limites relatives aux propriétés de type chaîne, bien que vous ne puissiez pas lui appliquer de filtres.
 
 ## <a name="should-i-use-single-or-multiple-application-insights-resources"></a>Dois-je utiliser une ou plusieurs ressources Application Insights ?
+
+Utilisez une ressource unique pour tous les composants ou rôles dans un système métier unique. Utilisez des ressources distinctes pour les versions de développement, de test et de publication, et pour les applications indépendantes.
 
 * [Suivez la discussion ici](app-insights-separate-resources.md)
 * [Exemple : service cloud avec des rôles web et worker](app-insights-cloudservices.md)

@@ -1,5 +1,6 @@
 ---
-title: "Gérer les membres des groupes dans la version préliminaire d’Azure Active Directory | Microsoft Docs"
+
+title: "Gérer les membres des groupes dans Azure Active Directory | Microsoft Docs"
 description: "Comment ajouter ou supprimer des utilisateurs et des appareils dans un groupe d’Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 3373af848720c7c04e679d7fd4b075c5571fb417
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 044e88f95712e1cc5b5532f5492c78d711a8d858
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Gérer l’appartenance à un groupe des utilisateurs dans votre client Azure Active Directory
-Cet article explique comment gérer les membres d’un groupe dans la version préliminaire d’Azure Active Directory (Azure AD). [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)
+Cet article explique comment gérer les membres d’un groupe dans Azure Active Directory (Azure AD).
 
 ## <a name="how-do-i-find-the-members-and-manage-them"></a>Comment trouver les membres et les gérer ?
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.

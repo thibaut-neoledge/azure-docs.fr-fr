@@ -3,7 +3,7 @@ title: "Utilisation d’Azure Application Insights dans Visual Studio | Microsof
 description: "Analyse des performances d’application web et diagnostics en phase de débogage et de production."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
 ms.service: application-insights

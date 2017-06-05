@@ -8,33 +8,36 @@ manager: jhubbard
 editor: 
 ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: quick start connect, mvc
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/17/2017
+ms.topic: hero-article
+ms.date: 05/24/2017
 ms.author: lbosq
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4de9eb8f55bfda8b223417f5c1ed4e71b0f063c6
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4d3c3541749870b09aecc9efb63413f7c045e044
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="azure-sql-database-use-nodejs-to-connect-and-query-data"></a>Azure SQL Database : utilisez Node.js pour vous connecter et interroger des données
 
-Ce guide de démarrage rapide indique comment se connecter à une base de données Azure SQL avec [Node.js](https://nodejs.org/en/), puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données à partir des plateformes Windows, Ubuntu Linux et Mac.
+Ce guide de démarrage rapide indique comment se connecter à une base de données SQL Azure avec [Node.js](https://nodejs.org/en/), puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données à partir des plateformes Windows, Ubuntu Linux et Mac.
 
-Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’un de ces guides :
+## <a name="prerequisites"></a>Composants requis
+
+Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
 
 - [Créer une base de données - Portail](sql-database-get-started-portal.md)
 - [Créer une base de données - CLI](sql-database-get-started-cli.md)
+- [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-nodejs"></a>Installer Node.js 
 
-Les étapes de cette section supposent que vous êtes familiarisé avec le développement à l’aide de Node.js et que vous ne savez pas utiliser la base de données SQL Azure. Si vous êtes novice en développement avec Node.js, consultez [Créer une application à l’aide de SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) et sélectionnez **Node.js**, puis sélectionnez votre système d’exploitation.
+Les étapes de cette section supposent que vous connaissez le développement avec Node.js et que vous ne savez pas utiliser la base de données SQL Azure. Si vous êtes novice en développement avec Node.js, consultez [Créer une application à l’aide de SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) et sélectionnez **Node.js**, puis sélectionnez votre système d’exploitation.
 
 ### <a name="mac-os"></a>**Mac OS**
 Entrez les commandes suivantes pour installer **brew**, un gestionnaire de package facile à utiliser pour Mac OS X et **Node.js**.
@@ -255,14 +258,10 @@ function deleteFromDatabase(){
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+- [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
+- [Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/) (Pilote Node.js pour SQL Server)
+- [Se connecter et lancer des requêtes avec SSMS](sql-database-connect-query-ssms.md)
+- [Azure SQL Database : utilisez Visual Studio Code pour vous connecter et interroger des données](sql-database-connect-query-vscode.md).
 
-- Plus d’informations sur le [pilote Node.js Microsoft pour SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-- Pour vous connecter et envoyer des requêtes à l’aide de SQL Server Management Studio, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Visual Studio Code, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Visual Studio Code](sql-database-connect-query-vscode.md).
-- Pour vous connecter et exécuter des requêtes avec .NET, consultez la page [Se connecter et effectuer des requêtes avec .NET](sql-database-connect-query-dotnet.md).
-- Pour vous connecter et exécuter des requêtes avec PHP, consultez la page [se connecter et effectuer des requêtes avec PHP](sql-database-connect-query-php.md).
-- Pour vous connecter et exécuter des requêtes avec Java, consultez la page [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
-- Pour vous connecter et exécuter des requêtes avec Python, consultez la page [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
-- Pour vous connecter et exécuter des requêtes avec Ruby, consultez la page [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
 
 

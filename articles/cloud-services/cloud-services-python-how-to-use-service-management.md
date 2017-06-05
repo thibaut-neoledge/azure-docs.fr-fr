@@ -12,21 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 05/30/2017
 ms.author: lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 90f417768d58c42df9b786b5c50d96970f133548
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ee96a30d10f882da936f554152fab8a9c6897807
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="how-to-use-service-management-from-python"></a>Utilisation de la gestion des services à partir de Python
-> [!NOTE]
-> L’API Gestion des API est remplacée par la nouvelle API Gestion des ressources, actuellement disponible en version préliminaire.  Consultez la [documentation sur la gestion de ressources Azure](http://azure-sdk-for-python.readthedocs.org/) pour plus de détails sur l’utilisation de la nouvelle API Gestion des ressources Python.
-> 
-> 
-
 Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](https://github.com/Azure/azure-sdk-for-python) prend en charge l’accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail Azure Classic][management-portal] (telles que la **création, la mise à jour et la suppression de services cloud, les déploiements, les services de gestion des données et les machines virtuelles**). Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
 
 ## <a name="WhatIs"> </a>Présentation de la gestion des services
@@ -45,8 +41,8 @@ Pour vous connecter au point de terminaison de la gestion de services, vous avez
 
 > [!NOTE]
 > Il est désormais possible d’utiliser des certificats créés avec OpenSSL sous Windows.  Ceci nécessite Python 2.7.4 ou version ultérieure. Nous recommandons aux utilisateurs d’utiliser OpenSSL au lieu de .pfx, car la prise en charge des certificats .pfx risque de disparaître à l’avenir.
-> 
-> 
+>
+>
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Certificats de gestion sur Windows/Mac/Linux (OpenSSL)
 Vous pouvez utiliser [OpenSSL](http://www.openssl.org/) pour créer votre certificat de gestion.  En fait, vous devez créer deux certificats, un pour le serveur (un fichier `.cer`) et un pour le client (un fichier `.pem`). Pour créer le fichier `.pem` , exécutez :
@@ -432,5 +428,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 
 
 [cloud service]:/services/cloud-services/
-
 

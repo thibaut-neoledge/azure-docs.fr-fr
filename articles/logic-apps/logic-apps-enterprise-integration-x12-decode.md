@@ -1,6 +1,6 @@
 ---
 title: "Décoder des messages X12 - Azure Logic Apps | Microsoft Docs"
-description: "Validation EDI et génération du code XML des documents informatisés avec le décodeur X12 Message dans Enterprise Integration Pack pour Azure Logic Apps"
+description: "Valider l’EDI et générer les acquittements avec le décodeur de messages X12 dans Enterprise Integration Pack pour Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 717069dbe211ea9cc04925875e0f28c85ef25ac2
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6408fdf494035b37e0025dd8439e800a80bffb4e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Décodez des messages X12 pour Azure Logic Apps avec Enterprise Integration Pack
 
-Avec le connecteur Decode X12 Message, vous pouvez valider l’EDI et les propriétés spécifiques au partenaire, générer un document XML pour chaque document informatisé, ainsi qu’un accusé de réception pour la transaction traitée. Pour utiliser ce connecteur, vous devez ajouter le connecteur à un déclencheur existant dans votre application logique.
+Avec le connecteur de messages Decode X12, vous pouvez valider l’enveloppe en fonction d’un accord de partenariat commercial, valider l’EDI et les propriétés spécifiques du partenaire, fractionner des échanges en documents informatisés ou conserver les échanges entiers et générer des acquittements pour les transactions traitées. Pour utiliser ce connecteur, vous devez ajouter le connecteur à un déclencheur existant dans votre application logique.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -72,7 +73,6 @@ Voici les éléments dont vous avez besoin :
 Le connecteur X12 Decode effectue les tâches suivantes :
 
 * Valide l’enveloppe par rapport au contrat de partenariat commercial
-* Génère un document XML pour chaque document informatisé
 * Valide l’EDI et les propriétés spécifiques au partenaire
   * Validation de la structure EDI et validation du schéma étendue
   * Validation de la structure de l’enveloppe d’échange.
@@ -83,14 +83,21 @@ Le connecteur X12 Decode effectue les tâches suivantes :
   * Vérifie le numéro de contrôle de l’échange par rapport aux échanges reçus précédemment.
   * Vérifie le numéro de contrôle du groupe par rapport aux autres numéros de contrôle de groupe dans l’échange.
   * Vérifie le numéro de contrôle du document informatisé par rapport aux autres numéros de contrôle de document informatisé dans ce groupe.
-* Convertit la totalité de l’échange au format XML. 
-  * Fractionne l’échange en documents informatisés - suspend les documents informatisés en cas d’erreur : analyse chaque document informatisé d’un échange dans un document XML distinct. Si la validation d’un ou plusieurs documents informatisés de l’échange échoue, X12 Decode suspend uniquement ces documents informatisés.
-  * Fractionne l’échange en documents informatisés - suspend l’échange en cas d’erreur : analyse chaque document informatisé d’un échange dans un document XML distinct.  Si la validation d’un ou plusieurs documents informatisés de l’échange échoue, X12 Decode suspend l’intégralité de l’échange.
-  * Préserve l’échange - suspend les documents informatisés en cas d’erreur : crée un document XML pour l’intégralité de l’échange par lot. X12 Decode suspend uniquement les documents informatisés dont la validation échoue, tout en continuant à traiter tous les autres documents informatisés.
-  * Préserve l’échange - suspend l’échange en cas d’erreur : crée un document XML pour l’intégralité de l’échange par lot. Si la validation d’un ou plusieurs documents informatisés de l’échange échoue, X12 Decode suspend l’intégralité de l’échange. 
+* Fractionne l’échange en documents informatisés ou conserve l’échange entier :
+  * Fractionne l’échange en documents informatisés - suspend les documents informatisés en cas d’erreur : fractionne l’échange en documents informatisés et analyse chaque document informatisé. 
+  L’action X12 Decode ne génère que ces documents informatisés qui échouent à la validation `badMessages` et produit les documents informatisés restants en tant que `goodMessages`.
+  * Fractionne l’échange en documents informatisés - suspend l’échange en cas d’erreur : fractionne l’échange en documents informatisés et analyse chaque document informatisé. 
+  Si la validation d’un ou de plusieurs documents informatisés de l’échange échoue, l’action X12 Decode génère tous les documents informatisés dans cet échange en tant que `badMessages`.
+  * Préserve l’échange - suspend les documents informatisés en cas d’erreur : conserve l’échange et traite l’intégralité de l’échange par lot. 
+  L’action X12 Decode ne génère que ces documents informatisés qui échouent à la validation `badMessages` et produit les documents informatisés restants en tant que `goodMessages`.
+  * Préserve l’échange - suspend l’échange en cas d’erreur : conserve l’échange et traite l’intégralité de l’échange par lot. 
+  Si la validation d’un ou de plusieurs documents informatisés de l’échange échoue, l’action X12 Decode génère tous les documents informatisés dans cet échange en tant que `badMessages`. 
 * Génère un accusé de réception fonctionnel et/ou technique (si configuré).
   * Suite à la validation de l’en-tête, un accusé de réception technique est généré. L’accusé de réception technique renvoie l’état du traitement de l’en-tête et du code de fin d’un échange par le récepteur de l’adresse.
   * Suite à la validation du corps, un accusé de réception fonctionnel est généré. L’accusé de réception fonctionnel signale chaque erreur rencontrée lors du traitement du document reçu
+
+## <a name="view-the-swagger"></a>Afficher Swagger
+Consultez les [détails sur Swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack") 

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 05/09/2017
 ms.author: robinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 680f41dc15b9681059847174a6910cfc937abd8b
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7b91be16b5820f379f7408b477311ea86b213ccd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -30,23 +30,15 @@ Les sections suivantes fournissent des instructions détaillées sur la façon d
 ## <a name="overview"></a>Vue d'ensemble
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité qui, réunies, permettent aux développeurs de créer des applications sécurisées. Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](storage-client-side-encryption.md), de HTTPs ou de SMB 3.0. La fonctionnalité Storage Service Encryption fournit un chiffrement au repos et se charge de la gestion du chiffrement, du déchiffrement et des clés de façon totalement transparente. Toutes les données sont chiffrées à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)256 bits, l’un des algorithmes de chiffrement par blocs les plus puissants disponibles.
 
-SSE fonctionne en chiffrant les données lors leur écriture dans le Stockage Azure et peut être utilisé pour le Stockage Blob Azure et le Stockage Fichier (version préliminaire). Il fonctionne pour les éléments suivants :
+SSE fonctionne en chiffrant les données lors leur écriture dans le Stockage Azure et peut être utilisé pour le Stockage Blob Azure et le Stockage Fichier. Il fonctionne pour les éléments suivants :
 
-* Comptes de stockage généraux et comptes de stockage Blob
-* Stockage Premium et stockage Standard 
+* Stockage Standard : comptes de stockage à usage général pour les stockages Blob et Fichier et les comptes de stockage Blob
+* Stockage Premium 
 * Tous les niveaux de redondance (LRS, ZRS, GRS, RA-GRS)
 * Comptes de stockage Azure Resource Manager (non Classic) 
-* Toutes les régions pour le Stockage Blob. Pour le Stockage Fichier, consultez la section Disponibilité.
-
-Storage Service Encryption : Files Preview SSE est désormais disponible pour le chiffrement des données dans le Stockage Fichier. Actuellement en mode préliminaire. Voici la liste des régions dans lesquelles SSE pour le Stockage Fichier est disponible.
-
-Pour participer à Files Preview SSE, contactez ssediscussions@microsoft.com.
+* Toutes les régions.
 
 Pour plus d’informations, consultez la FAQ.
-
-### <a name="availability-for-file-storage"></a>Disponibilité pour Stockage Fichier
-Le chiffrement du service de stockage pour Stockage Fichier est actuellement disponible dans toutes les régions Azure.
-
 
 Pour activer ou désactiver le chiffrement du service de stockage pour un compte de stockage, connectez-vous au [portail Azure](https://azure.portal.com) , puis sélectionnez un compte de stockage. Dans le panneau Paramètres, recherchez la section Service BLOB, comme illustré dans cette capture d’écran, puis cliquez sur Chiffrement.
 
@@ -59,22 +51,17 @@ Pour activer ou désactiver le chiffrement du service de stockage pour un compte
 Lorsque vous avez cliqué sur le paramètre Chiffrement, vous pouvez activer ou désactiver Storage Service Encryption.
 
 ![Capture d’écran du Portail affichant les propriétés de chiffrement](./media/storage-service-encryption/image2.png)
-<br/>*Figure 1.1 : Activer SSE pour le service BLOB (étape 2)*
+<br/>*Figure 3 : Activer SSE pour le service Blob et Fichier (étape 2)*
 
-![Capture d’écran du Portail affichant les propriétés de chiffrement](./media/storage-service-encryption/image4.png)
-<br/>*Figure 2.1 : Activer SSE pour le service Fichier (étape 2)*
 ## <a name="encryption-scenarios"></a>Scénarios de chiffrement
-Storage Service Encryption peut être activé au niveau d’un compte de stockage. Les scénarios clients suivants sont pris en charge :
+Storage Service Encryption peut être activé au niveau d’un compte de stockage. Une fois activé, les clients devront choisir les services à chiffrer. Les scénarios clients suivants sont pris en charge :
 
-* Chiffrement du Stockage Fichier et du Stockage Blob.
-* Le chiffrement des comptes de stockage classiques migrés vers des comptes Resource Manager est pris en charge pour le chiffrement du service BLOB, mais pas pour le service Fichier.
-* Le chiffrement pour le Stockage Fichier est pris en charge uniquement pour les comptes de stockage nouvellement créés.
+* Chiffrement des Stockages Blob et Fichier dans les comptes Resource Manager.
+* Chiffrement des services Blob et Fichier dans les comptes de stockage classiques une fois migrés vers des comptes de stockage Resource Manager.
 
 SSE présente les limites suivantes :
 
 * Le chiffrement des comptes de stockage classiques n’est pas pris en charge.
-* Le chiffrement des comptes de stockage classiques migrés vers des comptes Resource Manager est pris en charge pour le chiffrement du service BLOB, mais pas pour le service Fichier.
-* Le chiffrement pour le Stockage Fichier est pris en charge uniquement pour les comptes de stockage nouvellement créés.
 * Données existantes : SSE chiffre uniquement les données créées après l’activation du chiffrement. Par exemple, si vous créez un compte de stockage Resource Manager sans activer le chiffrement, puis que vous téléchargez des objets blob ou des disques durs virtuels archivés dans ce compte de stockage avant d’activer SSE, ces objets blob ne sont pas chiffrés, sauf s’ils sont réécrits ou copiés.
 * Prise en charge du Marketplace : activez le chiffrement des machines virtuelles créées à partir du Marketplace à l’aide du [portail Azure](https://portal.azure.com), de PowerShell et de l’interface de ligne de commande Azure. L’image de base du disque dur virtuel reste non chiffrée. Toutefois, les écritures effectuées une fois que la machine virtuelle est opérationnelle sont chiffrées.
 * Les données des tables et des files d’attente ne sont pas chiffrées.
@@ -134,19 +121,19 @@ R : Non. SSE est uniquement pris en charge sur les comptes de stockage Resource 
 
 R : Vous pouvez créer un nouveau compte de stockage Resource Manager et copier vos données à l’aide [d’AzCopy](storage-use-azcopy.md) de votre compte de stockage classique existant vers votre nouveau compte de stockage Resource Manager. 
 
-Si vous migrez votre compte de stockage classique vers un compte Resource Manager, les données ne seront pas chiffrées lors de la migration. Toutefois, si vous migrez le compte de stockage puis que vous activez le chiffrement, les nouvelles données écrites sur le compte de stockage seront chiffrées. Pour plus d’informations, consultez [Migration prise en charge par la plateforme de ressources IaaS de l’environnement Classic vers Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Remarque : cela n’est pris en charge que pour le Stockage Blob. Pour la version préliminaire du Stockage Fichier, les utilisateurs doivent créer de nouveaux comptes de stockage Resource Manager.
+Si vous migrez votre compte de stockage classique vers un compte de stockage Resource Manager, cette opération est instantanée ; elle modifie votre type de compte, sans affecter vos données existantes. Les nouvelles données écrites ne seront chiffrées qu’après l’activation du chiffrement. Pour plus d’informations, consultez [Migration prise en charge par la plateforme de ressources IaaS de l’environnement Classic vers Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/). Notez que cela n’est pris en charge que pour les services Blob et Fichier.
 
 **Q : Je possède déjà un compte de stockage Resource Manager. Puis-je activer SSE dessus ?**
 
-R : Oui, mais seuls les objets blob nouvellement écrits seront chiffrés. Il ne revient pas en arrière et chiffre les données qui étaient déjà présentes. Cela n’est pas encore pris en charge pour la version préliminaire du Stockage Fichier.
+R : Oui, mais seules les nouvelles données écrites seront chiffrées. Il ne revient pas en arrière et chiffre les données qui étaient déjà présentes. Cela n’est pas encore pris en charge pour la version préliminaire du Stockage Fichier.
 
 **Q : Puis-je chiffrer les données actuelles dans un compte de stockage Resource Manager existant ?**
 
-R : Vous pouvez activer SSE à tout moment dans un compte de stockage Resource Manager. Toutefois, les objets blob qui étaient déjà présents ne seront pas chiffrés. Pour chiffrer ces objets blob, vous pouvez les copier sur un autre nom ou un autre conteneur, puis supprimer les versions non chiffrées. Cela n’est pas encore pris en charge pour la version préliminaire du Stockage Fichier.
+R : Vous pouvez activer SSE à tout moment dans un compte de stockage Resource Manager. Toutefois, les données qui étaient déjà présentes ne seront pas chiffrées. Pour chiffrer des données existantes, vous pouvez les copier sur un autre nom ou un autre conteneur, puis supprimer les versions non chiffrées.
 
 **Q : J’utilise Stockage Premium. Puis-je utiliser SSE ?**
 
-R : Oui. SSE est pris en charge par le Stockage Standard et Premium. Il n’est pas encore pris en charge pour la version préliminaire du Stockage Fichier.
+R : Oui. SSE est pris en charge par le stockage Standard et Premium Storage.  Le Stockage Premium n’est pas pris en charge pour le service Fichier.
 
 **Q : Si je crée un compte de stockage et que j’active SSE, puis que je crée une machine virtuelle à l’aide de ce compte de stockage, cela signifie-t-il que ma machine virtuelle est chiffrée ?**
 

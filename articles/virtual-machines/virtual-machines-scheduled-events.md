@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 7f0613285bc548e1329be3c33c30939f5998f379
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 627aa117ded0aaa519052d4ea1a1995ba2e363ee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -71,7 +71,7 @@ Dans les deux cas, l’opération lancée par l’utilisateur prend plus longtem
 ## <a name="using-the-api"></a>Utilisation de l’API
 
 ### <a name="query-for-events"></a>Rechercher des événements
-Vous pouvez rechercher des événements planifiés simplement en effectuant l’appel suivant
+Vous pouvez rechercher des événements planifiés simplement en effectuant l’appel suivant :
 
     curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 
@@ -92,13 +92,25 @@ S'il existe des événements planifiés, la réponse contient un tableau d’év
          }
      ]
     }
+    
+### <a name="event-properties"></a>Propriétés de l’événement
+|Propriété  |  Description |
+| - | - |
+| EventId |GUID pour l’événement. <br><br> Exemple : <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | Incidence de l’événement. <br><br> Valeurs : <br><ul><li> <i>Freeze</i> : la machine virtuelle est programmée pour se mettre en pause pendant quelques secondes. Il n’a aucun incidence sur la mémoire, les fichiers ouverts ou les connexions réseau. <li> <i>Reboot</i> : la machine virtuelle est programmée pour redémarrer (la mémoire est effacée).<li> <i>Redeploy</i> : la machine virtuelle est programmée pour être déplacée vers un autre nœud (tout disque éphémère est perdu). |
+| ResourceType | Type de ressource que l’événement affecte. <br><br> Valeurs : <ul><li>VirtualMachine|
+| Resources| Liste des ressources que l’événement affecte. <br><br> Exemple : <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Event Status | État de l’événement. <br><br> Valeurs : <ul><li><i>Scheduled :</i> l’événement est programmé pour démarrer après l’heure spécifiée dans la propriété <i>NotBefore</i>.<li><i>Started</i> : l’événement a démarré.</i>
+| NotBefore| Temps après lequel l’événement peuvent commencer. <br><br> Exemple : <br><ul><li> 2016-09-19T18:29:47Z  |
 
-EventType indique l’impact attendu sur la machine virtuelle, où :
-- Freeze : la machine virtuelle est planifiée pour se mettre en pause pendant quelques secondes. Il n’a aucun impact sur la mémoire, les fichiers ouverts ou les connexions réseau
-- Reboot : la machine virtuelle est planifiée pour redémarrer (la mémoire est effacée).
-- Redeploy : la machine virtuelle est planifiée pour être déplacée vers un autre nœud (tout disque éphémère est perdu). 
+### <a name="event-scheduling"></a>Planification d’événement
+Chaque événement est planifié à un minimum de temps dans le futur, en fonction du type d’événement. Ce temps est reflété dans la propriété <i>NotBefore</i>. 
 
-Lorsqu’un événement est planifié (état = planifié), Azure indique le délai après lequel l’événement peut démarrer (spécifié dans le champ NotBefore).
+|EventType  | Préavis minimal |
+| - | - |
+| Freeze| 15 minutes |
+| Reboot | 15 minutes |
+| Redeploy | 10 minutes |
 
 ### <a name="starting-an-event-expedite"></a>Démarrage d’un événement (accélérer)
 
@@ -120,11 +132,13 @@ function GetScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $uri)
+function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
 {    
-    # Create the Scheduled Events Approval Json
+    # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
+    
+    # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
     Write-Host "Approving with the following: `n" $approvalString
@@ -161,7 +175,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-    ApproveScheduledEvent $event.EventId $scheduledEventURI 
+    ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
@@ -207,6 +221,7 @@ Les événements planifiés peuvent être analysés à l’aide des structures d
 ```csharp
     public class ScheduledEventsDocument
     {
+        public string DocumentIncarnation;
         public List<CloudControlEvent> Events { get; set; }
     }
 
@@ -217,11 +232,12 @@ Les événements planifiés peuvent être analysés à l’aide des structures d
         public string EventType { get; set; }
         public string ResourceType { get; set; }
         public List<string> Resources { get; set; }
-        public DateTime NoteBefore { get; set; }
+        public DateTime? NotBefore { get; set; }
     }
 
     public class ScheduledEventsApproval
     {
+        public string DocumentIncarnation;
         public List<StartRequest> StartRequests = new List<StartRequest>();
     }
 
@@ -259,7 +275,11 @@ public class Program
             Console.ReadLine();
 
             // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval();
+            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
+        {
+            DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
+        };
+        
             foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
             {
                 scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));

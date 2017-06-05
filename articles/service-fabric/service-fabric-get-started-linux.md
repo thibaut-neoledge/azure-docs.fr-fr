@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/04/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d01e141ec8ee8da18d38a216f3b13c88f3632801
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 8c0f3cc737b999d26359f33d3768dcc55893029c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/27/2017
 ### <a name="supported-operating-system-versions"></a>Versions du système d’exploitation prises en charge
 Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
 
-* Ubuntu 16.04 (i**« Xenial Xerus »**)
+* Ubuntu 16.04 (`Xenial Xerus`)
 
 ## <a name="update-your-apt-sources"></a>Mettre à jour vos sources apt
 Pour installer le Kit de développement logiciel (SDK) et le package runtime associé via apt-get, vous devez tout d’abord mettre à jour vos sources apt.
@@ -48,17 +48,17 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Ajoutez le référentiel **dotnet** à votre liste de sources.
+
+3. Ajoutez le référentiel `dotnet` à votre liste de sources.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
+
 4. Ajoutez la nouvelle clé GPG à votre porte-clés apt.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    ```
-    ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
@@ -67,7 +67,9 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
     ```bash
     sudo apt-get update
     ```
+
 ## <a name="install-and-set-up-the-sdk-for-containers-and-guest-executables"></a>Installer et configurer le Kit de développement logiciel (SDK) pour les conteneurs et les exécutables invités
+
 Une fois vos sources mises à jour, vous pouvez installer le Kit de développement logiciel (SDK).
 
 1. Installez le package de Kit de développement logiciel (SDK) Service Fabric. Vous devez confirmer l’installation et accepter un contrat de licence.
@@ -75,7 +77,8 @@ Une fois vos sources mises à jour, vous pouvez installer le Kit de développeme
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
-    Pour automatiser l’installation, vous pouvez ignorer l’invite de contrat de licence en définissant vos sélections debconf pour les packages Service Fabric. Les deux commandes suivantes peuvent être exécutées
+
+   Les commandes suivantes automatisent la validation de la licence pour les packages Service Fabric :
     
     ```bash
     echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
@@ -104,25 +107,28 @@ Si vous utilisez l’environnement en tant que racine, vous devrez peut-être d�
 > Vous pouvez ajouter ces commandes à votre fichier ~/.bashrc afin de ne pas avoir à définir la variable d’environnement à chaque connexion.
 >
 
-## <a name="set-up-the-azure-cross-platform-cli"></a>Configurer l’interface de ligne de commande interplateforme Azure
-[L’interface de ligne de commande interplateforme Azure][azure-xplat-cli-github] inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications. Comme elle est basée sur Node.js, [assurez-vous que vous avez installé Node][install-node] avant de suivre les instructions ci-dessous :
+## <a name="set-up-the-azure-cli"></a>Configuration de l’interface de ligne de commande Azure
+[Azure CLI][azure-xplat-cli-github] inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications. Comme elle est basée sur Node.js, [assurez-vous que vous avez installé Node][install-node] avant de suivre les instructions ci-dessous :
 
 1. Clonez le référentiel Github sur votre ordinateur de développement.
 
     ```bash
     git clone https://github.com/Azure/azure-xplat-cli.git
     ```
+
 2. Basculez dans le référentiel cloné et installez les dépendances d’interface de ligne de commande à l’aide de Node Package Manager (NPM).
 
     ```bash
     cd azure-xplat-cli
     npm install
     ```
-3. Créez un lien symbolique à partir du dossier bin/azure du référentiel cloné vers /usr/bin/azure, afin qu’il soit ajouté à votre chemin d’accès et que les commandes soient disponibles à partir de n’importe quel répertoire.
+
+3. Créez un lien symbolique du dossier `bin/azure` du référentiel cloné vers `/usr/bin/azure`.
 
     ```bash
     sudo ln -s $(pwd)/bin/azure /usr/bin/azure
     ```
+
 4. Enfin, activez les commandes Service Fabric de saisie semi-automatique.
 
     ```bash
@@ -143,6 +149,7 @@ Si tout a été correctement installé, vous pourrez démarrer un cluster local.
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
+
 2. Ouvrez un navigateur web et accédez à l’adresse http://localhost:19080/Explorer. Si le cluster a démarré, vous devez voir le tableau de bord Service Fabric Explorer.
 
     ![Service Fabric Explorer sur Linux][sfx-linux]
@@ -162,34 +169,38 @@ Le Kit de développement logiciel (SDK) Java fournit les bibliothèques et les m
     ```bash
     sudo apt-get install servicefabricsdkjava
     ```
+
 2. Exécutez le script de configuration du Kit de développement logiciel (SDK).
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
+
 ## <a name="install-the-eclipse-neon-plugin-optional"></a>Installer le plug-in Eclipse Neon (facultatif)
 
 Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de **l’IDE Eclipse pour les développeurs Java**. Vous pouvez utiliser Eclipse pour créer des applications exécutables invités Service Fabric et des applications de conteneur en plus des applications Service Fabric Java.
 
 > [!NOTE]
-> L’installation du Kit de développement logiciel (SDK) Java est requise pour utiliser le plug-in Eclipse, même si vous l’utilisez uniquement pour créer et déployer des exécutables invités et des applications de conteneur.
+> Le Kit de développement logiciel (SDK) Java est un prérequis pour l’utilisation du plug-in Eclipse, même si vous l’utilisez uniquement pour des exécutables invités et des applications conteneur.
 >
 
 1. Dans Eclipse, assurez-vous que vous disposez de la dernière version d’Eclipse **Neon** et de Buildship (version 1.0.17 ou ultérieure). Vous pouvez vérifier les versions des composants installés en choisissant **Aide > Détails de l’installation**. Vous pouvez mettre à jour Buildship en suivant les instructions [ici][buildship-update].
 2. Pour installer le plug-in Service Fabric, choisissez **Aide > Installer un nouveau logiciel...**
-3. Dans la zone de texte « Utiliser », entrez : http://dl.windowsazure.com/eclipse/servicefabric
+3. Dans la zone de texte « Work with » (Utiliser avec), entrez : http://dl.microsoft.com/eclipse
 4. Cliquez sur Ajouter.
+
     ![Plug-in Eclipse][sf-eclipse-plugin]
-5. Choisissez le plug-in Service Fabric et cliquez sur Suivant.
+
+5. Sélectionnez le plug-in Service Fabric et cliquez sur **Suivant**.
 6. Suivez les étapes d’installation et acceptez le contrat de licence d’utilisateur final.
 
 Si le plug-in Eclipse de Service Fabric est déjà installé, assurez-vous que vous disposez de la dernière version. Vous pouvez vérifier en sélectionnant ``Help => Installation Details`` et en recherchant Service Fabric dans la liste des plug-ins installés. Sélectionnez la mise à jour si une version plus récente est disponible. 
 
-Pour plus d’informations, voir [Service Fabric : prise en main avec Eclipse](service-fabric-get-started-eclipse.md).
+Pour plus d’informations, voir [Service fabric getting started with Eclipse](service-fabric-get-started-eclipse.md) (Service Fabric : démarrez avec Eclipse).
 
 
 ## <a name="install-the-net-core-sdk-optional-if-you-wish-to-use-the-net-core-programming-models"></a>Installer le Kit de développement logiciel (SDK) .NET Core (facultatif, si vous souhaitez utiliser les modèles de programmation .NET Core)
-Le Kit de développement logiciel (SDK) .NET Core fournit les bibliothèques et les modèles nécessaires pour générer des services Service Fabric à l’aide de .Net Core interplateforme.
+Le Kit de développement logiciel (SDK) .NET Core fournit les bibliothèques et les modèles nécessaires pour générer des services Service Fabric à l’aide de .NET Core.
 
 1. Installez le package du Kit de développement (SDK) .NET Core.
 
@@ -205,7 +216,7 @@ Le Kit de développement logiciel (SDK) .NET Core fournit les bibliothèques et 
 
 ## <a name="updating-the-sdk-and-runtime"></a>Mise à jour du kit de développement logiciel et du runtime
 
-Pour mettre à jour vers la dernière version du kit de développement logiciel et du runtime, exécutez les étapes suivantes (supprimez de la liste les kits de développement logiciel que vous ne souhaitez pas mettre à jour ou installer) :
+Pour passer à la dernière version du Kit de développement logiciel (SDK) et du runtime, exécutez les commandes suivantes (déselectionnez les Kits inutiles) :
 
    ```bash
    sudo apt-get update
@@ -213,11 +224,11 @@ Pour mettre à jour vers la dernière version du kit de développement logiciel 
    ```
    
 > [!NOTE]
-> La mise à jour des packages ci-dessus peut entraîner l’arrêt de votre cluster de développement local. Redémarrez votre cluster local après une mise à niveau en suivant les instructions de cette page
+> Mettre à jour les packages peut entraîner l’arrêt de votre cluster local de développement. Redémarrez votre cluster local après une mise à niveau en suivant les instructions présentes sur cette page.
 >
 >
 
-Pour mettre à jour l’interface CLI, accédez au répertoire où vous avez cloné le CLI et exécutez `git pull` pour mettre à jour.  Si des étapes supplémentaires sont nécessaires pour la mise à jour, elles seront spécifiées dans les notes de publication. 
+Pour mettre à jour l’interface CLI, accédez au répertoire où vous avez cloné le CLI et exécutez `git pull` pour mettre à jour.  Les notes de publication peuvent contenir des étapes supplémentaires. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

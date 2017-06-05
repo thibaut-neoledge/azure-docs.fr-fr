@@ -14,34 +14,44 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: spelluru
 published: true
-translationtype: Human Translation
-ms.sourcegitcommit: db0face48d84680eabd82245bd38bd49b204f9ae
-ms.openlocfilehash: a88b791bad9f71f16700ccc7efdee8ef493478a9
-ms.lasthandoff: 02/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f29bb67ea50c531278e546c9fde88fd53230bc3c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
 Un des défis de l’intégration de données modernes consiste à déplacer en toute transparence des données vers et depuis un site local et le cloud. Azure Data Factory facilite cette intégration avec la passerelle de gestion des données Microsoft, qui est un agent pouvant être installé en local pour activer le déplacement de données hybrides.
 
-Consultez les articles suivants pour des informations détaillées sur la passerelle de gestion des données et son utilisation : 
+Consultez les articles suivants pour des informations détaillées sur la passerelle de gestion des données et son utilisation :
 
 *  [Passerelle de gestion de données](data-factory-data-management-gateway.md)
-*  [Déplacement de données entre des emplacements locaux et le cloud à l'aide d’Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
+*  [Déplacement de données entre des emplacements locaux et le cloud à l'aide d’Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## <a name="current-version-2762192"></a>VERSION ACTUELLE (2.7.6219.2)
-
-### <a name="whats-new"></a>Nouveautés
-- Vous pouvez désormais vous authentifier dans votre Azure Data Lake Store à l’aide d’un principal du service. Auparavant, seul OAuth était pris en charge.
-- Nous avons empaqueté un nouveau pilote pour lire des données du magasin de données local Oracle dans la passerelle.
+## <a name="current-version-2963132"></a>VERSION ACTUELLE (2.9.6313.2)
 
 ### <a name="enhancements-"></a>Améliorations
-- Amélioration des performances de lecture de données à partir d’une source de données Oracle.
-- Problème résolu : problème d’expiration du jeton OAuth de source OData.
-- Problème résolu : impossible de lire les décimales Oracle de plus de 28 bits.
+-    Vous pouvez ajouter des entrées DNS à la liste blanche Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Plus de détails ici.
+-    Vous pouvez maintenant copier des données vers/à partir d’un seul bloc d’objets blob de blocs d’au maximum 4,75 To, soit la taille maximale prise en charge pour ce type d’objet. (Auparavant, cette limite était de 195 Go).
+-    Résolu : problème de mémoire insuffisante lors de la décompression de plusieurs petits fichiers pendant l’activité de copie.
+-    Résolu : problème d’index hors plage lors de la copie depuis Document DB vers le SQL local avec la fonctionnalité d’idempotence.
+-    Résolu : le script de nettoyage du SQL ne fonctionne pas avec la version SQL locale à partir de l’Assistant de copie.
+-    Résolu : le nom de colonne avec un espace à la fin ne fonctionne pas dans l’activité de copie.
 
 
 ## <a name="earlier-versions"></a>Versions antérieures
+
+## <a name="28662833"></a>2.8.66283.3
+### <a name="enhancements-"></a>Améliorations
+- Résolu : problème d’informations d’identification manquantes au redémarrage de l’ordinateur de la passerelle.
+- Résolu : problème d’inscription lors de la restauration de la passerelle à l’aide du fichier de sauvegarde.
+
+
+## <a name="2762401"></a>2.7.6240.1
+### <a name="enhancements-"></a>Améliorations
+- Résolu : lecture incorrecte d’une valeur null décimale à partir d’Oracle comme source.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>Nouveautés
@@ -63,7 +73,7 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 
 ### <a name="whats-new"></a>Nouveautés
 
-- Vous pouvez désormais stocker localement les informations d’identification de la source de données. Les informations d’identification sont chiffrées. Les informations d’identification de la source de données peuvent être récupérées et restaurées à l’aide du fichier de sauvegarde qui peut être exporté à partir de la passerelle existante, le tout sur site. 
+- Vous pouvez désormais stocker localement les informations d’identification de la source de données. Les informations d’identification sont chiffrées. Les informations d’identification de la source de données peuvent être récupérées et restaurées à l’aide du fichier de sauvegarde qui peut être exporté à partir de la passerelle existante, le tout sur site.
 
 ### <a name="enhancements-"></a>Améliorations
 
@@ -89,7 +99,7 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 
 *  Le pilote DB2 est désormais inclus dans le package d’installation de la passerelle. Il est inutile de l’installer séparément. 
 *  Le pilote DB2 prend désormais en charge z/OS et DB2 pour i (AS/400), ainsi que les plateformes déjà prises en charge (Windows, Unix et Linux). 
-*  Prend en charge l’utilisation de DocumentDB comme source ou destination de banques de données locales
+*  Prend en charge l’utilisation d’Azure Cosmos DB comme source ou destination des banques de données locales
 *  Prend en charge la copie de données depuis/vers un stockage d’objet blob à chaud ou à froid, ainsi que le compte de stockage à usage général déjà pris en charge. 
 *  Permet de vous connecter l’instance SQL Server locale via la passerelle avec des droits de connexion à distance.  
 
@@ -105,7 +115,7 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 
     *  Commandes réorganisées et simplifiées.
 
-    *  Vous pouvez copier des données à partir d’un stockage à l’aide de [l’outil de prévisualisation de copie sans code](data-factory-copy-data-wizard-tutorial.md). Pour plus d’informations sur cette fonctionnalité, consultez [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy) . 
+    *  Vous pouvez copier des données à partir d’un stockage à l’aide de [l’outil de prévisualisation de copie sans code](data-factory-copy-data-wizard-tutorial.md). Pour plus d’informations sur cette fonctionnalité, consultez [Copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy) .
 *  Vous pouvez utiliser la passerelle de gestion des données pour entrer des données directement à partir d’une base de données SQL Server locale dans Azure Machine Learning.
 
 *  Amélioration des performances
@@ -120,7 +130,7 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 
 *  La taille maximale du journal des événements de la passerelle a été augmentée de 1 Mo à 40 Mo.
 
-*  Une boîte de dialogue d’avertissement s’affiche si un redémarrage est nécessaire pendant la mise à jour automatique de la passerelle. Vous pouvez choisir de redémarrer immédiatement ou plus tard. 
+*  Une boîte de dialogue d’avertissement s’affiche si un redémarrage est nécessaire pendant la mise à jour automatique de la passerelle. Vous pouvez choisir de redémarrer immédiatement ou plus tard.
 
 *  En cas d’échec de la mise à jour automatique, le programme d’installation de la passerelle retente la mise à jour automatique trois fois au maximum.
 
@@ -226,7 +236,7 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 
 ### <a name="1253031"></a>1.2.5303.1
 
-*  Correction du problème de délai d’expiration pour la prise en charge de connexions de source de données chronophages supplémentaires. 
+*  Correction du problème de délai d’expiration pour la prise en charge de connexions de source de données chronophages supplémentaires.
 
 ### <a name="1155268"></a>1.1.5526.8
 

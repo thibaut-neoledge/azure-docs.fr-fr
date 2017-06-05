@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/22/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: e6eaf4e7a3b0aa8241c026f66150d3f6e9d933d0
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: e8774cc290847d48ecdc5dcdac1f2533fdc7d072
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -25,6 +26,9 @@ ms.lasthandoff: 04/21/2017
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Déployer une passerelle sur Windows ou Linux pour la solution préconfigurée d’usine connectée
 
 Les étapes décrites dans cet article montrent comment déployer une passerelle à l’aide de Docker sur Windows ou Linux. La passerelle permet de se connecter à la solution préconfigurée d’usine connectée.
+
+> [!NOTE]
+> Le logiciel de passerelle qui s’exécute dans le conteneur Docker est [Azure IoT Edge].
 
 ## <a name="windows-deployment"></a>Déploiement sous Windows
 
@@ -149,4 +153,4 @@ Pour en savoir plus sur l’architecture de la solution préconfigurée d’usin
 [client OPC UA open source]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
 [Installez Docker]: https://www.docker.com/community-edition#/download
 [lnk-walkthrough]: iot-suite-overview.md
-
+[Azure IoT Edge]: https://github.com/Azure/iot-edge

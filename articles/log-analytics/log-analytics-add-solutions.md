@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/05/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 7899df8a09b6f5c8bc916bb6ad872afa3844e425
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 00fb88afe9ee107543aa7557ff0953d066d05bfd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -70,7 +70,7 @@ Vous pouvez installer des solutions de gestion à partir d’Azure Marketplace e
 
 ## <a name="offers-and-pricing-tiers"></a>Offres et niveaux tarifaires
 
-Le tableau suivant indique les solutions de gestion appartenant à chaque offre de sécurité et Operations Management.
+Le tableau suivant indique les solutions de gestion appartenant à chaque offre Operations Management Suite.
 Il indique également les niveaux tarifaires disponibles pour chaque solution de gestion.
 Toutes les solutions indiquées dans le tableau suivant sont disponibles dans le Portail Azure et la galerie de solutions du portail Log Analytics.
 

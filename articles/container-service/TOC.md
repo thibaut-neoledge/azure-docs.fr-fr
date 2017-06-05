@@ -10,8 +10,8 @@
 ## [Déployer un cluster – Portail](container-service-deployment.md)
 ## [Déployer un cluster – Interface de ligne de commande Azure](container-service-create-acs-cluster-cli.md)
 ## [CI/CD avec Kubernetes et Jenkins](container-service-kubernetes-jenkins.md)
-## [CI/CD avec DC/OS et VSTS](container-service-setup-ci-cd.md)
 ## [CI/CD avec Docker Swarm et VSTS](container-service-docker-swarm-setup-ci-cd.md)
+## [CI/CD avec mode Docker Swarm et VSTS à l’aide du moteur ACS](container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md)
 
 # Concepts
 ## [Sécuriser les conteneurs](container-service-security.md)
@@ -29,6 +29,7 @@
 ### [Orchestrateur propre à une application/un utilisateur dans DC/OS](container-service-application-specific-marathon.md)
 ### [Ajouter un partage de fichiers](container-service-dcos-fileshare.md)
 ### [Utiliser un Registre de conteneurs Azure](container-service-dcos-acr.md)
+### [Version Canary avec Vamp](container-service-dcos-vamp-canary-release.md)
 ### Surveiller DC/OS
 #### [Surveiller avec ELK](container-service-monitoring-elk.md)
 #### [Surveiller avec OMS](container-service-monitoring-oms.md)
@@ -43,6 +44,7 @@
 #### [Surveiller avec OMS](container-service-kubernetes-oms.md)
 #### [Surveiller avec Datadog](container-service-kubernetes-datadog.md)
 #### [Surveiller avec Sysdig](container-service-kubernetes-sysdig.md)
+#### [Surveiller avec CoScale](container-service-kubernetes-coscale.md)
 ## Gérer avec Docker Swarm
 ### [Docker et Docker Compose](container-service-docker-swarm.md)
 

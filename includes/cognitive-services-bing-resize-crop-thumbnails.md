@@ -1,4 +1,10 @@
-Certaines réponses Bing incluent des URL vers les images miniatures fournies par Bing. Vous pouvez redimensionner et rogner les images miniatures. Pour redimensionner une image, insérez les paramètres de requête w (largeur) et h (hauteur) dans l’URL de la miniature. Spécifiez la largeur et la hauteur en pixels. Par exemple :  
+Certaines réponses Bing incluent des URL vers les images miniatures fournies par Bing. Vous pouvez redimensionner et rogner les images miniatures. 
+
+> [!NOTE]
+> Vérifiez que la taille et le rognage de la miniature fournissent un scénario de recherche et respectent les droits tiers, comme requis par [les conditions d’utilisation et d’affichage de l’API de recherche](/useanddisplayrequirements.md).
+
+
+Pour redimensionner une image, insérez les paramètres de requête w (largeur) et h (hauteur) dans l’URL de la miniature. Spécifiez la largeur et la hauteur en pixels. Par exemple :  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   

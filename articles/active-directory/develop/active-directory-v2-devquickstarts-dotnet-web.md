@@ -14,9 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 43b77cabdb2d8832bda8fd0b726ba27edb0a0602
 ms.openlocfilehash: 2992b074986a7b7f3244ce996f2b41269bff8bbd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -95,7 +98,7 @@ Ici, nous allons configurer l’intergiciel OWIN pour utiliser le protocole d’
                                              // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
         
                                              ClientId = clientId,
-                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
+                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
                                              RedirectUri = redirectUri,
                                              Scope = "openid email profile",
                                              ResponseType = "id_token",
@@ -211,14 +214,9 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées.  Par exemple 
 
 Pour obtenir des ressources supplémentaires, consultez :
 
-* [Guide du développeur&2;.0 >>](active-directory-appmodel-v2-overview.md)
+* [Guide du développeur 2.0 >>](active-directory-appmodel-v2-overview.md)
 * [Balise StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits
 Nous vous encourageons à activer les notifications d’incidents de sécurité en vous rendant sur [cette page](https://technet.microsoft.com/security/dd252948) et en vous abonnant aux alertes d’avis de sécurité.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 569777b7034ebeccddf6d9ef89ee2f9fb667cc3f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 40eb1d80830818a492c78d5091aaa9cca8d48f16
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -68,7 +69,7 @@ Exchange propose deux catégories principales de protocoles. Passez en revue les
 * **Protocoles hérités**. Vous pouvez bloquer les protocoles hérités avec AD FS. Cela bloquera l’accès aux anciens clients Office, notamment Office 2013 sans authentification moderne activée, ainsi qu’aux versions antérieures d’Office.
 
 ### <a name="use-ad-fs-to-block-legacy-protocol"></a>Utiliser AD FS pour bloquer le protocole hérité
-Vous pouvez utiliser les exemples de règles suivants pour bloquer l’accès de protocole hérité au niveau AD FS. Choisissez parmi deux configurations courantes.
+Vous pouvez utiliser les exemples de règles d’autorisation d’émission suivants pour bloquer l’accès de protocole hérité au niveau AD FS. Choisissez parmi deux configurations courantes.
 
 #### <a name="option-1-allow-exchange-activesync-and-allow-legacy-apps-but-only-on-the-intranet"></a>Option 1 : autoriser Exchange ActiveSync et autoriser uniquement les applications héritées sur l’intranet
 En appliquant les trois règles suivantes à la partie de confiance AD FS de la plateforme d’identité Microsoft Office 365, le trafic Exchange ActiveSync sera autorisé, tout comme le trafic du navigateur et de l’authentification moderne. Les applications héritées ne pourront pas accéder à l’extranet.

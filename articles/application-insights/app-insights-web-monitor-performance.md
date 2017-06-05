@@ -3,7 +3,7 @@ title: "Surveillez l&quot;intégrité et l&quot;utilisation de votre application
 description: Prise en main d&quot;Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 40650472-e860-4c1b-a589-9956245df307
 ms.service: application-insights

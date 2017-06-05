@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0a6e034da0445e94178e04cecc3ce09d86d2d29a
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 46b7b2a6fc3413e798cbad3e35837d1d52b63a2d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
 
 # <a name="create-managed-disks-from-unmanaged-disks-in-a-storage-account"></a>Créer des disques gérés à partir de disques non gérés dans un compte de stockage
 
-Un disque géré peut être créé à partir d’un disque de données ou d’un disque du système d’exploitation existant hébergé dans un compte de stockage Azure. Vous pouvez également créer un disque vide qui peut être utilisé comme nouveau disque de données pour une machine virtuelle. 
+Un disque géré peut être créé à partir d’un disque de données ou d’un disque du système d’exploitation existant hébergé dans un compte de stockage Azure. Vous pouvez également créer un disque vide utilisable comme nouveau disque de données pour une machine virtuelle. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Si vous utilisez PowerShell, assurez-vous que vous disposez de la dernière version du module PowerShell AzureRM.Compute. Exécutez la commande suivante pour l’installer.

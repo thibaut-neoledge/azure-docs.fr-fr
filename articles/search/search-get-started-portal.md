@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -199,7 +200,7 @@ Vous disposez maintenant d’un index de recherche prêt à être interrogé. **
 
   Pour afficher des composants individuellement, cliquez sur la mosaïque **Index**, **Indexeur** ou **Sources de données** sur votre tableau de bord pour afficher une liste des objets existants. Pour plus d’informations sur les modifications d’index qui ne nécessitent aucune régénération, consultez l’article [Update Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index) (Mettre à jour un index (API REST du service Recherche Azure)).
 
-+ Essayez les différents outils et étapes avec d’autres sources de données. L’exemple de jeu de données `realestate-us-sample` provient d’un service Azure SQL Database que le service Recherche Azure peut analyser. Outre Azure SQL Database, le service Recherche Azure peut analyser et déduire un index à partir de structures de données plates de Stockage Table Azure, de Stockage Blob, de SQL Server sur une machine virtuelle Azure et de DocumentDB. Toutes ces sources de données sont prises en charge dans l’Assistant. Dans le code, vous pouvez facilement remplir un index à l’aide d’un *indexeur*.
++ Essayez les différents outils et étapes avec d’autres sources de données. L’exemple de jeu de données `realestate-us-sample` provient d’un service Azure SQL Database que le service Recherche Azure peut analyser. Outre Azure SQL Database, le service Recherche Azure peut analyser et déduire un index à partir de structures de données plates de Stockage Table Azure, de Stockage Blob, de SQL Server sur une machine virtuelle Azure et d’Azure Cosmos DB. Toutes ces sources de données sont prises en charge dans l’Assistant. Dans le code, vous pouvez facilement remplir un index à l’aide d’un *indexeur*.
 
 + Toutes les autres sources de données non analysées par un indexeur sont prises en charge par le biais d’un modèle de transmission de type Push, où votre code transmet à votre index des ensembles de lignes nouveaux et modifiés au format JSON. Pour plus d’informations, consultez l’article [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Ajouter, mettre à jour ou supprimer des documents dans le service Recherche Azure).
 

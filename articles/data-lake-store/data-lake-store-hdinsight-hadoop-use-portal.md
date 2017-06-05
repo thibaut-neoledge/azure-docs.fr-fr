@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 05/04/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 2aa5542dc095beaf951bad2b0361a3acc4468f2d
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 37211b961644fdc5567147cde946f86afb9b1aa9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -76,10 +77,9 @@ Dans cette section, vous allez créer un cluster HDInsight Hadoop qui utilise Da
 
 4. Sélectionnez un compte Data Lake Store existant et entrez le chemin du dossier racine où les fichiers spécifiques au cluster sont stockés.
 
-    ![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Ajouter un principal du service à un cluster HDInsight")
-
-
     Dans la capture d’écran ci-dessus, le chemin du dossier racine est /clusters/myhdiadlcluster, où *myhdiadlcluster* est le nom du cluster en cours de création. Dans ce cas, vérifiez que le dossier */clusters* existe déjà dans le compte Data Lake Store. Le dossier *myhdiadlcluster* est créé pendant la création du cluster. De même, si le chemin racine a été défini sur */hdinsight/clusters/data/myhdiadlcluter*, vérifiez que */hdinsight/clusters/data/* existe dans le compte Data Lake Store.
+
+    ![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Ajouter un principal du service à un cluster HDInsight")
 
 5. Cliquez sur **Accès Data Lake Store** pour configurer l’accès entre le compte Data Lake Store et le cluster HDInsight. Pour obtenir des instructions, consultez [Configurer l’accès entre le cluster HDInsight et Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store).
 

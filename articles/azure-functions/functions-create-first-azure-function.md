@@ -1,6 +1,6 @@
 ---
 title: "Créer votre première fonction à l’aide du Portail Azure | Microsoft Docs"
-description: "Bienvenue dans Azure. Créez votre première fonction Azure à l’aide du Portail Azure."
+description: "Apprenez à créer votre première fonction Azure pour une exécution sans serveur à l’aide du portail Azure."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -10,25 +10,26 @@ tags:
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 05/10/2017
 ms.author: glenga
-ms.custom: welcome-email
-ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 7542280ca6dbe1a8d110155e521228d675c0d994
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 0c7ef7004618966ae8c2d32027c460b2b643923e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Créer votre première fonction à l’aide du Portail Azure
 
-Cette rubrique vous explique comment utiliser Azure Functions pour créer une fonction Azure « Hello World » appelée par une requête HTTP. Avant de pouvoir créer une fonction dans le portail Azure, vous devez créer une Function App pour héberger l’exécution sans serveur de votre fonction.
+Azure Functions vous permet d’exécuter votre code dans un environnement sans serveur et sans avoir à créer une machine virtuelle ou à publier une application web au préalable. Dans cette rubrique, vous allez découvrir comment utiliser Functions pour créer une fonction « hello world » dans le portail Azure.
 
-Pour suivre cette procédure de démarrage rapide, vous avez besoin d’un compte Azure. Vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/). Vous pouvez également [essayer Azure Functions](https://azure.microsoft.com/try/app-service/functions/) sans vous inscrire auprès d’Azure.
+![Créer une Function App dans le Portail Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -36,39 +37,56 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-function-app"></a>Créer une Function App
 
-[!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
+Vous devez disposer d’une Function App pour héberger l’exécution de vos fonctions. Une Function App vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. 
 
-Pour plus d’informations, consultez [Créer une Function App à l’aide du Portail Azure](functions-create-function-app-portal.md).
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-a-function"></a>Créer une fonction
-Ces étapes permettent de créer une fonction dans la nouvelle Function App à l’aide du démarrage rapide Azure Functions.
+![Function App créée avec succès.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
-1. Cliquez sur le bouton **Nouveau**, cliquez sur **WebHook + API**, choisissez le langage de votre fonction, puis cliquez sur **Créer une fonction**. Une fonction est créée dans le langage que vous avez choisi à l’aide du modèle de fonction déclenché via HTTP.  
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+Créez ensuite une fonction dans la nouvelle Function App.
+
+## <a name="create-function"></a>Créer une fonction déclenchée via HTTP
+
+1. Développez votre nouvelle Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**.
+
+2.  Sur la page **Get started quickly** (Commencer rapidement), cliquez sur **WebHook + API**, choisissez le langage de votre fonction, puis cliquez sur **Créer cette fonction**. 
    
-    ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![Démarrage rapide de fonctions dans le portail Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-Une fois que la fonction est créée, vous pouvez la tester en envoyant une requête HTTP.
+Une fonction est créée dans le langage que vous avez choisi à l’aide du modèle de fonction déclenchée via HTTP. Vous pouvez exécuter la nouvelle fonction en envoyant une demande HTTP.
 
 ## <a name="test-the-function"></a>Tester la fonction
 
-Comme le modèle de fonction contient du code fonctionnel, vous pouvez tester votre nouvelle fonction immédiatement, directement dans le portail.
+1. Dans votre nouvelle fonction, cliquez sur **</> Obtenir l’URL de fonction**, puis copiez **l’URL de fonction**. 
 
-1. Dans votre Function App, cliquez sur la nouvelle fonction et examinez le code du modèle. Notez que la fonction attend une requête HTTP avec un *nom* transmis dans le corps du message ou dans une chaîne de requête. Lorsque la fonction s’exécute, cette valeur est renvoyée dans le message de réponse. L’exemple affiché est une fonction JavaScript.
-   
-2. Cliquez sur **Exécuter** pour exécuter la fonction. Vous voyez que l’exécution est déclenchée par une requête HTTP de test, que des informations sont écrites dans les journaux et que la réponse « Hello... » s’affiche dans la **sortie** dans l’onglet **Test**.
- 
-    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+    ![Copier l’URL de fonction à partir du portail Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-3. Dans la zone de texte **Corps de la demande**, remplacez la valeur de la propriété *name* par votre nom, puis cliquez de nouveau sur **Exécuter**. Cette fois, la réponse de la **sortie** contient votre nom.   
+2. Collez l’URL de la demande HTTP dans la barre d’adresses de votre navigateur. Ajoutez la chaîne de requête `&name=<yourname>` à cette URL et exécutez la demande. La capture d’écran suivante du navigateur montre la réponse renvoyée par la fonction suite à la demande GET :
 
-4. Pour déclencher l’exécution de la même fonction à partir d’un outil de test HTTP ou d’une autre fenêtre de navigateur, cliquez sur **</>Obtenir l’URL de la fonction**, copiez l’URL de la requête puis collez-la dans la barre d’adresse de l’outil ou d’un navigateur. Ajoutez la valeur de chaîne de requête `&name=yourname` à l’URL et exécutez la requête. Les mêmes informations sont écrites dans les journaux et la même chaîne est contenue dans le corps du message de réponse.
+    ![Réponse de la fonction dans le navigateur.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    ![](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+    L’URL de demande inclut une clé qui est requise, par défaut, pour accéder à votre fonction sur HTTP.   
 
+## <a name="view-the-function-logs"></a>Afficher les journaux de fonction 
+
+Lorsque votre fonction s’exécute, des informations de suivi sont écrites dans les journaux. Pour afficher la sortie de suivi de l’exécution précédente, revenez à votre fonction dans le portail et cliquez sur la flèche vers le haut figurant en bas de l’écran pour développer **Journaux**. 
+
+![Affichage des journaux de fonction dans le portail Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+Vous avez créé une Function App avec une simple fonction déclenchée via HTTP.  
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Pour plus d’informations, consultez [Liaisons HTTP et webhook Azure Functions](functions-bindings-http-webhook.md).
+
+
 
 

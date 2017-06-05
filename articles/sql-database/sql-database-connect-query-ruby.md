@@ -8,18 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: quick start connect, mvc
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 04/17/2017
-ms.author: andrela;sstein;carlrab
+ms.topic: hero-article
+ms.date: 05/24/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: c8700b16f91f014205acb93d6b57f9b972546268
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2d1092af00c1bce3e47d980a512a25eff1f0d9b6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,14 +28,17 @@ ms.lasthandoff: 04/20/2017
 
 Ce guide de démarrage rapide indique comment utiliser [Ruby](https://Ruby.org) pour se connecter à une base de données SQL Azure, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données à partir des plateformes Mac OS et Ubuntu Linux.
 
+## <a name="prerequisites"></a>Composants requis
+
 Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
 
 - [Créer une base de données - Portail](sql-database-get-started-portal.md)
 - [Créer une base de données - CLI](sql-database-get-started-cli.md)
+- [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-ruby-and-database-communication-libraries"></a>Installer les bibliothèques de communication de base de données et Ruby
 
-Les étapes de cette section supposent que vous êtes familiarisé avec le développement à l’aide de Ruby et que vous ne savez pas utiliser la base de données SQL Azure. Si vous êtes novice en développement avec Ruby, consultez [Créer une application à l’aide de SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) et sélectionnez **Ruby**, puis sélectionnez votre système d’exploitation.
+Les étapes de cette section supposent que vous connaissez le développement avec Ruby et que vous ne savez pas utiliser la base de données SQL Azure. Si vous êtes novice en développement avec Ruby, consultez [Créer une application à l’aide de SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) et sélectionnez **Ruby**, puis sélectionnez votre système d’exploitation.
 
 ### <a name="mac-os"></a>**Mac OS**
 Ouvrez votre terminal et accédez au répertoire dans lequel vous envisagez de créer votre script Ruby. Entrez les commandes suivantes pour installer **brew**, **FreeTDS** et **TinyTDS**.
@@ -71,7 +74,7 @@ Obtenez les informations de connexion requises pour la connexion à la base de d
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Si vous avez oublié vos informations de connexion à votre serveur Azure SQL Database, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
+4. Si vous avez oublié vos informations de connexion au serveur, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
     
 
 ## <a name="select-data"></a>Sélectionner des données
@@ -100,7 +103,7 @@ end
 ## <a name="insert-data"></a>Insertion des données
 Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product à l’aide de la fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) avec une instruction Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Remplacez les paramètres du serveur, de la base de données, du nom d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de la base de données avec les exemples de données AdventureWorksLT.
 
-Dans cet exemple, vous allez découvrir comment exécuter une instruction INSERT en toute sécurité, passer des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [Clé primaire](https://docs.microsoft.com/sql/relational-databases/tables/primary-and-foreign-key-constraints) générée automatiquement.    
+Dans cet exemple, vous allez découvrir comment exécuter une instruction INSERT en toute sécurité, transmettre des paramètres pour protéger votre application des vulnérabilités découlant de [l’injection de code SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) et récupérer la valeur de la [clé primaire](https://docs.microsoft.com/sql/relational-databases/tables/primary-and-foreign-key-constraints) générée automatiquement.    
   
 Pour utiliser TinyTDS avec Azure, il est recommandé d’exécuter plusieurs instructions `SET` pour modifier la façon dont la session en cours gère des informations spécifiques. Les instructions `SET` recommandées sont fournies dans l’exemple de code. Par exemple, `SET ANSI_NULL_DFLT_ON` permet aux nouvelles colonnes créées d’autoriser les valeurs Null même si la possibilité d’utiliser ces valeurs dans ces colonnes n’est pas explicitement définie.  
   
@@ -188,15 +191,9 @@ delete('BrandNewProduct', client)
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+- [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
+- [GitHub repository for TinyTDS](https://github.com/rails-sqlserver/tiny_tds) (Référentiel GitHub pour TinyTDS)
+- [Report issues/ask questions](https://github.com/rails-sqlserver/tiny_tds/issues) (Signaler des problèmes/poser des questions)
+- [Ruby Driver for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/) (Pilote Ruby pour SQL Server)
 
-- Référentiel Github pour [TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
-- [Problèmes avec les fichiers/posez des questions](https://github.com/rails-sqlserver/tiny_tds/issues).        
-- Plus d’informations sur le [pilote Ruby pour SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).
-- Pour vous connecter et envoyer des requêtes à l’aide de SQL Server Management Studio, consultez [Se connecter à la base de données SQL avec SQL Server Management Studio et exécuter un exemple de requête T-SQL](sql-database-connect-query-ssms.md).
-- Pour vous connecter et exécuter des requêtes à l’aide de Visual Studio Code, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Visual Studio Code](sql-database-connect-query-vscode.md).
-- Pour vous connecter et exécuter des requêtes avec .NET, consultez la page [Se connecter et effectuer des requêtes avec .NET](sql-database-connect-query-dotnet.md).
-- Pour vous connecter et exécuter des requêtes avec PHP, consultez la page [se connecter et effectuer des requêtes avec PHP](sql-database-connect-query-php.md).
-- Pour vous connecter et exécuter des requêtes avec Node.js, consultez la page [se connecter et effectuer des requêtes avec Node.js](sql-database-connect-query-nodejs.md).
-- Pour vous connecter et exécuter des requêtes avec Java, consultez la page [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
-- Pour vous connecter et exécuter des requêtes avec Python, consultez la page [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
 

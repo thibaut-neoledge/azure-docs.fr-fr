@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 05/16/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 74f2fafdf7355bbce37cf2bf98a6e709ebb7986e
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 95ffafb276009f0acfa9cd96b9d4e575bd6a9d28
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -81,10 +82,10 @@ Les tables qui suivent répertorient toutes les fonctions dans Azure Data Factor
 | Temps |AddMinutes(X,Y) |X: DateTime  <br/><br/>Y: int |Ajoute Y minutes à X.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 15 minutes = 9/15/2013 12:15:00 PM |
 | Time |StartOfHour(X) |X: DateTime  |Obtient l’heure de début de l’heure représentée par le composant heure de X. <br/><br/>Exemple : StartOfHour 9/15/2013 05:10:23 PM est 9/15/2013 05:00:00 PM |
 | Date |AddDays(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y jours à X. <br/><br/>Exemple : 9/15/2013 12:00:00 PM + 2 jours = 9/17/2013 12:00:00 PM.<br/><br/>Vous pouvez également soustraire les jours en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : 9/15/2013 12:00:00 PM - 2 jours = 9/13/2013 12:00:00 PM. |
-| Date |AddMonths(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y mois à X.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 1 mois = 10/15/2013 12:00:00 PM.<br/><br/>Vous pouvez également soustraire les mois en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 1 mois = 8/15/2013 12:00:00 PM.|
+| Date |AddMonths(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y mois à X.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 1 mois = 10/15/2013 12:00:00 PM.<br/><br/>Vous pouvez également soustraire les mois en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : 9/15/2013 12:00:00 PM - 1 mois = 8/15/2013 12:00:00 PM.|
 | Date |AddQuarters(X,Y) |X: DateTime  <br/><br/>Y: int |Ajoute Y * 3 mois à X.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 1 trimestre = 12/15/2013 12:00:00 PM |
-| Date |AddWeeks(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y * 7 jours à X<br/><br/>Exemple : 15/9/2013 12:00:00 PM + 1 semaine = 22/9/2013 12:00:00 PM<br/><br/>Vous pouvez également soustraire les semaines en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : 15/9/2013 12:00:00 PM + 1 semaine = 7/9/2013 12:00:00 PM |
-| Date |AddYears(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y années à X.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 1 an = 9/15/2014 12:00:00 PM<br/><br/>Vous pouvez également soustraire les années en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 1 an = 9/15/2012 12:00:00 PM |
+| Date |AddWeeks(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y * 7 jours à X<br/><br/>Exemple : 15/9/2013 12:00:00 PM + 1 semaine = 22/9/2013 12:00:00 PM<br/><br/>Vous pouvez également soustraire les semaines en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : 15/9/2013 12:00:00 PM - 1 semaine = 7/9/2013 12:00:00 PM |
+| Date |AddYears(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y années à X.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 1 an = 9/15/2014 12:00:00 PM<br/><br/>Vous pouvez également soustraire les années en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : 9/15/2013 12:00:00 PM - 1 an = 9/15/2012 12:00:00 PM |
 | Date |Day(X) |X: DateTime  |Obtient le composant jour de X.<br/><br/>Exemple : le jour du 9/15/2013, 12:00:00 PM est 9. |
 | Date |DayOfWeek(X) |X: DateTime  |Obtient le composant semaine de X.<br/><br/>Exemple : DayOfWeek du 9/15/2013, 12:00:00 PM est dimanche. |
 | Date |DayOfYear(X) |X: DateTime  |Permet d’obtenir le jour de l’année représenté par le composant année de X.<br/><br/>Exemples :<br/>12/1/2015 : jour 335 de 2015<br/>12/31/2015 : jour 365 de 2015<br/>12/31/2016 : jour 366 de 2016 (année bissextile) |
@@ -94,7 +95,7 @@ Les tables qui suivent répertorient toutes les fonctions dans Azure Data Factor
 | Date |StartOfDay(X) |X: DateTime  |Permet d’obtenir le début de la journée représenté par le composant jour du paramètre X.<br/><br/>Exemple : la valeur StartOfDay de 9/15/2013 05:10:23 PM est 9/15/2013 12:00:00 AM. |
 | DateTime |From(X) |X: String |Analyser la chaîne X à une heure de date. |
 | DateTime |Ticks(X) |X: DateTime  |Permet d’obtenir la propriété de graduation du paramètre X. Un cycle est égal à 100 nanosecondes. La valeur de cette propriété représente le nombre de graduations écoulées depuis 12:00:00 minuit, le 1er janvier 0001. |
-| Texte |Format(X) |X : variable de chaîne |Met en forme le texte. |
+| Texte |Format(X) |X : variable de chaîne |Met en forme le texte (utilisez la combinaison `\\'` pour échapper le caractère `'`).|
 
 > [!IMPORTANT]
 > Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' et RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**. 
@@ -125,8 +126,8 @@ Dans l’exemple suivant, les paramètres d’entrée et de sortie de l’activi
                     "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
                     "scriptLinkedService": "StorageLinkedService",
                     "defines": {
-                        "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+                        "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)",
+                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)"
                     },
                     "scheduler": {
                         "frequency": "Hour",
@@ -207,8 +208,8 @@ Pour lire les données de la veille au lieu du jour représenté par SliceStart,
                     "scriptLinkedService": "StorageLinkedService",
                     "defines": {
                         "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
-                        "Month": "$$Text.Format('{0:%M}',WindowStart)",
-                        "Day": "$$Text.Format('{0:%d}',WindowStart)"
+                        "Month": "$$Text.Format('{0:MM}',WindowStart)",
+                        "Day": "$$Text.Format('{0:dd}',WindowStart)"
                     }
                 },
                 "scheduler": {

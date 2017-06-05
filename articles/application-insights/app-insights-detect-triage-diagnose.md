@@ -1,7 +1,7 @@
 ---
 title: "Détecter et diagnostiquer les problèmes des applications web - Azure Application Insights | Microsoft Docs"
 description: "Analyser les pannes et détecter et diagnostiquer les problèmes de performances dans vos applications"
-author: alancameronwills
+author: CFreemanwa
 services: application-insights
 documentationcenter: 
 manager: carmonm
@@ -42,7 +42,7 @@ Les exigences alimentent leur backlog de développement (liste des tâches). Ils
 
 L'équipe utilise Application Insights pour surveiller de l'application web active en termes pour :
 
-* Les performances. Elle cherche à comprendre comment les temps de réponse varient en fonction du nombre de demandes, quelles ressources de l'UC, de réseau, de disque et autres sont utilisées et où se trouvent les goulots d'étranglement. * Défaillances.
+* Les performances. Elle cherche à comprendre comment les temps de réponse varient en fonction du nombre de demandes, quelles ressources de l'UC, de réseau, de disque et autres sont utilisées et où se trouvent les goulots d'étranglement. Défaillances.
 * Les échecs. S'il existe des exceptions ou des demandes ayant échoué, ou si un compteur de performances dépasse sa plage de confort, l'équipe doit en être rapidement informée pour pouvoir prendre des mesures.
 * L’utilisation. Lorsqu'une nouvelle fonctionnalité est disponible, l'équipe souhaite savoir dans quelle mesure elle est utilisée et si les utilisateurs rencontrent des difficultés avec elle.
 

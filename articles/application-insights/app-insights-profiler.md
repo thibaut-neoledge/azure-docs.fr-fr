@@ -3,30 +3,31 @@ title: Profilage des applications web dynamiques sur Azure avec Application Insi
 description: "Identifiez le chemin réactif dans le code de votre serveur web avec un profileur de faible encombrement."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
-ms.author: awills
+ms.date: 05/04/2017
+ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 13a2883c59092c964cf3c353e767839c5f9ef788
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6a3c4273042a7684307d56341de1065ad45eb617
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="profiling-live-azure-web-apps-with-application-insights-preview"></a>Profilage des applications web dynamiques sur Azure avec Application Insights (version préliminaire)
+# <a name="profiling-live-azure-web-apps-with-application-insights"></a>Profilage des applications web dynamiques Azure avec Application Insights
 
-*Cette fonction d’Application Insights est en version préliminaire.*
+*Cette fonctionnalité d’Application Insights est disponible pour les App Services, et disponible en aperçu pour Compute.*
 
-Découvrez combien de temps vous consacrez à chaque méthode dans votre application web dynamique à l’aide de l’outil de profilage [d’Azure Application Insights](app-insights-overview.md). Cet outil vous montre les profils détaillés des requêtes dynamiques qui ont été traitées par votre application et met en évidence le « chemin réactif » qui est le plus souvent utilisé. Il sélectionne automatiquement des exemples associés à des temps de réponse différents. Le profileur utilise diverses techniques pour réduire la charge. 
+Découvrez combien de temps vous consacrez à chaque méthode dans votre application web dynamique à l’aide de l’outil de profilage [d’Azure Application Insights](app-insights-overview.md). Cet outil vous montre les profils détaillés des requêtes dynamiques qui ont été traitées par votre application et met en évidence le « chemin réactif » qui est le plus souvent utilisé. Il sélectionne automatiquement des exemples associés à des temps de réponse différents. Le profileur utilise diverses techniques pour réduire la charge.
 
 Le profileur fonctionne actuellement pour les applications web ASP.NET s’exécutant sur Azure App Services, au moins au niveau tarifaire de base. (Si vous utilisez ASP.NET Core, le framework cible doit être `.NetCoreApp`.)
+
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Activer le profileur
@@ -35,17 +36,42 @@ Le profileur fonctionne actuellement pour les applications web ASP.NET s’exéc
 
 *Vous utilisez ASP.NET Core ? [Cliquez ici](#aspnetcore).*
 
-Dans [https://portal.azure.com](https://portal.azure.com), ouvrez la ressource Application Insights correspondant à votre application web. Ouvrez **Performances** et cliquez sur **Configurer**. Sélectionnez votre application et suivez l’Assistant.
+Dans [https://portal.azure.com](https://portal.azure.com), ouvrez la ressource Application Insights correspondant à votre application web. Ouvrez **Performances** et cliquez sur **Activer Application Insights Profiler...**.
+
+![Cliquez sur la bannière « Activer le profileur »][enable-profiler-banner]
+
+Sinon, vous pouvez toujours cliquer sur **Configurer** pour afficher l’état de Profiler, pour l’activer ou le désactiver.
 
 ![Dans le panneau Performances, cliquez sur Configurer.][performance-blade]
 
-* *Vous ne voyez pas le bouton Configurer ? Utilisez la [procédure manuelle](#manual-installation).*
+Les applications web configurées avec Application Insights sont listées dans le panneau Configurer. Suivez les instructions pour installer l’agent profileur si nécessaire. Si aucune application web n’est encore configurée avec Application Insights, cliquez sur *Ajouter des applications liées*.
 
-Si vous avez besoin d’arrêter ou redémarrer le profileur, vous devez vous rendre **dans la ressource App Service**, sous **Tâches Web**. Pour le supprimer, allez dans **Extensions**.
+Utilisez les boutons *Activer le profileur* ou *Désactiver le profileur* dans le panneau Configurer pour contrôler le profileur dans toutes vos applications web liées.
+
+
+
+![Panneau Configurer][linked app services]
+
+Pour arrêter ou redémarrer le profileur pour une App Service individuelle, vous devez vous rendre **dans la ressource App Service**, sous **Tâches web**. Pour le supprimer, allez dans **Extensions**.
+
+![Désactiver le profileur pour des tâches web][disable-profiler-webjob]
+
+Nous vous recommandons d’activer, dès que possible, le profileur sur toutes vos applications web afin de découvrir d’éventuels problèmes de performance.
 
 Si vous utilisez WebDeploy pour déployer des modifications sur votre application web, veillez à ne pas supprimer le dossier **App_Data** lors du déploiement. Dans le cas contraire, les fichiers de l’extension du profileur seront supprimés lorsque vous déploierez ensuite l’application web dans Azure.
 
-**[Mise à jour]**  L’extension de site Application Insights a intégré l’agent profileur de la version 2.3. Elle remplace l’extension de site Application Insights Profiler initiale. Vous pouvez migrer vers la version la plus récente via l’Assistant **Configuration**.
+### <a name="using-profiler-with-azure-vms-and-compute-resources-preview"></a>En utilisant le profileur avec les machines virtuelles Azure et les ressources de calcul (version préliminaire)
+
+Lorsque vous [activez Application Insights pour les services d’application Azure en cours d’exécution](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), le profileur est automatiquement disponible. (Si vous avez déjà activé Application Insights pour la ressource, vous devrez peut-être mettre à jour vers la dernière version disponible via l’Assistant **Configuration**).
+
+Il existe une [version préliminaire du profileur pour les ressources de calcul Azure](https://go.microsoft.com/fwlink/?linkid=848155).
+
+
+## <a name="limits"></a>Limites
+
+Par défaut, la durée de rétention des données est de 5 jours. 10 Go maximum reçus par jour.
+
+Aucuns frais ne s’appliquent pour le service de profileur. Votre application web doit être hébergée au moins au niveau de base de App Services.
 
 ## <a name="viewing-profiler-data"></a>Affichage des données du profileur
 
@@ -74,30 +100,32 @@ Sélectionnez un exemple pour afficher, au niveau du code, une répartition du t
 
 
 * **Étiquette** : nom de la fonction ou de l’événement. L’arborescence affiche une combinaison des codes et des événements qui se sont produits (par exemple, des événements SQL et http). L’événement supérieur représente la durée globale de la requête.
-* **Métrique** : le temps écoulé.
-* **Quand** : indique à quel moment la fonction/l’événement était en cours d’exécution par rapport à d’autres fonctions. 
+* **Métrique** : intervalle de temps entre le début de l’opération et la fin.
+* **Quand** : indique à quel moment la fonction/l’événement était en cours d’exécution par rapport à d’autres fonctions.
 
 ## <a name="how-to-read-performance-data"></a>Comment lire les données de performances
 
-Le profileur de service Microsoft utilise à la fois une méthode d’échantillonnage et une instrumentation pour analyser les performances de votre application. Lorsque la collecte détaillée est en cours, le profileur de service échantillonne le pointeur d’instruction de chaque processeur de l’ordinateur à chaque milliseconde. Chaque exemple capture la pile des appels complète du thread en cours d’exécution, en donnant des informations utiles et détaillées sur l’activité du thread à des niveaux d’abstraction faibles et élevés. Le profileur de service collecte également d’autres événements tels que les événements de changement de contexte, les événements TPL et les événements de pool de threads afin de suivre la corrélation et la causalité des activités. 
+Le profileur de service Microsoft utilise à la fois une méthode d’échantillonnage et une instrumentation pour analyser les performances de votre application.
+Lorsque la collecte détaillée est en cours, le profileur de service échantillonne le pointeur d’instruction de chaque processeur de l’ordinateur à chaque milliseconde.
+Chaque exemple capture la pile des appels complète du thread en cours d’exécution, en donnant des informations utiles et détaillées sur l’activité du thread à des niveaux d’abstraction faibles et élevés. Le profileur de service collecte également d’autres événements tels que les événements de changement de contexte, les événements TPL et les événements de pool de threads afin de suivre la corrélation et la causalité des activités.
 
 La pile des appels présentée dans l’affichage chronologique est le résultat de l’échantillonnage et de l’instrumentation décrits ci-dessus. Étant donné que chaque échantillon capture la pile des appels complète du thread, il inclut le code du framework .NET, ainsi que les autres infrastructures que vous référencez.
 
 ### <a id="jitnewobj"></a>Allocation d’objets (`clr!JIT\_New or clr!JIT\_Newarr1`)
-Les fonctions d’assistance `clr!JIT\_New and clr!JIT\_Newarr1` intégrées au framework .NET allouent la mémoire à partir du segment de mémoire géré. `clr!JIT\_New` est appelé lorsqu’un objet est alloué. `clr!JIT\_Newarr1` est appelé lorsqu’un tableau d’objets est alloué. Ces deux fonctions sont généralement très rapides et s’exécutent en relativement peu de temps. Si vous constatez que `clr!JIT\_New` ou `clr!JIT\_Newarr1` prend un certain temps dans votre scénario, cela indique que le code alloue peut-être de nombreux objets et qu’il consomme une quantité importante de mémoire. 
+Les fonctions d’assistance `clr!JIT\_New and clr!JIT\_Newarr1` intégrées au framework .NET allouent la mémoire à partir du segment de mémoire géré. `clr!JIT\_New` est appelé lorsqu’un objet est alloué. `clr!JIT\_Newarr1` est appelé lorsqu’un tableau d’objets est alloué. Ces deux fonctions sont généralement très rapides et s’exécutent en relativement peu de temps. Si vous constatez que `clr!JIT\_New` ou `clr!JIT\_Newarr1` prend un certain temps dans votre scénario, cela indique que le code alloue peut-être de nombreux objets et qu’il consomme une quantité importante de mémoire.
 
 ### <a id="theprestub"></a>Code de chargement (`clr!ThePreStub`)
 `clr!ThePreStub` est une fonction d’assistance intégrée au framework .NET qui prépare le code en vue de sa première exécution. Elle implique en général au moins une compilation JIT (juste à temps). Pour chaque méthode C#, `clr!ThePreStub` doit être appelé au maximum une fois pendant la durée de vie d’un processus.
 
-Si vous constatez que `clr!ThePreStub` prend beaucoup de temps pour le traitement d’une requête, cela indique que cette requête est la première à exécuter cette méthode, et que le runtime du framework .NET prend beaucoup de temps pour charger cette méthode. Vous pouvez envisager un processus de mise en route qui exécute cette partie du code avant que vos utilisateurs y accèdent, ou encore envisager d’exécuter NGen sur vos assemblys. 
+Si vous constatez que `clr!ThePreStub` prend beaucoup de temps pour le traitement d’une requête, cela indique que cette requête est la première à exécuter cette méthode, et que le runtime du framework .NET prend beaucoup de temps pour charger cette méthode. Vous pouvez envisager un processus de mise en route qui exécute cette partie du code avant que vos utilisateurs y accèdent, ou encore envisager d’exécuter NGen sur vos assemblys.
 
 ### <a id="lockcontention"></a>Contention de verrouillage (`clr!JITutil\_MonContention` ou `clr!JITutil\_MonEnterWorker`)
-`clr!JITutil\_MonContention` ou `clr!JITutil\_MonEnterWorker` indique que le thread actuel attend qu’un verrou soit libéré. Cela se produit généralement lors de l’exécution d’une instruction lock C#, lors de l’appel de méthode Monitor.Enter, ou encore lors de l’appel d’une méthode avec l’attribut MethodImplOptions.Synchronized. La contention de verrouillage se produit généralement lorsque le thread A acquiert un verrou et que le thread B tente d’acquérir le même verrou avant qu’il ne soit libéré par le thread A. 
+`clr!JITutil\_MonContention` ou `clr!JITutil\_MonEnterWorker` indique que le thread actuel attend qu’un verrou soit libéré. Cela se produit généralement lors de l’exécution d’une instruction lock C#, lors de l’appel de méthode Monitor.Enter, ou encore lors de l’appel d’une méthode avec l’attribut MethodImplOptions.Synchronized. La contention de verrouillage se produit généralement lorsque le thread A acquiert un verrou et que le thread B tente d’acquérir le même verrou avant qu’il ne soit libéré par le thread A.
 
 ### <a id="ngencold"></a>Code de chargement (`[COLD]`)
-Si le nom de la méthode contient `[COLD]`, par exemple `mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined`, cela signifie que le runtime du framework .NET exécute pour la première fois du code qui n’utilise pas une <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">optimisation guidée par profil</a>. Pour chaque méthode, il doit s’afficher au maximum une fois pendant la durée de vie du processus. 
+Si le nom de la méthode contient `[COLD]`, par exemple `mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined`, cela signifie que le runtime du framework .NET exécute pour la première fois du code qui n’utilise pas une <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">optimisation guidée par profil</a>. Pour chaque méthode, il doit s’afficher au maximum une fois pendant la durée de vie du processus.
 
-Si le code de chargement de code prend beaucoup de temps pour traiter une requête, cela indique que cette requête est la première à exécuter la partie non optimisée de la méthode. Vous pouvez envisager un processus de mise en route qui exécute cette partie du code avant que vos utilisateurs y accèdent. 
+Si le code de chargement de code prend beaucoup de temps pour traiter une requête, cela indique que cette requête est la première à exécuter la partie non optimisée de la méthode. Vous pouvez envisager un processus de mise en route qui exécute cette partie du code avant que vos utilisateurs y accèdent.
 
 ### <a id="httpclientsend"></a>Envoyer une requête HTTP
 Les méthodes telles que `HttpClient.Send` indiquent que le code attend l’exécution d’une requête HTTP.
@@ -109,7 +137,7 @@ Une méthode telle que SqlCommand.Execute indique que le code attend l’exécut
 `AWAIT\_TIME` indique que le code attend la fin de l’exécution d’une autre tâche. Cela se produit généralement avec l’instruction C# « await ». Lorsque le code exécute une instruction C# « await », le thread se déroule et redonne le contrôle au pool de threads : aucun thread n’est bloqué en attendant la fin de l’exécution de l’instruction « await ». Toutefois, le thread qui a exécuté l’instruction « await » est logiquement « bloqué » en attendant que l’opération se termine. `AWAIT\_TIME` indique le temps de blocage dans l’attente d’exécution de la tâche.
 
 ### <a id="block"></a>Temps de blocage
-`BLOCKED_TIME` indique que le code attend qu’une autre ressource soit disponible ; c’est le cas par exemple d’une attente d’un objet de synchronisation, d’une attente de disponibilité d’un thread ou d’une attente de fin d’exécution d’une requête. 
+`BLOCKED_TIME` indique que le code attend qu’une autre ressource soit disponible ; c’est le cas par exemple d’une attente d’un objet de synchronisation, d’une attente de disponibilité d’un thread ou d’une attente de fin d’exécution d’une requête.
 
 ### <a id="cpu"></a>Temps processeur
 Le processeur est occupé à exécuter les instructions.
@@ -128,7 +156,7 @@ Cette colonne permet de voir comment les exemples INCLUSIFS collectés pour un n
 
 ### <a name="how-can-i-know-whether-application-insights-profiler-is-running"></a>Comment savoir si le profileur d’Application Insights est en cours d’exécution ?
 
-Le profileur s’exécute comme une tâche web en continu dans Web App. Vous pouvez ouvrir la ressource Web App dans https://portal.azure.com et vérifier l’état « ApplicationInsightsProfiler » dans le panneau Tâches Web. S’il n’est pas en cours d’exécution, ouvrez les **Journaux** pour en savoir plus. 
+Le profileur s’exécute comme une tâche web en continu dans Web App. Vous pouvez ouvrir la ressource Web App dans https://portal.azure.com et vérifier l’état « ApplicationInsightsProfiler » dans le panneau Tâches Web. S’il n’est pas en cours d’exécution, ouvrez les **Journaux** pour en savoir plus.
 
 ### <a name="why-cant-i-find-any-stack-examples-even-though-the-profiler-is-running"></a>Pourquoi aucun exemple de pile ne s’affiche même si le profileur est en cours d’exécution ?
 
@@ -148,7 +176,7 @@ Lorsque vous activez le profileur d’Application Insights, l’agent Azure Serv
 
 ### <a id="double-counting"></a>Double comptage dans des threads parallèles
 
-Dans certains cas, la mesure du temps total dans la visionneuse de pile est supérieure à la durée réelle de la requête. 
+Dans certains cas, la mesure du temps total dans la visionneuse de pile est supérieure à la durée réelle de la requête.
 
 Cela peut se produire lorsque deux threads au moins sont associés à une requête et qu’ils s’exécutent en parallèle. Le temps total de threads est alors supérieur au temps écoulé. Dans de nombreux cas, un thread peut être en attente le temps que l’autre se termine. La visionneuse tente de détecter et d’omettre les attentes sans intérêt, mais se trompe en affichant trop d’informations plutôt qu’en omettant ce qui pourrait être des informations critiques.  
 
@@ -158,7 +186,7 @@ Lorsque vous voyez des threads parallèles dans vos traces, vous devez identifie
 
 1. Si les données que vous essayez d’afficher datent d’il y a plus de deux semaines, essayez de limiter votre filtre de temps puis réessayez.
 
-2. Vérifiez que votre proxy ou pare-feu n’a pas bloqué l’accès à https://gateway.azureserviceprofiler.net. 
+2. Vérifiez que votre proxy ou pare-feu n’a pas bloqué l’accès à https://gateway.azureserviceprofiler.net.
 
 3. Vérifiez que la clé d’instrumentation Application Insights que vous utilisez dans votre application est identique à celle de la ressource Application Insights avec laquelle vous avez activé le profilage. La clé figure généralement dans ApplicationInsights.config, mais vous pouvez également la trouver dans le fichier web.config ou app.config.
 
@@ -166,10 +194,9 @@ Lorsque vous voyez des threads parallèles dans vos traces, vous devez identifie
 
 Émettez un ticket de support à partir du portail. Pensez à indiquer l’ID de corrélation du message d’erreur.
 
-
 ## <a name="manual-installation"></a>Installation manuelle
 
-Lorsque vous configurez le profileur, les mises à jour suivantes sont appliquées aux paramètres de Web App. Vous pouvez aussi les appliquer vous-même manuellement :
+Lorsque vous configurez le profileur, les mises à jour suivantes sont appliquées aux paramètres de Web App. Vous pouvez les effectuer manuellement par vous-même si votre environnement le requiert, par exemple, si votre application s’exécute dans un réseau privé utilisant l’équilibreur de charge interne :
 
 1. Dans le panneau de contrôle Application web, ouvrez Paramètres.
 2. Définissez « Version du .NET Framework » sur 4.6.
@@ -179,19 +206,7 @@ Lorsque vous configurez le profileur, les mises à jour suivantes sont appliqué
 
 ## <a id="aspnetcore"></a>Prise en charge d’ASP.NET Core
 
-Les applications ASP.NET Core sont actuellement prises en charge sur le runtime .NET Core.
-
-L’application doit également inclure les composants suivants pour activer le profilage.
-
-1. [Application Insights pour ASP.NET Core 2.0](https://github.com/Microsoft/ApplicationInsights-aspnetcore/releases/tag/v2.0.0)
-2. [System.Diagnostics.DiagnosticSource 4.4.0-beta-25022-02](https://dotnet.myget.org/feed/dotnet-core/package/nuget/System.Diagnostics.DiagnosticSource/4.4.0-beta-25022-02)
-    * Dans Visual Studio, cliquez sur « Outils -> Gestionnaire de package NuGet -> Paramètres du gestionnaire de package ».
-    * Dans la boîte de dialogue Options, sélectionnez « Gestionnaire de package NuGet-> Sources de package ».
-    * Cliquez sur le bouton « + » pour ajouter une nouvelle source de package avec le nom « DotNet-Core-MyGet » et la valeur « https://dotnet.myget.org/F/dotnet-core/api/v3/index.json ».
-    * Cliquez sur le bouton « Mettre à jour » et fermez la boîte de dialogue Options.
-    * Ouvrez l’Explorateur de solutions, cliquez avec le bouton droit sur le projet ASP.NET Core, puis sélectionnez « Gérer les packages NuGet ».
-    * Sur l’onglet « Parcourir », sélectionnez « Source du Package : DotNet-Core-MyGet » et cochez « Inclure la version préliminaire ».
-    * Recherchez « System.Diagnostics.DiagnosticSource » et choisissez « __4.4.0-beta-25022-02__ » pour l’installer.
+Les applications ASP.NET Core 1.1.2 ciblant la version AI SDK 2.0 ou une version ultérieure fonctionnerait avec le profileur. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -204,4 +219,7 @@ L’application doit également inclure les composants suivants pour activer le 
 [trace-explorer-toolbar]: ./media/app-insights-profiler/trace-explorer-toolbar.png
 [trace-explorer-hint-tip]: ./media/app-insights-profiler/trace-explorer-hint-tip.png
 [trace-explorer-hot-path]: ./media/app-insights-profiler/trace-explorer-hot-path.png
+[enable-profiler-banner]: ./media/app-insights-profiler/enable-profiler-banner.png
+[disable-profiler-webjob]: ./media/app-insights-profiler/disable-profiler-webjob.png
+[linked app services]: ./media/app-insights-profiler/linked-app-services.png
 

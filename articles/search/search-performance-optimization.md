@@ -12,12 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/02/2017
+ms.date: 05/01/2017
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 56eeed7634fca840172ab828be5f202d80f3f4fb
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -80,7 +81,7 @@ L’objectif d’un jeu géo-distribué de services de recherche est d’avoir p
 Il existe deux options pour synchroniser vos services de recherche distribués : à l’aide de [l’indexeur de Recherche Azure](search-indexer-overview.md) ou de l’API Push (également appelée [API REST de Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/)).  
 
 ### <a name="azure-search-indexers"></a>Indexeurs Azure Search
-Si vous utilisez l’indexeur Azure Search, vous importez déjà les modifications des données à partir d’un magasin de données central comme la base de données SQL Azure ou DocumentDB. Lorsque vous créez un service de recherche, vous créez tout simplement un indexeur Azure Search pour ce service qui pointe vers ce même magasin de données. De cette façon, chaque fois que de nouvelles modifications sont envoyées au magasin de données, ces informations seront indexées par plusieurs indexeurs.  
+Si vous utilisez l’indexeur de Recherche Azure, vous importez déjà les modifications des données à partir d’un magasin de données central comme la base de données SQL Azure ou Cosmos DB. Lorsque vous créez un service de recherche, vous créez tout simplement un indexeur Azure Search pour ce service qui pointe vers ce même magasin de données. De cette façon, chaque fois que de nouvelles modifications sont envoyées au magasin de données, ces informations seront indexées par plusieurs indexeurs.  
 
 Voici à quoi ressemblerait une telle architecture.
 

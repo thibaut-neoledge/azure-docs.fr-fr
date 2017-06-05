@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/08/2017
 ms.author: ambapat
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: e53b45ef180362f7554c7819b9ae2eb3dbfe3300
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5da9f5eceda71ac85259193e0f183c72813e1679
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -33,7 +33,7 @@ Ce didacticiel vous aide à démarrer avec Azure Key Vault pour créer un conten
 > [!NOTE]
 > Ce didacticiel n’inclut pas d’instructions sur l’écriture de l’application Azure abordée dans une des étapes, qui montre comment autoriser une application à utiliser une clé ou un secret dans le coffre de clés.
 >
-> Ce tutoriel utilise la dernière version d’Azure CLI 2.0. Pour obtenir des instructions sur l’ancienne interface CLI (basée sur node.js), consultez [ce tutoriel équivalent](key-vault-manage-with-cli.md).
+> Ce tutoriel utilise la dernière version d’Azure CLI 2.0.
 >
 >
 
@@ -160,7 +160,11 @@ Les applications qui utilisent un coffre de clés doivent s’authentifier à l�
 Pour inscrire votre application auprès d’Azure Active Directory :
 
 1. Connectez-vous au portail Azure.
-2. Dans le volet gauche, cliquez sur **Azure Active Directory**, puis sélectionnez le répertoire dans lequel vous allez inscrire votre application. <br> <br> Remarque : vous devez sélectionner le répertoire qui contient l’abonnement Azure avec lequel vous avez créé votre coffre de clés. Si vous ne savez pas de quel répertoire il s’agit, cliquez sur **Paramètres**, identifiez l’abonnement avec lequel vous avez créé votre coffre de clés et notez le nom du répertoire affiché dans la dernière colonne.
+2. Dans le volet gauche, cliquez sur **Azure Active Directory**, puis sélectionnez le répertoire dans lequel vous allez inscrire votre application. <br> <br> 
+
+> [!Note] 
+> Vous devez sélectionner le répertoire qui contient l’abonnement Azure avec lequel vous avez créé votre coffre de clés. Si vous ne savez pas de quel répertoire il s’agit, cliquez sur **Paramètres**, identifiez l’abonnement avec lequel vous avez créé votre coffre de clés et notez le nom du répertoire affiché dans la dernière colonne.
+
 3. Cliquez sur **APPLICATIONS**. Si aucune application n’a été ajoutée à votre répertoire, cette page affiche uniquement le lien **Ajouter une application**. Cliquez sur le lien. Vous pouvez également cliquer sur **AJOUTER** dans la barre de commandes.
 4. Dans l’Assistant **AJOUTER UNE APPLICATION**, dans la page **Que voulez-vous faire ?**, cliquez sur **Ajouter une application développée par mon organisation**.
 5. Dans la page **Parlez-nous de votre application**, spécifiez un nom pour votre application et sélectionnez **APPLICATION WEB ET/OU API WEB** (par défaut). Cliquez sur l’icône Suivant.

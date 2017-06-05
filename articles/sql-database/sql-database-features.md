@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a1ede93b5aacf0d8a5bcf83f208f72be328ee72f
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 9daf8be93216aefbcf02e3fcba44d048ab95b43d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -33,9 +34,9 @@ Nous continuons d’ajouter des fonctionnalités à Azure SQL Database. Par cons
 
 | **Fonctionnalité** | **SQL Server** | **Base de données SQL Azure** | 
 | --- | :---: | :---: | 
-| Géoréplication active | Non pris en charge - voir [Groupes à haute disponibilité Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Pris en charge](sql-database-geo-replication-overview.md)
+| Géo-réplication active | Non pris en charge - voir [Groupes à haute disponibilité Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Pris en charge](sql-database-geo-replication-overview.md)
 | Toujours chiffré | [Pris en charge](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Pris en charge - voir [Magasin de certificats](sql-database-always-encrypted.md) et [Coffre de clés](sql-database-always-encrypted-azure-key-vault.md)|
-| Groupes de disponibilité AlwaysOn | [Pris en charge](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Non pris en charge - Voir [Géoréplication active](sql-database-geo-replication-overview.md) |
+| Groupes de disponibilité AlwaysOn | [Pris en charge](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Non pris en charge, voir [Géo-réplication active](sql-database-geo-replication-overview.md) |
 | Attacher une base de données | [Pris en charge](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Non pris en charge |
 | Rôles d’application | [Pris en charge](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | [Pris en charge](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) |
 | Mise à l’échelle automatique | Non pris en charge | Pris en charge - voir [Niveaux de service](sql-database-service-tiers.md) |
@@ -87,7 +88,7 @@ Nous continuons d’ajouter des fonctionnalités à Azure SQL Database. Par cons
 | Prise en charge des données JSON | [Pris en charge](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Pris en charge](sql-database-json-features.md) |
 | Éléments de langage | [Pris en charge](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | La plupart - voir [Éléments individuels](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) |  
 | Services liés | [Pris en charge](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Non pris en charge - voir [Requête élastique](sql-database-elastic-query-horizontal-partitioning.md) |
-| Copie des journaux de transaction | [Pris en charge](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Non pris en charge - Voir [Géoréplication active](sql-database-geo-replication-overview.md) |
+| Copie des journaux de transaction | [Pris en charge](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Non pris en charge, voir [Géo-réplication active](sql-database-geo-replication-overview.md) |
 | Master Data Services (MDS) | [Pris en charge](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Non pris en charge |
 | Journalisation minimale dans l’importation en bloc | [Pris en charge](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Non pris en charge |
 | Modification des données système | [Pris en charge](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Non pris en charge |
@@ -126,7 +127,7 @@ Nous continuons d’ajouter des fonctionnalités à Azure SQL Database. Par cons
 | Transactions | [Pris en charge](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) | [Pris en charge](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) |
 | Variables | [Pris en charge](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | [Pris en charge](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 
 | Chiffrement transparent des données (TDE)  | [Pris en charge](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | [Pris en charge](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
-| Clustering de basculement Windows Server | [Pris en charge](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Non pris en charge - Voir [Géoréplication active](sql-database-geo-replication-overview.md) |
+| Clustering de basculement Windows Server | [Pris en charge](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Non pris en charge, voir [Géo-réplication active](sql-database-geo-replication-overview.md) |
 | Index XML | [Pris en charge](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | [Pris en charge](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) |
 
 ## <a name="next-steps"></a>Étapes suivantes

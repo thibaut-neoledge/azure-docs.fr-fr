@@ -7,22 +7,22 @@ Les instances NC sont alimentées par une carte NVIDIA Tesla K80. Les utilisateu
 
 ## <a name="nv-instances"></a>Instances NV
 
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 |
-| Standard_NV24 |24 |224 |1 440 | 4 |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | GPU | Disques de données max. |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 8 |
+| Standard_NV12 |12 |112 |680 | 2 | 16 |
+| Standard_NV24 |24 |224 |1 440 | 4 | 32 |
 
 1 GPU = une moitié de carte M60.
 
 ## <a name="nc-instances"></a>Instances NC
 
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 |
-| Standard_NC12 |12 |112 | 680 | 2 |
-| Standard_NC24 |24 |224 | 1 440 | 4 |
-| Standard_NC24r* |24 |224 | 1 440 | 4 |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | GPU | Disques de données max. |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NC6 |6 |56 | 380 | 1 | 8 |
+| Standard_NC12 |12 |112 | 680 | 2 | 16 |
+| Standard_NC24 |24 |224 | 1 440 | 4 | 32 |
+| Standard_NC24r* |24 |224 | 1 440 | 4 | 32 |
 
 1 GPU = une moitié de carte K80.
 

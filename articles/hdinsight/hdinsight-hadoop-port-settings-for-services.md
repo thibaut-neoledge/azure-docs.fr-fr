@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 05/17/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c27e6c19f44d9f0fa60ae31d0cda756dcd032f02
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 3bf5ff732b03a1ecffb4e149d7805a6216ab0019
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -105,7 +106,6 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 | Service | Nœuds | Port | Protocole | Description |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Nœuds principaux |10001 |Thrift |Service pour se connecter par programme à Hive (Thrift/JDBC) |
-| HiveServer |Nœuds principaux |10000 |Thrift |Service pour se connecter par programme à Hive (Thrift/JDBC) |
 | Metastore Hive |Nœuds principaux |9083 |Thrift |Service de connexion par programme aux métadonnées Hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Ports WebHCat

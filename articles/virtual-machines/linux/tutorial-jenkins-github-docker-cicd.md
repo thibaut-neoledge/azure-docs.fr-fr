@@ -1,0 +1,242 @@
+---
+title: "Création d’un pipeline CI/CD dans Azure avec Jenkins | Microsoft Docs"
+description: "Découvrez comment créer une instance Jenkins dans Azure qui est extraite de GitHub à chaque validation de code et génère un nouveau conteneur Docker pour exécuter votre application"
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: iainfoulds
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 05/08/2017
+ms.author: iainfou
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: dbf9b9f997ce8b66f8672f75f49f568d45e57390
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/09/2017
+
+---
+
+# <a name="create-a-cicd-infrastructure-on-a-linux-vm-in-azure-that-uses-jenkins-github-and-docker"></a>Création d’une infrastructure CI/CD sur une machine virtuelle Linux dans Azure qui utilise Jenkins, GitHub et Docker
+Pour automatiser les phases de création et de test du développement de l’application, vous pouvez utiliser un pipeline d’intégration et de déploiement continus (CI/CD). Dans ce didacticiel, vous créez un pipeline CI/CD sur une machine virtuelle Azure et apprenez notamment comment :
+
+> [!div class="checklist"]
+> * Créer une machine virtuelle Jenkins
+> * Installer et configurer Jenkins
+> * Créer une intégration webhook entre GitHub et Jenkins
+> * Créer et déclencher des tâches de génération Jenkins à partir de validations GitHub
+> * Créer une image Docker pour votre application
+> * Vérifier les validations GitHub, générer une nouvelle image Docker et mettre à jour l’application en cours d’exécution
+
+Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+## <a name="create-jenkins-instance"></a>Création d’une instance Jenkins
+Dans le didacticiel précédent [How to customize a Linux virtual machine on first boot (Personnalisation d’une machine virtuelle Linux au premier démarrage)](tutorial-automate-vm-deployment.md), vous avez appris à automatiser la personnalisation des machines virtuelles avec cloud-init. Ce didacticiel utilise un fichier cloud-init pour installer Jenkins et Docker sur une machine virtuelle. 
+
+Créez un fichier cloud-init nommé *cloud-init-jenkins.txt* et collez le contenu suivant :
+
+```yaml
+#cloud-config
+package_upgrade: true
+write_files:
+  - path: /etc/systemd/system/docker.service.d/docker.conf
+    content: |
+      [Service]
+        ExecStart=
+        ExecStart=/usr/bin/dockerd
+  - path: /etc/docker/daemon.json
+    content: |
+      {
+        "hosts": ["fd://","tcp://127.0.0.1:2375"]
+      }
+runcmd:
+  - wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
+  - sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+  - apt-get update && apt-get install jenkins -y
+  - curl -sSL https://get.docker.com/ | sh
+  - usermod -aG docker azureuser
+  - usermod -aG docker jenkins
+  - service jenkins restart
+```
+
+Pour pouvoir créer une machine virtuelle, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupJenkins* à l’emplacement *eastus* :
+
+```azurecli-interactive 
+az group create --name myResourceGroupJenkins --location eastus
+```
+
+Créez maintenant une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create). Utilisez le paramètre `--custom-data` à transmettre dans votre fichier de configuration cloud-init. Indiquez le chemin complet vers *cloud-init-jenkins.txt* si vous avez enregistré le fichier en dehors de votre répertoire de travail actuel.
+
+```azurecli-interactive 
+az vm create --resource-group myResourceGroupJenkins \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init-jenkins.txt
+```
+
+Il faut quelques minutes pour que la machine virtuelle soit créée et configurée.
+
+Pour que le trafic web puisse atteindre votre machine virtuelle, utilisez [az vm open-port](/cli/azure/vm#open-port) pour ouvrir le port *8080* pour le trafic Jenkins et le port *1337* pour l’application Node.js qui sert à exécuter un exemple d’application :
+
+```azurecli-interactive 
+az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
+az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 --priority 1002
+```
+
+
+## <a name="configure-jenkins"></a>Configurer Jenkins
+Pour accéder à votre instance Jenkins, obtenez l’adresse IP publique de votre machine virtuelle :
+
+```azurecli-interactive 
+az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
+```
+
+Pour des raisons de sécurité, vous devez entrer le mot de passe d’administrateur initial qui est stocké dans un fichier texte sur votre machine virtuelle pour démarrer l’installation Jenkins. Utilisez l’adresse IP publique obtenue à l’étape précédente pour exécuter SSH sur votre machine virtuelle :
+
+```bash
+ssh azureuser@<publicIps>
+```
+
+Affichez le `initialAdminPassword` pour votre installation Jenkins et copiez-le :
+
+```bash
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+Ouvrez un navigateur web et accédez à `http://<publicIps>:8080`. Terminez la configuration initiale de Jenkins comme suit :
+
+- Entrez le *initialAdminPassword* obtenu à partir de la machine virtuelle à l’étape précédente.
+- Cliquez sur **Sélectionner les plug-ins à installer**
+- Recherchez *GitHub* dans la zone de texte en haut, sélectionnez le *plug-in GitHub*, puis cliquez sur **Installer**
+- Pour créer un compte d’utilisateur Jenkins, remplissez le formulaire comme vous le souhaitez. Du point de vue de la sécurité, vous devriez créer ce premier utilisateur Jenkins plutôt que de poursuivre avec le compte administrateur par défaut.
+- Une fois terminé, cliquez sur **Commencer à utiliser Jenkins**
+
+
+## <a name="create-github-webhook"></a>Créer un webhook GitHub
+Pour configurer l’intégration avec GitHub, ouvrez l’[exemple d’application Hello World basé sur Node.js](https://github.com/Azure-Samples/nodejs-docs-hello-world) à partir du référentiel d’exemples Azure. Pour répliquer le référentiel sur votre propre compte GitHub, cliquez sur le bouton **Bifurcation** dans le coin supérieur droit.
+
+Créez un webhook à l’intérieur de la bifurcation que vous avez créée :
+
+- Cliquez sur **Paramètres**, puis sélectionnez **Intégrations et services** sur le côté gauche.
+- Cliquez sur **Ajouter un service**, puis entrez *Jenkins* dans la zone de filtre.
+- Sélectionnez *Jenkins (plug-in GitHub)*
+- Pour l’**URL du hook Jenkins**, entrez `http://<publicIps>:8080/github-webhook/`. Assurez-vous d'inclure la barre oblique (/) à la fin
+- Cliquez sur **Ajouter un service**
+
+![Ajouter un webhook GitHub à votre référentiel bifurqué](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
+
+
+## <a name="create-jenkins-job"></a>Créer une tâche Jenkins
+Pour que Jenkins réponde à un événement dans GitHub (un code de validation par ex.), créez une tâche Jenkins. 
+
+Dans votre site web Jenkins, cliquez sur **Créer de nouvelles tâches** à partir de la page d’accueil :
+
+- Entrez *HelloWorld* comme nom de la tâche. Sélectionnez **Projet libre**, puis cliquez sur **OK**.
+- Dans la section **Général**, sélectionnez un projet **GitHub** et entrez l’URL de votre référentiel bifurqué (*https://github.com/iainfoulds/nodejs-docs-hello-world* par ex.)
+- Dans la section **Gestion du code source**, sélectionnez **Git** et entrez l’URL de votre référentiel bifurqué en *.git* (*https://github.com/iainfoulds/nodejs-docs-hello-world.git* par ex.)
+- Dans la section **Déclencheurs de génération**, sélectionnez **Déclencher un hook GitHub pour l’interrogation GITScm**.
+- Dans la section **Génération** , cliquez sur **Ajouter une étape de génération**. Sélectionnez **Exécuter l’interpréteur de commandes**, puis entrez `echo "Testing"` dans la fenêtre de commande.
+- Cliquez sur **Enregistrer** en bas de la fenêtre des tâches.
+
+
+## <a name="test-github-integration"></a>Test de l’intégration de GitHub
+Pour tester l’intégration de GitHub avec Jenkins, validez une modification dans votre bifurcation. 
+
+Dans l’interface utilisateur web de GitHub, sélectionnez votre référentiel bifurqué, puis cliquez sur le fichier **index.js**. Cliquez sur l’icône de crayon pour modifier ce fichier de manière à ce que la ligne 6 affiche :
+
+```nodejs
+response.end("Hello World!");`.
+```
+
+Pour valider vos modifications, cliquez sur le bouton **Valider les modifications** en bas.
+
+Dans Jenkins, une nouvelle génération démarre sous la section **Générer l’historique** dans le coin inférieur gauche de la page de votre tâche. Cliquez sur le lien du numéro de génération et sélectionnez **Sortie de console** à gauche. Vous pouvez afficher les étapes que Jenkins entreprend lorsque votre code est extrait de GitHub et l’action de génération entraîne l’affichage du message `Testing` sur la console. À chaque fois qu’une validation est effectuée dans GitHub, le webhook contacte Jenkins et déclenche une nouvelle génération de cette façon.
+
+
+## <a name="define-docker-build-image"></a>Définir l’image de génération Docker
+Pour que l’application Node.js soit exécutée en fonction de vos validations GitHub, il faut générer une image Docker servant à exécuter l’application. L’image est créée à partir d’un fichier Dockerfile qui définit comment configurer le conteneur qui exécute l’application. 
+
+À partir de la connexion SSH à votre machine virtuelle, accédez au répertoire d’espace de travail Jenkins nommé d’après la tâche que vous avez créée à l’étape précédente. Dans notre exemple, il était nommé *HelloWorld*.
+
+```bash
+cd /var/lib/jenkins/workspace/HelloWorld
+```
+
+Créez un fichier nommé `Dockerfile` dans ce répertoire d’espace de travail et collez le contenu suivant :
+
+```yaml
+FROM node:alpine
+
+EXPOSE 1337
+
+WORKDIR /var/www
+COPY package.json /var/www/
+RUN npm install
+COPY index.js /var/www/
+```
+
+Ce fichier Dockerfile utilise l’image Node.js de base avec Linux Alpine, expose le port 1337 sur lequel l’application Hello World est exécutée, puis copie les fichiers d’application et l’initialise.
+
+
+## <a name="create-jenkins-build-rules"></a>Créer des règles de génération Jenkins
+À l’étape précédente, vous avez créé une règle de génération Jenkins de base qui affiche un message sur la console. Nous allons à présent créer une étape de génération pour utiliser notre fichier Dockerfile et exécuter l’application.
+
+Dans votre instance Jenkins, sélectionnez la tâche que vous avez créée à l’étape précédente. Cliquez sur **Configurer** sur le côté gauche et faites défiler jusqu'à la section **Génération** :
+
+- Supprimez votre étape de génération `echo "Test"` existante. Cliquez sur la croix rouge en haut à droite de la zone de l’étape de génération existante.
+- Cliquez sur **Ajouter une étape de génération**, puis sélectionnez **Exécuter l’interpréteur de commandes**
+- Dans la zone **Commande**, entrez les commandes Docker suivantes :
+
+  ```bash
+  docker build --tag helloworld:$BUILD_NUMBER .
+  docker stop helloworld && docker rm helloworld
+  docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &
+  ```
+
+Les étapes de génération Docker créent une image et l’identifient par le numéro de génération Jenkins afin de pouvoir tenir à jour un historique des images. Les conteneurs existants qui exécutent l’application sont arrêtés puis supprimés. Un nouveau conteneur est ensuite démarré à l’aide de l’image et exécute votre application Node.js sur la base des dernières validations dans GitHub.
+
+
+## <a name="test-your-pipeline"></a>Tester votre pipeline
+Pour voir l’intégralité du pipeline en action, modifiez à nouveau le fichier *index.js* dans votre référentiel GitHub bifurqué, puis cliquez sur **Valider la modification**. Une nouvelle tâche démarre dans Jenkins sur la base du webhook pour GitHub. Il faut quelques secondes pour créer l’image Docker et lancer votre application dans un nouveau conteneur.
+
+Si nécessaire, obtenez à nouveau l’adresse IP publique de votre machine virtuelle :
+
+```azurecli-interactive 
+az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
+```
+
+Ouvrez un navigateur web et entrez `http://<publicIps>:1337`. Votre application Node.js s’affiche et reflète les dernières validations dans votre bifurcation GitHub comme suit :
+
+![Exécution de l’application Node.js](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
+
+À présent, apportez une autre modification au fichier *index.js* dans GitHub et validez la modification. Attendez quelques secondes la fin de la tâche dans Jenkins, puis actualisez votre navigateur web pour afficher la version mise à jour de votre application exécutée dans un nouveau conteneur comme suit :
+
+![Exécution de l’application Node.js après une autre validation GitHub](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
+
+
+## <a name="next-steps"></a>Étapes suivantes
+Dans ce didacticiel, vous avez configuré GitHub pour qu’il exécute une tâche de génération Jenkins à chaque validation de code et déploie ensuite un conteneur Docker pour tester votre application. Vous avez appris à effectuer les actions suivantes :
+
+> [!div class="checklist"]
+> * Créer une machine virtuelle Jenkins
+> * Installer et configurer Jenkins
+> * Créer une intégration webhook entre GitHub et Jenkins
+> * Créer et déclencher des tâches de génération Jenkins à partir de validations GitHub
+> * Créer une image Docker pour votre application
+> * Vérifier les validations GitHub, générer une nouvelle image Docker et mettre à jour l’application en cours d’exécution
+
+Suivez ce lien pour consulter des exemples de scripts de machine virtuelle prédéfinis.
+
+> [!div class="nextstepaction"]
+> [Exemples de scripts de machine virtuelle Linux](./cli-samples.md)

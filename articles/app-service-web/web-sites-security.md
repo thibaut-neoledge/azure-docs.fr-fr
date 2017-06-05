@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
-ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3071bf565b14966de2293205026c4524d7b0f0c5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -56,7 +57,7 @@ L’une des méthodes les plus simples pour démarrer les tests de vulnérabilit
 Si vous préférez effectuer vos propres tests d’intrusion ou utiliser une autre suite logicielle d’analyse ou un autre fournisseur, vous devez suivre le [processus d’approbation de test d’intrusion Azure](https://security-forms.azure.com/penetration-testing/terms) et obtenir une approbation préalable pour effectuer les tests d’intrusion de votre choix.
 
 ## <a name="https"></a> Sécurisation des communications avec les clients
-Si vous utilisez le nom de domaine **\*.azurewebsites.net** créé pour votre application App Service, vous pouvez utiliser immédiatement le protocole HTTPS, car un certificat SSL est fourni pour tous les noms de domaine **\*.azurewebsites.net**. Si votre site utilise un [nom de domaine personnalisé](web-sites-custom-domain-name.md), vous pouvez charger un certificat SSL et [activer HTTPS](web-sites-configure-ssl-certificate.md) pour le domaine personnalisé.
+Si vous utilisez le nom de domaine **\*.azurewebsites.net** créé pour votre application App Service, vous pouvez utiliser immédiatement le protocole HTTPS, car un certificat SSL est fourni pour tous les noms de domaine **\*.azurewebsites.net**. Si votre site utilise un [nom de domaine personnalisé](app-service-web-tutorial-custom-domain.md), vous pouvez charger un certificat SSL et [activer HTTPS](app-service-web-tutorial-custom-ssl.md) pour le domaine personnalisé.
 
 L’activation du protocole [HTTPS](https://en.wikipedia.org/wiki/HTTPS) protège la communication entre votre application et ses utilisateurs contre les attaques de l’intercepteur.
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/08/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b3eebdd714b38ffd9432404944829d05ef3c3dc6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2601850f99188445cf63a6a4f185bdc4ebb92c29
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -44,6 +44,12 @@ Si l’une des conditions ci-dessus n’est pas remplie, l’utilisateur sera in
 
 ![Authentification unique transparente](./media/active-directory-aadconnect-sso/sso1.png)
 
+Les autres fonctionnalités de l’authentification unique transparente sont les suivantes :
+
+- Si une demande de connexion Azure AD inclut le paramètre `domain_hint` ou `login_hint` (initié par une application de votre locataire), l’authentification unique transparente en profite et l’utilisateur n’a pas à entrer son nom d’utilisateur et son mot de passe.
+- L’authentification unique transparente prend en charge le nom d’utilisateur, qui peut être le nom d’utilisateur local par défaut (généralement, "userPrincipalName") ou un autre attribut (appelé "Autre ID") configuré dans Azure AD Connect.
+- L’authentification unique transparente est une fonctionnalité opportuniste, ce qui signifie que si elle échoue pour une raison quelconque, l’expérience de connexion utilisateur retrouve son comportement normal (l’utilisateur doit alors entrer son mot de passe dans la page de connexion).
+
 ## <a name="whats-available-during-preview"></a>Quelles fonctions sont disponibles avec la version préliminaire ?
 
 >[!NOTE]
@@ -63,8 +69,6 @@ L’authentification unique transparente est prise en charge par les clients bas
 
 >[!NOTE]
 >Concernant Windows 10, il est recommandé d’utiliser [Azure AD Join](../active-directory-azureadjoin-overview.md) pour une expérience optimale avec Azure AD.
-
-Si une demande de connexion Azure AD inclut le paramètre `domain_hint` ou `login_hint` (initié par une application de votre locataire), l’authentification unique transparente en profite et l’utilisateur évite d’entrer son nom d’utilisateur et son mot de passe.
 
 ## <a name="how-does-azure-ad-seamless-sso-work"></a>Comme l’authentification unique transparente Azure AD fonctionne-t-elle ?
 
@@ -102,8 +106,8 @@ Si vous activez l’authentification unique transparente avec authentification d
 Si vous activez l’authentification unique transparente avec synchronisation du mot de passe et s’il existe un pare-feu entre Azure AD Connect et Azure AD, vérifiez les points suivants :
 
 - Le serveur Azure AD Connect peut communiquer avec les URL `*.msappproxy.net`.
-- Azure AD Connect (version 1.1.484.0 ou versions supérieures) peut envoyer des requêtes HTTPS à Azure AD sur le port 443. Cette procédure est utilisée uniquement pour l’activation de la fonctionnalité, et non pour les connexions d’utilisateur réelles.
-- Azure AD Connect peut aussi établir des connexions IP directes avec les [plages d’adresses IP de centre de données Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Là encore, cette procédure sert uniquement à activer la fonctionnalité.
+- Azure AD Connect (version 1.1.484.0 ou versions supérieures) peut envoyer des requêtes HTTPS à Azure AD sur le port 443. Cette procédure sert uniquement à activer la fonctionnalité, et non les connexions d’utilisateur.
+- Azure AD Connect peut aussi établir des connexions IP directes avec les [plages d’adresses IP de centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Là encore, cette procédure sert uniquement à activer la fonctionnalité.
 
 >[!NOTE]
 > Les versions précédentes d’Azure AD Connect (versions antérieures à la version 1.1.484.0) doivent pouvoir communiquer avec Azure AD par le port 9090.
@@ -118,11 +122,11 @@ Si vous procédez à une nouvelle installation d’Azure AD Connect, choisissez 
 
 Si vous disposez déjà d’une installation d’Azure AD Connect, effectuez l’installation à l’aide du chemin [d’installation rapide](active-directory-aadconnect-get-started-express.md) ou [d’installation personnalisée](active-directory-aadconnect-get-started-custom.md), sélectionnez Modifier la connexion utilisateur sur Azure AD Connect et cliquez sur Suivant. Cochez ensuite la case Activer l’authentification unique.
 
-![Azure AD Connect - Modifier la connexion utilisateur](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
+![Azure AD Connect - Modifier la connexion utilisateur](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
-Suivez les instructions de l’Assistant d’installation jusqu’à ce que vous accédiez à la page Activer l’authentification unique. Vous devrez fournir les informations d’identification d’administrateur de domaine pour chaque forêt AD que vous synchronisez avec Azure AD (par le biais d’Azure AD Connect) et pour les utilisateurs pour lesquels vous souhaitez activer l’authentification unique transparente. Notez que les informations d’identification d’administrateur de domaine ne sont stockées ni dans Azure AD Connect ni dans Azure AD. Elles ne servent qu’à créer le compte d’ordinateur et à configurer les SPN Kerberos comme décrit précédemment.
+Suivez les instructions de l’Assistant jusqu’à ce que vous accédiez à la page Activer l’authentification unique. Vous devrez fournir les informations d’identification d’administrateur de domaine pour chaque forêt AD que vous synchronisez avec Azure AD (par le biais d’Azure AD Connect) et pour les utilisateurs pour lesquels vous souhaitez activer l’authentification unique transparente. Notez que les informations d’identification d’administrateur de domaine ne sont stockées ni dans Azure AD Connect ni dans Azure AD. Elles ne servent qu’à créer le compte d’ordinateur et à configurer les SPN Kerberos comme décrit précédemment.
 
-À ce stade, l’authentification unique transparente est activée sur votre locataire. Vous devez toujours effectuer les étapes décrites dans la section suivante pour que les utilisateurs puissent bénéficier de cette fonctionnalité.
+À la fin de l’Assistant, l’authentification unique transparente est activée sur votre client. Vous devez toujours effectuer les étapes décrites dans la section suivante pour que les utilisateurs puissent bénéficier de cette fonctionnalité.
 
 ## <a name="rolling-the-feature-out-to-your-users"></a>Déploiement de la fonctionnalité pour vos utilisateurs
 
@@ -142,10 +146,10 @@ Comme les URL Azure AD utilisées pour l’authentification unique transparente 
 ![Authentification unique](./media/active-directory-aadconnect-sso/sso6.png)  
 4. Activez la stratégie, puis entrez les valeurs/données suivantes dans la boîte de dialogue. Ce sont les URL AD Azure vers lesquelles les tickets Kerberos sont envoyés.
 
-        Value: https://autologon.microsoftazuread-sso.com  
-        Data: 1  
-        Value: https://aadg.windows.net.nsatc.net  
-        Data: 1  
+        Value: https://autologon.microsoftazuread-sso.com
+        Data: 1
+        Value: https://aadg.windows.net.nsatc.net
+        Data: 1
 5. Cliquez sur **OK**, puis de nouveau sur **OK**.
 
 Il doit se présenter comme suit :
@@ -155,29 +159,26 @@ Il doit se présenter comme suit :
 >[!NOTE]
 >Par défaut, Chrome utilise le même ensemble d’URL de site de confiance qu’Internet Explorer. Si vous avez configuré des paramètres différents pour Chrome, vous devez mettre à jour ces paramètres séparément.
 
-## <a name="troubleshooting-seamless-sso"></a>Résolution des problèmes d’authentification unique transparente
+## <a name="disabling-azure-ad-seamless-sso"></a>Désactivation de l’authentification unique transparente Azure AD
 
-Utilisez la liste de contrôle suivante pour résoudre les problèmes d’authentification unique transparente :
+L’authentification unique transparente Azure AD peut être désactivée à l’aide d’Azure AD Connect.
 
-1. Vérifiez si la fonctionnalité d’authentification unique transparente est activée sur votre locataire dans l’outil Azure AD Connect. Si vous ne pouvez pas activer la fonctionnalité (par exemple, en raison d’un port bloqué), assurez-vous que toutes les [conditions préalables](#pre-requisites) sont bien respectées. Si vous rencontrez toujours des problèmes d’activation de la fonctionnalité, contactez le Support Microsoft.
-2. Les deux URL de service (https://autologon.microsoftazuread-sso.com et https://aadg.windows.net.nsatc.net) sont définies dans les paramètres de la zone Intranet.
-3. Vérifiez que le bureau d’entreprise est bien joint au domaine AD.
-4. Vérifiez que l’utilisateur est connecté au bureau par le biais d’un compte de domaine AD.
-5. Vérifiez que le compte de l’utilisateur provient d’une forêt AD dans laquelle l’authentification unique transparente a été configurée.
-6. Vérifiez que l’ordinateur est connecté au réseau d’entreprise.
-7. Vérifiez que l’heure de l’ordinateur est synchronisée avec celle d’Active Directory et du contrôleur de domaine : elle ne doit pas compter plus de 5 minutes d’écart.
-8. Videz les tickets Kerberos existants à partir de leur ordinateur. Pour ce faire, exécutez la commande **klist purge** à partir d’une invite de commandes.
-9. Passez en revue les journaux de console du navigateur (sous Outils de développement) pour déterminer les problèmes potentiels.
+Exécutez Azure AD Connect, cliquez sur "Modifier la connexion utilisateur" puis sur "Suivant". Ensuite, désactivez l’option "Activer l’authentification unique". Suivez les instructions de l’Assistant. À la fin de l’Assistant, l’authentification unique transparente est désactivée sur votre client. Toutefois, le message suivant s’affiche :
 
-### <a name="domain-controller-logs"></a>Journaux du contrôleur de domaine
+"L’authentification unique est désormais désactivée, mais des étapes manuelles supplémentaires restent à effectuer pour terminer le nettoyage. En savoir plus."
 
-Si l’audit des réussites est activé sur votre contrôleur de domaine, dès qu’un utilisateur se connecte à l’aide de l’authentification unique transparente, une entrée de sécurité (événement 4769 associé au compte d’ordinateur **AzureADSSOAcc$**) est enregistrée dans le journal des événements. Vous trouverez ces événements de sécurité au moyen de la requête suivante :
+Voici les étapes manuelles que vous devez effectuer :
 
-```
-    <QueryList>
-      <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
-      </Query>
-    </QueryList>
-```
+- Obtenir la liste des forêts AD dans lesquelles l’authentification unique transparente a été activée
+  - Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. La fenêtre contextuelle qui s’affiche vous permet d’entrer vos informations d’identification d’administrateur de locataire Azure AD.
+  - Appelez `Get-AzureADSSOStatus`. La liste des forêts AD (dans la liste "Domaines") sur lesquelles cette fonctionnalité a été activée s’affiche.
+- Supprimez manuellement le compte d’ordinateur AZUREADSSOACCT de chaque forêt AD répertoriée ci-dessus.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Consultez notre [guide de dépannage](active-directory-aadconnect-troubleshoot-sso.md) pour savoir comment résoudre les problèmes courants avec l’authentification unique transparente dans Azure AD.
+
+## <a name="feedback"></a>Commentaires
+
+Vos commentaires sont très importants pour nous. Utilisez la section de commentaires si vous avez des questions. Utilisez notre [forum UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) pour les demandes de nouvelles fonctionnalités.
 

@@ -14,135 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/17/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 610b72f9f979f76d2d9c5180cb51ddae82a3e823
-ms.lasthandoff: 03/23/2017
+redirect_url: /azure/active-directory-b2c/active-directory-b2c-overview
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 83e57e3b76b8c7a4f73eeb0dcd70533ff81285dd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="azure-active-directory-b2c-limitations-and-restrictions"></a>Azure Active Directory B2C : limites et restrictions
 
-Il existe plusieurs fonctions et fonctionnalités d’Azure Active Directory (Azure AD) B2C qui ne sont pas encore prises en charge. La plupart de ces limites et problèmes connus seront résolus à l’avenir, mais vous devez les garder à l’esprit si vous concevez des applications accessibles aux consommateurs à l’aide de la version d’Azure AD B2C.
-
-## <a name="issues-during-the-creation-of-azure-ad-b2c-tenants"></a>Problèmes lors de la création de clients Azure AD B2C
-
-Si vous rencontrez des problèmes lors de la [création d’un client Azure AD B2C](active-directory-b2c-get-started.md), consultez [Création d’un client Azure AD ou d’un client Azure AD B2C : problèmes et résolutions](active-directory-b2c-support-create-directory.md) pour obtenir des instructions.
-
-Notez qu’il existe des problèmes connus liés à la suppression d’un client B2C existant et à sa recréation sous le même nom de domaine. Vous devez créer un client B2C portant un nom de domaine différent.
-
-## <a name="branding-issues-on-verification-email"></a>Problèmes de marque sur le courrier électronique de vérification
-
-Le message de vérification par défaut contient la marque « Microsoft ». Nous allons la supprimer dans un futur proche. Pour le moment, vous pouvez la supprimer en utilisant la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md).
-
-## <a name="branding-issues-on-local-account-sign-in-page-in-a-sign-in-policy"></a>Problèmes de personnalisation sur la page de connexion à un compte local dans une stratégie d’authentification
-
-La page de connexion à un compte local dans une stratégie de connexion peut être personnalisée en utilisant uniquement la [fonctionnalité de personnalisation de société](../active-directory/active-directory-add-company-branding.md), et non par la fonctionnalité de personnalisation de l’interface utilisateur de page décrite [ici](active-directory-b2c-reference-ui-customization.md). En outre, aucune étiquette ni aucun espace réservé ne sont disponibles dans les champs de nom d’utilisateur et de mot de passe. Pour résoudre ce problème, nous vous recommandons d’utiliser à la place la « stratégie d’inscription ou de connexion » entièrement personnalisable. Si vous souhaitez personnaliser entièrement la page de connexion à un compte local dans une stratégie de connexion, votez pour la fonctionnalité sur [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13062033-b2c-fully-customizable-sign-in-page).
-
-## <a name="restrictions-on-applications"></a>Restrictions sur les applications
-
-Les types d’applications suivants ne sont actuellement pas pris en charge dans Azure AD B2C. Pour obtenir une description des types d’applications pris en charge, consultez [Azure AD B2C : types d’applications](active-directory-b2c-apps.md).
-
-### <a name="daemons--server-side-applications"></a>Démons / applications côté serveur
-
-Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API Web. Ces applications peuvent s’authentifier et obtenir des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un consommateur), avec le [flux des informations d’identification du client OAuth 2.0](active-directory-b2c-reference-protocols.md). Ce flux n’est pas encore disponible dans Azure AD B2C. Cela signifie que les applications peuvent uniquement obtenir les jetons après qu’un flux de connexion interactif de consommateur s’est produit.
-
-
-### <a name="web-api-chains-on-behalf-of"></a>Chaînes d’API Web (On-Behalf-Of)
-
-De nombreuses architectures incluent une API Web qui doit appeler une autre API Web en aval, toutes deux sécurisées par Azure AD B2C. Ce scénario est courant dans les clients natifs qui disposent d’une API Web principale, qui à son tour appelle un service Microsoft Online, comme l’API Graph Azure AD.
-
-Ce scénario d’API Web chaînée peut être pris en charge à l’aide de la concession des informations d’identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n’est pas implémenté dans Azure AD B2C pour l’instant.
-
-## <a name="restrictions-on-reply-urls"></a>Restrictions sur les URL de réponse
-
-Actuellement, les applications inscrites dans Azure Active Directory B2C sont limitées à un ensemble restreint de valeurs d’URL de réponse. L’URL de réponse pour les services et applications web doit commencer par le schéma `https`, et toutes les valeurs d’URL de réponse doivent partager un même domaine DNS. Par exemple, vous ne pouvez pas inscrire une application web ayant une de ces URL de réponse :
-
-`https://login-east.contoso.com`
-`https://login-west.contoso.com`
-
-Le système d’inscription compare le nom DNS complet de l’URL de réponse existante au nom DNS de l’URL de réponse que vous ajoutez. La demande d’ajout du nom DNS échoue si l’une des conditions suivantes est remplie :
-
-* Le nom DNS complet de la nouvelle URL de réponse ne correspond pas au nom DNS de l’URL de réponse existante.
-* Le nom DNS complet de la nouvelle URL de réponse n’est pas un sous-domaine de l’URL de réponse existante.
-
-Par exemple, si l’application a cette URL de réponse :
-
-`https://login.contoso.com`
-
-Vous pouvez la compléter comme suit :
-
-`https://login.contoso.com/new`
-
-Dans ce cas, le nom DNS correspond exactement. Vous pouvez aussi définir l’URI suivant :
-
-`https://new.login.contoso.com`
-
-Dans ce cas, vous faites référence à un sous-domaine DNS de login.contoso.com. Si vous voulez disposer d’une application avec login-east.contoso.com et login-west.contoso.com comme URL de réponse, vous devez ajouter ces URL de réponse dans l’ordre suivant :
-
-`https://contoso.com`
-`https://login-east.contoso.com`
-`https://login-west.contoso.com`
-
-Vous pouvez ajouter les deux derniers car il s’agit de sous-domaines de la première URL de réponse, contoso.com. Cette limitation sera supprimée dans une version ultérieure.
-
-Pour savoir comment inscrire une application dans Azure Active Directory B2C, consultez [Inscription de votre application auprès d’Azure Active Directory B2C](active-directory-b2c-app-registration.md).
-
-## <a name="restriction-on-libraries-and-sdks"></a>Restriction sur les bibliothèques et les kits de développement logiciel
-
-L’ensemble de bibliothèques prises en charge Microsoft qui fonctionnent avec Azure AD B2C est très limité pour l’instant. Nous prenons en charge les applications web .NET et les services et applications web Node.js.  Nous avons également une version préliminaire de la bibliothèque cliente .NET appelée bibliothèque MSAL qui peut être utilisée avec Azure AD B2C dans Windows et d’autres applications .NET.
-
-Actuellement, nous ne prenons pas en charge d’autres langages ou plateformes de bibliothèque, notamment iOS et Android.  Si vous souhaitez travailler sur une autre plateforme que celles mentionnées ci-dessus, nous vous recommandons d’utiliser un kit de développement logiciel (SDK) open source qui fait référence à notre [référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-reference-protocols.md) si nécessaire.  Azure AD B2C implémente OAuth et OpenID Connect, ce qui permet d’utiliser une bibliothèque OAuth ou OpenID Connect générique pour l’intégration.
-
-Nos didacticiels de démarrage rapide iOS et Android utilisent les bibliothèques open source que nous avons testées pour la compatibilité avec Azure AD B2C.  Tous nos didacticiels de démarrage rapide sont disponibles dans notre section [Prise en main](active-directory-b2c-overview.md#get-started) .
-
-## <a name="restriction-on-protocols"></a>Restriction sur les protocoles
-
-Azure AD B2C prend en charge OpenID Connect et OAuth 2.0. Toutefois, certaines des fonctionnalités de ces protocoles n'ont pas été intégrées. Pour mieux comprendre l’étendue de la fonctionnalité de protocole prise en charge dans Azure AD B2C, consultez notre [référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-b2c-reference-protocols.md). La prise en charge de SAML et WS-Fed n’est pas disponible.
-
-## <a name="restriction-on-tokens"></a>Restriction sur les jetons
-
-La plupart des jetons émis par Azure AD B2C sont implémentés en tant que jetons JSON Web Tokens (JWT). Toutefois, toutes les informations contenues dans les jetons Web JSON (appelées « revendications ») ne sont pas tout à fait correctes ou elles sont manquantes. La revendication « preferred_username » est un exemple.  À mesure que les valeurs, le format ou la signification des revendications évoluent, les jetons de vos stratégies existantes ne sont pas affectés et vous pouvez compter sur leurs valeurs dans les applications de production.  À mesure que les valeurs évoluent, nous allons vous donner la possibilité de configurer ces modifications pour chacune de vos stratégies.  Pour mieux comprendre les jetons émis actuellement par le service Azure AD B2C, lisez la page de [référence sur les jetons](active-directory-b2c-reference-tokens.md).
-
-## <a name="restriction-on-nested-groups"></a>Restriction sur les groupes imbriqués
-
-Les abonnements aux groupes imbriqués ne sont pas pris en charge dans les clients Azure AD B2C. Nous ne prévoyons pas d’ajouter cette fonctionnalité.
-
-## <a name="restriction-on-differential-query-feature-on-azure-ad-graph-api"></a>Restriction sur la fonctionnalité de requête différentielle sur l’API Azure AD Graph
-
-La [fonctionnalité de requête différentielle sur l’API Graph Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-differential-query) n’est pas prise en charge dans les clients Azure AD B2C. Nous l’avons incluse à notre programme sur le long terme.
-
-## <a name="issues-with-user-management-on-the-azure-classic-portal"></a>Problèmes de gestion des utilisateurs sur le portail Azure Classic
-
-Les fonctionnalités B2C sont accessibles sur le portail Azure. Toutefois, vous pouvez utiliser le portail Azure Classic pour accéder aux autres fonctionnalités client, notamment la gestion des utilisateurs. La gestion des utilisateurs (onglet **Utilisateurs** ) sur le portail Azure Classic pose actuellement quelques problèmes :
-
-* Pour un utilisateur de compte local (c’est-à-dire un consommateur qui s’inscrit avec une adresse e-mail et un mot de passe ou un nom d’utilisateur et un mot de passe), le champ **Nom d’utilisateur** ne correspond pas à l’identificateur (adresse e-mail ou nom d’utilisateur) utilisé pendant l’inscription. Ceci est dû au fait que le champ affiché dans le portail Azure Classic est en fait le nom principal de l’utilisateur (UPN), qui n’est pas utilisé dans les scénarios B2C. Pour afficher l’identificateur du compte local utilisé pour l’inscription, recherchez l’objet utilisateur dans l’ [Explorateur graphique](https://graphexplorer.cloudapp.net/). Vous rencontrerez le même problème avec un utilisateur de compte social (c'est-à-dire un client qui s'inscrit avec Facebook, Google+, etc.), mais dans ce cas, il n'existe aucun identificateur d'utilisateur à proprement parler.
-
-    ![Compte local - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
-* Pour un utilisateur de compte local, vous ne pouvez pas modifier les champs et enregistrer des modifications sous l’onglet **Profil** .
-
-## <a name="issues-with-admin-initiated-password-reset-on-the-azure-classic-portal"></a>Problèmes de réinitialisation de mot de passe initiée par l’administrateur sur le portail Azure Classic
-
-Si vous réinitialisez le mot de passe d’un consommateur basé sur un compte local sur le portail Azure Classic (commande **Réinitialiser le mot de passe** de l’onglet **Utilisateurs**), ce consommateur ne sera pas en mesure de modifier son mot de passe à la prochaine connexion, si vous utilisez la stratégie d’inscription ou de connexion, et il sera exclu de vos applications. Pour résoudre ce problème, utilisez [l’API Graph Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md) pour réinitialiser le mot de passe du consommateur (sans expiration de mot de passe), ou utilisez une stratégie de connexion au lieu d’une stratégie d’inscription ou de connexion.
-
-## <a name="issues-with-creating-a-custom-attribute"></a>Problèmes liés à la création d’un attribut personnalisé
-
-Un [attribut personnalisé ajouté sur le portail Azure](active-directory-b2c-reference-custom-attr.md) n’est pas créé immédiatement dans votre client B2C. Vous devrez utiliser l’attribut personnalisé dans au moins l’une de vos stratégies avant qu’il ne soit créé dans votre client B2C et ne devienne disponible via l’API Graph.
-
-## <a name="issues-with-verifying-a-domain-on-the-azure-classic-portal"></a>Problèmes liés à la vérification d’un domaine sur le portail Azure Classic
-
-Actuellement, vous ne pouvez pas vérifier un domaine avec succès sur le [portail Azure Classic](https://manage.windowsazure.com/).
-
-## <a name="issues-with-sign-in-with-mfa-policy-on-safari-browsers"></a>Problèmes de connexion avec la stratégie d’authentification multifacteur sur les navigateurs Safari
-
-Les requêtes envoyées aux stratégies de connexion (avec l’authentification multifacteur activée) échouent par intermittence sur les navigateurs Safari avec des erreurs HTTP 400 (demande incorrecte). Cela est dû aux faibles limites de taille des cookies de Safari. Il existe deux solutions pour contourner ce problème :
-
-* Utiliser la « stratégie de connexion ou d’inscription » au lieu de la « stratégie de connexion ».
-* Réduisez le nombre de demandes de **Revendications d’application** dans votre stratégie.
-
-## <a name="issues-with-windows-desktop-wpf-apps-using-azure-ad-b2c"></a>Problèmes avec les applications Windows Desktop WPF utilisant Azure Active Directory B2C
-
-Les demandes adressées à Azure Active Directory B2C depuis une application Windows Desktop WPF échouent parfois avec le message d’erreur suivant : « Échec de la boîte de dialogue de l’authentification basée sur le navigateur. Raison : Le protocole n’est pas connu et aucun protocole enfichable correspondant n’a été entré. ».
-
-Ceci est dû à la taille des codes d’autorisation fournis par Azure Active Directory B2C ; la taille est en corrélation avec le nombre de revendications demandées dans un jeton. Une solution de contournement pour ce problème consiste à réduire le nombre de revendications demandées dans le jeton et d’interroger l’API Graph séparément pour les autres revendications.
 

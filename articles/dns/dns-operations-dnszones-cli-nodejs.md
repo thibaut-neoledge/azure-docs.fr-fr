@@ -13,18 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 9b545937f3e375dfcef815a66263a57bd5042f69
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 588c87749f049eff5b9e0729f6769c8367ba41e4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 ---
 
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-10"></a>Gestion des zones DNS dans Azure DNS à l’aide d’Azure CLI 1.0
 
 > [!div class="op_single_selector"]
-> * [Interface de ligne de commande Azure](dns-operations-dnszones-cli.md)
+> * [Portail](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
+> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 Ce guide montre comment gérer vos zones DNS à l’aide de l’interface de ligne de commande Azure CLI 1.0 multiplateforme, qui est disponible pour Windows, Mac et Linux. Vous pouvez également gérer vos zones DNS à l’aide [d’Azure PowerShell](dns-operations-dnszones.md) ou du portail Azure.
 
@@ -61,7 +64,7 @@ L’exemple ci-dessous crée une zone DNS appelée *contoso.com* dans le groupe 
 azure network dns zone create MyResourceGroup contoso.com
 ```
 
-### <a name="to-create-a-dns-zone-with-tags"></a>Créer une zone DNS avec des balises
+### <a name="to-create-a-dns-zone-with-tags"></a>Pour créer une zone DNS avec des étiquettes
 
 L’exemple suivant montre comment créer une zone DNS avec deux [balises Azure Resource Manager](dns-zones-records.md#tags), *projet = demo* et *env = test*, à l’aide du paramètre `--tags` (forme abrégée : `-t`) :
 

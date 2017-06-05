@@ -17,8 +17,7 @@
 ### [Groupes de sécurité réseau](virtual-networks-nsg.md)
 
 ## Déployer
-### Réseaux virtuels
-#### [Portail](virtual-networks-create-vnet-arm-pportal.md)
+### [Réseaux virtuels](virtual-networks-create-vnet-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [INTERFACE DE LIGNE DE COMMANDE](virtual-networks-create-vnet-arm-cli.md)
 #### [Modèle](virtual-networks-create-vnet-arm-template-click.md)
@@ -46,14 +45,9 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Modèle](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### Interfaces réseau
-#### [Ajouter, modifier ou supprimer](virtual-network-network-interface.md)
-#### [Ajouter, modifier ou supprimer des adresses IP](virtual-network-network-interface-addresses.md)
-
 ### [Adresses IP publiques](virtual-network-public-ip-address.md)
 
 ### Machines virtuelles
-#### [Ajouter ou supprimer des interfaces réseau](virtual-network-network-interface-vm.md) 
 #### Créer une machine virtuelle avec une adresse IP publique statique
 ##### [Portail](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -81,6 +75,8 @@
 ##### [INTERFACE DE LIGNE DE COMMANDE](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Modèle](virtual-network-multiple-ip-addresses-template.md)
 
+#### [Créer une machine virtuelle avec mise en réseau accélérée](virtual-network-create-vm-accelerated-networking.md)
+
 ### Scénarios de connectivité
 #### [Réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [Réseau virtuel (Resource Manager) à réseau virtuel (classique)](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -98,23 +94,29 @@
 ##### [Exemple d’application](virtual-networks-sample-app.md)
 
 ## Configuration
-### Mise en réseau accélérée pour les machines virtuelles
-#### [portail Azure](virtual-network-accelerated-networking-portal.md)
-#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
-### [Optimiser le débit du réseau des machines virtuelles](virtual-network-optimize-network-bandwidth.md)
+
 ### Listes de contrôle d'accès
 #### [Portail classique](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
-### [Résolution de noms pour les machines virtuelles et les services cloud](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+### Machines virtuelles
+#### [Ajouter ou supprimer des interfaces réseau](virtual-network-network-interface-vm.md)
+#### [Résolution de noms pour les machines virtuelles et les services cloud](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [Optimiser le débit du réseau](virtual-network-optimize-network-bandwidth.md)
+#### [Afficher et modifier les noms d’hôte](virtual-networks-viewing-and-modifying-hostnames.md)
 
 ## Gérer
+### [Réseaux virtuels](virtual-network-manage-network.md)
+#### [Sous-réseaux](virtual-network-manage-subnet.md)
+#### [Homologations](virtual-network-manage-peering.md)
 ### groupes de sécurité réseau ;
 #### [Portail](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [INTERFACE DE LIGNE DE COMMANDE](virtual-network-manage-nsg-arm-cli.md)
 #### [Journaux](virtual-network-nsg-manage-log.md)
+### Interfaces réseau (cartes réseau)
+#### [Créer, modifier ou supprimer des cartes réseau](virtual-network-network-interface.md)
+#### [Ajouter, modifier ou supprimer des adresses IP](virtual-network-network-interface-addresses.md)
 ### Machines virtuelles
-#### [Afficher et modifier les noms d’hôte](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Déplacer une machine virtuelle vers un autre sous-réseau](virtual-networks-move-vm-role-to-subnet.md)
 
 ## Résolution des problèmes

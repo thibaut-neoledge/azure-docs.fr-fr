@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1bd7e8b6ba9e2f7f1150c8d88c46a4828ac078d4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 7eb5903a5b010c7a6c2f1e427c596b931c6ec1a1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/03/2017
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez consulter des informations plus détaillées sur les technologies abordées ici, ainsi que des guides de démarrage rapide pour l’utilisation de groupes de sécurité réseau, dans les articles suivants :
 
-* [Démarrage rapide : créer un groupe de sécurité réseau et des règles ACL à l’aide de l’interface CLI Azure](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+* [Démarrage rapide : créer un groupe de sécurité réseau et des règles ACL à l’aide de l’interface CLI Azure](nsg-quickstart.md)  
 * [Présentation d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)  
 * [Présentation du groupe de sécurité réseau](../../virtual-network/virtual-networks-nsg.md)  
 * [Présentation d’Azure Resource Manager](../../load-balancer/load-balancer-arm.md) 

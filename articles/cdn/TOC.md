@@ -6,7 +6,7 @@
 
 # Procédure
 ## Integrate
-### [Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Services Cloud](cdn-cloud-service-with-cdn.md)
 ### [Stockage](cdn-create-a-storage-account-with-cdn.md)
 ### [Partage de ressources cross-origin](cdn-cors.md)
@@ -36,6 +36,7 @@
 ### [Générer des rapports HTTP avancés](cdn-advanced-http-reports.md)
 ### [Afficher les statistiques en temps réel](cdn-real-time-stats.md)
 ### [Analyser les performances de nœuds Edge](cdn-edge-performance.md)
+### [Exporter les indicateurs de performance avec les journaux de diagnostic](cdn-log-analysis.md)
 
 ## Développement
 ### [.NET](cdn-app-dev-net.md)

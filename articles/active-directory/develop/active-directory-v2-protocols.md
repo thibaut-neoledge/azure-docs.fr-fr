@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 02bf4191e60bfe7a49a37eed10f7571e08502150
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b665f45c66b35ab93e19ed1b54a6e215c93dcf57
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -26,8 +29,8 @@ Le point de terminaison v2.0 peut utiliser Azure AD pour l’identité en tant q
 
 > [!NOTE]
 > Les scénarios et les fonctionnalités Azure Active Directory ne sont pas tous pris en charge par le point de terminaison v2.0.  Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
-> 
-> 
+>
+>
 
 ## <a name="the-basics"></a>Concepts de base
 Dans presque tous les flux OAuth et OpenID Connect, quatre parties sont concernées par l’échange :
@@ -79,12 +82,5 @@ Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacti
 * [Génération d’applications web avec Open ID Connect](active-directory-v2-protocols-oidc.md)
 * [Génération d'applications de page unique avec le flux implicite OAuth 2.0](active-directory-v2-protocols-implicit.md)
 * [Génération de démons ou de processus côté serveur avec le flux d’informations d’identification de client OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-* Obtention de jetons dans une API web avec le flux De la part de d’OAuth 2.0 (prochainement)
-
-<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* [Obtention de jetons dans une API web avec le flux Au nom de d’OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
 

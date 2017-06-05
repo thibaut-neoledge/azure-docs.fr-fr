@@ -12,6 +12,7 @@
 ### [Applications Web déjà actives](app-insights-monitor-performance-live-website-now.md)
 ### [Services Windows](app-insights-windows-services.md)
 ### [Ordinateurs Windows](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Surveillance des applications Java
 ### [Applications Web](app-insights-java-get-started.md)
@@ -33,7 +34,8 @@
 ## Planifier et concevoir
 ### [Diagnostic approfondi des applications et services web avec Application Insights](app-insights-devops.md)
 ### [Analyse des performances dans les applications web](app-insights-web-monitor-performance.md)
-### [Séparer des ressources Application Insights](app-insights-separate-resources.md)
+### [Séparer développement, test et production](app-insights-separate-resources.md)
+### [Surveiller les applications dotées de plusieurs composants](app-insights-monitor-multi-role-apps.md)
 ### [Comment ... dans Application Insights ?](app-insights-how-do-i.md)
 
 
@@ -112,10 +114,9 @@
 ### [API pour les événements personnalisés et les mesures](app-insights-api-custom-events-metrics.md)
 ### [Filtrage et prétraitement de la télémétrie](app-insights-api-filtering-sampling.md)
 ### [Échantillonnage](app-insights-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Gérer
-### [Gérer le quota et tarification](app-insights-pricing.md)
+### [Gérer la tarification et le volume des données](app-insights-pricing.md)
 ### [Analyse des performances des applications à l’aide d’Application Insights pour SCOM](app-insights-scom.md)
 
 ## Exportation
@@ -138,7 +139,7 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST](https://dev.applicationinsights.io/)
+## [API d’accès aux données](https://dev.applicationinsights.io/)
 ## [Modèle de données](application-insights-data-model.md)
 ### [Requête](application-insights-data-model-request-telemetry.md)
 ### [Dépendance](application-insights-data-model-dependency-telemetry.md)
@@ -146,6 +147,7 @@
 ### [Trace](application-insights-data-model-trace-telemetry.md)
 ### [Event](application-insights-data-model-event-telemetry.md)
 ### [Mesure](application-insights-data-model-metric-telemetry.md)
+### [Contexte](application-insights-data-model-context.md)
 ## [Corrélation des données de télémétrie](application-insights-correlation.md)
 
 # les ressources

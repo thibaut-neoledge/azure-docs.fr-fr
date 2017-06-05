@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: ff08ea2b6231b2344244b14e44bcfd9acd065508
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1cb65f738bd77179a7ed379e3c1664c5eb232a68
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -30,7 +31,7 @@ Il existe trois catégories de Kit de développement logiciel (SDK) à utiliser
 
 * Les **Kits de développement logiciel (SDK) de service** vous permettent de gérer votre hub IoT et éventuellement d’envoyer des messages à vos appareils IoT.
 
-* Les **Kits de développement logiciel (SDK) de passerelle** vous permettent de créer des passerelles pour activer les appareils qui n’utilisent pas l’un des protocoles pris en charge, ou lorsque vous devez traiter des messages en périphérie.
+* **Azure IoT Edge** permet de créer des passerelles pour activer les appareils qui n’utilisent pas l’un des protocoles pris en charge, ou lorsque vous devez traiter des messages en périphérie.
 
 Les Kits de développement logiciel (SDK) prennent en charge plusieurs langages de programmation.
 
@@ -70,11 +71,11 @@ Les Kits Azure IoT service SDK suivants peuvent être téléchargés à partir d
 > [!NOTE]
 > Consultez les fichiers readme dans les référentiels GitHub pour plus d’informations sur l’utilisation du langage et des gestionnaires de packages spécifiques à la plateforme pour installer les fichiers binaires et dépendances sur votre ordinateur de développement.
 
-## <a name="azure-iot-gateway-sdks"></a>Kits de développement logiciel (SDK) de la passerelle Azure IoT
+## <a name="azure-iot-edge"></a>Azure IoT Edge
 
-Ce Kit de développement logiciel (SDK) de la passerelle Azure IoT contient l’infrastructure et les modules nécessaires pour créer des solutions de passerelle IoT. Vous pouvez étendre le Kit de développement logiciel (SDK) pour créer des passerelles adaptées à n’importe quel scénario de bout en bout.
+Azure IoT Edge contient l’infrastructure et les modules nécessaires pour créer des solutions de passerelle IoT. Vous pouvez étendre IoT Edge pour créer des passerelles adaptées à n’importe quel scénario de bout en bout.
 
-Vous pouvez télécharger le [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-sdk] à partir de GitHub.
+[Azure IoT Edge][lnk-gateway-sdk] est téléchargeable à partir de GitHub.
 
 ## <a name="online-api-reference-documentation"></a>Documentation de référence d’API en ligne
 
@@ -87,7 +88,7 @@ La liste suivant contient des liens de documentation de référence d’API en l
 * [Azure IoT service SDK pour Java][lnk-java-service-ref]
 * [Azure IoT device SDK pour Node.js][lnk-node-ref]
 * [Azure IoT service SDK pour Node.js][lnk-node-service-ref]
-* [Kit de développement logiciel (SDK) de la passerelle Azure IoT][lnk-gateway-ref]
+* [Azure IoT Edge][lnk-gateway-ref]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -110,7 +111,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 [lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device
 [lnk-python-service-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/service
 [lnk-certified]: https://catalog.azureiotsuite.com/
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 
 [lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
 [lnk-c-ref]: https://azure.github.io/azure-iot-sdk-c/index.html
@@ -119,7 +120,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
 [lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth
 [lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html
-[lnk-gateway-ref]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
+[lnk-gateway-ref]: http://azure.github.io/iot-edge/api_reference/c/html/
 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md

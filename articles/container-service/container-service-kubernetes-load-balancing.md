@@ -14,27 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 05/17/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: e89ec01cb47a87a45378f73d138224095bcbebed
-ms.openlocfilehash: 201d98c4f4ff29393ad308824ed0575f1ff602ee
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 9046879158a4617d478bcf1157d5ead3c1054fd8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="load-balance-containers-in-a-kubernetes-cluster-in-azure-container-service"></a>Équilibrer la charge des conteneurs dans un cluster Kubernetes dans Azure Container Service 
 Cet article présente l’équilibrage de charge dans un cluster Kubernetes dans Azure Container Service. L’équilibrage de charge fournit une adresse IP accessible en externe pour le service et distribue le trafic réseau entre les blocs en cours d’exécution dans les machines virtuelles de l’agent.
 
-Vous pouvez configurer un service Kubernetes pour utiliser l’[équilibrage de charge Azure](../load-balancer/load-balancer-overview.md) afin de gérer le trafic réseau externe (TCP ou UDP). Avec une configuration supplémentaire, l’équilibrage de charge et le routage du trafic HTTP ou HTTPS ou des scénarios plus avancés sont possibles.
+Vous pouvez configurer un service Kubernetes pour utiliser l’[équilibrage de charge Azure](../load-balancer/load-balancer-overview.md) afin de gérer le trafic réseau externe (TCP). Avec une configuration supplémentaire, l’équilibrage de charge et le routage du trafic HTTP ou HTTPS ou des scénarios plus avancés sont possibles.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 * [Déployer un cluster Kubernetes](container-service-kubernetes-walkthrough.md) dans Azure Container Service
 * [Connecter votre client](container-service-connect.md) à votre cluster
 
 ## <a name="azure-load-balancer"></a>Équilibrage de charge Azure
 
-Par défaut, un cluster Kubernetes déployé dans le Azure Container Service inclut un équilibrage de charge Azure accessible sur Internet pour les machines virtuelles de l’agent. (Une ressource d’équilibrage de charge distincte est configurée pour les machines virtuelles principales). L’équilibrage de charge Azure est de type Couche 4 (TCP, UDP).
+Par défaut, un cluster Kubernetes déployé dans le Azure Container Service inclut un équilibrage de charge Azure accessible sur Internet pour les machines virtuelles de l’agent. (Une ressource d’équilibrage de charge distincte est configurée pour les machines virtuelles principales). L’équilibrage de charge Azure est de type Couche 4. Actuellement, l’équilibrage de charge ne prend en charge que le trafic TCP Kubernetes.
 
 Lorsque vous créez un service Kubernetes, vous pouvez configurer automatiquement l’équilibrage de charge Azure afin d’autoriser l’accès au service. Pour configurer l’équilibrage de charge, définissez le service `type` sur `LoadBalancer`. L'équilibrage de charge crée une règle qui mappe l'adresse IP publique et le numéro de port du trafic du service entrant aux adresses IP privées et aux numéros de port des blocs dans les machines virtuelles de l’agent (et inversement pour le trafic de réponse. 
 

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b77a20274e22827aaa8aa4d354b62d086a19b206
-ms.openlocfilehash: 6fefb9cfa96b0a6b7acfe4d7fcb17cb13ec240a0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 032e584dc5abf59e9e3e8d80673b402f1fbf721b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -28,7 +30,12 @@ Cette page fournit une interface et des exemples de configuration de routage pou
 > 
 > 
 
+## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Paramètres MTU et TCP MSS sur les interfaces de routeur
+* La taille MTU de l’interface ExpressRoute est 1500, qui est la valeur MTU par défaut classique pour une interface Ethernet sur un routeur. À moins que votre routeur ait une taille MTU par défaut différente, il est inutile de spécifier une valeur sur l’interface du routeur.
+* Contrairement à une passerelle Azure VPN, le TCP MSS d’un circuit ExpressRoute ne doit pas être spécifié.
+
 Les exemples de configuration de routeur ci-dessous s’appliquent à toutes les homologations. Pour plus d’informations sur le routage, voir [Homologations ExpressRoute](expressroute-circuit-peerings.md) et [Configuration requise pour le routage ExpressRoute](expressroute-routing.md).
+
 
 ## <a name="cisco-ios-xe-based-routers"></a>Routeurs Cisco IOS-XE
 Les exemples de cette section s’appliquent à tous les routeurs exécutant la famille de systèmes d’exploitation IOS-XE.
@@ -206,10 +213,5 @@ Vous pouvez utiliser des cartes d’itinéraire et des listes de préfixes pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md) .
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

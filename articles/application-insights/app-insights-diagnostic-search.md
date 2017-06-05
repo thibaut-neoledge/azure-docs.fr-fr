@@ -3,7 +3,7 @@ title: Utilisation de la recherche dans Azure Application Insights | Microsoft D
 description: "Recherchez et filtrez la télémétrie brute envoyée par votre application web."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights

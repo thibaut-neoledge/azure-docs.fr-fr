@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 09/07/2016
+ms.date: 05/01/2017
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a90d7d90a6f3a75e230d32fb02b5ae69909d3c31
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,7 +29,7 @@ Les jeux de données externes utilisés pour remplir un index Recherche Azure in
 Les types de données complexes ne sont pas pris en charge nativement dans Recherche Azure, mais une solution de contournement éprouvée inclut un processus en deux étapes consistant à aplatir la structure, puis à utiliser un type de données **Collection** pour reconstituer la structure interne. Avec la technique décrite dans cet article, le contenu peut faire l’objet de recherches, être à choix multiples, filtré et trié.
 
 ## <a name="example-of-a-complex-data-structure"></a>Exemple d’une structure de données complexe
-En règle générale, les données en question sont stockées sous la forme d’un ensemble de documents JSON ou XML, ou sous la forme d’éléments dans une banque NoSQL telle que DocumentDB. Du point de vue structurel, le défi provient de l’existence de plusieurs éléments enfants qui doivent pouvoir faire l’objet de recherches et être filtrés.  Pour commencer à illustrer la solution de contournement, prenons l’exemple du document JSON suivant, qui répertorie un ensemble de contacts :
+En règle générale, les données en question sont stockées sous la forme d’un ensemble de documents JSON ou XML, ou sous la forme d’éléments dans une banque NoSQL telle que Azure Cosmos DB. Du point de vue structurel, le défi provient de l’existence de plusieurs éléments enfants qui doivent pouvoir faire l’objet de recherches et être filtrés.  Pour commencer à illustrer la solution de contournement, prenons l’exemple du document JSON suivant, qui répertorie un ensemble de contacts :
 
 ~~~~~
 [
@@ -136,11 +138,6 @@ Cette technique est utile pour un certain nombre de scénarios, mais elle n’es
 Pour obtenir un exemple de l’indexation d’un jeu de données JSON complexe dans Recherche Azure de l’exécution d’un certain nombre de requêtes sur ce jeu de données, consultez ce [référentiel GitHub](https://github.com/liamca/AzureSearchComplexTypes).
 
 ## <a name="next-step"></a>Étape suivante
-[Votez pour la prise en charge native des types de données complexes](https://feedback.azure.com/forums/263029-azure-search) sur la page UserVoice de Recherche Azure et ajoutez tout commentaire que vous aimeriez que nous prenions en compte concernant l’implémentation de fonctionnalités. Vous pouvez également me contacter directement sur Twitter sur @liamca..
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Votez pour la prise en charge native des types de données complexes](https://feedback.azure.com/forums/263029-azure-search) sur la page UserVoice de Recherche Azure et ajoutez tout commentaire que vous aimeriez que nous prenions en compte concernant l’implémentation de fonctionnalités. Vous pouvez également me contacter directement sur Twitter sur @liamca.
 
 

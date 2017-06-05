@@ -49,6 +49,7 @@
 #### [Déployer un conteneur Linux](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (version préliminaire)](service-fabric-docker-compose.md)
 #### [Gestion des ressources pour les conteneurs et les services](service-fabric-resource-governance.md)
+#### [Pilotes de journalisation et de volume](service-fabric-containers-volume-logging-drivers.md)
 
 ### Générer un service Reliable Service
 #### [Vue d'ensemble](service-fabric-reliable-services-introduction.md)
@@ -69,7 +70,6 @@
 ##### [C# sur Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java sur Linux](service-fabric-reliable-services-quick-start-java.md)
 
-#### Cycle de vie des Reliable Services
 #### [Configurer](service-fabric-reliable-services-configuration.md)
 #### [Envoi de notifications](service-fabric-reliable-services-notifications.md)
 #### [Sauvegarde et restauration](service-fabric-reliable-services-backup-restore.md)
@@ -87,12 +87,12 @@
 ### Générer un service Reliable Actor
 #### [Vue d'ensemble](service-fabric-reliable-actors-introduction.md)
 #### Concepts
-#### [Architecture](service-fabric-reliable-actors-platform.md)
-#### [Cycle de vie et garbage collection](service-fabric-reliable-actors-lifecycle.md)
-#### [Gestion des états](service-fabric-reliable-actors-state-management.md)
-#### [Polymorphisme](service-fabric-reliable-actors-polymorphism.md)
-#### [Réentrance](service-fabric-reliable-actors-reentrancy.md)
-#### [Sérialisation de type](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [Architecture](service-fabric-reliable-actors-platform.md)
+##### [Cycle de vie et garbage collection](service-fabric-reliable-actors-lifecycle.md)
+##### [Gestion des états](service-fabric-reliable-actors-state-management.md)
+##### [Polymorphisme](service-fabric-reliable-actors-polymorphism.md)
+##### [Réentrance](service-fabric-reliable-actors-reentrancy.md)
+##### [Sérialisation de type](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### Prise en main
 ##### [C# sur Windows](service-fabric-reliable-actors-get-started.md)
@@ -108,6 +108,7 @@
 #### [Modèle de communication de service](service-fabric-connect-and-communicate-with-services.md)
 #### [Service DNS](service-fabric-dnsservice.md)
 #### [Proxy inversé](service-fabric-reverseproxy.md)
+#### [Configurer le proxy inverse pour une communication sécurisée](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [Ajouter un serveur web frontal](service-fabric-add-a-web-frontend.md)
 
@@ -215,6 +216,7 @@
 ### [Se connecter à un cluster sécurisé](service-fabric-connect-to-secure-cluster.md)
 
 ### [Gérer un cluster à l’aide de l’interface de ligne de commande Azure](service-fabric-azure-cli.md)
+### [Corriger des nœuds de cluster](service-fabric-patch-orchestration-application.md)
 
 ### Gérer et orchestrer les ressources de cluster
 #### [Présentation de Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
@@ -233,27 +235,31 @@
 
 ### [Se connecter à un cluster sécurisé](service-fabric-connect-to-secure-cluster.md)
 
-## Intégrité du cluster et de l’application
-### [Surveiller l’intégrité du Service Fabric](service-fabric-health-introduction.md)
-### [Signaler et contrôler l’intégrité du service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-### [Ajouter des rapports de contrôle de l’état](service-fabric-report-health.md)
-### [Résoudre les problèmes avec les rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-### [Afficher des rapports d’intégrité](service-fabric-view-entities-aggregated-health.md)
-
 ## Surveiller et diagnostiquer
 ### [Surveiller et diagnostiquer des applications](service-fabric-diagnostics-overview.md)
-### Surveiller et diagnostiquer les services localement
-#### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-#### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-### Journaux de diagnostics Azure
-#### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-#### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Collecter les journaux à partir d’un processus de service](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Diagnostics des services Reliable Services avec état](service-fabric-reliable-services-diagnostics.md)
-### [Diagnostics dans Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### Générer des événements
+#### [Générer des événements de niveau infrastructure](service-fabric-diagnostics-event-generation-infra.md)
+##### [Événements Reliable Services](service-fabric-reliable-services-diagnostics.md)
+##### [Événements Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+#### [Générer des événements de niveau application](service-fabric-diagnostics-event-generation-app.md)
+### Intégrité du cluster et de l’application
+#### [Surveiller l’intégrité du Service Fabric](service-fabric-health-introduction.md)
+#### [Signaler et contrôler l’intégrité du service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Ajouter des rapports de contrôle de l’état](service-fabric-report-health.md)
+#### [Résoudre les problèmes avec les rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [Afficher des rapports d’intégrité](service-fabric-view-entities-aggregated-health.md)
+### Agréger des événements
+#### [Agréger des événements avec EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Agréger des événements avec Azure Diagnostics
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Analyser des événements
+#### [Analyser des événements avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Analyser des événements avec OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Résoudre les problèmes de votre cluster local](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Référence
+## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [API Java](/java/api/)
 ## [.NET](/dotnet/api/)

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f18b8ef62c82e2b307173971a7251a3aa8f84d69
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -355,9 +356,9 @@ Voici les étapes pour générer des URL SAS à l’aide d’Azure Storage Explo
 
     f. Dans l’ **URI de signature d’accès partagé ainsi généré de ce conteneur**, vérifiez les points suivants comme indiqué ci-dessus :
 
-        - Assurez-vous que votre nom de fichier d’image et le **« .vhd »** sont dans l’URI.
-        - À la fin de la signature, assurez-vous que **« =rl »** s’affiche. Cela montre qu’un accès en lecture seule et de liste a été fourni avec succès.
-        - Au milieu de la signature, assurez-vous que **« sr=c »** s’affiche. Cela montre que vous avez l’accès de niveau conteneur
+       - Assurez-vous que votre nom de fichier d’image et le **« .vhd »** sont dans l’URI.
+       - À la fin de la signature, assurez-vous que **« =rl »** s’affiche. Cela montre qu’un accès en lecture seule et de liste a été fourni avec succès.
+       - Au milieu de la signature, assurez-vous que **« sr=c »** s’affiche. Cela montre que vous avez l’accès de niveau conteneur
 
 11.    Pour vous assurer que l’URI de signature d’accès partagé fonctionne, cliquez sur **Test in Browser**(Test dans le navigateur). Le téléchargement doit normalement démarrer.
 
@@ -463,7 +464,7 @@ Voici les étapes pour générer des URL SAS à l’aide de l’interface de lig
 
 6.    Maintenant, vous obtenez l’URL SAS au niveau conteneur et vous devez lui ajouter le nom du disque dur virtuel.
 
-    URL SAS de niveau de conteneur #
+    URL SAS de niveau de conteneur
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

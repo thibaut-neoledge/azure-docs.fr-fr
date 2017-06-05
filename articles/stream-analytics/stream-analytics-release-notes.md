@@ -15,10 +15,10 @@ ms.workload: data-services
 ms.date: 05/03/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 05c5476cbfd616ce47d6d93627c6e7dd4d8a0d6f
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6a5ec66172e7920a89ff8c0592224f01f19c9e41
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -85,7 +85,7 @@ Cette version contient les mises à jour suivantes.
 | --- | --- |
 | Version préliminaire publique d’IoT Azure Suite |Stream Analytics est inclus dans la version préliminaire publique d’IoT Azure Suite. |
 | Intégration du portail Azure |En plus de continuer à être présent dans le portail de gestion Azure, Stream Analytics est désormais intégré au [portail Azure](https://azure.microsoft.com/overview/preview-portal/). Notez que la fonctionnalité Stream Analytics du portail en version préliminaire correspond actuellement à un sous-ensemble des fonctionnalités fournies dans le Portail de gestion Azure, sans prise en charge du test de requête dans un navigateur, de la configuration Power BI et de la possibilité d’accès aux ressources d’entrée et de sortie ou de création de ces ressources dans vos abonnements. |
-| Prise en charge de la sortie DocumentDB |Les tâches Stream Analytics peuvent désormais générer une sortie vers [DocumentDB](https://azure.microsoft.com/services/documentdb/). |
+| Prise en charge de la sortie d’Azure Cosmos DB |Les tâches Stream Analytics peuvent désormais générer une sortie dans [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). |
 | Prise en charge de l’entrée IoT Hub |Les tâches Stream Analytics peuvent à présent recevoir des données à partir d’IoT Hub. |
 | TIMESTAMP BY pour les événements hétérogènes |Quand un flux de données unique contient plusieurs types d’événements ayant des horodatages dans différents champs, vous pouvez désormais utiliser [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) avec des expressions pour spécifier différents champs d’horodatage pour chaque cas. |
 

@@ -3,7 +3,7 @@ title: "Référence de recherche Azure Log Analytics | Microsoft Docs"
 description: "La référence de recherche Log Analytics décrit le langage de recherche et fournit la syntaxe de requête générale que vous pouvez utiliser lorsque vous recherchez des données et que vous filtrez des expressions pour affiner votre recherche."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
-ms.author: banders
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
@@ -613,7 +613,7 @@ Cet exemple renvoie un événement (le dernier événement) par EventID.
 
 ### <a name="join"></a>Join
 Regroupe les résultats de deux requêtes pour former un seul jeu de résultats.  Prend en charge différents types de jointures décrits dans le tableau suivant.
-  
+
 | Type de jointure | Description |
 |:--|:--|
 | interne | Renvoie uniquement les enregistrements comportant une valeur correspondante dans les deux requêtes. |

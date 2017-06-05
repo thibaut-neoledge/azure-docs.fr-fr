@@ -4,4 +4,6 @@ Vous pouvez démarrer cette série de didacticiels à partir de [l’article pr�
 
 Vous découvrirez comment modifier le [modèle de groupe identique viable minimal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) afin de [déployer le groupe identique dans un réseau virtuel existant](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md).
 
+Vous découvrirez comment modifier le [modèle de groupe identique viable minimal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) afin de [déployer le groupe identique avec une image personnalisée](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
+
 Pour plus d’informations sur les groupes identiques, reportez-vous à la [page de présentation des groupes identiques](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).

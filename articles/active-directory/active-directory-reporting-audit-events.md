@@ -4,7 +4,7 @@ description: "Événements audités disponibles pour l&quot;affichage et le tél
 services: active-directory
 documentationcenter: 
 author: dhanyahk
-manager: mbaldwin
+manager: femila
 editor: 
 ms.assetid: 307eedf7-05bc-448d-a84d-bead5a4c5770
 ms.service: active-directory
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6950072b8970dfc1b80674efe0be6cb7496fd5ce
 ms.openlocfilehash: 2dda60160bbcaa729bc8e5cec4f47efc10d120cf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -325,10 +327,5 @@ L'événement d'audit « Mettre à jour l'utilisateur » inclut des informatio
 | PasswordValidityPeriodDays |Nombre de jours pendant lequel un mot de passe est valide ; passé cette période, il doit être modifié. |
 
 Les enregistrements d'audit sont un contrôle requis pour de nombreuses réglementations de conformité. Nous conseillons aux clients utilisant le rapport d’audit Azure Active Directory dans le cadre de leurs réglementations de conformité d’envoyer une copie de cette rubrique d’aide avec la copie de leur rapport d’audit exporté afin d’expliquer les détails du rapport. Si vous souhaitez comprendre les réglementations de conformité qui sont actuellement respectées par Azure, dirigez-vous vers la [page de conformité](https://azure.microsoft.com/support/trust-center/compliance/) de Microsoft Azure Trust Center.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

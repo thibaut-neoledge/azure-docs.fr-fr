@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2017
+ms.date: 05/23/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: ff8d911750a551f4a099fcba13841c98881104a9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -51,7 +51,11 @@ Vous pouvez déployer et installer des mises à jour logicielles sur des ordinat
 À la date et l’heure spécifiées dans le déploiement de mises à jour, les ordinateurs cibles exécutent le déploiement en parallèle.  Une analyse est tout d’abord effectuée pour vérifier si les mises à jour sont toujours obligatoires et les installe.  Il est important de noter que, pour les ordinateurs clients WSUS, si les mises à jour ne sont pas approuvées dans WSUS, le déploiement de mises à jour échoue.  Les résultats des mises à jour appliquées sont transmis à OMS pour être traités et résumés dans les tableaux de bord ou en recherchant les événements.     
 
 ## <a name="prerequisites"></a>Composants requis
-* La solution prend en charge les évaluations de mise à jour sur Windows Server 2008 et version ultérieure ainsi que la mise à jour de déploiements sur Windows Server 2012 et version ultérieure.  Les options d’installation Server Core et Nano Server ne sont pas prises en charge.
+* La solution prend en charge les évaluations de mise à jour sur les versions 2008 et ultérieures de Windows Server. Elle met aussi à jour les déploiements sur les versions 2008 R2 et ultérieures de Windows Server.  Les options d’installation Server Core et Nano Server ne sont pas prises en charge.
+
+    > [!NOTE]
+    > La prise en charge du déploiement des mises à jour vers Windows Server 2008 R2 nécessite .NET Framework 4.5 et WMF 5.0 ou une version ultérieure.
+    >  
 * Les systèmes d’exploitation clients Windows ne sont pas pris en charge.  
 * Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS (Windows Server Update Services) ou avoir accès à Microsoft Update.  
   

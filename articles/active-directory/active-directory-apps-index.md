@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 564dd782834898709f89f85e10627d07b17138ce
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3f6ae31f577eb1bc70a06e183518aadbc6279159
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -138,7 +139,7 @@ Automatisez la création, la maintenance et la suppression d’identités utilis
 | Découvrir son fonctionnement et trouver les réponses aux questions les plus fréquentes |[Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md) |
 | Configurer le mappage des informations entre Azure AD et votre application SaaS |[Personnalisation des mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Comment activer l’approvisionnement automatique pour toute application qui prend en charge le protocole SCIM |[Configurer l’approvisionnement automatique des utilisateurs pour toute application prenant en charge le protocole SCIM](active-directory-scim-provisioning.md) |
-| Être notifié des échecs d’approvisionnement |[Notifications d’approvisionnement](active-directory-saas-account-provisioning-notifications.md) |
+| Comment créer des rapports et résoudre les problèmes d’approvisionnement d’utilisateurs |[Création de rapports sur l’approvisionnement d’utilisateurs automatique](active-directory-saas-provisioning-reporting.md)<br><br>[Notifications d’approvisionnement](active-directory-saas-account-provisioning-notifications.md)<br><br>[Résolution des problèmes d’approvisionnement d’utilisateurs](active-directory-application-provisioning-content-map.md) |
 | Limiter les personnes pouvant être approvisionnées pour une application en fonction de ses valeurs d’attribut |[Filtres d’étendue](active-directory-saas-scoping-filters.md) |
 
 L’approvisionnement automatique des utilisateurs est disponible pour toutes les éditions d’Azure AD dans la limite de dix applications par utilisateur. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) prend en charge un nombre illimité d’applications. Si votre organisation a [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) ou [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez [utiliser des groupes pour gérer les utilisateurs pouvant être approvisionnés](#managing-access-to-applications).
@@ -168,16 +169,16 @@ Pour vous aider à gérer qui doit avoir accès à quelles ressources, Azure Act
 La gestion de l’accès aux applications basée sur un groupe est disponible pour [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) et [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). La gestion des groupes en libre-service, la gestion des applications en libre-service et les groupes dynamiques sont des fonctionnalités [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="b2b-collaboration-enable-partner-access-to-applications"></a>B2B Collaboration : activer l’accès partenaire aux applications
-Si votre entreprise a noué des partenariats avec d’autres sociétés, vous devez probablement gérer l’accès partenaire à vos applications d’entreprise. Azure Active Directory B2B Collaboration offre un moyen simple et sécurisé pour partager vos applications avec des partenaires. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
+Si votre entreprise a noué des partenariats avec d’autres sociétés, vous devez probablement gérer l’accès partenaire à vos applications d’entreprise. Azure Active Directory B2B Collaboration offre un moyen simple et sécurisé pour partager vos applications avec des partenaires.
 
 | Guide des articles |  |
 |:---:| --- |
 | Vue d’ensemble des différentes fonctionnalités Azure AD qui vous aident à gérer des utilisateurs externes tels que des partenaires ou des clients. |[Comparaison des capacités de gestion des identités externes dans Azure AD](active-directory-b2b-compare-external-identities.md) |
-| Présentation et prise en main de la version préliminaire de B2B Collaboration |[Intégration de partenaires cloud simple et sécurisée avec Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B Collaboration](active-directory-b2b-collaboration-overview.md) |
-| Examen approfondi d’Azure AD B2B Collaboration et de son utilisation |[Collaboration B2B : Fonctionnement](active-directory-b2b-how-it-works.md)<br /><br />[Limites actuelles de la version préliminaire d’Azure AD B2B Collaboration](active-directory-b2b-current-preview-limitations.md)<br /><br />[Procédure pas à pas détaillée de l’utilisation de la version préliminaire d’Azure AD B2B Collaboration](active-directory-b2b-detailed-walkthrough.md) |
+| Présentation et prise en main de B2B Collaboration |[Intégration de partenaires cloud simple et sécurisée avec Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B Collaboration](active-directory-b2b-collaboration-overview.md) |
+| Examen approfondi d’Azure AD B2B Collaboration et de son utilisation |[Collaboration B2B : Fonctionnement](active-directory-b2b-how-it-works.md)<br /><br />[Limites actuelles d’Azure AD B2B Collaboration](active-directory-b2b-current-limitations.md)<br /><br />[Procédure pas à pas détaillée de l’utilisation d’Azure AD B2B Collaboration](active-directory-b2b-detailed-walkthrough.md) |
 | Articles de référence contenant des détails techniques sur le fonctionnement d’Azure AD B2B Collaboration |[Format de fichier CSV pour l’ajout d’utilisateurs partenaires](active-directory-b2b-references-csv-file-format.md)<br /><br />[Attributs de l’utilisateur affectés par Azure AD B2B Collaboration](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[Format de jeton utilisateur pour les utilisateurs partenaires](active-directory-b2b-references-external-user-token-format.md) |
 
-La version préliminaire de B2B Collaboration est actuellement disponible pour [toutes les éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+B2B Collaboration est actuellement disponible pour [toutes les éditions d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>Volet d’accès : portail pour accéder aux applications et fonctionnalités de libre-service
 Grâce au volet d’accès Azure AD, les utilisateurs finaux peuvent lancer leurs applications et accéder aux fonctionnalités de libre-service qui leur permettent de gérer leurs applications et les appartenances aux groupes. Outre le volet d’accès, d’autres options d’accès aux applications prenant en charge l’authentification unique sont incluses dans la liste ci-dessous.

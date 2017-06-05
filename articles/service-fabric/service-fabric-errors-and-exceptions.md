@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/16/2017
+ms.date: 06/01/2017
 ms.author: ryanwi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 491f61afe899c746c193f0d3703d3212f9258e63
 ms.openlocfilehash: 578046d6939b90cb58d457087bb465006630b4c1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -47,10 +49,5 @@ Certaines erreurs [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system
 | InvalidX509Store |Le magasin de certificats X509 ne peut pas être ouvert. |
 | InvalidSubjectName |Le nom d'objet n'est pas valide. |
 | InvalidAllowedCommonNameList |Le format de la chaîne de la liste de noms courants n'est pas valide. Ce doit être une liste séparée par des virgules. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

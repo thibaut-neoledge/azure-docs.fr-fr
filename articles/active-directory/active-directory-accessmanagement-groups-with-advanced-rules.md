@@ -1,6 +1,6 @@
 ---
-title: "Utilisation d’attributs pour créer des règles avancées | Microsoft Docs"
-description: "Procédure de création de règles avancées pour un groupe incluant des paramètres et des opérateurs de règle d’expression pris en charge."
+title: "Remplir des groupes dynamiquement en fonction d’attributs utilisateur dans Azure Active Directory | Microsoft Docs"
+description: "Procédure de création de règles avancées pour une adhésion de groupe incluant des paramètres et des opérateurs de règle d’expression pris en charge."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/14/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 24f56b68a9313ed1bce859b9343a14de83d9b600
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: b0c8eb46b6c01662f0b53213843f8a7ad295e5aa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="using-attributes-to-create-advanced-rules"></a>Utilisation d’attributs pour créer des règles avancées
-Le portail Azure Classic vous permet de créer des règles avancées pour activer des appartenances dynamiques plus complexes basées sur les attributs aux groupes Azure Active Directory (Azure AD).  
+# <a name="populate-groups-dynamically-based-on-user-attributes"></a>Remplir des groupes dynamiquement en fonction d’attributs utilisateur 
+Le portail Azure Classic vous permet d’activer des appartenances dynamiques plus complexes basées sur les attributs aux groupes Azure Active Directory (Azure AD).  
 
 Lorsqu’un attribut d’un utilisateur change, le système évalue toutes les règles de groupe dynamique dans un annuaire pour voir si la modification de l’attribut de l’utilisateur déclenche des ajouts ou suppressions de groupe. Si un utilisateur respecte une règle d’un groupe, il est ajouté en tant que membre de ce groupe. S’il ne respecte plus la règle d’un groupe dont il est membre, il est supprimé de ce groupe.
 
 > [!NOTE]
-> Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365. Les appartenances à des groupes imbriquées ne sont pas prises en charge pour l’affectation basée sur le groupe à des applications.
+> Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365. 
 >
 > L’appartenance dynamique à des groupes nécessite qu’une licence Azure AD Premium soit affectée à
 >

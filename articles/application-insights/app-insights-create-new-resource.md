@@ -3,7 +3,7 @@ title: "Créer une ressource Azure Application Insights | Microsoft Docs"
 description: "Configurez manuellement la surveillance d’Application Insights pour une nouvelle application en direct."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights

@@ -1,0 +1,1 @@
+Cette rubrique utilise comme point de départ les ressources créées dans [Créer votre première fonction à partir du portail Azure](../articles/azure-functions/functions-create-first-azure-function.md). Si vous ne l’avez pas déjà fait, suivez ces étapes maintenant pour créer votre application de la fonction.

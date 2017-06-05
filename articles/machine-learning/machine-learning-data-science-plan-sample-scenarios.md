@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
 ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/17/2017
 
 
@@ -33,7 +34,7 @@ L’ **arbre de décision** qui permet de sélectionner les exemples de scénari
 Les sections suivantes présentent quelques exemples de scénarios. Pour chaque scénario, un flux possible de science des données ou d’analyse avancée et les ressources Azure connexes sont répertoriés.
 
 > [!NOTE]
-> **Pour tous les scénarios suivants, vous devez : **
+> **Pour tous les scénarios suivants, vous devez:**
 > <br/>
 > 
 > * [Créer un compte de stockage](../storage/storage-create-storage-account.md)

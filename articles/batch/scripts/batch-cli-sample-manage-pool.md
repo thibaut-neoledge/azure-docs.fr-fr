@@ -12,12 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/02/2017
 ms.author: antisch
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7cec2a8c66868c601c38dc2dea61dda38d3cd3b2
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 2556b02459886390b803407c5cb828687229a44e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -25,14 +26,16 @@ ms.lasthandoff: 03/24/2017
 
 Ces scripts montrent certains des outils disponibles dans l’interface CLI Azure pour créer et gérer des pools de nœuds de calcul dans le service Azure Batch.
 
-L’exécution de ces scripts suppose qu’un compte Batch a déjà été installé et qu’une application a déjà été configurée. Pour plus d’informations, consultez les [exemples de scripts](../batch-cli-samples.md) couvrant chacune de ces rubriques.
-
 > [!NOTE]
 > Dans cet exemple, les commandes créent des machines virtuelles Azure. L’exécution de machines virtuelles engendre des frais sur votre compte. Pour réduire ces frais, supprimez les machines virtuelles lorsque vous avez terminé l’exécution de cet exemple. Consultez la page [Nettoyer les pools](#clean-up-pools).
 
-Si nécessaire, installez l’interface CLI Azure en suivant les instructions du [Guide d’installation Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), puis exécutez `az login` pour vous connecter à Azure.
+Les pools Batch peuvent être configurés de deux manières, soit via une configuration de Services cloud (Windows uniquement), soit via une configuration de machine virtuelle (Windows et Linux). Les exemples de scripts ci-dessous montrent comment créer des pools avec les deux configurations.
 
-Les pools Batch peuvent être configurés de deux manières, soit via une configuration de Services cloud (Windows uniquement), soit via une configuration de machine virtuelle (Windows et Linux).
+## <a name="prerequisites"></a>Composants requis
+
+- Installez Azure CLI en suivant les instructions fournies dans le [Guide d’installation d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), si ce n’est déjà fait.
+- Créez un compte Azure si vous n’en avez pas. Pour un exemple de script qui crée un compte, voir [Créer un compte Batch avec Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account).
+- Configurez une application à s’exécuter à partir d’une tâche de démarrage si vous ne l’avez pas encore fait. Pour un exemple de script qui crée une application et charge un package d’application dans Azure, voir [Ajout d’applications dans Azure Batch avec Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-add-application).
 
 ## <a name="pool-with-cloud-service-configuration-sample-script"></a>Pool avec exemple de script pour la configuration du service cloud
 
@@ -75,6 +78,6 @@ Chaque commande du tableau renvoie à une documentation spécifique.
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Vous trouverez des exemples supplémentaires de scripts CLI Batch dans la [documentation relative à la CLI Azure Batch](../batch-cli-samples.md).
+Vous trouverez des exemples supplémentaires de scripts CLI Batch dans la [documentation relative à la CLI Azure Batch](../batch-cli-samples.md).
 
 
