@@ -17,6 +17,7 @@
 
 ## [Azure CLI 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
+## [En-têtes de télémétrie](container-registry-headers.md)
 
 # Rubriques connexes
 

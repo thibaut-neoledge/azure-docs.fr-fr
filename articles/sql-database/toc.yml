@@ -45,26 +45,6 @@
     href: sql-database-multi-tenant-application.md
   - name: "6\_- Mettre en œuvre une base de données réparties géographiquement"
     href: sql-database-implement-geo-distributed-database.md 
-  - name: Didacticiels SaaS Wingtip
-    items:
-    - name: Présentation de SaaS Wingtip
-      href: sql-database-wtp-overview.md
-    - name: Déployer l’exemple SaaS Wingtip
-      href: sql-database-saas-tutorial.md
-    - name: Approvisionner/répertorier les nouveaux clients
-      href: sql-database-saas-tutorial-provision-and-catalog.md
-    - name: Analyser les performances
-      href: sql-database-saas-tutorial-performance-monitoring.md
-    - name: Surveiller avec Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Restaurer un client unique
-      href: sql-database-saas-tutorial-restore-single-tenant.md
-    - name: Gérer les schémas de client
-      href: sql-database-saas-tutorial-schema-management.md
-    - name: Exécuter une analyse ad hoc
-      href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Exécuter une analyse des clients
-      href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Exemples
   items:
   - name: Interface de ligne de commande Azure
@@ -175,25 +155,12 @@
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
     - name: Mise à niveau d’applications
       href: sql-database-manage-application-rolling-upgrade.md
-  - name: Développement
+  - name: Développement de base de données
     items:
     - name: Vue d'ensemble
       href: sql-database-develop-overview.md
     - name: Connectivité
       href: sql-database-libraries.md
-    - name: Conception d’applications - SaaS
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: Sécurité - SaaS
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: Ports - ADO.NET
-      href: sql-database-develop-direct-route-ports-adonet-v12.md
-    - name: Authentifier l’application
- 
-      href: sql-database-client-id-keys.md
-    - name: messages d'erreur
-      href: sql-database-develop-error-messages.md
-    - name: Dapper
-      href: sql-database-elastic-scale-working-with-dapper.md
     - name: Données JSON
       href: sql-database-json-features.md
     - name: En mémoire
@@ -231,8 +198,6 @@
       href: sql-database-monitoring-with-dmvs.md
     - name: Assistance sur les performances
       href: sql-database-performance-guidance.md
-    - name: Traitement par lot
-      href: sql-database-use-batching-to-improve-performance.md
     - name: Événements étendus
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Niveaux de compatibilité
@@ -365,6 +330,25 @@
       href: sql-database-ssms-remoteapp.md
     - name: SSMS - MFA
       href: sql-database-ssms-mfa-authentication-configure.md
+  - name: Développement d'applications
+    items:
+    - name: Ports - ADO.NET
+      href: sql-database-develop-direct-route-ports-adonet-v12.md
+    - name: Authentifier l’application
+ 
+      href: sql-database-client-id-keys.md
+    - name: messages d'erreur
+      href: sql-database-develop-error-messages.md
+    - name: Dapper
+      href: sql-database-elastic-scale-working-with-dapper.md
+    - name: Traitement par lot pour de meilleures performances
+      href: sql-database-use-batching-to-improve-performance.md
+    - name: Conception d’applications SaaS
+      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: Sécurité des applications SaaS
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: Didacticiel sur les applications SaaS
+      href: sql-database-wtp-overview.md
 - name: Référence
   items:
   - name: PowerShell
@@ -444,5 +428,3 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: Tableau de bord personnalisé de pool élastique
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
-
-
