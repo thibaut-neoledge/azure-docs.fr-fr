@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 90ed1d5ca50bfb19a9d1c5d258e9588e05893270
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 97da0f4dc5d5528bfb803eefe9037651939a8efd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -84,7 +84,7 @@ Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée
 
 Le tableau de bord affiche les informations suivantes :
 
-* Un panneau **Liste d’usines** qui indique l’état, l’emplacement et la configuration de production actuelle dans la solution. Lors de la première exécution de la solution, il existe un nombre d’appareils simulés. La simulation de la ligne de production se compose de trois serveurs OPC UA réels par ligne de production qui effectuent des tâches simulées et partagent des données. 
+* Un panneau **Liste d’usines** qui indique l’état, l’emplacement et la configuration de production actuelle dans la solution. Lors de la première exécution de la solution, il existe un nombre d’appareils simulés. La simulation de la ligne de production se compose de trois serveurs OPC UA réels par ligne de production qui effectuent des tâches simulées et partagent des données. Pour plus d’informations sur l’OPC UA, consultez le [FAQ][lnk-faq].
 * Une **carte** qui affiche l’emplacement de chaque appareil connecté à la solution. La solution peut utiliser l’API Bing Maps pour tracer les informations sur la carte. Si votre abonnement est activé pour l’API Bing Maps Enterprise, cette fonctionnalité est automatiquement utilisée. Sinon, consultez le [FAQ][lnk-faq] pour savoir comment rendre le mappage dynamique.
 * Un panneau **Alertes** qui affiche les alertes générées lorsqu’une valeur de télémétrie ou d’OEE/KPI dépasse un seuil spécifique.
 * Un panneau **Efficacité globale de l’équipement** qui affiche les valeurs OEE pour l’ensemble de l’entreprise, ou l’usine/la ligne de production/le poste que vous visualisez. Cette valeur est agrégée à partir de la vue du poste au niveau de l’entreprise. La données d’OEE et ses éléments constitutifs peuvent être analysés de manière plus approfondie.

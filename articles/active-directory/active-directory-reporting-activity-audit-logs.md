@@ -16,10 +16,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -38,6 +38,10 @@ L’architecture de création de rapports dans Azure AD comprend les composants 
 
 Cette rubrique vous donne une vue d’ensemble des activités d’audit.
  
+## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
+* Utilisateurs ayant le rôle d’administrateur de sécurité ou de lecteur de la sécurité
+* Administrateurs généraux
+* Les utilisateurs individuels (non administrateurs) peuvent voir leurs propres activités
 
 
 ## <a name="audit-logs"></a>Journaux d’audit
@@ -102,10 +106,11 @@ Le filtre **Catégorie** vous permet de sélectionner un des filtres suivants :
 - Répertoire principal
 - Gestion des mots de passe en libre-service
 - Gestion des groupes en libre service
-- Approvisionnement des comptes
-- Substitution de mot de passe automatique
-- utilisateurs invités
+- Approvisionnement de comptes - Substitution de mot de passe automatique
+- Utilisateurs invités
 - Service MIM
+- Identity Protection
+- B2C
 
 Le filtre **Type de ressource d’activité** vous permet de sélectionner un des filtres suivants :
 
@@ -124,148 +129,9 @@ Lorsque vous sélectionnez le **type de ressource d’activité** **Groupe**, vo
 - O365
 
 
-
-
 Le filtre **Activité** est basé sur la catégorie et le type de ressource d’activité que vous choisissez. Vous pouvez sélectionner une activité spécifique que vous souhaitez voir ou toutes les choisir. 
 
-| Catégorie d’activité| Type de ressource d’activité| Activité |
-| :-- | :-: | :-- |
-| Annuaire principal| Groupe| Suppression de paramètres de groupe|
-| Annuaire principal| Répertoire| Mise à jour d’un domaine|
-| Annuaire principal| Répertoire| Suppression d’un partenaire d’une entreprise|
-| Annuaire principal| Utilisateur| Mise à jour d’un rôle|
-| Annuaire principal| Utilisateur| Ajout d’un rôle à partir d’un modèle|
-| Annuaire principal| Groupe| Ajout d’une affectation de rôle d’application à un groupe|
-| Annuaire principal| Groupe| Commencer à appliquer une licence basée sur un groupe à des utilisateurs|
-| Annuaire principal| Application| Ajout d’un principal de service|
-| Annuaire principal| Stratégie| Mise à jour d’une stratégie|
-| Annuaire principal| Stratégie| Ajout d’une stratégie à un principal de service|
-| Annuaire principal| Appareil| Ajout d’un propriétaire enregistré à un appareil|
-| Annuaire principal| Appareil| Ajout d’utilisateurs enregistrés à un appareil|
-| Annuaire principal| Appareil| Mise à jour d’une configuration d’appareil|
-| Gestion des mots de passe en libre-service| Utilisateur| Réinitialisation d’un mot de passe (libre-service)|
-| Gestion des mots de passe en libre-service| Utilisateur| Déverrouillage d’un compte d’utilisateur (libre-service)|
-| Gestion des mots de passe en libre-service| Utilisateur| Réinitialisation d’un mot de passe (par l’administrateur)|
-| Gestion des groupes en libre-service| Groupe| Suppression d’une demande en attente pour rejoindre un groupe|
-| Approvisionnement des comptes| Application| Dépôt de processus|
-| Substitution de mot de passe automatique| Application| Substitution de mot de passe automatique|
-| Utilisateurs invités| Autres| Lot d’invitations traité|
-| Annuaire principal| Répertoire| Suppression d’un domaine vérifié|
-| Annuaire principal| Répertoire| Ajout d’un domaine non vérifié|
-| Annuaire principal| Répertoire| Ajout d’un domaine vérifié|
-| Annuaire principal| Répertoire| Définition de la fonctionnalité de répertoire sur un client|
-| Annuaire principal| Répertoire| Définition de l’indicateur Dirsyncenabled|
-| Annuaire principal| Répertoire| Création de paramètres d’entreprise|
-| Annuaire principal| Répertoire| Mise à jour de paramètres d’entreprise|
-| Annuaire principal| Répertoire| Suppression de paramètres d’entreprise|
-| Annuaire principal| Répertoire| Définition d’un emplacement de données autorisé pour une entreprise|
-| Annuaire principal| Répertoire| Définition de l’activation de la fonctionnalité multinationale|
-| Annuaire principal| Utilisateur| Mise à jour d’un utilisateur|
-| Annuaire principal| Utilisateur| Supprimer l'utilisateur|
-| Annuaire principal| Groupe| Suppression d’un membre d’un groupe|
-| Annuaire principal| Groupe| Définition d’une licence de groupe|
-| Annuaire principal| Groupe| Création de paramètres de groupe|
-| Annuaire principal| Application| Mise à jour d’un principal de service|
-| Annuaire principal| Application| Supprimer l’application|
-| Annuaire principal| Application| Mise à jour d’une application|
-| Annuaire principal| Application| Suppression d’un principal de service|
-| Annuaire principal| Application| Ajout des informations d’identification d’un principal de service|
-| Annuaire principal| Application| Suppression d’une affectation de rôle d’application d’un principal de service|
-| Annuaire principal| Application| Suppression d’un propriétaire d’une application|
-| Annuaire principal| Appareil| Suppression d’un propriétaire enregistré d’un appareil|
-| Gestion des mots de passe en libre-service| Utilisateur| Progression de l’activité du flux de réinitialisation du mot de passe en libre-service|
-| Approvisionnement des comptes| Application| Administration|
-| Approvisionnement des comptes| Application| Opération sur le répertoire|
-| Service MIM| Groupe| Suppression d’un membre|
-| Annuaire principal| Stratégie| Suppression d’une stratégie|
-| Utilisateurs invités| Utilisateur| Création d’un locataire viral|
-| Annuaire principal| Répertoire| Mise à jour de clés secrètes externes|
-| Annuaire principal| Répertoire| Définition de propriétés Rights Management|
-| Annuaire principal| Répertoire| Mise à jour d’une entreprise|
-| Annuaire principal| Utilisateur| Ajouter un utilisateur|
-| Annuaire principal| Utilisateur| Conversion d’un utilisateur fédéré en utilisateur géré|
-| Annuaire principal| Utilisateur| Création d’un mot de passe d’application pour un utilisateur|
-| Annuaire principal| Groupe| Ajout d’un membre à un groupe|
-| Annuaire principal| Groupe| Ajout d’un groupe|
-| Annuaire principal| Application| Consentement pour une application|
-| Annuaire principal| Application| Ajout d’une application|
-| Annuaire principal| Application| Ajout d’un propriétaire à un principal de service|
-| Annuaire principal| Application| Suppression d’Oauth2Permissiongrant|
-| Annuaire principal| Stratégie| Suppression des informations d’identification d’une stratégie|
-| Annuaire principal| Appareil| Suppression d’une configuration d’appareil|
-| Gestion des groupes en libre-service| Groupe| Définition de propriétés de groupe dynamiques|
-| Gestion des groupes en libre-service| Groupe| Mise à jour d’une stratégie de gestion du cycle de vie|
-| Approvisionnement des comptes| Application| Action de règles de synchronisation|
-| Utilisateurs invités| Autres| Lot d’invitations chargé|
-| Service MIM| Groupe| Ajout d’un membre|
-| Annuaire principal| Utilisateur| Définition de propriétés de licence|
-| Annuaire principal| Utilisateur| Restauration d’un utilisateur|
-| Annuaire principal| Utilisateur| Suppression d’un membre d’un rôle|
-| Annuaire principal| Utilisateur| Suppression d’une affectation de rôle d’application d’un utilisateur|
-| Annuaire principal| Utilisateur| Suppression d’un membre inclus dans une étendue d’un rôle|
-| Annuaire principal| Groupe| Mise à jour d’un groupe|
-| Annuaire principal| Groupe| Ajout d’un propriétaire à un groupe|
-| Annuaire principal| Groupe| Terminer l’application d’une licence basée sur le groupe à des utilisateurs|
-| Annuaire principal| Groupe| Suppression d’une affectation de rôle d’application d’un groupe|
-| Annuaire principal| Groupe| Définition d’un groupe à gérer par un utilisateur|
-| Annuaire principal| Application| Ajout d’Oauth2Permissiongrant|
-| Annuaire principal| Application| Ajout d’une affectation de rôle d’application d’un principal de service|
-| Annuaire principal| Application| Suppression des informations d’identification d’un principal de service|
-| Annuaire principal| Stratégie| Suppression d’une stratégie d’un principal de service|
-| Annuaire principal| Appareil| Mise à jour d’un appareil|
-| Annuaire principal| Appareil| Ajout d’un appareil|
-| Annuaire principal| Appareil| Ajout d’une configuration d’un appareil|
-| Gestion des mots de passe en libre-service| Utilisateur| Modification d’un mot de passe (libre-service)|
-| Gestion des mots de passe en libre-service| Utilisateur| Utilisateur inscrit pour la réinitialisation du mot de passe en libre-service|
-| Gestion des groupes en libre-service| Groupe| Approbation d’une demande en attente pour rejoindre un groupe|
-| Annuaire principal| Répertoire| Suppression d’un domaine non vérifié|
-| Annuaire principal| Répertoire| Vérification d’un domaine|
-| Annuaire principal| Répertoire| Définition d’une authentification de domaine|
-| Annuaire principal| Répertoire| Définir la stratégie de mot de passe|
-| Annuaire principal| Répertoire| Ajout d’un partenaire à une entreprise|
-| Annuaire principal| Répertoire| Promotion d’une entreprise auprès d’un partenaire|
-| Annuaire principal| Répertoire| Définition d’un partenariat|
-| Annuaire principal| Répertoire| Définition d’un seuil de suppression accidentelle|
-| Annuaire principal| Répertoire| Rétrogradation d’un partenaire|
-| Utilisateurs invités| Utilisateur| Invitation d’un utilisateur externe|
-| Approvisionnement des comptes| Application| Importer|
-| Annuaire principal| Application| Suppression d’un propriétaire d’un principal de service|
-| Annuaire principal| Appareil| Suppression d’utilisateurs enregistrés d’un appareil|
-| Annuaire principal| Répertoire| Définir les informations de l'entreprise|
-| Annuaire principal| Répertoire| Définition de paramètres de fédération d’un domaine|
-| Annuaire principal| Répertoire| Création d’une entreprise|
-| Annuaire principal| Répertoire| Vidage de propriétés Rights Management|
-| Annuaire principal| Répertoire| Définition de la fonctionnalité DirSync|
-| Annuaire principal| Répertoire| Vérification d’un domaine vérifié par courrier électronique|
-| Annuaire principal| Utilisateur| Modification de la licence d’un utilisateur|
-| Annuaire principal| Utilisateur| Modification du mot de passe d’un utilisateur|
-| Annuaire principal| Utilisateur| Réinitialisation du mot de passe d’un utilisateur|
-| Annuaire principal| Utilisateur| Ajout d’une affectation de rôle d’application à un utilisateur|
-| Annuaire principal| Utilisateur| Ajout d’un membre à un rôle|
-| Annuaire principal| Utilisateur| Suppression d’un mot de passe d’application pour un utilisateur|
-| Annuaire principal| Utilisateur| Mise à jour des informations d’identification d’un utilisateur|
-| Annuaire principal| Utilisateur| Définition d’un gestionnaire d’utilisateurs|
-| Annuaire principal| Utilisateur| Ajout d’un membre inclus dans une étendue à un rôle|
-| Annuaire principal| Groupe| Suppression d’un groupe|
-| Annuaire principal| Groupe| Suppression d’un propriétaire d’un groupe|
-| Annuaire principal| Groupe| Mise à jour des paramètres d’un groupe|
-| Annuaire principal| Application| Ajout d’un propriétaire à une application|
-| Annuaire principal| Application| Annulation d’un consentement|
-| Annuaire principal| Stratégie| Ajout d’une stratégie|
-| Annuaire principal| Appareil| Suppression d’un appareil|
-| Gestion des mots de passe en libre-service| Utilisateur| Blocage suite à la réinitialisation du mot de passe en libre-service|
-| Gestion des groupes en libre-service| Groupe| Demande pour rejoindre un groupe|
-| Gestion des groupes en libre-service| Groupe| Création d’une stratégie de gestion du cycle de vie|
-| Gestion des groupes en libre-service| Groupe| Rejet d’une demande en attente pour rejoindre un groupe|
-| Gestion des groupes en libre-service| Groupe| Annulation d’une demande en attente pour rejoindre un groupe|
-| Gestion des groupes en libre-service| Groupe| Renouvellement d’un groupe|
-| Approvisionnement des comptes| Application| Exportation|
-| Approvisionnement des comptes| Application| Autres|
-| Utilisateurs invités| Utilisateur| Utilisation de l’invitation d’un utilisateur externe|
-| Utilisateurs invités| Utilisateur| Création d’un utilisateur viral|
-| Utilisateurs invités| Utilisateur| Affectation d’un utilisateur externe à une application|
-
-
+Vous pouvez obtenir la liste de toutes les activités d’audit à l’aide de l’API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta où $tenantdomain correspond à votre nom de domaine. Vous pouvez également consulter l’article sur les [évènements de rapports d’audit](active-directory-reporting-audit-events.md#list-of-audit-report-events).
 
 
 ## <a name="audit-logs-shortcuts"></a>Raccourcis de journaux d’audit
@@ -274,9 +140,6 @@ En plus d’**Azure Active Directory**, le portail Azure vous offre deux autres 
 
 - Utilisateurs et groupes
 - Applications d’entreprise
-
-Pour obtenir une liste complète des activités de rapport d’audit, consultez la [liste des événements de rapport d’audit](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
 
 ### <a name="users-and-groups-audit-logs"></a>Journaux d’audit des utilisateurs et des groupes
 

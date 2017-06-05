@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 1478a2eedad496d3113fef28920d10859d11b1ce
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: f35f693131bd1f4f47b161afb0a4f38d4f00bbd6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -47,18 +47,20 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 ## <a name="create-a-timer-triggered-function"></a>Créer une fonction déclenchée par un minuteur
 
-1. Développez votre Function App, cliquez sur le bouton **+** à côté de **Fonctions**, puis cliquez sur le modèle **TimerTrigger** pour la langue de votre choix. Ensuite, utilisez les paramètres comme indiqué dans la table, et cliquez sur **Créer** :
+1. Développez votre Function App, cliquez sur le bouton **+** à côté de **Fonctions**, puis cliquez sur le modèle **TimerTrigger** pour la langue de votre choix. Utilisez ensuite les paramètres spécifiés dans le tableau :
 
-| Paramètre | Valeur suggérée | Description |
-|---|---|---|
-| **Nommer votre fonction** | TimerTriggerCSharp1 | Définit le nom de votre fonction déclenchée par minuteur. |
-| **[Planification](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Un champ de six [expressions CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui planifie l’exécution de votre fonction chaque minute. |
+    ![Créez une fonction déclenchée par un minuteur dans le portail Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 
-Une fonction est créée dans le langage que vous avez choisi et s’exécute chaque minute.
+    | Paramètre | Valeur suggérée | Description |
+    |---|---|---|
+    | **Nommer votre fonction** | TimerTriggerCSharp1 | Définit le nom de votre fonction déclenchée par minuteur. |
+    | **[Planification](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Un champ de six [expressions CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui planifie l’exécution de votre fonction chaque minute. |
 
-1. Vérifiez l’exécution en consultant les informations de traçage écrites dans les journaux.
+2. Cliquez sur **Create**. Une fonction est créée dans le langage que vous avez choisi et s’exécute chaque minute.
 
-![Fonctions de visionneuse du journal dans le Portail Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+3. Vérifiez l’exécution en consultant les informations de traçage écrites dans les journaux.
+
+    ![Fonctions de visionneuse du journal dans le Portail Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
 À présent, vous pouvez modifier la planification de la fonction afin qu’elle s’exécute moins souvent, par exemple une fois par heure. 
 

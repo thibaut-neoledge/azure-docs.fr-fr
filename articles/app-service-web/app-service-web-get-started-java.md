@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 1249d7ac42bec02227d47500fe3aabb601a36f88
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="create-your-first-java-web-app-in-azure-in-five-minutes"></a>Créer votre première application web Java dans Azure en 5 minutes
@@ -30,7 +30,7 @@ Ce démarrage rapide vous permet de déployer votre première application web Ja
 
 ![Accéder à l’application web](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Composants requis
 
 Ce didacticiel explique comment utiliser l’Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE pour créer et déployer une application web Java dans Azure. Si Eclipse n’est pas installé, vous pouvez le télécharger gratuitement à l’adresse http://www.eclipse.org/.
 
@@ -143,7 +143,7 @@ Enfin, cliquez sur l’onglet **JDK**. Parmi les options répertoriées, certain
 
 ![Créer un plan App Service](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
 
-Le kit de ressources Azure commencera à créer votre App Service et affichera une boîte de dialogue indiquant la progression de l’opération.
+Le kit de ressources Azure commence à créer votre App Service et affiche une boîte de dialogue indiquant la progression de l’opération.
 
 ![Barre de progression du processus de création de l’App Service](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
@@ -155,7 +155,7 @@ Après avoir exécuté toutes les étapes précédentes, cliquez sur **Déployer
 
 ![Déployer l’application web dans Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
 
-Félicitations ! Vous avez correctement déployé votre application web dans Azure ! Vous pouvez maintenant afficher un aperçu de votre application web sur le site web Azure :
+Félicitations ! Vous avez correctement déployé votre application web dans Azure ! Vous pouvez maintenant avoir un aperçu de votre application web sur le site web Azure :
 
 ![Accéder à l’application web](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

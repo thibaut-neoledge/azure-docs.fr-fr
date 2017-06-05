@@ -16,7 +16,7 @@ Oui. Les NSA suivants sont réservés par Azure pour les homologations internes 
 Vous ne pouvez pas spécifier ces NSA pour vos périphériques VPN locaux lors de la connexion à des passerelles VPN Azure.
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>Puis-je utiliser le même NSA pour les réseaux VPN locaux et les réseaux virtuels Azure ?
-Non. Vous devez attribuer des NSA différents à vos réseaux locaux et vos réseaux virtuels Azure si vous les interconnectez avec le protocole BGP. Le NSA 65515 est attribué aux passerelles VPN Azure par défaut, et ce, que le protocole BGP soit activé ou non pour la connectivité entre sites locaux. Vous pouvez remplacer cette valeur par défaut en attribuant un NSA différent lors de la création de la passerelle VPN, ou modifier le NSA après avoir créé la passerelle. Vous devez affecter vos NSA locaux aux passerelles de réseau local Azure correspondantes.
+Non. Vous devez attribuer des NSA différents à vos réseaux locaux et vos réseaux virtuels Azure si vous les interconnectez avec le protocole BGP. Le NSA 65515 est attribué aux passerelles VPN Azure par défaut, et ce, que le protocole BGP soit activé ou non pour la connectivité entre les sites locaux. Vous pouvez remplacer cette valeur par défaut en attribuant un NSA différent lors de la création de la passerelle VPN, ou modifier le NSA après avoir créé la passerelle. Vous devez affecter vos NSA locaux aux passerelles de réseau local Azure correspondantes.
 
 ### <a name="what-address-prefixes-will-azure-vpn-gateways-advertise-to-me"></a>Quels préfixes d’adresse les passerelles VPN Azure publieront-elles pour moi ?
 La passerelle VPN Azure publiera les itinéraires suivants pour vos périphériques BGP locaux :

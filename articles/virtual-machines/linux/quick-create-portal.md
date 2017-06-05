@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ff4bf9c9e3bfbd0e51cdb91be85dec15db6cd758
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -107,13 +108,13 @@ Un groupe de sécurité réseau (NSG) sécurise les trafics entrant et sortant. 
 6. Cliquez sur **OK**.
 
 
-## <a name="view-the-ngix-welcome-page"></a>Afficher la page d’accueil NGNIX
+## <a name="view-the-nginx-welcome-page"></a>Afficher la page d’accueil NGINX
 
-Avec NGINX installé et le port 80 ouvert pour votre machine virtuelle, le serveur web est désormais accessible à partir d’internet. Ouvrez un navigateur web et saisissez l’adresse IP publique de la machine virtuelle. Cette adresse IP publique se trouve dans le panneau de la machine virtuelle sur le portail Azure.
+Avec NGINX installé et le port 80 ouvert pour votre machine virtuelle, le serveur web est désormais accessible à partir d’internet. Ouvrez un navigateur web et saisissez l’adresse IP publique de la machine virtuelle. L’adresse IP publique se trouve dans le panneau de la machine virtuelle sur le portail Azure.
 
 ![Site par défaut NGINX](./media/quick-create-cli/nginx.png) 
 
-## <a name="delete-virtual-machine"></a>Suppression d'une machine virtuelle
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources à partir du panneau de la machine virtuelle, puis cliquez sur **supprimer**.
 

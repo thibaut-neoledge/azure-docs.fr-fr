@@ -1,5 +1,4 @@
 ---
-
 title: "Rapports d’activité de connexion dans le portail Azure Active Directory | Microsoft Docs"
 description: "Présentation des rapports d’activité de connexion dans le portail Azure Active Directory"
 services: active-directory
@@ -16,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -37,6 +36,17 @@ L’architecture de création de rapports dans Azure Active Directory comprend l
     - **Utilisateurs avec indicateur de risque** : il s’agit d’un compte d’utilisateur susceptible d’être compromis. Pour en savoir plus, consultez Utilisateurs avec indicateur de risque.
 
 Cette rubrique vous donne une vue d’ensemble des activités de connexion.
+
+## <a name="pre-requisite"></a>Conditions préalables
+
+### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
+* Utilisateurs ayant le rôle d’administrateur de sécurité ou de lecteur de la sécurité
+* Administrateurs généraux
+* Tous les utilisateurs (non administrateurs) peuvent accéder à leurs propres connexions 
+
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>De quelle licence Azure AD avez-vous besoin pour accéder à l’activité de connexion ?
+* Votre client doit avoir une licence Azure AD Premium associée pour afficher tous les rapports d’activités de connexion.
+
 
 ## <a name="signs-in-activities"></a>Activités de connexion
 

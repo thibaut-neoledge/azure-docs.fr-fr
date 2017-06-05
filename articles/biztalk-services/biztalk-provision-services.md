@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Créer des services BizTalk Services à l’aide du portail Azure
 
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+
 > [!TIP]
 > Pour vous connecter au portail Azure, vous devez disposer d’un compte Azure et d’un abonnement Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Consultez [Version d'évaluation gratuite d'Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
-> 
-> 
+
 
 ## <a name="create-a-biztalk-service"></a>Création d'un service BizTalk
 Selon l'édition que vous choisissez, tous les paramètres du service BizTalk peuvent ne pas être disponibles.
@@ -65,10 +69,8 @@ Selon l'édition que vous choisissez, tous les paramètres du service BizTalk pe
     </td>
     </tr>
     </table>
-   Sélectionnez la flèche SUIVANT.
-5. Entrez les paramètres de stockage et de base de données :
-   
-    <table border="1">
+Sélectionnez la flèche SUIVANT.
+5. Entrez les paramètres de stockage et de base de données :  <table border="1">
     <tr>
     <td><strong>Compte de stockage de surveillance/archivage</strong></td>
     <td>Sélectionnez un compte de stockage existant ou créez un nouveau compte de stockage. <br/><br/>Si vous créez un compte de stockage, entrez le <strong>Nom du compte de stockage</strong>.</td>
@@ -78,21 +80,19 @@ Selon l'édition que vous choisissez, tous les paramètres du service BizTalk pe
     <td>Si vous utilisez une base de données SQL Azure existante, celle-ci ne peut pas être utilisée par un autre service BizTalk. Vous devez disposer de l'identifiant et du mot de passe entrés lors de la création de ce serveur de base de données SQL Azure.<br/><br/><strong>CONSEIL</strong> : créez la base de données de suivi et le compte de stockage de surveillance/d’archivage dans la même région que le service BizTalk.</td>
     </tr>
     </table>
-   Sélectionnez la flèche SUIVANT.
-6. Entrez les paramètres de base de données :
-   
-    <table border="1">
+Sélectionnez la flèche SUIVANT.
+6. Entrez les paramètres de base de données :  <table border="1">
     <tr>
     <td><strong>Nom</strong></td>
     <td>Disponible lorsque l’option <strong>Créer une instance de base de données SQL</strong> est sélectionnée dans l’écran précédent.
     <br/><br/>
-    Entrez le nom de la base de données SQL que votre service BizTalk doit utiliser.</td>
+Entrez le nom de la base de données SQL que votre service BizTalk doit utiliser.</td>
     </tr>
     <tr>
     <td><strong>Serveur</strong></td>
     <td>Disponible lorsque l’option <strong>Créer une instance de base de données SQL</strong> est sélectionnée dans l’écran précédent.
     <br/><br/>
-    Sélectionnez un serveur de base de données SQL existant ou créez un serveur de base de données SQL.</td>
+Sélectionnez un serveur SQL Database existant ou créez-en un.</td>
     </tr>
     <tr>
     <td><strong>Nom de connexion du serveur</strong></td>
@@ -120,7 +120,7 @@ Selon l'état du service BizTalk, certaines opérations ne peuvent pas être eff
 * [Ajouter un certificat prêt pour la production](#AddCert)
 * [Obtenir l'espace de noms Access Control](#ACS)
 
-#### <a name="a-nameinstallcertainstall-the-certificate-on-a-local-computer"></a><a name="InstallCert"></a>Installer le certificat sur un ordinateur local
+#### <a name="InstallCert"></a>Installer le certificat sur un ordinateur local
 Dans le cadre de l'approvisionnement du service BizTalk, un certificat auto-signé est créé et associé à votre abonnement au service BizTalk. Vous devez télécharger ce certificat et l'installer sur les ordinateurs à partir desquels vous déployez des applications de service BizTalk ou envoyez des messages à un point de terminaison de service BizTalk.
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -130,13 +130,13 @@ Dans le cadre de l'approvisionnement du service BizTalk, un certificat auto-sign
    ![Modifier le certificat SSL][QuickGlance]
 5. Double-cliquez sur le certificat et suivez les étapes de l'Assistant pour installer le certificat. Veillez à installer le certificat dans le magasin **Autorités de certification racines de confiance** .
 
-#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Ajouter un certificat prêt pour la production
+#### <a name="AddCert"></a>Ajouter un certificat prêt pour la production
 Le certificat auto-signé qui est créé automatiquement lors de la création de BizTalk Services est conçu pour être utilisé uniquement dans des environnements de développement. Dans les scénarios de production, remplacez-le par un certificat prêt pour la production.
 
 1. Sous l’onglet **Tableau de bord**, sélectionnez **Mettre à jour le certificat SSL**.
 2. Accédez à votre certificat SSL privé (*NomCertificat*.pfx) qui inclut le nom de votre service BizTalk, puis entrez le mot de passe et cliquez sur la coche.
 
-#### <a name="a-nameacsaget-the-access-control-namespace"></a><a name="ACS"></a>Obtenir l'espace de noms Access Control
+#### <a name="ACS"></a>Obtenir l'espace de noms Access Control
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Cliquez sur **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre service BizTalk.
 3. Dans la barre des tâches, sélectionnez **Informations de connexion** :  
@@ -171,7 +171,7 @@ Ces exigences ne s’appliquent pas à l’édition gratuite.
 <td>Abonnement Azure</td>
 <td>L’abonnement détermine qui peut se connecter au portail Azure. Le titulaire du compte crée l’abonnement dans <a HREF="https://account.windowsazure.com/Subscriptions"> Abonnements Azure</a>.
 <br/><br/>
-Le compte Azure peut avoir plusieurs abonnements et peut être géré par toute personne y étant autorisée. Par exemple, le titulaire de votre compte Azure crée un abonnement appelé <em>AbonnementBizTalkService</em> et donne aux administrateurs BizTalk de votre société (par exemple, ContosoBTSAdmins@live.com)) un accès à cet abonnement. Dans ce scénario, les administrateurs BizTalk se connectent au portail Azure et disposent des droits d’administrateur complets pour tous les services hébergés dans l’abonnement, y compris Azure BizTalk Services. Comme ils ne sont pas les titulaires du compte Azure, ils n'ont aucun accès aux informations de facturation.
+Le compte Azure peut avoir plusieurs abonnements et peut être géré par toute personne y étant autorisée. Par exemple, le titulaire de votre compte Azure crée un abonnement appelé <em>BizTalkServiceSubscription</em> et donne aux administrateurs BizTalk de votre société (par exemple, ContosoBTSAdmins@live.com) un accès à cet abonnement. Dans ce scénario, les administrateurs BizTalk se connectent au portail Azure et disposent des droits d’administrateur complets pour tous les services hébergés dans l’abonnement, y compris Azure BizTalk Services. Comme ils ne sont pas les titulaires du compte Azure, ils n'ont aucun accès aux informations de facturation.
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> L’article relatif à la gestion des abonnements et des comptes de stockage dans le portail Azure</a> fournit des informations complémentaires.
 </td>
@@ -271,9 +271,4 @@ Après avoir créé un service BizTalk, passez en revue les différents [onglets
 [QuickGlance]: ./media/biztalk-provision-services/WABS_QuickGlance.png
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

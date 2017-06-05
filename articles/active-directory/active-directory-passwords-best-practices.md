@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 05/25/2017
 ms.author: joflore
+ms.editor: gahug
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 6cc1589f2ebad9267334f70926be369b32c8e075
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 5bd17fc68447b8387dfaad33fe2d0055596ec086
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -41,7 +43,7 @@ De nombreux clients exécutent les étapes qui suivent pour garantir un lancemen
 
 ## <a name="email-based-rollout"></a>Déploiement par courrier électronique
 
-De nombreux clients estiment qu’une campagne par courrier électronique, accompagnée d’instructions simples d’utilisation, constitue le moyen le plus simple pour que les utilisateurs aient recours à la réinitialisation du mot de passe libre-service. Nous avons créé trois courriers électroniques simples que vous pouvez utiliser comme modèles pour vous aider dans votre lancement.
+De nombreux clients estiment qu’une campagne par courrier électronique, accompagnée d’instructions simples d’utilisation, constitue le moyen le plus simple pour que les utilisateurs aient recours à la réinitialisation du mot de passe libre-service. [Nous avons créé trois courriers électroniques simples que vous pouvez utiliser comme modèles pour vous aider dans votre lancement.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
 * **Bientôt disponible** : modèle de courrier électronique à utiliser dans les semaines ou les jours précédant le lancement pour informer les utilisateurs s’ils ont besoin d’effectuer une action.
 * **Disponible dès maintenant** : modèle de courrier électronique à utiliser le jour du lancement pour inciter les utilisateurs à s’inscrire et à confirmer leurs données d’authentification afin de pouvoir utiliser la réinitialisation du mot de passe libre-service lorsqu’ils en auront besoin.
