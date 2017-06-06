@@ -2,6 +2,6 @@
 
 Pour nettoyer vos ressources, exécutez la commande suivante :
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```

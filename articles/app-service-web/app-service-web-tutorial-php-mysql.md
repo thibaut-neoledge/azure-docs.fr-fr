@@ -50,6 +50,8 @@ Avant d’exécuter cet exemple, tenez compte des conditions préalables suivant
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ## <a name="prepare-local-mysql"></a>Préparation du MySQL local
 
 Dans cette étape, vous allez créer une base de données dans votre serveur MySQL local qui vous sera utile dans ce didacticiel.
@@ -156,7 +158,7 @@ Dans cette étape, vous allez créer une base de données MySQL dans [Azure Data
 
 Vous allez maintenant utiliser Azure CLI 2.0 dans une fenêtre de terminal pour créer les ressources nécessaires pour héberger votre application PHP dans Azure App Service. Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran. 
 
-```azurecli 
+```azurecli-interactive 
 az login 
 ``` 
 
@@ -166,7 +168,7 @@ Créez un [groupe de ressources](../azure-resource-manager/resource-group-overvi
 
 L’exemple suivant crée un groupe de ressources nommé dans la région Europe du Nord :
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location "North Europe"
 ```
 
@@ -178,7 +180,7 @@ Créez un serveur Azure Database pour MySQL (version préliminaire) avec la comm
 
 Dans la commande suivante, indiquez le nom unique de votre propre serveur MySQL là où se trouve l’espace réservé _&lt;mysql_server_name>_. Ce nom fait partie du nom d’hôte de votre serveur MySQL, `<mysql_server_name>.database.windows.net`, et doit donc être globalement unique. De même, remplacez _&lt;admin_user>_ et _&lt;admin_password>_ par vos propres valeurs.
 
-```azurecli
+```azurecli-interactive
 az mysql server create \
     --name <mysql_server_name> \
     --resource-group myResourceGroup \
@@ -206,7 +208,7 @@ Lorsque le serveur MySQL est créé, l’interface Azure CLI affiche des inform
 
 Créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create). 
 
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create \
     --name allIPs \
     --server <mysql_server_name> \
@@ -332,7 +334,7 @@ Créez un plan App Service avec la commande [az appservice plan create](/cli/az
 
 L’exemple suivant crée un plan App Service nommé _myAppServicePlan_ en indiquant le niveau tarifaire **Gratuit** :
 
-```azurecli
+```azurecli-interactive
 az appservice plan create \
     --name myAppServicePlan \
     --resource-group myResourceGroup \
@@ -363,7 +365,7 @@ Maintenant qu’un plan App Service est créé, générez une application web 
 
 Dans la commande suivante, remplacez l’espace réservé _&lt;appname>_ par le nom unique de votre propre application. Ce nom unique est utilisé dans le nom de domaine par défaut de l’application web. Pour cette raison, ce nom doit être unique sur l’ensemble des applications dans Azure. Vous pouvez ultérieurement mapper toute entrée DNS personnalisée vers l’application web avant de l’exposer à vos utilisateurs. 
 
-```azurecli
+```azurecli-interactive
 az appservice web create \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -393,7 +395,7 @@ Définissez la version PHP requise par votre application en utilisant la command
 
 La commande suivante définit la version PHP sur _7.0_.
 
-```azurecli
+```azurecli-interactive
 az appservice web config update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -408,7 +410,7 @@ Dans App Service, vous définissez les variables d’environnement en tant que _
 
 La commande suivante vous permet de configurer les paramètres d’application `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` et `DB_PASSWORD`. Remplacez les espaces réservés _&lt;appname>_, _&lt;mysql_server_name>_, _&lt;phpapp_user>_ et _&lt;phpapp_password>_.
 
-```azurecli
+```azurecli-interactive
 az appservice web config appsettings update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -440,7 +442,7 @@ php artisan key:generate --show
 
 Définissez la clé d’application dans votre application web App Service en utilisant la commande [az appservice web config appsettings update](/cli/azure/appservice/web/config/appsettings#update). Remplacez les espaces réservés _&lt;appname>_ et _&lt;outputofphpartisankey:generate>_.
 
-```azurecli
+```azurecli-interactive
 az appservice web config appsettings update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -483,13 +485,13 @@ Pour les sites FTP et Git locaux, il est nécessaire de disposer d’un utilisa
 
 Si vous avez déjà créé un nom d’utilisateur et un mot de passe de déploiement, vous pouvez utiliser la commande suivante pour afficher le nom d’utilisateur :
 
-```azurecli
+```azurecli-interactive
 az appservice web deployment user show
 ```
 
 Si vous ne disposez pas déjà d’un utilisateur de déploiement, exécutez la commande [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) pour créer vos informations d’identification de déploiement. 
 
-```azurecli
+```azurecli-interactive
 az appservice web deployment user set \
     --user-name <username> \
     --password <minimum-8-char-capital-lowercase-number>
@@ -507,7 +509,7 @@ Vous pouvez déployer votre application dans Azure App Service de plusieurs faç
 
 Utilisez la commande [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) pour configurer l’accès Git local à l’application web Azure. 
 
-```azurecli
+```azurecli-interactive
 az appservice web source-control config-local-git \
     --name <app_name> \
     --resource-group myResourceGroup
@@ -718,7 +720,7 @@ Pendant l’exécution de votre application PHP dans Azure App Service, vous pou
 
 Pour démarrer la diffusion en continu de journaux, utilisez la commande [az appservice web log tail](/cli/azure/appservice/web/log#tail).
 
-```azurecli 
+```azurecli-interactive 
 az appservice web log tail \
     --name <app_name> \
     --resource-group myResourceGroup 
@@ -763,7 +765,7 @@ Ces onglets affichent les nombreuses fonctionnalités exceptionnelles que vous p
  
 Si vous n’avez pas besoin de ces ressources pour un autre didacticiel (voir [Étapes suivantes](#next)), vous pouvez les supprimer en exécutant la commande suivante : 
   
-```azurecli 
+```azurecli-interactive
 az group delete --name myResourceGroup 
 ``` 
 
