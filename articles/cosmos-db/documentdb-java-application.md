@@ -744,7 +744,7 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 3. Dans Eclipse, dans le menu **File** (Fichier), cliquez sur **Import** (Importer).
 4. Dans la fenêtre **Import** (Importer), cliquez sur **Git**, sur **Projects from Git** (Projets provenant de Git), puis sur **Next** (Suivant).
 5. Dans l’écran **Select Repository Source** (Sélectionner une source de référentiel), cliquez sur **Clone URI** (URI du clone).
-6. Dans l’écran **Source Git Repository** (Référentiel du Git source), dans la zone **URI**, tapez https://github.com/Azure-Samples/java-todo-app.git, puis cliquez sur **Suivant**.
+6. Dans l’écran **Source Git Repository** (Dépôt Git source), dans la zone **URI**, tapez https://github.com/Azure-Samples/java-todo-app.git, puis cliquez sur **Suivant**.
 7. Dans l’écran **Branch Selection** (Sélection d’une branche), vérifiez que **master** (principal) est sélectionné, puis cliquez sur **Next** (Suivant).
 8. Dans l’écran **Local Destination** (Destination locale), cliquez sur **Browse** (Parcourir) pour sélectionner un dossier dans lequel copier le référentiel, puis cliquez sur **Next** (Suivant).
 9. Dans l’écran **Select a wizard to use for importing projects** (Sélectionner un Assistant à utiliser pour l’importation de projets), vérifiez que **Import existing projects** (Importer des projets existants) est sélectionné, puis cliquez sur **Next** (Suivant).
