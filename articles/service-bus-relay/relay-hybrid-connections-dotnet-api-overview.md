@@ -3,7 +3,7 @@ title: "Vue d’ensemble des API .NET standard Azure Relay | Microsoft Docs"
 description: "Vue d’ensemble des API .NET standard Relay"
 services: service-bus-relay
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: b1da9ac1-811b-4df7-a22c-ccd013405c40
@@ -13,11 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
-ms.author: jotaub
-translationtype: Human Translation
+ms.author: sethm
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: d1756dee37771941caae781682b342986c7ecbc9
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/27/2017
+
 
 ---
 

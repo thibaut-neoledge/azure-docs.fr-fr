@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 06/05/2017
 ms.author: pratshar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b1a5b2879a7b98ec4ad3e8ebbc9e95c0740d89f
 ms.openlocfilehash: 3aaa005319b1ce2a10cd913c63b31860d31b797e
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/23/2017
 
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 02/23/2017
 > * [Test de basculement (VMM à VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
 
 
-Cet article fournit des informations et des instructions relatives à l’exécution d’un test de basculement ou d’un test de récupération d’urgence de machines virtuelles et de serveurs physiques protégés par Site Recovery en utilisant un site local géré par VMM comme site de récupération. 
+Cet article fournit des informations et des instructions relatives à l’exécution d’un test de basculement ou d’un test de récupération d’urgence de machines virtuelles et de serveurs physiques protégés par Site Recovery en utilisant un site local géré par VMM comme site de récupération.
 
 Publier des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -49,7 +50,7 @@ Le test de basculement permet de valider votre stratégie de réplication ou d�
 Si les machines virtuelles impliquées dans le test de basculement utilisent le protocole DHCP, un serveur DHCP de test doit être créé dans le réseau isolé est créé pour les besoins du test de basculement.
 
 ### <a name="prepare-active-directory"></a>Préparation du système Active Directory
-Pour exécuter un test de basculement afin de tester des applications, vous devez créer une copie de l’environnement Active Directory de production dans votre environnement de test. Consultez la rubrique [Considérations en matière de test de basculement](site-recovery-active-directory.md#test-failover-considerations) pour plus de détails. 
+Pour exécuter un test de basculement afin de tester des applications, vous devez créer une copie de l’environnement Active Directory de production dans votre environnement de test. Consultez la rubrique [Considérations en matière de test de basculement](site-recovery-active-directory.md#test-failover-considerations) pour plus de détails.
 
 ### <a name="prepare-dns"></a>Préparer le service DNS
 Préparer un serveur DNS pour le test de basculement en procédant comme suit :
@@ -76,9 +77,9 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
 
 1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Type de basculement** > **Test Type de basculement**.
 1. Dans le panneau **Test de basculement**, indiquez le mode à utiliser pour la connexion des machines virtuelles aux réseaux après le test de basculement. Pour plus d’informations, consultez les [options réseau](#network-options-in-site-recovery).
-1. Effectuez un suivi de l’opération sur l’onglet **Tâches** . 
+1. Effectuez un suivi de l’opération sur l’onglet **Tâches** .
 1. Une fois l’opération terminée, vérifiez que les machines virtuelles démarrent correctement.
-1. Une fois que vous avez terminé, cliquez sur **Nettoyer le test de basculement de nettoyage** sur le plan de récupération. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations associées au test de basculement. Cette opération supprimera les machines et les réseaux virtuels qui ont été créés au cours du test de basculement. 
+1. Une fois que vous avez terminé, cliquez sur **Nettoyer le test de basculement de nettoyage** sur le plan de récupération. Cliquez sur **Notes** pour consigner et enregistrer d’éventuelles observations associées au test de basculement. Cette opération supprimera les machines et les réseaux virtuels qui ont été créés au cours du test de basculement.
 
 
 ## <a name="network-options-in-site-recovery"></a>Options réseau de Site Recovery
@@ -97,10 +98,10 @@ Lorsque vous exécutez un test de basculement, vous êtes invité à sélectionn
 >
 
 
-## <a name="test-failover-to-a-production-network-on-recovery-site"></a>Test de basculement vers un réseau de production sur le site de récupération 
+## <a name="test-failover-to-a-production-network-on-recovery-site"></a>Test de basculement vers un réseau de production sur le site de récupération
 Lorsque vous effectuez un test de basculement, nous vous conseillons de choisir un réseau différent de celui du site de récupération de production que vous avez indiqué dans **Mappage réseau**. Cependant, si vous voulez vraiment valider la connectivité réseau de bout en bout dans une machine virtuelle basculée, tenez compte des points suivants :
 
-1. Assurez-vous que la machine virtuelle principale est arrêtée lorsque vous effectuez le test de basculement. Si ce n’est pas le cas, deux machines virtuelles avec la même identité seront exécutées simultanément dans le même réseau, ce qui peut avoir des conséquences indésirables. 
+1. Assurez-vous que la machine virtuelle principale est arrêtée lorsque vous effectuez le test de basculement. Si ce n’est pas le cas, deux machines virtuelles avec la même identité seront exécutées simultanément dans le même réseau, ce qui peut avoir des conséquences indésirables.
 1. Les modifications apportées aux machines virtuelles du test de basculement seront perdues au moment du nettoyage de ces dernières. Ces modifications ne seront pas répliquées vers la machine virtuelle principale.
 1. Cette manière d’effectuer faire le test entraîne un temps d’arrêt de votre application de production. Les utilisateurs de l’application doivent être invités à ne pas utiliser l’application au cours du test de récupération d’urgence.  
 
