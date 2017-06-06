@@ -14,15 +14,14 @@ Procédez comme suit pour télécharger la mise à jour logicielle à partir du 
     La liste des correctifs s’affiche, par exemple **Ensemble de logiciels Update 4.0 pour StorSimple série 8000**.
    
     ![Rechercher dans le catalogue](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
-4. Cliquez sur **Add**. La mise à jour est ajoutée au panier.
-5. Recherchez les correctifs supplémentaires répertoriés dans le tableau ci-dessus (**4011841**) et ajoutez-les au panier.
-6. Cliquez sur **Afficher le panier**.
-7. Cliquez sur **Télécharger**. Spécifiez ou **recherchez** l’emplacement local où vous voulez effectuer les téléchargements. Les mises à jour sont téléchargées à l’emplacement spécifié et placées dans un sous-dossier portant le même nom que la mise à jour. Ce dossier peut également être copié sur un partage réseau accessible à partir de l’appareil.
+
+4. Cliquez sur **Télécharger**. Spécifiez ou **recherchez** l'emplacement local où vous voulez effectuer les téléchargements. Cliquez sur les fichiers à télécharger vers l’emplacement et le dossier spécifiés. Ce dossier peut également être copié sur un partage réseau accessible à partir de l’appareil.
+5. Recherchez les correctifs logiciels supplémentaires répertoriés dans le tableau ci-dessus (**4011841**) et téléchargez les fichiers correspondants vers les dossiers spécifiques répertoriés dans le tableau précédent.
 
 > [!NOTE]
-> Les correctifs doivent être accessibles à partir des deux contrôleurs pour détecter les messages d’erreur potentiels émis par le contrôleur homologue.
+> Les correctifs doivent être accessibles depuis les deux contrôleurs pour détecter les messages d’erreur potentiels à partir du contrôleur homologue.
 >
-> Les correctifs doivent être copiés dans trois dossiers séparés. Par exemple, la mise à jour du logiciel de l’appareil peut être copiée dans le dossier _FirstOrderUpdate_, toutes les autres mises à jour non perturbatrices dans le dossier _SecondOrderUpdate_ et les mises à jour du mode maintenance dans le dossier _ThirdOrderUpdate_.
+> Les correctifs doivent être copiés dans trois dossiers séparés. Par exemple, la mise à jour de l’agent MDS/Cis/du logiciel de l’appareil peut être copiée dans le dossier _FirstOrderUpdate_, tandis que toutes les autres mises à jour non perturbatrices peuvent être copiées dans le dossier _SecondOrderUpdate_ et les mises à jour du mode maintenance dans le dossier _ThirdOrderUpdate_.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Pour installer et vérifier les correctifs logiciels en mode Normal
 
@@ -79,10 +78,10 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
     Controller1Events   :
     ```
 
-    > [!NOTE] 
+    > [!NOTE]
     > Parfois, l'applet de commande indique `False` lorsque la mise à jour est encore en cours d'exécution. Pour vous assurer que le correctif logiciel est terminé, patientez quelques minutes, exécutez à nouveau cette commande et vérifiez que `RunInProgress` est `False`. Dans ce cas, le correctif est terminé.
 
-1. Lorsque la mise à jour logicielle est terminée, vérifiez les versions des logiciels du système. Entrez :
+6. Lorsque la mise à jour logicielle est terminée, vérifiez les versions des logiciels du système. Entrez :
    
     `Get-HcsSystem`
    
@@ -94,9 +93,12 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
     Si le numéro de version ne change pas après la mise à jour, cela indique que le correctif n’a pas pu s’appliquer. Dans ce cas, contactez le [Support Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) pour obtenir une assistance supplémentaire.
      
     > [!IMPORTANT]
-    > Vous devez redémarrer le contrôleur actif via l’applet de commande `Restart-HcsController` avant d’appliquer les autres mises à jour.
+    > Vous devez redémarrer le contrôleur actif via la cmdlet `Restart-HcsController` avant d’appliquer la prochaine mise à jour.
      
-7. Répétez les étapes 3 à 5 pour installer les mises à jour de deuxième priorité. **Pour les mises à jour de la deuxième commande, il est possible d’installer plusieurs mises à jour en exécutant simplement `Start-HcsHotfix cmdlet` et en désignant le dossier où se trouvent les mises à jour de deuxième priorité. L’applet de commande exécute alors toutes les mises à jour disponibles dans le dossier.** La logique de mise à jour détecte les éventuelles mises à jour déjà installées et ne les applique pas. Une fois tous les correctifs installés, utilisez l’applet de commande `Get-HcsSystem`. Les versions doivent être les suivantes :
+7. Répétez les étapes 3 à 5 pour installer l’agent MDS/Cis téléchargé vers votre dossier _FirstOrderUpdate_. 
+8. Répétez les étapes 3 à 5 pour installer les mises à jour de deuxième priorité. **Pour les mises à jour de la deuxième commande, il est possible d’installer plusieurs mises à jour en exécutant simplement `Start-HcsHotfix cmdlet` et en désignant le dossier où se trouvent les mises à jour de deuxième priorité. L’applet de commande exécute alors toutes les mises à jour disponibles dans le dossier.** La logique de mise à jour détecte les éventuelles mises à jour déjà installées et ne les applique pas. 
+
+Une fois tous les correctifs installés, utilisez l’applet de commande `Get-HcsSystem`. Les versions doivent être les suivantes :
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`

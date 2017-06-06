@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 06/05/2017
 ms.author: pratshar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
@@ -59,7 +59,7 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
 
 
 > [!TIP]
-> Site Recovery tente de créer les machines virtuelles de test dans un sous-réseau du même nom et à l’aide de la même adresse IP que dans les paramètres **Calcul et réseau** de la machine virtuelle. Si le réseau virtuel Azure indiqué pour le test de basculement ne contient pas de sous-réseau du même nom, la machine virtuelle de test est créée dans le premier sous-réseau dans l’ordre alphabétique. Si l’adresse IP cible fait partie du sous-réseau choisi, la récupération de site tente alors de créer la machine virtuelle de test de basculement à l’aide de l’adresse IP cible. Si l’adresse IP cible ne fait pas partie du sous-réseau choisi, la machine virtuelle de test de basculement est créée à l’aide de toute adresse IP disponible dans le sous-réseau sélectionné. 
+> Site Recovery tente de créer les machines virtuelles de test dans un sous-réseau du même nom et à l’aide de la même adresse IP que dans les paramètres **Calcul et réseau** de la machine virtuelle. Si le réseau virtuel Azure indiqué pour le test de basculement ne contient pas de sous-réseau du même nom, la machine virtuelle de test est créée dans le premier sous-réseau dans l’ordre alphabétique. Si l’adresse IP cible fait partie du sous-réseau choisi, la récupération de site tente alors de créer la machine virtuelle de test de basculement à l’aide de l’adresse IP cible. Si l’adresse IP cible ne fait pas partie du sous-réseau choisi, la machine virtuelle de test de basculement est créée à l’aide de toute adresse IP disponible dans le sous-réseau sélectionné.
 >
 >
 

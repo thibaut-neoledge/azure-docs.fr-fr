@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 77ebe20940bce0e21caa60567e1ccffaba7351b3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -80,4 +81,6 @@ Vous pouvez migrer des instances AWS vers des machines virtuelles Azure. Dans ce
 - [Migrate Hyper-V VMs without VMM to Azure (Migrer des machines virtuelles Hyper-V sans VMM vers Azure)](site-recovery-hyper-v-site-to-azure.md)
 - [Migrate Azure VMs between Azure regions (Migrer des machines virtuelles Azure entre des régions Azure)](site-recovery-migrate-azure-to-azure.md)
 - [Migrate AWS instances to Azure (Migrer des instances AWS vers Azure)](site-recovery-migrate-aws-to-azure.md)
+- [Replicate Azure VMs to another region after migration to Azure using Azure Site Recovery](site-recovery-azure-to-azure-after-migration.md) (Répliquer des machines virtuelles Azure vers une autre région après la migration vers Azure à l’aide d’Azure Site Recovery).
+- Commencez à protéger vos charges de travail en [répliquant des machines virtuelles Azure.](site-recovery-azure-to-azure.md)
 

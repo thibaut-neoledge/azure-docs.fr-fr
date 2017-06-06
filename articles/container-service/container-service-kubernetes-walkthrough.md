@@ -18,10 +18,10 @@ ms.date: 05/08/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2ec155129374c03ba7e0ecaa5d2bf29a1d3111aa
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 0604a85192ed632b621113b98cc44172c584ea01
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -78,7 +78,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 Après quelques minutes, la commande termine son exécution. Vous devez alors disposer d’un cluster Kubernetes opérationnel.
 
 > [!IMPORTANT]
-> Si votre compte ne dispose pas des autorisations pour créer le principal de service Azure AD, la commande génère une erreur similaire à `Insufficient privileges to complete the operation.`. Pour plus d’informations, consultez [À propos du principal de service d’un cluster Kubernetes](container-service-kubernetes-service-principal.md).
+> Si votre compte ne dispose pas des autorisations pour créer un principal de service Azure AD, la commande génère une erreur semblable à **Privilèges insuffisants pour effectuer l’opération**. Pour en savoir plus, consultez [À propos du principal du service pour un cluster Kubernetes](container-service-kubernetes-service-principal.md) (en anglais).
 > 
 
 

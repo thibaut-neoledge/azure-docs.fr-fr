@@ -12,7 +12,7 @@
 
 ## Créer un modèle
 ### [En savoir plus sur les modèles de groupes identiques](virtual-machine-scale-sets-mvss-start.md)
-### [Ajouter un réseau virtuel](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Utiliser un réseau virtuel existant](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [Utiliser une image personnalisée](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Déployer

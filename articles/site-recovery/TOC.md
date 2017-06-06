@@ -72,9 +72,10 @@
 ### [Gérer des serveurs de processus de montée en puissance parallèle](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Gérer des serveurs vCenter](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Supprimer des serveurs et désactiver la protection](site-recovery-manage-registration-and-protection.md)
-## Surveiller et résoudre des problèmes
+## Résolution des problèmes
+### [Collecter les journaux](site-recovery-monitoring-and-troubleshooting.md)
 ### [Problèmes de réplication de machines virtuelles Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
-### [Problèmes de réplication d’un site local vers Azure](site-recovery-monitoring-and-troubleshooting.md)
+### [Problèmes de réplication d’un site local vers Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 
 # Référence
 ## [PowerShell](/powershell/module/azurerm.siterecovery)

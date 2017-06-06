@@ -14,23 +14,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 4674985363bc1267449e018ab15a53757a8fd32d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 3d2b3509666633df4f6f6f0c385af3667f4bcf3e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="how-does-azure-site-recovery-work"></a>Comment Azure Site Recovery fonctionne-t-il ?
 
-Cet article décrit l’architecture sous-jacente du service [Azure Site Recovery](site-recovery-overview.md) et les composants qui le font fonctionner.
+# <a name="how-does-azure-site-recovery-work-for-on-premises-infrastructure"></a>Comment Azure Site Recovery fonctionne-t-il pour l’infrastructure locale ?
+
+> [!div class="op_single_selector"]
+> * [Répliquer des machines virtuelles Azure](site-recovery-azure-to-azure-architecture.md)
+> * [Répliquer des machines locales](site-recovery-components.md)
+
+Cet article décrit l’architecture sous-jacente du service [Azure Site Recovery](site-recovery-overview.md) et les composants qui le font fonctionner pour répliquer les charges de travail de l’environnement local vers Azure.
 
 Publiez des commentaires au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="replicate-to-azure"></a>Réplication vers Microsoft Azure
 
-Vous pouvez répliquer les éléments suivants dans Azure :
+Vous pouvez répliquer et protéger les opérations suivantes sur l’infrastructure locale vers Azure :
 
 - **VMware**: Machines virtuelles VMware locales s’exécutant sur un [hôte pris en charge](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). Vous pouvez répliquer des machines virtuelles VMware exécutant les [systèmes d’exploitation pris en charge](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 - **Hyper-V**: machines virtuelles Hyper-V locales s’exécutant sur des [hôtes pris en charge](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
@@ -42,12 +48,11 @@ Voici ce dont vous avez besoin pour la réplication des machines virtuelles VMwa
 
 Domaine | Composant | Détails
 --- | --- | ---
-**Microsoft Azure** | Dans Azure, vous avez besoin d’un Compte Azure, d’un compte de stockage Azure et d’un Réseau Azure. | Le stockage et le réseau peuvent être des comptes Resource Manager ou Classic.<br/><br/>  Les données répliquées sont stockées dans le compte de stockage, et les machines virtuelles Azure sont créées avec les données répliquées lors du basculement à partir de votre site local. Les machines virtuelles Azure se connectent au réseau virtuel Azure lors de leur création.
 **Serveur de configuration** | Un seul serveur d’administration (Machine virtuelle VMware) exécute tous les composants locaux - serveur de configuration, serveur de traitement, serveur cible maître | Le serveur de configuration coordonne la communication entre les ordinateurs locaux et Azure.et gère la réplication des données.
  **Serveur de traitement**:  | Installé par défaut sur le serveur de configuration. | Fait office de passerelle de réplication. Reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure.<br/><br/> Le serveur de traitement gère également l’installation Push du service Mobilité sur des machines protégées et assure la détection automatique des machines virtuelles VMware.<br/><br/> À mesure que s’étend votre déploiement, vous pouvez ajouter des serveurs de traitement dédiés supplémentaires afin de gérer de plus grands volumes de trafic de réplication.
  **Serveur cible maître** | Installé par défaut sur le serveur de configuration local. | Gère les données de réplication pendant la restauration automatique à partir d’Azure.<br/><br/> Si les volumes de trafic de restauration automatique sont importants, vous pouvez déployer un serveur cible maître distinct pour la restauration.
-**Serveurs VMware** | Les machines virtuelles VMware sont hébergées sur des serveurs vSphere ESXi et nous vous recommandons d’utiliser un serveur vCenter pour gérer les ordinateurs hôtes. | Vous ajoutez des serveurs VMware à votre coffre Recovery Services.<br/><br/> I
-**Machines répliquées** | Le service Mobilité sera installé sur chaque machine virtuelle VMware que vous souhaitez répliquer. Il peut être installé manuellement sur chaque ordinateur ou avec une installation push à partir du serveur de traitement.
+**Serveurs VMware** | Les machines virtuelles VMware sont hébergées sur des serveurs vSphere ESXi et nous vous recommandons d’utiliser un serveur vCenter pour gérer les ordinateurs hôtes. | Vous ajoutez des serveurs VMware à votre coffre Recovery Services.<br/><br/>
+**Machines répliquées** | Le service Mobilité sera installé sur chaque machine virtuelle VMware que vous souhaitez répliquer. Il peut être installé manuellement sur chaque ordinateur ou avec une installation push à partir du serveur de traitement.| -
 
 **Figure 1 : composants VMware vers Azure**
 
@@ -76,14 +81,6 @@ Domaine | Composant | Détails
 3. Lorsque vous effectuez un basculement, les machines virtuelles répliquées sont créées dans Azure. Vous validez un basculement pour accéder à la charge de travail à partir de la machine virtuelle Azure répliquée.
 4. Lorsque votre site local principal est à nouveau disponible, vous pouvez lancer la restauration automatique. Vous configurez une infrastructure de restauration automatique, lancez la réplication de la machine à partir du site secondaire vers le site principal et effectuez un basculement non planifié à partir du site secondaire. Une fois ce basculement validé, les données sont à nouveau disponibles en local et vous devez relancer la réplication sur Azure. [En savoir plus](site-recovery-failback-azure-to-vmware.md)
 
-La restauration automatique doit répondre à plusieurs conditions requises :
-
-
-- **Serveur de traitement temporaire dans Azure**: si vous souhaitez effectuer une restauration automatique à partir d’Azure après le basculement, vous devez définir une machine virtuelle Azure configurée comme serveur de traitement pour gérer la réplication à partir d’Azure. Vous pourrez supprimer cette machine virtuelle une fois la restauration terminée.
-- **Connexion VPN**: pour une restauration automatique, vous devrez disposer d’une connexion VPN (ou d’Azure ExpressRoute) configurée à partir du réseau Azure sur le site local.
-- **Serveur cible maître local distinct** : le serveur cible maître local gère la restauration automatique. Le serveur cible maître est installé par défaut sur le serveur d’administration. Toutefois, si vous restaurez automatiquement de plus grands volumes de trafic vous devez définir un serveur cible maître local à cet effet.
-- **Stratégie de restauration automatique** : pour répliquer vers votre site local, vous avez besoin d’une stratégie de restauration automatique. Celle-ci est automatiquement créée lors de la création de votre stratégie de réplication.
-
 **Figure 3 : restauration automatique VMware/physique**
 
 ![Restauration automatique](./media/site-recovery-components/enhanced-failback.png)
@@ -96,16 +93,6 @@ Lorsque vous répliquez des serveurs locaux physiques vers Azure, la réplicatio
 - Il vous faudra une infrastructure VMware locale pour la restauration. Il est impossible d’effectuer une restauration sur un serveur physique.
 
 ## <a name="hyper-v-to-azure"></a>Hyper-V vers Azure
-
-Voici ce dont vous avez besoin pour la réplication des machines virtuelles Hyper-V vers Azure.
-
-**Zone** | **Composant** | **Détails**
---- | --- | ---
-**Microsoft Azure** | Dans Azure, vous avez besoin d’un compte Microsoft Azure, d’un compte de stockage Azure et d’un réseau Azure. | Le stockage et le réseau peuvent être des comptes Resource Manager ou Classic.<br/><br/> Les données répliquées sont stockées dans le compte de stockage, et les machines virtuelles Azure sont créées avec les données répliquées lors du basculement à partir de votre site local.<br/><br/> Les machines virtuelles Azure se connectent au réseau virtuel Azure lors de leur création.
-**Serveur VMM** | Hôtes Hyper-V situés dans des clouds VMM | Si les hôtes Hyper-V sont gérés dans des clouds VMM, vous inscrivez le serveur VMM dans le coffre Recovery Services.<br/><br/> Sur le serveur VMM, vous installez le fournisseur Site Recovery pour orchestrer la réplication avec Azure.<br/><br/> Vous avez besoin d’un réseau logique et d’un réseau de machines virtuelles pour configurer le mappage réseau. Un réseau de machines virtuelles doit être lié à un réseau logique lui-même associé au cloud.
-**Hôte Hyper-V** | Les serveurs Hyper-V peuvent être déployés avec ou sans serveur VMM. | S’il n’existe aucun serveur VMM, le fournisseur Site Recovery est installé sur l’hôte pour orchestrer la réplication avec Site Recovery via Internet. S’il existe un serveur VMM, le fournisseur est installé sur ce dernier et non sur l’hôte.<br/><br/> L’agent Recovery Services est installé sur l’hôte pour gérer la réplication des données.<br/><br/> Les communications en provenance du fournisseur et de l’agent sont sécurisées et chiffrées. Les données répliquées dans le stockage Azure sont également chiffrées.
-**Machines virtuelles Hyper-V** | Vous devez avoir une ou plusieurs machines virtuelles sur le serveur hôte Hyper-V. | Rien ne doit être installé de manière explicite sur des machines virtuelles
-
 
 ### <a name="replication-process"></a>Processus de réplication
 
@@ -152,7 +139,6 @@ Vous répliquez les machines virtuelles ou les serveurs physiques VMware vers un
 
 **Zone** | **Composant** | **Détails**
 --- | --- | ---
-**Microsoft Azure** | InMage Scout. | Pour obtenir InMage Scout, vous avez besoin d’un abonnement Azure.<br/><br/> Après avoir créé un coffre Recovery Services, téléchargez InMage Scout et installez les dernières mises à jour pour configurer le déploiement.
 **Serveur de traitement** | Situé dans le site principal | Vous déployez le serveur de traitement pour gérer la mise en cache, la compression et l’optimisation des données.<br/><br/> Il gère aussi l’installation Push de l’Agent unifié sur les machines à protéger.
 **Serveur de configuration** | Situé sur le site secondaire | Le serveur de configuration gère, configure et surveille votre déploiement via le site web de gestion ou la console vContinuum.
 **Serveur vContinuum** | facultatif. Installé au même emplacement que le serveur de configuration. | Il intègre une console qui vous permet de gérer et surveiller votre environnement protégé.
@@ -180,7 +166,6 @@ Voici ce dont vous avez besoin pour la réplication des machines virtuelles Hype
 
 **Zone** | **Composant** | **Détails**
 --- | --- | ---
-**Microsoft Azure** | Vous devez avoir un compte Microsoft Azure. |
 **Serveur VMM** | Nous recommandons l’utilisation d’un serveur VMM dans le site principal et un autre dans le site secondaire | Chaque serveur VMM doit être connecté à Internet.<br/><br/> Chaque serveur doit avoir au moins un cloud privé VMM avec l’ensemble des profils de fonctionnalités Hyper-V.<br/><br/> Vous installez le fournisseur Azure Site Recovery sur le serveur VMM. Le fournisseur coordonne et orchestre la réplication avec le service Site Recovery via Internet. Les communications entre le fournisseur et Azure sont sécurisées et chiffrées.
 **Serveur Hyper-V** |  Un ou plusieurs serveurs hôtes Hyper-V dans les clouds VMM principaux et secondaires.<br/><br/> Les serveurs doivent être connectés à Internet.<br/><br/> Les données sont répliquées entre les serveurs hôtes Hyper-V principal et secondaire via une liaison LAN ou VPN, en utilisant Kerberos ou une authentification par certificat.  
 **Machines virtuelles Hyper-V** | Situé sur le serveur hôte Hyper-V source. | Le serveur hôte source doit avoir au moins une machine virtuelle que vous souhaitez répliquer.

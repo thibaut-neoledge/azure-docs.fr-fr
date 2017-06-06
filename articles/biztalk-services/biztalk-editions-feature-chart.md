@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="biztalk-services-editions-chart"></a>Tableau comparatif des éditions de BizTalk Services
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Azure BizTalk Services offre plusieurs éditions. Utilisez cet article pour déterminer quelle édition est adaptée à votre scénario et à vos besoins professionnels.
 
 ## <a name="compare-the-editions"></a>Comparaison des éditions
@@ -59,7 +64,7 @@ Le tableau suivant répertorie les différences.
 
 <tr>
 <td><strong>Prix de départ</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Tarification Azure BizTalk Services</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full">Calculatrice de tarification Azure</a></td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Tarification Azure BizTalk Services</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Calculatrice de prix Azure</a></td>
 </tr>
 <tr>
 <td><strong>Configuration minimale par défaut</strong></td>
@@ -70,7 +75,7 @@ Le tableau suivant répertorie les différences.
 <td>1 unité Premium</td>
 </tr>
 <tr>
-<td><strong>Scale</strong></td>
+<td><strong>Mettre à l'échelle</strong></td>
 <td>Pas de mise à l'échelle</td>
 <td>Pas de mise à l'échelle</td>
 <td>Oui, dans les incréments d'1 unité De base</td>
@@ -78,7 +83,7 @@ Le tableau suivant répertorie les différences.
 <td>Oui, dans les incréments d'1 unité Premium</td>
 </tr>
 <tr>
-<td><strong>Montée en charge maximale autorisée</strong></td>
+<td><strong>Augmentation de la taille des instances maximum autorisée</strong></td>
 <td>Pas de mise à l'échelle</td>
 <td>Pas de mise à l'échelle</td>
 <td>Jusqu'à 8 unités</td>
@@ -120,7 +125,7 @@ Inclut les contrats TPM</td>
 <td>500</td>
 </tr>
 <tr>
-<td><strong>Connexions du service d'adaptateurs BizTalk aux systèmes métiers locaux</strong></td>
+<td><strong>Connexions du service d’adaptateurs BizTalk aux systèmes métiers locaux</strong></td>
 <td>Non inclus</td>
 <td>1 connexion</td>
 <td>2 connexions</td>
@@ -130,7 +135,7 @@ Inclut les contrats TPM</td>
 <tr>
 <td align="left"><strong>Protocoles/systèmes pris en charge :</strong>
 <ul>
-<li>HTTP</li>
+<li>http</li>
 <li>HTTPS</li>
 <li>FTP</li>
 <li>SFTP</li>
@@ -251,10 +256,5 @@ Pour créer Azure BizTalk Services dans le portail Azure, accédez à [Approvisi
 * [Limitation dans BizTalk Services](biztalk-throttling-thresholds.md)<br/>
 * [Nom et clé de l'émetteur dans BizTalk Services](biztalk-issuer-name-issuer-key.md)<br/>
 * [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

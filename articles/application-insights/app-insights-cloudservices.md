@@ -3,6 +3,7 @@ title: Application Insights pour Azure Cloud Services | Microsoft Docs
 description: "Surveillance efficace de vos rôles Web et de travail avec Application Insights"
 services: application-insights
 documentationcenter: 
+keywords: WAD2AI, Azure Diagnostics
 author: CFreemanwa
 manager: carmonm
 editor: alancameronwills
@@ -15,15 +16,15 @@ ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bfae0fcf992c38d7afef6140fdd79d87ab0ecb4f
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: a5e5cc37c4635b78279a5e240603b6a728922eb8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour Services cloud Azure
-La disponibilité, les performances, les échecs et l’utilisation des [applications de service cloud Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) peuvent être surveillés par [Application Insights][start]. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
+[Les applications de service cloud Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) peuvent être surveillées par [Application Insights][start] pour la disponibilité, les performances, les défaillances et l’utilisation en combinant les données des kits de développement logiciel (SDK) d’Application Insights avec les données [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
 
 ![Exemple](./media/app-insights-cloudservices/sample.png)
 
@@ -142,8 +143,8 @@ Ajoutez des données de télémétrie supplémentaires (voir les sections ci-des
 * Attendez quelques secondes, puis cliquez sur Actualiser.
 * Consultez la rubrique [Résolution des problèmes][qna].
 
-## <a name="view-azure-diagnostic-events"></a>Affichage des événements de diagnostic Azure
-Où trouver les diagnostics :
+## <a name="view-azure-diagnostic-events"></a>Affichage des événements Azure Diagnostics
+Emplacement des informations [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) dans Application Insights :
 
 * Les compteurs de performances s’affichent comme mesures personnalisées. 
 * Les journaux des événements Windows s’affichent comme traces et événements personnalisés.
