@@ -1,4 +1,5 @@
 ---
+
 title: "Afficher les affectations d’accès aux ressources Azure | Microsoft Docs"
 description: "Affichez et gérez toutes les affectations de contrôle d’accès en fonction du rôle des utilisateurs ou groupes sur le Portail Azure"
 services: active-directory
@@ -12,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/21/2017
+ms.date: 05/04/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 82f084b220ba321945975c8d1a6d22e419acf5e4
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: e3b31a3db4b8f435c29cbc9dbdd09d100e821026
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal---public-preview"></a>Afficher les affectations d’accès des utilisateurs et des groupes sur le Portail Azure - Version préliminaire publique
+# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Afficher les affectations d’accès des utilisateurs et des groupes sur le Portail Azure
 > [!div class="op_single_selector"]
 > * [Gérer l’accès par utilisateur ou par groupe](role-based-access-control-manage-assignments.md)
 > * [Gérer l’accès par ressource](role-based-access-control-configure.md)
 
-Avec le contrôle d’accès en fonction du rôle (RBAC), intégré à la version préliminaire d’Azure Active Directory, vous pouvez gérer l’accès à vos ressources Azure. [Nouveautés de la version préliminaire](active-directory-preview-explainer.md)
+Avec le contrôle d’accès en fonction du rôle (RBAC), intégré à Azure Active Directory (Azure AD), vous pouvez gérer l’accès à vos ressources Azure. 
 
 Les accès affectés avec le RBAC sont précis car il existe deux façons de restreindre les autorisations :
 
