@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: markvi;andkjell
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 9238141fc56abcb618d71e4bfd1eccb77f282c71
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 08df9939eb31c224d62d96a0d034d1cda10ba270
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -102,6 +103,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | msExchAuditOwner |X | | | |
 | msExchBlockedSendersHash |X |X | | |
 | msExchBypassAudit |X | | | |
+| msExchBypassModerationLink | | |X |Disponible dans Azure AD Connect version 1.1.524.0 |
 | msExchCoManagedByLink | | |X | |
 | msExchDelegateListLink |X | | | |
 | msExchELCExpirySuspensionEnd |X | | | |
@@ -430,6 +432,18 @@ Ces attributs sont écrits en différé depuis Azure AD vers Active Directory lo
 | msExchUCVoiceMailSettings |X | | |Activer la messagerie unifiée (MU) - messagerie vocale en ligne : utilisée par l’intégration de Microsoft Lync Server pour indiquer à Lync Server local que l’utilisateur dispose de la messagerie vocale dans les services en ligne. |
 | msExchUserHoldPolicies |X | | |Conservation pour litige : permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige. |
 | proxyAddresses |X |X |X |Seule l’adresse x500 d’Exchange Online est insérée. |
+
+## <a name="exchange-mail-public-folder"></a>Dossier public de messagerie Exchange
+Ces attributs sont synchronisés de l’annuaire Active Directory local vers Azure AD quand vous choisissez d’activer le **dossier public d’Exchange Mail**.
+
+| Nom de l'attribut | Dossier public | Commentaire |
+| --- | :---:| --- |
+| displayName | X |  |
+| mail | X |  |
+| msExchRecipientTypeDetails | X |  |
+| objectGUID | X |  |
+| proxyAddresses | X |  |
+| targetAddress | X |  |
 
 ## <a name="device-writeback"></a>Écriture différée des appareils
 Les objets d’appareil sont créés dans Active Directory. Ces objets peuvent être des appareils joints à Azure AD ou d’ordinateurs Windows 10 appartenant au domaine.
