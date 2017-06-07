@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
-ms.openlocfilehash: 3a0db75612531ebf947c011e9e4545f7d9590e20
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0ea23f4f59737123f4400dafc7506e121f24ae34
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -37,10 +39,11 @@ Pour créer un compte de stockage, vous devez être l’administrateur de servic
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le coin supérieur gauche, sélectionnez **Nouveau**. Dans la boîte de dialogue **Nouveau**, sélectionnez **Données + stockage**, puis cliquez sur **Compte de stockage**.
-   
-   Le panneau **Créer un compte de stockage** s’affiche.
-   
-   ![Créer un compte de stockage][create-new-storage-account]
+    
+    Le panneau **Créer un compte de stockage** s’affiche.   
+
+       ![Create Storage Account][create-new-storage-account]  
+
 3. Dans le champ **Nom** , tapez un nom de sous-domaine. Cette entrée peut être composée de 3 à 24 lettres minuscules et chiffres.
    
     Cette valeur devient le nom d’hôte contenu dans l’URI utilisé pour adresser les ressources d’objets blob, de files d’attente et de tables pour l’abonnement. Pour adresser une ressource de conteneur dans le service BLOB, vous utilisez un URI au format suivant, où *&lt;LibelléCompteStockage&gt;* fait référence à la valeur entrée dans **Enter a URL** :
@@ -56,49 +59,42 @@ Pour créer un compte de stockage, vous devez être l’administrateur de servic
 7. Sélectionnez l’emplacement de votre compte de stockage.
 8. Cliquez sur **Create**. Le processus de création du compte de stockage peut durer quelques minutes.
 
-## <a name="step-2-create-a-new-cdn-profile"></a>Étape 2 : Créer un profil CDN
-Un profil CDN est une collection de points de terminaison CDN.  Chaque profil contient un ou plusieurs points de terminaison CDN.  Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d'autres critères.
+## <a name="step-2-enable-cdn-for-the-storage-account"></a>Étape 2 : Activation du CDN pour le compte de stockage
 
-> [!TIP]
-> Si vous disposez déjà d'un profil CDN que vous souhaitez utiliser pour ce didacticiel, passez à l' [Étape 3](#step-3-create-a-new-cdn-endpoint).
+Avec l’intégration la plus récente, vous pouvez maintenant activer CDN pour votre compte de stockage sans quitter votre extension de portail de stockage. 
+
+1. Sélectionnez le compte de stockage, recherchez « CDN » ou faites défiler vers le bas dans le menu de navigation de gauche, puis cliquez sur « Azure CDN ».
+    
+    Le panneau **Azure CDN** s’affiche.
+
+    ![cdn enable navigation][cdn-enable-navigation]
+    
+2. Créer un nouveau point de terminaison en entrant les informations requises
+    - **Profil CDN** : vous pouvez en créer un nouveau ou utiliser un profil existant.
+    - **Niveau de tarification** : vous devez sélectionner un niveau de tarification uniquement si vous créez un nouveau profil CDN.
+    - **Nom du point de terminaison CDN** : entrez le nom de point de terminaison de votre choix.
+
+    > [!TIP]
+       > Le point de terminaison CDN créé utilise le nom d’hôte de votre compte de stockage en tant qu’origine par défaut.
+
+    ![cdn new endpoint creation][cdn-new-endpoint-creation]
+
+3. Après création, le nouveau point de terminaison s’affiche dans la liste de points de terminaison ci-dessus.
+
+    ![cdn storage new endpoint][cdn-storage-new-endpoint]
+
+> [!NOTE]
+> Vous pouvez également accéder à l’extension Azure CDN pour activer le CDN. [Didacticiel](#Tutorial-cdn-create-profile).
 > 
 > 
 
-[!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
+[!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]  
 
-## <a name="step-3-create-a-new-cdn-endpoint"></a>Étape 3 : Créer un point de terminaison CDN
-**Pour créer un point de terminaison CDN pour votre compte de stockage**
+## <a name="step-3-enable-additional-cdn-features"></a>Étape 3 : Activer d’autres fonctionnalités du CDN
 
-1. Dans le [portail de gestion Azure](https://portal.azure.com), accédez à votre profil CDN.  Vous l'avez peut-être épinglé au tableau de bord à l'étape précédente.  Dans le cas contraire, vous le trouverez en cliquant sur **Parcourir**, puis **Profils CDN** et en cliquant sur le profil auquel vous voulez ajouter le point de terminaison.
-   
-    Le panneau du profil CDN s'affiche.
-   
-    ![Profil CDN][cdn-profile-settings]
-2. Cliquez sur le bouton **Ajouter un point de terminaison** .
-   
-    ![Bouton Ajouter un point de terminaison][cdn-new-endpoint-button]
-   
-    Le panneau **Ajouter un point de terminaison** s’affiche.
-   
-    ![Panneau Ajouter un point de terminaison][cdn-add-endpoint]
-3. Entrez un **nom** pour ce point de terminaison CDN.  Ce nom servira à accéder à vos ressources en cache au niveau du domaine `<endpointname>.azureedge.net`.
-4. Dans la liste déroulante **Type d'origine** , sélectionnez *Stockage*.  
-5. Dans la liste déroulante **Nom d'hôte d'origine** , sélectionnez votre compte de stockage.
-6. Conservez les valeurs par défaut pour le **chemin d’accès d’origine**, l’**en-tête de l’hôte d’origine** et le **port de protocole/origine**.  Vous devez spécifier au moins un protocole (HTTP ou HTTPS).
-   
-   > [!NOTE]
-   > Cette configuration active tous vos conteneurs visibles publiquement dans votre compte de stockage pour la mise en cache dans le CDN.  Si vous souhaitez limiter l'étendue à un seul conteneur, utilisez le **Chemin d'accès d'origine**.  Notez que la visibilité du conteneur doit être définie sur « public ».
-   > 
-   > 
-7. Cliquez sur le bouton **Ajouter** pour créer le point de terminaison.
-8. Une fois le point de terminaison créé, il s'affiche dans la liste des points de terminaison pour le profil. L’affichage sous forme de liste montre l’URL à utiliser pour accéder au contenu mis en cache et le domaine d’origine.
-   
-    ![Point de terminaison CDN][cdn-endpoint-success]
-   
-   > [!NOTE]
-   > Le point de terminaison ne sera pas immédiatement disponible pour utilisation.  La propagation de l'inscription à travers le réseau CDN peut prendre jusqu'à 90 minutes. Les utilisateurs qui tentent d'utiliser immédiatement le nom de domaine CDN peuvent recevoir le code d'état 404 jusqu'à ce que le contenu soit disponible via le CDN.
-   > 
-   > 
+Dans le panneau « Azure CDN » du compte de stockage, cliquez sur le point de terminaison CDN dans la liste pour ouvrir le panneau de configuration du CDN. Vous pouvez activer des fonctionnalités supplémentaires du CDN pour la livraison, comme la compression, la chaîne de requête et le filtrage géographique. Vous pouvez également ajouter le mappage de domaine personnalisé pour votre point de terminaison CDN et activer HTTPS sur les domaines personnalisés.
+    
+![Configuration CDN stockage CDN][cdn-storage-cdn-configuration]
 
 ## <a name="step-4-access-cdn-content"></a>Étape 4 : accès au contenu du CDN
 Pour accéder au contenu mis en cache sur le CDN, utilisez l’URL CDN fournie dans le portail. L’adresse d’un objet blob mis en cache est au format suivant :
@@ -106,7 +102,7 @@ Pour accéder au contenu mis en cache sur le CDN, utilisez l’URL CDN fournie d
 http://<*nom_point_de_terminaison*\>.azureedge.net/<*MonConteneurPublic*\>/<*Nom_blob*\>
 
 > [!NOTE]
-> Dès que vous activez un accès au CDN pour un compte de stockage ou un service hébergé, tous les objets disponibles publiquement peuvent bénéficier de la mise en cache de périmètre du CDN. Si vous modifiez un objet actuellement mis en cache dans le CDN, le nouveau contenu n’est pas disponible via le CDN avant son actualisation, c’est-à-dire une fois sa durée de vie écoulée.
+> Dès que vous activez un accès au CDN pour un compte de stockage, tous les objets disponibles publiquement peuvent bénéficier de la mise en cache de périmètre du CDN. Si vous modifiez un objet actuellement mis en cache dans le CDN, le nouveau contenu n’est pas disponible via le CDN avant son actualisation, c’est-à-dire une fois sa durée de vie écoulée.
 > 
 > 
 
@@ -121,16 +117,9 @@ Un objet déjà mis en cache dans le CDN y reste jusqu'à ce que sa durée de vi
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Mappage du contenu CDN à un domaine personnalisé](cdn-map-content-to-custom-domain.md)
+* [Activer HTTPS pour votre domaine personnalisé](cdn-custom-ssl.md)
 
 [create-new-storage-account]: ./media/cdn-create-a-storage-account-with-cdn/CDN_CreateNewStorageAcct.png
-
-[cdn-profile-settings]: ./media/cdn-create-a-storage-account-with-cdn/cdn-profile-settings.png
-[cdn-new-endpoint-button]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-endpoint-button.png
-[cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
-[cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-
+[cdn-enable-navigation]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png
+[cdn-storage-new-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png
+[cdn-storage-cdn-configuration]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png 
