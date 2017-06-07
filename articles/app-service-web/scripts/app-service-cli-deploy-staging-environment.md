@@ -30,6 +30,10 @@ Cet exemple de script crée une application web dans App Service avec un emplace
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>Exemple de script
 
 [!code-azurecli-interactive[principal](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "Créer une application web et déployer du code dans un environnement intermédiaire")]

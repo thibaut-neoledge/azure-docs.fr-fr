@@ -641,7 +641,7 @@ Encode le paramètre à partir d’une chaîne d’URL encodée. Cette fonction 
 L’exemple suivant retourne `"https://portal.azure.com/"`:
 
 ```json
-"[encodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
+"[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
 ```
 
 ## <a name="math-functions"></a>Fonctions mathématiques
