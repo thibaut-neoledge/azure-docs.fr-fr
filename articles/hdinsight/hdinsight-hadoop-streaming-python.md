@@ -165,7 +165,7 @@ Utilisez le script PowerShell suivant pour charger les fichiers, exécuter la t�
 3. Pour garantir que les fichiers mapper.py et reducer.py ont des fins de ligne correctes, utilisez les commandes suivantes :
 
     ```bash
-    perl -pi -e 's/\r\n/\n/g' mappery.py
+    perl -pi -e 's/\r\n/\n/g' mapper.py
     perl -pi -e 's/\r\n/\n/g' reducer.py
     ```
 
