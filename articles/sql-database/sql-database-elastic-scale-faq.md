@@ -8,16 +8,18 @@ author: ddove
 editor: 
 ms.assetid: e60dde9c-bb7b-4f2f-b52c-bdb506d49fcb
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 2420d31c73fcb43e680edf2a95995e4ed4969236
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -50,10 +52,5 @@ Oui, une partition est une base de données individuelle, par conséquent, une p
 Non. Pour les opérations de **fractionnement** , la base de données cible doit exister avec le schéma approprié et être enregistrée dans le gestionnaire de mappages de partition.  Pour les opérations de **fusion** , vous devez supprimer la partition à partir du gestionnaire de mappages de partition, puis supprimer la base de données.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

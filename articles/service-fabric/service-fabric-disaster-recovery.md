@@ -3,7 +3,7 @@ title: "Récupération d’urgence Azure Service Fabric | Microsoft Docs"
 description: "Azure Service Fabric offre les fonctionnalités nécessaires pour gérer tous les types d’incidents. Cet article décrit les types d’incidents qui peuvent se produire et comment les gérer."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: masnider
 manager: timlt
 editor: 
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
-ms.author: seanmck
-translationtype: Human Translation
+ms.author: masnider
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
 ms.openlocfilehash: 73f5413fb7dd0ca179bf5012478a453963e996a1
+ms.contentlocale: fr-fr
 ms.lasthandoff: 12/14/2016
 
 
