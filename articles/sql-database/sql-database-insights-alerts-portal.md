@@ -1,23 +1,24 @@
 ---
 title: "Utiliser le portail Azure pour créer des alertes SQL Database | Microsoft Docs"
 description: "Utilisez le portail Azure pour créer des alertes SQL Database permettant de déclencher des notifications ou Automation lorsque les conditions spécifiées sont remplies."
-author: aamalvea
+author: CarlRabeler
 manager: jhubbard
 editor: 
 services: sql-database
 documentationcenter: 
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: aamalvea
-translationtype: Human Translation
+ms.author: carlrab
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2679681c77dd6a3410bbe6ddbcf562924b13bfe6
 ms.openlocfilehash: afa21052281200768db24ce35a94097f23f23efe
+ms.contentlocale: fr-fr
 ms.lasthandoff: 11/17/2016
 
 
@@ -74,7 +75,7 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
 
 ## <a name="sql-database-alert-values-and-thresholds"></a>Valeurs et seuils d’alerte SQL Database
 
-| Type de ressource    | Nom de métrique | Nom convivial | Type d’agrégation | Fenêtre de temps minimale avant l’alerte|
+| Type de ressource | Nom de métrique | Nom convivial | Type d’agrégation | Fenêtre de temps minimale avant l’alerte|
 | --- | --- | --- | --- | --- |
 | Base de données SQL | cpu_percent | Pourcentage UC | Moyenne | 5 minutes |
 | Base de données SQL | physical_data_read_percent | Pourcentage E/S des données | Moyenne | 5 minutes |
@@ -91,7 +92,7 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
 | Base de données SQL | sessions_percent | Pourcentage sessions | Moyenne | 5 minutes |
 | Base de données SQL | dtu_limit | Limite DTU | Moyenne | 5 minutes |
 | Base de données SQL | dtu_used | DTU utilisé | Moyenne | 5 minutes |
-||||||               
+||||||           
 | Entrepôt de données SQL | cpu_percent | Pourcentage UC | Moyenne | 10 minutes |
 | Entrepôt de données SQL | physical_data_read_percent | Pourcentage E/S des données | Moyenne | 10 minutes |
 | Entrepôt de données SQL | storage | Taille de base de données totale | Maximale | 10 minutes |
@@ -102,7 +103,7 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
 | Entrepôt de données SQL | dwu_limit | limite dwu | Maximale | 10 minutes |
 | Entrepôt de données SQL | dwu_consumption_percent | Pourcentage DWU | Moyenne | 10 minutes |
 | Entrepôt de données SQL | dwu_used | DWU utilisé | Moyenne | 10 minutes |
-||||||                     
+||||||               
 | Pool élastique | cpu_percent | Pourcentage UC | Moyenne | 5 minutes |
 | Pool élastique | physical_data_read_percent | Pourcentage E/S des données | Moyenne | 5 minutes |
 | Pool élastique | log_write_percent | Pourcentage E/S du journal | Moyenne | 5 minutes |
