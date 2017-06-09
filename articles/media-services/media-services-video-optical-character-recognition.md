@@ -57,7 +57,7 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
         "Version":1.0, 
         "Options": 
         {
-            "AdvancedOutput":"true"
+            "AdvancedOutput":"true",
             "Language":"English", 
             "TimeInterval":"00:00:01.5",
             "TextOrientation":"Up",
