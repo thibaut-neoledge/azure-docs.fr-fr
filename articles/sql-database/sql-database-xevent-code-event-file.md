@@ -9,17 +9,18 @@ editor:
 tags: 
 ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: genemi
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 36bde9353c60b4f1d03188061b2b0182841d34ae
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
+ms.openlocfilehash: 3bb6cc477b413a8636433038429e4defec1d2676
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -44,7 +45,7 @@ Cette rubrique présente un exemple de code en deux phases :
 * Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Une base de données dans laquelle vous pouvez créer une table.
   
-  * Vous pouvez aussi [créer une base de données de démonstration **AdventureWorksLT**](sql-database-get-started-portal.md) en quelques minutes.
+  * Vous pouvez aussi [créer une base de données de démonstration **AdventureWorksLT**](sql-database-get-started.md) en quelques minutes.
 * SQL Server Management Studio (ssms.exe), dans l’idéal, la version de sa dernière mise à jour mensuelle. 
   Vous pouvez télécharger la dernière version de ssms.exe :
   
