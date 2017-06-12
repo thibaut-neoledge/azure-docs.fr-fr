@@ -66,7 +66,7 @@ La configuration de l’environnement implique deux activités principales :
     ![Configurer la source](./media/site-recovery-set-up-vmware-to-azure/set-source1.png)
 2. Dans le panneau **Ajouter un serveur**, vérifiez que **Serveur de configuration** s’affiche dans **Type de serveur**.
 4. Téléchargez le fichier d’installation unifiée de Site Recovery.
-5. Téléchargez la clé d’inscription du coffre. Vous avez besoin de la clé d’inscription lorsque vous exécutez le programme d’installation unifiée. Une fois générée, la clé reste valide pendant&5; jours.
+5. Téléchargez la clé d’inscription du coffre. Vous avez besoin de la clé d’inscription lorsque vous exécutez le programme d’installation unifiée. Une fois générée, la clé reste valide pendant 5 jours.
 
     ![Configurer la source](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
 6. Sur la machine qui vous sert de serveur de configuration, exécutez le **programme d’installation unifiée Azure Site Recovery** afin d’installer le serveur de configuration, le serveur de processus et le serveur cible maître.
