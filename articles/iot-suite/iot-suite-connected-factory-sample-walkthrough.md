@@ -34,7 +34,7 @@ La [solution préconfigurée][lnk-preconfigured-solutions] d’usine connectée 
 * Vous permet de parcourir et de modifier les données de serveur OPC UA.
 * S’intègre avec le service Azure Time Series Insights (TSI) pour fournir des vues personnalisées des données à partir de vos serveurs OPC UA.
 
-Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser] [ lnk-customize] pour répondre à vos propres exigences professionnelles.
+Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser][lnk-customize] pour répondre à vos propres exigences professionnelles.
 
 Cet article vous familiarise avec les éléments clés de la solution d’usine connectée pour vous permettre de comprendre son fonctionnement. Ces connaissances vous aident à :
 
