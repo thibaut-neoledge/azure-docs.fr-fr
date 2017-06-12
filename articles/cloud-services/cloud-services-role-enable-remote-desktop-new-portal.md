@@ -3,7 +3,7 @@ title: "Activer une connexion Bureau à distance pour un rôle dans Azure Cloud
 description: "Configuration de l’application de service cloud Azure pour autoriser les connexions Bureau à distance"
 services: cloud-services
 documentationcenter: 
-author: seanmck
+author: mmccrory
 manager: timlt
 editor: 
 ms.assetid: 73ea1d64-1529-4d72-b58e-f6c10499e6bb
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: seanmck
-translationtype: Human Translation
+ms.author: mmccrory
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: fc9b84d151144ae9cb49beacdf525fdc356818a6
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/11/2017
 
 

@@ -11,7 +11,7 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-=article
+ms.topic: hero-article
 ms.date: 04/05/2017
 ms.author: raynew
 ms.translationtype: Human Translation
@@ -210,7 +210,7 @@ Spécifiez le compte Azure Storage à utiliser pour la réplication, ainsi que l
 
 2. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles.
 
-      ![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+    ![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
 3. Si vous n’avez pas créé de compte de stockage et que vous souhaitez le faire à l’aide de Resource Manager, cliquez sur **+Compte de stockage** pour effectuer l’opération en ligne.  Dans le panneau **Créer un compte de stockage** , saisissez le nom, le type, l’abonnement associé et l’emplacement du compte de stockage. Ce compte doit se trouver au même emplacement que le coffre Recovery Services.
 

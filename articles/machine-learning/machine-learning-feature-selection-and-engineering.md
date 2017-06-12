@@ -11,14 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: deprecated
+ms.topic: article
 ms.date: 01/18/2017
 ms.author: zhangya;bradsev
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: machine-learning-data-science-create-features
-translationtype: Human Translation
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
 ms.openlocfilehash: c6b88355df430e78594fc1283c9df01ad6e27e20
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -78,7 +81,7 @@ La table suivante résume la comparaison des résultats de performance des quatr
 
 ![Comparer les résultats des performances](./media/machine-learning-feature-selection-and-engineering/result1.png)
 
-### <a name="a-nameexample2a-example-2-creating-features-in-text-mining"></a><a name="example2"></a> Exemple 2 : création de caractéristiques dans l’exploration de texte
+### <a name="example2"></a> Exemple 2 : création de caractéristiques dans l’exploration de texte
 L'ingénierie de caractéristiques s'applique largement aux tâches liées à l'exploration de texte, telles que la classification de document et l'analyse de sentiments. Par exemple, quand vous souhaitez classer des documents en plusieurs catégories, l’hypothèse typique est que les mots ou expressions inclus dans une catégorie de document sont moins susceptibles de se produire dans une autre catégorie de document. Autrement dit, la fréquence de la distribution de mots ou d’expressions est capable d’identifier les différentes catégories de document. Dans les applications d’exploration de texte, le processus d’ingénierie des caractéristiques est nécessaire pour créer les caractéristiques impliquant des fréquences de mot ou d’expression, car chaque élément des contenus de textes est généralement utilisé en tant que données d’entrée.
 
 Pour effectuer cette tâche, une technique appelée *hachage de caractéristiques* est appliquée pour transformer efficacement les caractéristiques de texte arbitraires en index. Au lieu d’associer chaque caractéristique de texte (mots ou d’expressions) à un index particulier, cette méthode fonctionne en appliquant une caractéristique de hachage aux caractéristiques et en utilisant directement leurs valeurs de hachage en tant qu’index.
@@ -133,9 +136,4 @@ Il n’est pas toujours nécessaire d’effectuer l’ingénierie de caractéris
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

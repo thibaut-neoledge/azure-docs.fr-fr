@@ -105,7 +105,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 1. Sur le [Portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation situé à gauche, cliquez sur **Clés**, puis cliquez sur **Clés en lecture-écriture**. Vous utiliserez les boutons Copier sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier app.config à l’étape suivante.
 
-    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-documentdb-dotnet-core/keys.png)
+    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-table-dotnet/keys.png)
 
 2. Dans Visual Studio, ouvrez le fichier app.config. 
 

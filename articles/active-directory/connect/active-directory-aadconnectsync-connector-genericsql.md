@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 06/2/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: b7e99f8a4d7bc1cd30c71ce08ad38c13203f8b69
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -48,7 +49,7 @@ Globalement, la version actuelle du connecteur prend en charge les fonctionnalit
 Avant d’utiliser le connecteur, vérifiez que vous disposez des éléments suivants sur le serveur de synchronisation :
 
 * Microsoft .NET 4.5.2 Framework ou version ultérieure
-* Pilotes clients ODBC&64; bits
+* Pilotes clients ODBC 64 bits
 
 ### <a name="permissions-in-connected-data-source"></a>Autorisations dans la source de données connectée
 Pour créer ou exécuter les tâches prises en charge dans le connecteur SQL générique, vous devez disposer de :
@@ -121,6 +122,7 @@ Cette page vous permet de configurer le point d’ancrage et l’attribut de nom
 * Les attributs à valeurs multiples et booléens ne sont pas répertoriés.
 * Le même attribut ne peut pas utiliser de nom de domaine et d’ancrage, à moins que l’option **Le nom unique est le point d’ancrage** soit sélectionnée dans la page de Connexion.
 * Si l’option **Le nom unique est le point d’ancrage** est sélectionnée dans la page Connectivité, cette page a besoin uniquement de l’attribut de nom de domaine. Cet attribut peut également être utilisé en tant qu’attribut d’ancrage.
+
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### <a name="schema-4-define-attribute-type-reference-and-direction"></a>Schéma 4 (définir le type d’attribut, la référence et la direction)
@@ -130,7 +132,8 @@ Cette page permet de configurer le type d’attribut, par exemple un entier, une
 
 * **Type de données**: utilisé pour mapper le type d’attribut sur ceux connus par le moteur de synchronisation. La valeur par défaut consiste à utiliser le type détecté dans le schéma SQL, mais DateTime et Reference ne sont pas facilement détectables. Pour ces derniers, vous devez spécifier **DateTime** ou **Reference**.
 * **Direction**: vous pouvez définir la direction d’attribut sur Import, Export ou ImportExport. ImportExport est la valeur par défaut.
-  ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
+
+![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
 Remarques :
 
@@ -150,6 +153,12 @@ Si vous utilisez **Le nom unique est le point d’ancrage**, vous devez utiliser
 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
+>[!IMPORTANT]
+ À compter de mai 2017 l’alias « * » **toute option** a été modifié pour prendre en charge l’importation et l’exportation des flux. Si vous souhaitez utiliser cette option, votre table ou vue à valeurs multiples doit avoir un attribut qui contient le type d’objet.
+
+![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
+
+ </br> Si « * » est sélectionné, le nom de la colonne avec le type d’objet doit également être spécifié.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
 
 Après l’importation, vous obtiendrez un résultat similaire à ce qui suit :
 
@@ -162,8 +171,7 @@ La page Paramètres globaux sert à configurer l’importation différentielle, 
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
->[!IMPORTANT]
- « * », également désigné par**toutes les options** ne peut pas être utilisé lors des opérations d’exportation/suppression.
+
 
 Le connecteur SQL générique prend en charge les méthodes suivantes pour l’importation différentielle :
 
@@ -280,7 +288,7 @@ Si vous choisissez l’option Table/Vue, le connecteur génère les requêtes re
 **Procédures stockées**  
 ![runstep8](./media/active-directory-aadconnectsync-connector-genericsql/runstep8.png)
 
-Si vous choisissez l’option Procédure stockée, l’exportation nécessite&3; procédures stockées différentes pour effectuer des opérations d’insertion/de mise à jour/de suppression.
+Si vous choisissez l’option Procédure stockée, l’exportation nécessite 3 procédures stockées différentes pour effectuer des opérations d’insertion/de mise à jour/de suppression.
 
 * **Ajouter un nom SP**: cette procédure stockée s’exécute si un objet arrive au connecteur pour une insertion dans la table concernée.
 * **Mettre à jour un nom SP**: cette procédure stockée s’exécute si un objet arrive au connecteur pour une mise à jour dans la table concernée.
@@ -291,7 +299,7 @@ Si vous choisissez l’option Procédure stockée, l’exportation nécessite&3;
 **SQL query**  
 ![runstep9](./media/active-directory-aadconnectsync-connector-genericsql/runstep9.png)
 
-Si vous choisissez l’option Requête SQL, l’exportation nécessite&3; procédures stockées différentes pour effectuer les opérations d’insertion/de mise à jour/de suppression.
+Si vous choisissez l’option Requête SQL, l’exportation nécessite 3 procédures stockées différentes pour effectuer les opérations d’insertion/de mise à jour/de suppression.
 
 * **Requête d’insertion**: cette requête s’exécute si un objet arrive au connecteur pour une insertion dans la table concernée.
 * **Requête de mise à jour**: cette requête s’exécute si un objet arrive au connecteur pour une mise à jour dans la table concernée.

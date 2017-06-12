@@ -8,7 +8,7 @@ manager: drasumic
 editor: 
 ms.assetid: 76cfa06a-e758-453e-942c-9f1ed6a38c2a
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -157,7 +157,7 @@ Toutes les requêtes effectuées sur une table temporelle filtrent automatiqueme
 L’illustration suivante montre le plan de requête pour une requête simple :
 
 ````
-SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
+SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 ````
 
 Le plan de requête inclut un filtre supplémentaire appliqué à la fin de la colonne de période (ValidTo) dans l’opérateur Analyse d’index cluster sur la table d’historique (mise en surbrillance). Cet exemple suppose que la période de rétention d’un MOIS a été définie sur la table WebsiteUserInfo.

@@ -54,7 +54,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Création de vos stratégies
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient deux expériences d’identité : l’inscription et la connexion. Vous devez créer une stratégie de chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Lors de la création de vos&3; stratégies, assurez-vous de :
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient deux expériences d’identité : l’inscription et la connexion. Vous devez créer une stratégie de chaque type, comme décrit dans [l’article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Lors de la création de vos 3 stratégies, assurez-vous de :
 
 * Choisir le **Nom d’affichage** et d’autres attributs d’inscription dans votre stratégie d’inscription.
 * Choisissez le **nom d’affichage** et **l’ID objet** comme revendications d’application pour chaque stratégie.  Vous pouvez aussi choisir d'autres revendications.
@@ -62,7 +62,7 @@ Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratég
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Une fois vos&3; stratégies créées, vous pouvez générer votre application.
+Une fois vos 3 stratégies créées, vous pouvez générer votre application.
 
 Pour en savoir plus sur le fonctionnement des stratégies dans Azure AD B2C, commencez par consulter le [didacticiel de prise en main des applications web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 

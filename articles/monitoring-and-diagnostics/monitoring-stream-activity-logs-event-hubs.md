@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 6/06/2017
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
 ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/10/2016
 
 
 ---
@@ -54,7 +56,7 @@ Si un profil de journal existe déjà, vous devez d’abord le supprimer.
 3. Utilisez `Set-AzureRmLogProfile` pour créer un profil :
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
 L’identifiant de règle Service Bus est une chaîne au format : {identifiant de ressource Service Bus}/authorizationrules/{nom de clé}, par exemple 
@@ -79,10 +81,5 @@ L’identifiant de règle Service Bus est une chaîne au format : `{service bus 
 * [Archiver le journal d’activité dans un compte de stockage](monitoring-archive-activity-log.md)
 * [Lire la présentation du journal d’activité Azure](monitoring-overview-activity-logs.md)
 * [Définir une alerte basée sur un événement de journal d’activité](insights-auditlog-to-webhook-email.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

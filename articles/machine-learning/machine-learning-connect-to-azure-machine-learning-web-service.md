@@ -12,11 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 06/02/2017
 ms.author: garye
-translationtype: Human Translation
+ROBOTS: NOINDEX
+redirect_url: machine-learning-consume-web-services
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
 ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -76,7 +81,7 @@ Pour récupérer la clé API pour un service web Machine Learning classique :
 4. Cliquez sur un service web.
 5. Cliquez sur un point de terminaison. La « CLÉ API » se trouve sur la partie inférieure droite de la fenêtre.
 
-## <a name="a-idconnectaconnect-to-a-machine-learning-web-service"></a><a id="connect"></a>Se connecter à un service web Machine Learning
+## <a id="connect"></a>Se connecter à un service web Machine Learning
 Vous pouvez vous connecter à un service web Machine Learning à l’aide de n’importe quel langage de programmation qui prend en charge les requêtes et réponses HTTP. Vous pouvez consulter des exemples en C#, Python et R sur l’une des pages d’aide du service web Machine Learning.
 
 **Aide de l’API Machine Learning** L’aide de l’API Machine Learning est créée quand vous déployez un service web. Consultez la page [Procédure pas à pas : déploiement du service web Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md).
@@ -123,10 +128,5 @@ Pour vous connecter à un service web Machine Learning, utilisez la bibliothèqu
 1. Déployez l’expérience « Exemple 1 : Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 », inclus dans la collection d’exemples Machine Learning.
 2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez la section **Obtenir une clé d’autorisation Microsoft Azure Machine Learning** au début de cet article.
 3. Affectez l’élément serviceUri avec l’URI de requête.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

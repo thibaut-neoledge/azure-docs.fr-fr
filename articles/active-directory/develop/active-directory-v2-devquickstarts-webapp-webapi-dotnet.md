@@ -196,7 +196,7 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des ressources supplémentaires, consultez :
 
-* [Guide du développeur&2;.0 >>](active-directory-appmodel-v2-overview.md)
+* [Guide du développeur 2.0 >>](active-directory-appmodel-v2-overview.md)
 * [Balise StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtenir les mises à jour de sécurité de nos produits
