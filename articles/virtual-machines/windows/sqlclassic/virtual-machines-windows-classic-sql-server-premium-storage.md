@@ -272,7 +272,7 @@ Ce scénario vous montre où sont placées les images personnalisées existantes
 
 
 #### <a name="step-3-use-existing-image"></a>Étape 3 : utilisation d’une image existante
-Vous pouvez utiliser une image existante. Vous pouvez [prendre l’image d’une machine existante](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Notez que cette machine n’a pas besoin d’être une machine DS*. Une fois l’image créée, appliquez les étapes suivantes, qui montrent comment la copier dans le compte Stockage Premium à l’aide de l’applet de commande PowerShell **Start-AzureStorageBlobCopy**.
+Vous pouvez utiliser une image existante. Vous pouvez [prendre l’image d’une machine existante](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Notez que cette machine n’a pas besoin d’être une machine DS\*. Une fois l’image créée, appliquez les étapes suivantes, qui montrent comment la copier dans le compte Stockage Premium à l’aide de l’applet de commande PowerShell **Start-AzureStorageBlobCopy**.
 
     #Get storage account keys:
     #Standard Storage account
