@@ -84,7 +84,7 @@ Même si vous avez le concepteur d’applications logiques, vous pouvez modifier
 
 2. Pour enregistrer vos modifications, cliquez sur **Enregistrer**.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 Certaines fonctionnalités de Logic Apps sont disponibles uniquement en mode code, les paramètres par exemple. Les paramètres simplifient la réutilisation des valeurs dans votre application logique. Par exemple, si vous avez une adresse de messagerie que vous souhaitez utiliser dans plusieurs actions, vous devez la définir en tant que paramètre.
 
