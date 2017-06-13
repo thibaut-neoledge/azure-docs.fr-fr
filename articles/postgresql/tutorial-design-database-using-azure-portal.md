@@ -82,7 +82,7 @@ Le service Base de données Azure pour PostgreSQL crée un pare-feu au niveau du
  ![Base de données Azure pour PostgreSQL - Rechercher le serveur ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.    Dans le panneau du serveur, sélectionnez **Sécurité de la connexion**. 
-3.    Cliquez dans la zone de texte sous **Nom de la règle**, puis ajoutez une nouvelle règle de pare-feu pour placer la plage IP pour la connectivité en liste blanche. Pour ce didacticiel, nous allons autoriser toutes les adresses IP. Pour cela, tapez **Nom de la règle = AllowAllIps**,  **= 0.0.0.0** et ** = 255.255.255.255**, puis cliquez sur **Enregistrer**. Vous pouvez définir une règle de pare-feu qui couvre une plage IP afin de vous connecter à partir de votre réseau.
+3.    Cliquez dans la zone de texte sous **Nom de la règle**, puis ajoutez une nouvelle règle de pare-feu pour placer la plage IP pour la connectivité en liste blanche. Pour ce didacticiel, nous allons autoriser toutes les adresses IP. Pour cela, tapez **Nom de la règle = AllowAllIps** ,  **= 0.0.0.0** et **= 255.255.255.255** , puis cliquez sur **Enregistrer**. Vous pouvez définir une règle de pare-feu qui couvre une plage IP afin de vous connecter à partir de votre réseau.
  
  ![Base de données Azure pour PostgreSQL - Créer une règle de pare-feu](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 

@@ -34,7 +34,7 @@ La vérification en deux étapes est une méthode d’authentification qui néce
 
 Azure Multi-Factor Authentication (MFA) est la solution de vérification en deux étapes de Microsoft. Azure MFA contribue à sécuriser l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Il fournit une authentification forte au moyen de diverses méthodes de vérification, notamment les appels téléphoniques, l’envoi de SMS ou la vérification sur l’application mobile.
 
-> [VIDÉO https://channel9.msdn.com/Blogs/Azure/WA-MFA-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/WA-MFA-Overview/player]
 >
 >
 
@@ -52,7 +52,7 @@ Azure Multi-Factor Authentication est une solution facile à utiliser, évolutiv
 * **Toujours protégé** : Azure Multi-Factor Authentication fournit une authentification forte qui utilise les normes les plus strictes du secteur.
 * **Fiable** : nous garantissons une disponibilité à 99,9 % d'Azure Multi-Factor Authentication. Le service est considéré comme non disponible quand il ne parvient pas à recevoir ou traiter des demandes de vérification pour la vérification en deux étapes.
 
-> [VIDÉO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 
 
 ## <a name="next-steps"></a>Étapes suivantes
