@@ -269,7 +269,7 @@ Si le fichier comportant la clé publique n’est pas disponible, exportez-le à
 * Exportez le certificat dans un fichier .CER avec les options suivantes :
   * **Non, ne pas exporter la clé privée**
   * Inclure tous les certificats dans le chemin d’accès de certification si possible.
-  * *Exporter toutes les propriétés étendues.
+  * Exporter toutes les propriétés étendues.
 
 ## <a name="upload-ca-certificate-to-cloud-service"></a>Téléchargement du certificat CA vers le service cloud
 Téléchargez le certificat avec le fichier .CER existant ou généré avec la clé publique de l’autorité de certification.
@@ -335,7 +335,7 @@ Chaque personne pour laquelle un certificat client a été émis doit suivre les
 * Dans la boîte de dialogue Certificat qui s'ouvre, sélectionnez l'onglet Détails
 * Veillez à ce que l'option Afficher indique Tous
 * Sélectionnez le champ nommé Empreinte numérique dans la liste
-* Copiez la valeur de l’empreinte numérique ** Supprimez les caractères Unicode non visibles devant le premier chiffre ** Supprimez tous les espaces
+* Copiez la valeur de l’empreinte numérique  **Supprimez les caractères Unicode non visibles devant le premier chiffre**  Supprimez tous les espaces
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configuration des clients autorisés dans le fichier de configuration de service
 Mettez à jour la valeur du paramètre suivant dans le fichier de configuration de service avec une liste séparée par des virgules des empreintes numériques des certificats clients autorisés à accéder au service :
