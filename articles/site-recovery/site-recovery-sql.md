@@ -8,7 +8,7 @@ manager: gauravd
 editor: 
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -101,18 +101,18 @@ Configurez Active Directory sur le site de récupération secondaire afin que SQ
 Les instructions fournies dans cet article supposent qu’un contrôleur de domaine est disponible sur le site secondaire. [ici](site-recovery-active-directory.md) .
 
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure"></a>Intégration avec SQL Server AlwaysOn pour la réplication vers Azure 
+## <a name="integrate-with-sql-server-always-on-for-replication-to-azure"></a>Intégration avec SQL Server AlwaysOn pour la réplication vers Azure
 
 Voici ce que vous devez faire :
 
-1. Importez les scripts sur votre compte Azure Automation. Ce dernier contient les scripts pour le basculement du groupe de disponibilité SQL dans une [machine virtuelle Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) et une [machine virtuelle classique](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). 
+1. Importez les scripts sur votre compte Azure Automation. Ce dernier contient les scripts pour le basculement du groupe de disponibilité SQL dans une [machine virtuelle Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) et une [machine virtuelle classique](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
     [![Déploiement sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. Ajoutez ASR-SQL-FailoverAG comme une action préalable du premier groupe dans le plan de récupération.
 
-1. Suivez les instructions fournies dans le script pour créer une variable d’automatisation pour fournir le nom des groupes de disponibilité. 
+1. Suivez les instructions fournies dans le script pour créer une variable d’automatisation pour fournir le nom des groupes de disponibilité.
 
 ### <a name="steps-to-do-a-test-failover"></a>Procédure de test de basculement
 
@@ -124,13 +124,13 @@ SQL AlwaysOn ne prend pas en charge le test de basculement de manière native. P
 
     ![Restauration à partir de Sauvegarde Azure ](./media/site-recovery-sql/restore-from-backup.png)
 
-1. [Forcez un quorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) dans la machine virtuelle restaurée à partir d’une sauvegarde. 
+1. [Forcez un quorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) dans la machine virtuelle restaurée à partir d’une sauvegarde.
 
-1. Mettez à jour l’adresse IP de l’écouteur avec une adresse IP disponible dans le réseau de test de basculement. 
- 
+1. Mettez à jour l’adresse IP de l’écouteur avec une adresse IP disponible dans le réseau de test de basculement.
+
     ![Mettre à jour l’adresse IP de l’écouteur](./media/site-recovery-sql/update-listener-ip.png)
 
-1. Mettez l’écouteur en ligne. 
+1. Mettez l’écouteur en ligne.
 
     ![Mettre l’écouteur en ligne](./media/site-recovery-sql/bring-listener-online.png)
 
@@ -144,7 +144,7 @@ SQL AlwaysOn ne prend pas en charge le test de basculement de manière native. P
 
 ### <a name="steps-to-do-a-failover"></a>Procédure de basculement
 
-Après avoir ajouté le script dans le plan de récupération et validé ce plan grâce à un test de basculement, vous pouvez procéder au basculement du plan de récupération. 
+Après avoir ajouté le script dans le plan de récupération et validé ce plan grâce à un test de basculement, vous pouvez procéder au basculement du plan de récupération.
 
 
 ## <a name="integrate-with-sql-server-always-on-for-replication-to-a-secondary-on-premises-site"></a>Intégration avec SQL Server AlwaysOn pour la réplication vers un site local secondaire
@@ -155,7 +155,7 @@ Si le serveur SQL Server utilise des groupes de disponibilité pour la haute dis
 1. Créez un réseau virtuel sur le site secondaire.
 1. Configurez une connexion VPN de site à site entre le réseau virtuel et le site principal.
 1. Créez une machine virtuelle sur le site de récupération et installez-y SQL Server.
-1. Étendez les groupes de disponibilité AlwaysOn existants à la nouvelle machine virtuelle SQL Server. Configurez cette instance SQL Server comme une copie de réplica asynchrone. 
+1. Étendez les groupes de disponibilité AlwaysOn existants à la nouvelle machine virtuelle SQL Server. Configurez cette instance SQL Server comme une copie de réplica asynchrone.
 1. Créez un écouteur de groupe de disponibilité ou modifiez l'écouteur existant pour inclure l’ordinateur virtuel de réplica asynchrone.
 1. Vérifiez que la batterie de serveurs d’application est configurée pour utiliser l’écouteur. Si elle est configurée pour utiliser le nom du serveur de base de données, mettez-la à jour pour qu’elle utilise l’écouteur, afin de ne pas avoir à la reconfigurer après le basculement.
 
