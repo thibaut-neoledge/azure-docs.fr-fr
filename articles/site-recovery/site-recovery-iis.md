@@ -8,15 +8,16 @@ manager: gauravd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: nisoneji
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: b23624fc7e82af1cb593a1aedd138ae0d6637ae7
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/29/2017
 
 
@@ -35,9 +36,9 @@ Les méthodes de récupération traditionnelles sans réplication impliquent la 
 Une solution de récupération d’urgence satisfaisante doit autoriser la modélisation des plans de récupération autour des architectures d’application complexes décrites ci-dessus. Elle doit également permettre d’ajouter des étapes personnalisées pour gérer les mappages d’applications entre les différents niveaux, assurant ainsi une solution à clic unique en cas de sinistre entraînant un délai de récupération inférieur.
 
 
-Cet article indique comment protéger une application web IIS à l’aide d’une récupération [Azure Site Recovery](site-recovery-overview.md). Cet article décrit les recommandations à suivre pour répliquer une application web IIS à trois niveaux dans Azure, et indique comment vous pouvez effectuer un exercice de récupération d’urgence et comment vous pouvez basculer l’application vers Azure. 
+Cet article indique comment protéger une application web IIS à l’aide d’une récupération [Azure Site Recovery](site-recovery-overview.md). Cet article décrit les recommandations à suivre pour répliquer une application web IIS à trois niveaux dans Azure, et indique comment vous pouvez effectuer un exercice de récupération d’urgence et comment vous pouvez basculer l’application vers Azure.
 
- 
+
 ## <a name="prerequisites"></a>Composants requis
 
 Avant de commencer, veillez à bien comprendre ce qui suit :
@@ -52,11 +53,11 @@ Avant de commencer, veillez à bien comprendre ce qui suit :
 ## <a name="deployment-patterns"></a>Modèles de déploiement
 Une application web IIS suit généralement l’un des modèles de déploiement suivants :
 
-**Modèle de déploiement 1** Une batterie de serveurs web IIS avec ARR (Application Request Routing), un serveur IIS et Microsoft SQL Server. 
+**Modèle de déploiement 1** Une batterie de serveurs web IIS avec ARR (Application Request Routing), un serveur IIS et Microsoft SQL Server.
 
 ![Modèle de déploiement](./media/site-recovery-iis/deployment-pattern1.png)
 
-**Modèle de déploiement 2** Une batterie de serveurs web IIS avec ARR (Application Request Routing), un serveur IIS, un serveur d’applications et Microsoft SQL Server. 
+**Modèle de déploiement 2** Une batterie de serveurs web IIS avec ARR (Application Request Routing), un serveur IIS, un serveur d’applications et Microsoft SQL Server.
 
 
 ![Modèle de déploiement](./media/site-recovery-iis/deployment-pattern2.png)
@@ -75,9 +76,9 @@ Pour les besoins de création de cet article, des machines virtuelles VMware ave
 
 ## <a name="replicate-virtual-machines"></a>Répliquer des machines virtuelles
 
-Suivez [ce guide](site-recovery-vmware-to-azure.md) pour commencer à répliquer toutes les machines virtuelles de la batterie de serveurs web IIS dans Azure. 
+Suivez [ce guide](site-recovery-vmware-to-azure.md) pour commencer à répliquer toutes les machines virtuelles de la batterie de serveurs web IIS dans Azure.
 
-Si vous utilisez une adresse IP statique, spécifiez l’adresse IP que vous souhaitez pour la machine virtuelle dans le paramètre [**IP cible**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) des paramètres Calcul et réseau. 
+Si vous utilisez une adresse IP statique, spécifiez l’adresse IP que vous souhaitez pour la machine virtuelle dans le paramètre [**IP cible**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) des paramètres Calcul et réseau.
 
 ![IP cible](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -89,7 +90,7 @@ Un plan de récupération permet de séquencer le basculement de différents niv
 ### <a name="adding-virtual-machines-to-failover-groups"></a>Ajout de machines virtuelles à des groupes de basculement
 Une application web IIS multiniveau standard se compose d’une couche Base de données avec des machines virtuelles SQL, d’une couche web constituée d’un serveur IIS, et d’une couche Application. Ajoutez toutes ces machines virtuelles aux différents groupes en fonction de la couche, comme indiqué ci-dessous. [En savoir plus sur la personnalisation du plan de récupération](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
-1. Créez un plan de récupération. Ajoutez les machines virtuelles de la couche Base de données dans Groupe 1 pour vous assurer qu’elles sont arrêtées en dernier et affichées en premier. 
+1. Créez un plan de récupération. Ajoutez les machines virtuelles de la couche Base de données dans Groupe 1 pour vous assurer qu’elles sont arrêtées en dernier et affichées en premier.
 
 1. Ajoutez les machines virtuelles de la couche Application dans Groupe 2 afin qu’elles s’affichent après la couche Base de données.
 
@@ -105,38 +106,38 @@ Vous devrez peut-être effectuer certaines opérations lors du post-basculement/
 Si DNS est configuré pour la mise à jour DNS dynamique, les machines virtuelles mettent généralement à jour DNS avec la nouvelle adresse IP dès leur démarrage. Pour ajouter une étape explicite pour mettre à jour DNS avec les nouvelles adresses IP des machines virtuelles, ajoutez ce [script pour mettre à jour les adresses IP dans DNS](https://aka.ms/asr-dns-update) en tant qu’action postérieure dans les groupes du plan de récupération.  
 
 #### <a name="connection-string-in-an-applications-webconfig"></a>Chaîne de connexion dans le fichier web.config d’une application
-La chaîne de connexion spécifie la base de données avec laquelle le site web communique. 
+La chaîne de connexion spécifie la base de données avec laquelle le site web communique.
 
-Si la chaîne de connexion porte le nom de la machine virtuelle base de données, aucune étape supplémentaire n’est nécessaire après le basculement, et l’application peut communiquer automatiquement avec la base de données. En outre, si l’adresse IP de la machine virtuelle base de données est conservée, il n’est pas nécessaire de mettre à jour la chaîne de connexion. Si la chaîne de connexion désigne la machine virtuelle base de données à l’aide d’une adresse IP, elle doit être mise à jour après le basculement. Par exemple, la chaîne de connexion indiquée ci-dessous pointe vers la base de données dotée de l’adresse IP 127.0.1.2. 
+Si la chaîne de connexion porte le nom de la machine virtuelle base de données, aucune étape supplémentaire n’est nécessaire après le basculement, et l’application peut communiquer automatiquement avec la base de données. En outre, si l’adresse IP de la machine virtuelle base de données est conservée, il n’est pas nécessaire de mettre à jour la chaîne de connexion. Si la chaîne de connexion désigne la machine virtuelle base de données à l’aide d’une adresse IP, elle doit être mise à jour après le basculement. Par exemple, la chaîne de connexion indiquée ci-dessous pointe vers la base de données dotée de l’adresse IP 127.0.1.2.
 
-        <?xml version="1.0" encoding="utf-8"?> 
-        <configuration> 
-        <connectionStrings> 
-        <add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" /> 
-        </connectionStrings> 
+        <?xml version="1.0" encoding="utf-8"?>
+        <configuration>
+        <connectionStrings>
+        <add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
+        </connectionStrings>
         </configuration>
 
 Vous pouvez mettre à jour la chaîne de connexion dans la couche web en ajoutant un [script de mise à jour de connexion IIS](https://aka.ms/asr-update-webtier-script-classic) après Groupe 3 dans le plan de récupération.
 
 #### <a name="site-bindings-for-the-application"></a>Liaisons de site pour l’application
-Chaque site se compose d’informations de liaison qui incluent le type de liaison, l’adresse IP à laquelle le serveur IIS écoute les demandes correspondant au site, le numéro de port et les noms d’hôte du site. Lors d’un basculement, ces liaisons devront peut-être être mises à jour en cas de modification de l’adresse IP qui leur est associée. 
+Chaque site se compose d’informations de liaison qui incluent le type de liaison, l’adresse IP à laquelle le serveur IIS écoute les demandes correspondant au site, le numéro de port et les noms d’hôte du site. Lors d’un basculement, ces liaisons devront peut-être être mises à jour en cas de modification de l’adresse IP qui leur est associée.
 
 > [!NOTE]
-> 
-> Si vous avez défini la liaison de site sur « Toutes non attribuées » comme dans l’exemple ci-dessous, vous n’avez pas besoin de mettre à jour cette liaison après le basculement. En outre, si l’adresse IP associée à un site n’est pas modifiée après le basculement, la liaison de site n’a pas besoin d’être mise à jour (la rétention de l’adresse IP dépend de l’architecture réseau et des sous-réseaux affectés aux sites principaux et de récupération et peut donc ou non être possible pour votre organisation.) 
+>
+> Si vous avez défini la liaison de site sur « Toutes non attribuées » comme dans l’exemple ci-dessous, vous n’avez pas besoin de mettre à jour cette liaison après le basculement. En outre, si l’adresse IP associée à un site n’est pas modifiée après le basculement, la liaison de site n’a pas besoin d’être mise à jour (la rétention de l’adresse IP dépend de l’architecture réseau et des sous-réseaux affectés aux sites principaux et de récupération et peut donc ou non être possible pour votre organisation.)
 
 ![Liaison SSL](./media/site-recovery-iis/sslbinding.png)
 
-Si vous avez associé l’adresse IP à un site, vous devez mettre à jour toutes les liaisons de site avec la nouvelle adresse IP. Vous pouvez ajouter un [script de mise à jour de la couche web IIS](https://aka.ms/asr-web-tier-update-runbook-classic) après Groupe 3 dans le plan de récupération afin de modifier les liaisons de site. 
+Si vous avez associé l’adresse IP à un site, vous devez mettre à jour toutes les liaisons de site avec la nouvelle adresse IP. Vous pouvez ajouter un [script de mise à jour de la couche web IIS](https://aka.ms/asr-web-tier-update-runbook-classic) après Groupe 3 dans le plan de récupération afin de modifier les liaisons de site.
 
 
 #### <a name="update-load-balancer-ip-address"></a>Mettre à jour l’adresse IP de l’équilibreur de charge
 Si vous disposez d’une machine virtuelle ARR, ajoutez un [script de basculement ARR IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) après Groupe 4 pour mettre à jour l’adresse IP.
 
 #### <a name="the-ssl-cert-binding-for-an-https-connection"></a>Liaison de certificat SSL d’une connexion HTTPS
-Les sites web peuvent posséder un certificat SSL associé, qui garantit une communication sécurisée entre le serveur web et le navigateur de l’utilisateur. Si le site web dispose d’une connexion HTTPS et d’une liaison de site HTTPS associée à l’adresse IP du serveur IIS avec une liaison de certificat SSL, une nouvelle liaison de site doit être ajoutée pour le certificat avec l’adresse IP de la machine virtuelle IIS après le basculement. 
+Les sites web peuvent posséder un certificat SSL associé, qui garantit une communication sécurisée entre le serveur web et le navigateur de l’utilisateur. Si le site web dispose d’une connexion HTTPS et d’une liaison de site HTTPS associée à l’adresse IP du serveur IIS avec une liaison de certificat SSL, une nouvelle liaison de site doit être ajoutée pour le certificat avec l’adresse IP de la machine virtuelle IIS après le basculement.
 
-Le certificat SSL peut être émis sur : 
+Le certificat SSL peut être émis sur :
 
 a) Le nom de domaine complet du site web<br>
 b) Le nom du serveur<br>
@@ -149,21 +150,21 @@ Si une dépendance propre à une application est basée sur l’adresse IP des m
 ## <a name="doing-a-test-failover"></a>Exécution d’un test de basculement
 Suivez [ce guide](site-recovery-test-failover-to-azure.md) pour effectuer un test de basculement.
 
-1.    Accédez au portail Azure et sélectionnez votre coffre Recovery Services.
-1.    Cliquez sur le plan de récupération créé pour la batterie de serveurs web IIS.
-1.    Cliquez sur Test de basculement.
-1.    Sélectionnez un point de récupération et un réseau virtuel Azure pour démarrer le test de basculement.
-1.    Lorsque l’environnement secondaire est opérationnel, vous pouvez effectuer vos validations.
-1.    Une fois les validations terminées, vous pouvez sélectionner « Validations terminées ». L’environnement de test de basculement est alors nettoyé.
+1.  Accédez au portail Azure et sélectionnez votre coffre Recovery Services.
+1.  Cliquez sur le plan de récupération créé pour la batterie de serveurs web IIS.
+1.  Cliquez sur Test de basculement.
+1.  Sélectionnez un point de récupération et un réseau virtuel Azure pour démarrer le test de basculement.
+1.  Lorsque l’environnement secondaire est opérationnel, vous pouvez effectuer vos validations.
+1.  Une fois les validations terminées, vous pouvez sélectionner « Validations terminées ». L’environnement de test de basculement est alors nettoyé.
 
 ## <a name="doing-a-failover"></a>Exécution d’un basculement
 Suivez [ce guide](site-recovery-failover.md) lorsque vous effectuez un basculement.
 
-1.    Accédez au portail Azure et sélectionnez votre coffre Recovery Services.
-1.    Cliquez sur le plan de récupération créé pour la batterie de serveurs web IIS.
-1.    Cliquez sur « Basculement ».
-1.    Sélectionnez un point de récupération pour démarrer le processus de basculement.
+1.  Accédez au portail Azure et sélectionnez votre coffre Recovery Services.
+1.  Cliquez sur le plan de récupération créé pour la batterie de serveurs web IIS.
+1.  Cliquez sur « Basculement ».
+1.  Sélectionnez un point de récupération pour démarrer le processus de basculement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez en savoir plus sur la [réplication d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery. 
+Vous pouvez en savoir plus sur la [réplication d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.
 

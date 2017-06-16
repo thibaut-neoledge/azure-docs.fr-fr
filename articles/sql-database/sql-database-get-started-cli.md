@@ -38,7 +38,7 @@ Ce démarrage rapide requiert la version 2.0.4 ou ultérieure de l’Interface 
 
 Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 

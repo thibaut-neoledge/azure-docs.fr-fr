@@ -8,7 +8,7 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -108,8 +108,8 @@ Les disques sur la machine virtuelle Azure après le basculement sont les suivan
 
 **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | ---
-DISK0 |    C:\ | Disque de système d’exploitation
-Disk1 |    E:\ | Stockage temporaire</br /> </br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
+DISK0 | C:\ | Disque de système d’exploitation
+Disk1 | E:\ | Stockage temporaire</br /> </br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
 Disk2 | D:\ | Base de données système SQL et base de données utilisateur 1
 Disk3 | G:\ | Base de données utilisateur 2
 
@@ -141,13 +141,13 @@ Il existe deux façons de créer ce chemin :
 3. Exécutez la commande sqlcmd suivante pour remplacer le chemin de la base de données tempdb par un nouveau chemin.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;        
-        GO        
-        ALTER DATABASE tempdb        
+        USE master;     
+        GO      
+        ALTER DATABASE tempdb       
         MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO        
-        ALTER DATABASE tempdb        
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');        
+        GO      
+        ALTER DATABASE tempdb       
+        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
         GO
 
 
@@ -173,9 +173,9 @@ Dans l’exemple précédent, les disques de la machine virtuelle Azure sont con
 **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | ---
 DISK0 | C:\ | Disque de système d’exploitation
-Disk1 |    E:\ | Stockage temporaire</br /> </br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
-Disk2 |    D:\ | Base de données système SQL et base de données utilisateur 1
-Disk3 |    G:\ | Base de données utilisateur 2
+Disk1 | E:\ | Stockage temporaire</br /> </br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
+Disk2 | D:\ | Base de données système SQL et base de données utilisateur 1
+Disk3 | G:\ | Base de données utilisateur 2
 
 
 #### <a name="vmware-to-azure"></a>VMware vers Azure
@@ -186,8 +186,8 @@ Après le basculement planifié d’Azure vers l’hôte VMware local, les disqu
 **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | ---
 DISK0 | C:\ | Disque de système d’exploitation
-Disk1 |    D:\ | Base de données système SQL et base de données utilisateur 1
-Disk2 |    G:\ | Base de données utilisateur 2
+Disk1 | D:\ | Base de données système SQL et base de données utilisateur 1
+Disk2 | G:\ | Base de données utilisateur 2
 
 #### <a name="hyper-v-to-azure"></a>Hyper-V vers Azure
 Lorsque la restauration automatique est effectuée à l’emplacement d’origine, la configuration des disques de la machine virtuelle de restauration automatique reste la même que celle des disques de la machine virtuelle d’origine pour Hyper-V. Les disques qui étaient exclus de Hyper-V vers Azure sont disponibles sur la machine virtuelle de restauration automatique.
@@ -196,7 +196,7 @@ Après le basculement planifié d’Azure vers l’hôte Hyper-V local, les disq
 
 **Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |    C:\ | Disque de système d’exploitation
+DB-Disk0-OS | DISK0 |   C:\ | Disque de système d’exploitation
 DB-Disk1 | Disk1 | D:\ | Base de données système SQL et base de données utilisateur 1
 DB-Disk2 (disque exclu) | Disk2 | E:\ | Fichiers temporaires
 DB-Disk3 (disque exclu) | Disk3 | F:\ | Base de données tempdb SQL (chemin du dossier (F:\MSSQL\Data\)

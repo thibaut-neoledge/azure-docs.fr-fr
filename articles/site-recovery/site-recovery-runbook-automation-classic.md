@@ -11,7 +11,7 @@ ms.service: site-recovery
 ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.workload: required
+ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: ruturajd@microsoft.com
 ms.translationtype: Human Translation
