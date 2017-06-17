@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 06/16/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
@@ -50,7 +50,7 @@ Pour commencer, [téléchargez le package de cluster autonome](service-fabric-cl
             {
                 "CertificateThumbprint": "[Thumbprint]",
                 "IsAdmin": false
-            }, 
+            },
             {
                 "CertificateThumbprint": "[Thumbprint]",
                 "IsAdmin": true
@@ -59,17 +59,17 @@ Pour commencer, [téléchargez le package de cluster autonome](service-fabric-cl
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint" : "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint]",
                 "IsAdmin": true
             }
-        ]
-        "ReverseProxyCertificate":{
+        ],
+        "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
         }
     }
-}
+},
 ```
 
 Cette section décrit les certificats nécessaires pour la sécurisation de votre cluster Windows autonome. Si vous spécifiez un certificat de cluster, affectez à **ClusterCredentialType** la valeur _**X509**_. Si vous spécifiez un certificat de serveur pour des connexions externes, donnez à **ServerCredentialType** la valeur _**X509**_. Bien que ce ne soit pas obligatoire, nous vous recommandons d’avoir ces deux certificats pour que votre cluster soit correctement sécurisé. Si vous définissez ces valeurs sur *X509*, vous devez également spécifier les certificats correspondants ; sinon, Service Fabric lèvera une exception. Dans certains scénarios, vous pouvez ne spécifier que _ClientCertificateThumbprints_ ou _ReverseProxyCertificate_. Dans ces scénarios, vous n’avez pas besoin de définir _ClusterCredentialType_ ou _ServerCredentialType_ sur _X509_.

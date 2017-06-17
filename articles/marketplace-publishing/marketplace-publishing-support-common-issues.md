@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -30,8 +32,8 @@ Les étapes suivantes vous indiquent comment demander un avoir ou un rembourseme
 
 > [!NOTE]
 > Si un client ou un revendeur Azure contacte Microsoft pour demander un avoir ou un remboursement, nous appliquons les mêmes politiques que celles utilisées pour la mise à disposition des services Azure. Si nos politiques indiquent qu'un avoir ou un remboursement est dû, nous délivrons de manière proactive (avec votre autorisation de le faire en votre nom) un avoir ou un remboursement au client ou revendeur Azure (selon le cas). Si nos politiques n'indiquent pas qu'un avoir ou remboursement est dû, nous pouvons inviter le client ou revendeur Azure à vous contacter directement.
-> 
-> 
+>
+>
 
   ![1_RequestRefund][1]
 
@@ -39,12 +41,12 @@ Les étapes suivantes vous indiquent comment demander un avoir ou un rembourseme
 2. Dans la zone **Type de problème**, sélectionnez **Gestion des clients**.
 3. Dans la zone **Catégorie**, sélectionnez **Approuver ou demander un remboursement du client**.
 4. Cliquez sur **Envoyer une demande**.
-   
+
    ![2_RequestRefund][2]
 
 1. fournir des informations de contact ;
 2. Dans la zone **Quel est le problème ?** , entrez les informations suivantes :
-   
+
    * L’ID d’abonnement du client concerné
    * Le nom du client
    * Le montant de l’avoir
@@ -83,8 +85,8 @@ Si vous voulez mettre à jour votre profil d’éditeur, vous pouvez le faire pa
 
 > [!NOTE]
 > Vous pouvez utiliser votre numéro de téléphone ou votre adresse e-mail pour la vérification.
-> 
-> 
+>
+>
 
 ![protectacct][6]
 
@@ -121,9 +123,4 @@ Pour les problèmes suivants, créez une demande de support sur le site [http://
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
