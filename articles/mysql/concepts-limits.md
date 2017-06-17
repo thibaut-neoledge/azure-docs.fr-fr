@@ -5,10 +5,8 @@ services: mysql
 author: jasonh
 ms.author: kamathsun
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
@@ -47,9 +45,9 @@ Au-delà du nombre maximal de connexions, vous risquez de recevoir l’erreur su
 
 ## <a name="preview-functional-limitations"></a>Limitations fonctionnelles de la préversion :
 ### <a name="scale-operations"></a>Opérations de mise à l’échelle :
-1.    La mise à l’échelle dynamique de serveurs sur différents niveaux de service n’est pas prise en charge pour le moment. Autrement dit, il n’est pas possible de basculer entre les niveaux de service De base et Standard.
-2.    L’augmentation dynamique de la demande de stockage sur un serveur créé au préalable n’est pas prise en charge pour le moment.
-3.    La diminution de la taille de stockage du serveur n’est pas prise en charge.
+1.  La mise à l’échelle dynamique de serveurs sur différents niveaux de service n’est pas prise en charge pour le moment. Autrement dit, il n’est pas possible de basculer entre les niveaux de service De base et Standard.
+2.  L’augmentation dynamique de la demande de stockage sur un serveur créé au préalable n’est pas prise en charge pour le moment.
+3.  La diminution de la taille de stockage du serveur n’est pas prise en charge.
 
 ### <a name="server-version-upgrades"></a>Mise à niveau de la version du serveur :
 - La migration automatique entre les versions principales du moteur de base de données n’est pas prise en charge pour le moment.
@@ -58,8 +56,8 @@ Au-delà du nombre maximal de connexions, vous risquez de recevoir l’erreur su
 - Le déplacement dynamique de serveurs créés au préalable entre les groupes de ressources et d’abonnements n’est pas pris en charge pour le moment.
 
 ### <a name="point-in-time-restore"></a>Limite de restauration dans le temps :
-1.    La restauration à un autre niveau de service et/ou à une autre taille d’unités de calcul et de stockage n’est pas autorisée.
-2.    La restauration d’un serveur supprimé n’est pas prise en charge.
+1.  La restauration à un autre niveau de service et/ou à une autre taille d’unités de calcul et de stockage n’est pas autorisée.
+2.  La restauration d’un serveur supprimé n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes :
 [Éléments disponibles dans chaque niveau de service](concepts-service-tiers.md)
