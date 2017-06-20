@@ -30,8 +30,6 @@ Cet exemple crée un groupe de machines virtuelles identiques et applique une ex
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## <a name="sample-script"></a>Exemple de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Créer un groupe de machines virtuelles identiques avec une pile LAMP")]

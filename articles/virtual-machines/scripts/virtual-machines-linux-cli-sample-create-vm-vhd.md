@@ -35,8 +35,6 @@ Vous pouvez télécharger le VHD que nous avons utilisé à partir de https://az
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Exemple de script

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/20/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
@@ -357,7 +357,7 @@ Il existe deux options de configuration de l’environnement local afin d’util
 
 **Sur l’ordinateur de la passerelle :**
 
-1.    Exécutez l’utilitaire **Ksetup** pour configurer le serveur Kerberos KDC et le domaine.
+1.  Exécutez l’utilitaire **Ksetup** pour configurer le serveur Kerberos KDC et le domaine.
 
     L’ordinateur doit être configuré en tant que membre d’un groupe de travail, car un domaine Kerberos est différent d’un domaine Windows. Pour ce faire, définissez le domaine Kerberos et ajoutez un serveur KDC comme suit. Remplacez *REALM.COM* par votre propre domaine respectif en fonction des besoins.
 
@@ -366,7 +366,7 @@ Il existe deux options de configuration de l’environnement local afin d’util
 
     **Redémarrez** l’ordinateur après avoir exécuté ces 2 commandes.
 
-2.    Vérifiez la configuration avec la commande **Ksetup**. La sortie doit être semblable à :
+2.  Vérifiez la configuration avec la commande **Ksetup**. La sortie doit être semblable à :
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -380,8 +380,8 @@ Il existe deux options de configuration de l’environnement local afin d’util
 ### <a name="kerberos-mutual-trust"></a>Option 2 : activer l’approbation mutuelle entre le domaine Windows et le domaine Kerberos
 
 #### <a name="requirement"></a>Condition :
-*    L’ordinateur de passerelle doit rejoindre un domaine Windows.
-*    Vous avez besoin d’autorisations pour mettre à jour les paramètres du contrôleur de domaine.
+*   L’ordinateur de passerelle doit rejoindre un domaine Windows.
+*   Vous avez besoin d’autorisations pour mettre à jour les paramètres du contrôleur de domaine.
 
 #### <a name="how-to-configure"></a>Procédure de configuration :
 
@@ -390,7 +390,7 @@ Il existe deux options de configuration de l’environnement local afin d’util
 
 **Sur le serveur KDC :**
 
-1.    Modifiez la configuration KDC dans le fichier **krb5.conf** afin de permettre au KDC d’approuver le domaine Windows faisant référence au modèle de configuration suivant. Par défaut, la configuration se trouve dans **/etc/krb5.conf**.
+1.  Modifiez la configuration KDC dans le fichier **krb5.conf** afin de permettre au KDC d’approuver le domaine Windows faisant référence au modèle de configuration suivant. Par défaut, la configuration se trouve dans **/etc/krb5.conf**.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -428,24 +428,24 @@ Il existe deux options de configuration de l’environnement local afin d’util
 
   **Redémarrez** le service KDC après la configuration.
 
-2.    Préparez un fichier principal nommé **krbtgt/REALM.COM@AD.COM** dans le serveur KDC avec la commande suivante :
+2.  Préparez un fichier principal nommé **krbtgt/REALM.COM@AD.COM** dans le serveur KDC avec la commande suivante :
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.    Dans le fichier de configuration du service HDFS **hadoop.security.auth_to_local**, ajoutez `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3.  Dans le fichier de configuration du service HDFS **hadoop.security.auth_to_local**, ajoutez `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
 **Sur le contrôleur de domaine :**
 
-1.    Exécutez les commandes **Ksetup** suivantes pour ajouter une entrée de domaine :
+1.  Exécutez les commandes **Ksetup** suivantes pour ajouter une entrée de domaine :
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.    Établir l’approbation entre le domaine Windows et le domaine Kerberos. [password] correspond au mot de passe pour le principal  **krbtgt/REALM.COM@AD.COM** .
+2.  Établir l’approbation entre le domaine Windows et le domaine Kerberos. [password] correspond au mot de passe pour le principal  **krbtgt/REALM.COM@AD.COM** .
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
-3.    Sélectionnez l’algorithme de chiffrement utilisé dans Kerberos.
+3.  Sélectionnez l’algorithme de chiffrement utilisé dans Kerberos.
 
     1. Accédez à Gestionnaire de serveur > Gestion des stratégies de groupe > Domaine > Objets de stratégie de groupe > Stratégie de domaine par défaut ou actif, puis Modifier.
 
@@ -459,7 +459,7 @@ Il existe deux options de configuration de l’environnement local afin d’util
 
                 C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.    Créez le mappage entre le compte de domaine et le principal Kerberos afin de pouvoir utiliser le principal Kerberos dans un domaine Windows.
+4.  Créez le mappage entre le compte de domaine et le principal Kerberos afin de pouvoir utiliser le principal Kerberos dans un domaine Windows.
 
     1. Démarrez Outils d’administration > **Utilisateurs et ordinateurs Active Directory**.
 
