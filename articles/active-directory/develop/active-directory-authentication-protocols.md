@@ -2,7 +2,7 @@
 title: "Protocoles d’authentification Azure Active Directory | Microsoft Docs"
 description: "Vue d’ensemble des protocoles d’authentification pris en charge par Azure Active Directory (AD)"
 documentationcenter: dev-center-name
-author: bryanla
+author: priyamohanram
 services: active-directory
 manager: mbaldwin
 editor: 
