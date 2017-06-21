@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/19/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c67ada15c11b81021ff5e6f6e5edc5cb530ece98
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -77,7 +77,7 @@ Le service Base de données Azure pour PostgreSQL crée un pare-feu au niveau du
 4.  Cliquez sur **Enregistrer**, puis sur **X** pour fermer la page **Sécurité de la connexion**.
 
   > [!NOTE]
-  > Le serveur Azure PostgreSQL communique sur le port 5432. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 5432.
+  > Le serveur Azure PostgreSQL communique sur le port 5432. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 5432.
   >
 
 ## <a name="get-the-connection-information"></a>Obtenir les informations de connexion
@@ -169,6 +169,6 @@ Si vous souhaitez simplement supprimer le serveur nouvellement créé :
 3.  Vérifiez le nom du serveur à supprimer et affichez les bases de données sous celui-ci qui seront affectées. Tapez **mypgserver-20170401** dans la zone de texte, puis cliquez sur Supprimer.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Migrez votre base de données avec [Exportation et importation](./howto-migrate-using-export-and-import.md) ou [Vidage et restauration](./howto-migrate-using-dump-and-restore.md).
-- Pour créer un serveur de base de données Azure pour PostgreSQL à l’aide de l’interface de ligne de commande Azure, consultez [Create an Azure Database for PostgreSQL using the Azure CLI](./quickstart-create-server-database-azure-cli.md) (Créer une base de données Azure pour PostgreSQL à l’aide de l’interface de ligne de commande Azure).
-- Pour une présentation technique, consultez [What is Azure Database for PostgreSQL?](./overview.md) (Qu’est-ce que Base de données Azure pour PostgreSQL ?).
+> [!div class="nextstepaction"]
+> [Migration de votre base de données PostgreSQL par exportation et importation](./howto-migrate-using-export-and-import.md)
+
