@@ -9,7 +9,7 @@
 | Taille maximale d'un objet blob de blocs |50 000 x 100 Mo (4,75 Go environ) |
 | Taille maximale d’un bloc dans un objet blob d’ajout |4 Mo |
 | Taille maximale d’un objet blob d’ajout |50 000 X 4 Mo (195 Go environ) |
-| Taille maximale d'un objet blob de pages |1 To |
+| Taille maximale d'un objet blob de pages |8 To |
 | Taille maximale d'une entité de table |1 Mo |
 | Nombre maximal de propriétés dans une entité de table |252 |
 | Taille maximale d'un message dans une file d'attente |64 Ko |

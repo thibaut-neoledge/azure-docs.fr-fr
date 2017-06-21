@@ -16,10 +16,10 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 079632f304112e1034abbd7385506292f10e128d
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/15/2017
 
 Azure CLI 2.0 est la nouvelle expérience de ligne de commande Azure pour la gestion des ressources Azure. Elle peut être utilisée sur macOS, Linux et Windows. Azure CLI 2.0 est optimisé pour gérer et administrer les ressources Azure à partir de la ligne de commande. Vous pouvez utiliser cette interface pour gérer vos comptes Azure Batch et des ressources telles que les pools, les travaux et les tâches. Avec l’interface de ligne de commande Azure, vous pouvez écrire le script de nombre des tâches que vous réalisez avec les API Batch, le portail Azure et les applets de commande PowerShell pour Batch.
 
-Cet article fournit une vue d’ensemble de l’utilisation de [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure/overview) avec Batch. Consultez la page [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md) pour une vue d’ensemble de l’utilisation de l’interface de ligne de commande avec Azure.
+Cet article fournit une vue d’ensemble de l’utilisation de [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure/overview) avec Batch. Consultez la page [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) pour une vue d’ensemble de l’utilisation de l’interface de ligne de commande avec Azure.
 
 Microsoft recommande d’utiliser la dernière version d’Azure CLI, c’est-à-dire la version 2.0. Pour plus d’informations sur la version 2.0, consultez [Azure CLI 2.0 à présent disponible de façon généralisée](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
 
