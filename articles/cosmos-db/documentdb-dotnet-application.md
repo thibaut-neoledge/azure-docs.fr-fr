@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: a685c74ff6c36a5ca8320f3c69fc4b60c0236a6b
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 6623265ea98370db74fd9e2061d1128c44e9cd0e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -567,7 +567,7 @@ Si vous rencontrez l’erreur « Une erreur s’est produite lors du traitement
 ## <a name="_Toc395637775"></a>Étapes suivantes
 Félicitations ! Vous venez de créer votre première application web ASP.NET MVC à l’aide d’Azure Cosmos DB et de la publier sur les sites web Azure. Le code source de l'application complète, y compris les fonctionnalités de détail et de suppression qui n'étaient pas incluses dans ce didacticiel, peuvent être téléchargés ou clonés à partir de [GitHub][GitHub]. Si vous êtes intéressé par l'ajout de ce code à votre application, copiez-le et ajoutez-le à cette dernière.
 
-Pour ajouter des fonctionnalités supplémentaires à votre application, passez en revue les API disponibles dans la [bibliothèque DocumentDB .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) et n’hésitez pas à contribuer à la bibliothèque DocumentDB .NET sur [GitHub][GitHub]. 
+Pour ajouter des fonctionnalités supplémentaires à votre application, passez en revue les API disponibles dans la [bibliothèque DocumentDB .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) et n’hésitez pas à contribuer à la bibliothèque DocumentDB .NET sur [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
