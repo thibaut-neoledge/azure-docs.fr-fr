@@ -10,7 +10,6 @@
 ## [Utilisation du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 ## [Utilisation du kit de développement logiciel (SDK) Java](data-lake-store-get-started-java-sdk.md)
 ## [Utilisation de l'API REST](data-lake-store-get-started-rest-api.md)
-## [Utilisation de l’interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
 ## [Utilisation de l’interface de ligne de commande Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 ## [Utilisation de Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Utilisation de Python](data-lake-store-get-started-python.md)
