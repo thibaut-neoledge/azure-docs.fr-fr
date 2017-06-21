@@ -3,7 +3,7 @@ title: "Inscription d’une application avec le point de terminaison Azure AD v2
 description: "Inscription d’une application avec Microsoft pour l’activation de l’authentification et l’accès aux services Microsoft à l’aide du point de terminaison v2.0"
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: lnalepa
 manager: mbaldwin
 editor: 
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: lenalepa
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67

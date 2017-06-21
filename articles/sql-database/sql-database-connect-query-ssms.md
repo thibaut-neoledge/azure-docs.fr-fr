@@ -47,7 +47,7 @@ Obtenez les informations de connexion requises pour la connexion à la base de d
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
 3. Sur la page **Vue d’ensemble** de votre base de données, vérifiez le nom complet du serveur, comme indiqué dans l’image ci-dessous. Vous pouvez pointer sur le nom du serveur pour afficher l’option **Cliquez pour copier**.
 
-   ![informations de connexion](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![informations de connexion](./media/sql-database-get-started-portal/server-name.png) 
 
 4. Si vous avez oublié vos informations de connexion à votre serveur Azure SQL Database, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe. 
 

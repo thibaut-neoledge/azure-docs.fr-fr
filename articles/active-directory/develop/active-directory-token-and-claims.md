@@ -1,8 +1,8 @@
 ---
 title: "En savoir plus sur les différents types de jeton et de revendication pris en charge par Azure AD | Microsoft Docs"
-description: "Un guide pour la compréhension et l&quot;évaluation des revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT) émis par Azure Active Directory (AAD)"
+description: "Un guide pour la compréhension et l'évaluation des revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT) émis par Azure Active Directory (AAD)"
 documentationcenter: na
-author: bryanla
+author: dstrockis
 services: active-directory
 manager: mbaldwin
 editor: 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
-ms.author: mbaldwin
+ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 83bb2090d3a2fbd4fabdcd660c72590557cfcafc
