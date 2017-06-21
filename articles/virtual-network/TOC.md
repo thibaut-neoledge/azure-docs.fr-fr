@@ -40,12 +40,7 @@
 #### [PowerShell (classique)](virtual-network-create-udr-classic-ps.md)
 #### [Interface de ligne de commande (classique)](virtual-network-create-udr-classic-cli.md)
 
-### Homologation de réseaux virtuels
-#### [Portail](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Modèle](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-### [Adresses IP publiques](virtual-network-public-ip-address.md)
+### [Homologation de réseaux virtuels](virtual-network-create-peering.md)
 
 ### Machines virtuelles
 #### Créer une machine virtuelle avec une adresse IP publique statique
@@ -118,6 +113,7 @@
 #### [Ajouter, modifier ou supprimer des adresses IP](virtual-network-network-interface-addresses.md)
 ### Machines virtuelles
 #### [Déplacer une machine virtuelle vers un autre sous-réseau](virtual-networks-move-vm-role-to-subnet.md)
+### [Adresses IP publiques](virtual-network-public-ip-address.md)
 
 ## Résolution des problèmes
 ### groupes de sécurité réseau ;
