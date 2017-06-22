@@ -77,7 +77,7 @@ Obtenez l’ObjectID de l’application, puis recherchez l’application en fonc
 3. Recherchez l’application en fonction de son URL de page d’accueil. Vous pouvez trouver l’URL dans le portail en accédant à **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications**. Cet exemple utilise *sharepoint-iddemo*.
 
     ```
-    Get-AzureADApplications | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
+    Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
     ```
 4. Vous devez obtenir un résultat semblable à celui qui est illustré ici. Copiez le GUID ObjectID à utiliser dans la section suivante.
 
@@ -94,7 +94,7 @@ Dans le même module PowerShell que celui utilisé à l’étape 1, procédez c
 1. Vérifiez que vous avez la bonne application et remplacez *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* par le GUID (ObjectID) que vous avez copié à l’étape précédente.
 
     ```
-    Get-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
+    Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
  Maintenant que vous avez vérifié l’application, vous êtes prêt à mettre à jour la page d’accueil comme suit.
@@ -111,17 +111,17 @@ Dans le même module PowerShell que celui utilisé à l’étape 1, procédez c
 3. Définissez l’URL de page d’accueil sur la valeur souhaitée. La valeur doit correspondre à un chemin d’accès de sous-domaine de l’application publiée. Par exemple, si vous modifiez l’URL de page d’accueil *https://sharepoint-iddemo.msappproxy.net/* et la remplacez par *https://sharepoint-iddemo.msappproxy.net/hybrid/*, les utilisateurs de l’application accèderont directement à la page d’accueil personnalisée.
 
     ```
-    $appnew.Homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
+    $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
     ```
 4. Procédez à la mise à jour à l’aide du GUID (ObjectID) que vous avez copié dans « Étape 1 : rechercher l’ObjectID de l’application ».
 
     ```
-    Set-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 - Application $appnew
+    Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
 5. Pour vérifier la réussite de la modification, redémarrez l’application.
 
     ```
-    Get-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 >[!NOTE]

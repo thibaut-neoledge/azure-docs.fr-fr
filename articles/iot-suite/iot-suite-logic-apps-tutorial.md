@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 06/16/2017
 ms.author: corywink
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/10/2017
 
 
@@ -53,7 +54,7 @@ Pour commencer, configurez l’application logique à utiliser avec la solution 
 6. Sélectionnez **Requête**. Cette action indique qu’une demande HTTP entrante avec une charge utile au format JSON spécifique agit comme un déclencheur.
 7. Collez le code suivant dans le schéma JSON de corps de requête :
    
-    ```
+    ```json
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "id": "/",
@@ -109,14 +110,14 @@ Dans cette section, vous connectez votre solution préconfigurée à l’applica
 
 1. Utilisez votre client git pour cloner la dernière version du [référentiel github azure-iot-remote-monitoring][lnk-rmgithub]. Par exemple :
    
-    ```
+    ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
 2. Dans Visual Studio, ouvrez **RemoteMonitoring.sln** à partir de la copie locale du référentiel.
 3. Ouvrez le fichier **ActionRepository.cs** dans le dossier **Infrastructure\\Repository**.
 4. Mettez à jour le dictionnaire **actionIds** avec la valeur **POST HTTP pour cette URL** notée à partir de votre application logique comme indiqué ci-dessous :
    
-    ```
+    ```csharp
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
         { "Send Message", "<Http Post to this URL>" },
@@ -132,9 +133,9 @@ Dans cette section, vous déployez votre version mise à jour de la solution de 
 2. Pour déployer en local, suivez les instructions de [déploiement local][lnk-localdeploy].
 3. Pour effectuer un déploiement sur le cloud et mettre à jour votre déploiement cloud existant, suivez les instructions relatives au [déploiement cloud][lnk-clouddeploy]. Utilisez le nom de votre déploiement d’origine comme nom de déploiement. Par exemple, si le déploiement d’origine s’appelle **demologicapp**, utilisez la commande suivante :
    
-   ``
+   ```cmd
    build.cmd cloud release demologicapp
-   ``
+   ```
    
    Lors de l’exécution du script de création, veillez à utiliser les mêmes compte Azure, abonnement, région et instance Active Directory, que ceux utilisés lorsque vous avez approvisionné la solution.
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 0b82a0c4e140d2084d7570f8c7eab1f809f15d9d
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: a05c878f876eadc5160ef9765f764595cade76a9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -28,10 +28,10 @@ ms.lasthandoff: 05/23/2017
 Cet article vous explique comment créer une connexion de passerelle VPN entre des réseaux virtuels. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager et utilisent Azure CLI. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Resource Manager - Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Classic - Portail Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Portail Azure (classique)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connexions entre différents modèles de déploiement - Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connexions entre différents modèles de déploiement - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -146,7 +146,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
 7. Créez la passerelle de réseau virtuel pour TestVNet1. Les configurations de réseau virtuel à réseau virtuel requièrent un VPN de type RouteBased. Si vous exécutez cette commande à l’aide du paramètre « --no-wait », vous ne voyez aucun commentaire ni sortie. Le paramètre ’--no-wait’ permet à la passerelle d’être créée en arrière-plan. Cela ne signifie pas que la passerelle VPN termine la création immédiatement. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle utilisée.
 
   ```azurecli
-  az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
 ### <a name="TestVNet4"></a>Étape 3 : créez et configurez TestVNet4
@@ -181,7 +181,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
 6. Créez la passerelle de réseau virtuel TestVNet4.
 
   ```azurecli
-  az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
 ### <a name="step-4---create-the-connections"></a>Étape 4 - créez les connexions
@@ -318,10 +318,10 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
 6. Créer la passerelle TestVNet5
 
   ```azurecli
-  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-6---create-the-connections"></a>Étape 6 : créez les connexions
+### <a name="step-8---create-the-connections"></a>Étape 8 : créez les connexions
 
 Étant donné que les passerelles se trouvent dans différents abonnements, nous avons divisé cette étape en deux sessions CLI notées **[Abonnement 1]** et **[Abonnement 5]**. Pour basculer entre les abonnements, utilisez ’az account list --all’ pour répertorier les abonnements disponibles pour votre compte, puis ’az account set --subscription <subscriptionID>’ pour basculer vers l’abonnement que vous souhaitez utiliser.
 
@@ -371,3 +371,4 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
 
 * Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Pour plus d’informations sur le protocole BGP, consultez les articles [Vue d’ensemble du protocole BGP](vpn-gateway-bgp-overview.md) et [Comment configurer BGP](vpn-gateway-bgp-resource-manager-ps.md).
+

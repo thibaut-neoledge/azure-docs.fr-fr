@@ -3,7 +3,7 @@ title: Application native .NET Azure Active Directory v2.0 | Microsoft Docs
 description: "Comment créer une application native .NET qui se connecte avec les comptes Microsoft personnels, ainsi qu’avec les comptes professionnels ou scolaires."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 46d81e09-bad0-44ce-9026-881805976e72
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/30/2016
-ms.author: dastrock; vittorib
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e

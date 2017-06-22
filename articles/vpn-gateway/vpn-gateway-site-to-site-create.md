@@ -15,23 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d0cedf73aa3f73e672a73b6abaca5eb8c22a76a7
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 63d0972f31c2b26b391d5ba019f3e415d8053511
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal-classic"></a>Créer un réseau virtuel avec une connexion de site à site à l’aide du portail Classic
 
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
 Cet article vous explique comment utiliser le portail Classic pour créer une connexion de passerelle VPN de site à site à partir de votre réseau local vers le réseau virtuel. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement classique. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Classic - Portail Azure](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Classic - Portail Classic](vpn-gateway-site-to-site-create.md)
+> * [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [INTERFACE DE LIGNE DE COMMANDE](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Portail Azure (classique)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Portail Classic (classique)](vpn-gateway-site-to-site-create.md)
 > 
 >
 

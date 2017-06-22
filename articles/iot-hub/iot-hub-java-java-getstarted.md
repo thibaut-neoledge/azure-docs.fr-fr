@@ -153,7 +153,7 @@ Dans cette section, vous allez créer une application console Java qui lit les m
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.14.0</version> 
+        <version>0.13.0</version> 
     </dependency>
     ```
 

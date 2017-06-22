@@ -4,7 +4,7 @@ description: "Apporte des conseils visant à vous aider à diagnostiquer la caus
 services: backup
 documentationcenter: 
 author: genlin
-manager: jimpark
+manager: cshepard
 editor: 
 ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
 ms.service: backup
@@ -12,11 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 06/13/2017
 ms.author: genli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: ac68ae449a03b6d9e77e6093531a47c905654f16
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -87,9 +89,4 @@ Les indicateurs suivants peuvent vous aider à identifier le goulot d’étrangl
 
 * **L’interface utilisateur affiche la progression du transfert de données**. Les données sont toujours en cours de transfert. La bande passante réseau ou la taille des données engendrent peut-être un ralentissement.
 * **L’interface utilisateur n’affiche pas la progression du transfert de données**. Ouvrez les journaux sous C:\Microsoft Azure Recovery Services Agent\Temp, puis recherchez l’entrée FileProvider::EndData dans les journaux. Cette entrée signifie que le transfert de données est terminé et que l’opération de catalogage est en cours. N’annulez pas les tâches de sauvegarde. Attendez un peu plus longtemps que l’opération de catalogage soit terminée. Si le problème persiste, contactez le [support Azure](https://portal.azure.com/#create/Microsoft.Support).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

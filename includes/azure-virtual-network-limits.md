@@ -43,5 +43,5 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Certificats racines point à site pour chaque passerelle VPN |20 |20 |
 | Configurations IP secondaires par réseau virtuel |1 000 |contacter le support |
 
-Pour accroître les limites par défaut, [contactez le support technique](../articles/azure-supportability/how-to-create-azure-support-request.md).
+Pour accroître les limites par défaut, [contactez le support technique](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

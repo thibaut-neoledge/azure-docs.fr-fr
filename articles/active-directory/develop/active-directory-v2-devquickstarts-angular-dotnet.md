@@ -3,7 +3,7 @@ title: "Prise en main des applications à page unique .NET AngularJS Azure AD&2;
 description: "Génération d’une application à page unique AngularJS qui connecte les utilisateurs avec les comptes Microsoft personnels et les comptes professionnels ou scolaires."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b

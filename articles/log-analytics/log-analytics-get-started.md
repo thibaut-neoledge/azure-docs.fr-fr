@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/28/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -56,7 +56,7 @@ L’étape suivante consiste à créer un espace de travail.
    * **Niveau de tarification**  
        ![création rapide](./media/log-analytics-get-started/oms-onboard-quick-create.png)
 3. Cliquez sur **OK** pour afficher la liste de vos espaces de travail.
-4. Sélectionnez un espace de travail pour en visualiser les détails dans le portail Azure.       
+4. Sélectionnez un espace de travail pour en visualiser les détails dans le Portail Azure.       
     ![détails sur l’espace de travail](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
 ## <a name="3-add-solutions-and-solution-offerings"></a>3 Ajouter des solutions et des offres de solutions

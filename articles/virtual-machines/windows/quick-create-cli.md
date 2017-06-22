@@ -32,6 +32,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Ce démarrage rapide requiert la version 2.0.4 ou ultérieure de l’Interface de ligne de commande Azure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="log-in-to-azure"></a>Connexion à Azure 
 
 Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran.
@@ -46,7 +48,7 @@ Créez un groupe de ressources avec la commande [az group create](/cli/azure/gro
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -56,7 +58,7 @@ Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#creat
 
 L’exemple suivant permet de créer une machine virtuelle nommée *myVM*. Cet exemple utilise le nom d’utilisateur administratif *azureuser* et le mot de passe *myPassword12*. Mettez à jour ces valeurs avec quelque chose d’approprié pour votre environnement. Ces valeurs sont nécessaires lors de la création d’une connexion avec la machine virtuelle.
 
-```azurecli
+```azurecli-interactive 
 az vm create `
   --resource-group myResourceGroup `
   --name myVM --image win2016datacenter `
@@ -66,7 +68,7 @@ az vm create `
 
 Lorsque la machine virtuelle a été créée, l’interface de ligne de commande Azure affiche des informations similaires à l’exemple suivant. Notez la valeur de `publicIpAaddress`. Cette adresse est utilisée pour accéder à la machine virtuelle.
 
-```azurecli
+```azurecli-interactive 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -83,7 +85,7 @@ Lorsque la machine virtuelle a été créée, l’interface de ligne de commande
 
 Par défaut, seules les connexions RDP sont autorisées pour les machines virtuelles Windows déployées dans Azure. Si cet ordinateur virtuel doit être un serveur web, vous devez ouvrir le port 80 à partir d’Internet. Utilisez la commande [az vm open-port](/cli/azure/vm#open-port) pour ouvrir le port souhaité.  
  
- ```azurecli 
+ ```azurecli-interactive  
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
@@ -114,7 +116,7 @@ Une fois IIS installé et le port 80, ouvert sur votre machine virtuelle à pa
 
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#delete) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

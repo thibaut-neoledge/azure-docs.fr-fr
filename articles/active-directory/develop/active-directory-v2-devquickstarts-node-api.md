@@ -3,7 +3,7 @@ title: "Sécuriser une API web Azure Active Directory 2.0 à l’aide de Node.js
 description: "Découvrez comment créer une API web Node.js qui accepte des jetons d’un compte Microsoft personnel, ou de comptes professionnels ou scolaires."
 services: active-directory
 documentationcenter: nodejs
-author: brandwe
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 0b572fc1-2aaf-4cb6-82de-63010fb1941d
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
-ms.author: brandwe
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6

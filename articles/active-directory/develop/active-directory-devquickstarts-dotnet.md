@@ -3,7 +3,7 @@ title: "Bien démarrer avec Azure AD .NET | Microsoft Docs"
 description: "Création d’une application de bureau Windows .NET qui s’intègre à Azure AD pour la connexion et appelle des API protégées par Azure AD à l’aide d’OAuth."
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b

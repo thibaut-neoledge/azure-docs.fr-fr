@@ -25,9 +25,9 @@ Les domaines d’erreur définissent le groupe de machines virtuelles partageant
    ![Schéma conceptuel de la configuration du domaine de mise à jour et du domaine d’erreur](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Utilisation de disques gérés pour les machines virtuelles dans le groupe à haute disponibilité
-Si vous utilisez actuellement des machines virtuelles avec des disques non gérés, nous vous recommandons fortement de [convertir les machines virtuelles du groupe à haute disponibilité pour utiliser les disques gérés](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
+Si vous utilisez actuellement des machines virtuelles avec des disques non gérés, nous vous recommandons fortement de [convertir les machines virtuelles du groupe à haute disponibilité pour utiliser les disques gérés](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-[Managed disks](../articles/storage/storage-managed-disks-overview.md) (disques gérés) accroît la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe sont suffisamment isolés l’un de l’autre, ceci pour éviter les points de défaillance uniques. Comment le service procède-t-il ? Il place automatiquement les disques dans différents clusters de stockage. Si un cluster de stockage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec. 
+[Managed disks](../articles/storage/storage-managed-disks-overview.md) (disques gérés) accroît la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe sont suffisamment isolés l’un de l’autre, ceci pour éviter les points de défaillance uniques. Comment le service procède-t-il ? Il place automatiquement les disques dans différents clusters de stockage. Si un cluster de stockage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec.
 
 ![Domaines d’erreur des disques gérés](./media/virtual-machines-common-manage-availability/md-fd.png)
 
@@ -36,7 +36,7 @@ Si vous utilisez actuellement des machines virtuelles avec des disques non gér�
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-Si vous prévoyez d’utiliser des machines virtuelles avec des [disques non gérés](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks), suivez les meilleures pratiques ci-dessous pour les comptes de stockage sur lesquels les disques durs virtuels (VHD) d’ordinateurs virtuels sont stockés en tant [qu’objets blob de pages](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs). 
+Si vous prévoyez d’utiliser des machines virtuelles avec des [disques non gérés](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks), suivez les meilleures pratiques ci-dessous pour les comptes de stockage sur lesquels les disques durs virtuels (VHD) d’ordinateurs virtuels sont stockés en tant [qu’objets blob de pages](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Conservez tous les disques (système d’exploitation et données) associés à une machine virtuelle dans le même compte de stockage.**
 2. **Examinez les [limites](../articles/storage/storage-scalability-targets.md) sur le nombre de disques non gérés dans un compte de stockage** avant d’ajouter plus de disques durs virtuels à un compte de stockage.
@@ -62,4 +62,3 @@ Si l’équilibrage de charge n’est pas configuré pour équilibrer le trafic 
 [Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Utilisation de disques gérés pour les machines virtuelles dans le groupe à haute disponibilité]: #use-managed-disks-for-vms-in-an-availability-set
-

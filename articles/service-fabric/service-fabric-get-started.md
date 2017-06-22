@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/26/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 25243603abd2f30adc11640f00b782c8d827796e
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 3e2dba1af69820382c67b368da5d6f6325b72c50
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -62,13 +62,6 @@ Pour Visual Studio 2015, les outils Service Fabric sont installés avec le Kit 
 ### <a name="sdk-installation-only"></a>Installation du Kit de développement logiciel (SDK) uniquement
 Si vous avez uniquement besoin du SDK, vous pouvez installer ce package :
 * [Installer le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric][core-sdk]
-
-> [!WARNING]
-> Les clients ont signalé des erreurs lors de l’installation par le biais de ces liens de lancement ou lors de l’utilisation de ces liens dans le navigateur Chrome. Ces erreurs liées à Web Platform Installer sont connues et sont en cours de résolution.  Essayez les solutions de contournement suivantes :
->- Lancez les liens précédents dans les navigateurs Internet Explorer ou Edge, ou
->- Lancez Web Platform Installer à partir du menu Démarrer, recherchez « Service Fabric », puis installez le Kit de développement logiciel (SDK)
-> 
-> Veuillez nous excuser pour ce désagrément. 
 
 Les versions actuelles sont les suivantes :
 * Kit de développement logiciel (SDK) Service Fabric 2.6.210

@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
-ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +52,7 @@ Lire de la documentation vous enchante moyennement ? Regardez la vidéo ci-dess
 [Azure Automation DSC](automation-dsc-overview.md) est une solution cloud pour DSC PowerShell qui fournit les services requis aux environnements d’entreprise.  Vous pouvez gérer vos ressources DSC dans Azure Automation et appliquer des configurations aux machines virtuelles ou physiques qui les récupèrent à partir d'un serveur Pull DSC dans le cloud Azure.  Il fournit également des services de création de rapports qui vous informent des événements importants, par exemple lorsque les nœuds s'écartent de leur configuration affectée et lorsqu'une nouvelle configuration a été appliquée. 
 
 ## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Création de vos propres configurations DSC avec Azure Automation
-[configurations DSC](automation-dsc-overview.md#azure-automation-dsc-terms) spécifient l’état souhaité d’un nœud.  Plusieurs nœuds peuvent appliquer la même configuration pour garantir qu'ils conservent un état identique.  Vous pouvez créer une configuration avec n'importe quel éditeur de texte sur votre machine locale, puis l'importer dans Azure Automation où vous pouvez la compiler et l'appliquer aux nœuds.
+[configurations DSC](automation-dsc-overview.md) spécifient l’état souhaité d’un nœud.  Plusieurs nœuds peuvent appliquer la même configuration pour garantir qu'ils conservent un état identique.  Vous pouvez créer une configuration avec n'importe quel éditeur de texte sur votre machine locale, puis l'importer dans Azure Automation où vous pouvez la compiler et l'appliquer aux nœuds.
 
 ## <a name="getting-modules-and-configurations"></a>Récupération de modules et de configurations
 Vous pouvez obtenir des [modules PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery) contenant des applets de commande que vous pouvez utiliser dans vos Runbooks et configurations DSC à partir de [PowerShell Gallery](http://www.powershellgallery.com/). Vous pouvez lancer cette galerie à partir du portail Azure et importer les modules directement dans Azure Automation, ou bien les télécharger et les importer manuellement. Vous ne pouvez pas installer les modules directement depuis le portail Azure, mais vous pouvez les télécharger et les installer comme vous le feriez avec tout autre module. 
@@ -83,10 +85,5 @@ De nombreuses ressources sont disponibles pour vous permettre d'en savoir plus s
 
 ## <a name="can-i-provide-feedback"></a>Puis-je fournir des commentaires ?
 **Faites-nous part de vos commentaires !** Si vous recherchez un module d'intégration ou une solution de Runbook Azure Automation, envoyez une demande de script au Centre de scripts. Le cas échéant, publiez vos commentaires ou demandes de fonctionnalités pour Azure Automation sur [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Merci ! 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -4,13 +4,10 @@ description: "Instructions et informations de configuration de la base de donné
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
-editor: jasonh
+editor: jasonwhowell
 manager: jhubbard
-ms.assetid: 
 ms.service: postgresql-database
-ms.custom: connection security
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.custom: 
 ms.topic: article
 ms.date: 05/15/2017
 ms.translationtype: Human Translation

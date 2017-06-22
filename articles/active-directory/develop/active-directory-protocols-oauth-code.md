@@ -3,7 +3,7 @@ title: "Comprendre le flux du code d’autorisation OAuth 2.0 dans Azure AD | Mi
 description: "Cet article explique comment utiliser des messages HTTP pour autoriser l’accès aux applications web et API web dans votre client à l’aide d’Azure Active Directory et OAuth 2.0."
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: priyamo
+ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08

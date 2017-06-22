@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: e441f2a1535ab9544621ff47f28e11c3baf3cae2
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: b8e4bf060202c2700d8bf6cadedd13fc20783799
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -30,9 +30,9 @@ ms.lasthandoff: 05/16/2017
 Cet article vous explique comment créer un réseau virtuel avec une connexion point à site dans le modèle de déploiement classique à l’aide du portail Azure. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Classic - Portail Azure](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+> * [Portail Azure (classique)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 >
 

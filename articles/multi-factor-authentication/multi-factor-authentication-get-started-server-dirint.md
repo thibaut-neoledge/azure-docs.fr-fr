@@ -1,24 +1,25 @@
 ---
-title: "Intégration d&quot;annuaires entre Azure Multi-Factor Authentication et Active Directory"
-description: "Il s&quot;agit de la page d&quot;authentification multifacteur Azure qui décrit comment intégrer le serveur Azure Multi-Factor Authentication avec Active Directory afin de pouvoir synchroniser les annuaires."
+title: "Intégration d'annuaires entre Azure Multi-Factor Authentication et Active Directory"
+description: "Il s'agit de la page d'authentification multifacteur Azure qui décrit comment intégrer le serveur Azure Multi-Factor Authentication avec Active Directory afin de pouvoir synchroniser les annuaires."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
 ms.openlocfilehash: 07b14394b0e07fd78d70d77aeef8a2feb17284e0
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/17/2017
-
 
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Intégration d'annuaires entre le serveur Azure MFA et Active Directory
@@ -95,7 +96,7 @@ Les attributs peuvent être entrés manuellement et ne doivent pas nécessaireme
 | Extension |Entrez le nom de l'attribut qui contient le numéro de téléphone de l'extension dans un enregistrement utilisateur.  La valeur du champ d’extension est utilisée comme extension du numéro de téléphone principal uniquement.  La valeur par défaut est vide. <br><br>Si l’attribut Extension n’est pas spécifié, les extensions peuvent être incluses dans le cadre de l’attribut de téléphone. Dans ce cas, faites précéder l’extension d’un « x » afin qu’il soit correctement analysé.  Par exemple, 555-123-4567 x890 pourrait conduire à 555-123-4567 comme numéro de téléphone et 890 comme extension. |
 | Bouton Paramètres par défaut |Cliquez sur **Paramètres par défaut** pour restaurer la valeur par défaut des attributs.  Les valeurs par défaut doivent fonctionner correctement avec le schéma Active Directory ou ADAM normal. |
 
-Pour modifier les attributs, cliquez sur **Modifier** dans l’onglet Attributs.  Cette action ouvre une fenêtre dans laquelle vous pouvez modifier les attributs. Sélectionnez **...** en regard d’un attribut pour ouvrir une fenêtre dans laquelle vous pouvez choisir les attributs à afficher. 
+Pour modifier les attributs, cliquez sur **Modifier** dans l’onglet Attributs.  Cette action ouvre une fenêtre dans laquelle vous pouvez modifier les attributs. Sélectionnez **...** en regard d’un attribut pour ouvrir une fenêtre dans laquelle vous pouvez choisir les attributs à afficher.
 
 ![Modifier les attributs](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
@@ -138,5 +139,4 @@ Les boutons Déplacer vers le haut et Déplacer vers le bas permettent à l'admi
 Il est possible de configurer des serveurs MFA supplémentaires en tant que proxy RADIUS de secours, proxy LDAP ou pour l'authentification IIS. La configuration de la synchronisation est partagée par tous les agents. Toutefois, le service du serveur MFA ne peut s'exécuter que sur un seul agent. Cet onglet vous permet de sélectionner le serveur MFA qui doit être activé pour la synchronisation.
 
 ![Serveurs MFA](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-
 
