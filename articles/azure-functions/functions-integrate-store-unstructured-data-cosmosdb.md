@@ -11,7 +11,7 @@ keywords: "azure functions, fonctions, traitement des événements, Cosmos DB, c
 ms.assetid: 
 ms.service: functions
 ms.devlang: multiple
-ms.topic: ms-hero
+ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/08/2017
@@ -164,3 +164,4 @@ Pour plus d’informations sur Azure Functions, consultez les rubriques suivante
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
+
