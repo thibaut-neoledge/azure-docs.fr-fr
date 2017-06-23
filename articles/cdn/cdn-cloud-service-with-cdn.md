@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/24/2017
 
 
 ---
-# <a name="a-nameintroa-integrate-a-cloud-service-with-azure-cdn"></a><a name="intro"></a> Intégration d’un service cloud à Azure CDN
+# <a name="intro"></a> Intégration d’un service cloud à Azure CDN
 Vous pouvez intégrer un service cloud à Azure CDN pour distribuer du contenu à partir de l'emplacement du service cloud. Cette approche offre les avantages suivants :
 
 * Facilité de déploiement et de mise à jour des images, scripts et feuilles de style dans les annuaires de projet du service cloud
@@ -157,7 +159,7 @@ De même, vous pouvez accéder à toute URL accessible publiquement à l’adres
 * un contrôleur/une action ;
 * si la chaîne de requête est activée sur le point de terminaison CDN, une URL avec des chaînes de requête.
 
-En fait, dans la configuration ci-dessus, vous pouvez héberger l’ensemble du service cloud à partir de **http://*&lt;nom_CDN>*.azureedge.net/**. Si vous accédez à l’adresse **http://camservice.azureedge.net/**, vous obtenez le résultat de l’action à partir de Home/Index.
+En fait, dans la configuration ci-dessus, vous pouvez héberger l’ensemble du service cloud à partir de **http://*&lt;nom_CDN>*.azureedge.net/**. Si vous accédez à l’adresse** http://camservice.azureedge.net/**, vous obtenez le résultat de l’action à partir de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -600,9 +602,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 [cdn-new-endpoint-button]: ./media/cdn-cloud-service-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
