@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Composants requis
 Le Kit de ressources Azure pour IntelliJ requiert les composants logiciels suivants :
 
 * IntelliJ IDEA édition Ultimate, qui peut être téléchargé à partir du site <https://www.jetbrains.com/idea/download/>.
