@@ -1,6 +1,7 @@
 # Vue d'ensemble
 
 ## [Introduction](storage-introduction.md)
+## [Choisissez des objets blob, des fichiers ou des disques de données](storage-decide-blobs-files-disks.md)
 
 # Prise en main
 
@@ -50,6 +51,7 @@
 ### [Ajouter un disque géré à une machine virtuelle Linux](../virtual-machines/linux/add-disk.md)
 ### [Créer une copie d’un disque dur virtuel stocké en tant que disque géré à l’aide de la fonction Instantanés dans Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Créer une copie d’un disque dur virtuel stocké en tant que disque géré à l’aide de la fonction Instantanés dans Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [À l’aide de disques gérés dans les modèles Resource Manager](storage-using-managed-disks-template-deployments.md)
 
 # Procédure
 ## [Créer un compte de stockage](storage-create-storage-account.md)
@@ -69,8 +71,9 @@
 ### [Guide de conception de tables](storage-table-design-guide.md)
 ### [Exemples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Utiliser des fichiers
-### [Vue d’ensemble](/rest/api/storageservices/File-Service-Concepts)
-### [Dépanner Sauvegarde Azure](storage-troubleshoot-file-connection-problems.md)
+### [Vue d'ensemble](/rest/api/storageservices/File-Service-Concepts)
+### [Résoudre les problèmes sur des fichiers Azure - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Résoudre les problèmes sur des fichiers Azure - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Exemples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Utiliser des disques
 ### [Disques et disques durs virtuels pour les machines virtuelles Windows](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +112,7 @@
 ## Sécuriser
 ### [Guide sur la sécurité](storage-security-guide.md)
 ### [Chiffrement des données au repos](storage-service-encryption.md)
+### [Chiffrement au repos avec des clés de client](storage-service-encryption-customer-managed-keys.md)
 ### [Authentification par clé partagée](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Didacticiel : Chiffrement et déchiffrement d’objets blob à l’aide d’Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -130,7 +134,8 @@
 ### [Guide de récupération d’urgence](storage-disaster-recovery-guidance.md)
 ## Transfert de données
 ### [Déplacer des données vers Storage et à partir de Storage](storage-moving-data.md)
-### [Utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
+### [AzCopy sur Windows](storage-use-azcopy.md)
+### [AzCopy sur Linux](storage-use-azcopy-linux.md)
 ### [Utilisation du service Import/Export](storage-import-export-service.md)
 ### [Utilisation de l’outil Import/Export](storage-import-export-tool-how-to.md)
 #### [Configuration de l’outil Import/Export](storage-import-export-tool-setup.md)

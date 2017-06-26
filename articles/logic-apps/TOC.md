@@ -45,10 +45,12 @@
 ### [Intégration d’entreprise EDIFACT](logic-apps-enterprise-integration-edifact.md)
 ### [Codage EDIFACT](logic-apps-enterprise-integration-edifact-encode.md)
 ### [Décodage EDIFACT](logic-apps-enterprise-integration-edifact-decode.md)
+### [Comment gérer les documents EDIFACT contenant un segment UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [Intégration d’entreprise X12](logic-apps-enterprise-integration-x12.md)
 ### [Codage X12](logic-apps-enterprise-integration-x12-encode.md)
 ### [Décodage X12](logic-apps-enterprise-integration-x12-decode.md)
 ### [Récupération d’urgence](logic-apps-enterprise-integration-b2b-business-continuity.md)
+### [Erreurs et des solutions](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Accès aux données locales
 ### [Se connecter à des données locales](logic-apps-gateway-connection.md)
@@ -75,7 +77,6 @@
 ### [Appeler des applications logiques avec Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Ajouter la gestion des erreurs et des exceptions](logic-apps-scenario-error-and-exception-handling.md)
 ### [Traitement B2B](logic-apps-enterprise-integration-b2b.md)
-### [Comment gérer les documents EDIFACT contenant un segment UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 
 ## Tarification et facturation
 ### [Tarification](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -116,6 +117,7 @@
 ### [Déclencheur HTTPWebhook](../connectors/connectors-native-webhook.md)
 ### [Informix](../connectors/connectors-create-api-informix.md)
 ### [Compte d’intégration](logic-apps-enterprise-integration-metadata.md)
+### [MQ](../connectors/connectors-create-api-mq.md)
 ### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
 ### [Oracle Database](../connectors/connectors-create-api-oracledatabase.md)
 ### [Requête/réponse](../connectors/connectors-native-reqres.md)

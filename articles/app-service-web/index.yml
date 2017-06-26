@@ -1,0 +1,106 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation Web Apps
+metadata:
+  document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
+  title: "Documentation Azure Web Apps\_– Didacticiels, informations de référence sur les API"
+  meta.description: Learn how to use App Service Web Apps to build and host websites and web applications.
+  services: app-service
+  author: czeumault
+  manager: carolz
+  ms.service: app-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Web Apps vous permet de créer et d’héberger des applications web dans le langage de programmation de votre choix sans gérer l’infrastructure. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux et permet des déploiements automatisés à partir de GitHub, Visual Studio Team Services ou n’importe quel référentiel Git. Découvrez comment utiliser Azure Web Apps avec nos guides de démarrage rapide, nos didacticiels et nos exemples.'
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
+      width: 250  
+    title: 'Créez une application web avec Node.js et Azure App Service. (2:41)'
+    href: https://azure.microsoft.com/en-us/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
+    width: 250
+sections:
+- title: "Démarrages en 5\_minutes"
+  items:
+  - type: paragraph
+    text: "Découvrez comment déployer votre première application dans le cloud à l’aide de Web Apps\_:"
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg
+      text: .NET
+      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_nodejs.svg
+      text: Node.js
+      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_php.svg
+      text: PHP
+      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-php
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_java.svg
+      text: Java
+      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_python.svg
+      text: Python
+      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-python
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_html5.svg
+      text: HTML
+      href: https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-html
+- title: Didacticiels pas à pas
+  items:
+  - type: paragraph
+    text: 'Découvrez comment déployer, gérer et surveiller des applications web sécurisées sur Azure'
+  - type: list
+    style: ordered
+    items:
+    - html: Créer une application avec <a href="/en-us/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase">.NET avec Azure SQL DB</a> ou <a href="/en-us/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js avec MongoDB</a>
+    - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-domain">Mapper un domaine personnalisé existant à votre application</a>
+    - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-SSL">Lier un certificat SSL existant à votre application</a>
+    - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Ajouter un CDN à votre application</a>
+- title: Formation vidéo gratuite Pluralsight
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - html: '<p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Développement avec .NET</a></p>'
+      image: 
+        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/video-training-dotnet.png
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - html: '<p><a href="https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Développement avec Node.js</a></p>'
+      image: 
+        src: https://docs.microsoft.com/en-us/azure/app-service-web/media/index/video-training-nodejs.png
+        href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+- title: Exemples
+  items:
+  - type: paragraph
+    text: Trouvez des scripts pour gérer les tâches courantes.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+    - html: "<a href=\"/cli/azure/appservice\">Azure\_CLI\_2.0</a>"
+- title: Référence
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Ligne de commande
+      html: "<p><a href=\"/en-us/powershell/azureps-cmdlets-docs\">Azure PowerShell</a></p><p><a href=\"/cli/azure/appservice\">Azure\_CLI\_2.0</a></p>"
+    - title: Langues
+      html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
+    - title: REST
+      html: "<p><a href=\"/en-us/powershell/azureps-cmdlets-docs\">Azure PowerShell</a></p><p><a href=\"/cli/azure/appservice\">Azure\_CLI\_2.0</a></p>"
