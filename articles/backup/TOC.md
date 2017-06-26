@@ -48,7 +48,7 @@
 #### [Préparer des machines virtuelles déployées par Resource Manager](backup-azure-arm-vms-prepare.md)
 ### Planifier votre environnement
 #### [Planifier l’infrastructure de sauvegarde de machines virtuelles](backup-azure-vms-introduction.md)
-### Sauvegarder des serveurs et charges de travail
+### Sauvegarder des machines virtuelles
 #### [Sauvegarder des machines virtuelles Azure dans le coffre de sauvegarde](backup-azure-vms.md)
 #### [Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services](backup-azure-arm-vms.md)
 #### [Sauvegarder des machines virtuelles chiffrées](backup-azure-vms-encryption.md)

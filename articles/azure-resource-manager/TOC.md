@@ -1,6 +1,6 @@
 # Vue d’ensemble
 ## [Présentation de Resource Manager](resource-group-overview.md)
-## [Services pris en charge](resource-manager-supported-services.md)
+## [Fournisseurs et types de ressources](resource-manager-supported-services.md)
 ## [Déploiements Resource Manager et classiques](resource-manager-deployment-model.md)
 ## [Gouvernance de l’abonnement](resource-manager-subscription-governance.md)
 ## [Applications gérées](managed-application-overview.md)
@@ -67,12 +67,13 @@
 
 ## Définir des stratégies de ressources
 ### [Que sont les stratégies de ressources ?](resource-manager-policy.md)
-### [Attribution de la stratégie du portail](resource-manager-policy-portal.md)
-### [Attribution de la stratégie de script](resource-manager-policy-create-assign.md)
-### [Stratégies de balises de ressources](resource-manager-policy-tags.md)
-### [Stratégies de stockage](resource-manager-policy-storage.md)
-### [Stratégies de machine virtuelle Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Stratégies de machine virtuelle Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Utiliser le portail pour attribuer la stratégie](resource-manager-policy-portal.md)
+### [Utiliser des scripts pour attribuer la stratégie](resource-manager-policy-create-assign.md)
+### Exemples
+#### [Balises de ressource](resource-manager-policy-tags.md)
+#### [Stockage](resource-manager-policy-storage.md)
+#### [Machine virtuelle Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Machine virtuelle Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Utiliser des applications gérées
 ### [Publier une application gérée](managed-application-publishing.md)

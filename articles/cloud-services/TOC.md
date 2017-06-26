@@ -102,7 +102,11 @@
 ### [Problèmes de déploiement courants](cloud-services-troubleshoot-deployment-problems.md)
 ### [Problèmes de démarrage des rôles](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Conseils sur la récupération d’urgence](cloud-services-disaster-recovery-guidance.md)
-### [Forum aux questions sur Services Cloud](cloud-services-faq.md)
+### Forum aux questions sur les services cloud
+#### [FAQ sur la disponibilité de l’application et du service](cloud-services-application-and-service-availability-faq.md)
+#### [FAQ sur la configuration et la gestion](cloud-services-configuration-and-management-faq.md)
+#### [FAQ sur la connectivité et la mise en réseau](cloud-services-connectivity-and-networking-faq.md)
+#### [FAQ sur le déploiement](cloud-services-deployment-faq.md)
 
 # Référence
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)

@@ -78,6 +78,7 @@
 ## [REST Service (version préliminaire)](search-api-2015-02-28-preview.md)
 ## [Tarification](https://azure.microsoft.com/pricing/details/search/)
 ## Sites de démonstration
+### [Démonstration de l’analyseur Recherche](http://alice.unearth.ai/)
 ### [Application Annuaire des offres d’emploi (externe)](http://aka.ms/azjobsdemo)
 ### [Exemples d’applications de démonstration](https://searchsamples.azurewebsites.net/)
 ## Cours et didacticiels

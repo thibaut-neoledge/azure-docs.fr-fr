@@ -140,6 +140,14 @@
       href: csharp-template.md
     - name: Créer une machine virtuelle avec Chef
       href: chef-automation.md
+    - name: Créer une machine virtuelle avec Python
+      href: python.md
+    - name: Créer une machine virtuelle avec Terraform
+      items:
+      - name: Installer et configurer
+        href: ../terraform-install-configure.md
+      - name: Créer une infrastructure de base
+        href: ../terraform-create-complete-vm.md      
     - name: Créer une machine virtuelle exécutant des infrastructures d’application populaires
       href: app-frameworks.md
     - name: Déplacer une machine virtuelle entre des abonnements
@@ -185,13 +193,10 @@
       href: capture-image-resource.md
     - name: Créer une machine virtuelle à partir d’une image de disque géré
       href: create-vm-generalized-managed.md
+    - name: Créer une image avec Packer
+      href: build-image-with-packer.md
   - name: Gérer le stockage de machine virtuelle
     items:
-    - name: Azure Managed Disks
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-      - name: FAQ
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Créer un disque géré
       href: create-managed-disk-ps.md
     - name: Migrer des machines virtuelles vers Managed Disks
@@ -215,6 +220,8 @@
       href: expand-os-disk.md
     - name: Développer un disque de données
       href: expand-data-disks.md
+    - name: Utiliser un partage de fichiers
+      href: mount-azure-file-storage.md
     - name: Utiliser le lecteur D comme disque de données
       href: change-drive-letter.md
   - name: Mise en réseau de machines virtuelles
@@ -348,6 +355,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Résolution des problèmes
     items:
+    - name: Comprendre un redémarrage du système
+      href: understand-vm-reboot.md
     - name: Connexions Bureau à distance
       href: troubleshoot-rdp-connection.md
       items:

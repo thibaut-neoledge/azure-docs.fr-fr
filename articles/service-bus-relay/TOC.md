@@ -4,6 +4,7 @@
 
 # Prise en main
 ## [Créer un espace de noms](relay-create-namespace-portal.md)
+## [Créer une application hybride locale/dans le cloud](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## les connexions hybrides
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Nœud](relay-hybrid-connections-node-get-started.md)

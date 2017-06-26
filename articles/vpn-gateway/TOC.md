@@ -50,6 +50,7 @@
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (classique)](vpn-gateway-about-forced-tunneling.md)
 ## Modifier les paramètres de la passerelle réseau locale
+### [Portail Azure](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Interface de ligne de commande Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Vérifier une connexion de passerelle VPN](vpn-gateway-verify-connection-resource-manager.md)
@@ -59,6 +60,7 @@
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classique)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Configurer une passerelle VPN (déploiement classique)](vpn-gateway-configure-vpn-gateway-mp.md)
+## [SKU de passerelle (ancien)](vpn-gateway-about-skus-legacy.md)
 ## Résolution des problèmes
 ### [Valider le débit VPN sur un réseau virtuel](vpn-gateway-validate-throughput-to-vnet.md)
 

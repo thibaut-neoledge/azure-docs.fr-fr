@@ -30,7 +30,7 @@
 ### [Modèles courants](monitoring-autoscale-common-scale-patterns.md)
 ### [Mise à l’échelle automatique à l’aide d’une métrique personnalisée](monitoring-autoscale-scale-by-custom-metric.md)
 ### [Mettre à l’échelle automatiquement les groupes de machines virtuelles identiques à l’aide de modèles Resource Manager](insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Mettre automatiquement à l’échelle des machines dans un jeu de mise à l’échelle de machines virtuelles](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+### [Mettre automatiquement à l’échelle les machines d’un jeu de mise à l’échelle de machine virtuelle](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Configurer les webhooks et les notifications électroniques sur la mise à l’échelle automatique](insights-autoscale-to-webhook-email.md)
 ## Utiliser le journal d’activité
 ### [Afficher des événements dans le journal d’activité](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
@@ -39,10 +39,10 @@
 ### [Diffuser en continu le journal d’activité vers Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Créer des alertes de journal d’activité avec Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-## Notifications de service
+## Utiliser les notifications de service
 ### [Afficher les notifications de service](monitoring-service-notifications.md)
 ### [Configurer des alertes sur les notifications de service](monitoring-activity-log-alerts-on-service-notifications.md)
-## Groupes d’actions
+## Utiliser les groupes d’actions
 ### [En savoir plus sur le schéma des webhooks](monitoring-activity-log-alerts-webhook.md)
 ### [Comportement des alertes SMS](monitoring-sms-alert-behavior.md)
 ### [Limitation du débit des alertes](monitoring-alerts-rate-limiting.md)

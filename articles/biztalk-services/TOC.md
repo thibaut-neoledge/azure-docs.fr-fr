@@ -1,6 +1,5 @@
 # Vue d’ensemble
 ## [Éditions](biztalk-editions-feature-chart.md)
-## [À propos des connexions hybrides](integration-hybrid-connection-overview.md)
 
 # Prise en main
 ## [Créer services BizTalk Services](biztalk-provision-services.md)
@@ -12,8 +11,6 @@
 ## Configuration
 ### [Limitation](biztalk-throttling-thresholds.md)
 ### [Paramètres de service et surveillance](biztalk-dashboard-monitor-scale-tabs.md)
-## Integrate
-### [Connexions hybrides](integration-hybrid-connection-create-manage.md)
 ## Migrer
 ### [Solutions EDI BizTalk Server vers BizTalk Services](biztalk-migrating-to-edi-guide.md)
 ## Surveiller
@@ -21,8 +18,11 @@
 ## Sécuriser
 ### [Contrôle d’accès](biztalk-issuer-name-issuer-key.md)
 ## [Résolution des problèmes](biztalk-troubleshoot-using-ops-logs.md)
+## Connexions hybrides
+### [Vue d'ensemble](integration-hybrid-connection-overview.md)
+### [Créer et gérer](integration-hybrid-connection-create-manage.md)
 
-# les ressources
+# Ressources
 ## [Notes de publication](biztalk-release-notes.md)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [Tarification](https://azure.microsoft.com/pricing/details/biztalk-services/)

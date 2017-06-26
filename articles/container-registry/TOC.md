@@ -5,6 +5,7 @@
 # Prise en main
 ## [Créer un registre dans le portail](container-registry-get-started-portal.md)
 ## [Créer un registre avec Azure CLI 2.0](container-registry-get-started-azure-cli.md)
+## [Créer un registre avec Azure PowerShell](container-registry-get-started-powershell.md)
 ## [Transmettre et extraire une image](container-registry-get-started-docker-cli.md)
 ## [Afficher les référentiels](container-registry-repositories.md)
 

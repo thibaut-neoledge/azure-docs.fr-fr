@@ -17,11 +17,21 @@
 ## [FAQ](active-directory-faq.md)
 ## [Obtenir une assistance pour Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [Didacticiels d’intégration d’applications SaaS](active-directory-saas-tutorial-list.md)
+## Contrôles Azure AD
+### [Terminer une révision d’accès](active-directory-azure-ad-controls-complete-an-access-review.md)
+### [Créer une révision d’accès](active-directory-azure-ad-controls-create-an-access-review.md)
+### [Exécution d’une révision de l’accès](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 # Procédures
 ## Planifier et concevoir
 ### [Comprendre l’architecture Azure AD](active-directory-architecture.md)
+### [Sécuriser les stratégies de messagerie électronique et les configurations](secure-email-introduction.md)
+#### [Stratégies recommandées](secure-email-recommended-policies.md)
+#### [Déployer des stratégies et des configurations](secure-email-deploy-recommended-policies.md)
+#### [Descriptions des services EMS et Office 365](secure-email-ems-office365-service-descriptions.md)
 ### [Déployer une solution d’identité hybride](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Mappage des revendications dans Azure Active Directory](active-directory-claims-mapping.md)
 
 #### Déterminer la configuration requise
 ##### [Identité](active-directory-hybrid-identity-design-considerations-business-needs.md)
@@ -43,6 +53,16 @@
 ### Ajouter des utilisateurs
 #### [Portail Azure](active-directory-users-create-azure-portal.md)
 #### [Portail classique](active-directory-create-users.md)
+### Contrôles Azure AD
+#### [Accès invité avec révisions d’accès](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+#### [Gestion de l’accès utilisateur avec les révisions](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+
+### [Attribuer des licences à l’aide de groupes](active-directory-licensing-whatis-azure-portal.md)
+#### [Attribuer des licences à un groupe](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identifier et résoudre les problèmes de licence dans un groupe](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrer des utilisateurs individuels titulaires d’une licence aux licences par groupe](active-directory-licensing-group-migration-azure-portal.md)
+#### [Scénarios supplémentaires pour la gestion des licences par groupe](active-directory-licensing-group-advanced.md)
+#### [Exemples PowerShell pour les licences basées sur les groupes](active-directory-licensing-ps-examples.md)
 
 ### [Ajouter des utilisateurs à partir d’autres répertoires (portail classique)](active-directory-create-users-external.md)
 ### [Suppression d’utilisateurs](active-directory-users-delete-user-azure-portal.md)
@@ -50,6 +70,8 @@
 ### [Réinitialiser un mot de passe](active-directory-users-reset-password-azure-portal.md)
 ### [Gérer les informations de travail utilisateur](active-directory-users-work-info-azure-portal.md)
 ### [Partager des comptes](active-directory-sharing-accounts.md)
+
+
 
 ## [Gérer les groupes et les membres](active-directory-manage-groups.md)
 ### Gérer les groupes
@@ -59,6 +81,12 @@
 ### [Sélectionner les membres du groupe](active-directory-groups-members-azure-portal.md)
 ### [Gérer les propriétaires de groupe](active-directory-accessmanagement-managing-group-owners.md)
 ### [Ajouter une appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
+### [Attribuer des licences à l’aide de groupes](active-directory-licensing-whatis-azure-portal.md)
+#### [Attribuer des licences à un groupe](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Identifier et résoudre les problèmes de licence dans un groupe](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Migrer des utilisateurs individuels titulaires d’une licence aux licences par groupe](active-directory-licensing-group-migration-azure-portal.md)
+#### [Scénarios supplémentaires pour la gestion des licences par groupe](active-directory-licensing-group-advanced.md)
+#### [Exemples PowerShell pour les licences basées sur les groupes](active-directory-licensing-ps-examples.md)
 ### [Afficher tous les groupes](active-directory-groups-view-azure-portal.md)
 ### [Activer les groupes dédiés](active-directory-accessmanagement-dedicated-groups.md)
 ### [Ajouter l’accès de groupe aux applications SaaS](active-directory-accessmanagement-group-saasapps.md)
@@ -69,12 +97,6 @@
 ### Créer des règles avancées
 #### [Portail Azure](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Portail classique](active-directory-accessmanagement-groups-with-advanced-rules.md)
-### [Gestion des licences par groupe](active-directory-licensing-whatis-azure-portal.md)
-#### [Attribuer des licences à un groupe](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identifier et résoudre les problèmes de licence d’un groupe](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrer des utilisateurs individuels titulaires d’une licence aux licences par groupe](active-directory-licensing-group-migration-azure-portal.md)
-#### [Scénarios supplémentaires pour la gestion des licences par groupe](active-directory-licensing-group-advanced.md)
-#### [Exemples PowerShell pour les licences basées sur les groupes](active-directory-licensing-ps-examples.md)
 ### [Configurer des groupes libre-service](active-directory-accessmanagement-self-service-group-management.md)
 ### [Résolution des problèmes](active-directory-accessmanagement-troubleshooting.md)
 
@@ -92,13 +114,14 @@
 ### Résolution des problèmes
 #### [Données d’audit manquantes](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Données manquantes dans les téléchargements](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    [Accès par programme](active-directory-reporting-api-getting-started-azure-portal.md)
+#### [Erreurs de pack de contenu des journaux d’activité Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
+### [Accès par programme](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Référence d’audit](active-directory-reporting-api-audit-reference.md)
 #### [Référence de connexion](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Configuration requise](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Exemples d’audit](active-directory-reporting-api-audit-samples.md)
 #### [Exemples de connexion](active-directory-reporting-api-sign-in-activity-samples.md)
-#### [Obtenir des données](active-directory-reporting-api-with-certificates.md)
+#### [Utilisation des certificats](active-directory-reporting-api-with-certificates.md)
 ### [Portail classique](active-directory-view-access-usage-reports.md)
 #### [Génération de rapports Azure AD](active-directory-reporting-getting-started.md)
 #### [Guide sur la génération de rapports](active-directory-reporting-guide.md)
@@ -165,6 +188,8 @@
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Mettre à jour les paramètres du Registre](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Comprendre la sécurité et la confidentialité](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+### Contrôles Azure AD
+####[Gérer des programmes et leurs contrôles](active-directory-azure-ad-controls-manage-programs-and-controls.md)
 
 ### [Accéder aux applications à distance avec le proxy d’application](active-directory-application-proxy-get-started.md)
 #### Prise en main

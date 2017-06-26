@@ -1,4 +1,5 @@
 # [Vue d'ensemble](active-directory-developers-guide.md)
+## [Pourquoi choisir Azure AD ?](https://azure.microsoft.com/develop/identity/signin/)
 ## [Concepts de base de l’authentification](active-directory-authentication-scenarios.md)
 ## [Types d’applications](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Prise en main
@@ -71,6 +72,7 @@
 ### [Types de jeton et de revendication pris en charge](active-directory-token-and-claims.md)
 ### [Substitution de la clé de signature](active-directory-signing-key-rollover.md)
 ### [Métadonnées de fédération](active-directory-federation-metadata.md)
+### [Informations d’identification de certificat](active-directory-certificate-credentials.md)
 ## [Objets d’application](active-directory-application-objects.md)
 ### [Applications et Azure AD](active-directory-how-applications-are-added.md)
 ## [Manifeste d’application](active-directory-application-manifest.md)
@@ -101,4 +103,5 @@
 #### [Octroi d’informations d’identification client OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Flux Oauth 2.0 On-Behalf-Of](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Référence sur le jeton](active-directory-v2-tokens.md)
+#### [Informations d’identification de certificat](active-directory-certificate-credentials.md)
 ### [Étendues](active-directory-v2-scopes.md)

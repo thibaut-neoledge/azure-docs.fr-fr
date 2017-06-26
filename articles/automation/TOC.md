@@ -11,7 +11,7 @@
 ### [Créer un compte Automation autonome](automation-create-standalone-account.md)
 ### [Créer un compte d’utilisateur Azure AD](automation-create-aduser-account.md)
 ### [Configurer l’authentification avec AWS](automation-config-aws-account.md)
-### [Créer un compte d’identification Azure avec PowerShell](automation-update-account-powershell.md)
+### [Créer un compte d’identification Automation](automation-create-runas-account.md)
 ### [Valider la configuration du compte Automation](automation-verify-runas-authentication.md)
 ### [Contrôle d’accès en fonction du rôle Azure](automation-role-based-access-control.md)
 ### [Gérer le compte Automation](automation-manage-account.md)
@@ -56,12 +56,12 @@
 ### [Résoudre une alerte de machine virtuelle Azure](automation-azure-vm-alert-integration.md)
 ### [Démarrer/arrêter une machine virtuelle avec des balises JSON](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Supprimer le groupe de ressources](automation-scenario-remove-resourcegroup.md)
-### [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
 ### [Intégration du contrôle de code source avec GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Intégration du contrôle de code source avec VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Solutions
 ### [Suivi des modifications](../log-analytics/log-analytics-change-tracking.md)
 ### [Gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md)
+### [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
 ## Surveiller
 ### [Transférer des données de travaux Azure Automation à Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Supprimer le lien d’un compte Azure Automation à partir de Log Analytics](automation-unlink-from-log-analytics.md)
