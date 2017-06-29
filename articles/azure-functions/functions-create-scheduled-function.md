@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: f35f693131bd1f4f47b161afb0a4f38d4f00bbd6
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 4442d0038a0604d3297871907c1d05d8d3916dcf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Créez une fonction dans Azure, qui est déclenchée par un minuteur
@@ -31,7 +31,9 @@ Apprenez à créer une fonction dans Azure, qui s’exécute selon une planifica
 
 ## <a name="prerequisites"></a>Composants requis
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Pour suivre ce didacticiel :
+
++ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -47,7 +49,11 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 ## <a name="create-a-timer-triggered-function"></a>Créer une fonction déclenchée par un minuteur
 
-1. Développez votre Function App, cliquez sur le bouton **+** à côté de **Fonctions**, puis cliquez sur le modèle **TimerTrigger** pour la langue de votre choix. Utilisez ensuite les paramètres spécifiés dans le tableau :
+1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre Function App, sélectionnez **Fonction personnalisée**. Cela affiche l’ensemble complet des modèles de fonction.
+
+    ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-scheduled-function/add-first-function.png)
+
+2. Sélectionnez le modèle **TimerTrigger** pour le langage de votre choix. Utilisez ensuite les paramètres spécifiés dans le tableau :
 
     ![Créez une fonction déclenchée par un minuteur dans le portail Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 

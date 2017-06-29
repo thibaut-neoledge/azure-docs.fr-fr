@@ -18,7 +18,8 @@
 | Nombre maximal de sauvegardes conservées par l'appareil virtuel dans le dossier *.backups* pour le serveur de fichiers |5 |Cela inclut les sauvegardes les plus récentes planifiées (générées par la stratégie de sauvegarde par défaut) et les sauvegardes manuelles. |
 | Nombre maximal de sauvegardes planifiées conservées par l'appareil |55 |30 sauvegardes quotidiennes<br>12 sauvegardes mensuelles<br>13 sauvegardes annuelles |
 | Nombre maximal de sauvegardes manuelles conservées par l'appareil |45 | |
-| Nombre maximal de fichiers par partage |1 million |Lorsque vous effectuez une restauration d’appareil, les délais de restauration sont proportionnels au nombre de fichiers se trouvant sur tous les partages de l’appareil. |
+| Nombre maximal de fichiers par partage pour un serveur de fichiers |1 million |Lorsque vous effectuez une restauration d’appareil, les délais de restauration sont proportionnels au nombre de fichiers se trouvant sur tous les partages de l’appareil. |
+| Nombre maximal de fichiers par volume pour un serveur iSCSI |1 million | |
 | Nombre maximal de fichiers par baie virtuelle |4 millions | |
 | Délai de récupération après restauration |Restauration rapide |La restauration est basée sur la carte thermique et dépend de la taille du volume.<br>Les opérations de sauvegarde peuvent se produire lorsqu’une opération de restauration est en cours. |
 

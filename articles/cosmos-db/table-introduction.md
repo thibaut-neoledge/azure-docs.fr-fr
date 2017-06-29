@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2017
+ms.date: 06/09/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: d1e1f977c9023f4727d8c444b5e490e8f5ba8d9e
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 07dc5e1520cf60e19a1961ad85d2aea0cc7bd15f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/31/2017
 
 ![API de stockage de table Azure et Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
 
-Azure Cosmos DB fournit l’API de table pour les applications nécessitant un stockage clé-valeur avec un schéma flexible. Les kits de développement logiciel et API REST de [stockage de table Azure](../storage/storage-introduction.md) peuvent servir pour travailler avec Azure Cosmos DB. Vous pouvez faire appel à Azure Cosmos DB pour créer des tables avec des exigences de débit élevées. Azure Cosmos DB prend en charge les tables optimisées en débit (appelées de façon informelle « tables premium »), actuellement en préversion publique. 
+Azure Cosmos DB fournit l’API Table (version préliminaire) pour les applications qui ont besoin d’un magasin de paires clé-valeur avec un schéma flexible, des performances prévisibles, une distribution globale et un débit élevé. L’API Table fournit les mêmes fonctionnalités que le stockage Table Azure, mais il tire parti des avantages du moteur Azure Cosmos DB. 
 
-Vous pouvez continuer à utiliser le stockage de table Azure pour les tables avec des exigences de débit et de stockage inférieures. Azure Cosmos DB introduira la prise en charge des tables optimisées pour le stockage dans une prochaine mise à jour, et les comptes de stockage de table Azure nouveaux ou existants seront mis à niveau vers Azure Cosmos DB.
+Vous pouvez continuer à utiliser le stockage Table Azure pour les tables présentant des exigences de débit et de stockage inférieures. Azure Cosmos DB introduira la prise en charge des tables optimisées pour le stockage dans une prochaine mise à jour, et les comptes de stockage de table Azure nouveaux ou existants seront mis à niveau vers Azure Cosmos DB.
 
 ## <a name="premium-and-standard-table-apis"></a>API de table standard et Premium
 Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des avantages suivants en les déplaçant vers la version préliminaire de « table premium » d’Azure Cosmos DB :
@@ -56,3 +56,4 @@ Voici quelques conseils pour vous aider à démarrer :
 * Commencez avec [l’API de table Azure Cosmos DB](create-table-dotnet.md) à l’aide du SDK de table .NET existant.
 * En savoir plus sur la [distribution globale avec Azure Cosmos DB](distribute-data-globally.md).
 * Apprenez-en davantage sur le [débit approvisionné dans Azure Cosmos DB](request-units.md).
+

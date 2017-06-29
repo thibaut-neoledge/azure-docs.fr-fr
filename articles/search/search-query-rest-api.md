@@ -13,9 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
-ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 1976a514b4469704dcba9381c5fcbe8805a11ecd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -31,7 +33,7 @@ ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
 
 Cet article explique comment interroger un index à l’aide de [l’API REST de la Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/).
 
-Avant de commencer cette procédure, vous devez déjà avoir [créé un index de Recherche Azure](search-what-is-an-index.md) et y avoir [ajouté des données](search-what-is-data-import.md).
+Avant de commencer cette procédure, vous devez déjà avoir [créé un index de Recherche Azure](search-what-is-an-index.md) et y avoir [ajouté des données](search-what-is-data-import.md). Pour des informations générales, consultez l’article [Fonctionnement de la recherche en texte intégral dans la recherche Azure](search-lucene-query-architecture.md).
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Identifier la clé API de requête de votre service Azure Search
 La *clé API* générée pour le service que vous avez configuré est un composant essentiel de chaque opération de recherche exécutée sur l’API REST Azure Search. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
@@ -163,9 +165,4 @@ Une demande de requête réussie génère un code d’état `200 OK` et les rés
 ```
 
 Pour plus d’informations, consultez la section « Réponse » de la page [Rechercher dans des documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Pour plus d’informations sur les autres codes d’état HTTP pouvant être renvoyés en cas d’échec, consultez la page [Codes d’état HTTP (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

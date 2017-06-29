@@ -4,7 +4,7 @@ description: "Ce document vous aide à prendre en main les fonctionnalités de l
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -138,6 +139,12 @@ Vous pouvez approfondir votre investigation en cliquant sur chaque ordinateur et
 ### <a name="threat-intelligence"></a>Informations sur les menaces
 
 Grâce à l’option d’informations sur les menaces disponible dans la solution de sécurité et d’audit d’OMS, les administrateurs informatiques peuvent détecter les menaces de sécurité dans l’environnement (par exemple, identifier si un ordinateur en particulier fait partie d’un botnet). Un ordinateur peut devenir un nœud d’un botnet si un pirate installe de manière illicite un programme malveillant qui connecte secrètement cet ordinateur à la commande et au contrôle. Cette option peut également identifier les menaces potentielles provenant de canaux de communication obscurs, tel que le Darknet. Pour plus d’informations sur l’option d’informations sur les menaces, voir l’article [Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite](oms-security-responding-alerts.md).
+
+Dans certains scénarios, vous pouvez remarquer qu’un ordinateur surveillé a accédé à une adresse IP potentiellement malveillante :
+
+![carte d’informations sur les menaces](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Cette alerte, et d’autres de la même catégorie, sont générées par le biais de la solution de sécurité d’OMS en tirant profit des [informations sur les menaces fournies par Microsoft](https://youtu.be/O4WtxgUrDc8). Les informations sur les menaces sont collectées par Microsoft ou achetées auprès des principaux fournisseurs d’informations de ce type. Ces données sont fréquemment mises à jour et adaptées à l’évolution rapide des menaces. Du fait de leur nature, elles doivent être associées à d’autres sources d’informations de sécurité lors de [l’examen](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) d’une alerte de sécurité. 
 
 ### <a name="baseline-assessment"></a>Évaluation de la ligne de base
 

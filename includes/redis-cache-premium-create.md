@@ -7,7 +7,7 @@ Pour créer un cache Premium, connectez-vous au [portail Azure](https://portal.a
 > 
 > 
 
-Pour configurer les fonctionnalités Premium, sélectionnez d’abord l’un des niveaux tarifaires Premium dans le panneau **Choisir votre niveau tarifaire** .
+Pour configurer les fonctionnalités Premium, commencez par sélectionner l’un des niveaux tarifaires Premium dans la liste déroulante **Niveau tarifaire**. Pour plus d’informations sur chaque niveau tarifaire, cliquez sur **Afficher tous les détails de la tarification**, puis sélectionnez un niveau tarifaire dans le panneau **Choisir votre niveau tarifaire**.
 
 ![Choisir votre niveau tarifaire](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 

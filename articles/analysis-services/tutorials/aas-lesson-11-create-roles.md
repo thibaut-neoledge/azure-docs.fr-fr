@@ -10,38 +10,38 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: eea9b247b42db81f30b7169f71ddf0d5068f6a5e
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 085a36edd2a0e80123ac8754b438bceadfa6c0e9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-11-create-roles"></a>Leçon 11 : Créer des rôles
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Dans cette leçon, vous allez créer des rôles. Les rôles fournissent la sécurité des données et des objets d’une base de données de modèles en limitant l’accès aux utilisateurs thoseSa qui sont en membres. Chaque rôle est défini avec une autorisation unique : aucune autorisation, autorisation de lecture, autorisation de lecture et de traitement, autorisation de traitement ou autorisation d’administrateur. Les rôles peuvent être définis lors de la création des modèles à l’aide du Gestionnaire de rôles. Une fois un modèle déployé, vous pouvez gérer des rôles à l’aide de SQL Server Management Studio (SSMS). Pour plus d’informations, consultez la rubrique [Rôles](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
+Dans cette leçon, vous allez créer des rôles. Les rôles fournissent la sécurité des données et des objets d’une base de données de modèles en limitant l’accès aux utilisateurs qui en sont membres. Chaque rôle est défini avec une autorisation unique : aucune autorisation, autorisation de lecture, autorisation de lecture et de traitement, autorisation de traitement ou autorisation d’administrateur. Les rôles peuvent être définis lors de la création des modèles à l’aide du Gestionnaire de rôles. Une fois un modèle déployé, vous pouvez gérer des rôles à l’aide de SQL Server Management Studio (SSMS). Pour plus d’informations, consultez la rubrique [Rôles](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
 > [!NOTE]  
-> Il n’est pas nécessaire de créer des rôles pour suivre ce didacticiel. Par défaut, le compte avec lequel vous êtes actuellement connecté disposera de privilèges Administrateur sur le modèle. Toutefois, pour permettre à d’autres utilisateurs de votre organisation à parcourir le modèle à l’aide d’un client de création de rapports, vous devez créer au moins un rôle avec des autorisations de lecture et ajouter ces utilisateurs comme membres.  
+> Il n’est pas nécessaire de créer des rôles pour suivre ce didacticiel. Par défaut, le compte avec lequel vous êtes actuellement connecté dispose de privilèges Administrateur sur le modèle. Toutefois, pour permettre à d’autres utilisateurs de votre organisation de parcourir le modèle à l’aide d’un client de création de rapports, vous devez créer au moins un rôle avec des autorisations de lecture et ajouter ces utilisateurs comme membres.  
   
-Vous allez créer trois rôles :  
+Vous devez créer trois rôles :  
   
 -   **Sales Manager (Responsable des ventes)** – Ce rôle peut inclure les utilisateurs de votre organisation auxquels vous souhaitez donner un accès en lecture à l’ensemble des objets et données du modèle.  
   
--   **Sales Analyst US (Analyste en ventes aux États-Unis)** – Ce rôle peut inclure les utilisateurs de votre organisation que vous souhaitez autoriser à parcourir uniquement les données relatives aux ventes aux États-Unis. Pour ce rôle, vous allez utiliser une formule DAX de façon à définir un *filtre de lignes*, qui limite les membres à parcourir uniquement les données concernant les États-Unis.  
+-   **Sales Analyst US (Analyste en ventes aux États-Unis)** – Ce rôle peut inclure les utilisateurs de votre organisation que vous souhaitez autoriser à parcourir uniquement les données relatives aux ventes aux États-Unis. Pour ce rôle, vous utilisez une formule DAX de façon à définir un *filtre de lignes*, qui limite les membres à parcourir uniquement les données concernant les États-Unis.  
   
 -   **Administrator (Administrateur)** – Ce rôle peut inclure des utilisateurs auxquels vous souhaitez fournir une autorisation d’administrateur, ce qui permet un accès et des autorisations illimités pour effectuer des tâches administratives sur la base de données de modèles.  
   
-Étant donné que les comptes d’utilisateurs et de groupes Windows de votre organisation sont uniques, vous pouvez ajouter des comptes de votre organisation spécifique aux membres. Toutefois, pour ce didacticiel, vous pouvez également laisser les membres vides. Vous pourrez toujours tester l’effet de chaque rôle ultérieurement dans la leçon 12 : Analyser dans Excel.  
+Étant donné que les comptes d’utilisateurs et de groupes Windows de votre organisation sont uniques, vous pouvez ajouter des comptes de votre organisation spécifique aux membres. Toutefois, pour ce didacticiel, vous pouvez également laisser les membres vides. Vous allez tester l’effet de chaque rôle ultérieurement dans la leçon 12 : Analyser dans Excel.  
   
-Durée estimée pour suivre cette leçon : **15 minutes**  
+Durée estimée pour suivre cette leçon : **15 minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir suivi la leçon précédente : [Leçon 10 : Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md).  

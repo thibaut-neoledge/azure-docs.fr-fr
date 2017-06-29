@@ -12,7 +12,7 @@ Lorsque vous créez une machine virtuelle à partir d’une image, Azure crée, 
 Avant de pouvoir supprimer un fichier .vhd source, vous devrez supprimer le bail en supprimant le disque ou l’image. Pour supprimer un fichier .vhd utilisé par une machine virtuelle comme disque de système d’exploitation, vous pouvez supprimer simultanément la machine virtuelle, le disque de système d’exploitation et le fichier .vhd source en supprimant la machine virtuelle et tous les disques associés. Toutefois, la suppression d’un fichier .vhd qui constitue une source pour un disque de données requiert l’exécution de plusieurs étapes dans un ordre défini. Détachez tout d’abord le disque de la machine virtuelle, supprimez le disque, puis supprimez le fichier .vhd.
 
 > [!WARNING]
-> Si vous supprimez un fichier .vhd source d’un stockage ou que vous supprimez votre compte de stockage, Microsoft ne pourra pas récupérer ces données pour vous.
+> Si vous supprimez un fichier .vhd source d’un stockage ou si vous supprimez votre compte de stockage, Microsoft ne pourra pas récupérer ces données pour vous.
 > 
 
 ## <a name="types-of-disks"></a>Types de disques 
@@ -27,7 +27,7 @@ Pour plus d’informations sur l’utilisation du stockage Standard avec des dis
 
 ### <a name="premium-storage"></a>Stockage Premium 
 
-Le stockage Premium s’appuie sur des disques SSD afin d’assurer de hautes performances et une faible latence pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S. Vous pouvez utiliser le stockage Premium avec les machines virtuelles Azure de série DS, DSv2, GS ou FS. Pour plus d’informations, consultez [Stockage Premium](../articles/storage/storage-premium-storage.md).
+Le stockage Premium s’appuie sur des disques SSD afin d’assurer de hautes performances et une faible latence pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S. Vous pouvez utiliser le stockage Premium avec les machines virtuelles Azure de série DS, DSv2, GS, Ls, ou FS. Pour plus d’informations, consultez [Stockage Premium](../articles/storage/storage-premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Disques non gérés
 
@@ -50,6 +50,7 @@ Le tableau suivant offre une comparaison des niveaux Premium et Standard pour le
 | Type de disque | SSD (Solid State Drive) | Disques durs  |
 | Vue d'ensemble  | Stockage hautes performances et à faible latence sur disque SSD pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S ou qui hébergent un environnement de production stratégique | Stockage économique sur disque dur pour les machines virtuelles utilisées à des fins de développement/test |
 | Scénario  | Charges de travail de production et sensibles aux performances | Développement/test, non stratégique, <br>accès peu fréquent |
-| Taille du disque | P10 : 128 Go<br>P20 : 512 Go<br>P30 : 1 024 Go | Disques non gérés : 1 Go – 1 To <br><br>Disques gérés :<br> S4 : 32 Go <br>S6 : 64 Go <br>S10 : 128 Go <br>S20 : 512 Go <br>S30 : 1 024 Go |
-| Débit max. par disque | 200 Mo/s | 60 Mo/s |
-| Nb max. d’E/S par seconde par disque | 5 000 E/S par seconde | 500 E/S par seconde |
+| Taille du disque | P4 : 32 GO<br>P6 : 64 GO<br>P10 : 128 Go<br>P20 : 512 Go<br>P30 : 1 024 Go<br>P40 : 2 048 GO<br>P50 : 4095 GO | Disques non gérés : 1 Go – 4 To (4095 GO) <br><br>Disques gérés :<br> S4 : 32 Go <br>S6 : 64 Go <br>S10 : 128 Go <br>S20 : 512 Go <br>S30 : 1 024 Go <br>S40 : 2 048 GO<br>S50 : 4095 GO| 
+| Débit max. par disque | 250 Mo/s | 60 Mo/s | 
+| Nb max. d’E/S par seconde par disque | 7 500 E/S PAR SECONDE | 500 E/S par seconde | 
+

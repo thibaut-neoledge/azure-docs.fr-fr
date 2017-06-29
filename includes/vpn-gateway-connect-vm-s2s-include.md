@@ -1,6 +1,6 @@
 Vous pouvez vous connecter à une machine virtuelle déployée sur votre réseau virtuel en créant une connexion Bureau à distance à votre machine virtuelle. La meilleure méthode pour vérifier initialement que vous pouvez vous connecter à votre machine virtuelle consiste à vous connecter à l’aide de son adresse IP privée, plutôt qu’avec le nom d’ordinateur. Vous testez ainsi si vous pouvez vous connecter, que la résolution de nom soit configurée correctement ou non.
 
-1. Recherchez l’adresse IP privée. L’adresse IP privée d’une machine virtuelle peut être trouvée en étudiant les propriétés de la machine virtuelle dans le portail Azure ou à l’aide de PowerShell.
+1. Recherchez l’adresse IP privée. Vous pouvez trouver l’adresse IP privée d’une machine virtuelle de plusieurs façons. Ci-dessous, nous indiquons les étapes relatives au portail Azure et à PowerShell.
 
   - Portail Azure : recherchez votre machine virtuelle dans le portail Azure. Affichez les propriétés de la machine virtuelle. L’adresse IP privée est répertoriée.
 
@@ -20,12 +20,12 @@ Vous pouvez vous connecter à une machine virtuelle déployée sur votre réseau
     ```
 
 2. Vérifiez que vous êtes connecté à votre réseau virtuel à l’aide de la connexion VPN.
-3. Ouvrez une **connexion Bureau à distance** en saisissant « RDP » ou « Connexion Bureau à distance » dans la zone de recherche de la barre des tâches, puis sélectionnez la connexion Bureau à distance. Vous pouvez également ouvrir une connexion Bureau à distance à l’aide de la commande « mstsc » dans PowerShell. 
+3. Ouvrez une **connexion Bureau à distance** en saisissant « RDP » ou « Connexion Bureau à distance » dans la zone de recherche de la barre des tâches, puis sélectionnez la connexion Bureau à distance. Vous pouvez également ouvrir une connexion Bureau à distance à l’aide de la commande « mstsc » dans PowerShell. 
 4. Dans Connexion Bureau à distance, entrez l’adresse IP privée de la machine virtuelle. Vous pouvez cliquer sur « Afficher les Options » pour définir des paramètres supplémentaires, puis connectez-vous.
 
 ### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>Pour résoudre une connexion RDP à une machine virtuelle
 
-Si vous rencontrez des problèmes de connexion à une machine virtuelle sur votre connexion VPN, vérifiez les points suivants :
+Si vous rencontrez des problèmes de connexion à une machine virtuelle sur votre connexion VPN, vérifiez les points suivants :
 
 - Vérifiez que votre connexion VPN aboutit.
 - Vérifiez que vous vous connectez à l’adresse IP privée de la machine virtuelle.

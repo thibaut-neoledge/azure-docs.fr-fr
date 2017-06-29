@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 05/29/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
-ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 6cf4ec4f777ea1f2b852945ab82da2547946f378
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -29,7 +31,7 @@ Pour sécuriser vos ressources de cloud, configurez une règle de revendication 
 
 1. Ouvrez Gestion AD FS.
 2. Sur la gauche, sélectionnez **Approbations de partie de confiance**.
-3. Cliquez avec le bouton droit sur **Plateforme d’identité Microsoft Office 365** et sélectionnez **Modifier les règles de revendication…**
+3. Cliquez avec le bouton droit sur **Plateforme d’identité Microsoft Office 365** et sélectionnez **Modifier les règles de revendication**.
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
@@ -88,15 +90,12 @@ Maintenant que les revendications sont en place, nous pouvons configurer des adr
 3. Sous Annuaire, sélectionnez l’annuaire dans lequel vous souhaitez configurer les adresses IP approuvées.
 4. Dans l’annuaire que vous avez sélectionné, cliquez sur **Configurer**.
 5. Dans la section Authentification multifacteur, cliquez sur **Gérer les paramètres du service**.
-6. Dans la page Paramètres du service, sous Adresses IP approuvées, sélectionnez **Ignorer l’authentification multifacteur pour les demandes issues d’utilisateurs fédérés provenant de mon intranet.**
+6. Sur la page Paramètres du service, sous Adresses IP approuvées, sélectionnez **Ignorer l’authentification multifacteur pour les demandes issues d’utilisateurs fédérés provenant de mon intranet**.  
+
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+   
 7. Cliquez sur **save**.
 8. Une fois les mises à jour appliquées, cliquez sur **Fermer**.
 
 Et voilà ! À ce stade, les utilisateurs fédérés d'Office 365 doivent pouvoir utiliser uniquement MFA lorsqu'une revendication provient de l'extérieur de l'intranet de l'entreprise.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

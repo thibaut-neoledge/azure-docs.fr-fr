@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/23/2017
+ms.date: 06/02/2017
 ms.author: garye
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: bb4d64f799027c9af74fd50ab724449bdede7804
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 0a1e23cd52ab5c10791a11d93753b54eb1c1b71a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -47,7 +47,7 @@ Pour plus d’informations sur Machine Learning Studio, consultez [Qu'est-ce que
 
 Le service API Machine Learning vous permet de déployer des modèles prédictifs, tels que ceux intégrés à Machine Learning Studio, sous forme de services web évolutifs et tolérants aux pannes. Les services web créés par le service API Machine Learning sont des API REST qui fournissent une interface pour les communications entre les applications externes et vos modèles analytiques prédictifs.
 
-Pour plus d’informations, voir [Connexion à un service Web Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Pour plus d’informations, consultez [Utilisation d’un service Web Microsoft Azure Machine Learning](machine-learning-consume-web-services.md).
 
 **Où sont répertoriés mes services web Classic ? Où sont répertoriés mes nouveaux services web (basés sur Azure Resource Manager) ?**
 
@@ -221,7 +221,7 @@ Consultez les [Limites d’abonnement Azure](../azure-subscription-service-limit
 ### <a name="use"></a>Utilisation
 **Quand ai-je avantage à exécuter mon modèle prédictif en tant que service d’exécution de lots plutôt qu’un service Web requête-réponse ?**
 
-Le service de requête-réponse (RRS, Request-Response Service) est un service web à faible latence et à grande échelle qui permet de fournir une interface aux modèles sans état créés et déployés à partir de l’environnement Expérimentation. BES (Batch Execution Service) est un service de notation asynchrone des batchs d’enregistrements de données. La saisie pour BES ressemble à la saisie de données utilisée par RRS. La principale différence réside dans le fait que BES lit un bloc d’enregistrements à partir de différentes sources, par exemple le stockage Blob Azure, le stockage Table Azure, Azure SQL Database, HDInsight (requêtes Hive) et les sources HTTP. Pour plus d’informations, consultez [Utilisation des service Web Microsoft Azure Machine Learning](machine-learning-consume-web-services.md).
+Le service de requête-réponse (RRS, Request-Response Service) est un service web à faible latence et à grande échelle qui permet de fournir une interface aux modèles sans état créés et déployés à partir de l’environnement Expérimentation. BES (Batch Execution Service) est un service de notation asynchrone des batchs d’enregistrements de données. La saisie pour BES ressemble à la saisie de données utilisée par RRS. La principale différence réside dans le fait que BES lit un bloc d’enregistrements à partir de différentes sources, par exemple le stockage Blob Azure, le stockage Table Azure, Azure SQL Database, HDInsight (requêtes Hive) et les sources HTTP. Pour plus d’informations, consultez [Utilisation d’un service Web Microsoft Azure Machine Learning](machine-learning-consume-web-services.md).
 
 **Comment puis-je mettre à jour le modèle pour le service Web déployé ?**
 
@@ -287,7 +287,7 @@ Non.
 ## <a name="security-and-availability"></a>Sécurité et disponibilité
 **Qui a accès au point de terminaison http pour le service web par défaut ? Comment puis-je limiter l’accès au point de terminaison ?**
 
-Après le déploiement d’un service web, un point de terminaison par défaut est créé pour ce service. Le point de terminaison par défaut peut être appelé à l’aide de sa clé API. Il est possible d’ajouter des points de terminaison supplémentaires avec leurs propres clés à partir du portail Azure Classic ou par le biais d’un programme, à l’aide des API Gestion des services web. Des clés d’accès sont nécessaires pour effectuer des appels au service web. Pour plus d’informations, voir [Connexion à un service Web Machine Learning](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Après le déploiement d’un service web, un point de terminaison par défaut est créé pour ce service. Le point de terminaison par défaut peut être appelé à l’aide de sa clé API. Il est possible d’ajouter des points de terminaison supplémentaires avec leurs propres clés à partir du portail Azure Classic ou par le biais d’un programme, à l’aide des API Gestion des services web. Des clés d’accès sont nécessaires pour effectuer des appels au service web. Pour plus d’informations, consultez [Utilisation d’un service Web Microsoft Azure Machine Learning](machine-learning-consume-web-services.md).
 
 **Que se passe-t-il si mon compte de stockage Azure est introuvable ?**
 

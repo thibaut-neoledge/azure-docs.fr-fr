@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 81a245f985c007f490acae102f1dd5c2096150e7
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: cd74b0cb0d58036cc7b1198a58649ba38e386322
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Leçon supplémentaire – Sécurité dynamique
@@ -30,9 +30,9 @@ Dans cette leçon supplémentaire, vous allez créer un rôle supplémentaire qu
   
 Pour implémenter la sécurité dynamique, vous ajoutez à votre modèle une table contenant les noms des utilisateurs qui peuvent se connecter au modèle et parcourir les données et objets du modèle. Le modèle que vous créez à l’aide de ce didacticiel est dans le contexte d’Adventure Works. Toutefois, pour suivre cette leçon, vous devez ajouter une table contenant les utilisateurs de votre propre domaine. Vous n’avez pas besoin des mots de passe correspondant aux noms d’utilisateur qui sont ajoutés. Pour créer une table EmployeeSecurity, avec un petit échantillon d’utilisateurs de votre propre domaine, vous utilisez la fonctionnalité Coller pour coller les données des employés d’une feuille de calcul Excel. Dans la vraie vie, la table contenant les noms d’utilisateur serait généralement une table d’une vraie base de données comme source de données ; par exemple, une vraie table DimEmployee.  
   
-Pour implémenter la sécurité dynamique, vous utilisez deux fonctions DAX :la [fonction USERNAME (DAX)](http://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) et la [fonction LOOKUPVALUE (DAX)](http://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Ces fonctions, appliquées dans une formule de filtre de lignes, sont définies dans un nouveau rôle. En utilisant la fonction LOOKUPVALUE, la formule spécifie une valeur à partir de la table EmployeeSecurity, puis transmet cette valeur à la fonction USERNAME, qui spécifie que le nom de l’utilisateur connecté appartient à ce rôle. L’utilisateur peut alors parcourir uniquement les données spécifiées par les filtres de lignes du rôle. Dans ce scénario, vous spécifiez que les représentants commerciaux peuvent parcourir uniquement les données des ventes sur Internet pour les secteurs de ventes dont ils sont membres.  
+Pour implémenter la sécurité dynamique, vous utilisez deux fonctions DAX :la [fonction USERNAME (DAX)](http://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) et la [fonction LOOKUPVALUE (DAX)](http://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Ces fonctions, appliquées dans une formule de filtre de lignes, sont définies dans un nouveau rôle. En utilisant la fonction LOOKUPVALUE, la formule spécifie une valeur à partir de la table EmployeeSecurity. Puis la formule transmet cette valeur à la fonction USERNAME, qui spécifie que le nom de l’utilisateur connecté appartient à ce rôle. L’utilisateur peut alors parcourir uniquement les données spécifiées par les filtres de lignes du rôle. Dans ce scénario, vous spécifiez que les représentants commerciaux peuvent parcourir uniquement les données des ventes sur Internet pour les secteurs de ventes dont ils sont membres.  
   
-Pour cette leçon supplémentaire, vous effectuez une série de tâches. Les tâches qui sont propres à ce scénario de modèle tabulaire Adventure Works, mais qui ne s’appliqueraient pas nécessairement dans la vraie vie, sont identifiées comme telles. Chaque tâche inclut des informations supplémentaires décrivant son objectif.  
+Les tâches qui sont propres à ce scénario de modèle tabulaire Adventure Works, mais qui ne s’appliqueraient pas nécessairement dans la vraie vie, sont identifiées comme telles. Chaque tâche inclut des informations supplémentaires décrivant son objectif.  
   
 Durée estimée pour suivre cette leçon : **30 minutes**  
   
@@ -59,7 +59,7 @@ Pour implémenter la sécurité dynamique dans ce scénario Adventure Works, vou
 9. Une fois la table importée, cliquez sur **Fermer**.  
 
 ## <a name="add-a-table-with-user-name-data"></a>Ajouter une table avec des données de noms d’utilisateur  
-Étant donné que la table DimEmployee de l’exemple de base de données AdventureWorksDW contient des utilisateurs du domaine AdventureWorks et que ces noms d’utilisateur n’existent pas dans votre propre environnement, vous devez créer dans votre modèle une table qui contient un petit échantillon (trois) d’utilisateurs réels de votre organisation. Vous ajoutez ensuite ces utilisateurs comme membres au nouveau rôle. Vous n’avez pas besoin des mots de passe correspondant aux exemples de noms d’utilisateur, mais vous avez besoin de noms d’utilisateurs Windows réels de votre propre domaine.  
+La table DimEmployee de l’exemple de base de données AdventureWorksDW contient des utilisateurs du domaine AdventureWorks. Ces noms d’utilisateur n’existent pas dans votre propre environnement. Vous devez donc créer dans votre modèle une table qui contient un petit échantillon (au moins trois) d’utilisateurs réels de votre organisation. Vous ajoutez ensuite ces utilisateurs comme membres au nouveau rôle. Vous n’avez pas besoin des mots de passe correspondant aux exemples de noms d’utilisateur, mais vous avez besoin de noms d’utilisateurs Windows réels de votre propre domaine.  
   
 #### <a name="to-add-an-employeesecurity-table"></a>Pour ajouter une table EmployeeSecurity  
   
@@ -76,7 +76,7 @@ Pour implémenter la sécurité dynamique dans ce scénario Adventure Works, vou
       |3|5|<user first name>|<user last name>|\<domain\username>|  
     ```
 
-3.  Remplacez le prénom, le nom et le domaine\nom d’utilisateur par les noms et ID de connexion des trois utilisateurs de votre organisation. Pour EmployeeId 1, placez le même utilisateur sur les deux premières lignes. Cela indique que cet utilisateur appartient à plusieurs secteurs de vente. Laissez les champs EmployeeId et SalesTerritoryId inchangés.  
+3.  Remplacez le prénom, le nom et le domaine\nom d’utilisateur par les noms et ID de connexion des trois utilisateurs de votre organisation. Pour EmployeeId 1, placez le même utilisateur sur les deux premières lignes. Cela indique que cet utilisateur appartient à plusieurs secteurs de vente. Laissez les champs EmployeeId et SalesTerritoryId inchangés.  
   
 4.  Enregistrez la feuille de calcul sous **SampleEmployee**.  
   
@@ -99,14 +99,14 @@ Les tables FactInternetSales, DimGeography et DimSalesTerritory contiennent tout
   
 #### <a name="to-create-relationships-between-the-factinternetsales-dimgeography-and-the-dimsalesterritory-table"></a>Pour créer des relations entre les tables FactInternetSales, DimGeography et DimSalesTerritory  
   
-1.  Dans le Concepteur de modèles, dans la vue de diagramme, dans la table **DimGeography**, cliquez sur la colonne **SalesTerritoryId** en maintenant le bouton enfoncé, puis faites glisser le curseur jusqu’à la colonne **SalesTerritoryId** de la table **DimSalesTerritory**, puis relâchez.  
+1.  Dans la vue de diagramme, dans la table **DimGeography**, cliquez sur la colonne **SalesTerritoryId** en maintenant le bouton de la souris enfoncé, faites glisser le curseur jusqu’à la colonne **SalesTerritoryId** de la table **DimSalesTerritory**, puis relâchez le bouton de la souris.  
   
 2.  Dans la table **FactInternetSales**, cliquez sur la colonne **SalesTerritoryId** en maintenant le bouton enfoncé, puis faites glisser le curseur jusqu’à la colonne **SalesTerritoryId** de la table **DimSalesTerritory**, puis relâchez.  
   
-    Notez que la propriété Active de cette relation a la valeur False, ce qui signifie qu’elle est inactive. En effet, la table FactInternetSales a déjà une autre relation active.  
+    Notez que la propriété Active de cette relation présente la valeur False, ce qui signifie qu’elle est inactive. En effet, la table FactInternetSales a déjà une autre relation active.  
   
 ## <a name="hide-the-employeesecurity-table-from-client-applications"></a>Masquer la table EmployeeSecurity pour les applications clientes  
-Dans cette tâche, vous allez masquer la table EmployeeSecurity en l’empêchant de s’afficher dans la liste des champs d’une application cliente. N’oubliez pas que masquer une table ne garantit pas sa sécurité. Les utilisateurs peuvent toujours interroger les données de la table EmployeeSecurity, s’ils savent comment procéder. Pour sécuriser les données de la table EmployeeSecurity en empêchant les utilisateurs d’en interroger les données, vous appliquez un filtre lors d’une tâche ultérieure.  
+Dans cette tâche, vous allez masquer la table EmployeeSecurity en l’empêchant de s’afficher dans la liste des champs d’une application cliente. N’oubliez pas que masquer une table ne garantit pas sa sécurité. Les utilisateurs peuvent toujours interroger les données de la table EmployeeSecurity s’ils savent comment procéder. Pour sécuriser les données de la table EmployeeSecurity en empêchant les utilisateurs d’en interroger les données, vous appliquez un filtre lors d’une tâche ultérieure.  
   
 #### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>Pour masquer la table EmployeeSecurity pour les applications clientes  
   
@@ -170,7 +170,7 @@ Dans cette tâche, vous allez utiliser la fonctionnalité Analyser dans Excel da
   
 2.  Dans la boîte de dialogue **Analyser dans Excel**, dans **Spécifier le nom d’utilisateur ou le rôle à utiliser pour se connecter au modèle**, sélectionnez **Autre utilisateur Windows**, puis cliquez sur **Parcourir**.  
   
-3.  Dans la boîte de dialogue **Sélectionner un utilisateur ou un groupe**, dans **Entrer le nom de l’objet à sélectionner**, tapez l’un des noms d’utilisateur que vous avez inclus dans la table EmployeeSecurity, puis cliquez sur **Vérifier les noms**.  
+3.  Dans la boîte de dialogue **Sélectionner un utilisateur ou un groupe**, dans la zone **Entrer le nom de l’objet à sélectionner**, tapez un nom d’utilisateur que vous avez inclus dans la table EmployeeSecurity, puis cliquez sur **Vérifier les noms**.  
   
 4.  Cliquez sur **OK** pour fermer la boîte de dialogue **Sélectionner un utilisateur ou un groupe**, puis cliquez sur **OK** pour fermer la boîte de dialogue **Analyser dans Excel**.  
   
@@ -182,7 +182,7 @@ Dans cette tâche, vous allez utiliser la fonctionnalité Analyser dans Excel da
   
 6.  Sélectionnez la colonne **SalesTerritoryId** dans la table **DimSalesTerritory**. La colonne est entrée dans les champs **Étiquettes de lignes**.  
   
-    Notez que les chiffres des ventes sur Internet s’affichent uniquement pour la région à laquelle le nom d’utilisateur effectif que vous avez utilisé appartient. Si vous sélectionnez une autre colonne, par exemple City, dans la table DimGeography comme champ Étiquette de ligne, seules les villes du secteur de vente auquel appartient l’utilisateur effectif sont affichées.  
+    Notez que les chiffres des ventes sur Internet s’affichent uniquement pour la région à laquelle le nom d’utilisateur effectif que vous avez utilisé appartient. Si vous sélectionnez une autre colonne, telle que City, dans la table DimGeography en tant que champ Étiquette de ligne, seules les villes du secteur de vente auquel appartient l’utilisateur effectif sont affichées.  
   
     Cet utilisateur ne peut parcourir ou interroger aucune donnée des ventes sur Internet pour les secteurs autres que celui auquel il appartient. Cette restriction est due au fait que le filtre de lignes défini pour la table DimSalesTerritory, dans le rôle d’utilisateur Sales Employees by Territory, protège efficacement toutes les données liées à d’autres secteurs de vente.  
   

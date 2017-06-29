@@ -1,6 +1,6 @@
 ## <a name="create-a-device-identity"></a>Création d’une identité d’appareil
 
-Dans cette section, vous utilisez un outil Node.js appelé [iothub-explorer][iot-hub-explorer] pour créer une identité d’appareil pour ce didacticiel.
+Dans cette section, vous utilisez un outil Node.js appelé [iothub-explorer][iot-hub-explorer] pour créer une identité d’appareil pour ce didacticiel. Respectez la casse des ID d’appareil.
 
 1. Dans votre environnement de ligne de commande, exécutez la commande suivante :
 

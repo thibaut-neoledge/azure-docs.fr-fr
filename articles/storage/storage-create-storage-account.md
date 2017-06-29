@@ -12,13 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+f1_keywords:
+- sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: robinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 16d9fa8a7b7593f222976897bddf615c28109540
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -89,7 +91,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 ## <a name="manage-your-storage-account"></a>Gérer votre compte de stockage
 ### <a name="change-your-account-configuration"></a>Modifier la configuration de votre compte
-Après avoir créé votre compte de stockage, vous pouvez modifier sa configuration, notamment modifier l’option de réplication utilisée pour le compte ou modifier le niveau d’accès pour un compte de stockage d’objets blob. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, cliquez sur **Tous les paramètres**, puis sur **Configuration** pour afficher et/ou modifier la configuration du compte.
+Après avoir créé votre compte de stockage, vous pouvez modifier sa configuration, notamment modifier l’option de réplication utilisée pour le compte ou modifier le niveau d’accès pour un compte de stockage d’objets blob. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, localisez l’option **Configuration** sous **PARAMÈTRES**, puis cliquez dessus pour afficher et/ou modifier la configuration du compte.
 
 > [!NOTE]
 > Selon le niveau de performances que vous avez choisi lors de la création du compte de stockage, certaines options de réplication peuvent ne pas être disponibles.

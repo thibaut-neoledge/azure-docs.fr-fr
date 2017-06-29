@@ -10,29 +10,29 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: d61ad247d795c210350c6681087b811c1fa39a70
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 6f47de43ff8d94de22f8b7c12fa0707a8d7ffbbc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-12-analyze-in-excel"></a>Leçon 12 : Analyser dans Excel
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Dans cette leçon, vous allez utiliser la fonctionnalité Analyser dans Excel dans SSDT pour ouvrir Microsoft Excel, créer automatiquement une connexion de source de données à l’espace de travail du modèle et ajouter automatiquement un tableau croisé dynamique à la feuille de calcul. La fonctionnalité Analyser dans Excel est destinée à fournir un moyen simple et rapide de tester l’efficacité de la conception de votre modèle avant de déployer ce dernier. Vous n’allez exécuter aucune analyse de données dans cette leçon. L’objectif de cette leçon est de vous familiariser, en tant qu’auteur de modèle, avec les outils que vous pouvez utiliser pour tester la conception de votre modèle. Alors que les auteurs de modèle utilisent la fonctionnalité Analyser dans Excel qui est spécialement conçue pour eux, les utilisateurs finaux utilisent des applications de création de rapports clientes, comme Excel ou Power BI, pour se connecter aux données du modèle déployé et les parcourir.  
+Dans cette leçon, vous utilisez la fonctionnalité Analyser dans Excel pour ouvrir Microsoft Excel, créer automatiquement une connexion à l’espace de travail du modèle et ajouter automatiquement un tableau croisé dynamique à la feuille de calcul. La fonctionnalité Analyser dans Excel est destinée à fournir un moyen simple et rapide de tester l’efficacité de la conception de votre modèle avant de déployer ce dernier. Vous n’exécutez aucune analyse de données dans cette leçon. L’objectif de cette leçon est de vous familiariser, en tant qu’auteur de modèle, avec les outils que vous pouvez utiliser pour tester la conception de votre modèle.   
   
 Pour que vous puissiez suivre cette leçon, Excel doit être installé sur le même ordinateur que SSDT.
   
-Durée estimée pour suivre cette leçon : **5 minutes**  
+Durée estimée pour suivre cette leçon : **5 minutes**  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Composants requis  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir suivi la leçon précédente : [Leçon 11 : Créer des rôles](../tutorials/aas-lesson-11-create-roles.md).  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Parcourir des données à l’aide des perspectives par défaut et Internet Sales  
@@ -46,7 +46,7 @@ Dans ces premières tâches, vous aller parcourir votre modèle en utilisant à 
   
     Excel s’ouvre avec un nouveau classeur. Une connexion de source de données est créée à l’aide du compte d’utilisateur actuel et la perspective par défaut est utilisée pour définir les champs visibles. Un tableau croisé dynamique est automatiquement ajouté à la feuille de calcul.  
   
-3.  Dans Excel, dans la **liste de champs de tableau croisé dynamique**, notez que les groupes de mesures **DimDate** et **FactInternetSales** s’affichent, ainsi que les tables **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** et **FactInternetSales** avec toutes leurs colonnes respectives.  
+3.  Dans Excel, dans la **liste des champs de tableau croisé dynamique**, les groupes de mesures **DimDate** et **FactInternetSales** sont affichés. Vous voyez également les tables **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** et **FactInternetSales**, avec leurs colonnes respectives.  
   
 4.  Fermez Excel sans enregistrer le classeur.  
   
@@ -65,13 +65,13 @@ Dans ces premières tâches, vous aller parcourir votre modèle en utilisant à 
 4.  Fermez Excel sans enregistrer le classeur.  
   
 ## <a name="browse-by-using-roles"></a>Parcourir les données à l’aide de rôles  
-Les rôles font partie intégrante de n’importe quel modèle tabulaire. Si les utilisateurs ne disposent pas d’au moins un rôle auquel ils sont ajoutés en tant que membres, ils ne peuvent pas accéder aux données et les analyser à l’aide de votre modèle. La fonctionnalité Analyser dans Excel fournit un moyen de tester les rôles que vous avez définis.  
+Les rôles sont importants dans n’importe quel modèle tabulaire. Si les utilisateurs ne disposent pas d’au moins un rôle auquel ils sont ajoutés en tant que membres, ils ne peuvent pas accéder aux données ni les analyser à l’aide de votre modèle. La fonctionnalité Analyser dans Excel fournit un moyen de tester les rôles que vous avez définis.  
   
 #### <a name="to-browse-by-using-the-sales-manager-user-role"></a>Pour parcourir les données à l’aide du rôle utilisateur Sales Manager  
   
 1.  Dans SSDT, cliquez sur le menu **Modèle**, puis sur **Analyser dans Excel**.  
   
-2.  Dans la boîte de dialogue **Analyser dans Excel**, dans **Spécifier le nom d’utilisateur ou le rôle à utiliser pour se connecter au modèle**, sélectionnez **Rôle**, puis dans la zone de liste déroulante, sélectionnez **Sales Manager**. Cliquez ensuite sur **OK**.  
+2.  Dans **Spécifier le nom d’utilisateur ou le rôle à utiliser pour se connecter au modèle**, sélectionnez **Rôle**, puis dans la zone de liste déroulante, sélectionnez **Sales Manager**. Cliquez ensuite sur **OK**.  
   
     Excel s’ouvre avec un nouveau classeur. Un tableau croisé dynamique est automatiquement créé. La liste des champs du tableau croisé dynamique inclut tous les champs de données disponibles dans votre nouveau modèle.  
       

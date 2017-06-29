@@ -28,7 +28,7 @@ Pour ajouter un appareil à votre solution de surveillance à distance, procéde
 
    ![Ajouter ID d’appareil][3]
 
-1. Prenez note des informations d’identification de l’appareil (**ID d’appareil**, **nom d’hôte IoT Hub** et **clé d’appareil**). Votre application cliente sur Raspberry Pi a besoin de ces valeurs pour se connecter à la solution de surveillance à distance. Cliquez ensuite sur **Terminé**.
+1. Prenez note des informations d’identification de l’appareil (**ID d’appareil**, **nom d’hôte IoT Hub** et **clé d’appareil**). Votre application cliente sur Intel NUC a besoin de ces valeurs pour se connecter à la solution de surveillance à distance. Cliquez ensuite sur **Terminé**.
 
     ![Afficher les informations d’identification d’un appareil][4]
 

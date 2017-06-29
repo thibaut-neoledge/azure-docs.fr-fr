@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/21/2017
+ms.date: 6/01/2017
 ms.author: negat
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 4ec20a30f423d4b30e953f873100be90167f987b
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -45,7 +46,7 @@ Vous pouvez également consulter le [Référentiel GitHub de modèles de démarr
 
 ## <a name="api-versions"></a>Versions d’API
 
-La version d’API actuellement mise à la disposition générale pour les groupes identiques avec disques gérés est `2016-04-30-preview`. Les groupes identiques avec disques non gérés continueront à fonctionner comme avant, même dans les nouvelles versions d’API qui prennent en charge les disques gérés. Cependant, les groupes identiques avec disques non gérés ne profiteront pas des avantages des disques gérés, même dans ces nouvelles versions d’API.
+Les groupes identiques avec des disques managés nécessitent la version d’API Microsoft.Compute `2016-04-30-preview` ou une version ultérieure. Les groupes identiques avec disques non gérés continueront à fonctionner comme avant, même dans les nouvelles versions d’API qui prennent en charge les disques gérés. Cependant, les groupes identiques avec disques non gérés ne profiteront pas des avantages des disques gérés, même dans ces nouvelles versions d’API.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -35,7 +35,7 @@
 1. Cliquez sur **Explorateur d’appareils**.
 1. Dans le volet Explorateur d’appareils, cliquez sur **Ajouter** pour ajouter un appareil à votre IoT Hub.
 
-   **ID de périphérique** : l’ID du nouvel appareil.
+   **ID de périphérique** : l’ID du nouvel appareil. Les ID d’appareil respectent la casse.
 
    **Type d’authentification** : sélectionnez **Clé symétrique**.
 

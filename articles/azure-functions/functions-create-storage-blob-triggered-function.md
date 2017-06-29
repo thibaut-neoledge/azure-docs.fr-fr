@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: c0d1271bc083688bbc72bd2556546c2f738e7345
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: a55f28fad4c70e49e417d2856568791b313ad1eb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Créer une fonction déclenchée par un stockage Blob Azure
@@ -31,11 +31,8 @@ Apprenez à créer une fonction déclenchée lorsque des fichiers sont chargés 
 
 ## <a name="prerequisites"></a>Composants requis
 
-Avant d’exécuter cet exemple, vous devez avoir effectué les étapes suivantes :
-
-- Télécharger et installer l’[Explorateur de Stockage Microsoft Azure](http://storageexplorer.com/).
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
++ Télécharger et installer l’[Explorateur de Stockage Microsoft Azure](http://storageexplorer.com/).
++ Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -51,15 +48,21 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Créer une fonction déclenchée par le stockage Blob
 
-Développez votre Function App, cliquez sur le bouton **+** à côté de **Fonctions**, puis cliquez sur le modèle **BlobTrigger** pour la langue de votre choix. Ensuite, utilisez les paramètres comme indiqué dans la table et cliquez sur **Créer**.
+1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre Function App, sélectionnez **Fonction personnalisée**. Cela affiche l’ensemble complet des modèles de fonction.
 
-![Création de la fonction déclenchée par le stockage Blob.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-| Paramètre | Valeur suggérée | Description |
-|---|---|---|
-| **Chemin d’accès**   | mycontainer/{name}    | Emplacement du stockage Blob analysé. Le nom de fichier de l’objet Blob est transmis dans la liaison en tant que paramètre _name_.  |
-| **Connexion au compte de stockage** | AzureWebJobStorage | Vous pouvez utiliser la connexion au compte de stockage qui est déjà utilisée par votre Function App ou en créer une.  |
-| **Nommer votre fonction** | Unique dans votre Function App | Nom de cette fonction déclenchée par la file d’attente. |
+2. Sélectionnez le modèle **BlobTrigger** de la langue de votre choix, puis utilisez les paramètres comme indiqué dans le tableau.
+
+    ![Création de la fonction déclenchée par le stockage Blob.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+
+    | Paramètre | Valeur suggérée | Description |
+    |---|---|---|
+    | **Chemin d’accès**   | mycontainer/{name}    | Emplacement du stockage Blob analysé. Le nom de fichier de l’objet Blob est transmis dans la liaison en tant que paramètre _name_.  |
+    | **Connexion au compte de stockage** | AzureWebJobStorage | Vous pouvez utiliser la connexion au compte de stockage qui est déjà utilisée par votre Function App ou en créer une.  |
+    | **Nommer votre fonction** | Unique dans votre Function App | Nom de cette fonction déclenchée par l’objet Blob. |
+
+3. Cliquez sur **Créer** pour créer votre fonction.
 
 Ensuite, connectez-vous à votre compte de stockage Azure et créez le conteneur **mycontainer**.
 
@@ -111,3 +114,4 @@ Vous avez créé une fonction qui s’exécute lorsqu’un objet blob est ajout�
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Pour plus d’informations sur les déclencheurs de stockage Blob, consultez [Liaisons de stockage Blob Azure Functions](functions-bindings-storage-blob.md).
+

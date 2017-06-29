@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 05/19/2017
+ms.date: 06/10/2017
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: caf3b69b25ccd15322054a0bbf95fc2a5816e00a
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 44972270a13f5ab5b3aa22557b36e80ae406a4a6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/20/2017
-
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB : Créer, interroger et parcourir la console Gremlin
@@ -65,56 +64,86 @@ Vous devez également installer la [console Gremlin](http://tinkerpop.apache.org
 
 Parfait ! L’installation étant terminée, exécutons quelques commandes de console.
 
+Essayons une simple commande count(). Lorsque l’invite de commandes s’affiche, saisissez ce qui suit dans la console :
+```
+:> g.V().count()
+```
+
+> [!TIP]
+> Notez le signe ***:>*** qui précède la valeur g.V().count() ; 
+>
+> il indique la partie de la commande que vous devez saisir. Ce signe est important lorsque vous utilisez la console Gremlin avec Azure Cosmos DB.  
+>
+> Si vous n’indiquez pas le préfixe :>, la console doit exécuter la commande en local, le plus souvent sur un graphique en mémoire.
+> L’utilisation du signe ***:>*** indique à la console qu’elle doit exécuter une commande à distance, sur la base de données Cosmos DB dans le cas présent (l’émulateur localhost, ou une instance >Azure).
+
+
 ## <a name="create-vertices-and-edges"></a>Création de vertex et de bords
 
-Commençons par ajouter quatre vertex de personnes pour *Thomas*, *Mary Kay*, *Robin* et *Ben*.
+Commençons par ajouter des vertex pour cinq personnes : *Thomas*, *Mary Kay*, *Robin*, *Ben* et *Jack*.
 
 Entrée (Thomas) :
 
 ```
-:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
+:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
 ```
 
 Output:
 
 ```
-==>[id:1eb91f79-94d7-4fd4-b026-18f707952f21,label:person,type:vertex,properties:[firstName:[[id:ec5fcfbe-040e-48c3-b961-31233c8b1801,value:Thomas]],lastName:[[id:86e5b580-0bca-4bc2-bc53-a46f92c1a182,value:Andersen]],age:[[id:2caeab3c-c66d-4098-b673-40a8101bb72a,value:44]]]]
+==>[id:796cdccc-2acd-4e58-a324-91d6f6f5ed6d,label:person,type:vertex,properties:[firstName:[[id:f02a749f-b67c-4016-850e-910242d68953,value:Thomas]],lastName:[[id:f5fa3126-8818-4fda-88b0-9bb55145ce5c,value:Andersen]],age:[[id:f6390f9c-e563-433e-acbf-25627628016e,value:44]],userid:[[id:796cdccc-2acd-4e58-a324-91d6f6f5ed6d|userid,value:1]]]]
 ```
 Entrée (Mary Kay) :
 
 ```
-:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39)
+:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+
 ```
 
 Output:
 
 ```
-==>[id:899a9d37-6701-48fc-b0a1-90950be7e0f4,label:person,type:vertex,properties:[firstName:[[id:c79c5599-8646-47d1-9a49-3456200518ce,value:Mary Kay]],lastName:[[id:c1362095-9dcc-479d-ab21-86c1b6d4ffc1,value:Andersen]],age:[[id:0b530408-bfae-4e8f-98ad-c160cd6e6a8f,value:39]]]]
+==>[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e,label:person,type:vertex,properties:[firstName:[[id:ea0604f8-14ee-4513-a48a-1734a1f28dc0,value:Mary Kay]],lastName:[[id:86d3bba5-fd60-4856-9396-c195ef7d7f4b,value:Andersen]],age:[[id:bc81b78d-30c4-4e03-8f40-50f72eb5f6da,value:39]],userid:[[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e|userid,value:2]]]]
+
 ```
 
 Entrée (Robin) :
 
 ```
-:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield')
+:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
 ```
 
 Output:
 
 ```
-==>[id:953aefd9-5a54-4033-9b3a-d4dc3049f720,label:person,type:vertex,properties:[firstName:[[id:bbda02e0-8a96-4ca1-943e-621acbb26824,value:Robin]],lastName:[[id:f0291ad3-05a3-40ec-aabb-6538a7c331e3,value:Wakefield]]]]
+==>[id:8dc14d6a-8683-4a54-8d74-7eef1fb43a3e,label:person,type:vertex,properties:[firstName:[[id:ec65f078-7a43-4cbe-bc06-e50f2640dc4e,value:Robin]],lastName:[[id:a3937d07-0e88-45d3-a442-26fcdfb042ce,value:Wakefield]],userid:[[id:8dc14d6a-8683-4a54-8d74-7eef1fb43a3e|userid,value:3]]]]
 ```
 
 Entrée (Ben) :
 
 ```
-:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller')
+:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+
 ```
 
 Output:
 
 ```
-==>[id:81c891d9-beca-4c87-9009-13a826c9ed9a,label:person,type:vertex,properties:[firstName:[[id:3a3b53d3-888c-46da-bb54-1c42194b1e18,value:Ben]],lastName:[[id:48c6dd50-79c4-4585-ab71-3bf998061958,value:Miller]]]]
+==>[id:ee86b670-4d24-4966-9a39-30529284b66f,label:person,type:vertex,properties:[firstName:[[id:a632469b-30fc-4157-840c-b80260871e9a,value:Ben]],lastName:[[id:4a08d307-0719-47c6-84ae-1b0b06630928,value:Miller]],userid:[[id:ee86b670-4d24-4966-9a39-30529284b66f|userid,value:4]]]]
 ```
+
+Entrée (Jack) :
+
+```
+:> g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+```
+
+Output:
+
+```
+==>[id:4c835f2a-ea5b-43bb-9b6b-215488ad8469,label:person,type:vertex,properties:[firstName:[[id:4250824e-4b72-417f-af98-8034aa15559f,value:Jack]],lastName:[[id:44c1d5e1-a831-480a-bf94-5167d133549e,value:Connor]],userid:[[id:4c835f2a-ea5b-43bb-9b6b-215488ad8469|userid,value:5]]]]
+```
+
 
 Ensuite, ajoutons des bords pour les relations entre ces personnes.
 
@@ -234,10 +263,10 @@ Output:
 
 Nous allons à présent supprimer un vertex de la base de données des graphiques.
 
-Entrée (suppression du vertex de Robin) :
+Entrée (suppression du vertex de Jack) :
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Robin').drop()
+:> g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
 ## <a name="clear-your-graph"></a>Effacement de tout le contenu de votre graphique
@@ -247,6 +276,7 @@ Enfin, nous allons supprimer tous les vertex et bords de la base de données.
 Entrée :
 
 ```
+:> g.E().drop()
 :> g.V().drop()
 ```
 
@@ -269,3 +299,4 @@ Dans ce démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB,
 
 > [!div class="nextstepaction"]
 > [Interroger à l’aide de Gremlin](tutorial-query-graph.md)
+
