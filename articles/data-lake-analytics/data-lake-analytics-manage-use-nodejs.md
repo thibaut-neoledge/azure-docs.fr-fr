@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: e6440522ced33a48925cfabc64da055b8700b253
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 769cf9b09eecd204c8b5b944065dad57a6d73231
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -34,8 +36,8 @@ Pour le moment, il prend en charge :
 
 ## <a name="features"></a>Caractéristiques
 * Gestion de compte : créer, obtenir, répertorier, mettre à jour et supprimer.
-* Gestion de tâche : envoyer, obtenir, répertorier, annuler.
-* Gestion de catalogue : obtenir, répertorier, créer (secrets), mettre à jour (secrets), supprimer (secrets).
+* Gestion de travail : envoyer, obtenir, répertorier et annuler.
+* Gestion de catalogue : obtenir et répertorier.
 
 ## <a name="how-to-install"></a>Procédure d’installation
 ```bash
@@ -137,10 +139,5 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 ## <a name="see-also"></a>Voir aussi
 * [Kit de développement logiciel (SDK) Microsoft Azure pour Node.js](https://github.com/azure/azure-sdk-for-node)
 * [Kit de développement logiciel (SDK) Microsoft Azure pour Node.js - Gestion du Magasin Data Lake](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

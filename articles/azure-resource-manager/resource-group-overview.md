@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4b7192b22d1583be2b2ab027b040c9a2fce8a293
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: db97edd3c4fbfdbe955c49cc9a58de30c5085305
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -81,39 +82,9 @@ Lorsque vous créez un groupe de ressources, vous devez indiquer un emplacement 
 ## <a name="resource-providers"></a>Fournisseurs de ressources
 Chaque fournisseur de ressources propose un ensemble de ressources et d’opérations permettant de gérer un service Azure. Par exemple, si vous voulez stocker des clés et des secrets, vous travaillez avec le fournisseur de ressources **Microsoft.KeyVault** . Ce fournisseur de ressources offre un type de ressource appelé **coffres** pour créer le coffre de clés. 
 
-Avant de commencer à déployer vos ressources, vous devez connaître les fournisseurs de ressources disponibles. Connaître les noms des fournisseurs de ressources et des ressources vous permettra de mieux définir les ressources que vous allez déployer dans Azure.
+Le nom d’un type de ressource est au format : **{fournisseur de ressources}/{type de ressource}**. Par exemple, le type de coffre de clés est **Microsoft.KeyVault\vaults**.
 
-Vous pouvez visualiser tous les fournisseurs de ressources par le biais du portail. Dans le panneau de votre abonnement, sélectionnez **Fournisseurs de ressources** :
-
-![visualiser les fournisseurs de ressources](./media/resource-group-overview/view-resource-providers.png)
-
-Pour récupérer tous les fournisseurs de ressources, utilisez l’applet de commande PowerShell suivante :
-
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Vous pouvez également utiliser l’interface CLI Azure 2.0 pour récupérer tous les fournisseurs de ressources à l’aide de la commande suivante :
-
-```azurecli
-az provider list
-```
-
-Vous pouvez consulter la liste renvoyée pour connaître les fournisseurs de ressources à utiliser.
-
-Pour obtenir plus d’informations sur un fournisseur de ressources, ajoutez l’espace de noms du fournisseur à votre commande. La commande retourne les types de ressources pris en charge pour le fournisseur de ressources, ainsi que les emplacements et les versions d’API pris en charge pour chaque type de ressource. L’applet de commande PowerShell suivante fournit des informations sur Microsoft.Compute :
-
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
-```
-
-Sinon, à partir de l’interface CLI Azure 2.0, utilisez la commande suivante pour récupérer les types de ressources, les emplacements et les versions d’API pris en charge pour Microsoft.Compute :
-
-```azurecli
-az provider show --namespace Microsoft.Compute
-```
-
-Pour plus d’informations, consultez la page [Fournisseurs, régions, schémas et versions d’API Resource Manager](resource-manager-supported-services.md).
+Avant de commencer à déployer vos ressources, vous devez connaître les fournisseurs de ressources disponibles. Connaître les noms des fournisseurs de ressources et des ressources vous permettra de mieux définir les ressources que vous allez déployer dans Azure. En outre, vous devez connaître les emplacements valides et les versions d’API pour chaque type de ressource. Pour plus d’informations, consultez [les types et les fournisseurs de ressources](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 Avec Resource Manager, vous pouvez créer un modèle (au format JSON) définissant l’infrastructure et la configuration de votre solution Azure. Un modèle vous permet de déployer votre solution à plusieurs reprises tout au long de son cycle de vie pour avoir la garantie que vos ressources présentent un état cohérent lors de leur déploiement. Lorsque vous créez une solution à partir du portail, cette solution inclut automatiquement un modèle de déploiement. Vous n’êtes pas contraint de créer votre modèle à partir de zéro, car vous pouvez partir du modèle de votre solution et le personnaliser en fonction de vos besoins spécifiques. Vous pouvez récupérer un modèle pour un groupe de ressources existant en exportant l’état actuel du groupe de ressources ou en affichant le modèle utilisé pour un déploiement particulier. L’affichage du [modèle exporté](resource-manager-export-template.md) est un moyen utile pour en découvrir plus sur sa syntaxe.

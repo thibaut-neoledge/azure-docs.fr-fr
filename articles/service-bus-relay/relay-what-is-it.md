@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 06/14/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 9fd40892c77630bd4f0b7abf5c3458a6dc200402
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 74a0837b7149236faa45ef2cda0a0aee7c46a31b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="what-is-azure-relay"></a>Qu’est-ce qu’Azure Relay ?
+
 Le service Azure Relay facilite les applications hybrides en offrant la possibilité d’exposer les services qui résident dans un réseau d’entreprise sur le cloud public en toute sécurité, sans avoir à ouvrir une connexion de pare-feu ni à exiger des modifications intrusives dans une infrastructure de réseau d’entreprise. Azure Relay prend en charge une grande variété de protocoles de transport et normes de services web.
 
 Le service de relais prend en charge le trafic unidirectionnel standard, le trafic de demande/réponse et le trafic d’homologue à homologue. Il prend également en charge la distribution des événements sur Internet pour activer les scénarios de publication/abonnement et la communication par socket bidirectionnelle pour une efficacité accrue de point à point. 
@@ -34,7 +35,7 @@ Les principaux éléments de fonctionnalité d’Azure Relay sont la communicati
 Azure Relay comprend deux fonctionnalités :
 
 1. [Connexions hybrides](#hybrid-connections) : utilise les sockets web standard ouverts permettant des scénarios multi-plateformes.
-2. [Relais WCF](#wcf-relays) : utilise Windows Communication Foundation (WCF) pour activer les appels de procédure à distance. Le relais WCF est le relais hérité que de nombreux clients utilisent déjà avec leurs modèles de programmation WCF.
+2. [Relais WCF](#wcf-relays) : utilise Windows Communication Foundation (WCF) pour activer les appels de procédure à distance. Le relais WCF est l’offre de relais héritée que de nombreux clients utilisent déjà avec leurs modèles de programmation WCF.
 
 Les connexions hybrides et relais WCF permettent une connexion sécurisée aux actifs existants au sein d’un réseau d’entreprise. L’utilisation de l’un par rapport à l’autre dépend de vos besoins particuliers, comme décrit dans le tableau suivant :
 
@@ -48,15 +49,19 @@ Les connexions hybrides et relais WCF permettent une connexion sécurisée aux a
 | **Plusieurs modèles de programmation RPC** | |x |
 
 ## <a name="hybrid-connections"></a>les connexions hybrides
+
 La fonctionnalité de [connexions hybrides Azure Relay](relay-hybrid-connections-protocol.md) est une évolution de protocole ouvert sécurisé des fonctionnalités existantes du relais, qui peut être implémentée sur n’importe quelle plateforme et dans n’importe quel langage incluant une fonctionnalité WebSocket de base, ce qui comprend explicitement l’API WebSocket dans les navigateurs web courants. Les connexions hybrides sont basées sur HTTP et WebSockets.
 
 ## <a name="wcf-relays"></a>Relais WCF
+
 Le relais WCF fonctionne pour l’ensemble de .NET Framework (NETFX) et pour WCF. Vous lancez la connexion entre votre service local et le service de relais à l’aide d’une suite de liaisons de « relais » WCF. En coulisses, les liaisons de relais se mappent à de nouveaux éléments de liaison de transport destinés à créer des composants de canal WCF qui s'intègrent à Service Bus dans le cloud.
 
 ## <a name="service-history"></a>Historique des services
-Les connexions hybrides remplacent l’ancienne fonctionnalité appelée « BizTalk Services » qui a été créée sur le relais WCF Azure Service Bus. La nouvelle fonctionnalité de connexions hybrides vient compléter la fonction de relais WCF existante et ces deux possibilités de service cohabiteront dans le service de relais. Elles partagent une passerelle commune, mais ont des implémentations différentes.
+
+Les connexions hybrides remplacent l’ancienne fonctionnalité appelée « BizTalk Services » qui a été créée sur le relais WCF Azure Service Bus. La nouvelle fonctionnalité de connexions hybrides vient compléter la fonction de relais WCF existante, et ces deux possibilités de service cohabiteront bientôt dans le service Azure Relay. Elles partagent une passerelle commune, mais ont des implémentations différentes.
 
 ## <a name="next-steps"></a>Étapes suivantes :
+
 * [FAQ Relay](relay-faq.md)
 * [Créer un espace de noms](relay-create-namespace-portal.md)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)

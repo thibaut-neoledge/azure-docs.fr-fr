@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: abb27292d4b5533fe6f3d66d6921fea8c82f18dd
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: dacd689576dce65bbf1a975409ea7d7f2c3ada90
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ Pour mettre à jour le paramètre de serveur DNS pour le réseau virtuel sur leq
    ![Mettre à jour les paramètres de serveur DNS pour le réseau virtuel](./media/active-directory-domain-services-getting-started/update-dns.png)
 
 > [!NOTE]
-> Après la mise à jour des paramètres de serveur DNS pour le réseau virtuel, la mise à jour de la configuration DNS sur les machines virtuelles sur le réseau peut prendre du temps. Si une machine virtuelle ne peut pas se connecter au domaine, vous pouvez vider le cache DNS ('ipconfig /flushdns') sur la machine virtuelle. Cette commande force une actualisation des paramètres DNS sur la machine virtuelle.
+> Les machines virtuelles du réseau n’obtiendront les nouveaux paramètres DNS que lors d’un redémarrage. Si vous avez besoin qu’elles obtiennent les paramètres DNS mis à jour immédiatement, déclenchez un redémarrage via le portail, PowerShell ou l’interface CLI.
 >
 >
 

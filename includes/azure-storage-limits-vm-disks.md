@@ -1,6 +1,6 @@
 Une machine virtuelle Azure prend en charge l'attachement d'un certain nombre de disques de données. Pour des performances optimales, limitez le nombre de disques fortement utilisés attachés à la machine virtuelle pour éviter les limitations possibles. Le compte de stockage peut prendre en charge un plus grand nombre de disques s'ils ne sont pas tous fortement sollicités en même temps.
 
-* **Pour les disques gérés Azure :** le nombre limite de disques gérés pour l’abonnement dépend de la région. La limite non stricte par défaut est de 2 000 par région et par abonnement. Pour augmenter votre limite, contactez le support Azure.
+* **Pour les disques gérés Azure :** le nombre limite de disques gérés dépend de la région et du type de stockage. La valeur par défaut (et limite maximale) est égale à 10 000 par abonnement, par région et par type de stockage. Par exemple, vous pouvez créer jusqu’à 10 000 disques gérés standard et jusqu’à 10 000 disques gérés Premium au sein d’un abonnement et d’une région. 
 
     Les instantanés et les images gérés sont comptabilisés par rapport à la limite de disques gérés.
 

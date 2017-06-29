@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: c810f3e86ba582943e88f3085f6d9cff2496031c
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 2c22cc47e69b47371a96429d3ba7b8afc60e5ca7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -26,8 +27,8 @@ ms.lasthandoff: 01/24/2017
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-> 
-> 
+>
+>
 
 Service Fabric fournit des Kits de développement logiciel (SDK) pour générer des services Linux dans .NET Core et Java. Dans ce didacticiel, nous apprenons à créer une application pour Linux et à générer un service à l’aide de C# (.NET Core).
 
@@ -40,32 +41,32 @@ Une application Service Fabric peut contenir un ou plusieurs services, chacun ay
 1. Dans un terminal, tapez la commande suivante pour commencer la génération de modèles automatique : `yo azuresfcsharp`
 2. Donnez un nom à votre application.
 3. Choisissez le type de votre premier service et nommez-le. Pour les besoins de ce didacticiel, nous choisissons un service Reliable Actors.
-   
+
    ![Générateur Yeoman Service Fabric pour C#][sf-yeoman]
 
 > [!NOTE]
 > Pour plus d’informations sur les options, voir [Vue d’ensemble des modèles de programmation Service Fabric](service-fabric-choose-framework.md).
-> 
-> 
+>
+>
 
 ## <a name="build-the-application"></a>Création de l'application
 Les modèles Yeoman Service Fabric incluent un script de build que vous pouvez utiliser pour générer l’application à partir du terminal (après avoir accédé au dossier l’application).
 
   ```sh
- cd myapp 
- ./build.sh 
+ cd myapp
+ ./build.sh
   ```
 
 ## <a name="deploy-the-application"></a>Déployer l’application
 Une fois que l’application est générée, vous pouvez la déployer vers le cluster local à l’aide de l’interface de ligne de commande Azure.
 
 1. Connectez-vous au cluster Service Fabric local.
-   
+
     ```sh
     azure servicefabric cluster connect
     ```
 2. Utilisez le script d’installation fourni dans le modèle pour copier le package d’application dans le magasin d’images du cluster, inscrire le type d’application et créer une instance de l’application.
-   
+
     ```bash
     ./install.sh
     ```
@@ -76,13 +77,13 @@ Une fois que l’application est générée, vous pouvez la déployer vers le cl
 Les projets d’acteur n’effectuent aucune opération automatiquement. Ils ont besoin d’un autre service ou client pour leur envoyer des messages. Le modèle d’acteur inclut un script de test simple que vous pouvez utiliser pour interagir avec le service d’acteur.
 
 1. Exécutez le script à l’aide de l’utilitaire watch pour afficher la sortie du service d’acteur.
-   
+
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
 2. Dans Service Fabric Explorer, recherchez le nœud qui héberge le réplica principal pour le service d’acteur. Dans la capture d’écran ci-dessous, il s’agit du nœud 3.
-   
+
     ![Recherche du réplica principal dans Service Fabric Explorer][sfx-primary]
 3. Cliquez sur le nœud trouvé à l’étape précédente, puis sélectionnez **Désactiver (redémarrer)** à partir du menu Actions. Cette action redémarre un nœud de votre cluster local et force un basculement sur un réplica secondaire s’exécutant sur un autre nœud. Dans le même temps, prêtez attention à la sortie du client de test et notez que le compteur continue à être incrémenté malgré le basculement.
 
@@ -91,6 +92,11 @@ Les projets d’acteur n’effectuent aucune opération automatiquement. Ils ont
 Pour ajouter un autre service à une application déjà créée à l’aide de `yo`, procédez comme suit : 
 1. Accédez au répertoire à la racine de l’application existante.  Par exemple, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` est l’application créée par Yeoman.
 2. Exécutez `yo azuresfcsharp:AddService`.
+
+## <a name="migrating-from-projectjson-to-csproj"></a>Migration de project.json vers .csproj
+1. L’exécution de « dotnet migrate » dans le répertoire racine du projet entraîne la migration de tous les éléments project.json vers le format csproj.
+2. Mettez également à jour les références de projet pour qu’elles pointent les fichiers csproj dans les fichiers projet.
+3. Mettez à jour les noms de fichiers projet en fonction des fichiers csproj dans build.sh.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation des Acteurs fiables Service Fabric](service-fabric-reliable-actors-introduction.md)

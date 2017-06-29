@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: venkatja
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 92e3e64f235e165a6a1772b6e1724789f3ec3049
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d7c01e18355b66670c9ab7d964f5cdb7ba72bb8f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="send-events-to-a-time-series-insights-environment-via-event-hub"></a>Envoyer des événements à un environnement Time Series Insights via un concentrateur d’événements
@@ -163,7 +164,6 @@ Un tableau JSON avec deux objets JSON. Chaque objet JSON sera converti en un év
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
-
 ### <a name="sample-3"></a>Exemple 3
 
 #### <a name="input"></a>Entrée
@@ -196,6 +196,8 @@ Notez que la propriété « location » est copiée dans chacun des événemen
 ### <a name="sample-4"></a>Exemple 4
 
 #### <a name="input"></a>Entrée
+
+Un objet JSON avec un tableau JSON imbriqué contenant deux objets JSON. Cette entrée montre que les propriétés globales peuvent être représentées par l’objet JSON complexe.
 
 ```json
 {
@@ -231,7 +233,7 @@ Notez que la propriété « location » est copiée dans chacun des événemen
 |location|manufacturerInfo.name|manufacturerInfo.location|events.deviceId|events.deviceTimestamp|events.deviceData.type|events.deviceData.units|events.deviceData.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
-|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+|WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

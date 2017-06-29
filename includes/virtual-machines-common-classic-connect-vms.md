@@ -11,17 +11,32 @@ Les réseaux virtuels sont la méthode recommandée pour connecter des machines 
 ## <a name="connect-vms-in-a-virtual-network"></a>Connexion de machines virtuelles dans un réseau virtuel
 Pour connecter des machines virtuelles dans un réseau virtuel :
 
-1. Créez le réseau virtuel dans le [portail Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
-2. Créez l’ensemble des services cloud pour votre déploiement de manière à refléter votre conception des groupes à haute disponibilité et l’équilibrage de la charge. Dans le Portail Azure Classic, cliquez sur **Nouveau > Compute > Service cloud > Création personnalisée** pour chaque service cloud.
-3. Pour créer chaque machine virtuelle, cliquez sur **Nouveau > Compute > Machine virtuelle > À partir de la galerie**. Choisissez le service cloud et le réseau virtuel appropriés à la machine virtuelle. Si le service cloud est déjà joint à un réseau virtuel, son nom est sélectionné pour vous.
+1. Créer le réseau virtuel dans le [portail Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) et spécifiez « déploiement classique ».
+2. Créez l’ensemble des services cloud pour votre déploiement de manière à refléter votre conception des groupes à haute disponibilité et l’équilibrage de la charge. Dans le Portail Azure, cliquez sur **Nouveau > Compute > Service cloud** pour chaque service cloud.
 
-![Sélection d'un service cloud pour une machine virtuelle](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
+  Pendant que vous remplissez les détails du service cloud, choisissez le même _groupe de ressources_ utilisé avec le réseau virtuel.
+
+3. Pour créer chaque machine virtuelle, cliquez sur **Nouveau > Compute**, puis sélectionnez l’image de machine virtuelle appropriée à partir des **Applications à la une**.
+
+  Dans le panneau **Concepts de base**, cliquez sur le même _groupe de ressources_ utilisé avec le réseau virtuel.
+
+  ![Panneau Concepts de base de la machine virtuelle lors de l’utilisation d’un réseau virtuel](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
+
+4. Lorsque vous remplissez les **Paramètres** de la machine virtuelle, choisissez le _service cloud_ ou le _réseau virtuel_ pour la machine virtuelle.
+
+  Azure sélectionne l’autre élément en fonction de votre sélection.
+
+  ![Panneau Paramètres de la machine virtuelle lors de l’utilisation d’un réseau virtuel](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
+
 
 ## <a name="connect-vms-in-a-standalone-cloud-service"></a>Connexion de machines virtuelles dans un service cloud autonome
 Pour connecter des machines virtuelles dans un service cloud autonome :
 
-1. Créez le service cloud dans le [portail Azure Classic](http://manage.windowsazure.com). Cliquez sur **Nouveau > Compute > Service cloud > Création personnalisée**. Vous pouvez également créer le service cloud pour votre déploiement lorsque vous créez votre première machine virtuelle.
-2. Lorsque vous créez la machine virtuelle, sélectionnez le nom du service cloud créé à l'étape précédente.
-   
-   ![Ajouter un ordinateur virtuel à un service cloud existant](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
+1. Créez le service cloud dans le [portail Azure](http://portal.azure.com). Cliquez sur **Nouveau > Compute > Service cloud**. Vous pouvez également créer le service cloud pour votre déploiement lorsque vous créez votre première machine virtuelle.
+2. Lorsque vous créez les machines virtuelles, choisissez le même groupe de ressources que celui utilisé avec le service cloud.
 
+  ![Ajouter un ordinateur virtuel à un service cloud existant](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
+
+3.  Lorsque vous remplissez les informations relatives à la machine virtuelle, sélectionnez le nom du service cloud créé lors de la première étape.
+
+  ![Sélection d'un service cloud pour une machine virtuelle](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)

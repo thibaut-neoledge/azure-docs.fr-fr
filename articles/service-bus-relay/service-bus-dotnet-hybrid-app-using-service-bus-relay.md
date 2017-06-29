@@ -12,17 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 02/16/2017
+ms.date: 06/14/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: ed1db5521a17988d7936c53afcfe565cc7ba1a38
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 366922a083b9d18ef50e04eb8b459d2725315e1e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Application .NET locale/de cloud hybride avec Azure WCF Relay
 ## <a name="introduction"></a>Introduction
+
 Cet article montre comment créer une application cloud hybride avec Microsoft Azure et Visual Studio. Le didacticiel part du principe que vous n’avez pas d’expérience en tant qu’utilisateur d’Azure. En moins de 30 minutes, vous disposez d’une application qui utilise plusieurs ressources Azure s’exécutant dans le cloud.
 
 Vous apprendrez à effectuer les opérations suivantes :
@@ -33,6 +35,7 @@ Vous apprendrez à effectuer les opérations suivantes :
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Avantages de l’utilisation d’Azure Relay pour les solutions hybrides
+
 Les solutions d'entreprise se composent généralement d'une combinaison de code personnalisé écrit pour répondre aux exigences nouvelles et uniques de l'entreprise ainsi qu'aux fonctionnalités existantes offertes par des solutions et des systèmes déjà en place.
 
 Les architectes de solutions commencent à utiliser le cloud, car celui-ci permet de gérer plus facilement les exigences de mise à l'échelle tout en offrant des coûts opérationnels faibles. Ainsi, ils découvrent que les ressources des services existants qu'ils souhaiteraient exploiter comme des blocs de construction pour leurs solutions se situent à l'intérieur du pare-feu d'entreprise et hors de portée pour une solution cloud. Bon nombre de services internes ne sont pas créés ni hébergés pour être facilement exposés dans le périmètre du réseau d'entreprise.
@@ -46,37 +49,38 @@ Dans ce didacticiel, vous allez créer un site web ASP.NET qui vous permet de vo
 
 Ce didacticiel part du principe que vous disposez des informations sur les produits dans un système local existant, et utilise Azure Relay pour atteindre ce système. La simulation met en scène un service Web exécuté dans une simple application console et appuyé par un ensemble de produits en mémoire. Vous allez pouvoir exécuter cette application console sur votre propre ordinateur et déployer le rôle Web dans Azure. Ainsi, vous verrez comment procède le rôle Web en cours d'exécution dans le centre de données Azure pour appeler votre ordinateur, même si ce dernier réside certainement derrière au moins un pare-feu et une couche de traduction d'adresses réseau (NAT, network address translation).
 
-La capture d'écran suivante montre la page d'accueil de l'application Web terminée.
-
-![][1]
-
 ## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
+
 Avant de commencer à développer votre application Azure, téléchargez les outils et configurez votre environnement de développement :
 
 1. Installez le Kit de développement logiciel (SDK) Azure pour .NET depuis la page des [téléchargements SDK](https://azure.microsoft.com/downloads/).
-2. Dans la colonne **.NET**, cliquez sur la version correspondant à votre version de [Visual Studio](http://www.visualstudio.com). Les étapes de ce didacticiel utilisent Visual Studio 2015.
+2. Dans la colonne **.NET**, cliquez sur la version correspondant à votre version de [Visual Studio](http://www.visualstudio.com). Les étapes de ce didacticiel utilisent Visual Studio 2015, mais elles fonctionnent également avec Visual Studio 2017.
 3. Lorsque vous êtes invité à exécuter ou à enregistrer le programme d’installation, cliquez sur **Exécuter**.
 4. Dans **Web Platform Installer**, cliquez sur **Installer**, puis poursuivez l’installation.
 5. Une fois l’installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement de l’application. Le Kit de développement logiciel (SDK) comprend des outils qui vous permettent de facilement développer des applications Azure dans Visual Studio.
 
 ## <a name="create-a-namespace"></a>Créer un espace de noms
+
 Pour commencer à utiliser les fonctionnalités de relais dans Azure, vous devez d’abord créer un espace de noms de service. Un espace de noms fournit un conteneur d’étendue pour l’adressage des ressources Azure au sein de votre application. Suivez les [instructions fournies ici](relay-create-namespace-portal.md) pour créer un espace de noms Relay.
 
 ## <a name="create-an-on-premises-server"></a>Création d’un serveur local
+
 Vous créez d'abord un système local de catalogue de produits (fictif). Cela est assez simple : représentez-vous un système réel de catalogue de produits local avec une surface complète de services que nous essayons d'intégrer.
 
 Ce projet est une application console Visual Studio et utilise le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) pour inclure les bibliothèques et les paramètres de configuration Service Bus.
 
 ### <a name="create-the-project"></a>Création du projet
+
 1. Avec les privilèges d’administrateur, démarrez Microsoft Visual Studio. Pour cela, cliquez avec le bouton droit sur l’icône de programme Visual Studio, puis cliquez sur **Exécuter en tant qu’administrateur**.
 2. Dans Visual Studio, dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
-3. Dans **Modèles installés**, sous **Visual C#**, cliquez sur **Application console**. Dans la zone **Nom**, saisissez le nom **ProductsServer** :
+3. Dans **Modèles installés**, sous **Visual C#**, cliquez sur **Application console (.NET Framework)**. Dans la zone **Nom**, saisissez le nom **ProductsServer** :
 
    ![][11]
 4. Cliquez sur **OK** pour créer le projet **ProductsServer**.
 5. Si vous avez déjà installé le gestionnaire de package NuGet pour Visual Studio, passez à l'étape suivante. Sinon, accédez à [NuGet][NuGet], puis cliquez sur [Installer NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Suivez les invites pour installer le gestionnaire de package NuGet, puis redémarrez Visual Studio.
 6. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet**ProductsServer**, puis cliquez sur **Gérer les packages NuGet**.
-7. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Cliquez sur **Installer**et acceptez les conditions d’utilisation.
+7. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Sélectionnez le package **WindowsAzure.ServiceBus**.
+8. Cliquez sur **Installer**et acceptez les conditions d’utilisation.
 
    ![][13]
 
@@ -208,31 +212,33 @@ Ce projet est une application console Visual Studio et utilise le [package NuGet
 14. Appuyez sur **Ctrl+Maj+B** ou, dans le menu **Générer**, cliquez sur **Générer la solution** pour générer l’application et vérifier que votre travail est correct.
 
 ## <a name="create-an-aspnet-application"></a>Création d’une application ASP.NET
+
 Dans cette section, vous allez générer une application ASP.NET simple qui affiche des données récupérées de votre service de produit.
 
 ### <a name="create-the-project"></a>Création du projet
+
 1. Vérifiez que Visual Studio fonctionne avec les privilèges d’administrateur.
 2. Dans Visual Studio, dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
-3. Dans **Modèles installés**, sous **Visual C#**, cliquez sur **Application Web ASP.NET**. Nommez le projet **ProductsPortal**. Cliquez ensuite sur **OK**.
+3. Dans **Modèles installés**, sous **Visual C#**, cliquez sur **Application web ASP.NET (.NET Framework)**. Nommez le projet **ProductsPortal**. Cliquez ensuite sur **OK**.
 
    ![][15]
-4. Dans la liste **Sélectionner un modèle**, cliquez sur **MVC**.
-5. Cochez la case **Hôte dans le cloud**.
+
+4. Dans la liste des **modèles ASP.NET** de la boîte de dialogue **Application web ASP.NET**, cliquez sur **MVC**.
 
    ![][16]
-6. Cliquez sur le bouton **Modifier l’authentification**. Dans la boîte de dialogue **Modifier l’authentification**, cliquez sur **Aucune authentification**, puis sur **OK**. Pour ce didacticiel, vous déployez une application qui n’a pas besoin de connexion de l’utilisateur.
+
+6. Cliquez sur le bouton **Modifier l’authentification**. Dans la boîte de dialogue **Modifier l’authentification**, vérifiez que l’option **Aucune authentification** est sélectionnée et cliquez sur **OK**. Pour ce didacticiel, vous déployez une application qui n’a pas besoin de connexion de l’utilisateur.
 
     ![][18]
-7. Dans la section **Microsoft Azure** de la boîte de dialogue **Nouveau projet ASP.NET**, vérifiez que l’option **Hôte dans le cloud** est sélectionnée et que l’option **App Service** est sélectionnée dans la liste déroulante.
 
-   ![][19]
-8. Cliquez sur **OK**.
-9. Vous devez maintenant configurer les ressources Azure d’une nouvelle application web. Suivez les étapes [Création d’une application web](../app-service-web/app-service-web-get-started-dotnet.md) et [Création de ressources Azure](../app-service-web/app-service-web-get-started-dotnet.md). Ensuite, revenez à ce didacticiel et passez à l’étape suivante.
+7. De retour dans la boîte de dialogue **Nouvelle application web ASP.NET**, cliquez sur **OK** pour créer l’application MVC.
+8. Vous devez maintenant configurer les ressources Azure d’une nouvelle application web. Suivez les étapes de [publication sur Azure décrites dans cet article](../app-service-web/app-service-web-get-started-dotnet.md). Ensuite, revenez à ce didacticiel et passez à l’étape suivante.
 10. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Modèles**, puis cliquez sur **Ajouter** et sur **Classe**. Dans la zone **Nom**, saisissez le nom **Product.cs**. Cliquez ensuite sur **Add**.
 
     ![][17]
 
 ### <a name="modify-the-web-application"></a>Modification de l’application Web
+
 1. Dans le fichier Product.cs dans Visual Studio, remplacez la définition d’espace de noms existante par le code suivant.
 
    ```csharp
@@ -274,8 +280,8 @@ Dans cette section, vous allez générer une application ASP.NET simple qui affi
 6. Supprimez les liens **Home**, **About** et **Contact**. Dans l’exemple suivant, supprimez le code en surbrillance.
 
     ![][41]
-7. Dans l’Explorateur de solutions, développez le dossier Views\Home, puis double-cliquez sur le fichier **Index.cshtml** pour l’ouvrir dans l’éditeur de Visual Studio.
-   Remplacez tout le contenu du fichier par le code suivant.
+
+7. Dans l’Explorateur de solutions, développez le dossier Views\Home, puis double-cliquez sur le fichier **Index.cshtml** pour l’ouvrir dans l’éditeur de Visual Studio. Remplacez tout le contenu du fichier par le code suivant.
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -313,24 +319,27 @@ Dans cette section, vous allez générer une application ASP.NET simple qui affi
 8. Pour vérifier la qualité de votre travail, appuyez sur **Ctrl+Maj+B** pour générer le projet.
 
 ### <a name="run-the-app-locally"></a>Exécutez l’application localement.
+
 Exécutez l'application afin de vérifier qu'elle fonctionne.
 
 1. Assurez-vous que **ProductsPortal** est le projet actif. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, puis sélectionnez **Définir comme projet de démarrage**.
-2. Dans Visual Studio, appuyez sur F5.
+2. Dans Visual Studio, appuyez sur **F5**.
 3. Votre application doit s’exécuter dans un navigateur :
 
    ![][21]
 
 ## <a name="put-the-pieces-together"></a>Assemblage des éléments
+
 La prochaine étape consiste à raccorder le serveur de produits local et l’application ASP.NET.
 
 1. S’il n’est pas déjà ouvert, rouvrez dans Visual Studio le projet **ProductsPortal** que vous avez créé dans la section [Création d’une application ASP.NET](#create-an-aspnet-application).
 2. Comme vous l’avez fait dans la section « Création d’un serveur local », ajoutez le package NuGet aux références du projet. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ProductsPortal**, puis cliquez sur **Gérer les packages NuGet**.
-3. Recherchez « Service Bus » et sélectionnez l’élément **Microsoft Azure Service Bus** . Ensuite, terminez l’installation et fermez cette boîte de dialogue.
+3. Recherchez « Service Bus » et sélectionnez l’élément **WindowsAzure.ServiceBus**. Ensuite, terminez l’installation et fermez cette boîte de dialogue.
 4. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ProductsPortal**, cliquez sur **Ajouter**, puis sur **Élément existant**.
 5. Accédez au fichier **ProductsContract.cs** depuis le projet de console **ProductsServer**. Cliquez sur ProductsContract.cs afin de le mettre en surbrillance. Cliquez sur la flèche vers le bas en regard de l’option **Ajouter**, puis cliquez sur **Ajouter en tant que lien**.
 
    ![][24]
+
 6. Ouvrez à présent le fichier **HomeController.cs** dans l’éditeur Visual Studio, puis remplacez la définition d’espace de noms existante par le code suivant. Assurez-vous de remplacer *yourServiceNamespace* par le nom de votre espace de noms de service et *yourKey*, par votre clé SAP. Le client peut alors appeler le service local, en renvoyant le résultat de l'appel.
 
    ```csharp
@@ -378,14 +387,17 @@ La prochaine étape consiste à raccorder le serveur de produits local et l’ap
 10. Sur le côté gauche, cliquez sur **Projet de démarrage**. Sur le côté droit, cliquez sur **Plusieurs projets de démarrage**. Vérifiez que **ProductsServer** et **ProductsPortal** apparaissent dans cet ordre et que leur action définie est **Démarrer**.
 
       ![][25]
+
 11. Toujours dans la boîte de dialogue **Propriétés**, cliquez sur **Dépendances du projet** sur le côté gauche.
-12. Dans le menu déroulant **Projets**, cliquez sur **ProductsServer**. Vérifiez que **ProductsPortal** n’est **pas** sélectionné.
+12. Dans le menu déroulant **Projets**, cliquez sur **ProductsServer**. Vérifiez que **ProductsPortal** n’est pas sélectionné.
 13. Dans la liste **Projets**, cliquez sur **ProductsPortal**. Vérifiez que **ProductsServer** est sélectionné.
 
     ![][26]
+
 14. Cliquez sur **OK** dans la boîte de dialogue **Pages de propriétés**.
 
 ## <a name="run-the-project-locally"></a>Exécutez le projet localement.
+
 Pour tester l’application localement dans Visual Studio, appuyez sur **F5**. Le serveur local (**ProductsServer**) doit démarrer, puis l’application **ProductsPortal** doit se lancer dans une fenêtre de navigateur. À présent, vous voyez que l'inventaire de produits répertorie des données récupérées du système local de service de produit.
 
 ![][10]
@@ -395,29 +407,37 @@ Appuyez sur **Actualiser** dans la page **ProductsPortal**. Chaque fois que vous
 Fermez les deux applications avant de passer à l’étape suivante.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Déploiement du projet ProductsPortal dans une application web Azure
-L’étape suivante consiste à convertir le serveur frontal **ProductsPortal** en application web Azure. Déployez d’abord le projet **ProductsPortal**, en suivant toutes les étapes de la section [Déploiement du projet web dans Azure](../app-service-web/app-service-web-get-started-dotnet.md). Une fois le déploiement terminé, revenez à ce didacticiel et passez à l’étape suivante.
 
-> [!NOTE]
-> Un message d’erreur peut s’afficher dans la fenêtre du navigateur lorsque le projet web **ProductsPortal** est démarré automatiquement après le déploiement. Ce comportement est normal. Il s’explique par le fait que l’application **ProductsServer** n’est pas encore en cours d’exécution.
+L’étape suivante consiste à publier une nouvelle fois l’application web Azure frontale **ProductsPortal**. Effectuez les actions suivantes :
+
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ProductsPortal**, puis cliquez sur **Publier**. Ensuite, cliquez sur **Publier** sur la page de **publication**.
+
+  > [!NOTE]
+  > Un message d’erreur peut s’afficher dans la fenêtre du navigateur lorsque le projet web **ProductsPortal** est démarré automatiquement après le déploiement. Ce comportement est normal. Il s’explique par le fait que l’application **ProductsServer** n’est pas encore en cours d’exécution.
 >
 >
 
-Copiez l’URL de l’application web déployée, car vous en aurez besoin à l’étape suivante. Vous pouvez également obtenir cette URL à partir de la fenêtre Activité d’Azure App Service dans Visual Studio :
+2. Copiez l’URL de l’application web déployée, car vous en aurez besoin à l’étape suivante. Vous pouvez également obtenir cette URL à partir de la fenêtre Activité d’Azure App Service dans Visual Studio :
 
-![][9]
+  ![][9]
+
+3. Fermez la fenêtre du navigateur pour arrêter l’application en cours d’exécution.
 
 ### <a name="set-productsportal-as-web-app"></a>Définition de ProductsPortal en tant qu’application web
+
 Avant d’exécuter l’application dans le cloud, vous devez vous assurer que **ProductsPortal** est démarré dans Visual Studio en tant qu’application web.
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet **ProjectsPortal**, puis cliquez sur **Propriétés**.
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet **ProductsPortal**, puis cliquez sur **Propriétés**.
 2. Dans la colonne de gauche, cliquez sur **Web**.
 3. Dans la section**Action de démarrage**, cliquez sur le bouton **URL de démarrage** puis, dans la zone de texte, entrez l’URL de l’application web précédemment déployée. Par exemple, `http://productsportal1234567890.azurewebsites.net/`.
 
     ![][27]
+
 4. Dans Visual Studio, dans le menu **Fichier**, cliquez sur **Enregistrer tout**.
 5. Dans le menu Générer de Visual Studio, cliquez sur **Régénérer la solution**.
 
 ## <a name="run-the-application"></a>Exécution de l'application
+
 1. Appuyez sur F5 pour générer et exécuter l’application. Le serveur local (application de console **ProductsServer**) doit démarrer, puis l’application **ProductsPortal** doit se lancer dans une fenêtre de navigateur, comme le montre la capture d’écran suivante. Notez de nouveau que l’inventaire de produits répertorie les données récupérées à partir du système local du service du produit et les affiche dans l’application web. Vérifiez l’URL pour vous assurer que l’application **ProductsPortal** est exécutée dans le cloud comme une application web Azure.
 
    ![][1]
@@ -433,6 +453,7 @@ Avant d’exécuter l’application dans le cloud, vous devez vous assurer que *
     ![][38]
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour en savoir plus sur Azure Relay, consultez les ressources suivantes :  
 
 * [Qu’est-ce qu’Azure Relay ?](relay-what-is-it.md)  
@@ -448,7 +469,6 @@ Pour en savoir plus sur Azure Relay, consultez les ressources suivantes :
 [16]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png
 [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.png
 [18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-5.png
-[19]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-6.png
 [9]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-9.png
 [10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App3.png
 

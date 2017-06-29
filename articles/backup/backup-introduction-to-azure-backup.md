@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/8/2017
-ms.author: markgal;trinadhk; anuragm
+ms.date: 6/14/2017
+ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: a5f297ad0a60a595ce9a50bdde1eadf015c69b89
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 629b3c54a35f939845349e6f2ed7743885e41f3b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -224,7 +224,13 @@ Parmi les exemples d’instances protégées, citons les machines virtuelles, le
 ## <a name="what-is-a-recovery-services-vault"></a>Présentation d’un coffre Recovery Services
 Un coffre Recovery Services est une entité de stockage en ligne dans Azure qui permet de conserver les données telles que les copies de sauvegarde, les points de récupération et les stratégies de sauvegarde. Vous pouvez utiliser les coffres Recovery Services pour conserver les données de sauvegarde pour les services Azure et les stations de travail et serveurs locaux. Les coffres Recovery Services facilitent l’organisation de vos données de sauvegarde, tout en réduisant le temps de gestion. Vous pouvez créer autant de coffres Recovery Services que vous le souhaitez au sein d’un abonnement.
 
-Les coffres de sauvegarde, qui sont basés sur Azure Service Manager, constituaient la première version des coffres. Les coffres Recovery Services, qui ajoutent les fonctionnalités du modèle Azure Resource Manager, en constituent la seconde version. Pour une description complète des différences de fonctionnalités, consultez [l’article de présentation du coffre Recovery Services](backup-azure-recovery-services-vault-overview.md). Vous ne pouvez plus créer de coffres de sauvegarde dans le portail Azure, mais ils sont toujours pris en charge.  
+Les coffres de sauvegarde, qui sont basés sur Azure Service Manager, constituaient la première version des coffres. Les coffres Recovery Services, qui ajoutent les fonctionnalités du modèle Azure Resource Manager, en constituent la seconde version. Pour une description complète des différences de fonctionnalités, consultez [l’article de présentation du coffre Recovery Services](backup-azure-recovery-services-vault-overview.md). Vous ne pouvez plus créer de coffres de sauvegarde dans le portail Azure, mais ils sont toujours pris en charge.
+
+> [!IMPORTANT]
+> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> **À compter du 1er novembre 2017** :
+>- Les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
+>- Vous ne pourrez plus accéder à vos données de sauvegarde depuis le portail Classic. Au lieu de cela, vous devrez utiliser le portail Azure pour accéder à ces données au sein de coffres Recovery Services.
+>
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Quelle est la différence entre Azure Backup et Azure Site Recovery ?
 La sauvegarde Azure Backup et Azure Site Recovery sont liés dans la mesure où les deux services sauvegardent les données et peuvent les restaurer. Toutefois, ces services ont des objectifs différents en assurant la continuité d’activité et la récupération d’urgence dans votre entreprise. Utilisez Sauvegarde Azure pour protéger et restaurer les données à un niveau plus granulaire. Par exemple, si une présentation sur un ordinateur portable est endommagée, vous utilisez Sauvegarde Azure pour la restaurer. Si vous souhaitez répliquer la configuration et les données d’une machine virtuelle dans un autre centre de données, utilisez Azure Site Recovery.

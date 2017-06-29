@@ -4,7 +4,7 @@ description: "Ce document est conçu pour vous aider à configurer des stratégi
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
@@ -12,60 +12,43 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: yurid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Définir des stratégies de sécurité dans Azure Security Center
 Ce document est conçu pour vous aider à configurer des stratégies de sécurité dans le Centre de sécurité en vous guidant tout au long des étapes nécessaires à l’exécution de cette tâche.
 
+>[!NOTE] 
+>À compter de début juin 2017, Security Center utilisera Microsoft Monitoring Agent pour collecter et stocker des données. Consultez [Azure Security Center Platform Migration](security-center-platform-migration.md) (Migration de la plateforme Azure Security Center) pour en savoir plus. Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
+>
+
 ## <a name="what-are-security-policies"></a>Que sont les stratégies de sécurité ?
-Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement ou groupe de ressources spécifique. Dans le Centre de sécurité, vous devez définir des stratégies pour vos abonnements ou groupes de ressources Azure en fonction des exigences de sécurité de votre société et du type d’applications ou du niveau de confidentialité des données de chaque abonnement.
+Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement spécifique. Dans Security Center, vous devez définir des stratégies pour vos abonnements Azure en fonction des exigences de sécurité de votre société et du type d’applications ou du niveau de confidentialité des données de chaque abonnement.
 
 Par exemple, les ressources utilisées pour le développement ou le test peuvent avoir des exigences de sécurité différentes de celles utilisées pour les applications de production. De même, les applications qui utilisent des données réglementées, telles que des informations d’identification personnelle, peuvent nécessiter un niveau de sécurité plus élevé. Les stratégies de sécurité activées dans Azure Security Center déterminent les recommandations de sécurité et la surveillance qui vous aident à identifier les vulnérabilités potentielles et à éliminer les menaces. Pour plus d’informations sur le choix de l’option adaptée à votre situation, consultez le [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) .
 
-## <a name="set-security-policies-for-subscriptions"></a>Définir des stratégies de sécurité pour des abonnements
-Vous pouvez configurer des stratégies de sécurité pour chaque abonnement ou groupe de ressources. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné. Connectez-vous au portail Azure et suivez les étapes ci-dessous pour configurer des stratégies de sécurité dans Security Center :
+## <a name="set-security-policies"></a>Définir des stratégies de sécurité
+Vous pouvez configurer des stratégies de sécurité pour chaque abonnement. Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou de collaborateur pour l’abonnement concerné. Connectez-vous au portail Azure et suivez les étapes ci-dessous pour configurer des stratégies de sécurité dans Security Center :
 
 1. Cliquez sur la mosaïque **Stratégie** dans le tableau de bord du Centre de sécurité.
-2. Dans le panneau **Stratégie de sécurité – Définir une stratégie par abonnement ou par groupe de ressources** qui s’ouvre, sélectionnez l’abonnement pour lequel vous voulez activer la stratégie de sécurité. Si vous préférez activer la stratégie de sécurité pour un groupe de ressources et non pour l’ensemble de l’abonnement, passez à la section suivante, qui porte sur la configuration de stratégies de sécurité pour des groupes de ressources.
+2. Sur le panneau Stratégie de sécurité qui s’ouvre, sélectionnez l’abonnement pour lequel vous souhaitez activer la stratégie de sécurité.
 
     ![Définition de stratégie](./media/security-center-policies/security-center-policies-fig1-ga.png)
-3. Le panneau **Stratégie de sécurité** de l’abonnement sélectionné s’ouvre avec des options similaires à celles de la capture d’écran suivante :
-
-    ![Activation de la collecte des données](./media/security-center-policies/security-center-policies-fig2-ga.png)
-
-    Les options disponibles dans ce panneau sont :
+3. Le panneau **Stratégie de sécurité** de l’abonnement sélectionné s’ouvre avec un ensemble d’options. Les options disponibles dans ce panneau sont :
 
    * **Stratégie de prévention**: utilisez cette option pour configurer des stratégies par abonnement ou par groupe de ressources.  
    * **Notification par e-mail**: utilisez cette option pour configurer une notification par e-mail qui est envoyée à la première occurrence quotidienne d’une alerte et pour les alertes de gravité élevée. Les préférences de courrier électronique peuvent être configurées uniquement pour les stratégies d’abonnement. Pour plus d’informations sur la configuration d’une notification par e-mail, consultez [Fournir les détails du contact de sécurité dans Azure Security Center](security-center-provide-security-contact-details.md) .
    * **Niveau tarifaire**: utilisez cette option pour mettre à niveau l’option de niveau tarifaire. Pour plus d’informations sur les options de tarification, consultez [Tarification de Security Center](security-center-pricing.md) .
-4. Vérifiez que l’option **Collecter des données à partir des machines virtuelles** est définie sur **Activé**. Cette option active la collecte automatique des journaux sur les ressources existantes et nouvelles.
+4. Vérifiez que l’option **Collecter des données à partir des machines virtuelles** est définie sur **Activé**. Cette option active la collecte de journal automatique pour les ressources nouvelles et existantes à l’aide de Microsoft Monitoring Agent. Il s’agit du même agent que celui utilisé par Operations Management Suite et le service Log Analytics. Les données collectées à partir de cet agent seront stockées dans un espace de travail Log Analytics existant associé à votre abonnement Azure ou dans un nouvel espace de travail, en tenant compte de la zone géographique de la machine virtuelle.
 
-   > [!NOTE]
-   > Nous vous recommandons d’activer la collecte des données pour chacun de vos abonnements afin de vous assurer que la surveillance de la sécurité est disponible pour toutes les machines virtuelles (nouvelles et existantes). L’activation de la collecte des données installe l’agent de surveillance. Si vous ne voulez pas activer la collecte des données à partir de cet emplacement, vous pouvez le faire plus tard dans les affichages **Intégrité** et **Recommandations**. Vous pouvez également activer la collecte des données pour l’abonnement uniquement ou pour certaines machines virtuelles. Pour plus d’informations sur les machines virtuelles prises en charge, consultez [FAQ du Centre de sécurité Azure](security-center-faq.md) .
-   >
-   >
-5. Si votre compte de stockage n’est pas encore configuré, un avertissement similaire à celui de la capture d’écran suivante peut s’afficher lors de l’ouverture du panneau **Stratégie de sécurité**. Si vous ne choisissez pas un compte de stockage pour chaque région, il est créé pour vous.
-
-    ![Sélection du stockage](./media/security-center-policies/security-center-policies-fig2.png)
-6. Si cet avertissement s’affiche, cliquez sur cette option, puis sélectionnez la région, comme illustré dans la capture d’écran suivante :
-
-    ![Sélection du stockage](./media/security-center-policies/security-center-policies-fig3-ga.png)
-7. Pour chaque région où s’exécutent des machines virtuelles, choisissez le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Vous pouvez ainsi stocker facilement les données dans une même région pour garantir la confidentialité et la souveraineté des données. Une fois que vous avez décidé de la région à utiliser, sélectionnez-la, puis sélectionnez le compte de stockage.
-8. Dans le panneau **Choisir des comptes de stockage**, cliquez sur **OK**.
-
-   > [!NOTE]
-   > Si vous préférez, vous pouvez agréger les données de machines virtuelles appartenant à des régions différentes dans un compte de stockage central. Pour plus d’informations, consultez [FAQ du Centre de sécurité Azure](security-center-faq.md) .
-   >
-   >
-9. Dans le panneau **Stratégie de sécurité**, cliquez sur **Activé** pour activer les recommandations de sécurité que vous voulez utiliser pour cet abonnement. Cliquez sur **Stratégie de prévention** pour afficher des options similaires à celles de la capture d’écran suivante :
+5. Dans le panneau **Stratégie de sécurité**, cliquez sur **Stratégie de prévention** pour afficher les options disponibles. Cliquez sur **Activé** pour activer les recommandations de sécurité qui sont pertinentes pour cet abonnement.
 
     ![Sélection des stratégies de sécurité](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
@@ -78,26 +61,17 @@ Le tableau ci-dessous explique à quoi sert chaque option :
 | Protection du point de terminaison |Recommande l’approvisionnement d’Endpoint Protection pour toutes les machines virtuelles Windows afin d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants. |
 | Chiffrement de disque |Recommande d’activer le chiffrement de disque dans toutes les machines virtuelles pour améliorer la protection des données au repos. |
 | groupes de sécurité réseau ; |Recommande la configuration de [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour contrôler le trafic entrant et sortant vers les machines virtuelles dotées de points de terminaison publics. Les groupes de sécurité réseau configurés pour un sous-réseau sont hérités par toutes les interfaces réseau de machine virtuelle, sauf indication contraire. En plus de vérifier qu’un groupe de sécurité réseau a été configuré, cette stratégie évalue les règles de sécurité de trafic entrant afin d’identifier les règles autorisant le trafic entrant. |
-| Pare-feu d’application web |Recommande l’approvisionnement d’un pare-feu d’applications web sur les machines virtuelles lorsque l’une des conditions suivantes est remplie :</br></br>[L’adresse IP publique de niveau d’instance](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) est utilisée et les règles de sécurité entrantes pour le groupe de sécurité réseau associé sont configurés pour autoriser l’accès au port 80/443.</br></br>Une adresse IP à équilibrage de charge est utilisée et les règles associées d’équilibrage de charge et NAT (Network Access Translation) de trafic entrant sont configurées pour autoriser l’accès au port 80 ou 443. Pour plus d’informations, consultez [Prise en charge d’un équilibrage de charge par Azure Resource Manager](../load-balancer/load-balancer-arm.md). |
+| Pare-feu d’application web |Recommande l’approvisionnement d’un pare-feu d’applications web sur les machines virtuelles lorsque l’une des conditions suivantes est remplie : </br></br>[L’adresse IP publique de niveau d’instance](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) est utilisée et les règles de sécurité entrantes pour le groupe de sécurité réseau associé sont configurés pour autoriser l’accès au port 80/443.</br></br>Une adresse IP à équilibrage de charge est utilisée et les règles associées d’équilibrage de charge et NAT (Network Access Translation) de trafic entrant sont configurées pour autoriser l’accès au port 80 ou 443. Pour plus d’informations, consultez [Prise en charge d’un équilibrage de charge par Azure Resource Manager](../load-balancer/load-balancer-arm.md). |
 | Pare-feu de nouvelle génération |Étend les protections du réseau au-delà des groupes de sécurité réseau intégrés à Azure. Security Center détecte les déploiements pour lesquels un pare-feu de nouvelle génération est recommandé et vous permet d’approvisionner une appliance virtuelle. |
 | Audit SQL et détection des menaces |Recommande l’activation de l’audit de l’accès à Azure SQL Database à des fins de conformité, mais également de détection avancée des menaces et d’examen. |
-| Chiffrement transparent des données SQL |Recommande l’activation du chiffrement au repos pour votre base de données Azure SQL Database, ainsi que pour les sauvegardes associées et les fichiers journaux de transaction. Même si vos données font l’objet d’une violation de sécurité, elles ne seront pas lisibles. |
+| Chiffrement SQL |Recommande l’activation du chiffrement au repos pour votre base de données Azure SQL Database, ainsi que pour les sauvegardes associées et les fichiers journaux de transaction. Même si vos données font l’objet d’une violation de sécurité, elles ne seront pas lisibles. |
 | Évaluation des vulnérabilités |Recommande d’installer une solution d’évaluation des vulnérabilités sur votre machine virtuelle. |
 | Chiffrement du stockage |Cette fonctionnalité est actuellement disponible pour les objets blob et fichiers Azure. Notez qu’après l’activation du chiffrement de service de stockage, seules les nouvelles données seront chiffrées et tous les fichiers existants dans ce compte de stockage resteront non chiffrés. |
 
 Après avoir configuré toutes les options, cliquez sur **OK** dans le panneau **Stratégie de sécurité** contenant les recommandations, puis cliquez sur **Enregistrer** dans le panneau **Stratégie de sécurité** contenant les paramètres initiaux.
 
-## <a name="set-security-policies-for-resource-groups"></a>Définir des stratégies de sécurité pour des groupes de ressources
-Si vous préférez configurer vos stratégies de sécurité par groupe de ressources, la procédure est similaire à celle suivie pour configurer des stratégies de sécurité pour des abonnements. La principale différence réside dans le fait que vous devez développer le nom d’abonnement et sélectionner le groupe de ressources de votre choix pour configurer la stratégie de sécurité spécifique :
-
-![Sélection du groupe de ressources](./media/security-center-policies/security-center-policies-fig5-ga.png)
-
-Une fois le groupe de ressources sélectionné, le panneau **Stratégie de sécurité** s’ouvre. L’option **Héritage** est activée par défaut. Cela signifie que toutes les stratégies de sécurité associées à ce groupe de ressources sont héritées de l’abonnement. Vous pouvez modifier cette configuration si vous souhaitez appliquer une stratégie de sécurité personnalisée à un groupe de ressources. Si tel est le cas, vous devez sélectionner l’option **Unique** et apporter vos modifications sous l’option **Stratégie de prévention**.
-
-![Stratégie de sécurité par groupe de ressources](./media/security-center-policies/security-center-policies-fig6-ga.png)
-
 > [!NOTE]
-> En cas de conflit entre la stratégie de l’abonnement et celle du groupe de ressources, la stratégie du groupe de ressources est prioritaire.
+> Le niveau tarifaire est toujours applicable pour le niveau de groupe de ressources. Pour plus d’informations, consultez notre [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
 >
 >
 

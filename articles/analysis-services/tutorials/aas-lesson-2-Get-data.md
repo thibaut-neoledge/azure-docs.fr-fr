@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 492bfd19c2b364089e13f7ae53010cb5ce14123d
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 
@@ -63,11 +63,11 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-Après avoir cliqué sur OK, l’éditeur de requêtes s’ouvre à l’endroit où vous filtrez les données à importer, dans la section suivante.
+Après que vous avez cliqué sur OK, l’éditeur de requête s’ouvre. Dans la section suivante, sélectionnez uniquement les données que vous souhaitez importer.
 
   
 ## <a name="filter-the-table-data"></a>Filtrer les données de la table  
-Les tables de l’exemple de base de données AdventureWorksDW2014 contiennent des données qu’il n’est pas nécessaire d’inclure dans votre modèle. Dans la mesure du possible, vous devez filtrer les données qui ne seront pas utilisées de manière à économiser l’espace mémoire utilisé par le modèle. Vous allez filtrer certaines colonnes des tables pour qu’elles ne soient pas importées dans la base de données de l’espace de travail, ou dans la base de données du modèle après son déploiement. 
+Les tables de l’exemple de base de données AdventureWorksDW2014 contiennent des données qu’il n’est pas nécessaire d’inclure dans votre modèle. Dans la mesure du possible, vous devez filtrer les données inutiles de manière à économiser l’espace mémoire utilisé par le modèle. Vous filtrez certaines colonnes des tables pour qu’elles ne soient pas importées dans la base de données de l’espace de travail ou dans la base de données du modèle après son déploiement. 
   
 #### <a name="to-filter-the-table-data-before-importing"></a>Pour filtrer les données de table avant l’importation  
   

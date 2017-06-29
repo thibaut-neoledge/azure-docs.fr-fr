@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 06/12/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
-ms.openlocfilehash: 5c030f463b21284c15752cf95aa1f9a75f17ffb0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 6f95cf7631664f4630edbbcdadfd1d98105fdb98
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -25,14 +27,18 @@ Pour aider les clients à prévenir, détecter et contrer les menaces, Azure Se
 
 Cet article explique comment les données sont gérées et protégées dans le Centre de sécurité Azure.
 
+>[!NOTE] 
+>Depuis début juin 2017, Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour plus d’informations, consultez l’article [Migration de plateforme Azure Security Center](security-center-platform-migration.md). Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
+>
+
 
 ## <a name="data-sources"></a>Sources de données
-Azure Security Center analyse les données provenant des sources suivantes, afin d’assurer une visibilité sur l’état de la sécurité, d’identifier les vulnérabilités, de recommander des mesures d’atténuation et de détecter les menaces actives.
+Pour assurer une visibilité sur l’état de la sécurité, identifier les vulnérabilités, recommander des mesures d’atténuation et détecter les menaces actives, Azure Security Center analyse les données provenant des sources suivantes :
 
 - Services Azure : utilise les informations relatives à la configuration des services Azure que vous avez déployés en communiquant avec le fournisseur de ressources de ce service.
 - Trafic réseau : tire parti des métadonnées de trafic réseau échantillonnées provenant de l’infrastructure de Microsoft, telles que l’IP/le port source/de destination, la taille de paquet et le protocole réseau.
-- Solutions de partenaires : collecte les alertes de sécurité des solutions de partenaires intégrées, telles que les solutions de pare-feu et anti-programme malveillant.
-- Vos machines virtuelles : utilise les informations de configuration et les données relatives à des événements de sécurité, telles que des événements Windows et des journaux d’audit, des journaux IIS, des messages syslog et des fichiers de vidage sur incident, sur vos machines virtuelles.
+- Solutions de partenaires : collecte les alertes de sécurité des solutions de partenaires intégrées, telles que les solutions de pare-feu et anti-programme malveillant. 
+- Vos machines virtuelles et vos serveurs : utilise les informations de configuration et les données relatives aux événements de sécurité, telles que les journaux des événements Windows et les journaux d’audit, les journaux IIS, les messages syslog et les fichiers de vidage sur incident, qui figurent sur vos machines virtuelles. En outre, lorsqu’une alerte est créée, Azure Security Center peut générer une capture instantanée du disque de machine virtuelle affecté et extraire des artefacts associés à l’alerte à partir du disque de machine virtuelle (fichier de registre, par exemple) à des fins d’investigation.
 
 
 ## <a name="data-protection"></a>Protection des données
@@ -43,19 +49,32 @@ Azure Security Center analyse les données provenant des sources suivantes, af
 **Utilisation des données** : Microsoft utilise des modèles et des informations sur les menaces observées auprès de multiples locataires pour améliorer ses fonctionnalités de prévention et de détection. Cette utilisation s’effectue en accord avec les engagements de confidentialité décrits dans la [Déclaration de confidentialité](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx) de Microsoft.
 
 ## <a name="data-location"></a>Emplacement des données
-**Vos comptes de stockage** : un compte de stockage est spécifié pour chaque région dans laquelle des machines virtuelles sont en cours d’exécution. Cela vous permet de stocker des données dans la même région que la machine virtuelle à partir de laquelle les données sont collectées. Ces données, y compris les fichiers de vidage sur incident, seront stockés de manière permanente dans votre compte de stockage. Les captures instantanées des disques de machine virtuelle sont stockées dans le même compte de stockage que celui de ces disques.
 
-**Stockage Azure Security Center** : les informations relatives aux alertes de sécurité, notamment les alertes des partenaires, les recommandations et le statut d’intégrité de la sécurité, sont stockées de manière centralisée (actuellement aux États-Unis). Ces informations peuvent inclure des informations de configuration associées et des événements de sécurité collectés à partir de vos machines virtuelles, le cas échéant, pour vous fournir l’alerte de sécurité, la recommandation ou l’état d’intégrité de la sécurité.
+**Vos espaces de travail** : un espace de travail est spécifié pour les zones géographiques ci-après, et les données collectées à partir de vos machines virtuelles Azure, notamment les vidages sur incident et certains types de données d’alerte, sont stockées dans l’espace de travail le plus proche. 
 
+| Zone géographique de machine virtuelle                        | Zone géographique d’espace de travail |
+|-------------------------------|---------------|
+| États-Unis, Brésil, Canada | États-Unis |
+| Europe, Royaume-Uni        | Europe        |
+| Asie-Pacifique, Japon, Inde    | Asie-Pacifique  |
+| Australie                     | Australie     |
+
+ 
+Les captures instantanées des disques de machine virtuelle sont stockées dans le même compte de stockage que celui de ces disques.
+ 
+Pour les machines virtuelles et les serveurs qui s’exécutent dans d’autres environnements, par exemple au niveau local, vous pouvez spécifier l’espace de travail et la région dans lesquels les données collectées sont stockées. 
+
+**Stockage Azure Security Center** : les informations relatives aux alertes de sécurité, notamment les alertes des partenaires, sont stockées au niveau régional en fonction de l’emplacement de la ressource Azure associée, alors que les informations concernant l’état d’intégrité de la sécurité et les recommandations sont stockées de manière centralisée aux États-Unis ou en Europe, selon l’emplacement du client.
 Le Centre de sécurité Azure collecte des copies éphémères de vos fichiers de vidage sur incident et les analyse pour obtenir des preuves de tentatives d’attaque par le biais de code malveillant exploitant une faille de sécurité et de compromis ayant abouti. Azure Security Center effectue cette analyse dans la même région géographique que l’espace de travail, puis supprime les copies éphémères une fois l’analyse terminée.
 
-Les artefacts des ordinateurs sont stockés de manière centralisée dans la même région que la machine virtuelle.
+Les artefacts des ordinateurs sont stockés de manière centralisée dans la même région que la machine virtuelle. 
 
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Gestion de la collecte de données à partir de machines virtuelles
-Lorsque vous choisissez d’activer le Centre de sécurité Azure, la collecte de données est activée pour chacun de vos abonnements. Vous pouvez également désactiver la collecte de données dans la section « Stratégie de sécurité » d’Azure Security Center. Lorsque la collecte de données est activée, le Centre de sécurité Azure approvisionne l’agent de surveillance Azure sur toutes les machines virtuelles prises en charge existantes et celles nouvellement créées. L’extension Surveillance de la sécurité Azure analyse diverses configurations de sécurité et crée des événements sous la forme de traces de [suivi d’événements pour Windows (ETW)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx). En outre, le système d’exploitation déclenche des événements du Journal des événements au cours de l’exécution de la machine. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP, utilisateur connecté et ID de locataire. L’agent de surveillance Azure lit les entrées du journal des événements et les traces ETW, puis les copie dans votre compte de stockage pour les analyser.
 
-Vous pouvez désactiver la collecte des données à partir des machines virtuelles à tout moment, ce qui entraîne la suppression des agents de surveillance précédemment installés par le Centre de sécurité Azure. La collecte des artefacts et des captures instantanées des disques de machine virtuelle reste activée, même si la collecte de données est désactivée.
+Lorsque vous activez Security Center dans Azure, la collecte de données est activée pour chacun de vos abonnements Azure. Vous pouvez également activer la collecte de données pour vos abonnements dans la section « Stratégie de sécurité » d’Azure Security Center. Lorsque la collecte de données est activée, Azure Security Center approvisionne Microsoft Monitoring Agent sur toutes les machines virtuelles Azure prises en charge existantes et sur toutes celles nouvellement créées. Microsoft Monitoring Agent analyse diverses configurations de sécurité et crée des événements sous la forme de traces de [Suivi d’événements pour Windows (ETW)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx). En outre, le système d’exploitation déclenche des événements du Journal des événements au cours de l’exécution de la machine. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP, utilisateur connecté et ID de locataire. Microsoft Monitoring Agent lit les entrées du journal des événements et les traces ETW, puis les copie dans vos espaces de travail à des fins d’analyse. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans vos espaces de travail.
+
+Si vous utilisez Azure Security Center gratuitement, vous pouvez également désactiver la collecte de données à partir des machines virtuelles dans la stratégie de sécurité. La collecte de données est obligatoire pour les abonnements du niveau Standard. La collecte des artefacts et des captures instantanées des disques de machine virtuelle reste activée, même si la collecte de données est désactivée.
 
 
 ## <a name="see-also"></a>Voir aussi
@@ -67,9 +86,4 @@ Ce document explique comment les données sont gérées et protégées dans le C
 * [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
 * [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

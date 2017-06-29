@@ -7,5 +7,19 @@
 | Nombre de balises (par ressource ou groupe de ressources) |15 |15 |
 | Longueur de clé de la balise |512 |512 |
 | Longueur de valeur de la balise |256 |256 |
-| Ressources dans les modèles exportés |200 |200 |
 
+
+#### <a name="template-limits"></a>Limites de modèle
+
+| Valeur | Limite par défaut | Limite maximale |
+| --- | --- | --- |
+| Paramètres |256 |256 |
+| Variables |256 |256 |
+| Ressources (incluant le nombre de copies) |800 |800 |
+| Outputs |64 |64 |
+| Expression de modèle |24 576 caractères |24 576 caractères |
+| Ressources dans les modèles exportés |200 |200 | 
+| Taille du modèle |1 Mo |1 Mo |
+| Taille du fichier de paramètres |64 Ko |64 Ko |
+
+Vous pouvez dépasser certaines limites de modèle en utilisant un modèle imbriqué. Pour plus d’informations, consultez l’article [Utilisation de modèles liés lors du déploiement des ressources Azure](../articles/azure-resource-manager/resource-group-linked-templates.md). Pour réduire le nombre de paramètres, de variables ou de sorties, vous pouvez combiner plusieurs valeurs dans un même objet. Pour plus d’informations, consultez l’article [Objects as parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md) (Utiliser un objet en tant que paramètre).

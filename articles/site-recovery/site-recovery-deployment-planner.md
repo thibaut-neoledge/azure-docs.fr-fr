@@ -8,17 +8,17 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/21/2017
+ms.date: 06/05/2017
 ms.author: nisoneji
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 3c72026a7a6c6b348a77560c7f35d76d93c75e17
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -140,7 +140,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Operation | StartProfiling |
 | -Server | Le nom de domaine complet ou l’adresse IP du serveur vCenter/de l’hôte vSphere ESXi dont les machines virtuelles doivent être profilées.|
 | -User | Le nom d’utilisateur pour se connecter au serveur vCenter/à l’hôte vSphere ESXi. L’utilisateur doit disposer au moins d’un accès en lecture seule.|
-| -VMListFile |    Le fichier qui contient la liste des machines virtuelles à profiler. Le chemin d’accès du fichier peut être absolu ou relatif. Le fichier doit contenir un nom/une adresse IP de machine virtuelle par ligne. Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur le serveur vCenter/l’hôte vSphere ESXi.<br>Par exemple, le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -VMListFile | Le fichier qui contient la liste des machines virtuelles à profiler. Le chemin d’accès du fichier peut être absolu ou relatif. Le fichier doit contenir un nom/une adresse IP de machine virtuelle par ligne. Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur le serveur vCenter/l’hôte vSphere ESXi.<br>Par exemple, le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
 | -NoOfDaysToProfile | Le nombre de jours pendant lesquels le profilage doit être exécuté. Nous vous recommandons d’exécuter le profilage pendant plus de 15 jours pour vous assurer que le modèle de charge de travail de votre environnement sur la période spécifiée est observé et utilisé pour fournir une recommandation précise. |
 | -Répertoire | (Facultatif) La convention d’appellation universelle (UNC) ou le chemin d’accès du répertoire local pour stocker les données de profilage générées pendant le profilage. Si aucun nom de répertoire n’est spécifié, le répertoire ProfiledData figurant dans le chemin d’accès actuel est utilisé comme répertoire par défaut. |
 | -Mot de passe | (Facultatif) Le mot de passe utilisé pour se connecter au serveur vCenter/à l’hôte vSphere ESXi. Si vous spécifiez aucun mot de passe maintenant, vous êtes invité à l’indiquer à l’exécution de la commande.|
@@ -205,10 +205,7 @@ L’outil génère un fichier Microsoft Excel avec les macros activées (fichier
 | -StartDate | (Facultatif) La date et l’heure de début au format MM-JJ-AAAA:HH:MM (24 heures). Le paramètre *StartDate* doit être spécifié avec le paramètre *EndDate*. Si le paramètre StartDate est spécifié, le rapport est généré pour les données profilées collectées entre les dates StartDate et EndDate. |
 | -EndDate | (Facultatif) La date et l’heure de fin au format MM-JJ-AAAA:HH:MM (24 heures). Le paramètre *EndDate* doit être spécifié avec le paramètre *StartDate*. Si le paramètre EndDate est spécifié, le rapport est généré pour les données profilées collectées entre les dates StartDate et EndDate. |
 | -GrowthFactor | (Facultatif) Le facteur de croissance, exprimé en pourcentage. La valeur par défaut est 30 pour cent. |
-| -UseManagedDisks | (Facultatif) UseManagedDisks - Oui/Non. La valeur par défaut est Oui. Le nombre de machines virtuelles pouvant être placé sur un compte de stockage unique est calculé selon que le disque géré est sélectionné pour le basculement/test de basculement. |
-
-pour un positionnement de compte de stockage unique est calculé en prenant en compte le basculement/test de basculement des machines virtuelles effectué sur un disque géré au lieu d’un disque non managé. |
-
+| -UseManagedDisks | (Facultatif) UseManagedDisks - Oui/Non. La valeur par défaut est Oui. Le nombre de machines qu’il est possible de placer dans un compte de stockage unique est calculé en fonction de si le basculement/test de basculement des machines virtuelles est effectué sur un disque managé au lieu d’un disque non managé. |
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemple 1 :générer un rapport contenant des valeurs par défaut lorsque les données profilées sont situées sur le lecteur local
 ```
@@ -531,11 +528,11 @@ Si les caractéristiques de charge de travail d’un disque le placent dans la c
 
 **Stockage de réplication cible** | **Taille d’E/S moyenne de disque source** |**Activité des données moyenne de disque source** | **Total de l’activité des données de disque source par jour**
 ---|---|---|---
-Stockage Standard | 8 Ko    | 2 Mbits/s | 168 Go par disque
-Disque P10 Premium | 8 Ko    | 2 Mbits/s | 168 Go par disque
-Disque P10 Premium | 16 Ko | 4 Mbits/s |    336 Go par disque
+Stockage Standard | 8 Ko | 2 Mbits/s | 168 Go par disque
+Disque P10 Premium | 8 Ko | 2 Mbits/s | 168 Go par disque
+Disque P10 Premium | 16 Ko | 4 Mbits/s | 336 Go par disque
 Disque P10 Premium | 32 Ko ou plus | 8 Mbits/s | 672 Go par disque
-Disque Premium P20 ou P30 | 8 Ko    | 5 Mbits/s | 421 Go par disque
+Disque Premium P20 ou P30 | 8 Ko  | 5 Mbits/s | 421 Go par disque
 Disque Premium P20 ou P30 | 16 Ko ou plus |10 Mbits/s | 842 Go par disque
 
 Il s’agit de moyennes en partant sur un chevauchement d’E/S de 30 pour cent. Site Recovery est capable de gérer un débit plus élevé en fonction du ratio de chevauchement, de tailles d’écriture plus grandes et du comportement d’E/S des charges de travail réelles. Les valeurs précédentes supposent un retard de traitement typique de cinq minutes. Autrement dit, une fois que les données sont chargées, elles sont traitées, et un point de récupération est créé dans un délai de cinq minutes.

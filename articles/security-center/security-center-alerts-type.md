@@ -12,61 +12,36 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 06/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="security-alerts-by-type-in-azure-security-center"></a>Alertes de sécurité par type dans Azure Security Center
-Cet article vous aide à comprendre les différents types d’alertes de sécurité disponibles dans Azure Security Center. Pour plus d’informations sur la gestion des alertes,voir [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
+# <a name="understanding-security-alerts-in-azure-security-center"></a>Présentation des alertes de sécurité dans Azure Security Center
+Cet article vous aide à comprendre les différents types d’alertes de sécurité et les informations associées disponibles dans Azure Security Center. Pour plus d’informations sur la gestion des alertes et des incidents, consultez l’article [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 > [!NOTE]
 > Pour configurer la détection avancée, effectuez une mise à niveau vers Azure Security Center Standard. Une version d’évaluation gratuite de 60 jours est disponible. Pour mettre à niveau, sélectionnez **Niveau tarifaire** sous [Stratégie de sécurité](security-center-policies.md). Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
 >
->
 
 ## <a name="what-type-of-alerts-are-available"></a>Quels types d’alertes sont disponibles ?
-Azure Security Center fournit différentes alertes qui s’alignent sur les étapes de cyberchaîne de destruction. L’illustration suivante montre différentes alertes liées à certaines de ces étapes.
-
-![Chaîne de destruction](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
-
-**Cible et attaque**
-
-* Attaques RDP/SSH entrantes
-* Attaques d’applications et DDoS (partenaires WAF)
-* Détection d’intrusion (partenaires pare-feu NG)
-
-**Installation et exploitation**
-
-* Signatures de programmes malveillants connus (partenaires AM)
-* Tentatives de codes malveillants exploitant une faille de sécurité et de programmes malveillants en mémoire
-* Exécution de processus suspects
-* Manœuvres dissimulées pour éviter la découverte
-* Mouvement latéral
-* Reconnaissance interne
-* Activité PowerShell suspecte
-
-**Après une violation**  
-
-* Communication vers une adresse IP malveillante connue (exfiltration des données ou commande et contrôle)
-* Utilisation des ressources compromises pour lancer d’autres attaques (attaques en force brute RDP/SSH analysant le port sortant, et courrier indésirable)
-
-Différents types d’attaques sont associées à chaque phase et elles ciblent différents sous-systèmes. Pour résoudre ces attaques pendant ces phases, Azure Security Center comporte trois catégories d’alertes :
+Azure Security Center utilise diverses [fonctionnalités de détection](security-center-detection-capabilities.md) pour avertir les clients des attaques potentielles qui ciblent leur environnement. Ces alertes fournissent de précieuses informations sur le déclencheur de l’alerte, les ressources ciblées et la source de l’attaque. Les informations figurant dans une alerte varient en fonction du type d’analyse utilisé pour détecter la menace. Les incidents sont également susceptibles de contenir des informations contextuelles supplémentaires qui peuvent se révéler utiles lors de l’étude d’une menace.  Cet article fournit des informations sur les types d’alertes suivants :
 
 * Analyse comportementale de la machine virtuelle (VMBA)
 * Analyse du réseau
 * Analyse des ressources
+* Informations contextuelles
 
 ## <a name="virtual-machine-behavioral-analysis"></a>Analyse comportementale de la machine virtuelle
 Azure Security Center peut utiliser l’analyse comportementale pour identifier les ressources compromises en se basant sur l’analyse des journaux d’événements. Par exemple, les événements de création de processus et les événements de connexion. En outre, il existe une corrélation avec les autres signaux pour rechercher les preuves d’une campagne généralisée.
 
 > [!NOTE]
 > Pour plus d’informations sur le fonctionnement des fonctionnalités de détection de Security Center, voir [Fonctionnalités de détection d’Azure Security Center](security-center-detection-capabilities.md).
->
 >
 
 ### <a name="crash-analysis"></a>Analyse des incidents
@@ -258,6 +233,18 @@ Cette alerte est déclenchée lorsqu’une erreur d’application est détectée
 Cette alerte est déclenchée lorsqu’un événement d’accès à partir d’une adresse IP inconnue a été détecté sur le serveur, qui n’était pas visible lors de la dernière période.
 
 ![Alerte d’accès inhabituel](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
+
+## <a name="contextual-information"></a>Informations contextuelles
+Dans le cadre d’une investigation, les analystes ont besoin d’un contexte supplémentaire pour aboutir à un verdict sur la nature de la menace et sur les moyens de l’atténuer.  Par exemple, si une anomalie de réseau a été détectée, mais que l’on ne connaît pas les autres événements qui se produisent sur le réseau ou en ce qui concerne la ressource ciblée, il est très difficile de déterminer les mesures à prendre en conséquence. Pour faciliter cette opération, un incident de sécurité peut inclure des artefacts, des événements associés et des informations susceptibles d’aider l’investigateur. La disponibilité des informations supplémentaires varie en fonction du type de menace détecté et de la configuration de votre environnement, et ces informations ne sont pas disponibles pour tous les incidents de sécurité.
+
+Si des informations supplémentaires sont disponibles, elles s’affichent dans la section « Incident de sécurité » sous la liste des alertes. Cette section peut contenir des informations telles que :
+
+- Événements d’effacement de journal
+- Appareil Plug-and-Play branché à partir d’un appareil inconnu
+- Alertes non actionnables 
+
+![Alerte d’accès inhabituel](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
+
 
 ## <a name="see-also"></a>Voir aussi
 Cet article vous a présenté les différents types d’alertes de sécurité dans Azure Security Center. Pour plus d’informations sur Security Center, consultez :
