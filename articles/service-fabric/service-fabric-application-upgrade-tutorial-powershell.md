@@ -1,6 +1,6 @@
 ---
 title: "Mise à niveau d’applications Service Fabric à l’aide de PowerShell | Microsoft Docs"
-description: "Cet article vous présente l&quot;expérience de déploiement d&quot;une application Service Fabric, la modification du code et le déploiement d&quot;une mise à niveau à l’aide de PowerShell."
+description: "Cet article vous présente l'expérience de déploiement d'une application Service Fabric, la modification du code et le déploiement d'une mise à niveau à l’aide de PowerShell."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 6/28/2017
 ms.author: subramar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73

@@ -1,6 +1,6 @@
 ---
-title: "Mise à niveau d&quot;une application : paramètres de mise à niveau | Microsoft Docs"
-description: "Décrit les paramètres relatifs à la mise à niveau d&quot;une application Service Fabric, y compris les vérifications d&quot;intégrité à effectuer et les stratégies pour annuler automatiquement la mise à niveau."
+title: "Mise à niveau d'une application : paramètres de mise à niveau | Microsoft Docs"
+description: "Décrit les paramètres relatifs à la mise à niveau d'une application Service Fabric, y compris les vérifications d'intégrité à effectuer et les stratégies pour annuler automatiquement la mise à niveau."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 6/28/2017
 ms.author: subramar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
 ms.openlocfilehash: aa26d72524f035cca92cd39062873ceb15bffac1
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/11/2017
 
 

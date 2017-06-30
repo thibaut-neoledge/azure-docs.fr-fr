@@ -1,6 +1,6 @@
 ---
 title: "Didacticiel de mise à niveau d’applications Service Fabric | Microsoft Docs"
-description: "Cet article vous présente l&quot;expérience de déploiement d&quot;une application Service Fabric, la modification du code et le déploiement d&quot;une mise à niveau à l&quot;aide de Visual Studio."
+description: "Cet article vous présente l'expérience de déploiement d'une application Service Fabric, la modification du code et le déploiement d'une mise à niveau à l'aide de Visual Studio."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 6/28/2017
 ms.author: subramar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
