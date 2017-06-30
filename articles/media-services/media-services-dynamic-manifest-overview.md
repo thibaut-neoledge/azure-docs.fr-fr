@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: cenkd;juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
 ms.openlocfilehash: d0f9899d6b8cc83ea4f2836444b41a9dabe7fea7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -92,7 +94,7 @@ Pour plus d'informations sur la façon de distribuer votre contenu et générer 
 > 
 > 
 
-### <a name="a-idfiltersafilters"></a><a id="filters"></a>Filtres
+### <a id="filters"></a>Filtres
 Il existe deux types de filtres d'éléments multimédias : 
 
 * les filtres globaux (applicables à n'importe quel élément multimédia dans le compte Azure Media Services et dont la durée de vie correspond à celle du compte) ; 
@@ -100,7 +102,7 @@ Il existe deux types de filtres d'éléments multimédias :
 
 Les filtres globaux et locaux ont exactement les mêmes propriétés. La principale différence entre les deux a trait aux scénarios auxquels ils sont les plus appropriés. Les filtres globaux conviennent généralement aux profils d'appareil (filtrage de rendu) alors que les filtres locaux peuvent être utilisés pour découper un élément multimédia spécifique.
 
-## <a name="a-idscenariosacommon-scenarios"></a><a id="scenarios"></a>Scénarios courants
+## <a id="scenarios"></a>Scénarios courants
 Comme mentionné précédemment, quand vous distribuez votre contenu aux clients (diffusion en continu d'événements en direct ou vidéo à la demande), votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. De plus, vous pouvez avoir d'autres impératifs impliquant le filtrage de vos éléments multimédias et l'utilisation de **manifestes dynamiques**. Les sections suivantes présentent brièvement différents scénarios de filtrage.
 
 * Spécification d'un seul sous-ensemble de rendus audio et vidéos gérables par certains appareils (au lieu de tous les rendus associés à l'élément multimédia). 
@@ -210,9 +212,4 @@ Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
