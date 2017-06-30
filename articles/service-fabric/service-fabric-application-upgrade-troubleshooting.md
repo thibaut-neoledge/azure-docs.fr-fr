@@ -1,6 +1,6 @@
 ---
 title: "Résolution des problèmes des mises à niveau d’applications | Microsoft Docs"
-description: "Cet article aborde certains problèmes courants relatifs à la mise à niveau d&quot;une application Service Fabric et la manière de les résoudre."
+description: "Cet article aborde certains problèmes courants relatifs à la mise à niveau d'une application Service Fabric et la manière de les résoudre."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 6/28/2017
 ms.author: subramar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
