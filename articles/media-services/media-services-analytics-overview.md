@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d

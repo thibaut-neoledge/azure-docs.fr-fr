@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: e4bb75b0a45dd922479cbd40ad94190c30b4333f
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/13/2017
 
 
@@ -121,7 +122,7 @@ Vous êtes responsable de l’arrêt de vos canaux lorsque vous avez terminé d�
 >
 >
 
-### <a name="a-idstatesachannel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>États du canal et mappage au mode de facturation
+### <a id="states"></a>États du canal et mappage au mode de facturation
 État actuel d’un canal. Les valeurs possibles incluent :
 
 * **Arrêté**. Ceci est l'état initial du canal après sa création (sauf si le démarrage automatique a été sélectionné dans le portail). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés du canal peuvent être mises à jour, mais la diffusion en continu n’est pas autorisée.
