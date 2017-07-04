@@ -50,7 +50,7 @@ Les rapports sont disponibles pendant 45 jours après la fin du trimestre et son
 ## <a name="view-your-payout-reports-in-dev-center"></a>Consulter vos rapports de paiements dans le Centre de développement
 Le rapport de paiement pour chaque trimestre enregistre toutes les transactions effectuées au cours de ce trimestre.
 
-* La quantité réservée indique tous les paiements cumulés en dehors du cycle de paiement à venir (par exemple, cette quantité est déplacée sur le paiement à venir du mois suivant).  Ce montant est généralement de&0; $ (sauf si un client paie à l’avance).
+* La quantité réservée indique tous les paiements cumulés en dehors du cycle de paiement à venir (par exemple, cette quantité est déplacée sur le paiement à venir du mois suivant).  Ce montant est généralement de 0 $ (sauf si un client paie à l’avance).
 * Cliquez sur le lien **Afficher les détails** du paiement à venir ou du paiement le plus récent pour voir les notes concernant ces paiements.
 * Cliquez sur **Relevés de paiement** pour afficher les détails sous les revenus des ventes par application/produit.
 * Cliquez sur le lien **Afficher** pour afficher les relevés individuels.
