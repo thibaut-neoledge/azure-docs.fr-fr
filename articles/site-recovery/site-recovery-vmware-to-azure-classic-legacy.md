@@ -149,9 +149,9 @@ Le tableau 2 fournit un résumé des instructions relatives au serveur de traite
 
 | **Taux de modification des données** | **UC** | **Mémoire** | **Taille du disque cache** | **Débit du disque cache** | **Bande passante en entrée/sortie** |
 | --- | --- | --- | --- | --- | --- |
-| < 300 Go |4 processeurs virtuels (2 sockets * 2 cœurs à 2,5 GHz) |4 Go |600 Go |7 à 10 Mo par seconde |30 Mbits/s /&21; Mbits/s |
-| 300 à 600 Go |8 processeurs virtuels (2 sockets * 4 cœurs à 2,5 GHz) |6 Go |600 Go |11 à 15 Mo par seconde |60 Mbits/s /&42; Mbits/s |
-| 600 Go à 1 To |12 processeurs virtuels (2 sockets * 6 cœurs à 2,5 GHz) |8 Go |600 Go |16 à 20 Mo par seconde |100 Mbits/s /&70; Mbits/s |
+| < 300 Go |4 processeurs virtuels (2 sockets * 2 cœurs à 2,5 GHz) |4 Go |600 Go |7 à 10 Mo par seconde |30 Mbits/s / 21 Mbits/s |
+| 300 à 600 Go |8 processeurs virtuels (2 sockets * 4 cœurs à 2,5 GHz) |6 Go |600 Go |11 à 15 Mo par seconde |60 Mbits/s / 42 Mbits/s |
+| 600 Go à 1 To |12 processeurs virtuels (2 sockets * 6 cœurs à 2,5 GHz) |8 Go |600 Go |16 à 20 Mo par seconde |100 Mbits/s / 70 Mbits/s |
 | > 1 To |Déployer un autre serveur de traitement | | | | |
 
 **Tableau 2**
@@ -194,7 +194,7 @@ Notez les points suivants :
   * Sur le volume de rétention, cela devient 120 * 5 = 600 IOPS, ce qui peut créer un goulot d’étranglement. Dans ce scénario, une bonne stratégie serait d’ajouter des disques au volume de rétention et que ces derniers le couvrent, dans une configuration de bandes RAID. Cela améliore les performances, car les IOPS sont réparties sur plusieurs disques. Le nombre de lecteurs à ajouter au volume de rétention sera le suivant :
     * Nombre total d'IOPS à partir de l'environnement source / 500
     * Attrition totale par jour à partir de l'environnement source (non compressé) / 287 Go. 287 Go est le débit maximal pris en charge par un disque cible par jour. Cette métrique varie en fonction de la taille d'écriture avec un facteur de 8 Ko, car, dans ce cas, 8 Ko est la taille d'écriture supposée. Par exemple, si la taille d'écriture est de 4 Ko, le débit sera de 287/2. Et si la taille d'écriture est de 16 Ko, le débit sera de 287*2.
-* Nombre de comptes de stockage requis = nombre total d’IOPS source /&10; 000.
+* Nombre de comptes de stockage requis = nombre total d’IOPS source / 10 000.
 
 ## <a name="before-you-start"></a>Avant de commencer
 | **Composant** | **Configuration requise** | **Détails** |
@@ -393,11 +393,11 @@ Notez que les quatre premières adresses IP d’un sous-réseau sont réservées
    4. Extrayez les fichiers du programme d’installation compressé avec gzip en exécutant : **tar –xvzf Microsoft-ASR_UA_8.4.0.0_RHEL6-64***
       ![serveur cible maître Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
    5. Assurez-vous que vous êtes dans le répertoire dans lequel vous avez extrait le contenu du fichier tar.
-   6. Copiez la phrase secrète du serveur de configuration dans un fichier local à l’aide de la commande **echo *`<passphrase>`* >passphrase.txt**
-   7. Exécutez la commande « **sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt** ».
+   6. Copiez la phrase secrète du serveur de configuration dans un fichier local à l’aide de la commande **echo* `<passphrase>`* >passphrase.txt**
+   7. Exécutez la commande « **sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i* `<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt** ».
 
       ![Inscrire un serveur cible](./media/site-recovery-vmware-to-azure-classic-legacy/linux-mt-install.png)
-7. Patientez&10; à&15; minutes et, dans la page, vérifiez que le serveur cible maître est répertorié comme inscrit dans **Serveurs** > **Serveurs de configuration** **Détails du serveur**. Si vous exécutez Linux et que l’inscription n’a pas été effectuée, réexécutez l’outil de configuration d’hôte à partir de /usr/local/ASR/Vx/bin/hostconfigcli. Vous devrez définir des autorisations d'accès en exécutant chmod en tant qu’utilisateur racine.
+7. Patientez 10 à 15 minutes et, dans la page, vérifiez que le serveur cible maître est répertorié comme inscrit dans **Serveurs** > **Serveurs de configuration** **Détails du serveur**. Si vous exécutez Linux et que l’inscription n’a pas été effectuée, réexécutez l’outil de configuration d’hôte à partir de /usr/local/ASR/Vx/bin/hostconfigcli. Vous devrez définir des autorisations d'accès en exécutant chmod en tant qu’utilisateur racine.
 
     ![Vérifier le serveur cible](./media/site-recovery-vmware-to-azure-classic-legacy/target-server-list.png)
 
