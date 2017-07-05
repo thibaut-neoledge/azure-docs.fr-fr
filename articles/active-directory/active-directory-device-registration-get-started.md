@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 9934902811354ffa4047d70d995a6dd44be0229b
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/10/2017
 
 
@@ -51,19 +52,19 @@ Vous pouvez également afficher et activer ou désactiver les appareils inscrits
 
 **Pour activer le service Azure Active Directory Device Registration :**
 
-1.    Connectez-vous au portail Microsoft Azure en tant qu’administrateur.
+1.  Connectez-vous au portail Microsoft Azure en tant qu’administrateur.
 
-2.    Dans le volet gauche, sélectionnez **Active Directory**.
+2.  Dans le volet gauche, sélectionnez **Active Directory**.
 
-3.    Sous l’onglet Annuaire, sélectionnez votre annuaire.
+3.  Sous l’onglet Annuaire, sélectionnez votre annuaire.
 
-4.    Cliquez sur **Configurer**.
+4.  Cliquez sur **Configurer**.
 
-5.    Accédez à **Appareils**.
+5.  Accédez à **Appareils**.
 
-6.    Sélectionnez TOUS pour LES UTILISATEURS PEUVENT INSCRIRE LEURS APPAREILS SUR AZURE AD.
+6.  Sélectionnez TOUS pour LES UTILISATEURS PEUVENT INSCRIRE LEURS APPAREILS SUR AZURE AD.
 
-7.    Sélectionnez le nombre maximal d’appareils que vous souhaitez autoriser par utilisateur.
+7.  Sélectionnez le nombre maximal d’appareils que vous souhaitez autoriser par utilisateur.
 
 L’inscription auprès de Microsoft Intune ou de Mobile Device Management pour Office 365 nécessite l’enregistrement de l'appareil. Si vous avez configuré l’un de ces services, **TOUS** est sélectionné et **AUCUN** est désactivé. Assurez-vous qu’ils sont configurés correctement et disposent des licences appropriées.
 
@@ -79,19 +80,19 @@ Dans le portail d’administration Azure, vous pouvez afficher, bloquer et débl
 
 **Pour afficher et gérer des objets appareil dans Azure Active Directory :**
  
-1.    Connectez-vous au portail Microsoft Azure en tant qu’administrateur.
+1.  Connectez-vous au portail Microsoft Azure en tant qu’administrateur.
 
-2.    Dans le volet gauche, sélectionnez **Active Directory**.
+2.  Dans le volet gauche, sélectionnez **Active Directory**.
 
-3.    Sélectionnez votre annuaire.
+3.  Sélectionnez votre annuaire.
 
-4.    Sélectionnez **Utilisateurs**. 
+4.  Sélectionnez **Utilisateurs**. 
 
 5.  Cliquez sur l’utilisateur qui doit être autorisé à afficher les appareils.
 
-6.    Sélectionnez **Appareils**.
+6.  Sélectionnez **Appareils**.
 
-7.    Sélectionnez **Appareils inscrits**.
+7.  Sélectionnez **Appareils inscrits**.
 
 Maintenant, vous pouvez réviser, bloquer ou débloquer les appareils inscrits des utilisateurs.
 Les appareils Windows 10 qui sont joints localement au domaine et enregistrés automatiquement n’apparaissent pas sous l’onglet Utilisateurs. Utilisez la commande Get-MsolDevice PowerShell pour rechercher tous les appareils de votre entreprise. 

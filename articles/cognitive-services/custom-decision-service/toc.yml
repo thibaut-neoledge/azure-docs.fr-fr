@@ -1,16 +1,20 @@
-- name: Service de décision personnalisé
+- name: Custom Decision Service
   href: ../index.md
-- name: Vue d'ensemble
+- name: Overview
   href: custom-decision-service-overview.md
-- name: Prise en main
+- name: Get started
   items:
-  - name: Inscrivez votre application
+  - name: Register your application
     href: custom-decision-service-get-started-register.md
-  - name: Appeler des API à partir d’un navigateur
+  - name: Call API from a browser
     href: custom-decision-service-get-started-browser.md
-  - name: Appeler des API à partir d’une application
+  - name: Call API from an app
     href: custom-decision-service-get-started-app.md
-- name: Didacticiel
+- name: Tutorial
   href: custom-decision-service-tutorial.md
-- name: Informations de référence sur l'API
+- name: API reference
   href: custom-decision-service-api-reference.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
