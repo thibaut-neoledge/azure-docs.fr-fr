@@ -39,7 +39,7 @@ Cet article explique en détail comment protéger une application SharePoint à 
 
 Vous pouvez regarder la vidéo ci-dessous sur la récupération d’une application multiniveau dans Azure.
 
-> [!VIDÉO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
 ## <a name="prerequisites"></a>Composants requis
