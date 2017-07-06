@@ -1,6 +1,6 @@
 ---
 title: "Appareil simulé et passerelle Azure IoT - Prise en main | Microsoft Docs"
-description: "Prise en main du Kit de démarrage de passerelle IoT, créer votre Azure IoT Hub et connecter la passerelle à l&quot;IoT Hub"
+description: "Prise en main du Kit de démarrage de passerelle IoT, créer votre Azure IoT Hub et connecter la passerelle à l'IoT Hub"
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -21,7 +21,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 916fa40d9ac857dfa72197b40c232834593d3891
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---

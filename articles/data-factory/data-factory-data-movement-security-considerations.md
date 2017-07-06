@@ -17,7 +17,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: de9453e6764279c481e569542433d095772f304d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -33,10 +33,10 @@ Même si Data Factory est disponible uniquement dans les **États-Unis de l’Ou
 Azure Data Factory ne stocke aucune donnée à l’exception des informations d’identification du service lié pour les banques de données cloud, qui sont chiffrées à l’aide de certificats. Il vous permet de créer des workflows pilotés par les données afin d’orchestrer le déplacement de données entre les [banques de données prises en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), ainsi que le traitement des données à l’aide des [services de calcul](data-factory-compute-linked-services.md) situés dans d’autres régions ou dans un environnement local. Il vous permet également de [surveiller et gérer des workflows](data-factory-monitor-manage-pipelines.md) au moyen de programmes et à l’aide des mécanismes de l’interface utilisateur.
 
 Le déplacement des données à l’aide d’Azure Data Factory a obtenu les **certifications** suivantes :
--    [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
--    [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--    [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--    [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
+-   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
+-   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
 Si la conformité Azure vous intéresse et que vous désirez savoir comment Azure protège sa propre infrastructure, consultez le [Centre de gestion de la confidentialité Microsoft](https://www.microsoft.com/TrustCenter/default.aspx). 
 
@@ -120,7 +120,7 @@ Tous les transferts de données s’effectuent via un canal sécurisé **HTTPS**
  
 Vous pouvez également utiliser un [VPN IPSec](../vpn-gateway/vpn-gateway-about-vpn-devices.md) ou [ExpressRoute](../expressroute/expressroute-introduction.md) pour renforcer la sécurité du canal de communication entre votre réseau local et Azure.
 
-Un réseau virtuel est une représentation logique de votre réseau dans le cloud. Vous pouvez connecter un réseau local à votre réseau virtuel Azure (VNet) en configurant un VPN IPSec (de site à site) ou ExpressRoute (homologation privée).        
+Un réseau virtuel est une représentation logique de votre réseau dans le cloud. Vous pouvez connecter un réseau local à votre réseau virtuel Azure (VNet) en configurant un VPN IPSec (de site à site) ou ExpressRoute (homologation privée).     
 
 Le tableau suivant récapitule les recommandations de configuration réseau et de la passerelle selon différentes combinaisons d’emplacements source et de destination pour le déplacement de données hybrides.
 
@@ -142,7 +142,7 @@ Les illustrations suivantes décrivent l’utilisation de la passerelle de gesti
 
 ### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Configurations de pare-feu et autorisation des adresses IP de la passerelle
 
-#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>Configuration requise du pare-feu pour un réseau local/privé    
+#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>Configuration requise du pare-feu pour un réseau local/privé   
 Dans une entreprise, le **pare-feu d’entreprise** s’exécute sur le routeur central. Le **pare-feu Windows** s’exécute quant à lui en tant que démon sur l’ordinateur local sur lequel est installée la passerelle. 
 
 Le tableau suivant indique les paramètres de **port sortant** et de domaine requis pour le **pare-feu d’entreprise**.
@@ -152,7 +152,7 @@ Le tableau suivant indique les paramètres de **port sortant** et de domaine req
 | `*.servicebus.windows.net` | 443, 80 | Requis par la passerelle pour se connecter aux services de déplacement des données dans Data Factory |
 | `*.core.windows.net` | 443 | Utilisé par la passerelle pour se connecter au compte de stockage Azure lorsque vous utilisez la fonctionnalité de [copie intermédiaire](data-factory-copy-activity-performance.md#staged-copy). | 
 | `*.frontend.clouddatahub.net` | 443 | Requis par la passerelle pour se connecter au service Azure Data Factory. | 
-| `*.database.windows.net` | 1433    | (Facultatif) nécessaire lorsque votre destination est Azure SQL Database ou Azure SQL Data Warehouse. Utilisez la fonctionnalité de copie intermédiaire pour copier des données vers Azure SQL Database/Azure SQL Data Warehouse sans ouvrir le port 1433. | 
+| `*.database.windows.net` | 1433   | (Facultatif) nécessaire lorsque votre destination est Azure SQL Database ou Azure SQL Data Warehouse. Utilisez la fonctionnalité de copie intermédiaire pour copier des données vers Azure SQL Database/Azure SQL Data Warehouse sans ouvrir le port 1433. | 
 | `*.azuredatalakestore.net` | 443 | (Facultatif) nécessaire lorsque votre destination est Azure Data Lake Store. | 
 
 > [!NOTE] 

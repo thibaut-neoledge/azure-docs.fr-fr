@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1bafa072519cff1599a0cae1d361207ad0fa35d5
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 29d19364b9a98e351c95f13e68a2e63b9f6439f8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -42,7 +42,7 @@ Voici les éléments dont vous avez besoin :
 
 2. Le connecteur Encode X12 Message ne possède aucun déclencheur, ce qui signifie que vous devez ajouter un déclencheur pour le démarrage de votre application logique, par exemple un déclencheur de requête. Dans le concepteur d’applications logiques, ajoutez un déclencheur, puis ajoutez une action à votre application logique.
 
-3.    Dans la zone de recherche, entrez le filtre « x12 ». Sélectionnez **X12 - Encode X12 Message par nom de contrat** ou **X12 - Encode to X 12 message par identités**.
+3.  Dans la zone de recherche, entrez le filtre « x12 ». Sélectionnez **X12 - Encode X12 Message par nom de contrat** ou **X12 - Encode to X 12 message par identités**.
    
     ![Recherchez « x12 »](./media/logic-apps-enterprise-integration-x12-encode/x12decodeimage1.png) 
 
@@ -57,7 +57,7 @@ Voici les éléments dont vous avez besoin :
     | Nom de connexion * |Entrez un nom pour votre connexion. |
     | Compte d’intégration * |Entrez un nom pour votre compte d’intégration. Vérifiez que votre compte d’intégration et votre application logique se trouvent dans le même emplacement Azure. |
 
-5.    Lorsque vous avez terminé, les détails de votre connexion doivent apparaître tels qu’indiqués dans l’exemple suivant. Pour terminer la création de votre connexion, sélectionnez l’option **Créer**.
+5.  Lorsque vous avez terminé, les détails de votre connexion doivent apparaître tels qu’indiqués dans l’exemple suivant. Pour terminer la création de votre connexion, sélectionnez l’option **Créer**.
 
     ![connexion de compte d’intégration créée](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage2.png)
 
