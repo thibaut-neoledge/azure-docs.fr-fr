@@ -4,7 +4,7 @@ description: "Découvrez comment éviter des frais inattendus sur votre facture 
 services: 
 documentationcenter: 
 author: jlian
-manager: mattstee
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
