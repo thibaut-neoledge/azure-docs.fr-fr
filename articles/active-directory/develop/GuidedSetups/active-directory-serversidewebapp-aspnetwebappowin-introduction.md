@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b4490e87f653513ad6b62bd849acceedf993c5e8
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 8062923b6270ec6253dc231a3db4333cf4666b42
 ms.contentlocale: fr-fr
 
 
@@ -30,7 +30,7 @@ Ce guide explique comment implémenter la connexion avec Microsoft à l’aide d
 
 > Ce guide requiert Visual Studio 2015 Update 3 ou Visual Studio 2017.  Ni l’un, ni l’autre ne sont installés sur votre ordinateur ?  [Téléchargez gratuitement Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
-## <a name="how-this-guide-works"></a>Comment fonctionne ce guide
+## <a name="how-this-guide-works"></a>Fonctionnement de ce guide
 
 ![Comment fonctionne ce guide](media/active-directory-serversidewebapp-aspnetwebappowin-intro/aspnetbrowsergeneral.png)
 
@@ -38,7 +38,7 @@ Ce guide est basé sur des scénarios dans lesquels un navigateur accède à un 
 
 ## <a name="libraries"></a>Bibliothèques
 
-Ce guide utilise les bibliothèques suivantes :
+Ce guide utilise les bibliothèques suivantes :
 
 |Bibliothèque|Description|
 |---|---|

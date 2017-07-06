@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: gangan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 0f41aac0512e78039e6038795c72c07251bbcf76
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -46,10 +48,5 @@ Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggest
 
 ## <a name="learn-more"></a>En savoir plus
 [FAQ du support Azure](https://azure.microsoft.com/support/faq)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

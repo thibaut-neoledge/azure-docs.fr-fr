@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: d1d1f4d581721994fe7417ae970ad70f9a7b3368
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -80,10 +82,5 @@ Cette tâche est à présent annulée.
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur la [gestion de vos stratégies de sauvegarde StorSimple](storsimple-manage-backup-policies.md).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

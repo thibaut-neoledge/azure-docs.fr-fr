@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 02688f62101fe2ee602badc08feba02fa3e86e26
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 7963a07a2b9d529e89302f32e5ffd56c51687ffa
 ms.contentlocale: fr-fr
 
 
@@ -25,8 +25,8 @@ ms.contentlocale: fr-fr
 
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utiliser la bibliothèque d’authentification Microsoft (MSAL) afin d’obtenir un jeton pour l’API Microsoft Graph
 
-1.    Ouvrez `MainActivity` (sous `app` > `java` > `{domain}.{appname}`)
-2.    Ajoutez les importations suivantes :
+1.  Ouvrez `MainActivity` (sous `app` > `java` > `{domain}.{appname}`)
+2.  Ajoutez les importations suivantes :
 
 ```java
 import android.app.Activity;
@@ -254,12 +254,12 @@ L’appel de la méthode `AcquireTokenAsync` affiche une fenêtre invitant l’u
 `AcquireTokenSilentAsync` gère les acquisitions et renouvellements de jetons sans aucune interaction de l’utilisateur. Lorsque `AcquireTokenAsync` est exécuté pour la première fois, c’est en général la méthode `AcquireTokenSilentAsync` qui est utilisée pour obtenir les jetons permettant d’accéder aux ressources protégées pour les appels suivants, ainsi que pour les demandes ou renouvellements de jetons en mode silencieux.
 `AcquireTokenSilentAsync` finira par échouer, par exemple si l’utilisateur s’est déconnecté ou a modifié son mot de passe sur un autre appareil. Lorsque MSAL détecte que le problème peut être résolu par une intervention interactive, elle déclenche une exception `MsalUiRequiredException`. Votre application peut gérer cette exception de deux manières :
 
-1.    En adressant immédiatement un appel à `AcquireTokenAsync`, suite à quoi l’utilisateur est invité à se connecter. Cette méthode est généralement employée dans les applications en ligne où aucun contenu hors connexion dans l’application n’est disponible pour l’utilisateur. L’exemple généré par cette installation utilise cette méthode. Vous pouvez la voir à l’œuvre la première fois que vous exécutez l’exemple : comme aucun utilisateur n’a jamais utilisé l’application, `PublicClientApp.Users.FirstOrDefault` contient une valeur null et une exception `MsalUiRequiredException` est levée. Le code de l’exemple gère ensuite cette exception en appelant `AcquireTokenAsync`, suite à quoi l’utilisateur est invité à se connecter.
-2.    Les applications peuvent également signaler à l’utilisateur qu’une connexion interactive est requise afin qu’il puisse choisir le bon moment pour se connecter ou que l’application puisse réessayer d’exécuter `AcquireTokenSilentAsync` ultérieurement. Cette méthode est souvent employée lorsque l’utilisateur peut accéder aux fonctionnalités de l’application sans subir d’interruption, notamment lorsque du contenu hors connexion est disponible dans l’application. Dans ce cas, l’utilisateur peut décider du moment où il se connecte pour accéder à la ressource protégée ou pour actualiser les informations obsolètes, ou votre application peut choisir de réexécuter `AcquireTokenSilentAsync` après une indisponibilité temporaire du réseau.
+1.  En adressant immédiatement un appel à `AcquireTokenAsync`, suite à quoi l’utilisateur est invité à se connecter. Cette méthode est généralement employée dans les applications en ligne où aucun contenu hors connexion dans l’application n’est disponible pour l’utilisateur. L’exemple généré par cette installation utilise cette solution : vous pouvez le voir en action lors de la première exécution de l’exemple : comme aucun utilisateur n’a jamais utilisé l’application, `PublicClientApp.Users.FirstOrDefault` contient une valeur null et une exception `MsalUiRequiredException` est émise. Le code de l’exemple gère ensuite cette exception en appelant `AcquireTokenAsync`, suite à quoi l’utilisateur est invité à se connecter.
+2.  Les applications peuvent également signaler à l’utilisateur qu’une connexion interactive est requise afin qu’il puisse choisir le bon moment pour se connecter ou que l’application puisse réessayer d’exécuter `AcquireTokenSilentAsync` ultérieurement. Cette méthode est souvent employée lorsque l’utilisateur peut accéder aux fonctionnalités de l’application sans subir d’interruption, notamment lorsque du contenu hors connexion est disponible dans l’application. Dans ce cas, l’utilisateur peut décider du moment où il se connecte pour accéder à la ressource protégée ou pour actualiser les informations obsolètes, ou votre application peut choisir de réexécuter `AcquireTokenSilentAsync` après une indisponibilité temporaire du réseau.
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Appeler l’API Microsoft Graph à l’aide du jeton que vous venez d’obtenir
-1.    Ajoutez les méthodes suivantes à la classe `MainActivity` :
+1.  Ajoutez les méthodes suivantes à la classe `MainActivity` :
 
 ```java
 /* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
@@ -323,7 +323,7 @@ Dans cet exemple d’application, `callGraphAPI` appelle `getAccessToken`, puis 
 
 ## <a name="setup-sign-out"></a>Configurer la déconnexion
 
-1.    Ajoutez les méthodes suivantes à la classe `MainActivity` :
+1.  Ajoutez les méthodes suivantes à la classe `MainActivity` :
 
 ```java
 /* Clears a user's tokens from the cache.

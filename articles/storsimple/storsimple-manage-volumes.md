@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2016
 ms.author: v-sharos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 2b79492914bb52e970343a2e829622122f03642b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -177,10 +179,5 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [cloner un volume StorSimple](storsimple-clone-volume.md).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

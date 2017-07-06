@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d30cbc1cfd095ab9e8321a723335ebab593ee5fe
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 4a41d9eb8b28aed499bb20e17e3c979962c78bcd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,14 +41,14 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 ## <a name="create-an-x12-agreement"></a>Créer un contrat X12
 
-1.    Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure"). Dans le menu de gauche, cliquez sur **Plus de services**. 
+1.  Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure"). Dans le menu de gauche, cliquez sur **Plus de services**. 
 
     > [!TIP]
     > Si vous ne voyez pas l’option **Plus de services**, vous devez d’abord développer le menu. En haut du menu réduit, sélectionnez **Afficher le menu**.
 
     ![Dans le menu de gauche, cliquez sur « Plus de services »](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.    Dans la zone de recherche, entrez « intégration » comme filtre. Sélectionnez **Comptes d’intégration** dans la liste des résultats.  
+2.  Dans la zone de recherche, entrez « intégration » comme filtre. Sélectionnez **Comptes d’intégration** dans la liste des résultats.  
 
     ![Filtrer sur « intégration », sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-x12/account-2.png)
 
@@ -87,7 +87,7 @@ Si aucun compte d’intégration ne s’affiche, [créez-en un](../logic-apps/lo
 
 Maintenant que vous avez défini les propriétés du contrat, vous pouvez configurer la manière dont ce contrat identifie et traite les messages entrants reçus par votre partenaire par l’intermédiaire de ce contrat.
 
-1.    Sous **Ajouter**, sélectionnez **Paramètres de réception**.
+1.  Sous **Ajouter**, sélectionnez **Paramètres de réception**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
     L’option **Paramètres de réception** est organisée en plusieurs sections : identificateurs, accusé de réception, schémas, enveloppes, numéros de contrôle, validations et paramètres internes.
@@ -183,7 +183,7 @@ Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne 
 
 Vous pouvez configurer la manière dont votre contrat identifie et traite les messages sortants que vous envoyez à votre partenaire par l’intermédiaire de ce contrat.
 
-1.    Sous **Ajouter**, sélectionnez **Paramètres d’envoi**.
+1.  Sous **Ajouter**, sélectionnez **Paramètres d’envoi**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
     L’option **Paramètres d’envoi** est organisée en plusieurs sections : identificateurs, accusé de réception, schémas, enveloppes, jeux de caractères et séparateurs, numéros de contrôle et validation.
@@ -290,11 +290,11 @@ Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne 
 
 ## <a name="find-your-created-agreement"></a>Comment retrouver le contrat que vous avez créé
 
-1.    Après avoir défini toutes les propriétés de votre contrat, dans le panneau **Ajouter**, cliquez sur **OK** pour terminer la création de votre contrat et revenir au panneau de votre compte d’intégration.
+1.  Après avoir défini toutes les propriétés de votre contrat, dans le panneau **Ajouter**, cliquez sur **OK** pour terminer la création de votre contrat et revenir au panneau de votre compte d’intégration.
 
     Le contrat que vous venez d’ajouter s’affiche dans votre liste **Contrats**.
 
-2.    Vous pouvez également afficher vos contrats dans la vue d’ensemble de votre compte d’intégration. Dans le panneau de votre compte d’intégration, choisissez **Vue d’ensemble**, puis sélectionnez la mosaïque **Contrats**.
+2.  Vous pouvez également afficher vos contrats dans la vue d’ensemble de votre compte d’intégration. Dans le panneau de votre compte d’intégration, choisissez **Vue d’ensemble**, puis sélectionnez la mosaïque **Contrats**.
 
     ![Sélectionner la mosaïque « Contrats » pour afficher tous les contrats](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 

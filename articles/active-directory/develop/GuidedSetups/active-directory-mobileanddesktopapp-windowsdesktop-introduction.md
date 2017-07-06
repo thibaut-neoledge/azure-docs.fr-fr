@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 606d40a0e5c89a03c2ad602d3bbdf3cbb0c9049a
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 4a695c00fce4deb02261ba58ec95469746bb1486
 ms.contentlocale: fr-fr
 
 
@@ -28,7 +28,7 @@ Ce guide explique comment une application de bureau Windows .NET (XAML) native p
 
 À la fin de ce guide, votre application pourra appeler une API protégée à l’aide de comptes personnels (y compris outlook.com et live.com), ainsi que de comptes professionnels et scolaires de n’importe quelle société ou organisation qui possède Azure Active Directory.  
 
-> Ce guide requiert Visual Studio 2015 Update 3 ou Visual Studio 2017.  Ni l’un ni l’autre ne sont installés sur votre ordinateur ? [Téléchargez gratuitement Visual Studio 2017](https://www.visualstudio.com/downloads/)
+> Ce guide requiert Visual Studio 2015 Update 3 ou Visual Studio 2017.  Ni l’un, ni l’autre ne sont installés sur votre ordinateur ? [Téléchargez gratuitement Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 ### <a name="how-this-guide-works"></a>Fonctionnement de ce guide
 

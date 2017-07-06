@@ -1,5 +1,5 @@
 ---
-title: "Prise en main d’Azure AD v2 avec les applications de bureau Windows - Configuration | Documents Microsoft"
+title: "Prise en main d’Azure AD v2 avec les applications de bureau Windows - Configuration | Microsoft Docs"
 description: "Cet article explique comment une application de bureau Windows .NET (XAML) peut obtenir un jeton d’accès et appeler une API protégée par un point de terminaison Azure Active Directory v2. | Microsoft Azure | Microsoft Azure"
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1530f64a38ac5e8a87f88fb97eb86aa2b67d0b12
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 12c89a6fcbb6d299b64e6b0ec9d1dba29bb41d16
 ms.contentlocale: fr-fr
 
 
@@ -26,9 +26,9 @@ ms.contentlocale: fr-fr
 ## <a name="create-an-application-express"></a>Créer une application (Express)
 Maintenant, vous devez inscrire votre application dans le *portail d’inscription des applications de Microsoft* :
 1. Inscrivez votre application via le [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure).
-2.    Entrez un nom pour votre application, ainsi que votre adresse e-mail.
-3.    Assurez-vous que la case de l’option Guided Setup (Installation guidée) est activée.
-4.    Suivez les instructions à l’écran pour obtenir l’ID de l’application et collez-le dans votre code.
+2.  Entrez un nom pour votre application, ainsi que votre adresse e-mail.
+3.  Assurez-vous que la case de l’option Guided Setup (Installation guidée) est activée.
+4.  Suivez les instructions à l’écran pour obtenir l’ID de l’application et collez-le dans votre code.
 
 ### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Ajouter les informations d’inscription de l’application à votre solution (Avancé)
 Maintenant, vous devez inscrire votre application dans le *portail d’inscription des applications de Microsoft* :

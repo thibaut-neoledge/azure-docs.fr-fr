@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 815ada25a548ddf419ac073f57a5153f60a40a58
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -204,10 +206,5 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 ## <a name="next-steps"></a>Étapes suivantes
 * Si vous rencontrez des problèmes avec vos contrôleurs d’appareil StorSimple, que vous ne pouvez pas résoudre en suivant les procédures décrites dans ce didacticiel, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 * Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
