@@ -4,7 +4,7 @@ description: "Apprenez à lire et à comprendre l’utilisation et la facturatio
 services: 
 documentationcenter: 
 author: genlin
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9

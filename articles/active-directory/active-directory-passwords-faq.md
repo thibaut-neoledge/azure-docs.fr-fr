@@ -6,7 +6,7 @@ keywords: "Gestion des mots de passe Active Directory, gestion des mots de passe
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
