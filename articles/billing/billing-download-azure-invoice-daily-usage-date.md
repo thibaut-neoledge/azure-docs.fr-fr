@@ -5,7 +5,7 @@ keywords: "facturation, facture, téléchargement de facture, facture Azure, uti
 services: 
 documentationcenter: 
 author: genlin
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661

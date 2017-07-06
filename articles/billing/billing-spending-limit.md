@@ -4,7 +4,7 @@ description: "Décrit le fonctionnement de la limite de dépense d’Azure et c
 services: 
 documentationcenter: 
 author: genlin
-manager: vikdesai
+manager: jlian
 editor: 
 tags: billing
 ms.service: billing

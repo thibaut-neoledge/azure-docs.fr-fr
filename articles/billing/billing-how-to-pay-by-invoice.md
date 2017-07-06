@@ -4,7 +4,7 @@ description: "Décrit comment payer les abonnements Azure par facture"
 services: 
 documentationcenter: 
 author: genlin
-manager: vikdesai
+manager: jlian
 editor: 
 tags: billing
 ms.service: billing
