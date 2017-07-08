@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/8/2017
+ms.date: 6/29/2017
 ms.author: sumukhs
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
 ms.openlocfilehash: e787f48f14539dff3035c51e14243c7bd9dcbb73
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -124,10 +126,5 @@ Si vous affectez à OptimizeForLowerDiskUsage la valeur true, l’espace du fich
 Le paramètre MaxRecordSizeInKB définit la taille maximale d’un enregistrement que le réplicateur peut écrire dans le fichier journal. Dans la plupart des cas, la taille d’enregistrement par défaut de 1 024 Ko est optimale. Toutefois, si le service ajoute des données plus volumineuses aux informations d’état, cette valeur devra éventuellement être augmentée. Il n’est pas recommandé de choisir une valeur MaxRecordSizeInKB inférieure à 1 024 Ko, car des enregistrements plus petits utilisent uniquement l’espace nécessaire à l’enregistrement le plus petit. Cette valeur ne doit être modifiée qu’en de rares occasions.
 
 Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble pour permettre à un service d’utiliser un journal partagé distinct du journal partagé par défaut pour le nœud. Pour plus d'efficacité, vous devriez spécifier autant de services que possible dans le même journal partagé. Les fichiers journaux partagés doivent être placés sur des disques uniquement utilisés pour le fichier journal partagé afin de réduire la contention des mouvements de la tête. Ces valeurs ne doivent être modifiées qu’en de rares occasions.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

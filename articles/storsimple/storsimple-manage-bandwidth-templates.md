@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/16/2016
 ms.author: alkohli
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2a717adb94ab92f206aab45e4836bb26252f89a0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: df3ae8bf775370432b3648459a7c942afe69fb17
 ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 07/06/2017
 
 
 ---

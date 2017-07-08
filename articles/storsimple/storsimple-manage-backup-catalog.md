@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/28/2016
 ms.author: v-sharos
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e74a04276810c52fef3ad62e7f2c56860ba4fbd1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5ee9855e1428c7a2d871d9c215d302c5c3b7101a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -54,7 +54,7 @@ Procédez comme suit pour répertorier toutes les sauvegardes pour un volume.
    1. Sélectionnez l’appareil approprié.
    2. Dans la liste déroulante, choisissez un volume pour afficher les sauvegardes correspondantes.
    3. Indiquez l’intervalle de temps.
-   4. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  pour exécuter cette requête.
+   4. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) pour exécuter cette requête.
       
       Les sauvegardes associées au volume sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 
@@ -68,7 +68,7 @@ Procédez comme suit pour sélectionner un jeu de sauvegarde pour un volume ou u
    1. Sélectionnez l’appareil approprié.
    2. Dans la liste déroulante, choisissez la stratégie de sauvegarde ou le volume pour la sauvegarde à sélectionner.
    3. Indiquez l’intervalle de temps.
-   4. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  pour exécuter cette requête.
+   4. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) pour exécuter cette requête.
       
       Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 3. Sélectionnez un jeu de sauvegarde et développez-le. Les options **Restaurer** et **Supprimer** apparaissent en bas de la page. Vous pouvez effectuer une de ces actions sur le jeu de sauvegarde que vous avez sélectionné.
@@ -83,7 +83,7 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
    1. Sélectionnez l’appareil approprié.
    2. Dans la liste déroulante, choisissez la stratégie de sauvegarde ou le volume pour la sauvegarde à sélectionner.
    3. Indiquez l’intervalle de temps.
-   4. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  pour exécuter cette requête.
+   4. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) pour exécuter cette requête.
       
       Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 3. Sélectionnez un jeu de sauvegarde et développez-le. Les options **Restaurer** et **Supprimer** apparaissent en bas de la page. Cliquez sur **Supprimer**.

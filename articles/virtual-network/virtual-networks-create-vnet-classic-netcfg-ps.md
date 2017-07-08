@@ -1,6 +1,6 @@
 ---
 title: "Créer un réseau virtuel en utilisant un fichier de configuration de réseau | PowerShell | Classique | Microsoft Docs"
-description: "Découvrez comment créer un réseau virtuel à l&quot;aide d&quot;un fichier de configuration réseau dans le portail Azure."
+description: "Découvrez comment créer un réseau virtuel à l'aide d'un fichier de configuration réseau dans le portail Azure."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d4484ea46095f1969db0b01bdef69c212da8acdd
 ms.openlocfilehash: a67c3f73d9e56ab0081836ba5db62f5a01c7b6bc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -33,10 +35,5 @@ Ce document décrit la création d'un réseau virtuel à l'aide du modèle de d�
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-classic-netcfg-ps-include](../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

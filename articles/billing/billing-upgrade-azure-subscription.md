@@ -1,11 +1,11 @@
 ---
 title: "Mise à niveau de votre abonnement Azure gratuit pour le paiement à l’utilisation | Microsoft Docs"
 description: "Décrit comment vous pouvez effectuer une mise à niveau d’un abonnement gratuit vers un abonnement avec paiement à l’utilisation et la configuration requise"
-keywords: "mise à niveau sur plan de paiement à l&quot;utilisation"
+keywords: "mise à niveau sur plan de paiement à l'utilisation"
 services: 
 documentationcenter: 
-author: adpick
-manager: adpick
+author: jlian
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f
@@ -17,9 +17,10 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 55c195754f18cd52fc098061f0e16607292a1948
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/17/2017
 
 ---

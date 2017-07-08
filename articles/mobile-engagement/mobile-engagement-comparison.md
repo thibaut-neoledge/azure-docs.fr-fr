@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4503810769d88ea554885f39902349046981ec88
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -62,10 +64,5 @@ Examinons quelques scénarios :
 Pour résumer, l’objectif de Mobile Engagement n’est pas juste de collecter des analyses. Il ne s’agit pas uniquement d’un nouveau produit d’analyse de Microsoft. L’objectif est en effet d’envoyer des notifications Push ciblées et pour cela, nous collectons les données d’analyse comportementale ; mais le but principal est toujours d’envoyer des notifications Push qui ont un sens pour les utilisateurs de l’application et ne sont pas considérées comme du spam. 
 
 Pour plus d’informations, consultez cette [courte vidéo](mobile-engagement-overview.md) sur Mobile Engagement. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
