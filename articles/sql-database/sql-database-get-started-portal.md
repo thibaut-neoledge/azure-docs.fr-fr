@@ -104,7 +104,7 @@ Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les 
    > Vous avez besoin du nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants.
    > 
 
-   ![nom du serveur](./media/sql-database-get-started-portal/server-name.png) 
+   ![nom du serveur](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils, comme illustré sur l’image précédente. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre. 
 
