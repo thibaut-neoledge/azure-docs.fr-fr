@@ -64,7 +64,6 @@ L’exemple ci-après permet de créer un cluster nommé *myK8sCluster*, qui inc
 az acs create --orchestrator-type=kubernetes \
     --resource-group myResourceGroup \
     --name=myK8sCluster \
-    --agent-count=2 \
     --generate-ssh-keys 
 ```
 

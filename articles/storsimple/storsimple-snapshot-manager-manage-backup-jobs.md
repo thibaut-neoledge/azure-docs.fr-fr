@@ -4,7 +4,7 @@ description: "Explique comment utiliser le composant logiciel enfichable MMC Ges
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/26/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: b31f6d51399dc0533d8cbefcafc3b55762cb6cf1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde
+
 ## <a name="overview"></a>Vue d'ensemble
 Le nœud **Tâches** dans le volet **Étendue** présente les tâches de sauvegarde **planifiées**, des **dernières 24 heures** et **en cours** que vous avez lancées de façon interactive ou à l’aide d’une stratégie configurée. 
 
@@ -38,9 +41,7 @@ Pour afficher les tâches de sauvegarde planifiées, procédez comme suit.
    * **Dernière exécution** : date et heure de l’instantané planifié le plus récent
      
      > [!NOTE]
-     > Pour les instantanés ponctuels, les informations des colonnes **Exécution suivante** et **Dernière exécution** sont identiques. 
-     > 
-     > 
+     > Pour les instantanés ponctuels, les informations des colonnes **Exécution suivante** et **Dernière exécution** sont identiques.
      
      ![Tâches de sauvegarde planifiées](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
 3. Pour effectuer des actions supplémentaires sur une tâche spécifique, cliquez avec le bouton droit sur le nom de la tâche dans le volet **Résultats** et sélectionnez les options de menu de votre choix.
@@ -63,14 +64,14 @@ Pour afficher les tâches de sauvegarde et de restauration effectuées au cours 
      ![Tâches exécutées au cours des 24 dernières heures](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
 3. Pour effectuer des actions supplémentaires sur une tâche spécifique, cliquez avec le bouton droit sur le nom de la tâche dans le volet **Résultats** et sélectionnez les options de menu de votre choix.
    
-    ![Supprimer un travail](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png) 
+    ![Supprimer un travail](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
 
 ## <a name="view-currently-running-jobs"></a>Afficher les tâches en cours d’exécution
 Pour afficher les tâches en cours d’exécution, procédez comme suit.
 
 #### <a name="to-view-currently-running-jobs"></a>Pour afficher les tâches en cours d’exécution
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
-2. Dans le volet **Étendue**, développez le nœud **Tâches**, puis cliquez sur **En cours d’exécution**. Selon les options spécifiées pour **Affichage**, les informations suivantes apparaissent dans le volet **Résultats** : 
+2. Dans le volet **Étendue**, développez le nœud **Tâches**, puis cliquez sur **En cours d’exécution**. Selon les options spécifiées pour **Affichage**, les informations suivantes apparaissent dans le volet **Résultats** :
    
    * **Nom** : nom de l’instantané planifié.
    * **Démarré** : date et heure de début de l’instantané.
@@ -87,10 +88,5 @@ Pour afficher les tâches en cours d’exécution, procédez comme suit.
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 * Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer le catalogue de sauvegarde](storsimple-snapshot-manager-manage-backup-catalog.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

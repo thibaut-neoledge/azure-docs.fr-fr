@@ -4,7 +4,7 @@ description: "Fournit une vue d’ensemble et des liens vers d’autres informat
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carolz
+manager: timlt
 editor: 
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/18/2016
+ms.date: 06/05/2016
 ms.author: v-sharos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5e3528d490cd11fab3fb10126713f81694d7e2d0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple
+
 ## <a name="overview"></a>Vue d'ensemble
 Gestionnaire d’instantanés StorSimple est un composant logiciel enfichable Microsoft Management Console (MMC) qui simplifie la protection des données et la gestion des sauvegardes dans l’environnement Microsoft Azure StorSimple. Avec le Gestionnaire d’instantanés StorSimple, vous pouvez gérer les données Microsoft Azure StorSimple hébergées dans le centre de données et dans le cloud sous forme de solution de stockage intégrée unique et réduire ainsi la complexité des processus de sauvegarde et les coûts.
 
@@ -39,8 +42,7 @@ Cet article fournit des liens vers des didacticiels qui décrivent le Gestionnai
 
 > [!NOTE]
 > Vous ne pouvez pas utiliser le Gestionnaire d'instantanés StorSimple pour gérer les baies virtuelles Microsoft Azure StorSimple (également appelées appareils virtuels locaux StorSimple).
-> 
-> 
+
 
 ## <a name="storsimple-snapshot-manager-tasks-and-workflows"></a>Tâches et flux de travail du Gestionnaire d’instantanés StorSimple
 Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour surveiller et gérer les tâches de sauvegarde en cours, planifiées et terminées. De plus, le Gestionnaire d’instantanés StorSimple offre un catalogue pouvant comporter jusqu’à 64 sauvegardes terminées. Vous pouvez utiliser ce catalogue pour rechercher et restaurer des volumes ou des fichiers individuels. 
@@ -60,10 +62,5 @@ Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour surveiller
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Télécharger le Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
