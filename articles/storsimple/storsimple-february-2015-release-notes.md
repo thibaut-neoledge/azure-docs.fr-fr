@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a6956a8fd885251c07c31c4e677dba738ec93c64
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c059fd74854813615754e67547497b7ededbe4dd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 07/06/2017
 
 
 ---

@@ -18,7 +18,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
 ms.openlocfilehash: f36d5da78818410e028a73a36a502a758400e5a5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -200,8 +200,8 @@ Pour en savoir plus, voir [Extensions d’annuaire](active-directory-aadconnects
 ### <a name="enabling-single-sign-on-sso"></a>Activation de l’authentification unique (SSO)
 La configuration de l’authentification unique pour une utilisation avec la synchronisation des mots de passe ou l’authentification directe est un processus simple que vous n’avez à effectuer qu’une fois par forêt synchronisée avec Azure AD. La configuration implique les deux étapes suivantes :
 
-1.    création du compte d’ordinateur nécessaire dans votre annuaire Active Directory local ;
-2.    configuration de la zone intranet des ordinateurs clients pour prendre en charge l’authentification unique.
+1.  création du compte d’ordinateur nécessaire dans votre annuaire Active Directory local ;
+2.  configuration de la zone intranet des ordinateurs clients pour prendre en charge l’authentification unique.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Créer le compte d’ordinateur dans Active Directory
 Pour chaque forêt ajoutée à l’aide d’Azure AD Connect, vous devez fournir les informations d’identification de l’administrateur de domaine afin que le compte d’ordinateur puisse être créé dans chaque forêt. Les informations d’identification sont utilisées uniquement pour créer le compte et ne sont pas stockées ni utilisées pour d’autres opérations. Ajoutez simplement les informations d’identification sur la page **Activer l’authentification unique** de l’Assistant Azure AD Connect, comme indiqué ci-dessous :
@@ -215,20 +215,20 @@ Pour chaque forêt ajoutée à l’aide d’Azure AD Connect, vous devez fourni
 Pour vous assurer que le client se connecte automatiquement dans la zone intranet, vous devez vous assurer que deux URL font partie de la zone intranet. Cela garantit que l’ordinateur joint au domaine envoie automatiquement un ticket Kerberos à Azure AD lorsqu’il est connecté au réseau d’entreprise.
 Sur un ordinateur qui possède les outils de gestion de stratégie de groupe.
 
-1.    Ouvrir les outils de gestion de stratégie de groupe
-2.    Modifiez la stratégie de groupe qui sera appliquée à tous les utilisateurs. Par exemple, la stratégie de domaine par défaut.
-3.    Accédez à **Configuration utilisateur\Modèles d’administration\Composants Windows\Internet Explorer\Panneau de configuration Internet\Page de sécurité** et sélectionnez **Liste des attributions de sites aux zones**, comme sur l’image ci-dessous.
-4.    Activez la stratégie, puis entrez les deux éléments suivants dans la boîte de dialogue.
+1.  Ouvrir les outils de gestion de stratégie de groupe
+2.  Modifiez la stratégie de groupe qui sera appliquée à tous les utilisateurs. Par exemple, la stratégie de domaine par défaut.
+3.  Accédez à **Configuration utilisateur\Modèles d’administration\Composants Windows\Internet Explorer\Panneau de configuration Internet\Page de sécurité** et sélectionnez **Liste des attributions de sites aux zones**, comme sur l’image ci-dessous.
+4.  Activez la stratégie, puis entrez les deux éléments suivants dans la boîte de dialogue.
 
-        Valeur: `https://autologon.microsoftazuread-sso.com`  
-        Data 1  
-        Valeur: `https://aadg.windows.net.nsatc.net`  
-        Data 1
+        Value: `https://autologon.microsoftazuread-sso.com`  
+        Data: 1  
+        Value: `https://aadg.windows.net.nsatc.net`  
+        Data: 1
 
-5.    Le résultat doit être semblable à ce qui suit :  
+5.  Le résultat doit être semblable à ce qui suit :  
 ![Zones intranet](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.    Cliquez sur **OK** deux fois.
+6.  Cliquez sur **OK** deux fois.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Configuration de la fédération avec AD FS
 La configuration d’AD FS avec Azure AD Connect s’effectue simplement en quelques clics. Pour pouvoir procéder à la configuration, vous devez disposer des éléments suivants.

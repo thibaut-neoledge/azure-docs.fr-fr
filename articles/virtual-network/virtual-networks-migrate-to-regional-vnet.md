@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f74379c3e310a7bbcf659ef610727bff19639022
 ms.openlocfilehash: c495af3e818758cc5fe99af9b5f07506a16b59ef
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -70,10 +72,5 @@ Il est important de noter que l’utilisation d’un groupe d’affinités peut 
 Les machines virtuelles qui sont actuellement dans un groupe d’affinités n’ont pas besoin d’être supprimées du groupe d’affinités.
 
 Une fois qu’une machine virtuelle est déployée, elle l’est sur une seule unité d’échelle. Les groupes d’affinités peuvent restreindre la taille disponible de l’ensemble des machines virtuelles pour un nouveau déploiement de machines virtuelles, mais les machines virtuelles existantes déployées sont déjà limitées à la taille disponible de l’ensemble des machines virtuelles dans l’unité d’échelle où elles sont déployées. Pour cette raison, la suppression d’une machine virtuelle du groupe d’affinités n’a aucun effet.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

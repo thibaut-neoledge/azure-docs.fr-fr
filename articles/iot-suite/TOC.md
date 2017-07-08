@@ -33,7 +33,7 @@
 ## [Connecter une application logique à la solution de surveillance à distance](iot-suite-logic-apps-tutorial.md)
 ## [Personnaliser une solution préconfigurée](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Utiliser la télémétrie dynamique avec la solution de surveillance à distance](iot-suite-dynamic-telemetry.md)
-## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md) (Créer une règle personnalisée dans la solution de surveillance à distance)
+## [Créer une règle personnalisée dans la solution de surveillance à distance](iot-suite-custom-rule.md)
 ## [Informations sur l’appareil dans la solution de surveillance à distance](iot-suite-remote-monitoring-device-info.md)
 ## [Déployer une passerelle pour l’usine connectée](iot-suite-connected-factory-gateway-deployment.md)
 ## [Personnaliser la fabrique connectée](iot-suite-connected-factory-customize.md)
@@ -50,7 +50,8 @@
 ## [IoT Hub](/azure/iot-hub/)
 ## [Machine Learning](/azure/machine-learning/)
 
-# les ressources
+# Ressources
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
 ## [Parcours d’apprentissage IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 

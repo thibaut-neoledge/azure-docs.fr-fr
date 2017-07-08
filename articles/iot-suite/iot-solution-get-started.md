@@ -14,9 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/25/2016
 ms.author: harikm
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c6366d42b91748963ec14c258f92746e5d2fde92
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 031b492df1f186087e7b91102cbb44f552999293
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -49,7 +51,7 @@ Sur votre appareil :
    
    Vous devez effectuer deux opérations. Installez le certificat dans **Personnes autorisées**. Ensuite, installez l’application.
 
-*Des problèmes pour démarrer l’application sur Windows 10 Mobile ?*  Votre téléphone a peut-être une ou deux mises à jour de retard. Vérifiez que vous disposez des dernières mises à jour ou installez :
+*Des problèmes pour démarrer l’application sur Windows 10 Mobile ?* Votre téléphone a peut-être une ou deux mises à jour de retard. Vérifiez que vous disposez des dernières mises à jour ou installez :
 
 * [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx) 
 * [Microsoft.NET.Native.Runtime.1.1.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Runtime.1.1.appx) 
@@ -144,9 +146,4 @@ Nous espérons recevoir bientôt de vos nouvelles.
 [ScanTool OBDLink MX Wi-Fi: OBD Adapter/Diagnostic Scanner]: http://www.amazon.com/gp/product/B00OCYXTYY/ref=s9_simh_gw_g263_i1_r?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=desktop-2&pf_rd_r=1MWRMKXK4KK9VYMJ44MP
 [portail HockeyApp]: https://rink.hockeyapp.org
 [problème sur GitHub]: https://github.com/Azure-Samples/MyDriving/issues
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

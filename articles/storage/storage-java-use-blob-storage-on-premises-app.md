@@ -1,6 +1,6 @@
 ---
 title: "Application locale avec stockage d’objets blob (Java) | Microsoft Docs"
-description: "Découvrez comment créer une application console qui charge une image dans Azure, puis l&quot;affiche dans votre navigateur. Les exemples de code sont écrits en Java."
+description: "Découvrez comment créer une application console qui charge une image dans Azure, puis l'affiche dans votre navigateur. Les exemples de code sont écrits en Java."
 services: storage
 documentationcenter: java
 author: mmacy
@@ -14,9 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 27d088291d93ce936a9b2465a13a47e62270fb84
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff0c9f9c800b0e4764efb88e43087bd96fa820e9
+ms.openlocfilehash: a172b881fa38a69f4510df94f5797b7a56940c52
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -29,7 +31,7 @@ L'exemple suivant montre comment utiliser le stockage Azure pour stocker des ima
 * Le Kit de développement logiciel (SDK) Azure est installé.
 * L'archive Java (JAR) des bibliothèques Azure pour Java et les dépendances applicables JAR sont installées et se trouvent dans le chemin d'accès de build utilisé par votre compilateur Java. Pour plus d’informations sur l’installation des bibliothèques Azure pour Java, consultez la page [Téléchargement du Kit de développement logiciel (SDK) Azure pour Java](../java-download-azure-sdk.md).
 * Un compte de stockage Azure a été configuré. Le nom et la clé du compte de stockage sont utilisés par le code figurant dans cet article. Consultez la page [Création d’un compte de stockage](storage-create-storage-account.md#create-a-storage-account) pour des informations sur la création d’un compte de stockage et la page [Afficher et copier les clés d’accès de stockage](storage-create-storage-account.md#view-and-copy-storage-access-keys) pour des informations sur la récupération de la clé de compte.
-* Vous avez créé un fichier image local nommé et stocké sous le chemin d’accès c:\\myimages\\image1.jpg. Vous pouvez également modifier le constructeur   **FileInputStream** dans l’exemple pour utiliser un chemin d’accès à l’image et un nom de fichier différents.
+* Vous avez créé un fichier image local nommé et stocké sous le chemin d’accès c:\\myimages\\image1.jpg. Vous pouvez également modifier le constructeur **FileInputStream** dans l’exemple pour utiliser un chemin d’accès à l’image et un nom de fichier différents.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -406,10 +408,5 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 * [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

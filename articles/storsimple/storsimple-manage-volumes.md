@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/11/2016
 ms.author: v-sharos
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b79492914bb52e970343a2e829622122f03642b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 31ed9dad8ba56a3746873b7b35e678e97743fbfe
 ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -80,7 +80,7 @@ Vous [avez créé un volume](storsimple-deployment-walkthrough-u1.md#step-6-crea
    
    1. Dans la liste déroulante, sélectionnez un enregistrement de contrôle d’accès (ACR). Vous pouvez également ajouter un nouvel enregistrement de contrôle d’accès. Les enregistrements de contrôle d’accès déterminent quels hôtes peuvent accéder à vos volumes en faisant correspondre le nom qualifié de l’hôte à celui répertorié dans l’enregistrement.
    2. Nous vous recommandons d’activer la sauvegarde par défaut en cochant la case **Activer une sauvegarde par défaut pour ce volume** .
-   3. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-volumes/HCS_CheckIcon.png)  pour créer le volume avec les paramètres spécifiés.
+   3. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-volumes/HCS_CheckIcon.png) pour créer le volume avec les paramètres spécifiés.
 
 Le nouveau volume est maintenant prêt à l’emploi.
 
@@ -118,9 +118,9 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche  ![icône-coche](./media/storsimple-manage-volumes/HCS_CheckIcon.png). Le portail Azure Classic affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
 7. Si vous développez un volume, procédez comme suit sur votre ordinateur hôte Windows :
    
-   1. Accédez à **Gestion de l’ordinateur** ->** Gestion des disques**.
+   1. Accédez à **Gestion de l’ordinateur** -> **Gestion des disques**.
    2. Cliquez avec le bouton droit sur **Gestion des disques**, puis sélectionnez **Analyser les disques de nouveau**.
-   3. Dans la liste des disques, sélectionnez le volume que vous avez mis à jour, cliquez avec le bouton droit, puis sélectionnez **Étendre le volume**. L’Assistant Étendre le volume démarre. Cliquez sur **Next**.
+   3. Dans la liste des disques, sélectionnez le volume que vous avez mis à jour, cliquez avec le bouton droit, puis sélectionnez **Étendre le volume**. L’Assistant Étendre le volume démarre. Cliquez sur **Suivant**.
    4. Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Une fois l’Assistant terminé, le volume doit afficher la taille augmentée.
 
 ![Vidéo disponible](./media/storsimple-manage-volumes/Video_icon.png) **Vidéo disponible**
