@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4649bec5290e09b8a18e3e12719e63bf5e57c0b0
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 3499ff57e650c70679dfa018eec5dbe1a6173a33
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/04/2017
 
 
 
@@ -52,7 +52,7 @@ Vous pouvez également accéder au panneau en cliquant sur **Plus de services**,
 1. Cliquez sur **+Ajouter** dans la partie supérieure du panneau.
 1. Entrez un **nom** pour l’application qui décrira votre application aux consommateurs. Par exemple, entrez « Application B2C Contoso ».
 1. Activez/désactivez le commutateur **Include web app / web API** (Inclure l’application web/l’API web) pour le définir sur **Oui**.
-1. Entrez une valeur [adéquate](#choosing-a-web-app/api-reply-url) pour les **URL de réponse**, qui sont des points de terminaison auxquels Azure AD B2C renvoie les jetons demandés par votre application. Par exemple, entrez : `https://localhost:44316/`.
+1. Entrez une valeur [adéquate](#limitations) pour les **URL de réponse**, qui sont des points de terminaison auxquels Azure AD B2C renvoie les jetons demandés par votre application. Par exemple, entrez : `https://localhost:44316/`.
 1. Cliquez sur **Créer** pour inscrire votre application.
 1. Cliquez sur l’application que vous venez de créer, puis notez l’ **ID du client d’application** global unique à intégrer ultérieurement dans votre code.
 1. Si votre application web appellera également une API web sécurisée par Azure AD B2C, vous souhaiterez :
@@ -154,3 +154,4 @@ Pour supprimer l’application, accédez au [Portail d’inscription des applica
 ## <a name="next-steps"></a>Étapes suivantes
 
 À présent que vous avez une application inscrite auprès d’Azure AD B2C, vous pouvez suivre l’un de [nos didacticiels de démarrage rapide](active-directory-b2c-overview.md#get-started) afin de devenir opérationnel.
+

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
-ms.author: edmaca, yanacai
+ms.date: 06/28/2017
+ms.author: saveenr, yanacai
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: b2fd62683f0272da271eebeb6eb3a71388ecb59e
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 401e2d84e5e2eb9f66a16b299fbb93bd1943e04b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -33,7 +33,7 @@ Découvrez comment utiliser Visual Studio pour créer des comptes Azure Data Lak
 
 * **Visual Studio** : toutes les éditions sauf Express sont prises en charge.
     * Visual Studio 2017
-    * Visual Studio 2015 Mise à jour 4
+    * Visual Studio 2015
     * Visual Studio 2013
 * **Kit SDK Microsoft Azure pour .NET** version 2.7.1 ou ultérieure.  Installez-le à l’aide de [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * Un compte**Data Lake Analytics**. Pour créer un compte, consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).
@@ -89,10 +89,10 @@ OUTPUT @a
 
     ![Graphique des performances du travail U-SQL Visual Studio Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-   *  **Résumé du travail** montre le résumé du travail.   
+   * **Résumé du travail** montre le résumé du travail.   
    * **Détails du travail** montre des informations plus spécifiques sur le travail, y compris le script, les ressources et les vertex.
-   *  **Graphique des travaux** permet de visualiser la progression du travail.
-   *  **Opérations sur les métadonnées** indique toutes les actions qui ont été effectuées sur le catalogue U-SQL.
+   * **Graphique des travaux** permet de visualiser la progression du travail.
+   * **Opérations sur les métadonnées** indique toutes les actions qui ont été effectuées sur le catalogue U-SQL.
    * **Données** indique toutes les entrées et sorties.
    * **Diagnostics** fournit une analyse avancée pour l’optimisation des performances et de l’exécution des travaux.
 
