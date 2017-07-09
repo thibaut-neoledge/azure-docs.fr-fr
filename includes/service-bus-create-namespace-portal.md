@@ -1,5 +1,3 @@
-## <a name="create-a-service-namespace"></a>Création d'un espace de noms de service
-
 Pour utiliser les files d’attente Service Bus dans Azure, vous devez d’abord créer un espace de noms. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application. 
 
 Pour créer un espace de noms :
@@ -16,6 +14,7 @@ Pour créer un espace de noms :
 8. Cliquez sur **Create**. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
 ### <a name="obtain-the-management-credentials"></a>Obtenir les informations d’identification de gestion
+
 1. Dans la liste des espaces de noms, cliquez sur le nom de l’espace de noms que vous venez de créer.
 2. Dans le panneau Espace de noms, cliquez sur **Stratégies d’accès partagé**.
 3. Dans le panneau **Stratégies d’accès partagé**, cliquez sur **RootManageSharedAccessKey**.
