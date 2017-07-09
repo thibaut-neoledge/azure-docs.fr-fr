@@ -1,6 +1,6 @@
 ---
 title: "Ajout d’une entrée de données à vos travaux Stream Analytics | Microsoft Docs"
-description: "Découvrez comment connecter une source de données à votre tâche Stream Analytics en tant qu&quot;entrée de données de diffusion en continu partir de Event Hubs ou référencer des données à partir du stockage d&quot;objets blob."
+description: "Découvrez comment connecter une source de données à votre tâche Stream Analytics en tant qu'entrée de données de diffusion en continu partir de Event Hubs ou référencer des données à partir du stockage d'objets blob."
 keywords: "entrée de données, données de diffusion en continu"
 documentationcenter: 
 services: stream-analytics
@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: eacb443a7382cdef5dc06b1deaff8270cc683446
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: ea8f28183f2621e25a53ea7a73ab9f6c5c2b8d07
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -79,7 +79,7 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-* [Prise en main d’Azure Stream Analytics](stream-analytics-get-started.md)
+* [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

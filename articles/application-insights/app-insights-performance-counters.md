@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/11/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 2bcdff44f6c3169779c3dd018706eea8275825ca
 ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -29,15 +29,6 @@ Les compteurs de performance s’affichent dans le panneau Serveurs, qui inclut 
 ![Compteurs de performances signalés dans Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
 (Les compteurs de performance ne sont pas disponibles pour les applications web Azure. Vous pouvez toutefois [envoyer des diagnostics Azure vers Application Insights](app-insights-azure-diagnostics.md).)
-
-## <a name="configure"></a>Configuration
-Si Application Insights Status Monitor n’est pas encore installé sur vos machines serveur, vous devez l’installer pour afficher les compteurs de performances.
-
-Téléchargez et exécutez le [programme d’installation de Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) sur chaque instance de serveur. Si le programme est déjà installé, vous n’avez pas besoin de le réinstaller.
-
-* *J’ai [installé le Kit de développement logiciel (SDK) Application Insights dans mon application](app-insights-asp-net.md) pendant le développement. Ai-je besoin de Status Monitor ?*
-  
-    Oui, Status Monitor est nécessaire pour collecter les compteurs de performances pour les applications web ASP.NET. Comme vous le savez peut-être déjà, Status Monitor peut également être utilisé pour [surveiller des applications web qui sont déjà actives](app-insights-monitor-performance-live-website-now.md), sans installer le Kit de développement logiciel (SDK) pendant le développement.
 
 ## <a name="view-counters"></a>Afficher des compteurs
 Le panneau Serveurs affiche un ensemble de compteurs de performances par défaut. 

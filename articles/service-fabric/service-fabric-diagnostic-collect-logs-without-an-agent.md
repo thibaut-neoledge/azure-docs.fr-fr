@@ -14,10 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/18/2017
 ms.author: karolz
-translationtype: Human Translation
-ms.sourcegitcommit: d7f7b157d8d6fb54259c8f23d5005509f4eb7872
-ms.openlocfilehash: 22acb6afbfbfff753e71b5e821385798cc76ffdd
-ms.lasthandoff: 01/19/2017
+redirect_url: /azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 08f7b57985382f2abbb90ba1e13a30f40b38917f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -53,15 +55,15 @@ Les fichiers binaires EventFlow sont disponibles sous la forme d’un ensemble d
 
 Le service qui héberge EventFlow doit inclure les packages appropriés en fonction de la source et de la destination des journaux d’application. Ajoutez les packages suivants : 
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource` 
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` 
     * (pour capturer les données à partir de la classe EventSource du service et des EventSources standard tels que *Microsoft-ServiceFabric-Services* et *Microsoft-ServiceFabric-Actors*)
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` 
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` 
     * (nous allons envoyer les journaux à une ressource Azure Application Insights)  
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric` 
     * (permet d’initialiser le pipeline EventFlow à partir de la configuration du service Service Fabric et de signaler tout problème lié à l’envoi des données de diagnostic sous forme de rapports d’intégrité Service Fabric)
 
 > [!NOTE]
-> Le package `Microsoft.Diagnostics.EventFlow.Input.EventSource` nécessite le ciblage de .NET Framework 4.6 ou version ultérieure par le projet de service. Veillez à définir l’infrastructure cible appropriée dans les propriétés du projet avant d’installer ce package. 
+> Le package `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` nécessite le ciblage de .NET Framework 4.6 ou version ultérieure par le projet de service. Veillez à définir l’infrastructure cible appropriée dans les propriétés du projet avant d’installer ce package. 
 
 Une fois tous les packages installés, l’étape suivante consiste à configurer et à activer EventFlow dans le service.
 
@@ -176,3 +178,4 @@ Démarrez votre service et observez la fenêtre de sortie Débogage de Visual St
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-collect-logs-without-an-agent/eventflow-nugets.png
 [2]: ./media/service-fabric-diagnostics-collect-logs-without-an-agent/ai-traces.png
+

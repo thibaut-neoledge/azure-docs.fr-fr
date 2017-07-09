@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1a0f69e6530f1ab3734e1a44e5be056aacb0fff0
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c420b38fbe8054bc4b701f89ebc417677ca47a27
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/29/2017
 
 ---
 
@@ -32,7 +32,7 @@ Le fichier *servicedefinition.csdef* contient la configuration de point de termi
 
 La figure suivante présente un point de terminaison à charge équilibrée pour le trafic Web partagé entre trois machines virtuelles pour les ports TCP public et privé 80. Celles-ci sont incluses dans un jeu d’équilibrage de la charge.
 
-![exemple d’équilibrage de charge public](./media/load-balancer-internet-overview/IC727496.png))
+![exemple d’équilibrage de charge public](./media/load-balancer-internet-overview/IC727496.png)
 
 Figure 1 : point de terminaison d’équilibrage de charge pour le trafic web
 
