@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1e61e3717a9006f67c0b57c33573c2d0f5fbfa05
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 417fceb0961165d96ece000f95c8a3f973f4f75b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -254,7 +255,7 @@ Vous pouvez définir des [points de contrôle](automation-powershell-workflow.md
 Les points de contrôle sont activés uniquement dans les Runbooks de workflow PowerShell graphique ; ils ne sont pas disponibles dans les Runbooks graphiques.  Si le Runbook utilise les applets de commande Azure, vous devez suivre toute activité soumise à des points de contrôle avec l’applet de commande Add-AzureRMAccount dans l’éventualité où le Runbook serait interrompu et redémarré sur un autre Worker à partir de ce point de contrôle. 
 
 ## <a name="authenticating-to-azure-resources"></a>Authentification auprès de ressources Azure
-Dans Azure Automation, les Runbooks qui gèrent des ressources Azure doivent s’authentifier auprès d’Azure.  La fonctionnalité [Compte d’identification](automation-offering-get-started.md#automation-account) (également appelée principal de service) est la méthode utilisée par défaut pour accéder aux ressources Azure Resource Manager dans votre abonnement à l’aide des runbooks Automation.  Vous pouvez ajouter cette fonctionnalité à un runbook graphique en ajoutant la ressource de connexion **AzureRunAsConnection**, qui utilise l’applet de commande PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) et l’applet de commande [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) sur le canevas. Cette opération est illustrée dans l’exemple suivant.<br>![Activités d’authentification de l’identification](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Dans Azure Automation, les Runbooks qui gèrent des ressources Azure doivent s’authentifier auprès d’Azure.  La fonctionnalité [Compte d’identification](automation-offering-get-started.md#creating-an-automation-account) (également appelée principal de service) est la méthode utilisée par défaut pour accéder aux ressources Azure Resource Manager dans votre abonnement à l’aide des runbooks Automation.  Vous pouvez ajouter cette fonctionnalité à un runbook graphique en ajoutant la ressource de connexion **AzureRunAsConnection**, qui utilise l’applet de commande PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) et l’applet de commande [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) sur le canevas. Cette opération est illustrée dans l’exemple suivant.<br>![Activités d’authentification de l’identification](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 L’activité Get Run As Connection (par exemple, Get-AutomationConnection), est configurée avec une source de données de valeur constante nommée AzureRunAsConnection.<br>![Configuration de la connexion d’identification](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 L’activité suivante, Add-AzureRmAccount, ajoute le compte d’identification authentifié pour l’utiliser dans le runbook.<br>
 ![Jeu de paramètres Add-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>

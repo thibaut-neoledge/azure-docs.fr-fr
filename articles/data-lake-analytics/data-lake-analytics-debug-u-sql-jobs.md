@@ -14,17 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: a5bb452582f05981a17c2514e0e40db0571bf61d
-ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: aac455520ab62d69b406a254a54b0f000ea2e5bc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/26/2017
 
 
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Débogage du code C# défini par l’utilisateur pour les travaux U-SQL ayant échoué
-
-Découvrez la procédure de débogage de travaux U-SQL ayant échoué et présentant des bogues du code défini par l’utilisateur à l’aide d’Azure Data Lake Tools pour Visual Studio.
-
-## <a name="background"></a>Arrière-plan
 
 U-SQL fournit le modèle d’extensibilité via C#. Les utilisateurs peuvent écrire du code C# défini par l’utilisateur, comme un extracteur ou un réducteur défini par l’utilisateur, etc., pour obtenir davantage d’extensibilité (en savoir plus sur le [Code U-SQL défini par l’utilisateur](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#user-defined-functions---udf)). Toutefois, aucun développeur ne peut coder sans faire d’erreur et le débogage dans des systèmes de données volumineux est compliqué, car de nombreux systèmes ne fournissent que des informations limitées sur le débogage du runtime comme, par exemple, des journaux, etc. 
 
@@ -34,15 +32,10 @@ La vidéo suivante illustre la fonction **Débogage d'échec du vertex** dans Az
 
 > [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
 >
->
 
 > [!NOTE]
 > Visual Studio peut se bloquer si vous n’avez pas les deux mises à niveau Windows suivantes : [Microsoft Visual C++ 2015 Redistributable Update 2](https://www.microsoft.com/download/details.aspx?id=51682) et [Universal C Runtime pour Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0).
 > 
-> 
-
-## <a name="prerequisites"></a>Composants requis
-* Avoir parcouru l’article [Prise en main](data-lake-analytics-data-lake-tools-get-started.md) .
 
 ## <a name="download-failed-vertex-to-local"></a>Téléchargement en local du vertex ayant échoué
 
@@ -79,7 +72,7 @@ Si vous utilisez des assemblys dans le script U-SQL, le système ne peut pas obt
 
 ### <a name="configure-the-solution"></a>Configuration de la solution
 
-1. Cliquez avec le bouton droit sur **Solution 'VertexDebug'** > **Ajouter** > **Projet existant... ** pour rechercher le code source des assemblys et ajouter le projet à la solution de débogage.
+1. Cliquez avec le bouton droit sur **Solution 'VertexDebug'** > **Ajouter** > **Projet existant...**  pour rechercher le code source des assemblys et ajouter le projet à la solution de débogage.
 
     ![Projet d’ajout de débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
 
@@ -127,13 +120,7 @@ Une fois le débogage terminé, vous pouvez renvoyer le travail ayant échoué.
 
 * [Guide de programmabilité U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 * [Développer des opérateurs définis par l’utilisateur U-SQL pour des travaux Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-* [Didacticiel : Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
 * [Didacticiel : Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

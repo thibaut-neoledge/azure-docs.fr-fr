@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 0ea23f4f59737123f4400dafc7506e121f24ae34
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 35896cc9891e2439df004cc4eab339219d47b805
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -42,7 +42,7 @@ Pour créer un compte de stockage, vous devez être l’administrateur de servic
     
     Le panneau **Créer un compte de stockage** s’affiche.   
 
-       ![Create Storage Account][create-new-storage-account]  
+    ![Créer un compte de stockage][create-new-storage-account]  
 
 3. Dans le champ **Nom** , tapez un nom de sous-domaine. Cette entrée peut être composée de 3 à 24 lettres minuscules et chiffres.
    
@@ -75,7 +75,7 @@ Avec l’intégration la plus récente, vous pouvez maintenant activer CDN pour 
     - **Nom du point de terminaison CDN** : entrez le nom de point de terminaison de votre choix.
 
     > [!TIP]
-       > Le point de terminaison CDN créé utilise le nom d’hôte de votre compte de stockage en tant qu’origine par défaut.
+    > Le point de terminaison CDN créé utilise le nom d’hôte de votre compte de stockage en tant qu’origine par défaut.
 
     ![cdn new endpoint creation][cdn-new-endpoint-creation]
 
@@ -123,3 +123,4 @@ Un objet déjà mis en cache dans le CDN y reste jusqu'à ce que sa durée de vi
 [cdn-enable-navigation]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png
 [cdn-storage-new-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png
 [cdn-storage-cdn-configuration]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png 
+

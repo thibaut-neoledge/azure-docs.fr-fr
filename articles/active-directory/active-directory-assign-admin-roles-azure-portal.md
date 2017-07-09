@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 8e8723c6dc81012a0dddd4e0a28c4d4af6828c6c
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 59954c02741de2fbba22a3e41640573914efdad8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -156,6 +156,17 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 
 ## <a name="assign-or-remove-administrator-roles"></a>Attribution ou suppression de rôles d’administrateur
 Pour découvrir comment attribuer des rôles d’administration à un utilisateur dans Azure Active Directory, consultez l’article [Attribution de rôles d’administrateur à un utilisateur dans la version préliminaire d’Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="deprecated-roles"></a>Rôles déconseillés
+
+Les rôles suivants ne doivent pas être utilisés. Ils sont déconseillés et seront prochainement supprimés d’Azure AD.
+
+* Administrateur de licences ad hoc
+* Créateur d’utilisateur vérifié par e-mail
+* Jonction d’appareils
+* Gestionnaires d’appareils
+* Utilisateurs d’appareils
+* Jonction d’appareils d’espace de travail
 
 ## <a name="next-steps"></a>Étapes suivantes
 

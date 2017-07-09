@@ -14,23 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 7e8aed4f56471bb2946c610ca63b0ec50ee1b57e
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 771a96df5cc66bac46e7144785be8cc072b57b31
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk"></a>Tester et déboguer des travaux U-SQL à l’aide d’une exécution locale et du Kit de développement logiciel (SDK) Azure Data Lake U-SQL
 
 Vous pouvez utiliser Azure Data Lake Tools pour Visual Studio et le Kit de développement logiciel (SDK) U-SQL pour exécuter des travaux U-SQL sur votre station de travail, comme vous pouvez le faire dans le service Azure Data Lake. Ces deux fonctionnalités d’exécution locale accélèrent les procédures de test et de débogage de vos travaux U-SQL.
-
-Configuration requise :
-
-- Un compte Azure Data Lake Analytics. Voir [Prise en main d'Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
-- Azure Data Lake Tools pour Visual Studio. Voir [Développer des scripts U-SQL avec les outils Data Lake pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- L’expérience de développement de script U-SQL. Voir [Prise en main d'Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
-
 
 ## <a name="understand-the-data-root-folder-and-the-file-path"></a>Comprendre le dossier racine de données et le chemin d’accès
 
@@ -114,11 +108,6 @@ En savoir plus sur le [Kit de développement logiciel (SDK) U-SQL Azure Data Lak
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une vue d'ensemble de Data Lake Analytics, consultez [Vue d'ensemble de Data Lake Analytics Azure](data-lake-analytics-overview.md).
-* Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* Pour connaître U-SQL, voir [Prise en main du langage U-SQL d’Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
-* Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
-* Pour consigner les informations de diagnostic, voir [Accès aux journaux de diagnostic d’Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 * Pour consulter une requête plus complexe, voir [Analyse de journaux des sites web à l’aide d’Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Pour afficher les détails d’un travail, voir [Utilisation de l’Explorateur de travaux et de la Vue des travaux pour les travaux Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
 * Pour utiliser la vue d’exécution du vertex, voir [Utilisation de la vue d’exécution du vertex dans Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

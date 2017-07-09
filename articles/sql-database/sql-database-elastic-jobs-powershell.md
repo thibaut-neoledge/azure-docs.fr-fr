@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4e0a0a711ffb0b474606863187acaab4474c3459
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 9b212bcfcb604319ff9bc39fd284a5eb98c0d2c3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -29,7 +29,7 @@ Les API PowerShell pour les **tâches de bases de données élastiques** (en ver
 ## <a name="prerequisites"></a>Composants requis
 * Un abonnement Azure. Pour obtenir un essai gratuit, voir [Version d'évaluation d'un mois gratuite](https://azure.microsoft.com/pricing/free-trial/).
 * Un ensemble de bases de données créé avec les outils de bases de données élastiques. Voir [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md).
-* Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+* Azure PowerShell. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 * **tâches de bases de données élastiques** : voir [Installing tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Sélectionner votre abonnement Azure
@@ -217,7 +217,7 @@ Voici quelques bonnes pratiques de sécurité pour les tâches de bases de donn�
 * Les informations d'identification doivent avoir les privilèges minimaux requis pour effectuer la tâche.  Pour plus d’informations, consultez l’article MSDN [Autorisations](https://msdn.microsoft.com/library/bb669084.aspx) sur SQL Server.
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>Créer des informations d’identification chiffrées pour l’exécution d’une tâche dans des bases de données
-Pour créer de nouvelles informations d’identification chiffrées, [**l’applet de commande Get-Credential**](https://technet.microsoft.com/library/hh849815.aspx) demande un nom d’utilisateur et un mot de passe qui peuvent être transmis à [**l’applet de commande New-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential?view=azureelasticdbjobsps-0.8.33).
+Pour créer de nouvelles informations d’identification chiffrées, [**l’applet de commande Get-Credential**](https://technet.microsoft.com/library/hh849815.aspx) demande un nom d’utilisateur et un mot de passe qui peuvent être transmis à [**l’applet de commande New-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential
@@ -225,7 +225,7 @@ Pour créer de nouvelles informations d’identification chiffrées, [**l’appl
     Write-Output $credential
 
 ### <a name="to-update-credentials"></a>Mettre à jour les informations d’identification
-En cas de modification des mots de passe, utilisez [**l’applet de commande Set-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/set-azuresqljobcredential?view=azureelasticdbjobsps-0.8.33) et définissez le paramètre **CredentialName**.
+En cas de modification des mots de passe, utilisez [**l’applet de commande Set-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/set-azuresqljobcredential) et définissez le paramètre **CredentialName**.
 
     $credentialName = "{Credential Name}"
     Set-AzureSqlJobCredential -CredentialName $credentialName -Credential $credential 
@@ -246,7 +246,7 @@ La base de données du gestionnaire de cartes de partitions doit être définie 
 ## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Créez un script T-SQL pour l’exécuter sur des bases de données
 Lorsque vous créez des scripts T-SQL pour l’exécution, il est fortement recommandé de les créer pour garantir une [idempotence](https://en.wikipedia.org/wiki/Idempotence) et une résistance aux défaillances. Les tâches de bases de données élastiques vont tenter à nouveau l’exécution d’un script chaque fois que l’exécution rencontre une défaillance, quel que soit le type de défaillance.
 
-Utilisez [**l’applet de commande New-AzureSqlJobContent**](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent?view=azureelasticdbjobsps-0.8.33) pour créer et enregistrer un script pour l’exécution, puis définissez les paramètres **-ContentName** et **-CommandText**.
+Utilisez [**l’applet de commande New-AzureSqlJobContent**](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent) pour créer et enregistrer un script pour l’exécution, puis définissez les paramètres **-ContentName** et **-CommandText**.
 
     $scriptName = "Create a TestTable"
 
@@ -329,7 +329,7 @@ Mettez à jour la variable suivante pour refléter le nom de la tâche souhaité
     Write-Output $jobExecution
 
 ## <a name="to-retrieve-the-state-of-a-single-job-execution"></a>Récupérer l’état de l’exécution d’une tâche unique
-Utilisez [**l’applet de commande Get-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/new-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33) et définissez le paramètre **JobExecutionId** pour afficher l’état de l’exécution de la tâche.
+Utilisez [**l’applet de commande Get-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/get-azuresqljobexecution) et définissez le paramètre **JobExecutionId** pour afficher l’état de l’exécution de la tâche.
 
     $jobExecutionId = "{Job Execution Id}"
     $jobExecution = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId
@@ -342,7 +342,7 @@ Utilisez la même applet de commande **Get-AzureSqlJobExecution** avec le param�
     Write-Output $jobExecutions 
 
 ## <a name="to-view-the-state-across-multiple-job-executions"></a>Afficher l’état sur plusieurs exécutions de tâches
-L’applet de commande [**Get-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/new-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33) dispose de plusieurs paramètres facultatifs qui peuvent être utilisés pour afficher plusieurs exécutions de tâches, filtrées selon les paramètres fournis. L'exemple suivant présente certaines façons d'utiliser Get-AzureSqlJobExecution :
+L’applet de commande [**Get-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/new-azuresqljob) dispose de plusieurs paramètres facultatifs qui peuvent être utilisés pour afficher plusieurs exécutions de tâches, filtrées selon les paramètres fournis. L'exemple suivant présente certaines façons d'utiliser Get-AzureSqlJobExecution :
 
 Récupérez toutes les exécutions de tâches de niveau supérieur actives :
 
@@ -465,7 +465,7 @@ La fonctionnalité Tâches de bases de données élastiques peut effectuer une a
 
 Si une annulation de tâche est demandée pour une tâche parente, la demande d'annulation sera respectée pour la tâche parente et toutes ses tâches enfants.
 
-Pour envoyer une demande d’annulation, utilisez [**l’applet de commande Stop-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33) et définissez le paramètre **JobExecutionId**.
+Pour envoyer une demande d’annulation, utilisez [**l’applet de commande Stop-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) et définissez le paramètre **JobExecutionId**.
 
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
@@ -473,9 +473,9 @@ Pour envoyer une demande d’annulation, utilisez [**l’applet de commande Stop
 ## <a name="to-delete-a-job-and-job-history-asynchronously"></a>Supprimer une tâche et l’historique des tâches en mode asynchrone
 Tâches de bases de données élastiques prend en charge la suppression des tâches asynchrone. La suppression d’une tâche peut être signalée et le système supprime la tâche et son historique une fois que toutes les exécutions de tâches auront été effectuées. Le système n'annule pas automatiquement les exécutions de tâches actives.  
 
-Appelez [**Stop-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33) pour annuler les exécutions de tâches actives.
+Appelez [**Stop-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) pour annuler les exécutions de tâches actives.
 
-Pour déclencher la suppression de tâches, utilisez [**l’applet de commande Remove-AzureSqlJob**](/powershell/module/elasticdatabasejobs/remove-azuresqljob?view=azureelasticdbjobsps-0.8.33) et définissez le paramètre **JobName**.
+Pour déclencher la suppression de tâches, utilisez [**l’applet de commande Remove-AzureSqlJob**](/powershell/module/elasticdatabasejobs/remove-azuresqljob) et définissez le paramètre **JobName**.
 
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
@@ -490,7 +490,7 @@ Définissez les variables suivantes pour refléter les informations de base de d
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
 ## <a name="to-create-a-custom-database-collection-target"></a>Créer une cible de collecte de bases de données personnalisées
-Utilisez l’applet de commande [**New-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget?view=azureelasticdbjobsps-0.8.33) pour définir une cible de collecte de bases de données personnalisée afin de permettre l’exécution sur plusieurs cibles de bases de données définies. Une fois le groupe de base de données créé, les bases de données peuvent être associées à la cible de collecte personnalisée.
+Utilisez l’applet de commande [**New-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) pour définir une cible de collecte de bases de données personnalisée afin de permettre l’exécution sur plusieurs cibles de bases de données définies. Une fois le groupe de base de données créé, les bases de données peuvent être associées à la cible de collecte personnalisée.
 
 Définissez les variables suivantes pour refléter la configuration de la cible de collecte personnalisée souhaitée :
 
@@ -498,7 +498,7 @@ Définissez les variables suivantes pour refléter la configuration de la cible 
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 
 ### <a name="to-add-databases-to-a-custom-database-collection-target"></a>Ajouter des bases de données à une cible de collecte de base de données personnalisée
-Pour ajouter une base de données à une collecte personnalisée spécifique, utilisez l’applet de commande [**Add-AzureSqlJobChildTarget**](/powershell/module/elasticdatabasejobs/add-azuresqljobchildtarget?view=azureelasticdbjobsps-0.8.33).
+Pour ajouter une base de données à une collecte personnalisée spécifique, utilisez l’applet de commande [**Add-AzureSqlJobChildTarget**](/powershell/module/elasticdatabasejobs/add-azuresqljobchildtarget).
 
     $databaseServerName = "{Database Server Name}"
     $databaseName = "{Database Name}"
@@ -506,7 +506,7 @@ Pour ajouter une base de données à une collecte personnalisée spécifique, ut
     Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
 
 #### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Examinez les bases de données dans une cible de collecte de base de données personnalisée
-Utilisez l’applet de commande [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget?view=azureelasticdbjobsps-0.8.33) pour récupérer les bases de données enfants dans une cible de collecte de base de données personnalisée. 
+Utilisez l’applet de commande [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) pour récupérer les bases de données enfants dans une cible de collecte de base de données personnalisée. 
 
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
@@ -514,7 +514,7 @@ Utilisez l’applet de commande [**Get-AzureSqlJobTarget**](/powershell/module/e
     Write-Output $childTargets
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Créez une tâche pour exécuter un script sur une cible de collecte de base de données personnalisée
-Utilisez l’applet de commande [**New-AzureSqlJob**](/powershell/module/elasticdatabasejobs/new-azuresqljob?view=azureelasticdbjobsps-0.8.33) pour créer une tâche sur un groupe de bases de données défini par une cible de collecte de base de données. La fonctionnalité Tâches de bases de données élastiques étendra la tâche en plusieurs tâches enfants correspondant chacune à une base de données associée à la cible de la collecte de base de données personnalisée et s’assurera que le script est exécuté sur chaque base de données. Encore une fois, il est important que les scripts soient idempotents pour résister à de nouvelles tentatives.
+Utilisez l’applet de commande [**New-AzureSqlJob**](/powershell/module/elasticdatabasejobs/new-azuresqljob) pour créer une tâche sur un groupe de bases de données défini par une cible de collecte de base de données. La fonctionnalité Tâches de bases de données élastiques étendra la tâche en plusieurs tâches enfants correspondant chacune à une base de données associée à la cible de la collecte de base de données personnalisée et s’assurera que le script est exécuté sur chaque base de données. Encore une fois, il est important que les scripts soient idempotents pour résister à de nouvelles tentatives.
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -531,7 +531,7 @@ La table de destination spécifiée sera automatiquement créée si elle n’exi
 
 Le script PowerShell suivant exécute un script et collecte ses résultats dans une table spécifiée. Ce script part du principe qu’un script T-SQL, qui génère un jeu de résultats unique, et une cible de collecte de base de données personnalisée ont été créés.
 
-Ce script utilise l’applet de commande [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget?view=azureelasticdbjobsps-0.8.33). Définissez les paramètres de script, les informations d’identification et la cible d’exécution :
+Ce script utilise l’applet de commande [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget). Définissez les paramètres de script, les informations d’identification et la cible d’exécution :
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -545,7 +545,7 @@ Ce script utilise l’applet de commande [**Get-AzureSqlJobTarget**](/powershell
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
 ### <a name="to-create-and-start-a-job-for-data-collection-scenarios"></a>Créer et démarrer une tâche pour les scénarios de collecte de données
-Ce script utilise l’applet de commande [**Start-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/start-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33).
+Ce script utilise l’applet de commande [**Start-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/start-azuresqljobexecution).
 
     $job = New-AzureSqlJob -JobName $jobName 
     -CredentialName $executionCredentialName 
@@ -561,7 +561,7 @@ Ce script utilise l’applet de commande [**Start-AzureSqlJobExecution**](/power
     Write-Output $jobExecution
 
 ## <a name="to-schedule-a-job-execution-trigger"></a>Planifier un déclencheur d’exécution de tâche
-Le script PowerShell suivant peut être utilisé pour créer une planification récurrente. Ce script utilise un intervalle de minutes, mais [**New-AzureSqlJobSchedule**](/powershell/module/elasticdatabasejobs/new-azuresqljobschedule?view=azureelasticdbjobsps-0.8.33) prend également en charge les paramètres -DayInterval, - HourInterval, - MonthInterval et - WeekInterval. Les planifications qui ne s'exécutent qu'une seule fois peuvent être créées en transmettant  - OneTime.
+Le script PowerShell suivant peut être utilisé pour créer une planification récurrente. Ce script utilise un intervalle de minutes, mais [**New-AzureSqlJobSchedule**](/powershell/module/elasticdatabasejobs/new-azuresqljobschedule) prend également en charge les paramètres -DayInterval, - HourInterval, - MonthInterval et - WeekInterval. Les planifications qui ne s'exécutent qu'une seule fois peuvent être créées en transmettant  - OneTime.
 
 Créez une nouvelle planification :
 
@@ -577,7 +577,7 @@ Créez une nouvelle planification :
 ### <a name="to-trigger-a-job-executed-on-a-time-schedule"></a>Déclencher une tâche exécutée selon un calendrier
 Un déclencheur de tâches peut être défini pour un travail exécuté selon un calendrier. Le script PowerShell suivant peut être utilisé pour créer un déclencheur de tâches.
 
-Utilisez [New-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-azuresqljobtrigger?view=azureelasticdbjobsps-0.8.33) et définissez les variables suivantes pour qu’elles correspondent à la tâche et à la planification souhaitées :
+Utilisez [New-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-azuresqljobtrigger) et définissez les variables suivantes pour qu’elles correspondent à la tâche et à la planification souhaitées :
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
@@ -587,7 +587,7 @@ Utilisez [New-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-azu
     Write-Output $jobTrigger
 
 ### <a name="to-remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Supprimer une association planifiée pour arrêter l’exécution planifiée d’une tâche
-Pour interrompre l'exécution d’une tâche récurrente via un déclencheur de tâches, le déclencheur de tâches peut être supprimé. Supprimez un déclencheur de tâches pour arrêter une tâche qui s’exécute selon une planification à l’aide de l’applet de commande [**Remove-AzureSqlJobTrigger**](/powershell/module/elasticdatabasejobs/remove-azuresqljobtrigger?view=azureelasticdbjobsps-0.8.33).
+Pour interrompre l'exécution d’une tâche récurrente via un déclencheur de tâches, le déclencheur de tâches peut être supprimé. Supprimez un déclencheur de tâches pour arrêter une tâche qui s’exécute selon une planification à l’aide de l’applet de commande [**Remove-AzureSqlJobTrigger**](/powershell/module/elasticdatabasejobs/remove-azuresqljobtrigger).
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
@@ -603,14 +603,14 @@ Le script PowerShell suivant peut être utilisé pour obtenir et afficher les d�
     Write-Output $jobTriggers
 
 ### <a name="to-retrieve-job-triggers-bound-to-a-job"></a>Récupérer des déclencheurs de tâche liés à une tâche
-Utilisez [Get-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresqljobtrigger?view=azureelasticdbjobsps-0.8.33) pour obtenir et afficher les planifications contenant une tâche inscrite.
+Utilisez [Get-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresqljobtrigger) pour obtenir et afficher les planifications contenant une tâche inscrite.
 
     $jobName = "{Job Name}"
     $jobTriggers = Get-AzureSqlJobTrigger -JobName $jobName
     Write-Output $jobTriggers
 
 ## <a name="to-create-a-data-tier-application-dacpac-for-execution-across-databases"></a>Créer une application de la couche Données (DACPAC) pour une exécution dans des bases de données
-Pour créer un DACPAC, voir [Applications de la couche Données](https://msdn.microsoft.com/library/ee210546.aspx). Pour déployer un DACPAC, utilisez l’ [applet de commande New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent?view=azureelasticdbjobsps-0.8.33). Le fichier DACPAC doit être accessible au service. Il est recommandé de charger un DACPAC créé dans Azure Storage et de créer une [signature d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md) pour ce DACPAC.
+Pour créer un DACPAC, voir [Applications de la couche Données](https://msdn.microsoft.com/library/ee210546.aspx). Pour déployer un DACPAC, utilisez l’ [applet de commande New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). Le fichier DACPAC doit être accessible au service. Il est recommandé de charger un DACPAC créé dans Azure Storage et de créer une [signature d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md) pour ce DACPAC.
 
     $dacpacUri = "{Uri}"
     $dacpacName = "{Dacpac Name}"
@@ -618,7 +618,7 @@ Pour créer un DACPAC, voir [Applications de la couche Données](https://msdn.mi
     Write-Output $dacpac
 
 ### <a name="to-update-a-data-tier-application-dacpac-for-execution-across-databases"></a>Mettre à jour une application de la couche Données (DACPAC) pour une exécution dans des bases de données
-Les DACPAC existants enregistrés dans des tâches de bases de données élastiques peuvent être mises à jour pour pointer vers de nouveaux URI. Utilisez [**l’applet de commande Set-AzureSqlJobContentDefinition**](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition?view=azureelasticdbjobsps-0.8.33) pour mettre à jour l’URI de DACPAC sur un DACPAC enregistré existant :
+Les DACPAC existants enregistrés dans des tâches de bases de données élastiques peuvent être mises à jour pour pointer vers de nouveaux URI. Utilisez [**l’applet de commande Set-AzureSqlJobContentDefinition**](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition) pour mettre à jour l’URI de DACPAC sur un DACPAC enregistré existant :
 
     $dacpacName = "{Dacpac Name}"
     $newDacpacUri = "{Uri}"

@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: da4bb7fcbb45afed5d45f4d48c0b90e44503daf8
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: f4f5f231536bc381d17898ff2c592be821168a65
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -186,7 +187,7 @@ Lorsque vous utilisez Git, vous apportez généralement des modifications à un
 10. Accédez à la vue **Builds** et recherchez la build qui vient d'être déclenchée pour la branche en cours d'utilisation.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visual Studio Team Services, consultez la page [Développer et partager votre code dans Git à l’aide de Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) ; pour en savoir plus sur l’utilisation d’un référentiel Git qui n’est pas géré par Visual Studio Team Services pour la publication dans Azure, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](../app-service-web/app-service-continuous-deployment.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visual Studio Team Services, consultez la page [Développer et partager votre code dans Git à l’aide de Visual Studio](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs-2017) ; pour en savoir plus sur l’utilisation d’un référentiel Git qui n’est pas géré par Visual Studio Team Services pour la publication dans Azure, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](../app-service-web/app-service-continuous-deployment.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG

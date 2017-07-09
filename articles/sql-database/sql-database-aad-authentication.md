@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.date: 05/10/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a8c7e1859fa630fbfcebd39d0304a6e7657ac43b
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 89ffa95a5889e4ebdf26f4b001edce3c5ce81ce2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -111,8 +111,6 @@ L’authentification Azure Active Directory prend en charge les méthodes suivan
 - Pour en savoir plus sur les principaux de base de données, voir [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).
 - Pour en savoir plus sur les rôles de base de données, voir [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx).
 - Pour en savoir plus sur les règles de pare-feu dans la base de données SQL, voir [Règles de pare-feu de la base de données SQL](sql-database-firewall-configure.md).
-- Pour obtenir un didacticiel sur l’utilisation de l’authentification SQL Server, consultez [Authentification et autorisation SQL](sql-database-control-access-sql-authentication-get-started.md).
-- Pour un didacticiel sur l’authentification Azure Active Directory, consultez [Authentification et autorisation Azure AD](sql-database-control-access-aad-authentication-get-started.md).
 
 <!--Image references-->
 

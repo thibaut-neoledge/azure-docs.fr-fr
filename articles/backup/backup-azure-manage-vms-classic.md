@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 08/31/2016
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
-ms.openlocfilehash: d00235d788dbe1674eac219a7c708a8ecd53ccc5
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 4abc72962f5a67851aee9d64d7c8125e72d0ec09
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -34,7 +35,12 @@ Cet article fournit des informations sur les tâches de gestion et de surveillan
 > [!NOTE]
 > Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../azure-resource-manager/resource-manager-deployment-model.md). Consultez la page [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-vms-prepare.md) pour plus d’informations sur l’utilisation des machines virtuelles avec le modèle de déploiement Classic.
 >
+> [!IMPORTANT]
+>Depuis mars 2017, vous ne pouvez plus utiliser le portail Classic pour créer des coffres de sauvegarde.
 >
+> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> **À compter du 1er novembre 2017** :
+>- Les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
+>- Vous ne pourrez plus accéder à vos données de sauvegarde depuis le portail Classic. Au lieu de cela, vous devrez utiliser le portail Azure pour accéder à ces données au sein de coffres Recovery Services.
 
 ## <a name="manage-protected-virtual-machines"></a>Gérer des machines virtuelles protégées
 Pour gérer des machines virtuelles protégées :

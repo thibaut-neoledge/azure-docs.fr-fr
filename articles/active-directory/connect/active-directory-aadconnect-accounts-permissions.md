@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 366c2c43ec50b0b6c47a25ea9b0e9d7109827429
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 44859d5368a954aee6939f6a6060738aa97c9c05
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -91,7 +91,7 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 | Synchronisation de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
 | Déploiement Exchange hybride |Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
-| Écriture différée du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../active-directory-passwords.md) pour les utilisateurs. |
+| Écriture différée du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../active-directory-passwords-writeback.md) pour les utilisateurs. |
 | Écriture différée des appareils |Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md). |
 | Écriture différée de groupe |Lire, créer, mettre à jour et supprimer des objets de groupe dans l’unité d’organisation où les groupes de distributions doivent se trouver. |
 

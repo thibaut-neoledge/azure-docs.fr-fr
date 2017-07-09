@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
-ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 32bff438c2e56b1c21aa907b6bff6c1d1e879de3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/14/2017
 
 ---
 
@@ -35,9 +36,19 @@ Figure 1 – Diagramme de paire régionale Azure
 
 | Geography | Régions jumelées |  |
 |:--- |:--- |:--- |
+| Asie |Est de l'Asie |Asie du Sud-Est |
+| Australie |Est de l’Australie |Sud-est de l’Australie |
+| Brésil |Sud du Brésil (1) |Centre-Sud des États-Unis |
+| Canada |Centre du Canada |Est du Canada |
+| Chine |Chine du Nord |Chine orientale|
+| Europe |Europe du Nord |Europe de l'Ouest |
+| Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
+| Inde |Inde centrale |Inde du Sud |
+| Japon |Est du Japon |Ouest du Japon |
+| Corée du Sud |Centre de la Corée |Corée du Sud |
 | Amérique du Nord |États-Unis - partie centrale septentrionale |Centre-Sud des États-Unis |
 | Amérique du Nord |Est des États-Unis |Ouest des États-Unis |
-| Amérique du Nord |Est des États-Unis 2 |Centre des États-Unis |
+| Amérique du Nord |Est des États-Unis 2 |Centre des États-Unis |
 | Amérique du Nord |Ouest des États-Unis 2 |Ouest-Centre des États-Unis |
 | Europe |Europe du Nord |Europe de l'Ouest |
 | Asie |Asie du Sud-Est |Est de l'Asie |
@@ -49,6 +60,8 @@ Figure 1 – Diagramme de paire régionale Azure
 | Inde |Inde centrale |Inde du Sud |
 | Canada |Centre du Canada |Est du Canada |
 | Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
+| Corée du Sud |Centre de la Corée |Corée du Sud |
+| Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
 
 Tableau 1 - Mise en correspondance des paires régionales Azure
 

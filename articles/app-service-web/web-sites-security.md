@@ -1,5 +1,5 @@
 ---
-title: "Sécurisation d&quot;une application dans Azure App Service"
+title: "Sécurisation d'une application dans Azure App Service"
 description: "Découvrez comment sécuriser une application web, un serveur principal d’application mobile ou une application API dans Azure App Service."
 services: app-service
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 3071bf565b14966de2293205026c4524d7b0f0c5
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: b70d74441f3d6d9793ae516b3f04e36e786a9a8f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -38,7 +38,7 @@ Il existe deux niveaux de sécurité dans Azure App Service.
 * toutes les communications entre votre application App Service et des ressources externes, telles que la gestion de PowerShell, une interface de ligne de commande, des kits de développement logiciel Azure, des API REST et des connexions hybrides, sont correctement chiffrés ;
 * la gestion continue des menaces protège les ressources App Service contre les programmes malveillants, le déni de service distribué (DDoS), les attaques de l’intercepteur (man-in-the-middle, MITM) et bien d’autres menaces. 
 
-Pour plus d’informations sur la sécurité de l’infrastructure et de la plateforme dans Azure, consultez [Centre de gestion de la confidentialité Azure](/support/trust-center/security/).
+Pour plus d’informations sur la sécurité de l’infrastructure et de la plateforme dans Azure, consultez [Centre de gestion de la confidentialité Azure](https://azure.microsoft.com/support/trust-center/security/).
 
 #### <a name="application-security"></a>Sécurité des applications
 Si Azure est responsable de la sécurisation de l’infrastructure et de la plateforme sur laquelle votre application s’exécute, il vous incombe de sécuriser votre application elle-même. En d’autres termes, vous devez développer, déployer et gérer votre code d’application et le contenu de manière sécurisée. Sinon, votre code d’application ou le contenu peut encore être vulnérable aux menaces telles que :

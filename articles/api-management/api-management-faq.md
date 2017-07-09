@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 7d58748c4b0195246fffafe2e5544678b83dfd60
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 51459dae8d09d7051ab74c9fe57cc29e38b8b9ab
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/14/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
@@ -65,7 +66,7 @@ Il existe plusieurs manières de sécuriser la connexion entre la passerelle de 
 * Utilisez l’authentification HTTP de base. Pour plus d’informations, consultez [Configuration des paramètres de l’API](api-management-howto-create-apis.md#configure-api-settings).
 * Utiliser l’authentification mutuelle SSL telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](api-management-howto-mutual-certificates.md).
 * Utiliser une liste blanche des adresses IP sur votre service principal. Si vous avez une instance de gestion des API de niveau Standard ou Premium, l’adresse IP de la passerelle reste constante. Vous pouvez configurer votre liste blanche pour autoriser cette adresse IP. Vous pouvez obtenir l’adresse IP de votre instance de gestion des API sur le tableau de bord du portail Azure.
-* Connectez votre instance de gestion des API à un réseau virtuel Azure. 
+* Connectez votre instance de gestion des API à un réseau virtuel Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Comment copier une instance de service Gestion des API vers une nouvelle instance ?
 Il existe plusieurs manières de copier une instance de gestion des API vers une nouvelle instance. Vous pouvez :
@@ -94,6 +95,7 @@ Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de c
 2. Définissez le contexte sur l’abonnement qui contient le service à l’aide de `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
 3. Obtenez une URL d’authentification unique à l’aide de `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Utilisez l’URL pour accéder au portail d’administration.
+
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Pourquoi la stratégie que je souhaite ajouter n’est-elle pas disponible dans l’éditeur de stratégie ?
 Si la stratégie que vous souhaitez ajouter apparaît grisée dans l’éditeur de stratégie, vérifiez que vous êtes dans l’étendue correcte pour cette stratégie. Chaque instruction de stratégie est conçue pour être utilisée dans certaines étendues et sections de la stratégie. Pour consulter les sections de la stratégie et les étendues pour une stratégie, consultez la section Utilisation de cette stratégie dans [Stratégies Gestion des API](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
@@ -103,6 +105,7 @@ Vous pouvez utiliser le contrôle de version de différentes manières dans Gest
 * Dans Gestion des API, vous pouvez configurer des API représentant différentes versions. Par exemple, vous pouvez avoir deux API différentes, MonAPIv1 et MonAPIv2. Un développeur peut choisir la version qu’il souhaite utiliser.
 * Vous pouvez également configurer votre API avec une URL de service qui n’inclut pas un segment de version, par exemple https://mon.api. Ensuite, configurez un segment de version pour chaque modèle de [réécriture de l’URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL). Par exemple, vous pouvez avoir une opération avec un [modèle d’URL](api-management-howto-add-operations.md#url-template) appelé /resource et un modèle de [réécriture de l’URL](api-management-howto-add-operations.md#rewrite-url-template) appelé /v1/Resource. Vous pouvez modifier la valeur du segment de version séparément pour chaque opération.
 * Si vous souhaitez conserver un segment de version « par défaut » dans l’URL de service de l’API, vous pouvez définir, sur les opérations concernées, une stratégie qui utilise la stratégie [Définir le service principal](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) pour modifier le chemin d’accès de requête principal.
+
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Comment configurer plusieurs environnements dans une seule API ?
 Il existe deux manières de configurer plusieurs environnements, par exemple un environnement de test et un environnement de production, dans une seule API. Vous pouvez :
 
@@ -129,7 +132,7 @@ Vous pouvez obtenir votre adresse IP (ou vos adresses, dans le cas d’un déplo
 Pour savoir comment configurer un serveur d’autorisation OAuth 2.0 avec la sécurité Active Directory Federation Services (AD FS), consultez [Utilisation d’AD FS dans Gestion des API](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
 
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>Quelle méthode de routage la gestion des API utilise-t-elle lors de déploiements sur plusieurs emplacements géographiques ?
-Le service Gestion des API utilise la [méthode de routage du trafic basé sur les performances](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method) lors de déploiements sur plusieurs emplacements géographiques. Le trafic entrant est acheminé vers la passerelle API la plus proche. Si une région est déconnectée, le trafic entrant est automatiquement redirigé vers la passerelle suivante la plus proche. Pour en savoir plus sur les méthodes de routage, consultez [Méthodes de routage de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
+Le service Gestion des API utilise la [méthode de routage du trafic basé sur les performances](../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method) lors de déploiements sur plusieurs emplacements géographiques. Le trafic entrant est acheminé vers la passerelle API la plus proche. Si une région est déconnectée, le trafic entrant est automatiquement redirigé vers la passerelle suivante la plus proche. Pour en savoir plus sur les méthodes de routage, consultez [Méthodes de routage de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Puis-je utiliser un modèle Azure Resource Manager pour créer une instance de service Gestion des API ?
 Oui. Consultez les modèles de démarrage rapide [Service Gestion des API Azure](http://aka.ms/apimtemplate).

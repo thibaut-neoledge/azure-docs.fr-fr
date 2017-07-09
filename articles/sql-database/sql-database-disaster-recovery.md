@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 8f1f22d1609dc34369a131e79eb2a1c0be9fe552
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e33f69bf04b32a31aae3c311c41aa44e4da5016a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -95,7 +95,7 @@ Vous devez vous assurer que vos paramètres de règles d’alerte existants sont
 Pour en savoir plus, voir [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) et [Suivi de l’intégrité du service](../monitoring-and-diagnostics/insights-service-health.md).
 
 ### <a name="enable-auditing"></a>Activer la fonction d’audit
-Si la fonction d’audit doit accéder à votre base de données, vous devez l’activer après la restauration de la base de données. Un bon indicateur de la nécessité d’activer l’audit est l’utilisation, par les applicatives clientes, de chaînes de connexion sécurisées dans un modèle *.database.secure.windows.net. Pour plus d’informations, consultez [Audit de base de données](sql-database-auditing.md).
+Si la fonction d’audit doit accéder à votre base de données, vous devez l’activer après la restauration de la base de données. Pour plus d’informations, consultez [Audit de base de données](sql-database-auditing.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)

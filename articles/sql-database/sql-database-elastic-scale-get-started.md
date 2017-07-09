@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 035fac3cbdc9765fa8d5c80e3d2d9449e1bf5b3a
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 637463399593f4bc9ff5bfcbf67bf93b816efc7f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -78,7 +78,6 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les outils de base de données élastique, consultez les pages suivantes :
 
-* [Table de documentation des outils des bases de données élastiques](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) 
 * Exemples de code : 
   * [Outils de base de données élastique pour SQL Azure - Bien démarrer](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
   * [Outils de base de données élastique pour SQL Azure - Intégration Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE).

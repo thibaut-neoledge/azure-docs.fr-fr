@@ -16,10 +16,10 @@ ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: ceb2d7a28cc416186f3faf1dc5228fce161c34c5
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: f7f1ad3f1933b39a0030a784cae40521254037d6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -147,7 +147,7 @@ Les limites suivantes s’appliquent actuellement aux transactions de bases de d
 * Les transactions entre les services WCF ne sont pas prises en charge. Par exemple, vous disposez d’une méthode de service WCF qui exécute une transaction. L’inclusion de l’appel dans une étendue de transaction échouera en levant l’exception [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous n’utilisez pas encore les fonctionnalités de bases de données élastiques pour vos applications Microsoft Azure ? Découvrez notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Pour toute question, contactez-nous sur le [forum SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+Pour toute question, contactez-nous sur le [forum SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
