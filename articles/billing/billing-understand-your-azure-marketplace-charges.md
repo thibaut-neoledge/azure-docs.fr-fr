@@ -4,7 +4,7 @@ description: "En savoir plus sur la facturation des frais des services externes,
 services: 
 documentationcenter: 
 author: adpick
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
