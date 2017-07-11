@@ -15,26 +15,35 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/07/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4316f0690ac0941521f84d92f62b4fc3f42f76e0
-ms.lasthandoff: 04/03/2017
+experimental: true
+experiment_id: rasquill-ssh-20170308
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: 49541306c66e066a9d9f75d90bed2f4dfd21ce9d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/23/2017
 
 
 ---
 
-# <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Comment créer et utiliser une paire de clés publique et privée SSHpour les machines virtuelles Linux dans Azure
-Avec une paire de clés SSH (secure shell), vous pouvez créer des machines virtuelles sur Azure qui utilisent par défaut des clés SSH pour l’authentification, éliminant ainsi la nécessité de recourir aux mots de passe pour la connexion. Cet article vous indique comment générer et utiliser rapidement une paire de clés publique et privée SSH RSA de version de protocole 2 pour des machines virtuelles Linux. Pour accéder à une procédure plus détaillée et à des exemples supplémentaires, par exemple dans le cadre d’une utilisation avec le portail Classic, consultez [la procédure détaillée de création de paires de clés SSH et de certificats](create-ssh-keys-detailed.md).
+<a id="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure" class="xliff"></a>
 
-## <a name="create-an-ssh-key-pair"></a>Création d’une paire de clés SSH
+# Comment créer et utiliser une paire de clés publique et privée SSHpour les machines virtuelles Linux dans Azure
+Avec une paire de clés SSH (secure shell), vous pouvez créer des machines virtuelles sur Azure qui utilisent par défaut des clés SSH pour l’authentification, éliminant ainsi la nécessité de recourir aux mots de passe pour la connexion. Cet article vous indique comment générer et utiliser rapidement une paire de clés publique et privée SSH RSA de version de protocole 2 pour des machines virtuelles Linux. Pour accéder à une procédure plus détaillée et à des exemples supplémentaires, consultez la [procédure détaillée de création de paires de clés SSH et de certificats](create-ssh-keys-detailed.md).
+
+<a id="create-an-ssh-key-pair" class="xliff"></a>
+
+## Création d’une paire de clés SSH
 Utilisez la commande `ssh-keygen` pour créer des fichiers de clés publique et privée SSH qui, par défaut, sont créés dans le répertoire `~/.ssh`, mais vous pouvez spécifier un autre emplacement et une phrase secrète supplémentaire (un mot de passe permettant d’accéder au fichier de clé privée) lorsque vous y êtes invité. Exécutez la commande suivante à partir d’un shell Bash et répondez aux invites avec vos propres informations.
 
 ```bash
-ssh-keygen -t rsa -b 2048 
+ssh-keygen -t rsa -b 2048
 ```
 
-## <a name="use-the-ssh-key-pair"></a>Utilisation de la paire de clés SSH
-La clé publique que vous placez sur votre machine virtuelle Linux dans Azure est stockée par défaut dans `~/.ssh/id_rsa.pub`, sauf si vous avez modifié l’emplacement au moment de sa création. Si vous utilisez [Azure CLI 2.0](/cli/azure) pour créer votre machine virtuelle, spécifiez l’emplacement de cette clé publique lorsque vous utilisez la commande [az vm create](/cli/azure/vm#create) avec l’option `--ssh-key-path`. Si vous copiez et collez le contenu du fichier de clé publique pour l’utiliser dans le portail Azure ou dans un modèle Resource Manager, veillez à ne pas copier pas les espaces blancs supplémentaires. Par exemple, si vous utilisez OS X, vous pouvez diriger le fichier de clé publique (par défaut, **~/.ssh/id_rsa.pub**) sur **pbcopy** pour en copier le contenu (d’autres programmes Linux, par exemple `xclip`, peuvent être utilisés à cette fin). 
+<a id="use-the-ssh-key-pair" class="xliff"></a>
+
+## Utilisation de la paire de clés SSH
+La clé publique que vous placez sur votre machine virtuelle Linux dans Azure est stockée par défaut dans `~/.ssh/id_rsa.pub`, sauf si vous avez modifié l’emplacement au moment de sa création. Si vous utilisez [Azure CLI 2.0](/cli/azure) pour créer votre machine virtuelle, spécifiez l’emplacement de cette clé publique lorsque vous utilisez la commande [az vm create](/cli/azure/vm#create) avec l’option `--ssh-key-path`. Si vous copiez et collez le contenu du fichier de clé publique pour l’utiliser dans le portail Azure ou dans un modèle Resource Manager, veillez à ne pas copier pas les espaces blancs supplémentaires. Par exemple, si vous utilisez OS X, vous pouvez diriger le fichier de clé publique (par défaut, **~/.ssh/id_rsa.pub**) sur **pbcopy** pour en copier le contenu (d’autres programmes Linux, par exemple `xclip`, peuvent être utilisés à cette fin).
 
 Si vous n’êtes pas familiarisé avec les clés publiques SSH, vous pouvez voir votre clé publique en exécutant `cat` comme suit, en remplaçant `~/.ssh/id_rsa.pub` par l’emplacement de votre propre fichier de clé publique :
 
@@ -50,9 +59,11 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
 Si vous avez fourni un mot de passe lorsque vous avez créé votre paire de clés, saisissez-le lorsque vous y êtes invité pendant le processus de connexion. (Le serveur est ajouté à votre dossier `~/.ssh/known_hosts` et vous n’avez pas à vous connecter à nouveau tant que la clé publique sur votre machine virtuelle Azure n’est pas modifiée ou que le nom de serveur n’est pas supprimé du dossier `~/.ssh/known_hosts`.)
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 
-Les machines virtuelles créées à l’aide de clés SSH sont par défaut configurées avec les mots de passe désactivés, ce qui rend les tentatives de déchiffrement par force brute bien plus coûteuses et par conséquent difficiles. Cette rubrique décrit la création d’une simple paire de clés SSH dans le cadre d’une utilisation rapide. Si vous avez besoin d’assistance lors de la création de votre paire de clés SSH ou si vous avez besoin de certificats supplémentaires, par exemple pour l’utilisation avec le portail Classic, consultez [les étapes détaillées pour créer des paires de clés SSH et des certificats](create-ssh-keys-detailed.md).
+## Étapes suivantes
+
+Les machines virtuelles créées à l’aide de clés SSH sont par défaut configurées avec les mots de passe désactivés, ce qui rend les tentatives de déchiffrement par force brute bien plus coûteuses et par conséquent difficiles. Cette rubrique décrit la création d’une simple paire de clés SSH dans le cadre d’une utilisation rapide. Si vous avez besoin d’assistance lors de la création de votre paire de clés SSH ou si vous avez besoin de certificats supplémentaires, consultez [les étapes détaillées pour créer des paires de clés SSH et des certificats](create-ssh-keys-detailed.md).
 
 Vous pouvez créer des machines virtuelles qui utilisent votre paire de clés SSH à l’aide du portail Azure, de l’interface de ligne de commande et de modèles :
 

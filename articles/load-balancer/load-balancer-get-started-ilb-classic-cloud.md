@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 8dbc951416d577fa7f534c2eab1605c6bee61fce
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Prise en main de la création d’un équilibreur de charge interne (Classic) pour les services cloud
+<a id="get-started-creating-an-internal-load-balancer-classic-for-cloud-services" class="xliff"></a>
+
+# Prise en main de la création d’un équilibreur de charge interne (Classic) pour les services cloud
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -30,7 +34,9 @@ ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
 > [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md).  Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
-## <a name="configure-internal-load-balancer-for-cloud-services"></a>Configurer l’équilibreur de charge interne pour les services cloud
+<a id="configure-internal-load-balancer-for-cloud-services" class="xliff"></a>
+
+## Configurer l’équilibreur de charge interne pour les services cloud
 
 L’équilibreur de charge interne est pris en charge pour les machines virtuelles et les services cloud. Un point de terminaison d’équilibreur de charge interne créé dans un service cloud hors d’un réseau virtuel régional est accessible uniquement au sein du service cloud.
 
@@ -39,7 +45,9 @@ La configuration d’équilibreur de charge interne doit être définie lors de 
 > [!IMPORTANT]
 > Un réseau virtuel déjà créé pour le déploiement de cloud est requis pour exécuter les étapes ci-dessous. Pour créer l’équilibrage de charge interne, vous avez besoin du nom du réseau virtuel et du nom de sous-réseau.
 
-### <a name="step-1"></a>Étape 1
+<a id="step-1" class="xliff"></a>
+
+### Étape 1
 
 Ouvrez le fichier de configuration du service (.cscfg) pour votre déploiement cloud dans Visual Studio et ajoutez la section suivante pour créer l’équilibrage de charge interne sous l’élément «`</Role>`» pour la configuration du réseau.
 
@@ -53,7 +61,7 @@ Ouvrez le fichier de configuration du service (.cscfg) pour votre déploiement c
 </NetworkConfiguration>
 ```
 
-Nous allons ajouter les valeurs pour le fichier de configuration du réseau pour que vous voyiez à quoi il ressemble. Dans l'exemple, supposons que vous avez créé un sous-réseau appelé « test_vnet » avec un sous-réseau 10.0.0.0/24 appelé test_subnet et une adresse IP statique 10.0.0.4. L'équilibrage de charge sera nommé testLB.
+Nous allons ajouter les valeurs pour le fichier de configuration du réseau pour que vous voyiez à quoi il ressemble. Dans l’exemple, supposons que vous avez créé un réseau virtuel appelé « test_vnet » avec un sous-réseau 10.0.0.0/24 appelé test_subnet et l’adresse IP statique 10.0.0.4. L'équilibrage de charge sera nommé testLB.
 
 ```xml
 <NetworkConfiguration>
@@ -67,7 +75,9 @@ Nous allons ajouter les valeurs pour le fichier de configuration du réseau pour
 
 Vous trouverez d’autres informations sur le schéma d’équilibrage de charge sous [Ajouter un équilibrage de charge](https://msdn.microsoft.com/library/azure/dn722411.aspx).
 
-### <a name="step-2"></a>Étape 2
+<a id="step-2" class="xliff"></a>
+
+### Étape 2
 
 Modifiez le fichier de définition de service (.csdef) pour ajouter des points de terminaison à l’équilibrage de charge interne. Au moment où une instance de rôle est créée, le fichier de définition de service ajoute les instances de rôle à l’équilibrage de charge interne.
 
@@ -91,15 +101,12 @@ En conservant les valeurs de l’exemple ci-dessus, ajoutons les valeurs au fich
 
 Le trafic réseau est équilibré à l’aide de l’équilibrage de charge testLB utilisant le port 80 pour les requêtes entrantes, avec envoi aux instances de rôle de travail sur le port 80 également.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 [Configurer le mode de distribution d’équilibreur de charge à l’aide de l’affinité d’IP source](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

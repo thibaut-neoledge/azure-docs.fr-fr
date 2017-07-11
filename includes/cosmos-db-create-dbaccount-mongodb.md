@@ -9,7 +9,7 @@
        
     Dans ce guide de démarrage rapide, nous allons à nouveau programmer l’API MongoDB, vous choisirez donc **MongoDB** pendant que vous remplissez le formulaire. Cependant, si vous avez des données graphiques pour une application de réseau social, des données de document à partir d’une application du catalogue, ou des données clé/valeur (table), sachez qu’Azure Cosmos DB peut fournir une plate-forme de service de base de données hautement disponible et distribuée dans le monde entier pour toutes vos applications essentielles.
 
-    Remplissez le panneau Nouveau compte à l’aide des informations dans la capture d’écran en tant que guide. Vous allez choisir des valeurs uniques lors de la configuration de votre compte, c’est pourquoi vos valeurs ne correspondront pas exactement à la capture d’écran.
+    Remplissez le panneau **Nouveau compte** à l’aide des informations dans la table en tant que guide.
  
     ![Capture d’écran du nouveau Panneau Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
    

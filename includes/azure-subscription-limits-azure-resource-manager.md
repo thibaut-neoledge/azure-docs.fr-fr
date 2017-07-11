@@ -10,18 +10,21 @@
 | Lectures API Resource Manager |15 000 par heure |15 000 par heure |
 | Écritures API Resource Manager |1 200 par heure |1 200 par heure |
 | Taille de la demande d’API Resource Manager |4 194 304 octets |4 194 304 octets |
-| Balises par abonnement |10000 |10000 |
-| [Services cloud](../articles/cloud-services/cloud-services-choose-me.md) par abonnement |Non applicable<sup>3</sup> |Non applicable<sup>3</sup> |
-| [Groupes d'affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement |Non applicable<sup>3</sup> |Non applicable<sup>3</sup> |
+| Balises par abonnement<sup>3</sup> |illimitée |illimitée |
+| Calculs de balise unique par abonnement<sup>3</sup> | 10 000 | 10 000 |
+| [Services cloud](../articles/cloud-services/cloud-services-choose-me.md) par abonnement |Non applicable<sup>4</sup> |Non applicable<sup>4</sup> |
+| [Groupes d'affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement |Non applicable<sup>4</sup> |Non applicable<sup>4</sup> |
 
 <sup>1</sup>Les limites par défaut varient selon le type de catégorie d’offre, comme Essai gratuit ou Paiement à l’utilisation, et selon la gamme (Dv2, F, G, etc.).
 
 <sup>2</sup>Cela inclut à la fois les comptes de stockage Standard et Premium. Si vous avez besoin de plus de 200 comptes de stockage, sollicitez le [Support Azure](https://azure.microsoft.com/support/faq/)pour obtenir une assistance. L’équipe Azure Storage examinera votre cas d’entreprise et pourra approuver jusqu’à 250 comptes de stockage.
 
-<sup>3</sup>Ces fonctionnalités ne sont plus nécessaires avec les groupes de ressources Azure et Azure Resource Manager.
+<sup>3</sup>Vous pouvez appliquer un nombre illimité de balises par abonnement. Le nombre de balises par ressource ou groupe de ressources est limité à 15. Le Gestionnaire des ressources retourne uniquement une [liste comportant le nom et les valeurs de balise unique](/rest/api/resources/tags#Tags_List) dans l’abonnement lorsque le nombre de balises est inférieur ou égal à 10 000. Toutefois, vous pouvez toujours trouver une ressource par balise lorsque le nombre de balises est supérieur à 10 000.  
+
+<sup>4</sup>Ces fonctionnalités ne sont plus nécessaires avec les groupes de ressources Azure et Azure Resource Manager.
 
 > [!NOTE]
-> Il est important de noter qu’une limite totale régionale et une limite régionale par gamme de taille (Dv2, F, etc.) s’appliquent séparément aux cœurs de machine virtuelle.  Par exemple, considérons un abonnement dont le nombre total limite de cœurs de machine virtuelle est de 30 pour la région Est, de 30 pour la gamme A et de 30 pour la gamme D.  Cet abonnement serait autorisé à déployer 30 machines virtuelles A1, ou 30 machines virtuelles D1, ou encore une combinaison de ces deux types de machines dans la limite de 30 cœurs au total (par exemple, 10 machines virtuelles A1 et 20 machines virtuelles D1).  
+> Il est important de noter qu’une limite totale régionale et une limite régionale par gamme de taille (Dv2, F, etc.) s’appliquent séparément aux cœurs de machine virtuelle.  Par exemple, considérons un abonnement dont le nombre total limite de cœurs de machine virtuelle est de 30 pour la région Est, de 30 pour la gamme A et de 30 pour la gamme D.  Cet abonnement serait autorisé à déployer 30 machines virtuelles A1, ou 30 machines virtuelles D1, ou encore une combinaison de ces deux types de machines dans la limite de 30 cœurs au total (par exemple, 10 machines virtuelles A1 et 20 machines virtuelles D1).  
 > <!-- -->
 > 
 > 
