@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
@@ -22,7 +22,8 @@ ms.lasthandoff: 05/22/2017
 
 
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Visual Studio
+<a id="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio" class="xliff"></a>
+# Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Visual Studio
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
@@ -44,7 +45,8 @@ Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner d
 > [!NOTE] 
 > Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, consultez [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Didacticiel : Créer un pipeline pour transformer des données à l’aide d’un cluster Hadoop).
 
-## <a name="prerequisites"></a>Composants requis
+<a id="prerequisites" class="xliff"></a>
+## Composants requis
 1. Lisez l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) et effectuez les **étapes préalables requises** .       
 2. Pour créer des instances Data Factory, vous devez avoir un rôle de [collaborateur de fabrique de données](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
 3. Les composants suivants doivent être installés sur votre ordinateur : 
@@ -52,7 +54,8 @@ Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner d
    * Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013 ou Visual Studio 2015. Accédez à la [page de téléchargement d’Azure](https://azure.microsoft.com/downloads/), puis cliquez sur **VS 2013** ou **VS 2015** dans la section **.NET**.
    * Téléchargez le dernier plug-in Azure Data Factory pour Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Vous pouvez également mettre à jour le plug-in en procédant comme suit : dans le menu, cliquez sur **Outils** -> **Extensions et mises à jour** -> **En ligne** -> **Galerie Visual Studio** -> **Outils Microsoft Azure Data Factory pour Visual Studio** -> **Mettre à jour**.
 
-## <a name="steps"></a>Étapes
+<a id="steps" class="xliff"></a>
+## Étapes
 Voici les étapes à effectuer dans le cadre de ce didacticiel :
 
 1. Créez des **services liés** dans la fabrique de données. Au cours de cette étape, vous allez créer deux services liés de types : Stockage Azure et base de données SQL Azure. 
@@ -70,7 +73,8 @@ Voici les étapes à effectuer dans le cadre de ce didacticiel :
     Cette activité copie les données d’un objet blob du stockage Blob Azure dans une table de la base de données SQL Azure. Vous pouvez utiliser une activité de copie dans un pipeline pour copier les données d’une source prise en charge dans une destination prise en charge. Pour obtenir la liste des magasins de données pris en charge, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
 4. Créez une **fabrique de données** Azure lors du déploiement des entités Data Factory (services liés, jeux de données/tables et pipelines). 
 
-## <a name="create-visual-studio-project"></a>Création d’un projet Visual Studio
+<a id="create-visual-studio-project" class="xliff"></a>
+## Création d’un projet Visual Studio
 1. Lancez **Visual Studio 2015**. Cliquez sur **Fichier**, pointez le curseur de la souris sur **Nouveau**, puis cliquez sur **Projet**. La boîte de dialogue **Nouveau projet** doit s’afficher.  
 2. Dans la boîte de dialogue **Nouveau projet**, sélectionnez le modèle **DataFactory**, puis cliquez sur **Projet Data Factory vide**.  
    
@@ -79,7 +83,8 @@ Voici les étapes à effectuer dans le cadre de ce didacticiel :
    
     ![Explorateur de solutions](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
-## <a name="create-linked-services"></a>Créer des services liés
+<a id="create-linked-services" class="xliff"></a>
+## Créer des services liés
 Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans ce didacticiel, vous n’allez pas utiliser n’importe quel service de calcul comme Azure HDInsight ou Azure Data Lake Analytics. Vous allez utiliser deux magasins de données de type Stockage Azure (source) et Base de données SQL Azure (destination). 
 
 Vous allez donc créer deux services liés de types : AzureStorage et AzureSqlDatabase.  
@@ -90,7 +95,8 @@ Le service lié Azure SQL lie votre base de données SQL Azure à la fabrique de
 
 Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Pour connaître l’ensemble des sources et des récepteurs pris en charge par l’activité de copie, consultez [Banques de données et formats pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Pour obtenir la liste des services de calcul pris en charge par Data Factory, consultez [Services liés de calcul](data-factory-compute-linked-services.md) . Dans ce didacticiel, aucun service de calcul n’est utilisé. 
 
-### <a name="create-the-azure-storage-linked-service"></a>Créer le service lié Azure Storage
+<a id="create-the-azure-storage-linked-service" class="xliff"></a>
+### Créer le service lié Azure Storage
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Services liés**, pointez sur **Ajouter** puis cliquez sur **Nouvel élément**.      
 2. Dans la boîte de dialogue **Ajouter un nouvel élément**, sélectionnez **Service lié Azure Storage** dans la liste, puis cliquez sur **Ajouter**. 
    
@@ -102,7 +108,8 @@ Les services liés se chargent de lier des magasins de données ou des services 
 
     Pour plus d’informations sur les propriétés JSON dans la définition de service lié, consultez l’article [Azure Blob Storage connector)](data-factory-azure-blob-connector.md#linked-service-properties) (Connecteur de stockage Blob Azure).
 
-### <a name="create-the-azure-sql-linked-service"></a>Créer le service lié SQL Azure
+<a id="create-the-azure-sql-linked-service" class="xliff"></a>
+### Créer le service lié SQL Azure
 1. Cliquez de nouveau avec le bouton droit sur le nœud **Services liés** dans l’**Explorateur de solutions**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**. 
 2. Cette fois, sélectionnez **Service lié SQL Azure**, puis cliquez sur **Ajouter**. 
 3. Dans le **fichier AzureSqlLinkedService1.json**, remplacez `<servername>`, `<databasename>`, `<username@servername>` et `<password>` par le nom du compte d’utilisateur, de la base de données et de votre serveur SQL Azure, et par le mot de passe associé.    
@@ -111,14 +118,16 @@ Les services liés se chargent de lier des magasins de données ou des services 
     Pour plus d’informations sur ces propriétés JSON, consultez [Azure SQL Database connector](data-factory-azure-sql-connector.md#linked-service-properties) (Connecteur de base de données SQL Azure).
 
 
-## <a name="create-datasets"></a>Créer des jeux de données
+<a id="create-datasets" class="xliff"></a>
+## Créer des jeux de données
 Dans l’étape précédente, vous avez créé des services pour lier votre compte de stockage Azure et une base de données SQL Azure à votre fabrique de données. Dans cette étape, vous définissez deux jeux de données nommés InputDataset et OutputDataset, qui représentent les données d’entrée/sortie stockées dans les banques de données référencées par AzureStorageLinkedService1 et AzureSqlLinkedService1, respectivement.
 
 Le service lié Azure Storage spécifie la chaîne de connexion que le service Data Factory utilise au moment de l’exécution pour se connecter à votre compte de stockage Azure. Le jeu de données blob d’entrée (InputDataset) spécifie quant à lui le conteneur et le dossier qui contient les données d’entrée.  
 
 De même, le service lié Azure SQL Database spécifie la chaîne de connexion que le service Data Factory utilise au moment de l’exécution pour se connecter à votre base de données SQL Azure. Et le jeu de données de la table SQL de sortie (OututDataset) spécifie la table de la base de données dans laquelle les données du stockage Blob sont copiées. 
 
-### <a name="create-input-dataset"></a>Créer le jeu de données d’entrée
+<a id="create-input-dataset" class="xliff"></a>
+### Créer le jeu de données d’entrée
 Dans cette étape, vous créez un jeu de données nommé InputDataset qui pointe vers un fichier blob (emp.txt) dans le dossier racine d’un conteneur d’objets blob (adftutorial) du stockage Azure représenté par le service lié AzureStorageLinkedService1. Si vous ne spécifiez de valeur pour fileName (ou si vous ignorez ce paramètre), les données de tous les objets blob du dossier d’entrée sont copiées dans la destination. Dans ce didacticiel, vous spécifiez une valeur pour fileName. 
 
 Ici, vous utilisez le terme « tables » plutôt que « jeux de données ». Une table est un jeu de données rectangulaire. C’est le seul type de jeu de données pris en charge pour l’instant. 
@@ -173,7 +182,8 @@ Ici, vous utilisez le terme « tables » plutôt que « jeux de données ».
 
     Pour plus d’informations sur ces propriétés JSON, consultez l’article [Azure Blob connector](data-factory-azure-blob-connector.md#dataset-properties) (Connecteur de stockage Blob Azure).   
 
-### <a name="create-output-dataset"></a>Créer un jeu de données de sortie
+<a id="create-output-dataset" class="xliff"></a>
+### Créer un jeu de données de sortie
 Dans cette étape, vous créez un jeu de données de sortie nommé **OutputDataset**. Ce jeu de données pointe vers une table SQL de la base de données SQL Azure représentée par **AzureSqlLinkedService1**. 
 
 1. Dans l’**Explorateur de solutions**, cliquez de nouveau avec le bouton droit sur **Tables**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.
@@ -219,7 +229,8 @@ Dans cette étape, vous créez un jeu de données de sortie nommé **OutputDatas
 
     Pour plus d’informations sur ces propriétés JSON, consultez l’article [Azure SQL connector](data-factory-azure-sql-connector.md#dataset-properties) (Connecteur SQL Azure).
 
-## <a name="create-pipeline"></a>Création d’un pipeline
+<a id="create-pipeline" class="xliff"></a>
+## Création d’un pipeline
 Dans cette étape, vous créez un pipeline avec une **activité de copie** qui utilise **InputDataset** en entrée et **OutputDataset** en sortie.
 
 Le jeu de données de sortie pilote actuellement la planification. Dans ce didacticiel, le jeu de données de sortie est configuré pour produire une tranche par heure. Les heures de début et de fin du pipeline sont distantes d’une journée, soit 24 heures. Par conséquent, 24 tranches de jeu de données de sortie sont générées par le pipeline. 
@@ -286,7 +297,8 @@ Le jeu de données de sortie pilote actuellement la planification. Dans ce didac
 
     Pour obtenir une description des propriétés JSON dans une définition de pipeline, consultez l’article [Créer des pipelines](data-factory-create-pipelines.md). Pour obtenir une description des propriétés JSON dans une définition d’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md). Pour obtenir une description des propriétés JSON prises en charge par BlobSource, consultez l’article [Connecteur de stockage Blob Azure](data-factory-azure-blob-connector.md). Pour obtenir une description des propriétés JSON prises en charge par SqlSink, consultez l’article [Azure SQL Database connector](data-factory-azure-sql-connector.md) (Connecteur de base de données SQL Azure).
 
-## <a name="publishdeploy-data-factory-entities"></a>Publier/déployer des entités Data Factory
+<a id="publishdeploy-data-factory-entities" class="xliff"></a>
+## Publier/déployer des entités Data Factory
 Dans cette étape, vous publiez les entités Data Factory (services liés, jeux de données et pipeline) que vous avez créées précédemment. Vous spécifiez également le nom de la fabrique de données à créer pour contenir ces entités.  
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**. 
@@ -344,7 +356,8 @@ Notez les points suivants :
 > [!IMPORTANT]
 > Pour créer des instances Data Factory, vous devez être administrateur ou co-administrateur de l’abonnement Azure.
 
-## <a name="monitor-pipeline"></a>Surveillance d’un pipeline
+<a id="monitor-pipeline" class="xliff"></a>
+## Surveillance d’un pipeline
 Accédez à la page d’accueil de votre fabrique de données :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
@@ -359,7 +372,8 @@ Accédez à la page d’accueil de votre fabrique de données :
     ![Page d'accueil Data Factory](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
 5. Suivez les instructions dans [Surveiller les jeux de données et le pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) pour surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel. Pour le moment, Visual Studio ne prend pas en charge la surveillance des pipelines Data Factory. 
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+## Résumé
 Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier des données d'objet blob Azure dans une base de données SQL Azure. Vous avez utilisé Visual Studio pour créer la fabrique de données, les services liés, les jeux de données et un pipeline. Voici les opérations globales que vous avez effectuées dans ce didacticiel :  
 
 1. Création d’une **fabrique de données**Azure.
@@ -373,7 +387,8 @@ Pour savoir comment utiliser une activité Hive HDInsight pour transformer des d
 
 Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour des informations détaillées, consultez [Planification et exécution avec Data Factory](data-factory-scheduling-and-execution.md). 
 
-## <a name="view-all-data-factories-in-server-explorer"></a>Afficher toutes les fabriques de données dans l’Explorateur de serveurs
+<a id="view-all-data-factories-in-server-explorer" class="xliff"></a>
+## Afficher toutes les fabriques de données dans l’Explorateur de serveurs
 Cette section explique comment utiliser l’Explorateur de serveurs dans Visual Studio pour afficher toutes les fabriques de données dans votre abonnement Azure et créer un projet Visual Studio basé sur une fabrique de données existante. 
 
 1. Dans **Visual Studio**, cliquez sur **Affichage** dans le menu, puis sur **Explorateur de serveurs**.
@@ -381,20 +396,23 @@ Cette section explique comment utiliser l’Explorateur de serveurs dans Visual 
 
     ![Explorateur de serveurs](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
 
-## <a name="create-a-visual-studio-project-for-an-existing-data-factory"></a>Créer un projet Visual Studio pour une fabrique de données existante
+<a id="create-a-visual-studio-project-for-an-existing-data-factory" class="xliff"></a>
+## Créer un projet Visual Studio pour une fabrique de données existante
 
 - Cliquez avec le bouton droit sur une fabrique de données dans l’Explorateur de serveurs, puis sélectionnez **Exporter la fabrique de données vers le nouveau projet** pour créer un projet Visual Studio basé sur une fabrique de données existante.
 
     ![Exporter la fabrique de données vers un projet Visual Studio](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
-## <a name="update-data-factory-tools-for-visual-studio"></a>Mettre à jour des outils Data Factory pour Visual Studio
+<a id="update-data-factory-tools-for-visual-studio" class="xliff"></a>
+## Mettre à jour des outils Data Factory pour Visual Studio
 Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procédez comme suit :
 
 1. Dans le menu, cliquez sur **Outils**, puis sélectionnez **Extensions et mises à jour**. 
 2. Dans le volet de gauche, sélectionnez **Mises à jour**, puis **Galerie Visual Studio**.
 3. Sélectionnez **Outils Azure Data Factory pour Visual Studio**, puis cliquez sur **Mettre à jour**. Si cette entrée n’est pas affichée, c’est que vous possédez déjà la dernière version de ces outils. 
 
-## <a name="use-configuration-files"></a>Utiliser des fichiers de configuration
+<a id="use-configuration-files" class="xliff"></a>
+## Utiliser des fichiers de configuration
 Vous pouvez utiliser des fichiers de configuration dans Visual Studio pour configurer les propriétés des services/tableaux/pipelines liés différemment pour chaque environnement.
 
 Examinez la définition JSON suivante pour un service lié Azure Storage. Spécifiez **connectionString** avec différentes valeurs pour accountname et accountkey, en fonction de l’environnement (dév./test/production) sur lequel vous déployez des entités Data Factory. Vous pouvez parvenir à ce comportement en utilisant un fichier de configuration distinct pour chaque environnement.
@@ -412,7 +430,8 @@ Examinez la définition JSON suivante pour un service lié Azure Storage. Spéc
 }
 ```
 
-### <a name="add-a-configuration-file"></a>Ajouter un fichier de configuration
+<a id="add-a-configuration-file" class="xliff"></a>
+### Ajouter un fichier de configuration
 Ajoutez un fichier de configuration pour chaque environnement en effectuant les opérations suivantes :   
 
 1. Cliquez avec le bouton droit de la souris sur le projet Data Factory dans votre solution Visual Studio, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.
@@ -477,7 +496,8 @@ Ajoutez un fichier de configuration pour chaque environnement en effectuant les 
     }
     ```
 
-### <a name="property-names-with-spaces"></a>Noms de propriétés avec des espaces
+<a id="property-names-with-spaces" class="xliff"></a>
+### Noms de propriétés avec des espaces
 Si un nom de propriété comporte des espaces, utilisez des crochets comme indiqué dans l’exemple suivant (nom de serveur de base de données) :
 
 ```json
@@ -487,7 +507,8 @@ Si un nom de propriété comporte des espaces, utilisez des crochets comme indiq
  }
 ```
 
-### <a name="deploy-solution-using-a-configuration"></a>Déployer une solution à l’aide d’une configuration
+<a id="deploy-solution-using-a-configuration" class="xliff"></a>
+### Déployer une solution à l’aide d’une configuration
 Lorsque vous publiez des entités Azure Data Factory dans Visual Studio, vous pouvez spécifier la configuration que vous souhaitez utiliser pour cette opération de publication.
 
 Pour publier des entités dans un projet Azure Data Factory à l’aide d’un fichier de configuration :   
@@ -503,11 +524,13 @@ Pour publier des entités dans un projet Azure Data Factory à l’aide d’un
 
 Au cours du déploiement, les valeurs du fichier de configuration sont utilisées pour définir celles des propriétés des fichiers JSON avant que les entités ne soient déployées sur le service Azure Data Factory.   
 
-## <a name="use-azure-key-vault"></a>Utiliser Azure Key Vault
+<a id="use-azure-key-vault" class="xliff"></a>
+## Utiliser Azure Key Vault
 Il n’est pas recommandé et souvent déconseillé vis-à-vis de la stratégie de sécurité pour valider des données sensibles telles que des chaînes de connexion au référentiel de code. Consultez l’exemple [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) sur GitHub pour en savoir plus sur le stockage d’informations sensibles dans Azure Key Vault et son utilisation lors de la publication des entités Data Factory. L’extension Secure Publish pour Visual Studio permet de stocker les secrets dans Key Vault, et seules les références à ceux-ci sont spécifiés dans des services / configurations de déploiement liés. Ces références sont résolues lorsque vous publiez des entités Data Factory dans Azure. Ces fichiers peuvent ensuite être validés sur le référentiel source sans exposer les secrets.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+## Étapes suivantes
 Dans ce didacticiel, vous avez utilisé le stockage Blob Azure comme magasin de données source et une base de données SQL Azure comme banque de données de destination dans une opération de copie. Le tableau ci-dessous contient la liste des magasins de données pris en charge en tant que sources et destinations par l’activité de copie : 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
