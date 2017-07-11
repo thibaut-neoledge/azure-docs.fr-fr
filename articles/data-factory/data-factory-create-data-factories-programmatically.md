@@ -1,6 +1,6 @@
 ---
 title: "Créer des pipelines de données à l’aide du Kit de développement logiciel (SDK) .NET Azure | Microsoft Docs"
-description: "Découvrez comment créer, analyser et gérer par programmation des fabriques de données Azure à l&quot;aide du Kit de développement logiciel (SDK) Data Factory."
+description: "Découvrez comment créer, analyser et gérer par programmation des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
@@ -22,19 +22,23 @@ ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Créer, surveiller et gérer des fabriques de données Azure à l’aide du Kit de développement logiciel (SDK) Azure Data Factory .NET
-## <a name="overview"></a>Vue d'ensemble
+<a id="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk" class="xliff"></a>
+# Créer, surveiller et gérer des fabriques de données Azure à l’aide du Kit de développement logiciel (SDK) Azure Data Factory .NET
+<a id="overview" class="xliff"></a>
+## Vue d'ensemble
 Vous pouvez créer, surveiller et gérer des fabriques de données Azure par programmation à l'aide du Kit SDK Data Factory .NET. Cet article contient une procédure pas à pas que vous pouvez suivre pour créer un exemple d'application console .NET qui crée et surveille une fabrique de données. 
 
 > [!NOTE]
 > Cet article ne couvre pas toutes les API .NET Data Factory. Consultez [Informations de référence sur l’API .NET Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) pour la documentation complète sur l’API .NET pour Data Factory. 
 
-## <a name="prerequisites"></a>Conditions préalables
+<a id="prerequisites" class="xliff"></a>
+## Conditions préalables
 * Visual Studio 2012, 2013 ou 2015
 * Téléchargez et installez le [Kit SDK Azure .NET](http://azure.microsoft.com/downloads/).
 * Azure PowerShell. Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour installer Azure PowerShell sur votre ordinateur. Vous utilisez Azure PowerShell pour créer une application Azure Active Directory.
 
-### <a name="create-an-application-in-azure-active-directory"></a>Créer une application dans Azure Active Directory
+<a id="create-an-application-in-azure-active-directory" class="xliff"></a>
+### Créer une application dans Azure Active Directory
 Créez une application Azure Active Directory, créez un principal de service pour l’application et attribuez-lui le rôle **Contributeurs de Data Factory** .
 
 1. Lancez **PowerShell**.
@@ -90,7 +94,7 @@ Créez une application Azure Active Directory, créez un principal de service po
 9. Récupérez l’ID de l’application.
 
     ```PowerShell
-    $azureAdApplication    
+    $azureAdApplication 
     ```
     Notez l’ID d’application (applicationID) dans la sortie.
 
@@ -101,7 +105,8 @@ Vous devez avoir les quatre valeurs suivantes après ces étapes :
 * ID de l'application
 * Mot de passe (spécifié dans la première commande)
 
-## <a name="walkthrough"></a>Procédure pas à pas
+<a id="walkthrough" class="xliff"></a>
+## Procédure pas à pas
 Dans la procédure pas à pas, vous créez une fabrique de données avec un pipeline qui contient une activité de copie. L’activité de copie les données d’un dossier de votre stockage d’objets blob Azure vers un autre dossier dans le même stockage d’objets blob. 
 
 L’activité de copie effectue le déplacement des données dans Azure Data Factory. Elle est mise en œuvre par un service disponible dans le monde entier, capable de copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez l’article [Activités de déplacement des données](data-factory-data-movement-activities.md) .
@@ -458,7 +463,8 @@ L’activité de copie effectue le déplacement des données dans Azure Data Fac
     * Pipeline : **PipelineBlobSample**
 19. Vérifiez qu’un fichier de sortie est créé dans le dossier **apifactoryoutput** du conteneur **adftutorial**.
 
-## <a name="get-a-list-of-failed-data-slices"></a>Obtenir une liste des tranches de données en échec 
+<a id="get-a-list-of-failed-data-slices" class="xliff"></a>
+## Obtenir une liste des tranches de données en échec 
 
 ```csharp
 // Parse the resource path
@@ -497,7 +503,8 @@ do
 while (response != null);
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+## Étapes suivantes
 Consultez l’exemple suivant pour créer un pipeline à l’aide du Kit de développement logiciel .NET qui copie les données d’un stockage d’objets blob Azure dans une base de données SQL Azure : 
 
 - [Créer un pipeline pour copier des données de stockage d’objets Blob dans SQL Database](data-factory-copy-activity-tutorial-using-dotnet-api.md)

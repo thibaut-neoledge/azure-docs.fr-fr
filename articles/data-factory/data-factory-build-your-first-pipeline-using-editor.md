@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
@@ -23,7 +23,8 @@ ms.lasthandoff: 06/14/2017
 
 ---
 
-# <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Didacticiel : Créer votre première fabrique de données Azure à l’aide du portail Azure
+<a id="tutorial-build-your-first-azure-data-factory-using-azure-portal" class="xliff"></a>
+# Didacticiel : Créer votre première fabrique de données Azure à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
 > * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
@@ -42,11 +43,13 @@ Le pipeline dans ce didacticiel a une activité : **Activité HDInsight Hive**.
 > 
 > Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Composants requis
+<a id="prerequisites" class="xliff"></a>
+## Composants requis
 1. Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les **étapes préalables requises** .
 2. Cet article ne fournit pas de vue d’ensemble conceptuelle du service Azure Data Factory. Nous vous recommandons de lire l’article [Introduction à Azure Data Factory](data-factory-introduction.md) pour une présentation détaillée du service.  
 
-## <a name="create-data-factory"></a>Créer une fabrique de données
+<a id="create-data-factory" class="xliff"></a>
+## Créer une fabrique de données
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Par exemple, une activité de copie pour copier des données d’une source vers un magasin de données de destination, et une activité Hive HDInsight pour exécuter un script Hive pour transformer des données d’entrée et produire des données de sortie. Commençons par la création de la fabrique de données dans cette étape.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
@@ -82,10 +85,12 @@ Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut 
 
 Avant de créer un pipeline dans la fabrique de données, vous devez créer quelques entités Data Factory. Créez d’abord des services liés pour lier des magasins de données/calculs à votre magasin de données, définissez des jeux de données d’entrée et de sortie pour représenter les données d’entrée/sortie dans les magasins de données liés, puis créez le pipeline avec une activité qui utilise ces jeux de données.
 
-## <a name="create-linked-services"></a>Créer des services liés
+<a id="create-linked-services" class="xliff"></a>
+## Créer des services liés
 Dans cette étape, vous liez votre compte Stockage Azure et un cluster Azure HDInsight à la demande à votre fabrique de données. Le compte Stockage Azure contient les données d’entrée et de sortie pour le pipeline de cet exemple. Le service lié HDInsight est utilisé pour exécuter le script Hive spécifié dans l’activité du pipeline de cet exemple. Identifiez les services de [magasin de données](data-factory-data-movement-activities.md)/[de calcul](data-factory-compute-linked-services.md) qui sont utilisés dans votre scénario et les lier à la fabrique de données en créant des services liés.  
 
-### <a name="create-azure-storage-linked-service"></a>Créer le service lié Azure Storage
+<a id="create-azure-storage-linked-service" class="xliff"></a>
+### Créer le service lié Azure Storage
 Dans cette étape, vous liez votre compte Stockage Azure à votre fabrique de données. Dans de ce didacticiel, vous utilisez le même compte Stockage Azure pour stocker les données d’entrée/sortie et le fichier de script HQL.
 
 1. Cliquez sur **Créer et déployer** dans le panneau **FABRIQUE DE DONNÉES** pour **GetStartedDF**. Vous devriez voir l’éditeur Data Factory Editor.
@@ -106,7 +111,8 @@ Dans cette étape, vous liez votre compte Stockage Azure à votre fabrique de do
 
     ![Service lié au stockage dans le menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
-### <a name="create-azure-hdinsight-linked-service"></a>Créer le service lié Azure HDInsight
+<a id="create-azure-hdinsight-linked-service" class="xliff"></a>
+### Créer le service lié Azure HDInsight
 Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabrique de données. Le cluster HDInsight est automatiquement créé lors de l’exécution, puis supprimé une fois le traitement effectué et au terme du délai d’inactivité spécifié.
 
 1. Dans **Data Factory Editor**, cliquez sur **... Plus**, puis sur **Nouveau calcul** et sélectionnez **Cluster à la demande HDInsight**.
@@ -152,10 +158,12 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
 
     ![Arborescence avec les services liés](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
-## <a name="create-datasets"></a>Créer des jeux de données
+<a id="create-datasets" class="xliff"></a>
+## Créer des jeux de données
 Dans cette étape, vous créez des jeux de données afin de représenter les données d’entrée et de sortie pour le traitement Hive. Ces jeux de données font référence au service **AzureStorageLinkedService** que vous avez créé précédemment dans ce didacticiel. Le service lié pointe vers un compte de stockage Azure, et les jeux de données spécifient le conteneur, le dossier et le nom de fichier dans le stockage qui contient les données d’entrée et de sortie.   
 
-### <a name="create-input-dataset"></a>Créer le jeu de données d’entrée
+<a id="create-input-dataset" class="xliff"></a>
+### Créer le jeu de données d’entrée
 1. Dans **Data Factory Editor**, cliquez sur **... Plus** dans la barre de commandes, cliquez sur **Nouveau jeu de données** et sélectionnez **Stockage d’objets Blob Azure**.
 
     ![Nouveau jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
@@ -200,7 +208,8 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
     Pour plus d’informations sur ces propriétés JSON, voir [Connecteur de stockage Blob Azure](data-factory-azure-blob-connector.md#dataset-properties).
 3. Cliquez sur **Déployer** dans la barre de commandes pour déployer le jeu de données que vous venez de créer. Vous devez voir le jeu de données dans l’arborescence sur la gauche.
 
-### <a name="create-output-dataset"></a>Créer un jeu de données de sortie
+<a id="create-output-dataset" class="xliff"></a>
+### Créer un jeu de données de sortie
 Vous allez maintenant créer le jeu de données de sortie pour représenter les données de sortie stockées dans le stockage d’objets blob Azure.
 
 1. Dans **Data Factory Editor**, cliquez sur **... Plus** dans la barre de commandes, cliquez sur **Nouveau jeu de données** et sélectionnez **Stockage d’objets Blob Azure**.  
@@ -232,7 +241,8 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 
     ![Arborescence avec les services liés](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
-## <a name="create-pipeline"></a>Création d’un pipeline
+<a id="create-pipeline" class="xliff"></a>
+## Création d’un pipeline
 Dans cette étape, vous créez votre premier pipeline avec une activité **HDInsightHive** . La tranche d’entrée est disponible mensuellement (fréquence : Mois, intervalle : 1), la tranche de sortie est produite mensuellement et la propriété du planificateur pour l’activité est également définie sur Mensuellement. Les paramètres pour le jeu de données de sortie et le planificateur d’activité doivent correspondre. À ce stade, c'est le jeu de données de sortie qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée. Les propriétés utilisées dans le code JSON suivant sont expliquées à la fin de cette section.
 
 1. Dans **Data Factory Editor**, cliquez sur **Points de suspension (…) Autres commandes**, puis sur **Nouveau pipeline**.
@@ -315,8 +325,10 @@ Dans cette étape, vous créez votre premier pipeline avec une activité **HDIns
     ![Arborescence avec pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 6. Félicitations ! Vous avez créé votre premier pipeline !
 
-## <a name="monitor-pipeline"></a>Surveillance d’un pipeline
-### <a name="monitor-pipeline-using-diagram-view"></a>Surveillance d’un pipeline à l’aide de la Vue de diagramme
+<a id="monitor-pipeline" class="xliff"></a>
+## Surveillance d’un pipeline
+<a id="monitor-pipeline-using-diagram-view" class="xliff"></a>
+### Surveillance d’un pipeline à l’aide de la Vue de diagramme
 1. Cliquez sur **X** pour fermer les panneaux de Data Factory Editor et revenir au panneau Data Factory, puis cliquez sur **Diagramme**.
 
     ![Vignette schématique](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
@@ -365,7 +377,8 @@ Dans cette étape, vous créez votre premier pipeline avec une activité **HDIns
 >
 >
 
-### <a name="monitor-pipeline-using-monitor--manage-app"></a>Surveiller le pipeline à l’aide de l’application de surveillance et de gestion
+<a id="monitor-pipeline-using-monitor--manage-app" class="xliff"></a>
+### Surveiller le pipeline à l’aide de l’application de surveillance et de gestion
 Vous pouvez également utiliser l’application de surveillance et de gestion pour surveiller vos pipelines. Pour en savoir plus sur l’utilisation de cette application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et de gestion](data-factory-monitor-manage-app.md).
 
 1. Cliquez sur la mosaïque **Surveiller et gérer** sur la page d’accueil de votre fabrique de données.
@@ -378,7 +391,8 @@ Vous pouvez également utiliser l’application de surveillance et de gestion po
 
     ![Détails de la fenêtre d’activité](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+## Résumé
 Dans ce didacticiel, vous avez créé une fabrique de données Azure pour traiter des données en exécutant le script Hive sur un cluster Hadoop HDInsight. Vous avez effectué les étapes suivantes dans le portail Azure à l’aide de Data Factory Editor :  
 
 1. Création d’une **fabrique de données**Azure.
@@ -388,10 +402,12 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour traite
 3. Création de deux **jeux de données**qui décrivent les données d’entrée et de sortie pour l’activité HDInsight Hive dans le pipeline.
 4. Création d’un **pipeline** avec une activité **Hive HDInsight**.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+## Étapes suivantes
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour voir comment utiliser une activité de copie pour copier des données depuis un objet blob Azure vers Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Voir aussi
+<a id="see-also" class="xliff"></a>
+## Voir aussi
 | Rubrique | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |

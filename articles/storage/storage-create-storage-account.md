@@ -24,17 +24,20 @@ ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="about-azure-storage-accounts"></a>À propos des comptes de stockage Azure
+<a id="about-azure-storage-accounts" class="xliff"></a>
+# À propos des comptes de stockage Azure
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+<a id="overview" class="xliff"></a>
+## Vue d'ensemble
 Un compte de stockage Azure fournit un espace de noms unique pour stocker vos objets de données Azure Storage et y accéder. Tous les objets d’un compte de stockage sont facturés ensemble en tant que groupe. Par défaut, les données de votre compte sont uniquement accessibles par vous, le propriétaire du compte.
 
 [!INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
-## <a name="storage-account-billing"></a>Facturation du compte de stockage
+<a id="storage-account-billing" class="xliff"></a>
+## Facturation du compte de stockage
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -42,7 +45,8 @@ Un compte de stockage Azure fournit un espace de noms unique pour stocker vos ob
 > 
 > 
 
-## <a name="storage-account-endpoints"></a>Points de terminaison d'un compte de stockage
+<a id="storage-account-endpoints" class="xliff"></a>
+## Points de terminaison d'un compte de stockage
 Chaque objet que vous stockez dans Azure Storage possède une adresse URL unique. Le nom du compte de stockage constitue le sous-domaine de cette adresse. La combinaison sous-domaine/nom du domaine, qui est propre à chaque service, forme un *point de terminaison* pour votre compte de stockage.
 
 Par exemple, si le nom de votre compte de stockage est *mystorageaccount*, les points de terminaison par défaut de votre compte de stockage sont les suivants :
@@ -61,7 +65,8 @@ L’URL permettant d’accéder à un objet dans un compte de stockage est const
 
 Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec votre compte de stockage. Dans le cas de comptes de stockage classiques, consultez la page [Configurer un nom de domaine personnalisé pour un point de terminaison Blob Storage](storage-custom-domain-name.md) pour plus d’informations. Pour les comptes de stockage Resource Manager, cette fonctionnalité n’a pas encore été ajoutée au [Portail Azure](https://portal.azure.com) , mais vous pouvez la configurer avec PowerShell. Pour plus d’informations, référez-vous à l’applet de commande [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) .  
 
-## <a name="create-a-storage-account"></a>Créez un compte de stockage.
+<a id="create-a-storage-account" class="xliff"></a>
+## Créez un compte de stockage.
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu Hub, sélectionnez **Nouveau** -> **Stockage** -> **Compte de stockage**.
 3. Entrez un nom pour votre compte de stockage. Pour plus d’informations sur l’utilisation du nom de compte de stockage pour adresser les objets que vous stockez dans Azure Storage, consultez [Points de terminaison d’un compte de stockage](#storage-account-endpoints) .
@@ -89,8 +94,10 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 9. Sélectionnez l’emplacement géographique de votre compte de stockage. Pour plus d’informations sur les services disponibles dans chaque région, voir [Régions Azure](https://azure.microsoft.com/regions/#services) .
 10. Cliquez sur **Créer** pour créer le compte de stockage.
 
-## <a name="manage-your-storage-account"></a>Gérer votre compte de stockage
-### <a name="change-your-account-configuration"></a>Modifier la configuration de votre compte
+<a id="manage-your-storage-account" class="xliff"></a>
+## Gérer votre compte de stockage
+<a id="change-your-account-configuration" class="xliff"></a>
+### Modifier la configuration de votre compte
 Après avoir créé votre compte de stockage, vous pouvez modifier sa configuration, notamment modifier l’option de réplication utilisée pour le compte ou modifier le niveau d’accès pour un compte de stockage d’objets blob. Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, localisez l’option **Configuration** sous **PARAMÈTRES**, puis cliquez dessus pour afficher et/ou modifier la configuration du compte.
 
 > [!NOTE]
@@ -102,18 +109,21 @@ La modification de l’option de réplication entraîne une modification de vos 
 
 Pour les comptes de stockage d’objets blob, changer le niveau d’accès peut entraîner des frais, outre la modification des prix appliqués. Pour plus d’informations, voir [Stockage des objets blob Azure - section Tarification et facturation](storage-blob-storage-tiers.md#pricing-and-billing) .
 
-### <a name="manage-your-storage-access-keys"></a>Gérer vos clés d’accès de stockage
+<a id="manage-your-storage-access-keys" class="xliff"></a>
+### Gérer vos clés d’accès de stockage
 Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
 
 > [!NOTE]
 > Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md) .
 > 
 > 
-
-#### <a name="view-and-copy-storage-access-keys"></a>Afficher et copier les clés d’accès de stockage
+<a id="view-and-copy-storage-access-keys"/></a>
+<a id="view-and-copy-storage-access-keys" class="xliff"></a>
+#### Afficher et copier les clés d’accès de stockage
 Dans le [Portail Azure](https://portal.azure.com), accédez à votre compte de stockage, cliquez sur **Tous les paramètres**, puis cliquez sur **Clés d’accès** pour visualiser, copier et régénérer les clés d’accès de votre compte. Le panneau **Clés d’accès** inclut également des chaînes de connexion préconfigurées utilisant vos clés principales et secondaires, que vous pouvez copier pour utilisation dans vos applications.
 
-#### <a name="regenerate-storage-access-keys"></a>Régénération des clés d'accès de stockage
+<a id="regenerate-storage-access-keys" class="xliff"></a>
+#### Régénération des clés d'accès de stockage
 Nous vous recommandons de modifier périodiquement les clés d’accès à votre compte de stockage pour garantir la sécurité des connexions de stockage. Vous bénéficiez de deux clés d’accès, ce qui vous permet de conserver des connexions au compte de stockage à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé.
 
 > [!WARNING]
@@ -134,7 +144,8 @@ Voici le processus de rotation de vos clés d’accès de stockage :
 3. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d’accès principale.
 4. Régénérez la clé d’accès secondaire de la même manière.
 
-## <a name="delete-a-storage-account"></a>Suppression d'un compte de stockage
+<a id="delete-a-storage-account" class="xliff"></a>
+## Suppression d'un compte de stockage
 Pour supprimer un compte de stockage que vous n’utilisez plus, accédez au compte de stockage dans le [portail Azure](https://portal.azure.com), puis cliquez sur **Supprimer**. La suppression d’un compte de stockage supprime l’intégralité du compte, y compris toutes les données qu’il contient.
 
 > [!WARNING]
@@ -156,7 +167,8 @@ Si le compte de stockage utilise le modèle de déploiement Classic, vous pouvez
 
 Pour plus d’informations, voir la [documentation sur les machines virtuelles Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+## Étapes suivantes
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
 * [Stockage d’objets blob Azure : niveaux froid et chaud](storage-blob-storage-tiers.md)
 * [Réplication Azure Storage](storage-redundancy.md)

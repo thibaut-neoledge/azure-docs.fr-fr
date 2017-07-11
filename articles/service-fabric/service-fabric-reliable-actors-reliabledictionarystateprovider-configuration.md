@@ -22,7 +22,8 @@ ms.lasthandoff: 01/24/2017
 
 
 ---
-# <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configuration de Reliable Actors - ReliableDictionaryActorStateProvider
+<a id="configuring-reliable-actors--reliabledictionaryactorstateprovider" class="xliff"></a>
+# Configuration de Reliable Actors - ReliableDictionaryActorStateProvider
 Vous pouvez modifier la configuration par défaut de ReliableDictionaryActorStateProvider en modifiant le fichier settings.xml généré dans la racine du package Visual Studio sous le dossier Config de l’acteur spécifié.
 
 Le runtime Azure Service Fabric recherche des noms de sections prédéfinis dans le fichier settings.xml et utilise les valeurs de configuration pendant la création des composants runtime sous-jacents.
@@ -34,12 +35,14 @@ Le runtime Azure Service Fabric recherche des noms de sections prédéfinis dans
 
 Il existe également des paramètres globaux qui affectent la configuration de ReliableDictionaryActorStateProvider.
 
-## <a name="global-configuration"></a>Configuration globale
+<a id="global-configuration" class="xliff"></a>
+## Configuration globale
 La configuration globale est spécifiée dans le manifeste de cluster sous la section KtlLogger. Elle permet la configuration de l’emplacement et de la taille du journal partagé ainsi que des limites de mémoire globales utilisées par l’enregistreur d’événements. Notez que les modifications apportées au manifeste de cluster affectent l’ensemble des services qui utilisent ReliableDictionaryActorStateProvider et des services fiables avec état.
 
 Le manifeste de cluster est un fichier XML simple qui contient les paramètres et les configurations qui s’appliquent à l’ensemble des nœuds et des services du cluster. Le fichier a généralement pour nom ClusterManifest.xml. Vous pouvez voir le manifeste de cluster de votre cluster à l’aide de la commande PowerShell Get-ServiceFabricClusterManifest.
 
-### <a name="configuration-names"></a>Noms des configurations
+<a id="configuration-names" class="xliff"></a>
+### Noms des configurations
 | Nom | Unité | Valeur par défaut | Remarques |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Ko |8388608 |Nombre minimal de Ko à allouer en mode noyau pour le pool de mémoire tampon d’écriture de l’enregistreur d’événements. Ce pool de mémoire est utilisé pour la mise en cache des informations d’état avant l’écriture sur le disque. |
@@ -48,7 +51,8 @@ Le manifeste de cluster est un fichier XML simple qui contient les paramètres e
 | SharedLogPath |Nom de chemin complet |"" |Spécifie le chemin d’accès complet du fichier journal partagé utilisé par tous les services fiables sur tous les nœuds du cluster qui ne spécifient pas l’élément SharedLogPath dans leur configuration de service spécifique. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi. |
 | SharedLogSizeInMB |Mo |8 192 |Spécifie le nombre de Mo d’espace disque à allouer de manière statique pour le journal partagé. La valeur doit être supérieure ou égale à 2 048. |
 
-### <a name="sample-cluster-manifest-section"></a>Exemple de section du manifeste de cluster
+<a id="sample-cluster-manifest-section" class="xliff"></a>
+### Exemple de section du manifeste de cluster
 ```xml
    <Section Name="KtlLogger">
      <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
@@ -59,28 +63,34 @@ Le manifeste de cluster est un fichier XML simple qui contient les paramètres e
    </Section>
 ```
 
-### <a name="remarks"></a>Remarques
+<a id="remarks" class="xliff"></a>
+### Remarques
 L’enregistreur dispose d’un pool global de mémoire allouée provenant de la mémoire du noyau non paginée disponible pour tous les services fiables sur un nœud pour mettre en cache les données d’état avant l’écriture dans le journal dédié associé du réplica de service fiable. La taille du pool est contrôlée par les paramètres WriteBufferMemoryPoolMinimumInKB et WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB spécifie la taille initiale de ce pool de mémoire et la taille minimale à laquelle peut se réduire le pool de mémoire. WriteBufferMemoryPoolMaximumInKB est la taille maximale que peut atteindre le pool de mémoire. Chaque réplica de service fiable qui est ouvert peut augmenter la taille du pool de mémoire d’une quantité déterminée par le système jusqu’à WriteBufferMemoryPoolMaximumInKB. Si la demande de mémoire au pool de mémoire dépasse la quantité disponible, les requêtes de mémoire sont retardées jusqu’à ce que la mémoire soit disponible. Par conséquent, si le pool de mémoire tampon d’écriture est trop petit pour une configuration particulière, les performances peuvent être affectées.
 
 Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble pour définir le GUID et l’emplacement du journal partagé par défaut pour tous les nœuds du cluster. Le journal partagé par défaut est utilisé pour tous les services fiables qui ne spécifient pas les paramètres dans le fichier settings.xml pour le service spécifique. Pour des performances optimales, les fichiers journaux partagés doivent être placés sur des disques uniquement utilisés pour le fichier journal partagé afin de réduire la contention.
 
 SharedLogSizeInMB spécifie la quantité d’espace disque à préallouer pour le journal partagé par défaut sur tous les nœuds.  Il n’est pas nécessaire de spécifier SharedLogId et SharedLogPath pour spécifier SharedLogSizeInMB.
 
-## <a name="replicator-security-configuration"></a>Configuration de la sécurité du réplicateur
+<a id="replicator-security-configuration" class="xliff"></a>
+## Configuration de la sécurité du réplicateur
 Les configurations de sécurité du réplicateur sont utilisées pour sécuriser le canal de communication utilisé pendant la réplication. Un service ne peut donc pas afficher le trafic de réplication d’un autre service, ce qui garantit la sécurité des données rendues hautement disponibles.
 Par défaut, une section de configuration de sécurité vide empêche de sécuriser la réplication.
 
-### <a name="section-name"></a>Nom de la section
+<a id="section-name" class="xliff"></a>
+### Nom de la section
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## <a name="replicator-configuration"></a>Configuration du réplicateur
+<a id="replicator-configuration" class="xliff"></a>
+## Configuration du réplicateur
 Les configurations de réplicateur servent à configurer le réplicateur en charge de la haute fiabilité de l’état du fournisseur d’état d’acteur par la réplication et la persistance de l’état au niveau local.
 La configuration par défaut est générée par le modèle Visual Studio et devrait suffire. Cette section décrit les configurations supplémentaires disponibles pour paramétrer le réplicateur.
 
-### <a name="section-name"></a>Nom de la section
+<a id="section-name" class="xliff"></a>
+### Nom de la section
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-### <a name="configuration-names"></a>Noms des configurations
+<a id="configuration-names" class="xliff"></a>
+### Noms des configurations
 | Nom | Unité | Valeur par défaut | Remarques |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondes |0.015 |Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse. |
@@ -94,7 +104,8 @@ La configuration par défaut est générée par le modèle Visual Studio et devr
 | SharedLogId |GUID |"" |Spécifie une valeur guid unique à utiliser pour identifier le fichier journal partagé utilisé avec ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogId est spécifié, SharedLogPath doit l'être aussi. |
 | SharedLogPath |Nom de chemin complet |"" |Spécifie le chemin d'accès complet où sera créé le fichier journal partagé pour ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi. |
 
-## <a name="sample-configuration-file"></a>Exemple de fichier de configuration
+<a id="sample-configuration-file" class="xliff"></a>
+## Exemple de fichier de configuration
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -115,7 +126,8 @@ La configuration par défaut est générée par le modèle Visual Studio et devr
 </Settings>
 ```
 
-## <a name="remarks"></a>Remarques
+<a id="remarks" class="xliff"></a>
+## Remarques
 Le paramètre BatchAcknowledgementInterval contrôle la latence de la réplication. La valeur « 0 » entraîne la latence la plus faible possible, au détriment du débit (car davantage de messages d'accusé de réception doivent être envoyés et traités, chacun contenant moins d'accusés de réception).
 Plus la valeur de BatchAcknowledgementInterval est élevée, plus le débit de réplication général est élevé, au détriment d'une plus grande latence de l'opération. Cela se traduit directement par une latence dans la validation des transactions.
 
