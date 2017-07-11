@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
-ms.lasthandoff: 12/06/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: f8a6705879905d5cf419fc8c5c2322cb5536d244
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="use-desired-properties-to-configure-devices-node"></a>Utilisation des propriétés souhaitées pour configurer des appareils (Node)
+<a id="use-desired-properties-to-configure-devices-node" class="xliff"></a>
+
+# Utilisation des propriétés souhaitées pour configurer des appareils (Node)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
@@ -45,7 +48,9 @@ Si vous avez suivi le didacticiel [Prise en main des représentations d’appare
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-the-simulated-device-app"></a>Créer l’application d’appareil simulée
+<a id="create-the-simulated-device-app" class="xliff"></a>
+
+## Créer l’application d’appareil simulée
 Dans cette section, vous créez une application console Node.js qui se connecte à votre hub en tant que **myDeviceId**, attend une mise à jour de la configuration souhaitée, puis signale des mises à jour sur le processus de mise à jour de configuration simulée.
 
 1. Créez un dossier vide nommé **simulatedeviceconfiguration**. Dans le dossier **simulatedeviceconfiguration**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Acceptez toutes les valeurs par défaut :
@@ -156,7 +161,9 @@ Dans cette section, vous créez une application console Node.js qui se connecte 
    
     Vous devriez voir le message `retrieved device twin`. Gardez l’application active.
 
-## <a name="create-the-service-app"></a>Créer l’application de service
+<a id="create-the-service-app" class="xliff"></a>
+
+## Créer l’application de service
 Dans cette section, vous allez créer une application console Node.js qui met à jour les *propriétés souhaitées* sur la représentation d’appareil associée à **myDeviceId** avec un nouvel objet de configuration de télémétrie. Elle interroge ensuite les représentations d’appareil stockées dans l’IoT Hub, puis affiche la différence entre les configurations souhaitées et signalées de l’appareil.
 
 1. Créez un dossier vide nommé **setdesiredandqueryapp**. Dans le dossier **setdesiredandqueryapp**, créez un fichier package.json à l’aide de la commande ci-dessous à l’invite de commandes. Acceptez toutes les valeurs par défaut :
@@ -208,7 +215,7 @@ Dans cette section, vous allez créer une application console Node.js qui met à
     L’objet **Registry** expose toutes les méthodes requises pour interagir avec des représentations d’appareil à partir du service. Le code précédent, après avoir initialisé l’objet **Registry**, récupère la représentation d’appareil de **myDeviceId**, puis met à jour ses propriétés souhaitées avec un nouvel objet de configuration de télémétrie. Ensuite, il appelle l’événement de fonction **queryTwins** pendant 10 secondes.
 
     > [!IMPORTANT]
-    > Cette application interroge IoT Hub toutes les 10 secondes à titre d’exemple. Utilisez des requêtes pour générer des rapports côté utilisateur sur plusieurs appareils, non pour détecter des modifications. Si votre solution nécessite des notifications d’événements d’appareil en temps réel, utilisez des [messages appareil-à-cloud][lnk-d2c].
+    > Cette application interroge IoT Hub toutes les 10 secondes à titre d’exemple. Utilisez des requêtes pour générer des rapports côté utilisateur sur plusieurs appareils, non pour détecter des modifications. Si votre solution nécessite des notifications d’événements d’appareil en temps réel, utilisez des [notifications jumelles][lnk-twin-notifications].
     > 
     >.
 
@@ -246,7 +253,9 @@ Dans cette section, vous allez créer une application console Node.js qui met à
    > 
    > 
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 Dans ce didacticiel, vous avez défini une configuration souhaitée en tant que *propriétés souhaitées* à partir d’une application principale, et écrit une application pour appareil simulée afin de détecter cette modification et de simuler un processus de mise à jour en plusieurs étapes signalant son état en tant que *propriétés signalées* à la représentation d’appareil.
 
 Utilisez les ressources suivantes :
@@ -261,7 +270,7 @@ Utilisez les ressources suivantes :
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-twin-notifications]: iot-hub-devguide-device-twins.md#back-end-operations
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
@@ -269,7 +278,7 @@ Utilisez les ressources suivantes :
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 

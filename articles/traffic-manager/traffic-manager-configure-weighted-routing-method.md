@@ -14,27 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: dc2111a34fa0292a21510bbd84089979faf1cb71
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 7aa4c9120d44ff1b3e59a57090ea04e3f8021fc4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/08/2017
 
 ---
 
-# <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configurer la méthode de routage du trafic par pondération dans Traffic Manager
+<a id="configure-the-weighted-traffic-routing-method-in-traffic-manager" class="xliff"></a>
+
+# Configurer la méthode de routage du trafic par pondération dans Traffic Manager
 
 Il est courant d'utiliser un ensemble de points de terminaison identiques, comprenant des services cloud et des sites web, et de répartir le trafic en tourniquet. Les étapes suivantes décrivent comment configurer ce type de méthode de routage du trafic.
 
 > [!NOTE]
 > Azure Websites fournit déjà des fonctionnalités d’équilibrage de charge de tourniquet pour les sites web dans un centre de données (également appelé région). Traffic Manager vous permet de spécifier une méthode de routage du trafic en tourniquet (round robin) pour des sites web de différents centres de données.
 
-## <a name="to-configure-the-weighted-traffic-routing-method"></a>Pour configurer la méthode de routage du trafic par pondération
+<a id="to-configure-the-weighted-traffic-routing-method" class="xliff"></a>
+
+## Pour configurer la méthode de routage du trafic par pondération
 
 1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free/). 
 2. Dans la barre de recherche du portail, recherchez les **profils Traffic Manager** et cliquez sur le nom du profil pour lequel vous souhaitez configurer la méthode de routage.
 3. Dans le panneau **Profil Traffic Manager**, vérifiez que les services cloud et les sites web que vous souhaitez inclure dans votre configuration sont présents.
 4. Dans la section **Paramètres**, cliquez sur **Configuration** et dans le panneau **Configuration**, procédez comme suit :
-    1. Pour les **paramètres de la méthode de routage de trafic**, vérifiez que la méthode de routage du trafic est **Basculement**. Si ce n’est pas le cas, cliquez sur **Basculement** dans la liste déroulante.
+    1. Pour les **paramètres de la méthode de routage de trafic**, vérifiez que la méthode de routage du trafic est **pondérée**. Si ce n’est pas le cas, cliquez sur **Pondérée** dans la liste déroulante.
     2. Définissez l’option **Paramètres de surveillance des points de terminaison** de manière identique pour tous les points de terminaison de ce profil comme suit :
         1. Sélectionnez le **protocole** approprié et spécifiez le numéro du **port**. 
         2. Pour **Chemin d’accès**, entrez une barre oblique */*. Pour surveiller les points de terminaison, vous devez indiquer un chemin et un nom de fichier. Une barre oblique (« / ») est une entrée valide pour le chemin d’accès relatif. Elle implique que le fichier se trouve dans le répertoire racine (par défaut).
@@ -47,7 +52,9 @@ Il est courant d'utiliser un ensemble de points de terminaison identiques, compr
 
 ![Configuration de la méthode de routage du trafic par pondération à l’aide de Traffic Manager][1]
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 - En savoir plus sur la [méthode de routage du trafic prioritaire](traffic-manager-configure-priority-routing-method.md).
 - En savoir plus sur la [méthode de routage du trafic basé sur les performances](traffic-manager-configure-performance-routing-method.md).

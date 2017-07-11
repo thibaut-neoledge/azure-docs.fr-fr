@@ -12,24 +12,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
-ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 0e59d117bd9a1355b5b58c76cf9b39ec3005b122
-ms.lasthandoff: 02/02/2017
+ms.date: 05/03/2017
+ms.author: sethm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 41435316adaee5c66de503571184fce8937d38ee
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 
 ---
-# <a name="event-hubs-net-framework-api-overview"></a>Vue d’ensemble de l’API Event Hubs .NET Framework
+
+<a id="event-hubs-net-framework-api-overview" class="xliff"></a>
+
+# Vue d’ensemble de l’API Event Hubs .NET Framework
 Cet article passe en revue certaines des principales API clientes Event Hubs .NET Framework. Il en existe deux catégories : les API de gestion et les API du runtime. Les API du runtime comportent toutes les opérations nécessaires pour envoyer et recevoir un message. Les opérations de gestion vous permettent de gérer l’état d’une entité Event Hubs en créant, modifiant et supprimant des entités.
 
 Les scénarios d’analyse couvrent la gestion et l’exécution. Pour obtenir une documentation de référence détaillée sur les API .NET, consultez les informations de référence de [l’API .NET Service Bus](/dotnet/api) et de [l’API EventProcessorHost](/dotnet/api).
 
-## <a name="management-apis"></a>API de gestion
+<a id="management-apis" class="xliff"></a>
+
+## API de gestion
 Pour effectuer les opérations de gestion suivantes, vous devez avoir des autorisations de **gestion** sur l’espace de noms Event Hubs :
 
-### <a name="create"></a>Créer
+<a id="create" class="xliff"></a>
+
+### Créer
 ```csharp
 // Create the event hub
 var ehd = new EventHubDescription(eventHubName);
@@ -37,7 +45,9 @@ ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
-### <a name="update"></a>Mettre à jour
+<a id="update" class="xliff"></a>
+
+### Mettre à jour
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
@@ -49,19 +59,27 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
-### <a name="delete"></a>Supprimer
+<a id="delete" class="xliff"></a>
+
+### Supprimer
 ```csharp
 await namespaceManager.DeleteEventHubAsync("Event Hub name");
 ```
 
-## <a name="run-time-apis"></a>API de runtime
-### <a name="create-publisher"></a>Créer un éditeur
+<a id="run-time-apis" class="xliff"></a>
+
+## API de runtime
+<a id="create-publisher" class="xliff"></a>
+
+### Créer un éditeur
 ```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
 var eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
-### <a name="publish-message"></a>Publier un message
+<a id="publish-message" class="xliff"></a>
+
+### Publier un message
 ```csharp
 // Create the device/temperature metric
 var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
@@ -79,7 +97,9 @@ data.Properties.Add("Type", "Telemetry_" + DateTime.Now.ToLongTimeString());
 await client.SendAsync(data);
 ```
 
-### <a name="create-consumer"></a>Créer un consommateur
+<a id="create-consumer" class="xliff"></a>
+
+### Créer un consommateur
 ```csharp
 // Create the Event Hubs client
 var eventHubClient = EventHubClient.Create(EventHubName);
@@ -97,7 +117,9 @@ var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index
 var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index,startingOffset:-1); 
 ```
 
-### <a name="consume-message"></a>Consommer un message
+<a id="consume-message" class="xliff"></a>
+
+### Consommer un message
 ```csharp
 var message = await consumer.ReceiveAsync();
 
@@ -109,7 +131,9 @@ var info = message.GetBytes();
 msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
-## <a name="event-processor-host-apis"></a>API de l’hôte du processeur d’événements
+<a id="event-processor-host-apis" class="xliff"></a>
+
+## API de l’hôte du processeur d’événements
 Ces API offrent une résilience aux processus de travail qui peuvent devenir indisponibles, en distribuant les partitions sur les workers disponibles.
 
 ```csharp
@@ -127,7 +151,7 @@ await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await host.UnregisterEventProcessorAsync();
 ```
 
-L’interface [IEventProcessor](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) est définie comme suit :
+L’interface [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) est définie comme suit :
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -169,7 +193,9 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 Pour en savoir plus sur les scénarios des concentrateurs d’événements, consultez ces liens :
 
 * [Nouveautés des concentrateurs d'événements Azure ?](event-hubs-what-is-event-hubs.md)
@@ -178,5 +204,5 @@ Pour en savoir plus sur les scénarios des concentrateurs d’événements, cons
 Les informations de référence de l'API .NET se trouvent ici :
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-* [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+* [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)
 
