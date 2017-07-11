@@ -13,17 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/15/2017
+ms.date: 06/27/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 6d5572a2fa7a89d51ec62e3ae05bdc9939ca3a24
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 7abc3f238d08694c9f7359479cdce07bfb3d87bd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-powershell"></a>Configuration d’une connexion de point à site à un réseau virtuel à l’aide de PowerShell
+<a id="configure-a-point-to-site-connection-to-a-vnet-using-powershell" class="xliff"></a>
+
+# Configuration d’une connexion de point à site à un réseau virtuel à l’aide de PowerShell
 
 
 Cet article vous explique comment créer un réseau virtuel avec une connexion point à site dans le modèle de déploiement Resource Manager à l’aide de PowerShell. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
@@ -49,7 +51,9 @@ Les connexions P2S requièrent les éléments suivants :
 * Un package de configuration du client VPN doit être généré et installé sur chaque ordinateur client qui se connecte. Le package de configuration du client configure le client VPN natif qui se trouve déjà sur le système d’exploitation avec les informations nécessaires à la connexion au réseau virtuel.
 
 
-## <a name="before-beginning"></a>Avant tout chose
+<a id="before-beginning" class="xliff"></a>
+
+## Avant tout chose
 
 * Assurez-vous de disposer d’un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial).
 * Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
@@ -151,7 +155,9 @@ Dans cette section, vous vous connectez et déclarez les valeurs utilisées pour
 
 ## <a name="Certificates"></a>3 - Générer des certificats
 
-Les certificats sont utilisés par Azure pour authentifier les clients VPN pour les VPN point à site. Vous chargez les informations de la clé publique du certificat racine vers Azure. La clé publique est alors considérée comme « approuvée ». Les certificats clients doivent être générés à partir du certificat racine approuvé, puis installés sur chaque ordinateur client dans le magasin de certificats Utilisateur actuel/Personnel. Le certificat permet d’authentifier le client lorsqu’il établit une connexion avec le réseau virtuel. Pour plus d’informations sur la génération et l’installation de certificats, voir [Certificats pour les connexions point à site](vpn-gateway-certificates-point-to-site.md).
+Les certificats sont utilisés par Azure pour authentifier les clients VPN pour les VPN point à site. Vous chargez les informations de la clé publique du certificat racine vers Azure. La clé publique est alors considérée comme « approuvée ». Les certificats clients doivent être générés à partir du certificat racine approuvé, puis installés sur chaque ordinateur client dans le magasin de certificats Utilisateur actuel/Personnel. Le certificat permet d’authentifier le client lorsqu’il établit une connexion avec le réseau virtuel. 
+
+Si vous utilisez des certificats auto-signés, ceux-ci doivent être créés à l’aide de paramètres spécifiques. Vous pouvez créer un certificat auto-signé en suivant les instructions pour [PowerShell et Windows 10](vpn-gateway-certificates-point-to-site.md). Si vous n’avez pas Windows 10, vous pouvez utiliser [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). Il est important de suivre les étapes décrites dans les instructions lorsque vous générez des certificats racines auto-signés et des certificats clients. Dans le cas contraire, les certificats que vous générez ne seront pas compatibles avec les connexions P2S, ce qui entraînera une erreur de connexion.
 
 ### <a name="cer"></a>Étape 1 : Obtenir le fichier .cer pour le certificat racine
 
@@ -258,7 +264,9 @@ Si vous avez des problèmes pour vous connecter, effectuez les vérifications su
 
 Vous pouvez ajouter et supprimer des certificats racines approuvés à partir d'Azure. Lorsque vous supprimez un certificat racine, les clients qui possèdent un certificat généré à partir de cette racine ne seront plus en mesure de s’authentifier, et donc de se connecter. Si vous souhaitez que des clients s’authentifient et se connectent, vous devez installer un nouveau certificat client généré à partir d’un certificat racine approuvé (téléchargé) dans Azure.
 
-### <a name="to-add-a-trusted-root-certificate"></a>Ajout d’un certificat racine approuvé
+<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
+
+### Ajout d’un certificat racine approuvé
 
 Vous pouvez ajouter jusqu’à 20 fichiers .cer de certificat racine dans Azure. La procédure ci-après vous permet d’ajouter un certificat racine :
 
@@ -289,7 +297,9 @@ Vous pouvez ajouter jusqu’à 20 fichiers .cer de certificat racine dans Azure.
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
-### <a name="to-remove-a-root-certificate"></a>Suppression d’un certificat racine
+<a id="to-remove-a-root-certificate" class="xliff"></a>
+
+### Suppression d’un certificat racine
 
 1. Déclarez les variables.
 
@@ -315,9 +325,11 @@ Vous pouvez ajouter jusqu’à 20 fichiers .cer de certificat racine dans Azure.
 
 Vous pouvez révoquer des certificats clients. La liste de révocation de certificat vous permet de refuser sélectivement la connexion point à site en fonction des certificats clients individuels. Cela est différent de la suppression d’un certificat racine approuvé. Si vous supprimez un fichier .cer de certificat racine approuvé d’Azure, vous révoquez l’accès pour tous les certificats clients générés/signés par le certificat racine révoqué. Le fait de révoquer un certificat client plutôt que le certificat racine permet de continuer à utiliser les autres certificats générés à partir du certificat racine pour l’authentification.
 
-La pratique courante consiste à utiliser le certificat racine pour gérer l'accès au niveaux de l'équipe ou de l'organisation, tout en utilisant des certificats clients révoqués pour le contrôle d'accès précis des utilisateurs individuels.
+La pratique courante consiste à utiliser le certificat racine pour gérer l'accès aux niveaux de l'équipe ou de l'organisation, tout en utilisant des certificats clients révoqués pour le contrôle d'accès précis des utilisateurs individuels.
 
-### <a name="to-revoke-a-client-certificate"></a>Pour révoquer un certificat client
+<a id="to-revoke-a-client-certificate" class="xliff"></a>
+
+### Pour révoquer un certificat client
 
 1. Récupérez l’empreinte du certificat client. Pour plus d’informations, consultez l’article [Comment : récupérer l’empreinte numérique d’un certificat](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copiez les informations dans un éditeur de texte et supprimez tous les espaces afin d’obtenir une chaîne continue. Cette dernière est déclarée sous la forme d’une variable à l’étape suivante.
@@ -343,7 +355,9 @@ La pratique courante consiste à utiliser le certificat racine pour gérer l'acc
   ```
 6. Après avoir ajouté l’empreinte numérique, le certificat ne peut plus être utilisé pour se connecter. Les clients qui tentent de se connecter à l’aide de ce certificat reçoivent un message indiquant que le certificat n’est plus valide.
 
-### <a name="to-reinstate-a-client-certificate"></a>Pour réactiver un certificat client
+<a id="to-reinstate-a-client-certificate" class="xliff"></a>
+
+### Pour réactiver un certificat client
 
 Vous pouvez réactiver un certificat client en supprimant l'empreinte numérique de la liste des certificats clients révoqués.
 
@@ -371,5 +385,8 @@ Vous pouvez réactiver un certificat client en supprimant l'empreinte numérique
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Pour plus d’informations sur la mise en réseau et les machines virtuelles, consultez [Vue d’ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+

@@ -13,17 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/15/2017
+ms.date: 06/27/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 20c0db9c5f3f3586ac2df8657a7b2eb2114ed6b8
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 4045dd501ba70b04cb8ea06901c76072fc009018
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal"></a>Configuration d’une connexion point à site à un réseau virtuel à l’aide du portail Azure
+<a id="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal" class="xliff"></a>
+
+# Configuration d’une connexion point à site à un réseau virtuel à l’aide du portail Azure
 
 Cet article vous explique comment créer un réseau virtuel avec une connexion point à site dans le modèle de déploiement Resource Manager à l’aide du portail Azure. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
@@ -85,7 +87,9 @@ Avant de connecter votre réseau virtuel à une passerelle, vous devez créer le
 
 Les captures d’écran de cette section fournissent un exemple de référence. Veillez à utiliser la plage d’adresses GatewaySubnet correspondant aux valeurs requises pour votre configuration.
 
-### <a name="to-create-a-gateway-subnet"></a>Pour créer un sous-réseau de passerelle
+<a id="to-create-a-gateway-subnet" class="xliff"></a>
+
+### Pour créer un sous-réseau de passerelle
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
@@ -102,21 +106,25 @@ Les connexions point à site nécessitent les paramètres suivants :
 * Type de passerelle : VPN
 * Type de VPN : Route-based
 
-### <a name="to-create-a-virtual-network-gateway"></a>Pour créer une passerelle de réseau virtuel
+<a id="to-create-a-virtual-network-gateway" class="xliff"></a>
 
-[!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+### Pour créer une passerelle de réseau virtuel
+
+[!INCLUDE [create a vnet gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 ## <a name="generatecert"></a>6 - Générer des certificats
 
-Les certificats sont utilisés par Azure pour authentifier les clients VPN pour les VPN point à site. Vous chargez les informations de la clé publique du certificat racine vers Azure. La clé publique est alors considérée comme « approuvée ». Les certificats clients doivent être générés à partir du certificat racine approuvé, puis installés sur chaque ordinateur client dans le magasin de certificats Utilisateur actuel/Personnel. Le certificat permet d’authentifier le client lorsqu’il établit une connexion avec le réseau virtuel. Pour plus d’informations sur la génération et l’installation de certificats, voir [Certificats pour les connexions point à site](vpn-gateway-certificates-point-to-site.md).
+Les certificats sont utilisés par Azure pour authentifier les clients VPN pour les VPN point à site. Vous chargez les informations de la clé publique du certificat racine vers Azure. La clé publique est alors considérée comme « approuvée ». Les certificats clients doivent être générés à partir du certificat racine approuvé, puis installés sur chaque ordinateur client dans le magasin de certificats Utilisateur actuel/Personnel. Le certificat permet d’authentifier le client lorsqu’il établit une connexion avec le réseau virtuel. 
+
+Si vous utilisez des certificats auto-signés, ceux-ci doivent être créés à l’aide de paramètres spécifiques. Vous pouvez créer un certificat auto-signé en suivant les instructions pour [PowerShell et Windows 10](vpn-gateway-certificates-point-to-site.md) ou [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). Il est important de suivre les étapes décrites dans ces instructions lorsque vous utilisez des certificats racines auto-signés et que vous générez des certificats clients à partir du certificat racine auto-signé. Dans le cas contraire, les certificats que vous créez ne seront pas compatibles avec les connexions P2S, ce qui entraînera une erreur de connexion.
 
 ### <a name="getcer"></a>Étape 1 : Obtenir le fichier .cer pour le certificat racine
 
-[!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
+[!INCLUDE [obtain root certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
 ### <a name="generateclientcert"></a>Étape 2 : Générer un certificat client
 
-[!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
+[!INCLUDE [generate client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
 ## <a name="addresspool"></a>7 - Ajouter le pool d’adresses des clients
 
@@ -148,16 +156,20 @@ Pour se connecter à un réseau virtuel à l’aide d’un VPN de point à site,
 
 Vous pouvez utiliser le même package de configuration du client VPN sur chaque ordinateur client, tant que la version correspond à l’architecture du client. Pour obtenir la liste des systèmes d’exploitation clients pris en charge, consultez la section [Forum Aux Questions sur les connexions point à site](#faq) à la fin de cet article.
 
-### <a name="step-1---download-the-client-configuration-package"></a>Étape 1 : téléchargement du package de configuration du client
+<a id="step-1---download-the-client-configuration-package" class="xliff"></a>
 
-1. Dans la panneau **Configuration de point à site**, cliquez sur **Télécharger le client VPN** pour ouvrir le panneau **Télécharger le client VPN**. La création du package prend une ou deux minutes.
+### Étape 1 : téléchargement du package de configuration du client
+
+1. Dans le panneau **Configuration de point à site**, cliquez sur **Télécharger le client VPN** pour ouvrir le panneau **Télécharger le client VPN**. La création du package prend une ou deux minutes.
 
   ![Téléchargement du client VPN 1](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadvpnclient1.png)
 2. Sélectionnez le package approprié pour votre client, puis cliquez sur **Télécharger**. Enregistrez le fichier de package de configuration. Vous installez le package de configuration du client VPN sur chaque ordinateur client qui se connecte au réseau virtuel.
 
   ![Téléchargement du client VPN 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-### <a name="step-2---install-the-client-configuration-package"></a>Étape 2 : installation du package de configuration du client
+<a id="step-2---install-the-client-configuration-package" class="xliff"></a>
+
+### Étape 2 : installation du package de configuration du client
 
 1. Copiez le fichier de configuration localement sur l’ordinateur que vous souhaitez connecter à votre réseau virtuel. 
 2. Double-cliquez sur le fichier .exe pour installer le package sur l’ordinateur client. Étant donné que vous avez créé le package de configuration, ce dernier n’est pas signé, et vous pouvez donc voir apparaître un avertissement. Si une fenêtre contextuelle Windows SmartScreen s’affiche, cliquez sur **Plus d’infos** (à gauche), puis sur **Exécuter quand même** pour installer le package.
@@ -213,11 +225,15 @@ Si vous avez des difficultés à vous connecter à une machine virtuelle sur P2S
 
 Vous pouvez ajouter et supprimer des certificats racines approuvés à partir d'Azure. Lorsque vous supprimez un certificat racine, les clients qui possèdent un certificat généré à partir de cette racine ne seront plus en mesure de s’authentifier, et donc de se connecter. Si vous souhaitez que des clients s’authentifient et se connectent, vous devez installer un nouveau certificat client généré à partir d’un certificat racine approuvé (téléchargé) dans Azure.
 
-### <a name="to-add-a-trusted-root-certificate"></a>Ajout d’un certificat racine approuvé
+<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
+
+### Ajout d’un certificat racine approuvé
 
 Vous pouvez ajouter jusqu’à 20 fichiers .cer de certificat racine approuvés dans Azure. Pour obtenir des instructions, consultez la section [Télécharger un certificat racine approuvé](#uploadfile) dans cet article.
 
-### <a name="to-remove-a-trusted-root-certificate"></a>Suppression d’un certificat racine approuvé
+<a id="to-remove-a-trusted-root-certificate" class="xliff"></a>
+
+### Suppression d’un certificat racine approuvé
 
 1. Pour supprimer un certificat racine approuvé, accédez au panneau **Configuration Point à site** de votre passerelle de réseau virtuel.
 2. Dans la section **Certificat racine** du panneau, recherchez le certificat que vous souhaitez supprimer.
@@ -229,7 +245,9 @@ Vous pouvez révoquer des certificats clients. La liste de révocation de certif
 
 La pratique courante consiste à utiliser le certificat racine pour gérer l'accès au niveaux de l'équipe ou de l'organisation, tout en utilisant des certificats clients révoqués pour le contrôle d'accès précis des utilisateurs individuels.
 
-### <a name="to-revoke-a-client-certificate"></a>Révocation d'un certificat client
+<a id="to-revoke-a-client-certificate" class="xliff"></a>
+
+### Révocation d'un certificat client
 
 Vous pouvez révoquer un certificat client en ajoutant son empreinte à la liste de révocation.
 
@@ -245,5 +263,8 @@ Vous pouvez révoquer un certificat client en ajoutant son empreinte à la liste
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Pour plus d’informations sur la mise en réseau et les machines virtuelles, consultez [Vue d’ensemble du réseau de machines virtuelles Azure et Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+

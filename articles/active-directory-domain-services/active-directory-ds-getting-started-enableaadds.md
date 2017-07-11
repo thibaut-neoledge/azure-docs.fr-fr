@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services : activation | Microsoft Docs"
-description: Prise en main des services de domaine Azure Active Directory
+description: "Activer Azure Active Directory Domain Services à l’aide du portail Azure Classic"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,20 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e5f1fe51d8931985fa55b2d8c0a3fd25bb93f20f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="enable-azure-active-directory-domain-services"></a>Activation d’Azure Active Directory Domain Services
-## <a name="task-3-enable-azure-active-directory-domain-services"></a>Tâche 3 : Activer Azure Active Directory Domain Services
-Pour activer Azure Active Directory Domain Services (Azure AD DS) afin de gérer votre annuaire, procédez comme suit :
+<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
 
-1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com).
+# Activer Azure Active Directory Domain Services à l’aide du portail Azure Classic
+
+<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
+
+## Tâche 3 : Activer Azure Active Directory Domain Services
+Pour activer Azure Active Directory Domain Services (Azure AD DS) afin de gérer votre répertoire, procédez comme suit :
+
+1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com).
 2. Dans le volet de gauche, cliquez sur le bouton **Active Directory**.
 3. Sélectionnez le locataire Azure AD (annuaire) pour lequel vous souhaitez activer Azure AD DS.
 
@@ -70,20 +76,20 @@ Pour activer Azure Active Directory Domain Services (Azure AD DS) afin de gér
    * Utilisez un sous-réseau dédié au sein du réseau virtuel pour Azure AD DS. Veillez à ne *pas* sélectionner le sous-réseau de passerelle. Consultez [Mise en réseau - Éléments à prendre en compte](active-directory-ds-networking.md).
 
    * De même, les réseaux virtuels créés à l’aide du logiciel Azure Resource Manager ne sont pas affichés dans la liste déroulante. Les réseaux virtuels basés sur Resource Manager ne sont pas pris en charge par Azure AD DS pour le moment.
-9. Pour activer Azure AD DS, cliquez sur **Enregistrer** dans le volet des tâches, en bas de la page. 
+9. Pour activer Azure AD DS, cliquez sur **Enregistrer** dans le volet des tâches, en bas de la page.
     * La page affiche l’état *En attente* pendant l’activation de cette fonctionnalité pour votre annuaire.
 
         ![Fenêtre Activer les services de domaine](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
         > [!NOTE]
-        > Azure AD DS offre une haute disponibilité pour votre domaine managé. Une fois Azure AD DS activé, les adresses IP auxquelles les services de domaine sont disponibles sur le réseau virtuel s’affichent l’une après l’autre. La deuxième adresse IP s’affiche rapidement après la première, dès que le service active la haute disponibilité pour votre domaine. Une fois que la haute disponibilité est configurée et active pour votre domaine, deux adresses IP apparaissent normalement dans la section **services de domaine** de l’onglet **Configurer**.
+        > Azure AD DS offre une haute disponibilité pour votre domaine managé. Une fois Azure Active Directory Domain Services activé, les adresses IP auxquelles les services de domaine sont disponibles sur le réseau virtuel s’affichent l’une après l’autre. La deuxième adresse IP s’affiche rapidement après la première, dès que le service active la haute disponibilité pour votre domaine. Une fois que la haute disponibilité est configurée et active pour votre domaine, deux adresses IP apparaissent normalement dans la section **services de domaine** de l’onglet **Configurer**.
         >
         >
     * Après 20 à 30 minutes, la première adresse IP à laquelle les services de domaine sont disponibles sur votre réseau virtuel apparaît dans le champ **Adresse IP** de la page **Configurer**.
 
         ![Fenêtre Azure AD DS affichant la première adresse IP configurée](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
-    * Une fois que la haute disponibilité est opérationnelle pour votre domaine, deux adresses IP apparaissent sur la page. Votre domaine géré est disponible sur votre réseau virtuel sélectionné à ces deux adresses IP. 
-    
+    * Une fois que la haute disponibilité est opérationnelle pour votre domaine, deux adresses IP apparaissent sur la page. Votre domaine géré est disponible sur votre réseau virtuel sélectionné à ces deux adresses IP.
+
 10. Notez ces adresses IP afin de pouvoir mettre à jour les paramètres DNS pour votre réseau virtuel. Cette étape permet aux machines virtuelles du réseau virtuel de se connecter au domaine en vue de procéder à diverses opérations, telles que la jonction de domaine.
 
     ![Fenêtre Azure AD DS affichant les deux adresses IP configurées](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
@@ -93,6 +99,8 @@ Pour activer Azure Active Directory Domain Services (Azure AD DS) afin de gér
 >
 >
 
-## <a name="next-steps"></a>Étapes suivantes
-Tâche 4 : [Mettre à jour les paramètres DNS pour le réseau virtuel Azure](active-directory-ds-getting-started-dns.md)
+<a id="next-step" class="xliff"></a>
+
+## Étape suivante
+[Tâche 4 : Mettre à jour les paramètres DNS pour le réseau virtuel Azure](active-directory-ds-getting-started-update-dns.md)
 

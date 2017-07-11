@@ -16,23 +16,27 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: rasquill
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 20619fd21f376afee95facb688e35534f5979b90
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: dc3ae52b1ec6717c7e19a160e3e7ea5d211f1f5f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 06/28/2017
 
 
 
 ---
 
-# <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Utiliser Draft avec Azure Container Service et Azure Container Registry pour générer et déployer une application dans Kubernetes
+<a id="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes" class="xliff"></a>
+
+# Utiliser Draft avec Azure Container Service et Azure Container Registry pour générer et déployer une application dans Kubernetes
 
 [Draft](https://aka.ms/draft) est un nouvel outil open source qui facilite le développement d’applications basées sur des conteneurs et leur déploiement dans des clusters Kubernetes sans nécessiter une connaissance approfondie de Docker et Kubernetes, ni même l’installation de ces outils. L’utilisation d’outils tels que Draft vous permet, à vous et votre équipe, de vous concentrer sur la génération de l’application avec Kubernetes sans avoir à accorder autant d’attention à l’infrastructure.
 
 Vous pouvez utiliser Draft avec n’importe quel registre d’images Docker et n’importe quel cluster Kubernetes, y compris au niveau local. Ce didacticiel vous indique comment utiliser Azure Container Service (ACS) avec Kubernetes, Azure Container Registry (ACR) et Azure DNS pour créer un pipeline développeur CI/CD en direct à l’aide de Draft.
 
 
-## <a name="create-an-azure-container-registry"></a>Création d’un Azure Container Registry
+<a id="create-an-azure-container-registry" class="xliff"></a>
+
+## Création d’un Azure Container Registry
 Vous pouvez facilement [créer un service Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md), mais les étapes requises sont les suivantes :
 
 1. Créez un groupe de ressources Azure pour gérer votre registre ACR et le cluster Kubernetes dans ACS.
@@ -46,7 +50,9 @@ Vous pouvez facilement [créer un service Azure Container Registry](../container
       ```
 
 
-## <a name="create-an-azure-container-service-with-kubernetes"></a>Créer un service Azure Container Service avec Kubernetes
+<a id="create-an-azure-container-service-with-kubernetes" class="xliff"></a>
+
+## Créer un service Azure Container Service avec Kubernetes
 
 Vous voici prêt à utiliser [az acs create](/cli/azure/acs#create) pour créer un cluster ACS à l’aide de Kubernetes en tant que valeur `--orchestrator-type`.
 ```azurecli
@@ -104,15 +110,17 @@ waiting for AAD role to propagate.done
 
 À présent que vous disposez d’un cluster, vous pouvez importer les informations d’identification à l’aide de la commande [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). Vous possédez maintenant un fichier de configuration local pour votre cluster, ce fichier étant requis pour l’exécution des opérations Helm et Draft.
 
-## <a name="install-and-configure-draft"></a>Installer et configurer Draft
+<a id="install-and-configure-draft" class="xliff"></a>
+
+## Installer et configurer Draft
 Les instructions d’installation de Draft figurent dans le [référentiel Draft](https://github.com/Azure/draft/blob/master/docs/install.md). Ces instructions sont relativement simples, mais nécessitent certaines tâches de configuration, car la procédure dépend de [Helm](https://aka.ms/helm) pour la création et le déploiement d’un graphique Helm dans le cluster Kubernetes.
 
 1. [Téléchargez et installez Helm](https://aka.ms/helm#install).
 2. Utilisez Helm pour rechercher et installer `stable/traefik`, ainsi que le contrôleur d’entrée pour autoriser les demandes entrantes pour vos builds.
     ```bash
     $ helm search traefik
-    NAME              VERSION    DESCRIPTION
-    stable/traefik    1.2.1-a    A Traefik based Kubernetes ingress controller w...
+    NAME            VERSION DESCRIPTION
+    stable/traefik  1.3.0   A Traefik based Kubernetes ingress controller w...
 
     $ helm install stable/traefik --name ingress
     ```
@@ -127,7 +135,9 @@ Les instructions d’installation de Draft figurent dans le [référentiel Draft
 
     Dans ce cas précis, l’adresse IP externe du domaine de déploiement est `13.64.108.240`. Maintenant, vous pouvez mapper votre domaine sur cette adresse IP.
 
-## <a name="wire-up-deployment-domain"></a>Lier le domaine de déploiement
+<a id="wire-up-deployment-domain" class="xliff"></a>
+
+## Lier le domaine de déploiement
 
 Draft crée une version pour chaque graphique Helm qu’il génère, autrement dit pour chaque application sur laquelle vous travaillez. Chacune d’elles obtient un nom généré qui est utilisé par Draft en tant que _sous-domaine_ au-dessus du _domaine de déploiement_ racine que vous contrôlez. (Dans cet exemple, nous utilisons `squillace.io` comme domaine de déploiement.) Pour autoriser ce comportement de sous-domaine, vous devez créer un enregistrement A pour `'*'` dans vos entrées DNS pour votre domaine de déploiement, afin que chaque sous-domaine généré soit routé vers le contrôleur d’entrée du cluster Kubernetes.
 
@@ -194,29 +204,40 @@ Le résultat ressemble à ceci :
     ```
 
 5. Configurez Draft pour l’utilisation de votre registre et la création de sous-domaines pour chaque graphique Helm qu’il génère. Pour configurer Draft, vous devez disposer des éléments suivants :
-  - Nom de votre service Azure Container Registry (dans cet exemple, `draftacs`)
-  - Votre clé de Registre, ou mot de passe, à partir de `az acr credential show -n $acrname --output tsv --query "passwords[0].value"`
-  - Domaine de déploiement racine que vous avez mappé sur l’adresse IP externe d’entrée de Kubernetes (ici, `13.64.108.240`)
+  - Nom de votre service Azure Container Registry (dans cet exemple, `draft`)
+  - Votre clé de Registre, ou mot de passe, à partir de `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`
+  - Domaine de déploiement racine que vous avez mappé sur l’adresse IP externe d’entrée de Kubernetes (ici, `squillace.io`)
 
-  Vous pouvez utiliser ces valeurs pour créer la valeur à codage base 64 de la chaîne JSON de configuration, `{"username":"<user>","password":"<secret>","email":"email@example.com"}`. Voici l’une des manières de coder la valeur (vous devez remplacer les valeurs de cet exemple par vos propres valeurs).
-      ```bash
-      acrname="draftacs"
-      password=$(az acr credential show -n $acrname --output tsv --query "passwords[0].value")
-      authtoken=$(echo \{\"username\":\"$acrname\",\"password\":\"$password\",\"email\":\"rasquill@microsoft.com\"\} | base64)
-      ```
+  Appelez `draft init`. Le processus de configuration vous invite à saisir les valeurs ci-dessus. La première fois que vous l’exécutez, le processus se présente comme suit.
+    ```
+    draft init
+    Creating pack ruby...
+    Creating pack node...
+    Creating pack gradle...
+    Creating pack maven...
+    Creating pack php...
+    Creating pack python...
+    Creating pack dotnetcore...
+    Creating pack golang...
+    $DRAFT_HOME has been configured at /Users/ralphsquillace/.draft.
 
-  Vous pouvez vérifier l’exactitude de la chaîne JSON en tapant `echo $authtoken | base64 -D` pour afficher le résultat non codé.
-  À présent, initialisez Draft avec cette commande et cet argument de configuration pour l’option `-set` :
-      ```bash
-      draft init --set registry.url=$acrname.azurecr.io,registry.org=$acrname,registry.authtoken=$authtoken,basedomain=squillace.io
-      ```
-      > [!NOTE]
-      > Il est facile d’oublier que la valeur `basedomain` est le domaine de déploiement de base que vous contrôlez et que vous avez configuré comme devant pointer vers l’adresse IP externe d’entrée.
+    In order to install Draft, we need a bit more information...
+
+    1. Enter your Docker registry URL (e.g. docker.io, quay.io, myregistry.azurecr.io): draft.azurecr.io
+    2. Enter your username: draft
+    3. Enter your password:
+    4. Enter your org where Draft will push images [draft]: draft
+    5. Enter your top-level domain for ingress (e.g. draft.example.com): squillace.io
+    Draft has been installed into your Kubernetes Cluster.
+    Happy Sailing!
+    ```
 
 Vous voici prêt à déployer une application.
 
 
-## <a name="build-and-deploy-an-application"></a>Générer et déployer une application
+<a id="build-and-deploy-an-application" class="xliff"></a>
+
+## Générer et déployer une application
 
 Le référentiel Draft comporte [six exemples d’applications simples](https://github.com/Azure/draft/tree/master/examples). Clonez le référentiel, puis utilisons [l’exemple Python](https://github.com/Azure/draft/tree/master/examples/python). Accédez au répertoire examples/Python, puis tapez `draft create` pour générer l’application. La sortie doit ressembler à l’exemple qui suit.
 ```bash
@@ -254,7 +275,9 @@ Watching local files for changes...
 
 Quel que soit le nom de votre graphique, vous pouvez désormais utiliser la commande `curl http://gangly-bronco.squillace.io` pour recevoir la réponse, `Hello World!`.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 Maintenant que vous disposez d’un cluster Kubernetes ACS, vous pouvez utiliser [Azure Container Registry](../container-registry/container-registry-intro.md) pour découvrir comment créer d’autres déploiements distincts de ce scénario. Par exemple, vous pouvez créer un jeu d’enregistrements DNS de domaine draft._basedomain.toplevel_ qui contrôle les éléments d’un sous-domaine plus profond pour des déploiements ACS spécifiques.
 

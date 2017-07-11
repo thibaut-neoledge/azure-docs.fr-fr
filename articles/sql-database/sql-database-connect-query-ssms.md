@@ -18,18 +18,22 @@ ms.topic: hero-article
 ms.date: 05/26/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 05cbc0c80a4e622f537772c698e2711a7a85c00d
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 29883e37f1f506f33f44cf02dbf08221274e109d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database : utilisez SQL Server Management Studio pour vous connecter et exécuter des requêtes
+<a id="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data" class="xliff"></a>
+
+# Azure SQL Database : utilisez SQL Server Management Studio pour vous connecter et exécuter des requêtes
 
 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) est un environnement intégré pour la gestion des infrastructures SQL, allant de SQL Server à SQL Database pour Microsoft Windows. Ce guide de démarrage rapide indique comment utiliser SSMS pour se connecter à une base de données SQL Azure, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données. 
 
-## <a name="prerequisites"></a>Composants requis
+<a id="prerequisites" class="xliff"></a>
+
+## Composants requis
 
 Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
 
@@ -39,7 +43,9 @@ Ce guide de démarrage rapide utilise comme point de départ les ressources cré
 
 Avant de commencer, assurez-vous que vous avez installé la toute dernière version de [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-## <a name="get-connection-information"></a>Obtenir des informations de connexion
+<a id="get-connection-information" class="xliff"></a>
+
+## Obtenir des informations de connexion
 
 Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
 
@@ -51,7 +57,9 @@ Obtenez les informations de connexion requises pour la connexion à la base de d
 
 4. Si vous avez oublié vos informations de connexion à votre serveur Azure SQL Database, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe. 
 
-## <a name="connect-to-your-database"></a>Connectez-vous à votre base de données
+<a id="connect-to-your-database" class="xliff"></a>
+
+## Connectez-vous à votre base de données
 
 Utilisez SQL Server Management Studio pour établir une connexion à votre serveur de base de données SQL Azure. 
 
@@ -83,7 +91,9 @@ Utilisez SQL Server Management Studio pour établir une connexion à votre serve
 
 5. Dans l’Explorateur d’objets, développez **Bases de données**, puis **mySampleDatabase** pour afficher les objets dans la base de données exemple.
 
-## <a name="query-data"></a>Données de requête
+<a id="query-data" class="xliff"></a>
+
+## Données de requête
 
 Utilisez le code suivant pour rechercher les 20 premiers produits par catégorie à l’aide de l’instruction Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
@@ -101,7 +111,9 @@ Utilisez le code suivant pour rechercher les 20 premiers produits par catégorie
 
     ![query](./media/sql-database-connect-query-ssms/query.png)
 
-## <a name="insert-data"></a>Insertion des données
+<a id="insert-data" class="xliff"></a>
+
+## Insertion des données
 
 Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.Product à l’aide de l’instruction Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx).
 
@@ -131,7 +143,9 @@ Utilisez le code suivant pour insérer un nouveau produit dans la table SalesLT.
 
     <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
-## <a name="update-data"></a>Mettre à jour des données
+<a id="update-data" class="xliff"></a>
+
+## Mettre à jour des données
 
 Utilisez le code suivant pour mettre à jour le nouveau produit que vous avez ajouté précédemment à l’aide de l’instruction Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx).
 
@@ -147,7 +161,9 @@ Utilisez le code suivant pour mettre à jour le nouveau produit que vous avez aj
 
     <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
-## <a name="delete-data"></a>Suppression de données
+<a id="delete-data" class="xliff"></a>
+
+## Suppression de données
 
 Utilisez le code suivant pour supprimer le nouveau produit que vous avez ajouté précédemment à l’aide de l’instruction Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx).
 
@@ -162,8 +178,11 @@ Utilisez le code suivant pour supprimer le nouveau produit que vous avez ajouté
 
     <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 
+## Étapes suivantes
+
+- Pour en savoir plus sur la création et la gestion des serveurs et des bases de données avec Transact-SQL, consultez [Learn about Azure SQL Database servers and databases](sql-database-servers-databases.md) (En savoir plus sur les serveurs et bases de données Azure SQL Database).
 - Pour plus d’informations sur SSMS, consultez [Utiliser SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Pour vous connecter et exécuter des requêtes à l’aide de Visual Studio Code, consultez l’article décrivant comment [se connecter et effectuer des requêtes avec Visual Studio Code](sql-database-connect-query-vscode.md).
 - Pour vous connecter et exécuter des requêtes avec .NET, consultez la page [Se connecter et effectuer des requêtes avec .NET](sql-database-connect-query-dotnet.md).
