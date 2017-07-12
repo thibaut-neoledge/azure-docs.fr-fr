@@ -11,32 +11,40 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: e172f55d45bccfd126928225eb9f78da61a670d3
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="an-application-proxy-application-takes-too-long-to-load"></a>Le chargement d’une application Proxy d’application prend trop de temps
+<a id="an-application-proxy-application-takes-too-long-to-load" class="xliff"></a>
+
+# Le chargement d’une application Proxy d’application prend trop de temps
 
 Cet article vous aide à comprendre pourquoi le chargement d’une application Proxy d’application peut prendre beaucoup de temps. Plusieurs solutions sont abordées pour résoudre ce problème.
 
-## <a name="overview"></a>Vue d'ensemble
+<a id="overview" class="xliff"></a>
+
+## Vue d'ensemble
 Si vos applications fonctionnent mais que vous constatez un temps de latence important, vous pouvez tenter d’apporter quelques ajustements mineurs à votre topologie de réseau pour améliorer la vitesse. Pour une évaluation des différentes topologies, consultez le [document des considérations sur la topologie du réseau](https://docs.microsoft.com/azure/active-directory/application-proxy-network-topology-considerations).
 
 Si ces considérations ne vous aident pas à résoudre le problème, nous n’avons malheureusement pas d’autres recommandations relatives au réglage des performances. À mesure que le service Proxy d’application s’étend à des centres de données qui peuvent être plus proches de vous, il est possible que vous constatiez directement une amélioration de la latence. Pour afficher la liste complète des centres de données Azure, consultez la [page de test de la latence](http://www.azurespeed.com/Azure/Latency). 
 
 Pour trouver les centres de données avec le service Proxy d’application, utilisez l’outil [Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
-## <a name="feedback-on-application-proxy-data-center-locations"></a>Commentaires sur les emplacements des centres de données du Proxy d’application 
+<a id="feedback-on-application-proxy-data-center-locations" class="xliff"></a>
+
+## Commentaires sur les emplacements des centres de données du Proxy d’application 
 Même si certains centres de données Azure n’incluent pas encore le Proxy d’application, ils peuvent néanmoins améliorer considérablement vos temps de latence. Envoyez vos commentaires sur l’emplacement du centre de données à <aadapfeedback@microsoft.com> pour que nous puissions en tenir compte dans nos futurs développements.
 
 Nous travaillons sur des fonctionnalités supplémentaires visant à améliorer la latence pour les locataires qui constatent actuellement des temps de latence longs. Nous ne manquerons pas de partager avec vous la documentation dès qu’elle sera disponible.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Travailler avec des serveurs proxy locaux existants](application-proxy-working-with-proxy-servers.md)
 

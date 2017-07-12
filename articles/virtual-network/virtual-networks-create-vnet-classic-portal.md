@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d365f7137527d60eb509b4f431295de2218ea706
 ms.openlocfilehash: 5ff91cccb711d61ed120e4a4e820d6a5dfc5e4a6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/31/2017
 
 
 ---
 
-# <a name="create-a-virtual-network-classic-with-a-netcfg-file-using-the-azure-classic-portal"></a>Créer un réseau virtuel (classique) avec un fichier de configuration réseau dans le portail Azure Classic
+<a id="create-a-virtual-network-classic-with-a-netcfg-file-using-the-azure-classic-portal" class="xliff"></a>
+
+# Créer un réseau virtuel (classique) avec un fichier de configuration réseau dans le portail Azure Classic
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -33,7 +37,9 @@ Cet article explique comment créer un réseau virtuel avec un fichier de config
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-## <a name="how-to-create-a-vnet-with-a-network-config-file-in-the-microsoft-azure-classic-portal"></a>Comment créer un réseau virtuel avec un fichier de configuration réseau dans le portail Microsoft Azure Classic
+<a id="how-to-create-a-vnet-with-a-network-config-file-in-the-microsoft-azure-classic-portal" class="xliff"></a>
+
+## Comment créer un réseau virtuel avec un fichier de configuration réseau dans le portail Microsoft Azure Classic
 Azure utilise un fichier xml pour définir tous les réseaux virtuels disponibles pour un abonnement. Vous pouvez télécharger ce fichier et le modifier pour créer des réseaux virtuels via le modèle de déploiement classique, ou pour modifier ou supprimer des réseaux virtuels existants. Cet article explique comment télécharger ce fichier, appelé fichier de configuration réseau (ou netcfg), comment y ajouter un réseau virtuel et comment charger le fichier pour créer le réseau virtuel. Pour plus d’informations sur le fichier de configuration réseau, consultez [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 Pour créer un réseau virtuel avec un fichier de configuration réseau dans le portail Azure Classic, procédez comme suit :
@@ -84,9 +90,4 @@ Pour créer un réseau virtuel avec un fichier de configuration réseau dans le 
 10. Pour créer le réseau virtuel, cliquez sur le bouton avec la coche dans le coin inférieur droit de la boîte de l’image précédente. Après quelques secondes, le réseau virtuel apparaît dans la liste des réseaux virtuels disponibles, comme illustré dans l’image suivante :
 
     ![Nouveau réseau virtuel](./media/virtual-networks-create-vnet-classic-portal/vnet-create-portal-netcfg-figure6.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

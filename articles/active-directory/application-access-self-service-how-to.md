@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: af0ec17d319f0a2911e1b50a5ed45dd59dafa752
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-configure-self-service-application-assignment"></a>Configurer l’attribution d’applications en libre-service
+<a id="how-to-configure-self-service-application-assignment" class="xliff"></a>
+
+# Configurer l’attribution d’applications en libre-service
 
 Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications depuis leur panneau d’accès, vous devez activer l’option **Accès en libre-service à l’application** pour toutes les applications pour lesquelles vous souhaitez autoriser les utilisateurs à les découvrir eux-mêmes et en demander l’accès.
 
@@ -41,7 +43,9 @@ Cette fonctionnalité est un excellent moyen pour un groupe informatique d’éc
 
 -   Éventuellement, attribuer automatiquement directement un rôle d’application à des utilisateurs affectés en libre-service.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications.
+<a id="enable-self-service-application-access-to-allow-users-to-find-their-own-applications" class="xliff"></a>
+
+## Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications.
 
 L’accès aux applications en libre-service est un excellent moyen pour permettre aux utilisateurs de découvrir eux-mêmes des applications, et éventuellement de permettre au groupe d’entreprise d’approuver l’accès à ces applications. Vous pouvez autoriser le groupe d’entreprise à gérer les informations d’identification affectées à ces utilisateurs dans le cadre d’une authentification unique par mot de passe, directement depuis leurs volets d’accès.
 
@@ -86,6 +90,8 @@ Lorsque vous avez terminé la configuration d’applications en libre-service, l
 
 Ces approbations prennent en charge les flux de travail avec approbation unique uniquement, ce qui signifie que si vous spécifiez plusieurs approbateurs, chaque approbateur peut autoriser l’accès à l’application.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](active-directory-accessmanagement-self-service-group-management.md)
 

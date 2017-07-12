@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
 ms.openlocfilehash: 922774c2482737537b64787ae473231ec1fbb68e
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/14/2017
-
 
 ---
 
-# <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Octroyer des autorisations à une application personnalisée
+<a id="how-to-grant-permissions-to-a-custom-developed-application" class="xliff"></a>
+
+# Octroyer des autorisations à une application personnalisée
 
 Si vous souhaitez octroyer un consentement de façon préventive sur votre application ou que vous rencontrez une erreur indiquant que vous n’avez pas donné votre consentement pour une application, essayez les étapes ci-dessous.
 
-## <a name="how-to-perform-admin-consent-for-your-application"></a>Donner un consentement d’administrateur pour une application
+<a id="how-to-perform-admin-consent-for-your-application" class="xliff"></a>
+
+## Donner un consentement d’administrateur pour une application
 
 Cette opération a pour effet d’accorder un consentement à l’application pour tous les utilisateurs de votre organisation.
 
@@ -35,11 +39,15 @@ Cette opération a pour effet d’accorder un consentement à l’application po
 
 Vous pouvez également créer une demande que vous envoyez à *login.microsoftonline.com* avec les configurations de votre application, à laquelle vous ajoutez *&prompt=admin\_consent*. Une fois que la connexion a été effectuée avec les informations d’identification d’administrateur, l’application reçoit le consentement pour tous les utilisateurs.
 
-## <a name="how-to-force-user-consent-for-your-application"></a>Forcer le consentement d’utilisateur pour votre application
+<a id="how-to-force-user-consent-for-your-application" class="xliff"></a>
+
+## Forcer le consentement d’utilisateur pour votre application
 
 * Ajoutez des demandes d’authentification *&prompt=consent* qui nécessitent que les utilisateurs finaux donnent leur consentement chaque fois qu’ils s’authentifient.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 [Consentement et intégration d’applications pour Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
 

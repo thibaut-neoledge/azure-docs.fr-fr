@@ -103,6 +103,8 @@
     href: /cli/azure/mysql
 - name: Ressources
   items:
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Tarification
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: Forum MSDN

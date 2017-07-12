@@ -11,23 +11,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: f32de2a8868d853e7720cffa23df6b3c59ab4a49
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Invite de consentement inattendue lors de la connexion à une application
+<a id="unexpected-consent-prompt-when-signing-in-to-an-application" class="xliff"></a>
+
+# Invite de consentement inattendue lors de la connexion à une application
 
 Pour s’exécuter, de nombreuses applications qui s’intègrent à Azure Active Directory nécessitent des autorisations à plusieurs ressources. Quand ces ressources sont également intégrées à Azure Active Directory, vous devez utiliser l’infrastructure de consentement Azure AD pour demander les autorisations nécessaires pour y accéder. 
 
 Une invite de consentement est alors affichée à la première utilisation d’une application (il s’agit généralement d’une opération unique). 
 
-## <a name="scenarios-in-which-users-see-consent-prompts"></a>Scénarios dans lesquels des invites de consentement sont présentées aux utilisateurs
+<a id="scenarios-in-which-users-see-consent-prompts" class="xliff"></a>
+
+## Scénarios dans lesquels des invites de consentement sont présentées aux utilisateurs
 
 Divers scénarios entraînent l’affichage d’invites supplémentaires :
 
@@ -43,7 +47,9 @@ Divers scénarios entraînent l’affichage d’invites supplémentaires :
 
 * Le développeur a configuré l’application pour exiger une invite de consentement à chaque utilisation (ce qui n’est pas recommandé).
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 -   [Applications, autorisations et consentement dans Azure Active Directory (point de terminaison v1.0)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
 

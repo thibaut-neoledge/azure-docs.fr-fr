@@ -20,9 +20,9 @@ ms.openlocfilehash: 59d8b23291adb1e680e70898f5bb82bb699be19d
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/14/2017
 
-
 ---
 <a id="tutorial-create-a-pipeline-with-copy-activity-using-net-api" class="xliff"></a>
+
 # Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’API .NET
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -46,6 +46,7 @@ Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner d
 > Dans ce didacticiel, le pipeline de données copie les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la transformation des données à l’aide d’Azure Data Factory, consultez [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Didacticiel : Créer un pipeline pour transformer des données à l’aide d’un cluster Hadoop).
 
 <a id="prerequisites" class="xliff"></a>
+
 ## Composants requis
 * Consultez [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir une vue d’ensemble du didacticiel et effectuer les **étapes préalables requises** .
 * Visual Studio 2012, 2013 ou 2015
@@ -53,6 +54,7 @@ Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner d
 * Azure PowerShell. Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour installer Azure PowerShell sur votre ordinateur. Vous utilisez Azure PowerShell pour créer une application Azure Active Directory.
 
 <a id="create-an-application-in-azure-active-directory" class="xliff"></a>
+
 ### Créer une application dans Azure Active Directory
 Créez une application Azure Active Directory, créez un principal de service pour l’application et attribuez-lui le rôle **Contributeurs de Data Factory** .
 
@@ -121,6 +123,7 @@ Vous devez avoir les quatre valeurs suivantes après ces étapes :
 * Mot de passe (spécifié dans la première commande)
 
 <a id="walkthrough" class="xliff"></a>
+
 ## Procédure pas à pas
 1. À l’aide de Visual Studio 2012/2013/2015, créez une application console C# .NET.
    1. Lancez **Visual Studio** 2012/2013/2015.
@@ -142,7 +145,7 @@ Vous devez avoir les quatre valeurs suivantes après ces étapes :
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
         <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+            <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
             <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
@@ -521,6 +524,7 @@ Vous devez avoir les quatre valeurs suivantes après ces étapes :
 20. Vérifiez que les deux enregistrements d’employés sont créés dans la table **emp** de la base de données Azure SQL spécifiée.
 
 <a id="next-steps" class="xliff"></a>
+
 ## Étapes suivantes
 Pour la documentation complète sur l’API .NET pour Data Factory, consultez [Informations de référence sur l’API .NET Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
 

@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: d4678afa4d7a9000761d3a60a54539fc1730f76a
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Comment configurer l’authentification unique par mot de passe pour une application de la galerie Azure AD
+<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+# Comment configurer l’authentification unique par mot de passe pour une application de la galerie Azure AD
 
 Lorsque vous ajoutez une application à partir de la [Galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery), vous pouvez choisir la façon dont vous souhaitez que vos utilisateurs s’y connectent. Vous pouvez configurer ce choix à tout moment en sélectionnant l’élément de navigation **Authentification unique** sur une application d’entreprise dans le [portail Azure](https://portal.azure.com/).
 
@@ -43,7 +45,9 @@ L’une des méthodes d’authentification unique disponibles est l’option [Au
 
 Vous trouverez ci-dessous les instructions pour activer [l’authentification unique par mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) pour une application qui a déjà été ajoutée à la [galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
 
-## <a name="overview-of-steps-required"></a>Vue d’ensemble des étapes requises
+<a id="overview-of-steps-required" class="xliff"></a>
+
+## Vue d’ensemble des étapes requises
 Pour configurer une application à partir de la galerie Azure AD, vous devez effectuer les opérations suivantes :
 
 -   [Ajouter une application à partir de la galerie Azure AD](#add-an-application-from-the-azure-ad-gallery)
@@ -56,7 +60,9 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
     -   [Affecter une application directement à un groupe](#assign-an-application-to-a-group-directly)
 
-## <a name="add-an-application-from-the-azure-ad-gallery"></a>Ajouter une application à partir de la galerie Azure AD
+<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+## Ajouter une application à partir de la galerie Azure AD
 
 Pour ajouter une application à partir de la galerie Azure AD, effectuez les étapes suivantes :
 
@@ -80,7 +86,9 @@ Pour ajouter une application à partir de la galerie Azure AD, effectuez les ét
 
 Après une courte période, vous pouvez voir le panneau de configuration de l’application.
 
-## <a name="configure-the-application-for-password-single-sign-on"></a>Configurer l’application pour l’authentification unique par mot de passe
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+## Configurer l’application pour l’authentification unique par mot de passe
 
 Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 
@@ -106,7 +114,9 @@ Pour configurer l’authentification unique pour une application, effectuez les 
 
 10. En outre, vous pouvez également fournir des informations d’identification pour le compte de l’utilisateur en sélectionnant les lignes des utilisateurs, en cliquant sur **Mettre à jour les informations d’identification** et en entrant le nom d’utilisateur et le mot de passe à la place des utilisateurs. Autrement, les utilisateurs doivent entrer les informations d’identification eux-mêmes lors du lancement.
 
-## <a name="assign-a-user-to-an-application-directly"></a>Affecter un utilisateur directement à une application
+<a id="assign-a-user-to-an-application-directly" class="xliff"></a>
+
+## Affecter un utilisateur directement à une application
 
 Pour affecter un ou plusieurs utilisateurs directement à une application, procédez comme suit :
 
@@ -142,7 +152,9 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, proc�
 
 15. Cliquez sur le bouton **Attribuer** pour affecter l’application aux utilisateurs sélectionnés.
 
-## <a name="assign-an-application-to-a-group-directly"></a>Affecter une application directement à un groupe
+<a id="assign-an-application-to-a-group-directly" class="xliff"></a>
+
+## Affecter une application directement à un groupe
 
 Pour affecter un ou plusieurs groupes directement à une application, procédez comme suit :
 
@@ -180,6 +192,8 @@ Pour affecter un ou plusieurs groupes directement à une application, procédez 
 
 Après une courte période, les utilisateurs que vous avez sélectionnés sont en mesure de lancer ces applications dans le panneau d’accès.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
 

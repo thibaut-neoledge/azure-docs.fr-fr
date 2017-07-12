@@ -53,8 +53,8 @@
     href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Plans App Service
     href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: Environnements App Service
-    href: app-service-app-service-environment-intro.md
+  - name: Environnement App Service
+    href: ../app-service/app-service-environment/intro.md
   - name: Authentification et autorisation
     href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Authentification avec AD local
@@ -248,6 +248,24 @@
       href: app-service-web-app-azure-resource-manager-powershell.md
     - name: Gérer des applications à l’aide d’Azure Automation
       href: automation-manage-web-app.md
+  - name: Environnement App Service
+    items:
+    - name: Utiliser un environnement App Service
+      href: ../app-service/app-service-environment/using-an-ase.md
+    - name: Créer un environnement App Service externe
+      href: ../app-service/app-service-environment/create-external-ase.md
+    - name: Créer à l’aide d’Azure Resource Manager
+      href: ../app-service/app-service-environment/create-from-template.md
+    - name: Créer avec un équilibreur de charge interne
+      href: ../app-service/app-service-environment/create-ilb-ase.md
+    - name: Mise en réseau - Éléments à prendre en compte
+      href: ../app-service/app-service-environment/network-info.md
+    - name: Configurer des paramètres personnalisés
+      href: ./app-service-app-service-environment-custom-settings.md
+    - name: Intégrer avec un pare-feu d’application web
+      href: ./app-service-app-service-environment-web-application-firewall.md
+    - name: Mise à l’échelle géographiquement distribuée
+      href: ./app-service-app-service-environment-geo-distributed-scale.md
 - name: Référence
   items:
   - name: "CLI\_2.0"
@@ -256,9 +274,13 @@
     href: /powershell
   - name: API REST
     href: /rest/api/appservice/
-- name: les ressources
+  - name: Environnement App Service
+    href: ../app-service/app-service-environment/readme.md
+- name: Ressources
   items:
-  - name: Résolution des problèmes
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: résolution des problèmes
     items:
     - name: Résoudre les problèmes à l’aide de Visual Studio
       href: web-sites-dotnet-troubleshoot-visual-studio.md
@@ -278,6 +300,32 @@
         href: app-service-web-open-source-technologies-faq.md
       - name: FAQ sur la configuration et la gestion
         href: app-service-web-configuration-and-management-faq.md
+  - name: Environnement App Service v1
+    items:
+    - name: Vue d'ensemble
+      href: app-service-app-service-environment-intro.md
+    - name: Comment créer un environnement App Service
+      href: app-service-web-how-to-create-an-app-service-environment.md
+    - name: Créer une application web dans un environnement App Service
+      href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+    - name: Utilisation d’un équilibreur de charge interne
+      href: app-service-environment-with-internal-load-balancer.md
+    - name: Configurer un environnement App Service
+      href: app-service-web-configure-an-app-service-environment.md
+    - name: Mise à l'échelle des applications dans un environnement App Service
+      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+    - name: Présentation de l’architecture réseau
+      href: app-service-app-service-environment-network-architecture-overview.md
+    - name: Implémentation d’une architecture de sécurité en couche
+      href: app-service-app-service-environment-layered-security.md
+    - name: Contrôle du trafic entrant
+      href: app-service-app-service-environment-control-inbound-traffic.md
+    - name: Connexion sécurisée à des ressources principales
+      href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
+    - name: Détails de la configuration réseau avec ExpressRoute
+      href: app-service-app-service-environment-network-configuration-expressroute.md
+    - name: Mise à l’échelle automatique dans un environnement App Service
+      href: ../app-service/app-service-environment-auto-scale.md
   - name: Tarification
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Informations sur les quotas

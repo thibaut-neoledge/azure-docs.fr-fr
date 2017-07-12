@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 1acd4119ebf9c9fd364d0eddd970c362756309ee
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Comment choisir le type d’application à utiliser lors de l’ajout d’une application
+<a id="how-to-choose-which-application-type-to-use-when-adding-an-application" class="xliff"></a>
+
+# Comment choisir le type d’application à utiliser lors de l’ajout d’une application
 
 Cet article vous aide à comprendre les quatre principaux types d’applications que vous pouvez intégrer à Azure AD :
 
@@ -29,7 +31,9 @@ Cet article vous aide à comprendre les quatre principaux types d’applications
 * Pourquoi choisir telle ou telle application
 * Comment configurer les principales propriétés de cette application, par exemple la façon dont les utilisateurs sont **configurés** ou la technologie d’**authentification unique** à utiliser.
 
-## <a name="supported-application-types-in-azure-ad"></a>Types d’applications pris en charge dans Azure AD
+<a id="supported-application-types-in-azure-ad" class="xliff"></a>
+
+## Types d’applications pris en charge dans Azure AD
 
 Azure AD prend en charge quatre types d’applications principaux que vous pouvez ajouter à l’aide de la fonction **Ajouter** qui se trouve sous **Applications d’entreprise**. Vous avez notamment vu les points suivants :
 
@@ -41,7 +45,9 @@ Azure AD prend en charge quatre types d’applications principaux que vous pouve
 
 -   **Applications hors galerie** : créez vos propres applications ! Tous les liens web et toutes les applications disposant d’un champ de nom d’utilisateur et de mot de passe prennent en charge les protocoles SAML ou OpenID Connect, ou prennent en charge SCIM pour l’intégration à l’authentification unique avec Azure AD.
 
-## <a name="features-and-capabilities-supported-by-all-the-above-application-types"></a>Fonctions et capacités prises en charge par tous les types d’applications ci-dessus
+<a id="features-and-capabilities-supported-by-all-the-above-application-types" class="xliff"></a>
+
+## Fonctions et capacités prises en charge par tous les types d’applications ci-dessus
 
 Les fonctionnalités suivantes sont prises en charge par les quatre types d’applications ci-dessus dans Azure AD :
 
@@ -61,13 +67,17 @@ Les fonctionnalités suivantes sont prises en charge par les quatre types d’ap
 
 -   **Affichage des autorisations** : visualisez les [autorisations OAuth2](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent) auxquelles une application a accès dans votre répertoire, à partir d’un emplacement unique.
 
-## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>Authentification unique et modes d’approvisionnement pris en charge par des types d’applications spécifiques
+<a id="single-sign-on-and-provisioning-modes-supported-by-specific-application-types" class="xliff"></a>
+
+## Authentification unique et modes d’approvisionnement pris en charge par des types d’applications spécifiques
 
 Le tableau ci-dessous décrit les différentes authentifications uniques et modes d’approvisionnement pris en charge par chacun des types d’applications ci-dessus. Vous pouvez utiliser ce tableau pour mieux comprendre quelle application vous devez ajouter pour répondre à un objectif précis.
 
   ![Tableau des types d’applications](./media/application-tables/table1.png)
 
-## <a name="how-to-choose-a-single-sign-on-mode"></a>Comment choisir un mode d’authentification unique
+<a id="how-to-choose-a-single-sign-on-mode" class="xliff"></a>
+
+## Comment choisir un mode d’authentification unique
 
 Les modes d’**authentification unique** pris en charge pour les applications Azure AD sont répertoriés ci-dessous.
 
@@ -98,7 +108,9 @@ Les modes d’**authentification unique** pris en charge pour les applications A
    >
    >
 
-## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modes d’authentification unique pour les applications personnalisées
+<a id="single-sign-on-modes-for-custom-developed-applications" class="xliff"></a>
+
+## Modes d’authentification unique pour les applications personnalisées
 
 Les applications que vous avez développées de manière personnalisée par le biais de la fonction d’[application personnalisée](#_Custom-Developed_Applications) prennent également en charge des modes d’authentification unique supplémentaires non répertoriés ci-dessus. Vous avez notamment vu les points suivants :
 
@@ -112,7 +124,9 @@ Les applications que vous avez développées de manière personnalisée par le b
 
 Consultez le [guide du développeur Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) pour en savoir plus sur la création d’une application personnalisée qui prend en charge ces modes d’authentification unique.
 
-## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Comment définir le mode d’authentification unique d’une application
+<a id="how-to-set-an-applications-single-sign-on-mode" class="xliff"></a>
+
+## Comment définir le mode d’authentification unique d’une application
 
 Pour définir le mode d’**authentification unique** d’une application, procédez comme suit :
 
@@ -132,7 +146,9 @@ Pour définir le mode d’**authentification unique** d’une application, proc�
 
 7.  Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-## <a name="how-to-choose-a-provisioning-mode"></a>Comment choisir un mode d’approvisionnement
+<a id="how-to-choose-a-provisioning-mode" class="xliff"></a>
+
+## Comment choisir un mode d’approvisionnement
 
 -   **Approvisionnement manuel** : choisissez le mode d’approvisionnement [Manuel](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) si vous avez des comptes existants, ou si vous souhaitez gérer les comptes pour cette application hors d’Azure AD.
 
@@ -150,7 +166,9 @@ Pour définir le mode d’**authentification unique** d’une application, proc�
    >
    >
 
-## <a name="how-to-set-an-applications-provisioning-mode"></a>Comment définir le mode d’approvisionnement d’une application
+<a id="how-to-set-an-applications-provisioning-mode" class="xliff"></a>
+
+## Comment définir le mode d’approvisionnement d’une application
 
 Pour définir le mode d’**approvisionnement** d’une application, procédez comme suit :
 
@@ -172,6 +190,8 @@ Pour définir le mode d’**authentification unique** d’une application, proc�
 
 7.  Une fois l’application chargée, cliquez sur **Approvisionnement** dans le menu de navigation de gauche de l’application.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)
 

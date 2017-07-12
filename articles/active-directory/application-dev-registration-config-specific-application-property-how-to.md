@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 9a57185938ebe9af0ca1395e75545473f45b9889
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Comment remplir les champs spécifiques d’une application personnalisée
+<a id="how-to-fill-out-specific-fields-for-a-custom-developed-application" class="xliff"></a>
+
+# Comment remplir les champs spécifiques d’une application personnalisée
 
 Cet article décrit brièvement tous les champs disponibles dans le formulaire d’inscription d’application du [portail Azure](https://portal.azure.com).
 
-## <a name="register-a-new-application"></a>Inscrire une nouvelle application
+<a id="register-a-new-application" class="xliff"></a>
+
+## Inscrire une nouvelle application
 
 -   Pour inscrire une nouvelle application, accédez au [portail Azure](https://portal.azure.com).
 
@@ -35,7 +39,9 @@ Cet article décrit brièvement tous les champs disponibles dans le formulaire d
 
 -   Le formulaire d’inscription d’application s’affiche ensuite.
 
-## <a name="fields-in-the-application-registration-form"></a>Champs du formulaire d’inscription d’application
+<a id="fields-in-the-application-registration-form" class="xliff"></a>
+
+## Champs du formulaire d’inscription d’application
 
 
 | Champ            | Description                                                                              |
@@ -59,6 +65,8 @@ Après avoir rempli les champs ci-dessus, l’application est inscrite dans le p
 | URI de redirection   | Pour les applications natives, c’est l’emplacement vers lequel l’utilisateur est dirigé après avoir été authentifié. Azure AD vérifie que l’URI de redirection que votre application fournit dans la demande OAuth 2.0 correspond à l’une des valeurs inscrites dans le portail.                                                            |
 | de clés symétriques            | Vous pouvez créer des clés pour accéder par programme aux API web sécurisées par Azure AD sans aucune interaction de l’utilisateur. Depuis la page \*\*Clés\*\*, saisissez une description de clé et la date d’expiration,puis enregistrez pour générer la clé. Veillez à l’enregistrer dans un endroit sûr, car vous ne pourrez pas y accéder ultérieurement.             |
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)
 
