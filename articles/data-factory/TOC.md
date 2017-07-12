@@ -1,112 +1,325 @@
+
+
 # Vue d'ensemble
+
+
 ## [Présentation du service Azure Data Factory](data-factory-introduction.md)
+
+
 ## Concepts
+
+
 ### [Pipelines et activités](data-factory-create-pipelines.md)
+
+
 ### [Groupes de données](data-factory-create-datasets.md)
+
+
 ### [Planification et exécution](data-factory-scheduling-and-execution.md)
 
+
+
 # Prise en main
+
+
 ## [Didacticiel : Créer un pipeline pour copier des données](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+
+
 ### [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
+
+
 ### [Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+
+
 ### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+
+
 ### [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+
+
 ### [Modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+
+
 ### [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+
+
 ### [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+
+
 ## [Didacticiel : Créer un pipeline pour transformer des données](data-factory-build-your-first-pipeline.md)
+
+
 ### [portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
+
+
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+
+
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+
+
 ### [Modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+
+
 ### [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+
 ## [Didacticiel : Déplacer des données entre un emplacement local et le cloud](data-factory-move-data-between-onprem-and-cloud.md)
+
+
 ## [FORUM AUX QUESTIONS](data-factory-faq.md)
 
+
+
 # Procédure
+
+
 ## Déplacer des données
+
+
 ### [Vue d’ensemble des activités de copie](data-factory-data-movement-activities.md)
+
+
 ### [Assistant Data Factory Copy](data-factory-azure-copy-wizard.md)
+
+
 #### [Charger 1 To en 15 minutes](data-factory-load-sql-data-warehouse.md)
+
+
 ### [Guide des performances et réglages](data-factory-copy-activity-performance.md)
+
+
 ### [Sécurité](data-factory-data-movement-security-considerations.md)
+
+
 ### Connecteurs
+
+
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
+
+
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
+
+
 #### [Stockage Blob Azure](data-factory-azure-blob-connector.md)
+
+
 #### [Azure Cosmos DB](data-factory-azure-documentdb-connector.md)
+
+
 #### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
+
+
 #### [Azure Search](data-factory-azure-search-connector.md)
+
+
 #### [Azure SQL Database](data-factory-azure-sql-connector.md)
+
+
 #### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+
+
 #### [Azure Table Storage](data-factory-azure-table-connector.md)
+
+
 #### [Cassandra](data-factory-onprem-cassandra-connector.md)
+
+
 #### [DB2](data-factory-onprem-db2-connector.md)
+
+
 #### [Système de fichiers](data-factory-onprem-file-system-connector.md)
+
+
 #### [FTP](data-factory-ftp-connector.md)
+
+
 #### [HDFS](data-factory-hdfs-connector.md)
+
+
 #### [HTTP](data-factory-http-connector.md)
+
+
 #### [MongoDB](data-factory-on-premises-mongodb-connector.md)
+
+
 #### [MySQL](data-factory-onprem-mysql-connector.md)
+
+
 #### [OData](data-factory-odata-connector.md)
+
+
 #### [ODBC](data-factory-odbc-connector.md)
+
+
 #### [Oracle](data-factory-onprem-oracle-connector.md)
+
+
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
+
+
 #### [Salesforce](data-factory-salesforce-connector.md)
+
+
 #### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
+
+
 #### [SAP HANA](data-factory-sap-hana-connector.md)
+
+
 #### [SFTP](data-factory-sftp-connector.md)
+
+
 #### [SQL Server](data-factory-sqlserver-connector.md)
+
+
 #### [Sybase](data-factory-onprem-sybase-connector.md)
+
+
 #### [Teradata](data-factory-onprem-teradata-connector.md)
+
+
 #### [Table web](data-factory-web-table-connector.md)
+
+
 ### [Passerelle de gestion de données](data-factory-data-management-gateway.md)
 
 
+
+
 ## [Transformer les données](data-factory-data-transformation-activities.md)
+
+
 ### [Activité Hive HDInsight](data-factory-hive-activity.md)
+
+
 ### [Activité Pig HDInsight](data-factory-pig-activity.md)
+
+
 ### [Activité MapReduce HDInsight](data-factory-map-reduce.md)
+
+
 ### [Activité de diffusion en continu HDInsight](data-factory-hadoop-streaming-activity.md)
+
+
 ### [Activité HDInsight Spark](data-factory-spark.md)
+
+
 ### [Activité d’exécution par lot Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+
+
 ### [Activité des ressources de mise à jour de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+
+
 ### [Activité de procédure stockée](data-factory-stored-proc-activity.md)
+
+
 ### [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
+
+
 ### [Activité personnalisée .NET](data-factory-use-custom-activities.md)
+
+
 ### [Appeler des scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+
+
 ### [Retraiter les modèles dans Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+
+
 ### [Services liés de calcul](data-factory-compute-linked-services.md)
 
+
+
 ## Développement
+
+
 ### [Modèle Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)
+
+
 ### [Exemples](data-factory-samples.md)
+
+
 ### [Fonctions et variables système](data-factory-functions-variables.md)
+
+
 ### [Règles d’affectation des noms](data-factory-naming-rules.md)
+
+
 ### [Journal des modifications de l’API .NET](data-factory-api-change-log.md)
+
+
 ## Surveillance et gestion
+
+
 ### [Application de surveillance et de gestion](data-factory-monitor-manage-app.md)
+
+
 ### [Azure Data Factory](data-factory-monitor-manage-pipelines.md)
+
+
 ### [Utilisation du kit de développement logiciel (SDK) .NET](data-factory-create-data-factories-programmatically.md)
+
+
 ### [Résolution des problèmes liés à Data Factory](data-factory-troubleshoot.md)
+
+
 ### [Résoudre les problèmes liés à l’aide de la passerelle de gestion des données](data-factory-troubleshoot-gateway-issues.md)
 
+
+
 # Référence
+
+
 ## [PowerShell](/powershell/module/azurerm.datafactories)
+
+
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
+
+
 ## [REST](/rest/api/datafactory/)
+
+
 ## [JSON](data-factory-json-scripting-reference.md)
 
-# les ressources
-## [Notes de version pour la passerelle de gestion des données](data-factory-gateway-release-notes.md)
-## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/data-factory)
+
+
+# Ressources
+
+
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+
+
 ## [Études de cas](data-factory-customer-case-studies.md)
-### [Recommandations de produits](data-factory-product-reco-usecase.md)
-### [Analyse des profils des clients](data-factory-customer-profiling-usecase.md)
-### [Traiter des jeux de données volumineux à l’aide de Data Factory et Batch](data-factory-data-processing-using-batch.md)
-## [Mises à jour de service](https://azure.microsoft.com/updates/?product=data-factory)
-## [Tarification](https://azure.microsoft.com/pricing/details/data-factory/)
+
+
+## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/data-factory)
+
+
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
-## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
+
+
+## [Tarification](https://azure.microsoft.com/pricing/details/data-factory/)
+
+
+## [Notes de version pour la passerelle de gestion des données](data-factory-gateway-release-notes.md)
+
+
 ## [Demander une fonctionnalité](https://feedback.azure.com/forums/270578-azure-data-factory)
+
+
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=data-factory)
+
+
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
+
+
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
+
+
+### [Analyse des profils des clients](data-factory-customer-profiling-usecase.md)
+
+
+### [Traiter des jeux de données volumineux à l’aide de Data Factory et Batch](data-factory-data-processing-using-batch.md)
+
+
+### [Recommandations de produits](data-factory-product-reco-usecase.md)

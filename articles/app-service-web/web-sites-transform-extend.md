@@ -15,38 +15,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: abd55399ef780df945a2d643940a71425d085692
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/20/2017
 
-
 ---
-# <a name="azure-app-service-web-app-advanced-config-and-extensions"></a>Configuration avancée et extensions des applications web Azure App Service
+<a id="azure-app-service-web-app-advanced-config-and-extensions" class="xliff"></a>
+
+# Configuration avancée et extensions des applications web Azure App Service
 En utilisant les déclarations [XML Document Transformation](http://msdn.microsoft.com/library/dd465326.aspx) (XDT), vous pouvez transformer le fichier [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) de votre application web dans Azure App Service. Vous pouvez également utiliser les déclarations XDT pour ajouter des extensions privées autorisant des actions d’administration d’application web personnalisées. Le présent article inclut un exemple d’extension d’application web PHP Manager, qui permet de gérer les paramètres PHP par le biais d’une interface web.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-idtransformaadvanced-configuration-through-applicationhostconfig"></a><a id="transform"></a>Configuration avancée via ApplicationHost.config
+## <a id="transform"></a>Configuration avancée via ApplicationHost.config
 La plateforme App Service apporte flexibilité et contrôle à la configuration de l’application web. Bien que le fichier de configuration ApplicationHost.config IIS standard ne puisse pas être modifié directement dans App Service, la plateforme prend en charge un modèle de transformation ApplicationHost.config déclaratif basé sur XDT.
 
 Pour tirer parti de cette fonctionnalité de transformation, vous créez un fichier ApplicationHost.xdt avec du contenu XDT et vous le placez à la racine du site (d:\home\site) dans la [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console). Vous devrez peut-être redémarrer l’application web pour que les modifications soient appliquées.
 
 L’exemple applicationHost.xdt suivant montre comment ajouter une nouvelle variable d’environnement personnalisée à une application web utilisant PHP 5.4.
 
-    <?xml version="1.0"?>
-    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-          <system.webServer>
-                <fastCgi>
-                      <application>
-                         <environmentVariables>
-                                <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
-                         </environmentVariables>
-                      </application>
-                </fastCgi>
-          </system.webServer>
-    </configuration>
-
+```xml
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <fastCgi>
+      <application>
+        <environmentVariables>
+          <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
+        </environmentVariables>
+      </application>
+    </fastCgi>
+  </system.webServer>
+</configuration>
+```
 
 Un fichier journal avec le statut et les détails de transformation est disponible à la racine FTP sous LogFiles\Transform.
 
@@ -55,8 +58,8 @@ Pour d’autres exemples, consultez la page [https://github.com/projectkudu/kudu
 **Remarque :**<br />
 Les éléments de la liste de modules sous `system.webServer` ne peuvent pas être supprimés ni réorganisés, mais des ajouts à la liste sont possibles.
 
-## <a name="a-idextenda-extend-your-web-app"></a><a id="extend"></a> Étendre votre application web
-### <a name="a-idoverviewa-overview-of-private-web-app-extensions"></a><a id="overview"></a> Vue d’ensemble des extensions privées d’application web
+## <a id="extend"></a> Étendre votre application web
+### <a id="overview"></a> Vue d’ensemble des extensions privées d’application web
 App Service prend en charge les extensions d’application web comme point d’extensibilité des actions d’administration. En fait, certaines fonctionnalités de la plateforme App Service sont implémentées en tant qu’extensions préinstallées. Bien qu’il ne soit pas possible de modifier ces dernières, vous pouvez créer et configurer des extensions privées pour vos propres applications web. Cette fonctionnalité repose également sur les déclarations XDT. Les principales étapes de création d’une extension d’application web privée sont les suivantes :
 
 1. **Contenu**de l’extension d’application web : créez une application web prise en charge par App Service.
@@ -69,10 +72,10 @@ Les liens internes de l’application web doivent pointer vers un chemin d’acc
 
 Un exemple détaillé est inclus pour illustrer les étapes de création et d’activation d’une extension d’application web privée. Le code source de l'exemple PHP Manager suivant peut être téléchargé sur [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager).
 
-### <a name="a-idsitesamplea-web-app-extension-example-php-manager"></a><a id="SiteSample"></a> Exemple d’extension d’application web : PHP Manager
+### <a id="SiteSample"></a> Exemple d’extension d’application web : PHP Manager
 PHP Manager est une extension d’application web permettant aux administrateurs d’application web d’afficher et de configurer facilement leurs paramètres PHP au moyen d’une interface web plutôt que d’avoir à modifier les fichiers .ini PHP directement. Les fichiers de configuration communs pour PHP incluent le fichier php.ini situé sous Program Files et le fichier .user.ini situé dans le dossier racine de votre application web. Étant donné que le fichier php.ini ne peut pas être modifié directement sur la plateforme App Service, l’extension PHP Manager utilise le fichier .user.ini pour appliquer les changements de paramètres.
 
-#### <a name="a-idphpwebappa-the-php-manager-web-application"></a><a id="PHPwebapp"></a> Application web PHP Manager
+#### <a id="PHPwebapp"></a> Application web PHP Manager
 Ceci est la page d’accueil du déploiement PHP Manager :
 
 ![TransformSitePHPUI][TransformSitePHPUI]
@@ -85,19 +88,21 @@ L'extension PHP Manager a été créée au moyen du modèle d'application Web AS
 
 La seule logique spéciale requise pour l’E/S de fichier consiste à indiquer où se trouve le répertoire wwwroot de l’application web. Comme illustré dans l’exemple de code suivant, la variable d’environnement « HOME » indique le chemin d’accès de la racine de l’application web, et le chemin d’accès wwwroot peut être construit en ajoutant « site\wwwroot » :
 
-    /// <summary>
-    /// Gives the location of the .user.ini file, even if one doesn't exist yet
-    /// </summary>
-    private static string GetUserSettingsFilePath()
-    {
-            var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
-            if (rootPath == null)
-            {
-                rootPath = System.IO.Path.GetTempPath(); // For testing purposes
-            };
-            var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
-            return userSettingsFile;
-    }
+```csharp
+/// <summary>
+/// Gives the location of the .user.ini file, even if one doesn't exist yet
+/// </summary>
+private static string GetUserSettingsFilePath()
+{
+  var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
+  if (rootPath == null)
+  {
+    rootPath = System.IO.Path.GetTempPath(); // For testing purposes
+  };
+  var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
+  return userSettingsFile;
+}
+```
 
 
 Une fois que vous disposez du chemin d'accès au répertoire, vous pouvez utiliser des opérations d'E/S de fichier pour accéder en lecture et écriture aux fichiers.
@@ -112,53 +117,58 @@ Lorsque le lien fait partie d’une extension d’application web, il doit se pr
 
 Vous pouvez contourner cette obligation en n’utilisant que des chemins d’accès relatifs dans votre application web ou, pour les applications ASP.NET, en utilisant la méthode `@Html.ActionLink` qui crée les liens appropriés pour vous.
 
-#### <a name="a-idxdta-the-applicationhostxdt-file"></a><a id="XDT"></a> Fichier applicationHost.xdt
+#### <a id="XDT"></a> Fichier applicationHost.xdt
 Le code de votre extension d’application web figure sous %HOME%\SiteExtensions\[nom-votre-extension]. Nous appellerons cela la racine d'extension.  
 
 Pour inscrire votre extension d’application web dans le fichier applicationHost.config, vous devez placer un fichier intitulé ApplicationHost.xdt à la racine de l’extension. Le contenu du fichier ApplicationHost.xdt doit se présenter comme suit :
 
-    <?xml version="1.0"?>
-    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-          <system.applicationHost>
-                <sites>
-                      <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
-                        <!-- NOTE: Add your extension name in the application paths below -->
-                        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
-                        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
-                              <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
-                        </application>
-                      </site>
-                </sites>
-          </system.applicationHost>
-    </configuration>
+```xml
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.applicationHost>
+    <sites>
+      <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
+        <!-- NOTE: Add your extension name in the application paths below -->
+        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
+        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
+          <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
+        </application>
+      </site>
+    </sites>
+  </system.applicationHost>
+</configuration>
+```
 
 Le nom que vous sélectionnez comme nom de votre extension doit être identique au dossier racine de votre extension.
 
 Cela a pour effet d’ajouter un nouveau chemin d’application dans la liste de sites `system.applicationHost` sous le site SCM. Ce dernier représente un point de terminaison d'administration de site avec des informations d'identification d'accès spécifiques. Son URL est `https://[your-site-name].scm.azurewebsites.net`.  
 
-    <system.applicationHost>
-          ...
-          <site name="~1[your-website]" id="1716402716">
-                  <bindings>
-                    <binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
-                    <binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
-                  </bindings>
-                  <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
-                  <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
-                  <logFile logSiteId="false" />
-                  <application path="/" applicationPool="[your-website]">
-                    <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
-                  </application>
-                <!-- Note the custom changes that go here -->
-                  <application path="/[your-extension-name]" applicationPool="[your-website]">
-                    <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
-                  </application>
-            </site>
-      </sites>
-      ...
-    </system.applicationHost>
+```xml
+<system.applicationHost>
+  ...       
+  <sites>
+    <site name="~1[your-website]" id="1716402716">
+      <bindings>
+        <binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
+        <binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
+      </bindings>
+      <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
+      <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
+      <logFile logSiteId="false" />
+      <application path="/" applicationPool="[your-website]">
+        <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
+      </application>
+      <!-- Note the custom changes that go here -->
+      <application path="/[your-extension-name]" applicationPool="[your-website]">
+        <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
+      </application>
+    </site>
+  </sites>
+  ... 
+</system.applicationHost>
+```
 
-### <a name="a-iddeploya-web-app-extension-deployment"></a><a id="deploy"></a> Déploiement d’extension d’application web
+### <a id="deploy"></a> Déploiement d’extension d’application web
 Pour installer l’extension de votre application web, vous pouvez copier par FTP tous les fichiers de votre application web dans le dossier `\SiteExtensions\[your-extension-name]` de l’application web où vous souhaitez installer l’extension.  Veillez à copier le fichier ApplicationHost.xdt à cet emplacement également. Redémarrez votre application web pour activer l’extension.
 
 Vous devez être en mesure de voir l’extension de votre application web à l’adresse :
@@ -174,7 +184,9 @@ Il est possible de désactiver toutes les extensions privées (non préinstallé
 > 
 > 
 
-## <a name="whats-changed"></a>Changements apportés
+<a id="whats-changed" class="xliff"></a>
+
+## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->

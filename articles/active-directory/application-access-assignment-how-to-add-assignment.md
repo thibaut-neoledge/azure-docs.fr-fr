@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 972ed736e63089a69726de5d26236b930b390a10
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-assign-users-and-groups-to-an-application"></a>Guide pratique pour affecter des utilisateurs et des groupes à une application
+<a id="how-to-assign-users-and-groups-to-an-application" class="xliff"></a>
+
+# Guide pratique pour affecter des utilisateurs et des groupes à une application
 
 Afin de permettre à vos utilisateurs d’effectuer une des opérations ci-dessous pour une application spécifique, vous devez d’abord **les affecter à l’application** pour leur en donner l’accès :
 
@@ -33,7 +35,9 @@ Afin de permettre à vos utilisateurs d’effectuer une des opérations ci-desso
 
 -   Afficher une application qui apparaît sur leur [Lanceur d’applications Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="methods-to-assign-applications-with-azure-active-directory"></a>Méthodes d’affectation d’applications avec Azure Active Directory 
+<a id="methods-to-assign-applications-with-azure-active-directory" class="xliff"></a>
+
+## Méthodes d’affectation d’applications avec Azure Active Directory 
 
 Il existe 3 méthodes d’affectation d’applications avec Azure Active Directory :
 
@@ -43,7 +47,9 @@ Il existe 3 méthodes d’affectation d’applications avec Azure Active Directo
 
 -   [Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications.](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications)
 
-## <a name="assign-a-user-directly-as-an-administrator"></a>Affecter un utilisateur directement en tant qu’administrateur
+<a id="assign-a-user-directly-as-an-administrator" class="xliff"></a>
+
+## Affecter un utilisateur directement en tant qu’administrateur
 
 Pour affecter un ou plusieurs utilisateurs directement à une application, effectuez les étapes suivantes :
 
@@ -81,7 +87,9 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 Après une courte période, les utilisateurs que vous avez sélectionnés seront en mesure de démarrer ces applications à l’aide des méthodes décrites dans la section de description des solutions.
 
-## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Affecter un groupe directement à une application en tant qu’administrateur
+<a id="assign-a-group-directly-to-an-application-as-an-administrator" class="xliff"></a>
+
+## Affecter un groupe directement à une application en tant qu’administrateur
 
 Pour affecter un ou plusieurs groupes directement à une application, procédez comme suit :
 
@@ -119,7 +127,9 @@ Pour affecter un ou plusieurs groupes directement à une application, procédez 
 
 Après une courte période, les utilisateurs des groupes que vous avez sélectionnés seront en mesure de démarrer ces applications à l’aide des méthodes décrites dans la section de description des solutions. S’il s’agit de groupes dynamiques, un délai de traitement supplémentaire peut survenir avant que les utilisateurs ne voient ces affectations dans ces groupes affectés.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications
+<a id="enable-self-service-application-access-to-allow-users-to-find-their-own-applications" class="xliff"></a>
+
+## Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications
 
 L’accès aux applications en libre-service est un excellent moyen pour permettre aux utilisateurs de découvrir eux-mêmes des applications, et éventuellement de permettre au groupe d’entreprise d’approuver l’accès à ces applications. Vous pouvez autoriser le groupe d’entreprise à gérer les informations d’identification affectées à ces utilisateurs dans le cadre d’une authentification unique par mot de passe, directement depuis leurs volets d’accès.
 
@@ -164,6 +174,8 @@ Lorsque vous avez terminé la configuration d’applications en libre-service, l
 
 Ces approbations prennent en charge les flux de travail avec approbation unique uniquement, ce qui signifie que si vous spécifiez plusieurs approbateurs, chaque approbateur peut autoriser l’accès à l’application.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
 

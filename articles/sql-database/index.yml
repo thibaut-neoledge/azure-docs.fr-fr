@@ -52,7 +52,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/sql-database/sql-database-design-first-database">Créer et concevoir le schéma pour une nouvelle base de données SQL</a>
+    - html: '<a href="/azure/sql-database/sql-database-design-first-database">Créer et concevoir le schéma d’une nouvelle base de données SQL avec SSMS</a> ou <a href="/azure/sql-database/sql-database-design-first-database-csharp">Créer et concevoir le schéma d’une nouvelle base de données SQL avec C#</a>'
     - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrer une base de données SQL Server existante vers Azure SQL Database</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Sécuriser votre base de données SQL</a>
     - html: <a href="/azure/sql-database/sql-database-performance-tutorial">Améliorer les performances des bases de données SQL</a>
@@ -85,7 +85,7 @@ sections:
     className: cardsD
     items:
     - title: Ligne de commande
-      html: "<p><a href=\"/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql\">Azure PowerShell</a></p><p><a href=\"/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs\">Azure PowerShell (base de données élastique)</a></p><p><a href=\"/cli/azure/sql\">Azure\_CLI\_2.0</a></p>"
+      html: "<p><a href=\"/powershell/module/azurerm.sql/#sql\">Azure PowerShell</a></p><p><a href=\"/powershell/module/elasticdatabasejobs/#elasticdatabasejobs\">Azure PowerShell (base de données élastique)</a></p><p><a href=\"/cli/azure/sql\">Azure\_CLI\_2.0</a></p>"
     - title: Langues
       html: '<p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.JS</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>'
     - title: REST

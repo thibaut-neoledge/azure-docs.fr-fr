@@ -1,6 +1,6 @@
 ---
 title: "Exemples de l’API de création de rapports sur l’activité de connexion Azure Active Directory | Microsoft Docs"
-description: "Prise en main de l&quot;API de création de rapports Azure Active Directory"
+description: "Prise en main de l'API de création de rapports Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: dhanyahk
@@ -20,9 +20,10 @@ ms.openlocfilehash: e6b1137c8ca33774ef9852b9441b541cf7723ebd
 ms.contentlocale: fr-fr
 ms.lasthandoff: 12/28/2016
 
-
 ---
-# <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Exemples de l’API de création de rapports sur l’activité de connexion Azure Active Directory
+<a id="azure-active-directory-sign-in-activity-report-api-samples" class="xliff"></a>
+
+# Exemples de l’API de création de rapports sur l’activité de connexion Azure Active Directory
 Cette rubrique fait partie d’un ensemble de rubriques relatives à l’API de création de rapports Azure Active Directory.  
 La création de rapports Azure AD fournit une API qui vous permet d’accéder aux données de l’activité de connexion à l’aide de code ou d’outils associés.  
 Cette rubrique a pour but de vous fournir un exemple de code pour **l’API d’activité de connexion**.
@@ -34,14 +35,18 @@ Consultez l'article :
 
 Si vous avez des questions, des problèmes ou des commentaires, veuillez contacter [Aide à la création de rapports AAD](mailto:aadreportinghelp@microsoft.com).
 
-## <a name="prerequisites"></a>Composants requis
+<a id="prerequisites" class="xliff"></a>
+
+## Composants requis
 Avant de pouvoir utiliser les exemples de cette rubrique, vous devez respecter la [configuration requise pour accéder à l’API de création de rapports Azure AD](active-directory-reporting-api-prerequisites.md).  
 
-## <a name="powershell-script"></a>Script PowerShell
+<a id="powershell-script" class="xliff"></a>
+
+## Script PowerShell
     # This script will require the Web Application and permissions setup in Azure Active Directory
     $ClientID       = "<clientId>"             # Should be a ~35 character string insert your info here
     $ClientSecret   = "<clientSecret>"         # Should be a ~44 character string insert your info here
-    $loginURL       = "https://login.windows.net/"
+    $loginURL       = "https://login.microsoftonline.com/"
     $tenantdomain   = "<tenantDomain>"
     $ daterange            # For example, contoso.onmicrosoft.com
 
@@ -80,12 +85,16 @@ Avant de pouvoir utiliser les exemples de cette rubrique, vous devez respecter l
 
 
 
-## <a name="executing-the-script"></a>Exécution du script
+<a id="executing-the-script" class="xliff"></a>
+
+## Exécution du script
 Une fois que vous avez terminé la modification du script, exécutez-le, puis vérifiez que les données attendues dans les journaux d’audit sont retournées.
 
 Le script renvoie la sortie du rapport sur la connexion au format JSON. Il crée également un fichier `SigninActivities.json` avec la même sortie. Vous pouvez expérimenter en modifiant le script pour renvoyer des données à partir d’autres rapports, et également commenter les formats de sortie dont vous n’avez pas besoin.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 * Vous souhaitez personnaliser les exemples de cette rubrique ? Consultez la [référence d’API d’activité de connexion Azure Active Directory](active-directory-reporting-api-sign-in-activity-reference.md). 
 * Si vous souhaitez obtenir une présentation complète de l’utilisation de l’API de création de rapports Azure Active Directory, consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Si vous souhaitez en savoir plus sur la création de rapports Azure Active Directory, consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  

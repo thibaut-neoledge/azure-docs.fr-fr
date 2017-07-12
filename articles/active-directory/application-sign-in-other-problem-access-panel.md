@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: b89569b818b0e2c79934a842fdc428011674c000
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problèmes de connexion à une application à partir du volet d’accès
+<a id="problems-signing-in-to-an-application-from-the-access-panel" class="xliff"></a>
+
+# Problèmes de connexion à une application à partir du volet d’accès
 
 Le volet d’accès est un portail web qui permet à un utilisateur disposant d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD) d’afficher et de démarrer des applications basées sur le cloud auxquelles l’administrateur Azure AD lui a accordé un accès. 
 
@@ -37,7 +39,9 @@ Les types d’applications que peut voir l’utilisateur tombent dans les catég
 
 -   Applications avec solutions d’authentification unique (SSO) existantes
 
-## <a name="general-issues-to-check-first"></a>Problèmes d’ordre général à vérifier en premier
+<a id="general-issues-to-check-first" class="xliff"></a>
+
+## Problèmes d’ordre général à vérifier en premier
 
 -   Vérifiez que votre **navigateur** répond à la configuration minimale requise pour le volet d’accès.
 
@@ -59,7 +63,9 @@ Les types d’applications que peut voir l’utilisateur tombent dans les catég
 
 -   Effacez les cookies de votre navigateur, puis réessayez de vous connecter.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Configuration requise du navigateur pour le volet d’accès
+<a id="meeting-browser-requirements-for-the-access-panel" class="xliff"></a>
+
+## Configuration requise du navigateur pour le volet d’accès
 
 Le volet d’accès nécessite un navigateur qui prend en charge JavaScript et dans lequel le CSS est activé. Pour utiliser l’authentification unique par mot de passe dans le volet d’accès, l’extension du volet d’accès doit être installée dans le navigateur de l’utilisateur. Cette extension est téléchargée automatiquement lorsqu’un utilisateur sélectionne une application configurée pour l’authentification unique (SSO) avec mot de passe.
 
@@ -73,7 +79,9 @@ Pour l’authentification unique par mot de passe, les navigateurs de l’utilis
 
 **Remarque** : L’extension de l’authentification unique par mot de passe sera disponible pour Edge dans Windows 10 quand les extensions de navigateur seront prises en charge pour Edge.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Comment installer l’extension de navigateur du volet d’accès
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Comment installer l’extension de navigateur du volet d’accès
 
 Pour installer l’extension de navigateur du volet d’accès, effectuez les étapes suivantes :
 
@@ -97,7 +105,9 @@ Vous pouvez également télécharger l’extension pour Chrome et Firefox à par
 
 -   [Extension du volet d’accès pour Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Comment configurer l’authentification unique fédérée pour une application de la galerie Azure AD
+<a id="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+## Comment configurer l’authentification unique fédérée pour une application de la galerie Azure AD
 
 Un didacticiel pas à pas est disponible pour toutes les applications de la galerie Azure AD dans lesquelles est activée la fonctionnalité Enterprise Single Sign-On. Pour une aide pas à pas détaillée, vous pouvez accéder à la [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).
 
@@ -115,7 +125,9 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
 -   [Affecter des utilisateurs à l’application](#assign-users-to-the-application)
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Ajouter une application à partir de la galerie Azure AD
+<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+### Ajouter une application à partir de la galerie Azure AD
 
 Pour ajouter une application à partir de la galerie Azure AD, effectuez les étapes suivantes :
 
@@ -139,7 +151,9 @@ Pour ajouter une application à partir de la galerie Azure AD, effectuez les ét
 
 Après une courte période, vous pourrez voir le panneau de configuration de l’application.
 
-### <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Configurer l’authentification unique pour une application à partir de la galerie Azure AD
+<a id="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+### Configurer l’authentification unique pour une application à partir de la galerie Azure AD
 
 Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 
@@ -185,7 +199,9 @@ Pour configurer l’authentification unique pour une application, effectuez les 
 
 15. Affectez des utilisateurs à l’application.
 
-### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Sélectionner l’identificateur de l’utilisateur et ajouter les attributs d’utilisateur à envoyer à l’application
+<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
+
+### Sélectionner l’identificateur de l’utilisateur et ajouter les attributs d’utilisateur à envoyer à l’application
 
 Pour sélectionner l’identificateur de l’utilisateur ou ajouter des attributs d’utilisateur, effectuez les étapes suivantes :
 
@@ -220,7 +236,9 @@ Pour sélectionner l’identificateur de l’utilisateur ou ajouter des attribut
 
    2. Cliquez sur **Enregistrer**. Le nouvel attribut s’affiche dans le tableau.
 
-### <a name="download-the-azure-ad-metadata-or-certificate"></a>Télécharger les métadonnées ou le certificat Azure AD
+<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+
+### Télécharger les métadonnées ou le certificat Azure AD
 
 Pour télécharger les métadonnées ou le certificat de l’application à partir d’Azure AD, effectuez les étapes suivantes :
 
@@ -244,7 +262,9 @@ Pour télécharger les métadonnées ou le certificat de l’application à part
 
     Azure AD ne fournit pas une URL permettant d’obtenir les métadonnées. Les métadonnées peuvent uniquement être récupérées sous forme de fichier XML.
 
-## <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique fédérée pour une application non issue de la galerie
+<a id="how-to-configure-federated-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+## Comment configurer l’authentification unique fédérée pour une application non issue de la galerie
 
 Pour configurer une application non issue de la galerie, vous devez disposer d’Azure Active Directory Premium et votre application doit prendre en charge SAML 2.0. Pour plus d’informations sur les versions d’Azure AD, consultez [Tarification de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -256,7 +276,9 @@ Pour configurer une application non issue de la galerie, vous devez disposer d�
 
 -   [Configurer les valeurs de métadonnées Azure AD dans l’application (URL de connexion, émetteur, URL de déconnexion et certificat)](#configuring-single-sign-on)
 
-### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configurer les valeurs de métadonnées de l’application dans Azure AD (URL de connexion, identificateur, URL de réponse)
+<a id="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url" class="xliff"></a>
+
+### Configurer les valeurs de métadonnées de l’application dans Azure AD (URL de connexion, identificateur, URL de réponse)
 
 Pour configurer l’authentification unique pour une application qui n’est pas issue de la galerie Azure AD, effectuez les étapes suivantes :
 
@@ -298,7 +320,9 @@ Pour configurer l’authentification unique pour une application qui n’est pas
 
 14. Cliquez sur **Configurer &lt;nom de l’application&gt;** pour accéder à la documentation sur la façon de configurer l’authentification unique. En outre, vous disposez des URL et du certificat Azure AD nécessaires pour l’application.
 
-### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Sélectionner l’identificateur de l’utilisateur et ajouter les attributs d’utilisateur à envoyer à l’application
+<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
+
+### Sélectionner l’identificateur de l’utilisateur et ajouter les attributs d’utilisateur à envoyer à l’application
 
 Pour sélectionner l’identificateur de l’utilisateur ou ajouter des attributs d’utilisateur, effectuez les étapes suivantes :
 
@@ -333,7 +357,9 @@ Pour sélectionner l’identificateur de l’utilisateur ou ajouter des attribut
 
    2. Cliquez sur **Enregistrer**. Le nouvel attribut s’affiche dans le tableau.
 
-### <a name="download-the-azure-ad-metadata-or-certificate"></a>Télécharger les métadonnées ou le certificat Azure AD
+<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+
+### Télécharger les métadonnées ou le certificat Azure AD
 
 Pour télécharger les métadonnées ou le certificat de l’application à partir d’Azure AD, effectuez les étapes suivantes :
 
@@ -357,7 +383,9 @@ Pour télécharger les métadonnées ou le certificat de l’application à part
 
     Azure AD ne fournit pas une URL permettant d’obtenir les métadonnées. Les métadonnées peuvent uniquement être récupérées sous forme de fichier XML.
 
-## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Comment configurer l’authentification unique par mot de passe pour une application de la galerie Azure AD
+<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+## Comment configurer l’authentification unique par mot de passe pour une application de la galerie Azure AD
 
 Pour configurer une application à partir de la galerie Azure AD, vous devez effectuer les opérations suivantes :
 
@@ -365,7 +393,9 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
 -   [Configurer l’application pour l’authentification unique par mot de passe](#configure-the-application)
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Ajouter une application à partir de la galerie Azure AD
+<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+### Ajouter une application à partir de la galerie Azure AD
 
 Pour ajouter une application à partir de la galerie Azure AD, effectuez les étapes suivantes :
 
@@ -389,7 +419,9 @@ Pour ajouter une application à partir de la galerie Azure AD, effectuez les ét
 
 Après une courte période, vous pourrez voir le panneau de configuration de l’application.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Configurer l’application pour l’authentification unique par mot de passe
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+### Configurer l’application pour l’authentification unique par mot de passe
 
 Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 
@@ -415,7 +447,9 @@ Pour configurer l’authentification unique pour une application, effectuez les 
 
 10. En outre, vous pouvez également fournir des informations d’identification pour le compte de l’utilisateur en sélectionnant les lignes des utilisateurs, en cliquant sur **Mettre à jour les informations d’identification** et en entrant le nom d’utilisateur et le mot de passe à la place des utilisateurs. Autrement, les utilisateurs devront entrer les informations d’identification eux-mêmes lors du lancement.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique par mot de passe pour une application ne figurant pas dans la galerie
+<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+## Comment configurer l’authentification unique par mot de passe pour une application ne figurant pas dans la galerie
 
 Pour configurer une application à partir de la galerie Azure AD, vous devez effectuer les opérations suivantes :
 
@@ -423,7 +457,9 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
 -   [Configurer l’application pour l’authentification unique par mot de passe](#configure-the-application-for-password-single-sign-on)
 
-### <a name="add-a-non-gallery-application"></a>Ajouter une application ne figurant pas dans la galerie
+<a id="add-a-non-gallery-application" class="xliff"></a>
+
+### Ajouter une application ne figurant pas dans la galerie
 
 Pour ajouter une application à partir de la galerie Azure AD, effectuez les étapes suivantes :
 
@@ -443,7 +479,9 @@ Pour ajouter une application à partir de la galerie Azure AD, effectuez les ét
 
 Après une courte période, vous pourrez voir le panneau de configuration de l’application.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Configurer l’application pour l’authentification unique par mot de passe
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+### Configurer l’application pour l’authentification unique par mot de passe
 
 Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 
@@ -471,7 +509,9 @@ Pour configurer l’authentification unique pour une application, effectuez les 
 
 11. En outre, vous pouvez également fournir des informations d’identification pour le compte de l’utilisateur en sélectionnant les lignes des utilisateurs, en cliquant sur **Mettre à jour les informations d’identification** et en entrant le nom d’utilisateur et le mot de passe à la place des utilisateurs. Autrement, les utilisateurs devront entrer les informations d’identification eux-mêmes lors du lancement.
 
-## <a name="how-to-assign-a-user-to-an-application-directly"></a>Comment affecter un utilisateur directement à une application
+<a id="how-to-assign-a-user-to-an-application-directly" class="xliff"></a>
+
+## Comment affecter un utilisateur directement à une application
 
 Pour affecter un ou plusieurs utilisateurs directement à une application, effectuez les étapes suivantes :
 
@@ -509,7 +549,9 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 Après une courte période, les utilisateurs que vous avez sélectionnés sont en mesure de lancer ces applications dans le volet d’accès.
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Si ces étapes de dépannage ne résolvent pas le problème
+<a id="if-these-troubleshooting-steps-do-not-the-resolve-the-issue" class="xliff"></a>
+
+## Si ces étapes de dépannage ne résolvent pas le problème
 
 Créez un ticket de support en fournissant les informations suivantes, si disponibles :
 
@@ -525,7 +567,9 @@ Créez un ticket de support en fournissant les informations suivantes, si dispon
 
 -   Traces Fiddler
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
 
 

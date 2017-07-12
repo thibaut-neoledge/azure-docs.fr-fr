@@ -20,9 +20,10 @@ ms.openlocfilehash: ca5ee2733df51faa5025c4d8eb687c81df4a3b4f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/09/2017
 
-
 ---
-# <a name="use-desired-properties-to-configure-devices"></a>Utilisation des propriétés souhaitées pour configurer des appareils
+<a id="use-desired-properties-to-configure-devices" class="xliff"></a>
+
+# Utilisation des propriétés souhaitées pour configurer des appareils
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 À la fin de ce didacticiel, vous disposerez de deux applications console :
@@ -47,7 +48,10 @@ Si vous avez suivi le didacticiel [Prise en main des jumeaux d’appareils][lnk-
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-the-simulated-device-app"></a>Créer l’application d’appareil simulée
+<a id="#create-the-simulated-device-app"></a>
+<a id="create-the-simulated-device-app" class="xliff"></a>
+
+## Créer l’application d’appareil simulée
 Dans cette section, vous créez une application console Node.js qui se connecte à votre hub en tant que **myDeviceId**, attend une mise à jour de la configuration souhaitée, puis signale des mises à jour sur le processus de mise à jour de configuration simulée.
 
 1. Créez un dossier vide nommé **simulatedeviceconfiguration**. Dans le dossier **simulatedeviceconfiguration**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Acceptez toutes les valeurs par défaut.
@@ -158,7 +162,9 @@ Dans cette section, vous créez une application console Node.js qui se connecte 
    
     Vous devriez voir le message `retrieved device twin`. Gardez l’application active.
 
-## <a name="create-the-service-app"></a>Créer l’application de service
+<a id="create-the-service-app" class="xliff"></a>
+
+## Créer l’application de service
 Dans cette section, vous créez une application console .NET qui met à jour les *propriétés souhaitées* sur la représentation d’appareils associée à **myDeviceId** avec un nouvel objet de configuration de télémétrie. Elle interroge ensuite les représentations d’appareils stockées dans l’IoT Hub, puis affiche la différence entre les configurations souhaitées et signalées de l’appareil.
 
 1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application Console** . Nommez le projet **SetDesiredConfigurationAndQuery**.
@@ -241,7 +247,9 @@ Dans cette section, vous créez une application console .NET qui met à jour les
    > 
    > 
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 Dans ce didacticiel, vous avez défini une configuration souhaitée en tant que *propriétés souhaitées* à partir du serveur principal et écrit une application d’appareil pour détecter cette modification et simuler un processus de mise à jour en plusieurs étapes signalant son état par le biais des propriétés signalées.
 
 Utilisez les ressources suivantes :
@@ -275,5 +283,5 @@ Utilisez les ressources suivantes :
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-[lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+[lnk-how-to-configure-createapp]: iot-hub-csharp-node-twin-how-to-configure.md#create-the-simulated-device-app
 

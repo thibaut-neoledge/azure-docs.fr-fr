@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 2fc922cb591bcd9ef333fbe3d77ee3dd03005915
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problème de configuration de l’authentification unique avec mot de passe pour une application non issue de la galerie
+<a id="problem-configuring-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+# Problème de configuration de l’authentification unique avec mot de passe pour une application non issue de la galerie
 
 Cet article vous aide à comprendre les problèmes courants auxquels les utilisateurs sont confrontés lors de la configuration d’une **authentification unique avec mot de passe** pour une application non issue de la galerie.
 
-## <a name="how-to-capture-sign-in-fields-for-an-application"></a>Comment capturer les champs de connexion d’une application
+<a id="how-to-capture-sign-in-fields-for-an-application" class="xliff"></a>
+
+## Comment capturer les champs de connexion d’une application
 
 La capture des champs de connexion est uniquement prise en charge pour les pages de connexion HTML et **n’est pas prise en charge pour les pages de connexion non standard** comme celles qui utilisent Flash ou d’autres technologies non HTML.
 
@@ -41,7 +45,9 @@ La **capture de champs de connexion manuelle** peut être utilisée quand le fou
 
 En règle générale, **si la capture de champs de connexion automatique ne fonctionne pas, nous vous suggérons toujours d’essayer l’option manuelle.**
 
-### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>Comment capturer automatiquement les champs de connexion d’une application
+<a id="how-to-automatically-capture-sign-in-fields-for-an-application" class="xliff"></a>
+
+### Comment capturer automatiquement les champs de connexion d’une application
 
 Pour configurer **l’authentification unique avec mot de passe** d’une application à l’aide de la **capture de champs de connexion automatique**, procédez comme suit :
 
@@ -69,7 +75,9 @@ Pour configurer **l’authentification unique avec mot de passe** d’une applic
 
 11. Une fois cela effectué, nous décomposons automatiquement cette URL pour afficher les zones de saisie du mot de passe et du nom d’utilisateur. Vous pouvez ensuite utiliser Azure AD pour transmettre en toute sécurité les mots de passe à cette application à l’aide de l’extension de navigateur du volet accès.
 
-## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>Comment capturer manuellement les champs de connexion d’une application
+<a id="how-to-manually-capture-sign-in-fields-for-an-application" class="xliff"></a>
+
+## Comment capturer manuellement les champs de connexion d’une application
 
 Pour capturer manuellement les champs de connexion, l’extension de navigateur du volet d’accès doit être installée et **ne doit pas s’exécuter en mode inPrivate, incognito ou privé.** Pour installer l’extension de navigateur, suivez les étapes de la section [Comment installer l’extension de navigateur du volet d’accès](#i-cannot-manually-detect-sign-in-fields-for-my-application).
 
@@ -109,17 +117,23 @@ Pour configurer **l’authentification unique avec mot de passe** d’une applic
 
 16. Suivez les instructions à l’écran pour utiliser le volet d’accès.
 
-## <a name="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Une erreur « Nous n’avons trouvé aucun champ de connexion à cette URL. » s’affiche
+<a id="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error" class="xliff"></a>
+
+## Une erreur « Nous n’avons trouvé aucun champ de connexion à cette URL. » s’affiche
 
 Vous obtenez cette erreur en cas d’échec de la détection automatique des champs de connexion. Pour résoudre ce problème, essayez d’utiliser la détection manuelle des champs de connexion en suivant les étapes de la section [Comment capturer manuellement les champs de connexion d’une application](#how-to-manually-capture-sign-in-fields-for-an-application).
 
-## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>Une erreur « Impossible d’enregistrer la configuration de l’authentification unique » s’affiche
+<a id="i-see-an-unable-to-save-single-sign-on-configuration-error" class="xliff"></a>
+
+## Une erreur « Impossible d’enregistrer la configuration de l’authentification unique » s’affiche
 
 Bien que cela soit rare, il peut arriver que la mise à jour de la configuration de l’authentification unique échoue. Pour résoudre ce problème, essayez d’enregistrer à nouveau la configuration de l’authentification unique.
 
 Si le problème persiste, ouvrez une demande de support et fournissez les informations collectées dans les sections [Comment afficher les détails d’une notification du portail](#i-cannot-manually-detect-sign-in-fields-for-my-application) et [Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique](#how-to-get-help-by-sending-notification-details-to-a-support-engineer).
 
-## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>Impossible de détecter manuellement les champs de connexion de mon application
+<a id="i-cannot-manually-detect-sign-in-fields-for-my-application" class="xliff"></a>
+
+## Impossible de détecter manuellement les champs de connexion de mon application
 
 Voici quelques-uns des comportements que vous pouvez observer lorsque la détection manuelle ne fonctionne pas :
 
@@ -145,7 +159,9 @@ Si vous rencontrez l’un de ces problèmes, vérifiez les points suivants :
 
 Si aucune de ces approches ne fonctionne pour vous, nous pouvons vous aider. Ouvrez une demande de support et fournissez des informations sur les méthodes utilisées pour résoudre le problème, ainsi que les informations collectées dans les sections [Comment afficher les détails d’une notification du portail](#i-cannot-manually-detect-sign-in-fields-for-my-application) et [Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (le cas échéant).
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Comment installer l’extension de navigateur du volet d’accès
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Comment installer l’extension de navigateur du volet d’accès
 
 Pour installer l’extension de navigateur du volet d’accès, procédez comme suit :
 
@@ -169,7 +185,9 @@ Vous pouvez également télécharger l’extension pour Chrome et Firefox à par
 
 -   [Extension du volet d’accès pour Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-to-see-the-details-of-a-portal-notification"></a>Comment afficher les détails d’une notification du portail
+<a id="how-to-see-the-details-of-a-portal-notification" class="xliff"></a>
+
+## Comment afficher les détails d’une notification du portail
 
 Vous pouvez afficher les détails d’une notification provenant du portail en suivant les étapes ci-dessous :
 
@@ -189,15 +207,21 @@ Vous pouvez afficher les détails d’une notification provenant du portail en s
 
 6.  Cliquez sur **l’icône** de **copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec un ingénieur du support technique ou du groupe de produits.
 
-## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique
+<a id="how-to-get-help-by-sending-notification-details-to-a-support-engineer" class="xliff"></a>
+
+## Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique
 
 Il est très important que vous partagiez **tous les détails ci-dessous** avec un ingénieur du support technique si vous avez besoin d’aide, car celui-ci peut vous permettre de résoudre rapidement le problème. Vous pouvez facilement le faire en **prenant une capture d’écran** ou en cliquant sur **l’icône d’erreur de copie** située à droite de la zone de texte **Erreur de copie**.
 
-## <a name="notification-details-explained"></a>Explication des détails de la notification
+<a id="notification-details-explained" class="xliff"></a>
+
+## Explication des détails de la notification
 
 Vous trouverez ci-dessous plus d’informations sur la signification de chaque notification ainsi que des exemples de chacune d’elles.
 
-### <a name="essential-notification-items"></a>Éléments essentiels de la notification
+<a id="essential-notification-items" class="xliff"></a>
+
+### Éléments essentiels de la notification
 
 -   **Titre** : titre descriptif de la notification
 
@@ -235,7 +259,9 @@ Vous trouverez ci-dessous plus d’informations sur la signification de chaque n
 
     -   Exemple : **17f84be4-51f8-483a-b533-383791227a99**
 
-### <a name="detailed-notification-items"></a>Éléments détaillés de la notification
+<a id="detailed-notification-items" class="xliff"></a>
+
+### Éléments détaillés de la notification
 
 -   **Nom d’affichage** : **(peut être vide)** nom d’affichage plus détaillé de l’erreur
 
@@ -257,7 +283,9 @@ Vous trouverez ci-dessous plus d’informations sur la signification de chaque n
 
     -   Exemple : ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
 
 

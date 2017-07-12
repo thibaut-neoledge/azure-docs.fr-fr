@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 06/24/2017
 ms.author: chackdan
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
@@ -20,9 +20,10 @@ ms.openlocfilehash: c2792287ef8b25a57beb4af069ffc5a3eed85e15
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
-# <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Supprimer un cluster Service Fabric sur Azure et les ressources qu’il utilise
+<a id="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses" class="xliff"></a>
+
+# Supprimer un cluster Service Fabric sur Azure et les ressources qu’il utilise
 Un cluster Service Fabric est composé de nombreuses ressources Azure en plus de la ressource de cluster elle-même. Pour supprimer complètement un cluster Service Fabric, vous devez également supprimer toutes les ressources qui le composent.
 Vous pouvez procéder de deux façons : vous pouvez supprimer le groupe de ressources dans lequel est situé le cluster (ce qui supprime la ressource de cluster et toutes les autres ressources du groupe de ressources) ou supprimer spécifiquement la ressource de cluster et les ressources associées (mais pas d’autres ressources du groupe de ressources).
 
@@ -31,10 +32,14 @@ Vous pouvez procéder de deux façons : vous pouvez supprimer le groupe de resso
 > 
 > 
 
-## <a name="delete-the-entire-resource-group-rg-that-the-service-fabric-cluster-is-in"></a>Supprimer l’ensemble du groupe de ressources dans lequel se trouve le cluster Service Fabric
+<a id="delete-the-entire-resource-group-rg-that-the-service-fabric-cluster-is-in" class="xliff"></a>
+
+## Supprimer l’ensemble du groupe de ressources dans lequel se trouve le cluster Service Fabric
 Il s’agit du moyen le plus simple pour vous assurer de supprimer toutes les ressources associées à votre cluster, y compris le groupe de ressources. Vous pouvez supprimer le groupe de ressources à l’aide de PowerShell ou du Portail Azure. Si votre groupe de ressources comporte des ressources qui ne sont pas liées au cluster Service Fabric, vous pouvez supprimer des ressources spécifiques.
 
-### <a name="delete-the-resource-group-using-azure-powershell"></a>Supprimer le groupe de ressources à l’aide d’Azure PowerShell
+<a id="delete-the-resource-group-using-azure-powershell" class="xliff"></a>
+
+### Supprimer le groupe de ressources à l’aide d’Azure PowerShell
 Vous pouvez également supprimer le groupe de ressources en exécutant les applets de commande Azure PowerShell suivantes. Vérifiez qu’Azure PowerShell 1.0 ou une version ultérieure est installé sur votre ordinateur. Si ce n’est déjà fait, suivez les étapes décrites dans [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
 
 Ouvrez une fenêtre PowerShell et exécutez les applets de commande PS suivantes :
@@ -47,7 +52,9 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 Vous êtes invité à confirmer la suppression si vous n’avez pas utilisé l’option *-Force* . Après confirmation, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
 
-### <a name="delete-a-resource-group-in-the-azure-portal"></a>Supprimer un groupe de ressources dans le Portail Azure
+<a id="delete-a-resource-group-in-the-azure-portal" class="xliff"></a>
+
+### Supprimer un groupe de ressources dans le Portail Azure
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez au cluster Service Fabric que vous souhaitez supprimer.
 3. Cliquez sur le nom du groupe de ressources sur la page des éléments essentiels du cluster.
@@ -57,7 +64,9 @@ Vous êtes invité à confirmer la suppression si vous n’avez pas utilisé l�
 
 ![Supprimer un groupe de ressources][ResourceGroupDelete]
 
-## <a name="delete-the-cluster-resource-and-the-resources-it-uses-but-not-other-resources-in-the-resource-group"></a>Supprimer la ressource de cluster et les ressources associées, mais pas d’autres ressources du groupe de ressources
+<a id="delete-the-cluster-resource-and-the-resources-it-uses-but-not-other-resources-in-the-resource-group" class="xliff"></a>
+
+## Supprimer la ressource de cluster et les ressources associées, mais pas d’autres ressources du groupe de ressources
 Si votre groupe de ressources comporte uniquement des ressources qui sont liées au cluster Service Fabric à supprimer, il est plus facile de supprimer l’ensemble du groupe de ressources. Si vous souhaitez supprimer certaines ressources de votre groupe de ressources individuellement, procédez comme suit.
 
 Si vous avez déployé votre cluster à l’aide du portail ou de l’un des modèles Resource Manager Service Fabric de la galerie de modèles, toutes les ressources utilisées par le cluster sont balisées avec les deux balises suivantes. Vous pouvez les utiliser pour décider des ressources à supprimer.
@@ -66,7 +75,9 @@ Si vous avez déployé votre cluster à l’aide du portail ou de l’un des mod
 
 ***Balise 2 :*** Clé = resourceName, Valeur = ServiceFabric
 
-### <a name="delete-specific-resources-in-the-azure-portal"></a>Supprimer des ressources spécifiques dans le portail Azure
+<a id="delete-specific-resources-in-the-azure-portal" class="xliff"></a>
+
+### Supprimer des ressources spécifiques dans le portail Azure
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez au cluster Service Fabric que vous souhaitez supprimer.
 3. Sélectionnez **Tous les paramètres** dans le panneau des éléments essentiels.
@@ -78,7 +89,9 @@ Si vous avez déployé votre cluster à l’aide du portail ou de l’un des mod
    
     ![Ressources balisées][TaggedResources]
 
-### <a name="delete-the-resources-using-azure-powershell"></a>Supprimer les ressources à l’aide d’Azure PowerShell
+<a id="delete-the-resources-using-azure-powershell" class="xliff"></a>
+
+### Supprimer les ressources à l’aide d’Azure PowerShell
 Vous pouvez supprimer les ressources individuellement en exécutant les applets de commande Azure PowerShell suivantes. Vérifiez qu’Azure PowerShell 1.0 ou une version ultérieure est installé sur votre ordinateur. Si ce n’est déjà fait, suivez les étapes décrites dans [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
 
 Ouvrez une fenêtre PowerShell et exécutez les applets de commande PS suivantes :
@@ -98,7 +111,9 @@ Pour supprimer la ressource de cluster, exécutez la commande suivante :
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 Lisez les documents suivants pour en savoir plus sur la mise à niveau d’un cluster et le partitionnement des services :
 
 * [En savoir plus sur les mises à niveau de cluster](service-fabric-cluster-upgrade.md)

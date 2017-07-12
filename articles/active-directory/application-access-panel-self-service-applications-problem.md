@@ -11,23 +11,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 4d8c241344485e50a1afde3cd67adf3d0a7c041f
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="problem-using-self-service-application-access"></a>Problème lié à l’accès aux applications en libre-service
+<a id="problem-using-self-service-application-access" class="xliff"></a>
+
+# Problème lié à l’accès aux applications en libre-service
 
 L’accès aux applications en libre-service est un excellent moyen pour permettre aux utilisateurs de découvrir eux-mêmes des applications, et éventuellement de permettre au groupe d’entreprise d’approuver l’accès à ces applications. Vous pouvez autoriser le groupe d’entreprise à gérer les informations d’identification affectées à ces utilisateurs dans le cadre d’une authentification unique par mot de passe, directement depuis leurs volets d’accès.
 
 Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications depuis leur panneau d’accès, vous devez activer l’option **Accès en libre-service à l’application** pour toutes les applications pour lesquelles vous souhaitez autoriser les utilisateurs à les découvrir eux-mêmes et en demander l’accès.
 
-## <a name="general-issues-to-check-first"></a>Problèmes d’ordre général à vérifier en premier
+<a id="general-issues-to-check-first" class="xliff"></a>
+
+## Problèmes d’ordre général à vérifier en premier
 
 -   Vérifiez que l’accès à l’application en libre-service est configuré correctement. Consultez Configuration de l’accès aux applications en libre-service.
 
@@ -37,7 +41,9 @@ Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications dep
 
 -   Si l’accès aux applications en libre-service a été récemment configuré, essayez de vous reconnecter au volet d’accès de l’utilisateur au bout de quelques minutes pour voir si les modifications de l’accès en libre-service sont apparues.
 
-## <a name="how-to-configure-self-service-application-access"></a>Configuration de l’accès aux applications en libre-service
+<a id="how-to-configure-self-service-application-access" class="xliff"></a>
+
+## Configuration de l’accès aux applications en libre-service
 
 Pour activer l’accès en libre-service à une application, procédez comme suit :
 
@@ -80,7 +86,9 @@ Lorsque vous avez terminé la configuration d’applications en libre-service, l
 
 Ces approbations prennent en charge les flux de travail avec approbation unique uniquement, ce qui signifie que si vous spécifiez plusieurs approbateurs, chaque approbateur peut autoriser l’accès à l’application.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Si ces étapes de dépannage ne résolvent pas le problème 
+<a id="if-these-troubleshooting-steps-do-not-resolve-the-issue" class="xliff"></a>
+
+## Si ces étapes de dépannage ne résolvent pas le problème 
 
 Créez un ticket de support en fournissant les informations suivantes, si disponibles :
 
@@ -96,6 +104,8 @@ Créez un ticket de support en fournissant les informations suivantes, si dispon
 
 -   Traces Fiddler
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Configuration d’Azure Active Directory pour la gestion de groupe en libre-service](active-directory-accessmanagement-self-service-group-management.md)
 

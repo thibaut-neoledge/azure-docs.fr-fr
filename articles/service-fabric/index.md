@@ -19,7 +19,9 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 06/23/2017
 
 ---
-#<a name="service-fabric-documentation"></a>Documentation Service Fabric
+<a id="service-fabric-documentation" class="xliff"></a>
+
+#Documentation Service Fabric
 
 Découvrez comment utiliser Service Fabric pour empaqueter, déployer et gérer des microservices évolutifs et fiables. Les didacticiels, références d’API et exemples de code vous montrent comment utiliser cette plateforme middleware pour créer et gérer des applications à l’échelle du cloud.
 
