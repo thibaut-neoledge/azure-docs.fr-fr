@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
-ms.translationtype: Human Translation
+ms.translationtype: HT
 ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
 ms.openlocfilehash: c440c520d84fc503ff9e705555449e92555d4721
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 <a id="deploy-and-remove-applications-using-visual-studio" class="xliff"></a>

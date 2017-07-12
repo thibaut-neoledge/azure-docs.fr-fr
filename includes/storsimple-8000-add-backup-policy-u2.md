@@ -1,0 +1,44 @@
+<!--author=alkohli last changed: 02/10/17-->
+
+<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
+
+#### Pour ajouter une stratégie de sauvegarde StorSimple
+
+1. Accédez à votre appareil StorSimple et cliquez sur **Stratégie de sauvegarde**.
+
+2. Dans le panneau **Stratégie de sauvegarde**, cliquez sur **+ Ajouter une stratégie** dans la barre de commandes.
+   
+    ![Ajouter une stratégie de sauvegarde](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
+
+3. Dans le panneau **Créer la stratégie de sauvegarde**, procédez comme suit :
+   
+   1. **Sélectionner un appareil** est rempli automatiquement en fonction de l’appareil que vous avez sélectionné.
+   
+   2. Spécifiez un **Nom de stratégie** de sauvegarde (entre 3 et 150 caractères).
+       
+   3. Pour affecter des volumes à cette stratégie de sauvegarde, sélectionnez **Ajouter des volumes** puis, dans la liste tabulaire des volumes, cliquez sur les cases à cocher pour affecter un ou plusieurs volumes à cette stratégie de sauvegarde.
+
+       ![Ajouter une stratégie de sauvegarde](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
+
+   4. Pour définir une planification pour cette stratégie de sauvegarde, cliquez sur **Première planification**, puis modifiez les paramètres suivants :
+
+       ![Ajouter une stratégie de sauvegarde](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
+
+       1. Pour **Type d’instantané**, sélectionnez **Cloud** ou **Local**.
+
+       2. Indiquez la fréquence des sauvegardes (spécifiez un nombre et choisissez **jours** ou **semaines** dans la liste déroulante).
+
+       3. Entrez une planification de rétention.
+
+       4. Entrez l’heure et la date de début de la stratégie de sauvegarde.
+
+       5. Cliquez sur **OK** pour définir la planification.
+
+   5. Cliquez sur **Créer** pour créer une stratégie de sauvegarde.
+
+       ![Ajouter une stratégie de sauvegarde](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
+   
+   6. Un message s’affiche une fois la stratégie de sauvegarde créée. La stratégie ajoutée s’affiche dans le tableau du panneau **Stratégies de sauvegarde**.
+
+       ![Ajouter une stratégie de sauvegarde](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
+

@@ -1,4 +1,6 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Détermination du nom DNS de la machine virtuelle
+<a id="determine-the-dns-name-of-the-virtual-machine" class="xliff"></a>
+
+### Détermination du nom DNS de la machine virtuelle
 Pour vous connecter au moteur de base de données SQL Server à partir d'un autre ordinateur, vous devez connaître le nom DNS de la machine virtuelle. Il s'agit du nom utilisé par Internet pour identifier une machine virtuelle. Vous pouvez utiliser l'adresse IP, mais celle-ci peut être modifiée lorsqu'Azure déplace des ressources pour des raisons de redondance ou de maintenance. Le nom DNS reste stable, car il peut être redirigé vers une nouvelle adresse IP.  
 
 1. Dans le portail Azure (ou à partir de l’étape précédente), sélectionnez **Machines virtuelles (classique)**.
@@ -7,7 +9,9 @@ Pour vous connecter au moteur de base de données SQL Server à partir d'un autr
    
     ![Nom DNS](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a>Connexion au moteur de base de données à partir d'un autre ordinateur
+<a id="connect-to-the-database-engine-from-another-computer" class="xliff"></a>
+
+### Connexion au moteur de base de données à partir d'un autre ordinateur
 1. Sur un ordinateur connecté à Internet, ouvrez SQL Server Management Studio.
 2. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, dans la zone **Nom du serveur**, entrez le nom DNS de la machine virtuelle (déterminé lors de la tâche précédente), ainsi que le numéro de port d’un point de terminaison public au format *NomDNS,numéro_port* tel que **mysqlvm.cloudapp.net,57500**.
    
