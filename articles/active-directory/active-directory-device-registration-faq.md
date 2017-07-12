@@ -21,7 +21,9 @@ ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="azure-active-directory-automatic-device-registration-faq"></a>FAQ sur l’inscription d’appareils automatique Azure Active Directory
+<a id="azure-active-directory-automatic-device-registration-faq" class="xliff"></a>
+
+# FAQ sur l’inscription d’appareils automatique Azure Active Directory
 
 **Q : J’ai enregistré récemment l’appareil. Pourquoi ne puis-je pas voir l’appareil sous mes informations d’utilisateur dans le portail Azure ?**
 
