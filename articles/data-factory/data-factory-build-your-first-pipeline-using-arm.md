@@ -12,17 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: e420d192b6c60aad7523948762ff2762970583ed
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 7303b51a4a107e63e4c6514f7bf8f33a3ba00e39
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
-# <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Didacticiel : concevoir votre première fabrique de données Azure à l’aide du modèle Azure Resource Manager
+# Didacticiel : concevoir votre première fabrique de données Azure à l’aide du modèle Azure Resource Manager
+<a id="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
 > * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
@@ -42,12 +43,14 @@ Le pipeline dans ce didacticiel a une activité : **Activité HDInsight Hive**.
 > 
 > Le pipeline dans ce didacticiel a une seule activité de type : HDInsightHive. Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
-## <a name="prerequisites"></a>Composants requis
+## Composants requis
+<a id="prerequisites" class="xliff"></a>
 * Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les **étapes préalables requises** .
 * Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour installer la dernière version d’Azure PowerShell sur votre ordinateur.
 * Consultez [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour en savoir plus sur les modèles Azure Resource Manager. 
 
-## <a name="in-this-tutorial"></a>Dans ce didacticiel
+## Dans ce didacticiel
+<a id="in-this-tutorial" class="xliff"></a>
 | Entité | Description |
 | --- | --- |
 | Service lié Azure Storage |Lie votre compte Stockage Azure à la fabrique de données. Le compte Stockage Azure contient les données d’entrée et de sortie pour le pipeline de cet exemple. |
@@ -60,7 +63,8 @@ Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut 
 
 La section suivante fournit le modèle Resource Manager complet permettant de définir des entités Data Factory pour que vous puissiez rapidement parcourir le didacticiel et tester le modèle. Pour comprendre comment chaque entité Data Factory est définie, consultez la section [Entités Data Factory dans le modèle](#data-factory-entities-in-the-template).
 
-## <a name="data-factory-json-template"></a>Modèle JSON Data Factory
+## Modèle JSON Data Factory
+<a id="data-factory-json-template" class="xliff"></a>
 Le modèle Resource Manager de niveau supérieur pour la définition d’une fabrique de données est : 
 
 ```json
@@ -263,7 +267,8 @@ Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\ADFGe
 > 
 > 
 
-## <a name="parameters-json"></a>Paramètres JSON
+## Paramètres JSON
+<a id="parameters-json" class="xliff"></a>
 Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramètres du modèle Azure Resource Manager.  
 
 > [!IMPORTANT]
@@ -309,7 +314,8 @@ Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramè
 > 
 > 
 
-## <a name="create-data-factory"></a>Créer une fabrique de données
+## Créer une fabrique de données
+<a id="create-data-factory" class="xliff"></a>
 1. Démarrez **Azure PowerShell** et exécutez la commande suivante : 
    * Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
     ```PowerShell
@@ -329,7 +335,8 @@ Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramè
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
     ```
 
-## <a name="monitor-pipeline"></a>Surveillance d’un pipeline
+## Surveillance d’un pipeline
+<a id="monitor-pipeline" class="xliff"></a>
 1. Après la connexion au [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir** et sélectionnez **Fabriques de données**.
      ![Parcourir->Fabriques de données](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2. Dans le panneau **Fabriques de données**, cliquez sur la fabrique de données (**TutorialFactoryARM**) que vous avez créée.    
@@ -356,8 +363,10 @@ Vous pouvez également utiliser l’application Surveillance et gestion pour sur
 > 
 > 
 
-## <a name="data-factory-entities-in-the-template"></a>Entités Data Factory dans le modèle
-### <a name="define-data-factory"></a>Définir une fabrique de données
+## Entités Data Factory dans le modèle
+<a id="data-factory-entities-in-the-template" class="xliff"></a>
+### Définir une fabrique de données
+<a id="define-data-factory" class="xliff"></a>
 Vous définissez une fabrique de données dans le modèle Resource Manager, comme indiqué dans l’exemple suivant :  
 
 ```json
@@ -376,7 +385,8 @@ La propriété dataFactoryName est défini en tant que :
 ```
 Il s’agit d’une chaîne unique basée sur l’ID du groupe de ressources.  
 
-### <a name="defining-data-factory-entities"></a>Définition des entités Data Factory
+### Définition des entités Data Factory
+<a id="defining-data-factory-entities" class="xliff"></a>
 Les entités Data Factory suivantes sont définies dans le modèle JSON : 
 
 * [Service lié Azure Storage](#azure-storage-linked-service)
@@ -385,7 +395,8 @@ Les entités Data Factory suivantes sont définies dans le modèle JSON :
 * [Jeu de données de sortie d’objet Blob Azure](#azure-blob-output-dataset)
 * [Pipeline de données avec une activité de copie](#data-pipeline)
 
-#### <a name="azure-storage-linked-service"></a>Service lié Azure Storage
+#### Service lié Azure Storage
+<a id="azure-storage-linked-service" class="xliff"></a>
 Vous spécifiez le nom et la clé de votre compte Stockage Azure dans cette section. Consultez [Service lié Stockage Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié Stockage Azure. 
 
 ```json
@@ -407,7 +418,8 @@ Vous spécifiez le nom et la clé de votre compte Stockage Azure dans cette sect
 ```
 La propriété **connectionString** utilise les paramètres storageAccountName et storageAccountKey. Les valeurs de ces paramètres sont transmises à l’aide d’un fichier de configuration. La définition utilise également les variables azureStroageLinkedService et dataFactoryName, définies dans le modèle. 
 
-#### <a name="hdinsight-on-demand-linked-service"></a>Service lié à la demande HDInsight
+#### Service lié à la demande HDInsight
+<a id="hdinsight-on-demand-linked-service" class="xliff"></a>
 Consultez l’article [Services liés de calcul](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié à la demande HDInsight.  
 
 ```json
@@ -439,7 +451,8 @@ Notez les points suivants :
 
 Pour plus d’informations, voir [Service lié à la demande Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
 
-#### <a name="azure-blob-input-dataset"></a>Jeu de données d'entrée d'objet Blob Azure
+#### Jeu de données d'entrée d'objet Blob Azure
+<a id="azure-blob-input-dataset" class="xliff"></a>
 Vous spécifiez les noms du conteneur d’objets blob, du dossier et du fichier contenant les données d’entrée. Consultez [Propriétés du jeu de données d’objet blob Azure](data-factory-azure-blob-connector.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure. 
 
 ```json
@@ -472,7 +485,8 @@ Vous spécifiez les noms du conteneur d’objets blob, du dossier et du fichier 
 ```
 Cette définition utilise les paramètres suivants, définis dans le modèle de paramètre : blobContainer, inputBlobFolder et inputBlobName. 
 
-#### <a name="azure-blob-output-dataset"></a>Jeu de données de sortie d’objet Blob Azure
+#### Jeu de données de sortie d’objet Blob Azure
+<a id="azure-blob-output-dataset" class="xliff"></a>
 Vous spécifiez les noms du conteneur d’objets blob et du dossier contenant les données de sortie. Consultez [Propriétés du jeu de données d’objet blob Azure](data-factory-azure-blob-connector.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure.  
 
 ```json
@@ -504,7 +518,8 @@ Vous spécifiez les noms du conteneur d’objets blob et du dossier contenant le
 
 Cette définition utilise les paramètres suivants, définis dans le modèle de paramètre : blobContainer and outputBlobFolder. 
 
-#### <a name="data-pipeline"></a>Pipeline de données
+#### Pipeline de données
+<a id="data-pipeline" class="xliff"></a>
 Vous définissez un pipeline qui transforme les données en exécutant le script Hive sur un cluster Azure HDInsight à la demande. Consultez [Pipeline JSON](data-factory-create-pipelines.md#pipeline-json) pour obtenir des descriptions des éléments JSON permettant de définir un pipeline dans cet exemple. 
 
 ```json
@@ -561,7 +576,8 @@ Vous définissez un pipeline qui transforme les données en exécutant le script
 }
 ```
 
-## <a name="reuse-the-template"></a>Réutiliser le modèle
+## Réutiliser le modèle
+<a id="reuse-the-template" class="xliff"></a>
 Dans ce didacticiel, vous avez créé un modèle pour définir des entités Data Factory et un modèle pour transmettre les valeurs des paramètres. Pour utiliser le même modèle afin de déployer des entités Data Factory dans des environnements différents, vous créez un fichier de paramètres pour chaque environnement et l’utiliser lors du déploiement de cet environnement.     
 
 Exemple :  
@@ -577,7 +593,8 @@ Notez que la première commande utilise le fichier de paramètres pour l’envir
 
 Vous pouvez également réutiliser le modèle pour effectuer des tâches répétitives. Par exemple, vous devez créer plusieurs fabriques de données avec un ou plusieurs pipelines qui implémentent la même logique, mais chaque fabrique de données utilise des comptes Stockage Azure et Azure SQL Database différents. Dans ce scénario, vous utilisez le même modèle dans le même environnement (développement, test ou production) avec différents fichiers de paramètres pour créer des fabriques de données. 
 
-## <a name="resource-manager-template-for-creating-a-gateway"></a>Modèle Resource Manager pour la création d’une passerelle
+## Modèle Resource Manager pour la création d’une passerelle
+<a id="resource-manager-template-for-creating-a-gateway" class="xliff"></a>
 Voici un exemple de modèle Resource Manager pour la création d’une passerelle logique à l’arrière. Installez une passerelle sur votre ordinateur local ou sur une machine virtuelle IaaS Azure et l’enregistrer auprès du service Data Factory à l’aide d’une clé. Pour plus d’informations, consultez [Déplacer des données entre un emplacement local et le cloud](data-factory-move-data-between-onprem-and-cloud.md) .
 
 ```json
@@ -614,7 +631,8 @@ Voici un exemple de modèle Resource Manager pour la création d’une passerell
 ```
 Ce modèle crée une fabrique de données nommée GatewayUsingArmDF avec une passerelle nommée GatewayUsingARM. 
 
-## <a name="see-also"></a>Voir aussi
+## Voir aussi
+<a id="see-also" class="xliff"></a>
 | Rubrique | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données de bout en bout pour votre scénario ou votre entreprise. |
