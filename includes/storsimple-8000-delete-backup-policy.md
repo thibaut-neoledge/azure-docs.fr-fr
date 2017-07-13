@@ -1,9 +1,8 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-<a id="to-delete-a-storsimple-backup-policy" class="xliff"></a>
-
 #### Pour supprimer une stratégie de sauvegarde StorSimple
+<a id="to-delete-a-storsimple-backup-policy" class="xliff"></a>
 
 1. Accédez à votre appareil StorSimple et cliquez sur **Stratégie de sauvegarde**.
 

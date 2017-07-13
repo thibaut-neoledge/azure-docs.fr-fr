@@ -1,6 +1,5 @@
-<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
-
 #### Pour arrêter et démarrer une appliance cloud
+<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
 
 1. Pour arrêter une applicance cloud, accédez à la machine virtuelle de votre appliance cloud.
     ![Machine virtuelle StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart1.png)
@@ -27,9 +26,8 @@ Utilisez les applets de commande suivantes pour arrêter et démarrer une applia
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-<a id="to-restart-a-cloud-appliance" class="xliff"></a>
-
 #### Pour redémarrer une appliance cloud
+<a id="to-restart-a-cloud-appliance" class="xliff"></a>
 
 Pour redémarrer une appliance cloud, accédez à la machine virtuelle de votre appliance cloud. Dans la barre de commandes, cliquez sur **Redémarrer**. Quand vous y êtes invité, confirmez le redémarrage. Lorsque l’appliance cloud est prête à être utilisée, son état devient **En cours d’exécution**.
 

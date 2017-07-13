@@ -1,6 +1,5 @@
-<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
-
 ### Création d'un point de terminaison TCP pour la machine virtuelle
+<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
 Pour accéder à SQL Server depuis Internet, la machine virtuelle doit avoir un point de terminaison pour écouter les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
 
 > [!NOTE]
