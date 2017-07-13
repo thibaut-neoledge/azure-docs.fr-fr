@@ -12,26 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f59028a2f909914222236f3b3575afd0949b4277
 ms.openlocfilehash: c89e206462856d25a81729e7028065ac1cd13ef3
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/23/2017
 
 ---
 
-# <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect : lorsque vous avez un client existant
+# Azure AD Connect : lorsque vous avez un client existant
+<a id="azure-ad-connect-when-you-have-an-existent-tenant" class="xliff"></a>
 La plupart des rubriques sur l’utilisation d’Azure AD Connect suppose que vous démarrez avec un nouveau client Azure AD qui ne contient aucun utilisateur ni autres objets. Mais si vous avez démarré avec un client Azure AD, auquel vous avez ajouté des utilisateurs et d’autres objets, et que vous souhaitez désormais utiliser Connect, alors cette rubrique est faite pour vous.
 
-## <a name="the-basics"></a>Concepts de base
+## Concepts de base
+<a id="the-basics" class="xliff"></a>
 Un objet dans Azure AD est soit contrôlé dans le cloud (Azure AD), soit local. Pour un objet unique, vous ne pouvez pas gérer certains attributs en local et d’autres attributs dans Azure AD. Chaque objet dispose d’un indicateur qui indique où l’objet est géré.
 
 Vous pouvez gérer certains utilisateurs en local et d’autres dans le cloud. Un scénario courant pour cette configuration est une organisation qui regroupe des comptables et des commerciaux. Les comptables ont un compte AD local, mais les commerciaux n’en ont pas. Ils disposent d’un compte dans Azure AD. Vous devez alors gérer certains utilisateurs en local et d’autres dans Azure AD.
 
 Si vous avez commencé à gérer des utilisateurs dans Azure AD qui se trouvent également dans un répertoire AD local et que vous souhaitez ultérieurement utiliser Connect, il existe des considérations supplémentaires que vous devez prendre en compte.
 
-## <a name="sync-with-existing-users-in-azure-ad"></a>Synchroniser avec les utilisateurs existants dans Azure AD
+## Synchroniser avec les utilisateurs existants dans Azure AD
+<a id="sync-with-existing-users-in-azure-ad" class="xliff"></a>
 Lorsque vous installez Azure AD Connect et démarrez la synchronisation, le service de synchronisation Azure AD (dans Azure AD) effectue une vérification de chaque nouvel objet et essaie de trouver un objet existant correspondant. Il existe trois attributs utilisés pour ce processus : **userPrincipalName**, **proxyAddresses** et **sourceAnchor**/**immutableID**. Une correspondance avec **userPrincipalName** et avec **proxyAddresses** est appelée une **correspondance souple**. Une correspondance avec **sourceAnchor** est appelée une **correspondance exacte**. Pour l’attribut **proxyAddresses**, seule la valeur avec **SMTP :**, c’est-à-dire l’adresse e-mail principale, est utilisée pour l’évaluation.
 
 La correspondance est évaluée uniquement pour les nouveaux objets provenant de Connect. Si vous modifiez un objet existant afin qu’il corresponde à l’un de ces attributs, une erreur s’affiche à la place.
@@ -48,17 +52,21 @@ La section précédente et l’avertissement qu’elle contient doivent être pr
 
 Si vous avez exécuté la correspondance de vos objets avec une correspondance souple, l’attribut **sourceAnchor** est ajouté à l’objet dans Azure AD afin qu’une correspondance exacte soit utilisée ultérieurement.
 
-### <a name="hard-match-vs-soft-match"></a>Correspondance exacte et correspondance souple
+### Correspondance exacte et correspondance souple
+<a id="hard-match-vs-soft-match" class="xliff"></a>
 Pour une nouvelle installation de Connect, il n’existe aucune différence pratique entre une correspondance souple et une correspondance exacte. La différence réside dans une situation de récupération d’urgence. Si votre serveur avec Azure AD Connect a connu une défaillance, vous pouvez réinstaller une nouvelle instance sans perdre de données. Un objet avec un attribut sourceAnchor est envoyé à Connect lors de l’installation initiale. La correspondance peut ensuite être évaluée par le client (Azure AD Connect), ce qui est beaucoup plus rapide que de faire la même chose dans Azure AD. Une correspondance exacte est évaluée à la fois par Connect et par Azure AD. Une correspondance souple n’est évaluée que par Azure AD.
 
-### <a name="other-objects-than-users"></a>Objets autres que des utilisateurs
+### Objets autres que des utilisateurs
+<a id="other-objects-than-users" class="xliff"></a>
 Les utilisateurs disposent généralement des attributs userPrincipalName et proxyAddresses, facilitant ainsi la correspondance. Mais les autres objets, tels que les groupes de sécurité, n’ont pas ces attributs. Dans ce cas, vous pouvez uniquement établir une correspondance exacte à l’aide de l’attribut sourceAnchor. L’attribut sourceAnchor correspond toujours à l’attribut **objectGUID** en local converti en Base64. Vous devez donc mettre à jour la valeur dans Azure AD lorsque vous avez besoin que deux objets correspondent. L’attribut sourceAnchor/immutableID peut uniquement être mis à jour avec PowerShell et non via les portails.
 
-## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Créer un nouveau répertoire Active Directory local à partir des données dans Azure AD
+## Créer un nouveau répertoire Active Directory local à partir des données dans Azure AD
+<a id="create-a-new-on-premises-active-directory-from-data-in-azure-ad" class="xliff"></a>
 Certains clients démarrent avec une solution cloud uniquement avec Azure AD et ils ne disposent pas d’un répertoire AD local. Ensuite, ils souhaitent consommer des ressources locales et créer un répertoire AD local basé sur les données d’Azure AD. Azure AD Connect ne peut pas vous aider dans ce scénario. Il ne crée pas d’utilisateurs locaux et il ne peut pas définir le mot de passe local pour qu’il soit le même que dans Azure AD.
 
 Si la seule raison pour laquelle vous souhaitez ajouter un répertoire AD local est pour la prise en charge d’applications métier, vous devrez peut-être envisager d’utiliser les [services de domaine Azure AD](../../active-directory-domain-services/index.md) à la place.
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 

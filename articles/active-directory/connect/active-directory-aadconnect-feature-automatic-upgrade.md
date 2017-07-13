@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9541cd195e8afa6e692a5a0214b0d614e429c33b
 ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/20/2016
 
 ---
-# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à niveau automatique
+# Azure AD Connect : Mise à niveau automatique
+<a id="azure-ad-connect-automatic-upgrade" class="xliff"></a>
 Cette fonctionnalité a été introduite avec la version 1.1.105.0 (publiée en février 2016).
 
-## <a name="overview"></a>Vue d'ensemble
+## Vue d'ensemble
+<a id="overview" class="xliff"></a>
 Grâce à la fonctionnalité de **mise à niveau automatique** , vous pouvez facilement vous assurer que votre installation Azure AD Connect est à jour. Cette fonctionnalité est activée par défaut pour les installations expresses et les mises à niveau de DirSync. Quand une nouvelle version est publiée, votre installation est mise à niveau automatiquement.
 
 La mise à niveau automatique est activée par défaut pour les éléments suivants :
@@ -47,7 +50,8 @@ La mise à niveau automatique utilise Azure AD Connect Health pour l’infrastru
 
 Si l’interface utilisateur du **Synchronization Service Manager** est en cours d’exécution sur le serveur, la mise à niveau est suspendue jusqu’à la fermeture de l’interface utilisateur.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## Résolution de problèmes
+<a id="troubleshooting" class="xliff"></a>
 Si votre installation Connect ne se met pas elle-même à niveau comme prévu, procédez comme suit pour savoir d’où vient le problème.
 
 Tout d'abord, ne vous attendez pas à ce qu’il y ait déjà une tentative de mise à niveau automatique le jour du lancement d’une nouvelle version. Toute tentative de mise à niveau a un caractère aléatoire intentionnel. Ne vous inquiétez pas si votre installation n'est pas mise à niveau immédiatement.
@@ -97,11 +101,7 @@ Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais
 | UpgradeNotSupportedStagingModeEnabled |Le serveur est défini pour être en [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée de l’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
