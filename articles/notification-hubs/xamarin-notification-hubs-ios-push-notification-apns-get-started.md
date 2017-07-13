@@ -16,28 +16,31 @@ ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 426294e0dc3e877565bd57e899fdc79a1bd31c21
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 72a81fa0deb34ace77b8fb9b1a4e6b24ee164b35
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="ios-push-notifications-with-notification-hubs-for-xamarin-apps"></a>Notifications Push iOS à l’aide des hubs de notification pour applications Xamarin
+# Notifications Push iOS à l’aide des hubs de notification pour applications Xamarin
+<a id="ios-push-notifications-with-notification-hubs-for-xamarin-apps" class="xliff"></a>
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## Vue d'ensemble
+<a id="overview" class="xliff"></a>
 > [!IMPORTANT]
 > Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
 > 
 
 Ce didacticiel vous montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application iOS.
-Vous allez créer une application Xamarin.iOS vide qui reçoit des notifications Push à l’aide du [service de notification Push Apple (APN, Apple Push Notification)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html). Une fois l’opération terminée, vous pouvez utiliser votre hub de notification pour diffuser des notifications Push sur tous les appareils exécutant votre application. Le code finalisé est disponible dans l’exemple [Application NotificationHubs][GitHub].
+Vous allez créer une application Xamarin.iOS vide qui reçoit des notifications Push à l’aide du [service de notification Push Apple (APN, Apple Push Notification)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html). Une fois l’opération terminée, vous pouvez utiliser votre hub de notification pour diffuser des notifications Push sur tous les appareils exécutant votre application. Le code finalisé est disponible dans l’exemple [Application NotificationHubs][GitHub].
 
 Ce didacticiel présente un scénario de simple diffusion de messages Push utilisant les hubs de notification.
 
-## <a name="prerequisites"></a>Composants requis
+## Composants requis
+<a id="prerequisites" class="xliff"></a>
 Ce didacticiel requiert les éléments suivants :
 
 * [Xcode 6.0][Install Xcode]
@@ -54,7 +57,8 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## <a name="configure-your-notification-hub"></a>Configuration de votre hub de notification
+## Configuration de votre hub de notification
+<a id="configure-your-notification-hub" class="xliff"></a>
 Cette section vous guide dans la création d’un hub de notification et la configuration APNS à l’aide du certificat Push **.p12** que vous avez créé. Si vous souhaitez utiliser un hub de notification que vous avez déjà créé, vous pouvez passer directement à l’étape 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -74,8 +78,10 @@ Cette section vous guide dans la création d’un hub de notification et la conf
 
 Votre hub de notification est maintenant configuré pour APNS, et vous disposez des chaînes de connexion pour inscrire votre application et envoyer des notifications Push.
 
-## <a name="connect-your-app-to-the-notification-hub"></a>Connexion de votre application au hub de notification
-#### <a name="create-a-new-project"></a>Création d'un projet
+## Connexion de votre application au hub de notification
+<a id="connect-your-app-to-the-notification-hub" class="xliff"></a>
+#### Création d'un projet
+<a id="create-a-new-project" class="xliff"></a>
 1. Dans Xamarin Studio, créez un projet iOS et sélectionnez le modèle **Unified API** > **Single View Application**.
    
      ![Xamarin Studio - Sélectionner le type d’application][31]
@@ -177,7 +183,8 @@ Votre hub de notification est maintenant configuré pour APNS, et vous disposez 
    > 
 10. Exécutez l'application sur votre appareil.
 
-## <a name="sending-push-notifications"></a>Envoi de notifications Push
+## Envoi de notifications Push
+<a id="sending-push-notifications" class="xliff"></a>
 Vous pouvez tester la réception de notifications Push dans votre application en envoyant des notifications dans le portail [Azure Portal] à l’aide de la fonctionnalité **Test d’envoi** de la suite d’outils **Dépannage** située à droite de la page du hub de notification, comme indiqué dans l’écran ci-dessous.
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-test-send.png)
@@ -194,7 +201,8 @@ Dans ce didacticiel, nous nous contenterons pour plus de simplicité de tester v
 
 * **Java / PHP** : pour voir un exemple d’envoi de notifications Push au moyen des API REST, consultez « Utilisation de Notification Hubs à partir de Java/PHP » ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
-#### <a name="optional-send-push-notifications-from-a-net-console-app"></a>(Facultatif) Envoi de notifications Push à partir d’une application de console .NET
+#### (Facultatif) Envoi de notifications Push à partir d’une application de console .NET
+<a id="optional-send-push-notifications-from-a-net-console-app" class="xliff"></a>
 Dans cette section, nous allons envoyer des notifications Push à l’aide d’une simple application de console .NET. Dans cet exemple, nous allons basculer vers un environnement de développement Windows dans lequel est déjà installé Visual Studio.
 
 1. Dans Visual Studio, créez une application de console Visual C# :
@@ -229,7 +237,8 @@ Dans cette section, nous allons envoyer des notifications Push à l’aide d’u
 
 Vous trouverez toutes les charges utiles possibles dans le [Guide de programmation des notifications locales et Push]d'Apple.
 
-#### <a name="optional-send-notifications-from-a-mobile-service"></a>(Facultatif) Envoi de notifications depuis un service mobile
+#### (Facultatif) Envoi de notifications depuis un service mobile
+<a id="optional-send-notifications-from-a-mobile-service" class="xliff"></a>
 Dans cette section, nous allons envoyer des notifications Push à l’aide d’un service mobile via un script de nœud.
 
 Pour envoyer une notification à l’aide d’un service mobile, suivez les instructions de la rubrique [Prise en main de Mobile Services], puis :
@@ -262,7 +271,8 @@ Pour envoyer une notification à l’aide d’un service mobile, suivez les inst
         );
 6. Cliquez sur **Exécuter une fois** sur la barre inférieure. Vous devez recevoir une alerte sur votre appareil.
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos appareils iOS. Pour cibler certains utilisateurs, reportez-vous au didacticiel [Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]. Pour segmenter vos utilisateurs par groupes d'intérêt, consultez la page [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]. Pour plus d’informations sur l’utilisation de Notification Hubs, consultez les pages [Vue d’ensemble de Notifications Hubs] et [Procédures Notification Hubs pour iOS].
 
 <!-- Images. -->
@@ -294,7 +304,7 @@ Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos ap
 [Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]: /manage/services/notification-hubs/notify-users-aspnet
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-dotnet
 
-[Guide de programmation des notifications locales et Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Guide de programmation des notifications locales et Push]:https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/

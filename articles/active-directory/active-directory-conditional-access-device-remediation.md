@@ -15,14 +15,15 @@ ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 42dcc653b50698cf8ce8145dfb51f27be7ece440
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4d7704c03bece51957efa2a56577b8808cc62c79
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Problèmes d’accès aux ressources sur un appareil Windows
+# Problèmes d’accès aux ressources sur un appareil Windows
+<a id="you-cant-get-there-from-here-on-a-windows-device" class="xliff"></a>
 
 Par exemple, lors d’une tentative d’accès à l’intranet SharePoint Online de votre organisation, vous pouvez rencontrer une page indiquant que *vous ne pouvez pas y accéder à partir de votre emplacement*. Or, cette page s’affiche parce que votre administrateur a configuré une stratégie d’accès conditionnel, qui empêche l’accès aux ressources de votre organisation sous certaines conditions. Il peut être nécessaire de contacter le support technique ou votre administrateur pour résoudre ce problème. Toutefois, vous pouvez d’abord essayer de le faire vous-même.
 
@@ -39,7 +40,8 @@ Si vous utilisez un appareil **Windows**, vérifiez les éléments suivants :
 
 
 
-## <a name="supported-browser"></a>Navigateur pris en charge
+## Navigateur pris en charge
+<a id="supported-browser" class="xliff"></a>
 
 Si votre administrateur a configuré une stratégie d’accès conditionnel, vous pouvez uniquement accéder aux ressources de votre organisation à l’aide d’un navigateur pris en charge. Sur un appareil Windows, seuls **Internet Explorer** et **Edge** sont pris en charge.
 
@@ -47,10 +49,11 @@ Vous pouvez facilement savoir si le fait que vous ne puissiez pas accéder à un
 
 ![Messages d’accès refusé aux navigateurs non pris en charge](./media/active-directory-conditional-access-device-remediation/02.png "Scénario")
 
-La seule possibilité consiste à utiliser un navigateur pris en charge par l’application sur la plateforme de votre appareil. Pour obtenir une liste complète des navigateurs pris en charge, consultez la liste des [navigateurs pris en charge](active-directory-conditional-access-supported-apps.md#supported-browsers).  
+La seule possibilité consiste à utiliser un navigateur pris en charge par l’application sur la plateforme de votre appareil. Pour obtenir une liste complète des navigateurs pris en charge, consultez la liste des [navigateurs pris en charge](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies).  
 
 
-## <a name="supported-versions-of-windows"></a>Versions de Windows prises en charge
+## Versions de Windows prises en charge
+<a id="supported-versions-of-windows" class="xliff"></a>
 
 Les conditions suivantes doivent exister sur le système d’exploitation Windows de votre appareil : 
 
@@ -58,7 +61,8 @@ Les conditions suivantes doivent exister sur le système d’exploitation Windo
 - Si vous exécutez un système d’exploitation Windows sur votre appareil, il doit s’agir de Windows Server 2008 R2 ou d’une version ultérieure. 
 
 
-## <a name="compliant-device"></a>Conformité de l’appareil
+## Conformité de l’appareil
+<a id="compliant-device" class="xliff"></a>
 
 Il se peut que l’administrateur ait configuré une stratégie d’accès conditionnel qui restreint l’accès aux ressources de l’organisation aux seuls appareils conformes. Pour être conforme, votre appareil doit être joint à votre annuaire Active Directory local ou à votre système Azure Active Directory.
 
@@ -67,7 +71,8 @@ Vous pouvez facilement savoir si le fait que vous ne puissiez pas accéder à un
 ![Messages d’accès refusé aux appareils non enregistrés](./media/active-directory-conditional-access-device-remediation/01.png "Scénario")
 
 
-### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>Votre appareil est joint à un annuaire Active Directory local ?
+### Votre appareil est joint à un annuaire Active Directory local ?
+<a id="is-your-device-joined-to-an-on-premises-active-directory" class="xliff"></a>
 
 **Si la réponse est oui, procédez comme suit :**
 
@@ -79,7 +84,8 @@ Vous pouvez facilement savoir si le fait que vous ne puissiez pas accéder à un
 6. Si la même page s’affiche, cliquez sur **More details (Plus d'informations)** puis contactez votre administrateur et fournissez les informations demandées.
 
 
-### <a name="is-your-device-not-joined-to-an-on-premises-active-directory"></a>Votre appareil n’est pas joint à un annuaire Active Directory local.
+### Votre appareil n’est pas joint à un annuaire Active Directory local.
+<a id="is-your-device-not-joined-to-an-on-premises-active-directory" class="xliff"></a>
 
 Dans ce cas, si votre appareil exécute Windows 10, vous avez deux possibilités :
 
@@ -94,7 +100,8 @@ Ainsi :
 
 
 
-#### <a name="azure-ad-join-on-windows-10"></a>Exécution de l’option Azure AD Join sur Windows 10
+#### Exécution de l’option Azure AD Join sur Windows 10
+<a id="azure-ad-join-on-windows-10" class="xliff"></a>
 
 Les étapes permettant de joindre votre appareil à Azure AD sont liées à la version de Windows 10 en cours d’exécution sur ce système. Pour déterminer la version du système d’exploitation Windows 10, exécutez la commande **winver** : 
 
@@ -121,7 +128,8 @@ Les étapes permettant de joindre votre appareil à Azure AD sont liées à la 
 6. Essayez d’accéder à nouveau à l’application.
 
 
-#### <a name="workplace-join-on-windows-81"></a>Workplace Join pour Windows 8.1
+#### Workplace Join pour Windows 8.1
+<a id="workplace-join-on-windows-81" class="xliff"></a>
 
 Si votre appareil n’est pas joint au domaine et exécute Windows 8.1, vous pouvez procéder à une jonction d’espace de travail et vous inscrire auprès de Microsoft Intune en appliquant la procédure suivante :
 
@@ -134,7 +142,8 @@ Si votre appareil n’est pas joint au domaine et exécute Windows 8.1, vous pou
 
 
 
-#### <a name="add-your-work-or-school-account-to-windows"></a>Ajouter votre compte professionnel ou scolaire à Windows 
+#### Ajouter votre compte professionnel ou scolaire à Windows
+<a id="add-your-work-or-school-account-to-windows" class="xliff"></a> 
 
 
 **Mise à jour anniversaire Windows 10 (version 1607) :**
@@ -158,7 +167,8 @@ Si votre appareil n’est pas joint au domaine et exécute Windows 8.1, vous pou
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 [Accès conditionnel Azure Active Directory](active-directory-conditional-access.md)
 
 
