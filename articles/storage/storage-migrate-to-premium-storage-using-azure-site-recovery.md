@@ -1,27 +1,29 @@
 ---
-title: "Migration vers le stockage Premium Azure à l&quot;aide d&quot;Azure Site Recovery | Microsoft Docs"
-description: "Migration de vos machines virtuelles existantes vers le stockage Premium Azure à l&quot;aide de Site Recovery. Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d&quot;E/S exécutées sur les machines virtuelles Azure."
+title: "Migration vers le stockage Premium Azure à l'aide d'Azure Site Recovery | Microsoft Docs"
+description: "Migration de vos machines virtuelles existantes vers le stockage Premium Azure à l'aide de Site Recovery. Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d'E/S exécutées sur les machines virtuelles Azure."
 services: storage
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: kavithag
 ms.assetid: 
-ms.service: <service per approved list>
+ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 ms.author: luywang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
 ms.openlocfilehash: 522fd46e8c0ccc64eb97ee6622e9886bb51f1e24
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/15/2017
 
-
 ---
-# <a name="migrating-to-premium-storage-using-azure-site-recovery"></a>Migration vers le stockage Premium à l'aide d'Azure Site Recovery
+<a id="migrating-to-premium-storage-using-azure-site-recovery" class="xliff"></a>
+
+# Migration vers le stockage Premium à l'aide d'Azure Site Recovery
 
 Le [stockage Premium Azure](storage-premium-storage.md) offre une prise en charge des disques haute performance et à faible latence pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d'E/S. Ce guide vise à aider les utilisateurs à migrer leurs disques de machine virtuelle d’un compte de stockage Standard vers un compte de stockage Premium à l’aide [d'Azure Site Recovery](../site-recovery/site-recovery-overview.md).
 
@@ -31,7 +33,9 @@ Nous recommandons de migrer vers un stockage Premium à l’aide de Site Recover
 
 ![][1]
 
-## <a name="azure-site-recovery-components"></a>Composants Azure Site Recovery
+<a id="azure-site-recovery-components" class="xliff"></a>
+
+## Composants Azure Site Recovery
 
 Il s’agit des composants Site Recovery qui sont pertinents pour ce scénario de migration.
 
@@ -50,7 +54,9 @@ Ce graphique montre comment ces composants interagissent.
 
 Pour obtenir des composants supplémentaires pour d’autres scénarios, reportez-vous à la rubrique [Architecture du scénario](../site-recovery/site-recovery-vmware-to-azure.md).
 
-## <a name="azure-essentials"></a>Éléments principaux d’Azure
+<a id="azure-essentials" class="xliff"></a>
+
+## Éléments principaux d’Azure
 
 Il s’agit des conditions requises par Azure pour ce scénario de migration.
 
@@ -59,12 +65,16 @@ Il s’agit des conditions requises par Azure pour ce scénario de migration.
 * Un réseau virtuel (VNet) Azure auquel les machines virtuelles se connectent quand elles sont créées au moment du basculement. Le réseau virtuel Azure doit se trouver dans la région dans laquelle Site Recovery est exécuté.
 * Un compte de stockage standard Azure dans lequel stocker les journaux de réplication. Il peut s'agir du même compte de stockage que pour les disques de machine virtuelle en cours de migration
 
-## <a name="prerequisites"></a>Composants requis
+<a id="prerequisites" class="xliff"></a>
+
+## Composants requis
 
 * Comprendre les composants de scénario de migration pertinents dans la section précédente
 * Planifier votre temps d’arrêt en vous familiarisant avec le [Basculement dans Site Recovery](../site-recovery/site-recovery-failover.md)
 
-## <a name="setup-and-migration-steps"></a>Configuration et étapes de la migration
+<a id="setup-and-migration-steps" class="xliff"></a>
+
+## Configuration et étapes de la migration
 
 Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azure entre différentes régions ou au sein de la même région. Les instructions suivantes ont été adaptées à ce scénario de migration à partir de l’article [Réplication de machines virtuelles VMware ou de serveurs physiques sur Azure dans le portail Azure](../site-recovery/site-recovery-vmware-to-azure.md). Suivez les liens pour obtenir des étapes détaillées des instructions de cet article.
 
@@ -148,7 +158,9 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 
 9. **Exécutez un basculement**. Une fois le test de basculement terminé, exécutez un basculement pour migrer vos disques vers le Stockage Premium et répliquer les instances de machines virtuelles. Suivez les étapes détaillées dans [Exécuter un basculement](../site-recovery/site-recovery-failover.md#run-a-failover). Assurez-vous de sélectionner **Arrêter les machines virtuelles et synchroniser les dernières données** pour indiquer que le logiciel Site Recovery doit essayer d’arrêter les machines virtuelles protégées et de synchroniser les données, afin que la dernière version de ces dernières fasse l’objet d’un basculement. Si vous ne sélectionnez pas cette option ou si la tentative n’aboutit pas, le basculement sera effectué depuis le dernier point de récupération disponible pour la machine virtuelle. Site Recovery créera une instance de machine virtuelle dont le type est identique ou similaire à une machine virtuelle compatible avec le stockage Premium. Vous pouvez vérifier les performances et le prix des différentes instances de machine virtuelle en accédant à [Tarification des machines virtuelles Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) ou à [Tarification des machines virtuelles Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="post-migration-steps"></a>Étapes de post-migration
+<a id="post-migration-steps" class="xliff"></a>
+
+## Étapes de post-migration
 
 1. **Configurer des machines virtuelles répliquées dans le groupe à haute disponibilité, le cas échéant**. Site Recovery ne prend pas en charge la migration de machines virtuelles avec le groupe à haute disponibilité. En fonction du déploiement de votre machine virtuelle répliquée, effectuez l’une des opérations suivantes :
   * Pour une machine virtuelle créée à l’aide du modèle de déploiement classique : ajoutez la machine virtuelle au groupe à haute disponibilité dans le portail Azure. Pour connaître les détails des étapes, accédez à [Ajout d’une machine virtuelle existante à un groupe à haute disponibilité](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
@@ -158,12 +170,16 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 
 3. **Nettoyer l’infrastructure Azure Site Recovery**. Si Site Recovery n’est plus nécessaire, vous pouvez nettoyer son infrastructure en supprimant des éléments répliqués, le serveur de configuration et la stratégie de récupération, puis en supprimant le coffre Azure Site Recovery.
 
-## <a name="troubleshooting"></a>résolution des problèmes
+<a id="troubleshooting" class="xliff"></a>
+
+## résolution des problèmes
 
 * [Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques](../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Forum Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 Consultez les ressources suivantes pour des scénarios spécifiques de migration des machines virtuelles :
 

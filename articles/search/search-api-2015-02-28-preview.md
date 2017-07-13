@@ -15,14 +15,16 @@ ms.workload: search
 ms.date: 05/01/2017
 ms.author: brjohnst
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ea3fc801074bb6d7e7c32574bc94702c79a61185
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="azure-search-service-rest-api-version-2015-02-28-preview"></a>API REST du service Azure Search : version 2015-02-28-Preview
+<a id="azure-search-service-rest-api-version-2015-02-28-preview" class="xliff"></a>
+
+# API REST du service Azure Search : version 2015-02-28-Preview
 Cet article constitue la documentation de référence de `api-version=2015-02-28-Preview`. Cette version préliminaire étend la version actuelle disponible, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), en fournissant les fonctionnalités expérimentales suivantes :
 
 * `moreLikeThis` dans l’API [Search Documents](#SearchDocs) . Il recherche d’autres documents correspondant à un autre document spécifique.
@@ -34,7 +36,9 @@ Certains éléments supplémentaires de l’API REST `2015-02-28-Preview` sont d
 
 Le service Azure Search est disponible dans plusieurs versions. Pour plus d'informations, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx) .
 
-## <a name="apis-in-this-document"></a>API dans ce document
+<a id="apis-in-this-document" class="xliff"></a>
+
+## API dans ce document
 L’API du service Azure Search prend en charge deux syntaxes d’URL pour les opérations d’API : simple et OData. Pour plus d’informations, consultez [Prise en charge d’OData (API Azure Search)](http://msdn.microsoft.com/library/azure/dn798932.aspx). La liste suivante présente la syntaxe simple.
 
 [Création d'index](#CreateIndex)
@@ -90,7 +94,9 @@ L’API du service Azure Search prend en charge deux syntaxes d’URL pour les o
 - - -
 <a name="IndexOps"></a>
 
-## <a name="index-operations"></a>Opérations d'index
+<a id="index-operations" class="xliff"></a>
+
+## Opérations d'index
 Vous pouvez créer et gérer des index dans le service Azure Search via de simples requêtes HTTP (POST, GET, PUT, DELETE) sur une ressource d'index donnée. Pour créer un index, vous commencez par PUBLIER un document JSON décrivant le schéma d'index. Le schéma définit les champs de l'index, leurs types de données et comment les utiliser (par exemple, dans des recherches en texte intégral, des filtres, des tris ou des facettes). Il définit également des profils de calcul de score, des générateurs de suggestions et d'autres attributs permettant de configurer le comportement de l'index.
 
 L'exemple suivant illustre un schéma utilisé pour rechercher des informations sur des hôtels avec le champ Description défini en deux langues. Notez la façon dont les attributs contrôlent le mode d'utilisation du champ. Par exemple, `hotelId` est utilisé comme clé de document (`"key": true`) et est exclu des recherches en texte intégral (`"searchable": false`).
@@ -126,7 +132,9 @@ Pour obtenir une présentation vidéo de l'indexation dans Azure Search, consult
 
 <a name="CreateIndex"></a>
 
-## <a name="create-index"></a>Création d'index
+<a id="create-index" class="xliff"></a>
+
+## Création d'index
 Dans Azure Search, un index est le principal moyen d'organiser des documents et d'y faire des recherches, un peu comme une table permet d'organiser des enregistrements dans une base de données. Chaque index englobe un ensemble de documents tous conformes à un même schéma d'index (noms de champ, types de données et propriétés), mais il spécifie également des constructions supplémentaires (générateurs de suggestions, profils de calcul de score et options CORS) qui définissent d'autres comportements de recherche.
 
 Vous pouvez créer un index dans un service Azure Search à l'aide d'une requête HTTP POST ou PUT. Le corps de la requête est un schéma JSON qui spécifie les informations de configuration et d'index.
@@ -259,7 +267,7 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 `name` -Définit le nom du champ.
 
-`type` : définit le type de données pour le champ. Pour obtenir la liste des types pris en charge, consultez [Types de données pris en charge](#DataTypes) .
+`type` : définit le type de données pour le champ.
 
 `searchable` : indique que le champ peut faire l'objet d'une recherche en texte intégral. Cela signifie qu'il fera l'objet d'une analyse, par exemple lexicale, lors de l'indexation. Si vous définissez un champ `searchable` avec une valeur telle que « journée ensoleillée », cette valeur est fractionnée au niveau interne en jetons individuels « journée » et « ensoleillée ». Cela permet d'effectuer des recherches en texte intégral de ces termes. Les champs de type `Edm.String` ou `Collection(Edm.String)` sont `searchable` par défaut. Les autres types de champs ne peuvent pas être `searchable`.
 
@@ -681,7 +689,9 @@ Actuellement, la prise en charge des mises à jour de schéma d'index est limit�
 
 <a name="Suggesters"></a>
 
-## <a name="suggesters"></a>Générateurs de suggestions
+<a id="suggesters" class="xliff"></a>
+
+## Générateurs de suggestions
 La fonctionnalité de suggestions dans Azure Search est une fonctionnalité de requête type-ahead ou de saisie semi-automatique, qui fournit une liste de termes de recherche potentiels en réponse à des chaînes partielles entrées dans une zone de recherche. Vous avez probablement remarqué des suggestions de requête lors de l’utilisation de moteurs de recherche web commerciaux : la saisie de « NET » dans Bing génère une liste de termes pour « .NET 4.5 », « .NET Framework 3.5 », etc. Lorsque vous utilisez l’API REST du service de recherche, l’implémentation des suggestions dans une application Azure Search personnalisée requiert les éléments suivants :
 
 * Activer les suggestions en ajoutant une construction de **générateur de suggestion** dans votre index, en donnant le nom, le mode de recherche et la liste des champs pour lesquels la recherche type-ahead est appelée. Par exemple, si vous spécifiez « cityName » comme champ de la source, la saisie de la chaîne de recherche partielle « Sea » affiche « Seattle », « Seaside » et « Seatac » (trois noms réels de ville) comme suggestions de requête pour l’utilisateur.
@@ -727,7 +737,9 @@ Un générateur de suggestions fait partie de l’index. Un seul générateur de
 
 <a name="UpdateIndex"></a>
 
-## <a name="update-index"></a>Mise à jour d'index
+<a id="update-index" class="xliff"></a>
+
+## Mise à jour d'index
 Vous pouvez mettre à jour un index existant dans Azure Search à l'aide d'une requête HTTP PUT. Les mises à jour peuvent inclure l'ajout de nouveaux champs au schéma existant, la modification des options CORS et la modification des profils de calcul de score. Pour plus d'informations, consultez [Ajout de profils de calcul de score](https://msdn.microsoft.com/library/azure/dn798928.aspx) . Vous spécifiez le nom de l'index à mettre à jour sur l'URI de la requête :
 
     PUT https://[search service url]/indexes/[index name]?api-version=[api-version]
@@ -849,7 +861,9 @@ Notez que cette opération placera votre index hors connexion pendant au moins q
 
 <a name="ListIndexes"></a>
 
-## <a name="list-indexes"></a>Liste des index
+<a id="list-indexes" class="xliff"></a>
+
+## Liste des index
 L'opération **List Indexes** retourne une liste des index actuellement utilisés dans votre service Azure Search.
 
     GET https://[service name].search.windows.net/indexes?api-version=[api-version]
@@ -914,7 +928,9 @@ Cette technique est utile pour économiser de la bande passante si votre service
 
 <a name="GetIndex"></a>
 
-## <a name="get-index"></a>Obtention d'index
+<a id="get-index" class="xliff"></a>
+
+## Obtention d'index
 L'opération **Get Index** obtient la définition d'index auprès d'Azure Search.
 
     GET https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
@@ -948,7 +964,9 @@ Consultez l'exemple de document JSON dans [Création et mise à jour d'un index]
 
 <a name="DeleteIndex"></a>
 
-## <a name="delete-index"></a>Suppression d'index
+<a id="delete-index" class="xliff"></a>
+
+## Suppression d'index
 L'opération **Delete Index** supprime de votre service Azure Search un index et les documents associés. Vous pouvez obtenir le nom de l'index à partir du tableau de bord de service dans le portail Azure ou à partir de l'API. Consultez la section [List Indexes](#ListIndexes) pour plus d'informations.
 
     DELETE https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
@@ -980,7 +998,9 @@ Code d'état : 204 Pas de contenu est renvoyé en cas de réponse correcte.
 
 <a name="GetIndexStats"></a>
 
-## <a name="get-index-statistics"></a>Obtention de statistiques d'index
+<a id="get-index-statistics" class="xliff"></a>
+
+## Obtention de statistiques d'index
 L'opération **Get Index Statistics** retourne d'Azure Search un nombre de documents pour l'index actuel, ainsi que l'utilisation du stockage.
 
     GET https://[service name].search.windows.net/indexes/[index name]/stats?api-version=[api-version]
@@ -1024,7 +1044,9 @@ Le corps de la réponse a le format suivant :
 
 <a name="TestAnalyzer"></a>
 
-## <a name="test-analyzer"></a>Tester l’analyseur
+<a id="test-analyzer" class="xliff"></a>
+
+## Tester l’analyseur
 L’ **API Analyser** montre comment l’analyseur découpe le texte en jetons.
 
     POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
@@ -1118,7 +1140,9 @@ Le corps de la réponse a le format suivant :
 - - -
 <a name="DocOps"></a>
 
-## <a name="document-operations"></a>Opérations de document
+<a id="document-operations" class="xliff"></a>
+
+## Opérations de document
 Dans Azure Search, un index est stocké dans le cloud et rempli à l'aide de documents JSON que vous téléchargez sur le service. Tous les documents que vous téléchargez comprennent le corpus de vos données de recherche. Les documents contiennent des champs, dont certains sont tokenisés dans les termes de recherche à mesure qu'ils sont téléchargés. Le segment d'URL `/docs` dans l'API d'Azure Search représente la collection de documents d'un index. Toutes les opérations sur la collection, telles que le chargement, la fusion, la suppression ou l'interrogation de documents, sont effectuées dans un contexte d'index unique, les URL pour ces opérations commencent donc toujours par `/indexes/[index name]/docs` pour un nom d'index donné.
 
 Votre code d’application doit générer des documents JSON à télécharger vers Azure Search ou vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/dn946891.aspx) pour charger des documents si la source de données est la base de données SQL Azure ou Azure Cosmos DB. En règle générale, les index sont remplis à partir d'un jeu de données unique que vous fournissez.
@@ -1131,7 +1155,9 @@ Avant de pouvoir télécharger des documents, vous devez avoir déjà créé l'i
 
 <a name="AddOrUpdateDocuments"></a>
 
-## <a name="add-update-or-delete-documents"></a>Ajout, mise à jour ou suppression de documents
+<a id="add-update-or-delete-documents" class="xliff"></a>
+
+## Ajout, mise à jour ou suppression de documents
 Vous pouvez télécharger, fusionner, fusionner-ou-télécharger ou supprimer des documents à partir d'un index spécifié à l'aide de la requête HTTP POST. Pour un grand nombre de mises à jour, le traitement par lot des documents (jusqu'à 1 000 documents par lot ou 16 Mo par lot) est recommandé.
 
     POST https://[service name].search.windows.net/indexes/[index name]/docs/index?api-version=[api-version]
@@ -1342,7 +1368,9 @@ Le code d’état 429 indique que vous avez dépassé votre quota du nombre de d
 - - -
 <a name="SearchDocs"></a>
 
-## <a name="search-documents"></a>Search Documents
+<a id="search-documents" class="xliff"></a>
+
+## Search Documents
 Une opération **Search** est émise en tant que requête GET ou POST et spécifie les paramètres qui donnent les critères de sélection des documents correspondants.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?[query parameters]
@@ -1461,7 +1489,7 @@ En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct d
 > 
 > 
 
-`$filter=[string]` (facultatif) : expression de recherche structurée avec une syntaxe OData standard. Consultez la section [Syntaxe d'expression OData](#ODataExpressionSyntax) pour plus d'informations sur le sous-ensemble de la grammaire d'expression OData pris en charge par Azure Search.
+`$filter=[string]` (facultatif) : expression de recherche structurée avec une syntaxe OData standard.
 
 > [!NOTE]
 > Lors de l’appel de **Search** à l’aide de POST, ce paramètre est nommé `filter` au lieu de `$filter`.
@@ -1702,7 +1730,9 @@ Notez l'utilisation de `searchMode=all` ci-dessus. L'ajout de ce paramètre remp
 
 <a name="LookupAPI"></a>
 
-## <a name="lookup-document"></a>Recherche de document
+<a id="lookup-document" class="xliff"></a>
+
+## Recherche de document
 L'opération **Lookup Document** récupère un document dans Azure Search. Cela est utile quand un utilisateur clique sur un résultat de recherche en particulier et que vous voulez rechercher des détails spécifiques sur ce document.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs/[key]?[query parameters]
@@ -1760,7 +1790,9 @@ Rechercher le document qui contient la clé « 3 » à l'aide de la syntaxe OD
 
 <a name="CountDocs"></a>
 
-## <a name="count-documents"></a>Nombre de documents
+<a id="count-documents" class="xliff"></a>
+
+## Nombre de documents
 L'opération **Count Documents** récupère le nombre de documents dans un index de recherche. La syntaxe `$count` fait partie du protocole OData.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs/$count?api-version=[api-version]
@@ -1796,7 +1828,9 @@ Le corps de la réponse contient la valeur du nombre sous forme d'entier en text
 
 <a name="Suggestions"></a>
 
-## <a name="suggestions"></a>Suggestions
+<a id="suggestions" class="xliff"></a>
+
+## Suggestions
 L'opération **Suggestions** récupère des suggestions basées sur une entrée de recherche partielle. Elle est généralement utilisée dans les zones de recherche pour fournir des suggestions à mesure que les utilisateurs entrent des termes de recherche.
 
 Les requêtes de suggestions visent à suggérer des documents cibles, le texte suggéré peut donc être répété si plusieurs documents candidats correspondent à la même entrée de recherche. Vous pouvez utiliser `$select` pour récupérer d'autres champs du document (y compris la clé de document) afin de savoir quel document est la source de chaque suggestion.

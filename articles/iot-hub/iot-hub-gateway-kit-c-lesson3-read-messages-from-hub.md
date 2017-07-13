@@ -4,7 +4,7 @@ description: "Exécutez un exemple de code sur votre ordinateur hôte pour lire 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "données dans le cloud, collecte de données cloud, service de cloud iot, données iot"
 ROBOTS: NOINDEX
@@ -17,31 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 0a5dd7e010ba46b724bb6a2526dc2a2730acc10f
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/25/2017
-
 
 ---
 
-# <a name="read-messages-from-your-iot-hub"></a>Lire des messages à partir de votre IoT Hub
+<a id="read-messages-from-your-iot-hub" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>Procédure à suivre
+# Lire des messages à partir de votre IoT Hub
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 
 - Exécutez l’exemple de code sur votre ordinateur hôte pour lire les messages provenant de votre IoT Hub.
 
 Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-gateway-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 
 Découvrez comment utiliser l’outil gulp pour lire les messages à partir de votre IoT Hub.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 
 - L’exemple d’application BLE que vous avez exécuté dans la leçon 3.
 
-## <a name="get-your-iot-hub-and-device-connection-strings"></a>Obtenir vos chaînes de connexion d’IoT Hub et d’appareil
+<a id="get-your-iot-hub-and-device-connection-strings" class="xliff"></a>
+
+## Obtenir vos chaînes de connexion d’IoT Hub et d’appareil
 
 La chaîne de connexion de l’appareil permet de connecter votre appareil (TI SensorTag ou appareil simulé) à votre IoT Hub. La chaîne de connexion IoT Hub sert à se connecter au registre des identités de votre IoT Hub pour gérer les appareils autorisés à se connecter à votre IoT Hub.
 
@@ -60,7 +70,9 @@ La chaîne de connexion de l’appareil permet de connecter votre appareil (TI S
 
    `{my hub name}` est le nom que vous avez spécifié à la leçon 2.
 
-## <a name="configure-the-device-connection-for-the-sample-code"></a>Configurer la connexion de l’appareil pour l'exemple de code
+<a id="configure-the-device-connection-for-the-sample-code" class="xliff"></a>
+
+## Configurer la connexion de l’appareil pour l'exemple de code
 
 Mettez à jour le fichier de configuration d’appareil `config-azure.json` pour lire les messages de votre IoT Hub sur votre ordinateur hôte. Pour ce faire, procédez comme suit :
 
@@ -79,7 +91,9 @@ Mettez à jour le fichier de configuration d’appareil `config-azure.json` pour
 
    Remplacez `[IoT hub connection string]` par la chaîne de connexion de l’IoT Hub obtenue.
 
-## <a name="read-messages-from-your-iot-hub"></a>Lire des messages à partir de votre IoT Hub
+<a id="read-messages-from-your-iot-hub" class="xliff"></a>
+
+## Lire des messages à partir de votre IoT Hub
 
 Si vous avez un TI SensorTag, assurez-vous que vous avez déjà démarré votre SensorTag. Exécutez l’exemple d’application de passerelle et lisez les messages de l'IoT Hub à l'aide de la commande suivante :
 
@@ -93,11 +107,15 @@ Les messages envoyés et reçus sont tous affichés instantanément sur la même
 
 ![Exemple d’application BLE avec des messages envoyés et reçus](media/iot-hub-gateway-kit-lessons/lesson3/gulp_run_read_hub.png)
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 
 Vous avez exécuté un exemple de code pour lire des messages provenant de votre IoT Hub. Vous êtes prêt à lire les messages qui sont stockés dans votre stockage Table Azure.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Créer une application de fonction Azure et un compte de stockage Azure](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 
 

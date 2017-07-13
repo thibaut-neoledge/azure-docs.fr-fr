@@ -4,7 +4,7 @@ description: "Clonez l’exemple d’application C à partir de GitHub et exécu
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: projets de led arduino, clignotement de led arduino, code de clignotement de led arduino, programme de clignotement arduino, exemple de clignotement arduino
 ROBOTS: NOINDEX
@@ -17,27 +17,37 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
 ms.openlocfilehash: c0589d488be5ec62686551b97d8949e5fed2f0a3
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Créer et déployer l’application blink
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="create-and-deploy-the-blink-application" class="xliff"></a>
+
+# Créer et déployer l’application blink
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 Clonez l’exemple d’application C à partir de GitHub et utilisez l’outil gulp pour le déployer sur Intel Edison. Avec cet exemple d’application, la LED connectée à la carte clignote toutes les deux secondes. Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes][troubleshooting].
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 * Déploiement et exécution de l’exemple d’application sur Edison.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 Vous devez avoir terminé les opérations suivantes :
 
 * [Configuration de votre appareil][configure-your-device]
 * [Obtenir les outils][get-the-tools]
 
-## <a name="open-the-sample-application"></a>Ouvrir l’exemple d’application
+<a id="open-the-sample-application" class="xliff"></a>
+
+## Ouvrir l’exemple d’application
 Procédez comme suit pour ouvrir l’exemple d’application :
 
 1. Clonez l’exemple de référentiel à partir de GitHub en exécutant la commande suivante :
@@ -57,14 +67,18 @@ Procédez comme suit pour ouvrir l’exemple d’application :
 
 Le fichier dans le sous-dossier `app` est le fichier source clé qui contient le code pour contrôler la LED.
 
-### <a name="install-application-dependencies"></a>Installation des dépendances de l’application
+<a id="install-application-dependencies" class="xliff"></a>
+
+### Installation des dépendances de l’application
 Installez les bibliothèques et d’autres modules dont vous avez besoin pour l’exemple d’application en exécutant la commande suivante :
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Configuration de la connexion de l’appareil
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Configuration de la connexion de l’appareil
 Procédez comme suit pour configurer la connexion de l’appareil :
 
 1. Générez le fichier de configuration de votre appareil en exécutant la commande suivante :
@@ -91,8 +105,12 @@ Procédez comme suit pour configurer la connexion de l’appareil :
 
 Félicitations ! Vous avez créé le premier exemple d’application pour Edison.
 
-## <a name="deploy-and-run-the-sample-application"></a>Déploiement et exécution de l’exemple d’application
-### <a name="install-the-azure-iot-hub-sdk-on-edison"></a>Installation du kit de développement logiciel (SDK) Azure IoT Hub sur Edison
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Déploiement et exécution de l’exemple d’application
+<a id="install-the-azure-iot-hub-sdk-on-edison" class="xliff"></a>
+
+### Installation du kit de développement logiciel (SDK) Azure IoT Hub sur Edison
 Installez le kit de développement logiciel (SDK) Azure IoT Hub sur Edison en exécutant la commande suivante :
 
 ```bash
@@ -101,22 +119,30 @@ gulp install-tools
 
 Cette tâche peut prendre beaucoup de temps en fonction de votre connexion réseau. Elle doit être exécuté une seule fois pour une seule carte Edison.
 
-### <a name="deploy-and-run-the-sample-app"></a>Déploiement et exécution de l’exemple d’application
+<a id="deploy-and-run-the-sample-app" class="xliff"></a>
+
+### Déploiement et exécution de l’exemple d’application
 Déployez et exécutez l’exemple d’application en exécutant la commande suivante :
 
 ```bash
 gulp deploy && gulp run
 ```
 
-### <a name="verify-the-app-works"></a>Vérification du bon fonctionnement de l’application
+<a id="verify-the-app-works" class="xliff"></a>
+
+### Vérification du bon fonctionnement de l’application
 L’exemple d’application se termine automatiquement une fois que la LED a clignoté 20 fois. Si vous ne voyez pas la LED clignoter, consultez le [guide de dépannage][troubleshooting] des problèmes courants.
 
 ![LED clignotante][led-blinking]
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 Vous avez installé les outils nécessaires pour travailler avec Edison et déployé un exemple d’application sur Edison pour faire clignoter la LED. Vous pouvez maintenant créer, déployer et exécuter un autre exemple d’application qui connecte Edison à Azure IoT Hub pour envoyer et recevoir des messages.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Obtenir les outils Azure][get-the-azure-tools]
 
 <!-- Images and links -->

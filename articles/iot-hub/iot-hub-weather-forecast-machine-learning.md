@@ -4,7 +4,7 @@ description: "Utilisez Azure Machine Learning pour prédire le risque de pluie s
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "Prévisions météo avec Machine Learning"
 ms.assetid: 8ba7d9e7-699c-4448-b353-0f3e1429d198
@@ -15,14 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 872930fd127729e0f444942ad1ee6fa11465ceb9
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/25/2017
 
-
 ---
-# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Prévision météo utilisant les données de capteur de votre IoT Hub dans Azure Machine Learning
+<a id="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning" class="xliff"></a>
+
+# Prévision météo utilisant les données de capteur de votre IoT Hub dans Azure Machine Learning
 
 ![Diagramme de bout en bout](media/iot-hub-get-started-e2e-diagram/6.png)
 
@@ -30,11 +32,15 @@ ms.lasthandoff: 04/25/2017
 
 L’apprentissage automatique (Machine Learning) utilise des ordinateurs pour exécuter des modèles prédictifs qui apprennent à partir de données existantes afin de prévoir les tendances, résultats et comportements futurs. Azure Machine Learning est un service d’analyse prédictive sur le cloud qui permet de créer et de déployer rapidement des modèles prédictifs sous forme de solutions d’analyse.
 
-## <a name="what-you-learn"></a>Contenu
+<a id="what-you-learn" class="xliff"></a>
+
+## Contenu
 
 Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions (de chances de pluie) en utilisant les données de température et d’humidité de votre Azure IoT Hub. Les chances de sortie sont la sortie d’un modèle de prévision météo préparé. Le modèle est basé sur des données historiques pour prévoir les chances de pluie en fonction de la température et de l’humidité.
 
-## <a name="what-you-do"></a>Procédure
+<a id="what-you-do" class="xliff"></a>
+
+## Procédure
 
 - Déployez le modèle de prévision météo comme un service web.
 - Préparez votre instance IoT Hub pour l’accès aux données via l’ajout d’un groupe de consommateurs.
@@ -44,7 +50,9 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
   - Enregistrer les résultats dans un stockage d'objets blob Azure.
 - Utilisez Microsoft Azure Storage Explorer pour afficher les prévisions météorologiques.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 
 - Le didacticiel [Configurer votre appareil](iot-hub-raspberry-pi-kit-node-get-started.md) terminé, qui traite des exigences suivantes :
   - Un abonnement Azure actif.
@@ -52,7 +60,9 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
   - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
 - Un compte Azure Machine Learning Studio. ([Essayez Machine Learning Studio gratuitement](https://studio.azureml.net/)).
 
-## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Déployer le modèle de prévision météo comme un service web
+<a id="deploy-the-weather-prediction-model-as-a-web-service" class="xliff"></a>
+
+## Déployer le modèle de prévision météo comme un service web
 
 1. Accédez à la [page de modèle de prévision météo](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
 1. Cliquez sur **Ouvrir dans Studio** dans Microsoft Azure Machine Leaning Studio.
@@ -77,9 +87,13 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
-## <a name="create-configure-and-run-a-stream-analytics-job"></a>Créer, configurer et exécuter un travail Stream Analytics
+<a id="create-configure-and-run-a-stream-analytics-job" class="xliff"></a>
 
-### <a name="create-a-stream-analytics-job"></a>Création d’un travail Stream Analytics
+## Créer, configurer et exécuter un travail Stream Analytics
+
+<a id="create-a-stream-analytics-job" class="xliff"></a>
+
+### Création d’un travail Stream Analytics
 
 1. Dans le [portail Azure](https://ms.portal.azure.com/), cliquez sur **Nouveau** > **Internet des objets** > **Travail Stream Analytics**.
 1. Saisissez les informations ci-après concernant le travail.
@@ -96,7 +110,9 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 1. Cliquez sur **Create**.
 
-### <a name="add-an-input-to-the-stream-analytics-job"></a>Ajouter une entrée au travail Stream Analytics
+<a id="add-an-input-to-the-stream-analytics-job" class="xliff"></a>
+
+### Ajouter une entrée au travail Stream Analytics
 
 1. Ouvrez le travail Stream Analytics.
 1. Sous **Topologie du travail**, cliquez sur **Entrées**.
@@ -112,7 +128,9 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 1. Cliquez sur **Create**.
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>Ajouter une sortie au travail Stream Analytics
+<a id="add-an-output-to-the-stream-analytics-job" class="xliff"></a>
+
+### Ajouter une sortie au travail Stream Analytics
 
 1. Sous **Topologie du travail**, cliquez sur **Sorties**.
 1. Dans le volet **Sorties**, cliquez sur **Ajouter**, puis saisissez les informations suivantes :
@@ -131,7 +149,9 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 1. Cliquez sur **Create**.
 
-### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Ajouter une fonction au travail Stream Analytics pour appeler le service web que vous avez déployé
+<a id="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed" class="xliff"></a>
+
+### Ajouter une fonction au travail Stream Analytics pour appeler le service web que vous avez déployé
 
 1. Sous **Topologie du travail**, cliquez sur **Fonctions** > **Ajouter**.
 1. Entrez les informations suivantes :
@@ -150,7 +170,9 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 1. Cliquez sur **Create**.
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurer la requête du travail Stream Analytics
+<a id="configure-the-query-of-the-stream-analytics-job" class="xliff"></a>
+
+### Configurer la requête du travail Stream Analytics
 
 1. Sous **Topologie du travail**, cliquez sur **Requête**.
 1. Remplacez le code existant par ce qui suit :
@@ -170,13 +192,17 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 1. Cliquez sur **Save**.
 
-### <a name="run-the-stream-analytics-job"></a>Exécuter la tâche Stream Analytics
+<a id="run-the-stream-analytics-job" class="xliff"></a>
+
+### Exécuter la tâche Stream Analytics
 
 Dans le travail Stream Analytics, cliquez sur **Démarrer** > **Maintenant** > **Démarrer**. Une fois le travail lancé, l’état correspondant passe de **Arrêté** à **Exécution**.
 
 ![Exécuter la tâche Stream Analytics](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 
-## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Utiliser Microsoft Azure Storage Explorer pour afficher les prévisions météorologiques
+<a id="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast" class="xliff"></a>
+
+## Utiliser Microsoft Azure Storage Explorer pour afficher les prévisions météorologiques
 
 Exécutez l’application cliente pour commencer la collecte et l’envoi de données de température et d’humidité à votre IoT Hub. Pour chaque message que votre IoT Hub reçoit, le travail Stream Analytics appelle le service web de prévision météorologique pour produire les chances de pluie. Le résultat est ensuite enregistré dans votre stockage d’objets blob Azure. Azure Storage Explorer est un outil que vous pouvez utiliser pour afficher le résultat.
 
@@ -189,7 +215,9 @@ Exécutez l’application cliente pour commencer la collecte et l’envoi de don
 
    ![Obtenir des résultats de prévisions météo avec Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 
 Vous avez correctement utilisé Azure Machine Learning pour produire le risque de pluie sur la base des données de température et d’humidité que votre IoT Hub reçoit.
 

@@ -4,7 +4,7 @@ description: "Personnalisez les messages pour modifier le comportement activé/d
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "contrôler la led avec raspberry pi, contrôle de la led raspberry pi, raspberry pi contrôle de la led"
 ROBOTS: NOINDEX
@@ -17,24 +17,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: c1c999e40ecc92a1018067822be66f14b61a8c36
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a>Modification du comportement activé/désactivé de la LED
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="change-the-on-and-off-behavior-of-the-led" class="xliff"></a>
+
+# Modification du comportement activé/désactivé de la LED
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 Personnalisez les messages pour modifier le comportement activé/désactivé de la LED. Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 Utiliser des fonctions supplémentaires de Node.js pour modifier le comportement activé/désactivé de la LED.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 Vous devez avoir correctement suivi la section [Exécution d’un exemple d’application sur Raspberry Pi pour recevoir des messages cloud-à-appareil](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md).
 
-## <a name="add-functions-to-mainc-and-gulpfilejs"></a>Ajouter des fonctions à main.c et gulpfile.js
+<a id="add-functions-to-mainc-and-gulpfilejs" class="xliff"></a>
+
+## Ajouter des fonctions à main.c et gulpfile.js
 1. Ouvrez l’exemple d’application dans Visual Studio Code en exécutant les commandes suivantes :
 
    ```bash
@@ -92,7 +102,9 @@ Vous devez avoir correctement suivi la section [Exécution d’un exemple d’ap
    ```
 6. Enregistrez toutes les modifications.
 
-### <a name="deploy-and-run-the-sample-application"></a>Déploiement et exécution de l’exemple d’application
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+### Déploiement et exécution de l’exemple d’application
 Déployez et exécutez l’exemple d’application sur Pi en exécutant la commande suivante :
 
 ```bash
@@ -105,6 +117,8 @@ La LED doit s’allumer pendant deux secondes, puis s’éteindre pendant deux s
 
 Félicitations ! Vous avez correctement personnalisé les messages qui sont envoyés à Pi à partir de votre IoT Hub.
 
-### <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+### Résumé
 Cette section facultative montre comment personnaliser les messages de sorte que l’exemple d’application puisse contrôler le comportement activé/désactivé de la LED d’une autre manière.
 

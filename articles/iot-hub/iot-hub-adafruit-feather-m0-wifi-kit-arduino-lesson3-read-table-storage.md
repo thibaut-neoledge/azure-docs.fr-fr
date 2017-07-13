@@ -4,7 +4,7 @@ description: "Surveillez les messages appareil-à-cloud alors qu’ils sont écr
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "données dans le cloud, collecte de données cloud, service cloud iot, données iot"
 ROBOTS: NOINDEX
@@ -17,26 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 7a49a15b00bf25c9416235f41da8cc86e54d0062
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="read-messages-persisted-in-azure-storage"></a>Lecture des messages conservés dans le stockage Azure
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="read-messages-persisted-in-azure-storage" class="xliff"></a>
+
+# Lecture des messages conservés dans le stockage Azure
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 Surveillez les messages appareil-cloud qui sont envoyés à partir de votre carte Adafruit Feather M0 WiFi Arduino à votre IoT Hub, à mesure que les messages sont écrits dans le Stockage de table Azure.
 
 Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes][troubleshooting].
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 Dans cet article, vous allez apprendre à utiliser la tâche de lecture de message gulp pour lire les messages conservés dans votre stockage Table Azure.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 Avant de commencer, vous devez avoir correctement suivi la section [Exécution de l’exemple d’application de clignotement Azure sur votre carte Arduino][run-blink-application].
 
-## <a name="read-new-messages-from-your-storage-account"></a>Lecture des nouveaux messages à partir de votre compte de stockage
+<a id="read-new-messages-from-your-storage-account" class="xliff"></a>
+
+## Lecture des nouveaux messages à partir de votre compte de stockage
 Dans l’article précédent, vous avez exécuté un exemple d’application sur votre carte Arduino. L’exemple d’application a envoyé des messages à votre Azure IoT Hub. Les messages envoyés à votre IoT Hub sont stockés dans votre stockage Table Azure via l’application de fonction Azure. Pour lire les messages à partir de votre stockage Table Azure, vous avez besoin de la chaîne de connexion du Stockage Azure.
 
 Pour lire les messages stockés dans votre stockage Table Azure, procédez comme suit :
@@ -76,10 +86,14 @@ Pour lire les messages stockés dans votre stockage Table Azure, procédez comme
 
    ![exécutez gulp --lire-stockage][gulp-run]
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 Vous avez correctement connecté votre carte Arduino à votre IoT Hub dans le cloud, et utilisé l’exemple d’application de clignotement pour envoyer des messages appareil-à-cloud. Vous avez également utilisé l’application de fonction Azure pour stocker des messages d’IoT Hub entrants votre stockage Table Azure. Vous pouvez désormais envoyer des messages cloud-à-appareil depuis votre IoT Hub vers votre carte Arduino.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Envoyer des messages Cloud vers appareil][send-cloud-to-device-messages]
 <!-- Images and links -->
 

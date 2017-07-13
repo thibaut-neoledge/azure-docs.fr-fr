@@ -8,20 +8,24 @@ manager: mbaldwin
 editor: 
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
-ms.service: billing
+ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/13/2017
 ms.author: genli
-translationtype: Human Translation
-ms.sourcegitcommit: 3188a6acfe0755d8375322af79631f0cf47b764a
-ms.openlocfilehash: 7676e3100eefca2e75f669d5f105dee30322a1a3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ba6dafd8d890d88478a5e3213dd023921908f4bf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
+<a id="microsoft-azure-new-support-request-file-upload-utility-guidelines" class="xliff"></a>
+
+# Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
 Lorsque vous [créez une demande de support](https://portal.azure.com/#create/Microsoft.Support), l’utilitaire de téléchargement de fichiers peut vous aider à charger facilement des fichiers de diagnostic ou tout autre fichier qui vous semble s’appliquer à l’incident.  
 
 > [!NOTE]
@@ -36,7 +40,9 @@ Suivez ces instructions lorsque vous utilisez l’utilitaire de téléchargement
 * Vous ne pouvez pas télécharger plusieurs fichiers.
 * Les fichiers ne peuvent pas être supérieurs à 4 Mo.
 
-## <a name="table-of-the-allowed-file-name-extensions"></a>Tableau des extensions de nom de fichier autorisées
+<a id="table-of-the-allowed-file-name-extensions" class="xliff"></a>
+
+## Tableau des extensions de nom de fichier autorisées
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7Z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |
@@ -67,9 +73,4 @@ Suivez ces instructions lorsque vous utilisez l’utilitaire de téléchargement
 | -            | -      | -            | -      | -         | .wtl       | .zit    |
 | -            | -      | -            | -      | -         |     -       | .zix    |
 | -            | -      | -            | -      | -         |  -          | .zzz    |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

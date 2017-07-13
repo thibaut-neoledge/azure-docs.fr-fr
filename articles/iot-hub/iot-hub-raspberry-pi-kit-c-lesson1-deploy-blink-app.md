@@ -4,7 +4,7 @@ description: "Clonez l’exemple d’application C à partir de GitHub et utilis
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: raspberry pi led clignotante, led clignotante avec raspberry pi
 ROBOTS: NOINDEX
@@ -17,31 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 5b16230178fa82c7f227e3e3f8742fa16b00c719
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Créer et déployer l’application blink
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="create-and-deploy-the-blink-application" class="xliff"></a>
+
+# Créer et déployer l’application blink
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 Clonez l’exemple d’application C à partir de GitHub et utilisez l’outil gulp pour le déployer sur Raspberry Pi 3. Avec cet exemple d’application, la LED connectée à la carte clignote toutes les deux secondes. Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 Cet article portera sur les éléments suivants :
 
 * Utilisation de l’outil `device-discover-cli` pour récupérer des informations de mise en réseau sur Pi.
 * Déploiement et exécution de l’exemple d’application sur Pi.
 * Déploiement et débogage des applications en cours d’exécution à distance sur Pi.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 Vous devez avoir terminé les opérations suivantes :
 
 * [Configuration de votre appareil](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
 * [Obtention des outils](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
 
-## <a name="obtain-the-ip-address-and-host-name-of-pi"></a>Obtention de l’adresse IP et du nom d’hôte de Pi
+<a id="obtain-the-ip-address-and-host-name-of-pi" class="xliff"></a>
+
+## Obtention de l’adresse IP et du nom d’hôte de Pi
 Ouvrez une invite de commandes dans Windows ou une fenêtre de terminal dans Mac OS ou Ubuntu, puis exécutez la commande suivante :
 
 ```bash
@@ -57,7 +67,9 @@ Notez l’`IP address` et le `hostname` de Pi. Ces informations vous seront néc
 > [!NOTE]
 > Assurez-vous que Pi est connecté au même réseau que votre ordinateur. Par exemple, si votre ordinateur est connecté à un réseau sans fil alors que Pi est connecté à un réseau câblé, il se peut que vous ne voyiez pas l’adresse IP dans la sortie devdisco.
 
-## <a name="open-the-sample-application"></a>Ouvrir l’exemple d’application
+<a id="open-the-sample-application" class="xliff"></a>
+
+## Ouvrir l’exemple d’application
 Procédez comme suit pour ouvrir l’exemple d’application :
 
 1. Clonez l’exemple de référentiel à partir de GitHub en exécutant la commande suivante :
@@ -77,14 +89,18 @@ Procédez comme suit pour ouvrir l’exemple d’application :
 
 Le fichier `main.c` dans le sous-dossier `app` est le fichier source clé qui contient le code pour contrôler la LED.
 
-### <a name="install-application-dependencies"></a>Installation des dépendances de l’application
+<a id="install-application-dependencies" class="xliff"></a>
+
+### Installation des dépendances de l’application
 Installez les bibliothèques et d’autres modules dont vous avez besoin pour l’exemple d’application en exécutant la commande suivante :
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Configuration de la connexion de l’appareil
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Configuration de la connexion de l’appareil
 Procédez comme suit pour configurer la connexion de l’appareil :
 
 1. Générez le fichier de configuration de votre appareil en exécutant la commande suivante :
@@ -126,8 +142,12 @@ Procédez comme suit pour configurer la connexion de l’appareil :
 
 Félicitations ! Vous avez créé le premier exemple d’application pour Pi.
 
-## <a name="deploy-and-run-the-sample-application"></a>Déploiement et exécution de l’exemple d’application
-### <a name="install-the-azure-iot-hub-sdk-on-pi"></a>Installation du kit de développement logiciel (SDK) Azure IoT Hub sur Pi
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Déploiement et exécution de l’exemple d’application
+<a id="install-the-azure-iot-hub-sdk-on-pi" class="xliff"></a>
+
+### Installation du kit de développement logiciel (SDK) Azure IoT Hub sur Pi
 Installez le kit de développement logiciel (SDK) Azure IoT Hub sur Pi en exécutant la commande suivante :
 
 ```bash
@@ -136,21 +156,29 @@ gulp install-tools
 
 La première exécution de cette tâche peut prendre quelques minutes.
 
-### <a name="deploy-and-run-the-sample-app"></a>Déploiement et exécution de l’exemple d’application
+<a id="deploy-and-run-the-sample-app" class="xliff"></a>
+
+### Déploiement et exécution de l’exemple d’application
 Déployez et exécutez l’exemple d’application en exécutant la commande suivante :
 
 ```bash
 gulp deploy && gulp run
 ```
 
-### <a name="verify-the-app-works"></a>Vérification du bon fonctionnement de l’application
+<a id="verify-the-app-works" class="xliff"></a>
+
+### Vérification du bon fonctionnement de l’application
 L’exemple d’application se termine automatiquement une fois que la DEL a clignoté 20 fois. Si vous ne voyez pas la LED clignoter, consultez le [guide de dépannage](iot-hub-raspberry-pi-kit-c-troubleshooting.md) des problèmes courants.
 ![LED clignotante](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 Vous avez installé les outils nécessaires pour travailler avec Pi et déployé un exemple d’application sur Pi pour faire clignoter la LED. Vous pouvez maintenant créer, déployer et exécuter un autre exemple d’application qui connecte Pi à Azure IoT Hub pour envoyer et recevoir des messages.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Obtenir les outils Azure](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
 
 

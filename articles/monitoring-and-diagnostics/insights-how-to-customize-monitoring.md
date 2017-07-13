@@ -12,20 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 5ccb5c0b3c2ffaf8aba855a9dbe3da9691ab149b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
-Tous les services Azure assurent le suivi des mesures clés qui vous permettent de surveiller l’intégrité, les performances, la disponibilité et l'utilisation de vos services. Vous pouvez afficher ces mesures dans le portail Azure, et utiliser [l’API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) ou le [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) pour accéder à l'ensemble des mesures par programmation.
+<a id="overview-of-metrics-in-microsoft-azure" class="xliff"></a>
+
+# Vue d’ensemble des mesures dans Microsoft Azure
+Tous les services Azure assurent le suivi des mesures clés qui vous permettent de surveiller l’intégrité, les performances, la disponibilité et l'utilisation de vos services. Vous pouvez afficher ces mesures dans le portail Azure, et utiliser [l’API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) ou le [Kit de développement logiciel (SDK) .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) pour accéder à l'ensemble des mesures par programmation.
 
 Pour certains services, vous devrez peut-être activer les diagnostics pour afficher les mesures. Pour d'autres, tels que des machines virtuelles, un ensemble de mesures de base vous sera proposé, mais vous devrez activer l’ensemble des mesures à fréquence élevée. Consultez la rubrique [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour en savoir plus.
 
-## <a name="using-monitoring-charts"></a>Utilisation des graphiques de surveillance
+<a id="using-monitoring-charts" class="xliff"></a>
+
+## Utilisation des graphiques de surveillance
 Vous pouvez représenter l’une des mesures sur une période que vous choisissez.
 
 1. Dans le [Portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur une ressource que vous voulez surveiller.
@@ -43,7 +49,9 @@ Vous pouvez représenter l’une des mesures sur une période que vous choisisse
 7. Sous l'intervalle de temps, vous pouvez choisir le nombre de mesures à afficher sur le graphique.
 8. Dès lors que vous cliquerez sur Enregistrer, vos modifications seront enregistrées pour cette ressource. Si vous possédez, par exemple, deux machines virtuelles et que vous modifiez un graphique sur l’une d’entre elles, cette opération n’aura aucune incidence sur l'autre.
 
-## <a name="creating-side-by-side-charts"></a>Création de graphiques côte à côte
+<a id="creating-side-by-side-charts" class="xliff"></a>
+
+## Création de graphiques côte à côte
 Grâce au niveau élevé de personnalisation du portail, vous pouvez ajouter autant de graphiques que vous le souhaitez.
 
 1. Dans le menu **...**, situé en haut du panneau, cliquez sur **Ajouter des vignettes** :  
@@ -51,26 +59,25 @@ Grâce au niveau élevé de personnalisation du portail, vous pouvez ajouter aut
 2. Vous pouvez ensuite sélectionner un graphique à partir de la **Galerie**, située sur le côté droit de l'écran :  ![Galerie](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. Si vous ne voyez pas les mesures souhaitées, vous pouvez toujours ajouter une des mesures prédéfinies et **Modifier** le graphique pour afficher les mesures dont vous avez besoin.
 
-## <a name="monitoring-usage-quotas"></a>Surveillance des quotas d'utilisation
+<a id="monitoring-usage-quotas" class="xliff"></a>
+
+## Surveillance des quotas d'utilisation
 La plupart des mesures vous indiquent les tendances au fil du temps, mais certaines données, telles que les quotas d'utilisation, sont des informations limitées dans le temps et disposant d’un seuil.
 
 Vous pouvez également découvrir les quotas d'utilisation sur le panneau des ressources qui disposent de quotas :
 
 ![Usage](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
-Comme avec les mesures, vous pouvez utiliser [l’API REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) ou le [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) pour accéder à l'ensemble des quotas d'utilisation par programmation.
+Comme avec les mesures, vous pouvez utiliser [l’API REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) ou le [Kit de développement logiciel (SDK) .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) pour accéder à l'ensemble des quotas d'utilisation par programmation.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 * [Réception de notifications d'alerte](insights-receive-alert-notifications.md) lorsqu'une mesure dépasse un seuil.
 * [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service.
 * [Mise à l’échelle automatique du nombre d’instances](insights-how-to-scale.md) pour vous assurer que votre service est disponible et réactif.
 * [Surveillance des performances d'une application](../application-insights/app-insights-azure-web-apps.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
 * Utilisez [Application Insights pour les pages Web et les applications JavaScript](../application-insights/app-insights-web-track-usage.md) pour obtenir une analyse client des navigateurs qui consultent une page Web.
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

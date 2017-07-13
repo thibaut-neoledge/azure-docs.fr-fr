@@ -16,15 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: chrande; glenga
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2542d8c750fc7e1bcc31a9c0eb1672402facfd58
-ms.openlocfilehash: 146884833e968767c14d7e4f924762a592e427e2
-ms.lasthandoff: 03/01/2017
+ms.custom: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 12a793c4df497f221dbd592ca3d249b8c1f65e04
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="schedule-code-execution-with-azure-functions"></a>Planifier l’exécution de code avec Azure Functions
+<a id="azure-functions-timer-trigger" class="xliff"></a>
+
+# Déclencheur de minuteur Azure Functions
+
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Cet article explique comment configurer et coder des déclencheurs de minuteur dans Azure Functions. Azure Functions offre une liaison de déclencheur de minuteur qui vous permet d’exécuter votre code de fonction selon une planification définie. 
@@ -35,7 +39,9 @@ Le déclencheur du minuteur prend en charge la montée en charge multi-instance.
 
 <a id="trigger"></a>
 
-## <a name="timer-trigger"></a>Déclencheur de minuteur
+<a id="timer-trigger" class="xliff"></a>
+
+## Déclencheur de minuteur
 Le déclencheur de minuteur d’une fonction utilise l’objet JSON suivant dans le tableau `bindings` de function.json :
 
 ```json
@@ -60,18 +66,20 @@ Par exemple, *l’heure de l’Est* correspond à UTC-05:00. Pour que votre déc
 
 ```json
 "schedule": "0 0 15 * * *",
-```    
+``` 
 
 Sinon, vous pouvez ajouter un nouveau paramètre d’application pour votre application de fonction nommé `WEBSITE_TIME_ZONE` et définir la valeur sur **Est**.  L’expression CRON suivante peut alors être utilisée pour 10h00 EST : 
 
 ```json
 "schedule": "0 0 10 * * *",
-```    
+``` 
 
 
 <a name="examples"></a>
 
-## <a name="schedule-examples"></a>Exemples de planification :
+<a id="schedule-examples" class="xliff"></a>
+
+## Exemples de planification :
 Voici quelques exemples d’expressions CRON que vous pouvez utiliser pour la propriété `schedule`. 
 
 Pour déclencher la fonction toutes les cinq minutes :
@@ -112,7 +120,9 @@ Pour déclencher la fonction à 9h30 tous les jours de la semaine :
 
 <a name="usage"></a>
 
-## <a name="trigger-usage"></a>Utilisation du déclencheur
+<a id="trigger-usage" class="xliff"></a>
+
+## Utilisation du déclencheur
 Lorsqu’une fonction de déclenchement du minuteur est appelée, [l’objet minuteur](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) est transmis à la fonction. Le code JSON suivant est un exemple de représentation de l’objet minuteur. 
 
 ```json
@@ -129,7 +139,9 @@ Lorsqu’une fonction de déclenchement du minuteur est appelée, [l’objet min
 
 <a name="sample"></a>
 
-## <a name="trigger-sample"></a>Exemple de déclencheur
+<a id="trigger-sample" class="xliff"></a>
+
+## Exemple de déclencheur
 Supposez que le tableau `bindings` de function.json contient le déclencheur de minuteur suivant :
 
 ```json
@@ -149,7 +161,9 @@ Consultez l’exemple, dans le langage de votre choix, où l’objet minuteur es
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-sample-in-c"></a>Exemple de déclencheur en C# #
+<a id="trigger-sample-in-c" class="xliff"></a>
+
+### Exemple de déclencheur en C# #
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
@@ -163,7 +177,9 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 <a name="triggerfsharp"></a>
 
-### <a name="trigger-sample-in-f"></a>Exemple de déclencheur en F# #
+<a id="trigger-sample-in-f" class="xliff"></a>
+
+### Exemple de déclencheur en F# #
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter ) =
     if (myTimer.IsPastDue) then
@@ -174,7 +190,9 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
 
 <a name="triggernodejs"></a>
 
-### <a name="trigger-sample-in-nodejs"></a>Exemple de déclencheur en Node.js
+<a id="trigger-sample-in-nodejs" class="xliff"></a>
+
+### Exemple de déclencheur en Node.js
 ```JavaScript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
@@ -189,7 +207,9 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
 

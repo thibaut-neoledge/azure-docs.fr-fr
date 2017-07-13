@@ -4,7 +4,7 @@ description: "Configurez Intel Edison pour une première utilisation."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "configuration arduino, connecter arduino à un pc, configurer arduino, carte arduino"
 ROBOTS: NOINDEX
@@ -17,24 +17,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
 ms.openlocfilehash: 203d3976b9ba0960f5a3dbff4e2b1fcdf4c0dc33
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="configure-your-intel-edison"></a>Configurer votre Intel Edison
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="configure-your-intel-edison" class="xliff"></a>
+
+# Configurer votre Intel Edison
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 Configurez Intel Edison pour une première utilisation en assemblant la carte, en la mettant sous tension et en installant l’outil de configuration sur le système d’exploitation de votre ordinateur afin de flasher le microprogramme d’Edison, de définir son mot de passe et de le connecter au réseau Wi-Fi. Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes][troubleshooting].
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 Cet article portera sur les éléments suivants :
 
 * Comment assembler la carte Edison et la mettre sous tension.
 * Comment flasher le microprogramme d’Edison, définir un mot de passe et connecter le Wi-Fi.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 Pour cette opération, vous aurez besoin des composants suivants de votre Kit de démarrage Intel Edison :
 
 * Module Intel® Edison
@@ -54,7 +62,9 @@ Vous aurez également besoin des éléments suivants :
 * Une connexion sans fil pour la connexion d’Edison.
 * Une connexion Internet pour télécharger l’outil de configuration.
 
-## <a name="assemble-your-board"></a>Assembler votre carte
+<a id="assemble-your-board" class="xliff"></a>
+
+## Assembler votre carte
 
 Cette section présente les étapes permettant de connecter votre module Intel® Edison à votre carte d’extension.
 
@@ -80,7 +90,9 @@ Votre carte est maintenant assemblée.
 
    ![carte assemblée](media/iot-hub-intel-edison-lessons/lesson1/assembled_board.jpg)
 
-## <a name="power-up-edison"></a>Mise sous tension d’Edison
+<a id="power-up-edison" class="xliff"></a>
+
+## Mise sous tension d’Edison
 
 1. Branchez le bloc d’alimentation.
 
@@ -93,7 +105,9 @@ Votre carte est maintenant assemblée.
    > [!NOTE]
    > Si vous ne disposez pas d’un bloc d’alimentation CC, vous pouvez toujours alimenter la carte via un port USB. Consultez la section `Connect Edison to your computer` pour plus d’informations. Cette procédure de mise sous tension de votre carte peut entraîner un comportement imprévisible de la carte, en particulier si vous utilisez un réseau Wi-Fi ou des moteurs d’entraînement.
 
-## <a name="connect-edison-to-your-computer"></a>Connexion d’Edison à votre ordinateur
+<a id="connect-edison-to-your-computer" class="xliff"></a>
+
+## Connexion d’Edison à votre ordinateur
 
 1. Basculez le microcommutateur vers les deux ports micro-USB afin de placer Edison est en mode appareil. Veuillez vous reporter [ici](https://software.intel.com/en-us/node/628233#usb-device-mode-vs-usb-host-mode) pour connaître les différences entre le mode appareil et le mode hôte.
 
@@ -109,23 +123,31 @@ Votre carte est maintenant assemblée.
 
 4. Vous saurez que votre carte est entièrement initialisée lorsque l’ordinateur monte un nouveau lecteur (comme lorsque vous insérez une carte SD dans votre ordinateur).
 
-## <a name="download-and-run-the-configuration-tool"></a>Téléchargement et exécution de l’outil de configuration
+<a id="download-and-run-the-configuration-tool" class="xliff"></a>
+
+## Téléchargement et exécution de l’outil de configuration
 Consultez [ce lien](https://software.intel.com/en-us/iot/hardware/edison/downloads) répertorié sous le titre `Installers` pour obtenir le dernier outil de configuration. Exécutez l’outil et suivez ses instructions à l'écran en cliquant sur Suivant si nécessaire.
 
-### <a name="flash-firmware"></a>Flashage du microprogramme
+<a id="flash-firmware" class="xliff"></a>
+
+### Flashage du microprogramme
 1. Sur la page `Set up options`, cliquez sur `Flash Firmware`.
 2. Sélectionnez l’image à flasher sur votre carte en effectuant l’une des opérations suivantes :
    - Pour télécharger et flasher votre carte avec la dernière image de microprogramme disponible d’Intel, sélectionnez `Download the latest image version xxxx`.
    - Pour flasher votre carte avec une image que vous avez déjà enregistrée sur votre ordinateur, sélectionnez `Select the local image`. Recherchez et sélectionnez l’image à flasher sur votre carte.
 3. L’outil d’installation tente de flasher votre carte. L’ensemble du processus de flashage peut prendre jusqu’à 10 minutes.
 
-### <a name="set-password"></a>Définition du mot de passe
+<a id="set-password" class="xliff"></a>
+
+### Définition du mot de passe
 1. Sur la page `Set up options`, cliquez sur `Enable Security`.
 2. Vous pouvez attribuer un nom personnalisé à votre carte Intel® Edison. Cette étape est facultative.
 3. Tapez un mot de passe pour votre carte, puis cliquez sur `Set password`.
 4. Notez le mot de passe, qui sera utilisé ultérieurement.
 
-### <a name="connect-wi-fi"></a>Connexion Wi-Fi
+<a id="connect-wi-fi" class="xliff"></a>
+
+### Connexion Wi-Fi
 1. Sur la page `Set up options`, cliquez sur `Connect Wi-Fi`. Attendez environ une minute que votre ordinateur recherche les réseaux Wi-Fi disponibles.
 2. Dans la liste déroulante `Detected Networks`, sélectionnez votre réseau.
 3. Dans la liste déroulante `Security`, sélectionnez le type de sécurité du réseau.
@@ -137,10 +159,14 @@ Consultez [ce lien](https://software.intel.com/en-us/iot/hardware/edison/downloa
 
 Félicitations ! Vous avez réussi à configurer Edison.
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 Dans cet article, vous avez appris à assembler la carte Edison, flasher son microprogramme, définir un mot de passe et connecter la carte au réseau Wi-Fi à l’aide de l’outil de configuration. Notez que la LED n’est pas encore allumée. La tâche suivante consiste à installer les outils et le logiciel nécessaires en vue d’exécuter un exemple d’application sur Edison.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Obtenez les outils][get-the-tools]
 <!-- Images and links -->
 

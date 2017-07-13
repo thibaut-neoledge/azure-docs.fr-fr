@@ -17,26 +17,32 @@ ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 21da79a674a55fad910b0b059508acc026f8bd84
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: ef3b147e0249e41c65fa88002cbb883d001bd382
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
-# <a name="get-account-keys-for-azure-cosmos-db-using-the-azure-cli"></a>Obtenir les clés de compte pour Azure Cosmos DB avec la CLI Azure
+<a id="get-account-keys-for-azure-cosmos-db-using-the-azure-cli" class="xliff"></a>
+
+# Obtenir les clés de compte pour Azure Cosmos DB avec la CLI Azure
 
 Cet exemple obtient les clés de compte de n’importe quel type de compte Azure Cosmos DB.  
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="sample-script"></a>Exemple de script
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+<a id="sample-script" class="xliff"></a>
+
+## Exemple de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-get-account-key/secure-cosmosdb-get-account-key.sh?highlight=22-25 "Mettre à jour les clés de compte Azure Cosmos DB")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement
+<a id="clean-up-deployment" class="xliff"></a>
+
+## Nettoyer le déploiement
 
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
 
@@ -44,7 +50,9 @@ Une fois l’exemple de script exécuté, la commande suivante permet de supprim
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Explication du script
+<a id="script-explanation" class="xliff"></a>
+
+## Explication du script
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
@@ -55,7 +63,9 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az cosmosdb list-keys](/cli/azure/sql/server#create) | Crée un serveur logique qui héberge l’instance SQL Database. |
 | [az group delete](/cli/azure/resource#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

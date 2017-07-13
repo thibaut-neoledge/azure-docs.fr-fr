@@ -4,7 +4,7 @@ description: "Configurez Adafruit Feather M0 WiFi pour une première utilisation
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "configuration arduino, connecter arduino à un pc, configurer arduino, carte arduino"
 ROBOTS: NOINDEX
@@ -17,18 +17,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 3789c07cd6142ba5b6a58a67813c0ead6b87bd76
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="configure-your-device"></a>Configurer votre appareil
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="configure-your-device" class="xliff"></a>
+
+# Configurer votre appareil
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 Configurez votre carte Arduino Adafruit Feather M0 WiFi pour une première utilisation en assemblant la carte pour la mettre sous tension. Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md).
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 Pour cette opération, vous aurez besoin des composants suivants pour votre starter kit Adafruit Feather M0 WiFi :
 
 * La carte Adafruit Feather M0 WiFi
@@ -42,13 +48,17 @@ Vous aurez également besoin des éléments suivants :
 * Une connexion sans fil pour la connexion de votre carte Arduino.
 * Une connexion Internet pour télécharger l’outil de configuration.
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 Cet article portera sur les éléments suivants :
 
 * Comment assembler votre carte Arduino et la mettre sous tension pour les leçons suivantes.
 * Comment ajouter des autorisations de port série sous Ubuntu.
 
-## <a name="connect-your-arduino-board-to-your-computer"></a>Connecter la carte Arduino à votre ordinateur
+<a id="connect-your-arduino-board-to-your-computer" class="xliff"></a>
+
+## Connecter la carte Arduino à votre ordinateur
 
 1. Connectez le câble micro USB au port micro USB du haut.
 
@@ -58,7 +68,9 @@ Cet article portera sur les éléments suivants :
 
    ![USB de l’ordinateur][computer-usb]
 
-## <a name="add-serial-port-permissions-on-ubuntu"></a>Ajouter des autorisations de port série sous Ubuntu
+<a id="add-serial-port-permissions-on-ubuntu" class="xliff"></a>
+
+## Ajouter des autorisations de port série sous Ubuntu
 
 Vous pouvez ignorer cette section si vous utilisez Windows ou macOS. Pour Ubuntu, vous devez suivre les étapes suivantes afin que l’utilisateur Linux normal dispose bien des autorisations nécessaires pour utiliser le port USB de votre carte Arduino.
 
@@ -90,12 +102,16 @@ Vous pouvez ignorer cette section si vous utilisez Windows ou macOS. Pour Ubuntu
 
 3. Vous devrez vous déconnecter et vous reconnecter pour que cette modification prenne effet et pour terminer l’installation.
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 Dans cet article, vous avez appris à configurer votre carte Arduino. La tâche suivante consiste à installer les outils et logiciels nécessaires en vue d’exécuter un exemple d’application sur votre carte Arduino.
 
 ![Le matériel est prêt.][hardware-is-ready]
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Obtenez les outils][get-the-tools]
 <!-- Images and links -->
 

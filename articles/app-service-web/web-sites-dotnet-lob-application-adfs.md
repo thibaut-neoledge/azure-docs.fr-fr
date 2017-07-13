@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 22fe6397120c36e1aa716f4711fbe9e7c72d17e8
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 1895094b28d9596eec644078b6f9a877b526b89e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="create-a-line-of-business-azure-app-with-ad-fs-authentication"></a>Créer une application cœur de métier Azure avec authentification AD FS
+<a id="create-a-line-of-business-azure-app-with-ad-fs-authentication" class="xliff"></a>
+
+# Créer une application cœur de métier Azure avec authentification AD FS
 Cet article montre comment créer une application cœur de métier ASP.NET MVC dans [Azure App Service](../app-service/app-service-value-prop-what-is.md) à l’aide de [services AD FS (Active Directory Federation Services)](http://technet.microsoft.com/library/hh831502.aspx) locaux comme fournisseur d’identité. Ce scénario peut fonctionner lorsque vous souhaitez créer des applications cœur de métier dans Azure App Service, mais que votre organisation a besoin que toutes les données soient stockées localement.
 
 > [!NOTE]
@@ -31,7 +34,9 @@ Cet article montre comment créer une application cœur de métier ASP.NET MVC d
 
 <a name="bkmk_build"></a>
 
-## <a name="what-you-will-build"></a>Ce que vous allez créer
+<a id="what-you-will-build" class="xliff"></a>
+
+## Ce que vous allez créer
 Vous allez générer une application ASP.NET de base dans Azure App Service Web Apps avec les fonctionnalités suivantes :
 
 * Authentification des utilisateurs auprès d’AD FS
@@ -40,7 +45,9 @@ Vous allez générer une application ASP.NET de base dans Azure App Service Web 
 
 <a name="bkmk_need"></a>
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 [!INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 Vous devez disposer des éléments suivants pour suivre ce didacticiel :
@@ -52,7 +59,9 @@ Vous devez disposer des éléments suivants pour suivre ce didacticiel :
 
 <a name="bkmk_sample"></a>
 
-## <a name="use-sample-application-for-line-of-business-template"></a>Utiliser l’exemple d’application pour le modèle métier
+<a id="use-sample-application-for-line-of-business-template" class="xliff"></a>
+
+## Utiliser l’exemple d’application pour le modèle métier
 L’exemple d’application de ce didacticiel, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), est créé par l’équipe Azure Active Directory. Étant donné qu’AD FS prend en charge WS-Federation, vous pouvez l’utiliser en tant que modèle pour créer facilement de nouvelles applications cœur de métier. Il présente les caractéristiques suivantes :
 
 * Utilisation de [WS-Federation](http://msdn.microsoft.com/library/bb498017.aspx) pour l’authentification avec un déploiement AD FS local
@@ -61,7 +70,9 @@ L’exemple d’application de ce didacticiel, [WebApp-WSFederation-DotNet)](htt
 
 <a name="bkmk_setup"></a>
 
-## <a name="set-up-the-sample-application"></a>Configurer l’exemple d’application
+<a id="set-up-the-sample-application" class="xliff"></a>
+
+## Configurer l’exemple d’application
 1. Clonez ou téléchargez l’exemple de solution à la page [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) dans votre répertoire local.
    
    > [!NOTE]
@@ -119,7 +130,9 @@ Vous avez terminé. L’exemple d’application est maintenant prêt à fonction
 
 <a name="bkmk_deploy"></a>
 
-## <a name="deploy-the-sample-application-to-azure-app-service-web-apps"></a>Déployer l’exemple d’application sur Azure App Service Web Apps
+<a id="deploy-the-sample-application-to-azure-app-service-web-apps" class="xliff"></a>
+
+## Déployer l’exemple d’application sur Azure App Service Web Apps
 Ici, vous allez publier l’application dans une application web d’App Service Web Apps tout en préservant l’environnement de débogage. Notez que vous allez publier l’application avant qu’elle ait une approbation de partie de confiance avec AD FS. L’authentification ne fonctionne donc pas encore. Toutefois, si vous le faites maintenant, vous pouvez obtenir l’URL de l’application web que vous utiliserez également pour configurer l’approbation de partie de confiance ultérieurement.
 
 1. Cliquez avec le bouton droit sur votre projet et sélectionnez **Publier**.
@@ -148,7 +161,9 @@ Si vous voulez attacher l’application web publiée dans Azure au débogueur (d
 
 <a name="bkmk_rptrusts"></a>
 
-## <a name="configure-relying-party-trusts-in-ad-fs-management"></a>Configuration d’approbations de partie de confiance dans Gestion AD FS
+<a id="configure-relying-party-trusts-in-ad-fs-management" class="xliff"></a>
+
+## Configuration d’approbations de partie de confiance dans Gestion AD FS
 Maintenant, vous devez configurer une approbation de partie de confiance dans Gestion AD FS avant que votre exemple d’application puisse s’authentifier auprès d’AD FS. Vous devez configurer deux approbations de partie de confiance distinctes, une pour votre environnement de débogage et une pour votre application web publiée.
 
 > [!NOTE]
@@ -244,7 +259,9 @@ Maintenant, vous devez configurer une approbation de partie de confiance dans Ge
 
 <a name="bkmk_test"></a>
 
-## <a name="test-federated-authentication-for-your-application"></a>Tester l’authentification fédérée pour votre application
+<a id="test-federated-authentication-for-your-application" class="xliff"></a>
+
+## Tester l’authentification fédérée pour votre application
 Vous êtes prêt à tester la logique d’authentification de votre application dans AD FS. Dans mon environnement de laboratoire AD FS, je dispose d’un utilisateur de test qui appartient à un groupe de test dans Active Directory (AD).
 
 ![](./media/web-sites-dotnet-lob-application-adfs/10-test-user-and-group.png)
@@ -271,7 +288,9 @@ Si la revendication de nom était manquante, vous auriez vu le texte **Bonjour, 
 
 <a name="bkmk_authorize"></a>
 
-## <a name="authorize-users-for-specific-controllers-or-actions"></a>Autorisation des utilisateurs pour des contrôleurs ou des actions spécifiques
+<a id="authorize-users-for-specific-controllers-or-actions" class="xliff"></a>
+
+## Autorisation des utilisateurs pour des contrôleurs ou des actions spécifiques
 Étant donné que vous avez inclus les appartenances aux groupes en tant que revendications de rôle dans votre configuration d’approbation de partie de confiance, vous pouvez désormais les utiliser directement dans la décoration `[Authorize(Roles="...")]` pour les contrôleurs et les actions. Dans une application métier suivant le modèle Create-Read-Update-Delete (CRUD), vous pouvez autoriser des rôles spécifiques à accéder à chaque action. À ce stade, vous allez simplement essayer cette fonctionnalité sur le contrôleur Home existant.
 
 1. Ouvrez Controllers\HomeController.cs.
@@ -286,11 +305,14 @@ Si la revendication de nom était manquante, vous auriez vu le texte **Bonjour, 
         return View();
     }
    
-    <mark>[Authorize(Roles="Administrateurs de domaine")]</mark>
-    public ActionResult Contact()  {      ViewBag.Message = "Votre page de contact.";
+    <mark>[Authorize(Roles="Domain Admins")]</mark>
+    public ActionResult Contact()
+    {
+        ViewBag.Message = "Your contact page.";
    
         return View();
-    }  </pre>
+    }
+    </pre>
    
     Étant donné que j’ai ajouté **Utilisateur de test** à **Groupe de test** dans mon environnement de laboratoire AD FS, je vais utiliser le groupe de test pour tester l’autorisation sur `About`. Pour `Contact`, je vais tester le cas négatif de **Admins du domaine**, auquel l’**utilisateur de test** n’appartient pas.
 3. Démarrez le débogueur en tapant `F5` et connectez-vous, puis cliquez sur **À propos**. La page `~/About/Index` doit maintenant s’afficher correctement, si votre utilisateur authentifié est autorisé à effectuer cette action.
@@ -342,15 +364,18 @@ Si la revendication de nom était manquante, vous auriez vu le texte **Bonjour, 
 
 <a name="bkmk_data"></a>
 
-## <a name="connect-to-on-premises-data"></a>Se connecter à des données locales
+<a id="connect-to-on-premises-data" class="xliff"></a>
+
+## Se connecter à des données locales
 Vous pouvez implémenter votre application métier avec AD FS plutôt qu’avec Azure Active Directory en cas de problèmes de conformité concernant la conservation des données hors site de l’organisation. Cela signifie également que votre application web dans Azure doit accéder aux bases de données locales, dans la mesure où vous n’êtes pas autorisé à utiliser [Base de données SQL](/services/sql-database/) comme couche de données pour vos applications Web.
 
 Azure App Service Web Apps prend en charge l’accès aux bases de données locales avec deux approches : [Connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) et [Réseaux virtuels](web-sites-integrate-with-vnet.md). Pour plus d’informations, consultez la rubrique [Utilisation de l’intégration VNET et des connexions hybrides avec Azure App Service Web Apps](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 
-## <a name="further-resources"></a>Ressources supplémentaires
-* [Protection de l’application à l’aide du protocole SSL et de l’attribut Authorize](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
+<a id="further-resources" class="xliff"></a>
+
+## Ressources supplémentaires
 * [Authentification avec Active Directory en local dans votre application Azure](web-sites-authentication-authorization.md)
 * [Créer une application Azure cœur de métier avec authentification Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
 * [Utilisation de l’option d’authentification organisationnelle locale (AD FS) avec ASP.NET dans Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)

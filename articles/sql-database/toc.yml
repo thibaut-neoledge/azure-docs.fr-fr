@@ -33,8 +33,10 @@
       href: sql-database-connect-query-ruby.md
 - name: Didacticiels
   items:
-  - name: 1 - Créer/concevoir une base de données SQL
+  - name: 1 - Concevoir une base de données avec SSMS
     href: sql-database-design-first-database.md
+  - name: 1 - Concevoir une base de données avec .NET
+    href: sql-database-design-first-database-csharp.md
   - name: "2\_-\_Migrer une base de données SQL"
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Sécuriser vos bases de données SQL
@@ -55,10 +57,8 @@
   items:
   - name: Serveurs et bases de données
     items:
-    - name: Bases de données
-      href: sql-database-overview.md
-    - name: Serveurs
-      href: sql-database-server-overview.md
+    - name: Vue d'ensemble
+      href: sql-database-servers-databases.md
     - name: Niveaux de service
       href: sql-database-service-tiers.md
     - name: Pools élastiques
@@ -75,8 +75,6 @@
       href: sql-database-paas-vs-sql-server-iaas.md  
     - name: Caractéristiques
       href: sql-database-features.md
-    - name: Outils
-      href: sql-database-manage-overview.md
   - name: Sécurité
     items:
     - name: Vue d’ensemble
@@ -100,7 +98,7 @@
     - name: Chiffrement transparent des données avec SQL Database
       href: https://msdn.microsoft.com/library/dn948096
     - name: Always Encrypted
-      href: https://msdn.microsoft.com/library/mt163865.aspx
+      href: https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine
     - name: Masquage de données
       href: sql-database-dynamic-data-masking-get-started.md
   - name: Continuité de l’activité
@@ -139,6 +137,8 @@
       href: sql-database-import.md
     - name: Exporter une base de données
       href: sql-database-export.md
+    - name: Synchroniser les données
+      href: sql-database-sync-data.md
   - name: Surveiller et régler
     items:
     - name: Vue d'ensemble
@@ -389,8 +389,10 @@
       href: https://msdn.microsoft.com/library/mt484311.aspx
     - name: ODBC
       href: https://msdn.microsoft.com/library/mt654048.aspx
-- name: les ressources
+- name: Ressources
   items:
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Forum Aux Questions
     href: sql-database-faq.md
   - name: Jeux de données publics

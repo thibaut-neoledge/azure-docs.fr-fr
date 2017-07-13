@@ -10,26 +10,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 9d118e26340371d63d18b5e6793cbd51add3da55
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/12/2017
-
 
 ---
 
-# <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Résolution des problèmes liés à la gestion et au développement d’applications Azure Active Directory
+<a id="troubleshoot-azure-active-directory-application-management-and-development" class="xliff"></a>
+
+# Résolution des problèmes liés à la gestion et au développement d’applications Azure Active Directory
 Cet article vous permet de trouver des documents utiles sur la résolution des problèmes courants liés à la gestion des **applications d’entreprise** et au développement de nouvelles applications avec le **Registre d’application**.
 
-## <a name="problems-with-application-development"></a>Problèmes de développement des applications
+<a id="problems-with-application-development" class="xliff"></a>
+
+## Problèmes de développement des applications
 Les liens suivants vous redirigent vers un plan de contenu qui vous aidera à résoudre des problèmes courants de développement d’applications avec le **Registre d’application** dans Azure Active Directory.
 
 * [Problèmes de configuration et d’enregistrement des applications](active-directory-application-dev-config-content-map.md)
 * [Problèmes de développement des applications](active-directory-application-dev-development-content-map.md)
 
-## <a name="problems-with-application-management"></a>Problèmes de gestion des applications
+<a id="problems-with-application-management" class="xliff"></a>
+
+## Problèmes de gestion des applications
 Les liens suivants vous redirigent vers un plan de contenu qui vous aidera à résoudre des problèmes courants de gestion d’**applications d’entreprise** dans Azure Active Directory.
 
 * [Problèmes de configuration des applications](active-directory-application-config-content-map.md)
