@@ -12,18 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fa1c3d9cb07d417f5dbde41d6269fb1d157c3104
 ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/12/2017
 
 ---
-# <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Prise en charge de plusieurs domaines pour la fédération avec Azure AD
+# Prise en charge de plusieurs domaines pour la fédération avec Azure AD
+<a id="multiple-domain-support-for-federating-with-azure-ad" class="xliff"></a>
 La documentation suivante fournit des conseils sur l’utilisation de plusieurs domaines de niveau supérieur et sous-domaines lors de la fédération avec des domaines Office 365 ou Azure AD.
 
-## <a name="multiple-top-level-domain-support"></a>Prise en charge de plusieurs domaines de niveau supérieur
+## Prise en charge de plusieurs domaines de niveau supérieur
+<a id="multiple-top-level-domain-support" class="xliff"></a>
 La fédération de plusieurs domaines de niveau supérieur avec Azure AD nécessite une configuration supplémentaire qui n’est pas requise lors de la fédération avec un domaine de niveau supérieur.
 
 Lorsqu’un domaine est fédéré avec Azure AD, plusieurs propriétés sont définies sur le domaine dans Azure.  L’une des plus importantes est IssuerUri.  Il s’agit d’un URI qui est utilisé par Azure AD pour identifier le domaine auquel le jeton est associé.  L’URI n’a pas besoin de résoudre quoi que ce soit, mais il doit s’agir d’un URI valide.  Par défaut, AD Azure affecte cette propriété à la valeur de l’identificateur du service de fédération dans votre configuration AD FS locale.
@@ -45,7 +48,8 @@ Lorsque nous essayons de convertir notre domaine bmfabrikam.com pour qu’il soi
 
 ![Erreur de fédération](./media/active-directory-multiple-domains/error.png)
 
-### <a name="supportmultipledomain-parameter"></a>Paramètre SupportMultipleDomain
+### Paramètre SupportMultipleDomain
+<a id="supportmultipledomain-parameter" class="xliff"></a>
 Pour contourner cela, nous devons ajouter un IssuerUri différent, ce qui peut être effectué à l’aide du paramètre `-SupportMultipleDomain` .  Ce paramètre est utilisé avec les applets de commande suivantes :
 
 * `New-MsolFederatedDomain`
@@ -78,7 +82,8 @@ Vous trouverez ci-dessous la règle de revendication personnalisée qui impléme
 > 
 > 
 
-## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>Mise à jour de l’approbation entre AD FS et Azure AD
+## Mise à jour de l’approbation entre AD FS et Azure AD
+<a id="how-to-update-the-trust-between-ad-fs-and-azure-ad" class="xliff"></a>
 Si vous n’avez pas configuré l’approbation fédérée entre AD FS et votre instance Azure AD, vous devrez peut-être recréer cette approbation.  En effet, lorsqu’elle est configurée sans le paramètre `-SupportMultipleDomain` , l’élément IssuerUri est défini sur la valeur par défaut.  Dans la capture d’écran ci-dessous, vous pouvez voir que la valeur IssuerUri est définie sur https://adfs.bmcontoso.com/adfs/services/trust.
 
 Donc à présent, si nous avons ajouté un nouveau domaine dans le portail Azure AD, puis essayons de le convertir à l’aide de `Convert-MsolDomaintoFederated -DomainName <your domain>`, nous obtenons l’erreur suivante.
@@ -122,7 +127,8 @@ Procédez comme suit pour ajouter le nouveau domaine de niveau supérieur à l�
    ![Ajouter un domaine Azure AD supplémentaire](./media/active-directory-multiple-domains/add2.png)
 5. Cliquez sur Installer
 
-### <a name="verify-the-new-top-level-domain"></a>Vérifiez le nouveau domaine de niveau supérieur
+### Vérifiez le nouveau domaine de niveau supérieur
+<a id="verify-the-new-top-level-domain" class="xliff"></a>
 À l’aide de la commande PowerShell `Get-MsolDomainFederationSettings -DomainName <your domain>`vous pouvez afficher l’IssuerUri mis à jour.  La capture d’écran ci-dessous montre les paramètres de la fédération mis à jour sur notre domaine d’origine http://bmcontoso.com/adfs/services/trust
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
@@ -131,12 +137,14 @@ Et la valeur IssuerUri sur notre nouveau domaine a été définie sur https://bm
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/settings2.png)
 
-## <a name="support-for-sub-domains"></a>Prise en charge des sous-domaines
+## Prise en charge des sous-domaines
+<a id="support-for-sub-domains" class="xliff"></a>
 Lorsque vous ajoutez un sous-domaine, en raison de la façon dont Azure AD a géré les domaines, il héritera des paramètres du parent.  Cela signifie que l’IssuerUri doit correspondre aux parents.
 
 Donc, supposons que j’ai bmcontoso.com et que j’ajoute ensuite corp.bmcontoso.com.  Cela signifie que la valeur IssuerUri pour un utilisateur de corp.bmcontoso.com devra être **http://bmcontoso.com/adfs/services/trust.**  Toutefois, la règle standard implémentée ci-dessus pour Azure AD génère un jeton avec un émetteur en tant que **http://corp.bmcontoso.com/adfs/services/trust.** ce qui ne correspondra pas à la valeur requise du domaine et l’authentification échouera.
 
-### <a name="how-to-enable-support-for-sub-domains"></a>Activation de la prise en charge des sous-domaines
+### Activation de la prise en charge des sous-domaines
+<a id="how-to-enable-support-for-sub-domains" class="xliff"></a>
 Pour contourner ce problème, l’approbation de la partie de confiance AD FS de Microsoft Online doit être mise à jour.  Pour cela, vous devez configurer une règle de revendication personnalisée afin qu’elle retire tous les sous-domaines du suffixe UPN de l’utilisateur pendant la construction de la valeur Issuer. 
 
 La revendication suivante fait cela :
@@ -162,10 +170,5 @@ Utilisez les étapes suivantes pour ajouter une revendication personnalisée pou
     ![Remplacer la revendication](./media/active-directory-multiple-domains/sub2.png)
 
 5. Cliquez sur OK.  Cliquez sur Appliquer.  Cliquez sur OK.  Fermez Gestion AD FS.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

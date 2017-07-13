@@ -12,23 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6ad01761f7498512bbce82d85e9e5a3db618191e
 ms.openlocfilehash: 16bf75f97e735d3d5feab4d0d1446ca34c00ccfa
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/06/2017
 
 ---
-# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect Sync : comprendre la configuration par défaut
+# Azure AD Connect Sync : comprendre la configuration par défaut
+<a id="azure-ad-connect-sync-understanding-the-default-configuration" class="xliff"></a>
 Cet article présente les règles de configuration out-of-box. Il décrit les règles et l’impact que celles-ci ont sur la configuration. Il vous guide également tout au long de la configuration par défaut de la synchronisation Azure AD Connect. L’objectif est que le lecteur comprenne comment fonctionne le modèle de configuration, nommé approvisionnement déclaratif, dans un exemple réel. Cet article suppose que vous avez déjà installé et configuré la synchronisation Azure AD Connect à l’aide de l’Assistant d’installation.
 
 Pour comprendre les détails du modèle de configuration, lisez [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
-## <a name="out-of-box-rules-from-on-premises-to-azure-ad"></a>Règles out-of-box du local vers Azure AD
+## Règles out-of-box du local vers Azure AD
+<a id="out-of-box-rules-from-on-premises-to-azure-ad" class="xliff"></a>
 Les expressions suivantes se trouvent dans la configuration out-of-box.
 
-### <a name="user-out-of-box-rules"></a>Règles out-of-box d’utilisateur
+### Règles out-of-box d’utilisateur
+<a id="user-out-of-box-rules" class="xliff"></a>
 Ces règles s’appliquent également au type d’objet iNetOrgPerson.
 
 Un objet utilisateur doit remplir les conditions suivantes pour être synchronisé :
@@ -70,7 +74,8 @@ Les règles d’attribut suivantes s’appliquent :
   4. Les attributs liés à Exchange (attributs techniques non visibles dans la liste d’adresses globale) sont fournis à partir de la forêt où `mailNickname ISNOTNULL`.
   5. S’il existe plusieurs forêts qui répondent à une de ces règles, alors l’ordre de création (date/heure) des connecteurs (forêts) est utilisé pour déterminer quelle forêt fournit les attributs.
 
-### <a name="contact-out-of-box-rules"></a>Règles out-of-box de contact
+### Règles out-of-box de contact
+<a id="contact-out-of-box-rules" class="xliff"></a>
 Un objet contact doit remplir les conditions suivantes pour être synchronisé :
 
 * Le contact doit être à extension messagerie. Il est vérifié par les règles suivantes :
@@ -86,7 +91,8 @@ Les objets contact suivants ne sont **pas** synchronisés avec Azure AD :
 * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Ces objets ne fonctionneraient pas avec Exchange Online.
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Ne synchronisez aucun objet victime de réplication.
 
-### <a name="group-out-of-box-rules"></a>Règles out-of-box de groupe
+### Règles out-of-box de groupe
+<a id="group-out-of-box-rules" class="xliff"></a>
 Un objet groupe doit remplir les conditions suivantes pour être synchronisé :
 
 * Il doit compter moins de 50 000 membres. Ce chiffre correspond au nombre de membres du groupe local.
@@ -102,15 +108,18 @@ Les objets groupe suivants ne sont **pas** synchronisés avec Azure AD :
 * `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Groupe de rôles.
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Ne synchronisez aucun objet victime de réplication.
 
-### <a name="foreignsecurityprincipal-out-of-box-rules"></a>Règles out-of-box ForeignSecurityPrincipal
+### Règles out-of-box ForeignSecurityPrincipal
+<a id="foreignsecurityprincipal-out-of-box-rules" class="xliff"></a>
 Les FSP sont joints à « tout » (\*) objet dans le métaverse. En réalité, cela se produit uniquement pour les utilisateurs et les groupes de sécurité. Cette configuration garantit que les appartenances inter-forêts sont correctement résolues et représentées dans Azure AD.
 
-### <a name="computer-out-of-box-rules"></a>Règles out-of-box d’ordinateur
+### Règles out-of-box d’ordinateur
+<a id="computer-out-of-box-rules" class="xliff"></a>
 Un objet ordinateur doit remplir les conditions suivantes pour être synchronisé :
 
 * `userCertificate ISNOTNULL`. Seuls les objets ordinateur Windows 10 renseignent cet attribut. Tous les objets ordinateur avec une valeur de cet attribut sont synchronisés.
 
-## <a name="understanding-the-out-of-box-rules-scenario"></a>Présentation du scénario de règles out-of-box
+## Présentation du scénario de règles out-of-box
+<a id="understanding-the-out-of-box-rules-scenario" class="xliff"></a>
 Dans cet exemple, nous utilisons un déploiement comportant une forêt de comptes (A), une forêt de ressources (R) et un répertoire Azure AD.
 
 ![Vue d’ensemble avec description du scénario](./media/active-directory-aadconnectsync-understanding-default-configuration/scenario.png)
@@ -123,7 +132,8 @@ Nos objectifs avec la configuration par défaut sont les suivants :
 * Les attributs qui se trouvent dans la LAG (liste d’adresses globale) sont synchronisés à partir de la forêt avec la boîte aux lettres. Si aucune boîte aux lettres n’est trouvée, toute autre forêt est utilisée.
 * Si une boîte aux lettres liée est trouvée, le compte activé lié doit être trouvé pour l’objet à exporter vers Azure AD.
 
-### <a name="synchronization-rule-editor"></a>Éditeur de règles de synchronisation
+### Éditeur de règles de synchronisation
+<a id="synchronization-rule-editor" class="xliff"></a>
 La configuration peut être affichée et modifiée avec l’outil Éditeur de règles de synchronisation (SRE), dont le raccourci se trouve dans le menu Démarrer.
 
 ![Icône de l’Éditeur de règles de synchronisation](./media/active-directory-aadconnectsync-understanding-default-configuration/sre.png)
@@ -134,7 +144,8 @@ Le SRE est un outil du kit de ressources installé avec la synchronisation Azure
 
 Dans ce volet, vous voyez toutes les règles de synchronisation créées pour votre configuration. Chaque ligne du tableau correspond à une règle de synchronisation. À gauche, sous Types de règles, deux types sont présentés : Entrante et Sortante. Les termes entrante et sortante sont à prendre du point de vue du métaverse. Vous allez principalement vous concentrer sur les règles de trafic entrant dans cette vue d’ensemble. La liste actuelle des règles de synchronisation dépend du schéma détecté dans Active Directory. Dans l’image ci-dessus, la forêt de comptes (fabrikamonline.com) ne dispose d’aucun service (par exemple, Exchange ou Lync), et aucune règle de synchronisation n’a été créée pour ces services. Toutefois, dans la forêt de ressources (res.fabrikamonline.com), vous trouvez des règles de synchronisation pour ces services. Le contenu des règles diffère selon la version détectée. Par exemple, dans un déploiement avec Exchange 2013, plus de flux d’attributs sont configurés que dans Exchange 2010/2007.
 
-### <a name="synchronization-rule"></a>Règle de synchronisation
+### Règle de synchronisation
+<a id="synchronization-rule" class="xliff"></a>
 Une règle de synchronisation est un objet de configuration avec un jeu d’attributs qui circule quand une condition est remplie. Elle sert aussi à décrire la relation entre un objet dans un espace de connecteur et un objet dans le métaverse, relation appelée **jointure** ou **correspondance**. Les règles de synchronisation ont une valeur de précédence qui indique leurs relations les unes par rapport aux autres. Une règle de synchronisation avec une valeur plus basse possède une précédence plus élevée et, dans un conflit de flux d’attributs, c’est la précédence la plus élevée qui l’emporte.
 
 En guise d’exemple, examinez la règle de synchronisation **Entrant depuis AD – Utilisateur AccountEnabled**. Marquez cette ligne dans l’outil SRE et sélectionnez **Modifier**.
@@ -145,7 +156,8 @@ Dans la mesure où il s’agit d’une règle out-of-box, vous recevez un averti
 
 Une règle de synchronisation comporte quatre sections de configuration : Description, Filtre d’étendue, Règles de jointure et Transformations.
 
-#### <a name="description"></a>Description
+#### Description
+<a id="description" class="xliff"></a>
 La première section fournit des informations de base telles que le nom et la description.
 
 ![Onglet Description dans l’Éditeur de règles de synchronisation ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruledescription.png)
@@ -154,7 +166,8 @@ Vous y trouverez également des informations concernant le système connecté as
 
 Vous pouvez également voir que cette règle de synchronisation est utilisée pour la synchronisation de mot de passe. Si un utilisateur est dans la portée pour cette règle de synchronisation, le mot de passe est synchronisé du local vers le cloud (en supposant que vous avez activé la fonctionnalité de synchronisation de mot de passe).
 
-#### <a name="scoping-filter"></a>Filtre d’étendue
+#### Filtre d’étendue
+<a id="scoping-filter" class="xliff"></a>
 La section Filtre d’étendue sert à configurer à quel moment une règle de synchronisation doit s’appliquer. Comme le nom de la règle de synchronisation que vous examinez indique qu’elle ne doit être appliquée qu’aux utilisateurs activés, l’étendue est configurée de sorte que l’attribut AD **userAccountControl** ne doive pas avoir le bit 2 défini. Lorsque le moteur de synchronisation détecte un utilisateur dans Active Directory, il applique la synchronisation lorsque **userAccountControl** est défini sur la valeur décimale 512 (utilisateur normal activé). Il n’applique pas la règle lorsque l’utilisateur a **userAccountControl** défini sur 514 (utilisateur normal désactivé).
 
 ![Onglet Étendue dans l’Éditeur de règles de synchronisation ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulescopingfilter.png)
@@ -165,7 +178,8 @@ Le filtre d’étendue possède des groupes et des clauses qui peuvent être imb
 
 Cette règle sert à définir les groupes qui doivent être approvisionnés dans Azure AD. Les groupes de distribution doivent être activés pour la messagerie électronique pour pouvoir être synchronisés avec Azure AD, mais pour les groupes de sécurité aucune adresse de messagerie n’est nécessaire.
 
-#### <a name="join-rules"></a>Règles de jointure
+#### Règles de jointure
+<a id="join-rules" class="xliff"></a>
 La troisième section sert à configurer la relation entre les objets dans l’espace de connecteur et les objets dans le métaverse. La règle que vous avez examinée plus haut n’ayant aucune configuration pour Join Rules, vous allez plutôt examiner **Entrant depuis AD – User Join**.
 
 ![Onglet Règles de jointure dans l’Éditeur de règles de synchronisation ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulejoinrules.png)
@@ -178,7 +192,8 @@ Lors de l’évaluation de plusieurs règles de synchronisation, une seule d’e
 
 Si vous examinez l’illustration ci-dessus, vous pouvez voir que la règle essaie de joindre **objectSID** avec **msExchMasterAccountSid** (Exchange) et **msRTCSIP-OriginatorSid** (Lync), ce qui est le résultat que nous attendons dans une topologie de forêt de comptes/ressources. Vous trouverez la même règle sur toutes les forêts. L’hypothèse est que chaque forêt peut être une forêt de comptes ou de ressources. Cette configuration fonctionne également si vous disposez de comptes qui résident dans une forêt unique et n’ont pas à être joints.
 
-#### <a name="transformations"></a>Transformations
+#### Transformations
+<a id="transformations" class="xliff"></a>
 La section Transformation définit tous les flux d’attributs qui s’appliquent à l’objet cible quand les objets sont joints et quand le filtre d’étendue est satisfait. Si vous revenez à la règle de synchronisation **Entrant depuis AD – Utilisateur AccountEnabled** , vous trouvez les transformations suivantes :
 
 ![Onglet Transformations dans l’Éditeur de règles de synchronisation ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruletransformations.png)
@@ -207,14 +222,16 @@ NULL
 
 Pour plus d’informations sur le langage d’expression pour les flux d’attributs, consultez [Présentation des expressions de l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) .
 
-### <a name="precedence"></a>Précédence
+### Précédence
+<a id="precedence" class="xliff"></a>
 Vous avez maintenant vu certaines règles de synchronisation individuelles, mais les règles fonctionnent de concert dans la configuration. Dans certains cas, une valeur d’attribut est partagée à partir de plusieurs règles de synchronisation vers le même attribut cible. Dans ce cas, la précédence d’attribut est utilisée pour déterminer quel attribut l’emporte. Par exemple, examinez l’attribut sourceAnchor. Cet attribut est important pour pouvoir se connecter à Azure AD. Vous pouvez trouver un flux d’attributs pour cet attribut dans deux règles de synchronisation différentes : **Entrant depuis AD – Utilisateur AccountEnabled** et **Entrant depuis AD – Utilisateur Common**. En raison de la précédence de la règle de synchronisation, l’attribut sourceAnchor est partagé à partir de la forêt avec un compte activé en premier lieu lorsqu’il existe plusieurs objets joints à l’objet métaverse. S’il n’y a aucun compte activé, le moteur de synchronisation utilise la règle de synchronisation fourre-tout **Entrant depuis AD – Utilisateur Common**. Cette configuration garantit que même pour les comptes qui sont désactivés, il existe toujours un sourceAnchor.
 
 ![Règles de synchronisation entrante](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulesinbound.png)
 
 La précédence des règles de synchronisation est définie dans les groupes par l’Assistant d’installation. Toutes les règles d’un groupe ont le même nom, mais elles sont connectées à différents répertoires connectés. L’Assistant d’installation donne à la règle **Entrant depuis AD – User Join** la précédence la plus élevée et effectue une itération sur tous les répertoires AD connectés. Il continue ensuite avec les groupes de règles suivants dans un ordre prédéfini. À l’intérieur d’un groupe, les règles sont ajoutées dans l’ordre dans lequel les connecteurs ont été ajoutés à l’Assistant. Si un autre connecteur est ajouté via l’Assistant, les règles de synchronisation sont réordonnées et les règles du nouveau connecteur sont insérées en dernier dans chaque groupe.
 
-### <a name="putting-it-all-together"></a>Exemple complet
+### Exemple complet
+<a id="putting-it-all-together" class="xliff"></a>
 Nous en savons maintenant assez sur les règles de synchronisation pour comprendre le fonctionnement de la configuration avec les différentes règles de synchronisation. Si vous regardez un utilisateur et les attributs qui sont partagés avec le métaverse, les règles sont appliquées dans l’ordre suivant :
 
 | Nom | Commentaire |
@@ -226,7 +243,8 @@ Nous en savons maintenant assez sur les règles de synchronisation pour comprend
 | Entrant depuis AD – Utilisateur Exchange |Existe seulement si Exchange a été détecté. Transfère tous les attributs Exchange d’infrastructure. |
 | Entrant depuis AD – Utilisateur Lync |Existe seulement si Lync a été détecté. Transfère tous les attributs Lync d’infrastructure. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 * En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Poursuivre la lecture sur le fonctionnement de la configuration out-of-box dans [Présentation des utilisateurs et des contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md)
@@ -236,10 +254,5 @@ Nous en savons maintenant assez sur les règles de synchronisation pour comprend
 
 * [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

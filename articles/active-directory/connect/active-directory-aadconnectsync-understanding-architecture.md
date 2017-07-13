@@ -12,21 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3d3ba2d11d66ecc253a34e7c4da422bf9fdbd1bd
 ms.openlocfilehash: da69c6f8d0d831349e50548c8883db249b4ee60f
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/06/2017
 
 ---
-# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect Sync : présentation de l’architecture
+# Azure AD Connect Sync : présentation de l’architecture
+<a id="azure-ad-connect-sync-understanding-the-architecture" class="xliff"></a>
 Cette rubrique décrit l’architecture de base pour Azure AD Connect Sync. Celle-ci est similaire à ses prédécesseurs MIIS 2003, ILM 2007 et FIM 2010 et ce, sur plusieurs plans. Azure AD Connect Sync représente l’évolution de ces technologies. Si vous connaissez ces technologies plus anciennes, le contenu de cette rubrique vous sera également familier. Si vous ne connaissez pas la synchronisation, cette rubrique est pour vous. Il n’est toutefois pas nécessaire de connaître les détails de cette rubrique pour effectuer des personnalisations de Microsoft Azure AD Connect Sync (appelé « moteur de synchronisation » dans cette rubrique).
 
-## <a name="architecture"></a>Architecture
+## Architecture
+<a id="architecture" class="xliff"></a>
 Le moteur de synchronisation crée une vue intégrée des objets qui sont stockés dans plusieurs sources de données connectées et gère les informations d’identité dans ces dernières. Cette vue intégrée est déterminée par les informations d’identité, issues de sources de données connectées, et un ensemble de règles qui déterminent la manière de traiter ces informations.
 
-### <a name="connected-data-sources-and-connectors"></a>Sources de données connectées et connecteurs
+### Sources de données connectées et connecteurs
+<a id="connected-data-sources-and-connectors" class="xliff"></a>
 Le moteur de synchronisation traite les informations d’identité à partir de différents référentiels de données tels qu’Active Directory ou une base de données SQL Server. Chaque référentiel de données qui organise ses données dans un format de type base de données et qui fournit des méthodes d’accès aux données standard est une source de données potentielle pour le moteur de synchronisation. Les référentiels de données qui sont synchronisés par le moteur de synchronisation sont appelés **sources de données connectées** ou **annuaires connectés**.
 
 Le moteur de synchronisation encapsule l’interaction avec une source de données connectée au sein d’un module appelé **connecteur**. À chaque type de source de données connectée correspond un connecteur spécifique. Le connecteur traduit une opération requise dans un format que la source de données connectée peut comprendre.
@@ -43,7 +47,8 @@ Pour exporter des objets vers une source de données connectée, la liste d’in
 
 Si la source de données connectée utilise des composants structurels, tels que des partitions ou des conteneurs, pour organiser les objets, vous pouvez limiter les zones de la source de données connectée qui sont utilisées pour une solution donnée.
 
-### <a name="internal-structure-of-the-sync-engine-namespace"></a>Structure interne de l’espace de noms du moteur de synchronisation
+### Structure interne de l’espace de noms du moteur de synchronisation
+<a id="internal-structure-of-the-sync-engine-namespace" class="xliff"></a>
 La totalité de l’espace de noms du moteur de synchronisation se compose de deux espaces de noms, qui stockent les informations d’identité. Ces deux espaces sont les suivants :
 
 * L’espace connecteur
@@ -61,10 +66,12 @@ L’illustration suivante représente l’espace de noms de l’espace connecteu
 
 ![Arch2](./media/active-directory-aadconnectsync-understanding-architecture/arch2.png)
 
-## <a name="sync-engine-identity-objects"></a>Objets d’identité du moteur de synchronisation
+## Objets d’identité du moteur de synchronisation
+<a id="sync-engine-identity-objects" class="xliff"></a>
 Les objets du moteur de synchronisation sont des représentations des objets dans la source de données connectée, ou de la vue intégrée de ces objets dont dispose le moteur de synchronisation. Chaque objet du moteur de synchronisation doit avoir un GUID. Les GUID garantissent l’intégrité des données et expriment les relations entre les objets.
 
-### <a name="connector-space-objects"></a>Objets de l’espace connecteur
+### Objets de l’espace connecteur
+<a id="connector-space-objects" class="xliff"></a>
 Lorsque le moteur de synchronisation communique avec une source de données connectée, il lit les informations d’identité dans cette dernière et utilise ces informations pour créer une représentation de l’objet d’identité dans l’espace connecteur. Il est impossible de créer ou de supprimer ces objets individuellement. Cependant, vous pouvez supprimer manuellement tous les objets dans un espace connecteur.
 
 Tous les objets de l’espace connecteur présentent deux attributs :
@@ -83,7 +90,8 @@ Un objet d’espace connecteur peut être :
 * Un objet intermédiaire
 * Un espace réservé
 
-### <a name="staging-objects"></a>Objets intermédiaires
+### Objets intermédiaires
+<a id="staging-objects" class="xliff"></a>
 Un objet intermédiaire représente une instance des types d’objet désignés de la source de données connectée. Outre le GUID et le nom unique, un objet intermédiaire présente toujours une valeur qui indique le type d’objet.
 
 Les objets intermédiaires importés présentent toujours une valeur pour l’attribut d’ancre. Les objets intermédiaires récemment configurés par le moteur de synchronisation et en cours de création dans la source de données connectée ne présentent aucune valeur pour l’attribut d’ancre.
@@ -104,21 +112,24 @@ L’illustration suivante illustre la création d’un objet d’exportation à 
 
 Le moteur de synchronisation confirme l’exportation de l’objet en le réimportant depuis la source de données connectée. Les objets d’exportation deviennent des objets d’importation lorsque le moteur de synchronisation les reçoit à la prochaine importation depuis cette source de données connectée.
 
-### <a name="placeholders"></a>Espaces réservés
+### Espaces réservés
+<a id="placeholders" class="xliff"></a>
 Le moteur de synchronisation utilise un espace de noms plat pour stocker des objets. Toutefois, certaines sources de données connectées, telles qu’Active Directory, utilisent un espace de noms hiérarchique. Pour transformer les informations d’un espace de noms hiérarchique dans un espace de noms plat, le moteur de synchronisation utilise des espaces réservés, afin de conserver la hiérarchie.
 
 Chaque espace réservé représente un composant (par exemple, une unité d’organisation) d’un nom hiérarchique d’objet qui n’a pas été importé dans le moteur de synchronisation, mais qui est requis pour construire le nom hiérarchique. Ces éléments comblent les vides créés par des références, dans la source de données connectée, à des objets qui ne sont pas des objets intermédiaires dans l’espace connecteur.
 
 Le moteur de synchronisation utilise également des espaces réservés pour stocker les objets référencés qui n’ont pas encore été importés. Par exemple, si la synchronisation est configurée pour inclure l’attribut manager pour l’objet *Abbie Spencer* et si la valeur reçue est un objet qui n’a pas été importé, tel que *CN=Lee Sperry,CN=Users,DC=fabrikam,DC=com*, les informations de l’élément manager sont stockées en tant qu’espaces réservés dans l’espace connecteur. Si l’objet manager est ensuite importé, l’objet de l’espace réservé est remplacé par l’objet intermédiaire qui représente le gestionnaire.
 
-### <a name="metaverse-objects"></a>Objets métaverse
+### Objets métaverse
+<a id="metaverse-objects" class="xliff"></a>
 Un objet métaverse contient la vue agrégée dont dispose le moteur de synchronisation sur les objets intermédiaires dans l’espace connecteur. Le moteur de synchronisation crée des objets métaverse à l’aide des informations contenues dans les objets importés. Plusieurs objets CS (Connector Space) peuvent être liés à un objet métaverse unique, mais un objet CS (Connector Space) ne peut pas être lié à plusieurs objets métaverse.
 
 Les objets métaverse ne peuvent pas être créés ou supprimés manuellement. Le moteur de synchronisation supprime automatiquement les objets métaverse qui n’ont pas de lien vers un objet d’espace connecteur quelconque dans l’espace connecteur.
 
 Pour mapper des objets dans une source de données connectée vers un type d’objet correspondant dans le métaverse, le moteur de synchronisation fournit un schéma extensible avec un ensemble prédéfini de types d’objets et attributs associés. Vous pouvez créer des attributs et des types d’objets pour les objets métaverse. Les attributs peuvent être à valeur unique ou à plusieurs valeurs et les types d’attribut peuvent correspondre à des chaînes, des références, des chiffres et des valeurs booléennes.
 
-### <a name="relationships-between-staging-objects-and-metaverse-objects"></a>Relations entre les objets intermédiaires et les objets métaverse
+### Relations entre les objets intermédiaires et les objets métaverse
+<a id="relationships-between-staging-objects-and-metaverse-objects" class="xliff"></a>
 Dans l’espace de noms du moteur de synchronisation, le flux de données est activé par la relation entre les objets intermédiaires et les objets métaverse. Un objet intermédiaire lié à un objet métaverse est appelé **objet joint** (ou **objet connecteur**). Un objet intermédiaire non lié à un objet métaverse est appelé **objet disjoint** (ou **objet déconnecteur**). L’utilisation des termes « joint » et « disjoint » est préférable, afin de ne pas les confondre avec les connecteurs responsables de l’importation et de l’exportation de données à partir d’un annuaire connecté.
 
 Les espaces réservés ne sont jamais liés à un objet métaverse
@@ -139,7 +150,8 @@ Un objet disjoint est un objet intermédiaire non lié à un objet métaverse. L
 
 Un objet d’importation est créé en tant qu’objet disjoint. Un objet d’exportation doit être un objet joint. La logique du système applique cette règle et supprime chaque objet d’exportation qui n’est pas un objet joint.
 
-## <a name="sync-engine-identity-management-process"></a>Processus de gestion des identités du moteur de synchronisation
+## Processus de gestion des identités du moteur de synchronisation
+<a id="sync-engine-identity-management-process" class="xliff"></a>
 Le processus de gestion des identités détermine de quelle manière les informations d’identité sont mises à jour entre les différentes sources de données connectées. La gestion des identités s’effectue en trois phases :
 
 * Importation
@@ -156,7 +168,8 @@ L’illustration suivante montre où chaque processus se produit lorsque les inf
 
 ![Arch6](./media/active-directory-aadconnectsync-understanding-architecture/arch6.png)
 
-### <a name="import-process"></a>Processus d’importation
+### Processus d’importation
+<a id="import-process" class="xliff"></a>
 Lors du processus d’importation, le moteur de synchronisation évalue les mises à jour des informations d’identité. Le moteur de synchronisation compare les informations d’identité provenant de la source de données connectée avec celles d’un objet intermédiaire et détermine si l’objet intermédiaire nécessite des mises à jour. S’il est nécessaire de mettre à jour l’objet intermédiaire avec les nouvelles données, ce dernier est marqué d’un indicateur signalant une attente d’importation.
 
 En configurant avec étape intermédiaire les objets dans l’espace connecteur avant la synchronisation, le moteur de synchronisation peut traiter uniquement les informations d’identité qui ont changé. Ce processus permet de bénéficier des avantages suivants :
@@ -184,7 +197,8 @@ Les objets intermédiaires avec des données mises à jour sont marqués comme �
 
 En définissant un objet intermédiaire comme étant en attente d’importation, vous pouvez réduire considérablement la quantité de données traitées pendant la synchronisation. Cela permet au système de traiter uniquement les objets dont les données sont mises à jour.
 
-### <a name="synchronization-process"></a>Processus de synchronisation
+### Processus de synchronisation
+<a id="synchronization-process" class="xliff"></a>
 La synchronisation consiste en deux processus connexes :
 
 * la synchronisation entrante, lorsque le contenu du métaverse est mis à jour via les données de l’espace connecteur ;
@@ -240,7 +254,8 @@ Lors de cette annulation, la suppression d’un objet d’exportation ne supprim
 
 Le flux de valeur d’attribut d’exportation se produit également lors du processus de synchronisation sortante, de la même manière que le flux de valeur d’attribut d’importation se produit pendant la synchronisation entrante. Le flux de valeur d’attribut d’exportation se produit uniquement entre les objets métaverse et les objets d’exportation qui sont joints.
 
-### <a name="export-process"></a>Processus d’exportation
+### Processus d’exportation
+<a id="export-process" class="xliff"></a>
 Pendant le processus d’exportation, le moteur de synchronisation examine tous les objets d’exportation qui sont marqués d’un indicateur d’attente d’exportation dans l’espace connecteur, puis envoie des mises à jour à la source de données connectée.
 
 Le moteur de synchronisation peut indiquer la réussite d’une exportation, mais ne peut pas déterminer avec précision si le processus de gestion des identités est terminé. Les objets de la source de données connectée peuvent toujours être modifiés par d’autres processus. Étant donné que le moteur de synchronisation ne dispose pas d’une connexion permanente à la source de données connectée, il ne suffit pas d’émettre des hypothèses sur les propriétés d’un objet dans la source de données connectée sur la seule base d’une notification d’exportation réussie.
@@ -253,14 +268,10 @@ Le moteur de synchronisation stocke les informations d’état de l’exportatio
 
 Par exemple, si le moteur de synchronisation exporte l’attribut C, qui a la valeur 5, vers une source de données connectée, il stocke la valeur C=5 dans sa mémoire de statut d’exportation. Chaque exportation supplémentaire de cet objet entraîne une nouvelle tentative d’exportation de la valeur C=5 vers la source de données connectée, car le moteur de synchronisation suppose que cette valeur n’a pas été appliquée à l’objet de manière continue (sauf si une valeur différente a été importée récemment à partir de la source de données connectée). La mémoire d’exportation est désactivée en cas de réception de la valeur C=5 au cours d’une opération d’importation sur l’objet.
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
