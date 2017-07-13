@@ -1,6 +1,5 @@
-<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
-
 #### Pour configurer et inscrire l’appliance cloud
+<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
 
 1. Sélectionnez l’appliance cloud StorSimple que vous avez créée dans le panneau **Appareils** et cliquez dessus.
 

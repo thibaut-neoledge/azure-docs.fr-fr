@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
-
 #### Pour ajouter une stratégie de sauvegarde StorSimple
+<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
 
 1. Accédez à votre appareil StorSimple et cliquez sur **Stratégie de sauvegarde**.
 

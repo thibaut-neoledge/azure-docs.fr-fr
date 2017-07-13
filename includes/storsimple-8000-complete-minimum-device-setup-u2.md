@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
-
 #### Pour mener à bien la configuration minimale d’un appareil StorSimple
+<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
 
 1. Sélectionnez votre appareil et cliquez dessus dans la liste tubulaire des appareils du panneau **Appareils**. L’appareil se trouve à l’état **Prêt pour la configuration**. Le panneau **Configurer l’appareil** s’ouvre.
 
