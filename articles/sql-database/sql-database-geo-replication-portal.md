@@ -13,26 +13,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/062/2016
+ms.date: 03/06/2016
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c9376b95e4686f804d34f648e15cfcc0f2847718
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: db90fad2fe397f0c8466db6bdc1bd8c8d1cf8f15
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
+<a id="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover" class="xliff"></a>
+
+# Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 
 Cet article montre comment configurer la géoréplication active pour SQL Database dans le [portail Azure](http://portal.azure.com) et initier le basculement.
 
 Pour lancer un basculement avec le portail Azure, consultez [Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec le portail Azure](sql-database-geo-replication-portal.md).
-
-> [!NOTE]
-> La géo-réplication active (bases de données secondaires accessibles en lecture) est désormais disponible pour toutes les bases de données de tous les niveaux de service. En avril 2017, le type de base de données secondaire non accessible en lecture a été retiré, et les bases de données non accessibles en lecture existantes ont automatiquement été mises à niveau vers des bases de données secondaires accessibles en lecture.
-> 
-> 
 
 Pour configurer la géo-réplication active à l’aide du portail Azure, vous devez disposer des ressources suivantes :
 
@@ -41,7 +38,9 @@ Pour configurer la géo-réplication active à l’aide du portail Azure, vous d
 > [!Note]
 La géo-réplication active doit être entre des bases de données au sein du même abonnement.
 
-## <a name="add-a-secondary-database"></a>Ajout d'une base de données secondaire
+<a id="add-a-secondary-database" class="xliff"></a>
+
+## Ajout d'une base de données secondaire
 Les étapes suivantes créent une nouvelle base de données secondaire dans un partenariat géo-réplication.  
 
 Pour ajouter une base de données secondaire, vous devez être le propriétaire ou copropriétaire de l’abonnement.
@@ -69,7 +68,9 @@ Une fois la base de données secondaire créée et amorcée, une réplication de
    
     ![Amorçage terminé](./media/sql-database-geo-replication-portal/seeding-complete.png)
 
-## <a name="initiate-a-failover"></a>Initialisation d’un basculement
+<a id="initiate-a-failover" class="xliff"></a>
+
+## Initialisation d’un basculement
 
 La base de données secondaire peut être basculée en base de données primaire.  
 
@@ -89,7 +90,9 @@ Il existe une courte période pendant laquelle les deux bases de données ne son
 > 
 > 
 
-## <a name="remove-secondary-database"></a>Supprimer une base de données secondaire
+<a id="remove-secondary-database" class="xliff"></a>
+
+## Supprimer une base de données secondaire
 Cette opération arrête définitivement la réplication vers la base de données secondaire et modifie le rôle de la base de données secondaire en une base de données normale accessible en lecture et en écriture. Si la connectivité à la base de données secondaire est interrompue, la commande aboutit, mais la base de données secondaire ne passe pas en mode lecture-écriture une fois la connectivité rétablie.  
 
 1. Dans le [portail Azure](http://portal.azure.com), accédez à la base de données primaire dans le partenariat de géo-réplication.
@@ -100,7 +103,9 @@ Cette opération arrête définitivement la réplication vers la base de donnée
     ![Suppression de la base de données secondaire](./media/sql-database-geo-replication-portal/remove-secondary.png)
 5. Une fenêtre de confirmation s’ouvre. Cliquez sur **Oui** pour supprimer la base de données de partenariat de géo-réplication (définissez-la sur une base de données en lecture-écriture ne faisant pas partie d’une réplication).
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 * Pour plus d’informations sur la géoréplication active, voir [Géoréplication active](sql-database-geo-replication-overview.md).
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 

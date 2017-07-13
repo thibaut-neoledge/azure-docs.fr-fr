@@ -10,17 +10,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: f3f3616805f9bdf94fdd6cb467313244608f2d84
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="troubleshoot-azure-active-directory-application-management"></a>Résolution des problèmes liés à la gestion d’applications Azure Active Directory
+<a id="troubleshoot-azure-active-directory-application-management" class="xliff"></a>
+
+# Résolution des problèmes liés à la gestion d’applications Azure Active Directory
 Les liens suivants vous redirigent vers un plan de contenu qui vous aidera à résoudre certains des problèmes les plus courants de gestion d’**applications d’entreprise** dans Azure Active Directory.
 
 * [Problèmes de configuration des applications](active-directory-application-config-content-map.md)

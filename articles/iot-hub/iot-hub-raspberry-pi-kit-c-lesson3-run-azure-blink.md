@@ -4,7 +4,7 @@ description: "Déployez et exécutez sur Raspberry Pi 3 un exemple d’applicati
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "led clignotante cloud pi, clignotement led à partir du cloud"
 ROBOTS: NOINDEX
@@ -17,24 +17,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 985ba895bfcad1611bebe80a6c2fc8ffed780da5
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="run-a-sample-application-to-send-device-to-cloud-messages"></a>Exécution d’un exemple d’application pour envoyer des messages appareil-à-cloud
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="run-a-sample-application-to-send-device-to-cloud-messages" class="xliff"></a>
+
+# Exécution d’un exemple d’application pour envoyer des messages appareil-à-cloud
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 Cet article vous explique comment déployer et exécuter sur Raspberry Pi 3 un exemple d’application qui envoie des messages à votre IoT Hub. Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 Vous apprendrez à utiliser l’outil gulp pour déployer et exécuter l’exemple d’application Node.js sur Pi.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 * Avant de commencer cette tâche, vous devez avoir correctement suivi la section [Création d’une application de fonction Azure et d’un compte de stockage pour traiter et stocker des messages du IoT Hub](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md).
 
-## <a name="get-your-iot-hub-and-device-connection-strings"></a>Obtenir vos chaînes de connexion d’IoT Hub et d’appareil
+<a id="get-your-iot-hub-and-device-connection-strings" class="xliff"></a>
+
+## Obtenir vos chaînes de connexion d’IoT Hub et d’appareil
 La chaîne de connexion de l’appareil permet de connecter votre Pi à votre IoT Hub. La chaîne de connexion IoT Hub sert à se connecter au registre des identités de votre IoT Hub pour gérer les appareils autorisés à se connecter à votre IoT Hub. 
 
 * Répertorier tous les IoT Hubs de votre groupe de ressources en exécutant la commande suivante de l’interface de ligne de commande Azure :
@@ -61,7 +71,9 @@ az iot device show-connection-string --hub-name {my hub name} --device-id myrasp
 
 Si vous n’avez pas modifié la valeur, utilisez `myraspberrypi` en tant que valeur de `{device id}`.
 
-## <a name="configure-the-device-connection"></a>Configuration de la connexion de l’appareil
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Configuration de la connexion de l’appareil
 1. Initialisez le fichier de configuration en exécutant les commandes suivantes :
    
    ```bash
@@ -94,22 +106,30 @@ Si vous n’avez pas modifié la valeur, utilisez `myraspberrypi` en tant que va
 
 Mettez à jour le fichier `config-raspberrypi.json` afin de pouvoir déployer l’exemple d’application à partir de votre ordinateur.
 
-## <a name="deploy-and-run-the-sample-application"></a>Déploiement et exécution de l’exemple d’application
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Déploiement et exécution de l’exemple d’application
 Déployez et exécutez l’exemple d’application sur Pi en exécutant la commande suivante :
 
 ```bash
 gulp deploy && gulp run
 ```
 
-## <a name="verify-that-the-sample-application-works"></a>Vérification du bon fonctionnement de l’exemple d’application
+<a id="verify-that-the-sample-application-works" class="xliff"></a>
+
+## Vérification du bon fonctionnement de l’exemple d’application
 Vous devez voir la LED connectée à Pi clignoter toutes les deux secondes. Chaque fois que la LED clignote, l’exemple d’application envoie un message à votre IoT Hub et vérifie que le message a été correctement envoyé. De plus, chaque message reçu par l’IoT Hub apparaît dans la fenêtre de console. L’exemple d’application se termine automatiquement après l’envoi de 20 messages.
 
 ![Exemple d’application avec des messages envoyés et reçus](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_run_c.png)
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 Vous avez déployé et exécuté le nouvel exemple d’application de clignotement sur Pi pour l’envoi de messages appareil-à-cloud à votre IoT Hub. Vous surveillez désormais les messages à mesure qu’ils sont écrits dans le compte de stockage.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Lecture des messages conservés dans le Stockage Azure](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
 
 

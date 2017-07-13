@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser l’outil d’interface de ligne de co
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "iothub explorer, messagerie cloud à appareil, iot hub cloud vers appareil, messagerie cloud vers appareil"
 ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: a7abb8fb279e134b7f23df779f1c4548a9feb82d
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/08/2017
-
 
 ---
 <a id="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub" class="xliff"></a>

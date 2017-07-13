@@ -1,10 +1,10 @@
 ---
 title: "Appareil simulé et passerelle Azure IoT - Leçon 3 : Exécuter un exemple d’application | Microsoft Docs"
-description: "Exécuter un exemple d’application d&quot;appareil simulé pour envoyer des données de température vers Azure IoT Hub"
+description: "Exécuter un exemple d’application d'appareil simulé pour envoyer des données de température vers Azure IoT Hub"
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "données vers le cloud"
 ROBOTS: NOINDEX
@@ -17,35 +17,45 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 873f3cef8cb1d115f77f0d3fa2c4b50391f66d91
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="configure-and-run-a-simulated-device-sample-app"></a>Configurer et exécuter un exemple d’application d’appareil simulé
+<a id="configure-and-run-a-simulated-device-sample-app" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>Procédure à suivre
+# Configurer et exécuter un exemple d’application d’appareil simulé
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 
 - Clonez l'exemple de référentiel.
 - Utilisez l’interface de ligne de commande Azure afin d'obtenir les informations sur votre IoT Hub et sur l'appareil logique pour l’exemple d’application d'appareil simulé. Configurez et exécutez l'exemple d’application d’appareil simulé.
 
 Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 
 Cet article portera sur les éléments suivants :
 
 - Comment configurer et exécuter l'exemple d’application d’appareil simulé.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 
 Vous devez avoir accompli avec succès les étapes
 
 - [Créer un hub IoT et enregistrer votre appareil](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 
-## <a name="clone-the-sample-repository-to-the-host-computer"></a>Cloner l'exemple de référentiel sur l’ordinateur hôte
+<a id="clone-the-sample-repository-to-the-host-computer" class="xliff"></a>
+
+## Cloner l'exemple de référentiel sur l’ordinateur hôte
 
 Pour cloner l'exemple de référentiel, procédez comme suit sur l’ordinateur hôte :
 
@@ -57,7 +67,9 @@ Pour cloner l'exemple de référentiel, procédez comme suit sur l’ordinateur 
    cd iot-hub-c-intel-nuc-gateway-getting-started
    ```
 
-## <a name="configure-the-simulated-device-and-your-nuc"></a>Configurer l'appareil simulé et votre NUC
+<a id="configure-the-simulated-device-and-your-nuc" class="xliff"></a>
+
+## Configurer l'appareil simulé et votre NUC
 
 1. Ouvrez le fichier de configuration `config.json` dans Visual Studio Code en exécutant la commande suivante :
 
@@ -89,7 +101,9 @@ Pour cloner l'exemple de référentiel, procédez comme suit sur l’ordinateur 
 5. Recherchez la ligne de code suivante et remplacez `[device hostname or IP address]` par l’adresse IP ou le nom d'hôte de la NUC Intel.
    ![capture d’écran de la passerelle de configuration](media/iot-hub-gateway-kit-lessons/lesson3/config_gateway.png)
 
-## <a name="get-the-connection-string-of-your-iot-hub-logical-device"></a>Obtenir la chaîne de connexion de l'appareil logique de votre IoT Hub
+<a id="get-the-connection-string-of-your-iot-hub-logical-device" class="xliff"></a>
+
+## Obtenir la chaîne de connexion de l'appareil logique de votre IoT Hub
 
 Pour obtenir la chaîne de connexion Azure IoT Hub de votre appareil logique, exécutez la commande suivante sur l’ordinateur hôte :
 
@@ -99,7 +113,9 @@ az iot device show-connection-string --hub-name {IoT hub name} --device-id mydev
 
 `{IoT hub name}` est le nom de l'IoT Hub que vous avez utilisé. Utilisez iot-gateway en tant que valeur de `{resource group name}` et mydevice en tant que valeur de `{device id}` si vous n'avez pas modifié la valeur à la leçon 2.
 
-## <a name="configure-the-simulated-device-cloud-upload-sample-application"></a>Configurer l'exemple d’application de téléchargement cloud d’appareil simulé
+<a id="configure-the-simulated-device-cloud-upload-sample-application" class="xliff"></a>
+
+## Configurer l'exemple d’application de téléchargement cloud d’appareil simulé
 
 Pour configurer et exécuter l’exemple d’application de téléchargement cloud d'appareil simulé, procédez comme suit sur l’ordinateur hôte :
 
@@ -126,7 +142,9 @@ Pour configurer et exécuter l’exemple d’application de téléchargement clo
    gulp run
    ```
 
-## <a name="verify-the-sample-application-works"></a>Vérifier le fonctionnement de l’exemple d’application
+<a id="verify-the-sample-application-works" class="xliff"></a>
+
+## Vérifier le fonctionnement de l’exemple d’application
 
 Un résultat similaire à ce qui suit s’affiche normalement :
 
@@ -134,9 +152,13 @@ Un résultat similaire à ce qui suit s’affiche normalement :
 
 L’application envoie les données de température à votre IoT Hub, opération qui dure 40 secondes.
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 
 Vous avez correctement configuré et exécuté l'exemple d'application de téléchargement cloud d'appareil simulé qui envoie des données à votre IoT Hub avec appareil simulé.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Lire des messages à partir de votre IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)

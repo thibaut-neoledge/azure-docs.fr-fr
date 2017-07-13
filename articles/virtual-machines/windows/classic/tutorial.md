@@ -13,18 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 6259c2d163cc2036964d119eb0b54ba108c5cd0a
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Créer une machine virtuelle exécutant Windows dans le portail Azure
+<a id="create-a-virtual-machine-running-windows-in-the-azure-portal" class="xliff"></a>
+
+# Créer une machine virtuelle exécutant Windows dans le portail Azure
 > [!div class="op_single_selector"]
-> * [portail Azure Classic](tutorial.md)
+> * [Portail Azure](tutorial.md)
 > * [PowerShell : Déploiement classique](create-powershell.md)
 >
 >
@@ -45,7 +48,9 @@ Vous pouvez également créer des machines virtuelles en utilisant [vos propres 
 ## <a id="createvirtualmachine"> </a>Créer la machine virtuelle
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 * Découvrez comment [créer une machine virtuelle à l’aide du modèle de déploiement Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sur le Portail Azure.
 * Connectez-vous à votre machine virtuelle. Pour obtenir des instructions, consultez [Connexion à une machine virtuelle exécutant Windows Server](connect-logon.md).
 * Attacher un disque pour stocker des données. Vous pouvez attacher des disques, qu'ils soient vides ou non. Pour obtenir des instructions, consultez la page [Attacher un disque de données à une machine virtuelle Windows créée avec le modèle de déploiement Classic](attach-disk.md).

@@ -17,36 +17,44 @@ ms.date: 04/20/2017
 ms.author: rachelap
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 3925c1a3d2c5a9fc3a82e8823dbdeffabeb38a3a
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 36dbc2c181c9991a27163e3194800f63c6c0e01e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
-# <a name="integrate-function-app-into-azure-storage-account"></a>Intégrer Function App à un compte de stockage Azure
+<a id="integrate-function-app-into-azure-storage-account" class="xliff"></a>
+
+# Intégrer Function App à un compte de stockage Azure
 
 Cet exemple de script crée une Function App et un compte de stockage.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Exemple de script
+<a id="sample-script" class="xliff"></a>
+
+## Exemple de script
 
 Cet exemple crée une Function App Azure et ajoute la chaîne de connexion de stockage à un paramètre d’application.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Intégrer Function App à un compte de stockage Azure")]
 
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement
+<a id="clean-up-deployment" class="xliff"></a>
+
+## Nettoyer le déploiement
 
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources, l’application App Service et toutes les ressources associées :
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Explication du script
+<a id="script-explanation" class="xliff"></a>
+
+## Explication du script
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
@@ -58,7 +66,9 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Crée une Function App. |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Nettoyer |
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

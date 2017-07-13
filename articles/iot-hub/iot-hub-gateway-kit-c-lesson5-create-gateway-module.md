@@ -4,7 +4,7 @@ description: "Créez un module et ajoutez-le à un exemple d’application pour 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ROBOTS: NOINDEX
@@ -23,28 +23,37 @@ ms.openlocfilehash: 5e28422158684c3aaf0ac3fdf5b19c80fbccfb02
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
 
-
 ---
-# <a name="lesson-5-create-your-first-azure-iot-gateway-module"></a>Leçon 5 : Créer votre premier module de passerelle Azure IoT
+<a id="lesson-5-create-your-first-azure-iot-gateway-module" class="xliff"></a>
+
+# Leçon 5 : Créer votre premier module de passerelle Azure IoT
 Bien qu’Azure IoT Edge permette de développer des modules écrits en Java, .NET ou Node.js, ce didacticiel vous guide à travers les étapes de création d’un module en langage C.
 
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 
 - Compilez et exécutez l’exemple d’application hello_world sur l’Intel NUC.
 - Créez un module et compilez-le sur l’Intel NUC.
 - Ajouter le nouveau module à l’exemple d’application hello_world, puis exécutez l’exemple sur l’Intel NUC. Le nouveau module affiche des messages « hello world » avec un horodatage.
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 
 - Compilation et exécution d’un exemple d’application sur l’Intel NUC.
 - Création d’un module.
 - Ajout d’un module à un exemple d’application.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 
 Azure IoT Edge installé sur votre ordinateur hôte.
 
-## <a name="folder-structure"></a>Structure de dossiers
+<a id="folder-structure" class="xliff"></a>
+
+## Structure de dossiers
 
 Dans le sous-dossier de la leçon 5 pour l’exemple de code que vous avez cloné dans la leçon 1, il y a un dossier `module` et un dossier `sample`.
 
@@ -53,7 +62,9 @@ Dans le sous-dossier de la leçon 5 pour l’exemple de code que vous avez clon
 - Le dossier `module/my_module` contient le code source et le script permettant de générer le module.
 - Le dossier `sample` contient le code source et le script permettant de générer l’exemple d’application.
 
-## <a name="compile-and-run-the-helloworld-sample-app-on-intel-nuc"></a>Compiler et exécuter l’exemple d’application hello_world sur l’Intel NUC
+<a id="compile-and-run-the-helloworld-sample-app-on-intel-nuc" class="xliff"></a>
+
+## Compiler et exécuter l’exemple d’application hello_world sur l’Intel NUC
 
 L’exemple `hello_world` crée une passerelle en fonction du fichier `hello_world.json` qui spécifie les deux modules prédéfinis associés à l’application. La passerelle consigne un message « hello world » dans un fichier toutes les 5 secondes. Dans cette section, vous compilez et exécutez l’application `hello_world` avec son module par défaut.
 
@@ -100,7 +111,9 @@ Pour compiler et exécuter l’application `hello_world`, procédez comme suit s
 
    ![run_sample](media/iot-hub-gateway-kit-lessons/lesson5/run_sample.png)
 
-## <a name="create-a-new-module-and-compile-it-on-intel-nuc"></a>Créer un module et le compiler sur l’Intel NUC
+<a id="create-a-new-module-and-compile-it-on-intel-nuc" class="xliff"></a>
+
+## Créer un module et le compiler sur l’Intel NUC
 
 La procédure ci-dessous vous guide dans la création d’un module et sa compilation sur l’Intel NUC. Le module affiche des messages avec un horodatage au moment de leur réception. Vous allez créer votre premier module de passerelle personnalisé dans cette section.
 
@@ -208,7 +221,9 @@ Maintenant, nous allons créer un module basé sur le modèle :
 
    La commande transfère le code source à l’Intel NUC et exécute `build.sh` pour le compiler.
 
-## <a name="add-the-module-to-the-helloworld-sample-app-and-run-the-app-on-intel-nuc"></a>Ajouter le module à l’exemple d’application hello_world et exécuter l’application sur l’Intel NUC
+<a id="add-the-module-to-the-helloworld-sample-app-and-run-the-app-on-intel-nuc" class="xliff"></a>
+
+## Ajouter le module à l’exemple d’application hello_world et exécuter l’application sur l’Intel NUC
 
 Pour accomplir cette tâche, procédez comme suit :
 
@@ -275,7 +290,9 @@ Pour accomplir cette tâche, procédez comme suit :
 
 Félicitations ! Vous pouvez maintenant voir le comportement de ce nouveau module, qui affiche simplement des messages « hello world » avec un horodatage, résultat qui diffère de celui du module « hello_world » d’origine.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 Vous avez créé un module, l’avez ajouté à l’exemple d’application hello_world et fait s’exécuter l’exemple d’application avec le nouveau module sur votre passerelle. Si vous souhaitez en savoir plus sur les modules de passerelle Azure IoT, vous trouverez d’autres exemples de modules ici : [https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules).
 

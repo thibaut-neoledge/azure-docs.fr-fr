@@ -11,16 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 07/12/2017
 ms.author: markvi;andkjell
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c5b54c80d9a74d72b242f8d7dd55e2dcadbfa48e
 ms.openlocfilehash: 96d568b6d264fa484e09ee81cdbc779a6f65eb0d
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/01/2017
 
-
 ---
-# <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect Sync : Présentation des utilisateurs et des contacts
+<a id="azure-ad-connect-sync-understanding-users-and-contacts" class="xliff"></a>
+
+# Azure AD Connect Sync : Présentation des utilisateurs et des contacts
 Il existe plusieurs raisons pour lesquelles vous pouvez avoir plusieurs forêts Active Directory et il existe plusieurs topologies de déploiement différentes. Parmi les modèles courants, citons les déploiements de ressources de comptes et les forêts avec liste d’adresses globale synchronisées après fusion et acquisition. Mais même s’il existe des modèles pures, les modèles hybrides sont également courants. La configuration par défaut du service de synchronisation Azure AD Connect ne suppose pas l’existence d’un modèle particulier, mais des comportements différents peuvent être observés en fonction de la façon dont la correspondance utilisateur a été sélectionnée dans le guide d’installation.
 
 Dans cette rubrique, nous allons voir comment se comporte la configuration par défaut dans certaines topologies. Nous allons examiner la configuration et voir comment utiliser l’éditeur de règles de synchronisation pour vérifier la configuration.
@@ -33,7 +35,9 @@ Il existe quelques règles générales que la configuration considère comme ét
 * Un compte avec une boîte aux lettres liée ne sera jamais utilisé pour userPrincipalName et sourceAnchor. On part du principe qu’un compte actif sera trouvé ultérieurement.
 * Un objet de contact peut être approvisionné pour Azure AD en tant que contact ou utilisateur. Vous ne saurez s’il s’agit de l’un ou de l’autre qu’une fois que toutes les forêts Active Directory sources auront été traitées.
 
-## <a name="contacts"></a>Contacts
+<a id="contacts" class="xliff"></a>
+
+## Contacts
 Avoir des contacts représentant un utilisateur dans une autre forêt est courant après une fusion et acquisition où une solution GALSync joue le rôle de pont entre plusieurs forêts Exchange. L’objet de contact est toujours joint de l’espace de connecteur au métaverse à l’aide de l’attribut de messagerie. S’il existe déjà un objet contact ou un objet utilisateur avec la même adresse de messagerie, les objets sont joints. Ce comportement est configuré dans la règle **In from AD – Contact Join**. Il existe également une règle nommée **In from AD – Contact Common** avec un flux d’attribut vers l’attribut de métaverse **sourceObjectType** avec la constante **Contact**. Cette règle a une priorité très faible. Ainsi, si un objet utilisateur est joint au même objet Metaverse, la règle **In from AD – User Common** fournit la valeur User à cet attribut. Avec cette règle, cet attribut a la valeur Contact si aucun utilisateur n’a été joint et la valeur User si au moins un utilisateur a été trouvé.
 
 Pour l’approvisionnement d’un objet dans Azure AD, la règle sortante **Out to AAD – Contact Join** crée un objet contact si l’attribut de métaverse **sourceObjectType** a la valeur **Contact**. Si cet attribut a la valeur **User**, la règle **Out to AAD – User Join** crée plutôt un objet utilisateur.
@@ -43,15 +47,21 @@ Par exemple, dans une topologie GALSync, nous trouverons des objets contacts pou
 
 Si vous disposez d’une topologie dans laquelle les utilisateurs sont représentés en tant que contacts, veillez à sélectionner la mise en correspondance des utilisateurs sur l’attribut de messagerie dans le guide d’installation. Si vous sélectionnez une autre option, vous aurez une configuration dépendant de l’ordre. Les objets contacts seront toujours joints sur l’attribut de messagerie, mais les objets utilisateurs seront joints sur l’attribut de messagerie uniquement si cette option a été sélectionnée dans le guide d’installation. Vous pourriez alors vous retrouver avec deux objets différents dans le métaverse avec le même attribut de messagerie si l’objet contact a été importé avant l’objet utilisateur. Lors de l’exportation vers Azure AD, une erreur sera levée. Ce comportement est normal et indique que des données sont incorrectes ou que la topologie n’a pas été identifiée correctement lors de l’installation.
 
-## <a name="disabled-accounts"></a>Comptes désactivés
+<a id="disabled-accounts" class="xliff"></a>
+
+## Comptes désactivés
 Les comptes désactivés sont aussi synchronisés vers Azure AD. Les comptes désactivés représentent couramment des ressources dans Exchange, par exemple des salles de conférence. L’exception concerne les utilisateurs avec une boîte aux lettres liée ; comme mentionné précédemment, ces utilisateurs ne configureront jamais un compte dans Azure AD.
 
 L’hypothèse est que si un compte d’utilisateur désactivé est détecté, nous ne trouverons pas ultérieurement d’autre compte actif et l’objet est approvisionné dans Azure AD avec les attributs userPrincipalName et sourceAnchor trouvés. Dans le cas où un autre compte actif joindrait le même objet de métaverse, ses attributs userPrincipalName et sourceAnchor seraient utilisés.
 
-## <a name="changing-sourceanchor"></a>Changement de l’attribut sourceAnchor
+<a id="changing-sourceanchor" class="xliff"></a>
+
+## Changement de l’attribut sourceAnchor
 Quand un objet a été exporté vers Azure AD, il n’est plus autorisé à modifier l’attribut sourceAnchor. Quand l’objet a été exporté, l’attribut de métaverse **cloudSourceAnchor** est défini avec la valeur **sourceAnchor** acceptée par Azure AD. Si **sourceAnchor** est modifié et ne correspond pas à **cloudSourceAnchor**, la règle **Out to AAD – User Join** génère l’erreur **L’attribut sourceAnchor a changé**. Dans ce cas, la configuration ou les données doivent être corrigées pour que le même sourceAnchor soit présent dans le métaverse et que l’objet puisse être de nouveau synchronisé.
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+<a id="additional-resources" class="xliff"></a>
+
+## Ressources supplémentaires
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 

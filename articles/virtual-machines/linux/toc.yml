@@ -37,7 +37,7 @@
     href: tutorial-monitoring.md
   - name: 11 – Gérer la sécurité des machines virtuelles
     href: tutorial-azure-security.md
-  - name: 12 – CI/CD Jenkins
+  - name: 12 - Déployer Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
 - name: Exemples
   items:
@@ -204,6 +204,8 @@
       href: cli-ps-findimage.md
     - name: Créer des images de machines virtuelles personnalisées
       href: create-upload-generic.md
+    - name: Télécharger un disque dur virtuel
+      href: download-vhd.md
     - name: Charger des images de machines virtuelles personnalisées
       href: upload-vhd.md
     - name: Capturer une machine virtuelle existante dans une image
@@ -331,6 +333,8 @@
       href: install-mongodb.md
     - name: MySQL
       href: mysql-install.md
+    - name: OpenShift
+      href: openshift-get-started.md
     - name: PostgreSQL
       href: postgresql-install.md
     - name: Déployer une pile LAMP
@@ -378,6 +382,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Résolution des problèmes
     items:
+    - name: Réinitialiser le mot de passe Linux VM
+      href: virtual-machines-linux-reset-password.md
     - name: Comprendre un redémarrage du système
       href: understand-vm-reboot.md
     - name: Connexions SSH
@@ -393,6 +399,8 @@
     - name: Échecs d’allocation
       href: allocation-failure.md
     - name: Problèmes de déploiement
+      href: troubleshoot-deploy-vm.md
+    - name: Création d’une machine virtuelle
       href: troubleshoot-deployment-new-vm.md
     - name: Redéployer une machine virtuelle vers un nouveau nœud Azure
       href: redeploy-to-new-node.md
@@ -424,6 +432,8 @@
   items:
   - name: Créer des modèles
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Modèles fournis par la communauté
     href: https://azure.microsoft.com/documentation/templates
   - name: Tarification

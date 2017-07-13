@@ -4,7 +4,7 @@ description: "Créez un groupe de ressources, créez un Azure IoT Hub et inscriv
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: raspberry pi cloud, connexion pi cloud
 ROBOTS: NOINDEX
@@ -17,31 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: d7bc143b509e84d50f3ce0164d31ae51a26f75d4
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="create-your-iot-hub-and-register-raspberry-pi-3"></a>Création de votre IoT Hub et inscription de Raspberry Pi 3
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="create-your-iot-hub-and-register-raspberry-pi-3" class="xliff"></a>
+
+# Création de votre IoT Hub et inscription de Raspberry Pi 3
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 * Créez un groupe de ressources.
 * Créez votre Azure IoT Hub dans le groupe de ressources.
 * Ajoutez Raspberry Pi 3 à Azure IoT Hub à l’aide de l’interface de ligne de commande Azure.
 
 Lorsque vous utilisez l’interface de ligne de commande Azure pour ajouter Pi à votre IoT Hub, le service génère une clé permettant à Pi de s’authentifier auprès du service. Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 Cet article portera sur les éléments suivants :
 * Utilisation de l’interface de ligne de commande Azure pour créer un IoT Hub.
 * Création d’une identité d’appareil pour Pi dans votre IoT Hub.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 * Un compte Azure
 * Un Mac ou un ordinateur Windows avec l’interface de ligne de commande Azure installée
 
-## <a name="create-your-iot-hub"></a>Création de votre IoT Hub
+<a id="create-your-iot-hub" class="xliff"></a>
+
+## Création de votre IoT Hub
 Azure IoT Hub vous permet de connecter, surveiller et gérer des millions de ressources IoT. Pour créer votre IoT Hub, procédez comme suit :
 
 1. Connectez-vous à votre compte Azure en exécutant la commande suivante :
@@ -84,7 +94,9 @@ Azure IoT Hub vous permet de connecter, surveiller et gérer des millions de res
 > [!NOTE]
 > Le nom de votre IoT Hub doit être globalement unique. Vous ne pouvez créer qu’une seule édition F1 d’Azure IoT Hub sous votre abonnement Azure.
 
-## <a name="register-pi-in-your-iot-hub"></a>Inscription de Pi dans votre IoT Hub
+<a id="register-pi-in-your-iot-hub" class="xliff"></a>
+
+## Inscription de Pi dans votre IoT Hub
 Chaque appareil qui envoie des messages à votre IoT Hub et reçoit des messages de votre IoT Hub doit être inscrit sous un ID unique.
 
 Inscrivez Pi dans votre hub en exécutant la commande suivante :
@@ -93,10 +105,14 @@ Inscrivez Pi dans votre hub en exécutant la commande suivante :
 az iot device create --device-id myraspberrypi --hub {my hub name} --resource-group iot-sample
 ```
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 Vous avez créé un IoT Hub et enregistré Pi sous une identité d’appareil dans votre IoT Hub. Vous êtes prêt à découvrir comment envoyer des messages de Pi à votre IoT Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Créer une application de fonction Azure et un compte de stockage Azure pour traiter et stocker les messages du IoT Hub](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md).
 
 

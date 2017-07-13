@@ -4,7 +4,7 @@ description: "Installez les outils et les logiciels sur votre ordinateur hôte e
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "développement iot, logiciel iot, service cloud iot, logiciel internet des objets, azure cli, installer git sur windows, exécuter gulp, installer node js windows, installer npm sur windows, installer python sur windows"
 ROBOTS: NOINDEX
@@ -17,27 +17,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: b07c6c383f31f77a78628593a60b7b76a49bca4f
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="get-the-tools-windows-7-and-later"></a>Obtenir les outils (Windows 7 et versions ultérieures)
+<a id="get-the-tools-windows-7-and-later" class="xliff"></a>
+
+# Obtenir les outils (Windows 7 et versions ultérieures)
 > [!div class="op_single_selector"]
 > * [Windows 7 ou version ultérieure](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
 > * [Ubuntu 16.04](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
 > * [macOS 10.10](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
 
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 
 - Installation de Git, Node.js, Gulp et Python.
 - Installez l’interface de ligne de commande Azure (Azure CLI). 
 
 Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 
 Dans cette leçon, vous allez apprendre ce qui suit :
 
@@ -55,19 +61,25 @@ Dans cette leçon, vous allez apprendre ce qui suit :
   - L’interface de ligne de commande Azure offre une expérience de ligne de commande multiplateforme pour Azure. Vous travaillez directement à partir d’une ligne de commande pour approvisionner et gérer les ressources.
 - Utilisation de l’interface de ligne de commande Azure pour créer un IoT Hub.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 
 - Une connexion Internet pour télécharger les outils et le logiciel.
 - Un ordinateur Windows.
 
-## <a name="install-git-and-nodejs"></a>Installation de Git et Node.js
+<a id="install-git-and-nodejs" class="xliff"></a>
+
+## Installation de Git et Node.js
 
 Cliquez sur les liens ci-dessous pour télécharger et installer Git et Node.js LTS pour Windows.
 
 - [Téléchargement de Git pour Windows](https://git-scm.com/download/win/)
 - [Téléchargement de Node.js LTS pour Windows](https://nodejs.org/en/)
 
-## <a name="install-nodejs-development-tools"></a>Installer des outils de développement Node.js
+<a id="install-nodejs-development-tools" class="xliff"></a>
+
+## Installer des outils de développement Node.js
 
 Vous utilisez [gulp.js](http://gulpjs.com/) pour automatiser le déploiement et l’exécution de scripts.
 
@@ -82,7 +94,9 @@ Si vous rencontrez des problèmes lors de l’installation, consultez le [guide 
 > [!Note]
 > Node, NPM et Gulp sont requis pour exécuter des scripts d’automatisation développés dans Node.js.
 
-## <a name="install-python"></a>Installer python
+<a id="install-python" class="xliff"></a>
+
+## Installer python
 
 Vous pouvez choisir entre Python 2.7, 3.4 ou 3.5. Dans ce didacticiel, nous utilisons Python 2.7. Si vous avez déjà installé Python, passez à la section suivante.
 
@@ -90,7 +104,9 @@ Vous pouvez choisir entre Python 2.7, 3.4 ou 3.5. Dans ce didacticiel, nous util
 
 Vous devez également ajouter le chemin d’accès des dossiers où Python.exe et pip.exe sont installés à la variable d’environnement `PATH` du système. Par défaut, python.exe est installé dans `C:\Python27`, et pip.exe dans `C:\Python27\Scripts`.
 
-## <a name="install-the-azure-cli"></a>Installer l’interface de ligne de commande Microsoft Azure
+<a id="install-the-azure-cli" class="xliff"></a>
+
+## Installer l’interface de ligne de commande Microsoft Azure
 
 Pour installer l’interface de ligne de commande Azure, procédez comme suit :
 
@@ -115,16 +131,22 @@ Pour installer l’interface de ligne de commande Azure, procédez comme suit :
 
    ![Vérifier l’installation de l’interface de ligne de commande Azure](media/iot-hub-gateway-kit-lessons/lesson2/az_iot_help_win.png)
 
-## <a name="install-visual-studio-code"></a>Installation de Visual Studio Code
+<a id="install-visual-studio-code" class="xliff"></a>
+
+## Installation de Visual Studio Code
 
 Visual Studio Code, plus loin dans ce didacticiel, vous permet de modifier les fichiers de configuration.
 
 [Téléchargez](https://code.visualstudio.com/docs/setup/windows) et installez Visual Studio Code.
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 
 Vous avez installé tous les outils et logiciels nécessaires sur votre ordinateur hôte. La tâche suivante consiste à utiliser l’interface de ligne de commande Azure pour créer un IoT Hub et inscrire votre appareil dans votre IoT Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Créer un hub IoT et enregistrer votre appareil](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 

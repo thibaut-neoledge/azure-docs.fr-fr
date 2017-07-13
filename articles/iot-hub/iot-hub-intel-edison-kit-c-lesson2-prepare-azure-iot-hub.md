@@ -4,7 +4,7 @@ description: "Créez un groupe de ressources, créez un Azure IoT Hub et inscriv
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ROBOTS: NOINDEX
@@ -17,31 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
 ms.openlocfilehash: 9eebae32bf469e0744855ed9f98306bd36eb9671
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="create-your-iot-hub-and-register-intel-edison"></a>Créer votre IoT Hub et inscrire Intel Edison
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="create-your-iot-hub-and-register-intel-edison" class="xliff"></a>
+
+# Créer votre IoT Hub et inscrire Intel Edison
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 * Créez un groupe de ressources.
 * Créez votre Azure IoT Hub dans le groupe de ressources.
 * Ajoutez Intel Edison à Azure IoT Hub à l’aide de l’interface de ligne de commande Azure.
 
 Lorsque vous utilisez l’interface de ligne de commande Azure pour ajouter Edison à votre IoT Hub, le service génère une clé permettant à Edison de s’authentifier auprès du service. Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes][troubleshooting].
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 Cet article portera sur les éléments suivants :
 * Utilisation de l’interface de ligne de commande Azure pour créer un IoT Hub.
 * Création d’une identité d’appareil pour Edison dans votre IoT Hub.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 * Un compte Azure. Si vous ne possédez pas de compte Azure, vous pouvez créer un [compte d’évaluation Azure gratuit](http://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 * Vous devez avoir installé l’interface de ligne de commande Azure.
 
-## <a name="create-your-iot-hub"></a>Création de votre IoT Hub
+<a id="create-your-iot-hub" class="xliff"></a>
+
+## Création de votre IoT Hub
 Azure IoT Hub vous permet de connecter, surveiller et gérer des millions de ressources IoT. Pour créer votre IoT Hub, procédez comme suit :
 
 1. Connectez-vous à votre compte Azure en exécutant la commande suivante :
@@ -86,7 +96,9 @@ Par défaut, l’outil crée un IoT Hub dans le niveau de tarification gratuit. 
 > Vous ne pouvez créer qu’une seule édition F1 d’Azure IoT Hub sous votre abonnement Azure.
 
 
-## <a name="register-edison-in-your-iot-hub"></a>Inscription d’Edison dans votre IoT Hub
+<a id="register-edison-in-your-iot-hub" class="xliff"></a>
+
+## Inscription d’Edison dans votre IoT Hub
 Chaque appareil qui envoie des messages à votre IoT Hub et reçoit des messages de votre IoT Hub doit être inscrit sous un ID unique.
 
 Inscrivez Edison dans votre IoT Hub en exécutant la commande suivante :
@@ -95,10 +107,14 @@ Inscrivez Edison dans votre IoT Hub en exécutant la commande suivante :
 az iot device create --device-id myinteledison --hub-name {my hub name}
 ```
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 Vous avez créé un IoT Hub et enregistré Edison sous une identité d’appareil dans votre IoT Hub. Vous êtes prêt à découvrir comment envoyer des messages d’Edison à votre IoT Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Créer une application de fonction Azure et un compte de stockage Azure pour traiter et stocker les messages du IoT Hub][process-and-store-iot-hub-messages].
 
 

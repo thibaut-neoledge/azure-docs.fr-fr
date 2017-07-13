@@ -4,7 +4,7 @@ description: "Clonez l’exemple d’application Arduino à partir de GitHub et 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: projets de led arduino, clignotement de led arduino, code de clignotement de led arduino, programme de clignotement arduino, exemple de clignotement arduino
 ROBOTS: NOINDEX
@@ -17,29 +17,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: a2058611cecb33eab04de9249ad73b1c4ec6c2a5
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Créer et déployer l’application blink
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="create-and-deploy-the-blink-application" class="xliff"></a>
+
+# Créer et déployer l’application blink
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 Clonez l’exemple d’application Arduino à partir de GitHub et utilisez l'outil gulp pour déployer l'exemple d'application sur votre carte Adafruit Feather M0 WiFi Arduino. Avec l'exemple d’application, la LED embarquée GPIO #13 clignote toutes les deux secondes.
 
 Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes][troubleshooting-page].
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 * Comment déployer et exécuter l’exemple d’application sur votre carte Arduino.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 Vous devez avoir terminé les opérations suivantes :
 
 * [Configuration de votre appareil][configure-your-device]
 * [Obtenir les outils][get-the-tools]
 
-## <a name="open-the-sample-application"></a>Ouvrir l’exemple d’application
+<a id="open-the-sample-application" class="xliff"></a>
+
+## Ouvrir l’exemple d’application
 Procédez comme suit pour ouvrir l’exemple d’application :
 
 1. Clonez l’exemple de référentiel à partir de GitHub en exécutant la commande suivante :
@@ -59,14 +69,18 @@ Procédez comme suit pour ouvrir l’exemple d’application :
 
 Le fichier `app.ino` dans le sous-dossier `app` est le fichier source clé qui contient le code pour contrôler la LED.
 
-### <a name="install-application-dependencies"></a>Installation des dépendances de l’application
+<a id="install-application-dependencies" class="xliff"></a>
+
+### Installation des dépendances de l’application
 Installez les bibliothèques et d’autres modules dont vous avez besoin pour l’exemple d’application en exécutant la commande suivante :
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Configuration de la connexion de l’appareil
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Configuration de la connexion de l’appareil
 Procédez comme suit pour configurer la connexion de l’appareil :
 
 1. Obtenez le port série de l'appareil à l'aide de l’interface de ligne de commande de découverte :
@@ -88,8 +102,12 @@ Procédez comme suit pour configurer la connexion de l’appareil :
    > [!NOTE]
    > Sur la plate-forme Windows, le port COM le format `COM1, COM2, ...`. Sur macOS ou Ubuntu, il commence par `/dev/`.
 
-## <a name="deploy-and-run-the-sample-application"></a>Déploiement et exécution de l’exemple d’application
-### <a name="install-the-required-tools-for-your-arduino-board"></a>Installation des outils requis pour votre carte Arduino
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Déploiement et exécution de l’exemple d’application
+<a id="install-the-required-tools-for-your-arduino-board" class="xliff"></a>
+
+### Installation des outils requis pour votre carte Arduino
 
 Installez le kit de développement logiciel (SDK) Azure IoT Hub sur votre carte Arduino en exécutant la commande suivante :
 
@@ -102,7 +120,9 @@ Cette tâche peut prendre beaucoup de temps en fonction de votre connexion rése
 > [!NOTE]
 > Veuillez quitter l’instance Arduino IDE en cours lors de l’exécution des tâches gulp : `install-tools`, `run`.
 
-### <a name="deploy-and-run-the-sample-app"></a>Déploiement et exécution de l’exemple d’application
+<a id="deploy-and-run-the-sample-app" class="xliff"></a>
+
+### Déploiement et exécution de l’exemple d’application
 Déployez et exécutez l’exemple d’application en exécutant la commande suivante :
 
 ```bash
@@ -115,15 +135,21 @@ gulp listen
 gulp run --listen
 ```
 
-### <a name="verify-the-app-works"></a>Vérification du bon fonctionnement de l’application
+<a id="verify-the-app-works" class="xliff"></a>
+
+### Vérification du bon fonctionnement de l’application
 Si vous ne voyez pas la LED clignoter, consultez le [guide de dépannage][troubleshooting-page] des problèmes courants.
 
 ![LED clignotante][led-blinking]
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 Vous avez installé les outils nécessaires pour travailler avec votre carte Arduino et déployé un exemple d’application sur votre carte Arduino pour faire clignoter la LED. Vous pouvez maintenant créer, déployer et exécuter un autre exemple d’application qui connecte votre carte Arduino à Azure IoT Hub pour envoyer et recevoir des messages.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Obtenir les outils Azure][get-the-azure-tools]
 
 <!-- Images and links -->

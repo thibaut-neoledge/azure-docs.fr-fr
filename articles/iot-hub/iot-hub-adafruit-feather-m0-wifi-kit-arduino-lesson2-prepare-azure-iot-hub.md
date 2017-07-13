@@ -4,7 +4,7 @@ description: "Créez un groupe de ressources, créez un Azure IoT Hub et inscriv
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "connexion arduino au cloud, azure iot hub, internet des objets cloud, azure iot hub créer un appareil, arduino cloud"
 ROBOTS: NOINDEX
@@ -17,32 +17,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
 ms.openlocfilehash: ac9421be9211d53f8b5239c356201ee3efd27999
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/10/2017
 
-
 ---
-# <a name="create-your-iot-hub-and-register-your-adafruit-feather-m0-wifi-arduino-board"></a>Créer votre IoT Hub et inscrire votre carte Adafruit Feather M0 WiFi Arduino
+<a id="create-your-iot-hub-and-register-your-adafruit-feather-m0-wifi-arduino-board" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>Procédure à suivre
+# Créer votre IoT Hub et inscrire votre carte Adafruit Feather M0 WiFi Arduino
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 * Créez un groupe de ressources.
 * Créez votre Azure IoT Hub dans le groupe de ressources.
 * Ajoutez votre carte Arduino à Azure IoT Hub à l’aide de l’interface de ligne de commande Azure.
 
 Lorsque vous utilisez l’interface de ligne de commande Azure pour ajouter votre carte Arduino à votre IoT Hub, le service génère une clé permettant à votre carte Arduino de s’authentifier auprès du service. Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes][troubleshoot].
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 Cet article portera sur les éléments suivants :
 * Utilisation de l’interface de ligne de commande Azure pour créer un IoT Hub.
 * Comment créer une identité d’appareil pour votre carte Arduino dans votre IoT Hub.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 * Un compte Azure
 * Un ordinateur avec l’interface de ligne de commande Azure installée
 
-## <a name="create-your-iot-hub"></a>Création de votre IoT Hub
+<a id="create-your-iot-hub" class="xliff"></a>
+
+## Création de votre IoT Hub
 Azure IoT Hub vous permet de connecter, surveiller et gérer des millions de ressources IoT. Pour créer votre IoT Hub, procédez comme suit :
 
 1. Connectez-vous à votre compte Azure en exécutant la commande suivante :
@@ -86,7 +96,9 @@ Par défaut, l’outil crée un IoT Hub dans le niveau de tarification gratuit. 
 > Le nom de votre IoT Hub doit être globalement unique.
 > Vous ne pouvez créer qu’une seule édition F1 d’Azure IoT Hub sous votre abonnement Azure.
 
-## <a name="register-your-arduino-board-in-your-iot-hub"></a>Inscrire votre carte Arduino dans votre IoT Hub
+<a id="register-your-arduino-board-in-your-iot-hub" class="xliff"></a>
+
+## Inscrire votre carte Arduino dans votre IoT Hub
 Chaque appareil qui envoie des messages à votre IoT Hub et reçoit des messages de votre IoT Hub doit être inscrit sous un ID unique.
 
 Inscrivez votre carte Arduino dans votre IoT Hub en exécutant la commande suivante :
@@ -95,10 +107,14 @@ Inscrivez votre carte Arduino dans votre IoT Hub en exécutant la commande suiva
 az iot device create --device-id mym0wifi --hub-name {my hub name}
 ```
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 Vous avez créé un IoT Hub et enregistré votre carte Arduino sous une identité d’appareil dans votre IoT Hub. Vous êtes prêt à découvrir comment envoyer des messages de votre carte Arduino à votre IoT Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Créer une application de fonction Azure et un compte de stockage Azure pour traiter et stocker les messages du IoT Hub][process-and-store-iot-hub-messages].
 
 

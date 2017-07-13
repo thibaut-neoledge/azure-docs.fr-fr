@@ -4,7 +4,7 @@ description: "Enregistrez des messages à partir d’Intel NUC dans votre hub Io
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "récupérer des données du cloud, service cloud iot"
 ROBOTS: NOINDEX
@@ -17,28 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: b12e16a5a532448cf2e939cfcad322225b9ee811
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/25/2017
-
 
 ---
 
-# <a name="read-messages-persisted-in-azure-table-storage"></a>Lire des messages conservés dans le stockage Table Azure
+<a id="read-messages-persisted-in-azure-table-storage" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>Procédure à suivre
+# Lire des messages conservés dans le stockage Table Azure
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 
 - Exécutez l’exemple d’application de votre passerelle qui envoie des messages à votre IoT Hub.
 - Exécutez l’exemple de code sur votre ordinateur hôte pour lire les messages dans votre stockage Table Azure.
 
 Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 
 Utilisation de l’outil gulp pour exécuter l’exemple de code permettant de lire les messages dans votre stockage Table Azure.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 
 Vous avez effectué les tâches suivantes :
 
@@ -46,7 +54,9 @@ Vous avez effectué les tâches suivantes :
 - [exécuter l’exemple d’application de la passerelle](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md) ;
 - [lire des messages à partir de votre IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md).
 
-## <a name="get-your-azure-storage-connection-strings"></a>Obtenir vos chaînes de connexion de stockage Azure
+<a id="get-your-azure-storage-connection-strings" class="xliff"></a>
+
+## Obtenir vos chaînes de connexion de stockage Azure
 
 Au début de cette leçon, vous avez créé un compte de stockage Azure. Pour obtenir la chaîne de connexion du compte de stockage Azure, exécutez les commandes suivantes :
 
@@ -64,7 +74,9 @@ az storage account show-connection-string -g iot-gateway -n {storage name}
 
 Si vous n’avez pas modifié la valeur à la leçon 2, utilisez `iot-gateway` en tant que valeur de `{resource group name}`.
 
-## <a name="configure-the-device-connection"></a>Configuration de la connexion de l’appareil
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Configuration de la connexion de l’appareil
 
 Mettez à jour le fichier `config-azure.json` afin que l’exemple de code qui s’exécute sur l’ordinateur hôte puisse lire le message dans votre stockage Table Azure. Procédez comme suit pour configurer la connexion de l’appareil :
 
@@ -83,7 +95,9 @@ Mettez à jour le fichier `config-azure.json` afin que l’exemple de code qui s
 
    `[IoT hub connection string]` doit déjà être remplacé dans la section [Lire des messages à partir d’Azure IoT Hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md) de la leçon&3;.
 
-## <a name="read-messages-in-your-azure-table-storage"></a>Lire des messages dans votre stockage Table Azure
+<a id="read-messages-in-your-azure-table-storage" class="xliff"></a>
+
+## Lire des messages dans votre stockage Table Azure
 
 Exécutez l’exemple d’application de la passerelle et lisez les messages de stockage Table Azure avec la commande suivante :
 
@@ -99,7 +113,9 @@ Les messages envoyés et reçus sont tous affichés instantanément sur la même
    ![lecture de gulp](media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table_simudev.png)
 
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 
 Vous avez exécuté l’exemple de code pour lire les messages de votre stockage Table Azure enregistrés par votre application Azure Function.
 

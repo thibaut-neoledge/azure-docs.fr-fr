@@ -12,29 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 44bcf3ed1be8007a3c1ab9b727acf9a249cf84cc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="scale-instance-count-manually-or-automatically"></a>Mise à l'échelle manuelle ou automatique du nombre d’instances
+<a id="scale-instance-count-manually-or-automatically" class="xliff"></a>
+
+# Mise à l'échelle manuelle ou automatique du nombre d’instances
 Dans le [portail Azure](https://portal.azure.com/), vous pouvez définir manuellement le nombre d'instances de votre service, ou définir les paramètres pour qu'il soit automatiquement mis à l'échelle en fonction de la demande. On parle alors généralement *d’extension* ou de *réduction des instances*.
 
 Avant d’effectuer cette mise à l'échelle en fonction du nombre d'instances, vous devez prendre en considération que la mise à l’échelle est non seulement affectée par le nombre d’instances, mais également par le **niveau de tarification** . Les différentes options de tarification qui vous sont proposées peuvent disposer d’une mémoire et d’un nombre de cœurs plus ou moins importants, et fournir de cette manière de meilleures performances pour le même nombre d'instances (c'est-à-dire *l’extension* ou la *réduction des instances*). Cet article aborde plus en détail la *réduction* ou *l’extension des instances*.
 
-Vous pouvez effectuer une mise à l’échelle dans le portail et utiliser également [l’API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) ou le [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) pour modifier manuellement ou automatiquement la mise à l’échelle .
+Vous pouvez effectuer une mise à l’échelle dans le portail et utiliser également [l’API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) ou le [Kit de développement logiciel (SDK) .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) pour modifier manuellement ou automatiquement la mise à l’échelle .
 
 > [!NOTE]
 > Cet article décrit comment créer un paramètre de mise à l’échelle dans le portail sur [http://portal.azure.com](http://portal.azure.com). Les paramètres de mise à l’échelle créés dans ce portail ne peuvent pas être modifiés dans le portail classique ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
 > 
 > 
 
-## <a name="scaling-manually"></a>Mise à l'échelle manuelle
+<a id="scaling-manually" class="xliff"></a>
+
+## Mise à l'échelle manuelle
 1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis accédez à la ressource que vous souhaitez mettre à l'échelle, telle qu'un **plan App Service**.
 2. Cliquez sur **Paramètres > Monter en charge (plan App Service).**
 3. Un historique des mises à l'échelle automatiques du service est affiché en haut du panneau **Mise à l'échelle**.
@@ -48,7 +52,9 @@ Vous pouvez effectuer une mise à l’échelle dans le portail et utiliser égal
 4. Vous pouvez modifier manuellement le nombre d’ **instances** à l’aide du curseur.
 5. Cliquez sur la commande **Enregistrer** pour augmenter ou diminuer presque immédiatement le nombre d'instances.
 
-## <a name="scaling-based-on-a-pre-set-metric"></a>Mise à l'échelle en fonction d’une mesure prédéfinie
+<a id="scaling-based-on-a-pre-set-metric" class="xliff"></a>
+
+## Mise à l'échelle en fonction d’une mesure prédéfinie
 Si vous souhaitez modifier automatiquement le nombre d'instances en fonction d’une mesure, sélectionnez la mesure de votre choix dans la liste déroulante **Mettre à l’échelle par**. Pour un **plan App Service**, vous pouvez, par exemple, effectuer une mise à l’échelle via **Pourcentage UC**.
 
 1. Lorsque vous sélectionnez une mesure, un curseur et/ou des zones de texte apparaîtront pour vous permettre d’entrer le nombre d'instances que vous souhaitez mettre à l'échelle entre :
@@ -59,10 +65,14 @@ Si vous souhaitez modifier automatiquement le nombre d'instances en fonction d�
 2. Vous choisissez ensuite la plage cible de la mesure. Si vous choisissez, par exemple, l’option **Pourcentage UC**, vous pouvez définir un objectif pour la moyenne du processeur sur toutes les instances de votre service. L’extension des instances se produit lorsque la moyenne du processeur dépasse le nombre maximum défini. De la même manière, la réduction des instances se produit chaque fois que la moyenne du processeur chute en-deçà du nombre minimum.
 3. Cliquez sur la commande **Enregistrer** . La mise à l'échelle automatique réalisera une vérification toutes les minutes pour vous assurer que vous êtes bien dans la plage de l'instance ainsi que dans la cible de votre mesure. Lorsque votre service reçoit du trafic supplémentaire, plusieurs instances vous seront attribuées automatiquement.
 
-## <a name="scale-based-on-other-metrics"></a>Mise à l’échelle en fonction d’autres mesures
+<a id="scale-based-on-other-metrics" class="xliff"></a>
+
+## Mise à l’échelle en fonction d’autres mesures
 Vous pouvez effectuer une mise à l’échelle en fonction de mesures autres que les présélections qui s'affichent dans la liste déroulante **Mettre à l’échelle par** et même disposer d’un ensemble complexe de règles d’extension ou de réduction des instances.
 
-### <a name="adding-or-changing-a-rule"></a>Ajout ou modification d'une règle
+<a id="adding-or-changing-a-rule" class="xliff"></a>
+
+### Ajout ou modification d'une règle
 1. Sélectionnez les **règles de performances et de planification** dans la liste déroulante **Mettre à l’échelle par** : ![Règles de performance](./media/insights-how-to-scale/Insights_PerformanceRules.png)
 2. Si vous avez déjà effectué une mise à l'échelle automatique, vous découvrirez les règles précises dont vous disposiez.
 3. Pour effectuer une mise à l’échelle sur une autre mesure, cliquez sur la ligne **Ajouter une règle** . Vous pouvez également cliquer sur une des lignes existantes pour passer d’une mesure dont vous disposiez auparavant à une mesure via laquelle vous souhaitez effectuer une mise à l'échelle.
@@ -82,7 +92,9 @@ Vous pouvez effectuer une mise à l’échelle en fonction de mesures autres que
 8. Après avoir configuré votre règle, cliquez sur **OK**.
 9. Une fois que vous avez configuré toutes les règles que vous souhaitez, n’oubliez pas de cliquer sur la commande **Enregistrer** .
 
-### <a name="scaling-with-multiple-steps"></a>Mise à l'échelle en plusieurs étapes
+<a id="scaling-with-multiple-steps" class="xliff"></a>
+
+### Mise à l'échelle en plusieurs étapes
 Les exemples ci-dessus sont assez simples. Toutefois, si vous souhaitez définir des règles d’extension ou de réduction plus agressives, vous pouvez même en ajouter plusieurs pour la même mesure. Vous pouvez, par exemple, définir deux règles de mise à l'échelle sur Pourcentage UC :
 
 1. Extension d'une instance si le pourcentage UC est supérieur à 60 %
@@ -92,7 +104,9 @@ Les exemples ci-dessus sont assez simples. Toutefois, si vous souhaitez définir
 
 Avec cette règle supplémentaire, si la charge dépasse 85 % avant une action de mise à l'échelle, vous obtenez deux instances supplémentaires au lieu d'une.
 
-## <a name="scale-based-on-a-schedule"></a>Mise à l'échelle en fonction d’une planification
+<a id="scale-based-on-a-schedule" class="xliff"></a>
+
+## Mise à l'échelle en fonction d’une planification
 Par défaut, lorsque vous créez une règle de mise à l'échelle, celle-ci s’appliquera en permanence. Vous pouvez le constater lorsque vous cliquez sur l'en-tête du profil :
 
 ![Profil](./media/insights-how-to-scale/Insights_Profile.png)
@@ -122,7 +136,9 @@ Toutefois, vous souhaiterez peut-être définir des règles d’extension ou de 
 11. Assurez-vous de créer une règle relative à l’extension et à la réduction des instances, sinon le nombre d’instances ne fera qu’augmenter (ou diminuer) sur ce profil.
 12. Puis, cliquez sur **Enregistrer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service.
 * [Réceptions de notifications d'alerte](insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.

@@ -4,7 +4,7 @@ description: "Personnalisez les messages pour modifier le comportement activé/d
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "contrôle de la led avec arduino"
 ROBOTS: NOINDEX
@@ -17,24 +17,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
 ms.openlocfilehash: 9a2c6dfe5d85a4da9714f9b8942cb2baf1a98466
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a>Modification du comportement activé/désactivé de la LED
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="change-the-on-and-off-behavior-of-the-led" class="xliff"></a>
+
+# Modification du comportement activé/désactivé de la LED
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 Personnalisez les messages pour modifier le comportement activé/désactivé de la LED. Si vous rencontrez des problèmes, recherchez des solutions sur la [page de résolution des problèmes][troubleshooting].
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 Utiliser des fonctions supplémentaires pour modifier le comportement activé/désactivé de la LED.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 Vous devez avoir correctement suivi la section [Exécution d’un exemple d’application sur Intel Edison pour recevoir des messages cloud-à-appareil][receive-cloud-to-device-messages].
 
-## <a name="add-functions-to-appjs-and-gulpfilejs"></a>Ajouter des fonctions à app.js et gulpfile.js
+<a id="add-functions-to-appjs-and-gulpfilejs" class="xliff"></a>
+
+## Ajouter des fonctions à app.js et gulpfile.js
 1. Ouvrez l’exemple d’application dans Visual Studio Code en exécutant les commandes suivantes :
 
    ```bash
@@ -88,7 +98,9 @@ Vous devez avoir correctement suivi la section [Exécution d’un exemple d’ap
    ```
 6. Enregistrez toutes les modifications.
 
-### <a name="deploy-and-run-the-sample-application"></a>Déploiement et exécution de l’exemple d’application
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+### Déploiement et exécution de l’exemple d’application
 Déployez et exécutez l’exemple d’application sur Edison en exécutant la commande suivante :
 
 ```bash
@@ -101,7 +113,9 @@ La LED doit s’allumer pendant deux secondes, puis s’éteindre pendant deux s
 
 Félicitations ! Vous avez correctement personnalisé les messages qui sont envoyés à Edison à partir de votre IoT Hub.
 
-### <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+### Résumé
 Cette section facultative montre comment personnaliser les messages de sorte que l’exemple d’application puisse contrôler le comportement activé/désactivé de la LED d’une autre manière.
 
 <!-- Images and links -->
