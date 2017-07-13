@@ -1,10 +1,13 @@
 > [!div class="op_single_selector"]
 > * [Node.JS](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
-> * [C#](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md)
 > 
 > 
 
-## <a name="introduction"></a>Introduction
+## Introduction
+<a id="introduction" class="xliff"></a>
+
 Dans l’article [Prise en main des représentations d’appareil IoT Hub][lnk-twin-tutorial], vous avez appris à définir les métadonnées d’appareil à partir de votre serveur principal de solution à l’aide *d’étiquettes*, à signaler les conditions d’appareil à partir d’une application d’appareil au moyen de *propriétés signalées* et à interroger ces informations par le biais d’un langage de type SQL.
 
 Dans ce didacticiel, vous allez découvrir comment combiner les *propriétés souhaitées* des représentations d’appareil et les *propriétés signalées* afin de configurer les applications d’appareil à distance. Plus précisément, ce didacticiel décrit la façon dont les propriétés signalées et souhaitées des représentations d’appareil permettent de procéder à une configuration à plusieurs étapes d’une application d’appareil, ainsi que la façon dont ces propriétés dotent le serveur principal de solution d’une visibilité de l’état de cette opération sur l’ensemble des appareils. Pour plus d’informations sur le rôle des configurations d’appareil, consultez l’article [Vue d’ensemble de la gestion des appareils avec IoT Hub][lnk-dm-overview].
