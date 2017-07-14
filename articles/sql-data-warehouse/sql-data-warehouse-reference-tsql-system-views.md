@@ -3,7 +3,7 @@ title: "Vues système SQL Data Warehouse | Microsoft Docs"
 description: "Des liens vers le contenu des vues système pour SQL Data Warehouse"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
@@ -13,17 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c73e24c13f69db893d63e9925116d860dccc1120
-ms.lasthandoff: 12/08/2016
+ms.date: 06/01/2017
+ms.author: kevin;barbkess
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 7c38488d55719f5bc376a929a36c98c1e5900eaf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="system-views"></a>Vues système
-## <a name="sql-data-warehouse-catalog-views"></a>Vues de catalogue SQL Data Warehouse
+# Vues système
+<a id="system-views" class="xliff"></a>
+## Vues de catalogue SQL Data Warehouse
+<a id="sql-data-warehouse-catalog-views" class="xliff"></a>
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_database_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
@@ -41,7 +44,8 @@ ms.lasthandoff: 12/08/2016
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>Vues de gestion dynamique SQL Data Warehouse
+## Vues de gestion dynamique SQL Data Warehouse
+<a id="sql-data-warehouse-dynamic-management-views-dmvs" class="xliff"></a>
 * [sys.dm_pdw_dms_cores](http://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](http://msdn.microsoft.com/library/mt203878.aspx)
@@ -61,14 +65,16 @@ ms.lasthandoff: 12/08/2016
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
 * [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
 
-## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>Vues de gestion dynamique (DMV) SQL Server applicables à SQL Data Warehouse
+## Vues de gestion dynamique (DMV) SQL Server applicables à SQL Data Warehouse
+<a id="sql-server-dmvs-applicable-to-sql-data-warehouse" class="xliff"></a>
 Les DMV suivantes s’appliquent à SQL Data Warehouse, mais doivent être exécutées en se connectant à la base de données **master** .
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
 * [sys.fn_helpcollations()](https://msdn.microsoft.com/library/ms187963.aspx)
 
-## <a name="sql-server-catalog-views"></a>Vues de catalogue SQL Server
+## Vues de catalogue SQL Server
+<a id="sql-server-catalog-views" class="xliff"></a>
 * [sys.all_columns](http://msdn.microsoft.com/library/ms177522.aspx)
 * [sys.all_objects](http://msdn.microsoft.com/library/ms178618.aspx)
 * [sys.all_parameters](http://msdn.microsoft.com/library/ms190340.aspx)
@@ -134,7 +140,8 @@ Les DMV suivantes s’appliquent à SQL Data Warehouse, mais doivent être exéc
 * [sys.types](http://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
-## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>Vues de gestion dynamique SQL Server disponibles dans SQL Data Warehouse
+## Vues de gestion dynamique SQL Server disponibles dans SQL Data Warehouse
+<a id="sql-server-dmvs-available-in-sql-data-warehouse" class="xliff"></a>
 SQL Data Warehouse expose de nombreuses vues de gestion dynamique SQL Server. Ces vues, lorsqu’elles sont interrogées dans SQL Data Warehouse, signalent l'état des bases de données SQL en cours d’exécution sur les distributions.
 
 Puisque SQL Data Warehouse est basé sur la technologie MPP de Microsoft, SQL Data Warehouse et l’entrepôt de données parallèles (PDW) du système de plateforme d’analyse utilisent les mêmes vues système.
@@ -148,6 +155,8 @@ C'est pourquoi chacune de ces vues de gestion dynamique dispose d’une colonne 
 
 | Nom de la vue de gestion dynamique dans SQL Data Warehouse | Lien vers la rubrique Transact-SQL SQL Server sur MSDN |
 |:--- |:--- |
+| sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
+| sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_file_space_usage |[sys.dm_db_file_space_usage](http://msdn.microsoft.com/library/ms174412.aspx) |
 | sys.dm_pdw_nodes_db_index_usage_stats |[sys.dm_db_index_usage_stats](http://msdn.microsoft.com/library/ms188755.aspx) |
 | sys.dm_pdw_nodes_db_partition_stats |[sys.dm_db_partition_stats](http://msdn.microsoft.com/library/ms187737.aspx) |
@@ -165,6 +174,7 @@ C'est pourquoi chacune de ces vues de gestion dynamique dispose d’une colonne 
 | sys.dm_pdw_nodes_exec_requests |[sys.dm_exec_requests](http://msdn.microsoft.com/library/ms177648.aspx) |
 | sys.dm_pdw_nodes_exec_sessions |[sys.dm_exec_sessions](https://msdn.microsoft.com/en-us/library/ms176013.aspx) |
 | sys.dm_pdw_nodes_io_pending_io_requests |[sys.dm_io_pending_io_requests](http://msdn.microsoft.com/library/ms188762.aspx) |
+| sys.dm_pdw_nodes_io_virtual_file_stats |[sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) |
 | sys.dm_pdw_nodes_os_buffer_descriptors |[sys.dm_os_buffer_descriptors](http://msdn.microsoft.com/library/ms173442.aspx) |
 | sys.dm_pdw_nodes_os_child_instances |[sys.dm_os_child_instances](http://msdn.microsoft.com/library/ms165698.aspx) |
 | sys.dm_pdw_nodes_os_cluster_nodes |[sys.dm_os_cluster_nodes](http://msdn.microsoft.com/library/ms187341.aspx) |
@@ -207,7 +217,8 @@ C'est pourquoi chacune de ces vues de gestion dynamique dispose d’une colonne 
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>Vues de gestion dynamique PolyBase SQL Server 2016 disponibles dans SQL Data Warehouse
+## Vues de gestion dynamique PolyBase SQL Server 2016 disponibles dans SQL Data Warehouse
+<a id="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse" class="xliff"></a>
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
 * [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)
@@ -219,7 +230,8 @@ C'est pourquoi chacune de ces vues de gestion dynamique dispose d’une colonne 
 * [sys.dm_exec_external_operations](https://msdn.microsoft.com/library/mt146391.aspx)
 * [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
-## <a name="sql-server-informationschema-views"></a>Vues INFORMATION_SCHEMA SQL Server
+## Vues INFORMATION_SCHEMA SQL Server
+<a id="sql-server-informationschema-views" class="xliff"></a>
 * [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
 * [COLONNES](http://msdn.microsoft.com/library/ms188348.aspx)
 * [PARAMETERS](http://msdn.microsoft.com/library/ms173796.aspx)
@@ -230,7 +242,8 @@ C'est pourquoi chacune de ces vues de gestion dynamique dispose d’une colonne 
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
 * [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 Pour plus d’informations, consultez la rubrique [Vue d’ensemble de référence de SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->
