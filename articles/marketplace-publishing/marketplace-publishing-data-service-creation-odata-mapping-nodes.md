@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
-ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Présentation du schéma de nœuds pour le mappage d’un service web existant à OData via le langage CSDL
+# Présentation du schéma de nœuds pour le mappage d’un service web existant à OData via le langage CSDL
+<a id="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl" class="xliff"></a>
 > [!IMPORTANT]
 > **À ce stade, nous n’intégrons plus de nouveaux éditeurs de services de données. Le listing de nouveaux services de données ne sera pas approuvé.** Si vous avez une application SaaS professionnelle à publier sur AppSource, vous trouverez plus d’informations [ici](https://appsource.microsoft.com/partners). Si vous avez une application IaaS ou un service de développement à publier sur Azure Marketplace, vous trouverez plus d’informations [ici](https://azure.microsoft.com/marketplace/programs/certified/).
 >
@@ -29,7 +31,8 @@ ms.lasthandoff: 11/17/2016
 
 Ce document permet de clarifier la structure de nœuds pour le mappage d’un protocole OData au langage CSDL. Il est important de noter que la structure de nœuds est un code XML bien formé. Par conséquent, le schéma racine, parent et enfant s’applique lors de la conception de votre mappage OData.
 
-## <a name="ignored-elements"></a>Éléments ignorés
+## Éléments ignorés
+<a id="ignored-elements" class="xliff"></a>
 Voici les éléments CSDL (nœuds XML) de haut niveau qui ne vont pas être utilisés par le serveur principal Azure Marketplace pendant l’importation de métadonnées du service web. Ils peuvent être présents, mais seront ignorés.
 
 | Élément | Portée |
@@ -46,15 +49,15 @@ Voici les éléments CSDL (nœuds XML) de haut niveau qui ne vont pas être util
 
 La section suivante décrit en détail les modifications (éléments ajoutés et ignorés) aux différents nœuds CSDL XML.
 
-## <a name="functionimport-node"></a>Nœud FunctionImport
+## Nœud FunctionImport
+<a id="functionimport-node" class="xliff"></a>
 Un nœud FunctionImport représente une URL (point d’entrée) qui expose un service à l’utilisateur final. Le nœud autorise la description de la manière dont l’URL est résolue, les paramètres disponibles pour l’utilisateur final et la manière dont ces paramètres sont fournis.
 
 Vous trouverez des informations sur ce nœud [ici][MSDNFunctionImportLink](https://msdn.microsoft.com/library/cc716710.aspx)
 
 Voici les attributs supplémentaires (ou ajouts aux attributs) qui sont exposés par le nœud FunctionImport.
 
-**d:BaseUri** -
- : le modèle d’URI de la ressource REST exposée sur Marketplace. Marketplace utilise le modèle pour construire des requêtes sur le service web REST. Le modèle d’URI contient des espaces réservés pour les paramètres sous la forme {parameterName}, où parameterName est le nom du paramètre. P. apiVersion={apiVersion}.
+**d:BaseUri** : modèle d’URI de la ressource REST exposée sur Marketplace. Marketplace utilise le modèle pour construire des requêtes sur le service web REST. Le modèle d’URI contient des espaces réservés pour les paramètres sous la forme {parameterName}, où parameterName est le nom du paramètre. P. apiVersion={apiVersion}.
 Les paramètres sont autorisés à apparaître en tant que paramètres d’URI ou en tant que partie du chemin d’accès de l’URI. Dans le cas de l’apparence dans le chemin d’accès, ils sont toujours obligatoires (ils ne peuvent être marqués comme nullable). *Exemple :* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
 
 **Name** : nom de la fonction importée.  Il ne peut être identique à d’autres noms définis dans le langage CSDL.  P. ex., Name="GetModelUsageFile"
@@ -149,7 +152,8 @@ Les nœuds enfants supplémentaires (non couverts par la documentation du langag
 
 **d:ErrorMessage** : extension facultative à OData
 
-## <a name="parameter-node"></a>Nœud du paramètre
+## Nœud du paramètre
+<a id="parameter-node" class="xliff"></a>
 Ce nœud représente un paramètre qui est exposé en tant que partie du modèle d’URI / du corps de la demande qui a été spécifié dans le nœud FunctionImport.
 
 Une page de documentation détaillée très utile sur le nœud « Parameter Element » est disponible [ici](http://msdn.microsoft.com/library/ee473431.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente afin d’afficher la documentation si nécessaire). *Exemple :* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
@@ -172,7 +176,8 @@ Les éléments suivants sont des attributs qui ont été ajoutés à la spécifi
 | **d:Nullable** *(facultatif)* |Permet de définir si un paramètre peut être null. La valeur par défaut est true. Toutefois, les paramètres qui sont exposés en tant que partie du chemin d’accès dans le modèle d’URI ne peuvent pas être null. Lorsque l’attribut est défini sur false pour ces paramètres, l’entrée utilisateur est remplacée. **Exemple :** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
 | **d:SampleValue** *(facultatif)* |Un exemple de valeur à afficher en tant que note au client dans l’interface utilisateur.  Il est possible d’ajouter plusieurs valeurs à l’aide d’une liste séparée par des barres verticales, par exemple `a |
 
-## <a name="entitytype-node"></a>Nœud EntityType
+## Nœud EntityType
+<a id="entitytype-node" class="xliff"></a>
 Ce nœud représente l’un des types renvoyés à partir de Marketplace à l’utilisateur final. Il contient également le mappage de la sortie qui est renvoyée par le service du fournisseur de contenu aux valeurs renvoyées à l’utilisateur final.
 
 Des informations sur ce nœud sont disponibles [ici](http://msdn.microsoft.com/library/bb399206.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente afin d’afficher la documentation si nécessaire).
@@ -196,11 +201,11 @@ L’expression XPath serait /foo/bar car chaque nœud de barre est le nœud rép
 
 **Key** : cet attribut est ignoré par Marketplace. En général, les services web basés sur REST n’exposent pas de clé primaire.
 
-## <a name="property-node"></a>Nœud de propriété
+## Nœud de propriété
+<a id="property-node" class="xliff"></a>
 Ce nœud contient une propriété de l’enregistrement.
 
-Des informations sur ce nœud sont disponibles à l’adresse [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente pour afficher la documentation si nécessaire). *Exemple :*
-        `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
+Des informations sur ce nœud sont disponibles à l’adresse [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) (utilisez la liste déroulante **Autre version** pour sélectionner une version différente pour afficher la documentation si nécessaire). *Exemple :* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
         <Property Name="Name"     Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
         ...
         </EntityType>`
@@ -253,7 +258,8 @@ Ici, l’expression XPath serait ./bar/baz0 pour obtenir le nœud baz0 du servic
 
 **d:DatabaseDataType** : type de données de la colonne dans la base de données, c’est-à-dire, type de données SQL. Consultez l’exemple de service de données CSDL.
 
-## <a name="supported-parametersproperty-types"></a>Types de paramètres/propriétés pris en charge
+## Types de paramètres/propriétés pris en charge
+<a id="supported-parametersproperty-types" class="xliff"></a>
 Les éléments suivants sont les types de paramètres et de propriétés pris en charge. (Respectent la casse)
 
 | Types primitifs | Description |
@@ -271,7 +277,8 @@ Les éléments suivants sont les types de paramètres et de propriétés pris en
 | Int64 |Représente une valeur entière de 64 bits signée |
 | String |Représente des données de type caractère à longueur fixe ou variable |
 
-## <a name="see-also"></a>Voir aussi
+## Voir aussi
+<a id="see-also" class="xliff"></a>
 * Si vous souhaitez comprendre le processus de mappage OData global et son rôle, lisez l’article [Mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping.md) pour passer en revue des définitions, des structures et des instructions.
 * Si vous souhaitez passer en revue des exemples, lisez l’article [Exemples de mappage du service de données OData](marketplace-publishing-data-service-creation-odata-mapping-examples.md) pour consulter des exemples de code, ainsi que pour comprendre la syntaxe et le contexte du code.
 * Pour retourner au chemin indiqué pour la publication d’un service de données sur Azure Marketplace, lisez l’article [Guide de publication de services de données](marketplace-publishing-data-service-creation.md).

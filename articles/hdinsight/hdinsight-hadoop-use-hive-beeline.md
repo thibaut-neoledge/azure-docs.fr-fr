@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/05/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: e75bc8b74f965a0d4509b6967f1cdc7fa32eec56
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 93ea31b4469f21e92337a768668ae6d93bbc6ba6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="use-the-beeline-client-with-apache-hive"></a>Utiliser le client Beeline avec Apache Hive
+# Utiliser le client Beeline avec Apache Hive
+<a id="use-the-beeline-client-with-apache-hive" class="xliff"></a>
 
 Découvrez comment utiliser [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) pour exécuter des requêtes Hive sur HDInsight.
 
@@ -33,7 +34,7 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 
 | Emplacement d’exécution de Beeline | Paramètres |
 | --- | --- | --- |
-| Connexion SSH à un nœud principal ou à un nœud Edge | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
+| Connexion SSH à un nœud principal ou à un nœud Edge | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
 | En dehors du cluster | `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 
 > [!NOTE]
@@ -56,22 +57,20 @@ Beeline est un client Hive inclus dans les nœuds principaux de votre cluster HD
 
 ## <a id="beeline"></a>Utiliser BeeLine
 
-1. Lors du démarrage de Beeline, vous devez fournir une chaîne de connexion pour HiveServer2 sur votre cluster HDInsight. Vous devez également fournir le nom du compte pour la connexion au cluster (généralement `admin`). Si vous exécutez la commande à partir de l’extérieur du cluster, vous devez également fournir le mot de passe de connexion au cluster. Pour rechercher le format et les paramètres de chaîne de connexion à utiliser, voir le tableau suivant :
+1. Lors du démarrage de Beeline, vous devez fournir une chaîne de connexion pour HiveServer2 sur votre cluster HDInsight. Pour exécuter la commande à partir de l’extérieur du cluster, vous devez également fournir le nom de compte (par défaut `admin`) et le mot de passe de connexion au cluster. Pour rechercher le format et les paramètres de chaîne de connexion à utiliser, voir le tableau suivant :
 
     | Emplacement d’exécution de Beeline | Paramètres |
     | --- | --- | --- |
-    | Connexion SSH à un nœud principal ou à un nœud Edge | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
+    | Connexion SSH à un nœud principal ou à un nœud Edge | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
     | En dehors du cluster | `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 
     Par exemple, la commande suivante est utilisable pour démarrer Beeline à partir d’une session SSH sur le cluster :
 
     ```bash
-    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
     ```
 
-    Cette commande démarre le client Beeline et se connecte à HiveServer2 sur le nœud principal du cluster. Le paramètre `-n` est utilisé pour fournir le compte de connexion du cluster. La connexion par défaut est `admin`. Si vous avez utilisé un autre nom lors de la création du cluster, utilisez-le à la place de `admin`.
-
-    Une fois la commande terminée, vous arrivez à une invite `jdbc:hive2://headnodehost:10001/>`.
+    Cette commande démarre le client Beeline et se connecte à HiveServer2 sur le nœud principal du cluster. Une fois la commande terminée, vous arrivez à une invite `jdbc:hive2://headnodehost:10001/>`.
 
 2. Les commandes Beeline commencent par un caractère `!`. Par exemple, `!help` affiche l’aide. Toutefois, `!` peut être omis pour certaines commandes. Par exemple, `help` fonctionne également.
 
@@ -193,10 +192,10 @@ Utilisez les étapes suivantes pour créer un fichier, puis exécutez-le à l’
 
 3. Pour enregistrer le fichier, utilisez **Ctrl**+_+**X**, saisissez ensuite **Y**, puis appuyez sur **Entrée**.
 
-4. Pour exécuter le fichier à l’aide de Beeline, utilisez les éléments suivants. Remplacez **HOSTNAME** par le nom obtenu précédemment pour le nœud principal, et **PASSWORD** par le mot de passe du compte d’administration :
+4. Pour exécuter le fichier à l’aide de Beeline, utilisez les éléments suivants :
 
     ```bash
-    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin -i query.hql
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i query.hql
     ```
 
     > [!NOTE]
@@ -232,6 +231,15 @@ Si Beeline est installé localement, ou que vous l’utilisez dans une image Doc
 Remplacez le `clustername` de la chaîne de connexion par le nom de votre cluster HDInsight.
 
 Remplacez `admin` par le nom de connexion de votre cluster, puis remplacez `password` par le mot de passe de votre cluster.
+
+## <a id="sparksql"></a>Utilisez Beeline avec Spark
+
+Spark fournit sa propre implémentation de HiveServer2, qui est communément appelée « serveur Spark Thrift ». Ce service utilise Spark SQL pour résoudre les requêtes à la place de Hive, et peut offrir de meilleures performances selon la requête.
+
+Pour vous connecter au serveur Spark Thrift d’un cluster Spark sur HDInsight, utilisez le port `10002` au lieu du port `10001`. Par exemple, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+
+> [!IMPORTANT]
+> Il est impossible d’accéder directement au serveur Spark Thrift sur Internet. Vous ne pouvez vous y connecter qu’à partir d’une session SSH ou depuis le même réseau virtuel Microsoft Azure que le cluster HDInsight.
 
 ## <a id="summary"></a><a id="nextsteps"></a>Étapes suivantes
 
