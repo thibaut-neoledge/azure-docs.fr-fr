@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 146aa7706b5ff2a613dd94c75f3ad447ace82834
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 3b0fe2a300038e13cc488bdb4f50f8be270ea8f4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="how-to-use-properties-in-azure-api-management-policies"></a>Utilisation des propriétés dans les stratégies Gestion des API Azure
+# Utilisation des propriétés dans les stratégies Gestion des API Azure
+<a id="how-to-use-properties-in-azure-api-management-policies" class="xliff"></a>
 Les stratégies Gestion des API sont une fonctionnalité puissante du système qui permet à l’éditeur de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions de la stratégie peuvent être construites à l’aide de valeurs de texte littéral, d’expressions de stratégie et de propriétés. 
 
 Chaque instance du service Gestion des API possède une collection de propriétés de paires clé/valeur qui s’appliquent à l’instance de service. Ces propriétés peuvent être utilisées pour gérer les valeurs de chaîne constantes dans l’ensemble des stratégies et de la configuration de l’API. Chaque propriété présente les attributs suivants.
@@ -42,9 +45,10 @@ Les valeurs de propriété peuvent contenir des chaînes littérales et des [exp
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
-| ExpressionProperty |@(DateTime.Now.ToString()) |False | |
+| ExpressionProperty |@(DateHeure.Now.ToString()) |False | |
 
-## <a name="to-use-a-property"></a>Pour utiliser une propriété
+## Pour utiliser une propriété
+<a id="to-use-a-property" class="xliff"></a>
 Pour utiliser une propriété dans une stratégie, placez le nom de la propriété dans une paire d’accolades telle que `{{ContosoHeader}}`, comme illustré dans l’exemple suivant.
 
 ```xml
@@ -77,7 +81,8 @@ Si vous examinez le [suivi de l’inspecteur d’API](api-management-howto-api-i
 
 Alors que les valeurs de propriété peuvent contenir des expressions de stratégie, elles ne peuvent pas contenir d’autres propriétés. Si le texte contenant une référence de propriété est utilisé pour une valeur de propriété, comme `Property value text {{MyProperty}}`, cette référence de propriété n’est pas remplacée et est incluse dans la valeur de propriété.
 
-## <a name="to-create-a-property"></a>Pour créer une propriété
+## Pour créer une propriété
+<a id="to-create-a-property" class="xliff"></a>
 Pour créer une propriété, cliquez sur **Ajouter une propriété** sous l’onglet **Propriétés**.
 
 ![Ajouter une propriété][api-management-properties-add-property-menu]
@@ -92,7 +97,8 @@ Lorsqu’une propriété est enregistrée, la zone de texte **Propriétés de re
 
 Pour plus d’informations sur la création d’une propriété à l’aide de l’API REST, consultez [Créer une propriété à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
 
-## <a name="to-edit-a-property"></a>Pour modifier une propriété
+## Pour modifier une propriété
+<a id="to-edit-a-property" class="xliff"></a>
 Pour modifier une propriété, cliquez sur **Modifier** en regard de la propriété à modifier.
 
 ![Modifier la propriété][api-management-properties-edit]
@@ -103,7 +109,8 @@ Apportez les modifications souhaitées, puis cliquez sur **Enregistrer**. Si vou
 
 Pour plus d’informations sur la modification d’une propriété à l’aide de l’API REST, consultez [Modifier une propriété à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
 
-## <a name="to-delete-a-property"></a>Pour supprimer une propriété
+## Pour supprimer une propriété
+<a id="to-delete-a-property" class="xliff"></a>
 Pour supprimer une propriété, cliquez sur **Supprimer** en regard de la propriété à supprimer.
 
 ![Supprimer la propriété][api-management-properties-delete]
@@ -119,7 +126,8 @@ Cliquez sur **Oui, le supprimer** pour confirmer la suppression.
 
 Pour plus d’informations sur la suppression d’une propriété à l’aide de l’API REST, consultez [Supprimer une propriété à l’aide de l’API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
 
-## <a name="to-search-and-filter-properties"></a>Pour rechercher et filtrer les propriétés
+## Pour rechercher et filtrer les propriétés
+<a id="to-search-and-filter-properties" class="xliff"></a>
 L’onglet **Propriétés** inclut des fonctionnalités de recherche et de filtrage pour vous aider à gérer vos propriétés. Pour filtrer la liste des propriétés par nom de propriété, entrez un terme à rechercher dans la zone de texte **Propriétés de recherche** . Pour afficher toutes les propriétés, effacez la zone de texte **Propriétés de recherche** , puis appuyez sur Entrée.
 
 ![Search][api-management-properties-search]
@@ -128,13 +136,15 @@ Pour filtrer la liste des propriétés en fonction des valeurs de balise, entrez
 
 ![Filtre][api-management-properties-filter]
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 * En savoir plus sur l’utilisation des stratégies
   * [Stratégies dans Gestion des API](api-management-howto-policies.md)
   * [Référence de stratégie](https://msdn.microsoft.com/library/azure/dn894081.aspx)
   * [Expressions de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
-## <a name="watch-a-video-overview"></a>Regarder une vidéo de présentation
+## Regarder une vidéo de présentation
+<a id="watch-a-video-overview" class="xliff"></a>
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Use-Properties-in-Policies/player]
 > 
 > 
@@ -151,10 +161,5 @@ Pour filtrer la liste des propriétés en fonction des valeurs de balise, entrez
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
