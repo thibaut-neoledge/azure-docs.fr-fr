@@ -13,18 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 0854cc7f23a427fc3fdb16e14af2f9e89bd1627f
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4e6ef568f510d9db4df115e25d66f53feffc829e
+ms.openlocfilehash: c607830466d7f942f1d0a43ebeccea07ed0877a9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/06/2017
 
 ---
-# <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect Sync : comment gérer le compte de service Azure AD
+# Azure AD Connect Sync : comment gérer le compte de service Azure AD
+<a id="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account" class="xliff"></a>
 Le compte de service utilisé par le connecteur Azure AD est censé être proposé en libre-service. Si vous devez réinitialiser les informations d’identification, cette rubrique vous concerne. Par exemple, un administrateur général peut avoir réinitialisé par erreur le mot de passe du compte de service à l’aide de PowerShell.
 
-## <a name="reset-the-credentials"></a>Réinitialisation des informations d'identification
+## Réinitialisation des informations d'identification
+<a id="reset-the-credentials" class="xliff"></a>
 Si le compte de service défini sur le Connecteur Azure AD ne peut pas contacter Azure AD en raison de problèmes d’authentification, le mot de passe peut être réinitialisé.
 
 1. Connectez-vous au serveur de synchronisation Azure AD Connect et démarrez PowerShell.
@@ -34,7 +37,8 @@ Si le compte de service défini sur le Connecteur Azure AD ne peut pas contacter
 
 Cette applet de commande réinitialise le mot de passe du compte de service et l’actualise dans Azure AD et dans le moteur de synchronisation.
 
-## <a name="known-issues-these-steps-can-solve"></a>Problèmes connus pouvant être résolus par les procédures indiquées ci-après
+## Problèmes connus pouvant être résolus par les procédures indiquées ci-après
+<a id="known-issues-these-steps-can-solve" class="xliff"></a>
 Cette section est une liste d’erreurs signalées par les clients qui ont été résolues par une réinitialisation des informations d’identification sur le compte de service Azure AD.
 
 - - -
@@ -47,15 +51,11 @@ AADSTS70002 : erreur de validation des informations d’identification. AADSTS5
 Erreur lors de la récupération de la configuration de la synchronisation de stratégie de mot de passe. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException :  
 AADSTS70002 : erreur de validation des informations d’identification. AADSTS50054 : l’ancien mot de passe est utilisé pour l’authentification.
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 **Rubriques de présentation**
 
 * [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
