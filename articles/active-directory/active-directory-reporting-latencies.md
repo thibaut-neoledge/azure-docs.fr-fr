@@ -3,7 +3,7 @@ title: "Latences de la création de rapports Azure Active Directory | Microsoft 
 description: "Délai nécessaire pour que les événements de création de rapports s’affichent dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: 346b14f8-d16d-4b07-8211-e6c5eec07062
@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
+ms.custom: oldportal
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 9443a00232420d58dea52ed01f31a4ef964a1620
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/08/2017
 
-
 ---
-# <a name="azure-active-directory-report-latencies"></a>Latences de rapport Azure Active Directory
+# Latences de rapport Azure Active Directory
+<a id="azure-active-directory-report-latencies" class="xliff"></a>
 *Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 | Rapport | Minimale | Moyenne | Maximale |

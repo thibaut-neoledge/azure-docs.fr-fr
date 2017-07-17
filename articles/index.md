@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: true
 title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 235bc72f9e72ba44c872bc3a3f8dc2abef7454c5
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 39252624b3ae254721ad514f666ea8498d5f37bc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 <div id="main" class="v2">
@@ -73,7 +73,7 @@ ms.lasthandoff: 06/28/2017
     <div class="container">
         <ul class="pivots">
             <li>
-                <a href="#get-started">Bien démarrer</a>
+                <a href="#get-started">Prise en main</a>
                 <ul id="get-started">
                     <li>
                         <a href="#get-started1"></a>

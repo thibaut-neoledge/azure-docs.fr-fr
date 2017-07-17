@@ -1,10 +1,10 @@
 ---
 title: "Connexions depuis plusieurs zones géographiques"
-description: "Un rapport qui indique les utilisateurs lorsque deux connexions semblent être issues de régions différentes, alors que le laps de temps constaté entre ces connexions ne permet pas à l&quot;utilisateur de se rendre d&quot;une région à une autre."
+description: "Un rapport qui indique les utilisateurs lorsque deux connexions semblent être issues de régions différentes, alors que le laps de temps constaté entre ces connexions ne permet pas à l'utilisateur de se rendre d'une région à une autre."
 services: active-directory
 documentationcenter: 
-author: SSalahAhmed
-manager: gchander
+author: MarkusVi
+manager: femila
 editor: 
 ms.assetid: 79259c8a-2388-4747-b41e-c07434ea9a02
 ms.service: active-directory
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 1de57f64692ade442f9ef8d1e3b587ffee35d7cf
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
-# <a name="sign-ins-from-multiple-geographies"></a>Connexions depuis plusieurs zones géographiques
+# Connexions depuis plusieurs zones géographiques
+<a id="sign-ins-from-multiple-geographies" class="xliff"></a>
 Ce rapport inclut les connexions réussies d’un utilisateur durant lesquelles deux connexions semblent être issues de régions différentes, mais dont le laps de temps constaté entre ces connexions ne permet pas à l’utilisateur de se rendre d’une région à une autre. Les causes possibles sont :
 
 * L’utilisateur partage son mot de passe avec d’autres utilisateurs
@@ -32,10 +34,5 @@ Ce rapport inclut les connexions réussies d’un utilisateur durant lesquelles 
 Les résultats de ce rapport vous indiqueront les événements de connexion réussie, ainsi que le laps de temps entre les connexions, les régions d’où les connexions semblent être issues et le temps de trajet estimé entre ces régions. Le temps de trajet indiqué n’est qu’une estimation et peut être différent de la durée de voyage réelle entre les emplacements.
 
 ![Connexions depuis plusieurs zones géographiques](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

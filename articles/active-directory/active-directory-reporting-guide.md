@@ -3,7 +3,7 @@ title: Guide Azure Active Directory Reporting Guide | Microsoft Docs
 description: "Guide contenant tous les articles sur la création de rapports Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 ms.assetid: b60d7f22-f271-4148-a3c8-b0ed0eccd106
 ms.service: active-directory
@@ -11,15 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
-ms.author: femila;markvi
-translationtype: Human Translation
+ms.date: 07/15/2017
+ms.author: dhanyahk;markvi
+ms.custom: oldportal
+ms.reviewer: dhanyahk
+ms.translationtype: Human Translation
 ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
 ms.openlocfilehash: b51d409a78d737ac6d15d05d5b146ed185223e75
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/20/2017
 
 ---
-# <a name="azure-active-directory-reporting-guide"></a>Guide Azure Active Directory Reporting Guide
+# Guide Azure Active Directory Reporting Guide
+<a id="azure-active-directory-reporting-guide" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [Portail Azure](active-directory-reporting-guide.md)
 > * [Portail Azure Classic](active-directory-reporting-guide-classic-portal.md)
@@ -30,10 +34,5 @@ ms.openlocfilehash: b51d409a78d737ac6d15d05d5b146ed185223e75
 * [Prise en main de l'API de création de rapports Azure AD](active-directory-reporting-api-getting-started.md)
 * [Événements de rapport d’audit d’Azure Active Directory](active-directory-reporting-audit-events.md)
 * [Rétention des rapports Azure Active Directory](active-directory-reporting-retention.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

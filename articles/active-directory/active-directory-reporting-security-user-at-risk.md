@@ -1,5 +1,4 @@
 ---
-
 title: "Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory | Microsoft Docs"
 description: "En savoir plus sur le rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory"
 services: active-directory
@@ -11,17 +10,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/08/2017
 
-
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory
+# Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory
+<a id="users-at-risk-security-report-in-the-azure-active-directory-portal" class="xliff"></a>
 
 Grâce aux rapports sur la sécurité dans Azure Active Directory (Azure AD), vous pouvez obtenir des informations sur les risques de compromission des comptes d’utilisateur au sein de votre environnement. 
 
@@ -37,7 +37,8 @@ Dans le portail Azure, vous trouverez les rapports de sécurité dans le panneau
 
 ![Connexions risquées](./media/active-directory-reporting-security-user-at-risk/10.png)
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Édition Azure Active Directory gratuite et de base
+## Édition Azure Active Directory gratuite et de base
+<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
 
 Le rapport sur les utilisateurs courant un risque dans les éditions gratuite et de base d’Azure Active Directory vous fournit une liste de comptes d’utilisateurs qui ont peut-être été compromis. 
 
@@ -49,7 +50,8 @@ Vous pouvez vérifier l’historique des connexions d’un utilisateur à risque
 
 ![Connexions risquées](./media/active-directory-reporting-security-user-at-risk/46.png)
 
-## <a name="azure-active-directory-premium-editions"></a>Éditions Premium d’Azure Active Directory
+## Éditions Premium d’Azure Active Directory
+<a id="azure-active-directory-premium-editions" class="xliff"></a>
 
 Le rapport des utilisateurs courant un risque dans les éditions Premium d’Azure Active Directory vous fournit les informations suivantes :
 
@@ -86,7 +88,8 @@ Cette opération ouvre le panneau **Détails** pour cet événement à risque. D
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 
 - Pour en savoir plus sur Azure Active Directory Identity Protection, voir [Protection de l’identité Azure Active Directory](active-directory-identityprotection.md).
 

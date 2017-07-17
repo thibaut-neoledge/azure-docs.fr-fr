@@ -1,9 +1,9 @@
 ---
 title: "Affichage de vos rapports d’accès et d’utilisation | Microsoft Docs"
-description: "Explique comment afficher les rapports d&quot;accès et d&quot;utilisation pour évaluer l&quot;intégrité et la sécurité du répertoire de votre société."
+description: "Explique comment afficher les rapports d'accès et d'utilisation pour évaluer l'intégrité et la sécurité du répertoire de votre société."
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: a074bc4e-cf3f-4ad1-8cc6-4199d2e09ce4
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
+ms.custom: oldportal
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 8b3835d354512645cd47ffa4541d6155c80e77ee
 ms.contentlocale: fr-fr
 ms.lasthandoff: 11/17/2016
 
-
 ---
-# <a name="view-your-access-and-usage-reports"></a>Afficher vos rapports d'accès et d'utilisation
+# Afficher vos rapports d'accès et d'utilisation
+<a id="view-your-access-and-usage-reports" class="xliff"></a>
 *Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 Vous pouvez utiliser les rapports d'accès et d'utilisation Azure Active Directory pour obtenir une visibilité complète sur l'intégrité et la sécurité du répertoire de votre société. Grâce à ces informations, un administrateur de répertoire est capable de déterminer plus précisément les risques de sécurité potentiels et donc de les atténuer au maximum.
@@ -41,7 +42,8 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 > 
 > 
 
-## <a name="reports"></a>Rapports
+## Rapports
+<a id="reports" class="xliff"></a>
 | Rapport | Description |
 | --- | --- |
 | **Rapports d’activités anormales** | |
@@ -69,7 +71,8 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 | Utilisation d’un appareil RMS |Répertorie les appareils utilisés pour l'accès aux fichiers protégés par RMS |
 | Utilisation d’applications fonctionnant avec RMS |Fournit des applications activées pour l'utilisation de RMS |
 
-## <a name="report-editions"></a>Éditions de rapport
+## Éditions de rapport
+<a id="report-editions" class="xliff"></a>
 | Rapport | Gratuit | De base | Premium |
 | --- | --- | --- | --- |
 | **Rapports d’activités anormales** | | | |
@@ -97,7 +100,8 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 | Utilisation d’un appareil RMS | | |RMS uniquement |
 | Utilisation d’applications fonctionnant avec RMS | | |RMS uniquement |
 
-## <a name="anomalous-activity-reports"></a>Rapports d’activités anormales
+## Rapports d’activités anormales
+<a id="anomalous-activity-reports" class="xliff"></a>
 <p>Les rapports d'activités de connexion anormales signalent les connexions suspectes à Office365, au portail de gestion Azure, au panneau d'accès Azure AD, à Sharepoint Online, Dynamics CRM Online, et d'autres services en ligne de Microsoft.</p>
 
 <p>Tous ces rapports, à l’exception du rapport « Connexions après plusieurs échecs », signalent également les connexions <i>fédérées</i> suspectes aux services susmentionnés, quel que soit le fournisseur de fédération. </p>
@@ -120,37 +124,44 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 
 <li>Utilisateurs avec des informations d’identification volées</li></ul>
 
-## <a name="activity-logs"></a>Journaux d’activité
-### <a name="audit-report"></a>Rapport d'audit
+## Journaux d’activité
+<a id="activity-logs" class="xliff"></a>
+### Rapport d'audit
+<a id="audit-report" class="xliff"></a>
 | Description | Emplacement du rapport |
 |:--- |:--- |
 | Indique un enregistrement de tous les événements audités durant les 24 dernières heures, 7 derniers jours ou 30 derniers jours. <br /> Pour plus d'informations, consultez la rubrique [Événements de rapport d’audit d'Azure Active Directory](active-directory-reporting-audit-events.md) |Répertoire > onglet Rapports |
 
 ![Rapport d'audit](./media/active-directory-view-access-usage-reports/auditReport.PNG)
 
-### <a name="password-reset-activity"></a>Activité de réinitialisation de mot de passe
+### Activité de réinitialisation de mot de passe
+<a id="password-reset-activity" class="xliff"></a>
 | Description | Emplacement du rapport |
 |:--- |:--- |
 | Indique toutes les tentatives de réinitialisation de mot de passe réalisées dans votre société |Répertoire > onglet Rapports |
 
 ![Activité de réinitialisation de mot de passe](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)
 
-### <a name="password-reset-registration-activity"></a>Activité de l’enregistrement de la réinitialisation de mot de passe
+### Activité de l’enregistrement de la réinitialisation de mot de passe
+<a id="password-reset-registration-activity" class="xliff"></a>
 | Description | Emplacement du rapport |
 |:--- |:--- |
 | Indique l’ensemble des enregistrements de réinitialisation de mot de passe réalisés dans votre société |Répertoire > onglet Rapports |
 
 ![Activité de l’enregistrement de la réinitialisation de mot de passe](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)
 
-### <a name="self-service-groups-activity"></a>Activité de groupes en libre-service
+### Activité de groupes en libre-service
+<a id="self-service-groups-activity" class="xliff"></a>
 | Description | Emplacement du rapport |
 |:--- |:--- |
 | Indique toutes les activités des groupes libre-service gérés dans votre répertoire. |Répertoire > Utilisateurs > <i>Utilisateur</i> > onglet Périphériques |
 
 ![Activité de groupes en libre-service](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
 
-## <a name="integrated-applications-reports"></a>Rapports d’applications intégrées
-### <a name="application-usage-summary"></a>Utilisation des applications : résumé
+## Rapports d’applications intégrées
+<a id="integrated-applications-reports" class="xliff"></a>
+### Utilisation des applications : résumé
+<a id="application-usage-summary" class="xliff"></a>
 | Description | Emplacement du rapport |
 |:--- |:--- |
 | Utilisez ce rapport pour afficher l'utilisation de toutes les applications SaaS dans votre répertoire. Ce rapport est basé sur le nombre de clics effectués par les utilisateurs sur l'application dans le volet d'accès. |Répertoire > onglet Rapports |
@@ -161,36 +172,44 @@ Les applications Microsoft pré-intégrées incluent Office 365, Sharepoint, le
 
 ![Résumé de l’utilisation des applications](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
-### <a name="application-usage-detailed"></a>Utilisation des applications : présentation détaillée
+### Utilisation des applications : présentation détaillée
+<a id="application-usage-detailed" class="xliff"></a>
 | Description | Emplacement du rapport |
 |:--- |:--- |
 | Utilisez ce rapport pour découvrir combien de fois une application SaaS spécifique a été utilisée. Ce rapport est basé sur le nombre de clics effectués par les utilisateurs sur l'application dans le volet d'accès. |Répertoire > onglet Rapports |
 
-### <a name="application-dashboard"></a>Tableau de bord de l’application
+### Tableau de bord de l’application
+<a id="application-dashboard" class="xliff"></a>
 | Description | Emplacement du rapport |
 |:--- |:--- |
 | Ce rapport indique les connexions à l'application, effectuées par les utilisateurs de votre société et cumulées sur une période définie. Le graphique de la page du tableau de bord vous permettra d’identifier les tendances des utilisations de l'application. |Répertoire > Application > onglet Tableau de bord |
 
-## <a name="error-reports"></a>Rapports d'erreurs
-### <a name="account-provisioning-errors"></a>Erreurs de configuration de compte
+## Rapports d'erreurs
+<a id="error-reports" class="xliff"></a>
+### Erreurs de configuration de compte
+<a id="account-provisioning-errors" class="xliff"></a>
 | Description | Emplacement du rapport |
 |:--- |:--- |
 | Utilisez-le pour examiner les erreurs survenant lors de la synchronisation des comptes des applications SaaS vers Azure Active Directory. |Répertoire > onglet Rapports |
 
 ![Erreurs de configuration de compte](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)
 
-## <a name="user-specific-reports"></a>Rapports d’erreur spécifiques à l’utilisateur
-### <a name="devices"></a>Appareils
+## Rapports d’erreur spécifiques à l’utilisateur
+<a id="user-specific-reports" class="xliff"></a>
+### Appareils
+<a id="devices" class="xliff"></a>
 | Description | Emplacement du rapport |
 |:--- |:--- |
 | Utilisez ce rapport lorsque vous souhaitez découvrir l'adresse IP et l'emplacement géographique des appareils qu’un utilisateur spécifique a utilisés pour accéder à Azure Active Directory. |Répertoire > Utilisateurs > <i>Utilisateur</i> > onglet Périphériques |
 
-### <a name="activity"></a>Activité
+### Activité
+<a id="activity" class="xliff"></a>
 | Description | Emplacement du rapport |
 |:--- |:--- |
 | Indique les activités de connexion d'un utilisateur. Le rapport inclut des informations telles que l'application à laquelle l’utilisateur s’est connecté, l’appareil utilisé, l’adresse IP et l’emplacement. Nous ne récupérons pas l'historique des utilisateurs qui se connectent à l’aide d’un compte Microsoft. |Répertoire > Utilisateurs > <i>Utilisateur</i> > onglet Activités |
 
-#### <a name="sign-in-events-included-in-the-user-activity-report"></a>Événements de connexion inclus dans le rapport d'activité de l'utilisateur
+#### Événements de connexion inclus dans le rapport d'activité de l'utilisateur
+<a id="sign-in-events-included-in-the-user-activity-report" class="xliff"></a>
 Seuls certains types d'événements de connexion apparaîtront dans le rapport d'activité de l'utilisateur.
 
 | Type d'événement | Inclus ? |
@@ -209,14 +228,16 @@ Seuls certains types d'événements de connexion apparaîtront dans le rapport d
 > 
 > 
 
-## <a name="things-to-consider-if-you-suspect-security-breach"></a>Éléments à prendre en compte si vous suspectez une violation de la sécurité
+## Éléments à prendre en compte si vous suspectez une violation de la sécurité
+<a id="things-to-consider-if-you-suspect-security-breach" class="xliff"></a>
 Si vous suspectez qu'un compte d'utilisateur a été compromis ou tout type d’activité utilisateur suspecte pouvant entraîner une violation de la sécurité de vos données de répertoire dans le cloud, effectuez une ou plusieurs des opérations suivantes : 
 
 * Contactez l'utilisateur pour vérifier l'activité
 * Réinitialisez le mot de passe de l'utilisateur.
 * [Activez l'authentification multi-facteur](../multi-factor-authentication/multi-factor-authentication-get-started.md) pour renforcer la sécurité
 
-## <a name="view-or-download-a-report"></a>Afficher ou télécharger un rapport
+## Afficher ou télécharger un rapport
+<a id="view-or-download-a-report" class="xliff"></a>
 1. Dans le portail Azure Classic, cliquez successivement sur **Active Directory**, sur le nom de l’annuaire de votre organisation, puis sur **Rapports**.
 2. Dans la page Rapports, cliquez sur le rapport que vous souhaitez afficher et/ou télécharger.
    
@@ -235,13 +256,16 @@ Si vous suspectez qu'un compte d'utilisateur a été compromis ou tout type d’
    * Près de 75 000 événements figureront dans le fichier téléchargé.
    * Pour obtenir plus de données, consultez l’ [API de création de rapports Azure AD](active-directory-reporting-api-getting-started.md).
 
-## <a name="ignore-an-event"></a>Ignorer un événement
+## Ignorer un événement
+<a id="ignore-an-event" class="xliff"></a>
 Si vous affichez des rapports d'anomalie, vous remarquerez peut-être que vous pouvez ignorer les différents événements qui sont mentionnés dans les rapports connexes. Pour ignorer un événement, surlignez-le simplement dans le rapport, puis cliquez sur **Ignorer**. Le bouton **Ignorer** supprimera définitivement l'événement surligné du rapport et ne peut être utilisé que par des administrateurs généraux autorisés.
 
-## <a name="automatic-email-notifications"></a>Notifications automatiques par courrier électronique
+## Notifications automatiques par courrier électronique
+<a id="automatic-email-notifications" class="xliff"></a>
 Pour plus d’informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
 
-## <a name="whats-next"></a>Étapes suivantes
+## Étapes suivantes
+<a id="whats-next" class="xliff"></a>
 * [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 * [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 
