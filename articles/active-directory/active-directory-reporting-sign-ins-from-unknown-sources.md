@@ -3,7 +3,7 @@ title: "Connexions à partir de sources inconnues"
 description: "Un rapport indiquant les utilisateurs qui se sont connectés à votre annuaire à partir d’une adresse IP anonyme."
 services: active-directory
 documentationcenter: 
-author: SSalahAhmed
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: 2f045543-1578-4972-bf70-b35310f23110
@@ -20,9 +20,9 @@ ms.openlocfilehash: 90006121e4b3392f6e3ecffb4a56aca330feb02f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/05/2017
 
-
 ---
-# <a name="sign-ins-from-unknown-sources"></a>Connexions à partir de sources inconnues
+# Connexions à partir de sources inconnues
+<a id="sign-ins-from-unknown-sources" class="xliff"></a>
 Ce rapport indique les utilisateurs qui sont parvenus à se connecter à votre répertoire avec affectation d’une adresse IP client qui a été reconnue par Microsoft en tant qu’adresse IP proxy anonyme (par exemple, une adresse IP Tor). Ces proxys sont souvent utilisés par les utilisateurs qui souhaitent masquer l'adresse IP de leur ordinateur, et peuvent également être utilisés dans un but malveillant.
 
 Les résultats de ce rapport indiquent le nombre de fois où un utilisateur est parvenu à se connecter à votre répertoire à partir de cette adresse et de l’adresse IP du proxy.

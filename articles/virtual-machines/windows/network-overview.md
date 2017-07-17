@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 07/17/2017
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: cda53c43d4524ddcc8139f60f6b605a1f26c2658
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 
-# <a name="virtual-networks-and-windows-virtual-machines-in-azure"></a>Réseaux virtuels et machines virtuelles Windows dans Azure 
+# Réseaux virtuels et machines virtuelles Windows dans Azure
+<a id="virtual-networks-and-windows-virtual-machines-in-azure" class="xliff"></a> 
 
 Lorsque vous créez une machine virtuelle Azure, vous devez créer un [réseau virtuel](../../virtual-network/virtual-networks-overview.md) ou en utiliser un existant. Vous devez également décider de la façon dont vos machines virtuelles doivent accéder au réseau virtuel. Il est essentiel de [planifier les choses avant de créer des ressources](../../virtual-network/virtual-network-vnet-plan-design-arm.md) et de s’assurer que vous connaissez les [limites des ressources réseau](../../azure-subscription-service-limits.md#networking-limits).
 
@@ -44,7 +45,8 @@ En plus de ces ressources de base, vous devez également envisager d’utiliser 
 - groupes de sécurité réseau ;
 - Équilibreurs de charge 
 
-## <a name="network-interfaces"></a>Interfaces réseau
+## Interfaces réseau
+<a id="network-interfaces" class="xliff"></a>
 
 Une [carte d’interface réseau](../../virtual-network/virtual-network-network-interface.md) est l’interconnexion entre une machine virtuelle et un réseau virtuel. Une machine virtuelle doit posséder au moins une carte d’interface réseau. Plusieurs cartes d’interface réseau peuvent être nécessaires en fonction de la taille de la machine virtuelle que vous créez. Consultez l’article [Tailles des machines virtuelles dans Azure](sizes.md) pour savoir combien de cartes d’interface réseau sont requises en fonction de chaque taille de machine virtuelle. 
 
@@ -63,7 +65,8 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer une in
 | [Interface de ligne de commande Azure](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md) | Pour fournir l’identificateur de l’adresse IP publique que vous avez créée précédemment, utilisez [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) avec le paramètre **--public-ip-address**. |
 | [Modèle](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) | Utilisez [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) comme guide pour le déploiement d’une interface réseau à l’aide d’un modèle. |
 
-## <a name="ip-addresses"></a>Adresses IP 
+## Adresses IP
+<a id="ip-addresses" class="xliff"></a> 
 
 Vous pouvez attribuer ces types [d’adresses IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) à une carte d’interface réseau dans Azure :
 
@@ -87,7 +90,8 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer une ad
 
 Après avoir créé une adresse IP publique, vous pouvez l’associer à une machine virtuelle en l’attribuant à une carte d’interface réseau.
 
-## <a name="virtual-network-and-subnets"></a>Réseau virtuel et sous-réseaux
+## Réseau virtuel et sous-réseaux
+<a id="virtual-network-and-subnets" class="xliff"></a>
 
 Un sous-réseau est une plage d’adresses IP dans le réseau virtuel. Vous pouvez diviser un réseau virtuel en plusieurs sous-réseaux pour plus de sécurité et une meilleure organisation. Chaque carte d’interface réseau est connectée à un sous-réseau dans un réseau virtuel. Les cartes d’interface réseau connectées aux sous-réseaux (identiques ou différents) au sein d’un réseau virtuel peuvent communiquer entre elles sans qu’il y ait besoin de configuration supplémentaire.
 
@@ -97,7 +101,7 @@ Si vous travaillez au sein d’une organisation dans laquelle une autre personne
 
 Par défaut, il n’existe aucune limite de sécurité entre les sous-réseaux. Ainsi, les machines virtuelles de chaque sous-réseau peuvent communiquer entre elles. Toutefois, vous pouvez configurer des groupes de sécurité réseau, qui vous permettent de contrôler le flux du trafic vers et depuis les sous-réseaux et les machines virtuelles. 
 
-Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un réseau virtuel et des sous-réseaux.    
+Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un réseau virtuel et des sous-réseaux. 
 
 | Méthode | Description |
 | ------ | ----------- |
@@ -106,7 +110,8 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un ré
 | [Interface de ligne de commande Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md) | Le sous-réseau et le réseau virtuel sont créés en même temps. Fournissez un paramètre **--subnet-name** à [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) avec le nom du sous-réseau. |
 | [Modèle](../../virtual-network/virtual-networks-create-vnet-arm-template-click.md) | Le moyen le plus simple pour créer un réseau virtuel et des sous-réseaux consiste à télécharger un modèle existant, tel que [rVirtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets) et de le modifier en fonction de vos besoins. |
 
-## <a name="network-security-groups"></a>groupes de sécurité réseau ;
+## groupes de sécurité réseau ;
+<a id="network-security-groups" class="xliff"></a>
 
 Un [groupe de sécurité réseau](../../virtual-network/virtual-networks-nsg.md) contient une liste des règles de liste de contrôle d’accès qui autorise ou rejette le trafic réseau vers les sous-réseaux, les cartes d’interface réseau ou les deux. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des cartes d’interface réseau connectées à un sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles de liste de contrôle d’accès s’appliquent à toutes les machines virtuelles présentes dans ce sous-réseau. En outre, le trafic vers une carte d’interface réseau peut être limité par l’association directe d’un groupe de sécurité réseau à une carte d’interface réseau.
 
@@ -127,7 +132,8 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un gro
 | [Interface de ligne de commande Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md) | Utilisez [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) pour créer initialement le groupe de sécurité réseau. Utilisez [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) pour ajouter des règles à un groupe de sécurité réseau. Utilisez [az network vnet subnet update](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#update) pour ajouter le groupe de sécurité réseau au sous-réseau. |
 | [Modèle](../../virtual-network/virtual-networks-create-nsg-arm-template.md) | Utilisez [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) comme guide pour le déploiement d’un groupe de sécurité réseau à l’aide d’un modèle. |
 
-## <a name="load-balancers"></a>Équilibreurs de charge
+## Équilibreurs de charge
+<a id="load-balancers" class="xliff"></a>
 
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) offre une haute disponibilité et des performances réseau élevées pour vos applications. Un équilibrage de charge peut être configuré pour [équilibrer le trafic Internet entrant](../../load-balancer/load-balancer-internet-overview.md) vers les machines virtuelles ou pour [équilibrer le trafic entre les machines virtuelles d’un réseau virtuel](../../load-balancer/load-balancer-internal-overview.md). Un équilibrage de charge peut également équilibrer le trafic entre les machines virtuelles et les ordinateurs locaux d’un réseau intersite ou transférer le trafic externe vers une machine virtuelle spécifique.
 
@@ -159,7 +165,8 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un éq
 | [Interface de ligne de commande Azure](../../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Utilisez la commande [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) pour créer la configuration d’équilibrage de charge initiale. Pour définir l’adresse IP privée, utilisez [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) avec le paramètre **--private-ip-address**. Utilisez [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) pour ajouter la configuration du pool d’adresses principal. Utilisez [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) pour ajouter des règles de traduction d’adresses réseau. Utilisez [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) pour ajouter les règles d’équilibrage de charge. Utilisez [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) pour ajouter les sondes.|
 | [Modèle](../../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Utilisez [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) comme guide pour le déploiement d’un équilibrage de charge à l’aide d’un modèle. |
 
-## <a name="vms"></a>Machines virtuelles
+## Machines virtuelles
+<a id="vms" class="xliff"></a>
 
 Les machines virtuelles peuvent être créées dans le même réseau virtuel et se connecter les unes aux autres à l’aide d’adresses IP privées. Elles peuvent se connecter même si elles se trouvent dans des sous-réseaux différents, sans que vous ayez besoin de configurer de passerelle, ni d’utiliser des adresses IP publiques. Pour placer des machines virtuelles dans un réseau virtuel, vous créez le réseau virtuel, puis dès que vous créez une machine virtuelle, vous l’attribuez au réseau virtuel et au sous-réseau. Les machines virtuelles acquièrent leurs paramètres réseau lors du déploiement ou du démarrage.  
 
@@ -175,7 +182,8 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer une ma
 | [Azure PowerShell](../virtual-machines-windows-ps-create.md) | Inclut l’utilisation de [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) pour ajouter la carte d’interface réseau que vous avez créée précédemment pour la configuration de la machine virtuelle. |
 | [Modèle](ps-template.md) | Utilisez [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) comme guide pour le déploiement d’une machine virtuelle à l’aide d’un modèle. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 
 - Découvrez comment configurer les [itinéraires définis par l’utilisateur et le transfert IP](../../virtual-network/virtual-networks-udr-overview.md). 
 - Découvrez comment configurer [les connexions de réseau virtuel à réseau virtuel](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).

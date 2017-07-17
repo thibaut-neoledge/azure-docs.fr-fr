@@ -1,5 +1,4 @@
 ---
-
 title: "Rapports d’activité d’audit dans le portail Azure Active Directory | Microsoft Docs"
 description: "Présentation des rapports d’activité d’audit dans le portail Azure Active Directory"
 services: active-directory
@@ -15,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
-
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
+# Rapports d’activité d’audit dans le portail Azure Active Directory
+<a id="audit-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a> 
 
 Dans Azure Active Directory (Azure AD), vous pouvez obtenir toutes les informations dont vous avez besoin pour déterminer l’état de votre environnement.
 
@@ -38,13 +38,15 @@ L’architecture de création de rapports dans Azure AD comprend les composants 
 
 Cette rubrique vous donne une vue d’ensemble des activités d’audit.
  
-## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
+## Qui peut accéder aux données ?
+<a id="who-can-access-the-data" class="xliff"></a>
 * Utilisateurs ayant le rôle d’administrateur de sécurité ou de lecteur de la sécurité
 * Administrateurs généraux
 * Les utilisateurs individuels (non administrateurs) peuvent voir leurs propres activités
 
 
-## <a name="audit-logs"></a>Journaux d’audit
+## Journaux d’audit
+<a id="audit-logs" class="xliff"></a>
 
 Les journaux d’audit dans Azure Active Directory fournissent des enregistrements des activités du système pour la conformité.  
 Les **Journaux d’audit** dans la section **Activité** **d’Azure Active Directory** constituent votre premier point d’entrée pour toutes les données d’audit.
@@ -74,7 +76,8 @@ En cliquant sur un élément dans la vue sous forme de liste, vous pouvez obteni
 ![Journaux d’audit](./media/active-directory-reporting-activity-audit-logs/22.png "Journaux d’Audit")
 
 
-## <a name="filtering-audit-logs"></a>Filtrage des journaux d’audit
+## Filtrage des journaux d’audit
+<a id="filtering-audit-logs" class="xliff"></a>
 
 Pour limiter les données transmises à un niveau qui vous convient, vous pouvez filtrer les données d’audit à l’aide des champs suivants :
 
@@ -134,14 +137,16 @@ Le filtre **Activité** est basé sur la catégorie et le type de ressource d’
 Vous pouvez obtenir la liste de toutes les activités d’audit à l’aide de l’API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta où $tenantdomain correspond à votre nom de domaine. Vous pouvez également consulter l’article sur les [évènements de rapports d’audit](active-directory-reporting-audit-events.md#list-of-audit-report-events).
 
 
-## <a name="audit-logs-shortcuts"></a>Raccourcis de journaux d’audit
+## Raccourcis de journaux d’audit
+<a id="audit-logs-shortcuts" class="xliff"></a>
 
 En plus d’**Azure Active Directory**, le portail Azure vous offre deux autres points d’entrée pour les données d’audit :
 
 - Utilisateurs et groupes
 - Applications d’entreprise
 
-### <a name="users-and-groups-audit-logs"></a>Journaux d’audit des utilisateurs et des groupes
+### Journaux d’audit des utilisateurs et des groupes
+<a id="users-and-groups-audit-logs" class="xliff"></a>
 
 Les rapports d’audit basés sur les utilisateurs et les groupes vous permettent d’obtenir des réponses aux questions telles que :
 
@@ -165,7 +170,8 @@ Si vous souhaitez simplement consulter les données d’audit connexes aux utili
 
 ![Journaux d’audit](./media/active-directory-reporting-activity-audit-logs/93.png "Journaux d’Audit")
 
-### <a name="enterprise-applications-audit-logs"></a>Journaux d’audit d’applications d’entreprise
+### Journaux d’audit d’applications d’entreprise
+<a id="enterprise-applications-audit-logs" class="xliff"></a>
 
 Les rapports d’audit basés sur les applications vous permettent d’obtenir des réponses aux questions telles que :
 
@@ -184,7 +190,8 @@ Vous pouvez filtrer davantage cette vue pour afficher uniquement les **groupes**
 ![Journaux d’audit](./media/active-directory-reporting-activity-audit-logs/25.png "Journaux d’Audit")
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 Consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
 
 

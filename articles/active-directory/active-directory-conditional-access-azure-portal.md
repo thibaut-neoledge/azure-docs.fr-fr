@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 05/11/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.sourcegitcommit: d4b38f1f90301c971cb6000f46d831047acb220e
 ms.openlocfilehash: 5a1ce66e02943caedd52976c5dcb3cf75c23bd49
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
-# <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
+# Accès conditionnel dans Azure Active Directory
+<a id="conditional-access-in-azure-active-directory" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](active-directory-conditional-access-azure-portal.md)
@@ -60,13 +60,15 @@ Une stratégie d’accès conditionnel combine une instruction de condition à d
 ![Contrôle](./media/active-directory-conditional-access-azure-portal/12.png)
 
 
-## <a name="controls"></a>Commandes
+## Commandes
+<a id="controls" class="xliff"></a>
 
 Dans une stratégie d’accès conditionnel, les contrôles définissent l’action à effectuer lorsqu’une instruction de condition est remplie.  
 Grâce aux contrôles, vous pouvez bloquer ou autoriser l’accès avec des exigences supplémentaires.
 Lorsque vous configurez une stratégie qui autorise l’accès, vous devez sélectionner au moins une exigence.   
 
-### <a name="grant-controls"></a>Contrôles d’octroi
+### Contrôles d’octroi
+<a id="grant-controls" class="xliff"></a>
 L’implémentation actuelle d’Azure Active Directory vous permet de configurer les exigences de contrôle d’octroi suivantes :
 
 ![Contrôle](./media/active-directory-conditional-access-azure-portal/05.png)
@@ -81,16 +83,19 @@ Si vous avez sélectionné plusieurs exigences dans une stratégie d’accès co
 
 ![Contrôle](./media/active-directory-conditional-access-azure-portal/06.png)
 
-### <a name="session-controls"></a>Contrôles de session
+### Contrôles de session
+<a id="session-controls" class="xliff"></a>
 Les contrôles de session permettent de limiter l’expérience dans une application cloud. Les contrôles de session sont appliqués par les applications cloud et s’appuient sur des informations supplémentaires fournies par Azure AD à l’application concernant la session.
 
 ![Contrôle](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
 
-#### <a name="use-app-enforced-restrictions"></a>Utiliser les restrictions appliquées par l’application
+#### Utiliser les restrictions appliquées par l’application
+<a id="use-app-enforced-restrictions" class="xliff"></a>
 Vous pouvez utiliser ce contrôle pour exiger qu’Azure AD transmette les informations d’appareil à l’application cloud. Cela permet à l’application cloud de savoir si l’utilisateur utilise un appareil conforme ou un appareil joint à un domaine. Ce contrôle est actuellement pris en charge uniquement avec SharePoint en comme application cloud. SharePoint utilise les informations d’appareil pour fournir aux utilisateurs une expérience limitée ou complète en fonction de l’état de l’appareil.
 Pour en savoir plus sur la façon d’exiger un accès limité avec SharePoint, cliquez [ici](https://aka.ms/spolimitedaccessdocs).
 
-## <a name="condition-statement"></a>Instruction de condition
+## Instruction de condition
+<a id="condition-statement" class="xliff"></a>
 
 La section précédente vous a présenté les options permettant de bloquer ou de limiter l’accès à vos ressources sous forme de contrôles. Dans une stratégie d’accès conditionnel, vous définissez les critères que vos contrôles doivent remplir, sous la forme d’une instruction de condition.  
 
@@ -117,7 +122,8 @@ En sélectionnant des applications cloud, vous définissez celles auxquelles s�
     ![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
-## <a name="conditions"></a>Conditions
+## Conditions
+<a id="conditions" class="xliff"></a>
 
 Dans l’implémentation actuelle d’Azure Active Directory, vous pouvez définir des conditions pour les aspects suivants :
 
@@ -143,16 +149,19 @@ L’authentification héritée concerne les clients qui utilisent l’authentifi
     ![Conditions](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
-## <a name="common-scenarios"></a>Scénarios courants
+## Scénarios courants
+<a id="common-scenarios" class="xliff"></a>
 
-### <a name="requiring-multi-factor-authentication-for-apps"></a>Exiger l’authentification multifacteur pour les applications
+### Exiger l’authentification multifacteur pour les applications
+<a id="requiring-multi-factor-authentication-for-apps" class="xliff"></a>
 
 Dans de nombreux environnements, certaines applications nécessitent un niveau de protection plus élevé que d’autres.
 C’est le cas des applications qui ont accès à des données sensibles.
 Si vous souhaitez ajouter une couche de protection supplémentaire pour ces applications, vous pouvez configurer une stratégie d’accès conditionnel qui requiert l’authentification multifacteur lorsque les utilisateurs accèdent à ces applications.
 
 
-### <a name="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted"></a>Exiger l’authentification multifacteur pour l’accès à partir de réseaux non approuvés
+### Exiger l’authentification multifacteur pour l’accès à partir de réseaux non approuvés
+<a id="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted" class="xliff"></a>
 
 Ce scénario est semblable au précédent, car il ajoute une exigence pour l’authentification multifacteur.
 Toutefois, la principale différence réside dans la condition de cette exigence.  
@@ -160,13 +169,15 @@ Tandis que le scénario précédent se concentre sur les applications ayant acc�
 En d’autres termes, l’authentification multifacteur peut être requise si un utilisateur accède à une application à partir d’un réseau que vous n’avez pas approuvé.
 
 
-### <a name="only-trusted-devices-can-access-office-365-services"></a>Seuls les appareils approuvés ont accès aux services Office 365
+### Seuls les appareils approuvés ont accès aux services Office 365
+<a id="only-trusted-devices-can-access-office-365-services" class="xliff"></a>
 
 Si vous utilisez Intune dans votre environnement, vous pouvez utiliser d’emblée l’interface de stratégie d’accès conditionnel dans la console Azure.
 
 De nombreux clients Intune utilisent l’accès conditionnel pour vérifier que seuls les appareils approuvés ont accès aux services Office 365. Cela signifie que les appareils mobiles sont inscrits dans Intune, qu’ils répondent aux critères de la stratégie de conformité et que des PC Windows sont joints à un domaine local. L’avantage, c’est que vous n’avez pas à définir la même stratégie pour chacun des services Office 365.  Lorsque vous créez une stratégie, configurez les applications cloud pour inclure chacune des applications Office 365 que vous souhaitez protéger avec l’accès conditionnel.
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 
 Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
