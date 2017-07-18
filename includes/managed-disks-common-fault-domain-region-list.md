@@ -1,5 +1,4 @@
-### Nombre de domaines d’erreur par région
-<a id="number-of-fault-domains-per-region" class="xliff"></a>
+### <a name="number-of-fault-domains-per-region"></a>Nombre de domaines d’erreur par région
 
 | Région              | Nombre maximum de domaines d’erreur  |
 |---------------------|-------------------------|

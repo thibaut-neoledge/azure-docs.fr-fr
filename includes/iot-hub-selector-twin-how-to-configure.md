@@ -5,8 +5,7 @@
 > 
 > 
 
-## Introduction
-<a id="introduction" class="xliff"></a>
+## <a name="introduction"></a>Introduction
 
 Dans l’article [Prise en main des représentations d’appareil IoT Hub][lnk-twin-tutorial], vous avez appris à définir les métadonnées d’appareil à partir de votre serveur principal de solution à l’aide *d’étiquettes*, à signaler les conditions d’appareil à partir d’une application d’appareil au moyen de *propriétés signalées* et à interroger ces informations par le biais d’un langage de type SQL.
 

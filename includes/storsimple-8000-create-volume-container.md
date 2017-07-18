@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 06/22/17-->
 
-#### Pour créer un conteneur de volumes
-<a id="to-create-a-volume-container" class="xliff"></a>
+#### <a name="to-create-a-volume-container"></a>Pour créer un conteneur de volumes
 1. Accédez à votre service StorSimple Device Manager et cliquez sur **Appareils**. Dans la liste tabulaire des appareils, sélectionnez un appareil et cliquez dessus. 
 
     ![Panneau du conteneur de volumes](./media/storsimple-8000-create-volume-container/createvolumecontainer1.png)

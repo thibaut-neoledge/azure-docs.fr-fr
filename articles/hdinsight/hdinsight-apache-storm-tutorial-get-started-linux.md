@@ -23,8 +23,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
 
 ---
-#Prise en main d’Apache Storm sur HDInsight à l’aide des exemples storm-starter
-<a id="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples" class="xliff"></a>
+#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Prise en main d’Apache Storm sur HDInsight à l’aide des exemples storm-starter
 
 Découvrez comment utiliser Apache Storm dans HDInsight à l’aide des exemples storm-starter.
 
@@ -33,8 +32,7 @@ Apache Storm est un système de calcul en temps réel, évolutif, distribué, à
 > [!IMPORTANT]
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## Composants requis
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Composants requis
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -42,8 +40,7 @@ Apache Storm est un système de calcul en temps réel, évolutif, distribué, à
 
 * **Des connaissances en SSH et SCP**. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight (Hadoop) depuis Bash (l’interpréteur de commande) sur Windows 10, Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## Créer un cluster Storm
-<a id="create-a-storm-cluster" class="xliff"></a>
+## <a name="create-a-storm-cluster"></a>Créer un cluster Storm
 
 Utilisez les étapes suivantes pour créer un Storm sur un cluster HDInsight :
 
@@ -89,8 +86,7 @@ Utilisez les étapes suivantes pour créer un Storm sur un cluster HDInsight :
     > [!NOTE]
     > La création du cluster peut prendre jusqu’à 20 minutes.
 
-## Exécuter un exemple storm-starter sur HDInsight
-<a id="run-a-storm-starter-sample-on-hdinsight" class="xliff"></a>
+## <a name="run-a-storm-starter-sample-on-hdinsight"></a>Exécuter un exemple storm-starter sur HDInsight
 
 1. Connectez-vous au cluster HDInsight à l’aide de SSH :
 
@@ -116,8 +112,7 @@ Utilisez les étapes suivantes pour créer un Storm sur un cluster HDInsight :
 
 Si vous êtes intéressé par la source des exemples storm-starter, vous trouverez le code à l’adresse [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). Ce lien concerne Storm 1.0.x, qui est fourni avec HDInsight 3.5. Pour les autres versions de Storm, utilisez le bouton __Branche__ situé en haut de la page pour sélectionner une autre version de Storm.
 
-## Analyse de la topologie
-<a id="monitor-the-topology" class="xliff"></a>
+## <a name="monitor-the-topology"></a>Analyse de la topologie
 
 L’interface utilisateur Storm fournit une interface web incluse dans votre cluster HDInsight pour utiliser les topologies en cours d’exécution.
 
@@ -187,13 +182,11 @@ Suivez la procédure ci-après pour surveiller la topologie à l’aide de l’i
 
     Dans cet exemple, le mot **sept** compte 1 493 957 occurrences. C’est le nombre de fois où le mot a été détecté depuis le démarrage de cette topologie.
 
-## Arrêt de la topologie
-<a id="stop-the-topology" class="xliff"></a>
+## <a name="stop-the-topology"></a>Arrêt de la topologie
 
 Retournez à la page **Résumé de la topologie**, puis sélectionnez le bouton **Supprimer** de la section **Actions de topologie**. Lorsque vous êtes invité à entrer le nombre de secondes à attendre avant l’arrêt de la topologie, entrez le nombre 10. Après le délai d’expiration, la topologie n’apparaît plus quand vous vous rendez dans la section **Interface utilisateur Storm** du tableau de bord.
 
-## Suppression du cluster
-<a id="delete-the-cluster" class="xliff"></a>
+## <a name="delete-the-cluster"></a>Suppression du cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
