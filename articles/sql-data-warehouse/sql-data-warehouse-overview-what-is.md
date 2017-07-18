@@ -23,8 +23,7 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-# En quoi consiste Azure SQL Data Warehouse ?
-<a id="what-is-azure-sql-data-warehouse" class="xliff"></a>
+# <a name="what-is-azure-sql-data-warehouse"></a>En quoi consiste Azure SQL Data Warehouse ?
 Azure SQL Data Warehouse est une base de données relationnelle de mise à l’échelle basée sur le cloud à traitement massivement parallèle (MPP, Massively Parallel Processing) qui prend en charge le traitement de grands volumes de données. 
 
 SQL Data Warehouse :
@@ -38,8 +37,7 @@ SQL Data Warehouse :
 
 Cet article décrit les principales fonctionnalités de SQL Data Warehouse.
 
-## Architecture Massively Parallel Processing
-<a id="massively-parallel-processing-architecture" class="xliff"></a>
+## <a name="massively-parallel-processing-architecture"></a>Architecture Massively Parallel Processing
 SQL Data Warehouse est un système de base de données distribuée à traitement massivement parallèle. En arrière-plan, SQL Data Warehouse propage vos données sur de nombreuses unités de traitement et de stockage sans partage. Les données sont stockées dans une couche de stockage Premium redondante en local à partir de laquelle les nœuds de calcul liés de manière dynamique exécutent des requêtes. SQL Data Warehouse adopte une approche « Diviser pour mieux régner » pour l’exécution de charges et de requêtes complexes. Les demandes sont reçues par un nœud de contrôle, optimisées pour la distribution, puis transmises aux nœuds de calcul pour effectuer leur travail en parallèle.
 
 Avec le stockage découplé et le calcul, SQL Data Warehouse peut :
@@ -61,8 +59,7 @@ Le diagramme suivant illustre l’architecture plus en détail.
 
 **Service de déplacement de données :** DMS déplace les données entre les nœuds. DMS permet aux nœuds de calcul d’accéder aux données dont ils ont besoin pour les jonctions et les agrégations. DMS n’est pas un service Azure. C’est un service Windows qui s’exécute en même temps que la base de données SQL sur tous les nœuds. DMS est un processus en arrière-plan avec lequel il est impossible d’interagir directement. Toutefois, vous pouvez examiner les plans de requête pour savoir à quel moment les opérations DMS se produisent, dans la mesure où le déplacement des données est nécessaire pour exécuter chaque requête en parallèle.
 
-## Optimisé pour les charges de l’entrepôt de données
-<a id="optimized-for-data-warehouse-workloads" class="xliff"></a>
+## <a name="optimized-for-data-warehouse-workloads"></a>Optimisé pour les charges de l’entrepôt de données
 Cette approche MPP est facilitée par plusieurs optimisations des performances spécifiques à l’entreposage de données, notamment :
 
 * Un optimiseur de requêtes distribuées et un ensemble de statistiques complexes sur toutes les données. À partir des informations relatives à la distribution et à la taille des données, le service est en mesure d’optimiser les requêtes en évaluant le coût des opérations de requête distribuée spécifique.
@@ -70,8 +67,7 @@ Cette approche MPP est facilitée par plusieurs optimisations des performances s
 * Des index **columnstore** cluster par défaut. En s’appuyant sur le stockage en colonnes, SQL Data Warehouse peut délivrer des performances de compression jusqu’à 5 fois supérieures au stockage en ligne, et des performances de requête jusqu’à 10 fois ou plus supérieures. Les requêtes d’analyse qui doivent analyser un grand nombre de lignes fonctionnent mieux avec les index de stockage de colonnes cluster.
 
 
-## Performances prévisibles et évolutives avec des unités DWU (Data Warehouse Units)
-<a id="predictable-and-scalable-performance-with-data-warehouse-units" class="xliff"></a>
+## <a name="predictable-and-scalable-performance-with-data-warehouse-units"></a>Performances prévisibles et évolutives avec des unités DWU (Data Warehouse Units)
 SQL Data Warehouse est construit avec des technologies similaires comme SQL Database, ce qui signifie que les utilisateurs peuvent attendre des performances cohérentes et prévisibles pour les requêtes analytiques. Les utilisateurs devraient voir une mise à l’échelle des performances de façon linéaire lorsqu’ils ajoutent ou retirent des nœuds de calcul. L’allocation des ressources dans votre SQL Data Warehouse est exprimée en Data Warehouse Units (DWU). Les DWU sont une mesure des ressources sous-jacentes, telles que le processeur, la mémoire et les E/S, qui sont allouées à votre SQL Data Warehouse. L’augmentation du nombre de DWU augmente les ressources et les performances. Plus précisément, les DWU sont utilisés pour :
 
 * Vous avez la possibilité d’étendre votre entrepôt de données sans vous préoccuper du matériel ou des logiciels sous-jacents.
@@ -88,8 +84,7 @@ Les Data Warehouse Units fournissent une mesure de trois indicateurs qui sont fo
 
 **Create Table As Select (CTAS) :** CTAS mesure la capacité à créer une copie d’une table. Cela implique la lecture des données sur le système de stockage, leur distribution entre les nœuds de l’appliance et la réécriture dans le système de stockage. Cette opération est très gourmande en ressources processeur, E/S et réseau.
 
-## Basé sur SQL Server
-<a id="built-on-sql-server" class="xliff"></a>
+## <a name="built-on-sql-server"></a>Basé sur SQL Server
 SQL Data Warehouse s’appuie sur le moteur de base de données relationnelle de SQL Server et inclut les nombreuses fonctionnalités que vous pouvez attendre d’un entrepôt de données d’entreprise. Si vous connaissez déjà T-SQL, il vous suffit de transposer vos connaissances sur SQL Data Warehouse. Que vous ayez atteint un stade avancé ou que vous débutiez, les exemples fournis dans la documentation peuvent aider à prendre un bon départ. En règle générale, vous pouvez considérer la façon dont nous avons construit les éléments de langage de SQL Data Warehouse comme suit :
 
 * SQL Data Warehouse utilise la syntaxe T-SQL pour de nombreuses opérations. Il prend en charge un large éventail de constructions SQL traditionnelles, telles que les procédures stockées, les fonctions définies par l’utilisateur, le partitionnement de tables, les index et les classements.
@@ -98,12 +93,10 @@ SQL Data Warehouse s’appuie sur le moteur de base de données relationnelle de
 
 En profitant de Transact-SQL et de fonctionnalités identiques entre SQL Server, SQL Data Warehouse, la base de données SQL et Analytics Platform System, vous êtes en mesure de développer une solution adaptée à vos besoins. Vous pouvez définir l’emplacement de stockage de vos données, en fonction des exigences de performance, de sécurité et de mise à l’échelle, puis, en fonction des besoins, transférer vos données entre différents systèmes.
 
-## Protection des données
-<a id="data-protection" class="xliff"></a>
+## <a name="data-protection"></a>Protection des données
 SQL Data Warehouse stocke l’ensemble des données dans le stockage Azure Premium localement redondant. Plusieurs copies synchrones des données sont conservées dans le centre de données local afin de garantir la protection transparente des données contre une défaillance localisée. En outre, SQL Data Warehouse sauvegarde automatiquement vos bases de données actives (réactivées) à intervalles réguliers à l’aide d’instantanés Azure Storage. Pour plus d’informations sur le fonctionnement des processus de sauvegarde et de restauration, voir une [vue d’ensemble des fonctionnalités de sauvegarde et de restauration][Backup and restore overview].
 
-## Intégré avec les outils Microsoft
-<a id="integrated-with-microsoft-tools" class="xliff"></a>
+## <a name="integrated-with-microsoft-tools"></a>Intégré avec les outils Microsoft
 SQL Data Warehouse s’intègre également à de nombreux outils que les utilisateurs de SQL Server sont susceptibles de connaître. Ces outils incluent :
 
 **Outils SQL Server traditionnels :** SQL Data Warehouse est totalement intégré à SQL Server Analysis Services, Integration Services et Reporting Services.
@@ -112,20 +105,17 @@ SQL Data Warehouse s’intègre également à de nombreux outils que les utilisa
 
 **Des outils tiers :** de nombreux fournisseurs d’outils tiers ont certifié l’intégration de leurs outils avec SQL Data Warehouse. Pour obtenir une liste complète, consultez [Partenaires de solutions SQL Data Warehouse][SQL Data Warehouse solution partners].
 
-## Scénarios de sources de données hybrides
-<a id="hybrid-data-sources-scenarios" class="xliff"></a>
+## <a name="hybrid-data-sources-scenarios"></a>Scénarios de sources de données hybrides
 PolyBase vous permet de valoriser vos données de différentes sources en appliquant les commandes T-SQL que vous connaissez. PolyBase vous permet d’interroger des données non relationnelles conservées dans Azure Blob Storage comme des tables standard. Utilisez PolyBase pour interroger des données non relationnelles ou pour importer des données non relationnelles dans SQL Data Warehouse.
 
 * PolyBase accède aux données non relationnelles à l’aide de tables externes. Les définitions de table sont stockées dans SQL Data Warehouse, et vous pouvez y accéder par SQL et par les outils de la même manière que vous accéderiez à des données relationnelles normales.
 * PolyBase assure une intégration standard. La solution expose des fonctionnalités identiques à l’ensemble des sources qu’elle prend en charge. Les données lues par PolyBase peuvent se présenter sous différents formats, notamment les fichiers délimités ou ORC.
 * PolyBase peut être utilisé pour accéder au Blob Storage qui est également utilisé comme espace de stockage pour un cluster HD Insight. Cela vous permet d’accéder aux mêmes données avec des outils relationnels et non relationnels.
 
-## Contrat SLA
-<a id="sla" class="xliff"></a>
+## <a name="sla"></a>Contrat SLA
 SQL Data Warehouse offre un contrat de niveau de service pour les produits dans le cadre du Contrat SLA des services en ligne Microsoft. Pour plus d’informations, consultez [SLA pour SQL Data Warehouse][SLA for SQL Data Warehouse]. Pour des informations de contrat SLA concernant tous les autres produits, vous pouvez visiter la page Azure [Contrats de niveau de service] ou téléchargez-les sur la page [Licences en volume][Volume Licensing]. 
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un SQL Data Warehouse][create a SQL Data Warehouse] et [charger des exemples de données][load sample data]. Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure][Azure glossary] lorsque vous rencontrez de nouveaux termes. Ou bien, consultez ces autres ressources de SQL Data Warehouse.  
 
 * [Témoignages de clients]
