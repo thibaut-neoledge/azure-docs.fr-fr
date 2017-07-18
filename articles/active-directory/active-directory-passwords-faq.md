@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -22,9 +22,9 @@ ms.openlocfilehash: 00acd4090ed981ab2b05e955e93d1c689ea1a2e6
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/03/2017
 
-
 ---
-# <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
+# Forum Aux Questions sur la gestion des mots de passe
+<a id="password-management-frequently-asked-questions" class="xliff"></a>
 
 Voici quelques questions fréquemment posées concernant toutes les tâches liées à la réinitialisation des mots de passe.
 
@@ -38,7 +38,8 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 * [**Questions relatives aux rapports de gestion des mots de passe**](#password-management-reports)
 * [**Questions relatives à l’écriture différée du mot de passe**](#password-writeback)
 
-## <a name="password-reset-registration"></a>Inscription à la réinitialisation de mot de passe
+## Inscription à la réinitialisation de mot de passe
+<a id="password-reset-registration" class="xliff"></a>
 * **Q : Mes utilisateurs peuvent-ils inscrire leurs propres données de réinitialisation du mot de passe ?**
 
   > **R :** Oui, tant que la réinitialisation de mot de passe est activée et qu’ils disposent d’une licence, vos utilisateurs peuvent accéder au portail d’inscription à la réinitialisation de mot de passe à l’adresse http://aka.ms/ssprsetup pour inscrire leurs informations d’authentification. Les utilisateurs peuvent également s’inscrire via le volet d’accès à l’adresse http://myapps.microsoft.com, cliquer sur l’onglet du profil, puis sur l’option Réinitialiser mon mot de passe.
@@ -83,7 +84,8 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   > **R :** Un utilisateur est considéré comme inscrit pour la réinitialisation de mot de passe en libre-service lorsqu’il a enregistré au moins le **Nombre de méthodes requis pour la réinitialisation** défini dans le [portail Azure](https://portal.azure.com).
   >
   >
-## <a name="password-reset"></a>Réinitialisation de mot de passe
+## Réinitialisation de mot de passe
+<a id="password-reset" class="xliff"></a>
 * **Q : Combien de temps dois-je attendre avant de recevoir un e-mail, un SMS ou un appel téléphonique de la réinitialisation du mot de passe ?**
 
   > **R :** Les messages électroniques, les SMS et les appels téléphoniques doivent arriver en moins d’une minute, la plupart du temps dans les 5 à 20 secondes suivant la réinitialisation.
@@ -175,7 +177,8 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
   >
 
-## <a name="password-change"></a>Modification de mot de passe
+## Modification de mot de passe
+<a id="password-change" class="xliff"></a>
 * **Q : Où mes utilisateurs doivent-ils aller pour modifier leurs mots de passe ?**
 
   > **R :** Les utilisateurs peuvent modifier leurs mots de passe partout où ils voient leur image ou leur icône de profil (par exemple, en haut à droite de leur interface [Office 365](https://portal.office.com) ou [Panneau d’accès](https://myapps.microsoft.com). Les utilisateurs peuvent modifier leurs mots de passe à partir de la [page du profil Panneau d’accès](https://account.activedirectory.windowsazure.com/r#/profile). Ils peuvent également être invités à modifier automatiquement leurs mots de passe sur l’écran de connexion Azure AD si leurs mots de passe ont expiré. Enfin, les utilisateurs peuvent accéder directement au [portail de changement de mot de passe Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) s’ils souhaitent modifier leur mot de passe.
@@ -187,7 +190,8 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
   >
 
-## <a name="password-management-reports"></a>Rapports sur la gestion des mots de passe
+## Rapports sur la gestion des mots de passe
+<a id="password-management-reports" class="xliff"></a>
 * **Q : Combien de temps faut-il pour que les données soient affichées dans les rapports de gestion des mots de passe ?**
 
   > **R :** Les données doivent apparaître dans les rapports de gestion des mots de passe dans les cinq à dix minutes. Dans certains cas, il faut attendre une heure avant qu’elles n’apparaissent.
@@ -219,7 +223,8 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
   >
 
-## <a name="password-writeback"></a>Écriture différée du mot de passe
+## Écriture différée du mot de passe
+<a id="password-writeback" class="xliff"></a>
 * **Q : Comment l’écriture différée du mot de passe fonctionne-t-elle en arrière-plan ?**
 
   > **R :** Consultez la rubrique [Fonctionnement de l’écriture différée du mot de passe](active-directory-passwords-writeback.md) pour obtenir une explication de ce qui se passe lorsque vous activez l’écriture différée du mot de passe et pour comprendre la manière dont les données circulent entre le système et votre environnement local.
@@ -256,7 +261,8 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
   >
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD
 
