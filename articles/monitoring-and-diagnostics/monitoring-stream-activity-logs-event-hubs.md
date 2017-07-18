@@ -2,7 +2,7 @@
 title: "Diffuser en continu le journal d’activité Azure sur les Event Hubs | Microsoft Docs"
 description: "Apprenez comment diffuser en continu le journal d’activité Azure sur les Event Hubs."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
 ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
 ms.contentlocale: fr-fr
 ms.lasthandoff: 12/10/2016
-
 
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Diffuser en continu le journal des activités Azure sur les Event Hubs

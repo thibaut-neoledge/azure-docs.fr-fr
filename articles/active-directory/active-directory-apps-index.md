@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: markvi
+ms.reviewer: asteen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 3f6ae31f577eb1bc70a06e183518aadbc6279159
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/15/2017
-
 
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Index d’articles pour la gestion des applications dans Azure Active Directory

@@ -2,7 +2,7 @@
 title: "Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor | Microsoft Docs"
 description: "Découvrez comment utiliser les rôles intégrés et les autorisations d’Azure Monitor pour restreindre l’accès à l’analyse des ressources."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
@@ -169,10 +170,5 @@ Un modèle similaire peut être suivi avec les hubs d’événements, mais vous 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur RBAC et les autorisations dans Resource Manager](../active-directory/role-based-access-control-what-is.md)
 * [Lire la vue d’ensemble de l’analyse dans Azure](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

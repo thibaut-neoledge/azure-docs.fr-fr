@@ -2,7 +2,7 @@
 title: "Archiver le journal d’activité Azure | Microsoft Docs"
 description: "Découvrez comment archiver votre journal d’activité Azure pour une conservation à long terme dans un compte de stockage."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaa162df8a6cd60cb174242e6a353439f2da58b4
 ms.openlocfilehash: eb3a0ad811a4286df1bac963904bd9154c0ccfa3
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiver le journal d’activité Azure
@@ -167,10 +168,5 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 * [Télécharger des objets blob pour analyse](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [Transférer le journal d’activité vers Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 * [En savoir plus sur le journal d’activité](monitoring-overview-activity-logs.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

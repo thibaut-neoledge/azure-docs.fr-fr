@@ -2,7 +2,7 @@
 title: "Prise en main d’Azure Monitor | Microsoft Docs"
 description: "Prenez en main Azure Monitor pour obtenir un aperçu du fonctionnement de vos ressources et prendre des initiatives sur la base des données."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 6e1a1f522b9632c7d162d36ad5baa23d6130f8b6
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="get-started-with-azure-monitor"></a>Prise en main d’Azure Monitor

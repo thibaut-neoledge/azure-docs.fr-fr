@@ -1,8 +1,8 @@
 ---
-title: "Que sont les notifications d&quot;intégrité de service | Microsoft Docs"
+title: "Que sont les notifications d'intégrité de service | Microsoft Docs"
 description: "Les notifications d’intégrité de service vous permettent d’afficher les messages d’intégrité de service publiés par Microsoft Azure."
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: c7ea129346c5fddcff9f824dc69478cf6fb1c67a
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="service-health-notifications"></a>Notifications d'intégrité de service
@@ -50,7 +50,7 @@ resourceProviderName | Nom du fournisseur de ressources de la ressource affecté
 resourceType| Le type de la ressource affectée
 subStatus | Il s’agit généralement du code d’état HHTP de l’appel REST correspondant, mais également d’autres chaînes décrivant un sous-état, comme ces valeurs courantes : OK (Code d’état HTTP : 200), Created (Code d’état HTTP : 201), Accepted (Code d’état HTTP : 202), No content (Code d’état HTTP : 204), Bad Request (Code d’état HTTP : 400), Not found (Code d’état HTTP : 404), Conflict (Code d’état HTTP : 409), Internal Server Error (Code d’état HTTP : 500), Service Unavailable (Code d’état HTTP : 503), Gateway Timeout (Code d’état HTTP : 504).
 eventTimestamp | Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement.
-submissionTimestamp |     Horodatage lorsque l’événement est devenu disponible pour l’interrogation.
+submissionTimestamp |   Horodatage lorsque l’événement est devenu disponible pour l’interrogation.
 subscriptionId | L’abonnement Azure dans lequel l’événement est consigné
 status | Chaîne décrivant l’état de l’opération. Certaines valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active, Resolved.
 operationName | Nom de l’opération.
@@ -68,15 +68,15 @@ Properties.communicationId | La communication associée à cet événement.
 
 
 ## <a name="viewing-your-service-health-notifications-in-the-azure-portal"></a>Affichage de vos notifications d’intégrité de service dans le portail Azure
-1.    Dans le [portail](https://portal.azure.com), accédez au service **Monitor**
+1.  Dans le [portail](https://portal.azure.com), accédez au service **Monitor**
 
     ![Surveiller](./media/monitoring-service-notifications/home-monitor.png)
-2.    Cliquez sur l’option **Monitor** pour ouvrir le panneau Monitor. Ce panneau rassemble tous vos paramètres de surveillance et données dans une vue consolidée. Il ouvre d’abord la section **Journal d’activité** .
+2.  Cliquez sur l’option **Monitor** pour ouvrir le panneau Monitor. Ce panneau rassemble tous vos paramètres de surveillance et données dans une vue consolidée. Il ouvre d’abord la section **Journal d’activité** .
 
-3.    Cliquez maintenant sur le service **Notifications de service**
+3.  Cliquez maintenant sur le service **Notifications de service**
 
     ![Surveiller](./media/monitoring-service-notifications/service-health-summary.png)
-4.    Cliquez sur un des éléments de ligne pour afficher plus de détails
+4.  Cliquez sur un des éléments de ligne pour afficher plus de détails
 
 5. Cliquez sur l’opération **+ Ajouter une alerte de journal d’activité** pour recevoir des notifications pour vous assurer que vous êtes informé des futures notifications de service de ce type. Pour en savoir plus sur la configuration des alertes sur les notifications de service, [cliquez ici](monitoring-activity-log-alerts-on-service-notifications.md)
 

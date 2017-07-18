@@ -2,7 +2,7 @@
 title: Archivage des journaux de diagnostic Azure | Microsoft Docs
 description: "Découvrez comment archiver vos journaux de diagnostic Azure pour une conservation à long terme dans un compte de stockage."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3e82377c36da1563931bc0301daa4534e6f82377
 ms.openlocfilehash: e3413236445f3f6034a228dc93624d3fdc9b87ad
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivage des journaux de diagnostic Azure
@@ -133,10 +134,5 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 * [Télécharger des objets blob pour analyse](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [Diffuser en continu le journal des activités Azure sur les Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [En savoir plus sur les journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
