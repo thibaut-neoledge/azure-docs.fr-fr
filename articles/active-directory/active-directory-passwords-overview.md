@@ -1,5 +1,4 @@
 ---
-
 title: "Azure AD : vue d’ensemble de la réinitialisation de mot de passe en libre-service Azure AD | Microsoft Docs"
 description: "En quoi la réinitialisation de mot de passe en libre-service d’Azure AD peut-elle être utile à votre organisation ?"
 services: active-directory
@@ -13,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -22,9 +21,9 @@ ms.openlocfilehash: 9f72a4900f20282827ff939aa41bc4f306e547a3
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/20/2017
 
-
 ---
-# <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>La réinitialisation de mot de passe en libre-service Azure AD pour les professionnels de l’informatique
+# La réinitialisation de mot de passe en libre-service Azure AD pour les professionnels de l’informatique
+<a id="azure-ad-self-service-password-reset-for-the-it-professional" class="xliff"></a>
 
 « Libre-service » est un terme qui est actuellement très employé dans un grand nombre de services informatiques du monde entier, avec toutefois des significations différentes. Le marché regorge de produits permettant de gérer les groupes locaux, les mots de passe ou les profils utilisateur dans le cloud ou en local.
 
@@ -38,7 +37,8 @@ La réinitialisation de mot de passe libre-service (SSPR) Azure Active Directory
 
 Si vous êtes prêt, vous pouvez commencer à utiliser Azure AD SSPR en vous aidant de notre [guide de démarrage rapide](active-directory-passwords-getting-started.md) et permettre ainsi à vos utilisateurs de réinitialiser rapidement leur propre mot de passe.
 
-## <a name="what-is-possible"></a>Ce qui est possible
+## Ce qui est possible
+<a id="what-is-possible" class="xliff"></a>
 
 * **Modification des mots de passe en libre-service** : les utilisateurs finaux ou les administrateurs peuvent modifier leur mot de passe sans faire appel à un administrateur.
 * **Déverrouillage de compte en libre-service** : les utilisateurs finaux peuvent déverrouiller leur propre compte sans faire appel à l’aide d’un administrateur.
@@ -47,13 +47,15 @@ Si vous êtes prêt, vous pouvez commencer à utiliser Azure AD SSPR en vous aid
 * **Rapports d’activité de gestion des mots de passe** : donnent aux administrateurs un aperçu de l’activité d’inscription et de réinitialisation des mots de passe dans leur organisation - [Rapports de gestion](active-directory-passwords-reporting.md).
 * **Écriture différée de mot de passe** : autorise la gestion des mots de passe locaux à partir du cloud, si bien que tous les scénarios mentionnés ci-dessus peuvent être exécutés par ou pour des utilisateurs fédérés ou synchronisés par mot de passe. L’écriture différée de mot de passe nécessite [Azure AD Premium](active-directory-get-started-premium.md).
 
-## <a name="why-choose-azure-ad-self-service-password-reset"></a>Pourquoi opter pour la réinitialisation de mot de passe en libre-service Azure AD
+## Pourquoi opter pour la réinitialisation de mot de passe en libre-service Azure AD
+<a id="why-choose-azure-ad-self-service-password-reset" class="xliff"></a>
 
 * **Réduction des coûts** : la réinitialisation de mot de passe assistée par le support technique représente généralement 20 % des dépenses d’un service informatique.
 * **Amélioration de l’expérience des utilisateurs finaux** et **diminution des besoins en support technique** : les utilisateurs finaux peuvent résoudre leurs propres problèmes de mot de passe en une seule fois sans avoir à faire appel au support technique ou à formuler une demande de support.
 * **Encouragement à la mobilité** : les utilisateurs peuvent réinitialiser leur mot de passe où qu’ils se trouvent.
 
-## <a name="azure-ad-self-service-password-reset-availability"></a>Disponibilité de la réinitialisation de mot de passe en libre-service Azure AD
+## Disponibilité de la réinitialisation de mot de passe en libre-service Azure AD
+<a id="azure-ad-self-service-password-reset-availability" class="xliff"></a>
 
 La réinitialisation de mot de passe libre-service Azure AD est disponible dans trois niveaux, selon votre abonnement.
 
@@ -61,7 +63,8 @@ La réinitialisation de mot de passe libre-service Azure AD est disponible dans
 * **Azure AD De base** ou tout **abonnement Office 365 payé** : les clients utilisant uniquement le cloud et les administrateurs chargés uniquement du cloud peuvent réinitialiser leur propre mot de passe.
 * **Azure AD Premium** : n’importe quel utilisateur ou administrateur, notamment les clients utilisant uniquement le cloud et les utilisateurs fédérés ou synchronisés par mot de passe, peuvent réinitialiser leur propre mot de passe. L’écriture différée doit être activée pour les mots de passe locaux.
 
-## <a name="azure-ad-self-service-password-reset-a-sum-of-the-parts"></a>Composants de la réinitialisation de mot de passe en libre-service Azure AD
+## Composants de la réinitialisation de mot de passe en libre-service Azure AD
+<a id="azure-ad-self-service-password-reset-a-sum-of-the-parts" class="xliff"></a>
 
 La réinitialisation de mot de passe en libre-service dans Azure AD est constituée des composants suivants :
 
@@ -72,7 +75,8 @@ La réinitialisation de mot de passe en libre-service dans Azure AD est constit
 * **Rapports de gestion des mots de passe** : permettent aux administrateurs de consulter et d’analyser les rapports d’activité sur les mots de passe de leurs locataires dans le portail Azure.
 * **Écriture différée de mot de passe en local à l’aide d’Azure AD Connect** : vous permet d’activer la gestion des utilisateurs locaux, fédérés ou synchronisés par mot de passe à partir du cloud.
 
-## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Tarifs, contrat SLA, mises à jour et feuille de route Azure AD
+## Tarifs, contrat SLA, mises à jour et feuille de route Azure AD
+<a id="azure-ad-pricing-sla-updates-and-roadmap" class="xliff"></a>
 
 Vous trouverez davantage de détails sur ces questions dans les pages suivantes :
 
@@ -83,7 +87,8 @@ Vous trouverez davantage de détails sur ces questions dans les pages suivantes�
 * [**Mises à jour Azure**](https://azure.microsoft.com/updates/)
 * [**Feuille de route Azure**](https://www.microsoft.com/cloud-platform/roadmap-recently-available)
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
