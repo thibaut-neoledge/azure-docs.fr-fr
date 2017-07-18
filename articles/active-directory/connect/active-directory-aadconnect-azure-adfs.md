@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -23,9 +23,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 07/04/2017
 
 ---
-<a id="deploying-active-directory-federation-services-in-azure" class="xliff"></a>
-
-# Déploiement d’Active Directory Federation Services dans Azure
+# <a name="deploying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
 AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. La fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide de leurs informations d’identification locales et d’accéder à toutes les ressources du cloud. Par conséquent, il est important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Le déploiement d’AD FS dans Azure peut contribuer à bénéficier d’une haute disponibilité avec un minimum d’efforts.
 Le déploiement d’AD FS dans Azure présente toute une série d’avantages, notamment :
 
@@ -34,9 +32,7 @@ Le déploiement d’AD FS dans Azure présente toute une série d’avantages, n
 * **Géo-redondance inter-région** : la redondance géographique Azure garantit une haute disponibilité de votre infrastructure dans le monde entier
 * **Facilité de gestion** : le portail Azure propose des options de gestion extrêmement simplifiées, conçues pour faciliter et automatiser la gestion de votre infrastructure 
 
-<a id="design-principles" class="xliff"></a>
-
-## Principes de conception
+## <a name="design-principles"></a>Principes de conception
 ![Conception du déploiement](./media/active-directory-aadconnect-azure-adfs/deployment.png)
 
 Le schéma ci-dessus présente la topologie de base recommandée pour amorcer le déploiement de votre infrastructure AD FS dans Azure. Vous trouverez ci-dessous les principes qui sous-tendent les différents composants de cette topologie :
@@ -49,14 +45,10 @@ Le schéma ci-dessus présente la topologie de base recommandée pour amorcer le
 * **Comptes de stockage**: il est recommandé de disposer de deux comptes de stockage. L’utilisation d’un seul compte de stockage peut entraîner la création d’un point de défaillance unique et provoquer une indisponibilité du déploiement dans l’éventualité (peu probable) où le compte de stockage serait inutilisable. Le choix de deux comptes de stockage permet d’associer un compte de stockage pour chaque ligne d’erreur.
 * **Séparation des réseaux** : les serveurs Web Application Proxy doivent être déployés sur un réseau DMZ distinct. Vous pouvez diviser un réseau virtuel en deux sous-réseaux, puis déployer le ou les serveurs Web Application Proxy dans un sous-réseau isolé. Vous pouvez simplement configurer les paramètres du groupe de sécurité réseau pour chaque sous-réseau et autoriser uniquement les communications requises entre les deux sous-réseaux. Voir les détails ci-dessous en fonction du scénario de déploiement
 
-<a id="steps-to-deploy-ad-fs-in-azure" class="xliff"></a>
-
-## Procédure de déploiement d’AD FS dans Azure
+## <a name="steps-to-deploy-ad-fs-in-azure"></a>Procédure de déploiement d’AD FS dans Azure
 Les étapes indiquées dans cette section expliquent comment déployer dans Azure l’infrastructure AD FS représentée ci-dessous.
 
-<a id="1-deploying-the-network" class="xliff"></a>
-
-### 1. Déployer le réseau
+### <a name="1-deploying-the-network"></a>1. Déployer le réseau
 Comme indiqué ci-dessus, vous pouvez soit créer deux sous-réseaux dans un même réseau virtuel, soit créer deux réseaux virtuels totalement différents. Cet article se concentre sur le déploiement d’un seul réseau virtuel subdivisé en deux sous-réseaux. Cette approche est actuellement plus abordable dans la mesure où l’utilisation de deux réseaux virtuels distincts nécessiterait une passerelle de réseau virtuel à réseau virtuel pour l’établissement des communications.
 
 **1.1 Création d’un réseau virtuel**
@@ -108,16 +100,12 @@ Nous avons besoin d’une connexion en local afin de déployer le contrôleur de
 Nous vous recommandons d’utiliser ExpressRoute. ExpressRoute vous permet de créer des connexions privées entre les centres de données Azure et une infrastructure locale ou dans un environnement de colocalisation. Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent davantage de fiabilité, des vitesses supérieures, des latences inférieures et une sécurité renforcée par rapport aux connexions classiques sur Internet.
 Bien qu’il soit recommandé d’utiliser ExpressRoute, vous pouvez choisir n’importe quelle méthode de connexion qui vous semble la plus adaptée à votre organisation. Pour en savoir plus sur ExpressRoute et sur les différentes options de connectivité basées sur ExpressRoute, consultez l’article [Présentation technique d’ExpressRoute](https://aka.ms/Azure/ExpressRoute).
 
-<a id="2-create-storage-accounts" class="xliff"></a>
-
-### 2. Créer des comptes de stockage
+### <a name="2-create-storage-accounts"></a>2. Créer des comptes de stockage
 Pour maintenir une haute disponibilité et éviter toute dépendance à un seul compte de stockage, vous pouvez créer deux comptes de stockage. Répartissez en deux groupes les machines virtuelles de chaque groupe à haute disponibilité, puis affectez chaque groupe à un compte de stockage distinct.
 
 ![Créer des comptes de stockage](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
 
-<a id="3-create-availability-sets" class="xliff"></a>
-
-### 3. Créer des groupes à haute disponibilité
+### <a name="3-create-availability-sets"></a>3. Créer des groupes à haute disponibilité
 Pour chaque rôle (contrôleur de domaine/AD FS et WAP), créez des groupes à haute disponibilité qui contiendront au minimum deux machines virtuelles, ce afin de garantir une meilleure disponibilité pour chaque rôle. Lorsque vous créez des groupes à haute disponibilité, vous devez impérativement étudier les aspects suivants :
 
 * **Domaines d’erreur**: les machines virtuelles du même domaine d’erreur partagent la même source d’alimentation et le même commutateur réseau physique. Il est recommandé d’utiliser au moins 2 domaines d’erreur. Vous pouvez utiliser la valeur par défaut (3) pour les besoins de ce déploiement
@@ -132,9 +120,7 @@ Créez les groupes à haute disponibilité suivants :
 | contosodcset |Contrôleur de domaine/AD FS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-<a id="4-deploy-virtual-machines" class="xliff"></a>
-
-### 4. Déployer les machines virtuelles
+### <a name="4-deploy-virtual-machines"></a>4. Déployer les machines virtuelles
 L’étape suivante consiste à déployer les machines virtuelles qui hébergeront les différents rôles de votre infrastructure. Nous vous recommandons d’affecter au moins deux machines virtuelles à chaque groupe à haute disponibilité. Créez quatre machines virtuelles dans le cadre du déploiement de base.
 
 | Ordinateur | Rôle | Sous-réseau | Groupe à haute disponibilité | Compte de stockage | Adresse IP |
@@ -150,9 +136,7 @@ Une fois le déploiement terminé, le volet de votre machine virtuelle devrait r
 
 ![Machines virtuelles déployées](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
-<a id="5-configuring-the-domain-controller--ad-fs-servers" class="xliff"></a>
-
-### 5. Configurer le contrôleur de domaine / les serveurs AD FS
+### <a name="5-configuring-the-domain-controller--ad-fs-servers"></a>5. Configurer le contrôleur de domaine / les serveurs AD FS
  Afin d’authentifier les demandes entrantes, AD FS doit pouvoir contacter le contrôleur de domaine. Pour éviter un transfert coûteux entre Azure et le contrôleur de domaine local dans le cadre de l’authentification, il est recommandé de déployer un réplica du contrôleur de domaine dans Azure. Pour bénéficier d’une haute disponibilité, il est recommandé de créer un groupe à haute disponibilité comprenant au moins 2 contrôleurs de domaine.
 
 | Contrôleur de domaine | Rôle | Compte de stockage |
@@ -163,9 +147,7 @@ Une fois le déploiement terminé, le volet de votre machine virtuelle devrait r
 * Déployez les deux serveurs en tant que réplicas de contrôleurs de domaine avec DNS
 * Configurez les serveurs AD FS en installant le rôle AD FS à l’aide du gestionnaire de serveurs.
 
-<a id="6-deploying-internal-load-balancer-ilb" class="xliff"></a>
-
-### 6. Déployer l’équilibreur de charge interne (ILB)
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Déployer l’équilibreur de charge interne (ILB)
 **6.1. Création de l’équilibreur de charge interne**
 
 Pour déployer un équilibreur de charge interne, sélectionnez Équilibreurs de charge dans le portail Azure, puis cliquez sur Ajouter (+).
@@ -226,9 +208,7 @@ Pour équilibrer au mieux le trafic, l’équilibreur de charge interne doit êt
 Accédez à votre serveur DNS et créez un enregistrement CNAME pour l’équilibreur de charge interne. L’enregistrement CNAME doit correspondre au service de fédération avec une adresse IP pointant vers l’adresse IP de l’équilibreur de charge interne. Par exemple, si l’adresse IP de l’équilibreur de charge interne est 10.3.0.8 et si le service de fédération installé est fs.contoso.com, créez un enregistrement CNAME pour fs.contoso.com pointant vers 10.3.0.8.
 De cette manière, toutes les communications concernant fs.contoso.com pointeront vers l’équilibreur de charge interne et seront routées de façon appropriée.
 
-<a id="7-configuring-the-web-application-proxy-server" class="xliff"></a>
-
-### 7. Configurer le serveur Web Application Proxy
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. Configurer le serveur Web Application Proxy
 **7.1. Configuration des serveurs Web Application Proxy pour atteindre les serveurs AD FS**
 
 Pour faire en sorte que les serveurs Web Application Proxy soient en mesure d’atteindre les serveurs AD FS situés derrière l’équilibreur de charge interne, créez un enregistrement dans le répertoire %systemroot%\system32\drivers\etc\hosts de l’équilibreur de charge interne. Notez que le nom unique (DN) doit être le nom du service de fédération (par exemple fs.contoso.com). L’entrée IP doit être celle de l’adresse IP de l’équilibreur de charge interne (10.3.0.8, dans notre exemple).
@@ -238,9 +218,7 @@ Pour faire en sorte que les serveurs Web Application Proxy soient en mesure d’
 Après avoir vérifié que les serveurs Web Application Proxy sont bien en mesure d’atteindre les serveurs AD FS situés derrière l’équilibreur de charge interne, vous pouvez installer les serveurs Web Application Proxy. Les serveurs Web Application Proxy ne doivent pas être joints au domaine. Installez les rôles Web Application Proxy sur les deux serveurs Web Application Proxy en sélectionnant le rôle Accès à distance. Le gestionnaire de serveurs vous guide dans l’installation du serveur WAP.
 Pour plus d’informations sur le déploiement de WAP, consultez la page [Installer et configurer le serveur proxy d’application web](https://technet.microsoft.com/library/dn383662.aspx).
 
-<a id="8--deploying-the-internet-facing-public-load-balancer" class="xliff"></a>
-
-### 8.  Déployer l’équilibreur de charge (public) accessible sur Internet
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Déployer l’équilibreur de charge (public) accessible sur Internet
 **8.1.  Création d’un équilibreur de charge (public) accessible sur Internet**
 
 Dans le portail Azure, sélectionnez Équilibreurs de charge, puis cliquez sur Ajouter. Dans le panneau Créer un équilibreur de charge, entrez les informations suivantes :
@@ -285,9 +263,7 @@ Suivez les mêmes étapes que pour l’équilibreur de charge interne afin de co
 
 ![Configuration des règles d’équilibrage de l’équilibreur de charge accessible sur Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-<a id="9-securing-the-network" class="xliff"></a>
-
-### 9. Sécuriser le réseau
+### <a name="9-securing-the-network"></a>9. Sécuriser le réseau
 **9.1. Sécurisation du sous-réseau interne**
 
 En général, vous devez appliquer les règles suivantes pour sécuriser efficacement votre sous-réseau interne (dans l’ordre indiqué ci-dessous)
@@ -317,9 +293,7 @@ En général, vous devez appliquer les règles suivantes pour sécuriser efficac
 > 
 > 
 
-<a id="10-test-the-ad-fs-sign-in" class="xliff"></a>
-
-### 10. Tester l’authentification dans AD FS
+### <a name="10-test-the-ad-fs-sign-in"></a>10. Tester l’authentification dans AD FS
 Le moyen le plus simple consiste à tester AD FS à l’aide de la page IdpInitiatedSignon.aspx. Pour cela, vous devez activer l’authentification IdpInitiatedSignOn sur les propriétés AD FS. Suivez les étapes ci-dessous pour vérifier votre configuration AD FS
 
 1. À l’aide de PowerShell, exécutez l’applet de commande ci-dessous sur le serveur AD FS pour l’activer.
@@ -333,9 +307,7 @@ Si l’authentification aboutit, vous obtenez le message de confirmation ci-dess
 
 ![Réussite du test](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
-<a id="template-for-deploying-ad-fs-in-azure" class="xliff"></a>
-
-## Modèle de déploiement d’AD FS dans Azure
+## <a name="template-for-deploying-ad-fs-in-azure"></a>Modèle de déploiement d’AD FS dans Azure
 Le modèle déploie une installation à 6 machines, 2 par contrôleur de domaine, AD FS et WAP.
 
 [Modèle de déploiement d’AD FS dans Azure](https://github.com/paulomarquesc/adfs-6vms-regular-template-based)
@@ -370,9 +342,7 @@ Vous pouvez utiliser un réseau virtuel existant ou créer un nouveau réseau vi
 | AdminUserName |Nom de l’administrateur local des machines virtuelles |
 | AdminPassword |Mot de passe du compte administrateur local des machines virtuelles |
 
-<a id="additional-resources" class="xliff"></a>
-
-## Ressources supplémentaires
+## <a name="additional-resources"></a>Ressources supplémentaires
 * [Groupes à haute disponibilité](https://aka.ms/Azure/Availability) 
 * [Équilibrage de charge Azure](https://aka.ms/Azure/ILB)
 * [Équilibreur de charge interne](https://aka.ms/Azure/ILB/Internal)
@@ -381,9 +351,7 @@ Vous pouvez utiliser un réseau virtuel existant ou créer un nouveau réseau vi
 * [Réseaux virtuels Azure](https://aka.ms/Azure/VNet)
 * [Liens AD FS et Web Application Proxy](http://aka.ms/ADFSLinks) 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 * [Configuration et gestion de vos services AD FS avec Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
