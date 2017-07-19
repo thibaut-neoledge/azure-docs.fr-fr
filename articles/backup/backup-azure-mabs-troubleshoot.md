@@ -12,12 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/24/2017
+ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: a42488d618c58b36fa8105c1b22fd32ca615d1b1
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: a8df63821af039b7a5ad34f065423701485ee7d8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -26,8 +27,13 @@ ms.lasthandoff: 03/27/2017
 
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’un serveur de sauvegarde Azure à l’aide des informations figurant dans la table suivante.
 
->
->
+
+## <a name="installation-issues"></a>Problèmes d’installation
+
+| Opération | Détails de l’erreur | Solution de contournement |
+|-----------|---------------|------------|
+|Installation | Le programme d’installation n’a pas pu mettre à jour les métadonnées du registre. L’échec de cette mise à jour peut entraîner la surutilisation de la consommation du stockage. Pour éviter ce problème, mettez à jour l’entrée de registre ReFS Trimming. | Ajustez la clé de registre SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim. Définissez la valeur Dword sur 1. |
+|Installation | Le programme d’installation n’a pas pu mettre à jour les métadonnées du registre. L’échec de cette mise à jour peut entraîner la surutilisation de la consommation du stockage. Pour éviter ce problème, mettez à jour l’entrée de registre Volume SnapOptimization. | Créez la clé de registre, SOFTWARE\Microsoft Data Protection Manager\Configuration\VolSnapOptimization\WriteIds, avec une valeur de chaîne vide. |
 
 ## <a name="registration-and-agent-related-issues"></a>Problèmes liés à l’enregistrement et aux agents
 | Opération | Détails de l’erreur | Solution de contournement |
@@ -43,6 +49,7 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’un se
 | Configuration des groupes de protection | DPM n’a pas pu énumérer le composant d’application sur l’ordinateur protégé (nom de l’ordinateur protégé). | Cliquez sur l’option Actualiser figurant sur l’écran de configuration du groupe de protection, au niveau du composant/de la source de données pertinents. |
 | Configuration des groupes de protection | Configuration de la protection impossible. | Si le serveur protégé est de type SQL Server, vérifiez si les autorisations du rôle sysadmin ont été fournies au compte système (NTAuthority\System) sur l’ordinateur protégé, comme indiqué dans [cet article](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx).
 | Configuration des groupes de protection | Le pool de stockage présente un espace disponible insuffisant pour ce groupe de protection. | Les disques ajoutés au pool de stockage [ne doivent pas contenir de partitions](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx). Supprimez les volumes existants sur les disques, puis ajoutez-les à nouveau au pool de stockage.|
+| Modification de la stratégie |La stratégie de sauvegarde n’a pas pu être modifiée. Erreur : échec de l’opération en cours en raison d’une erreur de service interne [0x29834]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft. |**Cause :**<br/>Cette erreur se produit lorsque les paramètres de sécurité sont activés, que vous essayez de réduire la durée de rétention sur une valeur inférieure aux valeurs minimales spécifiées ci-dessus et que vous utilisez une version non prise en charge (antérieure à la version MAB 2.0.9052 et update 1 du serveur de sauvegarde Azure). <br/>**Action recommandée :**<br/> Dans ce cas, vous devez définir la période de rétention sur une valeur supérieure à la période de rétention minimale spécifiée (sept jours pour la rétention quotidienne, quatre semaines pour la rétention hebdomadaire, trois semaines pour la rétention mensuelle ou une année pour la rétention annuelle) pour exécuter les mises à jour relatives à la stratégie. Vous pouvez également mettre à jour l’agent de sauvegarde et le serveur de sauvegarde Azure pour tirer parti de toutes les mises à jour de sécurité. |
 
 ## <a name="backup"></a>Sauvegarde
 | Opération | Détails de l’erreur | Solution de contournement |
@@ -54,4 +61,10 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’un se
 | Sauvegarde | Échec de la création de points de récupération en ligne. | Si le message d’erreur indique que la phrase secrète de chiffrement de ce serveur n’est pas définie et vous invite à la configurer, définissez une phrase secrète de chiffrement. En cas d’échec, <br> <ol><li>vérifiez si l’emplacement temporaire existe ou non. L’emplacement mentionné dans la clé de Registre HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config qui porte le nom « ScratchLocation » doit exister.</li><li> Si l’emplacement temporaire existe, enregistrez à nouveau l’ancienne phrase secrète. **Chaque fois que vous configurez une phrase secrète de chiffrement, n’oubliez pas de l’enregistrer à un emplacement sécurisé.**</li><ol>
 | Sauvegarde | Échec de la sauvegarde à des fins de récupération complète | Si la taille de la récupération complète est énorme, recommencez l’opération après avoir déplacé certains fichiers vers le lecteur du système d’exploitation. |
 | Sauvegarde | Erreur lors de l’accès aux dossiers/fichiers partagés. | Modifiez les paramètres antivirus comme suggéré [ici](https://technet.microsoft.com/library/hh757911.aspx).|
+
+## <a name="change-passphrase"></a>Modification de la phrase secrète
+| Opération | Détails de l’erreur | Solution de contournement |
+| --- | --- | --- |
+| Modification de la phrase secrète |Le code PIN de sécurité entré est incorrect. Entrez le code PIN de sécurité correct pour exécuter cette opération. |**Cause :**<br/> Cette erreur se produit lorsque vous entrez un code PIN de sécurité non valide ou qui a expiré lors d’une opération critique (par exemple, la modification de la phrase secrète). <br/>**Action recommandée :**<br/> Pour exécuter l’opération, vous devez entrer un code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure et accédez au coffre Recovery Services > Paramètres > Propriétés > Générer un code PIN de sécurité. Utilisez ce code PIN pour modifier la phrase secrète. |
+| Modification de la phrase secrète |L’opération a échoué. ID : 120002 |**Cause :**<br/>Cette erreur se produit lorsque les paramètres de sécurité sont activés, que vous essayez de modifier la phrase secrète et que vous utilisez une version non prise en charge.<br/>**Action recommandée :**<br/> Pour modifier la phrase secrète, vous devez tout d’abord mettre à jour l’agent de sauvegarde sur la version minimale 2.0.9052 et le serveur de sauvegarde Azure sur la mise à jour minimale 1, puis entrez le code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure et accédez au coffre Recovery Services > Paramètres > Propriétés > Générer un code PIN de sécurité. Utilisez ce code PIN pour modifier la phrase secrète. |
 

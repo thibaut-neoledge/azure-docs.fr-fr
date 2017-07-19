@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0a66567d7381f38787f9aa7652c944e4bb3aef82
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 311cee724fc77256748153b5167d2a38ccba9775
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -41,19 +41,21 @@ Consultez la [page de tarification d’Application Insights][pricing] pour conna
 Le plan De base est la valeur par défaut lorsqu’une ressource Application Insights est créée et est suffisante pour la plupart des clients.
 
 * Dans le plan De base, vous êtes facturé en fonction du volume de données : nombre d’octets de données de télémétrie reçus par Application Insights. Le volume de données est mesuré comme la taille du package de données JSON non compressé reçu par Application Insights de la part de votre application.
+Pour [les données tabulaires importées dans Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), le volume de données est mesuré en tant que taille non compressée des fichiers envoyés à Application Insights.  
 * Votre premier 1 Go pour chaque application est gratuit. Si vous expérimentez ou développez simplement, vous n'aurez probablement pas à payer.
 * Les données des [Flux de métriques temps réel](app-insights-live-stream.md) ne sont pas comptabilisées dans la tarification.
-* [L’exportation continue](app-insights-export-telemetry.md) est disponible pour un coût supplémentaire par Go ajouté au plan De base, même s’il est gratuit jusqu’à début mars 2017.
+* L[’exportation continue](app-insights-export-telemetry.md) est disponible moyennent des frais supplémentaires par Go dans le plan De base.
 
 ### <a name="enterprise-plan"></a>Plan Entreprise
 
-* Dans le plan Entreprise, votre application peut utiliser toutes les fonctionnalités d’Application Insights. [L'exportation continue](app-insights-export-telemetry.md) et [le connecteur Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) sont disponibles sans frais supplémentaires ajoutés au plan d’entreprise.
+* Dans le plan Entreprise, votre application peut utiliser toutes les fonctionnalités d’Application Insights. L[’exportation continue](app-insights-export-telemetry.md) et 
+
+le [connecteur Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) sont disponibles sans frais supplémentaires dans le plan Entreprise.
 * Vous payez pour chaque nœud qui envoie des données de télémétrie pour n'importe quelle application dans le plan Entreprise. 
  * Un *nœud* correspond à une machine serveur virtuelle ou physique ou à une instance de rôle Platform-as-a-Service qui héberge votre application.
  * Les ordinateurs de développement, les navigateurs clients et les appareils mobiles ne sont pas comptés comme nœuds.
  * Si votre application comporte plusieurs composants qui envoient des données de télémétrie, comme un service web et un Worker back-end, ces composants sont comptés séparément.
- * Les données des [Flux de métriques temps réel](app-insights-live-stream.md) ne sont pas comptabilisées dans la tarification.
-* Dans un abonnement, vos frais sont calculés par nœud, pas par application. Si vous avez cinq nœuds envoyant des données de télémétrie pour 12 applications, les frais sont calculés pour cinq nœuds.
+ * Les données [Flux de métriques en temps réel](app-insights-live-stream.md) ne sont pas comptabilisées dans la tarification.* Dans un abonnement, vos frais sont calculés par nœud et non par application. Si vous avez cinq nœuds envoyant des données de télémétrie pour 12 applications, les frais sont calculés pour cinq nœuds.
 * Bien que les frais indiqués soient par mois, vous êtes facturé uniquement pour toutes les heures dans lesquelles un nœud envoie des données de télémétrie à partir d’une application. Le tarif horaire est le prix mensuel indiqué / 744 (le nombre d’heures dans un mois de 31 jours).
 * Une allocation de volume de données de 200 Mo par jour est accordée pour chaque nœud détecté (avec une granularité par heure). L’allocation des données inutilisées n'est pas reportée d’un jour à l’autre.
  * Lorsque vous choisissez l’option de tarification Entreprise, chaque abonnement reçoit un volume quotidien de données selon le nombre de nœuds qui envoient des données de télémétrie aux ressources Application Insights dans cet abonnement. Par conséquent, si vous avez 5 nœuds qui envoient des données toute la journée, une allocation groupée de 1 Go est appliquée à toutes les ressources Application Insights dans cet abonnement. Le fait que certains nœuds envoient plus de données que d’autres a peu d'importance, car les données incluses sont partagées entre tous les nœuds. Si, un jour donné, les ressources d’Application Insights reçoivent plus de données que le volume quotidien alloué pour cet abonnement, les frais de données de dépassement par Go s’appliquent. 
@@ -79,9 +81,18 @@ Le plan De base est la valeur par défaut lorsqu’une ressource Application Ins
 Des frais supplémentaires sont facturés pour les [tests web à plusieurs étapes](app-insights-monitor-web-app-availability.md#multi-step-web-tests). Cela vaut pour les tests web qui exécutent une séquence d’actions. 
 
 Aucun frais supplémentaire n'est facturé pour les tests Ping sur une seule page. Les données de télémétrie des tests Ping et des tests à plusieurs étapes sont facturées, ainsi que d’autres données de télémétrie de votre application.
+ 
+## <a name="operations-management-suite-subscription-entitlement"></a>Droit d’abonnement à Operations Management Suite
 
-## <a name="review-pricing-plan-and-estimate-costs-for-your-application-insights-resource"></a>Utilisation du plan de tarification pour estimer les coûts de votre ressource Application Insights
-Ouvrez le panneau Fonctionnalités + Tarification dans la ressource Application Insights de votre application.
+Comme [annoncé récemment](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), les clients qui achètent Microsoft Operations Management Suite E1 et E2 peuvent d’obtenir gratuitement Application Insights Enterprise comme composant supplémentaire. Plus précisément, chaque unité Operations Management Suite E1 et E2 inclut un droit à 1 nœud du plan Entreprise d’Application Insights. Comme indiqué ci-dessus, chaque nœud Application Insights inclut l’intégration de 200 Mo de données maximum par jour (en plus de l’intégration des données Log Analytics), avec une période de rétention des données de 90 jours, sans coût supplémentaire. 
+
+> [!NOTE]
+> Pour pouvoir bénéficier de ce droit, vos ressources Application Insights doivent figurer dans le plan de tarification Entreprise. Ce droit s’applique uniquement sous forme de nœuds, et les ressources Application Insights du plan De base ne pourront donc pas en bénéficier. Notez que ce droit n’apparaîtra pas dans les coûts estimés affichés dans le panneau Fonctionnalités + tarification. 
+>
+ 
+## <a name="review-pricing-plans-and-estimate-costs"></a>Passer en revue les plans de tarification et estimer les coûts
+
+Application Insights permet de comprendre facilement les plans de tarification disponibles et d’estimer les coûts en fonction des modèles d’utilisation récents. Commencez par ouvrir le panneau **Fonctionnalités + tarification** dans la ressource Application Insights du portail Azure :
 
 ![Choisissez Tarification.](./media/app-insights-pricing/01-pricing.png)
 

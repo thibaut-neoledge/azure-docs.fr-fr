@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
-ms.openlocfilehash: 6766242bef4e6f976a621547941e8e34a4915c6c
+ms.translationtype: HT
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 6953166f21194f3cbcef3f260b3e7a50d5bf5460
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="extended-events-in-sql-database"></a>Événement étendus dans la base de données SQL
@@ -164,7 +163,7 @@ L’API [Suivi d’événements pour Windows](http://msdn.microsoft.com/library/
 
 Il existe certaines différences liées à la sécurité qui conviennent à l’environnement cloud de Base de données SQL :
 
-- Les événements étendus sont fondés sur le modèle d’isolement à client unique. Une session d’événements dans une base de données ne peut pas accéder aux données ou événements d’une autre base de données.
+- Les événements étendus sont fondés sur le modèle d’isolement à locataire unique. Une session d’événements dans une base de données ne peut pas accéder aux données ou événements d’une autre base de données.
 - Vous ne pouvez pas émettre une instruction **CREATE EVENT SESSION** dans le contexte de la base de données **master**.
 
 ## <a name="permission-model"></a>Modèle d’autorisation

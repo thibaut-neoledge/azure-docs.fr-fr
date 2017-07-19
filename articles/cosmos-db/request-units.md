@@ -2,7 +2,7 @@
 title: "Unités de requête et estimation du débit - Azure Cosmos DB | Microsoft Docs"
 description: "Découvrez les besoins en unités de requête dans Azure Cosmos DB, et comment les spécifier et les estimer."
 services: cosmos-db
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: syamk
+ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f263aaad1ba2a902401d8210727f146cb92f4ea8
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 95adddc01ee2814515c20f36e8503de30454a8f4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -28,9 +28,9 @@ Désormais disponible : [calculatrice d’unités de requête](https://www.docu
 ![Calculatrice de débit][5]
 
 ## <a name="introduction"></a>Introduction
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) est un service de base de données multimodèle mondialement distribué de Microsoft. Avec Azure Cosmos DB, il n’est pas nécessaire de louer des machines virtuelles, de déployer des logiciels ou de surveiller les bases de données. Azure Cosmos DB est utilisé et surveillé en continu par les excellents ingénieurs Microsoft afin d’offrir une disponibilité, des performances et une protection des données optimales. Vous pouvez accéder à vos données à l’aide des API de votre choix, sachant que les API [SQL DocumentDB](documentdb-sql-query.md) (document), MongoDB (document), [Stockage Table Azure](https://azure.microsoft.com/services/storage/tables/) (clé-valeur) et [Gremlin](https://tinkerpop.apache.org/gremlin.html) (graphique) sont toutes prises en charge de manière native. L’unité de mesure d’Azure Cosmos DB est l’unité de requête (RU). Avec RU, vous n’avez pas besoin de réserver de capacités en lecture et en écriture, ni de configurer les ressources de processeur, de mémoire et d’E/S par seconde.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) est un service de base de données multimodèle mondialement distribué de Microsoft. Avec Azure Cosmos DB, il n’est pas nécessaire de louer des machines virtuelles, de déployer des logiciels ou de surveiller les bases de données. Azure Cosmos DB est utilisé et surveillé en continu par les excellents ingénieurs Microsoft afin d’offrir une disponibilité, des performances et une protection des données optimales. Vous pouvez accéder à vos données à l’aide des API de votre choix, sachant que les API [SQL DocumentDB](documentdb-sql-query.md) (document), MongoDB (document), [Stockage Table Azure](https://azure.microsoft.com/services/storage/tables/) (clé-valeur) et [Gremlin](https://tinkerpop.apache.org/gremlin.html) (graphique) sont toutes prises en charge de manière native. L’unité de mesure d’Azure Cosmos DB est l’unité de requête (RU). Avec les unités de requête (RU), vous n’avez pas besoin de réserver de capacités en lecture et en écriture, ni de configurer les ressources de processeur, de mémoire et d’E/S par seconde.
 
-Azure Cosmos DB prend en charge un certain nombre d’API avec différentes opérations allant des lectures, des écritures aux requêtes graphiques complexes. Toutes les requêtes n’étant pas égales, la quantité normalisée **d’unités de requête** qui leur est affectée est fonction de la quantité de calcul requise pour traiter chaque requête. Le nombre d’unités de requête d’une opération est déterministe. Dans Azure Cosmos DB, vous pouvez suivre le nombre d’unités de requête consommées par une opération via un en-tête de réponse. 
+Azure Cosmos DB prend en charge un certain nombre d’API avec différentes opérations allant des lectures et des écritures simples aux requêtes de graphe complexes. Toutes les requêtes n’étant pas égales, la quantité normalisée **d’unités de requête** qui leur est affectée est fonction de la quantité de calcul requise pour traiter chaque requête. Le nombre d’unités de requête d’une opération est déterministe. Dans Azure Cosmos DB, vous pouvez suivre le nombre d’unités de requête consommées par une opération via un en-tête de réponse. 
 
 Pour fournir des performances prévisibles, vous devez réserver le débit par unité de 100 RU/seconde. Pour chaque bloc de 100 RU/seconde, vous pouvez attacher un bloc de 1 000 RU/minute. Combiner la configuration par seconde et par minute s’avère extrêmement puissant, car vous n’avez pas besoin d’effectuer une configuration pour les pics de charge et vous pouvez économiser jusqu’à 75 % de coûts par rapport à un service utilisant uniquement la configuration par seconde.
 
@@ -41,7 +41,7 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 * Comment estimer les besoins en unités de requête de mon application ?
 * Que se passe-t-il si je dépasse la capacité d’unités de requête pour une collection ?
 
-Azure Cosmos DB étant une base de données multimodèle, il est important de noter que nous allons faire référence à une collection/un document pour une API de document, à un graphique/nœud pour une API de graphique et à une table/entité pour une API de table. Tout au long de ce document, nous allons généraliser les concepts de conteneur/élément.
+Azure Cosmos DB étant une base de données multimodèle, il est important de noter que nous allons faire référence à une collection/un document pour une API de document, à un graphe/nœud pour une API Graph et à une table/entité pour une API de table. Tout au long de ce document, nous allons généraliser les concepts de conteneur/élément.
 
 ## <a name="request-units-and-request-charges"></a>Unités de requête et frais de requête
 Azure Cosmos DB offre des performances élevées et prévisibles en *réservant* des ressources pour répondre aux besoins de débit de votre application.  Étant donné que les schémas d’accès et de charge des applications changent au fil du temps, Azure Cosmos DB vous permet de facilement augmenter ou diminuer la quantité de débit réservé disponible pour votre application.

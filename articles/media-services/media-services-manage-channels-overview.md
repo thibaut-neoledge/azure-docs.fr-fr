@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: e4bb75b0a45dd922479cbd40ad94190c30b4333f
+ms.translationtype: HT
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 2b727a56f43a727807d4452eefa4229d4d90406e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 01/13/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services
@@ -68,7 +67,7 @@ Le tableau suivant fournit un guide de comparaison des deux types de canaux pris
 | Résolution maximale, nombre de couches |1080p, 8 couches, plus de 60 i/s |720p, 6 couches, 30 i/s |
 | Protocoles d’entrée |RTMP, Smooth Streaming |RTMP, Smooth Streaming et RTP |
 | Prix |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct » |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) |
-| Durée maximale |24 x&7; |8 heures |
+| Durée maximale |24 x 7 |8 heures |
 | Prise en charge de l’insertion d’ardoises |Non |OUI |
 | Prise en charge de la signalisation des annonces |Non |OUI |
 | Légendes CEA 608/708 pass-through |OUI |OUI |

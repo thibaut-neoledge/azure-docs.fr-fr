@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1aebecdaacd3525bec07a9359e52d2bc3d1539de
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: fc0fd0188261263aac550b0f0784076efc807215
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -52,9 +52,7 @@ Vous pouvez utiliser le service Azure Import/Export pour copier des données dan
 Pour lancer le processus d'importation ou d'exportation vers ou à partir d'un stockage d'objets blob, commencez par créer une tâche. Il peut s'agir d'une tâche d'importation ou d'une tâche d'exportation :
 
 * Une tâche d’importation vise à transférer des données locales vers des objets blob de votre compte de stockage Azure.
-* Une tâche d'exportation vise à transférer des données stockées sous forme d'objets blob dans votre compte de stockage sur des disques durs qui vous sont ensuite expédiés.
-
-Lorsque vous créez une tâche, vous avertissez le service Import/Export que vous allez expédier un ou plusieurs disques durs vers un centre de données Azure.
+* Créez une tâche d’exportation si vous souhaitez transférer les données actuellement stockées comme objets Blob dans votre compte de stockage vers des disques durs qui vous ont été livrés. Lorsque vous créez une tâche, vous informez le service d’importation/exportation que vous allez expédier un ou plusieurs disques durs à un centre de données Azure.
 
 * Dans le cas d’un travail d’importation, vous expédiez des disques durs contenant vos données.
 * Dans le cas d’un travail d’exportation, vous expédiez des disques durs vides.
@@ -69,7 +67,7 @@ Ces fichiers journaux stockent des informations sur votre travail et sur le disq
 
 L’outil WAImportExport est compatible uniquement avec le système d’exploitation Windows 64 bits. Pour connaître les versions de système d’exploitation prises en charge, consultez la section [Système d’exploitation](#operating-system) .
 
-Téléchargez la dernière version de l’[outil WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). Pour plus d’informations sur l’utilisation de l’outil WAImportExport, consultez la page [Using the WAImportExport Tool](storage-import-export-tool-how-to.md) (Utilisation de l’outil WAImportExport).
+Téléchargez la dernière version de l’[outil WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). Pour plus d’informations sur l’utilisation de l’outil WAImportExport, consultez la page [Using the WAImportExport Tool](storage-import-export-tool-how-to.md) (Utilisation de l’outil WAImportExport).
 
 >[!NOTE]
 >**Version précédente :** vous pouvez [télécharger la version v1 de l’outil WAImportExpot](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) et consulter le [guide d’utilisation de WAImportExport v1](storage-import-export-tool-how-to-v1.md). La version v1 de l’outil WAImportExpot ne prend pas en charge **la préparation des disques lorsque des données sont préalablement écrites sur ces derniers**. Vous devez également utiliser l’outil WAImportExpot v1 si la seule clé disponible est une clé SAS.
@@ -77,7 +75,7 @@ Téléchargez la dernière version de l’[outil WAImportExport](http://download
 >
 
 ### <a name="hard-disk-drives"></a>Disques durs
-Le service Import/Export ne prend en charge que les disques durs internes SSD de 2,5 pouces ou SATA II ou III de 2,5 ou 3,5 pouces. Une tâche d’importation/exportation peut avoir un maximum de 10 disques durs/SSD, et chaque disque dur/SSD peut avoir n’importe quelle taille. Il est possible de répartir un grand nombre de disques entre plusieurs tâches, et il n’existe aucune limite quant au nombre de tâches pouvant être créées. 
+Le service Import/Export ne prend en charge que les disques durs internes SSD de 2,5 pouces ou SATA II ou III de 2,5 ou 3,5 pouces. Une même tâche d’importation/exportation peut avoir un maximum de 10 disques durs/SSD (quelle que soit la taille de chaque disque). Il est possible de répartir un grand nombre de disques entre plusieurs tâches, et il n’existe aucune limite quant au nombre de tâches pouvant être créées. 
 
 Dans le cas des tâches d'importation, seul le premier volume de données du lecteur est traité. Il doit être formaté avec NTFS.
 
@@ -85,6 +83,8 @@ Dans le cas des tâches d'importation, seul le premier volume de données du lec
 > Les disques durs externes équipés d’un adaptateur USB intégré ne sont pas pris en charge par ce service. En outre, le disque se trouvant à l’intérieur du boîtier d’un disque dur externe est inutilisable ; vous ne devez donc pas envoyer de disques durs externes.
 > 
 > 
+
+Vous trouverez ci-dessous la liste des adaptateurs USB externes utilisés pour copier les données vers des disques durs internes. Anker 68UPSATAA-02BU Anker 68UPSHHDS-BU Startech SATADOCK22UE Orico 6628SUS3-C-BK (6628 Series) Thermaltake BlacX Hot-Swap SATA External Hard Drive Docking Station (USB 2.0 & eSATA)
 
 ### <a name="encryption"></a>Chiffrement
 Les données contenues dans le disque dur doivent être chiffrées à l’aide du chiffrement de lecteur BitLocker. Cette opération permet de protéger vos données pendant qu'elles sont en transit.
@@ -264,8 +264,8 @@ Lors de l’importation des données à l’aide du service Azure Import/Export,
 1. Identifiez les données à importer. Il peut s’agir de répertoires et de fichiers autonomes sur le serveur local ou sur un partage de réseau.  
 2. Déterminez le nombre de disques nécessaires en fonction de la taille totale des données. Procurez-vous le nombre requis de disques durs SSD de 2,5 pouces ou SATA II ou III de 2,5 ou 3,5 pouces.
 3. Identifiez le compte de stockage cible, le conteneur, les répertoires virtuels et les objets blob.
-4.    Déterminez les répertoires et/ou les fichiers à copier sur chaque disque dur.
-5.    Créez les fichiers CSV du jeu de données et du jeu de disques.
+4.  Déterminez les répertoires et/ou les fichiers à copier sur chaque disque dur.
+5.  Créez les fichiers CSV du jeu de données et du jeu de disques.
     
     **Fichier CSV du jeu de données**
     
@@ -299,8 +299,8 @@ Lors de l’importation des données à l’aide du service Azure Import/Export,
 
     Vous trouverez plus d’informations sur la [préparation du fichier CSV du jeu de disques ici](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6.    Utilisez l’outil [WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) pour copier vos données sur un ou plusieurs disques durs.
-7.    Vous pouvez spécifier « Encrypt » pour le champ Encryption dans le fichier CSV du jeu de disques afin d’activer le chiffrement BitLocker sur le disque dur. Vous pouvez également activer le chiffrement BitLocker manuellement sur le disque dur, spécifier « AlreadyEncrypted » pour ce même champ et fournir la clé dans le fichier CSV du jeu de disques lors de l’exécution de l’outil.
+6.  Utilisez l’outil [WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) pour copier vos données sur un ou plusieurs disques durs.
+7.  Vous pouvez spécifier « Encrypt » pour le champ Encryption dans le fichier CSV du jeu de disques afin d’activer le chiffrement BitLocker sur le disque dur. Vous pouvez également activer le chiffrement BitLocker manuellement sur le disque dur, spécifier « AlreadyEncrypted » pour ce même champ et fournir la clé dans le fichier CSV du jeu de disques lors de l’exécution de l’outil.
 
 8. Ne modifiez ni les données ni le fichier journal après la préparation du disque.
 
@@ -471,9 +471,11 @@ Non. Tous les disques sont chiffrés avec BitLocker.
 
 Non. Vous devez expédier vos propres lecteurs, aussi bien pour les tâches d'importation que pour les tâches d'exportation.
 
+** Comment puis-je accéder aux données importées par ce service ** Les données de votre compte Azure Storage sont accessibles via le portail Azure ou à l’aide d’un outil autonome appelé Explorateur de stockage. https://docs.Microsoft.com/fr-fr/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+
 **Une fois la tâche d’importation terminée, à quoi mes données ressembleront-elles dans le compte de stockage ? Mon arborescence sera-t-elle préservée ?**
 
-Lorsque vous préparez un disque dur pour une tâche d’importation, la destination est spécifiée par le champ DstBlobPathOrPrefix du fichier CSV du jeu de données. Il s’agit du conteneur cible dans le compte de stockage dans lequel les données du disque dur sont copiées. Dans ce conteneur cible, des répertoires virtuels sont créés pour les dossiers du disque dur et des objets blob sont créés pour les fichiers.
+Lorsque vous préparez un disque dur pour une tâche d’importation, la destination est spécifiée par le champ DstBlobPathOrPrefix du fichier CSV du jeu de données. Il s’agit du conteneur cible dans le compte de stockage dans lequel les données du disque dur sont copiées. Dans ce conteneur cible, des répertoires virtuels sont créés pour les dossiers du disque dur et des objets blob sont créés pour les fichiers. 
 
 **Si le disque contient des fichiers déjà existants dans mon compte de stockage, le service va-t-il remplacer les objets blob dans mon compte de stockage ?**
 
@@ -498,9 +500,9 @@ Notez que le support physique que vous expédiez devra peut-être franchir des f
 
 Certains emplacements de compte de stockage sont associés à d’autres emplacements d’expédition. Les emplacements d’expédition auparavant disponibles peuvent être temporairement associés à d’autres emplacements. Vérifiez toujours l’adresse d’expédition fournie lors de la création du travail avant d’expédier vos disques.
 
-**Lors de l’expédition de mon disque, l’opérateur me demande le nom du contact et le numéro de téléphone du centre de données. Que dois-je indiquer ?**
+**Lors de l’expédition de mon disque, le transporteur me demande l’adresse et le numéro de téléphone du centre de données. Que dois-je indiquer ?**
 
-Le numéro de téléphone vous est fourni lors de la création du travail. Si vous avez besoin du nom d’un contact, contactez-nous au waimportexport@microsoft.com et nous vous fournirons ces informations.
+Le numéro de téléphone et l’adresse du centre de données sont fournis dans le cadre de la création de la tâche.
 
 **Puis-je utiliser le service Azure Import/Export pour copier des boîtes aux lettres PST et des données SharePoint vers O365 ?**
 
@@ -510,11 +512,11 @@ Consultez la rubrique [Importer des fichiers PST ou des données SharePoint dans
 
 Consultez la rubrique [Flux de travail de la sauvegarde hors connexion dans Azure Backup](../backup/backup-azure-backup-import-export.md).
 
-** Quel est le nombre maximum de disques durs par livraison ?
+**Quel est le nombre maximal de disques durs par livraison ?**
 
 Une livraison peut contenir n’importe quel nombre de disques durs et, si les disques appartiennent à plusieurs tâches, il est recommandé : a) d’indiquer les noms de tâche correspondants sur les disques. b) de mettre à jour les tâches avec un numéro de suivi se terminant par -1, -2, etc.
   
-** Quel est la taille maximale des objets blob de pages et de blocs pris en charge par le service Import/Export de disques ?
+**Quelle est la taille maximale des objets blob de blocs et objets blob de pages prise en charge pour chaque importation/exportation de disque ?**
 
 La taille maximale des objets blob de blocs est d’environ 4,768 To ou 5 000 000 Mo.
 La taille maximale des objets blob de pages est de 1 To.

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 07/05/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 867cc69e18e5b31f707c1942e7aa1b691403e3e0
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 7166c4428398015c0570b048dff0005b5061eadb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -79,14 +79,14 @@ La fonction de groupes de basculement automatique fournit une abstraction puissa
 * **Groupe de basculement** : un ou plusieurs groupes de basculement peuvent être créés entre deux serveurs situés dans des régions différentes (serveurs primaire et secondaire). Chaque groupe peut inclure une ou plusieurs bases de données qui sont récupérées ensemble dans le cas où une partie ou la totalité des bases de données primaires deviennent indisponibles en raison d’une panne dans la région principale.  
 * **Serveur principal** : un serveur qui héberge les bases de données primaires dans le groupe de basculement.
 * **Serveur secondaire** : un serveur qui héberge les bases de données secondaires dans le groupe de basculement. Le serveur secondaire ne peut pas être situé dans la même région que le serveur principal.
-* **Ajout de bases de données au groupe de basculement** : vous pouvez placer plusieurs bases de données d’un serveur ou d’un pool élastique dans le même groupe de basculement. Si vous ajoutez une base de données autonome au groupe, il crée automatiquement une base de données secondaire en utilisant la même édition et le même niveau de performances. Si la base de données primaire se trouve dans un pool élastique, la base de données secondaire est automatiquement créée dans le pool élastique avec le même nom. Si vous ajoutez une base de données qui présente déjà une base de données secondaire dans le serveur secondaire, cette géo-réplication est héritée par le groupe.
+* **Ajout de bases de données au groupe de basculement** : vous pouvez placer plusieurs bases de données d’un serveur ou d’un pool élastique dans le même groupe de basculement. Si vous ajoutez une base de données autonome au groupe, ce groupe crée automatiquement une base de données secondaire en utilisant la même édition et le niveau de performance. Si la base de données primaire se trouve dans un pool élastique, la base de données secondaire est automatiquement créée dans le pool élastique avec le même nom. Si vous ajoutez une base de données qui présente déjà une base de données secondaire dans le serveur secondaire, cette géo-réplication est héritée par le groupe.
 
    > [!NOTE]
    > Lors de l’ajout d’une base de données qui présente déjà une base de données secondaire sur un serveur qui ne fait pas partie du groupe de basculement, une nouvelle base de données secondaire est créée sur le serveur secondaire. 
    >
 
 * **Écouteur de lecture-écriture de groupe de basculement** : enregistrement DNS CNAME qui pointe vers l’URL du serveur primaire actuel. Il permet aux applications SQL en lecture-écriture de se reconnecter en toute transparence à la base de données primaire lorsqu’elle est modifiée après le basculement. 
-* **Écouteur de lecture seule de groupe de basculement** : enregistrement DNS CNAME qui pointe vers l’URL du serveur secondaire actuel. Il permet aux applications SQL en lecture seule de se connecter en toute transparence à la base de données secondaire à l’aide des règles d’équilibrage de charge spécifiées. Si vous le souhaitez, vous pouvez choisir de rediriger automatiquement le trafic en lecture seule vers le serveur primaire lorsque le serveur secondaire n’est pas disponible.
+* **Écouteur en lecture seule du groupe de basculement** : enregistrement DNS CNAME qui pointe vers l’URL du serveur secondaire. Il permet aux applications SQL en lecture seule de se connecter en toute transparence à la base de données secondaire à l’aide des règles d’équilibrage de charge spécifiées. Si vous le souhaitez, vous pouvez choisir de rediriger automatiquement le trafic en lecture seule vers le serveur primaire lorsque le serveur secondaire n’est pas disponible.
 * **Stratégie de basculement automatique** : par défaut, le groupe de basculement est configuré avec une stratégie de basculement automatique. Le système déclenche le basculement dès qu’une défaillance est détectée. Si vous souhaitez contrôler le flux de travail de basculement à partir de l’application, vous pouvez désactiver le basculement automatique. 
 * **Basculement manuel** : vous pouvez initialiser manuellement le basculement à tout moment, peu importe la configuration de basculement automatique. Si la stratégie de basculement automatique n’est pas configurée, un basculement manuel est nécessaire pour récupérer les bases de données dans le groupe de basculement. Vous pouvez lancer un basculement forcé ou convivial (avec synchronisation complète des données). Ce dernier peut être utilisé pour relocaliser le serveur actif dans la région primaire. Une fois le basculement terminé, les enregistrements DNS sont automatiquement mis à jour pour garantir la connexion au serveur approprié.
 * **Période de grâce en cas de risque de perte de données** : étant donné que les bases de données primaires et secondaires sont synchronisées à l’aide de la réplication asynchrone, le basculement peut entraîner une perte de données. Vous pouvez personnaliser la stratégie de basculement automatique en fonction de la tolérance de votre application aux pertes de données. En configurant la commande **GracePeriodWithDataLossHours**, vous pouvez contrôler le délai observé par le système avant d’initialiser le basculement qui est susceptible d’entraîner une perte de données. 
@@ -125,11 +125,10 @@ En raison de la latence élevée des réseaux étendus, la copie continue utilis
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestion de la géo-réplication active par programmation
 Comme indiqué précédemment, les groupes de basculement automatique (en préversion) et la géo-réplication active peuvent aussi être gérés par programmation à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles.
 
-**API Azure Resource Manager et sécurité basée sur les rôles** : la géo-réplication active comprend un ensemble [d’API Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) pour la gestion, dont des [applets de commande PowerShell basées sur Azure Resource Manager](scripts/sql-database-setup-geodr-and-failover-database-powershell.md). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
+**API Azure Resource Manager et sécurité basée sur les rôles** : la géoréplication active comprend un ensemble d’API Azure Resource Manager pour la gestion, notamment l[’API REST Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) et les [applets de commande Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-what-is.md).
 
 > [!NOTE]
 > Parmi les nouvelles fonctionnalités de géo-réplication active, plusieurs sont uniquement prises en charge avec [l’API REST de SQL Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) et les [applets de commande PowerShell d’Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084.aspx), basées sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). L’[API REST (classique)](https://msdn.microsoft.com/library/azure/dn505719.aspx) et les [applets de commande Azure SQL Database (classique)](https://msdn.microsoft.com/library/azure/dn546723.aspx) sont prises en charge à des fins de compatibilité descendante. L’utilisation des API basées sur Azure Resource Manager est donc recommandée. 
-> 
 > 
 
 ### <a name="transact-sql"></a>Transact-SQL
@@ -147,39 +146,49 @@ Comme indiqué précédemment, les groupes de basculement automatique (en préve
 ### <a name="powershell"></a>PowerShell
 | Applet de commande | Description |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase?view=azurermps-3.7.0) |Obtient une ou plusieurs bases de données. |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Crée une base de données secondaire pour une base de données existante puis lance la réplication des données. |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Bascule d’une base de données secondaire à une base de données principale afin de lancer le basculement. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Met fin à une réplication de données entre une base de données SQL et la base de données secondaire spécifiée. |
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink?view=azurermps-3.7.0) |Obtient les liens de géo-réplication entre une base de données SQL Azure et un groupe de ressources ou SQL Server. |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) |    Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Supprime le groupe de basculement du serveur et efface toutes les bases de données secondaires incluses dans le groupe. |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Récupère la configuration du groupe de basculement. |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) |    Modifie la configuration du groupe de basculement. |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Déclenche le basculement du groupe de basculement vers le serveur secondaire. |
+| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtient une ou plusieurs bases de données. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Crée une base de données secondaire pour une base de données existante puis lance la réplication des données. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Bascule d’une base de données secondaire à une base de données principale afin de lancer le basculement. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Met fin à une réplication de données entre une base de données SQL et la base de données secondaire spécifiée. |
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Obtient les liens de géo-réplication entre une base de données SQL Azure et un groupe de ressources ou SQL Server. |
+| [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
+| [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Supprime le groupe de basculement du serveur et efface toutes les bases de données secondaires incluses dans le groupe. |
+| [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Récupère la configuration du groupe de basculement. |
+| [Set-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Modifie la configuration du groupe de basculement. |
+| [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Déclenche le basculement du groupe de basculement vers le serveur secondaire. |
 |  | |
+
+> [!IMPORTANT]
+> Pour plus d’exemples de scripts, consultez [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md), et [Configurer et basculer un groupe de basculement pour une base de données unique (préversion)] (scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md.
+>
 
 ### <a name="rest-api"></a>API REST
 | API | Description |
 | --- | --- |
 | [.Créer ou mettre à jour la base de données (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Crée, met à jour ou restaure une base de données principale ou secondaire. |
-| [Créer ou mettre à jour l’état de la base de données](https://docs.microsoft.com/rest/api/sql/databases#Databases) |Retourne l’état durant une opération de création. |
-| [Définir la base de données secondaire comme principale (basculement planifié)](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLink) |Promouvoir une base de données secondaire dans un partenariat de géo-réplication pour devenir la nouvelle base de données primaire. |
-| [Définir la base de données secondaire comme principale (basculement non planifié)](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Pour forcer un basculement vers la base de données secondaire et définir la base de données secondaire comme base de données principale. |
-| [Obtenir des liens de réplication](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_ListReplicationLinks) |Obtient tous les liens de réplication pour une base de données SQL donnée dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
-| [Obtenir un lien de réplication](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_GetReplicationLink) |Obtient un liens de réplication spécifique pour une base de données SQL particulière dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
-| [Create failover group](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) (Créer un groupe de basculement) | Crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire |
-| [Remove Failover Group](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) (Supprimer un groupe de basculement) | Supprime un groupe de basculement du serveur |
-| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/databases#Databases) (Obtenir un groupe de basculement) | Récupère la configuration du groupe de basculement. |
-| [Set Failover Group](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) (Configurer un groupe de basculement) | Modifie la configuration du groupe de basculement. |
-| [Type de basculement](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) | Déclenche le basculement du groupe de basculement vers le serveur secondaire. |
+| [Créer ou mettre à jour l’état de la base de données](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Retourne l’état durant une opération de création. |
+| [Définir la base de données secondaire comme principale (basculement planifié)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLink) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. |
+| [Définir la base de données secondaire comme principale (basculement non planifié)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. Cette opération peut entraîner une perte de données. |
+| [Obtenir un lien de réplication](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Obtient un liens de réplication spécifique pour une base de données SQL particulière dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
+| [Répertorier les liens de réplication](https://docs.microsoft.com/en-us/rest/api/sql/databases%20-%20replicationlinks#Databases_GetReplicationLink) | Obtient tous les liens de réplication pour une base de données SQL donnée dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
+| [Supprimer un lien de réplication](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_DeleteReplicationLink) | Supprime un lien de réplication de base de données. Opération impossible pendant le basculement. |
+| [Créer ou mettre à jour un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_CreateOrUpdate) | Crée ou met à jour un groupe de basculement |
+| [Supprimer un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Delete) | Supprime un groupe de basculement du serveur |
+| [Basculement (planifié)](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Failover) | Bascule du serveur principal actuel vers ce serveur. |
+| [Forcer le basculement et autoriser la perte de données](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ForceFailoverAllowDataLoss) |Bascule du serveur principal actuel vers ce serveur. Cette opération peut entraîner une perte de données. |
+| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Get) (Obtenir un groupe de basculement) | Obtient un groupe de basculement. |
+| [Répertorier les groupes de basculement par serveur](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ListByServer) | Répertorie les groupes de basculement d’un serveur. |
+| [Mettre à jour un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Update) | Met à jour un groupe de basculement. |
 |  | |
 
 ## <a name="next-steps"></a>Étapes suivantes
+* Pour obtenir des exemples de scripts, consultez :
+   - [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+   - [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+   - [Configurer et basculer un groupe de basculement pour une base de données unique (préversion)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 * Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md).
-* Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour l’archivage, consultez [Copie de base de données](sql-database-copy.md).
 * Pour en savoir plus sur les exigences d’authentification pour de nouveaux serveurs et bases de données primaires, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
 
 
