@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 4d7704c03bece51957efa2a56577b8808cc62c79
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Problèmes d’accès aux ressources sur un appareil Windows

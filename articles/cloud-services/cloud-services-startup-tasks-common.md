@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3219df0e45d516ea332725b3e1955026cc1db231
 ms.openlocfilehash: 88fb93b8f3e196121b635d5ce7a21bf8f8c46be5
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/05/2017
 
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tâches courantes de démarrage dans le service cloud
@@ -517,9 +518,4 @@ En savoir plus sur le fonctionnement des [tâches](cloud-services-startup-tasks.
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

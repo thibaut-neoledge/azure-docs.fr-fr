@@ -20,7 +20,6 @@ ms.openlocfilehash: 7a68a2764d17b53164ded5096ddee68ab8c723ed
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Création d’un IoT Hub à l’aide du portail Azure
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -42,6 +41,8 @@ Vous pouvez créer un hub IoT à l'aide des méthodes suivantes :
 
 ### <a name="choose-the-name-of-the-iot-hub"></a>Choisir le nom du hub IoT
 Pour créer un IoT Hub, vous devez le nommer. Le nom doit être unique parmi les IoT Hubs. Aucune duplication de hubs n’est autorisée sur le serveur principal et il est donc recommandé de nommer ce hub de la façon la plus unique possible.
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 ### <a name="choose-the-pricing-tier"></a>Choisir le niveau tarifaire.
 Vous pouvez choisir entre quatre niveaux : **Gratuit**, **Standard S1**, **Standard S2** et**Standard S3**. Le niveau gratuit permet la connexion de seulement 500 appareils au IoT Hub, avec jusqu’à 8 000 messages par jour.

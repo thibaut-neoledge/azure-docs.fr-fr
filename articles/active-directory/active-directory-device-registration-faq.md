@@ -13,17 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 91a4e54b3dd2e1f44a6b52c548a243ae98e3ba3f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
-<a id="azure-active-directory-automatic-device-registration-faq" class="xliff"></a>
-
-# FAQ sur l’inscription d’appareils automatique Azure Active Directory
+# <a name="azure-active-directory-automatic-device-registration-faq"></a>FAQ sur l’inscription d’appareils automatique Azure Active Directory
 
 **Q : J’ai enregistré récemment l’appareil. Pourquoi ne puis-je pas voir l’appareil sous mes informations d’utilisateur dans le portail Azure ?**
 

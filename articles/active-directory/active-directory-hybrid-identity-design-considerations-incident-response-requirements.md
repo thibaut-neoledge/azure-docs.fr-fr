@@ -1,6 +1,6 @@
 ---
 title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences de réponse aux incidents | Microsoft Docs"
-description: "Déterminer les fonctionnalités de surveillance et de création de rapports pour la solution d&quot;identité hybride pouvant être exploitées par les services informatiques pour prendre des mesures permettant d&quot;identifier et d&quot;atténuer les menaces."
+description: "Déterminer les fonctionnalités de surveillance et de création de rapports pour la solution d'identité hybride pouvant être exploitées par les services informatiques pour prendre des mesures permettant d'identifier et d'atténuer les menaces."
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: bc8e3b76aad18e8d7a73de8bc12e6527e415035d
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/11/2017
 
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Déterminer les exigences de réponse aux incidents pour votre solution d'identité hybride
@@ -65,10 +66,5 @@ Pendant la phase de réduction des risques et de contrôle des dommages, il est 
 
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

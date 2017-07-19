@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e81ef1d182108114305291273227ce2ac4dacf3f
@@ -21,9 +22,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 12/28/2016
 
 ---
-<a id="sign-in-experiences-with-azure-ad-identity-protection" class="xliff"></a>
-
-# Expériences de connexion avec Azure AD Identity Protection
+# <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Expériences de connexion avec Azure AD Identity Protection
 Avec Azure Active Directory Identity Protection, vous pouvez :
 
 * exiger que les utilisateurs s’inscrivent à l’authentification multifacteur
@@ -48,9 +47,7 @@ Cette rubrique donne une vue d’ensemble de l’expérience de connexion d’un
 * Récupération de compte compromis
 * Compte compromis bloqué
 
-<a id="multi-factor-authentication-registration" class="xliff"></a>
-
-## Inscription à l’authentification multifacteur
+## <a name="multi-factor-authentication-registration"></a>Inscription à l’authentification multifacteur
 L’utilisateur bénéficie d’une expérience optimale pour le flux de récupération de compte compromis et de connexion à risque lorsqu’il peut effectuer lui-même l’opération de récupération. Si des utilisateurs sont inscrits à l’authentification multifacteur, ils ont déjà un numéro de téléphone associé à leur compte qu’ils peuvent utiliser pour répondre aux questions de sécurité. La récupération d’un compte suite à sa compromission ne nécessite pas l’intervention du support technique ou d’un administrateur. Par conséquent, nous vous recommandons vivement de demander à vos utilisateurs de s’inscrire à l’authentification multifacteur. 
 
 Les administrateurs peuvent :
@@ -70,9 +67,7 @@ Les administrateurs peuvent :
    
     ![Correction](./media/active-directory-identityprotection-flows/142.png "Correction")
 
-<a id="risky-sign-in-recovery" class="xliff"></a>
-
-## Récupération de connexion à risque
+## <a name="risky-sign-in-recovery"></a>Récupération de connexion à risque
 Lorsqu’un administrateur a configuré une stratégie pour les risques à la connexion, les utilisateurs affectés sont avertis quand ils tentent de se connecter. 
 
 **Le flux de connexion à risque comporte deux étapes :** 
@@ -84,16 +79,12 @@ Lorsqu’un administrateur a configuré une stratégie pour les risques à la co
    
     ![Correction](./media/active-directory-identityprotection-flows/121.png "Correction")
 
-<a id="risky-sign-in-blocked" class="xliff"></a>
-
-## Connexion à risque bloquée
+## <a name="risky-sign-in-blocked"></a>Connexion à risque bloquée
 Les administrateurs peuvent également choisir de définir une stratégie en matière de risque à la connexion pour bloquer les utilisateurs lors de la connexion selon le niveau de risque. Pour débloquer leur accès, les utilisateurs finaux doivent contacter un administrateur ou leur support technique, ou ils peuvent essayer de se connecter depuis un emplacement ou un appareil connu. Il n’a pas la possibilité de récupérer lui-même son compte en résolvant l’authentification multifacteur dans ce cas précis.
 
 ![Correction](./media/active-directory-identityprotection-flows/200.png "Correction")
 
-<a id="compromised-account-recovery" class="xliff"></a>
-
-## Récupération de compte compromis
+## <a name="compromised-account-recovery"></a>Récupération de compte compromis
 Lorsqu’une stratégie de sécurité en matière de risque des utilisateurs a été configurée, les utilisateurs dont le niveau de risque correspond à celui spécifié dans la stratégie (et qui sont donc considérés comme compromis) doivent passer par le flux de récupération de compte compromis avant de pouvoir se connecter. 
 
 **Le flux de récupération de compte compromis comporte trois étapes :**
@@ -109,23 +100,17 @@ Lorsqu’une stratégie de sécurité en matière de risque des utilisateurs a �
    
    ![Correction](./media/active-directory-identityprotection-flows/111.png "Correction")
 
-<a id="compromised-account-blocked" class="xliff"></a>
-
-## Compte compromis bloqué
+## <a name="compromised-account-blocked"></a>Compte compromis bloqué
 Pour débloquer un compte bloqué par une stratégie de sécurité en matière de risque des utilisateurs, l’utilisateur doit contacter un administrateur ou son support technique. Il n’a pas la possibilité de récupérer lui-même son compte en résolvant l’authentification multifacteur dans ce cas précis.
 
 ![Correction](./media/active-directory-identityprotection-flows/104.png "Correction")
 
-<a id="reset-password" class="xliff"></a>
-
-## Réinitialiser le mot de passe
+## <a name="reset-password"></a>Réinitialiser le mot de passe
 Si des utilisateurs compromis voient leur connexion bloquée, un administrateur peut générer un mot de passe temporaire pour eux. Les utilisateurs devront changer leur mot de passe la prochaine fois qu’ils se connecteront.
 
 ![Correction](./media/active-directory-identityprotection-flows/160.png "Correction")
 
-<a id="see-also" class="xliff"></a>
-
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
 

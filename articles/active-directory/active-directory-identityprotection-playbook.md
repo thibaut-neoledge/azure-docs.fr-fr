@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
 ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
@@ -21,17 +22,13 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 12/28/2016
 
 ---
-<a id="azure-active-directory-identity-protection-playbook" class="xliff"></a>
-
-# Manuel d’Azure Active Directory Identity Protection
+# <a name="azure-active-directory-identity-protection-playbook"></a>Manuel d’Azure Active Directory Identity Protection
 Ce manuel vous aide à :
 
 * Remplir les données dans l’environnement d’Identity Protection en simulant par des vulnérabilités et des événements à risque
 * Définir des stratégies d’accès conditionnel en fonction des risques et tester l’impact de ces stratégies
 
-<a id="simulating-risk-events" class="xliff"></a>
-
-## Simulation des événements à risque
+## <a name="simulating-risk-events"></a>Simulation des événements à risque
 Cette section vous fournit les étapes requises pour simuler des types d’événements à risque suivants (le niveau de difficulté est indiqué entre parenthèses) :
 
 * Connexions depuis des adresses IP anonymes (facile)
@@ -40,9 +37,7 @@ Cette section vous fournit les étapes requises pour simuler des types d’évé
 
 Les autres événements à risque ne peuvent pas être simulés de manière sécurisée.
 
-<a id="sign-ins-from-anonymous-ip-addresses" class="xliff"></a>
-
-### Connexions depuis des adresses IP anonymes
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>Connexions depuis des adresses IP anonymes
 Ce type d’événement à risque signale les utilisateurs qui se sont connectés depuis une adresse IP ayant été identifiée comme l’adresse IP d’un proxy anonyme. Ces proxys sont utilisés par des individus souhaitant masquer l’adresse IP de leur appareil et peuvent être utilisés dans un but malveillant.
 
 **Pour simuler une connexion depuis une adresse IP anonyme, procédez comme suit**:
@@ -53,9 +48,7 @@ Ce type d’événement à risque signale les utilisateurs qui se sont connecté
 
 La connexion s’affiche dans le tableau de bord d’Identity Protection dans un délai de 5 minutes. 
 
-<a id="sign-ins-from-unfamiliar-locations" class="xliff"></a>
-
-### Connexions depuis des emplacements non connus
+### <a name="sign-ins-from-unfamiliar-locations"></a>Connexions depuis des emplacements non connus
 Le risque lié aux emplacements non connus est déterminé à l’aide d’un mécanisme d’évaluation de connexion en temps réel qui prend en compte les emplacements de connexion passés (IP, latitude/longitude et NSA) pour déterminer les emplacements non connus/nouveaux. Le système stocke les adresses IP, la latitude/longitude et les NSA précédents d’un utilisateur et considère ces emplacements comme connus. Un emplacement de connexion est considéré comme non connu si l’emplacement de connexion ne correspond à aucun emplacement connu existant.
 
 Azure Active Directory Identity Protection :  
@@ -76,9 +69,7 @@ Pour simuler des emplacements non connus, vous devez vous connecter depuis un em
 
 La connexion s’affiche dans le tableau de bord d’Identity Protection dans un délai de 5 minutes.
 
-<a id="impossible-travel-to-atypical-location" class="xliff"></a>
-
-### Voyage impossible vers des emplacements inhabituels
+### <a name="impossible-travel-to-atypical-location"></a>Voyage impossible vers des emplacements inhabituels
 La simulation de la condition de voyage impossible est difficile, car l’algorithme utilise l’apprentissage automatique pour éliminer les faux positifs, tels que le voyage impossible depuis des appareils connus ou les connexions depuis des VPN utilisés par d’autres utilisateurs du répertoire. De plus, l’algorithme requiert un historique de connexion de 3 à 14 jours pour l’utilisateur avant de commencer à générer des événements à risque.
 
 **Pour simuler un voyage impossible vers des emplacements inhabituels, procédez comme suit**:
@@ -92,18 +83,14 @@ La simulation de la condition de voyage impossible est difficile, car l’algori
 La connexion s’affiche dans le tableau de bord d’Identity Protection dans un délai de 2 à 4 heures.<br>
 En raison des modèles d’apprentissage automatique complexes impliqués, il se peut qu’elle ne soit pas détectée.<br>  Il peut être judicieux de répéter ces étapes pour plusieurs comptes Azure AD.
 
-<a id="simulating-vulnerabilities" class="xliff"></a>
-
-## Simulation de vulnérabilités
+## <a name="simulating-vulnerabilities"></a>Simulation de vulnérabilités
 Les vulnérabilités sont des points faibles exploitables par une personne malveillante au sein de votre environnement Azure AD. Actuellement, Azure AD Identity Protection présente trois types de vulnérabilités tirant parti d’autres fonctionnalités d’Azure AD. Ces vulnérabilités s’affichent automatiquement dans le tableau de bord d’Identity Protection dès lors que ces fonctionnalités sont configurées.
 
 * Azure AD [Multi-Factor Authentication ?](../multi-factor-authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
-<a id="user-compromise-risk" class="xliff"></a>
-
-## Risque de compromission de l’utilisateur
+## <a name="user-compromise-risk"></a>Risque de compromission de l’utilisateur
 **Pour tester le risque de compromission de l’utilisateur, procédez comme suit**:
 
 1. Connectez-vous à [https://portal.azure.com](https://portal.azure.com) à l’aide des informations d’identification d’administrateur général pour votre client.
@@ -126,9 +113,7 @@ Les vulnérabilités sont des points faibles exploitables par une personne malve
     ![Manuel](./media/active-directory-identityprotection-playbook/201.png "Playbook")
     <br>
 
-<a id="sign-in-risk" class="xliff"></a>
-
-## Risque à la connexion
+## <a name="sign-in-risk"></a>Risque à la connexion
 **Pour tester le risque à la connexion, procédez comme suit :**
 
 1. Connectez-vous à [https://portal.azure.com ](https://portal.azure.com) à l’aide des informations d’identification d’administrateur général pour votre client.
@@ -150,9 +135,7 @@ Les vulnérabilités sont des points faibles exploitables par une personne malve
 ![Manuel](./media/active-directory-identityprotection-playbook/200.png "Manuel")
 
 
-<a id="see-also" class="xliff"></a>
-
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
