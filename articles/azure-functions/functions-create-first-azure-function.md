@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 06/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: f00ca3b8a35c0c49277457bd42fe8a314520d5a5
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 01b23996a9cd3a8368a78085dec905d020612b48
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Créer votre première fonction à l’aide du Portail Azure
@@ -64,7 +63,7 @@ Une fonction est créée dans le langage que vous avez choisi à l’aide du mod
 
     ![Copier l’URL de fonction à partir du portail Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Collez l’URL de la demande HTTP dans la barre d’adresses de votre navigateur. Ajoutez la chaîne de requête `&name=<yourname>` à cette URL et exécutez la demande. La capture d’écran suivante du navigateur montre la réponse renvoyée par la fonction suite à la demande GET :
+2. Collez l’URL de fonction dans la barre d’adresse de votre navigateur. Ajoutez la chaîne de requête `&name=<yourname>` à cette URL et appuyez sur la touche `Enter` de votre clavier pour exécuter la requête. Voici un exemple de la réponse retournée par la fonction dans le navigateur Edge :
 
     ![Réponse de la fonction dans le navigateur.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 

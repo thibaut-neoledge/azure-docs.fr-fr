@@ -6,22 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 5a338029cea5f448fc4d84a1a9c01c867ecd5028
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 52f89520fef8fc9ddb6e8e10a59ec35600affb2a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="quick-start-azure-ad-self-service-password-reset"></a>Démarrage rapide : Réinitialisation de mot de passe en libre-service Azure AD
@@ -47,8 +46,8 @@ Ce guide part du principe que vous avez déjà une version d’essai opérationn
         * **Téléphone de bureau** appelle l’utilisateur avec un code sur son numéro de téléphone configuré
         * **Questions de sécurité** nécessite que vous choisissiez les paramètres suivants :
             * Nombre de questions requises pour l’inscription désigne la valeur minimale pour une inscription réussie : un utilisateur peut choisir de répondre à davantage de questions afin de créer un pool de questions à partir desquelles extraire du contenu. Ce nombre doit être compris entre 3 et 5, et il doit être supérieur ou égal au nombre de questions requises pour la réinitialisation.
-            * L’option Nombre de questions requises pour la réinitialisation peut indiquer de 3 à 5 questions auxquelles il faut répondre correctement avant que la réinitialisation et le déverrouillage des mots de passe utilisateur ne soient autorisés.
                 * Vous pouvez ajouter des questions personnalisées en cliquant sur le bouton Personnalisée lors de la sélection des questions de sécurité
+            * L’option Nombre de questions requises pour la réinitialisation peut indiquer de 3 à 5 questions auxquelles il faut répondre correctement avant que la réinitialisation et le déverrouillage des mots de passe utilisateur ne soient autorisés.
 
 4. RECOMMANDÉ : **Personnalisation** vous permet de modifier le lien Contactez votre administrateur afin qu’il redirige l’utilisateur vers une page ou une adresse de messagerie que vous avez définie
 
@@ -56,7 +55,7 @@ Ce guide part du principe que vous avez déjà une version d’essai opérationn
     * Obliger les utilisateurs à s’inscrire durant la connexion ?
     * Nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification
 
-6. FACULTATIF : L’écran **Notification** présente aux administrateurs les options suivantes :
+6. FACULTATIF : L’écran **« Notification »** présente aux administrateurs les options suivantes :
     * Notifier les utilisateurs lors des réinitialisations de mot de passe ?
     * Notifier tous les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe ?
 
@@ -67,7 +66,7 @@ Ce guide part du principe que vous avez déjà une version d’essai opérationn
 
 ## <a name="configure-synchronization-to-existing-identity-source"></a>Configurer la synchronisation avec la source d’identité existante
 
-Pour activer la synchronisation d’identité locale avec Azure AD, vous devez installer et configurer [Azure AD Connect](./connect/active-directory-aadconnect.md) sur un serveur de votre organisation. Cette application gère la synchronisation des utilisateurs et des groupes à partir de votre source d’identité existante avec votre domaine Azure AD.
+Pour activer la synchronisation d’identité locale avec Azure AD, vous devez installer et configurer [Azure AD Connect](./connect/active-directory-aadconnect.md) sur un serveur de votre organisation. Cette application gère la synchronisation des utilisateurs et des groupes à partir de votre source d’identité existante avec votre client Azure AD.
 
 * [Mise à niveau à partir de DirSync ou d’Azure AD Sync vers Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Prise en main d’Azure AD Connect à l’aide de paramètres express](./connect/active-directory-aadconnect-get-started-express.md)
@@ -75,7 +74,7 @@ Pour activer la synchronisation d’identité locale avec Azure AD, vous devez 
 
 ## <a name="disabling-self-service-password-reset"></a>Désactivation de la réinitialisation de mot de passe en libre-service
 
-Pour désactiver la réinitialisation de mot de passe en libre-service, il vous suffit d’ouvrir votre locataire Azure AD, d’accéder à **Réinitialisation de mot de passe**, **Propriétés**, et de sélectionner **Personne** sous **Réinitialisation de mot de passe en libre-service activée**
+Pour désactiver la réinitialisation de mot de passe en libre-service, il vous suffit d’ouvrir votre locataire Azure AD, d’accéder à **Réinitialisation de mot de passe > Propriétés** > et de sélectionner **Personne** sous **Réinitialisation de mot de passe en libre-service activée**
 
 ## <a name="next-steps"></a>Étapes suivantes
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.

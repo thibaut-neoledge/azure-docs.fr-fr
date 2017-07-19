@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 07/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e16620b457e82260b27fe484abee715bb4b3aa24
-ms.openlocfilehash: fe69fc0ace47967e1ddf083e47dd25beb8d91d84
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f992ec4ff2b36208f740320a133b5eece47919bb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Configurer votre environnement de développement Media Services
-
 
 Les étapes suivantes décrivent les conditions requises pour le développement d’applications avec Azure Media Services.
 
@@ -40,20 +40,12 @@ Pour configurer un environnement de développement REST, consultez [cette](media
 
 ## <a name="connect-programmatically"></a>Se connecter par programme
 
-Pour vous connecter à Azure Media Services à l’aide de .NET, consultez [cette](media-services-dotnet-connect-programmatically.md) rubrique.  
-
-Pour vous connecter à Azure Media Services à l’aide de REST, consultez [cette](media-services-rest-connect-programmatically.md) rubrique.  
-
+Pour vous connecter à l’API Azure Media Services, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).  
 
 ## <a name="next-steps-azure-media-services-learning-paths"></a>Étapes suivantes : parcours d’apprentissage Azure Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

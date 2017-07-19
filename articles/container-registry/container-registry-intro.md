@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: bc0c8ccad64166582dcb3f7162280a8772abc6b3
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f9dff5384838521c309a2d2a5ebb5376c90159fb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Présentation des registres de conteneurs Docker privés
@@ -52,6 +52,8 @@ Les développeurs peuvent également effectuer un push vers un registre de conte
 * **Registre** : créez au moins un registre de conteneur dans votre abonnement Azure. Chaque registre est pris en charge par un [compte de stockage](../storage/storage-introduction.md) Azure standard dans le même emplacement. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements. Un nom de Registre complet se présente sous la forme `myregistry.azurecr.io`.
 
   Vous [contrôlez l’accès](container-registry-authentication.md) à un registre de conteneur à l’aide d’un [principal de service](../active-directory/active-directory-application-objects.md) pris en charge par Azure Active Directory ou un compte d’administration fourni. Exécutez la commande `docker login` standard pour vous authentifier auprès d’un registre.
+
+* **Registre géré** : niveau qui offre des fonctionnalités supplémentaires pour les registres dans trois références SKU, De base, Standard et Premium. Les images de ces SKU sont stockées dans des comptes de stockage gérés par le service Azure Container Registries, ce qui améliore la fiabilité et donne accès à de nouvelles fonctionnalités. Ces fonctionnalités comprennent l’intégration des webhooks, l’authentification des référentiels auprès d’Azure Active Directory et la prise en charge de la fonctionnalité de suppression. Les utilisateurs ont la possibilité de choisir parmi des registres gérés ou de créer un registre qui s’appuie sur leur propre compte de stockage lors de la création des registres.
 
 * **Référentiel** : un registre contient un ou plusieurs référentiels, qui sont des groupes d’images de conteneur. Azure Container Registry prend en charge les espaces de noms de référentiel à plusieurs niveaux. Cette fonctionnalité vous permet de regrouper des collections d’images liées à une application spécifique, ou une collection d’applications à des équipes opérationnelles ou de développement spécifiques. Par exemple :
 
