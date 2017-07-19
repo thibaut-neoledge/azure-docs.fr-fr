@@ -14,11 +14,11 @@ Après la période de notification de 12 mois, le kit de développement logicie
 
 Toutes les tentatives de connexion au service DocumentDB avec une version de kit de développement logiciel mis hors-service sont rejetées. 
 
-**5. Les nouvelles fonctionnalités s’appliqueront à tous les kits de développement logiciel non mis hors-service**
+**5. Les nouvelles fonctionnalités s’appliqueront-elles à tous les kits SDK non mis hors-service ?**
 
 Les nouvelles fonctions et fonctionnalités seront ajoutées aux nouvelles versions uniquement. Si vous utilisez une version ancienne du kit de développement logiciel non mis hors-service, vos demandes de DocumentDB vont continuer de fonctionner comme avant, mais sans que vous ayez accès aux nouvelles possibilités.  
 
-**6. Que dois-je faire si je ne parviens pas à mettre à jour mon application avant la date limite**
+**6. Que dois-je faire si je ne parviens pas à mettre à jour mon application avant la date limite ?**
 
 Nous vous recommandons de mettre à niveau vers la dernière version du kit de développement logiciel dès que possible. Une fois le kit de développement logiciel marqué pour la mise hors-service, vous aurez 12 mois pour mettre à jour votre application. Si, pour une raison quelconque, vous ne pouvez pas terminer votre mise à jour de l’application au cours de cette période, contactez [l’équipe Cosmos DB](mailto:askcosmosdb@microsoft.com) et demandez-lui de l’aide avant la date limite.
 

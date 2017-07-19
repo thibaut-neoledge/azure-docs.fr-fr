@@ -20,7 +20,7 @@
 | Stratégies | 1,000,000<sup>(6)</sup> |
 | Taille du fichier| Dans certains scénarios, la taille maximale des fichiers pris en charge pour le traitement dans Media Services est soumise à une limite. <sup>7</sup> |
   
-<sup>1</sup> Les unités réservées S3 ne sont pas disponibles en Inde-Ouest.
+<sup>1</sup> Les unités réservées S3 ne sont pas disponibles en Inde-Ouest. Les limites d’unités réservées maximales sont réinitialisées si le client change le type (par exemple, en passant de S2 à S1). 
 
 <sup>2</sup> Ce nombre comprend les travaux en file d’attente, terminés, actifs et annulés. Il n’inclut pas les travaux supprimés. Vous pouvez supprimer les anciens travaux à l’aide de **IJob.Delete** ou de la requête HTTP **DELETE**.
 
@@ -43,6 +43,6 @@
 
 | Types d’unités réservées de média | Taille maximale en entrée (Go)| 
 | --- | --- | 
-|S1    | 325|
-|S2    | 640|
-|S3    | 260|
+|S1 | 325|
+|S2 | 640|
+|S3 | 260|

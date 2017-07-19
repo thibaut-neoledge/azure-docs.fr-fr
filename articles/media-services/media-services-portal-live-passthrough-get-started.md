@@ -1,5 +1,5 @@
 ---
-title: "Diffusion en continu avec des encodeurs en local à l’aide du portail Azure | Microsoft Docs"
+title: "Streaming en direct avec des encodeurs en local à l’aide du portail Azure | Microsoft Docs"
 description: "Ce didacticiel vous guide tout au long des étapes de création d’un canal configuré pour une livraison directe."
 services: media-services
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: b28488ac9037b0f0ff7df892b9c3a61167b1eceb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Procédure de diffusion en continu avec des encodeurs en local à l’aide du portail Azure
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Streaming en direct avec des encodeurs en local à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Portail](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -33,7 +35,7 @@ Ce didacticiel vous guide tout au long des étapes d’utilisation du portail Az
 ## <a name="prerequisites"></a>Composants requis
 Les éléments suivants sont requis pour suivre le didacticiel :
 
-* Un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * Un compte Media Services. Pour créer un compte Media Services, consultez [Création d’un compte Media Services](media-services-portal-create-account.md).
 * Une webcam. Par exemple, un [encodeur Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
@@ -41,9 +43,9 @@ Il est vivement recommandé de consulter les articles suivants :
 
 * [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Vue d’ensemble de la vidéo en flux continu à l’aide d’Azure Media Services](media-services-manage-channels-overview.md)
-* [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md)
+* [Streaming en direct avec des encodeurs en local qui créent des flux multidébits](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Scénario courant de diffusion dynamique en continu
+## <a id="scenario"></a>Scénario courant de streaming en direct
 Les étapes suivantes décrivent les tâches impliquées dans la création d’applications courantes de diffusion en continu qui utilisent des canaux configurés pour une livraison directe. Ce didacticiel explique comment créer et gérer un canal direct et des événements en direct.
 
 >[!NOTE]
@@ -69,7 +71,7 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 9. Supprimez l’événement ou le programme (et éventuellement la ressource).     
 
 > [!IMPORTANT]
-> Pour en savoir plus sur les considérations et concepts liés à la diffusion en continu avec des encodeurs locaux et des canaux directs, consultez la page [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md) .
+> Pour en savoir plus sur les considérations et concepts liés au streaming en direct avec des encodeurs en local et des canaux directs, consultez [Streaming en direct avec des encodeurs locaux qui créent des flux multidébits](media-services-live-streaming-with-onprem-encoders.md).
 > 
 > 
 
@@ -100,7 +102,7 @@ Si vous souhaitez conserver le contenu archivé sans qu’il soit disponible pou
 ### <a name="to-use-the-portal-to-create-a-channel"></a>Pour créer un canal à l’aide du portail
 Cette section explique comment utiliser l’option **Création rapide** pour créer un canal direct.
 
-Pour plus d’informations sur les canaux directs, consultez [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md).
+Pour plus d’informations sur les canaux directs, consultez [Streaming en direct avec des encodeurs locaux qui créent des flux multidébits](media-services-live-streaming-with-onprem-encoders.md).
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.
 2. Dans la fenêtre **Paramètres**, cliquez sur **Diffusion en continu**. 
@@ -134,7 +136,7 @@ Pour visionner l’événement, cliquez sur **Watch** (Visionner) dans le portai
 Une fois arrêté, l’événement en direct est automatiquement converti en contenu à la demande.
 
 ## <a name="clean-up"></a>Nettoyer
-Pour plus d’informations sur les canaux directs, consultez [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md).
+Pour plus d’informations sur les canaux directs, consultez [Streaming en direct avec des encodeurs locaux qui créent des flux multidébits](media-services-live-streaming-with-onprem-encoders.md).
 
 * Un canal peut être arrêté uniquement lorsque tous les événements/programmes du canal ont été arrêtés.  Une fois le canal arrêté, aucun frais n’est encouru. Lorsque vous devez le redémarrer, il possède la même URL de réception. Vous n’avez donc pas besoin de reconfigurer votre encodeur.
 * Un canal peut être supprimé uniquement lorsque tous les événements/programmes du canal ont été supprimés.
@@ -153,10 +155,5 @@ Consultez les parcours d’apprentissage de Media Services.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
