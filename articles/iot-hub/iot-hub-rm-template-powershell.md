@@ -20,7 +20,6 @@ ms.openlocfilehash: d55de6c3f49abf3ac117dcb265dd7f1bcaa05f24
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Créer un IoT Hub avec un modèle Azure Resource Manager (PowerShell)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -136,6 +135,7 @@ Utilisez un modèle JSON pour créer un IoT Hub dans votre groupe de ressources.
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
+  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 4. La sortie affiche les clés de l’IoT Hub que vous avez créé.
 5. Vous pouvez vérifier que votre application a ajouté le nouvel IoT Hub en accédant au [portail Azure][lnk-azure-portal] et en affichant votre liste de ressources, ou en utilisant l’applet de commande PowerShell **Get-AzureRmResource**.
 

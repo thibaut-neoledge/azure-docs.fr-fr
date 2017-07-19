@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2e229cab7b8a498d3015183d438e2bc2465822aa
 ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
@@ -21,9 +22,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 12/28/2016
 
 ---
-<a id="vulnerabilities-detected-by-azure-active-directory-identity-protection" class="xliff"></a>
-
-# Vulnérabilités détectées par Azure Active Directory Identity Protection
+# <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnérabilités détectées par Azure Active Directory Identity Protection
 Les vulnérabilités sont des points faibles exploitables par un cybercriminel au sein de votre environnement. Nous vous recommandons de les résoudre afin d’améliorer la posture de sécurité de votre organisation et d’empêcher des personnes malveillantes d’en tirer parti.
 
 
@@ -33,9 +32,7 @@ Les vulnérabilités sont des points faibles exploitables par un cybercriminel a
 
 Les sections suivantes fournissent une vue d’ensemble des vulnérabilités signalées par Identity Protection.
 
-<a id="multi-factor-authentication-registration-not-configured" class="xliff"></a>
-
-## Inscription à l’authentification multifacteur non configurée
+## <a name="multi-factor-authentication-registration-not-configured"></a>Inscription à l’authentification multifacteur non configurée
 Cette vulnérabilité vous permet de contrôler le déploiement d’Azure Multi-Factor Authentication, service d’authentification multifacteur d’Azure, dans votre organisation. 
 
 L’authentification multifacteur d’Azure ajoute une deuxième couche de sécurité à l’authentification utilisateur. Elle contribue à sécuriser l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Il fournit une authentification forte via diverses options de vérification simples : appel téléphonique, message texte, notification par application mobile ou code de vérification et jetons OATH tiers.
@@ -44,9 +41,7 @@ Nous vous recommandons d’exiger l’authentification multifacteur d’Azure po
 
 Pour plus d’informations, consultez [Qu’est-ce qu’Azure Multi-Factor Authentication ?](../multi-factor-authentication/multi-factor-authentication.md)
 
-<a id="unmanaged-cloud-apps" class="xliff"></a>
-
-## Applications cloud non gérées
+## <a name="unmanaged-cloud-apps"></a>Applications cloud non gérées
 Cette vulnérabilité vous permet d’identifier les applications cloud non gérées au sein de votre organisation.
 
 Dans les entreprises modernes, les services informatiques n’ont souvent pas connaissance de toutes les applications cloud utilisées par les membres de l’organisation pour effectuer leur travail. Il est facile de comprendre pourquoi les administrateurs s’inquiètent d’un accès non autorisé aux données d'entreprise, de possibles fuites de données et autres risques de sécurité. 
@@ -55,9 +50,7 @@ Nous vous recommandons de déployer Cloud App Discovery dans votre organisation 
 
 Pour plus d’informations, consultez l’article [Détection des applications cloud non gérées avec Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 
-<a id="security-alerts-from-privileged-identity-management" class="xliff"></a>
-
-## Alertes de sécurité du service Privileged Identity Management
+## <a name="security-alerts-from-privileged-identity-management"></a>Alertes de sécurité du service Privileged Identity Management
 Cette vulnérabilité vous aide à détecter et à résoudre les alertes relatives aux identités privilégiées dans votre organisation.  
 
 Pour permettre aux utilisateurs d’effectuer des opérations privilégiées, les organisations doivent leur accorder un accès privilégié temporaire ou permanent à des ressources Azure AD, Azure ou Office 365 ou à d’autres applications SaaS. Chacun de ces utilisateurs privilégiés augmente la surface d’attaque de votre organisation. Cette vulnérabilité vous permet d’identifier les utilisateurs disposant d’un accès privilégié inutile et de prendre les mesures qui s’imposent pour réduire ou éliminer le risque associé. 
@@ -66,9 +59,7 @@ Nous vous recommandons d’utiliser le service Azure AD Privileged Identity Mana
 
 Pour plus d’informations, consultez l’article [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
-<a id="see-also" class="xliff"></a>
-
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 

@@ -15,27 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
 ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
 ms.contentlocale: fr-fr
 ms.lasthandoff: 12/22/2016
 
-
 ---
-<a id="azure-active-directory-identity-protection-notifications" class="xliff"></a>
-# Notifications d’Azure Active Directory Identity Protection
+# <a name="azure-active-directory-identity-protection-notifications"></a>Notifications d’Azure Active Directory Identity Protection
 Azure AD Identity Protection envoie deux types d’e-mails de notification automatisés pour vous aider à gérer le risque des utilisateurs et les événements à risque :
 
 * E-mail d’alerte en cas d’utilisateur compromis
 * E-mail de synthèse hebdomadaire
 
-<a id="user-compromised-alert-email" class="xliff"></a>
-## E-mail d’alerte en cas d’utilisateur compromis
+## <a name="user-compromised-alert-email"></a>E-mail d’alerte en cas d’utilisateur compromis
 Un e-mail d’alerte en cas d’utilisateur compromis est généré lorsqu’Azure AD Identity Protection identifie un compte compromis. Cet e-mail inclut un lien vers le rapport Utilisateurs associés à un indicateur de risque dans le tableau de bord d’Identity Protection. Nous vous recommandons d’examiner immédiatement les notifications des comptes compromis.
 
-<a id="weekly-digest-email" class="xliff"></a>
-## E-mail de synthèse hebdomadaire
+## <a name="weekly-digest-email"></a>E-mail de synthèse hebdomadaire
 L’e-mail de synthèse hebdomadaire contient un récapitulatif des nouveaux événements à risque.<br>
 Il inclut :
 
@@ -64,7 +61,6 @@ Vous pouvez désactiver l’envoi de l’e-mail de synthèse hebdomadaire.
    ![Stratégie de risque d’utilisateur](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
    <br>
 
-<a id="see-also" class="xliff"></a>
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 

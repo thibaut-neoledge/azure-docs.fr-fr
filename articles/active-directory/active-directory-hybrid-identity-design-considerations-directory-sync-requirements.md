@@ -1,6 +1,6 @@
 ---
 title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de synchronisation de répertoire | Microsoft Docs"
-description: "Identifier les exigences nécessaires pour la synchronisation de tous les utilisateurs entre en local et cloud pour l&quot;entreprise."
+description: "Identifier les exigences nécessaires pour la synchronisation de tous les utilisateurs entre en local et cloud pour l'entreprise."
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 69f7b49fd82e4d34b1d54718cfbd2f4dedd2ae47
 ms.openlocfilehash: e50a308a897878d0985f2a8f1baa044e5c82335f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/05/2017
-
 
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Déterminer les exigences de synchronisation de répertoire
