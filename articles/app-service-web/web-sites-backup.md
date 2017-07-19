@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
+ms.author: cephalin;aelnably
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 673ea14ff534f237e06dd1d00586dad5736792d5
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 891359514e776e169bf05df7b84d2b99306f98bf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -59,32 +59,35 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Création d’une sauvegarde manuelle
-1. Dans le [portail Azure](https://portal.azure.com), accédez au panneau de votre application, sélectionnez **Paramètres**, puis **Sauvegardes**. Le panneau **Sauvegardes** s’affiche.
+1. Sur le [Portail Azure](https://portal.azure.com), accédez au panneau de votre application et sélectionnez **Sauvegardes**. Le panneau **Sauvegardes** s’affiche.
    
     ![Page Sauvegardes][ChooseBackupsPage]
    
    > [!NOTE]
-   > Si ce message s’affiche, cliquez dessus pour mettre à niveau votre plan App Service avant de pouvoir poursuivre avec les sauvegardes.
-   > Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](web-sites-scale.md).  
-   > ![Sélection d'un compte de stockage](./media/web-sites-backup/01UpgradePlan.png)
+   > Si le message ci-dessous s’affiche, cliquez dessus pour mettre à niveau votre plan App Service avant de pouvoir poursuivre avec les sauvegardes.
+   > Consultez la page [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md) pour plus d’informations.  
+   > ![Sélection d'un compte de stockage](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
-2. Dans le panneau **Sauvegardes**, cliquez sur **Stockage : Non configuré** pour configurer un compte de stockage.
+
+2. Dans le panneau **Sauvegarde**, cliquez sur **Configurer**
+![Cliquer sur Configurer](./media/web-sites-backup/ClickConfigure1.png).
+3. Dans le panneau **Configuration de la sauvegarde**, cliquez sur **Stockage : Non configuré** pour configurer un compte de stockage.
    
     ![Sélection d'un compte de stockage][ChooseStorageAccount]
-3. Choisissez la destination de sauvegarde en sélectionnant un **Compte de stockage** et un **Conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
+4. Choisissez la destination de sauvegarde en sélectionnant un **Compte de stockage** et un **Conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
    
-    ![Sélection d'un compte de stockage](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. Dans le panneau **Configurer les paramètres de sauvegarde** toujours ouvert, cliquez sur **Paramètres de la base de données**, sélectionnez les bases de données que vous souhaitez inclure dans les sauvegardes (base de données SQL, MySQL ou PostgreSQL), puis cliquez sur **OK**.  
+    ![Sélection d'un compte de stockage](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+5. Dans le panneau **Configuration de la sauvegarde**, toujours ouvert, vous pouvez configurer **Base de données de sauvegarde**, puis sélectionner les bases de données que vous souhaitez inclure dans les sauvegardes (base de données SQL ou MySQL) et enfin cliquer sur **OK**.  
    
-    ![Sélection d'un compte de stockage](./media/web-sites-backup/03ConfigureDatabase.png)
+    ![Sélection d'un compte de stockage](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > Pour qu’une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** du panneau **Paramètres d’application** de votre application.
    > 
    > 
-5. Dans le panneau **Configurer les paramètres de sauvegarde**, cliquez sur **Enregistrer**.    
-6. Dans la barre de commandes du panneau **Sauvegardes**, cliquez sur **Sauvegarder**.
+6. Dans le panneau **Configuration de la sauvegarde**, cliquez sur **Enregistrer**.    
+7. Dans le panneau **Sauvegardes**, cliquez sur **Sauvegarde**.
    
     ![Bouton Backup Now][BackUpNow]
    
@@ -95,24 +98,12 @@ Une fois que le compte de stockage et le conteneur configurés, vous pouvez lanc
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Configuration de sauvegardes automatisées
-1. Dans le panneau **Sauvegardes**, cliquez sur **Planification : Non configurée**. 
+1. Dans le panneau **Configuration de la sauvegarde**, **activez** la **Sauvegarde planifiée**. 
    
-    ![Sélection d'un compte de stockage](./media/web-sites-backup/05ScheduleBackup.png)
-2. Dans le panneau **Paramètres de planification de la sauvegarde**, définissez **Sauvegarde planifiée** sur **Activé**, puis configurez la planification de sauvegarde comme vous le souhaitez et cliquez sur **OK**.
+    ![Sélection d'un compte de stockage](./media/web-sites-backup/05ScheduleBackup1.png)
+2. Les options de planification de la sauvegarde apparaissent : **activez** la **Sauvegarde planifiée**, puis configurez la planification de sauvegarde comme vous le souhaitez et cliquez sur **OK**.
    
     ![Activation des sauvegardes automatisées][SetAutomatedBackupOn]
-3. Dans le panneau **Configurer les paramètres de sauvegarde** toujours ouvert, cliquez sur **Paramètres de stockage**, puis choisissez la destination de sauvegarde en sélectionnant un **compte de stockage** et un **conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les panneaux respectifs. Quand vous avez terminé, cliquez sur **Sélectionner**.
-   
-    ![Sélection d'un compte de stockage](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. Dans le panneau **Configurer les paramètres de sauvegarde**, cliquez sur **Paramètres de la base de données**, sélectionnez les bases de données que vous souhaitez inclure dans les sauvegardes (base de données SQL, MySQL ou PostgreSQL), puis cliquez sur **OK**. 
-   
-    ![Sélection d'un compte de stockage](./media/web-sites-backup/03ConfigureDatabase.png)
-   
-   > [!NOTE]
-   > Pour qu’une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** du panneau **Paramètres d’application** de votre application.
-   >  Si vous utilisez [MySQL dans l’application](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app), aucune base de données répertoriée n’est visible dans la mesure où la chaîne de connexion n’est pas exposée dans le portail sous **Paramètres de l’application**
-   > 
-5. Dans le panneau **Configurer les paramètres de sauvegarde**, cliquez sur **Enregistrer**.    
 
 <a name="partialbackups"></a>
 
@@ -173,19 +164,19 @@ Pour plus d’informations sur la restauration d’une application à partir d�
 
 
 <!-- IMAGES -->
-[ChooseBackupsPage]:./media/web-sites-backup/01ChooseBackupsPage.png
-[ChooseStorageAccount]:./media/web-sites-backup/02ChooseStorageAccount.png
-[IncludedDatabases]:./media/web-sites-backup/03IncludedDatabases.png
-[BackUpNow]:./media/web-sites-backup/04BackUpNow.png
-[BackupProgress]:./media/web-sites-backup/05BackupProgress.png
-[SetAutomatedBackupOn]:./media/web-sites-backup/06SetAutomatedBackupOn.png
-[Frequency]:./media/web-sites-backup/07Frequency.png
-[StartDate]:./media/web-sites-backup/08StartDate.png
-[StartTime]:./media/web-sites-backup/09StartTime.png
-[SaveIcon]:./media/web-sites-backup/10SaveIcon.png
-[ImagesFolder]:./media/web-sites-backup/11Images.png
-[LogsFolder]:./media/web-sites-backup/12Logs.png
-[GhostUpgradeWarning]:./media/web-sites-backup/13GhostUpgradeWarning.png
+[ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage1.png
+[ChooseStorageAccount]: ./media/web-sites-backup/02ChooseStorageAccount-1.png
+[IncludedDatabases]: ./media/web-sites-backup/03IncludedDatabases.png
+[BackUpNow]: ./media/web-sites-backup/04BackUpNow1.png
+[BackupProgress]: ./media/web-sites-backup/05BackupProgress.png
+[SetAutomatedBackupOn]: ./media/web-sites-backup/06SetAutomatedBackupOn1.png
+[Frequency]: ./media/web-sites-backup/07Frequency.png
+[StartDate]: ./media/web-sites-backup/08StartDate.png
+[StartTime]: ./media/web-sites-backup/09StartTime.png
+[SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
+[ImagesFolder]: ./media/web-sites-backup/11Images.png
+[LogsFolder]: ./media/web-sites-backup/12Logs.png
+[GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
 [kudu-portal]:./media/web-sites-backup/kudu-portal.PNG
 
 

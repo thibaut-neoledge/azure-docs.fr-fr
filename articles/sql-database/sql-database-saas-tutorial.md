@@ -1,6 +1,6 @@
 ---
-title: "Déployer et explorer une application SaaS qui utilise Azure SQL Database | Microsoft Docs"
-description: "Déployer et explorer l’exemple d’application WTP Azure SQL Database"
+title: "Déployer et explorer l’application Wingtip SaaS mutualisée qui utilise SQL Azure Database | Microsoft Docs"
+description: "Déployez et explorez l’application Wingtip SaaS mutualisée, qui illustre les modèles SaaS en utilisant SQL Azure Database."
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
@@ -9,141 +9,162 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
+ms.topic: article
+ms.date: 06/06/2017
+ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 04859fb8a9f4a8bf04d92e7139d9202885c52503
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 83d357bd046814c690b8b11841e5c8ebebd0df0e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-azure-sql-database"></a>Déployer et explorer une application SaaS mutualisée qui utilise Azure SQL Database
+# <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Déployer et explorer une application mutualisée qui utilise Azure SQL Database - Wingtip SaaS
 
-Dans ce didacticiel, vous allez déployer et explorer l’application SaaS WTP. L’application utilise une base de données par locataire, un modèle d’application SaaS, pour traiter plusieurs locataires. L’application est conçue pour présenter les fonctionnalités d’Azure SQL Database qui autorisent des scénarios Saas, ainsi que des modèles de gestion et de conception SaaS.
+Dans ce didacticiel, vous déployez et explorez l’application Wingtip SaaS. L’application utilise une base de données par locataire, un modèle d’application SaaS, pour traiter plusieurs locataires. L’application est conçue pour tirer parti des fonctionnalités SQL Azure Database qui simplifient l’activation des scénarios SaaS.
 
-Cinq minutes après avoir cliqué sur le bouton *Déployer sur Azure* ci-dessous, vous disposez d’une application SaaS mutualisée et fonctionnelle dans le cloud, utilisant SQL Database. L’application est déployée avec trois exemples de locataires, chacun avec sa propre base de données et tous déployés dans un pool élastique SQL. L’application est déployée sur votre abonnement Azure, ce qui vous donne un accès complet pour inspecter et utiliser les composants individuels de l’application.
+Cinq minutes après avoir cliqué sur le bouton *Déployer sur Azure* ci-dessous, vous disposez d’une application SaaS mutualisée et fonctionnelle dans le cloud, utilisant SQL Database. L’application est déployée avec trois exemples de clients, chacun avec sa propre base de données, et tous déployés dans un pool élastique SQL. L’application est déployée sur votre abonnement Azure, ce qui vous donne un accès complet pour explorer et utiliser les composants d’application individuels. Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub Wingtip SaaS.
 
-Les scripts et le code source de l’application sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS).
 
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 
-> * Déployer l’application WTP
+> * Déployer l’application Wingtip SaaS
+> * Obtenir le code source de l’application et les scripts de gestion
 > * Explorer les serveurs, les pools et les bases de données qui composent l’application
-> * Explorer les locataires qui sont mappés à leurs données avec le *catalogue*
-> * Approvisionner les nouveaux locataires
-> * Afficher l’utilisation du pool pour surveiller l’activité du locataire
-> * Supprimer les exemples de ressources pour arrêter la facturation associée
+> * Identifier comment les clients sont mappés à leurs données grâce au *catalogue*
+> * Configurer un nouveau client
+> * Surveiller l’activité d’un client dans l’application
 
-Pour explorer les différents modèles de gestion et de conception SaaS, une [série de didacticiels associés](sql-database-wtp-overview.md) reposant sur ce déploiement initial est disponible. Tout en parcourant les didacticiels, découvrez plus en détail les scripts fournis et examinez la façon dont les différents modèles de SaaS sont implémentés. Parcourez les scripts de chaque didacticiel pour mieux comprendre comment implémenter les nombreuses fonctionnalités SQL Database qui simplifient le développement des applications SaaS.
+Pour explorer les différents modèles de gestion et de conception SaaS, une [série de didacticiels associés](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) reposant sur ce déploiement initial est disponible. Tout en parcourant les didacticiels, découvrez plus en détail les scripts fournis et examinez la façon dont les différents modèles de SaaS sont implémentés. Parcourez les scripts de chaque didacticiel pour mieux comprendre comment implémenter les nombreuses fonctionnalités SQL Database qui simplifient le développement des applications SaaS.
 
-Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
+## <a name="prerequisites"></a>Composants requis
+
+Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
 
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-## <a name="deploy-the-wingtip-tickets-wtp-saas-application"></a>Déployer l’application SaaS WTP
+## <a name="deploy-the-wingtip-saas-application"></a>Déployer l’application Wingtip SaaS
 
-Déployer l’application WTP en moins de cinq minutes :
+Déployer l’application Wingtip SaaS :
 
-1. Cliquez pour procéder au déploiement :
+1. Cliquez sur le bouton **Déployer vers Azure** pour ouvrir le portail Azure sur le modèle de déploiement Wingtip SaaS. Le modèle nécessite deux valeurs de paramètre ; le nom d’un nouveau groupe de ressources et un nom d’utilisateur qui distingue ce déploiement des autres déploiements de l’application Wingtip SaaS. L’étape suivante fournit des détails sur la définition de ces valeurs. Veillez à noter les valeurs exactes que vous utilisez car vous devrez les entrer plus tard dans un fichier de configuration.
 
    <a href="http://aka.ms/deploywtpapp" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 1. Entrez les valeurs de paramètre requises pour le déploiement :
 
     > [!IMPORTANT]
-    > Certaines authentifications et pare-feu de serveur sont volontairement non sécurisés à des fins de démonstration. **Créez un groupe de ressources** plutôt que d’utiliser des groupes de ressources, des serveurs ou des pools existants, et n’utilisez pas cette application, ou les ressources qu’elle crée, pour la production. Supprimez ce groupe de ressources lorsque vous en avez terminé avec l’application pour interrompre la facturation associée.
+    > Certaines authentifications et pare-feu de serveur sont volontairement non sécurisés à des fins de démonstration. **Créez un nouveau groupe de ressources** et n’utilisez pas de groupes de ressources, serveurs ou pools existants. N’utilisez pas cette application, ni les ressources qu’elle crée, pour la production. Supprimez ce groupe de ressources lorsque vous en avez terminé avec l’application pour interrompre la facturation associée.
 
     * **Groupe de ressources** : sélectionnez **Créer un nouveau** et indiquez un **nom** et un **emplacement**.
-    * **Utilisateur** : certaines ressources requièrent des noms uniques parmi tous les abonnements Azure. Pour garantir l’unicité, fournissez une valeur pour différencier les ressources que vous créez des ressources créées par d’autres utilisateurs déployant l’application WTP. Nous vous recommandons d’utiliser un nom **Utilisateur** court, tel que vos initiales plus un chiffre (par exemple, *bg1*) et de l’utiliser ensuite dans le nom du groupe de ressources (par exemple, *wingtip-bg1*). Le paramètre **Utilisateur** peut contenir uniquement des lettres, des chiffres et des traits d’union. Le premier et le dernier caractère doivent être une lettre ou un chiffre (l’utilisation de minuscules est recommandée).
+    * **Utilisateur** : certaines ressources nécessitent des noms globalement uniques. Pour garantir l’unicité, chaque fois que vous déployez l’application, fournissez une valeur pour différencier les ressources que vous créez de celles créées par d’autres déploiements de l’application Wingtip. Nous vous recommandons d’utiliser un nom **Utilisateur** court, tel que vos initiales plus un chiffre (par exemple, *bg1*) et de l’utiliser ensuite dans le nom du groupe de ressources (par exemple, *wingtip-bg1*). Le paramètre **Utilisateur** peut contenir uniquement des lettres, des chiffres et des traits d’union (sans espaces). Le premier et le dernier caractère doivent être une lettre ou un chiffre (l’utilisation de minuscules est recommandée).
 
-     ![template](./media/sql-database-saas-tutorial/template.png)
 
 1. **Déployez l’application**.
 
-    * Cliquez si vous acceptez les termes et conditions.
-    * Sélectionnez **Épingler au tableau de bord**.
+    * Cliquez pour accepter les conditions générales.
     * Cliquez sur **Achat**.
 
-1. Surveiller l’état du déploiement en cliquant sur **Notifications** (l’icône représentant une cloche à droite de la zone de recherche). Le déploiement de l’application WTP prend quatre minutes environ.
+1. Surveiller l’état du déploiement en cliquant sur **Notifications** (l’icône représentant une cloche à droite de la zone de recherche). Le déploiement de l’application Wingtip SaaS dure environ cinq minutes.
 
    ![déploiement réussi](media/sql-database-saas-tutorial/succeeded.png)
 
-## <a name="explore-the-application"></a>Exploration de l'application
+## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>Télécharger et débloquer les scripts Wingtip SaaS
 
-L’application présente des lieux, telles que des salles de concert, des clubs de jazz, des salles de sport, etc. qui accueillent des événements. Les lieux sont inscrits en tant que clients (ou locataires) de l’application WTP pour répertorier facilement les événements et vendre des billets. Chaque lieu obtient une application web personnalisée pour gérer et répertorier ses événements, ainsi que pour vendre des billets indépendamment des autres locataires. En réalité, chaque locataire obtient une base de données SQL qui est déployée dans un pool élastique SQL.
+Lors du déploiement de l’application, téléchargez le code source et les scripts de gestion.
 
-Un **concentrateur d’événements** central fournit une liste d’URL de locataires spécifiques à votre déploiement. Toutes les URL de locataires incluent votre propre valeur *Utilisateur* et respectent le format suivant : http://events.wtp.&lt;UTILISATEUR&gt;.trafficmanager.net/*fabrikamjazzclub*. 
+> [!IMPORTANT]
+> Le contenu exécutable (scripts, DLL) peut être bloqué par Windows lorsque des fichiers zip sont téléchargés à partir d’une source externe puis extraits. Lorsque vous extrayez les scripts d’un fichier zip, suivez les étapes ci-dessous pour débloquer le fichier .zip avant l’extraction. Cela garantit que les scripts sont autorisés à s’exécuter.
 
-1. Ouvrez le _concentrateur d’événements_ : http://events.wtp.&lt;UTILISATEUR&gt;.trafficmanager.net (remplacez le terme entre chevrons par votre nom Utilisateur) :
+1. Accédez au [référentiel github Wingtip SaaS](https://github.com/Microsoft/WingtipSaaS).
+1. Cliquez sur **Cloner ou télécharger**.
+1. Cliquez sur **Télécharger ZIP** et enregistrez le fichier.
+1. Cliquez avec le bouton droit sur le fichier **WingtipSaaS-master.zip**, puis sélectionnez **Propriétés**.
+1. Sous l’onglet **Général**, sélectionnez **Débloquer**, puis cliquez sur **Appliquer**.
+1. Cliquez sur **OK**.
+1. Procédez à l’extraction des fichiers.
 
-    ![concentrateur d’événements](media/sql-database-saas-tutorial/events-hub.png)
+Les scripts se trouvent dans le dossier *..\\WingtipSaaS-master\\Learning Modules*.
+
+## <a name="update-the-configuration-file-for-this-deployment"></a>Mettre à jour le fichier de configuration pour ce déploiement
+
+Avant d’exécuter des scripts, définissez les valeurs *resource group* et *user* dans **UserConfig.psm1**. Pour ces variables, utilisez les valeurs que vous avez définies pendant le déploiement.
+
+1. Ouvrez ...\\Learning Modules\\*UserConfig.psm1* dans *PowerShell ISE*.
+1. Mettez à jour *ResourceGroupName* et *Name* avec les valeurs spécifiques à votre déploiement (lignes 10 et 11 uniquement).
+1. Enregistrez les modifications !
+
+Ici, ce paramètre vous évite d’avoir à mettre à jour ces valeurs spécifiques au déploiement dans chaque script.
+
+## <a name="run-the-application"></a>Exécution de l'application
+
+L’application présente des lieux, telles que des salles de concert, des clubs de jazz, des salles de sport, etc. qui accueillent des événements. Les lieux sont inscrits en tant que clients de la plateforme Wingtip, offrant ainsi un moyen simple de répertorier les événements et de vendre des tickets. Chaque lieu obtient une application web personnalisée pour gérer et répertorier ses événements, ainsi que pour vendre des billets indépendamment des autres locataires. En coulisse, chaque client obtient une base de données SQL déployée dans un pool élastique SQL.
+
+Un **concentrateur d’événements** central fournit une liste d’URL de locataires spécifiques à votre déploiement.
+
+1. Ouvrez le _concentrateur d’événements_ : http://events.wtp.&lt;USER&gt;.trafficmanager.net.(à remplacer par le nom d’utilisateur de votre déploiement) :
+
+    ![events hub](media/sql-database-saas-tutorial/events-hub.png)
 
 1. Cliquez sur **Fabrikam Jazz Club** dans le *concentrateur d’événements*.
 
    ![Événements](./media/sql-database-saas-tutorial/fabrikam.png)
 
-1. Cliquez sur **Billets** et découvrez comment acheter un billet pour un événement.
 
-L’application WTP utilise [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) pour contrôler la distribution du trafic entrant. Les pages d’événements, qui sont spécifiques au locataire, requièrent que les noms des locataires soient inclus dans les URL. L’application d’événements analyse le nom du locataire à partir de l’URL et l’utilise pour créer une clé permettant d’accéder à un catalogue utilisant la [*gestion des cartes de partitions*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). Le catalogue mappe la clé à l’emplacement de la base de données du locataire. Le **concentrateur d’événements** utilise les métadonnées étendues dans le catalogue pour récupérer le nom du locataire associé à chaque base de données.
+Pour contrôler la distribution des demandes entrantes, l’application utilise [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview). Les pages d’événements, qui sont spécifiques au locataire, requièrent que les noms des locataires soient inclus dans les URL. Toutes les URL de locataires incluent votre propre valeur *Utilisateur* et respectent le format suivant : http://events.wtp.&lt;UTILISATEUR&gt;.trafficmanager.net/*fabrikamjazzclub*. L’application d’événements analyse le nom du locataire à partir de l’URL et l’utilise pour créer une clé permettant d’accéder à un catalogue utilisant la [*gestion des cartes de partitions*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). Le catalogue mappe la clé à l’emplacement de la base de données du locataire. Le **concentrateur d’événements** utilise les métadonnées du catalogue afin de récupérer le nom du locataire associé à chaque base de données pour fournir la liste des URL.
 
 Dans un environnement de production, vous créez généralement un enregistrement DNS CNAME pour [*pointer un domaine Internet d’entreprise*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) vers le profil Traffic Manager.
 
-## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts de l’application WTP
-
-Les scripts et le code source de l’application Wingtip Tickets sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
-
-## <a name="provision-a-new-tenant"></a>Approvisionner un nouveau locataire
-
-Le déploiement initial crée trois exemples de locataires, mais nous devons créer davantage de locataires pour obtenir la meilleure expérience de didacticiel. Lors de cette étape, vous allez créer rapidement un locataire. Plus tard, vous allez vous intéresser aux détails de l’approvisionnement des nouveaux locataires dans le [didacticiel Provision new tenants and register them in the catalog](sql-database-saas-tutorial-provision-and-catalog.md) (Approvisionner de nouveaux locataires et les inscrire dans le catalogue), où vous découvrirez la facilité avec laquelle vous pouvez implémenter un composant d’inscription dans l’application et approvisionner automatiquement les locataires à mesure de l’inscription des clients.
-
-### <a name="initialize-the-user-config-file-for-your-deployment"></a>Initialiser le fichier de configuration utilisateur pour votre déploiement
-
-Puisqu’il s’agit du premier script que vous allez exécuter après le déploiement initial de l’application WTP, vous devez mettre à jour le fichier de configuration utilisateur. Mettez à jour les variables en les remplaçant par les valeurs spécifiques de votre déploiement.
-
-   1. Ouvrez ...\\Learning Modules\\*UserConfig.psm1* dans *PowerShell ISE*.
-   1. Remplacez _$userConfig.ResourceGroupName_ par le _groupe de ressources_ que vous avez défini lors du déploiement de l’application.
-   1. Remplacez _$userConfig.Name_ par le nom _Utilisateur_ que vous avez défini lors du déploiement de l’application.
-
-### <a name="provision-the-new-tenant"></a>Approvisionner le nouveau locataire
-
-1. Ouvrez ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* dans *PowerShell ISE*.
-1. Appuyez sur **F5** pour exécuter le script (conservez les valeurs par défaut du script pour l’instant).
-
-Le nouveau locataire est inscrit dans le catalogue. Sa base de données est créée et ajoutée à un pool élastique SQL. Après l’approvisionnement, le site de vente de billets du nouveau locataire apparaît dans votre navigateur :
-
-![Nouveau locataire](./media/sql-database-saas-tutorial/red-maple-racing.png)
-
-Actualisez le concentrateur d’événements et vérifiez que le nouveau locataire est dans la liste.
-
 ## <a name="start-generating-load-on-the-tenant-databases"></a>Démarrer la génération de charge sur les bases de données de locataires
 
-Maintenant que nous avons plusieurs bases de données de locataires, utilisons-les ! Un script PowerShell simulant une charge de travail s’exécutant sur toutes les bases de données de locataires est fourni. La charge s’exécute pendant 60 minutes par défaut. WTP est une application SaaS, et dans le monde réel, la charge se trouvant sur une application SaaS est généralement sporadique et imprévisible. Pour simuler cette situation, le générateur de charge produit une charge aléatoire répartie sur tous les locataires. Plusieurs minutes sont nécessaires pour que le modèle émerge, alors laissez le générateur de charge s’exécuter pendant environ 5 à 10 minutes avant d’essayer de surveiller la charge dans les sections suivantes.
+Maintenant que l’application est déployée, nous allons l’exécuter ! Le script PowerShell *Demo-LoadGenerator* démarre une charge de travail qui s’exécute sur toutes les bases de données de locataires. La charge réelle sur de nombreuses applications SaaS est généralement sporadique et imprévisible. Pour simuler ce type de charge, le générateur produit une charge distribuée entre tous les locataires, et des rafales se produisent sur chaque client à intervalles aléatoires. Pour cette raison, plusieurs minutes sont nécessaires avant que le modèle de charge n’émerge, et il est donc préférable de laisser le générateur s’exécuter pendant au moins trois ou quatre minutes avant d’analyser la charge.
 
-1. Ouvrez ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.psm1* dans **PowerShell ISE**.
+1. Dans *PowerShell ISE*, ouvrez le script... \\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1*.
 1. Appuyez sur **F5** pour exécuter le script et démarrer le générateur de charge (laissez les valeurs de paramètre par défaut pour l’instant).
 
 > [!IMPORTANT]
-> Le générateur de charge exécute une série de travaux dans votre session PowerShell locale, alors laissez-la ouverte ! Si vous fermez PowerShell ou l’onglet dans lequel le générateur de charge a été démarré, ou si vous arrêtez votre ordinateur, les travaux s’arrêteront.
+> Le générateur de charge exécute une série de travaux dans votre session PowerShell locale. Le script *Demo-LoadGenerator.ps1* lance le script de générateur de charge réel, qui s’exécute comme une tâche de premier plan, ainsi qu’une série de tâches de génération de charge en arrière-plan. Une tâche de générateur de charge est appelée pour chaque base de données enregistrée dans le catalogue. Les tâches sont en cours d’exécution dans votre session PowerShell locale, de sorte que la fermeture de la session PowerShell interrompt tous les travaux. Si vous mettez en veille l’ordinateur, la génération de la charge est interrompue et reprendra dès la sortie de veille de votre ordinateur.
+
+Lorsque le générateur de charge appelle des tâches de génération de charge pour chaque locataire, la tâche de premier plan reste à un état d’appel de tâche, dans lequel elle démarre d’autres tâches en arrière-plan pour les nouveaux locataires configurés par la suite. Vous pouvez utiliser *Ctrl-C* ou appuyer sur le bouton *Stop* pour arrêter la tâche de premier plan, mais les tâches en arrière-plan existantes continueront de générer de la charge sur chaque base de données. Si vous avez besoin de surveiller et de contrôler les tâches en arrière-plan, utilisez *Get-Job*, *Receive-Job* et *Stop-Job*. Pendant l’exécution de la tâche de premier plan, vous ne pouvez pas utiliser la même session PowerShell pour exécuter d’autres scripts. Pour exécuter d’autres scripts, ouvrez une nouvelle fenêtre PowerShell ISE.
+
+Si vous souhaitez redémarrer la session du générateur de charge, par exemple avec des paramètres différents, vous pouvez arrêter la tâche de premier plan puis réexécuter le script *Demo-LoadGenerator.ps1*. La réexécution de *Demo-LoadGenerator.ps1* arrête d’abord tout travail en cours puis redémarre le générateur, ce qui lance un nouvel ensemble de tâches en utilisant les paramètres actuels.
+
+Pour l’instant, laissez le générateur de charge en cours d’exécution dans l’état d’appel de tâche.
+
+
+## <a name="provision-a-new-tenant"></a>Approvisionner un nouveau locataire
+
+Le déploiement initial crée trois exemples de locataires, mais nous allons créer une autre locataire pour voir comment cela affecte l’application déployée. Le flux de travail d’approvisionnement des locataires Wingtip SaaS est détaillé dans le [didacticiel sur l’approvisionnement et le catalogue](sql-database-saas-tutorial-provision-and-catalog.md). Dans cette étape, vous créez rapidement un nouveau locataire.
+
+1. Ouvrez ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* dans *PowerShell ISE*.
+1. Appuyez sur **F5** pour exécuter le script (laissez les valeurs par défaut pour l’instant).
+
+   > [!NOTE]
+   > De nombreux scripts Wingtip SaaS utilisent *$PSScriptRoot* pour permettre la navigation dans les dossiers afin d’appeler les fonctions d’autres scripts. Cette variable est évaluée uniquement lorsque le script est exécuté en appuyant sur **F5**.  La mise en surbrillance et l’exécution d’une sélection (**F8**) pouvant entraîner des erreurs, appuyez sur **F5** lors de l’exécution des scripts.
+
+La nouvelle base de données du locataire est créée dans un pool élastique SQL, puis initialisée et enregistrée dans le catalogue. Une fois l’approvisionnement réussi, le nouveau site *Événements* de vente de billets du locataire s’affiche dans votre navigateur :
+
+![Nouveau locataire](./media/sql-database-saas-tutorial/red-maple-racing.png)
+
+Actualisez le *concentrateur d’événements* : le nouveau locataire apparaît dans la liste.
 
 
 ## <a name="explore-the-servers-pools-and-tenant-databases"></a>Explorer les serveurs, les pools et les bases de données de locataires
 
-Maintenant que vous avez exploré l’application, approvisionné un nouveau locataire et commencé à exécuter une charge sur la collection de locataires, intéressons-nous à certaines des ressources qui ont été déployées.
+Maintenant que vous avez démarré une charge dans le regroupement de locataires, examinons quelques-unes des ressources qui ont été déployées :
 
-1. Dans le [portail Azure](http://portal.azure.com), ouvrez le serveur **catalog-&lt;UTILISATEUR&gt;**. Le serveur de catalogue contient deux bases de données : **tenantcatalog** et **basetenantdb** (une base de données *finale* vide qui est copiée pour créer des locataires).
+1. Dans le [portail Azure](http://portal.azure.com), ouvrez le serveur **catalog-&lt;UTILISATEUR&gt;**. Le serveur de catalogue contient deux bases de données : **tenantcatalog** et **basetenantdb** (une base de données vide version *gold* ou un modèle de base de données copié pour créer de nouveaux locataires).
 
    ![bases de données](./media/sql-database-saas-tutorial/databases.png)
 
-1. Ouvrez le serveur **tenants1-&lt;UTILISATEUR&gt;** qui contient les bases de données de locataires. Notez que chaque base de données de locataires est une base de données _élastique Standard_ dans un pool Standard de 50 eDTU. Notez également qu’il existe une base de données _Red Maple Racing_, qui correspond au locataire que vous avez approvisionné précédemment.
+1. Ouvrez le serveur **tenants1-&lt;UTILISATEUR&gt;** qui contient les bases de données de locataires. Chaque base de données de locataires est une base de données _élastique standard_ dans un pool standard de 50 eDTU. Notez également la présence d’une base de données _Red Maple Racing_, la base de données de locataires que vous avez approvisionnée précédemment.
 
    ![server](./media/sql-database-saas-tutorial/server.png)
 
@@ -151,16 +172,11 @@ Maintenant que vous avez exploré l’application, approvisionné un nouveau loc
 
 Si le générateur de charge s’exécute depuis plusieurs minutes, suffisamment de données doivent être disponibles pour commencer à rechercher certaines des fonctionnalités de surveillance intégrées aux pools et bases de données.
 
-1. Accédez au serveur *tenants1-&lt;UTILISATEUR&gt;*, puis cliquez sur **Pool1** pour afficher l’utilisation des ressources du pool :
+1. Naviguez jusqu’au serveur **tenants1 -&lt;USER&gt;**, puis cliquez sur **Pool1** pour afficher l’utilisation des ressources du pool (le générateur de charge a été exécuté pendant une heure dans les graphiques suivants) :
 
    ![surveiller un pool](./media/sql-database-saas-tutorial/monitor-pool.png)
 
-Ces deux graphiques montrent bien que les pools élastiques et SQL Database sont parfaitement adaptés aux charges de travail de l’application SaaS. Quatre bases de données qui migrent chacune jusqu’à 40 eDTU sont facilement prises en charge dans un pool de 50 eDTU. Si chacune d’entre elles a été configurée en tant que base de données autonome, elles auront besoin d’un S2 (50 DTU) pour prendre en charge les migrations, mais le coût de 4 bases de données S2 autonomes serait égal à trois fois le prix du pool. En outre, il reste beaucoup d’espace disponible dans le pool pour accueillir davantage de bases de données. En situation réelle, les locataires exécutent actuellement jusqu’à 500 bases de données dans des pools de 200 eDTU. Pour plus d’informations, consultez le [didacticiel Monitor performance of the WTP sample SaaS application](sql-database-saas-tutorial-performance-monitoring.md) (Surveiller les performances de l’exemple d’application SaaS WTP).
-
-
-## <a name="deleting-the-resources-created-with-this-tutorial"></a>Suppression des ressources créées lors de ce didacticiel
-
-Lorsque vous avez terminé d’explorer et d’utiliser l’application WTP, accédez au groupe de ressources de l’application dans le portail et supprimez-le pour arrêter toute facturation associée à ce déploiement. Si vous avez suivi l’un des didacticiels associés à celui-ci, toutes les ressources crées seront également supprimées avec l’application.
+Ces deux graphiques montrent bien que les pools élastiques et SQL Database sont parfaitement adaptés aux charges de travail de l’application SaaS. Quatre bases de données qui migrent chacune jusqu’à 40 eDTU sont facilement prises en charge dans un pool de 50 eDTU. Si elles ont été approvisionnées en tant que bases de données autonomes, elles devront être de type S2 (50 DTU) pour pouvoir gérer les pics d’activité. Le coût de 4 bases de données autonomes S2 représente près de 3 fois le prix du pool, et le pool dispose toujours de suffisamment d’espace disponible pour accueillir de nombreuses autres bases de données. Dans des situations réelles, les clients SQL Database exécutent jusqu'à 500 bases de données dans des pools de 200 eDTU. Pour plus d’informations, consultez le [didacticiel Monitor performance of the WTP sample SaaS application](sql-database-saas-tutorial-performance-monitoring.md) (Surveiller les performances de l’exemple d’application SaaS WTP).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -169,7 +185,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 
-> * Déployer l’application WTP
+> * Déployer l’application Wingtip SaaS
 > * Explorer les serveurs, les pools et les bases de données qui composent l’application
 > * Explorer les locataires qui sont mappés à leurs données avec le *catalogue*
 > * Approvisionner les nouveaux locataires
@@ -182,7 +198,7 @@ Essayez maintenant le [didacticiel Provision new tenants and register them in th
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Autres didacticiels reposant sur le déploiement initial de l’application WTP](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials).
+* Autres [didacticiels qui s’appuient sur l’application Wingtip SaaS](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * Pour de plus amples informations sur les pools élastiques, consultez [*Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données SQL*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool).
 * Pour de plus amples informations sur les travaux élastiques, consultez [*Gestion des bases de données cloud avec montée en charge*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview).
 * Pour de plus amples informations sur les applications SaaS mutualisées, consultez [*Modèles de conception pour les applications SaaS mutualisées et Base de données SQL Azure*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications).

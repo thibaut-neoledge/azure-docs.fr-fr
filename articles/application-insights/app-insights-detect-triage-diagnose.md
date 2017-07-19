@@ -1,6 +1,6 @@
 ---
-title: "Détecter et diagnostiquer les problèmes des applications web - Azure Application Insights | Microsoft Docs"
-description: "Analyser les pannes et détecter et diagnostiquer les problèmes de performances dans vos applications"
+title: "Vue d’ensemble d’Azure Application Insights pour DevOps | Microsoft Docs"
+description: "Découvrez comment utiliser Application Insights dans un environnement DevOps."
 author: CFreemanwa
 services: application-insights
 documentationcenter: 
@@ -11,30 +11,27 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 06/26/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 05fe4996a8a9c886f2f1b61471dc80550633ecf6
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c6bfa094f5f06483a9c59a1e0167e5fa7f8f053e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/16/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
-# <a name="detect-triage-and-diagnose-with-application-insights"></a>Détection, tri et diagnostic avec Application Insights
+# <a name="overview-of-application-insights-for-devops"></a>Vue d’ensemble d’Application Insights pour DevOps
 
-
-[Application Insights](app-insights-overview.md) est un service de gestion des performances des applications (APM) extensible destiné aux développeurs web. Il vous permet de connaître les performances et l’utilisation de votre application active. Il vous informe en cas de problème, vous permet d'évaluer son impact et vous aide à déterminer la cause.
+Avec [Application Insights](app-insights-overview.md), vous avez la possibilité de connaître rapidement les performances et l’utilisation de votre application active. Il vous informe en cas de problème, vous permet d’évaluer son impact et vous aide à en déterminer la cause.
 
 Voici le compte d'une équipe qui développe des applications web :
 
 * *« Il y a quelques jours, nous avons déployé un correctif secondaire. Nous n'avons pas effectué de tests complets, mais malheureusement certaines modifications inattendues ont été ajoutées à la charge utile, ce qui a créé une incompatibilité entre le début et la fin. Immédiatement, des exceptions sont apparues sur le serveur, nos alertes se sont déclenchées et nous avons été mis au fait de la situation. En quelques clics sur le portail Application Insights, nous avons obtenu suffisamment d'informations dans la pile des appels d'exception pour cerner le problème. Nous avons immédiatement restauré la version précédente et limité les dégâts. Application Insights facilite et simplifie cette partie du cycle des opérations de développement. »*
 
-Nous allons voir comment une équipe de développement web classique utilise Application Insights pour la gestion des performances. Nous allons suivre l'équipe de la banque Fabrikam qui développe le système de banque en ligne (OBS).
+Dans cet article, nous suivons une équipe de la banque Fabrikam qui développe le système d’opérations bancaires en ligne, dans le but de voir comment elle utilise Application Insights pour répondre rapidement aux clients et effectuer des mises à jour.  
 
-![Exemple de site web d'une banque](./media/app-insights-detect-triage-diagnose/03-bank.png)
-
-L’équipe travaille selon un cycle DevOps comme celui-ci :
+L’équipe travaille selon un cycle DevOps décrit dans l’illustration suivante :
 
 ![Cycle DevOps](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
@@ -62,9 +59,9 @@ Les défaillances sont indiquées par des points rouge dans le graphique de test
 
 ![Affichage des tests web exécutés sur la période précédente](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-Mais surtout, une alerte est envoyée à l'équipe de développement pour toute erreur. De cette façon, ils en sont informés presque avant tous les clients.
+Mais, surtout, une alerte est envoyée à l’équipe de développement en cas de défaillance. De cette façon, ils en sont informés presque avant tous les clients.
 
-## <a name="monitor-performance-metrics"></a>Analyser les mesures de performances
+## <a name="monitor-performance"></a>Analyser les performances
 Dans la page Vue d’ensemble d’Application Insights, un graphique montre une série de [mesures clés](app-insights-web-monitor-performance.md).
 
 ![Différentes mesures](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
@@ -79,7 +76,7 @@ Elle ouvre les graphiques Serveurs (Serveurs)  :
 
 Il semble n’y avoir aucun signe de limitation de ressources. L’augmentation des temps de réponse du serveur sur le graphique est peut-être en fait tout simplement une coïncidence.
 
-## <a name="alerts"></a>Alertes
+## <a name="set-alerts-to-meet-goals"></a>Définir des alertes pour atteindre les objectifs
 Néanmoins, elle souhaite continuer à surveiller les temps de réponse. Elle souhaite être avertie immédiatement s’ils sont trop élevés.
 
 Elle définit alors une [alerte](app-insights-metrics-explorer.md) si les temps de réponse dépassent un seuil standard. Ainsi, elle est certaine d’être avertie en cas de temps de réponse lents.
@@ -88,14 +85,14 @@ Elle définit alors une [alerte](app-insights-metrics-explorer.md) si les temps 
 
 Des alertes peuvent être définies sur une grande variété d’autres mesures. Par exemple, vous pouvez recevoir des courriers électroniques si le nombre d'exceptions est trop élevé ou si la mémoire disponible est faible, ou bien s'il existe un pic dans les demandes des clients.
 
-## <a name="smart-detection-alerts"></a>Alertes de détection intelligente
-Le jour suivant, un message électronique d’alerte est généré depuis Application Insights. Mais, lorsqu’elle l’ouvre, il ne s’agit pas de l’alerte de temps de réponse qu’elle a définie. Au lieu de cela, elle lui indique qu’il y a eu une augmentation soudaine du nombre de demandes ayant échoué (autrement dit, les demandes qui ont renvoyé des codes d’erreur d’au moins 500).
+## <a name="stay-informed-with-smart-detection-alerts"></a>Rester informé grâce aux alertes de détection intelligentes
+Le jour suivant, un message électronique d’alerte est généré depuis Application Insights. Mais, lorsqu’elle l’ouvre, elle se rend compte qu’il ne s’agit pas de l’alerte de temps de réponse qu’elle a définie. Au lieu de cela, elle lui indique qu’il y a eu une augmentation soudaine du nombre de demandes ayant échoué (autrement dit, les demandes qui ont renvoyé des codes d’erreur d’au moins 500).
 
 Les demandes ayant échoué sont celles dans lesquelles les utilisateurs ont vu une erreur, généralement suite à une exception levée dans le code. Peut-être ont-ils vu un message indiquant « Nous ne pouvons pas mettre à jour vos informations maintenant » ou, dans le pire des cas, le vidage de la pile sur l'écran de l'utilisateur, via le serveur web.
 
 Cette alerte est une surprise, car, au dernier contrôle, le nombre de demandes ayant échoué était relativement peu élevé. Un petit nombre d’échecs est à prévoir dans un serveur très sollicité.
 
-Mais elle est également un peu surprise de ne pas avoir eu à configurer cette alerte. En fait, Détection intelligente est fourni automatiquement avec Application Insights. Il s’ajuste automatiquement au schéma d’échec habituel de votre application et « s’habitue » aux échecs sur une page spécifique, ou en cas de charge élevée ou liée à d’autres mesures. Il génère l’alarme uniquement si l’augmentation dépasse la mesure attendue.
+Mais elle est également un peu surprise de ne pas avoir eu à configurer cette alerte. Application Insights intègre la détection intelligente. Il s’ajuste automatiquement au schéma d’échec habituel de votre application et « s’habitue » aux échecs sur une page spécifique, ou en cas de charge élevée ou liée à d’autres mesures. Il génère l’alarme uniquement si l’augmentation dépasse la mesure attendue.
 
 ![e-mail de diagnostic proactif](./media/app-insights-detect-triage-diagnose/21.png)
 
@@ -105,13 +102,13 @@ Il indique le nombre de clients, les pages web ou des opérations affectés. Mar
 
 L’e-mail indique également qu’une exception particulière s’est produite et, ce qui est encore plus intéressant, que la défaillance est associée à des appels d’une base de données spécifique ayant échoué. Ceci explique pourquoi l’erreur est apparue soudainement alors que l’équipe de Marcela n’a pas déployé de mises à jour récemment.
 
-Elle interroge le responsable de l’équipe en charge de la base de données. Oui, ils publié un correctif il y a moins d’une demi-heure. Il se peut donc qu’une modification mineure du schéma se soit produite...
+Marcella interroge le responsable de l’équipe qui gère la base de données sur cet e-mail. Elle apprend qu’ils ont publié un correctif il y a moins d’une demi-heure. Il se peut donc qu’une modification mineure du schéma se soit produite...
 
 Par conséquent, le problème est en cours de résolution, même avant l’examen des journaux et dans les 15 minutes suivant son apparition. Toutefois, Marcela clique sur le lien pour ouvrir Application Insights. Il s’ouvre directement sur une demande ayant échoué, et elle peut voir l’appel de base de données ayant échoué dans la liste d’appels de dépendance associée.
 
 ![Suivi des demandes ayant échoué](./media/app-insights-detect-triage-diagnose/23.png)
 
-## <a name="detecting-exceptions"></a>Détection des exceptions
+## <a name="detect-exceptions"></a>Détecter les exceptions
 Après quelques configurations, les [exceptions](app-insights-asp-net-exceptions.md) sont signalées automatiquement à Application Insights. Elles peuvent également être capturées explicitement en insérant des appels à [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) dans le code :  
 
     var telemetry = new TelemetryClient();
@@ -153,27 +150,15 @@ Les exceptions et les événements apparaissent dans le panneau [Recherche de di
 
 ![Dans Recherche de diagnostic, utilisez les filtres pour afficher certains types de données.](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## <a name="monitoring-user-activity"></a>Suivi des activités des utilisateurs.
-Lorsque le temps de réponse reste satisfaisant et qu’il existe quelques exceptions, l’équipe de développement peut passer à la facilité d’utilisation. Elle peut réfléchir à la façon d’améliorer l’expérience des utilisateurs et d’encourager davantage d’utilisateurs à atteindre leurs objectifs.
 
-Par exemple, le parcours typique d’un utilisateur sur un site web s’effectue via un « entonnoir » bien défini. De nombreux clients consultent les taux de différents types de prêt. Un petit nombre d’entre eux décident de remplir le formulaire de devis. Parmi ceux qui reçoivent le devis, quelques-uns poursuivent jusqu’à la finalisation du prêt.
-
-![Nombre d’affichages de page](./media/app-insights-detect-triage-diagnose/12-funnel.png)
-
-En regardant à quel moment le plus grand nombre de clients s’est désintéressé, l’entreprise peut réfléchir à un moyen pour encourager davantage d’utilisateurs à aller plus loin dans leur exploration du site. Dans certains cas, il peut y avoir une défaillance de l'expérience utilisateur : par exemple, le bouton « suivant » est difficile de trouver ou les instructions ne sont pas claires. Toutefois, il est plus probable que ce désintéressement soit lié à des raisons commerciales : le taux du prêt est peut-être trop élevé.
-
-Quelque soit les raisons, les données permettent à l’équipe de comprendre ce que font les utilisateurs. Plusieurs appels de suivi peuvent être insérées afin d’obtenir davantage de détails. TrackEvent() peut être utilisé pour compter toutes les actions d’un utilisateur, des moindres détails relatifs aux clics sur un bouton aux résultats les plus significatifs tels que le remboursement d’un prêt.
-
-L'équipe est habituée à recevoir des informations sur l’activité d’un utilisateur. Aujourd'hui, chaque fois qu'ils conçoivent une nouvelle fonctionnalité, ils anticipent les avis qu’ils pourraient obtenir sur celle-ci. Ils conçoivent de zéro des appels de suivi dans la fonctionnalité. Ils exploitent les avis afin d’améliorer la fonctionnalité pour chaque cycle de développement.
-
-## <a name="proactive-monitoring"></a>Surveillance proactive
+## <a name="monitor-proactively"></a>Surveiller de manière proactive
 Marcela ne reste pas les bras croisés à attendre les alertes. Après chaque redéploiement, elle examine les [temps de réponse](app-insights-web-monitor-performance.md), à savoir les chiffres globaux aussi bien que la table des demandes les plus lentes, ainsi que le nombre d’exceptions.  
 
 ![Graphique des temps de réponse et grille des temps de réponse du serveur.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
 
 Elle peut évaluer l'effet de chaque déploiement sur les performances, en comparant chaque semaine avec la précédente. Si l'état s'aggrave soudainement, elle le signale aux développeurs responsables du composant affecté.
 
-## <a name="triage"></a>Tri
+## <a name="triage-issues"></a>Problèmes de triage
 Tri : évaluation de la gravité et de l'étendue d'un problème. Première étape après la détection. Est-il nécessaire d'appeler l'équipe à minuit ? Ou est-il possible de laisser le problème de côté en attendant que l'équipe ait un peu de temps pour s'y attaquer ? Le tri pose certaines questions importantes.
 
 Le problème se pose-t-il souvent ? Les graphiques du panneau Vue d'ensemble mettent le problème en perspective. Par exemple, l'application Fabrikam a généré en une nuit quatre alertes de test web. En examinant le graphique le matin, l'équipe a constaté qu'il y avait effectivement des points rouges, bien que la plupart des tests soient encore en vert. En ouvrant les détails du graphique de disponibilité, il était clair que tous ces problèmes intermittents venaient d'un emplacement de test. Il s'agissait d'un problème réseau affectant un seul itinéraire, qui disparaîtra probablement de lui-même.  
@@ -186,11 +171,11 @@ Quelle est la part des utilisateurs affectés ? Pour obtenir une réponse appro
 
 ![Graphique des demandes et des sessions ayant échoué](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
-En cas de réponse lente, comparez la table des demandes présentant la réponse la moins rapide avec la fréquence d'utilisation de chaque page.
+En cas de réponses lentes, comparez la table des requêtes ayant reçu la réponse la moins rapide avec la fréquence d’utilisation de chaque page.
 
 Quelle est l'importance du scénario bloqué ? S'agit-il d'un problème fonctionnel qui bloque un parcours utilisateur particulier et est-il important ? Si les clients ne peuvent pas payer leurs factures, c'est grave. S'ils ne peuvent simplement pas changer les préférences de couleur d'écran, peut-être que le problème peut attendre. Les détails de l'événement ou de l'exception, ou l'identité de la page qui présente un temps de chargement trop long, vous indiquent où les clients rencontrent des difficultés.
 
-## <a name="diagnosis"></a>Diagnostic
+## <a name="diagnose-issues"></a>Diagnostiquer les problèmes
 Le diagnostic n'est pas tout à fait la même chose que le débogage. Avant de commencer le suivi via le code, vous devez avoir une idée du pourquoi, du quand et du où le problème se produit.
 
 **Quand cela se produit-il ?** La vue historique fournie par les graphiques des événements et des mesures facilite la mise en corrélation des effets avec les causes possibles. S'il y a des pics intermittents dans les temps de réponse ou les taux d'exceptions, examinez le nombre de demandes : si elle augmente en même temps, il peut s'agir d'un problème de ressources. Est-il nécessaire d'allouer davantage de processeur ou de mémoire ? Ou s'agit-il d'une dépendance qui ne peut pas gérer la charge ?
@@ -207,18 +192,33 @@ Certains problèmes de dépendances lentes sont dus à des problèmes de géoloc
 
 Fabrikam avait un problème intermittent avec les transferts entre comptes, mais uniquement avec certains types de compte. Pour mieux comprendre ce qui se produisait, ils ont inséré des appels TrackTrace() à des points clés du code, en joignant le type de compte en tant que propriété à chaque appel. Cela a permis de filtrer plus facilement le suivi dans la recherche de diagnostic. Ils ont aussi joint les valeurs des paramètres en tant que propriétés, ainsi que des mesures pour les appels de trace.
 
-## <a name="dealing-with-it"></a>Gestion du problème
-Une fois que vous avez diagnostiqué le problème, vous pouvez mettre en place les mesures nécessaires pour le résoudre. Peut-être devrez-vous annuler une modification récente ou peut-être pouvez-vous simplement résoudre le problème. Une fois la correction appliquée, Application Insights vous indiquera si vous avez réussi.  
+## <a name="respond-to-discovered-issues"></a>Réagir aux problèmes détectés
+Une fois que vous avez diagnostiqué le problème, vous pouvez mettre en place les mesures nécessaires pour le résoudre. Peut-être devrez-vous annuler une modification récente ou peut-être pouvez-vous simplement résoudre le problème. Une fois la correction appliquée, Application Insights vous indique si vous avez réussi.  
 
 L'équipe de développement de la banque Fabrikam adopte une approche plus structurée de la mesure des performances qu'avant l'utilisation d'Application Insights.
 
 * Elle définit des objectifs de performances sur des mesures spécifiques dans la page Vue d'ensemble Application Insights.
 * Elle intègre dès le départ des mesures de performances dans l'application, par exemple des indicateurs qui mesurent la progression de l'utilisateur dans certains segments.  
 
-## <a name="usage"></a>Utilisation
-Application Insights peut également servir à apprendre ce que les utilisateurs font avec une application. Une fois que cette dernière s'exécute correctement, l'équipe souhaite savoir quelles sont les fonctionnalités les plus populaires, ce que les utilisateurs ont comme difficultés et s'ils reviennent souvent. Ces données permettront de hiérarchiser le travail à venir. Et l'équipe peut prévoir de mesurer la réussite de chaque fonctionnalité dans le cadre du cycle de développement. [En savoir plus](app-insights-web-track-usage.md).
 
-## <a name="your-applications"></a>Vos applications
+## <a name="monitor-user-activity"></a>Surveiller les activités des utilisateurs
+Lorsque le temps de réponse reste satisfaisant et qu’il existe quelques exceptions, l’équipe de développement peut passer à la facilité d’utilisation. Elle peut réfléchir à la façon d’améliorer l’expérience des utilisateurs et d’encourager davantage d’utilisateurs à atteindre leurs objectifs.
+
+Application Insights peut également servir à apprendre ce que les utilisateurs font avec une application. Une fois que cette dernière s'exécute correctement, l'équipe souhaite savoir quelles sont les fonctionnalités les plus populaires, ce que les utilisateurs ont comme difficultés et s'ils reviennent souvent. Ces données permettront de hiérarchiser le travail à venir. Et l'équipe peut prévoir de mesurer la réussite de chaque fonctionnalité dans le cadre du cycle de développement. 
+
+Par exemple, le parcours typique d’un utilisateur sur un site web s’effectue via un « entonnoir » bien défini. De nombreux clients consultent les taux de différents types de prêt. Un petit nombre d’entre eux décident de remplir le formulaire de devis. Parmi ceux qui reçoivent le devis, quelques-uns poursuivent jusqu’à la finalisation du prêt.
+
+![Nombre d’affichages de page](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+
+En regardant à quel moment le plus grand nombre de clients s’est désintéressé, l’entreprise peut réfléchir à un moyen pour encourager davantage d’utilisateurs à aller plus loin dans leur exploration du site. Dans certains cas, il peut y avoir une défaillance de l'expérience utilisateur : par exemple, le bouton « suivant » est difficile de trouver ou les instructions ne sont pas claires. Toutefois, il est plus probable que ce désintéressement soit lié à des raisons commerciales : le taux du prêt est peut-être trop élevé.
+
+Quelque soit les raisons, les données permettent à l’équipe de comprendre ce que font les utilisateurs. Plusieurs appels de suivi peuvent être insérées afin d’obtenir davantage de détails. TrackEvent() peut être utilisé pour compter toutes les actions d’un utilisateur, des moindres détails relatifs aux clics sur un bouton aux résultats les plus significatifs tels que le remboursement d’un prêt.
+
+L'équipe est habituée à recevoir des informations sur l’activité d’un utilisateur. Aujourd'hui, chaque fois qu'ils conçoivent une nouvelle fonctionnalité, ils anticipent les avis qu’ils pourraient obtenir sur celle-ci. Ils conçoivent de zéro des appels de suivi dans la fonctionnalité. Ils exploitent les avis afin d’améliorer la fonctionnalité pour chaque cycle de développement.
+
+[En savoir plus sur le suivi de l’utilisation](app-insights-usage-overview.md).
+
+## <a name="apply-the-devops-cycle"></a>Appliquer le cycle DevOps
 Voici donc une équipe qui utilise Application Insights non seulement pour résoudre les problèmes, mais aussi pour améliorer le cycle de développement. J’espère que ceci vous a donné quelques idées sur la façon dont Application Insights peut vous aider dans vos propres applications avec la gestion des performances des applications.
 
 ## <a name="video"></a>Vidéo

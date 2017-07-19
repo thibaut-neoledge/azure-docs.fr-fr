@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 06/29/2017
 ms.author: mikerou
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 8d7052fabeb348b4bba744b43d9af78f058175a8
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 46b0b62f92abbac57bc27bbcdd5821eafedf5519
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -41,7 +42,7 @@ Il existe des API Azure qui permettent aux applications de travailler par progra
 
 Cette fonctionnalité de mise à l’échelle automatique personnalisée permet d’ajouter un service sans état à l’application Service Fabric pour gérer les opérations de mise à l’échelle. Dans la méthode `RunAsync` du service, un ensemble de déclencheurs peut déterminer si la mise à l’échelle est requise (avec vérification de paramètres tels que la taille maximale des clusters et de mise à l’échelle de recharges).   
 
-L’API utilisée pour les interactions des groupes de machines virtuelles identiques (pour vérifier et modifier le nombre actuel d’instances de machine virtuelle) est la [bibliothèque Azure Management Compute](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/1.0.0-beta50). Cette bibliothèque de calcul fluide fournit une API conviviale pour interagir avec les groupes de machines virtuelles identiques.
+L’API utilisée pour les interactions des groupes de machines virtuelles identiques (afin de vérifier et de modifier le nombre actuel d’instances de machines virtuelles) est la [bibliothèque Fluent Azure Management Compute](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). Cette bibliothèque de calcul fluide fournit une API conviviale pour interagir avec les groupes de machines virtuelles identiques.
 
 Pour interagir avec le cluster Service Fabric, utilisez [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
 
@@ -57,10 +58,13 @@ Pour créer un principal de service, procédez comme suit :
     1. Notez l’ID d’application (appelé ID client ailleurs), le nom, le mot de passe et le client en vue d’une utilisation ultérieure.
     2. Vous aurez également besoin de votre ID d’abonnement, que vous pouvez afficher avec `az account list`.
 
-La bibliothèque de calcul fluide peut se connecter à l’aide des informations d’identification suivantes :
+La bibliothèque de calcul Fluent peut se connecter avec ces informations d’identification de la façon suivante (notez que les principaux types Azure Fluent, par exemple `IAzure`, se trouvent dans le package [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)) :
 
 ```C#
-var credentials = AzureCredentials.FromServicePrincipal(AzureClientId, AzureClientKey, AzureTenantId, AzureEnvironment.AzureGlobalCloud);
+var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
+                ClientId = AzureClientId,
+                ClientSecret = 
+                AzureClientKey }, AzureTenantId, AzureEnvironment.AzureGlobalCloud);
 IAzure AzureClient = Azure.Authenticate(credentials).WithSubscription(AzureSubscriptionId);
 
 if (AzureClient?.SubscriptionId == AzureSubscriptionId)
@@ -79,40 +83,12 @@ Une fois celle-ci connectée, le nombre d’instances de groupes identiques peut
 Le Kit de développement logiciel (SDK) Azure Compute permet d’ajouter des instances au groupe de machines virtuelles identiques, moyennant quelques appels seulement.
 
 ```C#
-var scaleSet = AzureClient?.VirtualMachineScaleSets.GetById(ScaleSetId);
-var newCapacity = Math.Min(MaximumNodeCount, NodeCount.Value + 1);
+var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
+var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-**Un [bogue](https://github.com/Azure/azure-sdk-for-net/issues/2716) empêche actuellement ce code de fonctionner**, mais un correctif a été intégré, ce qui devrait résoudre le problème dans les prochaines versions publiées de Microsoft.Azure.Management.Compute.Fluent. Lors de la modification des propriétés du groupe de machines virtuelles identiques(comme la capacité) à l’aide de l’API de calcul fluide, les paramètres protégés du modèle Resource Manager du groupe identique sont perdus. L’absence de ces paramètres empêche, entre autres, les services Service Fabric de s’installer correctement sur les nouvelles instances de machine virtuelle.
-
-Une des solutions temporaires consiste à appeler les applets de commande PowerShell à partir du service de mise à l’échelle pour mettre en œuvre la même modification (même si cette approche implique la présence d’outils PowerShell) :
-
-```C#
-using (var psInstance = PowerShell.Create())
-{
-    psInstance.AddScript($@"
-        $clientId = ""{AzureClientId}""
-        $clientKey = ConvertTo-SecureString -String ""{AzureClientKey}"" -AsPlainText -Force
-        $Credential = New-Object -TypeName ""System.Management.Automation.PSCredential"" -ArgumentList $clientId, $clientKey
-        Login-AzureRmAccount -Credential $Credential -ServicePrincipal -TenantId {AzureTenantId}
-        
-        $vmss = Get-AzureRmVmss -ResourceGroupName {ResourceGroup} -VMScaleSetName {NodeTypeToScale}
-        $vmss.sku.capacity = {newCapacity}
-        Update-AzureRmVmss -ResourceGroupName {ResourceGroup} -Name {NodeTypeToScale} -VirtualMachineScaleSet $vmss
-    ");
-
-    psInstance.Invoke();
-
-    if (psInstance.HadErrors)
-    {
-        foreach (var error in psInstance.Streams.Error)
-        {
-            ServiceEventSource.Current.ServiceMessage(Context, $"ERROR adding node: {error.ToString()}");
-        }
-    }                
-}
-```
+Il est également possible de gérer la taille des groupes de machines virtuelles identiques avec des applets de commande PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmss) peut récupérer l’objet groupe de machines virtuelles identiques. La capacité actuelle sera stockée dans la propriété `.sku.capacity`. Une fois la capacité fixée à la valeur souhaitée, il est possible de mettre à jour le groupe de machines virtuelles identiques dans Azure avec la commande [`Update-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermvmss).
 
 Lorsque vous ajoutez manuellement un nœud, l’ajout d’une instance de groupe identique doit suffire pour démarrer un nouveau nœud Service Fabric, car le modèle de groupe identique contient des extensions pour ajouter automatiquement des instances au cluster Service Fabric. 
 
@@ -137,7 +113,7 @@ N’oubliez pas que les nœuds *racines* ne semblent pas toujours respecter la c
 Une fois le nœud à supprimer trouvé, il peut être désactivé et supprimé à l’aide de la même instance `FabricClient` et de l’instance `IAzure` précédente.
 
 ```C#
-var scaleSet = AzureClient?.VirtualMachineScaleSets.GetById(ScaleSetId);
+var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
 ServiceEventSource.Current.ServiceMessage(Context, $"Disabling node {mostRecentLiveNode.NodeName}");
@@ -154,18 +130,16 @@ while ((mostRecentLiveNode.NodeStatus == System.Fabric.Query.NodeStatus.Up || mo
 }
 
 // Decrement VMSS capacity
-var newCapacity = Math.Max(MinimumNodeCount, NodeCount.Value - 1); // Check min count 
+var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Check min count 
 
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Une fois l’instance de machine virtuelle supprimée, l’état du nœud Service Fabric peut être supprimé.
+Comme pour la montée en charge, des cmdlets e PowerShell de modification de la capacité des groupes de machines virtuelles identiques peuvent également être utilisées ici si une approche par scripts est préférable. Une fois l’instance de machine virtuelle supprimée, l’état du nœud Service Fabric peut être supprimé.
 
 ```C#
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
-
-Comme auparavant, vous devez contourner le dysfonctionnement de `IVirtualMachineScaleSet.Update()` jusqu’à la résolution du problème [Azure/azure-sdk-de-net #2716](https://github.com/Azure/azure-sdk-for-net/issues/2716).
 
 ## <a name="potential-drawbacks"></a>Inconvénients potentiels
 
@@ -180,3 +154,4 @@ Pour commencer à implémenter votre propre logique de mise à l’échelle auto
 - [Augmenter ou diminuer la taille des instances d’un cluster Service Fabric à l’aide de règles de mise à l’échelle automatique](./service-fabric-cluster-scale-up-down.md)
 - [Bibliothèques Azure Management fluides pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (utiles pour interagir avec les groupes de machines virtuelles identiques sous-jacents d’un cluster Service Fabric)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (utile pour interagir avec un cluster Service Fabric et ses nœuds)
+

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: be140e86047cae304bfb5c32c5cdd9135413df82
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 0b7ce531c73d991897f1c35932e795a97dd33162
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -53,6 +54,7 @@ Pour effectuer cette opération, vous aurez besoin des composants suivants de vo
 
 Vous aurez également besoin des éléments suivants pour votre environnement de développement :
 
+* Un abonnement Azure actif. Si vous ne possédez pas de compte Azure, vous pouvez [créer un compte d’évaluation Azure gratuit](https://azure.microsoft.com/free/) en quelques minutes.
 * Un Mac ou un PC exécutant Windows ou Ubuntu.
 * Un réseau sans fil pour la connexion de la carte Sparkfun ESP8266 Thing Dev.
 * Une connexion Internet pour télécharger l’outil de configuration.
@@ -64,79 +66,7 @@ Les éléments suivants sont facultatifs si vous n’avez pas de capteur. Vous a
 * Une platine d’expérimentation.
 * Des câbles de liaison M/M.
 
-## <a name="create-an-iot-hub-and-register-a-device-for-sparkfun-esp8266-thing-dev"></a>Création d’une instance IoT Hub et enregistrement d’un appareil pour la carte Sparkfun ESP8266 Thing Dev
-
-### <a name="create-your-azure-iot-hub-in-the-azure-portal"></a>Créer votre Azure IoT Hub dans le portail Azure
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Cliquez sur **Nouveau** > **Internet des objets** > **IoT Hub**.
-
-   ![Création du IoT Hub](media/iot-hub-sparkfun-thing-dev-get-started/3_iot-hub-creation.png)
-
-1. Dans le volet **IoT Hub**, entrez les informations requises pour votre IoT Hub :
-
-   ![Informations de base pour la création du IoT Hub](media/iot-hub-sparkfun-thing-dev-get-started/4_iot-hub-provide-basic-info.png)
-
-   * **Nom** : nom de votre IoT Hub. Si le nom saisi est valide, une coche verte s’affiche.
-   * **Niveau de tarification et de mise à l’échelle** : sélectionnez le niveau F1 gratuit, qui sera suffisant pour cette démonstration. Pour plus d’informations sur le niveau de tarification et de mise à l’échelle, consultez [cette page](https://azure.microsoft.com/pricing/details/iot-hub/).
-   * **Groupe de ressources** : créez un groupe de ressources pour héberger l’IoT Hub ou utilisez-en un existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-portal.md).
-   * **Emplacement** : sélectionnez l’emplacement le plus proche de l’endroit où vous créez l’IoT Hub.
-   * **Épingler au tableau de bord** : cochez cette option pour pouvoir accéder facilement à votre IoT Hub à partir du tableau de bord.
-1. Cliquez sur **Create**. La création du IoT Hub peut prendre plusieurs minutes. Vous pouvez suivre la progression dans le volet **Notifications**.
-
-   ![Suivi de la progression de la création du IoT Hub dans le volet Notifications](media/iot-hub-sparkfun-thing-dev-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
-
-1. Une fois votre IoT Hub créé, cliquez dessus dans le tableau de bord. Notez la valeur de **Hostname** (Nom d’hôte), puis cliquez sur **Stratégies d’accès partagé**.
-
-   ![Obtention du nom d’hôte de votre IoT Hub](media/iot-hub-sparkfun-thing-dev-get-started/6_iot-hub-get-hostname.png)
-
-1. Dans le panneau **Stratégies d’accès partagé**, cliquez sur la stratégie **iothubowner**, puis copiez et notez la **chaîne de connexion** de votre IoT Hub. Pour plus d’informations, consultez [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md).
-
-   ![Obtention de la chaîne de connexion de l’IoT Hub](media/iot-hub-sparkfun-thing-dev-get-started/7_iot-hub-get-connection-string.png)
-
-Votre IoT Hub est maintenant créé. Le nom d’hôte et la chaîne de connexion que vous avez notés vous serviront ultérieurement.
-
-### <a name="register-a-device-for-sparkfun-esp8266-thing-dev-in-your-iot-hub"></a>Enregistrer un appareil pour la carte Sparkfun ESP8266 Thing Dev dans votre instance IoT Hub
-
-Chaque IoT Hub a un registre des identités contenant des informations sur les appareils autorisés à se connecter au IoT Hub. Pour qu’un appareil puisse se connecter à un Hub, une entrée correspondant à cet appareil doit figurer dans le registre des identités de l’IoT Hub.
-
-Dans cette section, vous allez utiliser l’outil CLI iothub-explorer pour enregistrer un appareil pour la carte Sparkfun ESP8266 Thing Dev dans le registre des identités de votre instance IoT Hub.
-
-> [!NOTE]
-> iothub-explorer requiert Node.js 4.x ou version ultérieure pour fonctionner correctement.
-
-Pour enregistrer un appareil pour la carte Sparkfun ESP8266 Thing Dev, procédez comme suit :
-
-1. [Téléchargez](https://nodejs.org/en/download/) et installez la dernière version LTS de Node.js, y compris NPM.
-1. Installez iothub-explorer à l’aide de NPM.
-
-   * Windows 7 ou version ultérieure : Lancez une invite de commandes en tant qu’administrateur. Installez iothub-explorer en exécutant la commande suivante :
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-   * Ubuntu 16.04 ou version ultérieure : Ouvrez un terminal à l’aide du raccourci clavier Ctrl + Alt + T, puis exécutez la commande suivante :
-
-     ```bash
-     sudo npm install -g iothub-explorer
-     ```
-   * macOS 10.1 ou version ultérieure : Ouvrez un terminal, puis exécutez la commande suivante :
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-1. Connectez-vous à votre IoT Hub en exécutant la commande suivante :
-
-   ```bash
-   iothub-explorer login [your iot hub connection string]
-   ```
-1. Enregistrez un nouvel appareil avec le `deviceID` `new-device` et obtenez sa chaîne de connexion en exécutant la commande suivante :
-
-   ```bash
-   iothub-explorer create new-device --connection-string
-   ```
-
-Notez la chaîne de connexion de l’appareil enregistré (elle vous servira ultérieurement).
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-esp8266-thing-dev-with-the-sensor-and-your-computer"></a>Connecter la carte ESP8266 Thing Dev au capteur et à votre ordinateur
 
@@ -232,7 +162,7 @@ Installez le package de la carte Sparkfun ESP8266 Thing Dev dans l’IDE Ar
 
    ![Le package ESP8266 est installé](media/iot-hub-sparkfun-thing-dev-get-started/12_arduino-ide-esp8266-installed.png)
 
-1. Cliquez sur **Outils** > **Type de carte** > **Adafruit HUZZAH ESP8266**.
+1. Cliquez sur **Outils** > **Carte** > **Sparkfun ESP8266 Thing Dev**.
 
 ### <a name="install-necessary-libraries"></a>Installer les bibliothèques nécessaires
 

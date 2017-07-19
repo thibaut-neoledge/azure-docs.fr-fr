@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 2748838279462a493983c397454cbcf13b2a82e6
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 1946fba8dd94d0b2815550e3825b092c1c6289ec
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -37,6 +38,9 @@ ms.lasthandoff: 03/14/2017
 Vous pouvez utiliser l’activité HDInsightStreamingActivity pour appeler une tâche de diffusion en continu Hadoop à partir d’un pipeline Azure Data Factory. L’extrait de code JSON suivant illustre la syntaxe pour l’utilisation de HDInsightStreamingActivity dans un fichier JSON de pipeline. 
 
 L’activité de streaming HDInsight dans un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des programmes de streaming Hadoop sur votre cluster HDInsight [propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
+
+> [!NOTE] 
+> Si vous découvrez Azure Data Factory, lisez la [Présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le didacticiel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
 
 ## <a name="json-sample"></a>Exemple JSON
 Le cluster HDInsight est automatiquement rempli avec les données (davinci.txt) et les exemples de programmes (wc.exe et cat.exe). Par défaut, le nom du conteneur utilisé par le cluster HDInsight est le nom du cluster lui-même. Par exemple, si votre nom de cluster est myhdicluster, le nom du conteneur d’objets blob associé est myhdicluster. 
@@ -58,7 +62,7 @@ Le cluster HDInsight est automatiquement rempli avec les données (davinci.txt) 
                         "<nameofthecluster>/example/apps/wc.exe",
                         "<nameofthecluster>/example/apps/cat.exe"
                     ],
-                    "fileLinkedService": "StorageLinkedService",
+                    "fileLinkedService": "AzureStorageLinkedService",
                     "getDebugInfo": "Failure"
                 },
                 "outputs": [
@@ -98,7 +102,7 @@ Notez les points suivants :
 7. Dans la section **filePaths** , spécifiez les chemins des fichiers exécutables du mappeur et du raccord de réduction. Dans l’exemple « adfsample/example/apps/wc.exe », adfsample est le conteneur de l’objet blob, example/apps est le dossier et wc.exe est le fichier exécutable.
 8. Pour la propriété **fileLinkedService** , spécifiez le service lié Azure Storage qui représente le stockage Azure qui contient les fichiers spécifiés dans la section filePaths.
 9. Pour la propriété **arguments** , spécifiez les arguments de la tâche de diffusion en continu.
-10. La propriété **getDebugInfo** est un élément facultatif. Si sa valeur est Failure, les journaux ne sont téléchargés qu’en cas d’échec. Si sa valeur est All, les journaux sont toujours téléchargés, quel que soit l’état de l’exécution.
+10. La propriété **getDebugInfo** est un élément facultatif. Si sa valeur est Failure, les journaux ne sont téléchargés qu’en cas d’échec. Si sa valeur est Toujours, les journaux sont toujours téléchargés, quel que soit l’état de l’exécution.
 
 > [!NOTE]
 > Comme indiqué dans l’exemple, vous spécifiez un jeu de données de sortie pour l’activité de diffusion en continu Hadoop pour la propriété **outputs** . Il s’agit simplement d’un ensemble de données factice qui est nécessaire au fonctionnement de la planification de pipeline. Il est inutile de spécifier un jeu de données en entrée pour l’activité de la propriété **entrées** .  

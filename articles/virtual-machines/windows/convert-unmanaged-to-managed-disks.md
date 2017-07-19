@@ -1,6 +1,6 @@
 ---
-title: "Convertir une machine virtuelle à partir de disques non gérés vers des disques gérés - Azure | Microsoft Docs"
-description: "Convertir une machine virtuelle à partir de disques non gérés vers des disques gérés à l’aide de PowerShell dans le modèle de déploiement Resource Manager"
+title: "Convertir une machine virtuelle Windows à partir de disques non gérés vers des disques gérés - Azure | Microsoft Docs"
+description: "Guide de conversion d’une machine virtuelle Windows à partir de disques non gérés en Azure Managed Disks à l’aide de PowerShell dans le modèle de déploiement Resource Manager"
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,153 +13,142 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 06/23/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: b3a2bf688f1837a17312ec4bb5ca6b87209076cd
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 636d4f7c5da72973a7837718cfb42dda93bba2cc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/01/2017
 
 ---
-# <a name="convert-a-vm-from-unmanaged-disks-to-managed-disks"></a>Convertir une machine virtuelle à partir de disques non gérés vers des disques gérés
 
-Si vous avez des machines virtuelles Azure existantes qui utilisent des disques non gérés dans des comptes de stockage et que vous souhaitez tirer parti des [disques gérés](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), vous pouvez convertir les machines virtuelles. Le processus convertit à la fois le disque du système d’exploitation et les disques de données attachés de disques non gérés dans un compte de stockage vers des disques gérés. Les machines virtuelles sont arrêtées et libérées. Vous utilisez ensuite Powershell pour convertir la machine virtuelle afin qu’elle utilise des disques gérés. Après la conversion, vous redémarrez la machine virtuelle, qui utilisera désormais des disques gérés.
+# <a name="convert-a-windows-vm-from-unmanaged-disks-to-azure-managed-disks"></a>Conversion d’une machine virtuelle Windows à partir de disques non gérés vers Azure Managed Disks
 
-Avant de commencer, n’oubliez pas d’étudier la [planification de la migration vers des disques gérés](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
-Testez le processus de migration en migrant une machine virtuelle de test avant d’effectuer la migration de production, car le processus de migration n’est pas réversible. La gestion de la machine virtuelle étant verrouillée pendant la migration, vous ne pouvez pas démarrer, arrêter ou supprimer la machine virtuelle avant la fin de l’opération.
+Si vous avez des machines virtuelles Windows existantes qui utilisent des disques non gérés, vous pouvez convertir ces machines virtuelles pour qu’elles utilisent [Azure Managed Disks](../../storage/storage-managed-disks-overview.md). Ce processus convertit le disque du système d’exploitation ainsi que tous les autres disques de données attachés.
 
+Cet article explique comment convertir des machines virtuelles avec Azure PowerShell. Si vous devez installer ou mettre à niveau, consultez [Installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps.md).
 
-> [!IMPORTANT] 
-> Lors de la conversion, vous libèrerez la machine virtuelle. La libération de la machine virtuelle signifie qu’elle se verra attribuer une nouvelle adresse IP lorsqu’elle redémarrera après la conversion. Si vous avez une dépendance sur une adresse IP fixe, vous devez utiliser une adresse IP réservée.
+## <a name="before-you-begin"></a>Avant de commencer
 
 
-## <a name="managed-disks-and-azure-storage-service-encryption-sse"></a>Disques gérés et chiffrement du service de stockage Azure (SSE)
+* Consultez [Planification de la migration vers Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 
-Vous ne pouvez pas convertir une machine virtuelle non gérée créée dans le modèle de déploiement Resource Manager vers des disques gérés si l’un des disques non gérés attachés fait partie d’un compte de stockage qui est, ou a été, chiffré à l’aide du [chiffrement du service de stockage Azure (SSE)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Les étapes suivantes décrivent comment convertir une machine virtuelle non gérée qui est, ou a été, dans un compte de stockage chiffré :
+[!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-**Disques de données** :
-1.    Détachez le disque de données de la machine virtuelle.
-2.    Copiez le disque dur virtuel sur un compte de stockage sur lequel le chiffrement SSE n’a jamais été activé. Pour copier le disque vers un autre compte de stockage, utilisez [AzCopy](../../storage/storage-use-azcopy.md) : `AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myDataDisk.vhd`
-3.    Attachez le disque copié à la machine virtuelle et convertissez cette dernière.
 
-**Disque du système d’exploitation** :
-1.    Arrêtez la libération de la machine virtuelle. Si nécessaire, enregistrez la configuration de la machine virtuelle.
-2.    Copiez le disque dur virtuel du système d’exploitation sur un compte de stockage sur lequel le chiffrement SSE n’a jamais été activé. Pour copier le disque vers un autre compte de stockage, utilisez [AzCopy](../../storage/storage-use-azcopy.md) : `AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
-3.    Créez une machine virtuelle qui utilise des disques gérés et, lors de sa création, attachez ce fichier de disque dur virtuel en tant que disque du système d’exploitation.
 
-## <a name="convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set"></a>Convertir des machines virtuelles d’un groupe à haute disponibilité vers des disques gérés dans un groupe à haute disponibilité géré
 
-Si les machines virtuelles que vous souhaitez convertir en disques gérés se trouvent dans un groupe à haute disponibilité, vous devez tout d’abord convertir ce dernier en un groupe à haute disponibilité géré.
+## <a name="convert-single-instance-vms"></a>Convertir des machines virtuelles à instance unique
+Cette section explique comment convertir vos machines virtuelles Azure à instance unique à partir de disques non gérés en disques gérés. (Voir la section suivante si vos machines virtuelles sont dans un groupe à haute disponibilité). 
 
-Le script suivant met à jour le groupe à haute disponibilité pour qu’il devienne un groupe à haute disponibilité géré, puis libère et convertit les disques, avant de redémarrer chaque machine virtuelle du groupe à haute disponibilité.
+1. Libérez la machine virtuelle avec l’applet de commande [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). L’exemple suivant libère la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` : 
+
+  ```powershell
+  $rgName = "myResourceGroup"
+  $vmName = "myVM"
+  Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+  ```
+
+2. Convertissez la machine virtuelle en disques gérés avec l’applet de commande [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk). Le processus suivant convertit la machine virtuelle précédente, y compris le disque du système d’exploitation et tous les disques de données :
+
+  ```powershell
+  ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
+  ```
+
+3. Démarrez la machine virtuelle une fois la conversion vers les disques gérés effectuée avec la commande [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm). L’exemple suivant redémarre la machine virtuelle précédente :
+
+  ```powershell
+  Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+  ```
+
+
+## <a name="convert-vms-in-an-availability-set"></a>Convertir des machines virtuelles dans un groupe à haute disponibilité
+
+Si les machines virtuelles que vous souhaitez convertir pour utiliser des disques gérés se trouvent dans un groupe à haute disponibilité, vous devez tout d’abord convertir ce dernier en groupe à haute disponibilité géré.
+
+1. Convertissez le groupe à haute disponibilité avec l’applet de commande [Update-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/update-azurermavailabilityset). L’exemple suivant met à jour le groupe à haute disponibilité nommé `myAvailabilitySet` dans le groupe de ressources nommé `myResourceGroup` :
+
+  ```powershell
+  $rgName = 'myResourceGroup'
+  $avSetName = 'myAvailabilitySet'
+
+  $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+  Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
+  ```
+
+  Si la région où votre groupe à haute disponibilité se situe n’a que 2 domaines d’erreur gérés, mais que le nombre de domaines d’erreur non gérés est de 3, cette commande affiche une erreur semblable à « Le nombre de domaines d’erreur spécifié 3 doit être compris entre 1 et 2 ». Pour résoudre l’erreur, mettez à jour le domaine par défaut sur 2 et `Sku` sur `Aligned`, comme suit :
+
+  ```powershell
+  $avSet.PlatformFaultDomainCount = 2
+  Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
+  ```
+
+2. Désallouer et convertir des machines virtuelles dans le groupe à haute disponibilité. Le script suivant libère chaque machine virtuelle avec l’applet de commande [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm), la convertit avec [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) et la redémarre avec [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm).
+
+  ```powershell
+  $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+
+  foreach($vmInfo in $avSet.VirtualMachinesReferences)
+  {
+     $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
+     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
+     ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
+     Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+  }
+  ```
+
+
+## <a name="convert-standard-managed-disks-to-premium"></a>Convertir des disques gérés standards pour le stockage Premium
+Une fois que vous avez converti votre machine virtuelle en disques gérés, vous pouvez également basculer entre les types de stockage. Vous pouvez également utiliser un mélange de disques qui utilisent le stockage Standard et le stockage Premium. Dans l’exemple suivant, nous montrons comment passer du stockage normal au stockage Premium. Pour utiliser des disques gérés Premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage Premium. Cet exemple passe également à une taille prenant en charge le stockage Premium.
 
 ```powershell
 $rgName = 'myResourceGroup'
-$avSetName = 'myAvailabilitySet'
+$vmName = 'YourVM'
+$size = 'Standard_DS2_v2'
+$vm = Get-AzureRmVM -Name $vmName -rgName $resourceGroupName
 
-$avSet =  Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+# Stop deallocate the VM before changing the size
+Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
 
-Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Managed
+# Change VM size to a size supporting Premium storage
+$vm.HardwareProfile.VmSize = $size
+Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
-foreach($vmInfo in $avSet.VirtualMachinesReferences)
+# Get all disks in the resource group of the VM
+$vmDisks = Get-AzureRmDisk -ResourceGroupName $rgName 
+
+# For disks that belong to the VM selected, convert to Premium storage
+foreach ($disk in $vmDisks)
+{
+    if ($disk.OwnerId -eq $vm.Id)
     {
-   $vm =  Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
-
-   Stop-AzureRmVM -ResourceGroupName $rgName -Name  $vm.Name -Force
-
-   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-   
+        $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType PremiumLRS
+        Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
+        -DiskName $disk.Name
     }
+}
+
+Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>Convertir des machines virtuelles Azure existantes vers des disques gérés utilisant le même type de stockage
+## <a name="troubleshooting"></a>résolution des problèmes
 
-Cette section explique comment convertir vos machines virtuelles Azure existantes de disques non gérés dans des comptes de stockage vers des disques gérés en utilisant le même type de stockage. Vous pouvez utiliser ce processus pour passer de disques non gérés Premium (SSD) à des disques gérés Premium, ou de disques non gérés Standard (HDD) à des disques gérés Standard. 
-
-1. Créez des variables et libérez la machine virtuelle. Cet exemple définit le nom du groupe de ressources sur **myResourceGroup** et le nom de la machine virtuelle sur **myVM**.
-
-    ```powershell
-    $rgName = "myResourceGroup"
-    $vmName = "myVM"
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
-    ```
-   
-    *L’état* de la machine virtuelle dans le Portail Azure passe de **Arrêté** à **Arrêté (libéré)**.
-    
-2. Convertissez tous les disques associés à la machine virtuelle, y compris le disque du système d’exploitation et les disques de données.
-
-    ```powershell
-    ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
-    ```
+Si une erreur survient lors de la conversion, ou si une machine virtuelle est dans un état d’échec en raison de problèmes dans une conversion précédente, exécutez l’applet de commande `ConvertTo-AzureRmVMManagedDisk` à nouveau. Généralement, une simple nouvelle tentative suffit à débloquer la situation.
 
 
-## <a name="migrate-existing-azure-vms-using-standard-unmanaged-disks-to-premium-managed-disks"></a>Migrer des machines virtuelles Azure existantes utilisant des disques non gérés Standard vers des disques gérés Premium
+## <a name="managed-disks-and-azure-storage-service-encryption"></a>Disques gérés et chiffrement du service de stockage Azure
 
-Cette section vous expliquera comment convertir vos machines virtuelles Azure existantes utilisant des disques non gérés Standard en disques gérés Premium. Pour utiliser des disques gérés Premium, votre machine virtuelle doit utiliser une [taille de machine virtuelle](sizes.md) qui prend en charge le stockage Premium.
+Vous ne pouvez pas utiliser les étapes précédentes pour convertir un disque non géré vers un disque géré s’il se trouve dans un compte de stockage qui a été chiffré à l’aide [d’Azure SSE (Storage Service Encryption)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à un moment donné. Les étapes suivantes décrivent comment copier et utiliser des disques non gérés ont été dans un compte de stockage chiffré :
 
+1. Copiez le disque dur virtuel (VHD) avec [AzCopy](../../storage/storage-use-azcopy.md) dans un compte de stockage pour lequel Azure Storage Service Encryption n’a jamais été activé.
 
-1.  Tout d’abord, définissez les paramètres communs. Assurez-vous que la [taille de machine virtuelle](sizes.md) que vous sélectionnez prend en charge le stockage Premium.
+2. Utilisez la machine virtuelle copiée d’une des manières suivantes :
 
-    ```powershell
-    $resourceGroupName = 'YourResourceGroupName'
-    $vmName = 'YourVMName'
-    $size = 'Standard_DS2_v2'
-    ```
-1.  Obtenir la machine virtuelle avec des disques non gérés
+  * Créez une machine virtuelle qui utilise des disques gérés et spécifiez ce fichier de disque dur virtuel lors de la création avec la commande `New-AzureRmVm`
 
-    ```powershell
-    $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName
-    ```
-    
-1.  Arrêtez (libérez) la machine virtuelle.
+  * Attachez le disque dur virtuel copié avec la commande `Add-AzureRmVmDataDisk` à une machine virtuelle en cours d’exécution avec des disques gérés
 
-    ```powershell
-    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
-    ```
-
-1.  Mettez à jour la taille de la machine virtuelle par rapport à la capacité de stockage Premium disponible dans la région où se trouve la machine virtuelle.
-
-    ```powershell
-    $vm.HardwareProfile.VmSize = $size
-    Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
-    ```
-
-1.  Convertissez la machine virtuelle avec des disques non gérés vers des disques gérés. 
-
-    Si une erreur interne du serveur s’affiche, veuillez réessayer 2 à 3 fois avant de contacter notre équipe de support.
-
-    ```powershell
-    ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $resourceGroupName -VMName $vmName
-    ```
-1. Arrêtez (libérez) la machine virtuelle.
-
-    ```powershell
-    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
-    ```
-2.  Mettez à niveau tous les disques vers le stockage Premium.
-
-    ```powershell
-    $vmDisks = Get-AzureRmDisk -ResourceGroupName $resourceGroupName 
-    foreach ($disk in $vmDisks) 
-        {
-        if($disk.OwnerId -eq $vm.Id)
-            {
-             $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType PremiumLRS
-             Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $resourceGroupName `
-             -DiskName $disk.Name
-            }
-        }
-    ```
-1. Démarrez la machine virtuelle.
-
-    ```powershell
-    Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
-    ```
-    
-Vous pouvez également utiliser un mélange de disques qui utilisent le stockage Standard et le stockage Premium.
-    
 
 ## <a name="next-steps"></a>Étapes suivantes
 
