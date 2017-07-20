@@ -2,7 +2,7 @@
 title: "Mesures Azure Monitor : mesures prises en charge par type de ressource | Microsoft Docs"
 description: Liste des mesures disponibles pour chaque type de ressource avec Azure Monitor.
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
+ms.date: 7/05/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: ff47eaa27351f8d1685090edc54d90e5e91a1de0
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: b034251438c65dd13d9ca0bb116699532e3960ef
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mesures prises en charge avec Azure Monitor
@@ -27,8 +26,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 
 > [!NOTE]
 > D’autres mesures peuvent être disponibles dans le portail ou via les API héritées. Cette liste ne comprend que les mesures disponibles dans la version préliminaire publique du pipeline de mesures Azure Monitor consolidé.
-> 
-> 
+>
+>
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
@@ -90,8 +89,10 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|CoreCount|Nombre de cœurs|Nombre|Total|Nombre total de cœurs dans le compte Batch|
-|TotalNodeCount|Nombre de nœuds|Nombre|Total|Nombre total de nœuds dans le compte Batch|
+|CoreCount|Nombre de cœurs dédiés|Nombre|Total|Nombre total de cœurs dédiés dans le compte Batch|
+|TotalNodeCount|Nombre de nœuds dédiés|Nombre|Total|Nombre total de nœuds dédiés dans le compte Batch|
+|LowPriorityCoreCount|Nombre de cœurs à priorité basse|Nombre|Total|Nombre total de cœurs à priorité basse dans le compte Batch|
+|TotalLowPriorityNodeCount|Nombre de nœuds à priorité basse|Nombre|Total|Nombre total de nœuds à priorité basse dans le compte Batch|
 |CreatingNodeCount|Nombre de nœuds créés|Nombre|Total|Nombre de nœuds en cours de création|
 |StartingNodeCount|Nombre de nœuds de départ|Nombre|Total|Nœuds de nœuds de départ|
 |WaitingForStartTaskNodeCount|Nombre de nœuds en attente de démarrage de tâche|Nombre|Total|Nombre de nœuds en attente de la fin d’une tâche de démarrage|
@@ -103,6 +104,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |RunningNodeCount|Nombre de nœuds en cours d’exécution|Nombre|Total|Le nombre de nœuds en cours d’exécution|
 |LeavingPoolNodeCount|Nombre de nœuds quittant le pool|Nombre|Total|Le nombre de nœuds quittant le pool|
 |UnusableNodeCount|Nombre de nœuds inutilisables|Nombre|Total|Le nombre de nœuds inutilisables|
+|PreemptedNodeCount|Nombre de nœuds reportés|Nombre|Total|Nombre de nœuds reportés|
 |TaskStartEvent|Événements de lancement de tâche|Nombre|Total|Nombre total de tâches ayant démarré|
 |TaskCompleteEvent|Événements de fin de tâche|Nombre|Total|Le nombre total de tâches terminées|
 |TaskFailEvent|Événements d’échec de tâches|Nombre|Total|Le nombre total de tâches terminées dans un état d’échec|
@@ -336,7 +338,41 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|CustomerInsightsApiCalls|CustomerInsightsApiCalls|Nombre|Total||
+|DCIApiCalls|Appels de l’API Insights client|Nombre|Total||
+|DCIMappingImportOperationSuccessfulLines|Mappage des lignes de réussite d’opération d’importation|Nombre|Total||
+|DCIMappingImportOperationFailedLines|Mappage des lignes en échec d’opération d’importation|Nombre|Total||
+|DCIMappingImportOperationTotalLines|Mappage du total des lignes d’opération d’importation|Nombre|Total||
+|DCIMappingImportOperationRuntimeInSeconds|Mappage d’exécution d’opération d’importation en secondes|Secondes|Total||
+|DCIOutboundProfileExportSucceeded|Exportation réussie de profil de sortie|Nombre|Total||
+|DCIOutboundProfileExportFailed|Échec de l’exportation de profil de sortie|Nombre|Total||
+|DCIOutboundProfileExportDuration|Durée d’exportation de profil de sortie|Secondes|Total||
+|DCIOutboundKpiExportSucceeded|Exportation réussie de l’indicateur KPI sortant|Nombre|Total||
+|DCIOutboundKpiExportFailed|Échec de l’exportation de l’indicateur KPI sortant|Nombre|Total||
+|DCIOutboundKpiExportDuration|Durée de l’exportation de l’indicateur KPI sortant|Secondes|Total||
+|DCIOutboundKpiExportStarted|Exportation démarrée de l’indicateur KPI sortant|Secondes|Total||
+|DCIOutboundKpiRecordCount|Nombre d’enregistrements KPI sortants|Secondes|Total||
+|DCIOutboundProfileExportCount|Nombre d’exportations de profils de sortie|Secondes|Total||
+|DCIOutboundInitialProfileExportFailed|Échec de l’exportation de profil initial de sortie|Secondes|Total||
+|DCIOutboundInitialProfileExportSucceeded|Réussite de l’exportation de profil initial de sortie|Secondes|Total||
+|DCIOutboundInitialKpiExportFailed|Échec de l’exportation de l’indicateur KPI initial sortant|Secondes|Total||
+|DCIOutboundInitialKpiExportSucceeded|Réussite de l’exportation de l’indicateur KPI initial sortant|Secondes|Total||
+|DCIOutboundInitialProfileExportDurationInSeconds|Durée d’exportation de profil initial de sortie en secondes|Secondes|Total||
+|AdlaJobForStandardKpiFailed|Échec du travail ADLA pour l’indicateur KPI standard en secondes|Secondes|Total||
+|AdlaJobForStandardKpiTimeOut|Délai d’expiration du travail ADLA pour l’indicateur KPI standard en secondes|Secondes|Total||
+|AdlaJobForStandardKpiCompleted|Achèvement du travail ADLA pour l’indicateur KPI standard en secondes|Secondes|Total||
+|ImportASAValuesFailed|Nombre d’importations de valeurs ASA en échec|Nombre|Total||
+|ImportASAValuesSucceeded|Nombre d’importations de valeurs ASA réussies|Nombre|Total||
+
+## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
+
+|Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
+|---|---|---|---|---|
+|JobEndedSuccess|Travaux réussis|Nombre|Total|Nombre de travaux réussis|
+|JobEndedFailure|Travaux en échec|Nombre|Total|Nombre de travaux en échec|
+|JobEndedCancelled|Travaux annulés|Nombre|Total|Nombre de travaux annulés|
+|JobAUEndedSuccess|Durée AU de réussite|Secondes|Total|Durée AU totale des travaux réussis.|
+|JobAUEndedFailure|Durée AU d’échec|Secondes|Total|Durée AU totale des travaux en échec|
+|JobAUEndedCancelled|Durée AU d’annulation|Secondes|Total|Durée AU totale des travaux annulés|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
@@ -485,6 +521,13 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |---|---|---|---|---|
 |Débit|Débit|Octets par seconde|Moyenne||
 
+## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
+
+|Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
+|---|---|---|---|---|
+|BytesIn|BytesIn|Nombre|Total||
+|BytesOut|BytesOut|Nombre|Total||
+
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
@@ -548,10 +591,55 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |outgoing.mpns.dropped|Notifications MPNS supprimées|Nombre|Total|Nombre d’opérations Push qui ont été supprimées par MPNS (en-tête de réponse MPNS : X-NotificationStatus : QueueFull ou Suppressed).|
 |outgoing.mpns.pnserror|Erreurs MPNS|Nombre|Total|Nombre d’opérations Push en échec en raison d’erreurs de communication avec MPNS.|
 |outgoing.mpns.authenticationerror|Erreurs d’authentification MPNS|Nombre|Total|Nombre d’opérations Push en échec, car le PNS n’a pas accepté les informations d’identification fournies ou celles-ci sont bloquées.|
-|notificationhub.devices|Appareils de hub de notification|Nombre|Moyenne|Le nombre d’appareils du concentrateur de notification|
-|notificationhub.pushes|Notifications push du concentrateur de notification|Nombre|Total|Le nombre de notifications push dans le concentrateur de notification|
+|notificationhub.pushes|Toutes les notifications sortantes|Nombre|Total|Toutes les notifications sortantes du hub de notification|
 |incoming.all.requests|Toutes les demandes entrantes|Nombre|Total|Nombre total des demandes entrantes pour un hub de notification|
 |incoming.all.failedrequests|Toutes les requêtes entrantes ayant échoué|Nombre|Total|Nombre total des demandes entrantes ayant échoué pour un hub de notification|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
+|---|---|---|---|---|
+|qpu_metric|QPU|Nombre|Moyenne|QPU. Plage de 0 à 100 pour S1, de 0 à 200 pour S2 et de 0 à 400 pour S4|
+|memory_metric|Mémoire|Octets|Moyenne|Mémoire. Plage de 0 à 25 Go pour S1, de 0 à 50 Go pour S2 et de 0 à 100 Go pour S4|
+|TotalConnectionRequests|Nombre total de demandes de connexion|Nombre|Moyenne|Nombre total de demandes de connexion. Il s’agit des arrivées.|
+|SuccessfullConnectionsPerSec|Connexions réussies par seconde|Nombre par seconde|Moyenne|Taux de connexions terminées réussies.|
+|TotalConnectionFailures|Nombre total d’échecs de connexion|Nombre|Moyenne|Total des échecs de tentatives de connexion.|
+|CurrentUserSessions|Sessions utilisateur actuelles|Nombre|Moyenne|Nombre actuel de sessions utilisateur établies.|
+|QueryPoolBusyThreads|Threads occupés du pool de threads de requêtes|Nombre|Moyenne|Nombre de threads occupés dans le pool de threads de requêtes.|
+|CommandPoolJobQueueLength|Longueur de la file d’attente des travaux du pool de commandes|Nombre|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads de commandes.|
+|ProcessingPoolJobQueueLength|Longueur de la file d’attente des travaux du pool de traitement|Nombre|Moyenne|Nombre de travaux autres que d’E/S contenus dans la file d’attente du pool de threads de traitement.|
+|CurrentConnections|Connexion : connexions actuelles|Nombre|Moyenne|Nombre actuel de connexions client établies.|
+|CleanerCurrentPrice|Mémoire : prix actuel du nettoyage|Nombre|Moyenne|Prix actuel de la mémoire, $/octet/temps, normalisé à 1000.|
+|CleanerMemoryShrinkable|Mémoire : mémoire de nettoyage réductible|Octets|Moyenne|Quantité de mémoire, en octets, qui doit être vidée par le nettoyage en arrière-plan.|
+|CleanerMemoryNonshrinkable|Mémoire : mémoire de nettoyage non réductible|Octets|Moyenne|Quantité de mémoire, en octets, qui ne doit pas être vidée par le nettoyage en arrière-plan.|
+|MemoryUsage|Mémoire : utilisation de la mémoire|Octets|Moyenne|Utilisation de la mémoire du processus serveur telle qu’utilisée dans le calcul du coût de la mémoire de nettoyage. Équivaut au compteur Process\PrivateBytes, plus la taille des données mappées en mémoire, en ignorant la mémoire mappée ou allouée par le moteur d’analyse de mémoire xVelocity (VertiPaq) dépassant la limite de mémoire du moteur xVelocity.|
+|MemoryLimitHard|Mémoire : limite de mémoire physique|Octets|Moyenne|Limite de mémoire physique, du fichier de configuration.|
+|MemoryLimitHigh|Mémoire : limite de mémoire élevée|Octets|Moyenne|Limite de mémoire élevée, du fichier de configuration.|
+|MemoryLimitLow|Mémoire : limite de mémoire basse|Octets|Moyenne|Limite de mémoire basse, du fichier de configuration.|
+|MemoryLimitVertiPaq|Mémoire : limite de mémoire VertiPaq|Octets|Moyenne|Limite en mémoire, du fichier de configuration.|
+|Quota|Mémoire : quota|Octets|Moyenne|Quota de mémoire actuel, en octets. Le quota de mémoire est également appelé réserve de mémoire ou d’allocation.|
+|QuotaBlocked|Mémoire : quota bloqué|Nombre|Moyenne|Nombre actuel de requêtes de quota qui sont bloquées en attendant la libération d’autres quotas de mémoire.|
+|VertiPaqNonpaged|Mémoire : réserve non paginée VertiPaq|Octets|Moyenne|Octets de mémoire verrouillée dans la plage de travail pour utilisation par le moteur en mémoire.|
+|VertiPaqPaged|Mémoire : réserve paginée VertiPaq|Octets|Moyenne|Octets de mémoire paginée utilisée pour les données en mémoire.|
+|RowsReadPerSec|Traitement : lignes lues par seconde|Nombre par seconde|Moyenne|Taux de lignes lues à partir de toutes les bases de données relationnelles.|
+|RowsConvertedPerSec|Traitement : lignes converties par seconde|Nombre par seconde|Moyenne|Taux de lignes converties lors du traitement.|
+|RowsWrittenPerSec|Traitement : lignes écrites par seconde|Nombre par seconde|Moyenne|Taux de lignes écrites lors du traitement.|
+|CommandPoolBusyThreads|Threads : threads occupés du pool commandes|Nombre|Moyenne|Nombre de threads occupés dans le pool de threads de commandes.|
+|CommandPoolIdleThreads|Threads : threads inactifs du pool commande|Nombre|Moyenne|Nombre de threads inactifs dans le pool de threads de commandes.|
+|LongParsingBusyThreads|Threads : threads d’analyse longue occupés|Nombre|Moyenne|Nombre de threads occupés dans le pool de threads d’analyse longue.|
+|LongParsingIdleThreads|Threads : threads d’analyse longue inactifs|Nombre|Moyenne|Nombre de threads inactifs dans le pool de threads d’analyse longue.|
+|LongParsingJobQueueLength|Threads : durée de file d’attente des travaux d’analyse longue|Nombre|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads d’analyse longue.|
+|ProcessingPoolBusyIOJobThreads|Threads : traitement des threads de travail d’E/S occupés du pool|Nombre|Moyenne|Nombre de threads pour les travaux d’E/S en cours d’exécution dans le pool de threads de traitement.|
+|ProcessingPoolBusyNonIOThreads|Threads : traitement des threads de travail autres qu’E/S occupés du pool|Nombre|Moyenne|Nombre de threads pour les travaux autres que d’E/S en cours d’exécution dans le pool de threads de traitement.|
+|ProcessingPoolIOJobQueueLength|Threads : longueur de la file d’attente des travaux d’E/S du pool de traitement|Nombre|Moyenne|Nombre de travaux d’E/S contenus dans la file d’attente du pool de threads de traitement.|
+|ProcessingPoolIdleIOJobThreads|Threads : traitement des threads de travail d’E/S ignorés du pool|Nombre|Moyenne|Nombre de threads inactifs pour les travaux d’E/S le pool de threads de traitement.|
+|ProcessingPoolIdleNonIOThreads|Threads : traitement des threads de travail autres qu’E/S inactifs du pool|Nombre|Moyenne|Nombre de threads inactifs le pool de threads de traitement dédiés aux travaux autres qu’E/S.|
+|QueryPoolIdleThreads|Threads : threads inactifs du pool de requêtes|Nombre|Moyenne|Nombre de threads inactifs pour les travaux d’E/S le pool de threads de traitement.|
+|QueryPoolJobQueueLength|Threads : longueur de file d’attente de travaux du pool de requêtes|Nombre|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads de requêtes.|
+|ShortParsingBusyThreads|Threads : threads d’analyse courte occupés|Nombre|Moyenne|Nombre de threads occupés dans le pool de threads d’analyse courte.|
+|ShortParsingIdleThreads|Threads : threads d’analyse courte inactifs|Nombre|Moyenne|Nombre de threads inactifs dans le pool de threads d’analyse courte.|
+|ShortParsingJobQueueLength|Threads : durée de file d’attente des travaux d’analyse courte|Nombre|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads d’analyse courte.|
+|memory_thrashing_metric|Vidage de mémoire|Pourcentage|Moyenne|Vidage de mémoire moyenne.|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
@@ -596,17 +684,33 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
 |cpu_percent|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|
+|database_cpu_percent|Pourcentage UC|Pourcentage|Moyenne|Pourcentage UC|
 |physical_data_read_percent|Pourcentage E/S des données|Pourcentage|Moyenne|Pourcentage E/S des données|
+|database_physical_data_read_percent|Pourcentage E/S des données|Pourcentage|Moyenne|Pourcentage E/S des données|
 |log_write_percent|Pourcentage E/S du journal|Pourcentage|Moyenne|Pourcentage E/S du journal|
+|database_log_write_percent|Pourcentage E/S du journal|Pourcentage|Moyenne|Pourcentage E/S du journal|
 |dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU|
+|database_dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU|
 |storage_percent|Pourcentage de stockage|Pourcentage|Moyenne|Pourcentage de stockage|
 |workers_percent|Pourcentage de travaux|Pourcentage|Moyenne|Pourcentage de travaux|
+|database_workers_percent|Pourcentage de travaux|Pourcentage|Moyenne|Pourcentage de travaux|
 |sessions_percent|Pourcentage de sessions|Pourcentage|Moyenne|Pourcentage de sessions|
+|database_sessions_percent|Pourcentage de sessions|Pourcentage|Moyenne|Pourcentage de sessions|
 |eDTU_limit|Limite eDTU|Nombre|Moyenne|Limite eDTU|
 |storage_limit|Limite de stockage|Octets|Moyenne|Limite de stockage|
 |eDTU_used|eDTU utilisé|Nombre|Moyenne|eDTU utilisé|
 |storage_used|Stockage utilisé|Octets|Moyenne|Stockage utilisé|
+|database_storage_used|Stockage utilisé|Octets|Moyenne|Stockage utilisé|
 |xtp_storage_percent|Pourcentage de stockage OLTP en mémoire|Pourcentage|Moyenne|Pourcentage de stockage OLTP en mémoire|
+
+## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
+
+|Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
+|---|---|---|---|---|
+|dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU|
+|database_dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU|
+|storage_used|Stockage utilisé|Octets|Moyenne|Stockage utilisé|
+|database_storage_used|Stockage utilisé|Octets|Moyenne|Stockage utilisé|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
@@ -635,7 +739,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |Octets reçus|Données entrantes|Octets|Total|Données entrantes|
 |Octets envoyés|Données sortantes|Octets|Total|Données sortantes|
 
-## <a name="microsoftwebsites-including-functions"></a>Microsoft.Web/sites (y compris Functions)
+## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (à l’exclusion de Functions)
 
 |Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
@@ -655,6 +759,16 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 |MemoryWorkingSet|Plage de travail de la mémoire|Octets|Moyenne|Plage de travail de la mémoire|
 |AverageMemoryWorkingSet|Plage de travail moyenne de la mémoire|Octets|Moyenne|Plage de travail moyenne de la mémoire|
 |AverageResponseTime|Temps de réponse moyen|Secondes|Moyenne|Temps de réponse moyen|
+
+## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (Functions)
+
+|Mesure|Nom d’affichage de la mesure|Unité|Type d’agrégation|Description|
+|---|---|---|---|---|
+|Octets reçus|Données entrantes|Octets|Total|Données entrantes|
+|Octets envoyés|Données sortantes|Octets|Total|Données sortantes|
+|Http5xx|Erreurs de serveur http|Nombre|Total|Erreurs de serveur http|
+|MemoryWorkingSet|Plage de travail de la mémoire|Octets|Moyenne|Plage de travail de la mémoire|
+|AverageMemoryWorkingSet|Plage de travail moyenne de la mémoire|Octets|Moyenne|Plage de travail moyenne de la mémoire|
 |FunctionExecutionUnits|Unités d’exécution de fonctions|Nombre|Moyenne|Unités d’exécution de fonctions|
 |FunctionExecutionCount|Nombre d’exécutions de fonctions|Nombre|Moyenne|Nombre d’exécutions de fonctions|
 
@@ -685,5 +799,4 @@ Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris e
 * [En savoir plus sur les mesures dans Azure Monitor](monitoring-overview-metrics.md)
 * [Créer des alertes sur les mesures](insights-receive-alert-notifications.md)
 * [Exporter des mesures vers le stockage, un hub d’événements ou Log Analytics](monitoring-overview-of-diagnostic-logs.md)
-
 

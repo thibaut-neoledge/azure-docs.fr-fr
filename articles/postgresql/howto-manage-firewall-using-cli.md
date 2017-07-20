@@ -1,22 +1,20 @@
 ---
 title: "Création et gestion des règles de pare-feu Azure Database pour PostgreSQL à l’aide de l’interface de ligne de commande Azure | Microsoft Docs"
-description: "Décrit comment créer et gérer des règles de pare-feu Azure Database pour PostgreSQL à l’aide de l’interface de ligne de commande Azure."
+description: "Décrit comment créer et gérer des règles de pare-feu Azure Database pour PostgreSQL à l’aide de l’interface de ligne de commande d’Azure."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
+ms.devlang: azure-cli
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/13/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5cb9a3e1fe6e5477e399fd7148fc5366f76cea38
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 7d51932cb7c0b5b959e3fcf38f651933b619cbda
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Création et gestion des règles de pare-feu Azure Database pour PostgreSQL à l’aide de l’interface de ligne de commande Azure
@@ -25,82 +23,56 @@ Les règles de pare-feu au niveau du serveur permettent aux administrateurs de g
 ## <a name="prerequisites"></a>Composants requis
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - Un [serveur Azure Database pour PostgreSQL et une base de données](quickstart-create-server-database-azure-cli.md)
-- Un utilitaire en ligne de commande [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) installé
+- Installer l’utilitaire de ligne de commande [Azure CLI 2.0](/cli/azure/install-azure-cli) ou utiliser Azure Cloud Shell dans le navigateur.
 
 ## <a name="configure-firewall-rules-for-azure-database-for-postgresql"></a>Configuration des règles de pare-feu pour Azure Database pour PostgreSQL
-La commande **az postgres server firewall-rule** est utilisée depuis l’interface de ligne de commande Azure pour créer, supprimer, répertorier, afficher et mettre à jour des règles de pare-feu. Cette 
-
-## <a name="login-to-azure-and-list-servers"></a>Connexion à Azure et affichage des serveurs
-Connectez-vous en toute sécurité à votre compte Azure à l’aide de l’interface de ligne de commande Azure. Pour cela, utilisez la commande **az login**.
-1. Exécutez la commande suivante à partir de la ligne de commande.
-```azurecli
-az login
-```
-Cette commande génère un code à utiliser lors de l’étape suivante.
-
-2. Ouvrez la page [https://aka.ms/devicelogin](https://aka.ms/devicelogin) dans un navigateur web et entrez le code.
-
-3. À l’invite, connectez-vous à l’aide de vos informations d’identification Azure.
-
-4. Une fois votre connexion autorisée, une liste des abonnements s’affiche dans la console.
-Copiez l’identifiant de l’abonnement souhaité pour définir l’abonnement actif à utiliser dorénavant.
-```azurecli
-az account set --subscription {your subscription id}
-```
-5. Si vous ne connaissez pas le nom de votre abonnement et du groupe de ressources, affichez la liste des serveurs Azure Database for PostgreSQL.
-
-```azurecli
-az postgres server list --resource-group myresourcegroup
-```
-Notez l’attribut de nom dans la liste ; il servira à spécifier le serveur PostgreSQL sur lequel vous allez travailler. Si nécessaire, vérifiez les informations permettant d’utiliser l’attribut de nom sur ce serveur pour vérifier que le nom est correct :
-
-```azurecli
-az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
-```
+Les commandes [az postgres server firewall-rule](/cli/azure/postgres/server/firewall-rule) permettent de configurer des règles de pare-feu.
 
 ## <a name="list-firewall-rules"></a>Répertorier les règles de pare-feu 
-À l’aide du nom du serveur et du nom de groupe de ressources, répertoriez les règles de pare-feu existantes sur le serveur. Notez que l’attribut de nom de serveur est spécifié dans le commutateur **-server** et non pas dans le commutateur **--name**.
-```azurecli
+Pour répertorier les règles de pare-feu de serveur existant sur le serveur, exécutez la commande [az postgres server firewall-rule list](/cli/azure/postgres/server/firewall-rule#list).
+```azurecli-interactive
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401
 ```
-Le cas échéant, une liste des règles s’affiche, au format JSON par défaut. Vous pouvez utiliser le commutateur **--output table** pour obtenir un format de tableau plus lisible.
-```azurecli
+La sortie répertorie les règles éventuelles, par défaut au format JSON. Vous pouvez utiliser le commutateur `--output table` pour obtenir une sortie dans un format de tableau plus lisible.
+```azurecli-interactive
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401 --output table
 ```
-## <a name="create-firewall-rule"></a>Création d’une règle de pare-feu
-À l’aide du nom du serveur Azure Database pour PostgreSQL et du nom du groupe de ressources, créez une nouvelle règle de pare-feu sur le serveur. Indiquez le nom de la règle ainsi que les adresses IP de début et de fin de la règle pour couvrir une plage d’adresses IP autorisant l’accès.
-```azurecli
-az postgres server firewall-rule create --resource-group myresourcegroup  --server mypgserver-20170401 --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
+## <a name="create-firewall-rule"></a>Créer une règle de pare-feu
+Pour créer une règle de pare-feu sur le serveur, exécutez la commande [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create). 
+
+Cet exemple autorise toutes les adresses IP pour accéder au serveur **mypgserver-20170401.postgres.database.azure.com**.
+```azurecli-interactive
+az postgres server firewall-rule create --resource-group myresourcegroup  --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
-Afin d’autoriser l’accès pour une adresse IP unique, fournissez les mêmes adresses IP de début et de fin, comme dans cet exemple.
-```azurecli
+Pour autoriser une seule adresse IP à accéder au serveur, fournissez des adresses IP de début et de fin identiques, comme dans cet exemple.
+```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup  
---server mypgserver-20170401 --name "Firewall Rule with a Single Address" --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
+--server mypgserver-20170401 --name "AllowSingleIpAddress" --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```
-En cas de réussite, la commande affiche les détails de la règle de pare-feu que vous avez créée, au format JSON par défaut. En cas d’échec, un message d’erreur apparaît.
+En cas de réussite, la sortie de la commande affiche les détails de la règle de pare-feu que vous avez créée, par défaut au format JSON. En cas d’échec, la sortie affiche un texte de message d’erreur.
 
-## <a name="update-firewall-rule"></a>Mise à jour d’une règle de pare-feu 
-À l’aide du nom du serveur Azure Database pour PostgreSQL et du nom du groupe de ressources, mettez à jour une règle de pare-feu existante sur le serveur. Indiquez le nom de la règle de pare-feu existante comme entrée puis les adresses IP de début et de fin à mettre à jour.
-```azurecli
-az postgres server firewall-rule update --resource-group myresourcegroup --server mypgserver-20170401 --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
+## <a name="update-firewall-rule"></a>Mettre à jour une règle de pare-feu 
+Mettez à jour une règle de pare-feu existante sur le serveur à l’aide de la commande [az postgres server firewall-rule update](/cli/azure/postgres/server/firewall-rule#update). Indiquez le nom de la règle de pare-feu existante comme entrée puis les adresses IP de début et de fin à mettre à jour.
+```azurecli-interactive
+az postgres server firewall-rule update --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.255
 ```
-En cas de réussite, la commande affiche les détails de la règle de pare-feu que vous avez mise à jour, au format JSON par défaut. En cas d’échec, un message d’erreur apparaît.
+En cas de réussite, la sortie de la commande affiche les détails de la règle de pare-feu que vous avez mise à jour, par défaut au format JSON. En cas d’échec, la sortie affiche un texte de message d’erreur.
 > [!NOTE]
-> Si la règle de pare-feu n’existe pas, elle sera créée par la commande de mise à jour.
+> Si la règle de pare-feu n’existe pas, elle est créée par la commande de mise à jour.
 
-## <a name="show-firewall-rule-details"></a>Affichage des détails de la règle de pare-feu
-À l’aide du nom du serveur Azure Database pour PostgreSQL et du nom du groupe de ressources, affichez les détails d’une règle de pare-feu existante sur le serveur. Indiquez le nom de la règle de pare-feu existante comme entrée.
-```azurecli
-az postgres server firewall-rule show --resource-group myresourcegroup --server mypgserver-20170401 --name "Firewall Rule 1"
+## <a name="show-firewall-rule-details"></a>Afficher les détails d’une règle de pare-feu
+Vous pouvez également afficher les détails d’une règle de pare-feu pour un serveur de pare-feu en exécutant la commande [az postgres server firewall-rule show](/cli/azure/postgres/server/firewall-rule#show).
+```azurecli-interactive
+az postgres server firewall-rule show --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```
-En cas de réussite, la commande affiche les détails de la règle de pare-feu que vous avez spécifiée, au format JSON par défaut. En cas d’échec, un message d’erreur apparaît.
+En cas de réussite, la sortie de la commande affiche les détails de la règle de pare-feu que vous avez spécifiée, par défaut au format JSON. En cas d’échec, la sortie affiche un texte de message d’erreur.
 
-## <a name="delete-firewall-rule"></a>Suppression d’une règle de pare-feu
-À l’aide du nom du serveur Azure Database pour PostgreSQL et du nom du groupe de ressources, supprimez une règle de pare-feu existante du serveur. Indiquez le nom de la règle de pare-feu existante.
-```azurecli
-az postgres server firewall-rule delete --resource-group myresourcegroup --server mypgserver-20170401 --name "Firewall Rule 1"
+## <a name="delete-firewall-rule"></a>Supprimer une règle de pare-feu
+Pour révoquer l’accès pour une plage d’adresses IP à partir du serveur, supprimez une règle de pare-feu existante en exécutant la commande [az postgres server firewall-rule delete](/cli/azure/postgres/server/firewall-rule#delete). Indiquez le nom de la règle de pare-feu existante.
+```azurecli-interactive
+az postgres server firewall-rule delete --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```
-En cas de réussite, aucun résultat ne s’affiche. En cas d’échec, un message d’erreur apparaît.
+En cas de réussite, aucun résultat ne s’affiche. En cas d’échec, le texte du message d’erreur est retourné.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - De même, vous pouvez utiliser un navigateur web pour [créer et gérer les règles de pare-feu Azure Database pour PostgreSQL feu à l’aide du portail Azure](howto-manage-firewall-using-portal.md)

@@ -1,34 +1,36 @@
 ---
-title: "Résoudre les échecs d’Azure Backup : La sous-tâche de capture de la machine virtuelle a expiré | Microsoft Docs"
-description: "Symptômes, causes et résolutions d’échecs d’Azure Backup relatifs à l’erreur : Impossible de communiquer avec l’agent de machine virtuelle pour l’état de l’instantané. La sous-tâche de capture de la machine virtuelle a expiré"
+title: "Résolution des échecs de sauvegarde Azure : état de l’agent invité non disponible | Microsoft Docs"
+description: "Symptômes, causes et résolution des échecs de sauvegarde Azure liés à l’erreur : Impossible de communiquer avec l’agent de machine virtuelle"
 services: backup
 documentationcenter: 
 author: genlin
 manager: cshepard
 editor: 
+keywords: "Sauvegarde Azure ; agent de machine virtuelle ; connectivité réseau ;"
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 06/13/2017
 ms.author: genli;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d7924d8aade1ea582faa0f319f8c1d16d5461fbc
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: dd4ac14a703663175bb477de587da8f4ad510c7c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/14/2017
 
 ---
 
-# <a name="troubleshoot-azure-backup-failure-snapshot-vm-sub-task-timed-out"></a>Résoudre les échecs d’Azure Backup : La sous-tâche de capture de la machine virtuelle a expiré
+# <a name="troubleshoot-azure-backup-failure-vm-agent-unable-to-communicate-with-azure-backup"></a>Résoudre les échecs de sauvegarde Azure : l’agent de machine virtuelle ne peut pas communiquer avec la Sauvegarde Azure
 ## <a name="summary"></a>Résumé
-Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Une des quatre conditions peut empêcher le déclenchement de l’instantané, qui à son tour risque de faire échouer la sauvegarde. Cet article détaille les étapes nécessaires au dépannage qui vont vous permettre de résoudre les problèmes liés aux échecs de sauvegarde relatifs à une erreur de délai d’expiration d’un instantané.
+Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Une des quatre conditions peut empêcher le déclenchement de l’instantané, qui à son tour risque de faire échouer la sauvegarde. Cet article indique les étapes à appliquer pour résoudre les échecs de sauvegarde liés à des problèmes de communication avec l’agent et l’extension de machine virtuelle.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="symptom"></a>Symptôme
-Azure Backup pour une machine virtuelle IaaS échoue en renvoyant le message d’erreur suivant dans les informations relatives à l’erreur du travail dans le [portail Azure](https://portal.azure.com/) : « Impossible de communiquer avec l’agent de machine virtuelle pour l’état de l’instantané. La sous-tâche de capture de la machine virtuelle a expiré. ».
+La Sauvegarde Azure pour une machine virtuelle IaaS (infrastructure as a service) échoue en renvoyant le message d’erreur suivant dans les informations d’erreur de travail dans le [Portail Azure](https://portal.azure.com/) : « L’agent de la machine virtuelle ne peut pas communiquer avec le service Sauvegarde Azure. Échec de l’opération de capture instantanée en raison de l’absence de connectivité réseau sur la machine virtuelle. ».
 
 ## <a name="cause-1-the-vm-has-no-internet-access"></a>Cause 1 : la machine virtuelle ne possède aucun accès à Internet
 Selon la configuration requise pour le déploiement, la machine virtuelle n’a pas accès à Internet, ou a des restrictions en place qui empêchent l’accès à l’infrastructure Azure.
@@ -49,6 +51,8 @@ Pour résoudre le problème, essayez l’une des méthodes répertoriées ci-des
 2. Ajoutez des règles au groupe de sécurité réseau (le cas échéant) pour autoriser l’accès à Internet à partir du serveur proxy HTTP.
 
 Pour savoir comment configurer un proxy HTTP pour les sauvegardes de machines virtuelles, consultez [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+
+Si vous utilisez Managed Disks, vous devrez peut-être disposer d’un port supplémentaire (8443) ouvert sur les pare-feu.
 
 ## <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Cause 2 : l’agent installé dans la machine virtuelle est obsolète (pour les machines virtuelles Linux)
 
@@ -77,10 +81,24 @@ La plupart des échecs des machines virtuelles Linux liés aux agents ou aux ext
 Si nous exigeons une journalisation détaillée pour waagent, procédez comme suit :
 
 1. Dans le fichier /etc/waagent.conf, recherchez la ligne suivante : **Activer l’enregistrement des informations détaillées (o|n)**
-2. Passez la valeur **Logs.Verbose** de *N* à *O*.
+2. Modifiez la valeur **Logs.Verbose** en remplaçant *n* par *O*.
 3. Enregistrez cette modification, puis redémarrez waagent en suivant les étapes précédentes de cette section.
 
-## <a name="cause-3-the-backup-extension-fails-to-update-or-load"></a>Cause 3 : l’extension de sauvegarde ne peut être mise à jour ou chargée.
+## <a name="cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Cause 3 : l’agent est installé sur la machine virtuelle mais ne répond pas (pour les machines virtuelles Windows)
+
+### <a name="solution"></a>Solution
+Il se peut que l’agent de machine virtuelle soit endommagé ou que le service ait été arrêté. La réinstallation de l’agent de machine virtuelle peut vous aider à obtenir la version la plus récente et à redémarrer la communication.
+
+1. Vérifiez que le service d’agent invité Windows apparaît dans les services de la machine (services.msc).
+2. S’il n’y figure pas, vérifiez si le service d’agent invité Windows est installé sous Programmes et fonctionnalités.
+3. S’il ne figure pas sous Programmes et fonctionnalités, désinstallez l’agent invité Windows.
+4. Téléchargez et installez le fichier [MSI de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous avez besoin de privilèges d’administrateur pour terminer l’installation.
+5. Les services d’agent invité Windows devraient alors apparaître dans les services.
+6. Essayez d’exécuter une sauvegarde à la demande/ad hoc en cliquant sur « Sauvegarder maintenant » dans le portail.
+
+Vérifiez également que **.NET 4.5 est installé sur le système**. Si ce n’est pas le cas, l’agent de machine virtuelle ne pourra pas communiquer avec le service.
+
+## <a name="cause-4-the-backup-extension-fails-to-update-or-load"></a>Cause 4 : l’extension de sauvegarde ne peut être mise à jour ou chargée.
 Si les extensions ne peuvent pas être chargées, la sauvegarde échoue en raison de l’impossibilité de capturer un instantané.
 
 ### <a name="solution"></a>Solution
@@ -106,7 +124,7 @@ Pour désinstaller l’extension, procédez comme suit :
 
 Cette procédure réinstalle l’extension lors de la sauvegarde suivante.
 
-## <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Cause 4 : Impossible de récupérer l’état de l’instantané ou de capturer un instantané
+## <a name="cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Cause 5 : Impossible de récupérer l’état de l’instantané ou de capturer un instantané
 La sauvegarde de machine virtuelle émet une commande de capture instantanée à destination du stockage sous-jacent. La sauvegarde peut échouer, car elle n’a pas accès au compte de stockage ou parce que l’exécution de la tâche d’instantané est différée.
 
 ### <a name="solution"></a>Solution

@@ -1,6 +1,6 @@
 ---
-title: "Script Azure PowerShell - Copier une base de données SQL sur un nouveau serveur | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Copier une base de données SQL sur un nouveau serveur avec PowerShell"
+title: "Exemple Powershell-copier-base de données Azure SQL-nouveau serveur | Microsoft Docs"
+description: "Exemple de script Azure PowerShell pour copier une base de données SQL sur un nouveau serveur"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,17 +14,17 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: cb3412398e566cc16dadc8348241a603e78a098c
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 7b57e37a1bc9391c88c8170f59a39654bf895d47
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="copy-a-sql-database-to-a-new-server-using-powershell"></a>Copier une base de données SQL sur un nouveau serveur avec PowerShell
+# <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>Utiliser PowerShell pour copier une base de données SQL sur un nouveau serveur
 
 Cet exemple de script PowerShell crée une copie d’une base de données existante dans un nouveau serveur. 
 

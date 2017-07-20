@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 7f19efa7e09b0dce43851019f94285b2887c46d5
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 7af374232fd45da8769001cd520fa7d1734cbc4e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -46,7 +46,30 @@ Vérifie si deux valeurs sont égales.
 | arg1 |Oui |entier, chaîne, tableau ou objet |Première valeur dont l’égalité est à vérifier. |
 | arg2 |Oui |entier, chaîne, tableau ou objet |Deuxième valeur dont l’égalité est à vérifier. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Retourne **True** si les valeurs sont égales ; sinon, renvoie **False**.
+
+### <a name="remarks"></a>Remarques
+
+La fonction equals est souvent utilisée avec l’élément `condition` pour tester si une ressource est déployée.
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+### <a name="example"></a>Exemple
 
 L’exemple de modèle vérifie que les différents types de valeurs sont égaux. Toutes les valeurs par défaut retournent la valeur True.
 
@@ -111,9 +134,14 @@ L’exemple de modèle vérifie que les différents types de valeurs sont égaux
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Retourne **True** si les valeurs sont égales ; sinon, renvoie **False**.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
 <a id="less" />
 
@@ -129,7 +157,11 @@ Vérifie si la première valeur est inférieure à la deuxième valeur.
 | arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
 | arg2 |Oui |entier ou chaîne |Deuxième valeur pour la comparaison « inférieur à ». |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Retourne **True** si la première valeur est inférieure à la seconde ; sinon, renvoie **False**.
+
+### <a name="example"></a>Exemple
 
 L’exemple de modèle vérifie si une valeur est inférieure à l’autre.
 
@@ -139,16 +171,20 @@ L’exemple de modèle vérifie si une valeur est inférieure à l’autre.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -166,9 +202,12 @@ L’exemple de modèle vérifie si une valeur est inférieure à l’autre.
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Retourne **True** si la première valeur est inférieure à la seconde ; sinon, renvoie **False**.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
 <a id="lessorequals" />
 
@@ -184,7 +223,11 @@ Vérifie si la première valeur est inférieure ou égale à la deuxième valeur
 | arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur à ». |
 | arg2 |Oui |entier ou chaîne |Première valeur pour la comparaison « inférieur ou égal à ». |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Retourne **True** si la première valeur est inférieure ou égale à la seconde ; sinon, renvoie **False**.
+
+### <a name="example"></a>Exemple
 
 L’exemple de modèle vérifie si une valeur est inférieure ou égale à l’autre.
 
@@ -194,16 +237,20 @@ L’exemple de modèle vérifie si une valeur est inférieure ou égale à l’a
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -221,9 +268,12 @@ L’exemple de modèle vérifie si une valeur est inférieure ou égale à l’a
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Retourne **True** si la première valeur est inférieure ou égale à la seconde ; sinon, renvoie **False**.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
 <a id="greater" />
 
@@ -239,7 +289,11 @@ Vérifie si la première valeur est supérieure à la deuxième valeur.
 | arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « supérieur à ». |
 | arg2 |Oui |entier ou chaîne |Seconde valeur pour la comparaison « supérieur à ». |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Retourne **True** si la première valeur est supérieure à la seconde ; sinon, renvoie **False**.
+
+### <a name="example"></a>Exemple
 
 L’exemple de modèle vérifie si une valeur est supérieure à l’autre.
 
@@ -249,16 +303,20 @@ L’exemple de modèle vérifie si une valeur est supérieure à l’autre.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -276,9 +334,12 @@ L’exemple de modèle vérifie si une valeur est supérieure à l’autre.
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Retourne **True** si la première valeur est supérieure à la seconde ; sinon, renvoie **False**.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
 
 <a id="greaterorequals" />
 
@@ -294,7 +355,11 @@ Vérifie si la première valeur est supérieure ou égale à la deuxième valeur
 | arg1 |Oui |entier ou chaîne |Première valeur pour la comparaison « supérieur ou égal à ». |
 | arg2 |Oui |entier ou chaîne |Seconde valeur pour la comparaison « supérieur ou égal à ». |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Retourne **True** si la première valeur est supérieure ou égale à la seconde ; sinon, renvoie **False**.
+
+### <a name="example"></a>Exemple
 
 L’exemple de modèle vérifie si une valeur est supérieure ou égale à l’autre.
 
@@ -304,16 +369,20 @@ L’exemple de modèle vérifie si une valeur est supérieure ou égale à l’a
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -331,12 +400,16 @@ L’exemple de modèle vérifie si une valeur est supérieure ou égale à l’a
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Retourne **True** si la première valeur est supérieure ou égale à la seconde ; sinon, renvoie **False**.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 * Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 * Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).

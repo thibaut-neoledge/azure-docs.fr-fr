@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 71a4ccb1914c147b1504068a09ef957a51067c08
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: a87924faaf5c6c43716b06b6d70ab5100c61f097
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -36,12 +37,9 @@ Le cycle de vie d’un service sans état est très simple. Un service sans éta
 
 Bien que `RunAsync` devrait suffire dans presque tous les cas, les événements d’ouverture, de fermeture et d’abandon dans un service sans état sont également disponibles :
 
-* `Task OnOpenAsync(IStatelessServicePartition, CancellationToken) - C# / CompletableFuture<String> onOpenAsync(CancellationToken) - Java`
-   OnOpenAsync est appelée lorsque l’instance de service sans état va être utilisée. Les tâches d'initialisation de service étendues peuvent être démarrées à ce stade.
-* `Task OnCloseAsync(CancellationToken) - C# / CompletableFuture onCloseAsync(CancellationToken) - Java`
-   OnCloseAsync est appelée lorsque l’instance de service sans état va être arrêtée de manière appropriée. Cela peut se produire lorsque le code du service est mis à niveau, lorsque l'instance du service est déplacée en raison d'un équilibrage de charge, ou lorsqu'une erreur transitoire est détectée. OnCloseAsync peut être utilisée pour fermer toutes les ressources, arrêter tout traitement en arrière-plan, finaliser l'enregistrement de l'état externe, ou fermer les connexions existantes, en toute sécurité.
-* `void OnAbort() - C# / void onAbort() - Java`
-   OnAbort est appelée lorsque l’instance du service sans état est volontairement arrêtée. Cette méthode est généralement appelée lorsqu'une erreur permanente est détectée sur le nœud, ou lorsque Service Fabric ne peut pas gérer de façon fiable le cycle de vie de l'instance du service en raison de défaillances internes.
+* `Task OnOpenAsync(IStatelessServicePartition, CancellationToken) - C# / CompletableFuture<String> onOpenAsync(CancellationToken) - Java` OnOpenAsync est appelée lorsque l’instance de service sans état va être utilisée. Les tâches d'initialisation de service étendues peuvent être démarrées à ce stade.
+* `Task OnCloseAsync(CancellationToken) - C# / CompletableFuture onCloseAsync(CancellationToken) - Java` OnCloseAsync est appelée lorsque l’instance de service sans état va être arrêtée de manière appropriée. Cela peut se produire lorsque le code du service est mis à niveau, lorsque l'instance du service est déplacée en raison d'un équilibrage de charge, ou lorsqu'une erreur transitoire est détectée. OnCloseAsync peut être utilisée pour fermer toutes les ressources, arrêter tout traitement en arrière-plan, finaliser l'enregistrement de l'état externe, ou fermer les connexions existantes, en toute sécurité.
+* `void OnAbort() - C# / void onAbort() - Java` OnAbort est appelée lorsque l’instance du service sans état est arrêtée brutalement. Cette méthode est généralement appelée lorsqu'une erreur permanente est détectée sur le nœud, ou lorsque Service Fabric ne peut pas gérer de façon fiable le cycle de vie de l'instance du service en raison de défaillances internes.
 
 ## <a name="stateful-service-replica-lifecycle"></a>Cycle de vie d’un réplica de service avec état
 
@@ -52,8 +50,7 @@ Bien que `RunAsync` devrait suffire dans presque tous les cas, les événements 
 
 Le cycle de vie d’un réplica de service avec état est beaucoup plus complexe qu’une instance de service sans état. En plus des événements d’ouverture, de fermeture et d’abandon, un réplica de service avec état subit des modifications de rôle pendant sa durée de vie. Lorsqu’un réplica de service avec état change de rôle, l’événement `OnChangeRoleAsync` est déclenché :
 
-* `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)`
-   OnChangeRoleAsync est appelée quand le réplica de service avec état change de rôle, par exemple quand il devient un service principal ou secondaire. Les réplicas principaux se voient affecter un état d’écriture (ils sont autorisés à créer des collections fiables et à écrire dans celles-ci). Les réplicas secondaires se voient affecter un état de lecture (ils peuvent uniquement lire à partir de collections fiables existantes). La plupart du travail dans un service avec état est effectué sur le réplica principal. Les réplicas secondaires peuvent effectuer la validation en lecture seule, la génération de rapports, l’exploration de données ou d’autres tâches en lecture seule.
+* `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync est appelée quand le réplica de service avec état change de rôle, par exemple quand il devient un service principal ou secondaire. Les réplicas principaux se voient affecter un état d’écriture (ils sont autorisés à créer des collections fiables et à écrire dans celles-ci). Les réplicas secondaires se voient affecter un état de lecture (ils peuvent uniquement lire à partir de collections fiables existantes). La plupart du travail dans un service avec état est effectué sur le réplica principal. Les réplicas secondaires peuvent effectuer la validation en lecture seule, la génération de rapports, l’exploration de données ou d’autres tâches en lecture seule.
 
 Dans un service avec état, seul le réplica principal dispose d’un accès en écriture à l’état, ce qui a généralement lieu lorsque le service effectue un travail réel. La méthode `RunAsync` dans un service avec état est exécutée uniquement lorsque le réplica de service avec état est principal. La méthode `RunAsync` est annulée quand le rôle d’un réplica principal est modifié, ainsi que lors des événements de fermeture et d’abandon.
 

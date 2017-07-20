@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 9b0936299d506e951e45d54f630657c187ec6820
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 10ca10b2f644c29aad244abab720d2ce5586714f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -33,9 +34,11 @@ Log Analytics propose les solutions suivantes pour la surveillance de vos rése
  * Journaux Azure Network Security Group
 
 ## <a name="network-performance-monitor-npm"></a>Analyseur de performances réseau (NPM)
+
 La solution de gestion [Analyseur de performances réseau](log-analytics-network-performance-monitor.md) est une solution de surveillance du réseau, qui contrôle l’intégrité, la disponibilité et l’accessibilité des réseaux.  Elle est utilisée pour contrôler la connectivité entre :
-* le cloud public et local ; 
-* les centres de données et les emplacements de l’utilisateur (filiales) ;
+
+* le cloud public et le site local ;
+* les centres de données et les emplacements des utilisateurs (filiales) ;
 * les sous-réseaux hébergeant différents niveaux d’une application multiniveau.
 
 Pour plus d’informations, consultez l’[Analyseur de performances réseau](log-analytics-network-performance-monitor.md).
@@ -66,6 +69,8 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Solution d’analytique Azure Application Gateway dans Log Analytics
 
+![Symbole d’Azure Application Gateway Analytics](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
 Les journaux pris en charge pour les passerelles d’application sont les suivants :
 
 * ApplicationGatewayAccessLog
@@ -80,7 +85,7 @@ Les métriques prises en charge pour les passerelles d’application sont les su
 Pour installer et configurer la solution d’analytique Azure Application Gateway, suivez les instructions suivantes :
 
 1. Activez la solution Azure Application Gateway Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
-2. Activez la journalisation des diagnostics pour les [Application Gateways](../application-gateway/application-gateway-diagnostics.md) que vous voulez surveiller. 
+2. Activez la journalisation des diagnostics pour les [Application Gateways](../application-gateway/application-gateway-diagnostics.md) que vous voulez surveiller.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Activer les diagnostics Azure Application Gateway dans le portail
 
@@ -128,11 +133,13 @@ Une fois que vous avez cliqué sur la mosaïque **d’analytique Azure Applicati
 ![Image du tableau de bord d’analytique Azure Application Gateway](./media/log-analytics-azure-networking/log-analytics-appgateway02.png)
 
 Sur le tableau de bord **d’analytique Azure Application Gateway**, consultez les informations du résumé dans l’un des panneaux, puis cliquez sur l’un d’entre eux pour afficher des informations détaillées sur la page de recherche dans les journaux.
-   
+
 Sur l’une des pages de recherche de journal, vous pouvez afficher les résultats par date, les résultats détaillés et votre historique de recherches de journaux. Vous pouvez également filtrer par facettes pour affiner les résultats.
 
 
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Solution d’analytique Azure Network Security Group dans Log Analytics
+
+![Symbole d’Azure Network Security Group Analytics](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
 
 Les fichiers journaux suivants sont pris en charge pour les groupes de sécurité réseau :
 
@@ -142,7 +149,7 @@ Les fichiers journaux suivants sont pris en charge pour les groupes de sécurit�
 ### <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
 Pour installer et configurer la solution d’analytique du réseau Azure, suivez les instructions suivantes :
 
-1. Activez la solution Azure Network Security Group Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md). 
+1. Activez la solution Azure Network Security Group Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
 2. Activez la journalisation des diagnostics pour les ressources [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md) que vous voulez surveiller.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Activer les diagnostics Azure Network Security Group dans le portail
@@ -162,7 +169,7 @@ Pour installer et configurer la solution d’analytique du réseau Azure, suivez
 
 ### <a name="enable-azure-network-diagnostics-using-powershell"></a>Activez les diagnostics de réseau Azure avec PowerShell
 
-Le script PowerShell suivant fournit un exemple montrant comment activer la journalisation des diagnostics pour les groupes de sécurité réseau 
+Le script PowerShell suivant fournit un exemple montrant comment activer la journalisation des diagnostics pour les groupes de sécurité réseau
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -186,7 +193,7 @@ Une fois que vous avez cliqué sur la mosaïque **d’analytique Azure Network S
 ![Image du tableau de bord d’analytique Azure Network Security Group](./media/log-analytics-azure-networking/log-analytics-nsg02.png)
 
 Sur le tableau de bord **d’analytique Azure Network Security Group**, consultez les informations du résumé dans l’un des panneaux, puis cliquez sur l’un d’entre eux pour afficher des informations détaillées sur la page de recherche dans les journaux.
-   
+
 Sur l’une des pages de recherche de journal, vous pouvez afficher les résultats par date, les résultats détaillés et votre historique de recherches de journaux. Vous pouvez également filtrer par facettes pour affiner les résultats.
 
 ## <a name="migrating-from-the-old-networking-analytics-solution"></a>Migration à partir de l’ancienne solution Azure Networking
@@ -203,17 +210,17 @@ Pour utiliser les solutions mises à jour :
 2. Activez la solution *d’analytique Azure Application Gateway* et *d’analytique Azure Network Security Group* en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
 3. Mettez à jour les requêtes, les tableaux de bord et les alertes enregistrés pour qu’ils utilisent le nouveau type de données.
   + Le type doit être AzureDiagnostics. Vous pouvez utiliser ResourceType pour filtrer les journaux réseaux Azure.
-  
+
     | Au lieu du paramètre... | Utilisez : |
     | --- | --- |
     |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`| `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess` |
     |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
     | `Type=NetworkSecuritygroups` | `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS` |
-    
+
    + Pour tous les champs dont le suffixe est \_s, \_d ou \_g, remplacez le premier caractère du nom par une lettre minuscule.
    + Pour tous les champs dont le suffixe est \_o, les données sont réparties en plusieurs champs, selon les noms de champs imbriqués.
-4. Supprimez la solution *Azure Networking Analytics (déconseillée)*. 
-  + Si vous utilisez PowerShell, utilisez `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`. 
+4. Supprimez la solution *Azure Networking Analytics (déconseillée)*.
+  + Si vous utilisez PowerShell, utilisez `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`.
 
 Les données collectées avant la modification ne seront pas visibles dans la nouvelle solution. Vous pouvez continuer à interroger ces données à l’aide de l’ancien type et des anciens noms de champs.
 
@@ -222,5 +229,4 @@ Les données collectées avant la modification ne seront pas visibles dans la no
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez les [Recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées de diagnostics Azure.
-
 

@@ -5,17 +5,16 @@ services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
+ms.custom: mvc
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/01/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2df8d6e3d3629ad0e383aa80ba7fee02f8862410
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: a4ddb9d4f672de6cf1ebe137bf06e5e2c8b7796f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitations des bases de données Azure pour PostgreSQL
@@ -45,23 +44,24 @@ Chaque niveau de service comporte un nombre maximal de connexions, d’unités d
 Au-delà du nombre maximal de connexions, vous risquez de recevoir l’erreur suivante :
 > FATAL:  sorry, too many clients already
 
-## <a name="preview-functional-limitations"></a>Limitations fonctionnelles de la préversion :
-### <a name="scale-operations"></a>Opérations de mise à l’échelle :
-1.    La mise à l’échelle dynamique de serveurs sur différents niveaux de service n’est pas prise en charge pour le moment. Autrement dit, il n’est pas possible de basculer entre les niveaux de service De base et Standard.
-2.    L’augmentation dynamique de la demande de stockage sur un serveur créé au préalable n’est pas prise en charge pour le moment.
-3.    La diminution de la taille de stockage du serveur n’est pas prise en charge.
+## <a name="preview-functional-limitations"></a>Limitations fonctionnelles de la préversion
+### <a name="scale-operations"></a>Opérations de mise à l’échelle
+1.  La mise à l’échelle dynamique de serveurs sur différents niveaux de service n’est pas prise en charge pour le moment. Autrement dit, il n’est pas possible de basculer entre les niveaux de service De base et Standard.
+2.  L’augmentation dynamique de la demande de stockage sur un serveur créé au préalable n’est pas prise en charge pour le moment.
+3.  La diminution de la taille de stockage du serveur n’est pas prise en charge.
 
-### <a name="server-version-upgrades"></a>Mise à niveau de la version du serveur :
+### <a name="server-version-upgrades"></a>Mises à niveau de la version du serveur
 - La migration automatique entre les versions principales du moteur de base de données n’est pas prise en charge pour le moment.
 
-### <a name="subscription-management"></a>Gestion des abonnements :
+### <a name="subscription-management"></a>Gestion des abonnements
 - Le déplacement dynamique de serveurs créés au préalable entre les groupes de ressources et d’abonnements n’est pas pris en charge pour le moment.
 
-### <a name="point-in-time-restore"></a>Limite de restauration dans le temps :
-1.    La restauration à un autre niveau de service et/ou à une autre taille d’unités de calcul et de stockage n’est pas autorisée.
-2.    La restauration d’un serveur supprimé n’est pas prise en charge.
+### <a name="point-in-time-restore"></a>Restauration dans le temps
+1.  La restauration à un autre niveau de service et/ou à une autre taille d’unités de calcul et de stockage n’est pas autorisée.
+2.  La restauration d’un serveur supprimé n’est pas prise en charge.
 
-## <a name="next-steps"></a>Étapes suivantes :
-- Comprendre [les éléments disponibles dans chaque niveau de service](concepts-service-tiers.md)
+## <a name="next-steps"></a>Étapes suivantes
+- Comprendre [les éléments disponibles dans chaque niveau tarifaire](concepts-service-tiers.md)
 - Comprendre [les versions prises en charge de la base de données PostgreSQL](concepts-supported-versions.md)
 - Consulter le [guide pratique : sauvegarder et restaurer un serveur dans une base de données Azure pour PostgreSQL à l’aide du Portail Azure](howto-restore-server-portal.md)
+

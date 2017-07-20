@@ -1,6 +1,6 @@
 ---
 title: "Comparaison d’encodeurs multimédia à la demande Azure | Microsoft Docs"
-description: "Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Standard** et de **Media Encoder Premium Workflow**."
+description: "Cette section compare les fonctionnalités d’encodage de **Media Encoder Standard** et de **Media Encoder Premium Workflow**."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 07/17/2017
 ms.author: juliako
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 1c3118bc66afe7ef4f04d86d9b598128d1aadf82
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 32cbfbc78fbb808ed59142b80602a751f607706d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 06/29/2017
 
 ---
 
@@ -27,13 +26,30 @@ ms.lasthandoff: 05/05/2017
 
 Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Standard** et de **Media Encoder Premium Workflow**.
 
-### <a id="billing"></a>Compteur de facturation utilisé par chaque encodeur
+## <a name="video-and-audio-processing-capabilities"></a>Fonctionnalités de traitement vidéo et audio
+
+Le tableau suivant compare les fonctionnalités de Media Encoder Standard (MES) et Media Encoder Premium Workflow (MEPW). 
+
+|Fonctionnalité|Media Encoder Standard|Media Encoder Premium Workflow|
+|---|---|---|
+|Appliquer une logique conditionnelle lors de l’encodage<br/>(par exemple, si l’entrée est en HD, encodez le type audio 5.1)|Non|Oui|
+|Sous-titres|Non|[Oui](media-services-premium-workflow-encoder-formats.md#a-idclosedcaptioningasupport-for-closed-captioning)|
+|[Correction professionnelle du niveau sonore Dolby®](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> avec Dialogue Intelligence™|Non|Oui|
+|Désentrelacement, inverse telecine|De base|Qualité de diffusion|
+|Détection et suppression des bordures noires <br/>(pillar box, cadres)|Non|Oui|
+|Génération de miniatures|[Oui](media-services-dotnet-generate-thumbnail-with-mes.md)|[Oui](media-services-media-encoder-premium-workflow-tutorials.md#a-idthumbnailstomultibitratemp4aadding-thumbnails-to-multibitrate-mp4-output)|
+|Détourage/rognage et panorama de vidéos|[Oui](media-services-advanced-encoding-with-mes.md#a-idtrimvideoatrim-a-video-clipping)|Oui|
+|Superpositions d’audio ou de vidéo|[Oui](media-services-advanced-encoding-with-mes.md#a-idoverlayacreate-an-overlay)|[Oui](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
+|Superpositions d’images|À partir d’images sources|À partir d’images et de textes sources|
+|Plusieurs pistes de langue audio|Limité|[Oui](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
+
+## <a id="billing"></a>Compteur de facturation utilisé par chaque encodeur
 | Nom du processeur multimédia | Tarification applicable | Remarques |
 | --- | --- | --- |
 | **Media Encoder Standard** |ENCODEUR |Les tâches d’encodage seront facturées en fonction de la durée totale, en minutes, de tous les fichiers multimédias produits, au débit spécifié [ici][1], sous la colonne ENCODEUR. |
 | **Media Encoder Premium Workflow** |ENCODEUR PREMIUM |Les tâches d’encodage seront facturées en fonction de la durée totale, en minutes, de tous les fichiers multimédias produits, au débit spécifié [ici][1], sous la colonne ENCODEUR PREMIUM. |
 
-### <a name="input-containerfile-formats"></a>Formats de conteneurs/fichiers d’entrée
+## <a name="input-containerfile-formats"></a>Formats de conteneurs/fichiers d’entrée
 | Formats de conteneurs/fichiers d’entrée | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Oui |Oui |
@@ -50,7 +66,7 @@ Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Stan
 | Matroska/WebM |Oui |Non |
 | QuickTime (.mov) |Oui |Non |
 
-### <a name="input-video-codecs"></a>Codecs vidéo d’entrée
+## <a name="input-video-codecs"></a>Codecs vidéo d’entrée
 | Codecs vidéo d’entrée | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra |8 bits 4:2:0 et 4:2:2 |Oui |
@@ -70,7 +86,7 @@ Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Stan
 | Apple ProRes 4444 |Oui |Non |
 | Apple ProRes 4444 XQ |Oui |Non |
 
-### <a name="input-audio-codecs"></a>Codecs audio d’entrée
+## <a name="input-audio-codecs"></a>Codecs audio d’entrée
 | Codecs audio d’entrée | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AES (SMPTE 331M et 302M, AES3-2003) |Non |Oui |
@@ -86,7 +102,7 @@ Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Stan
 | [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Oui |Non |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Oui |Non |
 
-### <a name="output-containerfile-formats"></a>Formats de conteneurs/fichiers de sortie
+## <a name="output-containerfile-formats"></a>Formats de conteneurs/fichiers de sortie
 | Formats de conteneurs/fichiers de sortie | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Non |Oui |
@@ -99,7 +115,7 @@ Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Stan
 | AVI (8 bits/10 bits non compressé) |Non |Oui |
 | Format de fichier Smooth Streaming (PIFF 1.3) |Non |Oui |
 
-### <a name="output-video-codecs"></a>Codecs vidéo de sortie
+## <a name="output-video-codecs"></a>Codecs vidéo de sortie
 | Codecs vidéo de sortie | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AVC (H.264 ; 8 bits ; jusqu'au profil High, niveau 5.2 ; Ultra HD 4K ; AVC Intra) |Uniquement 8 bits 4:2:0 |Oui |
@@ -111,7 +127,7 @@ Cette rubrique compare les fonctionnalités d’encodage de **Media Encoder Stan
 | Création de miniatures PNG |Oui |Oui |
 | Création de miniatures BMP |Oui |Non |
 
-### <a name="output-audio-codecs"></a>Codecs audio de sortie
+## <a name="output-audio-codecs"></a>Codecs audio de sortie
 | Codecs audio de sortie | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AES (SMPTE 331M et 302M, AES3-2003) |Non |Oui |

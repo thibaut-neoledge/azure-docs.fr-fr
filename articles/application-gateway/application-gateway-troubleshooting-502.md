@@ -1,5 +1,5 @@
 ---
-title: "Résolution des erreurs de passerelle incorrecte dans Application Gateway (502) | Microsoft Docs"
+title: "Résolution des erreurs de passerelle incorrecte dans Azure Application Gateway (502) | Microsoft Docs"
 description: "Découvrez comment résoudre les erreurs 502 dans Application Gateway"
 services: application-gateway
 documentationcenter: na
@@ -13,27 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 05/09/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 178cd0e1c20947c952a2abb4bad253272da9fcd4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
 
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Résolution des erreurs de passerelle incorrecte dans Application Gateway
 
+Découvrez comment résoudre les erreurs de passerelle incorrecte (502) reçues lors de l’utilisation d’Application Gateway.
+
 ## <a name="overview"></a>Vue d'ensemble
 
-Après avoir configuré une passerelle Azure Application Gateway, les utilisateurs peuvent rencontrer l’erreur suivante : « Erreur serveur 502 : le serveur Web a reçu une réponse erronée lors de son utilisation en tant que passerelle ou serveur proxy ». Cette erreur peut se produire pour les raisons suivantes :
+Après avoir configuré une passerelle Application Gateway, les utilisateurs peuvent rencontrer l’erreur « Erreur serveur 502 : le serveur Web a reçu une réponse erronée lors de son utilisation en tant que passerelle ou serveur proxy ». Cette erreur peut se produire pour les raisons suivantes :
 
-* Le pool principal d’Azure Application Gateway n’est pas configuré ou est vide.
-* Aucune machine virtuelle ou instance du jeu de mise à l’échelle de machine virtuelle n’est intègre.
-* Les machines virtuelles principales ou les instances de jeu de machine virtuelle échelle ne répondent pas à la sonde d’intégrité par défaut.
-* Configuration non valide ou incorrecte des sondes d’intégrité personnalisées.
-* Expiration de la demande ou problèmes de connectivité avec les requêtes utilisateur.
+* Le [pool principal d’Azure Application Gateway n’est pas configuré ou est vide](#empty-backendaddresspool).
+* Aucune des machines virtuelles ou des instances du [groupe de machines virtuelles identiques](#unhealthy-instances-in-backendaddresspool) n’est intègre.
+* Les machines virtuelles principales ou les instances du groupe de machines virtuelles identiques [ne répondent pas à la sonde d’intégrité par défaut](#problems-with-default-health-probe.md).
+* [Configuration non valide ou incorrecte des sondes d’intégrité personnalisées](#problems-with-custom-health-probe.md).
+* [Problèmes de connectivité ou d’expiration](#request-time-out) des requêtes d’utilisateur.
 
 ## <a name="empty-backendaddresspool"></a>Pool d’adresses principal vide
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: acomet
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ea63b988a72801ae4c288048021a915b20a34794
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 0c597fa4afa816f9731edb744ae494b6ef928b9e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -176,7 +176,7 @@ var query = client.CreateDocumentQuery<Book>(
 Dans cet article, nous avons décrit le fonctionnement du partitionnement dans Azure Cosmos DB, la création de collections partitionnées et la sélection d’une clé de partition adéquate pour votre application.
 
 * Effectuez un test des performances et de la mise à l’échelle avec Azure Cosmos DB. Consultez la page [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](performance-testing.md) pour obtenir un exemple.
-* Commencez à coder avec les [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+* Commencez à coder avec les [Kits de développement logiciel (SDK)](documentdb-sdk-dotnet.md) ou [l’API REST](/rest/api/documentdb/).
 * Informez-vous sur le [débit approvisionné](request-units.md) dans Azure Cosmos DB 
 
 

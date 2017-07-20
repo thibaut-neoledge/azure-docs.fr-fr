@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 8ecc5208237d846d0e81914eee8874ea97744bc3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 450c60abeaaf96c7d82152d425265a6b6714f689
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -177,20 +179,29 @@ Il s’agit d’une application cliente de test simple que vous pouvez exécuter
 Enfin, les packages d’applications, le service d’acteur et tout autre service, que vous pouvez ajouter ensemble à l’avenir pour le déploiement. Elle contient le fichier *ApplicationManifest.xml* et des espaces réservés pour le package de service d’acteur.
 
 ## <a name="run-the-application"></a>Exécution de l'application
-La structure Yeoman inclut un script Gradle pour générer l’application et des scripts Bash pour déployer l’application et annuler son déploiement. Pour exécuter l’application, commencez par créer l’application avec Gradle :
+
+La génération de modèles automatique Yeoman inclut un script Gradle permettant de créer l’application et des scripts bash permettant le déploiement et la suppression de l’application. Pour déployer l’application, commencez par créer l’application avec Gradle :
 
 ```bash
 $ gradle
 ```
 
-Cela génère un package d’application Service Fabric qui peut être déployé à l’aide de l’interface de ligne de commande Azure Service Fabric. Le script install.sh contient les commandes d’interface de ligne de commande Azure nécessaires pour déployer le package d’application. Exécutez simplement le script install.sh à déployer :
+Cela génère un package d’application Service Fabric qui peut être déployé à l’aide des outils de l’interface de ligne de commande (CLI) Service Fabric.
 
-```bask
+### <a name="deploy-with-xplat-cli"></a>Déployer avec XPlat CLI
+
+Si vous utilisez la CLI XPlat, le script install.sh contient les commandes Azure CLI nécessaires pour déployer le package d’application. Exécutez le script install.sh pour déployer l’application.
+
+```bash
 $ ./install.sh
 ```
 
+### <a name="deploy-with-azure-cli-20"></a>Déployer avec Azure CLI 2.0
 
+Si vous utilisez l’interface CLI Azure 2.0, consultez la documentation de référence sur la gestion du [cycle de vie des applications à l’aide de l’interface CLI Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
-<!--HONumber=Jan17_HO4-->
+## <a name="related-articles"></a>Articles connexes
 
+* [Prise en main de Service Fabric et d’Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Prise en main de l’interface de ligne de commande Service Fabric XPlat](service-fabric-azure-cli.md)
 

@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 54277a39601cd7f986a8ff8f517ab02eac77309b
-ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: c9eb4bad1c0069b3f8ed2df30ef72b2c530ffab3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -167,21 +169,16 @@ Voici une comparaison des fonctionnalités d'adressage IP dans Resource Manager 
 
 |  | Ressource | Classique | Gestionnaire de ressources |
 | --- | --- | --- | --- |
-| **Adresse IP publique** |machine virtuelle |Appelée adresse ILPIP (dynamique uniquement) |Appelée adresse IP publique (dynamique ou statique) |
-|  |Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS |Associée à la carte réseau de la machine virtuelle | |
-| Équilibreur de charge accessible par le biais d’Internet |Appelée adresse IP virtuelle (dynamique) ou adresse IP réservée (statique) |Appelée adresse IP publique (dynamique ou statique) | |
-|  |Affectée à un service cloud |Associée à la configuration frontale de l’équilibreur de charge | |
+| **Adresse IP publique** |***Machine virtuelle*** |Appelée adresse ILPIP (dynamique uniquement) |Appelée adresse IP publique (dynamique ou statique) |
+|  ||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS |Associée à la carte réseau de la machine virtuelle | |
+|  |***Équilibreur de charge accessible sur Internet*** |Appelée adresse IP virtuelle (dynamique) ou adresse IP réservée (statique) |Appelée adresse IP publique (dynamique ou statique) | |
+|  ||Affectée à un service cloud |Associée à la configuration frontale de l’équilibreur de charge | |
 |  | | | |
-| **Adresse IP privée** |machine virtuelle |Appelée adresse IP dédiée |Appelée adresse IP privée |
-|  |Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS |Affectée à la carte réseau de la machine virtuelle | |
-| Équilibreur de charge interne (ILB) |Affectée à l’équilibreur de charge interne (dynamique ou statique) |Affectée à la configuration frontale de l’équilibreur de charge interne (dynamique ou statique) | |
+| **Adresse IP privée** |***Machine virtuelle*** |Appelée adresse IP dédiée |Appelée adresse IP privée |
+|  ||Affectée à une machine virtuelle IaaS ou à une instance de rôle PaaS |Affectée à la carte réseau de la machine virtuelle | |
+|  |***Équilibreur de charge interne*** |Affectée à l’équilibreur de charge interne (dynamique ou statique) |Affectée à la configuration frontale de l’équilibreur de charge interne (dynamique ou statique) | |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Déployez une machine virtuelle avec une adresse IP privée statique](virtual-networks-static-private-ip-classic-pportal.md) à l’aide du portail classique.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
+* [Déployer une machine virtuelle avec une adresse IP privée statique](virtual-networks-static-private-ip-classic-pportal.md) à l’aide du portail Azure.
 
 

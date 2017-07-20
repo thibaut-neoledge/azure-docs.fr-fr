@@ -14,13 +14,13 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 06/13/2017
 ms.author: daleche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 608cbc0fd1cc1d73d28056909ed06618457bd9c0
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ae081fc0432e36bf9f4d4f06f289386ddce37990
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/10/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -40,7 +40,7 @@ Si votre programme client utilise ADO.NET, votre programme est informé de l’
 Vous allez réessayer la connexion SQL ou la rétablir, en fonction de ce qui suit :
 
 * **Une erreur temporaire survient pendant une tentative de connexion**: la connexion doit être retentée après un délai de quelques secondes.
-* **Une erreur temporaire se produit pendant une commande de requête SQL**: cette dernière ne doit pas être retentée immédiatement. Au lieu de cela, après qu’un certain délai se soit écoulé, la connexion doit être établie. Ensuite, la commande peut être relancée.
+* **Une erreur temporaire se produit pendant une commande de requête SQL** : cette dernière ne doit pas être retentée immédiatement. Au lieu de cela, après qu’un certain délai se soit écoulé, la connexion doit être établie. Ensuite, la commande peut être relancée.
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 

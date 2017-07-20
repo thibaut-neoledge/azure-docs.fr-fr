@@ -1,6 +1,6 @@
 ---
-title: "Création d’un pipeline CI/CD dans Azure avec Jenkins | Microsoft Docs"
-description: "Découvrez comment créer une instance Jenkins dans Azure qui est extraite de GitHub à chaque validation de code et génère un nouveau conteneur Docker pour exécuter votre application"
+title: "Créer un pipeline de développement dans Azure avec Jenkins | Microsoft Docs"
+description: "Découvrez comment créer une machine virtuelle Jenkins dans Azure, qui extrait de GitHub à chaque validation de code et génère un nouveau conteneur Docker pour exécuter votre application"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -17,14 +17,14 @@ ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: dbf9b9f997ce8b66f8672f75f49f568d45e57390
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: b606d2c3070f8020cdd9aad3f12f8f1e43125138
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/21/2017
 
 ---
 
-# <a name="create-a-cicd-infrastructure-on-a-linux-vm-in-azure-that-uses-jenkins-github-and-docker"></a>Création d’une infrastructure CI/CD sur une machine virtuelle Linux dans Azure qui utilise Jenkins, GitHub et Docker
+# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Comment créer une infrastructure de développement sur une machine virtuelle Linux dans Azure avec Jenkins, GitHub et Docker
 Pour automatiser les phases de création et de test du développement de l’application, vous pouvez utiliser un pipeline d’intégration et de déploiement continus (CI/CD). Dans ce didacticiel, vous créez un pipeline CI/CD sur une machine virtuelle Azure et apprenez notamment comment :
 
 > [!div class="checklist"]
@@ -35,9 +35,10 @@ Pour automatiser les phases de création et de test du développement de l’app
 > * Créer une image Docker pour votre application
 > * Vérifier les validations GitHub, générer une nouvelle image Docker et mettre à jour l’application en cours d’exécution
 
-Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Création d’une instance Jenkins
 Dans le didacticiel précédent [How to customize a Linux virtual machine on first boot (Personnalisation d’une machine virtuelle Linux au premier démarrage)](tutorial-automate-vm-deployment.md), vous avez appris à automatiser la personnalisation des machines virtuelles avec cloud-init. Ce didacticiel utilise un fichier cloud-init pour installer Jenkins et Docker sur une machine virtuelle. 

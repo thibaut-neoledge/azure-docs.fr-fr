@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c1fdd9835992559c985426855a45c09849d54af2
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 6da663ea282e09b01ce380827fa7e31505712516
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/10/2017
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) est un protocole réseau de chiffrement qui permet d’utiliser les services réseau en toute sécurité. Il est couramment utilisé pour se connecter au système à distance de façon sécurisée à partir d’une ligne de commande et exécuter des commandes administratives à distance.
 
-L’application web sur Linux assure la prise en charge SSH avec chacune des images Docker intégrées utilisées pour la pile d’exécution des nouvelles applications web. 
+L’application web sur Linux assure la prise en charge SSH dans le conteneur d’application avec chacune des images Docker intégrées utilisées pour la pile d’exécution des nouvelles applications web. 
 
 ![Piles d’exécution](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -72,7 +72,7 @@ Cette procédure est affichée dans le référentiel Azure App Service en tant q
       && echo "root:Docker!" | chpasswd
     ``` 
 
-2. Ajoutez une [instruction `COPY`](https://docs.docker.com/engine/reference/builder/#copy) au fichier Dockerfile pour copier un fichier [sshd_config](http://man.openbsd.org/sshd_config) dans le répertoire */etc/ssh/*. Votre fichier de configuration doit être basé sur notre fichier sshd_config dans le référentiel GitHub Azure-App-Service [ici](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/sshd_config).
+2. Ajoutez une [instruction `COPY`](https://docs.docker.com/engine/reference/builder/#copy) au fichier Dockerfile pour copier un fichier [sshd_config](http://man.openbsd.org/sshd_config) dans le répertoire */etc/ssh/*. Votre fichier de configuration doit être basé sur notre fichier sshd_config dans le référentiel GitHub Azure-App-Service [ici](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
 
     > [!NOTE] 
     > Le fichier *sshd_config* doit inclure les éléments suivants pour éviter que la connexion échoue : 
@@ -103,7 +103,7 @@ Cette procédure est affichée dans le référentiel Azure App Service en tant q
     COPY init_container.sh /bin/
       ...
     RUN chmod 755 /bin/init_container.sh 
-      ...        
+      ...       
     CMD ["/bin/init_container.sh"]
     ```
 

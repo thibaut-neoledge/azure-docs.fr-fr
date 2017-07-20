@@ -1,10 +1,10 @@
 ---
 title: "Configuration de la mise à niveau d’une application Service Fabric | Microsoft Docs"
-description: "Apprenez à configurer les paramètres de mise à niveau d&quot;une application Service Fabric à l&quot;aide de Microsoft Visual Studio."
+description: "Apprenez à configurer les paramètres de mise à niveau d'une application Service Fabric à l'aide de Microsoft Visual Studio."
 services: service-fabric
 documentationcenter: na
-author: cawaMS
-manager: paulyuk
+author: mikkelhegn
+manager: mfussell
 editor: tglee
 ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
 ms.service: service-fabric
@@ -12,21 +12,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
-ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 121f1d485e34ba30d3e6c2e5d91da633771e80ab
+ms.date: 06/29/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/01/2017
 
 
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configuration de la mise à niveau d’une application Service Fabric dans Visual Studio
-Les outils Visual Studio pour Azure Service Fabric fournissent une prise en charge des mises à niveau pour la publication vers des clusters locaux ou distants. Le fait de mettre à niveau votre application vers une version plus récente au lieu de la remplacer durant les tests et le débogage présente deux avantages :
+Les outils Visual Studio pour Azure Service Fabric fournissent une prise en charge des mises à niveau pour la publication vers des clusters locaux ou distants. Voici les trois cas dans lesquels vous devriez mettre à niveau votre application vers une version plus récente au lieu de la remplacer durant les tests et le débogage :
 
 * Les données d’application ne sont pas perdues lors de la mise à niveau.
 * La disponibilité reste élevée, car le service n’est pas interrompu au cours de la mise à niveau s’il y a suffisamment d’instances de service réparties sur plusieurs domaines de mise à niveau.
-
-Une application peut faire l’objet de tests pendant sa mise à niveau.
+* Une application peut faire l’objet de tests pendant sa mise à niveau.
 
 ## <a name="parameters-needed-to-upgrade"></a>Paramètres nécessaires à la mise à niveau
 Vous avez le choix entre deux types de déploiement : standard ou mise à niveau. Un déploiement standard efface les informations relatives à tout déploiement précédent ainsi que les données du cluster, tandis qu’un déploiement de mise à niveau les conserve. Lorsque vous mettez à niveau une application Service Fabric dans Visual Studio, vous devez fournir les paramètres de mise à niveau de l'application et les stratégies de contrôle d’intégrité. Les paramètres de mise à niveau de l’application permettent de contrôler la mise à niveau, tandis que les stratégies de contrôle d’intégrité déterminent si la mise à niveau a réussi. Pour en savoir plus, consultez [Mise à niveau d’une application Service Fabric : paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md) .
@@ -88,9 +89,3 @@ L'exemple suivant montre comment appliquer une stratégie de contrôle d'intégr
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur le déploiement d'une application, consultez la page [Déploiement d’une application existante dans Azure Service Fabric](service-fabric-deploy-existing-app.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/09/2017
+ms.date: 7/03/2017
 ms.author: negat
 ms.custom: na
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: de67dba5e615db8138957420a1db89d444a37d67
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 718732df4455831454245ea1a80d49e042c20f09
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -188,7 +188,7 @@ Incluez **osProfile** dans votre modèle :
 }
 ```
  
-Ce bloc JSON est utilisé dans  [le modèle de démarrage rapide GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Ce bloc JSON est utilisé dans [le modèle de démarrage rapide GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
 Le profil de système d’exploitation est également utilisé dans [le modèle de démarrage rapide GitHub grelayhost.json](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
@@ -495,7 +495,7 @@ Oui. Un groupe de sécurité réseau peut être appliqué directement à un grou
                             "loadBalancerBackendAddressPools": [
                                 {
                                     "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
-                                }
+                                 }
                             ]
                         }
                     }
@@ -511,7 +511,7 @@ Oui. Un groupe de sécurité réseau peut être appliqué directement à un grou
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Comment effectuer un échange d’adresses IP virtuelles pour les groupes de machines virtuelles identiques dans le même abonnement et la même région ?
 
-Pour effectuer un échange d’adresses IP virtuelles pour les groupes de machines virtuelles identiques dans le même abonnement et la même région, consultez [Échange d'adresses IP virtuelles : déploiement bleu-vert dans Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/).
+Si vous disposez de deux groupes de machines virtuelles identiques avec serveurs frontaux Azure Load Balancer, et qu’ils font partie d’une région et d’un abonnement identique, vous pouvez libérer l’adresse IP publique d’un groupe pour l’assigner à l’autre. Consultez [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Échange d’adresse IP virtuelle (VIP) : Déploiement Bleu/vert dans Azure Resource Manager) pour avoir un exemple. À noter que cela implique un délai, car les ressources doivent être libérées/allouées au niveau du réseau. Une autre option consiste à héberger votre application avec [Azure App service](https://azure.microsoft.com/en-us/services/app-service/), qui fournit une assistance pour basculer rapidement entre emplacements intermédiaires et emplacements de production.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Comment spécifier une plage d’adresses IP privées à utiliser pour l’allocation d’adresse IP privée statique ?
 
@@ -527,9 +527,51 @@ Pour déployer un groupe de machines virtuelles identiques sur un réseau virtue
 
 Pour ajouter l’adresse IP de la première machine virtuelle dans un groupe de machines virtuelles identiques à la sortie d’un modèle, consultez [ARM : obtenir les adresses IP privées du groupe de machines virtuelles identiques](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
+### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Puis-je me servir de groupes identiques lors d’une mise en réseau accélérée ?
 
+Oui. Pour utiliser la mise en réseau accélérée, définissez enableAcceleratedNetworking sur True dans les paramètres networkInterfaceConfigurations du groupe identique. Par exemple,
+```json
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+    {
+        "name": "niconfig1",
+        "properties": {
+        "primary": true,
+        "enableAcceleratedNetworking" : true,
+        "ipConfigurations": [
+                ]
+            }
+            }
+        ]
+        }
+    }
+    ]
+}
+```
 
-## <a name="scale"></a>Scale
+### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>Comment puis-je configurer les serveurs DNS utilisés par un groupe identique ?
+
+Pour créer un groupe de machine virtuelle identique avec une configuration DNS personnalisée, ajoutez un paquet JSON dnsSettings dans la section networkInterfaceConfigurations du groupe identique. Exemple :
+```json
+    "dnsSettings":{
+        "dnsServers":["10.0.0.6", "10.0.0.5"]
+    }
+```
+
+### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Comment puis-je configurer un groupe identique afin qu’il attribue une adresse IP publique à chaque machine virtuelle ?
+
+Pour créer un groupe de machine virtuelle identique qui attribue une adresse IP publique à chaque machine virtuelle, assurez-vous que la version API de la ressource Microsoft.Compute/virtualMAchineScaleSets est datée au 30/03/2017, puis ajoutez un paquet JSON _publicipaddressconfiguration_ dans la section ipConfigurations du groupe identique. Exemple :
+
+```json
+    "publicipaddressconfiguration": {
+        "name": "pub1",
+        "properties": {
+        "idleTimeoutInMinutes": 15
+        }
+    }
+```
+
+## <a name="scale"></a>Mettre à l'échelle
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>Dans quel cas dois-je créer un groupe de machines virtuelles identiques avec moins de deux machines virtuelles ?
 

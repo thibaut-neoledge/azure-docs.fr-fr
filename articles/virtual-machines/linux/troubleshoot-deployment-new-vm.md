@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7e8e54aad26ddec8be9f6e13931e42f4cc07843f
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: aea5db05843b0175b8ef8b713944e12262e33010
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -27,6 +28,10 @@ ms.lasthandoff: 04/03/2017
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
+## <a name="top-issues"></a>Problèmes principaux
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
+
+Pour toute autre question ou problèmes concernant le déploiement de machine virtuelle, consultez [Troubleshoot deploying Linux virtual machine issues in Azure](troubleshoot-deploy-vm.md) (Résolution des problèmes de déploiement de la machine virtuelle Linux dans Azure).
 ## <a name="collect-activity-logs"></a>Collecte des journaux d’activité
 Pour résoudre les problèmes, commencez par collecter les journaux d’activité afin d’identifier l’erreur associée au problème. Les liens suivants contiennent des informations détaillées sur la marche à suivre.
 

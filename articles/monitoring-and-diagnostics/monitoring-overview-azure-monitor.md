@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 726a33b5cad8b44c520d6c59d418fec1bbfc6fa5
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 72b0c11f8bea24fc8777e3e0d7712577fab8ef97
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -31,7 +31,7 @@ Les applications cloud sont complexes, et se composent de nombreux éléments mo
 
 
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure Monitor et autres produits de surveillance de Microsoft
-Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux pour la plupart des services Microsoft Azure. Les services Azure qui ne placent pas encore leurs données dans Azure Monitor le feront prochainement. 
+Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux pour la plupart des services Microsoft Azure. Les services Azure qui ne placent pas encore leurs données dans Azure Monitor le feront prochainement.
 
 Microsoft libre des produits et services supplémentaires qui fournissent de nouvelles fonctionnalités de surveillance pour les développeurs, DevOps ou opérateurs informatiques qui ont également des installations locales. Pour une vue d’ensemble et mieux comprendre comment ces différents produits et services fonctionnent ensemble, consultez [Surveillance dans Microsoft Azure](monitoring-overview.md).
 
@@ -138,7 +138,7 @@ En général, vous pouvez manipuler le suivi, le routage et la récupération de
 * [PowerShell](insights-powershell-samples.md)  
 * [Interface de ligne de commande interplateforme (CLI)](insights-cli-samples.md)
 * [API REST](https://docs.microsoft.com/rest/api/monitor/)
-* [Kit SDK .NET](https://msdn.microsoft.com/library/dn802153.aspx)
+* [Kit SDK .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur

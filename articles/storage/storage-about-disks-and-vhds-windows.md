@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 06/15/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 3b9d6eb9bcc4afe0e68920bbd5da7c259ceb0c67
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 402e5cb976d12ce01da83e8b39da49b807e4aa36
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -33,7 +34,7 @@ Dans cet article, nous parlons des différentes utilisations pour les disques, p
 Examinons comment les disques sont utilisés par les machines virtuelles.
 
 ### <a name="operating-system-disk"></a>Disque de système d’exploitation
-Chaque machine virtuelle dispose d’un disque de système d’exploitation attaché. Il est enregistré comme disque SATA et porte par défaut le nom de lecteur C:. Ce disque a une capacité maximale de 1 023 gigaoctets. 
+Chaque machine virtuelle dispose d’un disque de système d’exploitation attaché. Il est enregistré comme disque SATA et porte par défaut le nom de lecteur C:. Ce disque a une capacité maximale de 2048 gigaoctets (Go). 
 
 ### <a name="temporary-disk"></a>Disque temporaire
 Chaque machine virtuelle contient un disque temporaire. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) ou quand vous [redéployez une machine virtuelle](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Lors d’un redémarrage standard de la machine virtuelle, les données présentes sur le disque temporaire doivent normalement être conservées.
@@ -44,7 +45,7 @@ Pour plus d’informations sur l’utilisation du disque temporaire par Azure, v
 
 
 ### <a name="data-disk"></a>Disque de données
-Un disque de données est un VHD attaché à une machine virtuelle pour stocker des données d’application ou d’autres données que vous devez conserver. Les disques de données sont enregistrés en tant que disques SCSI et sont nommés avec la lettre de votre choix. Chaque disque de données possède une capacité maximale de 1 023 gigaoctets. La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher et le type de stockage que vous pouvez utiliser pour héberger les disques.
+Un disque de données est un VHD attaché à une machine virtuelle pour stocker des données d’application ou d’autres données que vous devez conserver. Les disques de données sont enregistrés en tant que disques SCSI et sont nommés avec la lettre de votre choix. Chaque disque de données offre une capacité maximale de 4095 Go. La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher et le type de stockage que vous pouvez utiliser pour héberger les disques.
 
 > [!NOTE]
 > Pour plus d’informations sur les capacités des machines virtuelles, consultez [Tailles des machines virtuelles Windows](../virtual-machines/windows/sizes.md).
@@ -63,6 +64,7 @@ Si vous utilisez les disques standard non gérés (disque dur), vous devez activ
 
 Vous pouvez exécuter cette commande pour vérifier le paramètre TRIM. Ouvrez une invite de commandes sur votre machine virtuelle Windows et saisissez :
 
+
 ```
 fsutil behavior query DisableDeleteNotify
 ```
@@ -73,10 +75,13 @@ Si la commande renvoie 0, TRIM est bien activé. Si la valeur 1 est renvoyée, e
 fsutil behavior set DisableDeleteNotify 0
 ```
 
+> [!NOTE]
+> Remarque : la prise en charge de Trim démarre avec Windows Server 2012 / Windows 8 et versions ultérieures. Voir [La nouvelle API permet aux applications d’envoyer des indications « TRIM et Unmap » au support de stockage](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> 
+
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Étapes suivantes
 * [Attacher un disque](../virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour ajouter un stockage supplémentaire pour votre machine virtuelle.
-* [Charger une image de machine virtuelle Windows dans Azure](../virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à utiliser lors de la création d’une machine virtuelle.
 * [Changer la lettre de lecteur du disque temporaire Windows](../virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) pour que votre application puisse utiliser le lecteur D: pour les données.
 
 

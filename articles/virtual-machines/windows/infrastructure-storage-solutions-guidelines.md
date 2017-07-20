@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 23ca92cc12ed0ff70a4ad6147609289eef061a93
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c0fabf155d4feb6d88ef7d7e087cc1654f44978b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 ---
 # <a name="azure-storage-infrastructure-guidelines-for-windows-vms"></a>Instructions pour les infrastructures Stockage Azure pour machines virtuelles Windows
@@ -34,7 +34,7 @@ Décisions :
 
 * Allez-vous utiliser des disques managés Azure ou des disques non managés ?
 * Devez-vous utiliser le stockage Standard ou Premium pour votre charge de travail ?
-* Avez-vous besoin d’un entrelacement pour créer des disques d’une taille supérieure à 1 023 Go ?
+* Avez-vous besoin d’un entrelacement de disques pour créer des disques d’une taille supérieure à 4 To ?
 * Avez-vous besoin d’un entrelacement pour optimiser les performances d’E/S de votre charge de travail ?
 * Quel est l’ensemble de comptes de stockage dont vous avez besoin pour héberger votre charge de travail ou votre infrastructure informatique ?
 
@@ -63,20 +63,19 @@ La durabilité et la haute disponibilité sont fournies par l’environnement de
 
 Vous pouvez lire [plus d’informations sur les options de réplication pour la haute disponibilité](../../storage/storage-introduction.md#replication-for-durability-and-high-availability).
 
-Les disques de système d’exploitation et disques de données ont une taille maximale de 1 023 gigaoctets (Go). La taille maximale d’un objet blob est de 1 024 Go et doit comprendre les métadonnées (pied de page) du fichier VHD (un Go est égal à 1 024<sup>3</sup> octets). Vous pouvez utiliser les espaces de stockage dans Windows Server 2012 pour dépasser cette limite en regroupant des disques de données pour présenter des volumes logiques de plus de 1 023 Go à votre machine virtuelle.
+Les disques de système d’exploitation et disques de données ont une taille maximale de 4 To. Vous pouvez utiliser les espaces de stockage dans Windows Server 2012 ou une version supérieure pour dépasser cette limite en regroupant des disques de données pour présenter des volumes logiques de plus de 4 To à votre machine virtuelle.
 
 Il existe certaines limites d’évolutivité lors de la conception de vos déploiements de Stockage Azure. Consultez [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md#storage-limits) pour plus de détails. Voir également [Objectifs de performance et d’extensibilité d’Azure Storage](../../storage/storage-scalability-targets.md).
 
 En ce qui concerne le stockage d’applications, vous pouvez stocker des données d’objets non structurées, comme des documents, des images, des sauvegardes, des données de configuration, des journaux, etc. à l’aide de Stockage Blob. Plutôt que d’écrire sur un disque virtuel connecté à la machine virtuelle, l’application peut écrire directement sur le stockage d’objets blob. Stockage Blob offre également la possibilité de choisir entre [des niveaux de stockage chaud et froid](../../storage/storage-blob-storage-tiers.md) selon vos besoins de disponibilité et vos contraintes de coût.
 
 ## <a name="striped-disks"></a>Disques agrégés par bandes
-En plus de vous permettre de créer des disques d’une taille supérieure à 1 023 Go dans plusieurs instances, l’entrelacement de disques améliore les performances en permettant à plusieurs objets blob de sauvegarder le stockage d’un seul volume. Avec l’agrégation par bandes, l’E/S requise pour écrire et lire des données à partir d’un seul disque logique est exécutée en parallèle.
+En plus de vous permettre de créer des disques d’une taille supérieure à 4 To dans plusieurs instances, l’entrelacement de disques améliore les performances en permettant à plusieurs blobs de sauvegarder le stockage d’un seul volume. Avec l’agrégation par bandes, l’E/S requise pour écrire et lire des données à partir d’un seul disque logique est exécutée en parallèle.
 
-Azure impose des limites quant au nombre de disques de données et à la quantité de bande passante disponible, selon la taille de la machine virtuelle. Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Azure impose des limites quant au nombre de disques de données et à la quantité de bande passante disponible, selon la taille de la machine virtuelle. Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](sizes.md).
 
 Si vous utilisez l’entrelacement pour les disques de données Azure, respectez les consignes suivantes :
 
-* Les disques de données doivent toujours avoir la taille maximale (1 023 Go).
 * Attachez le nombre maximum autorisé de disques de données pour la taille de machine virtuelle.
 * Utilisez les espaces de stockage.
 * Évitez d’utiliser des options de mise en cache des disques de données Azure (Stratégie de mise en cache = Aucune).

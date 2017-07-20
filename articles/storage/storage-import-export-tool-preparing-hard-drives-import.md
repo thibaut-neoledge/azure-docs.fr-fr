@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 06/29/2017
 ms.author: muralikk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 04ac94a1c07c3ad2a9384f5cf5fca1341ebfa0d8
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 5b894dac8fdc26999b6f3cbffaf7e6a98e68d000
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Préparation des disques durs pour un travail d’importation
 
-L’outil WAImportExport est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le [service Microsoft Azure Import/Export](storage-import-export-service.md). Il permet de copier les données sur des disques durs que vous allez envoyer à un centre de données Azure. Lorsqu’un travail d’importation est terminé, vous pouvez utiliser cet outil pour réparer les objets blob endommagés, manquants ou en conflit avec d’autres objets blob. Lorsque vous recevez les disques d’un travail d’exportation, vous pouvez utiliser cet outil pour réparer tous les fichiers endommagés ou manquants sur les disques. Dans cet article, nous allons vous présenter le fonctionnement de cet outil.
+L’outil WAImportExport est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le [service Microsoft Azure Import/Export](storage-import-export-service.md). Il permet de copier les données sur des disques durs que vous allez envoyer à un centre de données Azure. Lorsqu’un travail d’importation est terminé, vous pouvez utiliser cet outil pour réparer les objets blob endommagés, manquants ou en conflit avec d’autres objets blob. Lorsque vous recevez les disques d’un travail d’exportation, vous pouvez utiliser cet outil pour réparer tous les fichiers endommagés ou manquants sur les disques. Dans cet article, nous passerons en revue l’utilisation de cet outil.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -37,13 +37,13 @@ L’outil WAImportExport est l’outil de préparation et de réparation de disq
 
 ### <a name="preparing-disk-for-import-job"></a>Préparation de disques en vue du travail d’importation
 
-- **BitLocker** : BitLocker doit être activé sur l’ordinateur qui exécute l’outil WAImportExport. Consultez la section [Forum Aux Questions](#faq) pour savoir comment activer BitLocker.
+- **BitLocker** : BitLocker doit être activé sur l’ordinateur qui exécute l’outil WAImportExport. Consultez la section [FAQ](#faq) pour savoir comment activer BitLocker.
 - **Disques** accessibles à partir de l’ordinateur sur lequel l’outil WAImportExport est exécuté. Consultez la section [Forum Aux Questions](#faq) pour savoir comment spécifier les disques.
 - **Fichiers sources** : les fichiers que vous projetez d’importer doivent être accessibles à l’ordinateur de copie (partage réseau ou disque dur local).
 
 ### <a name="repairing-a-partially-failed-import-job"></a>Réparation d’un travail d’importation en échec partiel
 
-- **Copiez les fichiers journaux** générés lorsque le service Azure Import/Export copie les données entre le compte de stockage et le disque. Ils se trouvent dans votre compte de stockage cible.
+- **Copiez le fichier journal** généré lorsque le service Azure Import/Export copie les données entre le compte de stockage et le disque. Ils se trouvent dans votre compte de stockage cible.
 
 ### <a name="repairing-a-partially-failed-export-job"></a>Réparation d’un travail d’exportation en échec partiel
 
@@ -52,7 +52,7 @@ L’outil WAImportExport est l’outil de préparation et de réparation de disq
 
 ## <a name="download-and-install-waimportexport"></a>Télécharger et installer WAImportExport
 
-Téléchargez la [dernière version de WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=42659). Extrayez le contenu compressé dans un répertoire de votre ordinateur.
+Téléchargez la [dernière version de WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=55280). Extrayez le contenu compressé dans un répertoire de votre ordinateur.
 
 La tâche suivante consiste à créer des fichiers CSV.
 
@@ -62,7 +62,7 @@ La tâche suivante consiste à créer des fichiers CSV.
 
 Le fichier dataset.csv est un fichier CSV qui contient une liste de répertoires et/ou une liste de fichiers à copier sur les disques cibles. La première étape pour créer une tâche d’importation consiste à déterminer les répertoires et les fichiers que vous allez importer. Il peut s’agir d’une liste de répertoires, d’une liste de fichiers uniques ou d’une combinaison des deux. Lorsqu’un répertoire est spécifié, tous les fichiers situés dans ce répertoire et ses sous-répertoires sont importés.
 
-Pour chaque répertoire ou fichier à importer, vous devez identifier un répertoire virtuel ou un objet blob de destination dans le service BLOB Azure. Vous utiliserez ces cibles comme des entrées dans l’outil WAImportExport. Notez que les répertoires doivent être délimités par la barre oblique « / ».
+Pour chaque répertoire ou fichier à importer, vous devez identifier un répertoire virtuel ou un objet blob de destination dans le service Blob Azure. Vous utiliserez ces cibles comme des entrées dans l’outil WAImportExport. Les répertoires doivent être délimités par la barre oblique « / ».
 
 Le tableau suivant présente des exemples d’objets blob cibles :
 
@@ -85,10 +85,10 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 | Champ | Description |
 | --- | --- |
-| Chemin de base | **[Obligatoire]**<br/>La valeur de ce paramètre représente la source contenant les données à importer. L’outil va copier de manière récursive toutes les données situées à cet emplacement.<br><br/>**Valeurs autorisées** : ce chemin d’accès (partagé ou non) doit être valide sur l’ordinateur local et accessible par l’utilisateur. Il doit être absolu (pas relatif). S’il se termine par « \\ », il désigne un répertoire. S’il se termine sans « \\ », il représente un fichier.<br/>Aucune expression régulière n’est autorisée dans ce champ. Si le chemin d’accès contient des espaces, placez-les entre guillemets droits (" ").<br><br/>**Exemple** : "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
-| DstBlobPathOrPrefix | **[Obligatoire]**<br/> Chemin d’accès au répertoire virtuel cible dans votre compte de stockage Azure. Le répertoire virtuel peut déjà exister ou non. S’il n’existe pas, le service Import/Export le crée.<br/><br/>Veillez à utiliser des noms de conteneur valides quand vous spécifiez des répertoires virtuels de destination ou des objets blob. N’oubliez pas que les noms de conteneur doivent être en minuscules. Pour les règles d’affectation de noms de conteneur, consultez [Naming and Referencing Containers, Blobs, and Metadata (Désignation et référencement des conteneurs, des objets BLOB et des métadonnées)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Si seule la racine est spécifiée, l’arborescence de répertoires de la source est répliquée dans le conteneur d’objets blob cible. Si vous souhaitez une arborescence différente, plusieurs lignes de mappage dans le fichier CSV<br/><br/>Vous pouvez spécifier un conteneur ou un préfixe d’objet blob comme music/70s/. Le répertoire cible doit commencer par le nom du conteneur, suivi d’une barre oblique « / » et peut spécifier un répertoire virtuel d’objets blob se terminant par « / ».<br/><br/>Lorsque le conteneur cible est le conteneur racine, vous devez spécifier explicitement le conteneur racine et la barre oblique (exemple : $root/). Comme les objets blob du conteneur racine ne peuvent pas inclure « / » dans leur nom, les sous-répertoires du répertoire source ne seront pas copiés si le répertoire cible est le conteneur racine.<br/><br/>**Exemple**<br/>Si le chemin d’accès à l’objet blob cible est https://mystorageaccount.blob.core.windows.net/video, la valeur de ce champ peut être video/.  |
+| Chemin de base | **[Obligatoire]**<br/>La valeur de ce paramètre représente la source où se trouvent les données à importer. L’outil copie de manière récurrente toutes les données situées sous ce chemin d’accès.<br><br/>**Valeurs autorisées** : ce chemin d’accès (partagé ou non) doit être valide sur l’ordinateur local et accessible par l’utilisateur. Le chemin d’accès du répertoire doit être un chemin d’accès absolu (et non relatif). Si le chemin d’accès finit par « \\ », il représente un répertoire, tandis qu’un chemin d’accès qui finit sans « \\ » représente un fichier.<br/>Aucune expression régulière n’est autorisée dans ce champ. Si le chemin d’accès contient des espaces, placez-les entre guillemets droits (" ").<br><br/>**Exemple** : "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
+| DstBlobPathOrPrefix | **[Obligatoire]**<br/> Chemin d’accès au répertoire virtuel cible dans votre compte de stockage Azure. Le répertoire virtuel peut déjà exister ou non. S’il n’existe pas, le service Import/Export le crée.<br/><br/>Veillez à utiliser des noms de conteneur valides quand vous spécifiez des répertoires virtuels de destination ou des objets blob. N’oubliez pas que les noms de conteneur doivent être en minuscules. Pour connaître les règles d’affectation de noms aux conteneurs, consultez [Naming and Referencing Containers, Blobs, and Metadata (Affectation de noms et références aux conteneurs, blobs et métadonnées)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). S’il n’est spécifié que la racine, la structure de répertoire de la source est répliquée dans le conteneur d’objets blob de destination. Si vous souhaitez une structure de répertoire différente de la source, plusieurs lignes de mappage dans le fichier CSV<br/><br/>Vous pouvez spécifier un conteneur ou un préfixe d’objet blob comme music/70s/. Le répertoire cible doit commencer par le nom du conteneur, suivi d’une barre oblique « / » et peut spécifier un répertoire virtuel d’objets blob se terminant par « / ».<br/><br/>Lorsque le conteneur cible est le conteneur racine, vous devez spécifier explicitement le conteneur racine et la barre oblique (exemple : $root/). Comme les objets blob du conteneur racine ne peuvent pas inclure « / » dans leur nom, les sous-répertoires du répertoire source ne seront pas copiés si le répertoire cible est le conteneur racine.<br/><br/>**Exemple**<br/>Si le chemin d’accès à l’objet blob cible est https://mystorageaccount.blob.core.windows.net/video, la valeur de ce champ peut être video/.  |
 | /BlobType | **[Facultatif]**  block &#124; page<br/>Pour l’instant, le service Import/Export prend en charge 2 types d’objet blob. les objets blob de pages et les objets blob de blocs. Par défaut, tous les fichiers sont importés comme des objets blob de blocs. Les fichiers \*.vhd et \*.vhdx sont importés comme des objets blob de pages. La taille des objets blob de pages et de blocs est limitée. Pour plus d’informations, consultez la page [Objectifs de performance et évolutivité d’Azure Storage](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files).  |
-| Disposition | **[Facultatif]** rename &#124; no-overwrite &#124; overwrite <br/> Ce champ spécifie le comportement de copie lors de l’importation, c’est-à-dire pendant le téléchargement de données dans le compte de stockage à partir du disque. Les options disponibles sont rename&#124;overwite&#124;no-overwrite. Si rien n’est spécifié, l’option par défaut est « rename ». <br/><br/>**Rename** : si un objet portant le même nom est présent, l’outil crée une copie dans la destination.<br/>Overwrite : remplace le fichier par sa version plus récente. Le fichier modifié en dernier est conservé.<br/>**No-overwrite** : ne remplace pas le fichier existant.|
+| Disposition | **[Facultatif]** rename &#124; no-overwrite &#124; overwrite <br/> Ce champ spécifie le comportement de copie lors de l’importation, quand des données sont chargées sur le compte de stockage depuis le disque. Options disponibles : rename&#124;overwite&#124;no-overwrite. Réglé par défaut sur "rename" si rien n’est spécifié. <br/><br/>**Rename** : si un objet portant le même nom est présent, l’outil crée une copie dans la destination.<br/>Overwrite : remplace le fichier par sa version plus récente. Le fichier modifié en dernier est conservé.<br/>**No-overwrite** : ne remplace pas le fichier existant.|
 | MetadataFile | **[Facultatif]** <br/>Ce champ indique le fichier de métadonnées qui peut être spécifié si vous devez conserver les métadonnées des objets ou fournir des métadonnées personnalisées. Chemin d’accès au fichier des métadonnées des objets blob cibles. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](storage-import-export-file-format-metadata-and-properties.md) |
 | PropertiesFile | **[Facultatif]** <br/>Chemin d’accès au fichier des propriétés des objets blob cibles. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](storage-import-export-file-format-metadata-and-properties.md). |
 
@@ -118,9 +118,9 @@ H,Format,SilentMode,Encrypt,
 | --- | --- |
 | DriveLetter | **[Obligatoire]**<br/> Chaque disque spécifié comme cible dans l’outil doit contenir un volume NTFS simple et être associé à une lettre.<br/> <br/>**Exemple** : R ou r |
 | FormatOption | **[Obligatoire]**  Format &#124; AlreadyFormatted<br/><br/> **Format** : cette valeur déclenche la mise en forme de toutes les données sur le disque. <br/>**AlreadyFormatted** : l’outil ignore la mise en forme lorsque cette valeur est spécifiée. |
-| SilentOrPromptOnFormat | **[Obligatoire]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode** : cette valeur permet à l’utilisateur d’exécuter l’outil en mode silencieux. <br/>**PromptOnFormat** : l’outil invite l’utilisateur à confirmer l’action pour chaque format.<br/><br/>Si ce paramètre n’est pas défini, la commande ne s’exécute pas et affiche le message d’erreur « Incorrect value for SilentOrPromptOnFormat: none (Valeur incorrecte de SilentOrPromptOnFormat : aucune) ». |
-| Chiffrement | **[Obligatoire]** Encrypt &#124; AlreadyEncrypted<br/> La valeur de ce champ indique le disque à chiffrer et le disque à ne pas chiffrer. <br/><br/>**Encrypt** : l’outil chiffre le disque. Si le champ « FormatOption » a pour valeur « Format », cette valeur doit être « Encrypt ». Si vous spécifiez « AlreadyEncrypted » dans ce cas, l’erreur « When Format is specified, Encrypt must also be specified (Lorsque Format est spécifié, Encrypt doit aussi être spécifié) » s’affiche.<br/>**AlreadyEncrypted** : l’outil déchiffre le disque avec la clé BitLockerKey fournie dans le champ « ExistingBitLockerKey ». Si la valeur du champ « FormatOption » est « AlreadyFormatted », cette valeur peut être « Encrypt » ou « AlreadyEncrypted ». |
-| ExistingBitLockerKey | **[Obligatoire]** Si la valeur du champ « Encryption » est « AlreadyEncrypted »,<br/> la valeur de ce champ est la clé BitLocker associée au disque en question. <br/><br/>Ce champ doit être vide si la valeur du champ « Encryption » est « Encrypt ».  Si la clé BitLocker est spécifiée, le message d’erreur « Bitlocker Key should not be specified (La clé BitLocker ne doit pas être spécifiée) » s’affiche.<br/>  **Exemple** : 060456-014509-132033-080300-252615-584177-672089-411631|
+| SilentOrPromptOnFormat | **[Obligatoire]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode** : cette valeur permet à l’utilisateur d’exécuter l’outil en mode silencieux. <br/>**PromptOnFormat** : l’outil invite l’utilisateur à confirmer l’action pour chaque format.<br/><br/>Si ce paramètre n’est pas défini, la commande ne s’exécute pas et affiche le message d’erreur « Incorrect value for SilentOrPromptOnFormat: none » (« Valeur incorrecte de SilentOrPromptOnFormat : aucune ») |
+| Chiffrement | **[Obligatoire]** Encrypt &#124; AlreadyEncrypted<br/> La valeur de ce champ indique le disque à chiffrer et le disque à ne pas chiffrer. <br/><br/>**Encrypt** : l’outil chiffre le disque. Si le champ « FormatOption » a pour valeur « Format », cette valeur doit être « Encrypt ». Si vous spécifiez « AlreadyEncrypted » dans ce cas, l’erreur « When Format is specified, Encrypt must also be specified (Lorsque Format est spécifié, Encrypt doit aussi être spécifié) » s’affiche.<br/>**AlreadyEncrypted** : l’outil déchiffre le disque avec la clé BitLockerKey fournie dans le champ « ExistingBitLockerKey ». Si la valeur du champ « FormatOption » est « AlreadyFormatted », cette valeur peut être « Encrypt » ou « AlreadyEncrypted ». |
+| ExistingBitLockerKey | **[Obligatoire]** Si la valeur du champ « Encryption » est « AlreadyEncrypted »,<br/> La valeur de ce champ est la clé BitLocker associée au disque en question. <br/><br/>Ce champ doit être vide si la valeur du champ « Encryption » est « Encrypt ».  Si la clé BitLocker est spécifiée, le message d’erreur « Bitlocker Key should not be specified (La clé BitLocker ne doit pas être spécifiée) » s’affiche.<br/>  **Exemple** : 060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  <a name="preparing-disk-for-import-job"></a>Préparation de disques en vue du travail d’importation
 
@@ -223,8 +223,8 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     /ManifestFile:&lt;Fichier_manifeste_disque&gt; | **Obligatoire** Applicable uniquement à RepairExport.<br/> Chemin d’accès au fichier manifeste du disque.  |
 |     /PathMapFile:&lt;Fichier_mappage_chemin_disque&gt; | **Facultatif**. Applicable uniquement à RepairImport.<br/> Chemin d’accès au fichier contenant les mappages des chemins d’accès relatifs à la racine du disque pour les emplacements des fichiers (séparés par des tabulations). Spécifié pour la première fois, il indique des chemins d’accès avec des cibles vides, ce qui signifie qu’ils sont introuvables dans les répertoires cibles, que leur accès est refusé, que leur nom est incorrect ou qu’ils existent dans plusieurs répertoires. Vous pouvez corriger manuellement les chemins d’accès dans ce fichier de mappages afin que l’outil fonctionne correctement.  |
 |     /ExportBlobListFile:&lt;Fichier_liste_blobs_à_exporter&gt; | **Requis**. Applicable uniquement à PreviewExport.<br/> Chemin d’accès au fichier XML contenant la liste des chemins d’accès ou des préfixes de chemin d’accès aux objets blob à exporter. Le format du fichier est le même que celui de la liste des objets blob dans l’opération Put Job de l’API REST du service Import/Export.  |
-|     /DriveSize:&lt;Taille_disque&gt; | **Requis**. Applicable uniquement à PreviewExport.<br/>  Taille des disques à utiliser pour l’exportation. Par exemple, 500 Go ou 1,5 To. Remarque : 1 Go = 1 000 000 000 octets 1 To = 1 000 000 000 000 octets  |
-|     /DataSet:&lt;dataset.csv&gt; | **Obligatoire**<br/> Fichier CSV contenant une liste de répertoires et/ou de fichiers à copier sur des disques cibles.  |
+|     /DriveSize:&lt;Taille_disque&gt; | **Requis**. Applicable uniquement à PreviewExport.<br/>  Taille des disques à utiliser pour l’exportation. Par exemple, 500 Go, 1,5 To. Remarque : 1 Go = 1 000 000 000 octets ; 1 To = 1 000 000 000 000 octets  |
+|     /DataSet:&lt;dataset.csv&gt; | **Obligatoire**<br/> Un fichier CSV contenant une liste de répertoires et/ou de fichiers à copier sur des disques cibles.  |
 |     /silentmode  | **Facultatif**.<br/> Si cet argument n’est pas spécifié, l’outil demande de spécifier des disques et de confirmer chaque opération.  |
 
 ## <a name="tool-output"></a>Sortie de l’outil
@@ -286,7 +286,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-### <a name="sample-journal-file-jrn-for-session-which-records-the-trail-of-sessions"></a>Exemple de fichier journal de session (JRN) enregistrant la trace des sessions
+### <a name="sample-journal-file-jrn-for-session-that-records-the-trail-of-sessions"></a>Exemple de fichier journal de session (JRN) enregistrant la trace des sessions
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -310,7 +310,7 @@ StorageAccountKey: *******
 
 L’outil WAImportExport est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le service Microsoft Azure Import/Export. Il permet de copier des données sur des disques durs que vous allez envoyer à un centre de données Azure. Lorsqu’un travail d’importation est terminé, vous pouvez utiliser cet outil pour réparer les objets blob endommagés, manquants ou en conflit avec d’autres objets blob. Lorsque vous recevez les disques d’un travail d’exportation, vous pouvez utiliser cet outil pour réparer tous les fichiers endommagés ou manquants sur les disques.
 
-#### <a name="how-does-the-waimportexport-tool-work-on-multiple-sorce-dir-and-disks"></a>Comment l’outil WAImportExport fonctionne-t-il sur plusieurs répertoires et disques sources ?
+#### <a name="how-does-the-waimportexport-tool-work-on-multiple-source-dir-and-disks"></a>Comment l’outil WAImportExport fonctionne-t-il sur plusieurs répertoires et disques sources ?
 
 Si le volume des données dépasse la capacité du disque, l’outil WAImportExport répartit les données sur plusieurs disques de manière optimisée. La copie des données sur plusieurs disques s’effectue en parallèle ou séquentiellement. Le nombre de disques sur lesquels les données peuvent être écrites simultanément n’est pas limité. L’outil répartit les données en fonction de la taille du disque et des dossiers. Il sélectionne le disque de manière optimisée en fonction de la taille des objets. Lors du chargement dans le compte de stockage, les données sont replacées dans l’arborescence de répertoires spécifiée.
 
@@ -358,7 +358,7 @@ Il est possible que votre ordinateur ne soit pas équipé d’une puce TPM. Si v
 
 #### <a name="how-to-disable-trusted-platform-module-tpm-in-bitlocker"></a>Comment désactiver le module de plateforme sécurisée (TPM) de BitLocker ?
 > [!NOTE]
-> Si le serveur n’a pas de module de plateforme sécurisée, vous devez désactiver la stratégie TPM. Dans le cas contraire, cette désactivation n’est pas nécessaire. 
+> Dans le seul cas où leurs serveurs ne contiennent aucun module de plateforme sécurisée, vous devez désactiver la stratégie du module de plateforme sécurisée. Il n’est pas nécessaire de désactiver le module de plateforme sécurisée, s’il y en a déjà sur le serveur de l’utilisateur. 
 > 
 
 Pour désactiver le module de plateforme sécurisée dans BitLocker, procédez comme suit :<br/>
@@ -399,7 +399,7 @@ L’outil répartit les données entre les disques d’entrée, selon la taille 
 
 #### <a name="how-does-the-tool-distribute-the-files-across-the-disks"></a>Comment l’outil répartit-il les fichiers entre les disques ?
 
-L’outil WAImportExport lit et écrit les fichiers par lots, un lot contenant au maximum 100 000 fichiers. Cela signifie que 100 000 fichiers peuvent être écrits en parallèle. Plusieurs disques sont écrits simultanément si ces 100 000 fichiers sont répartis entre différents disques. Toutefois, l’écriture sur un ou plusieurs disques simultanément dépend de la taille totale du lot. Par exemple, si 100 000 fichiers de petite taille peuvent tenir sur un disque, l’outil ne les écrit que sur un disque pendant le traitement de ce lot.
+L’outil WAImportExport lit et écrit les fichiers par lots, un lot contenant au maximum 100 000 fichiers. Cela signifie que 100 000 fichiers peuvent être écrits en parallèle. Plusieurs disques sont écrits simultanément si ces 100 000 fichiers sont répartis entre différents disques. Toutefois, l’écriture sur un ou plusieurs disques simultanément dépend de la taille totale du lot. Par exemple, si 100 000 fichiers de petite taille peuvent tenir sur un disque, l’outil ne les écrit que sur un disque pendant le traitement de ce lot.
 
 ### <a name="waimportexport-output"></a>Sortie de l’outil WAImportExport
 
@@ -407,7 +407,7 @@ L’outil WAImportExport lit et écrit les fichiers par lots, un lot contenant a
 
 **Fichier XML** : pour chaque disque dur que vous préparez avec l’outil WAImportExport, ce dernier crée un fichier journal nommé « `<DriveID>.xml` », où DriveID est le numéro de série lu par l’outil sur le disque. Vous devez avoir les fichiers journaux de tous vos disques pour créer le travail d’importation dans le portail Azure. Ce fichier journal permet également de reprendre la préparation du disque en cas d’interruption de l’outil.
 
-**Fichier JRN** : le fichier journal portant l’extension `.jrn` contient l’état de toutes les sessions de copie pour un ensemble de disques durs. Il contient également les informations nécessaires à la création du travail d’importation. Vous devez toujours spécifier un fichier journal lorsque vous exécutez l’outil WAImportExport, ainsi qu’un ID de session de copie.
+**Fichier JRN** : le fichier journal portant l’extension `.jrn` contient l’état de toutes les sessions de copie pour un ensemble de disques durs. Il contient également les informations nécessaires à la création du travail d’importation. Vous devez toujours spécifier un fichier journal lorsque vous exécutez l’outil WAImportExport, ainsi qu’un ID de session de copie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

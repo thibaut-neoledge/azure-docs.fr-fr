@@ -8,17 +8,18 @@ manager: jhubbard
 editor: genemi
 ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 338fa476377e9ff04c9a1f4e585f790b92a59f87
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 50024fdb487e859b870a1025b23790f1cc5d1a18
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -63,12 +64,12 @@ Lorsqu’une erreur temporaire se produit au moment de la connexion à la base d
 * Dans votre logique de connexion client, définissez le délai d’expiration sur 30 secondes.  La valeur par défaut de 15 secondes est trop courte pour les connexions qui reposent sur Internet.
 * Si vous utilisez un [pool de connexions](http://msdn.microsoft.com/library/8xx3tyca.aspx), veillez à fermer la connexion dès que votre programme ne l’utilise plus activement et qu’il ne se prépare pas à le réutiliser.
 
-## <a name="network-considerations"></a>Remarques relatives au réseau
+## <a name="network-considerations"></a>Considérations relatives au réseau
 * Assurez-vous que le pare-feu de l’ordinateur qui héberge votre programme client autorise les communications TCP sortantes sur le port 1433.  Pour en savoir plus, consultez [Configurer un pare-feu sur une base de données SQL Azure à l’aide du portail Azure](sql-database-configure-firewall-settings.md)
 * Si votre programme client se connecte à la base de données SQL pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir certaines plages de ports sur la machine virtuelle. Pour en savoir plus, consultez [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
-* Parfois, les connexions clientes à Azure SQL Database ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour en savoir plus, consultez [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Parfois, les connexions clientes à Azure SQL Database ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour plus d’informations, consultez [Azure SQL Database connectivity architecture](sql-database-connectivity-architecture.md) (Architecture de connectivité d’Azure SQL Database) et [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-## <a name="data-sharding-with-elastic-scale"></a>Partitionnement de données avec la mise à l’échelle élastique
+## <a name="data-sharding-with-elastic-scale"></a>Partitionnement de données avec mise à l’échelle élastique
 La mise à l’échelle élastique simplifie le processus d’évolutivité horizontale. 
 
 * [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)

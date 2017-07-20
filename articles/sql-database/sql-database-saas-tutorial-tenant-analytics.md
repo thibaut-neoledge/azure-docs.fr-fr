@@ -1,6 +1,6 @@
 ---
 title: "Exécuter des requêtes d’analyse sur plusieurs bases de données SQL Azure | Microsoft Docs"
-description: "Exécuter des requêtes distribuées sur plusieurs bases de données SQL Azure"
+description: "Extraire des données à partir de bases de données du locataire dans une base de données d’analyse pour une analyse hors connexion"
 keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/16/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5331f9a7b46f1dd31d4aa246ad9d188b5a5afc19
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Exécuter des requêtes distribuées sur plusieurs bases de données SQL Azure
+# <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Extraire des données à partir de bases de données du locataire dans une base de données d’analyse pour une analyse hors connexion
 
-Dans ce didacticiel, vous exécutez des requêtes d’analyse sur chaque locataire dans le catalogue. Un travail élastique est créé pour l’exécution des requêtes. Le travail récupère les données et les charge dans une base de données d’analyse distincte, créée sur le serveur de catalogue. Cette base de données peut être interrogée pour extraire les informations qui se trouvent noyées dans les données opérationnelles quotidiennes de tous les locataires. La sortie du travail est un tableau, créé à partir des requêtes renvoyant des résultats à l’intérieur de la base de données d’analyse du locataire.
+Dans ce didacticiel, vous utilisez un travail élastique pour exécuter des requêtes sur chaque base de données du locataire. Le travail extrait les données de ventes de ticket et les charge dans une base de données d’analyse (ou entrepôt de données) pour analyse. Cette base de données d’analyse peut être interrogée pour extraire les informations dans les données opérationnelles quotidiennes de tous les locataires.
 
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous explique comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer la base de données d’analyse du locataire
@@ -47,7 +47,7 @@ Une des grandes opportunités avec les applications SaaS est l’exploitation de
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts SaaS Wingtip et le code source de l’application sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Étapes de téléchargement des scripts SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+Les scripts et le code source de l’application SaaS Wingtip sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Étapes de téléchargement des scripts SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Déployer une base de données pour les résultats d’analyse du locataire
 
@@ -121,3 +121,4 @@ Félicitations !
 
 * Autres [didacticiels reposant sur l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Tâches élastiques](sql-database-elastic-jobs-overview.md)
+

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e3a8bc6b11cccf7f6b277e800dbcedcd90e87006
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 5a6e4431ef25c66e1863a679f0db1363a83f4769
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -44,11 +44,12 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 1. [Téléchargement et installation de Git](https://git-scm.com/)
 1. [Téléchargement et installation du JDK Java 7 ou version ultérieure](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [Téléchargement, installation et démarrage de MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-1. [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-local-mysql"></a>Préparation du MySQL local 
 
@@ -56,7 +57,7 @@ Dans cette étape, vous allez créer une base de données dans un serveur MySQL 
 
 ### <a name="connect-to-mysql-server"></a>Connexion au serveur MySQL
 
-Connexion à votre serveur MySQL local à partir de la ligne de commande :
+Dans une fenêtre de terminal, connectez-vous à votre serveur MySQL local. Vous pouvez utiliser cette fenêtre de terminal pour exécuter toutes les commandes de ce didacticiel.
 
 ```bash
 mysql -u root -p
@@ -86,7 +87,7 @@ Dans cette étape, vous allez cloner l’application Spring Boot, la configurer 
 
 ### <a name="clone-the-sample"></a>Clonage de l’exemple
 
-À partir de l’invite de commandes, accédez au répertoire de travail et clonez le référentiel exemple. 
+Dans la fenêtre de terminal, accédez à un répertoire de travail et clonez l’exemple de référentiel. 
 
 ```bash
 git clone https://github.com/azure-samples/mysql-spring-boot-todo
@@ -94,7 +95,7 @@ git clone https://github.com/azure-samples/mysql-spring-boot-todo
 
 ### <a name="configure-the-app-to-use-the-mysql-database"></a>Configuration de l’application pour utiliser la base de données MySQL
 
-Mettez à jour `spring.datasource.password` et la valeur dans *spring-boot-mysql-todo/src/main/resources/application.properties* avec le même mot de passe racine utilisé pour ouvrir l’invite de commandes MySQL :
+Mettez à jour `spring.datasource.password` et la valeur dans *spring-boot-mysql-todo/src/main/resources/application.properties* avec le mot de passe racine utilisé pour ouvrir l’invite MySQL :
 
 ```
 spring.datasource.password=mysqlpass
@@ -109,14 +110,14 @@ cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-Ouvrez votre navigateur sur http://localhost: 8080 pour voir l’exemple en action. Lorsque vous ajoutez des tâches à la liste, utilisez les commandes SQL suivantes dans l’invite de commandes MySQL pour afficher les données stockées dans MySQL.
+Ouvrez votre navigateur sur http://localhost: 8080 pour voir l’exemple en action. Lorsque vous ajoutez des tâches à la liste, utilisez les commandes SQL suivantes dans l’invite MySQL pour afficher les données stockées dans MySQL.
 
 ```SQL
 use testdb;
 select * from todo_item;
 ```
 
-Arrêtez l’application en appuyant sur `Ctrl` + `C` dans l’invite de commandes. 
+Arrêtez l’application en appuyant sur `Ctrl`+`C` dans le terminal. 
 
 ## <a name="create-an-azure-mysql-database"></a>Création d’une base de données Azure MySQL
 

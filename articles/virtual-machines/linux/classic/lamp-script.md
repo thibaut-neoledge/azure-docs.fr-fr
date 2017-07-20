@@ -13,12 +13,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 06/01/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1c1591079bf09da6fbe50d848b05ec7791657e04
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 43175672c81373b5c9cc1bddc8ce27bcaaf5ec14
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -28,14 +29,14 @@ ms.lasthandoff: 04/03/2017
 
 L’extension CustomScript Microsoft Azure pour Linux vous permet de personnaliser vos machines virtuelles en exécutant du code arbitraire écrit dans n’importe quel langage de script pris en charge par la machine virtuelle (par exemple Python et Bash). Cela fournit un moyen très souple pour automatiser le déploiement d'application sur plusieurs machines.
 
-Vous pouvez déployer l'extension CustomScript à l'aide du portail Azure Classic, de Windows PowerShell ou de l'interface de ligne de commande Azure.
+Vous pouvez déployer l’extension CustomScript à l’aide du Portail Azure, de Windows PowerShell ou de l’interface de ligne de commande Azure.
 
 Dans cet article, nous allons utiliser l’interface de ligne de commande Azure pour déployer une machine virtuelle Ubuntu créée à l’aide du modèle de déploiement classique.
 
 ## <a name="prerequisites"></a>Composants requis
 Pour l’exemple suivant, créez d’abord deux machines virtuelles Azure exécutant Ubuntu 14.04 ou version ultérieure. Ces machines virtuelles sont appelées *script-vm* et *lamp-vm*. Utilisez des noms uniques lorsque vous créez les machines virtuelles. L’une d’elles sert à exécuter les commandes de l’interface de ligne de commande, tandis que l’autre accueille l’application LAMP déployée.
 
-Vous avez également besoin d'un compte Azure Storage et d'une clé pour accéder à celui-ci (vous pouvez l'obtenir sur le portail Azure Classic).
+Vous avez également besoin d’un compte Stockage Azure et d’une clé pour accéder à celui-ci (vous pouvez l’obtenir sur le Portail Azure).
 
 Si vous avez besoin d’aide pour créer des machines virtuelles Linux sur Azure, reportez-vous à [Création d’une machine virtuelle exécutant Linux](createportal.md).
 

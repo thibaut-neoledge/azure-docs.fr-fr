@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: cephalin;dariac
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 99ec39d3f0f6e82409de571db1e7c7c9468eb068
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 7eff46740cdbc8467c711aada5e6022d82930e31
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -114,7 +115,7 @@ Avantages du déploiement à partir de Git local :
 * Le déploiement de branche spécifique permet de déployer différentes branches à différents [emplacements](web-sites-staged-publishing.md).
 * Toutes les fonctionnalités du moteur de déploiement Kudu sont disponibles (par exemple, le contrôle de version de déploiement, la restauration, la restauration de package, l’automatisation).
 
-Inconvénient du déploiement à partir de Git local :
+Inconvénients du déploiement à partir de Git local :
 
 * Implique une certaine connaissance du système SCM respectif.
 * Aucune solution clés en main pour un déploiement continu. 
@@ -150,7 +151,6 @@ Les inconvénients du déploiement à l’aide d’un IDE sont les suivants :
 ### <a name="vs"></a>Déploiement direct à partir de Visual Studio
 * [Prise en main d'Azure et ASP.NET](app-service-web-get-started-dotnet.md). Explique comment créer et déployer un projet Web ASP.NET MVC simple en utilisant Visual Studio et Web Deploy.
 * [Déployer des tâches Web à l’aide de Visual Studio](websites-dotnet-deploy-webjobs.md). Explique comment configurer les projets d'application console pour qu'ils se déploient sous forme de tâches web WebJobs.  
-* [Créer une application ASP.NET MVC 5 avec authentification et base de données SQL et la déployer dans Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Explique comment créer et déployer un projet Web ASP.NET MVC avec une base de données SQL, en utilisant Visual Studio, Web Deploy et Entity Framework Code First Migrations.
 * [Déploiement web ASP.NET en utilisant Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Une série de didacticiels en 12 parties présentant un ensemble de tâches de déploiement plus complet que le reste de cette liste. Certaines fonctionnalités de déploiement Azure ont été ajoutées depuis la rédaction de ce didacticiel. Cependant, les notes ajoutées par la suite expliquent les éléments manquants.
 * [Déploiement d'un site Web ASP.NET dans Azure avec Visual Studio 2012 directement depuis un référentiel Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Montre comment déployer un projet Web ASP.NET dans Visual Studio, en utilisant le plug-in Git pour valider le code sur Git et connecter Azure au référentiel Git. À partir de Visual Studio 2013, la prise en charge Git est intégrée et ne nécessite pas l’installation d’un plug-in.
 

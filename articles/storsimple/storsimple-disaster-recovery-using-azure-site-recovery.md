@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/13/2017
+ms.date: 06/09/2017
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 3c7c972cdc395e2e20e7f6a296a2ffab6efad66d
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 19346f2e4f2860258c421d76729abeb82f0e8987
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -89,7 +90,7 @@ Cette étape suppose de préparer l’environnement de serveur de fichiers local
       > Le nom de fichier peut varier en fonction de la version.
       >
       >
-3. Cliquez sur **Next**.
+3. Cliquez sur **Suivant**.
 4. Acceptez les **termes du contrat**, puis cliquez sur **Suivant**.
 5. Cliquez sur **Terminer**.
 6. Créez des partages de fichiers à l’aide de volumes issus du stockage StorSimple. Pour plus d’informations, consultez la page [Utiliser le service StorSimple Manager pour gérer les volumes](storsimple-manage-volumes.md).
@@ -140,9 +141,18 @@ Vous pouvez sélectionner la machine virtuelle sous l’onglet **Éléments rép
 ## <a name="create-a-recovery-plan"></a>Créer un plan de récupération
 Vous pouvez créer un plan de récupération dans ASR pour automatiser le processus de basculement des partages de fichiers. En cas d’interruption, vous pouvez, d’un seul clic, faire apparaître les partages de fichiers en quelques minutes. Pour activer cette automatisation, vous devez disposer d’un compte Azure Automation.
 
-#### <a name="to-create-the-account"></a>Pour créer le compte
+#### <a name="to-create-an-automation-account"></a>Pour créer un compte Automation
 1. Accédez à la section relative au portail Azure&gt; **Automation**.
-2. Créez un compte Automation. Utilisez la même région géographique dans laquelle ont été créés l’appliance cloud StorSimple et les comptes de stockage.
+2. Cliquez sur le bouton **+ Ajouter** pour ouvrir le panneau ci-dessous.
+
+   ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image11.png)
+
+   * Nom : entrez le nom d’un nouveau compte Automation
+   * Abonnement : choisissez l’abonnement
+   * Groupe de ressources : sélectionnez un groupe de ressources existant ou créez-en un
+   * Emplacement : utilisez la même région géographique que celle où ont été créés StorSimple Cloud Appliance et les comptes de stockage.
+   * Créer un compte d’identification Azure : sélectionnez l’option **Oui**.
+
 3. Accédez au compte Automation, cliquez sur **Runbooks** &gt; **Parcourir la galerie** pour importer tous les Runbooks requis dans le compte Automation.
 4. Ajoutez les Runbooks suivants en recherchant l’onglet **Récupération d’urgence** dans la galerie :
 
@@ -153,13 +163,12 @@ Vous pouvez créer un plan de récupération dans ASR pour automatiser le proces
    * Start StorSimple Virtual Appliance (Démarrer l’appliance virtuelle StorSimple)
 
      ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image3.png)
+
 5. Publiez tous les scripts en sélectionnant le Runbook dans le compte Automation, cliquez sur **Modifier** &gt; **Publier**, puis sur **Oui** dans le message de vérification. Après cette étape, l’onglet **Runbooks** s’affiche comme suit :
 
     ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image4.png)
-6. Dans le compte Automation, sous l’onglet **Ressources** &gt; cliquez sur **Informations d’identification** &gt; **+ Ajouter des informations d’identification**, puis ajoutez vos informations d’identification Azure, à savoir la ressource AzureCredential.
 
-   Utilisez l’information d’identification Windows PowerShell. Cette information d’identification doit contenir des nom d’utilisateur et mot de passe Org ID ayant accès à cet abonnement Azure et pour lesquels l’authentification multifacteur est désactivée. Cela est nécessaire pour authentifier l’utilisateur pendant les basculements et pour afficher les volumes du serveur de fichiers sur le site de récupération d’urgence.
-7. Dans le compte Automation, sélectionnez l’onglet **Ressources** &gt; cliquez sur **Variable** &gt; **Ajouter une variable** puis ajoutez les variables suivantes. Vous pouvez choisir de chiffrer ces ressources. Ces variables sont spécifiques au plan de récupération. Si votre plan de récupération (celui que vous allez créer à l’étape suivante) porte le nom TestPlan, vous devez normalement utiliser les variables TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, et ainsi de suite.
+6. Dans le compte Automation, sélectionnez l’onglet **Ressources** &gt; cliquez sur **Variable** &gt; **Ajouter une variable** puis ajoutez les variables suivantes. Vous pouvez choisir de chiffrer ces ressources. Ces variables sont spécifiques au plan de récupération. Si votre plan de récupération (celui que vous allez créer à l’étape suivante) porte le nom TestPlan, vous devez normalement utiliser les variables TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, et ainsi de suite.
 
    * *RecoveryPlanName***-StorSimRegKey** : clé d’inscription du service StorSimple Manager.
    * *RecoveryPlanName***-AzureSubscriptionName** : le nom de l’abonnement Azure.
@@ -178,8 +187,8 @@ Vous pouvez créer un plan de récupération dans ASR pour automatiser le proces
 
    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
-8. Accédez à la section **Services de récupération** et sélectionnez le coffre Azure Site Recovery que vous avez créé précédemment.
-9. Sélectionnez l’option **Plans de récupération (Site Recovery)** à partir du groupe **Gérer** et créez un plan de récupération comme suit :
+7. Accédez à la section **Services de récupération** et sélectionnez le coffre Azure Site Recovery que vous avez créé précédemment.
+8. Sélectionnez l’option **Plans de récupération (Site Recovery)** à partir du groupe **Gérer** et créez un plan de récupération comme suit :
 
    a.  Cliquez sur le bouton **+ Plan de récupération**, qui affiche le panneau ci-dessous.
 
@@ -291,7 +300,7 @@ La planification de la capacité comporte au moins deux processus importants :
 
   > [!IMPORTANT]
   > Exécutez manuellement la sauvegarde à partir du portail Azure et réexécutez le plan de récupération.
-  
+
 * Délai d’attente de la tâche de clonage : le script StorSimple expire si le temps de clonage des volumes dépasse la limite par script d’Azure Site Recovery (actuellement établie à 120 minutes).
 * Erreur de synchronisation de temps : les scripts StorSimple génèrent une erreur indiquant que les sauvegardes ont échoué, même si la sauvegarde a réussi dans le portail. Ce problème peut être lié à un défaut de synchronisation de l’heure de l’appliance StorSimple avec l’heure actuelle du fuseau horaire.
 

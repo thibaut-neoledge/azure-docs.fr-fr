@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 06/15/2017
 ms.author: robinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: e36deaeba611896e793f40cf0e05b8771841816f
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 292a93bd1d355b8a39c59d220352ad465df46629
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -27,14 +27,11 @@ ms.lasthandoff: 05/03/2017
 
 Azure Managed Disks simplifie la gestion des disques des machines virtuelles Azure IaaS, en gérant les [comptes de stockage](storage-introduction.md) associés aux disques de machines virtuelles. Vous spécifiez simplement le type ([Premium](storage-premium-storage.md) ou [Standard](storage-standard-storage.md)) et la taille du disque dont vous avez besoin, et Azure crée et gère le disque pour vous.
 
->[!NOTE]
->Les machines virtuelles avec Managed Disks exigent que le trafic sortant sur le port 8443 signale l’état des [extensions de machines virtuelles](../virtual-machines/windows/extensions-features.md) installées à la plateforme Azure. L’approvisionnement d’une machine virtuelle avec extensions échouera à défaut de disponibilité de ce port. En outre, l’état de déploiement d’une extension sera inconnu si elle est installée sur une machine virtuelle en cours d’exécution. Si vous ne pouvez pas débloquer le port 8443, vous devez utiliser des disques non gérés. Nous travaillons à la résolution de ce problème. Consultez la [FAQ sur les disques de machines virtuelles IaaS](storage-faq-for-disks.md#managed-disks-and-port-8443) pour plus d’informations. 
->
->
-
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
-Examinons quelques-uns des avantages procurés par l’utilisation des disques managés.
+Examinons certains des avantages liés à l’utilisation de disques gérés, en commençant par cette vidéo de Channel 9, [Meilleure résilience de machine virtuelle Azure avec des disques gérés](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
+<br/>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
 ### <a name="simple-and-scalable-vm-deployment"></a>Déploiement de machines virtuelles simple et évolutif
 
@@ -44,16 +41,16 @@ Managed Disks vous permet de créer jusqu’à 10 000 **disques** de machines 
 
 ### <a name="better-reliability-for-availability-sets"></a>Fiabilité supérieure des groupes à haute disponibilité
 
-Managed Disks accroît la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe sont suffisamment isolés l’un de l’autre, ceci pour éviter les points de défaillance uniques. Comment le service procède-t-il ? Il place automatiquement les disques dans différentes unités d’échelle de stockage (horodatages). Si un horodatage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec. Par exemple, supposons qu’une de vos applications est exécutée sur 5 machines virtuelles, qui sont hébergées dans un groupe à haute disponibilité. Les disques de ces machines virtuelles ne seront pas stockés dans le même horodatage. Par conséquent, si un horodatage est mis en échec, les autres instances de l’application continuent de s’exécuter.
+Les disques gérés accroît la fiabilité des groupes à haute disponibilité en garantissant que les disques des [machines virtuelles d’un groupe à haute disponibilité](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) sont suffisamment isolés les uns des autres, ceci pour éviter les points de défaillance uniques. Comment le service procède-t-il ? Il place automatiquement les disques dans différentes unités d’échelle de stockage (horodatages). Si un horodatage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec. Par exemple, supposons qu’une de vos applications est exécutée sur 5 machines virtuelles, qui sont hébergées dans un groupe à haute disponibilité. Les disques de ces machines virtuelles ne seront pas stockés dans le même horodatage. Par conséquent, si un horodatage est mis en échec, les autres instances de l’application continuent de s’exécuter.
 
 ### <a name="granular-access-control"></a>Contrôle d’accès granulaire
 
 Utilisez le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-what-is.md) afin d’affecter à un ou plusieurs utilisateurs des autorisations spécifiques d’accès à un disque managé. Managed Disks expose différentes opérations, notamment la lecture, l’écriture (création/mise à jour), la suppression et la récupération d’un [URI de signature d’accès partagé](storage-dotnet-shared-access-signature-part-1.md) pour le disque. N’accordez l’accès qu’aux opérations dont une personne a besoin pour exécuter son travail. Par exemple, si vous voulez empêcher un utilisateur de copier un disque managé sur un compte de stockage, vous pouvez décider de lui interdire l’accès à l’action d’exportation sur ce disque managé. De la même manière, si vous voulez empêcher un utilisateur d’employer un URI de signature d’accès partagé pour copier un disque managé, vous pouvez décider de ne pas lui octroyer l’autorisation d’accès à ce disque managé.
 
-### <a name="azure-backup-service-support"></a>Prise en charge du service Sauvegarde Azure 
-Utilisez le service Azure Backup avec Managed Disks pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Les disques gérés prennent uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication. Ainsi, trois copies des données sont conservées dans une même région. Pour la récupération après sinistre régionale, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide du [service Azure Backup](../backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme archivage de sauvegarde. Pour en savoir plus sur ce point, consultez [Utilisation du service Sauvegarde Azure pour les machines virtuelles avec Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
+### <a name="azure-backup-service-support"></a>Prise en charge du service Sauvegarde Azure
+Utilisez le service Azure Backup avec Managed Disks pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Les disques gérés prennent uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication. Ainsi, trois copies des données sont conservées dans une même région. Pour la récupération après sinistre régionale, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide du [service Azure Backup](../backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme archivage de sauvegarde. Pour en savoir plus sur ce point, consultez [Utilisation du service Sauvegarde Azure pour les machines virtuelles avec Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
-## <a name="pricing-and-billing"></a>Tarification et facturation 
+## <a name="pricing-and-billing"></a>Tarification et facturation
 
 Lorsque vous utilisez Managed Disks, les considérations de facturation suivantes s’appliquent :
 
@@ -76,15 +73,17 @@ Examinons ces éléments de plus près.
 
 Voici les tailles de disque disponible pour un disque managé Premium :
 
-| **Disques managés<br> Premium**  | **P10** | **P20** | **P30**        |
-|------------------|---------|---------|----------------|
-| Taille du disque        | 128 Go  | 512 Go  | 1024 Go (1 To) |
+| **Disques managés<br> Premium** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Taille du disque        | 32 Go   | 64 Go   | 128 Go  | 512 Go  | 1024 Go (1 To) | 2 048 Go (2 To) | 4 095 Go (4 To) | 
 
-Voici les tailles de disque disponible pour un disque managé Standard : 
 
-| **Disques managés<br> Standard** | **S4**  | **S6**  | **S10**        | **S20** | **S30**        |
-|------------------|---------|---------|----------------|---------|----------------|
-| Taille du disque        | 32 Go   | 64 Go   | 128 Go  | 512 Go  | 1024 Go (1 To) |
+Voici les tailles de disque disponible pour un disque managé Standard :
+
+| **Disques managés<br> Standard** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
+| Taille du disque        | 32 Go   | 64 Go   | 128 Go | 512 Go | 1024 Go (1 To) | 2 048 Go (2 To) | 4 095 Go (4 To) | 
+
 
 **Nombre de transactions** : vous êtes facturé pour le nombre de transactions effectuées sur un disque managé standard. Les transactions associées aux disques managés Premium ne sont pas facturées.
 
@@ -120,15 +119,12 @@ Que se passe-t-il une machine virtuelle comprend cinq disques agrégés par band
 
 ## <a name="managed-disks-and-encryption"></a>Disques gérés et chiffrement
 
-Il y a deux types de chiffrement à aborder dans le cas des disques gérés. Le premier est le chiffrement SSE (Storage Service Encryption), qui est effectué par le service de stockage. Le second est un chiffrement Azure Disk Encryption, que vous pouvez activer sur les disques de système d’exploitation et de données pour vos machines virtuelles. 
+Il y a deux types de chiffrement à aborder dans le cas des disques gérés. Le premier est le chiffrement SSE (Storage Service Encryption), qui est effectué par le service de stockage. Le second est un chiffrement Azure Disk Encryption, que vous pouvez activer sur les disques de système d’exploitation et de données pour vos machines virtuelles.
 
 ### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
 
-Le stockage Azure prend automatiquement en charge le chiffrement des données écrites sur le compte de stockage. Pour plus d’informations, consultez la page [Azure Storage Service Encryption pour les données au repos](storage-service-encryption.md). Qu’en est-il des données sur vos disques managés ? Actuellement, il n’est pas possible d’activer Storage Service Encryption pour Managed Disks. Toutefois, vous pourrez le faire à l’avenir. En attendant vous devez vous familiariser avec l’utilisation d’un fichier de disque dur virtuel chiffré hébergé dans un compte de stockage chiffré. 
+Le [Chiffrement du service de stockage Azure](storage-service-encryption.md) assure le chiffrement au repos et la protection de vos données pour assurer le respect des engagements de votre organisation en matière de sécurité et de conformité. Le Chiffrement du service de stockage est activé par défaut pour l’ensemble des disques gérés, captures instantanées et images dans toutes les régions où des disques gérés sont disponibles. Depuis le 10 juin 2017, l’ensemble des nouveaux disques gérés, captures instantanées et images, ainsi que les nouvelles données écrites sur des disques gérés existants, sont automatiquement chiffrés au repos à l’aide de clés gérées par Microsoft.  Pour plus d’informations, voir la [page du FAQ sur les disques gérés](storage-faq-for-disks.md#managed-disks-and-storage-service-encryption).
 
-SSE chiffre les données durant leur écriture sur le compte de stockage. Si vous possédez un fichier de disque dur virtuel qui n’a jamais été chiffré avec SSE, vous ne pouvez pas l’utiliser pour créer une machine virtuelle utilisant Managed Disks. Il n’est pas non plus possible de convertir un disque non managé chiffré en disque managé. Enfin, précisons que si vous désactivez le chiffrement sur ce compte de stockage, l’opération n’est pas inversée ; le fichier de disque dur virtuel n’est pas déchiffré. 
-
-Pour utiliser un disque déchiffré, vous devez dans un premier temps copier le fichier de disque dur virtuel sur un compte de stockage qui n’a jamais été chiffré. Vous pouvez ensuite créer une machine virtuelle avec Managed Disks et spécifier ce disque dur virtuel durant la création, ou attacher le fichier de disque dur virtuel copié sur une machine virtuelle en cours d’exécution avec Managed Disks. 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
 
@@ -138,7 +134,7 @@ Azure Disk Encryption vous permet de chiffrer les disques de données et de syst
 
 Pour plus d’informations sur Managed Disks, consultez les articles suivants.
 
-### <a name="get-started-with-managed-disks"></a>Bien démarrer avec Managed Disks 
+### <a name="get-started-with-managed-disks"></a>Bien démarrer avec Managed Disks
 
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
@@ -150,7 +146,9 @@ Pour plus d’informations sur Managed Disks, consultez les articles suivants.
 
 * [Disques managés - Exemples de scripts PowerShell](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
 
-### <a name="compare-managed-disks-storage-options"></a>Comparer les options de stockage Managed Disks 
+* [Utiliser des disques gérés dans les modèles Azure Resource Manager](storage-using-managed-disks-template-deployments.md)
+
+### <a name="compare-managed-disks-storage-options"></a>Comparer les options de stockage Managed Disks
 
 * [Stockage Premium et disques](storage-premium-storage.md)
 

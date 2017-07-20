@@ -12,103 +12,77 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 07/02/2017
 ms.author: mfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 81dae4c35fead96af8a8a2823952a0bd7f2e537e
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 32e84984a61bb54ea459826f191de7fc25fc2158
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="overview-of-azure-service-fabric"></a>Vue d’ensemble d’Azure Service Fabric
-Azure Service Fabric est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de microservices évolutifs et fiables. Service Fabric résout également les problèmes non négligeables du développement et de la gestion des applications cloud. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer. Service Fabric représente la plateforme middleware de nouvelle génération pour la création et la gestion de ces applications d’entreprise de niveau 1 à l’échelle du cloud.
+Azure Service Fabric est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de conteneurs et de microservices évolutifs et fiables. Service Fabric résout également les problèmes non négligeables du développement et de la gestion des applications natives au cloud. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer. Service Fabric représente la plateforme de nouvelle génération pour la création et la gestion de ces applications d’entreprise de niveau 1 à l’échelle du cloud et exécutées dans des conteneurs.
 
-Cette courte vidéo Channel9 présente Service Fabric et les microservices : <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
+Cette courte vidéo présente Service Fabric et les microservices : <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
 <img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
-Cette vidéo Microsoft Virtual Academy, plus longue, décrit les principaux concepts de Service Fabric :<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">  
-<img src="./media/service-fabric-overview/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+## <a name="applications-composed-of-microservices"></a>Applications composées de microservices 
+Service Fabric vous permet de créer et gérer des applications évolutives et fiables, composées de microservices qui s’exécutent à haute densité sur un pool partagé d’ordinateurs appelé cluster. Il fournit un runtime léger et sophistiqué pour générer des microservices exécutés dans des conteneurs, avec et sans état distribués et évolutifs. Il fournit également des fonctionnalités complètes de gestion d’application pour la configuration, le déploiement, l’analyse, la mise à niveau/mise à jour corrective et la suppression d’applications incluant des services en conteneur.
 
-
-## <a name="applications-composed-of-microservices"></a>Applications composées de microservices
-Service Fabric vous permet de créer et gérer des applications évolutives et fiables, composées de microservices qui s’exécutent à très haute densité sur un pool partagé d’ordinateurs appelé cluster. Il fournit un runtime sophistiqué pour générer des microservices avec et sans état distribués et évolutifs. Il fournit également des fonctionnalités complètes de gestion d’application pour la configuration, le déploiement, l’analyse, la mise à niveau/mise à jour corrective et la suppression d’applications.
-
-Pourquoi est-il important d’adopter une approche microservices ? Voici les deux principales raisons :
-
-* Vous pouvez mettre à l’échelle différentes parties de votre application en fonction de ses besoins.
-* Les équipes de développement peuvent déployer des modifications avec plus d’agilité et fournir ainsi plus vite et plus souvent des fonctionnalités aux clients.
-
-Service Fabric alimente de nombreux services Microsoft aujourd’hui, notamment Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Skype Entreprise et de nombreux services Azure principaux.
+Service Fabric alimente de nombreux services Microsoft aujourd’hui, notamment Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Dynamics 365, Skype Entreprise et de nombreux services Azure principaux.
 
 Service Fabric est adapté à la création de services cloud natifs qui peuvent commencer petit, si nécessaire, et évoluer à grande échelle avec des centaines ou des milliers d’ordinateurs.
 
-Actuellement, les services Internet sont composés de microservices. Les microservices sont, par exemple, les passerelles de protocole, les profils utilisateur, les paniers d’achat, le traitement des stocks, les files d’attente et les caches. Service Fabric est une plateforme de microservices qui attribue à chaque microservice un nom unique pouvant être avec ou sans état.
+Actuellement, les services Internet sont composés de microservices. Les microservices sont, par exemple, les passerelles de protocole, les profils utilisateur, les paniers d’achat, le traitement des stocks, les files d’attente et les caches. Service Fabric est une plateforme de microservices qui attribue à chaque microservice (ou conteneur) un nom unique pouvant être avec ou sans état.
 
-Service Fabric fournit des fonctionnalités complètes de gestion du runtime et du cycle de vie pour les applications constituées de ces microservices. Il héberge les microservices dans des conteneurs déployés et activés sur le cluster Service Fabric. Le passage de machines virtuelles à des conteneurs rend possible une multiplication par dix de la densité. De même, une nouvelle multiplication par dix de la densité devient possible en passant de conteneurs à des microservices. Par exemple, un cluster unique pour Azure SQL Database comprend des centaines d’ordinateurs exécutant des dizaines de milliers de conteneurs qui hébergent au total des centaines de milliers de bases de données. Chaque base de données est un microservice Service Fabric avec état. Il en est de même pour les autres services mentionnés précédemment ; c’est pourquoi le terme *hyper-extensibilité* est utilisé pour décrire les capacités de Service Fabric. Si les conteneurs vous fournissent une haute densité, les microservices vous fournissent une hyper-extensibilité.
+Service Fabric fournit des fonctionnalités complètes de gestion du runtime et du cycle de vie pour les applications constituées de ces microservices. Il héberge les microservices dans des conteneurs déployés et activés sur le cluster Service Fabric. Le passage de machines virtuelles à des conteneurs rend possible une multiplication par dix de la densité. De même, une nouvelle multiplication par dix de la densité devient possible en passant de conteneurs à des microservices inclus dans ces mêmes conteneurs. Par exemple, un cluster unique pour Azure SQL Database comprend des centaines d’ordinateurs exécutant des dizaines de milliers de conteneurs qui hébergent au total des centaines de milliers de bases de données. Chaque base de données est un microservice Service Fabric avec état. 
 
-Pour plus d’informations sur l’approche microservices, consultez [Pourquoi adopter une approche microservices de la création d’applications ?](service-fabric-overview-microservices.md).
+Pour plus d’informations sur l’approche microservices, consultez [Pourquoi adopter une approche microservices de la création d’applications ?](service-fabric-overview-microservices.md)
 
 ## <a name="container-deployment-and-orchestration"></a>Orchestration et le déploiement de conteneurs
-Service Fabric est un [orchestrateur](service-fabric-cluster-resource-manager-introduction.md) de microservices sur un cluster de machines. Les microservices peuvent être développés de nombreuses manières, par le biais des [modèles de programmation de Service Fabric](service-fabric-choose-framework.md) ou du déploiement [d’exécutables invités](service-fabric-deploy-existing-app.md). Service Fabric permet de déployer des services dans les images de conteneur. Mais surtout, vous pouvez combiner des services dans des processus et dans des conteneurs au sein de la même application. Si vous souhaitez simplement [déployer et gérer des images de conteneurs](service-fabric-containers-overview.md) sur un cluster de machines virtuelles, Service Fabric est le choix idéal.
+Service Fabric est [l’orchestrateur de conteneurs](service-fabric-cluster-resource-manager-introduction.md) de Microsoft permettant de déployer des microservices sur un cluster de machines. Les microservices peuvent être développés de nombreuses manières, par le biais des [modèles de programmation de Service Fabric](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou en déployant [n’importe quel code de votre choix](service-fabric-deploy-existing-app.md). Mais surtout, vous pouvez combiner des services dans des processus et dans des conteneurs au sein de la même application. Si vous souhaitez simplement [déployer et gérer des conteneurs](service-fabric-containers-overview.md) Service Fabric est le choix d’orchestrateur de conteneurs idéal.
 
-## <a name="create-clusters-for-service-fabric-anywhere"></a>Créer des clusters pour Service Fabric n’importe où
-Vous pouvez créer des clusters pour Service Fabric dans de nombreux environnements, notamment Azure ou locaux, sous Windows Server ou sous Linux. En outre, l’environnement de développement dans le Kit de développement logiciel (SDK) est identique à l’environnement de production et n’implique aucun émulateur. En d’autres termes, ce qui est exécuté sur votre cluster de développement local est déployé sur le même cluster dans les autres environnements.
-
-Pour en savoir plus sur la création de clusters en local, voir [Création d’un cluster sous Windows Server ou Linux](service-fabric-deploy-anywhere.md) ou, pour créer un cluster Azure par l’intermédiaire du portail Azure, voir [cette rubrique](service-fabric-cluster-creation-via-portal.md).
+## <a name="any-os-any-cloud"></a>Tous les systèmes d’exploitation, tous les clouds
+Service Fabric peut être exécuté partout. Vous pouvez créer des clusters pour Service Fabric dans de nombreux environnements, notamment Azure ou locaux, sous Windows Server ou sous Linux. Vous pouvez même créer des clusters sur d’autres clouds publics. En outre, l’environnement de développement dans le Kit de développement logiciel (SDK) est **identique** à l’environnement de production, sans aucun émulateur impliqué. En d’autres termes, ce qui est exécuté sur votre cluster de développement local est déployé sur les clusters dans les autres environnements.
 
 ![Plateforme Service Fabric][Image1]
 
+Pour en savoir plus sur la création de clusters en local, voir [Création d’un cluster sous Windows Server ou Linux](service-fabric-deploy-anywhere.md) ou, pour créer un cluster Azure par l’intermédiaire du portail Azure, voir [cette rubrique](service-fabric-cluster-creation-via-portal.md).
+
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microservices avec et sans état pour Service Fabric
-Service Fabric permet de créer des applications composées de microservices. Les microservices sans état (tels que les passerelles de protocole et les proxys web) ne conservent pas un état mutable en dehors d’une demande du service et de sa réponse. Les rôles de travail Azure Cloud Services sont un exemple de service sans état. Les microservices avec état (tels que les comptes d’utilisateur, les bases de données, les appareils, les paniers d’achat et les files d’attente) conservent un état mutable faisant autorité au-delà de la demande et la réponse. Actuellement, les applications Internet sont constituées d’une combinaison de microservices avec et sans état.
+Service Fabric permet de créer des applications composées de microservices ou de conteneurs. Les microservices sans état (tels que les passerelles de protocole et les proxys web) ne conservent pas un état mutable en dehors d’une demande du service et de sa réponse. Les rôles de travail Azure Cloud Services sont un exemple de service sans état. Les microservices avec état (tels que les comptes d’utilisateur, les bases de données, les appareils, les paniers d’achat et les files d’attente) conservent un état mutable faisant autorité au-delà de la demande et la réponse. Actuellement, les applications Internet sont constituées d’une combinaison de microservices avec et sans état. 
 
-Pourquoi utiliser des microservices avec état et sans état ? Voici les deux principales raisons :
+Une différentiation clé avec Service Fabric est l’accent mis sur la création de services avec état, que ce soit avec les [modèles de programmation intégrés ](service-fabric-choose-framework.md) ou avec les services avec état en conteneur. Les [scénarios d’application](service-fabric-application-scenarios.md) décrivent les scénarios où les services avec état sont utilisés.
 
-* Vous pouvez créer des services de traitement transactionnel en ligne (OLTP) à débit élevé, faible latence et tolérance de panne en conservant le code proche des données sur le même ordinateur. Quelques exemples : vitrines interactives, recherche, systèmes Internet des objets (IoT), systèmes commerciaux, systèmes de détection des fraudes et de traitement des cartes de crédit et gestion des enregistrements personnels.
-* Vous pouvez simplifier la conception d’applications. Les microservices avec état permettent de supprimer les caches et files d’attente supplémentaires, jusque-là indispensables pour répondre aux exigences de disponibilité et de latence d’une application purement sans état. Les services avec état sont naturellement hautement disponibles et à faible latence, ce qui réduit le nombre d’éléments mobiles à gérer au sein de votre application.
-
-Pour plus d’informations sur les modèles d’application avec Service Fabric, consultez [Scénarios d’application](service-fabric-application-scenarios.md) et [Choix d’une infrastructure de modèle de programmation](service-fabric-choose-framework.md) pour votre service.
-
-Vous pouvez également regarder cette vidéo Microsoft Virtual Academy pour une vue d’ensemble des services avec et sans état :<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">  
-<img src="./media/service-fabric-overview/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
 
 ## <a name="application-lifecycle-management"></a>Gestion du cycle de vie des applications
-Service Fabric assure la prise en charge de la gestion complète du cycle de vie des applications cloud. Ce cycle de vie va du développement à la mise hors service, en passant par le déploiement, la gestion quotidienne et la maintenance.
+Service Fabric assure la prise en charge totale du cycle de vie et CI/CD des applications cloud incluant des conteneurs. Ce cycle de vie va du développement à la mise hors service, en passant par le déploiement, la gestion quotidienne et la maintenance.
 
 Les fonctionnalités de gestion du cycle de vie des applications offertes par Service Fabric permettent aux administrateurs d’applications et aux opérateurs informatiques d’utiliser des flux de travail simples et automatisés pour configurer, déployer, corriger et surveiller les applications. Ces flux de travail intégrés réduisent considérablement la charge pesant sur les opérateurs informatiques pour que vos applications soient disponibles en permanence.
 
-La plupart des applications sont constituées d’une combinaison de microservices avec et sans état et d’autres exécutables/runtimes déployés ensemble. Service Fabric, grâce à des types forts sur les applications et aux microservices packagés, permet le déploiement de plusieurs instances d’applications. Chaque instance est gérée et mise à niveau indépendamment. Plus important encore, Service Fabric peut déployer *n’importe quel* exécutable ou runtime et le rendre fiable. Par exemple, Service Fabric déploie .NET, ASP.NET Core, Node.js, des machines virtuelles Java, des scripts, Angular ou tout autre élément qui compose votre application.
+La plupart des applications sont constituées d’une combinaison de microservices avec et sans état, de conteneurs et d’autres exécutables déployés ensemble. Service Fabric, grâce à des types forts sur les applications, permet le déploiement de plusieurs instances d’applications. Chaque instance est gérée et mise à niveau indépendamment. Plus important encore, Service Fabric peut déployer des conteneurs ou n’importe quel exécutable et les rendre fiables. Par exemple, Service Fabric peut déployer .NET, ASP.NET Core, node.js, des conteneurs Windows, des conteneurs Linux, des machines virtuelles Java, des scripts, Angular ou littéralement n’importe quel élément qui compose votre application.
 
-Pour plus d’informations sur la gestion du cycle de vie des applications, consultez [Cycle de vie des applications](service-fabric-application-lifecycle.md). Pour plus d’informations sur le déploiement de code quelconque, consultez [Déployer un exécutable invité](service-fabric-deploy-existing-app.md).
+Service Fabric est intégré avec des outils de CI/CD tels que [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html), et [Octopus Deploy](https://octopus.com/) et peut être utilisé avec n’importe quel autre outil de CI/CD populaire.
 
-Vous pouvez également regarder cette vidéo Microsoft Virtual Academy pour une vue d’ensemble de la gestion du cycle de vie des applications : <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">  
-<img src="./media/service-fabric-overview/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Pour plus d’informations sur la gestion du cycle de vie des applications, consultez [Cycle de vie des applications](service-fabric-application-lifecycle.md). Pour plus d’informations sur le déploiement de code quelconque, consultez [déployer un exécutable invité](service-fabric-deploy-existing-app.md).
 
 ## <a name="key-capabilities"></a>Fonctionnalités clés
 Service Fabric vous permet d'effectuer les opérations suivantes :
 
-* Développer des applications hautement évolutives avec réparation spontanée.
-* Développer des applications composées de microservices à l’aide du modèle de programmation Service Fabric. Vous pouvez aussi simplement héberger des exécutables invités et d’autres infrastructures d’applications de votre choix, par exemple ASP.NET Core ou Node.js.
-* Développer des microservices avec et sans état très fiables.
-* Déployer et orchestrer les conteneurs incluant des conteneurs Windows et Docker sur un cluster. Ces conteneurs peuvent contenir des exécutables invités ou des microservices fiables avec et sans état. Dans les deux cas, vous bénéficiez du mappage du port de conteneur au port hôte, de la détectabilité de conteneur et du basculement automatique.
-* Simplifier la conception de votre application, en utilisant les microservices avec état à la place des files d’attente et des caches.
 * Déployer dans Azure ou dans des centres de données locaux qui exécutent Windows ou Linux sans aucune modification de code. Écrire une fois, puis déployer sur n’importe quel cluster Service Fabric.
-* Développer une approche de « centre de données sur votre ordinateur ». L’environnement de développement local utilise le même code exécuté dans le centre de données Azure.
-* Déployer des applications en quelques secondes.
-* Déployer des applications avec une densité supérieure à celle des ordinateurs virtuels, en déployant des centaines ou des milliers d’applications par ordinateur.
+* Développer des applications évolutives composées de microservices à l’aide des modèles de programmation, des conteneurs, ou de n’importe quel code Service Fabric.
+* Développer des microservices avec et sans état très fiables. Simplifier la conception de votre application à l’aide de microservices avec état. 
+* Utiliser le nouveau modèle de programmation Reliable Actors pour créer des objets de cloud avec code et état intégrés.
+* Déployer et orchestrer les conteneurs incluant des conteneurs Windows et Linux. Service Fabric est un orchestrateur de conteneurs avec état capable d’analyser et d’indexer automatiquement les données.
+* Déployer des applications en quelques secondes, à haute densité et avec des centaines, voire des milliers d’applications ou de conteneurs par machine.
 * Déployer des versions différentes de la même application côte à côte et mettre à niveau chaque application indépendamment.
-* Gérer le cycle de vie de vos applications avec état sans interruption de service, y compris les mises à niveau avec rupture et sans rupture.
-* Gérer des applications à l’aide d’API NET, de Java (Linux), de PowerShell, de l’interface de ligne de commande Azure (Linux) ou de l’interface REST.
-* Mettre à niveau et corriger des microservices dans les applications indépendamment.
+* Gérer le cycle de vie de vos applications sans interruption de service, y compris les mises à niveau avec rupture et sans rupture.
+* Augmenter ou diminuez le nombre de nœuds dans un cluster. Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
 * Surveiller et diagnostiquer l’intégrité de vos applications et définir des stratégies pour effectuer des réparations automatiques.
-* Mettre à l’échelle le nombre de nœuds d’un cluster et la taille de chaque nœud. Lorsque vous mettez à l’échelle des nœuds, vos applications sont mises à l’échelle automatiquement et sont distribuées en fonction des ressources disponibles.
-* Observer l’équilibreur de ressources à auto-adaptation orchestrer la redistribution des applications au sein du cluster. Service Fabric récupère après des défaillances et optimise la distribution de la charge en fonction des ressources disponibles.
-* Utilisez le service d’analyse des erreurs pour effectuer un test CHAOS de votre service afin de détecter les problèmes et les défaillances avant l’exécution en production.
+* Observer l’équilibreur de ressources orchestrer la redistribution des applications au sein du cluster. Service Fabric récupère après des défaillances et optimise la distribution de la charge en fonction des ressources disponibles.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes
@@ -116,7 +90,6 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
   * [Pourquoi une approche de microservices pour la conception d’applications ?](service-fabric-overview-microservices.md)
   * [Vue d'ensemble de la terminologie](service-fabric-technical-overview.md)
 * Configuration de votre [environnement de développement](service-fabric-get-started.md)  
-* [Choix d’une infrastructure de modèle de programmation](service-fabric-choose-framework.md) pour votre service.
 * En savoir plus sur les [options de prise en charge de Service Fabric](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png

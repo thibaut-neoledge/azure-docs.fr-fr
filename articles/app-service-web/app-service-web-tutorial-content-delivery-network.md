@@ -1,27 +1,31 @@
 ---
-title: "Ajouter un réseau de distribution de contenu (CDN) à un Azure App Service | Microsoft Docs"
+title: "Ajouter un réseau de distribution de contenu (CDN) à un service Azure App Service | Microsoft Docs"
 description: "Ajoutez un réseau de distribution de contenu (CDN) à un Azure App Service pour mettre en cache et distribuer vos fichiers statiques à partir de serveurs proches de vos clients dans le monde entier."
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
-ms.date: 05/01/2017
+ms.date: 05/31/2017
 ms.topic: article
 ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7208abc0e6eaa9067c5bb36a09e1bfd276fe0b0c
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: a4f5113c4cc0ffb5fdd072e9a59743c83154c38c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Ajouter un réseau de distribution de contenu (CDN) à un Azure App Service
 
 Le [réseau de distribution de contenu (CDN) Azure](../cdn/cdn-overview.md) met en cache le contenu web statique à des emplacements stratégiques afin de fournir un débit maximal pour la distribution de contenu aux utilisateurs. Le CDN réduit également la charge du serveur sur votre application web. Ce didacticiel montre comment ajouter Azure CDN à une [application web dans Azure App Service](app-service-web-overview.md). 
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Voici la page d’accueil de l’exemple de site HTML statique que vous allez utiliser :
+
+![Page d’accueil de l’exemple d’application](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
+
+Ce que vous allez apprendre :
 
 > [!div class="checklist"]
 > * Créer un point de terminaison CDN.
@@ -29,19 +33,22 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Utiliser des chaînes de requête pour contrôler les versions mises en cache.
 > * Utiliser un domaine personnalisé pour le point de terminaison CDN.
 
-Voici la page d’accueil de l’exemple de site HTML statique que vous allez utiliser :
+## <a name="prerequisites"></a>Composants requis
 
-![Page d’accueil de l’exemple d’application](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
+Pour suivre ce didacticiel :
 
-## <a name="create-the-web-app"></a>Création de l'application Web
+- [Installez Git](https://git-scm.com/)
+- [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-Pour créer l’application web que vous allez utiliser, suivez les instructions de l’article [Créer une application web HTML statique dans Azure en 5 minutes](app-service-web-get-started-html.md), mais ignorez l’étape **Supprimer des ressources**.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Lorsque vous avez terminé le didacticiel, ne fermez pas l’invite de commandes afin que vous puissiez déployer des modifications supplémentaires dans l’application web plus loin dans ce didacticiel.
+## <a name="create-the-web-app"></a>Créer l’application web
+
+Pour créer l’application web que vous allez utiliser, suivez les instructions de l’article [Créer une application web HTML statique dans Azure](app-service-web-get-started-html.md) jusqu’à la fin de l’étape **Accéder à l’application**.
 
 ### <a name="have-a-custom-domain-ready"></a>Nécessité d’avoir un nom de domaine
 
-Pour suivre l’étape relative au domaine personnalisé de ce didacticiel, vous devez avoir accès à votre registre DNS pour votre fournisseur de domaine (tel que GoDaddy). Par exemple, pour ajouter des entrées DNS pour `contoso.com` et `www.contoso.com`, vous devez pouvoir configurer les paramètres DNS du domaine racine `contoso.com`.
+Pour suivre l’étape relative au domaine personnalisé de ce didacticiel, vous devez posséder un domaine personnalisé et avoir accès à votre registre DNS pour votre fournisseur de domaine (tel que GoDaddy). Par exemple, pour ajouter des entrées DNS pour `contoso.com` et `www.contoso.com`, vous devez pouvoir configurer les paramètres DNS du domaine racine `contoso.com`.
 
 Si vous n’avez pas encore de nom de domaine, suivez le [didacticiel sur le domaine App Service](custom-dns-web-site-buydomains-web-app.md) pour acheter un domaine à l’aide du portail Azure. 
 
@@ -65,8 +72,8 @@ Dans la page **Azure Content Delivery Network**, fournissez les paramètres du *
 
 | Paramètre | Valeur suggérée | Description |
 | ------- | --------------- | ----------- |
-| **Profil CDN** | myCDNProfile | Sélectionnez **Création** pour créer un nouveau profil CDN. Un profil CDN est une collection de points de terminaison CDN possédant le même niveau tarifaire. |
-| **Niveau de tarification** | Standard Akamai | Le [niveau tarifaire](../cdn/cdn-overview.md#azure-cdn-features) spécifie le fournisseur et les fonctionnalités disponibles. Dans ce didacticiel, nous utilisons Standard Akamai. |
+| **Profil CDN** | myCDNProfile | Sélectionnez **Créer** pour créer un profil CDN. Un profil CDN est une collection de points de terminaison CDN possédant le même niveau tarifaire. |
+| **Niveau de tarification** | Standard Akamai | Le [niveau tarifaire](../cdn/cdn-overview.md#azure-cdn-features) spécifie le fournisseur et les fonctionnalités disponibles. Dans ce didacticiel, nous utilisons Standard Akamai. |
 | **Nom du point de terminaison CDN** | N’importe quel nom qui est unique dans le domaine azureedge.net | Vous accédez à vos ressources mises en cache au niveau du *\<Nom_Point_Terminaison>.azureedge.net* du domaine.
 
 Sélectionnez **Créer**.
@@ -89,7 +96,7 @@ http://<appname>.azurewebsites.net/css/bootstrap.css
 http://<endpointname>.azureedge.net/css/bootstrap.css
 ```
 
-Lorsque vous accédez avec un navigateur à l’URL suivante, vous voyez la même page que vous avez exécutée précédemment dans une application web Azure, à l’exception que maintenant elle est traitée à partir du CDN.
+Dans un navigateur, accédez à l’URL suivante :
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -97,7 +104,7 @@ http://<endpointname>.azureedge.net/index.html
 
 ![Page d’accueil de l’exemple d’application traitée à partir du CDN](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
-Cela montre qu’Azure CDN a récupéré les ressources de l’application web d’origine et qu’il les traite à partir du point de terminaison CDN. 
+ Vous consultez la page que vous avez exécutée précédemment dans une application web Azure. Azure CDN a récupéré les ressources de l’application web d’origine et les traite à partir du point de terminaison CDN.
 
 Pour vous assurer que cette page est mise en cache dans le CDN, actualisez la page. Deux demandes pour la même ressource sont parfois nécessaires pour que le CDN mette en cache le contenu demandé.
 
@@ -105,7 +112,7 @@ Pour plus d’informations sur la création de profils et de points de terminais
 
 ## <a name="purge-the-cdn"></a>Vidage du CDN
 
-Le CDN actualise régulièrement ses ressources à partir de l’application web d’origine en fonction de la configuration de la durée de vie (TTL). La valeur TTL par défaut est de 7 jours.
+Le CDN actualise régulièrement ses ressources à partir de l’application web d’origine en fonction de la configuration de la durée de vie (TTL). La valeur TTL par défaut est de sept jours.
 
 Dans certains cas, vous devrez peut-être actualiser le CDN avant l’expiration de la durée de vie ; par exemple, lorsque vous déployez un contenu mis à jour dans l’application web. Pour déclencher une actualisation, vous pouvez vider manuellement les ressources CDN. 
 
@@ -188,7 +195,7 @@ Le CDN Azure offre les options de comportement de mise en cache suivantes :
 * Contourner la mise en cache pour les chaînes de requête
 * Mettre en cache chaque URL unique 
 
-La première option est la valeur par défaut, ce qui signifie qu’il n’existe qu’une seule version mise en cache d’une ressource, quelle que soit la chaîne de requête de l’URL qui y accède. 
+La première option est la valeur par défaut, ce qui signifie qu’il n’existe qu’une seule version mise en cache d’une ressource, quelle que soit la chaîne de requête de l’URL. 
 
 Dans cette section du didacticiel, vous modifiez le comportement de mise en cache pour mettre en cache chaque URL unique.
 
@@ -235,7 +242,10 @@ http://<endpointname>.azureedge.net/index.html?q=1
 
 ![V2 dans le titre dans le CDN, chaîne de requête 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
 
-Cette sortie indique que chaque chaîne de requête est traitée différemment : q=1 a été utilisée précédemment, par conséquent les contenus mis en cache sont retournés (V2), tandis que q=2 est nouvelle, et par conséquent, les tout derniers contenus de l’application web sont récupérés et retournés (V3).
+Cette sortie montre que chaque chaîne de requête est traitée différemment :
+
+* Comme la chaîne de requête q=1 a été utilisée précédemment, le contenu mis en cache est retourné (V2).
+* Comme la chaîne de requête q=2 est nouvelle, le contenu le plus récent de l’application web est récupéré et retourné (V3).
 
 Pour plus d’informations, consultez [Contrôle du comportement de mise en cache du CDN Azure avec des chaînes de requête](../cdn/cdn-query-string.md).
 
@@ -269,7 +279,7 @@ Revenez à la page **Ajouter un domaine personnalisé**, puis entrez votre domai
    
 Azure vérifie que l’enregistrement CNAME existe pour le nom de domaine que vous avez entré. Si l'enregistrement CNAME est correct, votre domaine personnalisé est validé.
 
-La propagation de l’enregistrement CNAME aux serveurs de noms sur Internet peut prendre du temps. Si votre domaine n’est pas validé immédiatement et que vous pensez que l’enregistrement CNAME est correct, patientez quelques minutes, puis réessayez.
+La propagation de l’enregistrement CNAME aux serveurs de noms sur Internet peut prendre du temps. Si votre domaine n’est pas validé immédiatement, patientez quelques minutes, puis réessayez.
 
 ### <a name="test-the-custom-domain"></a>Test du domaine personnalisé
 
@@ -283,7 +293,7 @@ Pour plus d’informations, consultez [Mapper du contenu Azure CDN à un domaine
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un point de terminaison CDN.
@@ -291,12 +301,11 @@ Dans ce didacticiel, vous avez appris à :
 > * Utiliser des chaînes de requête pour contrôler les versions mises en cache.
 > * Utiliser un domaine personnalisé pour le point de terminaison CDN.
 
-Apprenez à optimiser les performances du CDN dans les articles suivants.
+Découvrez comment optimiser les performances du réseau CDN dans les articles suivants :
 
 > [!div class="nextstepaction"]
 > [Compression des fichiers dans Azure CDN pour améliorer les performances](../cdn/cdn-improve-performance.md)
 
 > [!div class="nextstepaction"]
 > [Préchargement d’éléments multimédias sur un point de terminaison CDN Azure](../cdn/cdn-preload-endpoint.md)
-
 

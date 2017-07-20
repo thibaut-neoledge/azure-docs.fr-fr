@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 859f9a1ca9dbe166fd514c8eba868b466dbc4d2c
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 41fcccae7b3d306c25f4429d47e81884d88cd83e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -34,20 +34,20 @@ Il s’agit des limites pour un appel de requête et/ou de connecteur HTTP.
 
 #### <a name="timeout"></a>Délai d'expiration
 
-|Nom|Limite|Remarques|
+|Name|Limite|Remarques|
 |----|----|----|
 |Délai d’expiration de la demande|120 secondes|Un [modèle asynchrone](../logic-apps/logic-apps-create-api-app.md) ou une [boucle Until](logic-apps-loops-and-scopes.md) peuvent compenser en fonction des besoins.|
 
 #### <a name="message-size"></a>Taille des messages
 
-|Nom|Limite|Remarques|
+|Name|Limite|Remarques|
 |----|----|----|
 |Taille des messages|100 Mo|Certains connecteurs et certaines API peuvent ne pas prendre en charge 100 Mo |
 |Limite d’évaluation des expressions|131 072 caractères|`@concat()`, `@base64()` et `string` ne peuvent pas contenir plus de caractères.|
 
 #### <a name="retry-policy"></a>Stratégie de nouvelle tentative
 
-|Nom|Limite|Remarques|
+|Name|Limite|Remarques|
 |----|----|----|
 |Nouvelles tentatives|4|Peut être configuré avec le [paramètre de stratégie de nouvelles tentatives](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Délai maximal avant nouvelle tentative|1 heure|Peut être configuré avec le [paramètre de stratégie de nouvelles tentatives](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
@@ -57,7 +57,7 @@ Il s’agit des limites pour un appel de requête et/ou de connecteur HTTP.
 
 Voici les limites pour l’exécution d’une application logique.
 
-|Nom|Limite|Remarques|
+|Name|Limite|Remarques|
 |----|----|----|
 |Durée d’exécution|90 jours||
 |Rétention de stockage|90 jours|À compter de l’heure de début de l’exécution.|
@@ -69,7 +69,7 @@ Voici les limites pour l’exécution d’une application logique.
 
 Voici les limites pour l’exécution d’une application logique.
 
-|Nom|Limite|Remarques|
+|Name|Limite|Remarques|
 |----|----|----|
 |Éléments ForEach|100 000|Vous pouvez utiliser [l’action de requête](../connectors/connectors-native-query.md) pour filtrer des tableaux plus grands au besoin.|
 |Itérations Until|5 000||
@@ -81,7 +81,7 @@ Voici les limites pour l’exécution d’une application logique.
 
 Voici les limites pour une instance d’application logique. 
 
-|Nom|Limite|Remarques|
+|Name|Limite|Remarques|
 |----|----|----|
 |Exécutions d’actions par tranche de 5 minutes |100 000|Possibilité de distribution au besoin des charges de travail entre plusieurs applications|
 |Appels sortants simultanés des actions |~2,500|Diminuer le nombre de demandes simultanées ou réduire la durée en fonction des besoins|
@@ -95,12 +95,14 @@ Si vous pensez dépasser cette limite dans le cadre du traitement normal ou souh
 
 Voici les limites pour la définition d’une application logique.
 
-|Nom|Limite|Remarques|
+|Name|Limite|Remarques|
 |----|----|----|
 |Actions par flux de travail|250|Vous pouvez ajouter des flux de travail imbriqués pour l’étendre au besoin.|
 |Niveaux d’imbrication d’actions autorisés|5|Vous pouvez ajouter des flux de travail imbriqués pour l’étendre au besoin.|
 |Flux de travail par région et par abonnement|1 000||
 |Déclencheurs par flux de travail|10||
+|Limite de cas de basculement d’étendue|25||
+|Nombre de variables par flux de travail|250||
 |Caractères max par expression|8 192||
 |Taille max de `trackedProperties` en caractères|16 000|
 |`action`/`trigger` |80||

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: bd6f81ee12a7bb655166cf059236175bfb9994e5
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 3ad4e68b90979fd7f9d3ddf5278e65e19cb07152
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -45,18 +46,18 @@ Pour obtenir une liste de tous les groupes de ressources dans votre abonnement e
 
 
 ### <a name="resources"></a>Ressources
- Pour répertorier toutes les ressources d’un groupe, par exemple une ressource ayant pour nom *testRG*, utilisez la commande suivante.
+ Pour répertorier toutes les ressources d’un groupe, par exemple une ressource ayant pour nom *testRG*, utilisez la commande suivante :
 
     azure resource list testRG
 
-Pour afficher une ressource individuelle dans le groupe, par exemple une machine virtuelle *MyUbuntuVM*, utilisez une commande du type de celle qui suit.
+Pour afficher une ressource individuelle dans le groupe, par exemple une machine virtuelle nommée *MyUbuntuVM*, utilisez une commande du type de celle qui suit :
 
     azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
 Notez le paramètre **Microsoft.Compute/virtualMachines**. Il indique le type de la ressource sur laquelle vous demandez des informations.
 
 > [!NOTE]
-> Quand vous utilisez des commandes **azure resource** autres que la commande **list**, vous devez spécifier la version de l’API de la ressource avec laquelle vous travaillez au moyen du paramètre **-o**. Si vous ne connaissez pas la version de l’API à utiliser, consultez le fichier de modèle et recherchez le champ apiVersion de la ressource. Pour plus d’informations sur les versions d’API dans Resource Manager, voir [Fournisseurs, régions, schémas et versions d’API Resource Manager](resource-manager-supported-services.md).
+> Quand vous utilisez des commandes **azure resource** autres que la commande **list**, vous devez spécifier la version de l’API de la ressource avec laquelle vous travaillez au moyen du paramètre **-o**. Si vous ne connaissez pas la version de l’API à utiliser, consultez le fichier de modèle et recherchez le champ apiVersion de la ressource. Pour plus d’informations sur les versions d’API dans Gestionnaire des ressources, consultez [Fournisseurs et types de ressources](resource-manager-supported-services.md).
 > 
 > 
 
@@ -81,7 +82,7 @@ Pour ajouter une ressource telle qu’un compte de stockage à un groupe de ress
 
 En plus de spécifier la version de l’API de la ressource avec le paramètre **-o**, utilisez le paramètre **-p** pour transmettre une chaîne au format JSON contenant toutes les propriétés requises ou supplémentaires.
 
-Pour supprimer une ressource existante, par exemple une ressource de machine virtuelle, utilisez une commande comme dans l’exemple suivant.
+Pour supprimer une ressource existante, par exemple une ressource de machine virtuelle, utilisez une commande du type suivant :
 
     azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
@@ -110,7 +111,7 @@ Exécutez ensuite la commande **policy definition create** :
 
     azure policy definition create MyPolicy -p c:\temp\policy.json
 
-Cette commande propose une sortie qui ressemble à ce qui suit.
+Cette commande propose une sortie du type suivant :
 
     + Creating policy definition MyPolicy data:    PolicyName:             MyPolicy data:    PolicyDefinitionId:     /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy
 

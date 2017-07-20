@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/12/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c851e01fb8884b2f601986207d730efb338422a8
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: c1f0bbfd1bea292eedaaf8904a2f60e9415dcbcf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
 
-<tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](documentdb-dotnet-samples.md)</td></tr>
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’une application web avec DocumentDB](documentdb-dotnet-application.md)</td></tr>
 
-<tr><td>**Infrastructure actuellement prise en charge**</td><td>[.NET Standard 1.6](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
+<tr><td>**Infrastructure actuellement prise en charge**</td><td>[.NET Standard 1.6 et .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
@@ -56,16 +56,24 @@ ms.lasthandoff: 05/31/2017
 Le Kit de développement logiciel (SDK) .NET Core de DocumentDB offre les mêmes fonctionnalités que la dernière version du [SDK .NET de DocumentDB](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> Le SDK .NET Core de DocumentDB utilisé n’est pas encore compatible avec les applications de la plateforme Windows universelle (UWP). Si un Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+> Le SDK .NET Core de DocumentDB utilisé n’est pas encore compatible avec les applications de la plateforme Windows universelle (UWP). Si un Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+
+*   Prise en charge de .NET Standard 1.5 en tant que version cible de .NET Framework.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+
+*   Correction d’un problème concernant les ordinateurs x64 qui ne prennent en charge l’instruction SSE4 et génèrent une SEHException lors de l’exécution de requêtes DocumentDB.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-*    Prise en charge ajoutée pour la fonctionnalité Unité de requête par minute (RU/m).
-*    Prise en charge ajoutée pour un nouveau niveau de cohérence nommé ConsistentPrefix.
-*    Prise en charge ajoutée pour les mesures de requête liées aux partitions individuelles.
-*    Prise en charge ajoutée pour la limitation de la taille du jeton de continuation concernant les requêtes.
-*    Prise en charge ajoutée pour un suivi plus détaillé des demandes ayant échoué.
-*    Améliorations de certaines performances du Kit de développement logiciel (SDK).
+*   Prise en charge ajoutée pour la fonctionnalité Unité de requête par minute (RU/m).
+*   Prise en charge ajoutée pour un nouveau niveau de cohérence nommé ConsistentPrefix.
+*   Prise en charge ajoutée pour les mesures de requête liées aux partitions individuelles.
+*   Prise en charge ajoutée pour la limitation de la taille du jeton de continuation concernant les requêtes.
+*   Prise en charge ajoutée pour un suivi plus détaillé des demandes ayant échoué.
+*   Améliorations de certaines performances du Kit de développement logiciel (SDK).
 
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
@@ -117,6 +125,8 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |12 juin 2017 |--- |
+| [1.3.1](#1.3.1) |23 mai 2017 |--- |
 | [1.3.0](#1.3.0) |10 mai 2017 |--- |
 | [1.2.2](#1.2.2) |19 avril 2017 |--- |
 | [1.2.1](#1.2.1) |29 mars 2017 |--- |

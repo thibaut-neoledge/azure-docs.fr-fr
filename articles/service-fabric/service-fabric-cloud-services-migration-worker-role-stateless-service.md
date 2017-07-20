@@ -12,11 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 4ab1f83e88b262b1752300b2786340d9abca8154
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -26,7 +28,7 @@ Cet article explique comment migrer vos rôles web et de travail des services cl
 ## <a name="cloud-service-project-to-service-fabric-application-project"></a>Passer d’un projet de service cloud à un projet d’application Service Fabric
  Les projets de service cloud et les projets d’application Service Fabric présentent une structure similaire. Les deux représentent l’unité de déploiement de votre application : autrement dit, ils définissent tous deux l’ensemble du package déployé pour exécuter votre application. Un projet de service cloud contient un ou plusieurs rôles web ou de travail. De la même façon, un projet d’application Service Fabric regroupe un ou plusieurs services. 
 
-La différence est que le projet de service cloud associe le déploiement d’application à un déploiement de machine virtuelle et inclut donc les paramètres de configuration de la machine virtuelle, tandis que le projet d’application Service Fabric définit uniquement une application qui sera déployée sur un ensemble de machines virtuelles existantes dans un cluster Service Fabric. Le cluster Service Fabric est déployé une seule fois, via un modèle ARM ou via le portail Azure, et plusieurs applications Service Fabric peuvent y être déployées.
+La différence est que le projet de service cloud associe le déploiement d’application à un déploiement de machine virtuelle et inclut donc les paramètres de configuration de la machine virtuelle, tandis que le projet d’application Service Fabric définit uniquement une application qui sera déployée sur un ensemble de machines virtuelles existantes dans un cluster Service Fabric. Le cluster Service Fabric est déployé une seule fois, par le biais d’un modèle Resource Manager ou du portail Azure, et plusieurs applications Service Fabric peuvent y être déployées.
 
 ![Comparaison de projet entre Service Fabric et les services cloud][3]
 
@@ -260,9 +262,4 @@ Découvrez plus en détail les services fiables Service Fabric et les différenc
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

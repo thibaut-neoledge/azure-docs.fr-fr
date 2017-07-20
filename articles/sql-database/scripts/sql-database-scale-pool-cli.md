@@ -1,6 +1,6 @@
 ---
-title: "Script Azure CLI - Mettre à l’échelle un pool élastique | Microsoft Docs"
-description: "Exemple de script Azure CLI - Mettre à l’échelle un pool de bases de données élastique"
+title: "Script Azure CLI - Mettre un pool élastique SQL à l’échelle dans Azure SQL Database | Microsoft Docs"
+description: "Exemple de script Azure CLI pour mettre un pool élastique SQL à l’échelle dans Azure SQL Database"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,25 +14,25 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 5ca7befc4b7ea031287b81ae6834496579b480fd
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: f1f178d05826e8d2a37b41f2f98ed0ddf83f542b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="scale-an-elastic-pool-in-azure-sql-database-using-the-azure-cli"></a>Mettre à l’échelle un pool élastique dans Azure SQL Database à l’aide de l’interface de ligne de commande Azure
+# <a name="use-azure-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Utiliser Azure CLI pour mettre un pool élastique SQL à l’échelle dans Azure SQL Database
 
-Cet exemple de script CLI crée des pools élastiques, déplace des bases de données regroupées et modifie les niveaux de performances. 
+Cet exemple de script Azure CLI crée des pools élastiques SQL, déplace des bases de données regroupées et modifie les niveaux de performances d’un pool élastique. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exemple de script
 

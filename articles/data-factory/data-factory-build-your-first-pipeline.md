@@ -13,12 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 590d8e7c90381c455e0145a9016bd888ab0dda2c
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: b01a03fa362f8a9677e625945a2864c77d49f1bb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -28,12 +29,12 @@ ms.lasthandoff: 02/03/2017
 > * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-> * [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+> * [modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 Dans ce didacticiel, vous allez générer votre première fabrique de données Azure avec un pipeline de données. Le pipeline transforme les données d’entrée en exécutant un script Hive sur un cluster Azure HDInsight (Hadoop) pour produire des données de sortie.  
 
-Cet article fournit une vue d’ensemble et la configuration requise pour le didacticiel. Si vous disposez de tout ce qui est nécessaire, vous pouvez suivre le didacticiel en utilisant les outils/kits de développement logiciel (SDK) ci-après : portail Azure, Visual Studio, PowerShell, modèle Resource Manager, API REST. Sélectionnez l’une des options de la liste déroulante au début ou les liens à la fin de cet article pour suivre ce didacticiel en utilisant l’une ou l’autre des possibilités.    
+Cet article fournit une vue d’ensemble et la configuration requise pour le didacticiel. Si vous disposez de tout ce qui est nécessaire, vous pouvez suivre le didacticiel en utilisant les outils/Kits de développement logiciel (SDK) ci-après : Portail Azure, Visual Studio, PowerShell, modèle Resource Manager, API REST. Sélectionnez l’une des options de la liste déroulante au début ou les liens à la fin de cet article pour suivre ce didacticiel en utilisant l’une ou l’autre des possibilités.    
 
 ## <a name="tutorial-overview"></a>Vue d’ensemble du didacticiel
 Dans ce didacticiel, vous effectuerez les étapes suivantes :
@@ -82,7 +83,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 1. **Un abonnement Azure** : si vous n’en avez pas, vous pouvez créer un compte en quelques minutes pour une évaluation gratuite. Consultez l’article [Évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) pour savoir comment obtenir un compte d’évaluation gratuite.
 2. **Stockage Azure** : dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker les données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) . Après avoir créé le compte de stockage, notez le **nom du compte** et la **clé d’accès**. Consultez [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Téléchargez et consultez le fichier de requête Hive (**HQL**) situé à l’adresse : [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Il s’agit de la requête qui transforme les données d’entrée pour produire des données de sortie. 
+3. Téléchargez et consultez le fichier de requête Hive (**HQL**) situé à l’adresse : [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Cette requête transforme les données d’entrée pour produire des données de sortie. 
 4. Téléchargez et consultez l’exemple de fichier d’entrée (**input.log**) situé à l’adresse : [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
 5. Créez un conteneur de blobs nommé **adfgetstarted** dans votre stockage Blob Azure. 
 6. Chargez le fichier **partitionweblogs.hql** dans le dossier **script** du conteneur **adfgetstarted**. Utilisez des outils tels que [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com/). 
@@ -93,7 +94,7 @@ Si vous disposez de tout ce qui est nécessaire, sélectionnez l’un des outils
 - [portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 Le portail Azure et Visual Studio proposent une méthode utilisant l’interface utilisateur graphique pour créer vos fabriques de données. Quant aux options fournies par l’API REST, le modèle Resource Manager et PowerShell, elles vous permettent de créer vos fabriques de données via des scripts et des programmes.
@@ -108,3 +109,4 @@ Le portail Azure et Visual Studio proposent une méthode utilisant l’interface
 
 
   
+

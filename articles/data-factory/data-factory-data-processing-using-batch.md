@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/19/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: eeaab56b376ffd3123efb95a1223b7344dd6d187
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 65709ef9f6cdd50fb8650a1a11c9321defb9cf5b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -111,16 +112,16 @@ Créez un **pool Azure Batch** comprenant au moins 2 nœuds de calcul.
 
    ![](./media/data-factory-data-processing-using-batch/image3.png)
 
-   Les éléments **inputfolder** et **outputfolder** sont des dossiers de niveau supérieur dans **mycontainer** et **inputfolder** comprend des sous-dossiers horodatés (AAAA-MM-JJ-HH).
+   `Inputfolder` et `outputfolder` sont des dossiers de niveau supérieur de `mycontainer`. Le dossier `inputfolder` contient des sous-dossiers horodatés (AAAA-MM-JJ-HH).
 
-   Si vous utilisez **l’Explorateur de stockage Azure**, à l’étape suivante, vous devez charger les fichiers nommés inputfolder/2015-11-16-00/file.txt, inputfolder/2015-11-16-01/file.txt, et ainsi de suite. Cette étape crée automatiquement les dossiers.
+   Si vous utilisez **l’Explorateur de stockage Azure**, à l’étape suivante, vous devez charger les fichiers nommés `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt` et ainsi de suite. Cette étape crée automatiquement les dossiers.
 3. Créez sur votre ordinateur un fichier texte **file.txt** contenant le mot clé **Microsoft**. Par exemple, « activité de test personnalisé Microsoft ».
 4. Chargez le fichier dans les dossiers d’entrée suivants du stockage d’objets blob Azure.
 
    ![](./media/data-factory-data-processing-using-batch/image4.png)
 
-   Si vous utilisez **l’Explorateur de stockage Azure**, chargez le fichier **file.txt** dans **mycontainer**. Cliquez sur **Copy** (Copier) dans la barre d’outils pour créer une copie de l’objet blob. Dans la boîte de dialogue **Copy Blob** (Copie de l’objet blob), remplacez le **nom d’objet blob de destination** par **inputfolder/2015-11-16-00/file.txt.** Répétez l’opération pour créer inputfolder/2015-11-16-01/file.txt, inputfolder/2015-11-16-02/file.txt, inputfolder/2015-11-16-03/file.txt, inputfolder/2015-11-16-04/file.txt, et ainsi de suite. Cette action crée automatiquement les dossiers.
-5. Créez un autre conteneur nommé **customactivitycontainer**. Vous chargez le fichier zip d’activité personnalisée dans ce conteneur.
+   Si vous utilisez **l’Explorateur de stockage Azure**, chargez le fichier **file.txt** dans **mycontainer**. Cliquez sur **Copy** (Copier) dans la barre d’outils pour créer une copie de l’objet blob. Dans la boîte de dialogue **Copy Blob** (Copie de l’objet blob), remplacez le **nom d’objet blob de destination** par `inputfolder/2015-11-16-00/file.txt`. Répétez cette étape pour créer `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` et ainsi de suite. Cette action crée automatiquement les dossiers.
+5. Créez un autre conteneur nommé : `customactivitycontainer`. Vous chargez le fichier zip d’activité personnalisée dans ce conteneur.
 
 #### <a name="visual-studio"></a>Visual Studio
 Installez Microsoft Visual Studio 2012 ou version ultérieure pour créer l’activité Batch personnalisée à utiliser dans la solution Data Factory.
@@ -368,7 +369,7 @@ La méthode comporte quelques composants clés qu’il est important d’assimil
 3. Créez un fichier zip **MyDotNetActivity.zip** contenant tous les fichiers binaires dans le dossier **\\bin\\Debug**. Vous pouvez également inclure le fichier MyDotNetActivity.**pdb** afin d’obtenir des détails supplémentaires, tels que le numéro de ligne du code source à l’origine du problème en cas de défaillance.
 
    ![](./media/data-factory-data-processing-using-batch/image5.png)
-4. Chargez le fichier **MyDotNetActivity.zip** en tant qu’objet blob dans le conteneur d’objets blob **customactivitycontainer** du Stockage Blob Azure qu’utilise le service lié **StorageLinkedService** dans **ADFTutorialDataFactory**. Si nécessaire, créez le conteneur d’objets blob **customactivitycontainer** .
+4. Chargez le fichier **MyDotNetActivity.zip** en tant qu’objet blob dans le conteneur d’objets blob `customactivitycontainer` du Stockage Blob Azure qu’utilise le service lié **StorageLinkedService** dans **ADFTutorialDataFactory**. S’il n’existe pas déjà, créez le conteneur d’objets blob `customactivitycontainer`.
 
 #### <a name="execute-method"></a>Méthode Execute
 Cette section fournit des informations et remarques supplémentaires concernant le code contenu dans la méthode Execute.
@@ -447,7 +448,7 @@ Cette section fournit des informations et remarques supplémentaires concernant 
 ### <a name="create-the-data-factory"></a>Création de la fabrique de données
 Dans la section [Création de l’activité personnalisée](#create-the-custom-activity) , vous avez créé une activité personnalisée et chargé le fichier zip contenant les fichiers binaires et le fichier PDB dans un conteneur d’objets blob Azure. Dans cette section, vous allez créer une **fabrique de données** Azure avec un **pipeline** qui utilise **l’activité personnalisée**.
 
-Le jeu de données d’entrée de l’activité personnalisée représente les objets blob (fichiers) contenus dans le dossier d’entrée (mycontainer\\inputfolder) du stockage d’objets blob. Le jeu de données de sortie de l’activité personnalisée représente les objets blob de sortie contenus dans le dossier de sortie (mycontainer\\outputfolder) du stockage d’objets blob.
+Le jeu de données d’entrée de l’activité personnalisée représente les objets blob (fichiers) contenus dans le dossier d’entrée (`mycontainer\\inputfolder`) du stockage d’objets blob. Le jeu de données de sortie de l’activité représente les objets blob de sortie contenus dans le dossier de sortie (`mycontainer\\outputfolder`) du stockage d’objets blob.
 
 Déposez un ou plusieurs fichiers dans les dossiers d’entrée :
 
@@ -668,7 +669,7 @@ Au cours de cette étape, vous créez un autre jeu de données de type AzureBlob
     }
     ```
 
-    Un objet blob/fichier de sortie est généré pour chaque tranche d’entrée. Voici la procédure de nommage des fichiers de sortie pour chaque tranche. Tous les fichiers de sortie sont générés dans un seul dossier de sortie : **mycontainer\\outputfolder**.
+    Un objet blob/fichier de sortie est généré pour chaque tranche d’entrée. Voici la procédure de nommage des fichiers de sortie pour chaque tranche. Tous les fichiers de sortie sont générés dans un seul dossier de sortie : `mycontainer\\outputfolder`.
 
     | **Tranche** | **Heure de début**          | **Fichier de sortie**       |
     |-----------|-------------------------|-----------------------|
@@ -771,7 +772,7 @@ Au cours de cette étape, vous testez le pipeline en déposant des fichiers dans
 
    ![](./media/data-factory-data-processing-using-batch/image13.png)
 6. Pour afficher les **tâches** associées aux **tranches** et voir la machine virtuelle sur laquelle chaque tranche a été exécutée, utilisez le portail Azure. Consultez la section [Intégration de Data Factory et Batch](#data-factory-and-batch-integration) pour plus d’informations.
-7. Les fichiers de sortie devraient apparaître dans le dossier **outputfolder** de **mycontainer** à l’intérieur de votre Stockage Blob Azure.
+7. Les fichiers de sortie devraient apparaître dans le dossier `outputfolder` de `mycontainer` dans votre Stockage Blob Azure.
 
    ![](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -788,7 +789,7 @@ Au cours de cette étape, vous testez le pipeline en déposant des fichiers dans
 10. À présent, dans le panneau **OutputDataset**, cliquez avec le bouton droit sur la tranche dont **l’HEURE DE DÉBUT DE LA TRANCHE** a la valeur **16/11/2015 01:00:00 AM**, puis cliquez sur **Exécuter** pour réexécuter/re-traiter la tranche. À présent, la tranche contient cinq fichiers au lieu d’un seul.
 
     ![](./media/data-factory-data-processing-using-batch/image17.png)
-11. Une fois la tranche exécutée, quand son état est **Prêt**, vérifiez le contenu de son fichier de sortie (**2015-11-16-01.txt**) dans le dossier **outputfolder** de **mycontainer** à l’intérieur votre stockage d’objets blob. Il doit y avoir une ligne pour chaque fichier de la tranche.
+11. Une fois la tranche exécutée, quand son état est **Prêt**, vérifiez le contenu de son fichier de sortie (**2015-11-16-01.txt**) dans le dossier `outputfolder` de `mycontainer` dans votre stockage d’objets blob. Il doit y avoir une ligne pour chaque fichier de la tranche.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -804,7 +805,7 @@ Au cours de cette étape, vous testez le pipeline en déposant des fichiers dans
 >
 
 #### <a name="data-factory-and-batch-integration"></a>Intégration de Data Factory et Batch
-Le service Data Factory crée un travail dans Azure Batch sous le nom **adf-poolname:job-xxx**.
+Le service Data Factory crée un travail dans Azure Batch sous le nom `adf-poolname:job-xxx`.
 
 ![Azure Data Factory - Travaux Batch](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
@@ -855,7 +856,7 @@ Le débogage consiste à utiliser quelques techniques de base :
    ![](./media/data-factory-data-processing-using-batch/image21.png)
 
    > [!NOTE]
-   > Vous voyez un **conteneur** dans votre Stockage Blob Azure nommé **adfjobs**. Ce conteneur n’est pas automatiquement supprimé, mais vous pouvez le supprimer en toute sécurité après avoir testé la solution. De même, la solution Data Factory crée un **travail** Azure Batch nommé **adf-\<pool ID/name\>:job-0000000001**. Si vous le souhaitez, vous pouvez supprimer ce travail après avoir testé la solution.
+   > Vous voyez un **conteneur** dans votre Stockage Blob Azure nommé `adfjobs`. Ce conteneur n’est pas automatiquement supprimé, mais vous pouvez le supprimer en toute sécurité après avoir testé la solution. De même, la solution Data Factory crée un **travail** Azure Batch nommé `adf-\<pool ID/name\>:job-0000000001`. Si vous le souhaitez, vous pouvez supprimer ce travail après avoir testé la solution.
    >
    >
 7. L’activité personnalisée n’utilise pas le ficher **app.config** de votre package. Par conséquent, si votre code lit des chaînes de connexion dans le fichier de configuration, il ne fonctionne pas lors de l’exécution. Quand vous utilisez Azure Batch, la meilleure pratique consiste à stocker les clés secrètes dans un coffre de clés **Azure KeyVault**, à utiliser un principal de service basé sur certificat pour protéger le coffre de clés et à distribuer le certificat à un pool Azure Batch. L’activité personnalisée .NET peut alors accéder aux secrets du coffre de clés au moment de l’exécution. Cette solution est générique et peut s’adapter à n’importe quel type de clé secrète, et pas uniquement aux chaînes de connexion.
@@ -865,14 +866,14 @@ Le débogage consiste à utiliser quelques techniques de base :
 #### <a name="extend-the-sample"></a>Étendre l’exemple
 Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités d’Azure Data Factory et d’Azure Batch. Par exemple, pour traiter des tranches d’une autre plage de temps, procédez comme suit :
 
-1. Ajoutez au dossier **inputfolder**les sous-dossiers 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09, et placez les fichiers d’entrée dans ces dossiers. Modifiez l’heure de fin pour le pipeline de `2015-11-16T05:00:00Z` à `2015-11-16T10:00:00Z`. Dans la **vue de diagramme**, double-cliquez sur **InputDataset** et vérifiez que les tranches d’entrée sont prêtes. Double-cliquez sur **OuptutDataset** pour vérifier l’état des tranches de sortie. Si leur état est Prêt, vérifiez les fichiers de sortie dans le dossier outputfolder.
+1. Ajoutez au dossier `inputfolder` les sous-dossiers 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 et 2015-11-16-09, et placez les fichiers d’entrée dans ces dossiers. Modifiez l’heure de fin pour le pipeline de `2015-11-16T05:00:00Z` à `2015-11-16T10:00:00Z`. Dans la **vue de diagramme**, double-cliquez sur **InputDataset** et vérifiez que les tranches d’entrée sont prêtes. Double-cliquez sur **OuptutDataset** pour vérifier l’état des tranches de sortie. Si leur état est Prêt, vérifiez les fichiers de sortie dans le dossier de sortie.
 2. Augmentez ou réduisez la valeur du paramètre **concurrency** pour comprendre comment il affecte les performances de votre solution, en particulier le traitement qui se produit sur Azure Batch. (Pour plus d’informations sur le paramètre **concurrency** , voir l’étape 4 : Créer et exécuter le pipeline.)
 3. Créez un pool avec une valeur **Maximum tasks per VM**(Nombre maximal de tâches par machine virtuelle) supérieure/inférieure. Mettez à jour le service lié Azure Batch dans la solution Data Factory pour utiliser le nouveau pool créé. (Pour plus d’informations sur le paramètre **Maximum tasks per VM** , voir l’étape 4 : Créer et exécuter le pipeline.)
 4. Créez un pool Azure Batch avec la fonctionnalité **autoscale** . La mise à l’échelle automatique des nœuds de calcul dans un pool Azure Batch est en fait un ajustement dynamique de la puissance de traitement utilisée par votre application. 
 
-    Cet exemple de formule permet d’obtenir le comportement suivant : quand le pool est créé, il commence avec 1 machine virtuelle. La métrique $PendingTasks définit le nombre de tâches dans l’état En cours d’exécution + Actif (en file d’attente).  Cette formule recherche le nombre moyen de tâches en attente au cours des 180 dernières secondes et définit TargetDedicated en conséquence. Elle garantit que TargetDedicated ne va jamais au-delà de 25 machines virtuelles. Par conséquent, à mesure que de nouvelles tâches sont envoyées, le pool s’accroît automatiquement et, au fil de la réalisation des tâches, les machines virtuelles se libèrent une à une et la mise à l’échelle automatique réduit ces machines virtuelles. startingNumberOfVMs et maxNumberofVMs peuvent être ajustés selon vos besoins.
+    Cet exemple de formule permet d’obtenir le comportement suivant : quand le pool est créé, il commence avec 1 machine virtuelle. La métrique $PendingTasks définit le nombre de tâches dans l’état En cours d’exécution + Actif (en file d’attente).  Cette formule recherche le nombre moyen de tâches en attente au cours des 180 dernières secondes et définit TargetDedicated en conséquence. Elle garantit que TargetDedicated ne va jamais au-delà de 25 machines virtuelles. Par conséquent, à mesure que de nouvelles tâches sont envoyées, le pool s’accroît automatiquement et, au fil de la réalisation des tâches, les machines virtuelles se libèrent une à une et la mise à l’échelle automatique réduit ces machines virtuelles. Vous pouvez ajuster startingNumberOfVMs et maxNumberofVMs selon vos besoins.
  
-    Formule de mise à l’échelle automatique :
+    Formule de mise à l’échelle automatique :
 
     ``` 
     startingNumberOfVMs = 1;

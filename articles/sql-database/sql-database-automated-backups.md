@@ -3,7 +3,7 @@ title: "Sauvegardes Azure SQL Database automatiques ou géoredondantes | Microso
 description: "SQL Database crée automatiquement une sauvegarde de base de données locale toutes les cinq minutes et utilise le stockage géoredondant avec accès en lecture pour fournir la géoredondance."
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2016
-ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d849eeedae65c8cc35271c2e9b63236760c4629c
-ms.lasthandoff: 04/15/2017
+ms.date: 07/05/2017
+ms.author: carlrab
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: cfd0d130186f851bc306065893b137c94cfb7d3d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -42,18 +43,17 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 > [!NOTE]
 > Dans le stockage Azure, le terme *réplication* fait référence à la copie de fichier d’un emplacement à un autre. La *réplication de base de données* de SQL fait référence à la gestion de la synchronisation de plusieurs bases de données secondaires avec une base de données primaire. 
 > 
-> 
 
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Quelle est la quantité de stockage de sauvegarde incluse sans frais ?
-SQL Database fournit jusqu’à 200 % du stockage de base de données maximal configuré pour le stockage de sauvegarde sans coût supplémentaire. Par exemple, si vous avez une instance de base de données Standard configurée à une taille de 250 Go, vous bénéficiez de 500 Go d’espace de stockage de sauvegarde sans coût supplémentaire. Si votre base de données dépassé la capacité fournie de stockage de sauvegarde, vous pouvez décider de réduire la période de rétention, en contactant le support Azure. Vous pouvez également décider de payer le stockage de sauvegarde supplémentaire, qui est facturé au taux standard de stockage redondant avec accès en lecture. 
+SQL Database fournit jusqu’à 200 % du stockage de base de données maximal configuré pour le stockage de sauvegarde sans coût supplémentaire. Par exemple, si vous avez une instance de base de données Standard configurée à une taille de 250 Go, vous bénéficiez de 500 Go d’espace de stockage de sauvegarde sans coût supplémentaire. Si votre base de données dépasse la capacité fournie de stockage de sauvegarde, vous pouvez décider de réduire la période de rétention, en contactant le support Azure. Vous pouvez également décider de payer le stockage de sauvegarde supplémentaire, qui est facturé au taux standard de stockage redondant avec accès en lecture. 
 
 ## <a name="how-often-do-backups-happen"></a>À quelle fréquence les sauvegardes se produisent-elles ?
-Les sauvegardes complètes de base de données sont effectuées chaque semaine, les sauvegardes différentielles de base de données sont, en général, effectuées à quelques heures d’intervalle et les sauvegardes du journal des transactions sont effectuées toutes les 5 à 10 minutes. La première sauvegarde complète est planifiée immédiatement après la création d’une base de données. Elle s’exécute généralement en 30 minutes, mais elle peut nécessiter davantage de temps s’il s’agit d’une base de données de taille considérable. Par exemple, la sauvegarde initiale peut prendre davantage de temps sur une base de données restaurée ou une copie de base de donnée. Après la première sauvegarde complète, toutes les sauvegardes sont planifiées automatiquement et gérées en mode silencieux en arrière-plan. Le moment exact de toutes les sauvegardes de base de données est déterminé par le service SQL Database en fonction de l’équilibrage de la charge de travail globale du système. 
+Les sauvegardes complètes de base de données sont effectuées chaque semaine, les sauvegardes différentielles de base de données sont, en général, effectuées à quelques heures d’intervalle et les sauvegardes du journal des transactions sont effectuées toutes les 5 à 10 minutes. La première sauvegarde complète est planifiée immédiatement après la création d’une base de données. Elle s’exécute généralement en 30 minutes, mais elle peut nécessiter davantage de temps s’il s’agit d’une base de données de taille considérable. Par exemple, la sauvegarde initiale peut prendre davantage de temps sur une base de données restaurée ou une copie de base de données. Après la première sauvegarde complète, toutes les sauvegardes sont planifiées automatiquement et gérées en mode silencieux en arrière-plan. Le moment exact de toutes les sauvegardes de base de données est déterminé par le service SQL Database en fonction de l’équilibrage de la charge de travail globale du système. 
 
 La géoréplication du stockage de sauvegarde se produit en fonction de la planification de réplication de Stockage Azure.
 
 ## <a name="how-long-do-you-keep-my-backups"></a>Combien de temps conservez-vous mes sauvegardes ?
-Chaque sauvegarde SQL Database a une période de rétention qui est basée sur le [-niveau de service](sql-database-service-tiers.md) de la base de données. Les périodes de rétention pour une base de données sont les suivantes :
+Chaque sauvegarde SQL Database a une période de rétention qui est basée sur le [niveau de service](sql-database-service-tiers.md) de la base de données. Les périodes de rétention pour une base de données sont les suivantes :
 
 
 * Niveau de service De base : 7 jours.
@@ -69,7 +69,6 @@ Si vous supprimez une base de données, SQL Database conserve les sauvegardes de
 > [!IMPORTANT]
 > Si vous supprimez le serveur Azure SQL Server, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Vous ne pouvez pas restaurer un serveur supprimé.
 > 
-> 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Comment étendre la période de rétention de la sauvegarde ?
 Si votre application nécessite que les sauvegardes soient disponibles pendant une période de temps plus longue, vous pouvez étendre la période de rétention intégrée en configurant la stratégie de rétention de sauvegarde à long terme pour les bases de données individuelles (stratégie LTR). Cela vous permet d’étendre la période de rétention intégrée de 35 jours à 10 ans. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
@@ -79,6 +78,10 @@ Une fois que vous ajoutez la stratégie LTR à une base de données à l’aide 
 > [!TIP]
 > Pour obtenir une procédure, consultez [Configurer et restaurer à partir de la rétention des sauvegardes à long terme de base de données SQL Azure](sql-database-long-term-backup-retention-configure.md)
 >
+
+## <a name="are-backups-encrypted"></a>Les sauvegardes sont-elles chiffrées ?
+
+Lorsque le TDE est activé pour une base de données SQL Azure, les sauvegardes sont également chiffrées. Le TDE est configuré par défaut sur l’ensemble des nouvelles bases de données SQL Azure. Pour en savoir plus sur le TDE, consultez la page [Chiffrement transparent des données avec Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/28/2016
+ms.date: 05/31/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d9138b17e54aa1c4bf1982b09d3d0ad10e936d4c
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -95,7 +96,7 @@ Créez l’écouteur de groupe de disponibilité en deux étapes. Tout d’abord
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>Configurez les ressources de cluster dans PowerShell
-1. Pour l'équilibrage de charge externe, vous devrez obtenir l'adresse IP virtuelle publique du service cloud qui contient vos réplicas. Connectez-vous au portail Azure Classic. Accédez au service cloud qui contient les machines virtuelles de votre groupe de disponibilité. Ouvrez le **Tableau de bord** .
+1. Pour l'équilibrage de charge externe, vous devrez obtenir l'adresse IP virtuelle publique du service cloud qui contient vos réplicas. Connectez-vous au portail Azure. Accédez au service cloud qui contient les machines virtuelles de votre groupe de disponibilité. Ouvrez le **Tableau de bord** .
 2. Notez l'adresse affichée sous **Adresse IP virtuelle (VIP) publique**. Si votre solution couvre des réseaux virtuels, répétez cette étape pour chaque service cloud contenant une machine virtuelle qui héberge un réplica.
 3. Copiez le script PowerShell ci-dessous dans un éditeur de texte sur l'une des machines virtuelles et définissez les variables sur les valeurs notées précédemment.
    

@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 05/18/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 1d35fbbe14d1597c23d8521bc21c683b520f0ea6
-ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
-ms.lasthandoff: 02/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d5a2d1f3d85b8a2212326cfcfd0ba5d80356b769
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -28,14 +29,16 @@ ms.lasthandoff: 02/01/2017
 >
 >
 
-Cet article vous explique comment utiliser l’application de surveillance et gestion pour surveiller, gérer et déboguer vos pipelines Azure Data Factory et créer des alertes afin d’être averti des défaillances. Vous pouvez également regarder la vidéo suivante pour en savoir plus sur l’utilisation de l’application de surveillance et gestion.
+Cet article explique comment utiliser l’application de surveillance et gestion pour surveiller, gérer et déboguer vos pipelines Azure Data Factory. Vous obtiendrez également des informations sur la façon de créer des alertes pour être averti en cas d’échec. Vous pouvez commencer à utiliser l’application en regardant la vidéo suivante :
+
+> [!NOTE]
+> L’interface utilisateur présentée dans la vidéo ne correspondra peut-être pas exactement à ce que vous voyez dans le portail. Elle est un peu plus ancienne, mais les concepts restent les mêmes. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
->
 
-## <a name="open-the-monitoring-and-management-app"></a>Ouvrir l’application de surveillance et gestion
-Pour ouvrir l’application de surveillance et gestion, cliquez sur la vignette **Surveiller et gérer** dans le panneau **Data Factory** de votre fabrique de données.
+## <a name="launch-the-monitoring-and-management-app"></a>Lancement de l’application de surveillance et gestion
+Pour lancer l’application de surveillance et gestion, cliquez sur la vignette **Surveiller et gérer** dans le panneau **Data Factory** de votre fabrique de données.
 
 ![Mosaïque Surveillance sur la page d’accueil de Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
@@ -46,7 +49,13 @@ L’application de surveillance et gestion devrait s’ouvrir dans une nouvelle 
 > [!NOTE]
 > Si vous voyez que le navigateur web est bloqué au niveau « Autorisation ... », désactivez la case à cocher **Bloquer les cookies et les données de site tiers** ou laissez cette option sélectionnée, créez une exception pour **login.microsoftonline.com**, puis réessayez d’ouvrir l’application.
 
-Si vous ne voyez pas les fenêtres d’activité dans la liste en bas, cliquez sur le bouton **Actualiser** dans la barre d’outils pour actualiser la liste. En outre, définissez les valeurs appropriées pour les filtres **Heure de début** et **Heure de fin**.  
+
+Dans la liste Activity Windows (Fenêtres d’activité), dans le volet central, vous pouvez voir une fenêtre d’activité pour chaque exécution d’une activité. Par exemple, si l’activité est planifiée pour s’exécuter toutes les heures pendant cinq heures, vous voyez cinq fenêtres d’activité associées à cinq tranches de données. Si vous ne voyez pas de fenêtre d’activité dans la liste du bas, procédez comme suit :
+ 
+- Mettez à jour les filtres **Heure de départ** et **Heure de fin** en haut de la fenêtre pour adapter les heures de départ et de fin de votre pipeline, puis cliquez sur le bouton **Appliquer**.  
+- La liste Activity Windows (Fenêtres d’activité) n’est pas actualisée automatiquement. Cliquez sur le bouton **Actualiser** dans la barre d’outils de la liste **Activity Windows** (Fenêtres d’activité).  
+
+Si vous ne disposez pas d’une application de fabrique de données pour tester ces étapes, suivez ce didacticiel : [Copie de données de Stockage Blob vers SQL Database à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Présentation de l’application de surveillance et gestion
 Trois onglets sont disponibles sur le côté gauche : **Explorateur de ressources**, **Vues de surveillance** et **Alertes**. Le premier onglet (**Explorateur de ressources**) est sélectionné par défaut.
@@ -55,9 +64,9 @@ Trois onglets sont disponibles sur le côté gauche : **Explorateur de ressourc
 Vous voyez l'affichage suivant :
 
 * L’**arborescence** de l’Explorateur de ressources dans le volet gauche.
-* La **Vue schématique** en haut.
+* Le **vue schématique** en haut du volet central.
 * La liste d’**activités Windows** en bas du volet central.
-* Les onglets **Propriétés** et **Explorateur de fenêtres d’activités** dans le volet droit.
+* Les onglets **Propriétés**, **Explorateur de fenêtres d’activités** et **Script** dans le volet de droite.
 
 Dans l’explorateur de ressources, vous pouvez voir toutes les ressources (pipelines, groupes de données, services liés) organisées en arborescence dans la fabrique de données. Lorsque vous sélectionnez un objet dans l’Explorateur de ressources :
 
@@ -81,23 +90,31 @@ Lorsque le pipeline est activé (il n’est alors pas en pause), la barre de sa 
 
 ![Pipeline en cours d’exécution](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-La vue schématique comporte trois boutons de barre de commandes dédiés au pipeline. Vous pouvez utiliser le deuxième bouton pour mettre en pause le pipeline. La mise en pause n’interrompt pas les activités en cours et les laisse se terminer. Le troisième bouton permet de mettre en pause le pipeline et d’interrompre ses activités en cours. Le premier bouton permet de relancer le pipeline. Lorsque votre pipeline est interrompu, il devient jaune :
-
-![Mettre en pause/relancer depuis la mosaïque](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
-
-Vous pouvez sélectionner&2; pipelines ou plus en maintenant la touche Ctrl enfoncée. Pour mettre en pause/relancer plusieurs pipelines simultanément, utilisez les boutons de la barre de commandes.
+Vous pouvez suspendre, reprendre ou arrêter un pipeline en le sélectionnant dans la vue schématique et en utilisant les boutons de la barre de commandes.
 
 ![Mettre en pause/relancer depuis la barre de commandes](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+ 
+La vue schématique comporte trois boutons de barre de commandes dédiés au pipeline. Vous pouvez utiliser le deuxième bouton pour mettre en pause le pipeline. La mise en pause n’interrompt pas les activités en cours et les laisse se terminer. Le troisième bouton permet de mettre en pause le pipeline et d’interrompre ses activités en cours. Le premier bouton permet de relancer le pipeline. Lorsque votre pipeline est suspendu, il change de couleur. Par exemple, un pipeline suspendu se présente comme illustré ci-après : 
 
-Pour consulter toutes les activités du pipeline, cliquez sur sa mosaïque avec le bouton droit, puis cliquez sur **Ouvrir le pipeline**.
+![Pipeline suspendu](./media/data-factory-monitor-manage-app/PipelinePaused.png)
+
+Vous pouvez sélectionner deux pipelines ou plus en maintenant la touche Ctrl enfoncée. Pour mettre en pause/relancer plusieurs pipelines simultanément, utilisez les boutons de la barre de commandes.
+
+Vous pouvez également cliquer sur un pipeline avec le bouton droit et sélectionner les options appropriées pour le suspendre, le reprendre ou l’arrêter. 
+
+![Menu contextuel pour un pipeline](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
+
+Cliquez sur l’option **Ouvrir le pipeline** pour afficher toutes les activités dans le pipeline. 
 
 ![Menu Ouvrir un pipeline](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-Dans la vue du pipeline ouvert, vous voyez toutes les activités dans le pipeline. Dans cet exemple, le pipeline ne contient qu’une seule activité : une activité de copie. Pour revenir à la vue précédente, cliquez sur le nom de la fabrique de données dans le menu de navigation en haut de la page.
+Dans la vue du pipeline ouvert, vous voyez toutes les activités dans le pipeline. Dans cet exemple, le pipeline ne contient qu’une seule activité : une activité de copie. 
 
 ![Pipeline ouvert](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-Dans la vue du pipeline, lorsque vous cliquez sur un jeu de données de sortie ou que vous le survolez avec la souris, la fenêtre contextuelle d’activité correspondante s’affiche.
+Pour revenir à la vue précédente, cliquez sur le nom de la fabrique de données dans le menu de navigation en haut de la page.
+
+Dans la vue du pipeline, lorsque vous sélectionnez un jeu de données de sortie ou que vous le survolez avec la souris, la fenêtre contextuelle d’activité correspondante s’affiche.
 
 ![Fenêtre contextuelle d’activité Windows](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
@@ -275,7 +292,7 @@ Sélectionnez une fenêtre d’activité, cliquez sur la flèche vers le bas du 
 Vous pouvez également sélectionner plusieurs fenêtres d’activité dans la liste et les réexécuter simultanément. Vous pouvez filtrer les fenêtres d’activité en fonction de leur statut (par exemple, **Échec**), puis réexécuter celles qui ont échoué après avoir corrigé le problème à l’origine de cet échec. Pour en savoir plus sur le filtrage des fenêtres d’activité dans la liste, consultez la section suivante.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Mettre en pause/relancer plusieurs pipelines
-Vous pouvez sélectionner&2; pipelines ou plus en maintenant la touche Ctrl enfoncée. Pour les mettre en pause/les relancer, utilisez les boutons de la barre de commandes (mis en évidence dans le rectangle rouge de l’image suivante).
+Vous pouvez sélectionner 2 pipelines ou plus en maintenant la touche Ctrl enfoncée. Pour les mettre en pause/les relancer, utilisez les boutons de la barre de commandes (mis en évidence dans le rectangle rouge de l’image suivante).
 
 ![Mettre en pause/relancer depuis la barre de commandes](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 

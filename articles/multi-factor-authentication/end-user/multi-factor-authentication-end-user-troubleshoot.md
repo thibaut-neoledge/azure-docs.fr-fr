@@ -1,34 +1,35 @@
 ---
 title: "Vérification en deux étapes pour résoudre les problèmes | Microsoft Docs"
-description: "Ce document fournit aux utilisateurs des informations sur la procédure à suivre en cas de problème avec l&quot;Azure Multi-Factor Authentication."
+description: "Ce document fournit aux utilisateurs des informations sur la procédure à suivre en cas de problème avec l'Azure Multi-Factor Authentication."
 services: multi-factor-authentication
-keywords: "client de l&quot;authentification multifacteur, problème d&quot;authentification, ID de corrélation"
+keywords: "client de l'authentification multifacteur, problème d'authentification, ID de corrélation"
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 06/15/2017
 ms.author: kgremban
+ms.reviewer: yossib
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
-ms.openlocfilehash: 2eab76ba42955616ae4d6909c1568f03da0c1819
-ms.lasthandoff: 12/22/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 10b63a859c67b965734e32ec979b26a1ea6cc516
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/22/2017
 
 ---
 # <a name="having-trouble-with-two-step-verification"></a>Difficultés avec la vérification en deux étapes
-Cet article décrit certains des problèmes que vous pourriez rencontrer avec la vérification en deux étapes. Si celui auquel vous êtes confronté n’en fait pas partie, veuillez envoyer des commentaires détaillés dans la section Commentaires afin que nous puissions apporter les améliorations nécessaires.
+Cet article décrit certains des problèmes que vous pourriez rencontrer avec la vérification en deux étapes. Si celui auquel vous êtes confronté n’en fait pas partie, envoyez des commentaires détaillés dans la section Commentaires afin que nous puissions apporter les améliorations nécessaires.
 
 ## <a name="i-lost-my-phone-or-it-was-stolen"></a>Mon téléphone a été perdu ou volé
 Il existe deux moyens d’accéder de nouveau à votre compte. Le premier consiste à se connecter avec votre autre numéro de téléphone d’authentification, si vous l’avez défini. Le deuxième consiste à demander à votre administrateur d’effacer vos paramètres.
 
-En cas de perte ou de vol de votre téléphone, nous vous recommandons également de demander à votre administrateur de réinitialiser vos mots de passe d’application et de désactiver les appareils mémorisés. Si votre administrateur ne sait pas comment réaliser ces opérations, renvoyez-le à cet article : [Gérer les utilisateurs et les appareils](../multi-factor-authentication-manage-users-and-devices.md).
+En cas de perte ou de vol de votre téléphone, nous vous recommandons également de demander à votre administrateur de réinitialiser vos mots de passe d’application et de désactiver les appareils mémorisés. Si votre administrateur ne sait pas comment réaliser cette tâche, renvoyez-le à cet article : [Gérer les utilisateurs et les appareils](../multi-factor-authentication-manage-users-and-devices.md).
 
 ### <a name="use-an-alternate-phone-number"></a>Utiliser un autre numéro de téléphone
 Si vous avez défini plusieurs options de vérification, notamment un numéro de téléphone secondaire ou une application d’authentification sur un autre appareil, vous pouvez utiliser l’une d’entre elles pour vous connecter.
@@ -48,7 +49,7 @@ Pour vous connecter à l’aide d’un autre numéro de téléphone, procédez c
 > Il est important de configurer un numéro de téléphone d’authentification secondaire. Si votre numéro de téléphone principal et votre application mobile se trouvent sur le même téléphone, vous aurez besoin d’une troisième option en cas de perte ou de vol de votre téléphone.   
 
 ### <a name="clear-your-settings"></a>Effacer vos paramètres
-Si vous n’avez pas configuré de numéro de téléphone secondaire d’authentification, vous devrez contacter votre administrateur. Demandez-lui d’effacer vos paramètres : de cette façon, la prochaine fois que vous vous connecterez, vous serez invité à [reconfigurer votre compte](multi-factor-authentication-end-user-first-time.md).
+Si vous n’avez pas configuré de numéro de téléphone secondaire d’authentification, vous devez contacter votre administrateur. Demandez-lui d’effacer vos paramètres : de cette façon, la prochaine fois que vous vous connecterez, vous serez invité à [reconfigurer votre compte](multi-factor-authentication-end-user-first-time.md).
 
 ## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>Je ne reçois pas le SMS ou l’appel sur mon téléphone
 Plusieurs raisons peuvent expliquer que vous ne receviez pas le SMS ou l’appel téléphonique malgré vos tentatives de connexion. S’il vous est déjà arrivé par le passé de recevoir des SMS ou des appels téléphoniques sur votre téléphone sans difficulté, il s’agit probablement d’un problème avec le fournisseur de téléphonie, et non avec votre compte. Assurez-vous de recevoir un signal de bonne qualité ; dans le cas d’un SMS, vérifiez que votre forfait et votre téléphone prennent en charge les messages texte.
@@ -60,14 +61,14 @@ Si vous avez attendu un SMS ou un appel pendant plusieurs minutes, le moyen le p
     ![Vérification différente](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 2. Sélectionnez la méthode à utiliser (numéro de téléphone ou envoi).
    
-    Si vous avez reçu plusieurs codes de vérification, seul le plus récent fonctionne.
+    Si vous avez reçu plusieurs codes de vérification, utilisez le plus récent.
 
 Si vous n’avez pas configuré d’autres méthodes, contactez votre administrateur et demandez-lui d’effacer vos paramètres. La prochaine fois que vous vous connecterez, vous devrez [reconfigurer l’authentification multifacteur](multi-factor-authentication-end-user-first-time.md).
 
 Si vous subissez souvent des retards en raison d’un mauvais signal téléphonique, nous vous recommandons d’utiliser [l’application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) sur votre smartphone. L’application peut générer des codes de sécurité aléatoires qui vous permettent de vous connecter et qui ne nécessitent pas de signal téléphonique ou de connexion Internet.
 
 ## <a name="app-passwords-are-not-working"></a>Les mots de passe d’application ne fonctionnent pas
-Tout d’abord, assurez-vous que vous avez saisi correctement votre mot de passe.  S’il ne fonctionne toujours pas, essayez de vous connecter et de [créer un mot de passe d’application](multi-factor-authentication-end-user-app-passwords.md).  Si le problème persiste, contactez votre administrateur et demandez-lui de [supprimer vos mots de passe d’application existants](../multi-factor-authentication-manage-users-and-devices.md). Vous pourrez alors créer un mot de passe.
+Tout d’abord, assurez-vous que vous avez saisi correctement votre mot de passe. S’il ne fonctionne toujours pas, essayez de vous connecter et de [créer un mot de passe d’application](multi-factor-authentication-end-user-app-passwords.md).  Si le problème persiste, contactez votre administrateur et demandez-lui de [supprimer vos mots de passe d’application existants](../multi-factor-authentication-manage-users-and-devices.md). Vous pourrez alors créer un autre mot de passe.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Je n’ai pas trouvé de réponse à mon problème.
 Si vous avez essayé de suivre ces étapes de dépannage mais que vous rencontrez toujours des problèmes, contactez votre administrateur ou la personne qui a configuré l’authentification multifacteur pour vous. Ils doivent être en mesure de vous aider.

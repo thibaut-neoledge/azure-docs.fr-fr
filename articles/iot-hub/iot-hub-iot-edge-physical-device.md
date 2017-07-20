@@ -12,17 +12,17 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 06/12/2017
 ms.author: andbuc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 63545f007a2696714d21ab7d778a6e78e6183806
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 02962a91c739a53dfcf947bcc736e5c293b9384f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
-# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-physical-device-linux"></a>Utiliser Azure IoT Edge pour envoyer des messages appareil-à-cloud avec un appareil physique (Linux)
+# <a name="use-azure-iot-edge-on-a-raspberry-pi-to-forward-device-to-cloud-messages-to-iot-hub"></a>Utiliser Azure IoT Edge sur un Raspberry Pi pour transférer les messages Appareil vers cloud à IoT Hub
 
 Cette procédure pas à pas de [l’exemple à faible consommation d’énergie Bluetooth][lnk-ble-samplecode] vous montre comment utiliser [la passerelle Azure IoT Edge][lnk-sdk] pour :
 
@@ -48,7 +48,7 @@ Lorsque vous exécutez la passerelle IoT Edge, celle-ci :
 La passerelle contient les modules IoT Edge suivants :
 
 * Un *module BLE* qui interagit avec un appareil BLE pour recevoir les données de température à partir de l’appareil et envoyer des commandes à l’appareil.
-* Un *module cloud-à-appareil BLE* qui traduit les messages JSON provenant du cloud en instructions BLE pour le *module BLE*.
+* Un *module cloud-à-appareil BLE* qui traduit les messages JSON provenant d’IoT Hub en instructions BLE pour le *module BLE*.
 * Un *module enregistreur* qui journalise tous les messages de la passerelle dans un fichier local.
 * Un *module de mappage d’identité* qui effectue la traduction entre les adresses MAC de l’appareil BLE et les identités des appareils Azure IoT Hub.
 * Un *module IoT Hub* qui transfère les données de télémétrie sur un hub IoT et reçoit les commandes de l’appareil à partir d’un hub IoT.
@@ -64,7 +64,8 @@ Les étapes qu’un élément de télémétrie suit lors de son transfert entre 
 
 1. L’appareil BLE génère un exemple de température et l’envoie au module BLE de la passerelle via Bluetooth.
 1. Le module BLE reçoit l’exemple et le publie dans le répartiteur avec l’adresse MAC de l’appareil.
-1. Le module de mappage d’identité récupère ce message et utilise une table interne pour convertir l’adresse MAC de l’appareil en une identité d’appareil IoT Hub. Une identité d’appareil IoT Hub se compose d’un ID d’appareil et d’une clé d’appareil. Le module publie ensuite un nouveau message contenant les exemples de données de température, l’adresse MAC de l’appareil, l’ID de l’appareil et la clé de l’appareil.
+1. Le module de mappage d’identité récupère ce message et utilise une table interne pour convertir l’adresse MAC de l’appareil en une identité d’appareil IoT Hub. Une identité d’appareil IoT Hub se compose d’un ID d’appareil et d’une clé d’appareil.
+1. Le module de mappage d’identité publie un nouveau message contenant les exemples de données de température, l’adresse MAC de l’appareil, l’ID de l’appareil et la clé de l’appareil.
 1. Le module IoT Hub reçoit ce nouveau message (généré par le module de mappage d’identité) et le publie dans IoT Hub.
 1. Le module enregistreur journalise tous les messages reçus du répartiteur dans un fichier local.
 
@@ -79,6 +80,18 @@ Le diagramme de blocs suivant illustre le pipeline du flux des données de comma
 1. Le module BLE récupère ce message et exécute l’instruction d’E/S en communiquant avec l’appareil BLE.
 1. Le module enregistreur consigne tous les messages reçus du répartiteur dans un fichier sur le disque.
 
+## <a name="prerequisites"></a>Composants requis
+
+Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
+
+> [!NOTE]
+> Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la rubrique [Version d’évaluation gratuite d’Azure][lnk-free-trial].
+
+Vous devez installer le client SSH sur votre ordinateur de bureau afin de pouvoir accéder à distance à la ligne de commande sur le Raspberry Pi.
+
+- Windows n’inclut pas de client SSH. Nous vous recommandons d’utiliser [PuTTY](http://www.putty.org/).
+- La plupart des distributions Linux et Mac OS incluent l’utilitaire de ligne de commande SSH. Pour plus d’informations, consultez [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md) (Utilisation de SSH avec Linux ou Mac OS).
+
 ## <a name="prepare-your-hardware"></a>Préparation du matériel
 
 Ce didacticiel suppose que vous utilisez un appareil [SensorTag de Texas Instruments](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) connecté à un Raspberry Pi 3 exécutant Raspbian.
@@ -90,85 +103,123 @@ Vous pouvez utiliser l’une des options suivantes pour installer Raspbian sur v
 * Utilisez l’interface utilisateur graphique [NOOBS][lnk-noobs] pour installer la dernière version de Raspbian.
 * [Téléchargez][lnk-raspbian] Manuellement et écrivez la dernière image du système d’exploitation Raspbian sur une carte SD.
 
+### <a name="sign-in-and-access-the-terminal"></a>Se connecter et accéder au terminal
+
+Deux méthodes vous permettent d’accéder à un environnement de type terminal sur votre Raspberry Pi :
+
+* Si vous disposez d’un clavier et d’un moniteur connectés à votre Raspberry Pi, vous pouvez utiliser l’interface utilisateur graphique Raspbian pour accéder à une fenêtre de terminal.
+
+* Accédez à la ligne de commande sur votre Raspberry Pi à l’aide de SSH à partir de votre ordinateur de bureau.
+
+#### <a name="use-a-terminal-window-in-the-gui"></a>Utiliser une fenêtre de terminal dans l’interface utilisateur graphique
+
+Les informations d’identification par défaut pour Raspbian sont le nom d’utilisateur **pi** et le mot de passe **raspberry**. Dans la barre des tâches dans l’interface utilisateur graphique, vous pouvez lancer l’utilitaire **Terminal** à l’aide de l’icône qui ressemble à un moniteur.
+
+#### <a name="sign-in-with-ssh"></a>Se connecter avec SSH
+
+Vous pouvez utiliser SSH pour accéder à l’aide de la ligne de commande à votre Raspberry Pi. L’article [SSH (Secure Shell)][lnk-pi-ssh] décrit la configuration de SSH sur votre Raspberry Pi et la connexion à partir des systèmes d’exploitation [Windows][lnk-ssh-windows] ou [Linux et Mac][lnk-ssh-linux].
+
+Connectez-vous avec le nom d’utilisateur **pi** et le mot de passe **raspberry**.
+
 ### <a name="install-bluez-537"></a>Installer BlueZ 5.37
 
 Les modules BLE communiquent avec le matériel Bluetooth via la pile BlueZ. Pour que les modules fonctionnent correctement, vous avez besoin de la version 5.37 de BlueZ. En suivant ces instructions, vous êtes assuré que la version installée de BlueZ est correcte.
 
 1. Arrêtez le démon Bluetooth actuel :
 
-    `sudo systemctl stop bluetooth`
+    ```sh
+    sudo systemctl stop bluetooth
+    ```
 
 1. Installez les dépendances BlueZ :
 
-    `sudo apt-get update`
-
-    `sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev`
+    ```sh
+    sudo apt-get update
+    sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
+    ```
 
 1. Téléchargez le code source de BlueZ à partir de bluez.org :
 
-    `wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz`
+    ```sh
+    wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
+    ```
 
 1. Décompressez le code source :
 
-    `tar -xvf bluez-5.37.tar.xz`
+    ```sh
+    tar -xvf bluez-5.37.tar.xz
+    ```
 
 1. Déplacer les répertoires vers le dossier nouvellement créé :
 
-    `cd bluez-5.37`
+    ```sh
+    cd bluez-5.37
+    ```
 
 1. Configurez le code BlueZ à générer :
 
-    `./configure --disable-udev --disable-systemd --enable-experimental`
+    ```sh
+    ./configure --disable-udev --disable-systemd --enable-experimental
+    ```
 
 1. Générez BlueZ :
 
-    `make`
+    ```sh
+    make
+    ```
 
 1. Installez BlueZ une fois la génération terminée :
 
-    `sudo make install`
+    ```sh
+    sudo make install
+    ```
 
 1. Modifiez la configuration du service systemd pour Bluetooth afin qu’il pointe vers le nouveau démon Bluetooth dans le fichier `/lib/systemd/system/bluetooth.service`. Remplacez la ligne « ExecStart » par le texte suivant :
 
-    `ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E`
+    ```conf
+    ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
+    ```
 
 ### <a name="enable-connectivity-to-the-sensortag-device-from-your-raspberry-pi-3-device"></a>Activer la connectivité à l’appareil SensorTag à partir de votre appareil Raspberry Pi 3
 
 Avant d’exécuter l’exemple, vous devez vérifier que votre Raspberry Pi 3 peut se connecter à l’appareil SensorTag.
 
-
 1. Vérifiez que l’utilitaire `rfkill` est installé :
 
-    `sudo apt-get install rfkill`
+    ```sh
+    sudo apt-get install rfkill
+    ```
 
 1. Débloquez Bluetooth sur l’appareil Raspberry Pi 3, et vérifiez que le numéro de version est **5.37** :
 
-    `sudo rfkill unblock bluetooth`
-
-    `bluetoothctl --version`
-
-1. Démarrez le service Bluetooth et exécutez la commande **bluetoothctl** pour entrer un interpréteur de commandes Bluetooth interactif :
-
-    `sudo systemctl start bluetooth`
-
-    `bluetoothctl`
-
-1. Entrez la commande **power on** pour mettre le contrôleur bluetooth sous tension. Vous voyez une sortie similaire à ce qui suit :
-
+    ```sh
+    sudo rfkill unblock bluetooth
+    bluetoothctl --version
     ```
+
+1. Pour entrer l’interpréteur de commandes Bluetooth interactif, démarrez le service Bluetooth et exécutez la commande **bluetoothctl** :
+
+    ```sh
+    sudo systemctl start bluetooth
+    bluetoothctl
+    ```
+
+1. Entrez la commande **power on** pour mettre le contrôleur bluetooth sous tension. La commande retourne un résultat semblable à l’exemple suivant :
+
+    ```sh
     [NEW] Controller 98:4F:EE:04:1F:DF C3 raspberrypi [default]
     ```
 
-1. Dans le shell interactif bluetooth, entrez la commande **scan on** pour rechercher des appareils bluetooth. Vous voyez une sortie similaire à ce qui suit :
+1. Dans le shell interactif bluetooth, entrez la commande **scan on** pour rechercher des appareils bluetooth. La commande retourne un résultat semblable à l’exemple suivant :
 
-    ```
+    ```sh
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
 1. Appuyez sur le petit bouton de l’appareil SensorTag pour le rendre détectable (le voyant vert doit clignoter). Le Raspberry Pi 3 doit détecter l’appareil SensorTag :
 
-    ```
+    ```sh
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
     [CHG] Device A0:E6:F8:B5:F6:00 TxPower: 0
     [CHG] Device A0:E6:F8:B5:F6:00 RSSI: -43
@@ -178,14 +229,14 @@ Avant d’exécuter l’exemple, vous devez vérifier que votre Raspberry Pi 3
 
 1. Désactivez l’analyse en entrant la commande **scan off** :
 
-    ```
+    ```sh
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
 
 1. Connectez-vous à votre appareil SensorTag à l’aide de son adresse MAC en entrant **connect \<adresse MAC>\>**. L’exemple de sortie suivant est abrégé pour plus de clarté :
 
-    ```
+    ```sh
     Attempting to connect to A0:E6:F8:B5:F6:00
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: yes
     Connection successful
@@ -206,7 +257,7 @@ Avant d’exécuter l’exemple, vous devez vérifier que votre Raspberry Pi 3
 
 1. Vous pouvez maintenant vous déconnecter de l’appareil à l’aide de la commande **disconnect**, puis utilisez la commande **quit** pour quitter le shell Bluetooth :
 
-    ```
+    ```sh
     Attempting to disconnect from A0:E6:F8:B5:F6:00
     Successful disconnected
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
@@ -222,7 +273,7 @@ Pour exécuter l’exemple BLE IoT Edge, vous devez effectuer trois tâches :
 * Générer IoT Edge sur votre appareil Raspberry Pi 3.
 * Configurer et exécuter l’exemple de BLE sur votre appareil Raspberry Pi 3.
 
-Lors de la rédaction du présent article, IoT Edge prenait uniquement en charge les passerelles utilisant des modules BLE sur Linux.
+Lors de la rédaction du présent article, IoT Edge prenait uniquement en charge les modules BLE sur des passerelles sur Linux.
 
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>Configuration de deux exemples d’appareils dans votre IoT Hub
 
@@ -233,21 +284,23 @@ Lors de la rédaction du présent article, IoT Edge prenait uniquement en charge
 
 Installer les dépendances pour Azure IoT Edge :
 
-`sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev`
+```sh
+sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev
+```
 
 Utilisez les commandes suivantes pour cloner IoT Edge et tous ses sous-modules dans votre répertoire de base :
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure/iot-edge.git`
-
-`cd iot-edge`
-
-`git submodule update --init --recursive`
+```sh
+cd ~
+git clone https://github.com/Azure/iot-edge.git
+```
 
 Si vous disposez d’une copie complète du dépôt IoT Edge sur votre Raspberry Pi 3, vous pouvez générer la passerelle en utilisant la commande suivante à partir du dossier contenant le Kit de développement logiciel (SDK) :
 
-`./tools/build.sh`
+```sh
+cd ~/iot-edge
+./tools/build.sh  --disable-native-remote-modules
+```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configurer et exécuter l’exemple de BLE sur votre appareil Raspberry Pi 3
 
@@ -277,7 +330,7 @@ En supposant que le dépôt de la passerelle se trouve dans le dossier **/home/p
 
 #### <a name="ble-module-configuration"></a>Configuration du module BLE
 
-L’exemple de configuration de l’appareil BLE suppose qu’il s’agit d’un appareil Texas Instruments SensorTag. Tout appareil BLE standard qui peut fonctionner comme un périphérique GATT devrait fonctionner, mais vous devrez mettre à jour les ID et les données des caractéristiques GATT (pour obtenir des instructions d’écriture). Ajoutez l’adresse MAC de votre appareil SensorTag :
+L’exemple de configuration de l’appareil BLE suppose qu’il s’agit d’un appareil Texas Instruments SensorTag. Tout appareil BLE standard qui peut fonctionner comme un périphérique GATT devrait fonctionner, mais vous devrez peut-être mettre à jour les ID et les données des caractéristiques GATT. Ajoutez l’adresse MAC de votre appareil SensorTag :
 
 ```json
 {
@@ -335,6 +388,8 @@ L’exemple de configuration de l’appareil BLE suppose qu’il s’agit d’un
   }
 }
 ```
+
+Si vous n’utilisez pas d’appareil SensorTag, consultez la documentation de votre appareil BLE afin de déterminer si vous devez mettre à jour les ID et les données des caractéristiques GATT.
 
 #### <a name="iot-hub-module"></a>module IoT Hub
 
@@ -435,13 +490,17 @@ La configuration suivante permet d’assurer l’acheminement suivant entre les 
 
 Pour exécuter l’exemple, transmettez le chemin d’accès du fichier de configuration JSON en tant que paramètre au fichier binaire **ble\_gateway**. La commande suivante considère que vous utilisez le fichier de configuration **gateway_sample.json**. Exécutez-la à partir du dossier **iot-edge** sur le Raspberry Pi :
 
-```
+```sh
 ./build/samples/ble_gateway/ble_gateway ./samples/ble_gateway/src/gateway_sample.json
 ```
 
 Vous devrez peut-être appuyer sur le petit bouton situé sur l’appareil SensorTag pour le rendre détectable avant d’exécuter l’exemple.
 
-Lorsque vous exécutez l’exemple, vous pouvez vous servir de [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ou de l’outil [iothub-explorer](https://github.com/Azure/iothub-explorer) pour surveiller les messages que la passerelle IoT Edge transfère à partir de l’appareil SensorTag.
+Lorsque vous exécutez l’exemple, vous pouvez vous servir de [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ou de l’outil [iothub-explorer](https://github.com/Azure/iothub-explorer) pour surveiller les messages que la passerelle IoT Edge transfère à partir de l’appareil SensorTag. Par exemple, à l’aide d’iothub-explorer, vous pouvez surveiller les messages appareil-à-cloud à l’aide de la commande suivante :
+
+```sh
+iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
+```
 
 ## <a name="send-cloud-to-device-messages"></a>Envoi de messages cloud vers appareil
 
@@ -518,8 +577,9 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-sdk]: https://github.com/Azure/iot-edge/
 [lnk-noobs]: https://www.raspberrypi.org/documentation/installation/noobs.md
 [lnk-raspbian]: https://www.raspberrypi.org/downloads/raspbian/
-
-
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-create-hub]: iot-hub-create-through-portal.md 
+[lnk-pi-ssh]: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
+[lnk-ssh-windows]: https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md
+[lnk-ssh-linux]: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
 

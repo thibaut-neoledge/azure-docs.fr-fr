@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/05/2017
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c8d75b0ce8bba4d0c065f86c199538b4a51f4bee
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 7ea14ccd4ad825d3cf7aa796b0360ada4d55974a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 
@@ -49,6 +49,10 @@ Avec un temps de disponibilité de 99,99 %, l’excellent contrat de niveau de 
 
 ## <a name="secure-your-data"></a>Sécurisez vos données
 Les services de base de données Azure ont une tradition de sécurité des données qu’Azure Database pour MySQL respecte avec des fonctionnalités qui limitent l’accès, protègent les données au repos et en mouvement, et vous aident à surveiller l’activité. Visitez le [Centre de gestion de la confidentialité Azure](https://www.microsoft.com/en-us/TrustCenter/Security/default.aspx) pour plus d’informations sur la sécurité de la plateforme Azure.
+
+Le service Base de données Azure pour MySQL utilise le chiffrement de stockage pour les données au repos. Toutes les données, y compris les sauvegardes, sont chiffrées sur le disque. Le service utilise le chiffrement AES 256 bits qui est inclus dans le chiffrement de stockage Azure, et les clés sont gérées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
+
+Par défaut, le service Base de données Azure pour MySQL est configuré afin de requérir la [sécurité de connexion SSL](./concepts-ssl-connection-security.md) pour les données en mouvement sur le réseau. L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.  Vous avez la possibilité de désactiver le recours obligatoire au protocole SSL pour la connexion à votre service de base de données si votre application cliente ne prend pas en charge la connectivité SSL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez lu l’introduction à Azure Database pour MySQL et répondu à la question « Qu’est-ce qu’Azure Database pour MySQL ? », vous êtes prêt à effectuer les opérations suivantes :

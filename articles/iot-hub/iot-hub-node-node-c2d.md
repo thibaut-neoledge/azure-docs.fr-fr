@@ -12,12 +12,13 @@ ms.devlang: javascript
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 06/16/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 312e9081c8597f59c32e99d594f2e729410986d8
-ms.lasthandoff: 12/16/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 4580bda5633f84a7c7af0dc85f3cea4951024836
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -56,7 +57,7 @@ Dans cette section, vous modifiez l’application pour appareil simulée que vou
 1. À l’aide d’un éditeur de texte, ouvrez le fichier SimulatedDevice.js.
 2. Modifiez la fonction **connectCallback** pour gérer les messages envoyés à partir d’IoT Hub. Dans cet exemple, l’appareil appelle toujours la fonction **complete** afin de notifier IoT Hub qu’il a traité le message. La nouvelle version de la fonction **connectCallback** ressemble à l’extrait de code suivant :
    
-    ```
+    ```javascript
     var connectCallback = function (err) {
       if (err) {
         console.log('Could not connect: ' + err);
@@ -90,26 +91,26 @@ Dans cette section, vous allez créer une application de console Node.js qui env
 
 1. Créez un dossier vide appelé **sendcloudtodevicemessage**. Dans le dossier **sendcloudtodevicemessage** , créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
    
-    ```
+    ```shell
     npm init
     ```
 2. À l’invite de commandes, dans le dossier **sendcloudtodevicemessage**, exécutez la commande suivante pour installer le package **azure-iothub** :
    
-    ```
+    ```shell
     npm install azure-iothub --save
     ```
 3. À l’aide d’un éditeur de texte, créez un fichier **SendCloudToDeviceMessage.js** dans le dossier **sendcloudtodevicemessage**.
 4. Ajoutez les instructions `require` ci-dessous au début du fichier **SendCloudToDeviceMessage.js** :
    
-    ```
+    ```javascript
     'use strict';
    
     var Client = require('azure-iothub').Client;
     var Message = require('azure-iot-common').Message;
     ```
-5. Ajoutez le code suivant au fichier **SendCloudToDeviceMessage.js** . Remplacez la valeur d’espace réservé par la chaîne de connexion pour le IoT Hub créé dans le didacticiel [Prise en main d’IoT Hub]. Remplacez l’espace réservé pour l’appareil cible par l’ID de l’appareil ajouté dans le didacticiel [Prise en main d’IoT Hub] :
+5. Ajoutez le code suivant au fichier **SendCloudToDeviceMessage.js** . Remplacez la valeur d’espace réservé « {iot hub connection string} » par la chaîne de connexion pour le IoT Hub créé dans le didacticiel [Prise en main d’IoT Hub]. Remplacez l’espace réservé « {device id} » par l’ID de l’appareil ajouté dans le didacticiel [Prise en main d’IoT Hub] :
    
-    ```
+    ```javascript
     var connectionString = '{iot hub connection string}';
     var targetDevice = '{device id}';
    
@@ -117,7 +118,7 @@ Dans cette section, vous allez créer une application de console Node.js qui env
     ```
 6. Ajoutez la fonction suivante pour imprimer les résultats de l’opération sur la console :
    
-    ```
+    ```javascript
     function printResultFor(op) {
       return function printResult(err, res) {
         if (err) console.log(op + ' error: ' + err.toString());
@@ -127,7 +128,7 @@ Dans cette section, vous allez créer une application de console Node.js qui env
     ```
 7. Ajoutez la fonction suivante pour imprimer les messages d’accusé de réception sur la console :
    
-    ```
+    ```javascript
     function receiveFeedback(err, receiver){
       receiver.on('message', function (msg) {
         console.log('Feedback message:')
@@ -137,7 +138,7 @@ Dans cette section, vous allez créer une application de console Node.js qui env
     ```
 8. Ajoutez le code suivant pour envoyer un message à votre appareil et gérer le message de commentaires lorsque l’appareil accuse réception d’un message cloud-à-appareil :
    
-    ```
+    ```javascript
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);
@@ -159,14 +160,14 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 1. À l’invite de commandes du dossier **simulateddevice** , exécutez la commande suivante pour envoyer la télémétrie à IoT hub et écouter les messages cloud-à-appareil :
    
-    ```
+    ```shell
     node SimulatedDevice.js 
     ```
    
     ![Exécution de l’application de périphérique simulé][img-simulated-device]
 2. À l’invite de commandes dans le dossier **sendcloudtodevicemessage**, exécutez la commande suivante pour envoyer un message cloud-à-appareil, puis attendez de recevoir l’accusé de réception :
    
-    ```
+    ```shell
     node SendCloudToDeviceMessage.js 
     ```
    

@@ -15,17 +15,17 @@ ms.workload: backup-recovery
 ms.date: 5/31/2017
 ms.author: bsiva
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b7f26df96ddedb579cf5d9d20fee6b2599e762e0
-ms.openlocfilehash: 9dd4e9007da6cf276f976e2f3f25305286830544
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: aa7a32ace8354f615a8b8cc137f6bdf48fbadf48
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 06/15/2017
 
 ---
 
 # <a name="prepare-target-vmware-to-azure"></a>Préparer la cible (VMware vers Azure)
 > [!div class="op_single_selector"]
-> * [Machines virtuelles VMware](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [Serveurs physiques](./site-recovery-prepare-target-physical-to-azure.md)
+> * [VMware vers Azure](./site-recovery-prepare-target-vmware-to-azure.md)
+> * [Physique vers Azure](./site-recovery-prepare-target-physical-to-azure.md)
 
 Cet article décrit comment préparer votre environnement Azure pour lancer la réplication des serveurs physiques (x64) exécutant Windows ou Linux vers Azure.
 
@@ -51,5 +51,5 @@ Une fois les validations terminées avec succès, cliquez sur OK pour passer à 
 Si vous n’avez pas de compte de stockage Resource Manager ou réseau virtuel compatible, ou si vous souhaitez en ajouter d’autres, vous pouvez le faire en cliquant sur les boutons **+ Compte de stockage** ou **+ Réseau** en haut du panneau.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Configurez les paramètres de réplication](./site-recovery-setup-replication-settings-vmware.md).
+[Configurer les paramètres de réplication](./site-recovery-setup-replication-settings-vmware.md)
 

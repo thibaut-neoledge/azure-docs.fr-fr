@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 424889a00a20c8daf770098a43576783b813340c
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service Web Apps avec un modèle Azure Resource Manager
-Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), une application web [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
+Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), une application web [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
 
 À l’aide de modèles Azure Resource Manager, vous pouvez facilement automatiser le déploiement et la configuration de vos ressources Azure.  Ce didacticiel montre comment déployer une application web et configurer automatiquement les informations de connexion du compte Azure Cosmos DB.
 
@@ -85,7 +85,7 @@ Maintenant, nous allons déployer notre premier modèle.
    
    ![Exemple d’application Todo](./media/create-website/image2.png)
 9. Continuez et créez deux tâches dans l’application web, puis revenez dans le panneau du groupe de ressources du portail Azure. Cliquez sur la ressource de compte Azure Cosmos DB dans la liste des ressources, puis cliquez sur **Explorateur de requête**.
-    ![Capture d’écran de l’objectif Résumé avec l’application web myotherdocumentdbwebapp mise en surbrillance](./media/create-website/TemplateDeployment8.png)  
+    ![Capture d’écran de l’objectif Résumé avec l’application web mise en surbrillance](./media/create-website/TemplateDeployment8.png)  
 10. Exécutez la requête par défaut, « SELECT * FROM c », et examinez les résultats.  Notez que la requête a récupéré la représentation JSON des éléments de tâche que vous avez créés à l'étape 7 ci-dessus.  N’hésitez pas à faire des essais avec des requêtes ; par exemple, essayez d’exécuter SELECT * FROM c WHERE c.isComplete = true pour retourner tous les éléments de tâche qui ont été marqués comme terminés.
     
     ![Capture d’écran des panneaux Explorateur de requête et Résultats affichant les résultats de requête](./media/create-website/image5.png)

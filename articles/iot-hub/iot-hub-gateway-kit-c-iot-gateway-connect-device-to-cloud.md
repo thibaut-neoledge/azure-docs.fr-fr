@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser Intel NUC comme passerelle IoT pour co
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: iot passerelle connecter appareil dans le cloud
 ms.assetid: cb851648-018c-4a7e-860f-b62ed3b493a5
@@ -13,14 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 06/25/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2b772afc946f1637cb8d61c198bc9cf18f42e1ba
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 61cb8eb0ad23a7d4b333bf54342b872a3a8ae1da
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/28/2017
 
 ---
 # <a name="use-iot-gateway-to-connect-things-to-the-cloud---sensortag-to-azure-iot-hub"></a>Utilisation de la passerelle IoT pour connecter des objets au cloud - SensorTag pour Azure IoT Hub
@@ -42,6 +41,7 @@ Vous apprenez à utiliser une passerelle IoT pour connecter un SensorTag de Texa
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
 - Didacticiel [Configurer l’Intel NUC comme passerelle IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md) suivi dans lequel vous configurez l’Intel NUC comme passerelle IoT.
+- * Un abonnement Azure actif. Si vous ne possédez pas de compte Azure, vous pouvez [créer un compte d’évaluation Azure gratuit](https://azure.microsoft.com/free/) en quelques minutes.
 - Un client SSH qui s’exécute sur votre ordinateur hôte. PuTTY est recommandé sur Windows. Linux et macOS sont déjà accompagnés d’un client SSH.
 - L’adresse IP et le nom d’utilisateur et le mot de passe pour accéder à la passerelle du client SSH.
 - Une connexion Internet.
@@ -133,7 +133,7 @@ L’exemple d’application BLE (Bluetooth Low Energy) est fourni par Azure IoT 
 1. Accédez au dossier de l’exemple d’application en exécutant la commande suivante :
 
    ```bash
-   cd /user/share/azureiotgatewaysdk/samples
+   cd /usr/share/azureiotgatewaysdk/samples/ble_gateway
    ```
 
 1. Ouvrez le fichier de configuration en exécutant la commande suivante :

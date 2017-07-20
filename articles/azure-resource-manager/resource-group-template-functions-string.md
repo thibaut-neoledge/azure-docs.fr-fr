@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 9932ac04699f49b7a3ea3dabe4d380fdc4d05ec1
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 0db4ba33c3a6720ba447e27f530ca97c992fbb72
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -70,6 +70,10 @@ Retourne la représentation en base 64 de la chaîne d'entrée.
 |:--- |:--- |:--- |:--- |
 | chaîne_entrée |Oui |string |La valeur à retourner sous la forme d’une représentation en base64. |
 
+### <a name="return-value"></a>Valeur de retour
+
+Une chaîne contenant la représentation en base64.
+
 ### <a name="examples"></a>Exemples
 
 L’exemple suivant montre comment utiliser la fonction base64.
@@ -111,9 +115,13 @@ L’exemple suivant montre comment utiliser la fonction base64.
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Une chaîne contenant la représentation en base64.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 <a id="base64tojson" />
 
@@ -127,6 +135,10 @@ Convertit une représentation en base64 en un objet JSON.
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
 | base64Value |Oui |string |La représentation en base64 à convertir en un objet JSON. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Un objet JSON.
 
 ### <a name="examples"></a>Exemples
 
@@ -169,9 +181,13 @@ L’exemple suivant utilise la fonction base64ToJson pour convertir une valeur b
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Un objet JSON.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 <a id="base64tostring" />
 
@@ -185,6 +201,10 @@ Convertit une représentation en base64 en une chaîne.
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
 | base64Value |Oui |string |La représentation en base64 à convertir en une chaîne. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Une chaîne de la valeur base64 convertie.
 
 ### <a name="examples"></a>Exemples
 
@@ -227,9 +247,13 @@ L’exemple suivant utilise la fonction base64ToString pour convertir une valeur
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Une chaîne de la valeur base64 convertie.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
+| toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 <a id="bool" />
 
@@ -243,6 +267,9 @@ Convertit le paramètre en valeur booléenne.
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |chaîne ou entier |La valeur à convertir en booléen. |
+
+### <a name="return-value"></a>Valeur de retour
+Valeur booléenne de la valeur convertie.
 
 ### <a name="examples"></a>Exemples
 
@@ -274,8 +301,14 @@ L’exemple suivant montre comment utiliser le booléen avec une chaîne ou un e
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
-Valeur booléenne.
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| trueString | Bool | true |
+| falseString | Bool | False |
+| trueInt | Bool | true |
+| falseInt | Bool | False |
 
 <a id="concat" />
 
@@ -290,6 +323,9 @@ Combine plusieurs valeurs de chaîne et retourne la chaine concaténée, ou comb
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |chaîne ou tableau |La première valeur pour la concaténation. |
 | arguments supplémentaires |Non |string |Valeurs supplémentaires en ordre séquentiel pour la concaténation. |
+
+### <a name="return-value"></a>Valeur de retour
+Chaîne ou tableau de valeurs concaténées.
 
 ### <a name="examples"></a>Exemples
 
@@ -308,12 +344,18 @@ L’exemple suivant montre comment combiner deux valeurs de chaîne et retourner
     "resources": [],
     "outputs": {
         "concatOutput": {
-            "value": "[concat(parameters('prefix'), uniqueString(resourceGroup().id))]",
+            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
             "type" : "string"
         }
     }
 }
 ```
+
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| concatOutput | String | préfixe-5yj4yjf5mbg72 |
 
 L’exemple suivant montre comment combiner deux tableaux.
 
@@ -350,8 +392,11 @@ L’exemple suivant montre comment combiner deux tableaux.
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
-Chaîne ou tableau de valeurs concaténées.
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| return | Tableau | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 <a id="contains" />
 
@@ -366,6 +411,10 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 |:--- |:--- |:--- |:--- |
 | conteneur |Oui |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
 | itemToFind |Oui |chaîne ou entier |La valeur à trouver. |
+
+### <a name="return-value"></a>Valeur de retour
+
+**True** si l’élément est trouvé ; sinon, **False**.
 
 ### <a name="examples"></a>Exemples
 
@@ -420,9 +469,16 @@ L’exemple suivant montre comment utiliser contains avec différents types :
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-**True** si l’élément est trouvé ; sinon, **False**.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| stringTrue | Bool | true |
+| stringFalse | Bool | False |
+| objectTrue | Bool | true |
+| objectFalse | Bool | False |
+| arrayTrue | Bool | true |
+| arrayFalse | Bool | False |
 
 <a id="datauri" />
 
@@ -437,6 +493,10 @@ Convertit une valeur en un URI de données.
 |:--- |:--- |:--- |:--- |
 | stringToConvert |Oui |string |Valeur à convertir en URI de données. |
 
+### <a name="return-value"></a>Valeur de retour
+
+Une chaîne formatée en tant qu’URI de données.
+
 ### <a name="examples"></a>Exemples
 
 L’exemple suivant convertit une valeur en un URI de données et convertit un URI de données en chaîne :
@@ -469,9 +529,12 @@ L’exemple suivant convertit une valeur en un URI de données et convertit un U
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Une chaîne formatée en tant qu’URI de données.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| dataUriOutput | String | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hello, World! |
 
 <a id="datauritostring" />
 
@@ -486,6 +549,10 @@ Convertit une valeur formatée en URI de données en chaîne.
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |Oui |string |Valeur d’URI de données à convertir. |
 
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne contenant la valeur convertie.
+
 ### <a name="examples"></a>Exemples
 
 L’exemple suivant convertit une valeur en un URI de données et convertit un URI de données en chaîne :
@@ -518,9 +585,12 @@ L’exemple suivant convertit une valeur en un URI de données et convertit un U
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Chaîne contenant la valeur convertie.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| dataUriOutput | String | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hello, World! |
 
 <a id="empty" /> 
 
@@ -534,6 +604,10 @@ Détermine si un tableau, un objet ou une chaîne est vide.
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Oui |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Retourne **True** si la valeur est vide ; sinon, **False**.
 
 ### <a name="examples"></a>Exemples
 
@@ -576,9 +650,13 @@ L’exemple suivant vérifie si un tableau, un objet et une chaîne sont vides.
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Retourne **True** si la valeur est vide ; sinon, **False**.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayEmpty | Bool | true |
+| objectEmpty | Bool | true |
+| stringEmpty | Bool | true |
 
 <a id="endswith" />
 
@@ -593,6 +671,10 @@ Détermine si une chaîne se termine par une valeur. La comparaison respecte la 
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
 | stringToFind |Oui |string |La valeur à trouver. |
+
+### <a name="return-value"></a>Valeur de retour
+
+**True** si le ou les derniers caractères de la chaîne correspondent à la valeur ; sinon, **False**.
 
 ### <a name="examples"></a>Exemples
 
@@ -632,9 +714,16 @@ L'exemple suivant montre comment utiliser les fonctions startsWith et endsWith 
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-**True** si le ou les derniers caractères de la chaîne correspondent à la valeur ; sinon, **False**.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| startsTrue | Bool | true |
+| startsCapTrue | Bool | true |
+| startsFalse | Bool | False |
+| endsTrue | Bool | true |
+| endsCapTrue | Bool | true |
+| endsFalse | Bool | False |
 
 <a id="first" />
 
@@ -648,6 +737,10 @@ Retourne le premier caractère de la chaîne ou le premier élément du tableau.
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne du premier caractère ou type (chaîne, entier, tableau ou objet) du premier élément d’un tableau.
 
 ### <a name="examples"></a>Exemples
 
@@ -678,9 +771,12 @@ L’exemple suivant montre comment utiliser la première fonction avec un tablea
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Chaîne du premier caractère ou type (chaîne, entier, tableau ou objet) du premier élément d’un tableau.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 <a id="indexof" />
 
@@ -695,6 +791,10 @@ Retourne la première position d’une valeur dans une chaîne. La comparaison r
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
 | stringToFind |Oui |string |La valeur à trouver. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Entier qui représente la position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, la valeur -1 est retournée.
 
 ### <a name="examples"></a>Exemples
 
@@ -730,10 +830,15 @@ L'exemple suivant montre comment utiliser les fonctions indexOf et lastIndexOf :
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Entier qui représente la position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, la valeur -1 est retournée.
-
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| firstT | int | 0 |
+| lastT | int | 3 |
+| firstString | int | 2 |
+| lastString | int | 0 |
+| notFound | int | -1 |
 
 <a id="last" />
 
@@ -747,6 +852,10 @@ Retourne le dernier caractère de la chaîne ou le dernier élément du tableau.
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne du dernier caractère ou type (chaîne, entier, tableau ou objet) du dernier élément d’un tableau.
 
 ### <a name="examples"></a>Exemples
 
@@ -777,9 +886,12 @@ L’exemple suivant indique comment utiliser la dernière fonction avec un table
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Chaîne du dernier caractère ou type (chaîne, entier, tableau ou objet) du dernier élément d’un tableau.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 <a id="lastindexof" />
 
@@ -794,6 +906,10 @@ Retourne la dernière position d’une valeur dans une chaîne. La comparaison r
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
 | stringToFind |Oui |string |La valeur à trouver. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Entier qui représente la dernière position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, la valeur -1 est retournée.
 
 ### <a name="examples"></a>Exemples
 
@@ -829,10 +945,15 @@ L'exemple suivant montre comment utiliser les fonctions indexOf et lastIndexOf :
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Entier qui représente la dernière position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, la valeur -1 est retournée.
-
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| firstT | int | 0 |
+| lastT | int | 3 |
+| firstString | int | 2 |
+| lastString | int | 0 |
+| notFound | int | -1 |
 
 <a id="length" />
 
@@ -846,6 +967,10 @@ Retourne le nombre de caractères dans une chaîne ou le nombre d’éléments d
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Un entier. 
 
 ### <a name="examples"></a>Exemples
 
@@ -883,9 +1008,12 @@ L’exemple suivant montre comment utiliser la longueur avec un tableau et une c
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Un entier. 
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayLength | int | 3 |
+| stringLength | int | 13. |
 
 <a id="padleft" />
 
@@ -904,6 +1032,10 @@ Renvoie une chaîne alignée à droite en lui ajoutant des caractères sur la ga
 
 Si la chaîne d’origine est plus longue que le nombre de caractères de remplissage, aucun caractère n’est ajouté.
 
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne avec au moins le nombre de caractères spécifié.
+
 ### <a name="examples"></a>Exemples
 
 L’exemple ci-après indique comment remplir la valeur de paramètre fournie par l’utilisateur avec le caractère zéro jusqu’à atteindre le nombre total de caractères. 
@@ -916,25 +1048,23 @@ L’exemple ci-après indique comment remplir la valeur de paramètre fournie pa
         "testString": {
             "type": "string",
             "defaultValue": "123"
-        },
-        "totalCharacters": {
-            "type": "int",
-            "defaultValue": 10
         }
     },
     "resources": [],
     "outputs": {
         "stringOutput": {
             "type": "string",
-            "value": "[padLeft(parameters('testString'),parameters('totalCharacters'),'0')]"
+            "value": "[padLeft(parameters('testString'),10,'0')]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Chaîne avec au moins le nombre de caractères spécifié.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| stringOutput | String | 0000000123 |
 
 <a id="replace" />
 
@@ -950,6 +1080,10 @@ Renvoie une nouvelle chaîne dans laquelle toutes les instances d’une chaîne 
 | chaîne_initiale |Oui |string |La valeur qu’ont toutes les instances d’une chaîne ont été remplacées par une autre. |
 | oldString |Oui |string |Chaîne à supprimer de la chaîne initiale. |
 | newString |Oui |string |Chaîne à ajouter à la place de la chaîne supprimée. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne contenant les caractères remplacés.
 
 ### <a name="examples"></a>Exemples
 
@@ -979,9 +1113,12 @@ L’exemple suivant illustre comment supprimer tous les tirets de la chaîne fou
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Chaîne contenant les caractères remplacés.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| firstOutput | String | 1231231234 |
+| secodeOutput | String | 123-123-xxxx |
 
 <a id="skip" />
 
@@ -996,6 +1133,10 @@ Retourne une chaîne avec tous les caractères après le nombre spécifié de ca
 |:--- |:--- |:--- |:--- |
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
 | numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Tableau ou chaîne.
 
 ### <a name="examples"></a>Exemples
 
@@ -1041,9 +1182,12 @@ L’exemple suivant ignore le nombre spécifié d’éléments dans le tableau e
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Tableau ou chaîne.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | Tableau | ["three"] |
+| stringOutput | String | two three |
 
 <a id="split" />
 
@@ -1058,6 +1202,10 @@ Renvoie un tableau de chaînes qui contient les sous-chaînes de la chaîne d’
 |:--- |:--- |:--- |:--- |
 | chaîne_entrée |Oui |string |Chaîne à fractionner. |
 | delimiter |Oui |chaîne ou tableau de chaînes |Le séparateur à utiliser pour fractionner la chaîne. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Tableau de chaînes.
 
 ### <a name="examples"></a>Exemples
 
@@ -1094,9 +1242,12 @@ L’exemple suivant fractionne la chaîne d’entrée par une virgule et par une
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Tableau de chaînes.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| firstOutput | Tableau | ["one", "two", "three"] |
+| secondOutput | Tableau | ["one", "two", "three"] |
 
 <a id="startswith" />
 
@@ -1111,6 +1262,10 @@ Détermine si une chaîne commence par une valeur. La comparaison respecte la ca
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
 | stringToFind |Oui |string |La valeur à trouver. |
+
+### <a name="return-value"></a>Valeur de retour
+
+**True** si le ou les premiers caractères de la chaîne correspondent à la valeur ; sinon, **False**.
 
 ### <a name="examples"></a>Exemples
 
@@ -1150,10 +1305,16 @@ L'exemple suivant montre comment utiliser les fonctions startsWith et endsWith 
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-**True** si le ou les premiers caractères de la chaîne correspondent à la valeur ; sinon, **False**.
-
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| startsTrue | Bool | true |
+| startsCapTrue | Bool | true |
+| startsFalse | Bool | False |
+| endsTrue | Bool | true |
+| endsCapTrue | Bool | true |
+| endsFalse | Bool | False |
 
 <a id="string" />
 
@@ -1167,6 +1328,10 @@ Convertit la valeur spécifiée en chaîne.
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Oui | Quelconque |Valeur à convertir en chaîne. N’importe quel type de valeur peut être converti, y compris les objets et des tableaux. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne de la valeur convertie.
 
 ### <a name="examples"></a>Exemples
 
@@ -1215,9 +1380,13 @@ L’exemple suivant montre comment convertir différents types de valeurs de cha
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Une chaîne.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
+| arrayOutput | String | ["a","b","c"] |
+| intOutput | String | 5 |
 
 <a id="substring" />
 
@@ -1233,6 +1402,23 @@ Retourne une sous-chaîne qui commence à la position de caractère spécifiée 
 | chaîne_à_analyser |Oui |string |La chaîne d’origine de laquelle la sous-chaîne est extraite. |
 | index_début |Non |int |La position de caractère (commençant à zéro) de la sous-chaîne. |
 | length |Non |int |Le nombre de caractères de la sous-chaîne. Doit faire référence à un emplacement au sein de la chaîne. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Sous-chaîne.
+
+### <a name="remarks"></a>Remarques
+
+La fonction échoue lorsque la sous-chaîne s’étend au-delà de la fin de la chaîne. L’exemple suivant échoue avec l’erreur « Les paramètres d’index et de longueur doivent correspondre à un emplacement au sein de la chaîne. Paramètre d’index : « 0 », paramètre de longueur : « 11 », paramètre de longueur de la chaîne : « 10 ».
+
+```json
+"parameters": {
+    "inputString": { "type": "string", "value": "1234567890" }
+},
+"variables": { 
+    "prefix": "[substring(parameters('inputString'), 0, 11)]"
+}
+```
 
 ### <a name="examples"></a>Exemples
 
@@ -1258,16 +1444,12 @@ L’exemple suivant extrait une sous-chaîne à partir d’un paramètre.
 }
 ```
 
-L’exemple suivant échoue avec l’erreur « Les paramètres d’index et de longueur doivent correspondre à un emplacement au sein de la chaîne. Paramètre d’index : « 0 », paramètre de longueur : « 11 », paramètre de longueur de la chaîne : « 10 ».
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-```json
-"parameters": {
-    "inputString": { "type": "string", "value": "1234567890" }
-},
-"variables": { 
-    "prefix": "[substring(parameters('inputString'), 0, 11)]"
-}
-```
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| substringOutput | String | two |
+
 
 <a id="take" />
 
@@ -1282,6 +1464,10 @@ Retourne une chaîne avec le nombre spécifié de caractères à partir du débu
 |:--- |:--- |:--- |:--- |
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
 | numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Tableau ou chaîne.
 
 ### <a name="examples"></a>Exemples
 
@@ -1327,9 +1513,12 @@ L’exemple suivant prend le nombre spécifié d’éléments du tableau, et les
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Tableau ou chaîne.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | Tableau | ["one", "two"] |
+| stringOutput | String | sur |
 
 <a id="tolower" />
 
@@ -1344,6 +1533,10 @@ Convertit la chaîne spécifiée en minuscules.
 |:--- |:--- |:--- |:--- |
 | chaîne_à_modifier |Oui |string |La valeur à convertir en minuscules. |
 
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne convertie en minuscules.
+
 ### <a name="examples"></a>Exemples
 
 L’exemple ci-après convertit une valeur de paramètre en minuscules et en majuscules.
@@ -1371,6 +1564,13 @@ L’exemple ci-après convertit une valeur de paramètre en minuscules et en maj
     }
 }
 ```
+
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
 
 <a id="toupper" />
 
@@ -1385,6 +1585,10 @@ Convertit la chaîne spécifiée en majuscules.
 |:--- |:--- |:--- |:--- |
 | chaîne_à_modifier |Oui |string |La valeur à convertir en majuscules. |
 
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne convertie en majuscules.
+
 ### <a name="examples"></a>Exemples
 
 L’exemple ci-après convertit une valeur de paramètre en minuscules et en majuscules.
@@ -1413,6 +1617,13 @@ L’exemple ci-après convertit une valeur de paramètre en minuscules et en maj
 }
 ```
 
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
+
 <a id="trim" />
 
 ## <a name="trim"></a>découper
@@ -1425,6 +1636,10 @@ Supprime tous les espaces de début et de fin de la chaîne indiquée.
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |Oui |string |La valeur à supprimer. |
+
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne sans les premiers et derniers caractères d’espace.
 
 ### <a name="examples"></a>Exemples
 
@@ -1450,6 +1665,12 @@ L’exemple suivant supprime les espaces à partir du paramètre.
 }
 ```
 
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| return | String | one two three |
+
 <a id="uniquestring" />
 
 ## <a name="uniquestring"></a>uniqueString
@@ -1471,8 +1692,6 @@ Cette fonction est utile lorsque vous avez besoin de créer un nom unique pour u
 La valeur renvoyée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Elle n’est pas globalement unique. Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom explicite. L’exemple suivant montre le format de la valeur renvoyée. La valeur réelle varie en fonction des paramètres fournis.
 
     tcvhiyu5h2o5o
-
-### <a name="examples"></a>Exemples
 
 Les exemples suivants montrent comment utiliser uniqueString afin de créer une valeur unique pour des niveaux couramment utilisés.
 
@@ -1505,7 +1724,29 @@ L'exemple suivant montre comment créer un nom unique pour un compte de stockage
 
 ### <a name="return-value"></a>Valeur de retour
 
-Chaîne contenant 13 caractères
+Chaîne contenant 13 caractères.
+
+### <a name="examples"></a>Exemples
+
+L’exemple suivant renvoie les résultats à partir d’uniquestring :
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "uniqueRG": {
+            "value": "[uniqueString(resourceGroup().id)]",
+            "type" : "string"
+        },
+        "uniqueDeploy": {
+            "value": "[uniqueString(resourceGroup().id, deployment().name)]",
+            "type" : "string"
+        }
+    }
+}
+```
 
 <a id="uri" />
 
@@ -1522,6 +1763,10 @@ Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 | relativeUri |Oui |string |La chaîne d’URI relatif à ajouter à la chaîne d’URI de base. |
 
 La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez `http://contoso.com/resources/azuredeploy.json` comme paramètre baseUri, l’URI de base résultant est `http://contoso.com/resources/`.
+
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne représentant l’URI absolu pour les valeurs de base et relative.
 
 ### <a name="examples"></a>Exemples
 
@@ -1560,9 +1805,13 @@ L’exemple suivant montre comment utiliser les paramètres uri, uriComponent et
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Chaîne représentant l’URI absolu pour les valeurs de base et relative.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 <a id="uricomponent" />
 
@@ -1577,6 +1826,10 @@ Encode un URI.
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Oui |string |Valeur à encoder. |
 
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne de la valeur encodée de l’URI.
+
 ### <a name="examples"></a>Exemples
 
 L’exemple suivant montre comment utiliser les paramètres uri, uriComponent et uriComponentToString :
@@ -1608,9 +1861,14 @@ L’exemple suivant montre comment utiliser les paramètres uri, uriComponent et
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Chaîne de la valeur encodée de l’URI.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+
 
 <a id="uricomponenttostring" />
 
@@ -1625,6 +1883,10 @@ Retourne une chaîne de la valeur encodée de l’URI.
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |Oui |string |Valeur encodée de l’URI à convertir en une chaîne. |
 
+### <a name="return-value"></a>Valeur de retour
+
+Chaîne décodée de la valeur encodée de l’URI.
+
 ### <a name="examples"></a>Exemples
 
 L’exemple suivant montre comment utiliser les paramètres uri, uriComponent et uriComponentToString :
@@ -1656,9 +1918,14 @@ L’exemple suivant montre comment utiliser les paramètres uri, uriComponent et
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Chaîne décodée de la valeur encodée de l’URI.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).

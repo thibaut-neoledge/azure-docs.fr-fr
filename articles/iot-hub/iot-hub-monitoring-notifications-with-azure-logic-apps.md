@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 2cdfbadfc4cc28afe34b4d558f40bba6451f7388
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: bf45f4c80c73ab47698a39e310324e34a3e21e67
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -43,7 +43,7 @@ Vous apprenez à créer une application logique qui connecte votre IoT Hub et vo
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-* Le didacticiel [Configurer votre appareil](iot-hub-raspberry-pi-kit-node-get-started.md) terminé, qui répond aux exigences suivantes :
+* Le didacticiel [Configurer votre appareil](iot-hub-raspberry-pi-kit-node-get-started.md) terminé, qui traite des exigences suivantes :
   * Un abonnement Azure actif.
   * Une instance Azure IoT Hub associée à votre abonnement.
   * Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
@@ -145,6 +145,7 @@ Vous apprenez à créer une application logique qui connecte votre IoT Hub et vo
    1. Sélectionnez la file d’attente que vous avez créée, puis entrez `175` pour **Nombre maximal de messages**
 
       ![Spécifier le nombre maximal de messages pour les connexions Service Bus dans votre application logique](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
+   1. Cliquez sur le bouton « Enregistrer » pour enregistrer les modifications.
 
 1. Créez une connexion de service SMTP.
    1. Choisissez **Nouvelle étape** > **Ajouter une action**.
@@ -176,3 +177,4 @@ L’application logique est en état de marche lorsque vous l’enregistrez.
 Vous avez créé avec succès une application logique qui connecte votre IoT Hub et votre boîte aux lettres pour la surveillance de la température et les notifications.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

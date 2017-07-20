@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2016
-ms.author: padmavc
+ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 4d68fde29e85fcf9aa623b4d798262bcd486a8bb
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: d1c61ba220b4334f053428a23e620e8004fc60f7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="track-b2b-messages-in-the-operations-management-suite-portal"></a>Suivi de messages B2B dans le portail Operations Management Suite
+
+![Symbole Logic Apps B2B](./media/logic-apps-track-b2b-messages-omsportal/logic-apps-b2b-symbol.png)
+
 La communication B2B implique des échanges de messages entre deux processus ou applications métier en cours d’exécution. Utilisez les fonctionnalités de suivi web suivantes dans le portail Operations Management Suite pour vérifier si les messages sont traités correctement :
 
 * Nombre et état des messages
@@ -56,7 +59,7 @@ La communication B2B implique des échanges de messages entre deux processus ou 
 6. Sélectionnez **Ajouter** pour ajouter des messages **Logic Apps B2B** à la page d’accueil.  
 ![Sélection de l’option Ajouter](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-7. La fonctionnalité **Messages Logic Apps B2B** s’affiche sur la page d’accueil.   
+7. **Messages Logic Apps B2B** s’affiche sur la page d’accueil.   
 ![Sélectionner la page d’accueil](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 ## <a name="track-data-in-the-operations-management-suite-portal"></a>Suivi des données dans le portail Operations Management Suite
@@ -67,9 +70,10 @@ La communication B2B implique des échanges de messages entre deux processus ou 
 2. Sélectionnez **Messages Logic Apps B2B** dans la page d’accueil pour afficher les états de message AS2 et X12.  Les données sont basées sur un seul jour.
 ![Sélection des messages Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-3. Sélectionnez un message AS2 ou X12 par état pour accéder à la liste des messages. La capture d’écran suivante affiche le statut du message AS2. Les descriptions des propriétés des messages AS2 et X12 s’affichent plus loin sous « Descriptions des propriétés de la liste des messages ».  
+3. Sélectionnez un message AS2, X12 ou EDIFACT par état pour accéder à la liste des messages. La capture d’écran suivante affiche le statut du message AS2. Les descriptions des propriétés des messages AS2 et X12 s’affichent plus loin sous « Descriptions des propriétés de la liste des messages ».  
 ![Sélectionner l’état de message AS2](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
-4. Sélectionnez une ligne dans la liste des messages AS2 ou X12 pour accéder à la recherche dans les journaux.  La recherche dans les journaux répertorie toutes les actions avec le même ID d’exécution.
+
+4. Sélectionnez une ligne dans la liste des messages AS2, X12 ou EDIFACT pour accéder à la recherche dans les journaux.  La recherche dans les journaux répertorie toutes les actions avec le même ID d’exécution.
 ![Sélectionner l’état du message](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
 ## <a name="message-list-property-descriptions"></a>Description des propriétés de la liste des messages
@@ -92,8 +96,8 @@ La communication B2B implique des échanges de messages entre deux processus ou 
 
 | Propriété | Description |
 | --- | --- |
-| Sender | Partenaire invité configuré dans les paramètres de réception ou partenaire hôte configuré dans les paramètres d’envoi pour un contrat AS2. |
-| Receiver | Partenaire hôte configuré dans les paramètres de réception ou partenaire invité configuré dans les paramètres d’envoi pour un contrat AS2. |
+| Sender | Partenaire invité configuré dans les paramètres de réception ou partenaire hôte configuré dans les paramètres d’envoi pour un contrat X12. |
+| Receiver | Partenaire hôte configuré dans les paramètres de réception ou partenaire invité configuré dans les paramètres d’envoi pour un contrat X12. |
 | Application logique | Application logique dans laquelle les actions AS2 sont configurées. |
 | État | État du message X12 <br>Success = a reçu ou envoyé un message X12 correct, aucun accusé de réception fonctionnel n’est configuré <br>Success = a reçu ou envoyé un message X12 correct, un accusé de réception fonctionnel est configuré et reçu ou un accusé de réception fonctionnel est envoyé <br>Failed = a reçu ou envoyé un message X12 incorrect <br>Pending = a reçu ou envoyé un message X12 correct, un accusé de réception fonctionnel est configuré et un accusé de réception fonctionnel est attendu. |
 | Ack | État de l’accusé de réception fonctionnel (997) <br>Accepted = a reçu ou envoyé un accusé de réception positif <br>Rejected = a reçu ou envoyé un accusé de réception négatif <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu <br>Pending = a généré un accusé de réception fonctionnel mais ne l’a pas envoyé au partenaire <br>Not Required = l’accusé de réception fonctionnel n’est pas configuré |
@@ -103,6 +107,24 @@ La communication B2B implique des échanges de messages entre deux processus ou 
 | ICN | Numéro de contrôle de l’échange du message X12. |
 | TSCN | Numéro de contrôle de document automatisé du message X12. |
 | Timestamp | Heure à laquelle l’action X12 traite le message. |
+
+
+#### <a name="edifact-message-list-property-descriptions"></a>Description des propriétés de la liste des messages EDIFACT
+
+| Propriété | Description |
+| --- | --- |
+| Sender | Partenaire invité configuré dans les paramètres de réception ou partenaire hôte configuré dans les paramètres d’envoi pour un contrat EDIFACT. |
+| Receiver | Partenaire hôte configuré dans les paramètres de réception ou partenaire invité configuré dans les paramètres d’envoi pour un contrat EDIFACT. |
+| Application logique | Application logique dans laquelle les actions AS2 sont configurées. |
+| État | État du message EDIFACT <br>Success = a reçu ou envoyé un message X12 correct, aucun accusé de réception fonctionnel n’est configuré <br>Success = a reçu ou envoyé un message X12 correct, un accusé de réception fonctionnel est configuré et reçu ou un accusé de réception fonctionnel est envoyé <br>Failed = a reçu ou envoyé un message X12 incorrect <br>Pending = a reçu ou envoyé un message X12 correct, un accusé de réception fonctionnel est configuré et un accusé de réception fonctionnel est attendu. |
+| Ack | État de l’accusé de réception fonctionnel (997) <br>Accepted = a reçu ou envoyé un accusé de réception positif <br>Rejected = a reçu ou envoyé un accusé de réception négatif <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu <br>Pending = a généré un accusé de réception fonctionnel mais ne l’a pas envoyé au partenaire <br>Not Required = l’accusé de réception fonctionnel n’est pas configuré |
+| Direction | Direction du message EDIFACT |
+| ID de corrélation : | ID pour mettre en corrélation l’ensemble des déclencheurs et des actions au sein d’une application logique. |
+| Type de message |  Type de message EDIFACT |
+| ICN | Numéro de contrôle de l’échange du message EDIFACT |
+| TSCN | Numéro de contrôle de document automatisé du message EDIFACT |
+| Timestamp | Heure à laquelle l’action EDIFACT traite le message |
+
 
 ## <a name="queries-in-the-operations-management-suite-portal"></a>Requêtes dans le portail Operations Management Suite
 

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/24/2017
+ms.date: 6/28/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f47fbe0e9c6cb4d09e6233f6d26211969a5c1f00
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 48e4ad774164b87d0cacb42f709e54af1d6f07b9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -175,6 +175,17 @@ Si vous avez copié une version non compressée de votre package d’application
 De même, si vous avez chargé une version compressée du package et que vous souhaitez utiliser un package non compressé, vous devez mettre à jour les versions pour éviter la non-concordance des sommes de contrôle.
 
 Le package est maintenant empaqueté correctement, validé et compressé (si nécessaire). Il est donc prêt pour le [déploiement](service-fabric-deploy-remove-applications.md) dans un ou plusieurs clusters Service Fabric.
+
+### <a name="compress-packages-when-deploying-using-visual-studio"></a>Compresser les packages lors du déploiement via Visual Studio
+Si vous le souhaitez, Visual Studio peut compresser des packages lors du déploiement, en ajoutant l’élément `CopyPackageParameters` à votre profil de publication, et définir l’attribut `CompressPackage` sur `true`.
+
+``` xml
+    <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
+        <ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com" />
+        <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
+        <CopyPackageParameters CompressPackage="true"/>
+    </PublishProfile>
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Déployer et supprimer des applications][10] décrit comment utiliser PowerShell pour gérer des instances d’application

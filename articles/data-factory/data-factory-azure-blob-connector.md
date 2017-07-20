@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 06/22/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 90c4cd42aa9dcef2cda4ec66e64393bf474b6a60
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: 7be5e5095b8aa6f2ae3d8c0b636883c4ff7ced63
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -223,16 +223,16 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
     5. Cliquez sur **Suivant**.
     ![Outil de copie - Choisir le fichier ou le dossier d’entrée](./media/data-factory-azure-blob-connector/chose-input-file-folder.png) 
 7. Dans la page **File format settings** (Paramètres de format de fichier), vous pouvez voir les délimiteurs et le schéma qui sont détectés automatiquement par l’Assistant en analysant le fichier. 
-    1. Vérifiez que le **format de fichier** est défini sur **Format du texte**. La liste déroulante contient tous les formats pris en charge. Exemple : JSON, Avro, ORC, Parquet. 
-    2. Vérifiez que le **séparateur de colonnes** est défini sur `Comma (,)`. Vous pouvez voir les autres séparateurs de colonnes pris en charge par Data Factory dans la liste déroulante. Vous pouvez également spécifier un séparateur personnalisé. 
-    3. Vérifiez que le **séparateur de lignes** est défini sur `Carriage Return + Line feed (\r\n)`. Vous pouvez voir les autres séparateurs de lignes pris en charge par Data Factory dans la liste déroulante. Vous pouvez également spécifier un séparateur personnalisé. 
-    4. Vérifiez que le **skip line count (nombre de lignes à ignorer)** est défini sur **0**. Entrez ici le nombre de lignes que vous souhaitez ignorer en haut du fichier. 
-    5. Vérifiez que l’option **the first data row contains column names (la première ligne de données contient des noms de colonne)** n’est pas définie. Si les fichiers sources contiennent des noms de colonne dans la première ligne, sélectionnez cette option. 
-    6. Vérifiez que l’option **treat empty column value as null (traiter une colonne vide comme la valeur Null)** est définie. 
-    7. Développez **Paramètres avancés** pour afficher les options avancées disponibles. 
-    8. En bas de la page, affichez **l’aperçu** des données du fichier emp.txt. 
-    9. Cliquez sur l’onglet **SCHÉMA** en bas de la page pour afficher le schéma déduit par l’Assistant Copie en examinant les données du fichier source. 
-    10. Une fois que vous avez vérifié les délimiteurs et afficher un aperçu des données, cliquez sur **Suivant**.
+    1. Vérifiez les options suivantes : a. L’option **Format de fichier** est définie sur **Format du texte**. La liste déroulante contient tous les formats pris en charge. Exemple : JSON, Avro, ORC, Parquet.
+        b. L’option **Séparateur de colonnes** est définie sur `Comma (,)`. Vous pouvez voir les autres séparateurs de colonnes pris en charge par Data Factory dans la liste déroulante. Vous pouvez également spécifier un séparateur personnalisé.
+        c. L’option **Séparateur de lignes** est définie sur `Carriage Return + Line feed (\r\n)`. Vous pouvez voir les autres séparateurs de lignes pris en charge par Data Factory dans la liste déroulante. Vous pouvez également spécifier un séparateur personnalisé.
+        d. L’option **Skip line count** (Nombre de lignes à ignorer) est définie sur **0**. Entrez ici le nombre de lignes que vous souhaitez ignorer en haut du fichier.
+        e.  L’option **First data row contains column names** (La première ligne de données contient des noms de colonne) n’est pas cochée. Si les fichiers sources contiennent des noms de colonne dans la première ligne, sélectionnez cette option.
+        f. L’option **Treat empty column value as null** (Traiter une colonne vide comme valeur Null) est cochée.
+    2. Développez **Paramètres avancés** pour afficher les options avancées disponibles.
+    3. En bas de la page, affichez **l’aperçu** des données du fichier emp.txt.
+    4. Cliquez sur l’onglet **SCHÉMA** en bas de la page pour afficher le schéma déduit par l’Assistant Copie en examinant les données du fichier source.
+    5. Une fois que vous avez vérifié les délimiteurs et afficher un aperçu des données, cliquez sur **Suivant**.
     ![Outil de copie - Paramètres de format de fichier](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)  
 8. Dans la **page de la banque de données de destination**, sélectionnez **Stockage Blob Azure**, puis cliquez sur **Suivant**. Vous utilisez le Stockage Blob Azure comme banques de données source et de destination dans cette procédure pas à pas.    
     ![Outil de copie - Sélectionner la banque de données de destination](media/data-factory-azure-blob-connector/select-destination-data-store.png)
@@ -243,13 +243,13 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
    4. Sélectionnez votre compte de stockage Azure. 
    5. Cliquez sur **Suivant**.     
 10. Dans la page **Choose the output file or folder** (Choisir le fichier ou le dossier de sortie) : 
-    1. spécifiez le **chemin d’accès du dossier** **adfblobconnector/output/{année}/{mois}/{jour}**. Entrez **TAB**. 
-    2. Pour **l’année**, sélectionnez **aaaa**. 
-    3. Pour le **mois**, vérifiez que le paramètre est défini sur **MM**. 
-    4. Pour le **jour**, vérifiez que le paramètre est défini sur **jj**. 
-    5. Vérifiez que l’option **Type de compression** est définie sur **Aucune**. 
-    6. Vérifiez que l’option **Copy behavior (Comportement de copie)** est définie sur **Merge files (Fusionner les fichiers)**. Si un fichier de sortie du même nom existe déjà, le nouveau contenu est ajouté à la fin du même fichier.  
-    7. Cliquez sur **Suivant**. 
+    6. spécifiez le **chemin d’accès du dossier** **adfblobconnector/output/{année}/{mois}/{jour}**. Entrez **TAB**.
+    7. Pour **l’année**, sélectionnez **aaaa**.
+    8. Pour le **mois**, vérifiez que le paramètre est défini sur **MM**.
+    9. Pour le **jour**, vérifiez que le paramètre est défini sur **jj**.
+    10. Vérifiez que l’option **Type de compression** est définie sur **Aucune**.
+    11. Vérifiez que l’option **Copy behavior (Comportement de copie)** est définie sur **Merge files (Fusionner les fichiers)**. Si un fichier de sortie du même nom existe déjà, le nouveau contenu est ajouté à la fin du même fichier.
+    12. Cliquez sur **Suivant**.
     ![Outil de copie - Choisir le fichier ou le dossier de sortie](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Dans la page **Paramètres de format de fichier**, passez en revue les paramètres, puis cliquez sur **Suivant**. L’une des options supplémentaires ici consiste à ajouter un en-tête au fichier de sortie. Si vous sélectionnez cette option, une ligne d’en-tête est ajoutée avec les noms des colonnes du schéma de la source. Vous pouvez renommer les noms de colonne par défaut lorsque vous affichez le schéma de la source. Par exemple, vous pouvez modifier les première et deuxième colonnes et les définir respectivement sur Prénom et Nom. Le fichier de sortie est alors généré avec un en-tête contenant ces noms comme noms de colonne. 
     ![Outil de copie - Paramètres de format de fichier pour la destination](media/data-factory-azure-blob-connector/file-format-destination.png)

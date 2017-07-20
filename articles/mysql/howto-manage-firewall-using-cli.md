@@ -1,22 +1,20 @@
 ---
 title: "Création et gestion des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure | Microsoft Docs"
-description: "Décrit comment créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure."
+description: "Cet article décrit comment créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de la ligne de commande Azure."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
+ms.devlang: azure-cli
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/13/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d7ff4ae8dbf9610b843c8b48d83b0f3c23ac72d5
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 9a03722e9f71be307bdbf0b846a4cbf7b34cd7ff
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 
@@ -52,37 +50,39 @@ Cette commande génère un code à utiliser lors de l’étape suivante.
 
 3. À l’invite, connectez-vous à l’aide de vos informations d’identification Azure.
 
-4. Une fois votre connexion autorisée, une liste des abonnements s’affiche dans la console.
+4. Une fois votre connexion autorisée, une liste des abonnements s’affiche dans la console. Copiez l’identifiant de l’abonnement souhaité pour définir l’abonnement actif à utiliser dorénavant.
+   ```azurecli-interactive
+   az account set --subscription {your subscription id}
+   ```
 
-Copiez l’identifiant de l’abonnement souhaité pour définir l’abonnement actif à utiliser dorénavant.
-```azurecli
-az account set --subscription {your subscription id}
-```
 5. Si vous ne connaissez pas le nom de votre abonnement et du groupe de ressources, affichez la liste des serveurs Azure Database for MySQL.
-```azurecli
-az mysql server list --resource-group myResourceGroup
-```
-Notez l’attribut de nom dans la liste ; il servira à spécifier le serveur MySQL sur lequel vous allez travailler. Si nécessaire, vérifiez les informations permettant d’utiliser l’attribut de nom sur ce serveur pour vérifier que le nom est correct :
-```azurecli
-az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
-```
+
+   ```azurecli-interactive
+   az mysql server list --resource-group myResourceGroup
+   ```
+
+   Notez l’attribut de nom dans la liste ; il servira à spécifier le serveur MySQL sur lequel vous allez travailler. Si nécessaire, vérifiez les informations permettant d’utiliser l’attribut de nom sur ce serveur pour vérifier que le nom est correct :
+
+   ```azurecli-interactive
+   az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
+   ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Répertorier les règles de pare-feu d’un serveur Azure Database pour MySQL 
 À l’aide du nom du serveur et du nom de groupe de ressources, répertoriez les règles de pare-feu existantes sur le serveur. Notez que l’attribut de nom de serveur est spécifié dans le commutateur **-server** et non pas dans le commutateur **--name**.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule list --resource-group myResourceGroup --server mysqlserver4demo
 ```
 Le cas échéant, une liste des règles s’affiche, au format JSON par défaut. Vous pouvez utiliser le commutateur **--output table** pour obtenir un format de tableau plus lisible.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule list --resource-group myResourceGroup --server mysqlserver4demo --output table
 ```
 ## <a name="create-firewall-rule-on-azure-database-for-mysql-server"></a>Création d’une règle de pare-feu d’un serveur Azure Database pour MySQL
 À l’aide du nom du serveur Azure pour MyQL et du nom du groupe de ressources, créez une nouvelle règle de pare-feu sur le serveur. Indiquez le nom de la règle ainsi que les adresses IP de début et de fin de la règle pour couvrir une plage d’adresses IP autorisant l’accès.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup  --server mysqlserver4demo --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
 Afin d’autoriser l’accès pour une adresse IP unique, fournissez les mêmes adresses IP de début et de fin, comme dans cet exemple.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup  
 --server mysql --name "Firewall Rule with a Single Address" --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
@@ -90,7 +90,7 @@ En cas de réussite, la commande affiche les détails de la règle de pare-feu q
 
 ## <a name="update-firewall-rule-on-azure-database-for-mysql-server"></a>Mise à jour d’une règle de pare-feu d’un serveur Azure Database pour MySQL 
 À l’aide du nom du serveur Azure pour MySQL et du nom du groupe de ressources, mettez à jour une règle de pare-feu existante sur le serveur. Indiquez le nom de la règle de pare-feu existante comme entrée puis les adresses IP de début et de fin à mettre à jour.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule update --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
 En cas de réussite, la commande affiche les détails de la règle de pare-feu que vous avez mise à jour, au format JSON par défaut. En cas d’échec, un message d’erreur apparaît.
@@ -100,14 +100,14 @@ En cas de réussite, la commande affiche les détails de la règle de pare-feu q
 
 ## <a name="show-firewall-rule-details-on-azure-database-for-mysql-server"></a>Affichage des détails d’une règle de pare-feu d’un serveur Azure Database pour MySQL
 À l’aide du nom du serveur Azure pour MySQL et du nom du groupe de ressources, affichez les détails d’une règle de pare-feu existante sur le serveur. Indiquez le nom de la règle de pare-feu existante comme entrée.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule show --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1"
 ```
 En cas de réussite, la commande affiche les détails de la règle de pare-feu que vous avez spécifiée, au format JSON par défaut. En cas d’échec, un message d’erreur apparaît.
 
 ## <a name="delete-firewall-rule-on-azure-database-for-mysql-server"></a>Suppression d’une règle de pare-feu d’un serveur Azure Database pour MySQL
 À l’aide du nom du serveur Azure pour MySQL et du nom du groupe de ressources, supprimez une règle de pare-feu existante du serveur. Indiquez le nom de la règle de pare-feu existante.
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule delete --resource-group myResourceGroup --server mysqlserver4demo --name "Firewall Rule 1"
 ```
 En cas de réussite, aucun résultat ne s’affiche. En cas d’échec, un message d’erreur apparaît.
@@ -115,3 +115,4 @@ En cas de réussite, aucun résultat ne s’affiche. En cas d’échec, un messa
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [règles de pare-feu du serveur Azure Database pour MySQL](./concepts-firewall-rules.md)
 - [Création et gestion des règles de pare-feu Azure Database pour MySQL à l’aide du portail Azure](./howto-manage-firewall-using-portal.md)
+

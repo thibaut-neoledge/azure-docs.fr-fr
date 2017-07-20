@@ -14,34 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 524b87d95d3060c780b296350797501847c80638
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: e3079b55036a514b31249e5930f40ab4346f437a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Déplacer des données depuis Amazon Redshift à l’aide d’Azure Data Factory
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données à partir de Amazon Redshift. L’article s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie. 
 
-Vous pouvez copier les données de Amazon Redshift dans tout magasin de données récepteur pris en charge. Pour obtenir la liste des magasins de données pris en charge en tant que récepteurs pour l’activité de copie, consultez le tableau [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Actuellement, Data Factory prend uniquement en charge le déplacement de données d’Amazon Redshift vers d’autres magasins de données, mais pas l’inverse.
+Vous pouvez copier les données de Amazon Redshift dans tout magasin de données récepteur pris en charge. Consultez les [magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des magasins de données pris en charge en tant que récepteurs par l’activité de copie. Actuellement, Data Factory prend en charge le déplacement de données d’Amazon Redshift vers d’autres magasins de données, mais pas l’inverse.
 
 ## <a name="prerequisites"></a>Composants requis
 * Si vous déplacez des données vers un magasin de données local, vous devez installer la [passerelle de gestion des données](data-factory-data-management-gateway.md) sur une machine locale. Donnez ensuite à la passerelle de gestion des données l’accès au cluster d’Amazon Redshift (en utilisant l’adresse IP de la machine). Pour davantage d’instructions, consultez la rubrique [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autoriser l’accès au cluster).
-* Si vous déplacez des données vers un magasin de données Azure, consultez la page [Plages IP des centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) pour connaître les plages d’adresses IP de calcul (y compris les plages SQL) utilisées par les centres de données Microsoft Azure.
+* Si vous déplacez des données vers un magasin de données Azure, consultez la page [Plages IP des centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) pour connaître les plages d’adresses IP de calcul et plages SQL utilisées par les centres de données Azure.
 
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’une source Amazon Redshift à l’aide de différents outils/API.
 
 Le moyen le plus simple de créer un pipeline consiste à utiliser l’**Assistant de copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Voir [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie. 
+Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie. 
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes : 
 
 1. Création de **services liés** pour lier les magasins de données d’entrée et de sortie à votre fabrique de données.
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
-3. Création d’un **pipeline** avec une activité de copie qui prend un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
+3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
 
 Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory utilisées pour copier des données d’un magasin de données Amazon Redshift, consultez la section [Exemple JSON : copier des données depuis un système Amazon Redshift vers Blob Azure](#json-example-copy-data-from-amazon-redshift-to-azure-blob) de cet article. 
 
@@ -59,10 +60,10 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | username |Nom d’utilisateur ayant accès à la base de données. |Oui |
 | password |Mot de passe du compte d’utilisateur. |Oui |
 
-## <a name="dataset-properties"></a>Propriétés de jeu de données
+## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
-La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **RelationalTable** (qui inclut le jeu de données Amazon Redshift) a les propriétés suivantes
+La section **typeProperties** est différente pour chaque type de jeu de données. Elle fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **RelationalTable** (qui inclut le jeu de données Amazon Redshift) a les propriétés suivantes
 
 | Propriété | Description | Requis |
 | --- | --- | --- |
@@ -71,9 +72,9 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d'entrée et de sortie et les différentes stratégies sont disponibles pour tous les types d'activités.
 
-En revanche, les propriétés disponibles dans la section **typeProperties** de l'activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
+En revanche, les propriétés disponibles dans la section **typeProperties** de l’activité varient pour chaque type d’activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
-Lorsque la source d’une activité de copie est de type **RelationalSource** (qui inclut Amazon Redshift), les propriétés suivantes sont disponibles dans la section typeProperties :
+Lorsque la source d’une activité de copie est de type **RelationalSource** (qui inclut Amazon Redshift), les propriétés suivantes sont disponibles dans la section typeProperties :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | --- | --- | --- | --- |
@@ -127,7 +128,7 @@ L’exemple copie toutes les heures les données de résultat d’une requête d
 ```
 **Jeu de données d’entrée Amazon Redshift :**
 
-La définition de **« external » : true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à Data Factory et non produit par une activité dans Data Factory. Définissez cette propriété sur true sur un jeu de données d’entrée qui n’est pas produit par une activité dans le pipeline.
+Le paramètre `"external": true` informe le service Data Factory que ce jeu de données est externe à la fabrique de données et non produit par une activité dans la fabrique de données. Définissez cette propriété sur true sur un jeu de données d’entrée qui n’est pas produit par une activité dans le pipeline.
 
 ```json
 {
@@ -262,7 +263,7 @@ Comme mentionné dans l’article consacré aux [activités de déplacement des 
 1. Conversion de types natifs source en types .NET
 2. Conversion de types .NET en types récepteur natifs
 
-Lors du déplacement de données vers Amazon Redshift, les mappages suivants seront utilisés pour passer des types Amazon Redshift aux types .NET.
+Lors du déplacement de données vers Amazon Redshift, les mappages suivants sont utilisés pour passer des types Amazon Redshift aux types .NET.
 
 | Type Amazon Redshift | Type basé sur .NET |
 | --- | --- |

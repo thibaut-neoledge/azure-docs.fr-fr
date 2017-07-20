@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 12/29/2016
+ms.date: 06/01/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e542ea6431933668d96f7028431826bceb9f337
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 2ec31c5444f72c7255d8925bdb3ea85854cfaf1a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -58,7 +59,7 @@ Voici les considérations et les étapes pour l’intégration aux instances Azu
     Configurez un certificat pour sécuriser la connexion entre le nœud principal et Azure. Pour connaître les options et les procédures, consultez [Scénarios pour configurer le certificat de gestion Azure pour HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). Pour les déploiements de test, HPC Pack installe un certificat Microsoft HPC Azure Management par défaut que vous pouvez télécharger rapidement dans votre abonnement Azure.
 3. **Créer un nouveau service cloud et un compte de stockage**
    
-    Utilisez le portail Azure Classic pour créer un service cloud et un compte de stockage pour le déploiement dans une région où les instances compatibles RDMA sont disponibles.
+    Utilisez le portail Azure pour créer un service cloud et un compte de stockage pour le déploiement dans une région où les instances compatibles RDMA sont disponibles.
 4. **Créer un modèle de nœud Azure**
    
     Utilisez l’Assistant Créer un modèle de nœud dans HPC Cluster Manager. Pour les étapes, consultez [Créer un modèle de nœud Azure](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) dans « Étapes à suivre pour déployer des nœuds Azure avec Microsoft HPC Pack ».

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Premium Storage : conception sous le signe de la haute performance | Microsoft Docs'
-description: "Concevoir des applications hautes performances avec Azure Premium Storage. Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d&quot;E/S exécutées sur les machines virtuelles Azure."
+description: "Concevoir des applications hautes performances avec Azure Premium Storage. Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d'E/S exécutées sur les machines virtuelles Azure."
 services: storage
 documentationcenter: na
 author: aungoo-msft
@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 06/27/2017
 ms.author: aungoo
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 0efa2fdb2b78086e89e77429f8fac813ae1cf1a4
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 7bd38be9f8e1160ebf0d7c5ed51fd31d89481881
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -47,12 +48,12 @@ Dans cette section, nous allons aborder les indicateurs de performances courants
 ## <a name="iops"></a>E/S par seconde
 Le nombre d’E/S par seconde représente le nombre de demandes que votre application envoie aux disques de stockage en une seconde. Une opération d’entrée/sortie peut être accessible en lecture ou écriture, et être séquentielle ou aléatoire. Les applications OLTP (un site web de vente en ligne, par exemple) doivent traiter immédiatement de nombreuses requêtes d’utilisateurs simultanées. Les requêtes utilisateurs représentent des transactions d’insertion et de mise à jour qui pèsent lourdement sur la base de données, et que l’application doit traiter rapidement. Les applications OLTP requièrent dont un nombre d’E/S par seconde très élevé. Ces applications gèrent des millions de demandes d’E/S petites et aléatoires. Si vous possédez une telle application, vous devez concevoir votre infrastructure applicative de manière à optimiser les E/S. Dans la section *Optimisation des performances applicatives*, nous aborderons en détail tous les facteurs que vous devez prendre en compte pour obtenir un nombre d’E/S par seconde élevé.
 
-Lorsque vous attachez un disque de stockage Premium à votre machine virtuelle à grande échelle, Azure met à disposition un nombre garanti d’E/S par seconde, conformément à la spécification de disque. Par exemple, un disque P30 configure 5 000 E/S par seconde. Chaque taille de machine virtuelle à grande échelle est également associée à une limite spécifique d’E/S par seconde qu’elle peut prendre en charge. Par exemple, une machine virtuelle GS5 Standard a une limite de 80 000 E/S par seconde.
+Lorsque vous attachez un disque de stockage Premium à votre machine virtuelle à grande échelle, Azure met à disposition un nombre garanti d’E/S par seconde, conformément à la spécification de disque. Par exemple, un disque P50 configure 7500 E/S par seconde. Chaque taille de machine virtuelle à grande échelle est également associée à une limite spécifique d’E/S par seconde qu’elle peut prendre en charge. Par exemple, une machine virtuelle GS5 Standard a une limite de 80 000 E/S par seconde.
 
 ## <a name="throughput"></a>Débit
 Le débit ou la bande passante est la quantité de données que votre application envoie aux disques de stockage dans un intervalle spécifié. Si votre application effectue des opérations d’entrée/sortie avec des tailles d’unité d’E/S importantes, elle aura besoin d’un débit élevé. Les applications d’entrepôt de données ont tendance à émettre des opérations d’analyse intensives qui accèdent simultanément à de grandes quantités de données et exécutent généralement des opérations en bloc. En d’autres termes, ces applications nécessitent un débit plus élevé. Si vous possédez une telle application, vous devez concevoir votre infrastructure de manière à en optimiser le débit. Dans la section suivante, nous décrirons en détail les facteurs que vous devrez ajuster pour y parvenir.
 
-Lorsque vous attachez un disque de stockage premium à une machine virtuelle à grande échelle, Azure met à disposition un débit conforme à la spécification de ce disque. Par exemple, un disque P30 configure un débit de disque de 200 Mo par seconde. Chaque taille de machine virtuelle à grande échelle est également associée à une limite spécifique de débit qu’elle peut prendre en charge. Par exemple, une machine virtuelle GS5 Standard a un débit maximal de 2 000 Mo par seconde.
+Lorsque vous attachez un disque de stockage premium à une machine virtuelle à grande échelle, Azure met à disposition un débit conforme à la spécification de ce disque. Par exemple, un disque P50 configure un débit de disque de 250 Mo par seconde. Chaque taille de machine virtuelle à grande échelle est également associée à une limite spécifique de débit qu’elle peut prendre en charge. Par exemple, une machine virtuelle GS5 Standard a un débit maximal de 2 000 Mo par seconde. 
 
 La formule ci-dessous illustre la relation entre le débit et le nombre d’E/S par seconde.
 
@@ -216,20 +217,21 @@ Avec Azure Premium Storage, vous obtenez le même niveau de performances pour le
 Lorsque vous exécutez Linux avec Premium Storage, vérifiez les dernières mises à jour sur les pilotes requis pour garantir de meilleures performances.
 
 ## <a name="premium-storage-disk-sizes"></a>Tailles de disques Premium Storage
-Azure Premium Storage offre actuellement trois tailles de disque. Chaque taille de disque a une limite de mise à l’échelle bien spécifique pour le nombre d’E/S par seconde, la bande passante et le stockage. Choisissez la taille de disque Premium Storage adaptée aux exigences de l’application et à la taille de machine virtuelle à grande échelle. Le tableau ci-dessous répertorie les trois tailles de disque et leurs fonctionnalités.
+Azure Premium Storage offre actuellement sept tailles de disque. Chaque taille de disque a une limite de mise à l’échelle bien spécifique pour le nombre d’E/S par seconde, la bande passante et le stockage. Choisissez la taille de disque Premium Storage adaptée aux exigences de l’application et à la taille de machine virtuelle à grande échelle. Le tableau ci-dessous répertorie les sept tailles de disque et leurs fonctionnalités. Les tailles de disque P4 et P6 ne sont actuellement prises en charge que par Managed Disks.
 
-| **Type de disque** | **P10** | **P20** | **P30** |
-| --- | --- | --- | --- |
-| Taille du disque |128 Go |512 Go |1024 Go (1 To) |
-| IOPS par disque |500 |2 300 |5 000 |
-| Débit par disque |100 Mo par seconde |150 Mo par seconde |200 Mo par seconde |
+| Type de disque Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| Taille du disque           | 32 Go | 64 Go | 128 Go| 512 Go            | 1024 Go (1 To)    | 2 048 Go (2 To)    | 4 095 Go (4 To)    | 
+| IOPS par disque       | 120   | 240   | 500   | 2 300              | 5 000              | 7500              | 7500              | 
+| Débit par disque | 25 Mo par seconde  | 50 Mo par seconde  | 100 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde | 
 
-Le nombre de disques que vous choisissez dépend de la taille de disque choisie. Vous pouvez utiliser un seul disque P30 ou plusieurs disques P10 pour répondre aux besoins de votre application. Tenez compte des remarques ci-dessous pour faire votre choix.
+
+Le nombre de disques que vous choisissez dépend de la taille de disque choisie. Vous pouvez utiliser un seul disque P50 ou plusieurs disques P10 pour répondre aux besoins de votre application. Tenez compte des remarques ci-dessous pour faire votre choix.
 
 *Limites de mise à l’échelle (E/S par seconde et débit)*  
 Les limites d’E/S par seconde et de débit de chaque taille de disque Premium sont différentes et indépendantes des limites de mise à l’échelle de la machine virtuelle. Assurez-vous que le nombre total d’E/S par seconde et le débit total des disques respectent bien les limites de mise à l’échelle de la taille de machine virtuelle choisie.
 
-Imaginez par exemple que votre application requiert un débit maximum de 250 Mo/s et que vous utilisez une machine virtuelle DS4 avec un seul disque P30. La machine virtuelle DS4 peut délivrer un débit maximum de 256 Mo/s. Toutefois, un seul disque P30 a une limite de débit de 200 Mo/s. Par conséquent, l’application sera contrainte à 200 Mo/s en raison de la limite de disque. Pour contourner cette limite, configurez plusieurs disques de données sur la machine virtuelle.
+Imaginez par exemple que votre application requiert un débit maximum de 250 Mo/s et que vous utilisez une machine virtuelle DS4 avec un seul disque P30. La machine virtuelle DS4 peut délivrer un débit maximum de 256 Mo/s. Toutefois, un seul disque P30 a une limite de débit de 200 Mo/s. Par conséquent, l’application sera contrainte à 200 Mo/s en raison de la limite de disque. Pour contourner cette limite, configurez plusieurs disques de données sur la machine virtuelle ou redimensionnez vos disques (de P40 à P50).
 
 > [!NOTE]
 > Les lectures traitées par le cache n’étant pas incluses dans les E/S et le débit de disque, elles ne sont pas soumises aux limites de disque. Le cache possède sa propre limite de débit et d’E/S pour chaque machine virtuelle.

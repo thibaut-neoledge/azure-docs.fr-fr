@@ -16,17 +16,17 @@ ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cd3b13b9988f51fd3755ced48714fdc18cf1ea3c
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 5f501bdb0a3c478a436d729dfe045ad8e39bd3bb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
 
 # <a name="how-to-partition-and-scale-in-azure-cosmos-db"></a>Guide de partitionnement et de mise à l’échelle dans Azure Cosmos DB
 
-[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) est un service de base de données multi-modèle, distribué globalement conçu pour vous aider à obtenir des performances rapides et prévisibles, et à monter en charge en toute transparence parallèlement à l’évolution de votre application. Cet article fournit une vue d’ensemble du fonctionnement du partitionnement pour tous les modèles de données dans Azure Cosmos DB et décrit comment vous pouvez configurer les conteneurs Azure Cosmos DB pour mettre à l’échelle vos applications efficacement.
+[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) est un service de base de données multi-modèle, distribué globalement conçu pour vous aider à obtenir des performances rapides et prévisibles, et à monter en charge en toute transparence parallèlement à l’évolution de votre application. Cet article fournit une vue d’ensemble du fonctionnement du partitionnement pour tous les modèles de données dans Azure Cosmos DB et décrit comment vous pouvez configurer les conteneurs Azure Cosmos DB pour mettre à l’échelle vos applications efficacement.
 
 Le partitionnement et les clés de partition sont également abordés dans cette vidéo Azure Friday avec Scott Hanselman et Shireesh Thota, responsable principal de l’ingénierie Azure Cosmos DB.
 
@@ -104,7 +104,7 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
 ```
 
 ### <a name="mongodb-api"></a>API MongoDB
-Avec l’API MongoDB, vous pouvez créer une collection partitionnée MongoDB consiste à utiliser l’outil, le pilote ou le SDK de votre choix. Dans cet exemple, nous utilisons l’interpréteur de commandes Mongo pour la création de la collection.
+Avec l’API MongoDB, vous pouvez créer une collection partitionnée MongoDB via l’outil, le pilote ou le SDK de votre choix. Dans cet exemple, nous utilisons l’interpréteur de commandes Mongo pour la création de la collection.
 
 Dans l’interpréteur de commandes Mongo :
 

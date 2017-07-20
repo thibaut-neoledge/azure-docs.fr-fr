@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: 5578dea457f3eeda72e3a1e4e61382cdf0de285d
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 091f0884417535427c52beee7bcdc5ed1dd83315
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -26,9 +27,9 @@ Cet article présente les différentes opérations Site Recovery qui peuvent êt
 
 ## <a name="prerequisites"></a>Composants requis
 
-**Prise en charge du serveur VMware vCenter et de l’hôte VMware vSphere ESX** | **Détails**
---- | ---
-**Serveurs VMware locaux** | Un ou plusieurs serveurs VMware vSphere exécutant la version 6.0, 5.5, 5.1 avec les dernières mises à jour. Les serveurs doivent se trouver dans le même réseau que le serveur de configuration (ou un serveur de processus distinct).<br/><br/> Nous recommandons un serveur vCenter pour gérer les hôtes vSphere exécutant la version 6.0 ou 5.5 avec les dernières mises à jour. Seules les fonctionnalités disponibles dans la version 5.5 sont prises en charge lorsque du déploiement de la version 6.0.
+**Prise en charge du serveur VMware vCenter et de l’hôte VMware vSphere ESX** | **Détails** |
+|--- | --- |
+|**Serveurs VMware locaux** | Un ou plusieurs serveurs VMware vSphere exécutant la version 6.0, 5.5, 5.1 avec les dernières mises à jour. Les serveurs doivent se trouver dans le même réseau que le serveur de configuration (ou un serveur de processus distinct).<br/><br/> Nous recommandons un serveur vCenter pour gérer les hôtes vSphere exécutant la version 6.0 ou 5.5 avec les dernières mises à jour. Seules les fonctionnalités disponibles dans la version 5.5 sont prises en charge lorsque du déploiement de la version 6.0.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Préparer un compte pour la découverte automatique
 Site Recovery a besoin d’accéder à VMware pour que le serveur de processus découvre automatiquement des machines virtuelles ainsi que pour le basculement et la restauration automatique des machines virtuelles.

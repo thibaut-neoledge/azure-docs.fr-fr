@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
-ms.openlocfilehash: 89bec0e3af42b03ef21e3e8c4059f6aad86db4c0
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: d309f6c4749a80c81859b693a2bd5927e8fe0e54
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -48,6 +49,6 @@ Pour plus d’informations sur les modèles d’applications web, consultez [Uti
 
 Vous pouvez également développer une application personnalisée pour accéder au service web à l'aide du code de démarrage fourni dans R, C# et les langages de programmation Python.
 
-Vous trouverez des détails complets dans [Utilisation d’un service web Microsoft Azure Machine Learning publié à partir d’une expérience Machine Learning](machine-learning-consume-web-services.md).
+Vous trouverez des détails complets dans [Utilisation d’un service web Azure Machine Learning](machine-learning-consume-web-services.md).
 
 

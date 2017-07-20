@@ -4,7 +4,7 @@ description: "Configurez Intel NUC comme passerelle IoT entre un capteur et Azur
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: yjianfeng
+manager: timlt
 tags: 
 keywords: passerelle iot, intel nuc, ordinateur nuc, DE3815TYKE
 ms.assetid: 917090d6-35c2-495b-a620-ca6f9c02b317
@@ -16,11 +16,10 @@ ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 475664845a9922c5225ea1fd8e008bcb5582bd67
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: b9e842a93dfdb7699158a11978aa622c31382d28
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/26/2017
 
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Configurer l’Intel NUC comme passerelle IoT
@@ -105,6 +104,12 @@ Pour installer le package, procédez comme suit.
    ```
 
    > Entrez « o » quand il vous est demandé si vous voulez « inclure ce canal ? »
+   
+   Si vous recevez une erreur `import read failed(-1)`, utilisez les commandes suivantes pour résoudre le problème :
+   ```bash
+   wget http://iotdk.intel.com/misc/iot_pub2.key 
+   rpm --import iot_pub2.key  
+   ```
 
    La commande `rpm` importe la clé rpm. La commande `smart channel` ajoute le canal rpm au gestionnaire de package intelligent (Smart Package Manager). Avant d’exécuter la commande `smart update`, vous verrez une sortie similaire à celle ci-dessous.
 

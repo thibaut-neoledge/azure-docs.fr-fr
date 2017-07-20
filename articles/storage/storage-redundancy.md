@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 6a5ba89d8b17e0646cd8a6185da6d1094fd64d12
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: 0237d10ccd9424da0ec10bc2773b978ffc11a294
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/23/2017
 
 ---
 # <a name="azure-storage-replication"></a>Réplication Azure Storage
@@ -111,7 +111,9 @@ Lorsque vous créez un compte de stockage, vous sélectionnez la région primair
 | Inde-Centre |Sud de l'Inde |
 | Inde-Ouest |Sud de l'Inde |
 | Gouvernement américain - Iowa |Gouvernement américain - Virginie |
-| Gouvernement américain - Virginie |Gouvernement américain - Iowa |
+| Gouvernement américain - Virginie |Gouvernement des États-Unis – Texas |
+| Gouvernement des États-Unis – Texas |Gouvernement des États-Unis – Arizona |
+| Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
 | Centre du Canada |Est du Canada |
 | Est du Canada |Centre du Canada |
 | Ouest du Royaume-Uni |Sud du Royaume-Uni |
@@ -122,6 +124,11 @@ Lorsque vous créez un compte de stockage, vous sélectionnez la région primair
 | Centre-Ouest des États-Unis |Ouest des États-Unis 2 |
 
 Pour obtenir des informations à jour sur les régions prises en charge par Azure, voir [Régions Azure](https://azure.microsoft.com/regions/).
+
+>[!NOTE]  
+> La région secondaire du Gouvernement des États-Unis - Virginie est le Gouvernement des États-Unis - Texas. Auparavant, il s’agissait du Gouvernement des États-Unis - Iowa. Les comptes de stockage utilisant toujours la région secondaire Gouvernement des États-Unis - Iowa sont en cours de migration vers la région secondaire Gouvernement des États-Unis - Texas. 
+> 
+> 
 
 ## <a name="read-access-geo-redundant-storage"></a>Stockage géo-redondant avec accès en lecture
 Le stockage géo-redondant avec accès en lecture (RA-GRS) optimise la disponibilité de votre compte de stockage, en fournissant un accès en lecture seule aux données dans l’emplacement secondaire, en plus de la réplication entre les deux régions offerte par GRS.
@@ -135,6 +142,49 @@ Considérations :
 * Si Microsoft initie un basculement vers la région secondaire, vous obtiendrez un accès en lecture et écriture à ces données une fois le basculement effectué. Pour plus d’informations, consultez [Conseils sur la récupération d’urgence](storage-disaster-recovery-guidance.md). 
 * Le stockage RA-GRS est destiné à des fins de haute disponibilité. Pour obtenir des conseils sur l’évolutivité, veuillez consulter la [liste de vérification de performances](storage-performance-checklist.md).
 
+## <a name="frequently-asked-questions"></a>Forum Aux Questions
+
+<a id="howtochange"></a>
+#### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. Comment modifier le type de géoréplication de mon compte de stockage ?
+
+   Pour modifier le type de géoréplication de votre compte de stockage entre LRS, GRS et RA-GRS, vous pouvez utiliser le [portail Azure](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md) ou encore utiliser par programme l’une de nos nombreuses bibliothèques clientes de stockage. Notez que les comptes de stockage ZRS ne peuvent pas être convertis en comptes de stockage LRS ni GRS. De même, un compte LRS ou GRS ne peut pas être converti en un compte ZRS.
+
+<a id="changedowntime"></a>
+#### <a name="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account"></a>2. Si je modifie le type de réplication de mon compte de stockage, le système connaît-il un temps d’arrêt ?
+
+   Non, il n’y a pas de temps d’arrêt.
+
+<a id="changecost"></a>
+#### <a name="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account"></a>3. Si je modifie le type de réplication de mon compte de stockage, des coûts supplémentaires sont-ils ajoutés ?
+
+   Oui. Si vous remplacez votre compte de stockage LRS par un compte GRS (ou RA-GRS), cette opération induit des frais supplémentaires pour la sortie impliquée par la copie des données existantes de l’emplacement principal vers l’emplacement secondaire. Une fois les données initiales copiées, il n’existe aucuns frais d’entrée supplémentaires pour la géoréplication des données de l’emplacement principal vers l’emplacement secondaire. Vous trouverez les détails sur les frais liés à la bande passante dans la [page de tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Si vous remplacez un compte de stockage GRS par un compte LRS, il n’existe aucun coût supplémentaire, mais vos données sont supprimées de l’emplacement secondaire.
+
+<a id="ragrsbenefits"></a>
+#### <a name="4-how-can-ra-grs-help-me"></a>4. En quoi un stockage RA-GRS peut-il m’aider ?
+   
+   Le stockage GRS assure la réplication de vos données d’une région primaire vers une région secondaire distante de centaines de kilomètres de la région primaire. Dans une telle situation, vos données restent durables, même en cas de panne régionale totale ou d’incident empêchant la récupération de la région primaire. Le stockage RA-GRS dispose de cette fonctionnalité, et permet par ailleurs de lire les données de l’emplacement secondaire. Pour obtenir quelques idées sur la façon de tirer parti de cette capacité, voir [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md). 
+
+<a id="lastsynctime"></a>
+#### <a name="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. Existe-t-il un moyen me permettant de déterminer la durée de la réplication de mes données de la région primaire vers la région secondaire ?
+   
+   Si vous utilisez un stockage RA-GRS, vous pouvez vérifier l’heure de la dernière synchronisation de votre compte de stockage. Il s’agit d’une valeur de date/heure (GMT) ; toutes les écritures principales effectuées avant l’heure de la dernière synchronisation sont correctement écrites à l’emplacement secondaire, ce qui signifie qu’elles peuvent être lues à partir de l’emplacement secondaire. Les écritures principales effectuées après l’heure de la dernière synchronisation peuvent ou non être encore disponibles pour les lectures. Vous pouvez interroger cette valeur à l’aide du [portail Azure](https://portal.azure.com/), [d’Azure PowerShell](storage-powershell-guide-full.md) ou encore par programme à l’aide de l’API REST ou de l’une des bibliothèques clientes de stockage. 
+
+<a id="outage"></a>
+#### <a name="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region"></a>6. Comment basculer vers la région secondaire en cas de panne dans la région primaire ?
+   
+   Pour plus d’informations, reportez-vous à l’article [Que faire en cas de panne du stockage Azure](storage-disaster-recovery-guidance.md).
+
+<a id="rpo-rto"></a>
+#### <a name="7-what-is-the-rpo-and-rto-with-grs"></a>7. Que sont l’objectif de point de récupération (RPO) et l’objectif de délai de récupération (RTO) avec GRS ?
+   
+   Objectif de point de récupération (RPO, Recovery Point Objective) : dans les stockages GRS et RA-GRS, le service de stockage effectue de façon asynchrone la géoréplication des données de l’emplacement principal vers l’emplacement secondaire. S’il se produit un incident régional majeur et qu’un basculement doit être effectué, les dernières modifications delta n’ayant pas été géorépliquées risquent d’être perdues. Le nombre de minutes de perte de données potentielle correspond au point RPO (en d’autres termes, il s’agit du point dans le temps auquel les données peuvent être récupérées). En général, notre point RPO est inférieur à 15 minutes, même s’il n’existe actuellement aucun contrat de niveau de service sur la durée de la géoréplication.
+
+   Objectif de délai de récupération (RTO, Recovery Time Objective) : il s’agit d’une mesure de la durée qui nous est nécessaire pour effectuer le basculement et replacer le compte de stockage en ligne si nous devons procéder à un basculement. Le temps nécessaire à l’exécution du basculement inclut les éléments suivants :
+    * temps qui nous est nécessaire pour examiner et déterminer si nous pouvons récupérer les données à l’emplacement principal ou si nous devons effectuer un basculement ;
+    * Basculement du compte en modifiant les entrées DNS principales pour pointer vers l’emplacement secondaire.
+
+   Nous prenons très au sérieux la responsabilité de conserver vos données. S’il existe la moindre chance de les récupérer, nous repousserons donc le basculement pour nous concentrer sur la récupération des données de l’emplacement principal. À l’avenir, nous envisageons de fournir une API vous permettant de déclencher un basculement au niveau du compte, ce qui vous permettrait de contrôler le point RTO vous-même. Cette fonctionnalité n’est pas encore disponible.
+   
 ## <a name="next-steps"></a>Étapes suivantes
 * [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 * [Tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/)

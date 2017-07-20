@@ -1,23 +1,24 @@
 ---
 title: "Création de plans de récupération pour le basculement et la récupération dans Azure Site Recovery | Microsoft Docs"
-description: "Explique comment créer et personnaliser des plans de récupération en vue de basculer et récupérer des machines virtuelles et des serveurs physiques dans Azure Site Recovery"
+description: "Décrit comment créer et personnaliser des plans de récupération dans Azure Site Recovery en vue de basculer et récupérer des machines virtuelles et des serveurs physiques"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
-ms.service: site-recovery
+ms.service: storage-backup-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/14/2017
+ms.date: 05/24/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 9ab51cb8e11df43ba2157b11e25a1f29b19e4da9
-ms.openlocfilehash: e36f19e9c429c0e4b42e96b28b1ba995bd1bf167
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 618c6fead3dbad385c4ded39352eea0cfcf1b134
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -28,11 +29,11 @@ Cet article fournit des informations sur la création et la personnalisation des
 
 Publiez des commentaires ou des questions au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
- Les plans de récupération exécutent les actions suivantes :
+ Créez des plans de récupération. Ceux-ci effectuent les opérations suivantes :
 
 * Ils définissent les groupes de machines qui basculent ensemble, puis démarrent ensemble.
 * Ils modélisent les dépendances entre les machines, en les rassemblant au sein d’un groupe de plan de récupération. Par exemple, pour basculer et afficher une application spécifique, vous devez regrouper toutes les machines virtuelles pour cette application dans un même groupe de plan de récupération.
-* Basculez. Vous pouvez exécuter un basculement test, planifié ou non planifié sur un plan de récupération.
+* Exécuter un basculement. Vous pouvez exécuter un basculement test, planifié ou non planifié sur un plan de récupération.
 
 
 ## <a name="create-a-recovery-plan"></a>Créer un plan de récupération
@@ -71,12 +72,12 @@ Vous pouvez utiliser des scripts PowerShell dans vos plans de récupération.
 Si vous utilisez VMM dans votre déploiement :
 
 * Les scripts d’un plan de récupération s’exécutent dans le contexte d’un compte de service VMM. Assurez-vous que ce compte dispose des autorisations en lecture pour le partage distant sur lequel se trouve le script. Testez l’exécution du script au niveau de privilège du compte de service VMM.
-* Les applets de commande VMM sont fournies dans un module Windows PowerShell. Le module est installé lors du montage de la console VMM. Il peut être chargé dans votre script à l’aide de la commande de script suivante : 
+* Les applets de commande VMM sont fournies dans un module Windows PowerShell. Le module est installé lors du montage de la console VMM. Il peut être chargé dans votre script à l’aide de la commande de script suivante :
    - Import-Module -Name virtualmachinemanager. [Plus d’informations](https://technet.microsoft.com/library/hh875013.aspx)
 * Vérifiez que vous disposez d’au moins un serveur de bibliothèque au sein de votre déploiement VMM. Par défaut, le chemin d’accès de partage de bibliothèque d’un serveur VMM est disponible localement sur le serveur VMM, sous le nom de dossier MSCVMMLibrary.
     * Si votre chemin d’accès de partage de bibliothèque est distant (ou local mais non partagé avec MSCVMMLibrary), configurez le partage comme suit (en utilisant \\libserver2.contoso.com\share\ comme exemple) :
       * Ouvrez l’Éditeur du Registre, puis accédez à **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Remplacez la valeur de **ScriptLibraryPath** par \\libserver2.contoso.com\share\. Spécifiez le nom de domaine complet. Fournissez des autorisations d’accès à l’emplacement de partage.
+      * Modifiez la valeur de **ScriptLibraryPath** et placez-la comme \\libserver2.contoso.com\share\. Spécifiez le nom de domaine complet. Fournissez des autorisations d’accès à l’emplacement de partage.
       * Veillez à tester le script avec un compte d’utilisateur qui dispose des mêmes autorisations que le compte de service VMM. Cela permet de vérifier que les scripts testés autonomes s’exécuteront de la même manière dans les plans de récupération. Sur le serveur VMM, définissez le mode de contournement suivant de la stratégie d’exécution :
         * Ouvrez la console Windows PowerShell 64 bits à l’aide des privilèges élevés.
         * Entrez : **Set-executionpolicy bypass**. [Plus d’informations](https://technet.microsoft.com/library/ee176961.aspx)
@@ -93,7 +94,7 @@ Vous pouvez ajouter un script au groupe de plan de récupération par défaut ap
 6. Exécutez un basculement du plan de récupération, afin de vous assurer du bon fonctionnement du script.
 
 
-### <a name="vmm-script"></a>Script VMM
+### <a name="add-a-vmm-script"></a>Ajouter un script VMM
 
 Si vous possédez un site source VMM, libre à vous de créer un script sur le serveur VMM, et de l’inclure dans votre plan de récupération.
 

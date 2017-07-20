@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 037045c4e76d0fb8e96944fe8a3235223594a034
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 3b2ddf764f54d2e7f23b02b5b593077938ac9355
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -32,7 +33,7 @@ Azure Application Gateway est un contrôleur de remise d’application proposé 
 
 **Q. Quelles sont les fonctionnalités prises en charge par Application Gateway ?**
 
-Application Gateway prend en charge le déchargement SSL et SSL de bout en bout, le pare-feu d’application web (version préliminaire), l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL, l’hébergement de plusieurs sites, et bien plus encore. Pour obtenir une liste complète des fonctionnalités prises en charge, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
+Application Gateway prend en charge le déchargement SSL et SSL de bout en bout, le pare-feu d’application web, l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL, l’hébergement de plusieurs sites, et bien plus encore. Pour obtenir une liste complète des fonctionnalités prises en charge, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
 
 **Q. Quelle est la différence entre Application Gateway et Azure Load Balancer ?**
 
@@ -78,6 +79,10 @@ Une seule adresse IP publique est prise en charge sur Application Gateway.
 
 Oui, Application Gateway insère les en-têtes x-forwarded-for, x-forwarded-proto et x-forwarded-port dans la demande transmise au serveur principal. Le format d’en-tête x-forwarded-for est une liste séparée par des virgules d’éléments IP:Port. Les valeurs valides pour x-forwarded-proto sont http ou https. X-forwarded-port spécifie le port atteint par la demande au niveau d’Application Gateway.
 
+**Q. Combien de temps faut-il pour déployer une Application Gateway ? Mon Application Gateway continue-t-elle de fonctionner après une mise à jour  ?**
+
+L’approvisionnement de nouveaux déploiements d’Application Gateway peut prendre jusqu’à 20 minutes. Les modifications apportées à la taille et au nombre des instances n’entraînent pas d’interruption, et la passerelle reste active pendant ce temps.
+
 ## <a name="configuration"></a>Configuration
 
 **Q. Application Gateway est-il toujours déployé dans un réseau virtuel ?**
@@ -94,7 +99,13 @@ Non, mais vous pouvez déployer d’autres passerelles d’application dans le s
 
 **Q. Les groupes de sécurité réseau sont-ils pris en charge sur le sous-réseau d’Application Gateway ?**
 
-Les groupes de sécurité réseau sont pris en charge sur le sous-réseau d’Application Gateway, mais les exceptions doivent être insérées dans les ports 65503-65534 afin que l’intégrité du serveur principal soit correcte. La connectivité Internet sortante ne doit pas être bloquée.
+Les groupes de sécurité réseau sont pris en charge sur le sous-réseau d’Application Gateway avec les restrictions suivantes :
+
+* Des exceptions doivent être imposées au trafic entrant sur les ports 65503-65 534 pour que l’intégrité principale opère correctement.
+
+* La connectivité Internet sortante ne doit pas être bloquée.
+
+* Le trafic en provenance de la balise AzureLoadBalancer doit être autorisé.
 
 **Q. Quelles sont les limites d’Application Gateway ? Puis-je augmenter ces limites ?**
 
@@ -122,7 +133,21 @@ Les sondes personnalisées ne prennent pas en charge les caractères générique
 
 **Q. À quoi correspond le champ Hôte pour les sondes personnalisées ?**
 
-Le champ Hôte indique le nom auquel envoyer la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de machine virtuelle et se trouve au format suivant : \<protocole\>://\<hôte\>:\<port\>\<chemin d’accès\>. 
+Le champ Hôte indique le nom auquel envoyer la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de machine virtuelle et se trouve au format suivant : \<protocole\>://\<hôte\>:\<port\>\<chemin d’accès\>.
+
+**Q. Puis-je autoriser quelques adresses IP de sources à accéder à Application Gateway ?**
+
+Vous le pouvez en utilisant des groupes de sécurité réseau sur le sous-réseau d’Application Gateway. Les restrictions suivantes doivent être imposées au sous-réseau dans l’ordre de priorité indiqué :
+
+* Autoriser le trafic entrant à partir de l’adresse IP ou de la plage d’adresses IP sources.
+
+* Autoriser les demandes entrantes de toutes sources aux ports 65503-65 534 pour les [communications relatives à l’intégrité principale](application-gateway-diagnostics.md).
+
+* Autoriser les sondes entrantes d’Azure Load Balancer (balise AzureLoadBalancer) et le trafic réseau virtuel entrant (balise VirtualNetwork) sur le [Groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+
+* Bloquer tout autre trafic entrant avec une règle Refuser tout.
+
+* Autoriser le trafic sortant vers internet pour toutes les destinations.
 
 ## <a name="performance"></a>Performances
 
@@ -283,3 +308,4 @@ La raison la plus courante est le blocage de l’accès au serveur principal par
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Application Gateway, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
+

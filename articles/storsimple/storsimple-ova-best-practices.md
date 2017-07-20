@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/01/2017
+ms.date: 06/08/2017
 ms.author: alkohli
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 6d5563d06d9097134715f8885521c85e987a3acd
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 56e8f5cf3886c740853a40781c42b3e36144134b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -164,7 +164,7 @@ Gardez à l’esprit les bonnes pratiques suivantes lors de l’approvisionnemen
 * Pour les cas d’utilisation liés à la récupération d’urgence, comme le nombre de partages/volumes autorisés est de 16 et que le nombre maximal de partages/volumes pouvant être traités en parallèle est également de 16, le nombre de partages/volumes n’a pas d’incidence sur vos RPO et RTO.
 
 #### <a name="volumeshare-type"></a>Type de volume/partage
-StorSimple prend en charge deux types de volume/partage en fonction de l’utilisation : épinglés localement et hiérarchisés. Les volumes/partages épinglés localement sont alloués statiquement tandis que les volumes/partages hiérarchisés sont alloués dynamiquement. 
+StorSimple prend en charge deux types de volume/partage en fonction de l’utilisation : épinglés localement et hiérarchisés. Les volumes/partages épinglés localement sont alloués statiquement tandis que les volumes/partages hiérarchisés sont alloués dynamiquement. Une fois crée, il est impossible de convertir un volume/partage épinglé localement en un volume/partage hiérarchisé et *inversement*.
 
 Nous vous recommandons d’implémenter les bonnes pratiques suivantes lors de la configuration de volumes/partages StorSimple :
 

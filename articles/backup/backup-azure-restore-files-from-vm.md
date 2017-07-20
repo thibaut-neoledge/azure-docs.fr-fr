@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/6/2017
 ms.author: pullabhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 873c64dfbd4ad6ced9e5a9eeb80d7ad6dbc558a6
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c65976c7394c7f9691526c0914854ef09184ab07
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -120,6 +121,10 @@ Sous Linux, une fois la connexion au point de récupération interrompue, le sys
 
 ## <a name="special-configurations"></a>Configurations spéciales
 
+### <a name="dynamic-disks"></a>Disques dynamiques
+
+Si la machine virtuelle Azure qui a été sauvegardée comporte des volumes qui s’étendent sur plusieurs disques (volumes agrégés par bandes et étendus) et/ou des volumes à tolérance de panne (volumes miroirs ou RAID-5) sur des disques dynamiques, vous ne pouvez pas exécuter le script exécutable sur la même machine virtuelle. Au lieu de cela, exécutez le script exécutable sur n’importe quelle autre machine avec un système d’exploitation compatible.
+
 ### <a name="windows-storage-spaces"></a>Espaces de stockage Windows
 
 Les espaces de stockage Windows sont une technologie de stockage de Windows qui vous permet de virtualiser le stockage. Grâce aux espaces de stockage Windows, vous pouvez regrouper les disques standard dans des pools de stockage, puis créer des disques virtuels, appelés espaces de stockage, à partir de l’espace disponible dans ces pools de stockage.
@@ -174,10 +179,11 @@ Si vous rencontrez des problèmes lors de la récupération de fichiers à parti
 
 | Message d’erreur/Scénario | Cause probable | Action recommandée |
 | ------------------------ | -------------- | ------------------ |
-| Sortie du script exécutable : *Exception lors de la connexion à la cible* |Le script n’est pas en mesure d’accéder au point de récupération.    | Vérifiez si l’ordinateur remplit les conditions d’accès mentionnées ci-dessus.|  
-|    Sortie du script exécutable : *La cible a déjà été connectée via une session iSCSI.* |    Le script a déjà été exécuté sur le même ordinateur et les lecteurs ont été connectés. |    Les volumes du point de récupération ont déjà été connectés. Ils NE peuvent PAS être montés avec les mêmes lettres de lecteur que celles de la machine virtuelle d’origine. Parcourez tous les volumes disponibles dans l’Explorateur de fichiers pour votre fichier. |
-| Sortie du script exécutable : *Ce script n’est pas valide, car les disques ont été démontés via le portail/ont dépassé la limite de 12 h. Téléchargez un nouveau script à partir du portail.* |    Les disques ont été démontés à partir du portail ou la limite de 12 h a été dépassée |    Ce fichier exécutable en particulier n’est plus valide et ne peut pas être exécuté. Si vous souhaitez accéder aux fichiers de ce point de récupération, visitez le portail pour un obtenir un nouveau fichier exécutable.|
+| Sortie du script exécutable : *Exception lors de la connexion à la cible* |Le script n’est pas en mesure d’accéder au point de récupération. | Vérifiez si l’ordinateur remplit les conditions d’accès mentionnées ci-dessus.|  
+|   Sortie du script exécutable : *La cible a déjà été connectée via une session iSCSI.* | Le script a déjà été exécuté sur le même ordinateur et les lecteurs ont été connectés. | Les volumes du point de récupération ont déjà été connectés. Ils NE peuvent PAS être montés avec les mêmes lettres de lecteur que celles de la machine virtuelle d’origine. Parcourez tous les volumes disponibles dans l’Explorateur de fichiers pour votre fichier. |
+| Sortie du script exécutable : *Ce script n’est pas valide, car les disques ont été démontés via le portail/ont dépassé la limite de 12 h. Téléchargez un nouveau script à partir du portail.* |  Les disques ont été démontés à partir du portail ou la limite de 12 h a été dépassée |    Ce fichier exécutable en particulier n’est plus valide et ne peut pas être exécuté. Si vous souhaitez accéder aux fichiers de ce point de récupération, visitez le portail pour un obtenir un nouveau fichier exécutable.|
 | Sur l’ordinateur sur lequel est exécuté le fichier .exe : les nouveaux volumes ne sont pas démontés après avoir cliqué sur le bouton Démonter |    L’initiateur iSCSI de l’ordinateur ne répond pas/actualise sa connexion à la cible et met à jour le cache. |    Attendez quelques minutes après avoir cliqué sur le bouton Démonter. Si les nouveaux volumes ne sont toujours pas démontés, parcourez tous les volumes. Cela force l’initiateur à actualiser la connexion et le volume est démonté avec un message d’erreur indiquant que le disque n’est pas disponible.|
-| Sortie du script exécutable : Le script est exécuté avec succès, mais le message « New volumes attached » (Nouveaux volumes connectés) ne s’affiche pas dans la sortie du script |    Il s’agit d’une erreur temporaire.    | Les volumes seraient déjà connectés. Ouvrez l’Explorateur pour parcourir les volumes. Si vous utilisez toujours le même ordinateur pour exécuter les scripts, essayez de le redémarrer et la liste devrait s’afficher lors des prochaines exécutions du fichier exécutable. |
+| Sortie du script exécutable : Le script est exécuté avec succès, mais le message « New volumes attached » (Nouveaux volumes connectés) ne s’affiche pas dans la sortie du script | Il s’agit d’une erreur temporaire.   | Les volumes seraient déjà connectés. Ouvrez l’Explorateur pour parcourir les volumes. Si vous utilisez toujours le même ordinateur pour exécuter les scripts, essayez de le redémarrer et la liste devrait s’afficher lors des prochaines exécutions du fichier exécutable. |
 | Pour Linux : impossible d’afficher les volumes souhaités | Le système d’exploitation de la machine sur laquelle est exécuté le script peut ne pas reconnaître le système de fichiers sous-jacent de la machine virtuelle sauvegardée | Vérifiez si le point de récupération est cohérent en cas d’incident ou cohérent avec les fichiers. S’il est cohérent avec les fichiers, exécutez le script sur une autre machine dont le système d’exploitation reconnaît le système de fichiers de la machine virtuelle sauvegardée |
+| Pour Windows : impossible d’afficher les volumes souhaités | Les disques ont peut-être été attachés, mais les volumes n’ont pas été configurés. | À partir de l’écran de gestion de disque, identifiez les disques supplémentaires relatifs au point de récupération. Si l’état de l’un de ces disques est hors connexion, essayez de le mettre en ligne en cliquant avec le bouton droit sur le disque, puis sur « En ligne ».|
 

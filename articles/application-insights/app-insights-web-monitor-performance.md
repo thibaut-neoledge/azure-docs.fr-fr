@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/25/2015
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: cbdef43381deac957c0e48b7043273c43b032935
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 4fbf4fcfba4452111f406fe0f2303731877eba71
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -29,6 +29,9 @@ Assurez-vous que votre application fonctionne correctement et identifiez rapidem
 Application Insights peut surveiller les services WCF, ainsi que les applications et services web Java et ASP.NET. Ils peuvent être hébergés en local, sur des machines virtuelles, ou en tant que sites web Microsoft Azure. 
 
 Côté client, Application Insights peut récupérer les données télémétriques des pages web et d’un large éventail d’appareils, notamment des applications iOS, Android et Windows Store.
+
+>[!Note]
+> Nous proposons une nouvelle expérience pour identifier les pages qui ralentissent votre application web. Si vous n’y avez pas accès, activez-la en configurant vos options d’aperçu avec le [panneau Aperçu](app-insights-previews.md). Pour en savoir plus sur cette nouvelle expérience, consultez [Rechercher et corriger les goulots d’étranglement avec une analyse de performances interactive](#Find-and-fix-performance-bottlenecks-with-an-interactive-Performance-investigation).
 
 ## <a name="setup"></a>Configurer la surveillance des performances
 Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inclut pas ApplicationInsights.config), sélectionnez l'une des options suivantes pour commencer :
@@ -52,16 +55,14 @@ Cliquez sur un graphique pour choisir les métriques à afficher, ou ajoutez un 
 
 > [!NOTE]
 > **Décochez toutes les mesures** pour afficher toutes les options disponibles. Les métriques se répartissent en trois groupes ; lorsqu'un membre d'un groupe est sélectionné, seuls les autres membres de ce groupe s'affichent.
-> 
-> 
 
 ## <a name="metrics"></a>Signification Vignettes de performances et rapports
-Vous pouvez accéder à de multiples métriques de performances. Commençons par celles qui s'affichent par défaut dans le volet de l'application.
+Vous pouvez obtenir plusieurs indicateurs de performance. Commençons par celles qui s'affichent par défaut dans le volet de l'application.
 
 ### <a name="requests"></a>Demandes
 Le nombre de demandes HTTP reçues pendant une période spécifiée. Comparez cette valeur avec les résultats des autres rapports pour savoir comment votre application se comporte lorsque la charge à laquelle elle est soumise varie.
 
-Les demandes HTTP incluent toutes les demandes GET ou POST pour les pages, données et images.
+Les demandes HTTP incluent toutes les demandes GET ou POST de pages, données et images.
 
 Cliquez sur la vignette pour obtenir les décomptes associés aux URL spécifiques.
 
@@ -72,7 +73,7 @@ Les points indiquent une moyenne qui évolue. En présence de nombreuses demande
 
 Recherchez les pics inhabituels. En règle générale, il est normal que le temps de réponse augmente lorsque le nombre de demandes augmente. Si l'augmentation est disproportionnée, il se peut que votre application ait atteint une limite de ressources telles que l'UC ou la capacité d'un service qu'elle utilise.
 
-Cliquez sur la vignette pour obtenir les temps associés aux URL spécifiques.
+Cliquez sur la vignette pour obtenir les temps des URL spécifiées.
 
 ![](./media/app-insights-web-monitor-performance/appinsights-42reqs.png)
 
@@ -95,7 +96,7 @@ Pour savoir quelles autres métriques vous pouvez afficher, cliquez sur un graph
 
 ![Désélectionnez toutes les métriques afin d'afficher l'ensemble des options disponibles](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
-La sélection d'une métrique désactive les autres métriques qui peuvent s'afficher sur le même graphique.
+La sélection d’une métrique désactive celles qui ne peuvent pas s’afficher sur le même graphique.
 
 ## <a name="set-alerts"></a>Définir des alertes
 Pour être averti par courrier électronique en cas de valeurs inhabituelles pour une métrique, ajoutez une alerte. Vous pouvez choisir d'envoyer le courrier électronique aux administrateurs de compte ou à des adresses de messagerie spécifiques.
@@ -114,6 +115,37 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 * Configurez des [tests web][availability] pour être alerté en cas de défaillance ou de réponse incorrecte/lente de votre site web. 
 * Comparez le nombre de demandes avec les autres métriques afin de savoir si ces défaillances ou réponses lentes sont liées à la charge du site Web.
 * [Insérez et recherchez des instructions de trace][diagnostic] dans votre code pour vous aider à identifier les problèmes.
+* Surveillez votre application Web en cours avec le [Flux de métriques temps réel][livestream].
+* Capturez l’état de votre application .Net avec le [Débogueur de capture instantané][snapshot].
+
+## <a name="find-and-fix-performance-bottlenecks-with-an-interactive-performance-investigation"></a>Rechercher et corriger les goulots d’étranglement avec une analyse de performances interactive
+
+Vous pouvez utiliser la nouvelle analyse de performances interactive Application Insights pour localiser les parties de votre application Web qui ralentissent les performances globales. Vous pouvez identifier rapidement les pages qui ralentissent et utiliser l’[outil de profilage](app-insights-profiler.md) pour voir s’il existe une corrélation entre ces pages.
+
+### <a name="create-a-list-of-slow-performing-pages"></a>Créer la liste des pages lentes 
+
+La première étape pour détecter les problèmes de performances consiste à obtenir la liste des pages qui répondent lentement. La capture d’écran ci-dessous montre comment utiliser le panneau de performances pour répertorier les pages à analyser plus en détail. Cette page montre que le temps de réponse de l’application ralentit à environ 6h00 puis à 22h00. Vous pouvez également voir que l’opération GET sur le client/les détails contenait des opérations avec un temps de réponse médian de 507,05 millisecondes. 
+
+![Performances interactives d’Application Insights](./media/app-insights-web-monitor-performance/performance1.png)
+
+### <a name="drill-down-on-specific-pages"></a>Examen approfondi de pages
+
+Dès que vous avez un instantané des performances de votre application, vous pouvez obtenir plus d’informations sur les certaines opérations lentes. Cliquez sur une opération dans la liste pour afficher les détails, comme indiqué ci-dessous. Dans ce graphique, vous pouvez voir si les performances étaient basées sur une dépendance. Vous pouvez également voir combien d’utilisateurs ont été confrontés aux différents temps de réponse. 
+
+![Panneau des opérations d’Application Insights](./media/app-insights-web-monitor-performance/performance5.png)
+
+### <a name="drill-down-on-a-specific-time-period"></a>Examen approfondi d’une période
+
+Une fois que vous avez identifié un point dans le temps à analyser, examinez-le plus en détail pour identifier les opérations à l’origine du ralentissement des performances. Lorsque vous cliquez sur un point dans le temps, vous obtenez les détails de la page, comme indiqué ci-dessous. Dans l’exemple ci-dessous, vous voyez les opérations d’une période donnée, avec les codes de réponse du serveur et la durée de l’opération. Vous voyez également l’URL qui permet d’ouvrir un élément de travail TFS si vous avez besoin d’envoyer ces informations à votre équipe de développement.
+
+![Tranche horaire d’Application Insights](./media/app-insights-web-monitor-performance/performance2.png)
+
+### <a name="drill-down-on-a-specific-operation"></a>Examen approfondi d’une opération
+
+Une fois que vous avez identifié un point dans le temps à analyser, examinez-le plus en détail pour identifier les opérations à l’origine du ralentissement des performances. Cliquez sur une opération dans la liste pour en afficher les détails, comme indiqué ci-dessous. Dans cet exemple, vous constatez que l’opération a échoué et qu’Application Insights a fourni les détails de l’exception levée par l’application. Là encore, vous pouvez facilement créer un élément de travail TFS à partir de ce panneau.
+
+![Panneau des opérations d’Application Insights](./media/app-insights-web-monitor-performance/performance3.png)
+
 
 ## <a name="next"></a>Étapes suivantes
 [Tests web][availability] : faites envoyer des demandes web à votre application à intervalles réguliers et depuis n’importe où dans le monde.
@@ -135,6 +167,9 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
+[livestream]: app-insights-live-stream.md
+[snapshot]: app-insights-snapshot-debugger.md
+
 
 
 

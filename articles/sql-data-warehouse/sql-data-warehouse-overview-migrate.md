@@ -13,41 +13,69 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 10/31/2016
+ms.date: 06/27/2017
 ms.author: joeyong;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e5937f8472492cd1dd77c82ed518a665718623a1
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 771b9456e66b8a1e41f72340b695b19e2adaf793
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="migrate-your-solution-to-sql-data-warehouse"></a>Migration de votre solution vers SQL Data Warehouse
-SQL Data Warehouse est un système de base de données distribuée qui se met à l’échelle de manière flexible afin de répondre à vos besoins. Pour maintenir des niveaux appropriés de performances et de mise à l’échelle, certaines fonctionnalités de SQL Server ne sont pas implémentées dans SQL Data Warehouse. Les rubriques suivantes sur la migration évoquent certains des facteurs clés relatifs à la migration de votre solution vers SQL Data Warehouse. Le développement d’entrepôts de données prenant en charge la mise à l’échelle introduisant différents modèles de conception, les approches traditionnelles ne sont pas toujours les plus indiquées. Vous pouvez donc constater qu’adapter votre solution existante garantit la possibilité de tirer pleinement parti de la plateforme distribuée fournie par SQL Data Warehouse.
+# <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Migrer votre solution vers Azure SQL Data Warehouse
+Consultez les conséquences de la migration d’une solution de base de données existante vers Azure SQL Data Warehouse. 
 
-Il est également important de se rappeler de la nature de SQL Data Warehouse, qui est une plateforme basée sur Microsoft Azure. Par conséquent, il est possible qu’une portion de votre migration implique le transfert vers le Cloud de vos données. Le transfert de données est une problématique à part entière, qui doit être étudiée avec soin, plus particulièrement lorsque les volumes augmentent. Le transfert et le chargement des données sont des rubriques distinctes.
+## <a name="profile-your-workload"></a>Profiler votre charge de travail
+Avant d’amorcer votre migration, vérifiez que SQL Data Warehouse est la meilleure solution pour votre charge de travail. SQL Data Warehouse est système distribué conçu pour réaliser des analyses sur de grandes quantités de données.  La migration vers SQL Data Warehouse exige d’apporter quelques modifications à la conception. Ces modifications ne sont pas difficiles à comprendre, mais leur implémentation peut prendre du temps. Si votre entreprise requiert un entrepôt de données de niveau entreprise, les avantages obtenus en valent la peine. Toutefois, si vous n’avez pas besoin de la puissance de SQL Data Warehouse, il est plus rentable d’utiliser SQL Server ou Azure SQL Database.
 
-## <a name="migration-guidance"></a>Recommandations en matière de migration
-Avant d’amorcer votre migration, prenez le temps de lire ces articles afin de mieux comprendre certains concepts fondamentaux et différences en relation avec les produits.
+Envisagez d’utiliser SQL Data Warehouse lorsque vous :
+- Possédez plusieurs To de données
+- Envisagez de réaliser des analyses sur de grandes quantités de données
+- Devez être capable de mettre à l’échelle les calculs et le stockage 
+- Souhaitez réduire les coûts en interrompant les ressources de calculs, si vous n’en avez pas besoin.
 
-* [Migration de votre schéma][Migrate your schema]
-* [Migration de vos données][Migrate your data]
-* [Migration de votre code][Migrate your code]
+N’utilisez pas SQL Data Warehouse pour des charges de travail opérationnelles (OLTP) qui possèdent :
+- Des lectures et écritures haute fréquence
+- Un grand nombre de sélections singleton
+- Des volumes élevés d’insertions à une seule ligne
+- Des besoins de traitement ligne par ligne
+- Des formats incompatibles (JSON, XML)
+
+
+## <a name="plan-the-migration"></a>Planifier la migration
+
+Une fois que vous avez décidé de migrer une solution vers SQL Data Warehouse, il est important de planifier la migration avant de commencer. 
+
+Un objectif de la planification est de vérifier que vos données, vos schémas de table et votre code sont compatibles avec SQL Data Warehouse. Entre votre système actuel et SQL Data Warehouse, il existe certaines différences de compatibilité à contourner. De plus, migrer d’importantes quantités de données vers Azure prend du temps. Une planification minutieuse accélère la migration de vos données vers Azure. 
+
+Un autre objectif de la planification consiste à effectuer des ajustements de conception pour être certain que votre solution tire parti du niveau performances élevé des requêtes, fournies par SQL Data Warehouse. Le développement d’entrepôts de données prenant en charge la mise à l’échelle introduisant différents modèles de conception, les approches traditionnelles ne sont pas toujours les plus indiquées. Même si vous avez la possibilité d’apporter certaines modifications au niveau de la conception après la migration, apporter des modifications plus tôt dans le processus vous fera par la suite gagner du temps.
+
+Pour réaliser une migration avec succès, vous devez migrer vos schémas de table, votre code et vos données. Lisez ces articles pour en apprendre davantage sur la migration :
+
+-  [Migration de vos schémas](sql-data-warehouse-migrate-schema.md)
+-  [Migration de votre code](sql-data-warehouse-migrate-code.md)
+-  [Migration de vos données](sql-data-warehouse-migrate-data.md) 
+
+<!--
+## Perform the migration
+
+
+## Deploy the solution
+
+
+## Validate the migration
+
+-->
 
 ## <a name="next-steps"></a>Étapes suivantes
-L’équipe de conseils à la clientèle (CAT, Customer Advisory Team) peut également fournir quelques recommandations sur SQL Data Warehouse, qu’elle publie en tant que billets de blog.  Consultez son article [Migrating data to Azure SQL Data Warehouse in practice][Migrating data to Azure SQL Data Warehouse in practice] pour obtenir des conseils supplémentaires sur la migration.
+L’équipe de conseils à la clientèle (CAT, Customer Advisory Team) peut également fournir quelques recommandations sur SQL Data Warehouse, qu’elle publie en tant que billets de blog.  Consultez son article [Migrating data to Azure SQL Data Warehouse in practice][Migrating data to Azure SQL Data Warehouse in practice] pour obtenir des conseils supplémentaires sur la migration.
 
 <!--Image references-->
 
 <!--Article references-->
-[Migrate your schema]: sql-data-warehouse-migrate-schema.md
-[Migrate your data]: sql-data-warehouse-migrate-data.md
-[Migrate your code]: sql-data-warehouse-migrate-code.md
-
 
 <!--MSDN references-->
-
 
 <!--Other Web references-->
 [Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/

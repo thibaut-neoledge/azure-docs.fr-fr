@@ -1,6 +1,6 @@
 ---
-title: "Types de données pour tables dans SQL Data Warehouse | Microsoft Docs"
-description: "Prise en main des types de données pour les tables Azure SQL Data Warehouse."
+title: "Conseils sur les types de données - Azure SQL Data Warehouse | Microsoft Docs"
+description: "Recommandations concernant la définition des types de données compatibles avec SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
@@ -13,51 +13,49 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+ms.date: 06/02/2017
 ms.author: shigu;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7757de96601c426ff07e94cfa0c12d4dec8f06f5
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/22/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
-# <a name="data-types-for-tables-in-sql-data-warehouse"></a>Types de données pour tables dans SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Vue d’ensemble][Overview]
-> * [Types de données][Data Types]
-> * [Distribuer][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistiques][Statistics]
-> * [Temporaire][Temporary]
-> 
-> 
+# <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Conseils relatifs à la définition des types de données pour tables dans SQL Data Warehouse
+Suivez ces recommandations pour définir des types de données de table compatibles avec SQL Data Warehouse. En plus de la compatibilité, en réduisant la taille des types de données, vous améliorerez les performances des requêtes.
 
-SQL Data Warehouse prend en charge les types de données les plus couramment utilisés.  Voici une liste des types de données pris en charge par SQL Data Warehouse.  Pour plus d’informations sur la prise en charge du type de données, consultez la page [create table][create table] (créer une table).
+SQL Data Warehouse prend en charge les types de données les plus couramment utilisés. Pour obtenir la liste des types de données pris en charge, consultez les [types de données](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) dans l’instruction CREATE TABLE. 
 
-| **Types de données pris en charge** |  |  |
-| --- | --- | --- |
-| [bigint][bigint] |[decimal][decimal] |[smallint][smallint] |
-| [binary][binary] |[float][float] |[smallmoney][smallmoney] |
-| [bit][bit] |[int][int] |[sysname][sysname] |
-| [char][char] |[money][money] |[time][time] |
-| [date][date] |[nchar][nchar] |[tinyint][tinyint] |
-| [datetime][datetime] |[nvarchar][nvarchar] |[uniqueidentifier][uniqueidentifier] |
-| [datetime2][datetime2] |[real][real] |[varbinary][varbinary] |
-| [datetimeoffset][datetimeoffset] |[smalldatetime][smalldatetime] |[varchar][varchar] |
 
-## <a name="data-type-best-practices"></a>Meilleures pratiques relatives au type de données
- Lorsque vous définissez vos types de colonnes, l’utilisation du plus petit type de données prenant en charge vos données améliore les performances de requête. Ceci est particulièrement important pour les colonnes CHAR et VARCHAR. Si la valeur la plus longue dans une colonne est de 25 caractères, définissez la colonne en tant que VARCHAR(25). Évitez de définir toutes les colonnes de caractères sur une grande longueur par défaut. En outre, définissez des colonnes VARCHAR lorsque cela suffit, au lieu d’utiliser [NVARCHAR][NVARCHAR].  Utilisez NVARCHAR(4000) ou VARCHAR(8000) lorsque c’est possible au lieu de NVARCHAR(MAX) ou VARCHAR(MAX).
+## <a name="minimize-row-length"></a>Réduction de la longueur de ligne
+En réduisant la taille des types de données, vous réduisez la longueur de ligne, ce qui entraîne une amélioration des performances de requête. Utilisez le plus petit type de données qui fonctionne pour vos données. 
 
-## <a name="polybase-limitation"></a>Limitation de Polybase
-Si vous utilisez Polybase pour charger vos tables, faites en sorte que la longueur des données ne dépasse pas 1 Mo.  Vous pouvez définir des lignes incluant des données d’une longueur variable, susceptibles de dépasser cette largeur maximale, et charger des lignes avec BCP. Toutefois, vous ne pouvez pas utiliser PolyBase pour charger ces données.  
+- Évitez de définir des colonnes de caractères ayant une grande longueur par défaut. Par exemple, si la valeur la plus longue est de 25 caractères, définissez la colonne en tant que VARCHAR(25). 
+- Évitez d’utiliser [NVARCHAR][NVARCHAR] lorsque vous avez uniquement besoin de VARCHAR.
+- Lorsque c’est possible, utilisez NVARCHAR(4000) ou VARCHAR(8000) au lieu de NVARCHAR(MAX) ou VARCHAR(MAX).
 
-## <a name="unsupported-data-types"></a>Types de données non pris en charge
-Si vous migrez votre base de données à partir d’une autre plateforme SQL, comme une base de données SQL Azure, au cours de la migration, vous pouvez rencontrer certains types de données qui ne sont pas pris en charge sur SQL Data Warehouse.  Voici les types de données non pris en charge, ainsi que certaines solutions que vous pouvez utiliser à la place des types de données non pris en charge.
+Si vous utilisez Polybase pour charger vos tables, la longueur définie pour la ligne de table ne doit pas dépasser 1 Mo. Lorsqu’une ligne avec des données de longueur variable dépasse 1 Mo, vous pouvez télécharger la ligne avec BCP, mais pas avec PolyBase.
 
-| Type de données | Solution de contournement |
+## <a name="identify-unsupported-data-types"></a>Identification des types de données non pris en charge
+Si vous migrez votre base de données à partir d’une autre base de données SQL, vous pouvez rencontrer certains types de données qui ne sont pas pris en charge sur SQL Data Warehouse. Utilisez cette requête pour identifier les types de données non pris en charge dans votre schéma SQL existant.
+
+```sql
+SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
+FROM sys.tables  t
+JOIN sys.columns c on t.[object_id]    = c.[object_id]
+JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
+WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
+ AND  y.[is_user_defined] = 1;
+```
+
+
+## <a name="unsupported-data-types"></a>Utilisation de solutions de contournement pour les types de données non pris en charge
+
+La liste suivante répertorie les types de données non pris en charge par SQL Data Warehouse, et donne des alternatives que vous pouvez utiliser à la place de ces types de données.
+
+| Type de données non pris en charge | Solution de contournement |
 | --- | --- |
 | [geometry][geometry] |[varbinary][varbinary] |
 | [geography][geography] |[varbinary][varbinary] |
@@ -69,22 +67,20 @@ Si vous migrez votre base de données à partir d’une autre plateforme SQL, co
 | [table][table] |Appliquez une conversion vers des tables temporaires. |
 | [timestamp][timestamp] |Modifiez le code afin d’utiliser le paramètre [datetime2][datetime2] et la fonction `CURRENT_TIMESTAMP`.  Seules les constantes sont prises en charge en tant que valeurs par défaut, par conséquent le paramètre current_timestamp ne peut pas être défini comme une contrainte par défaut. Si vous devez migrer les valeurs de version de ligne à partir d’une colonne de type horodatage, utilisez le paramètre [BINARY(8)][BINARY] ou [VARBINARY(8)][BINARY] pour les valeurs de version de ligne NOT NULL ou NULL. |
 | [xml][xml] |[varchar][varchar] |
-| [types définis par l’utilisateur][user defined types] |appliquez à nouveau les types natifs, le cas échéant |
-| valeurs par défaut |les valeurs par défaut prennent uniquement en charge des littéraux et des constantes.  Les expressions ou fonctions non déterministes comme `GETDATE()` ou `CURRENT_TIMESTAMP` ne sont pas prises en charge. |
+| [user-defined type][user defined types] |Revenez au type de données natif lorsque c’est possible. |
+| valeurs par défaut | Les valeurs par défaut prennent uniquement en charge des littéraux et des constantes.  Les expressions ou fonctions non déterministes comme `GETDATE()` ou `CURRENT_TIMESTAMP` ne sont pas prises en charge. |
 
-La requête SQL ci-dessous peut être exécutée sur votre base de données SQL actuelle pour identifier les colonnes qui ne sont pas prises en charge par Azure SQL Data Warehouse :
-
-```sql
-SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
-FROM sys.tables  t
-JOIN sys.columns c on t.[object_id]    = c.[object_id]
-JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
-WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
- AND  y.[is_user_defined] = 1;
-```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez les articles [Table Overview (Vue d’ensemble des tables)][Overview], [Distributing a Table (Distribution d’une table)][Distribute], [Indexing a Table (Indexation d’une table)][Index], [Partitioning a Table (Partitionnement d’une table)][Partition], [Maintaining Table Statistics (Maintenance des statistiques de table)][Statistics] et [Temporary Tables (Tables temporaires)][Temporary].  Pour en savoir plus sur les meilleures pratiques, consultez [Meilleures pratiques relatives à SQL Data Warehouse][SQL Data Warehouse Best Practices].
+Pour plus d'informations, consultez les rubriques suivantes :
+
+- [Meilleures pratiques relatives à SQL Data Warehouse][SQL Data Warehouse Best Practices]
+- [Vue d’ensemble des tables][Overview]
+- [Distribution d’une table][Distribute]
+- [Indexation d’une table][Index]
+- [Partitionnement d’une table][Partition]
+- [Gestion des statistiques d’une table][Statistics]
+- [Tables temporaires][Temporary]
 
 <!--Image references-->
 
