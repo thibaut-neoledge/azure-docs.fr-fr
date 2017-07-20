@@ -20,7 +20,6 @@ ms.openlocfilehash: 4317cf84760289ca29d8d5a78e2adef99c4cedf2
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Modifier l’ID de client du coffre de clés après un déplacement d’abonnement
 ### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>Q : Mon abonnement a été déplacé du client A vers le client B. Comment modifier l’ID de client du coffre de clés existant et définir des ACL correctes pour les principaux dans le client B ?
@@ -36,7 +35,7 @@ Par exemple, si vous avez un coffre de clés 'myvault' dans un abonnement qui a 
 $Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
 $vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
 $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
-$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.Id
+$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId
 $vault.Properties.AccessPolicies = @()
 Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>

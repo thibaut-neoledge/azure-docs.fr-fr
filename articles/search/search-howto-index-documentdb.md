@@ -7,7 +7,7 @@ author: chaosrealm
 manager: pablocas
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: search
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 333f8320820a1729a14ffc2e29446e7452aa768e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Connexion de Cosmos DB à Recherche Azure à l’aide d’indexeurs
@@ -285,3 +284,4 @@ Félicitations ! Vous avez appris à intégrer Recherche Azure dans Azure Cos
 
 * Pour en savoir plus sur Azure Cosmos DB, consultez la [page du service Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 * Pour en savoir plus sur Azure Search, consultez la [page du service Search](https://azure.microsoft.com/services/search/).
+
