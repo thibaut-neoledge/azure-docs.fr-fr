@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: c5d09cf03c87c8da1d8588be62fea3f0cc3eec4f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b25ef8333a2836f976a974d6ea6e7fdcea2745e3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -63,7 +63,7 @@ make install
 gem install tiny_tds
 ```
 
-## <a name="get-connection-information"></a>Obtenir des informations de connexion
+## <a name="sql-server-connection-information"></a>Informations de connexion SQL Server
 
 Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
 

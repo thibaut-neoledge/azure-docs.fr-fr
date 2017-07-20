@@ -21,9 +21,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 03/14/2017
 
 ---
-<a id="lotus-domino-connector-technical-reference" class="xliff"></a>
-
-# Référence technique du connecteur Lotus Domino
+# <a name="lotus-domino-connector-technical-reference"></a>Référence technique du connecteur Lotus Domino
 Cet article décrit le connecteur Lotus Domino. Cet article s’applique aux produits suivants :
 
 * Microsoft Identity Manager 2016 (MIM2016)
@@ -32,9 +30,7 @@ Cet article décrit le connecteur Lotus Domino. Cet article s’applique aux pro
 
 Pour MIM2016 et FIM2010R2, le connecteur est disponible en téléchargement dans le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
-<a id="overview-of-the-lotus-domino-connector" class="xliff"></a>
-
-## Vue d’ensemble du connecteur Lotus Domino
+## <a name="overview-of-the-lotus-domino-connector"></a>Vue d’ensemble du connecteur Lotus Domino
 Le connecteur Lotus Domino vous permet d’intégrer le service de synchronisation au serveur Lotus Domino d’IBM.
 
 Globalement, la version actuelle du connecteur prend en charge les fonctionnalités suivantes :
@@ -48,18 +44,14 @@ Globalement, la version actuelle du connecteur prend en charge les fonctionnalit
 
 Le connecteur Lotus Domino utilise le client Lotus Notes pour communiquer avec le serveur Lotus Domino. Conséquence de cette dépendance, un client Lotus Notes pris en charge doit être installé sur le serveur de synchronisation. La communication entre le client et le serveur est mise en œuvre via l’interface d’interopérabilité .NET Lotus Notes (Interop.domino.dll). Cette interface facilite la communication entre la plateforme Microsoft.NET et le client Lotus Notes, et prend en charge l’accès aux documents et vues Lotus Domino. Pour une importation différentielle, il est également possible d’utiliser l’interface C++ native (en fonction de la méthode d’importation différentielle sélectionnée).
 
-<a id="prerequisites" class="xliff"></a>
-
-### Composants requis
+### <a name="prerequisites"></a>Composants requis
 Avant d’utiliser le connecteur, vérifiez que vous disposez des composants requis suivants sur le serveur de synchronisation :
 
 * Microsoft .NET 4.5.2 Framework ou version ultérieure
 * Client Lotus Notes installé sur votre serveur de synchronisation
 * Le connecteur Lotus Domino requiert que la base de données de schémas LDAP Lotus Domino par défaut (schema.nsf) figure sur le serveur d’annuaire Domino. Si tel n’est pas le cas, vous pouvez l’installer en exécutant ou en redémarrant le service LDAP sur le serveur Domino.
 
-<a id="connected-data-source-permissions" class="xliff"></a>
-
-### Autorisations de la source de données connectée
+### <a name="connected-data-source-permissions"></a>Autorisations de la source de données connectée
 Pour effectuer les tâches prises en charge dans le connecteur Lotus Domino, vous devez être membre des groupes suivants :
 
 * Administrateurs avec accès total
@@ -73,9 +65,7 @@ Le tableau suivant répertorie les autorisations obligatoires pour chaque opéra
 | Importer |<li>Lire les documents publics</li><li> Administrateur avec accès total (lorsque vous êtes membre du groupe Administrateurs avec accès total, vous bénéficiez automatiquement de l’accès effectif à une liste de contrôle d’accès.)</li> |
 | Exporter et définir le mot de passe |Accès effectif :  <li>Création de documents</li><li>Supprimer des documents</li><li>Lire les documents publics</li><li>Écrire des documents publics</li><li>Répliquer ou copier des documents</li>Pour les opérations d’exportation, vous devez également avoir les rôles suivants : <li>CreateResource</li><li>GroupCreator</li><li>GroupModifier</li><li>UserCreator</li><li>UserModifier</li> |
 
-<a id="direct-operations-and-adminp" class="xliff"></a>
-
-### Opérations directes et AdminP
+### <a name="direct-operations-and-adminp"></a>Opérations directes et AdminP
 Les opérations vont directement dans l’annuaire Domino ou passent par le processus AdminP. Les tableaux suivants répertorient tous les objets et opérations pris en charge et, le cas échéant, la méthode d’implémentation connexe :
 
 **Carnet d’adresses principal**
@@ -98,24 +88,16 @@ Les opérations vont directement dans l’annuaire Domino ou passent par le proc
 
 Lorsqu’une ressource est créée, un document Notes est créé. De même, lorsqu’une ressource est supprimée, le document Notes est supprimé.
 
-<a id="ports-and-protocols" class="xliff"></a>
-
-### Ports et protocoles
+### <a name="ports-and-protocols"></a>Ports et protocoles
 Le client IBM Lotus Notes et les serveurs Domino communiquent à l’aide d’un appel de procédure distante Notes (NRPC), où NRPC doit utiliser le protocole TCP/IP. Le numéro de port par défaut est 1352, mais il peut être modifié par l’administrateur Domino.
 
-<a id="not-supported" class="xliff"></a>
-
-### Non pris en charge
+### <a name="not-supported"></a>Non pris en charge
 Les opérations suivantes ne sont pas prises en charge par la version actuelle du connecteur Lotus Domino :
 
 * Déplacer des boîtes aux lettres entre des serveurs.
 
-<a id="create-a-new-connector" class="xliff"></a>
-
-## Créer un connecteur
-<a id="client-software-installation-and-configuration" class="xliff"></a>
-
-### Installation et configuration du logiciel client
+## <a name="create-a-new-connector"></a>Créer un connecteur
+### <a name="client-software-installation-and-configuration"></a>Installation et configuration du logiciel client
 Lotus Notes doit être installé sur le serveur **avant** l’installation du connecteur.
 
 Lors de l’installation, assurez-vous de choisir **Single User Install**. L’installation par défaut **Multi-User Install** ne fonctionnera pas.  
@@ -126,17 +108,13 @@ Dans la page des fonctionnalités, n’installez que les fonctionnalités Lotus 
 
 **Remarque :** démarrez Lotus Notes une fois avec un utilisateur situé sur le même serveur que le compte que vous allez utiliser comme compte de service du connecteur. Veillez également à fermer le client Lotus Notes sur le serveur. Il ne peut pas s'exécuter en même temps que le Connecteur essaie de se connecter au serveur Domino.
 
-<a id="create-connector" class="xliff"></a>
-
-### Créer un connecteur
+### <a name="create-connector"></a>Créer un connecteur
 Pour créer un connecteur Lotus Domino, dans **Synchronization Service**, sélectionnez **Management Agent** et **Create**. Sélectionnez le connecteur **Lotus Domino (Microsoft)** .  
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-domino/createconnector.png)
 
 Si votre version du service de synchronisation permet de configurer **Architecture**, vérifiez que le connecteur a sa valeur par défaut pour s’exécuter dans **Process**.
 
-<a id="connectivity" class="xliff"></a>
-
-### Connectivité
+### <a name="connectivity"></a>Connectivité
 Sur la page de connectivité, vous devez spécifier le nom du serveur Lotus Domino et entrer les informations d’identification d’ouverture de session.  
 ![Connectivité](./media/active-directory-aadconnectsync-connector-domino/connectivity.png)
 
@@ -162,9 +140,7 @@ Dans **Schema Option** , vous disposez des options suivantes :
 
 Lorsque vous cliquez sur Suivant, les paramètres de configuration UserID et de mot de passe sont vérifiés.
 
-<a id="global-parameters" class="xliff"></a>
-
-### Paramètres globaux
+### <a name="global-parameters"></a>Paramètres globaux
 Dans la page Global Parameters, configurez le fuseau horaire et les options des opérations d’importation et d’exportation.  
 ![Paramètres globaux](./media/active-directory-aadconnectsync-connector-domino/globalparameters.png)
 
@@ -177,9 +153,7 @@ Cette option de configuration est requise pour prendre en charge les opérations
 
 ![Suppression de la boîte aux lettres de l’utilisateur](./media/active-directory-aadconnectsync-connector-domino/AdminP.png)
 
-<a id="import-settings-method" class="xliff"></a>
-
-#### Paramètres d’importation, méthode
+#### <a name="import-settings-method"></a>Paramètres d’importation, méthode
 Le paramètre **Perform Full Import By** présente les options suivantes :
 
 * Search
@@ -189,9 +163,7 @@ Le paramètre **Perform Full Import By** présente les options suivantes :
 
 **View** est l’option recommandée, car elle fournit l’état correct des données. Elle est légèrement plus lente que Search.
 
-<a id="creation-of-virtual-contact-objects" class="xliff"></a>
-
-#### Création d’objets contact virtuels
+#### <a name="creation-of-virtual-contact-objects"></a>Création d’objets contact virtuels
 Le paramètre **Enable creation of \_Contact object** présente les options suivantes :
 
 * Aucun
@@ -210,31 +182,21 @@ En joignant les attributs corrects, les objets \_Contact sont joints à l’obje
 
 La mention VC=\_Contact est ajoutée à leur nom unique.
 
-<a id="import-settings-conflict-object" class="xliff"></a>
-
-#### Importer les paramètres, objet de conflit
+#### <a name="import-settings-conflict-object"></a>Importer les paramètres, objet de conflit
 **Exclude Conflict Object**
 
 Dans une implémentation Domino vaste, il est possible que plusieurs objets aient le même nom unique en raison de problèmes de réplication. Dans ce cas, le connecteur voit deux objets avec des paramètres UniversalID différents mais avec le même nom unique. Ce conflit entraîne la création d’un objet temporaire dans l’espace du connecteur. Le connecteur peut ignorer les objets qui ont été sélectionnés dans Domino comme victimes de réplication. Il est recommandé de laisser cette case cochée.
 
-<a id="export-settings" class="xliff"></a>
-
-#### Paramètres d’exportation
+#### <a name="export-settings"></a>Paramètres d’exportation
 Si l’option **Use AdminP for updating references** n’est pas sélectionnée, l’exportation des attributs de référence, tels que les membres, constitue un appel direct et n’utilise pas le processus AdminP. N’utilisez cette option que si AdminP n’a pas été configuré pour préserver l’intégrité référentielle.
 
-<a id="routing-information" class="xliff"></a>
-
-#### Informations de routage
+#### <a name="routing-information"></a>Informations de routage
 Dans Domino, il est possible qu’un attribut de référence possède des informations de routage incorporées en tant que suffixe au nom unique. Par exemple, l’attribut de membre d’un groupe pourrait contenir **CN=example/organization@ABC**. Le suffixe @ABC constitue les informations de routage. Les informations de routage sont utilisées par Domino pour envoyer des e-mails au système Domino approprié, qui peut se trouver dans une autre organisation. Dans le champ Routing Information, vous pouvez spécifier les suffixes de routage utilisés dans l’organisation pour le connecteur. Si l’une de ces valeurs est détectée comme suffixe dans un attribut de référence, les informations de routage sont supprimées de la référence. Si aucune correspondance ne peut être établie entre le suffixe de routage d’une référence et l’une des valeurs spécifiées, un objet \_Contact est créé. Ces objets \_Contact sont créés avec la mention **RO=@<RoutingSuffix>** insérée dans le nom unique. Pour ces objets \_Contact, les attributs suivants sont également ajoutés pour autoriser la jonction à un objet réel si nécessaire : \_routingName, \_contactName, \_displayName et UniversalID.
 
-<a id="additional-address-books" class="xliff"></a>
-
-#### Carnets d’adresses supplémentaires
+#### <a name="additional-address-books"></a>Carnets d’adresses supplémentaires
 Si la fonctionnalité **Directory Assistance** n’est pas installée (afin de fournir le nom des carnets d’adresses secondaires), vous pouvez entrer manuellement ces carnets d’adresses.
 
-<a id="multivalued-transformation" class="xliff"></a>
-
-#### Transformation à plusieurs valeurs
+#### <a name="multivalued-transformation"></a>Transformation à plusieurs valeurs
 Dans Lotus Domino, de nombreux attributs possèdent plusieurs valeurs. Les attributs de métaverse correspondants ont généralement une valeur unique. En configurant les options d’opération d’importation et d’exportation, vous permettez au connecteur de faciliter la conversion requise des attributs affectés.
 
 **Export**  
@@ -289,42 +251,30 @@ La logique qui convertit les attributs à plusieurs valeurs en attributs à vale
 
 Il est également possible de configurer les règles de transformation de l’importation et l’exportation en attributs à plusieurs valeurs par attribut en tant qu’exception à la règle générale. Pour configurer cette option, entrez la valeur pour [objecttype].[attributename] dans les zones de texte **import exclusion attribute list** et **export exclusion attribute list**. Par exemple, si vous entrez Person.Assistant et que la configuration générale est définie pour importer toutes les valeurs, l’assistant n’importe que la première valeur.
 
-<a id="certifiers" class="xliff"></a>
-
-#### Autorités de certification
+#### <a name="certifiers"></a>Autorités de certification
 Le connecteur répertorie toutes les organisations/unités d’organisation. Pour pouvoir exporter des objets Personne vers le carnet d’adresses principal, une autorité de certification avec son mot de passe est requise.
 
 Le champ **Password for all Certifers** peut être utilisé si toutes les autorités de certification ont le même mot de passe. Vous pouvez y entrer le mot de passe et spécifier uniquement le fichier de l’autorité de certification.
 
 Si vous importez uniquement, vous n’avez pas à spécifier d’autorité de certification.
 
-<a id="configure-provisioning-hierarchy" class="xliff"></a>
-
-### Configurer la hiérarchie de l’approvisionnement
+### <a name="configure-provisioning-hierarchy"></a>Configurer la hiérarchie de l’approvisionnement
 Lorsque vous configurez le connecteur Lotus Domino, ignorez cette page de boîte de dialogue. Le connecteur Lotus Domino ne prend pas en charge la hiérarchie de l’approvisionnement.  
 ![Hiérarchie d’approvisionnement](./media/active-directory-aadconnectsync-connector-domino/provisioninghierarchy.png)
 
-<a id="configure-partitions-and-hierarchies" class="xliff"></a>
-
-### Configurer des partitions et des hiérarchies
+### <a name="configure-partitions-and-hierarchies"></a>Configurer des partitions et des hiérarchies
 Lorsque vous configurez des partitions et des hiérarchies, vous devez sélectionner le carnet d’adresses principal appelé NAB=names.nsf. Outre le carnet d’adresses principal, vous pouvez sélectionner des carnets d’adresses secondaires, s’ils existent.  
 ![Partitions](./media/active-directory-aadconnectsync-connector-domino/partitions.png)
 
-<a id="select-attributes" class="xliff"></a>
-
-### Sélectionner les attributs
+### <a name="select-attributes"></a>Sélectionner les attributs
 Lorsque vous configurez vos attributs, vous devez sélectionner tous les attributs dont le préfixe est **\_MMS\_**. Ces attributs sont obligatoires lorsque vous approvisionnez de nouveaux objets sur Lotus Domino.
 
 ![Attributs](./media/active-directory-aadconnectsync-connector-domino/attributes.png)
 
-<a id="object-lifecycle-management" class="xliff"></a>
-
-## Gestion du cycle de vie des objets
+## <a name="object-lifecycle-management"></a>Gestion du cycle de vie des objets
 Cette section fournit une vue d’ensemble des différents objets dans Domino.
 
-<a id="person-objects" class="xliff"></a>
-
-### Objets Personne
+### <a name="person-objects"></a>Objets Personne
 L’objet Personne représente les utilisateurs dans l’organisation et dans les unités d’organisation. Outre les attributs par défaut, l’administrateur Domino peut ajouter des attributs personnalisés à un objet Personne. Au minimum, un objet Personne doit inclure tous les attributs obligatoires. Pour obtenir une liste complète des attributs obligatoires, consultez [Propriétés Lotus Notes](#lotus-notes-properties). Pour inscrire un objet Personne, les conditions préalables suivantes doivent être remplies :
 
 * Le carnet d’adresses (names.nsf) doit avoir été défini et être le carnet d’adresses principal.
@@ -345,9 +295,7 @@ Les personnes (à l’exception des contacts) peuvent être regroupées dans US 
 
 Toutes ces opérations sont effectuées dans Lotus Domino, puis importées dans le service de synchronisation.
 
-<a id="resources-and-rooms" class="xliff"></a>
-
-### Ressources et salles
+### <a name="resources-and-rooms"></a>Ressources et salles
 Une ressource est un autre type d’une base de données dans Lotus Domino. Les ressources peuvent être des salles de conférence avec différents types d’équipements comme des projecteurs. L’attribut de type de ressource définit certains sous-types de ressources pris en charge par le connecteur Lotus Domino :
 
 | Type de ressource | Attribut de type de ressource |
@@ -375,9 +323,7 @@ Le connecteur Lotus Domino exécute les opérations de création, de mise à jou
 **Opérations d’importation et d’exportation de ressources**  
 Les ressources peuvent être importées dans et exportées du service de synchronisation, comme tout autre type d’objet. Sélectionnez le type d’objet Ressource lors de la configuration. Pour que l’opération d’exportation réussisse, vous devez disposer d’informations pour le type de ressource, la base de données de conférence et le nom du site.
 
-<a id="mail-in-databases" class="xliff"></a>
-
-### Bases courrier en arrivée
+### <a name="mail-in-databases"></a>Bases courrier en arrivée
 Une Base courrier en arrivée est une base de données conçue pour recevoir du courrier. Il s’agit d’une messagerie Lotus Domino qui n’est pas associée à un compte d’utilisateur Lotus Domino spécifique (elle ne possède pas son propre fichier d’ID et son propre mot de passe). Une Base courrier en arrivée possède un UserID unique (« nom court ») associé et sa propre adresse e-mail.
 
 Si vous avez besoin d’une messagerie distincte, avec sa propre adresse e-mail partageable avec différents utilisateurs (par exemple, group@contoso.com), une base courrier en arrivée est créée. L’accès à cette messagerie est contrôlé via sa liste de contrôle d’accès (ACL), qui contient les noms des utilisateurs Notes autorisés à ouvrir la messagerie.
@@ -388,9 +334,7 @@ Lorsqu’une base de données est conçue pour recevoir du courrier, un document
 
 Avant de créer une Base courrier en arrivée, la base de données doit déjà exister (elle doit avoir été créée par l’administrateur de Lotus) sur le serveur Domino.
 
-<a id="group-management" class="xliff"></a>
-
-### Gestion des groupes
+### <a name="group-management"></a>Gestion des groupes
 Bénéficiez d’une vue d’ensemble précise de la gestion des groupes Lotus Domino grâce aux ressources suivantes :
 
 * [Utilisation de groupes](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_USING_GROUPS_OVER.html)
@@ -399,9 +343,7 @@ Bénéficiez d’une vue d’ensemble précise de la gestion des groupes Lotus D
 * [Gestion de groupes](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_MANAGING_GROUPS_1804.html)
 * [Renommer un groupe](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_RENAMING_A_GROUP_STEPS.html)
 
-<a id="password-management" class="xliff"></a>
-
-### Gestion des mots de passe
+### <a name="password-management"></a>Gestion des mots de passe
 Pour un utilisateur Lotus Domino inscrit, il existe deux types de mots de passe :
 
 1. Mot de passe utilisateur (stocké dans un fichier User.id)
@@ -422,14 +364,10 @@ Pour plus d’informations, consultez les pages suivantes :
 * [Utilisation de la fonctionnalité de verrouillage Internet](http://www.ibm.com/developerworks/lotus/library/domino8-lockout/)
 * [Gestion des mots de passe Internet](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_NOTES_AND_INTERNET_PASSWORD_SYNCHRONIZATION_7570_OVER.html)
 
-<a id="reference-information" class="xliff"></a>
-
-## Informations de référence
+## <a name="reference-information"></a>Informations de référence
 Cette section répertorie des descriptions et des exigences des attributs pour le connecteur Lotus Domino.
 
-<a id="lotus-notes-properties" class="xliff"></a>
-
-### Propriétés Lotus Notes
+### <a name="lotus-notes-properties"></a>Propriétés Lotus Notes
 Lorsque vous approvisionnez des objets Personne sur votre annuaire Lotus Domino, vos objets doivent posséder un ensemble spécifique de propriétés avec des valeurs spécifiques renseignées. Ces valeurs sont uniquement requises pour les opérations de création.
 
 Le tableau suivant répertorie ces propriétés ainsi que leur description.
@@ -442,7 +380,7 @@ Le tableau suivant répertorie ces propriétés ainsi que leur description.
 | \_MMS_Certifier |Propriété qui contient le nom de la hiérarchie organisationnelle de l’autorité de certification. Par exemple : OU=Unité d’organisation,O=Organisation,C=Pays. |
 | \_MMS_IDPath |Si la propriété est vide, aucun fichier d’identification utilisateur n’est créé localement sur le serveur de synchronisation. Si la propriété contient un nom de fichier, un fichier UserID est créé dans le dossier madata. Cette propriété peut également contenir un chemin d’accès complet. |
 | \_MMS_IDRegType |Les personnes peuvent être classées dans Contacts, US Users et International Users. Le tableau suivant répertorie les valeurs de sortie possibles : <li>0 - Contact</li><li>1 - Utilisateur des États-Unis</li><li>2 - Utilisateur international</li> |
-| \_MMS_IDStoreType |Propriété requise pour US Users et International Users. La propriété contient une valeur entière qui spécifie si l’identification de l’utilisateur est stockée en tant que pièce jointe dans le carnet d’adresses Notes ou dans le fichier de courrier de l’objet Personne. Si le fichier User ID est une pièce jointe au carnet d’adresses, il peut éventuellement être créé en tant que fichier avec \_MMS_IDPath. <li>Vide : fichier d’ID stocké dans le coffre d’ID, aucun fichier d’identification (utilisé pour les contacts).</li><li> &1; : pièce jointe dans le carnet d’adresses Notes. La propriété \_MMS_Password doit être définie pour les fichiers d’identification utilisateur</li><li>2 : ID stocké dans le fichier de courrier de l’objet Personne. La propriété \_MMS_UseAdminP doit être définie sur false pour que le fichier de messages soit créé lors de l’enregistrement de l’objet Personne. La propriété \_MMS_Password doit être définie pour les fichiers d’identification utilisateur.</li> |
+| \_MMS_IDStoreType |Propriété requise pour US Users et International Users. La propriété contient une valeur entière qui spécifie si l’identification de l’utilisateur est stockée en tant que pièce jointe dans le carnet d’adresses Notes ou dans le fichier de courrier de l’objet Personne. Si le fichier User ID est une pièce jointe au carnet d’adresses, il peut éventuellement être créé en tant que fichier avec \_MMS_IDPath. <li>Vide : fichier d’ID stocké dans le coffre d’ID, aucun fichier d’identification (utilisé pour les contacts).</li><li> 1 : pièce jointe dans le carnet d’adresses Notes. La propriété \_MMS_Password doit être définie pour les fichiers d’identification utilisateur</li><li>2 : ID stocké dans le fichier de courrier de l’objet Personne. La propriété \_MMS_UseAdminP doit être définie sur false pour que le fichier de messages soit créé lors de l’enregistrement de l’objet Personne. La propriété \_MMS_Password doit être définie pour les fichiers d’identification utilisateur.</li> |
 | \_MMS_MailQuotaSizeLimit |Le nombre de mégaoctets autorisés pour la base de données de fichiers e-mail. |
 | \_MMS_MailQuotaWarningThreshold |Le nombre de mégaoctets autorisés pour la base de données de fichiers e-mail avant l’émission d’un avertissement. |
 | \_MMS_MailTemplateName |Le fichier de modèle d’e-mail utilisé pour créer le fichier d’e-mail de l’utilisateur. Si un modèle est spécifié, le fichier de courrier est créé à l’aide du modèle spécifié. Si aucun modèle n’est spécifié, le fichier de modèle par défaut est utilisé pour créer le fichier. |
@@ -462,9 +400,7 @@ Pour accéder au serveur Domino sans la fonctionnalité de messagerie, la propri
 
 Avec \_MMS_ IDStoreType = 2 (ID stocké dans le fichier de courrier), la propriété MailSystem de NotesRegistrationclass est définie sur REG_MAILSYSTEM_INOTES (3).
 
-<a id="mandatory-attributes" class="xliff"></a>
-
-### Attributs obligatoires
+### <a name="mandatory-attributes"></a>Attributs obligatoires
 Le connecteur Lotus Domino prend principalement en charge les types d’objet (types de document) :
 
 * Groupe
@@ -483,26 +419,18 @@ Cette section répertorie les attributs obligatoires pour chaque objet pris en c
 | Contact (personne sans autorité de certification) |<li>\_MMS_IDRegType</li> |
 | Ressource |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>displayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
-<a id="common-issues-and-questions" class="xliff"></a>
-
-## Questions et problèmes courants
-<a id="schema-detection-does-not-work" class="xliff"></a>
-
-### La détection du schéma ne fonctionne pas
+## <a name="common-issues-and-questions"></a>Questions et problèmes courants
+### <a name="schema-detection-does-not-work"></a>La détection du schéma ne fonctionne pas
 Pour pouvoir détecter le schéma, le fichier schema.nsf doit être présent sur le serveur Domino. Ce fichier ne s’affiche que si le protocole LDAP est installé sur le serveur. Si le schéma n’est pas détectable, vérifiez les éléments suivants :
 
 * Le fichier schema.nsf est présent dans le dossier racine du serveur Domino.
 * L’utilisateur dispose des autorisations nécessaires pour consulter le fichier schema.nsf.
 * Forcez un redémarrage du serveur LDAP. Ouvrez la **console Lotus Domino** et utilisez la commande **Tell LDAP ReloadSchema** pour recharger le schéma.
 
-<a id="not-all-secondary-address-books-are-visible" class="xliff"></a>
-
-### Les carnets d’adresses secondaires ne sont pas tous visibles
+### <a name="not-all-secondary-address-books-are-visible"></a>Les carnets d’adresses secondaires ne sont pas tous visibles
 Le connecteur Domino utilise la fonctionnalité **Directory Assistance** pour rechercher les carnets d’adresses secondaires. Si les carnets d’adresses secondaires sont manquants, vérifiez si [Directory Assistance](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_DIRECTORY_ASSISTANCE.html) a été activée et configurée sur le serveur Domino.
 
-<a id="custom-attributes-in-domino" class="xliff"></a>
-
-### Attributs personnalisés dans Domino
+### <a name="custom-attributes-in-domino"></a>Attributs personnalisés dans Domino
 Dans Domino, il existe plusieurs façons d’étendre le schéma pour le faire apparaître comme un attribut personnalisé consommable par le connecteur.
 
 **Approche 1 : Étendre le schéma Lotus Domino**
@@ -565,8 +493,6 @@ Dans Domino, il existe plusieurs façons d’étendre le schéma pour le faire a
 7. Après avoir ajouté les attributs requis à ExtensibleObjectClass, cliquez sur **Save & Close**.
 8. Une classe ExtensibleObjectClass est créée pour la classe d’objets par défaut avec des attributs étendus.
 
-<a id="troubleshooting" class="xliff"></a>
-
-## Résolution de problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 * Pour plus d’informations sur la façon d’activer la journalisation pour résoudre les problèmes du connecteur, consultez [Comment activer le suivi ETW pour les connecteurs](http://go.microsoft.com/fwlink/?LinkId=335731).
 

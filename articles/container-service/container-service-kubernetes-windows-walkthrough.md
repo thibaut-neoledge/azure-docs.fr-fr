@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 929a4dec638da9488dd0b43fd123ed0cce77bcf3
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 7d8825da888092988bf39c5a5789a957179b2cff
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -29,27 +28,19 @@ ms.lasthandoff: 06/20/2017
 
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide explique en détail comment utiliser Azure CLI pour déployer un cluster [Kubernetes](https://kubernetes.io/docs/home/) dans [Azure Container Service](container-service-intro.md). Une fois le cluster déployé, vous vous y connectez avec l’outil en ligne de commande Kubernetes `kubectl`, et vous déployez votre premier conteneur Windows.
 
-Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
 > Le support des conteneurs Windows sur Kubernetes dans Azure Container Service est en préversion. 
 >
 
-## <a name="log-in-to-azure"></a>Connexion à Azure 
-
-Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran.
-
-```azurecli-interactive 
-az login
-```
-
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. 
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. 
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
@@ -57,7 +48,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-kubernetes-cluster"></a>Créer un cluster Kubernetes
+## <a name="create-kubernetes-cluster"></a>Créer un cluster Kubernetes
 Créez un cluster Kubernetes dans Azure Container Service avec la commande [az acs create](/cli/azure/acs#create). 
 
 L’exemple ci-après crée un cluster nommé *myK8sCluster* avec un nœud maître Linux et deux nœuds agents Windows. Cet exemple crée les clés SSH requises pour la connexion au maître Linux. Cet exemple utilise le nom d’utilisateur administratif *azureuser* et le mot de passe *myPassword12* sur les nœuds Windows. Mettez à jour ces valeurs avec quelque chose d’approprié pour votre environnement. 
@@ -80,7 +71,7 @@ Au bout de quelques minutes, la commande s’achève et vous fournit des informa
 
 Pour vous connecter au cluster Kubernetes depuis l’ordinateur client, utilisez l’outil [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), le client de ligne de commande Kubernetes. 
 
-Si vous utilisez Azure CloudShell, `kubectl` est déjà installé. Si vous souhaitez l’installer localement, vous pouvez utiliser la commande [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
+Si vous utilisez Azure CloudShell, l’outil `kubectl` est déjà installé. Si vous souhaitez l’installer en local, vous pouvez utiliser la commande [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
 
 L’exemple Azure CLI ci-après installe `kubectl` sur votre système. Sur Windows, exécutez cette commande en tant qu’administrateur.
 
@@ -91,13 +82,13 @@ az acs kubernetes install-cli
 
 ## <a name="connect-with-kubectl"></a>Se connecter avec kubectl
 
-Pour configurer `kubectl` pour qu’il se connecte à votre cluster Kubernetes, exécutez la commande [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). L’exemple ci-après télécharge la configuration de votre cluster Kubernetes.
+Pour configurer le client `kubectl` afin qu’il se connecte à votre cluster Kubernetes, exécutez la commande [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). L’exemple ci-après télécharge la configuration de votre cluster Kubernetes.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Pour vérifier la connexion à votre cluster à partir de votre machine, essayez d’exécuter la commande suivante :
+Pour vérifier la connexion à votre cluster à partir de votre machine, essayez d’exécuter la commande suivante :
 
 ```azurecli-interactive
 kubectl get nodes

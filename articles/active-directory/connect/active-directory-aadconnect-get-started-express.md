@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: 240475240be76265c2a2f150a4a6d8f4aa0d3664
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Prise en main d’Azure AD Connect à l’aide de paramètres express
@@ -37,7 +38,7 @@ Vous pouvez voir ces étapes en action dans la section [vidéos](#videos) .
    ![Bienvenue dans Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. Sur l’écran Connexion à Azure AD, entrez le nom d’utilisateur et un mot de passe d’administrateur général pour votre instance Azure AD. Cliquez sur **Suivant**.  
    ![Se connecter à Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Si vous recevez une erreur et que vous avez des problèmes de connectivité, consultez [Résoudre les problèmes de connectivité](active-directory-aadconnect-troubleshoot-connectivity.md).
-6. Sur l’écran Connexion à AD DS, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur d’entreprise. Vous pouvez saisir la partie domaine au format NetBios ou nom de domaine complet, c’est-à-dire FABRIKAM\administrator ou fabrikam.com\administrator. Cliquez sur **Next**.  
+6. Sur l’écran Connexion à AD DS, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur d’entreprise. Vous pouvez saisir la partie domaine au format NetBios ou nom de domaine complet, c’est-à-dire FABRIKAM\administrator ou fabrikam.com\administrator. Cliquez sur **Suivant**.  
    ![Connexion à AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. La page [**Configuration de connexion Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) s’affiche uniquement si vous n’avez pas effectué l’étape de [vérification de vos noms de domaines](../active-directory-add-domain.md) dans les [conditions préalables](active-directory-aadconnect-prerequisites.md).
    ![Domaines non vérifiés](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
@@ -72,10 +73,5 @@ En savoir plus sur l’ [intégration de vos identités locales avec Azure Activ
 | Installation à l’aide des paramètres personnalisés |
 | Mise à niveau à partir de DirSync |
 | Comptes utilisés pour l’installation |
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

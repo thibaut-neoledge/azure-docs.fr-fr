@@ -1,5 +1,5 @@
 ---
-title: "Interroger votre index de Recherche Azure à l’aide du portail Azure │ Microsoft Docs"
+title: Interroger un index (portail - Recherche Azure) | Microsoft Docs
 description: "Émettez une requête de recherche dans l’Explorateur de recherche du portail Azure."
 services: search
 manager: jhubbard
@@ -11,15 +11,16 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 07/10/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: dd68d8ed073bf7b8666ddef35a2f1f84df690b4b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="query-your-azure-search-index-using-the-azure-portal"></a>Interroger votre index Azure Search à l’aide du portail Azure
+# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Interrogation d’un index Recherche Azure à l’aide de l’Explorateur de recherche dans le Portail Azure
 > [!div class="op_single_selector"]
 > * [Vue d'ensemble](search-query-overview.md)
 > * [Portail](search-explorer.md)
@@ -28,34 +29,43 @@ ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
 > 
 > 
 
-Ce guide vous explique comment interroger l’index Azure Search dans le portail Azure.
+Cet article vous explique comment interroger un index Recherche Azure à l’aide de l’**Explorateur de recherche** dans le Portail Azure. Vous pouvez utiliser l’Explorateur de recherche pour envoyer des chaînes de requête Lucene simples ou complètes à un index existant dans votre service.
 
-Avant de commencer cette procédure, vous devez déjà avoir [créé un index de Recherche Azure](search-what-is-an-index.md) et y avoir [ajouté des données](search-what-is-data-import.md).
+## <a name="open-the-service-dashboard"></a>Ouverture du tableau de bord des services
+1. Cliquez sur **Toutes les ressources** dans la barre de raccourcis de gauche du [portail Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+2. Sélectionnez votre service Recherche Azure.
 
-## <a name="i-go-to-your-azure-search-blade"></a>I. Accéder au panneau Azure Search
-1. Cliquez sur « Toutes les ressources » dans le menu de gauche du [portail Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Sélectionnez votre service Azure Search.
+## <a name="select-an-index"></a>Sélection d’un index
 
-## <a name="ii-select-the-index-you-would-like-to-search"></a>II. Sélectionnez l’index dans lequel vous souhaitez effectuer la recherche
-1. Sélectionnez l’index dans lequel vous souhaitez effectuer la recherche à partir de la mosaïque « Index ».
+Sélectionnez l’index dans lequel vous souhaitez effectuer la recherche à partir de la mosaïque **Index**.
 
-![](./media/search-explorer/pick-index.png)
+   ![](./media/search-explorer/pick-index.png)
 
-## <a name="iii-click-on-the-search-explorer-tile"></a>III. Cliquez sur la mosaïque « Explorateur de recherche »
-![](./media/search-explorer/search-explorer-tile.png)
+## <a name="open-search-explorer"></a>Ouverture de l’Explorateur de recherche
 
-## <a name="iii-start-searching"></a>III. Commencez la recherche
-1. Pour effectuer une recherche dans l’index Azure Search, commencez à taper dans le champ «*Chaîne de requête*», puis appuyez sur «**Rechercher**».
+Cliquez sur la vignette de l’Explorateur de recherche pour ouvrir par glissement la barre de recherche et le volet des résultats.
+
+   ![](./media/search-explorer/search-explorer-tile.png)
+
+## <a name="start-searching"></a>Commencez la recherche
+
+Lorsque vous utilisez l’Explorateur de recherche, vous pouvez spécifier les [paramètres de requête](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour formuler la requête.
+
+1. Saisissez une requête dans **Chaîne de requête** puis appuyez sur **Rechercher**. 
+
+   La chaîne de requête est automatiquement analysée dans l’URL de requête appropriée pour soumettre une requête HTTP à l’API REST de Recherche Azure.   
    
-   * Lorsque vous utilisez l’Explorateur de recherche, vous pouvez spécifier les [paramètres de requête](https://msdn.microsoft.com/library/dn798927.aspx)
-2. Dans la section «*Résultats*», les résultats de la requête apparaîtront dans le fichier JSON brut qui vous aurait été adressé dans un corps de réponse HTTP si vous aviez lancé la requête de recherche dans l’API REST d’Azure Search.
-3. La chaîne de requête est automatiquement analysée dans l’URL de requête appropriée pour soumettre une requête HTTP à l’API REST d’Azure Search
+   Vous pouvez utiliser n’importe quelle syntaxe de requête Lucene simple ou complète valide pour créer la requête. Le caractère `*` équivaut à une recherche vide ou non spécifiée qui retourne tous les documents dans aucun ordre particulier.
 
-![](./media/search-explorer/search-bar.png)
+2. Dans **Résultats**, les résultats de la requête sont présentés au format JSON brut, identiques à la charge utile retournée dans un corps de réponse HTTP lors de l’émission de requêtes par programmation.
 
+   ![](./media/search-explorer/search-bar.png)
 
+## <a name="next-steps"></a>Étapes suivantes
 
+Les ressources suivantes fournissent des exemples et des informations supplémentaires concernant la syntaxe de requête.
 
-<!--HONumber=Nov16_HO2-->
-
-
+ + [Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+ + [Syntaxe de requête Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+ + [Exemples de syntaxe de requête Lucene](https://docs.microsoft.com/azure/search/search-query-lucene-examples) 
+ + [Syntaxe d’expression de filtre OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) 

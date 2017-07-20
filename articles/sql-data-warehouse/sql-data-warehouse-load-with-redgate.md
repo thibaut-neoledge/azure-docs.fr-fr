@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
 ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 07/11/2017
 
 
 
@@ -44,7 +44,7 @@ Ce didacticiel vous montre comment utiliser [Redgate Data Platform Studio](http:
 ### <a name="create-or-identify-resources"></a>Créer ou identifier des ressources
 Avant de commencer ce didacticiel, vous devez disposer des ressources suivantes :
 
-* **Base de données SQL Server sur site** : les données que vous souhaitez importer dans SQL Data Warehouse doivent provenir d’un serveur SQL Server local (version 2008R2 ou ultérieure). Data Platform Studio ne peut pas importer les données directement à partir d’une base de données Azure SQL Database, ni à partir de fichiers texte.
+* **Base de données SQL Server locale** : les données que vous souhaitez importer dans SQL Data Warehouse doivent provenir d’un serveur SQL Server local (version 2008R2 ou ultérieure). Data Platform Studio ne peut pas importer les données directement à partir d’une base de données Azure SQL Database, ni à partir de fichiers texte.
 * **Compte de stockage Azure** : Data Platform Studio organise les données dans le stockage Blob Azure avant de les charger dans SQL Data Warehouse. Le compte de stockage doit utiliser le modèle de déploiement « Resource Manager » (la valeur par défaut) plutôt que le modèle de déploiement « Classic ». Si vous ne possédez pas de compte de stockage, découvrez comment créer un compte de stockage. 
 * **SQL Data Warehouse** : ce didacticiel déplace les données d’un serveur SQL Server local vers SQL Data Warehouse ; vous devez donc disposer d’un entrepôt de données en ligne. Si vous n’en possédez pas encore, découvrez comment créer un entrepôt Azure SQL Data Warehouse.
 
@@ -113,7 +113,7 @@ DPS vous demande de confirmer que vous souhaitez importer les données. Cliquez 
 
 ![][6]
 
-DPS indique la progression de l’extraction et du chargement des données à partir du serveur SQL Server sur site, ainsi que la progression de l’importation dans SQL Data Warehouse.
+DPS indique la progression de l’extraction et du chargement des données à partir du serveur SQL Server local, ainsi que la progression de l’importation dans SQL Data Warehouse.
 
 ![][7]
 

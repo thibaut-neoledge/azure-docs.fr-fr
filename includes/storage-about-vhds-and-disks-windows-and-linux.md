@@ -1,7 +1,5 @@
 
-<a id="about-vhds" class="xliff"></a>
-
-## À propos des VHD
+## <a name="about-vhds"></a>À propos des VHD
 
 Les VHD utilisés dans Azure sont des fichiers .vhd stockés comme objets blob de pages dans un compte de stockage Standard ou Premium dans Azure. Pour des informations sur les objets blob de pages, consultez la page [Présentation des objets blob de blocs et des objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Pour plus d’informations sur le stockage Premium, consultez [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md) (Stockage Premium hautes performances et machines virtuelles Azure).
 
@@ -17,35 +15,28 @@ Avant de pouvoir supprimer un fichier .vhd source, vous devrez supprimer le bail
 > Si vous supprimez un fichier .vhd source d’un stockage ou si vous supprimez votre compte de stockage, Microsoft ne pourra pas récupérer ces données pour vous.
 > 
 
-<a id="types-of-disks" class="xliff"></a>
+## <a name="types-of-disks"></a>Types de disques 
 
-## Types de disques 
+Les disques Azure sont conçus pour offrir une disponibilité de 99,999 %. Les disques Azure ont toujours fourni une durabilité de classe Entreprise pour les disques IaaS, avec un taux de défaillance annuel inégalé dans le secteur de zéro %.
 
-Lorsque vous créez vos disques, vous avez le choix entre deux niveaux de performances : stockage Standard et stockage Premium. Deux types de disques, gérés et non gérés, sont également proposés pour l’un ou l’autre de ces niveaux de performances.  
+Lorsque vous créez vos disques, vous avez le choix entre deux niveaux de performances : stockage Standard et stockage Premium. Deux types de disques, gérés et non gérés, sont également proposés pour l’un ou l’autre de ces niveaux de performances.
 
-<a id="standard-storage" class="xliff"></a>
 
-### Stockage Standard 
+### <a name="standard-storage"></a>Stockage Standard 
 
 Le stockage Standard s’appuie sur des disques durs et offre un stockage économique qui n’en est pas moins performant. Le stockage Standard peut être répliqué localement dans un centre de données ou être géoredondant avec des centres de données principal et secondaire. Pour plus d’informations sur la réplication du stockage, consultez [Réplication du stockage Azure](../articles/storage/storage-redundancy.md). 
 
 Pour plus d’informations sur l’utilisation du stockage Standard avec des disques de machine virtuelle, consultez [Standard Storage and Disks](../articles/storage/storage-standard-storage.md) (Stockage Standard et disques).
 
-<a id="premium-storage" class="xliff"></a>
-
-### Stockage Premium 
+### <a name="premium-storage"></a>Stockage Premium 
 
 Le stockage Premium s’appuie sur des disques SSD afin d’assurer de hautes performances et une faible latence pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S. Vous pouvez utiliser le stockage Premium avec les machines virtuelles Azure de série DS, DSv2, GS, Ls, ou FS. Pour plus d’informations, consultez [Stockage Premium](../articles/storage/storage-premium-storage.md).
 
-<a id="unmanaged-disks" class="xliff"></a>
-
-### Disques non gérés
+### <a name="unmanaged-disks"></a>Disques non gérés
 
 Les disques non gérés sont le type de disques utilisé traditionnellement par les machines virtuelles. Avec ces disques, vous créez votre propre compte de stockage et spécifiez ce dernier lors de la création du disque. Vous devez vous assurer que vous ne placez un trop grand nombre de disques dans le même compte de stockage, car vous risquez de dépasser les [objectifs d’extensibilité](../articles/storage/storage-scalability-targets.md) du compte de stockage (20 000 E/S par seconde, par exemple), avec pour conséquence la limitation des machines virtuelles. Avec les disques non gérés, vous devez déterminer comment maximiser l’utilisation d’un ou plusieurs comptes de stockage pour obtenir des performances optimales de vos machines virtuelles.
 
-<a id="managed-disks" class="xliff"></a>
-
-### Disques gérés 
+### <a name="managed-disks"></a>Disques gérés 
 
 Managed Disks gère la création/gestion du compte de stockage en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez simplement la taille du disque et le niveau de performances (Standard/Premium) et Azure crée et gère le disque pour vous. Même si vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé. 
 
@@ -53,9 +44,7 @@ Vous pouvez également gérer vos images personnalisées dans un compte de stock
 
 Nous vous recommandons d’utiliser Azure Managed Disks pour les nouvelles machines virtuelles et de convertir vos anciens disques non gérés en disques gérés afin de tirer parti des nombreuses fonctionnalités disponibles dans Managed Disks.
 
-<a id="disk-comparison" class="xliff"></a>
-
-### Comparaison des disques
+### <a name="disk-comparison"></a>Comparaison des disques
 
 Le tableau suivant offre une comparaison des niveaux Premium et Standard pour les disques gérés et non gérés afin de vous aider dans votre choix.
 
