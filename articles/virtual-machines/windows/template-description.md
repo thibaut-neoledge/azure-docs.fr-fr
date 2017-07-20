@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 07/18/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: 907e5b80aeeee4ab2eb0466490ba9ef9b0348144
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/17/2017
-
 
 ---
 
@@ -40,7 +39,7 @@ Cet exemple montre une section de ressources standard d’un modèle pour la cr�
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop",    
+      "name": "virtualMachineLoop", 
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -48,7 +47,7 @@ Cet exemple montre une section de ressources standard d’un modèle pour la cr�
     ], 
     "properties": { 
       "hardwareProfile": { 
-        "vmSize": "Standard_DS1_v2" 
+        "vmSize": "Standard_DS1" 
       }, 
       "osProfile": { 
         "computername": "[concat('myVM', copyindex())]", 
@@ -63,10 +62,10 @@ Cet exemple montre une section de ressources standard d’un modèle pour la cr�
           "version": "latest" 
         }, 
         "osDisk": { 
-          "name": "[concat('myOSDisk', copyindex())]" 
+          "name": "[concat('myOSDisk', copyindex())]",
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
-        }
+        },
         "dataDisks": [
           {
             "name": "[concat('myDataDisk', copyindex())]",
@@ -80,15 +79,14 @@ Cet exemple montre une section de ressources standard d’un modèle pour la cr�
         "networkInterfaces": [ 
           { 
             "id": "[resourceId('Microsoft.Network/networkInterfaces',
-              concat('myNIC', copyindex())]" 
+              concat('myNIC', copyindex()))]" 
           } 
         ] 
-      }
+      },
       "diagnosticsProfile": {
         "bootDiagnostics": {
           "enabled": "true",
-          "storageUri": "[concat('https://', variables('storageName'), 
-            '.blob.core.windows.net"
+          "storageUri": "[concat('https://', variables('storageName'), '.blob.core.windows.net')]"
         }
       } 
     },
@@ -224,7 +222,7 @@ Lorsque vous avez besoin de plusieurs machines virtuelles pour votre application
 
 ```
 "copy": {
-  "name": "virtualMachineLoop",    
+  "name": "virtualMachineLoop", 
   "count": "[parameters('numberOfInstances')]"
 },
 ```
@@ -233,7 +231,7 @@ En outre, notez dans l’exemple que l’index de la boucle est utilisé pour sp
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
@@ -273,7 +271,7 @@ Comment savoir si une dépendance est nécessaire ? Examinez les valeurs que vo
     "id": "[resourceId('Microsoft.Network/networkInterfaces',
       concat('myNIC', copyindex())]" 
   } ] 
-}
+},
 ```
 
 Pour définir cette propriété, l’interface réseau doit exister. Vous avez donc besoin d’une dépendance. Vous devez également définir une dépendance lorsqu’une ressource (un enfant) est définie dans une autre ressource (un parent). Par exemple, les paramètres de diagnostic et les extensions de script personnalisé sont définies en tant que ressources enfants de la machine virtuelle. Ils ne peuvent pas être créés tant que la machine virtuelle n'existe pas. Par conséquent, les deux ressources sont marquées comme dépendantes de la machine virtuelle.
@@ -323,7 +321,7 @@ Les paramètres de configuration pour le disque du système d’exploitation son
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
-}
+},
 ```
 
 ### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Créer de nouvelles machines virtuelles à partir de disques gérés existants
@@ -338,7 +336,7 @@ Si vous souhaitez créer des machines virtuelles à partir de disques existants,
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
-}
+},
 ```
 
 ### <a name="create-new-virtual-machines-from-a-managed-image"></a>Créer de nouvelles machines virtuelles à partir d'une image gérée
@@ -356,7 +354,7 @@ Si vous souhaitez créer une machine virtuelle à partir d’une image gérée, 
     "caching": "ReadWrite", 
     "createOption": "FromImage" 
   }
-}
+},
 ```
 
 ### <a name="attach-data-disks"></a>Connecter des disques de données
@@ -372,7 +370,7 @@ Vous pouvez aussi ajouter des disques de données aux machines virtuelles. Le [n
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
-]
+],
 ```
 
 ## <a name="extensions"></a>Extensions

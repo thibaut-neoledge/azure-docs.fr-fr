@@ -3,7 +3,7 @@ title: "J'utilise Mobile Services. Comment App Service peut-il m'aider ?"
 description: "Découvrez les avantages qu'App Service apporte dans le cadre de vos projets Mobile Services existants."
 services: app-service\mobile
 documentationcenter: ios
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
@@ -19,7 +19,6 @@ ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/11/2017
-
 
 ---
 # <a name="getting-started"> </a>J'utilise Mobile Services. Comment App Service peut-il m'aider ?
@@ -65,5 +64,4 @@ Sauvegardez automatiquement votre backend et votre base de données. Votre code 
 *Azure App Service* vous permet désormais de créer plusieurs environnements intermédiaires et de test privés pour vos applications mobiles. Utilisez-les pour réaliser des tests avant un déploiement. Basculez en production sans interruption de service. Les applications web sont préchargées, ce qui garantit une expérience client optimale.
 
 Vous pouvez commencer à tirer parti d’ *App Service* pour votre application Mobile Service existante en suivant ce [didacticiel](app-service-mobile-migrating-from-mobile-services.md).
-
 

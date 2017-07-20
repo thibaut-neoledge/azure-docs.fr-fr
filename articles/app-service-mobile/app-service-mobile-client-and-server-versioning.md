@@ -3,7 +3,7 @@ title: "Contrôle de version des Kits de développement logiciel (SDK) clients e
 description: "Liste des Kits de développement logiciel (SDK) clients et des compatibilités avec les versions des Kits de développement logiciel (SDK) serveurs pour Mobile Services et Azure Mobile Apps"
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
 ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/09/2017
-
 
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Contrôle de version client et serveur dans Mobile Apps et Mobile Services
@@ -47,8 +47,8 @@ Vous pouvez désactiver la vérification de version en définissant la valeur **
 
 > [!NOTE]
 > Il existe un certain nombre de différences de comportement entre Mobile Services et Mobile Apps, en particulier dans les domaines de la synchronisation hors connexion, de l'authentification et des notifications Push. Avant de désactiver la vérification de version, assurez-vous par des tests complets que ces modifications de comportement ne suppriment pas de fonctionnalités dans votre application.
-> 
-> 
+>
+>
 
 ## <a name="summary-of-compatibility-for-all-versions"></a>Résumé des compatibilités pour toutes les versions
 Le tableau ci-dessous indique les compatibilités entre tous les types de clients et de serveurs. Un backend est classé soit comme Mobile **Services**, soit comme Mobile **Apps** en fonction du SDK serveur qu’il utilise.
@@ -130,5 +130,4 @@ La vérification de version est incluse dans les versions suivantes du SDK serve
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrer un service Mobile Services sur Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
-
 
