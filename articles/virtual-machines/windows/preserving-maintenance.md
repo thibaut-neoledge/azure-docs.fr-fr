@@ -3,7 +3,7 @@ title: "Maintenance de préservation pour les machines virtuelles Windows dans A
 description: "Migration sur place de machines virtuelles pour la préservation des mises à jour en mémoire."
 services: virtual-machines-windows
 documentationcenter: 
-author: 
+author: zivr
 manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
-ms.author: 
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: bc903f7523295da704ea8f0128dd553e3fdd96a9
-ms.lasthandoff: 03/31/2017
+ms.author: zivr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 8888bafbc3aba24168312b611a9b4fbde25f376d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -37,4 +38,5 @@ Les mises à jour ne peuvent pas toutes êtes déployées à l’aide de ce méc
 
 Les mises à jour multi-instances (machines virtuelles d’un groupe à haute disponibilité) se voient appliquer un seul domaine de mise à jour à la fois.
 
-Les applications qui s’exécutent sur une machine virtuelle peuvent obtenir des informations sur les mises à jour à venir en appelant les événements planifiés du service de métadonnées. Pour plus d’informations sur les événements planifiés, consultez [Azure Metadata Service - Événements planifiés](../virtual-machines-scheduled-events.md).
+Certaines applications peuvent être affectées plus que d’autres par ces mises à jour. Par exemple, les applications qui effectuent des scénarios de traitement d’événements en temps réel, de streaming multimédia, de transcodage multimédia ou de mise en réseau à débit élevé ne peuvent pas être conçues pour tolérer une pause de 30 secondes. Les applications qui s’exécutent sur une machine virtuelle peuvent obtenir des informations sur les mises à jour à venir en appelant l’API des [événements planifiés](../virtual-machines-scheduled-events.md) d’[Azure Metadata Service](../virtual-machines-instancemetadataservice-overview.md).
+

@@ -1,6 +1,6 @@
 ---
 title: "Appeler des programmes Spark à partir d’Azure Data Factory | Microsoft Docs"
-description: "Apprenez à appeler des programmes Spark à partir d&quot;une fabrique de données Azure avec l&quot;activité MapReduce."
+description: "Apprenez à appeler des programmes Spark à partir d'une fabrique de données Azure avec l'activité MapReduce."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 124f04eb39296899af501d506476ad966442fc3d
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: dbee3f1d0aae885325ef9efe9c2f48961495e8b9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -47,13 +47,13 @@ L’activité Spark est l’une des [activités de transformation des données](
 Voici les étapes classiques pour créer un pipeline Data Factory avec une activité Spark.  
 
 1. Créer une fabrique de données.
-2. Créez un service lié Azure Storage pour lier à la fabrique de données le stockage Azure qui est associé à votre cluster Spark HDInsight.     
+2. Créez un service lié Stockage Azure pour lier à la fabrique de données le stockage Azure qui est associé à votre cluster Spark HDInsight.     
 2. Créez un service lié Azure HDInsight qui relie votre cluster Apache Spark dans Azure HDInsight à la fabrique de données.
 3. Créez un jeu de données faisant référence au service lié Stockage Azure. Actuellement, vous devez spécifier un jeu de données de sortie d’une activité même si aucune sortie n’est produite.  
 4. Créez un pipeline avec une activité Spark faisant référence au service lié HDInsight créé au point 2. L’activité est configurée avec le jeu de données que vous avez créé à l’étape précédente comme un jeu de données de sortie. Le jeu de données de sortie pilote la planification (horaire, quotidienne, etc.). Par conséquent, vous devez spécifier le jeu de données de sortie même si l’activité ne produit pas vraiment de sortie.
 
 ### <a name="prerequisites"></a>Composants requis
-1. Créez un **compte de stockage Azure général** en suivant les instructions fournies dans la procédure pas à pas : [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) (Création d’un compte de stockage).  
+1. Créez un **compte de stockage Azure général** en suivant les instructions fournies dans la procédure pas à pas : [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account).  
 2. Créez un **cluster Apache Spark dans Azure HDInsight** en suivant les instructions contenues dans le didacticiel [Create Apache Spark cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) (Création d’un cluster Apache Spark dans Azure HDInsight). Associez le compte de stockage Azure créé à l’étape 1 à ce cluster.  
 3. Téléchargez et consultez le fichier de script Python **test.py** situé à l’adresse : [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Téléchargez le fichier **test.py** dans le dossier **pyFiles** du conteneur **adfspark** figurant dans votre stockage Blob Azure. Créez le conteneur et le dossier s’ils n’existent pas.
@@ -82,16 +82,16 @@ Commençons par la création de la fabrique de données dans cette étape.
 ### <a name="create-linked-services"></a>créer des services liés
 Dans cette étape, vous allez créer deux services liés, l’un pour lier votre cluster Spark à votre fabrique de données, l’autre pour lier votre stockage Azure à votre fabrique de données.  
 
-#### <a name="create-azure-storage-linked-service"></a>Créer le service lié Azure Storage
+#### <a name="create-azure-storage-linked-service"></a>Créer le service lié Stockage Azure
 Dans cette étape, vous liez votre compte Stockage Azure à votre fabrique de données. Un jeu de données que vous allez créer plus loin dans cette procédure fait référence à ce service lié. Le service lié HDInsight que vous définissez dans l’étape suivante fait également référence à ce service lié.  
 
 1. Cliquez sur **Créer et déployer** dans le panneau **Fabrique de données** de votre fabrique de données. Vous devriez voir l’éditeur Data Factory Editor.
 2. Cliquez sur **Nouveau magasin de données** et choisissez **Stockage Azure**.
 
    ![Nouveau magasin de données - Stockage Azure - menu](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
-3. Le **script JSON** de création d’un service lié Microsoft Azure Storage doit apparaître dans l’éditeur.
+3. Le **script JSON** de création d’un service lié Stockage Microsoft Azure doit apparaître dans l’éditeur.
 
-   ![Service lié Azure Storage](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
+   ![Service lié Stockage Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 4. Remplacez **account name** et **account key** par le nom et la clé de votre compte de stockage Azure. Pour savoir comment obtenir votre clé d’accès de stockage, reportez-vous aux informations sur l’affichage, la copie et la régénération de clés d’accès de stockage dans [Gérer votre compte de stockage](../storage/storage-create-storage-account.md#manage-your-storage-account).
 5. Pour déployer le service lié, cliquez sur **Déployer** dans la barre de commandes. Une fois que le service lié est déployé, la fenêtre**Draft-1** doit disparaître tandis que **AzureStorageLinkedService** s’affiche dans l’arborescence sur la gauche.
 
@@ -299,7 +299,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 | className | Classe principale Java/Spark de l’application. | Non |
 | arguments | Liste d’arguments de ligne de commande du programme Spark. | Non |
 | proxyUser | Identité du compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non |
-| sparkConfig | Propriétés de configuration Spark. | Non |
+| sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark répertoriées dans la rubrique : [Spark Configuration - Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non |
 | getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Valeurs autorisées : Aucun, Toujours ou Échec. Valeur par défaut : Aucun. | Non |
 | sparkJobLinkedService | Service lié de stockage Azure qui contient le fichier de travail, les dépendances et les journaux Spark.  Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non |
 
@@ -310,7 +310,7 @@ Créez la structure de dossiers suivante dans le stockage Blob Azure référenc�
 
 | Chemin | Description | Requis | Type |
 | ---- | ----------- | -------- | ---- |
-| .    | Chemin d’accès racine du travail Spark dans le service lié de stockage    | Oui | Dossier |
+| . | Chemin d’accès racine du travail Spark dans le service lié de stockage  | Oui | Dossier |
 | &lt;défini par l’utilisateur &gt; | Chemin d’accès pointant vers le fichier d’entrée du travail Spark | Oui | Fichier |
 | ./jars | Tous les fichiers dans ce dossier sont téléchargés et placés dans le classpath Java du cluster | Non | Dossier |
 | ./pyFiles | Tous les fichiers dans ce dossier sont téléchargés et placés dans le PYTHONPATH du cluster | Non | Dossier |

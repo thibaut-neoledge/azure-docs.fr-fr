@@ -13,13 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
-ms.openlocfilehash: 6dafec65b2e8091954cae39994d0013d9fd06558
-ms.lasthandoff: 12/22/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 58ddf3913a5d00ee9a89a1fa112f3d55d9a815ed
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurer mon compte pour la vérification en deux étapes
@@ -27,12 +28,17 @@ La vérification en deux étapes est une mesure de sécurité supplémentaire qu
 
 Cet article vous aide à configurer votre **compte professionnel ou scolaire**. Si vous souhaitez activer la vérification en deux étapes pour votre compte Microsoft personnel, consultez [À propos de la vérification en deux étapes](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-## <a name="determine-how-you-will-use-multi-factor-authentication"></a>Détermination de l’utilisation de l’authentification multifacteur
-Une fois la vérification en deux étapes activée, vous êtes invité à entrer deux éléments d’identification au moment de la connexion. Nous vous demandons d’abord d’indiquer votre nom d’utilisateur et votre mot de passe, comme d’habitude. Nous appelons ensuite un téléphone qui vous appartient pour que vous puissiez confirmer la légitimité de la tentative de connexion.  
+## <a name="set-up-your-account"></a>Configurer votre compte
 
-Pour lancer le processus de configuration, essayez de vous connecter à votre compte comme vous le faites habituellement. Si votre administrateur a configuré votre compte pour qu’il bénéficie de la vérification en deux étapes, vous êtes invité à suivre le processus d’inscription automatique. Cliquez sur **Configurer maintenant** pour démarrer ce processus.
+Si votre service informatique vous impose d’utiliser la vérification en deux étapes, un écran apparaît, indiquant **Votre administrateur exige que ce compte soit configuré pour une vérification de sécurité supplémentaire** :
 
 ![Paramétrage](./media/multi-factor-authentication-end-user-first-time/first.png)
+
+Pour commencer, sélectionnez **Le configurer maintenant**.
+
+Si vous ne voyez pas un écran semblable à celui-ci quand vous vous connectez, suivez les instructions indiquées dans [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) pour accéder à la page de paramètres où vous pouvez gérer vos options de vérification. 
+
+## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Décider du mode de vérification de vos connexions
 
 La première question du processus d’inscription a trait à la façon dont vous souhaitez être contacté. Passez en revue les options dans le tableau et utilisez les liens pour accéder aux étapes de configuration de chaque méthode.
 
@@ -48,16 +54,19 @@ Cette méthode nécessite l’installation d’une application d’authentificat
 1. Dans la liste déroulante, sélectionnez **Application mobile**.
 2. Sélectionnez **Recevoir des notifications pour la vérification** ou **Utiliser le code de vérification**, puis sélectionnez **Configurer**.
 
-    ![Écran de vérification de sécurité supplémentaire](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
+   ![Écran de vérification de sécurité supplémentaire](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
+
 3. Sur votre téléphone ou tablette, ouvrez l’application et sélectionnez **+** pour ajouter un compte. (Sur les appareils Android, sélectionnez les trois points, puis **Ajouter un compte**.)
 4. Spécifiez que vous souhaitez ajouter un compte professionnel ou scolaire. Le scanner de code QR de votre téléphone s’ouvre. Si votre appareil photo ne fonctionne pas correctement, vous pouvez choisir d’entrer manuellement les informations de votre société. Pour plus d’informations, consultez [Ajouter manuellement un compte](#add-an-account-manually).  
 5. Numérisez l’image du code QR apparaissant à l’écran de configuration de l’application mobile.  Sélectionnez **Terminer** pour fermer l’écran de code QR.  
 
-    ![Écran de code QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
+   ![Écran de code QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
+
 6. Une fois l’activation terminée sur le téléphone, sélectionnez **Me contacter**.  Cette étape envoie une notification ou un code de vérification sur votre téléphone. Sélectionnez **Vérifier**.  
 7. Si votre entreprise requiert un code confidentiel pour approuver la vérification de l’identification, entrez-le.
 
-    ![Zone permettant d’entrer un code confidentiel](./media/multi-factor-authentication-end-user-first-time/scan3.png)
+   ![Zone permettant d’entrer un code confidentiel](./media/multi-factor-authentication-end-user-first-time/scan3.png)
+
 8. Une fois le code confidentiel entré, sélectionnez **Fermer**. À ce stade, la vérification doit réussir.
 9. Nous vous recommandons d’entrer votre numéro de téléphone mobile en cas de perte d’accès à votre application mobile. Spécifiez votre pays dans la liste déroulante et entrez votre numéro de téléphone portable dans la zone située en regard du nom de pays. Sélectionnez **Suivant**.
 10. À ce stade, vous êtes invité à configurer les mots de passe d’application pour les applications sans navigateur, comme Outlook 2010 ou version antérieure, ou l’application de messagerie native sur les appareils Apple. Ceci s’explique par le fait que certaines applications ne prennent pas en charge la vérification en deux étapes. Si vous n’utilisez pas ces applications, cliquez sur **Terminé** et ignorez les étapes restantes.

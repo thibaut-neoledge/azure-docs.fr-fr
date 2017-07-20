@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 444b01ffc7cccf0951ecb4d032d42667a99f639c
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 6287fa716c708cf35a5d124756c488929a93b435
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -25,15 +26,15 @@ ms.lasthandoff: 03/24/2017
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Cet article décrit les options de sécurisation de votre IoT Hub. IoT Hub utilise des *autorisations* pour accorder l’accès à chaque point de terminaison IoT Hub. Les autorisations limitent l’accès à un hub IoT selon la fonctionnalité.
+Cet article décrit les options de sécurisation de votre hub IoT. IoT Hub utilise des *autorisations* pour accorder l’accès à chaque point de terminaison IoT Hub. Les autorisations limitent l’accès à un hub IoT selon la fonctionnalité.
 
 Cet article explique :
 
-* les différentes autorisations que vous pouvez accorder à une application d’appareil ou de serveur principal pour accéder à votre IoT Hub ;
-* le processus d’authentification et les jetons qu’il utilise pour vérifier les autorisations ;
-* comment définir l’étendue des informations d’identification pour limiter l’accès à des ressources spécifiques ;
-* la prise en charge par IoT Hub des certificats X.509 ;
-* les mécanismes d’authentification d’appareil personnalisés qui utilisent des registres d’identités d’appareil ou des schémas d’authentification existants.
+* Les différentes autorisations que vous pouvez accorder à une application d’appareil ou de serveur principal pour accéder à votre hub IoT.
+* Le processus d’authentification et les jetons qu’il utilise pour vérifier les autorisations.
+* Le mode de définition de l’étendue des informations d’identification pour limiter l’accès à des ressources spécifiques.
+* La prise en charge par IoT Hub des certificats X.509.
+* Les mécanismes d’authentification d’appareil personnalisés qui utilisent des registres d’identités d’appareil ou des schémas d’authentification existants.
 
 ### <a name="when-to-use"></a>Quand utiliser
 
@@ -50,7 +51,7 @@ Vous pouvez accorder des [autorisations](#iot-hub-permissions) de différentes m
   * **device** : stratégie jouissant de l’autorisation **DeviceConnect**.
   * **registryRead** : stratégie jouissant de l’autorisation **RegistryRead**.
   * **registryReadWrite** : stratégie jouissant des autorisations **RegistryRead** et RegistryWrite.
-  * **Informations d’identification de sécurité par appareil**. Chaque IoT Hub contient un [registre des identités][lnk-identity-registry]. Pour chaque appareil figurant dans ce registre des identités, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
+  * **Informations d’identification de sécurité par appareil**. Chaque hub IoT contient un [registre des identités][lnk-identity-registry]. Pour chaque appareil figurant dans ce registre des identités, vous pouvez configurer des informations d’identification de sécurité qui accordent des autorisations **DeviceConnect** incluses dans l’étendue des points de terminaison des appareils correspondants.
 
 Par exemple, dans une solution IoT classique :
 
@@ -85,7 +86,7 @@ Si vous utilisez une sécurité basée sur des revendications AMQP, la norme ind
 
 Pour SASL PLAIN, le **nom d’utilisateur** peut être :
 
-* `{policyName}@sas.root.{iothubName}` si vous utilisez des jetons au niveau d’IoT Hub.
+* `{policyName}@sas.root.{iothubName}` si vous utilisez des jetons au niveau du hub IoT.
 * `{deviceId}@sas.{iothubname}` si vous utilisez des jetons à l’échelle de l’appareil.
 
 Dans les deux cas, le champ de mot de passe contient le jeton, comme le décrit [Jetons de sécurité IoT Hub][lnk-sas-tokens].
@@ -99,24 +100,24 @@ Nom d’utilisateur (DeviceId respecte la casse) : `iothubname.azure-devices.net
 Mot de passe (générer le jeton SAP avec l’outil [Explorateur d’appareils][lnk-device-explorer]) : `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
-> Les [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks] génèrent automatiquement des jetons lors de la connexion au service. Dans certains cas, les Kits de développement logiciel (SDK) Azure IoT ne prennent pas en charge l’ensemble des protocoles ou méthodes d’authentification.
+> Les kits [Azure IoT SDK][lnk-sdks] génèrent automatiquement des jetons lors de la connexion au service. Dans certains cas, les kits Azure IoT SDK ne prennent pas en charge l’ensemble des protocoles ou méthodes d’authentification.
 
 ### <a name="special-considerations-for-sasl-plain"></a>Considérations spécifiques concernant SASL PLAIN
 
 Lorsque vous utilisez SASL PLAIN avec AMQP, un client qui se connecte à un IoT Hub peut utiliser un jeton unique pour chaque connexion TCP. Lorsque le jeton expire, la connexion TCP est déconnectée du service, ce qui déclenche une reconnexion. Bien que non problématique pour une application principale, ce comportement peut créer des dommages pour une application d’appareil pour les motifs suivants :
 
-* Les passerelles se connectent généralement au nom de nombreux appareils. Lorsque vous utilisez SASL PLAIN, elles doivent créer une connexion TCP distincte pour chaque appareil se connectant à un IoT Hub. Ce scénario augmente considérablement la consommation des ressources d’alimentation et de mise en réseau, ainsi que la latence de chaque connexion d’appareil.
+* Les passerelles se connectent généralement au nom de nombreux appareils. Lorsque vous utilisez SASL PLAIN, elles doivent créer une connexion TCP distincte pour chaque appareil se connectant à un hub IoT. Ce scénario augmente considérablement la consommation des ressources d’alimentation et de mise en réseau, ainsi que la latence de chaque connexion d’appareil.
 * Les appareils avec des contraintes de ressources sont affectés par l’utilisation accrue des ressources pour se reconnecter après chaque expiration du jeton.
 
-## <a name="scope-iot-hub-level-credentials"></a>Étendue des informations d’identification au niveau d’IoT Hub
+## <a name="scope-iot-hub-level-credentials"></a>Étendue des informations d’identification au niveau du hub IoT
 
-Vous pouvez étendre les stratégies de sécurité au niveau d’IoT Hub en créant des jetons avec un URI de ressource restreint. Par exemple, le point de terminaison pour l’envoi de messages appareil-à-cloud est **/devices/{deviceId}/messages/events**. Vous pouvez également utiliser une stratégie d’accès partagé au niveau d’IoT Hub avec des autorisations **DeviceConnect** pour signer un jeton dont l’URI de ressource est **/devices/{deviceId}**. Cette approche crée un jeton utilisable uniquement pour envoyer des messages au nom de l’appareil **deviceId**.
+Vous pouvez étendre les stratégies de sécurité au niveau du hub IoT en créant des jetons avec un URI de ressource restreint. Par exemple, le point de terminaison pour l’envoi de messages appareil-à-cloud est **/devices/{deviceId}/messages/events**. Vous pouvez également utiliser une stratégie d’accès partagé au niveau du hub IoT avec des autorisations **DeviceConnect** pour signer un jeton dont l’URI de ressource est **/devices/{deviceId}**. Cette approche crée un jeton utilisable uniquement pour envoyer des messages au nom de l’appareil **deviceId**.
 
 Il s’agit d’un mécanisme semblable à la [Stratégie de publication d’Event Hubs][lnk-event-hubs-publisher-policy] qui vous permet d’implémenter des méthodes d’authentification personnalisées.
 
 ## <a name="security-tokens"></a>Jetons de sécurité
 
-IoT Hub utilise des jetons de sécurité pour authentifier les appareils et les services afin d’éviter d’envoyer des clés sur le réseau. En outre, la validité et la portée des jetons sont limitées dans le temps. Les [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks] génèrent automatiquement les jetons sans configuration spéciale. Certains scénarios requièrent toutefois que vous générez et utilisez directement des jetons de sécurité. De tels scénarios incluent l’utilisation directe des surfaces HTTP, MQTT ou AMQP, ou l’implémentation du modèle de service de jeton, comme l’explique [Authentification d’appareil personnalisée][lnk-custom-auth].
+IoT Hub utilise des jetons de sécurité pour authentifier les appareils et les services afin d’éviter d’envoyer des clés sur le réseau. En outre, la validité et la portée des jetons sont limitées dans le temps. Les kits [Azure IoT SDK ][lnk-sdks] génèrent automatiquement les jetons sans configuration spéciale. Certains scénarios requièrent toutefois que vous générez et utilisez directement des jetons de sécurité. De tels scénarios incluent l’utilisation directe des surfaces HTTP, MQTT ou AMQP, ou l’implémentation du modèle de service de jeton, comme l’explique [Authentification d’appareil personnalisée][lnk-custom-auth].
 
 IoT Hub permet également aux appareils de s’authentifier avec IoT Hub à l’aide de [certificats X.509][lnk-x509]. 
 
@@ -209,8 +210,8 @@ Les points de terminaison côté appareil sont (quel que soit le protocole) :
 
 | Point de terminaison | Fonctionnalités |
 | --- | --- |
-| `{iot hub host name}/devices/{deviceId}/messages/events` |Envoyer des messages Appareil vers cloud. |
-| `{iot hub host name}/devices/{deviceId}/devicebound` |Recevoir des messages Cloud vers appareil. |
+| `{iot hub host name}/devices/{deviceId}/messages/events` |Envoyer des messages appareil-à-cloud. |
+| `{iot hub host name}/devices/{deviceId}/devicebound` |Recevoir des messages cloud-à-appareil. |
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>Utilisation d’une clé symétrique dans le registre d’identité
 
@@ -282,9 +283,9 @@ Voici les fonctions de service exposées sur les points de terminaison :
 | Point de terminaison | Fonctionnalités |
 | --- | --- |
 | `{iot hub host name}/devices` |Créer, mettre à jour, récupérer et supprimer les identités des appareils. |
-| `{iot hub host name}/messages/events` |Recevoir des messages Appareil vers cloud. |
-| `{iot hub host name}/servicebound/feedback` |Recevoir des commentaires pour les messages Cloud vers appareil. |
-| `{iot hub host name}/devicebound` |Envoyer des messages Cloud vers appareil. |
+| `{iot hub host name}/messages/events` |Recevoir des messages appareil-à-cloud. |
+| `{iot hub host name}/servicebound/feedback` |Recevoir des commentaires pour les messages cloud-à-appareil. |
+| `{iot hub host name}/devicebound` |Envoyer des messages cloud-à-appareil. |
 
 Par exemple, un service qui génère à l’aide de la stratégie d’accès partagé précréée appelée **registryRead** crée un jeton avec les paramètres suivants :
 
@@ -363,13 +364,13 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 Vous pouvez utiliser le [registre des identités][lnk-identity-registry] IoT Hub pour configurer les informations d’identification de sécurité et le contrôle d’accès par appareil à l’aide de [jetons][lnk-sas-tokens]. Cependant, si une solution IoT représente déjà un investissement significatif dans un registre des identités personnalisé et/ou un schéma d’authentification, vous pouvez intégrer cette infrastructure existante à IoT Hub en créant un *service de jeton*. De cette façon, vous pouvez utiliser d'autres fonctionnalités IoT dans votre solution.
 
-Un service de jeton est un service cloud personnalisé. Il utilise une *stratégie d’accès partagé* IoT Hub avec des autorisations **DeviceConnect** pour créer des jetons *device-scoped*. Ces jetons permettent à un appareil de se connecter à votre IoT Hub.
+Un service de jeton est un service cloud personnalisé. Il utilise une *stratégie d’accès partagé* IoT Hub avec des autorisations **DeviceConnect** pour créer des jetons *device-scoped*. Ces jetons permettent à un appareil de se connecter à votre hub IoT.
 
 ![Étapes du modèle de service de jeton][img-tokenservice]
 
 Voici les principales étapes du schéma de service de jeton :
 
-1. Créez une stratégie d’accès partagé IoT Hub avec des autorisations **DeviceConnect** pour votre IoT Hub. Vous pouvez créer cette stratégie dans le [Portail Azure][lnk-management-portal] ou par programme. Le service de jetons utilise cette stratégie pour signer les jetons qu'elle crée.
+1. Créez une stratégie d’accès partagé IoT Hub avec des autorisations **DeviceConnect** pour votre hub IoT. Vous pouvez créer cette stratégie dans le [Portail Azure][lnk-management-portal] ou par programme. Le service de jetons utilise cette stratégie pour signer les jetons qu'elle crée.
 1. Lorsqu'un appareil doit accéder à votre hub IoT, il demande à votre service de jetons un jeton signé. L’appareil peut s’authentifier avec votre registre des identités personnalisé/schéma d’authentification pour déterminer l’identité d’appareil que le service de jeton utilise pour créer le jeton.
 1. Le service de jeton renvoie un jeton. Le jeton est créé en utilisant `/devices/{deviceId}` en tant qu’`resourceURI`, avec `deviceId` en tant qu’appareil en cours d’authentification. Le service de jeton utilise la stratégie d'accès partagé pour construire le jeton.
 1. L’appareil utilise le jeton directement avec le hub IoT.
@@ -397,8 +398,8 @@ Le tableau suivant répertorie les autorisations que vous pouvez utiliser pour c
 | --- | --- |
 | **RegistryRead**. |Accorde l’accès en lecture au registre des identités. Pour plus d’informations, consultez [Registre des identités][lnk-identity-registry]. <br/>Cette autorisation est utilisée par les services cloud principaux. |
 | **RegistryReadWrite**. |Accorde l’accès en lecture et en écriture au registre des identités. Pour plus d’informations, consultez [Registre des identités][lnk-identity-registry]. <br/>Cette autorisation est utilisée par les services cloud principaux. |
-| **ServiceConnect**. |Accorde l’accès à la communication de services cloud et à la surveillance des points de terminaison. <br/>Accorde l’autorisation de recevoir des messages de l’appareil vers le cloud, d’envoyer des messages du cloud vers l’appareil et de récupérer les accusés de remise correspondants. <br/>Accorde l’autorisation de récupérer les accusés de remise pour les chargements de fichiers. <br/>Accorde l’autorisation d’accéder aux jumeaux d’appareil pour mettre à jour les balises et les propriétés voulues, de récupérer les propriétés signalées et d’exécuter des requêtes. <br/>Cette autorisation est utilisée par les services cloud principaux. |
-| **DeviceConnect**. |Accorde l’accès aux points de terminaison côté appareil. <br/>Accorde l’autorisation d’envoyer des messages de l’appareil vers le cloud et de recevoir des messages du cloud vers l’appareil. <br/>Accorde l’autorisation d’effectuer un chargement de fichiers à partir d’un appareil. <br/>Accorde l’autorisation de recevoir des notifications de propriétés voulues pour les jumeaux d’appareil et de mettre à jour les propriétés signalées pour les jumeaux d’appareil. <br/>Accorde l’autorisation d’effectuer des chargements de fichiers. <br/>Cette autorisation est utilisée par les appareils. |
+| **ServiceConnect**. |Accorde l’accès à la communication de services cloud et à la surveillance des points de terminaison. <br/>Accorde l’autorisation de recevoir des messages appareil-à-cloud, d’envoyer des messages cloud-à-appareil et de récupérer les accusés de remise correspondants. <br/>Accorde l’autorisation de récupérer les accusés de remise pour les chargements de fichiers. <br/>Accorde l’autorisation d’accéder aux jumeaux d’appareil pour mettre à jour les balises et les propriétés voulues, de récupérer les propriétés signalées et d’exécuter des requêtes. <br/>Cette autorisation est utilisée par les services cloud principaux. |
+| **DeviceConnect**. |Accorde l’accès aux points de terminaison côté appareil. <br/>Accorde l’autorisation d’envoyer des messages appareil-à-cloud et de recevoir des messages cloud-à-appareil. <br/>Accorde l’autorisation d’effectuer un chargement de fichiers à partir d’un appareil. <br/>Accorde l’autorisation de recevoir des notifications de propriétés voulues pour les jumeaux d’appareil et de mettre à jour les propriétés signalées pour les jumeaux d’appareil. <br/>Accorde l’autorisation d’effectuer des chargements de fichiers. <br/>Cette autorisation est utilisée par les appareils. |
 
 ## <a name="additional-reference-material"></a>Matériel de référence supplémentaire
 
@@ -406,8 +407,8 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 * La rubrique [Points de terminaison IoT Hub][lnk-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion.
 * La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas appliqués au service IoT Hub, et le comportement de limitation auquel s’attendre en cas d’utilisation du service.
-* La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
-* La rubrique [Langage de requête d’IoT Hub pour les jumeaux d’appareil et les travaux][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer à partir d’IoT Hub des informations sur des jumeaux d’appareil et des travaux.
+* La section [Azure IoT device et service SDK][lnk-sdks] répertorie les kits SDK en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
+* L’article [Langage de requête d’IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer, à partir d’IoT Hub, des informations relatives à vos jumeaux d’appareil et à vos travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes

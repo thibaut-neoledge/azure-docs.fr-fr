@@ -13,22 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/7/2017
+ms.date: 05/22/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: e308b75581ca5372a4de168895f2eeb140a69a78
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 527f3f33e2b5996c6fa7b7dc874123bba5ab39dd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="create-a-vm-from-a-generalized-managed-vm-image"></a>Créer une machine virtuelle à partir d’une image de machine virtuelle managée généralisée
+# <a name="create-a-vm-from-a-managed-image"></a>Créer une machine virtuelle à partir d’une image gérée
 
-Vous pouvez créer plusieurs machines virtuelles à partir d’une image de machine virtuelle managée dans Azure. Une image de machine virtuelle managée contient les informations nécessaires pour créer une machine virtuelle, y compris le disque du système d’exploitation et les disques de données. Les disques durs virtuels qui composent l’image, y compris les disques du système d’exploitation et les disques de données, sont stockés en tant que disques gérés. 
-
-Une machine virtuelle généralisée a supprimé toutes les informations de votre compte personnel avec [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Vous pouvez créer une machine virtuelle généralisée en exécutant Sysprep sur une machine virtuelle locale, puis en [chargeant le disque dur virtuel dans Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ou en exécutant Sysprep sur une machine virtuelle Azure existante, puis en [capturant une image de la machine virtuelle](capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
+Vous pouvez créer plusieurs machines virtuelles à partir d’une image de machine virtuelle managée dans Azure. Une image de machine virtuelle managée contient les informations nécessaires pour créer une machine virtuelle, y compris le disque du système d’exploitation et les disques de données. Les disques durs virtuels qui composent l’image, y compris les disques du système d’exploitation et les disques de données, sont stockés en tant que disques managés. 
 
 
 ## <a name="prerequisites"></a>Composants requis

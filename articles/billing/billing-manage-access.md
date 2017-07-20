@@ -4,7 +4,7 @@ description:
 services: 
 documentationcenter: 
 author: vikramdesai01
-manager: vikramdesai01
+manager: vikdesai
 editor: 
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: vikdesai
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 3453e80246393f15cf0ee2eb29b2fb1d53f77078
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 247782a86a0d20486513dff0dae0c1564b5ecb72
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -64,7 +64,7 @@ Le rôle Lecteur de facturation dispose d’un accès en lecture seule aux infor
     ![Capture d’écran montrant ce que le lecteur de facturation peut voir dans le portail Azure](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> La fonctionnalité Lecteur de facturation se trouve dans la version préliminaire et est uniquement disponible pour le cloud global Azure.
+> La fonctionnalité Lecteur de facturation est en préversion et ne prend pas encore en charge les abonnements d’entreprise ni les clouds non globaux.
 
 ## <a name="adding-users-to-other-roles"></a>Ajouter des utilisateurs à d’autres rôles
 
@@ -77,3 +77,4 @@ Seul l’administrateur de compte peut se connecter au centre des comptes. L’a
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez d’autres questions, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+

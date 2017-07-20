@@ -3,7 +3,7 @@ title: Exploration des journaux .NET dans Application Insights
 description: "Effectuez une recherche dans les journaux générés avec Trace, NLog ou Log4Net."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/3/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1b0c902adff1d60a04fb3cddef5862256d54f813
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: e562e6a1a6c2b8203f3d5a9a2ee5680372499693
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -96,6 +96,19 @@ Pour chaque source, vous pouvez définir les paramètres suivants :
  * `Name` spécifie le nom de l’événement EventSource à collecter.
  * `Level` spécifie le niveau de journalisation à collecter. Peut être `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
  * `Keywords` (Facultatif) spécifie la valeur entière de combinaisons de mots clés à utiliser.
+
+## <a name="using-diagnosticsource-events"></a>Utilisation des événements DiagnosticSource
+Vous pouvez configurer les événements [System.Diagnostics.Tracing.EventSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) de façon à les envoyer à Application Insights en tant que traces. Commencez par installer le package NuGet [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener). Ensuite, modifiez la section `TelemetryModules` du fichier [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+      <Sources>
+        <Add Name="MyDiagnosticSourceName" />
+      </Sources>
+    </Add>
+```
+
+Pour chaque DiagnosticSource à tracer, ajoutez une entrée avec l’attribut `Name` défini sur le nom de votre DiagnosticSource.
 
 ## <a name="using-etw-events"></a>Utilisation des événements ETW
 Vous pouvez configurer les événements ETW à envoyer à Application Insights en tant que traces. D’abord, installez le package NuGet `Microsoft.ApplicationInsights.EtwCollector`. Ensuite, modifiez la section `TelemetryModules` du fichier [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).

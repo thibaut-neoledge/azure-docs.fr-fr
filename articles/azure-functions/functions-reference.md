@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 05/30/2017
 ms.author: chrande
-translationtype: Human Translation
-ms.sourcegitcommit: bc96edb44dc8bbbbe4687806117990c9d3470fdc
-ms.openlocfilehash: adb70fc58321c11c0b57efc9810a44d0ab2c8a20
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -76,7 +77,7 @@ Lorsque vous configurez un projet pour déployer des fonctions dans un conteneur
 > 
 > 
 
-## <a name="a-idfileupdatea-how-to-update-function-app-files"></a><a id="fileupdate"></a> Comment mettre à jour les fichiers du conteneur de fonctions
+## <a id="fileupdate"></a> Comment mettre à jour les fichiers du conteneur de fonctions
 L’éditeur de fonctions intégré au portail Azure vous permet de mettre à jour le fichier *function.json* et le fichier de code pour une fonction. Pour télécharger ou mettre à jour d’autres fichiers comme *package.json* ou *project.json* ou les dépendances, vous devez utiliser d’autres méthodes de déploiement.
 
 Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes les [options de déploiement disponibles sur les applications web standard](../app-service-web/web-sites-deploy.md) le sont également sur les conteneurs de fonctions. Voici des méthodes que vous pouvez utiliser pour télécharger ou mettre à jour les fichiers du conteneur de fonctions. 
@@ -96,9 +97,7 @@ Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes le
 3. Accédez à `D:\home\site\wwwroot\` pour mettre à jour *host.json* ou `D:\home\site\wwwroot\<function_name>` pour mettre à jour les fichiers d’une fonction.
 4. Glissez-déplacez un fichier à télécharger dans le dossier approprié dans la grille de fichiers. La grille de fichiers offre deux zones dans lesquelles vous pouvez déposer un fichier. Pour les fichiers *.zip* , une zone s’affiche avec le libellé « Faites glisser ici pour charger et décompresser ». Pour les autres types de fichier, déposez le fichier dans la grille de fichiers, mais en dehors de cette zone.
 
-#### <a name="to-use-ftp"></a>Pour utiliser le FTP
-1. Suivez les instructions [ici](../app-service-web/web-sites-deploy.md#ftp) pour configurer le FTP.
-2. Lorsque vous êtes connecté au site Function App, copiez un fichier *host.json* mis à jour vers `/site/wwwroot` ou copiez les fichiers de fonction vers `/site/wwwroot/<function_name>`.
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
 
 #### <a name="to-use-continuous-deployment"></a>Pour utiliser le déploiement continu
 Suivez les instructions de la rubrique [Déploiement continu pour Azure Functions](functions-continuous-deployment.md).
@@ -106,11 +105,12 @@ Suivez les instructions de la rubrique [Déploiement continu pour Azure Function
 ## <a name="parallel-execution"></a>Exécution en parallèle
 Lorsque plusieurs événements de déclenchement se produisent plus rapidement qu'un runtime de fonction monothread ne peut les traiter, le runtime peut appeler la fonction plusieurs fois en parallèle.  Si un conteneur de fonctions utilise le [plan d’hébergement de consommation](functions-scale.md#how-the-consumption-plan-works), il peut monter automatiquement augmenter la taille des instances.  Que l’application s’exécute sur le plan d’hébergement de consommation ou sur un [plan d’hébergement App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) standard, chaque instance de l’application de fonction peut traiter en parallèle des appels de fonction simultanés en utilisant plusieurs threads.  Le nombre maximal d’appels de fonction simultanés dans chaque instance de chaque application de fonction varie en fonction du type de déclencheur utilisé, ainsi que des ressources utilisées par d’autres fonctions au sein de l’application de fonction.
 
-## <a name="azure-functions-pulse"></a>Azure Functions Pulse
-Pulse est un flux d'événements en direct qui indique la fréquence d'exécution de votre fonction, ainsi que les réussites et les échecs. Vous pouvez également surveiller le temps moyen d'exécution. Nous allons y ajouter plus de fonctionnalités et d’éléments de personnalisation au fil du temps. Vous pouvez accéder à la page **Pulse** à partir de l’onglet **Surveillance**.
+## <a name="functions-runtime-versioning"></a>Contrôle de version du runtime Functions
+
+Vous pouvez configurer la version du runtime Functions en utilisant le paramètre d’application `FUNCTIONS_EXTENSION_VERSION`. Par exemple, la valeur « ~ 1 » indique que votre application de fonction utilise 1 comme version principale. Les applications Function sont mises à niveau pour chaque nouvelle version secondaire lorsqu’elles sont disponibles. Vous pouvez voir la version exacte de votre application de fonction dans l’onglet **Paramètres** du portail Azure.
 
 ## <a name="repositories"></a>Référentiels
-Le code pour Azure Fonctions est open source et stocké dans des référentiels GitHub :
+Le code pour Azure Fonctions est open source et stocké dans des dépôts GitHub :
 
 * [Runtime Azure Functions](https://github.com/Azure/azure-webjobs-sdk-script/)
 * [Portail Azure Functions](https://github.com/projectkudu/AzureFunctionsPortal)
