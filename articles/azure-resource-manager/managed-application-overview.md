@@ -8,19 +8,19 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/24/2017
 ms.author: gauravbh; tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: a4348a4d2348d744c03ad3a89d0548526fa2f9f8
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c4e0508e243bd4f0cd57ea1619f7812433329423
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
-Aujourd’hui, Azure offre une place de marché fiable où les éditeurs de logiciels indépendants et les start ups peuvent proposer leurs solutions aux clients du monde entier. Azure Marketplace est une galerie composée de centaines de modèles à plusieurs ressources complexes issus de fournisseurs tiers et internes. Les clients peuvent effectuer un déploiement et un démarrage en quelques minutes à l’aide d’applications PaaS et SaaS. Bien qu’elle offre un excellent moyen de déployer rapidement une offre, le client reste responsable de la gestion et de la mise à jour de la solution. Pour les fournisseurs, il n’existe aucun moyen de facturer les clients pour l’utilisation d’une application au-delà de la facturation d’image de machine virtuelle. En outre, les fournisseurs n’ont aucun moyen d’empêcher les clients de modifier les ressources des applications critiques ni de bloquer l’accès à la propriété intellectuelle qui compose une application. Les applications gérées Azure constituent une solution à ces problèmes. 
+Aujourd’hui, Azure offre une place de marché fiable où les éditeurs de logiciels indépendants et les start ups peuvent proposer leurs solutions aux clients du monde entier. La Place de marché Azure est une galerie composée de centaines de modèles à plusieurs ressources complexes issus de fournisseurs tiers et internes. Les clients peuvent effectuer un déploiement et un démarrage en quelques minutes à l’aide d’applications PaaS et SaaS. Bien qu’elle offre un excellent moyen de déployer rapidement une offre, le client reste responsable de la gestion et de la mise à jour de la solution. Pour les fournisseurs, il n’existe aucun moyen de facturer les clients pour l’utilisation d’une application au-delà de la facturation d’image de machine virtuelle. En outre, les fournisseurs n’ont aucun moyen d’empêcher les clients de modifier les ressources des applications critiques ni de bloquer l’accès à la propriété intellectuelle qui compose une application. Les applications gérées Azure constituent une solution à ces problèmes. 
 
 ## <a name="advantages-of-managed-applications"></a>Avantages des applications gérées
 
@@ -34,9 +34,13 @@ Deux situations se présentent :
 1. Le fournisseur ou l’éditeur de logiciels indépendants créant une application gérée et qui la rend disponible pour une utilisation plus large. 
 2. Le client ou le consommateur souhaitant créer et utiliser l’application publiée. 
 
-Cet article aborde ces deux situations. Tout d’abord, essayons de comprendre le fonctionnement d’une application gérée. 
+Cet article fournit une vue d’ensemble des deux expériences. Tout d’abord, essayons de comprendre le fonctionnement d’une application gérée. 
 
-Une application gérée est similaire à un modèle de solution marketplace à une importante différence près. Dans une application gérée, les ressources sont configurées sur un groupe de ressources géré par le fournisseur/l’éditeur de logiciels indépendants. Le groupe de ressources est présent dans l’abonnement du client, mais un utilisateur, un groupe d’utilisateurs ou une application du client de l’éditeur de logiciels indépendants a accès au groupe de ressources. Pour gérer et assurer la maintenance de l’application, l’identité du fournisseur est ajoutée à un rôle de lecteur, de collaborateur, de propriétaire Active Directory ou à tout autre rôle intégré. 
+Une application gérée est similaire à un modèle de solution de place de marché à une importante différence près. Dans une application gérée, les ressources sont configurées sur un groupe de ressources géré par le fournisseur/l’éditeur de logiciels indépendants. Le groupe de ressources est présent dans l’abonnement du client, mais un utilisateur, un groupe d’utilisateurs ou une application du client de l’éditeur de logiciels indépendants a accès au groupe de ressources. Pour gérer et assurer la maintenance de l’application, l’identité du fournisseur est ajoutée à un rôle de lecteur, de collaborateur, de propriétaire Active Directory ou à tout autre rôle intégré. 
+
+Pour plus d’informations sur l’expérience fournisseur, consultez [Créer et publier une application managée Azure](managed-application-publishing.md).
+
+Pour plus d’informations sur l’expérience consommateur, consultez [Utiliser une application managée Azure](managed-application-consumption.md).
 
 ## <a name="key-concepts"></a>Concepts clés
 

@@ -1,6 +1,6 @@
 ---
 title: "Schéma de configuration de l’Extension Microsoft Azure Diagnostics 1.3 et versions ultérieures | Documents Microsoft"
-description: "Schéma version 1.3 et versions ultérieures pour les diagnostics Azure fournis avec le Kit de développement logiciel (SDK) Microsoft Azure 2.4 et versions ultérieures."
+description: "Schéma version 1.3 et versions ultérieures pour les diagnostics Azure fournis avec le kit Microsoft Azure SDK 2.4 et versions ultérieures."
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 4e659f2e3f7744a3de7ab4faf18cc31b0c6752b9
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 90d39f75f547eff9c87997eb83460875c12dcfe4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/17/2017
 > 
 > Cette page vous concerne uniquement si vous utilisez l’un de ces services.
 
-Cette page a trait aux versions 1.3 et ultérieures (Kit de développement logiciel (SDK) Azure 2.4 et versions ultérieures). Les sections de configuration les plus récentes sont commentées pour montrer dans quelle version elles ont été ajoutées.  
+Cette page a trait aux versions 1.3 et ultérieures (Azure SDK 2.4 et ultérieur). Les sections de configuration les plus récentes sont commentées pour montrer dans quelle version elles ont été ajoutées.  
 
 Le fichier de configuration décrit ici est utilisé pour définir les paramètres de configuration de diagnostic lorsque le moniteur de diagnostic démarre.  
 
@@ -559,7 +559,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Élément enfant|Description|  
 |-------------------|-----------------|  
-|**DataSource**|Journaux des événements Windows à collecter. Attribut requis :<br /><br /> **name** - Requête XPath décrivant les événements windows à collecter. Par exemple :<br /><br /> `Application!*[Application[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[Security[(Level <= 3)]`<br /><br /> Pour collecter tous les événements, spécifiez « * ».|  
+|**DataSource**|Journaux des événements Windows à collecter. Attribut requis :<br /><br /> **name** - Requête XPath décrivant les événements windows à collecter. Par exemple :<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Pour collecter tous les événements, spécifiez « * ».|  
 
 
 

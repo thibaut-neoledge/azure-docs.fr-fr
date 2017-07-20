@@ -12,21 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/25/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e99294069f92f51d212b38b1c5ee12232c6dc77d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: f3336d4b0036e1dc181de1f1296da521f68b9464
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurer un nom de domaine personnalisé pour un point de terminaison Blob Storage
+# <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurer un nom de domaine personnalisé pour un point de terminaison de stockage Blob
 
-Vous pouvez configurer un domaine personnalisé pour accéder à des données d’objets blob dans votre compte de stockage Azure. Le point de terminaison par défaut de Blob Storage est `<storage-account-name>.blob.core.windows.net`. Si vous mappez un domaine personnalisé et un sous-domaine comme **www.contoso.com** au point de terminaison d’objet blob de votre compte de stockage, vos utilisateurs peuvent alors accéder aux données de l’objet blob de votre compte de stockage à l’aide de ce domaine.
+Vous pouvez configurer un domaine personnalisé pour accéder à des données d’objets blob dans votre compte de stockage Azure. Le point de terminaison par défaut de stockage Blob est `<storage-account-name>.blob.core.windows.net`. Si vous mappez un domaine personnalisé et un sous-domaine comme **www.contoso.com** au point de terminaison d’objet blob de votre compte de stockage, vos utilisateurs peuvent alors accéder aux données de l’objet blob de votre compte de stockage à l’aide de ce domaine.
 
 > [!IMPORTANT]
-> Azure Storage ne prend pas encore en charge HTTPS avec des domaines personnalisés. Même si nous n’avons pas encore de chronologie spécifique à partager, nous sommes conscients que les clients sont intéressés par cette fonctionnalité.
+> Stockage Azure ne prend pas encore en charge HTTPS nativement avec des domaines personnalisés. Vous pouvez [utiliser Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](./storage-https-custom-domain-cdn.md).
 >
 
 Le tableau suivant contient des exemples d’URL pour les données de l’objet blob situées dans un compte de stockage nommé **mystorageaccount**. Le domaine personnalisé enregistré pour le compte de stockage est **www.contoso.com**:
@@ -70,7 +71,7 @@ En règle générale, vous pouvez gérer les paramètres DNS de votre domaine su
 1. Recherchez la section relative à la gestion des enregistrements CNAME. Pour cela, accédez à une page de paramètres avancés et recherchez les mots **CNAME**, **Alias** ou **Sous-domaines**.
 1. Créez un enregistrement CNAME et indiquez un alias de sous-domaine tel que **www** ou **photos**. Indiquez ensuite un nom d’hôte, à savoir votre point de terminaison de service BLOB, au format **mystorageaccount.blob.core.windows.net** (où *mystorageaccount* correspond au nom de votre compte de stockage). Le nom d’hôte à utiliser s’affiche dans l’élément #1 du panneau *Domaine personnalisé* dans le [portail Azure](https://portal.azure.com).
 1. Dans la zone de texte sur le panneau *Domaine personnalisé* dans le [portail Azure](https://portal.azure.com), entrez le nom de votre domaine personnalisé, avec le sous-domaine. Par exemple, si votre domaine est **contoso.com** et votre alias de sous-domaine est **www**, entrez **www.contoso.com**. Si votre sous-domaine est **photos**, entrez **photos.contoso.com**. Le sous-domaine est *obligatoire*.
-1. Sélectionnez **Enregistrer** sur le panneau *Domaine personnalisé* pour inscrire votre domaine personnalisé. Si l’inscription réussit, vous verrez un message indiquant que votre compte de stockage a été correctement mis à jour.
+1. Sélectionnez **Enregistrer** sur le panneau *Domaine personnalisé* pour inscrire votre domaine personnalisé. Si l’inscription réussit, une notification de portail apparaît, indiquant que votre compte de stockage a été correctement mis à jour.
 
 Une fois votre nouvel enregistrement CNAME propagé via DNS, vos utilisateurs peuvent afficher les données de l’objet blob à l’aide de votre domaine personnalisé, tant qu’ils ont les autorisations appropriées.
 
@@ -86,7 +87,7 @@ Le sous-domaine **asverify** est un sous-domaine spécial reconnu par Azure. En 
 1. Créez un enregistrement CNAME et indiquez un alias de sous-domaine qui inclut le sous-domaine *asverify*. Par exemple, **asverify.www** ou **asverify.photos**. Indiquez ensuite un nom d’hôte, à savoir votre point de terminaison de service BLOB, au format **asverify.mystorageaccount.blob.core.windows.net** (où **mystorageaccount** correspond au nom de votre compte de stockage). Le nom d’hôte à utiliser s’affiche dans l’élément #2 du panneau *Domaine personnalisé* dans le [portail Azure](https://portal.azure.com).
 1. Dans la zone de texte sur le panneau *Domaine personnalisé* dans le [portail Azure](https://portal.azure.com), entrez le nom de votre domaine personnalisé, avec le sous-domaine. N’incluez pas *asverify*. Par exemple, si votre domaine est **contoso.com** et votre alias de sous-domaine est **www**, entrez **www.contoso.com**. Si votre sous-domaine est **photos**, entrez **photos.contoso.com**. Le sous-domaine est obligatoire.
 1. Cochez la case **Utiliser la validation CNAME indirecte**.
-1. Sélectionnez **Enregistrer** sur le panneau *Domaine personnalisé* pour inscrire votre domaine personnalisé. Si l’inscription réussit, vous verrez un message indiquant que votre compte de stockage a été correctement mis à jour. À ce stade, votre domaine personnalisé a été vérifié par Azure, mais le trafic en direction de votre domaine n'est pas encore dirigé vers votre compte de stockage.
+1. Sélectionnez **Enregistrer** sur le panneau *Domaine personnalisé* pour inscrire votre domaine personnalisé. Si l’inscription réussit, une notification de portail apparaît, indiquant que votre compte de stockage a été correctement mis à jour. À ce stade, votre domaine personnalisé a été vérifié par Azure, mais le trafic en direction de votre domaine n'est pas encore dirigé vers votre compte de stockage.
 1. Retournez sur le site web du fournisseur DNS et créez un autre enregistrement CNAME qui mappe votre sous-domaine à votre point de terminaison de service BLOB. Par exemple, spécifiez le sous-domaine sous la forme **www** ou **photos** (sans *asverify*) et le nom d’hôte sous la forme **mystorageaccount.blob.core.windows.net** (où **mystorageaccount** correspond au nom de votre compte de stockage). Cette étape marque la fin de l'enregistrement de votre domaine personnalisé.
 1. Pour finir, vous pouvez supprimer l’enregistrement CNAME que vous avez créé et qui contient le sous-domaine **asverify**, car il n’a plus d’utilité.
 
@@ -105,6 +106,17 @@ Vous pouvez par exemple utiliser l’URI suivant pour accéder à un formulaire 
 ## <a name="deregister-a-custom-domain"></a>Annuler l’inscription d’un domaine personnalisé
 
 Pour annuler l’inscription d’un domaine personnalisé pour votre point de terminaison de stockage Blob, utilisez l’une des procédures suivantes.
+
+### <a name="azure-portal"></a>Portail Azure
+
+Pour supprimer le paramètre de domaine personnalisé, effectuez la procédure suivante dans le portail Azure :
+
+1. Accédez à votre compte de stockage dans le [Portail Azure](https://portal.azure.com).
+1. Sous **SERVICE BLOB** dans le panneau des menus, sélectionnez **Domaine personnalisé** pour ouvrir le panneau *Domaine personnalisé*.
+1. Effacez le contenu de la zone de texte contenant le nom de votre domaine personnalisé.
+1. Sélectionnez le bouton **Enregistrer**.
+
+Une fois le domaine personnalisé supprimé, une notification de portail apparaît, indiquant que votre compte de stockage a été correctement mis à jour.
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
@@ -133,7 +145,7 @@ Utilisez la commande d’interface de ligne de commande [az storage account upda
 Utilisez l’applet de commande PowerShell [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) et spécifiez une chaîne vide (`""`) pour la valeur d’argument `-CustomDomainName` afin de supprimer une inscription de domaine personnalisé.
 
 * Format de commande :
-  
+
   ```powershell
   Set-AzureRmStorageAccount `
       -ResourceGroupName "<resource-group-name>" `
@@ -150,11 +162,7 @@ Utilisez l’applet de commande PowerShell [Set-AzureRmStorageAccount](/powershe
       -CustomDomainName ""
   ```
 
-### <a name="azure-portal"></a>Portail Azure
-
-Pour l’instant, vous ne pouvez pas supprimer une inscription de domaine personnalisé à l’aide du portail Azure. Il s'agit d'un problème connu. Aucune date de résolution n’est disponible pour le moment, mais nous mettrons à jour cet article quand le problème aura été résolu. En attendant, utilisez Azure CLI 2.0 ou Azure PowerShell pour supprimer le paramètre de domaine personnalisé.
-
 ## <a name="next-steps"></a>Étapes suivantes
 * [Mapper un domaine personnalisé à un point de terminaison Azure CDN (Content Delivery Network)](../cdn/cdn-map-content-to-custom-domain.md)
-
+* [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](./storage-https-custom-domain-cdn.md)
 

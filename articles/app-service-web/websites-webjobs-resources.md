@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: fc5c87e45f3c92172f01a462451bc145ce8b0b16
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 9023ca104fcab29bc0b16ecd3a6584848e2d453e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Ressources de documentation relatives à Azure WebJobs
 ## <a name="overview"></a>Vue d’ensemble
-Cette rubrique fournit des liens vers des ressources de documentation sur l’utilisation d’Azure WebJobs et du Kit de développement logiciel (SDK) Azure WebJobs. Azure WebJobs permet d'exécuter facilement des scripts ou des programmes sous la forme de processus d'arrière-plan dans le contexte d'une [application web App Service, application API ou application mobile](../app-service/app-service-value-prop-what-is.md). Vous pouvez télécharger et exécuter un fichier exécutable comme cmd, bat, exe (.NET), ps1, sh, php, py, js et jar. Ces programmes s’exécutent en tant que tâches WebJobs selon une planification (cron) ou en continu.
+Cette rubrique fournit des liens vers des ressources de documentation sur l’utilisation d’Azure WebJobs et du Kit de développement logiciel (SDK) Azure WebJobs. Azure WebJobs permet d'exécuter facilement des scripts ou des programmes sous la forme de processus d'arrière-plan dans le contexte d'une [application web App Service, application API ou application mobile](../app-service/app-service-value-prop-what-is.md). Vous pouvez charger et exécuter un fichier exécutable comme cmd, bat, exe (.NET), ps1, sh, php, py, js et jar. Ces programmes s’exécutent en tant que tâches WebJobs selon une planification (cron) ou en continu.
 
-L’objectif du [kit de développement logiciel (SDK) WebJobs](websites-webjobs-resources.md) consiste à simplifier le code que vous écrivez pour les tâches web courantes, telles que le traitement d’image, le traitement de la file d’attente, l’agrégation RSS, la maintenance des fichiers et l’envoi des messages électroniques. Le kit de développement logiciel (SDK) WebJobs dispose de fonctionnalités intégrées fonctionnant avec le stockage Azure et Service Bus et servant à planifier des tâches, à gérer des erreurs et à nombreux autres scénarios courants. En outre, il est évolutif et il existe un [référentiel open source contenant les extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). [Azure Functions](../azure-functions/functions-overview.md) (actuellement en version préliminaire) est basé sur une version du Kit de développement logiciel (SDK) WebJobs qui fonctionne avec C# script, Node.js et autres langages. 
+L’objectif du [kit de développement logiciel (SDK) WebJobs](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-webjobs-sdk) consiste à simplifier le code que vous écrivez pour les tâches web courantes, telles que le traitement d’image, le traitement de la file d’attente, l’agrégation RSS, la maintenance des fichiers et l’envoi des messages électroniques. Le kit de développement logiciel (SDK) WebJobs dispose de fonctionnalités intégrées fonctionnant avec le stockage Azure et Service Bus et servant à planifier des tâches, à gérer des erreurs et à nombreux autres scénarios courants. En outre, il est évolutif et il existe un [référentiel open source contenant les extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). [Azure Functions](../azure-functions/functions-overview.md) (actuellement en version préliminaire) est basé sur une version du Kit de développement logiciel (SDK) WebJobs qui fonctionne avec C# script, Node.js et autres langages. 
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
-La création, le déploiement et la gestion des tâches web WebJobs sont parfaitement compatibles avec les outils intégrés dans Visual Studio. Vous pouvez créer les tâches web WebJobs à partir de modèles, les publier et les gérer (exécuter/arrêter/analyser/déboguer). 
+La création, le déploiement et la gestion des tâches web WebJobs sont parfaitement compatibles avec les outils intégrés dans Visual Studio. Vous pouvez créer les tâches web à partir de modèles, les publier et les gérer (les exécuter, les arrêter, les analyser et les déboguer). 
 
 Le tableau de bord WebJobs dans le portail Azure fournit de puissantes fonctionnalités de gestion qui vous donnent un contrôle total sur l’exécution des tâches WebJobs, notamment la possibilité d’appeler des fonctions individuelles dans WebJobs. Le tableau de bord affiche également les runtimes de fonction et la sortie d'enregistrement. 
 
@@ -38,7 +39,7 @@ Le tableau de bord WebJobs dans le portail Azure fournit de puissantes fonctionn
 * [Azure WebJobs est extraordinaire, utilisez-le dès maintenant !](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Billet de blog de Troy Hunt).
 * [Fonctionnalités Azure WebJobs](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Présentation du Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md)
-* [Conseils de travaux d’arrière-plan par Microsoft Patterns and Practices](/documentation/articles/best-practices-background-jobs/)
+* [Conseils de travaux d’arrière-plan par Microsoft Patterns and Practices](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs)
 * [Annonce de la version 1.1.0 RTM du Kit de développement logiciel (SDK) Microsoft Azure WebJobs](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure](websites-dotnet-webjobs-sdk-get-started.md)
 * [Utilisation du stockage de file d’attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -97,7 +98,7 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 * [Exécution de tâches web Powershell sur Azure App Service](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Réception d’une notification à la fin de la tâche web déclenchée par Azure](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
 * [Stratégie de rétention de sauvegarde d’une application web avec WebJobs](https://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
-* [Lenteur d’Azure Web Apps et de Cloud Services à la première requête](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Montre comment utiliser WebJobs pour simuler la fonctionnalité AlwaysOn qui n’est disponible que pour le niveau de tarification Standard.
+* [Lenteur d’Azure Web Apps et de Cloud Services à la première requête](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Montre comment utiliser WebJobs pour simuler la fonctionnalité AlwaysOn qui n’est disponible que pour le niveau tarifaire Standard.
 * [Arrêt progressif de WebJobs](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). Pour plus d’informations sur l’arrêt progressif du Kit de développement logiciel (SDK) WebJobs, consultez la rubrique [Arrêt progressif](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).
 * [Sauvegardes automatiques avec Azure WebJobs et AzCopy](http://markjbrown.com/azure-webjobs-azcopy/)
 * Vidéos

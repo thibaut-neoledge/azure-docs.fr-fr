@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 306dde28a4af82197ae5a75bee83c0e7cf219e42
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 96c46b2c01272abfaf1dd2667a45e3818cbe49a0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -375,7 +375,7 @@ Cliquez sur le lien du magasin qui vous intéresse pour afficher les schémas JS
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure Search](#azure-search) |
+| &nbsp; |[Recherche Azure](#azure-search) |
 | &nbsp; |[Stockage Table Azure](#azure-table-storage) |
 | **Bases de données** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -405,7 +405,7 @@ Cliquez sur le lien du magasin qui vous intéresse pour afficher les schémas JS
 ### <a name="linked-service"></a>Service lié
 Il existe deux types de services liés : les services liés de stockage Azure et les services liés SAP de stockage Azure.
 
-#### <a name="azure-storage-linked-service"></a>Service lié Azure Storage
+#### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
 Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la **clé de compte**, créez un service lié de stockage Azure. Pour définir un stockage Azure lié au service, définissez le **type** du service lié sur **AzureStorage**. Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties** :  
 
 | Propriété | Description | Requis |
@@ -427,11 +427,11 @@ Pour lier votre compte de stockage Azure à une fabrique de données à l’aide
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Service lié SAP de stockage Azure
-Le service lié Azure Storage SAS vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide d’une signature d’accès partagé (SAP). Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources (objet blob/conteneur) dans le stockage. Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la signature d’accès partagé, créez un service lié SAP de stockage Azure. Pour définir un service lié SAP de stockage Azure, définissez le **type** du service lié sur **AzureStorageSas**. Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties** :   
+Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide d’une signature d’accès partagé (SAP). Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources (objet blob/conteneur) dans le stockage. Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la signature d’accès partagé, créez un service lié SAP de stockage Azure. Pour définir un service lié SAP de stockage Azure, définissez le **type** du service lié sur **AzureStorageSas**. Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties** :   
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| sasUri |Spécifiez l’URI de signature d’accès partagé des ressources Azure Storage, telles qu’un objet blob, un conteneur ou une table. |Oui |
+| sasUri |Spécifiez l’URI de signature d’accès partagé des ressources Stockage Azure, telles qu’un objet blob, un conteneur ou une table. |Oui |
 
 ##### <a name="example"></a>Exemple
 
@@ -447,7 +447,7 @@ Le service lié Azure Storage SAS vous permet de lier un compte de stockage Azur
 }  
 ```
 
-Pour plus d’informations sur ces services liés, consultez l’article [Azure Blob Storage connector (connecteur de stockage Blob Azure)](data-factory-azure-blob-connector.md#linked-service-properties). 
+Pour plus d’informations sur ces services liés, consultez l’article [Connecteur de stockage Blob Azure](data-factory-azure-blob-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Jeu de données
 Pour définir un jeu de données d’objet blob Azure, définissez le **type** du jeu de données sur **AzureBlob**. Ensuite, spécifiez les propriétés spécifiques d’objet blob Azure suivantes dans la section **typeProperties** : 
@@ -1279,7 +1279,7 @@ Pour plus d’informations, consultez l’article [Azure SQL Data Warehouse conn
 ## <a name="azure-search"></a>Recherche Azure
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Recherche Azure, définissez le **type** du service lié sur **AzureSearch** et spécifiez les propriétés suivantes dans la section **typeProperties** :  
+Pour définir un service lié Recherche Azure, définissez le **type** du service lié sur **Recherche Azure** et spécifiez les propriétés suivantes dans la section **typeProperties** :  
 
 | Propriété | Description | Requis |
 | -------- | ----------- | -------- |
@@ -1301,7 +1301,7 @@ Pour définir un service lié Recherche Azure, définissez le **type** du servic
 }
 ```
 
-Pour plus d’informations, consultez l’article [Azure Search connector (connecteur Recherche Azure)](data-factory-azure-search-connector.md#linked-service-properties).
+Pour plus d’informations, consultez l’article [Connecteur Recherche Azure](data-factory-azure-search-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Jeu de données
 Pour définir un jeu de données Recherche Azure, définissez le **type** du jeu de données sur **AzureSearchIndex** et spécifiez les propriétés suivantes dans la section **typeProperties** : 
@@ -1330,7 +1330,7 @@ Pour définir un jeu de données Recherche Azure, définissez le **type** du jeu
 }
 ```
 
-Pour plus d’informations, consultez l’article [Azure Search connector (connecteur Recherche Azure)](data-factory-azure-search-connector.md#dataset-properties).
+Pour plus d’informations, consultez l’article [Connecteur Recherche Azure](data-factory-azure-search-connector.md#dataset-properties).
 
 ### <a name="azure-search-index-sink-in-copy-activity"></a>Récepteur Index Recherche Azure dans l’activité de copie
 Si vous copiez des données dans un Index Recherche Azure, définissez le **type de récepteur** de l’activité de copie sur **AzureSearchIndexSink** et spécifiez les propriétés suivantes dans la section **sink** :
@@ -1383,14 +1383,14 @@ Si vous copiez des données dans un Index Recherche Azure, définissez le **type
 }
 ```
 
-Pour plus d’informations, consultez l’article [Azure Search connector (connecteur Recherche Azure)](data-factory-azure-search-connector.md#copy-activity-properties).
+Pour plus d’informations, consultez l’article [Connecteur Recherche Azure](data-factory-azure-search-connector.md#copy-activity-properties).
 
 ## <a name="azure-table-storage"></a>Stockage de table Azure
 
 ### <a name="linked-service"></a>Service lié
 Il existe deux types de services liés : les services liés de stockage Azure et les services liés SAP de stockage Azure.
 
-#### <a name="azure-storage-linked-service"></a>Service lié Azure Storage
+#### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
 Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la **clé de compte**, créez un service lié de stockage Azure. Pour définir un stockage Azure lié au service, définissez le **type** du service lié sur **AzureStorage**. Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties** :  
 
 | Propriété | Description | Requis |
@@ -1413,12 +1413,12 @@ Pour lier votre compte de stockage Azure à une fabrique de données à l’aide
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Service lié SAP de stockage Azure
-Le service lié Azure Storage SAS vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide d’une signature d’accès partagé (SAP). Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources (objet blob/conteneur) dans le stockage. Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la signature d’accès partagé, créez un service lié SAP de stockage Azure. Pour définir un service lié SAP de stockage Azure, définissez le **type** du service lié sur **AzureStorageSas**. Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties** :   
+Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide d’une signature d’accès partagé (SAP). Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources (objet blob/conteneur) dans le stockage. Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la signature d’accès partagé, créez un service lié SAP de stockage Azure. Pour définir un service lié SAP de stockage Azure, définissez le **type** du service lié sur **AzureStorageSas**. Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties** :   
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
 | type |La propriété de type doit être définie sur : **AzureStorageSas** |Oui |
-| sasUri |Spécifiez l’URI de signature d’accès partagé des ressources Azure Storage, telles qu’un objet blob, un conteneur ou une table. |Oui |
+| sasUri |Spécifiez l’URI de signature d’accès partagé des ressources Stockage Azure, telles qu’un objet blob, un conteneur ou une table. |Oui |
 
 **Exemple :**
 
@@ -1434,7 +1434,7 @@ Le service lié Azure Storage SAS vous permet de lier un compte de stockage Azur
 }  
 ```
 
-Pour plus d’informations sur ces services liés, consultez l’article [Azure Table Storage connector (connecteur de stockage de table Azure)](data-factory-azure-table-connector.md#linked-service-properties). 
+Pour plus d’informations sur ces services liés, consultez l’article [Connecteur de stockage Table Azure](data-factory-azure-table-connector.md#linked-service-properties). 
 
 ### <a name="dataset"></a>Jeu de données
 Pour définir un jeu de données Table Azure, définissez le **type** du jeu de données sur **AzureTable** et spécifiez les propriétés suivantes dans la section **typeProperties** : 
@@ -1470,7 +1470,7 @@ Pour définir un jeu de données Table Azure, définissez le **type** du jeu de 
 }
 ```
 
-Pour plus d’informations sur ces services liés, consultez l’article [Azure Table Storage connector (connecteur de stockage de table Azure)](data-factory-azure-table-connector.md#dataset-properties). 
+Pour plus d’informations sur ces services liés, consultez l’article [Connecteur de stockage Table Azure)](data-factory-azure-table-connector.md#dataset-properties). 
 
 ### <a name="azure-table-source-in-copy-activity"></a>Source Table Azure dans l’activité de copie
 Si vous copiez des données à partir d’un stockage de table Azure, définissez le **type de source** de l’activité de copie sur **AzureTableSource** et spécifiez les propriétés suivantes dans la section **source** :
@@ -1523,7 +1523,7 @@ Si vous copiez des données à partir d’un stockage de table Azure, définisse
 }
 ```
 
-Pour plus d’informations sur ces services liés, consultez l’article [Azure Table Storage connector (connecteur de stockage de table Azure)](data-factory-azure-table-connector.md#copy-activity-properties). 
+Pour plus d’informations sur ces services liés, consultez l’article [Connecteur de stockage Table Azure)](data-factory-azure-table-connector.md#copy-activity-properties). 
 
 ### <a name="azure-table-sink-in-copy-activity"></a>Récepteur Table Azure dans l’activité de copie
 Si vous copiez des données dans un stockage de table Azure, définissez le **type de récepteur** de l’activité de copie sur **AzureTableSink** et spécifiez les propriétés suivantes dans la section **sink** :
@@ -1580,7 +1580,7 @@ Si vous copiez des données dans un stockage de table Azure, définissez le **ty
     }
 }
 ```
-Pour plus d’informations sur ces services liés, consultez l’article [Azure Table Storage connector (connecteur de stockage de table Azure)](data-factory-azure-table-connector.md#copy-activity-properties). 
+Pour plus d’informations sur ces services liés, consultez l’article [Connecteur de stockage Table Azure)](data-factory-azure-table-connector.md#copy-activity-properties). 
 
 ## <a name="amazon-redshift"></a>Amazon Redshift
 
@@ -4834,8 +4834,8 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 | type |La propriété de type doit être définie sur **HDInsightOnDemand**. |Oui |
 | clusterSize |Nombre de nœuds worker/données dans le cluster. Le cluster HDInsight est créé avec 2 nœuds principaux et le nombre de nœuds worker que vous spécifiez pour cette propriété. Les nœuds étant de taille Standard_D3 à 4 cœurs, un cluster à 4 nœuds de travail prend 24 cœurs (4\*4 = 16 nœuds pour les nœuds de travail + 2\*4 = 8 cœurs pour les nœuds principaux). Pour plus d’informations sur le niveau Standard_D3, voir [Création de clusters Hadoop basés sur Linux dans HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). |yes |
 | timetolive |La durée d’inactivité autorisée pour le cluster HDInsight à la demande. Spécifie la durée pendant laquelle le cluster HDInsight à la demande reste actif après l’achèvement d’une exécution d’activité s’il n’existe aucun autre travail actif dans le cluster.<br/><br/>Par exemple, si une exécution d’activité prend 6 minutes et si la propriété TimeToLive est définie sur 5 minutes, le cluster reste actif pendant 5 minutes après les 6 minutes du traitement de l’exécution d’activité. Si une autre exécution d’activité intervient dans la fenêtre de 6 minutes, elle est traitée par le même cluster.<br/><br/>La création d’un cluster HDInsight à la demande étant une opération coûteuse (elle peut prendre du temps), utilisez ce paramètre selon le besoin pour améliorer les performances d’une fabrique de données en réutilisant un cluster HDInsight à la demande.<br/><br/>Si vous définissez la valeur de la propriété TimeToLive sur 0, le cluster est supprimé dès que l’exécution d’activité est traitée. En revanche, si vous définissez une valeur élevée, le cluster peut rester inactif inutilement entraînant des coûts élevés. Par conséquent, il est important de définir la valeur appropriée en fonction de vos besoins.<br/><br/>Plusieurs pipelines peuvent partager la même instance du cluster HDInsight à la demande si la valeur de la propriété TimeToLive est correctement définie. |Oui |
-| version |Version du cluster HDInsight. La valeur par défaut est 3.1 pour le cluster Windows et 3.2 pour le cluster Linux. |Non |
-| linkedServiceName |Le service lié Azure Storage utilisé par le cluster à la demande pour le stockage et le traitement des données. <p>Actuellement, vous ne pouvez pas créer un cluster HDInsight à la demande qui utilise un Azure Data Lake Store en guise de stockage. Si vous souhaitez stocker les données de résultat à partir du traitement HDInsight dans un Azure Data Lake Store, utilisez une activité de copie pour copier les données du stockage Blob Azure dans Azure Data Lake Store.</p>  | Oui |
+| version |Version du cluster HDInsight. Pour plus d’informations, consultez [Versions de HDInsight prises en charge dans Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Non |
+| linkedServiceName |Le service lié Stockage Azure utilisé par le cluster à la demande pour le stockage et le traitement des données. <p>Actuellement, vous ne pouvez pas créer un cluster HDInsight à la demande qui utilise un Azure Data Lake Store en guise de stockage. Si vous souhaitez stocker les données de résultat à partir du traitement HDInsight dans un Azure Data Lake Store, utilisez une activité de copie pour copier les données du stockage Blob Azure dans Azure Data Lake Store.</p>  | Oui |
 | additionalLinkedServiceNames |Spécifie les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les enregistrer en votre nom. |Non |
 | osType |Type de système d'exploitation. Les valeurs autorisées sont Windows (par défaut) et Linux. |Non |
 | hcatalogLinkedServiceName |Le nom du service lié à SQL Azure pointant vers la base de données HCatalog. Le cluster HDInsight à la demande est créé en utilisant Azure SQL Database en tant que metastore. |Non |
@@ -4874,6 +4874,8 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 | password |Spécifiez le mot de passe du compte d'utilisateur. |Oui |
 | linkedServiceName | Nom du service lié de stockage Azure faisant référence au stockage Blob Azure utilisé par le cluster HDInsight. <p>Actuellement, vous ne pouvez pas spécifier un service lié Azure Data Lake Store pour cette propriété. Vous pouvez accéder aux données d’Azure Data Lake Store à partir de scripts Hive/Pig si le cluster HDInsight a accès à Data Lake Store. </p>  |Oui |
 
+Pour obtenir la liste des versions des clusters HDInsight pris en charge, consultez [Versions de HDInsight prises en charge](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). 
+
 #### <a name="json-example"></a>Exemple JSON
 
 ```json
@@ -4903,7 +4905,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 | accountName |Nom du compte Azure Batch. |Oui |
 | accessKey |Clé d'accès du compte Azure Batch. |Oui |
 | poolName |Nom du pool de machines virtuelles. |Oui |
-| linkedServiceName |Nom du service lié Azure Storage associé à ce service lié Azure Batch. Ce service lié est utilisé pour présenter les fichiers nécessaires à l'exécution de l'activité et stocker les journaux d'exécution de l'activité. |Oui |
+| linkedServiceName |Nom du service lié Stockage Azure associé à ce service lié Azure Batch. Ce service lié est utilisé pour présenter les fichiers nécessaires à l'exécution de l'activité et stocker les journaux d'exécution de l'activité. |Oui |
 
 
 #### <a name="json-example"></a>Exemple JSON

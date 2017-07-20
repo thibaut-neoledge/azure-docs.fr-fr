@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2017
+ms.date: 05/12/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: bb58d485a7ae805489b468cfffd72654914f63f1
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: fe804cc01925cee58a1d694bdb94b85a8f994cef
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -37,7 +37,7 @@ Dans ce tutoriel, vous allez créer deux applications de console Java :
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Java SE 8. <br/> [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de Java pour ce didacticiel sur Windows ou Linux.
-* Maven 3.  <br/> [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de [Maven][lnk-maven] pour ce tutoriel sur Windows ou Linux.
+* Maven 3.  <br/> [Préparer votre environnement de développement][lnk-dev-setup] décrit l’installation de [Maven][lnk-maven] pour ce didacticiel sur Windows ou Linux.
 * [Node.js version 0.10.0 ou supérieure](http://nodejs.org).
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -62,7 +62,7 @@ Dans cette section, vous allez créer une application de console Java qui répon
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.24</version>
+      <version>1.3.30</version>
     </dependency>
     ```
 
@@ -209,7 +209,7 @@ Dans cette section, vous allez créer une application de console Java qui appell
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.5.22</version>
       <type>jar</type>
     </dependency>
     ```
@@ -250,10 +250,10 @@ Dans cette section, vous allez créer une application de console Java qui appell
     import java.util.concurrent.TimeUnit;
     ```
 
-1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez la chaîne **{youriothubname}** par le nom de votre IoT Hub, et **{yourdevicekey}** par la valeur clé d’appareil que vous avez générée dans la section *Création d’une identité d’appareil* :
+1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez **{youriothubconnectionstring}** par la chaîne de connexion IoT Hub que vous avez notée dans la section *Créer un hub IoT* :
 
     ```java
-    public static final String iotHubConnectionString = "HostName={youriothubname}.azure-devices.net;SharedAccessKeyName=owner;SharedAccessKey={yourhubkey}";
+    public static final String iotHubConnectionString = "{youriothubconnectionstring}";
     public static final String deviceId = "myDeviceId";
 
     public static final String methodName = "writeLine";
@@ -288,11 +288,15 @@ Dans cette section, vous allez créer une application de console Java qui appell
     System.out.println("Shutting down sample...");
     ```
 
+1. Enregistrez et fermez le fichier invoke-direct-method\src\main\java\com\mycompany\app\App.java.
+
+1. Générez l’application **invoke-direct-method** et corrigez les erreurs éventuelles. À l’invite de commandes, accédez au dossier invoke-direct-method et exécutez la commande suivante :
+
+    `mvn clean package -DskipTests`
+
 ## <a name="run-the-apps"></a>Exécuter les applications
 
 Vous êtes maintenant prêt à exécuter les applications de console.
-
-Vous êtes maintenant prêt à exécuter les applications.
 
 1. À l’invite de commandes, dans le dossier simulated-device, exécutez la commande suivante pour commencer à écouter les appels de méthode à partir de votre IoT Hub :
 
@@ -325,7 +329,7 @@ Pour savoir comment étendre votre solution IoT et planifier des appels de méth
 
 <!-- Links -->
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md
-
+[lnk-maven]: https://maven.apache.org/what-is-maven.html
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md

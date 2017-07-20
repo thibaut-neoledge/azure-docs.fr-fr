@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 197df490690754730425231f358fde31d17dcfad
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 97864ade77fc694bd1eababe22e6eeb4b9d6e11e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -69,71 +69,73 @@ Pour revenir à une région primaire lorsqu’elle est de nouveau disponible, pr
 
 ## <a name="x12"></a>X 12 
 La continuité des activités pour les documents EDI X12 documents repose sur les numéros de contrôle :
-* Numéros de contrôle reçus (messages entrants) de la part des partenaires  
-* Numéros de contrôle générés (messages sortants) et envoyés aux partenaires 
-    
-    > [!Tip]
+
+> [!Tip]
     > Vous pouvez également utiliser le [modèle de démarrage rapide X12](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/) pour créer des applications logiques. La création d’un compte d’intégration primaire et d’un compte d’intégration secondaire est nécessaire pour utiliser le modèle. Le modèle permet de créer deux applications logiques, une pour les numéros de contrôle reçus et l’autre pour les numéros de contrôle générés. Les déclencheurs et actions respectifs sont créés dans les applications logiques, ce qui permet de connecter le déclencheur connecté au compte d’intégration primaire et de connecter l’action au compte d’intégration secondaire.
-    > 
+    >
     >
 
-### <a name="control-numbers-received-from-partners"></a>Numéros de contrôle reçus de la part des partenaires
+Prérequis : sélectionnez les options de vérification de doublons dans les paramètres de réception de l’accord X12 pour activer la récupération d’urgence pour les messages entrants ![Recherche sur x12](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Activer les contrôles en double dans les paramètres de réception de l’accord   
-![Recherche X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
+1. Créez une [application logique](../logic-apps/logic-apps-create-a-logic-app.md) dans la région secondaire.    
 
-2. Créez une [application logique](../logic-apps/logic-apps-create-a-logic-app.md) dans la région secondaire. 
-
-3. Recherchez **X12** et sélectionnez **X12 - lorsqu’un numéro de contrôle reçu est modifié**.   
-![Recherche X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN1.png)
-
-4. Le déclencheur vous invite à établir une connexion à un compte d’intégration. Le déclencheur doit être connecté au compte d’intégration d’une région primaire. Entrez un nom de connexion, sélectionnez votre **compte d’intégration de la région primaire** dans la liste et cliquez sur **Créer**.  
-![Nom du compte d’intégration de la région primaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN2.png)
-
-5. Le paramètre **DateTime pour démarrer la synchronisation des numéros de contrôle** est facultatif. La **Fréquence** peut être définie sur **Jour**, **Heure**, **Minute** ou **Seconde** avec un intervalle.  
-![DateTime et fréquence](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN3.png)
-
-6. Sélectionnez **Nouvelle étape** > **Ajouter une action**.    
-![Ajouter une action](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN4.png)
-
-7. Lancez une recherche sur **X12** et sélectionnez **X12 - Ajouter ou mettre à jour un numéro de contrôle reçu**.   
-![Modification des numéros de contrôle reçus](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN5.png)
-
-8. Pour connecter une action à un compte d’intégration d’une région secondaire, sélectionnez **Modifier la connexion** > **Ajouter une nouvelle connexion** pour obtenir la liste des comptes d’intégration disponibles. Entrez un nom de connexion, sélectionnez votre **compte d’intégration de la région secondaire** dans la liste et cliquez sur **Créer**.   
-![Nom du compte d’intégration de la région secondaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN6.png)
-
-9. Sélectionnez le contenu dynamique et enregistrez l’application logique. 
-![Contenu dynamique](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN7.png)
-
-10. Selon l’intervalle de temps, le déclencheur interroge la table des numéros de contrôle de la région primaire et extrait les nouveaux enregistrements. L’action les met à jour dans le compte d’intégration de la région secondaire. S’il n’y a aucune mise à jour, le déclencheur affiche l’état **Ignoré**.
-![Table des numéros de contrôle](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN8.png)
-
-### <a name="control-numbers-generated-and-sent-to-partners"></a>Numéros de contrôle générés et envoyés aux partenaires
-1. Créez une [application logique](../logic-apps/logic-apps-create-a-logic-app.md) dans la région secondaire.
-
-2. Lancez une recherche sur **X12** et sélectionnez **X12 - Lorsqu’un numéro de contrôle généré est modifié**.  
-![Modification des numéros de contrôle générés](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN1.png)
+2. Lancez une recherche sur **X12** et sélectionnez **X12 - Lors de la modification d’un numéro de contrôle**.   
+![Recherche de x12](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn1.png)
 
 3. Le déclencheur vous invite à établir une connexion à un compte d’intégration. Le déclencheur doit être connecté au compte d’intégration d’une région primaire. Entrez un nom de connexion, sélectionnez votre **compte d’intégration de la région primaire** dans la liste et cliquez sur **Créer**.   
-![Nom du compte d’intégration de la région primaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN2.png) 
+![Nom du compte d’intégration de la région primaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
-4. Le paramètre **DateTime pour démarrer la synchronisation des numéros de contrôle** est facultatif. La **Fréquence** peut être définie sur **Jour**, **Heure**, **Minute** ou **Seconde** avec un intervalle.  
-![DateTime et fréquence](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN3.png)  
+4. Le paramètre **DateTime pour démarrer la synchronisation des numéros de contrôle** est facultatif. La **Fréquence** peut être définie sur **Jour**, **Heure**, **Minute** ou **Seconde** avec un intervalle.   
+![DateTime et fréquence](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
-5. Sélectionnez **Nouvelle étape** > **Ajouter une action**.  
-![Ajouter une action](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN4.png)
+5. Sélectionnez **Nouvelle étape** > **Ajouter une action**.    
+![Ajouter une action](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-6. Lancez une recherche sur **X12** et sélectionnez **X12 - Ajouter ou mettre à jour un numéro de contrôle généré**.   
-![Ajout ou mise à jour de numéros de contrôle générés](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN5.png)
+6. Lancez une recherche sur **X12** et sélectionnez **X12 - Ajouter ou mettre à jour des numéros de contrôle**.   
+![Modification des numéros de contrôle reçus](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
-7. Pour connecter une action à un compte d’intégration secondaire, sélectionnez **Modifier la connexion** > **Ajouter une nouvelle connexion** pour obtenir la liste des comptes d’intégration disponibles. Entrez un nom de connexion, sélectionnez votre **compte d’intégration de la région secondaire** dans la liste et cliquez sur **Créer**.   
-![Nom du compte d’intégration de la région secondaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN6.png)
+7. Pour connecter une action à un compte d’intégration d’une région secondaire, sélectionnez **Modifier la connexion** > **Ajouter une nouvelle connexion** pour obtenir la liste des comptes d’intégration disponibles. Entrez un nom de connexion, sélectionnez votre **compte d’intégration de la région secondaire** dans la liste et cliquez sur **Créer**.   
+![Nom du compte d’intégration de la région secondaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-8. Sélectionnez le contenu dynamique et enregistrez l’application logique. 
-![Contenu dynamique](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN7.png)
+8. Sélectionnez le contenu dynamique et enregistrez l’application logique.   
+![Contenu dynamique](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn7.png)
 
-9. Selon l’intervalle de temps, le déclencheur interroge la table des numéros de contrôle de la région primaire et extrait les nouveaux enregistrements. L’action les met à jour dans le compte d’intégration de la région secondaire. S’il n’y a aucune mise à jour, le déclencheur affiche l’état **Ignoré**.  
-![Table des numéros de contrôle](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN8.png)
+9. Selon l’intervalle de temps, le déclencheur interroge la table des numéros de contrôle de la région primaire et extrait les nouveaux enregistrements. L’action les met à jour dans le compte d’intégration de la région secondaire. S’il n’y a aucune mise à jour, le déclencheur affiche l’état **Ignoré**.   
+![Table des numéros de contrôle](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
+
+En fonction de l’intervalle de temps, l’état d’exécution incrémentiel est dupliqué d’une région primaire à une région secondaire. Lors d’un sinistre, lorsque la région primaire n’est pas disponible, dirigez le trafic vers la région secondaire pour la continuité des activités. 
+
+## <a name="edifact"></a>EDIFACT 
+La continuité des activités pour les documents EDI EDIFACT repose sur les numéros de contrôle :
+
+Prérequis : sélectionnez les options de vérification de doublons dans les paramètres de réception de l’accord EDIFACT pour activer la récupération d’urgence pour les messages entrants     
+![Recherche sur EDIFACT](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+
+1. Créez une [application logique](../logic-apps/logic-apps-create-a-logic-app.md) dans la région secondaire.    
+
+2. Lancez une recherche sur **EDIFACT** et sélectionnez **EDIFACT - Lors de la modification d’un numéro de contrôle**.     
+![recherche sur edifact](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
+
+4. Le déclencheur vous invite à établir une connexion à un compte d’intégration. Le déclencheur doit être connecté au compte d’intégration d’une région primaire. Entrez un nom de connexion, sélectionnez votre **compte d’intégration de la région primaire** dans la liste et cliquez sur **Créer**.    
+![Nom du compte d’intégration de la région primaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
+
+5. Le paramètre **DateTime pour démarrer la synchronisation des numéros de contrôle** est facultatif. La **Fréquence** peut être définie sur **Jour**, **Heure**, **Minute** ou **Seconde** avec un intervalle.    
+![DateTime et fréquence](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+
+6. Sélectionnez **Nouvelle étape** > **Ajouter une action**.    
+![Ajouter une action](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+
+7. Lancez une recherche sur **EDIFACT** et sélectionnez **EDIFACT - Ajouter ou mettre à jour des numéros de contrôle**.   
+![Modification des numéros de contrôle reçus](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+
+8. Pour connecter une action à un compte d’intégration d’une région secondaire, sélectionnez **Modifier la connexion** > **Ajouter une nouvelle connexion** pour obtenir la liste des comptes d’intégration disponibles. Entrez un nom de connexion, sélectionnez votre **compte d’intégration de la région secondaire** dans la liste et cliquez sur **Créer**.   
+![Nom du compte d’intégration de la région secondaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+
+9. Sélectionnez le contenu dynamique et enregistrez l’application logique.   
+![Contenu dynamique](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn5.png)
+
+10. Selon l’intervalle de temps, le déclencheur interroge la table des numéros de contrôle de la région primaire et extrait les nouveaux enregistrements. L’action les met à jour dans le compte d’intégration de la région secondaire. S’il n’y a aucune mise à jour, le déclencheur affiche l’état **Ignoré**.   
+![Table des numéros de contrôle](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
 
 En fonction de l’intervalle de temps, l’état d’exécution incrémentiel est dupliqué d’une région primaire à une région secondaire. Lors d’un sinistre, lorsque la région primaire n’est pas disponible, dirigez le trafic vers la région secondaire pour la continuité des activités. 
 
@@ -148,30 +150,31 @@ La continuité des activités pour les documents qui utilisent le protocole AS2 
 1. Créez une [application logique](../logic-apps/logic-apps-create-a-logic-app.md) dans la région secondaire.  
 
 2. Recherchez **AS2** et sélectionnez **AS2 - Lorsqu’une valeur MIC est créée**.   
-![Recherche AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid1.png)
+![recherche sur as2](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
 
 3. Un déclencheur vous invite à établir une connexion à un compte d’intégration. Le déclencheur doit être connecté au compte d’intégration d’une région primaire. Entrez un nom de connexion, sélectionnez votre **compte d’intégration de la région primaire** dans la liste et cliquez sur **Créer**.   
-![Nom du compte d’intégration de la région primaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid2.png)
+![Nom du compte d’intégration de la région primaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
 4. Le paramètre **DateTime de démarrage de la synchronisation des valeurs MIC** est facultatif. La **Fréquence** peut être définie sur **Jour**, **Heure**, **Minute** ou **Seconde** avec un intervalle.   
-![DateTime et fréquence](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid3.png)
+![DateTime et fréquence](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid3.png)
 
 5. Sélectionnez **Nouvelle étape** > **Ajouter une action**.  
-![Ajouter une action](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid4.png)
+![Ajouter une action](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
 
 6. Recherchez **AS2** et sélectionnez **AS2 - Ajouter ou mettre à jour un MIC**.  
-![Ajout ou mise à jour d’un MIC](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid5.png)
+![Ajout ou mise à jour d’un MIC](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 
 7. Pour connecter une action à un compte d’intégration secondaire, sélectionnez **Modifier la connexion** > **Ajouter une nouvelle connexion** pour obtenir la liste des comptes d’intégration disponibles. Entrez un nom de connexion, sélectionnez votre **compte d’intégration de la région secondaire** dans la liste et cliquez sur **Créer**.    
-![Nom du compte d’intégration de la région secondaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid6.png)
+![Nom du compte d’intégration de la région secondaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
 
 8. Sélectionnez le contenu dynamique et enregistrez l’application logique.   
-![Contenu dynamique](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid7.png)
+![Contenu dynamique](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid7.png)
 
 9. Selon l’intervalle de temps, le déclencheur interroge la table de la région primaire et extrait les nouveaux enregistrements. L’action les met à jour dans le compte d’intégration de la région secondaire. S’il n’y a aucune mise à jour, le déclencheur affiche l’état **Ignoré**.  
-![Table de la région primaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid8.png)
+![Table de la région primaire](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid8.png)
 
 En fonction de l’intervalle de temps, l’état d’exécution incrémentiel est dupliqué de la région primaire à la région secondaire. Lors d’un sinistre, lorsque la région primaire n’est pas disponible, dirigez le trafic vers la région secondaire pour la continuité des activités. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur le [suivi des messages B2B](logic-apps-monitor-b2b-message.md).   

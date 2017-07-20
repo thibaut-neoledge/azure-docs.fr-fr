@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: cec0ceb0da57150e4bdd9f9a0f6d3e751c108523
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -44,10 +46,13 @@ Vous configurez des sources de données à partir du menu **Données** dans **Pa
 
 ![Configurer les événements Windows](./media/log-analytics-data-sources/configure-events.png)
 
-1. Dans la console OMS, sélectionnez la mosaïque **Paramètres** .
+1. Dans la console OMS, cliquez sur la vignette **Paramètres** ou sur le bouton **Paramètres** en haut de l’écran.
 2. Sélectionnez **Données**.
 3. Cliquez sur la source de données à configurer.
 4. Suivez le lien vers la documentation de chaque source de données dans le tableau ci-dessus pour plus d'informations sur leur configuration.
+
+> [!NOTE]
+> Vous ne pouvez pas configurer des sources de données Log Analytics dans le portail Azure.
 
 ## <a name="data-collection"></a>Collecte des données
 Les configurations des sources de données sont remises en quelques minutes aux agents directement connectés à Log Analytics.  Les données spécifiées sont collectées à partir de l'agent et remises directement à Log Analytics à des intervalles spécifiques à chaque source de données.  Consultez la documentation de chaque source de données pour obtenir ces informations spécifiques.
@@ -63,9 +68,4 @@ Toutes les données collectées par Log Analytics sont stockées dans le référ
 * Découvrez les [solutions](log-analytics-add-solutions.md) qui ajoutent des fonctionnalités à Log Analytics et collectent également des données dans le référentiel OMS.
 * Découvrez les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions.  
 * Configurez des [alertes](log-analytics-alerts.md) qui vous informent de façon proactive des données critiques collectées à partir de sources de données et solutions.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Utiliser Azure Functions pour effectuer une tâche de nettoyage planifiée | Microsoft Docs"
-description: "Utilisez Azure Functions pour créer une fonction C# qui s’exécute en fonction d’un compteur d’événements."
+title: "Utiliser Azure Functions pour effectuer une tâche de nettoyage de base de données | Microsoft Docs"
+description: "Utilisez Azure Functions pour planifier une tâche qui se connecte à Azure SQL Database pour nettoyer des lignes périodiquement."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -13,91 +13,117 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 05/22/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b873a7d0ef9efa79c9a173a8bfd3522b12522322
-ms.openlocfilehash: c0b4a963275dae5bbf203388cb61086393803b15
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 6fd0e32374827b249f5aba1cbfc39117c88c6272
 ms.contentlocale: fr-fr
-ms.lasthandoff: 11/29/2016
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="use-azure-functions-to-perform-a-scheduled-clean-up-task"></a>Utiliser Azure Functions pour effectuer une tâche de nettoyage planifiée
-Cette rubrique vous montre comment utiliser Azure Functions pour créer une fonction en C#, qui s’exécute en fonction d’un compteur d’événements afin de nettoyer les lignes d’une table de base de données. La nouvelle fonction est créée selon un modèle prédéfini dans le portail Azure Functions. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre App Service dans le conteneur de fonctions. 
+# <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
+Cette rubrique vous montre comment utiliser Azure Functions pour créer une tâche planifiée qui nettoie des lignes dans une table d’une base de données Azure SQL Database. La nouvelle fonction C# est créée selon un modèle de déclencheur de minuteur prédéfini dans le portail Azure. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre de l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. Pour que votre fonction traite des opérations CRUD individuelles dans une table Mobile Apps, utilisez à la place des [liaisons Mobile Apps](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Composants requis
-Pour créer une fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/).
 
-Cette rubrique montre une commande Transact-SQL qui exécute une opération de nettoyage en bloc dans une table nommée *TodoItems* d’une base de données SQL Database. Cette même table TodoItems est créée lorsque vous suivez le [Didacticiel de démarrage rapide Azure App Service Mobile Apps](../app-service-mobile/app-service-mobile-ios-get-started.md). Vous pouvez également utiliser une base de données d’exemple. Si vous choisissez d’utiliser une autre table, vous devez modifier la commande.
++ Cette rubrique crée une fonction déclenchée par un minuteur. Suivez les étapes de la rubrique [Créer une fonction dans Azure, qui est déclenchée par un minuteur](functions-create-scheduled-function.md) pour créer une version C# de cette fonction.   
 
-Vous pouvez obtenir la chaîne de connexion utilisée par un serveur principal Mobile App dans le portail sous **Tous les paramètres** > **Paramètres de l’application** > **Chaînes de connexion** > **Afficher les valeurs des chaînes de connexion** > **MS_TableConnectionString**. Vous pouvez également obtenir la chaîne de connexion directement à partir d’une base de données SQL dans le portail sous **Tous les paramètres** > **Propriétés** > **Afficher les chaînes de connexion de la base de données** > **ADO.NET (authentification SQL)**.
++ Cette rubrique montre une commande Transact-SQL qui exécute une opération de nettoyage en bloc dans la table nommée **SalesOrderHeader** de l’exemple de base de données AdventureWorksLT. Pour créer l’exemple de base de données AdventureWorksLT, effectuez les étapes de la rubrique [Création d’une base de données SQL Azure dans le portail Azure](../sql-database/sql-database-get-started-portal.md). 
 
-Ce scénario utilise une opération en bloc sur la base de données. Pour que votre fonction traite des opérations CRUD dans une table Mobile Apps, utilisez plutôt une liaison Mobile Apps.
+## <a name="get-connection-information"></a>Obtenir des informations de connexion
 
-## <a name="set-a-sql-database-connection-string-in-the-function-app"></a>Définir une chaîne de connexion de base de données SQL dans le conteneur de fonctions
-Une application de fonction héberge l’exécution de vos fonctions dans Azure. Il est recommandé de stocker les chaînes de connexion et autres secrets dans vos paramètres de conteneur de fonctions. Cela empêche les divulgations accidentelles lorsque votre code de fonction finit dans un référentiel quelque part. 
+Vous devez obtenir la chaîne de connexion pour la base de données que vous avez créée quand vous avez effectué les étapes de [Création d’une base de données SQL Azure dans le portail Azure](../sql-database/sql-database-get-started-portal.md).
 
-1. Accédez au [Portail Azure Functions](https://functions.azure.com/signin) et connectez-vous avec votre compte Azure.
-2. Si vous avez une application de fonction existante à utiliser, sélectionnez-la à partir de vos **applications de fonction**, puis cliquez sur **Ouvrir**. Pour créer un nouveau conteneur de fonctions, dans **Nom**, tapez le nom unique de votre nouveau conteneur de fonctions ou acceptez le nom généré, sélectionnez votre **Région**, puis cliquez sur **Créer + Prise en main**. 
-3. Dans votre conteneur de fonctions, cliquez sur les **Paramètres Function App** > **Accéder aux paramètres App Service**. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+ 
+3. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
+
+4. Sélectionnez **Afficher les chaînes de connexion de la base de données** et copiez la chaîne de connexion **ADO.NET** complète.
+
+    ![Copiez la chaîne de connexion ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
+
+## <a name="set-the-connection-string"></a>Définir la chaîne de connexion 
+
+Une application de fonction héberge l’exécution de vos fonctions dans Azure. Il est recommandé de stocker les chaînes de connexion et autres secrets dans vos paramètres de conteneur de fonctions. L’utilisation de paramètres d’application empêche la divulgation accidentelle de la chaîne de connexion avec votre code. 
+
+1. Accédez à l’application de fonction que vous avez créée dans [Créer une fonction dans Azure, qui est déclenchée par un minuteur](functions-create-scheduled-function.md).
+
+2. Sélectionnez **Fonctionnalités de la plateforme** > **Paramètres de l’application**.
    
-    ![Paramètres Function App](./media/functions-create-an-event-processing-function/functions-app-service-settings.png)
-4. Dans votre conteneur de fonctions, cliquez sur **Tous les paramètres**, accédez aux **Paramètres de l’application**, puis, sous **Chaînes de connexion**, tapez `sqldb_connection` pour **Nom**, collez la chaîne de connexion dans **Valeur**, cliquez sur **Enregistrer**, puis fermez le panneau du conteneur de fonctions pour retourner au portail Functions.
+    ![Paramètres de l’application pour l’application de fonction.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
+
+2. Faites défiler jusqu’à **Chaînes de connexion** et ajoutez une chaîne de connexion en utilisant les paramètres spécifiés dans le tableau.
    
-    ![Chaîne de connexion de paramètre App Service](./media/functions-create-an-event-processing-function/functions-app-service-settings-connection-strings.png)
+    ![Ajoutez une chaîne de connexion aux paramètres de l’application de fonction.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-strings.png)
+
+    | Paramètre       | Valeur suggérée | Description             | 
+    | ------------ | ------------------ | --------------------- | 
+    | **Nom**  |  sqldb_connection  | Utilisé pour accéder à la chaîne de connexion stockée dans le code de votre fonction.    |
+    | **Valeur** | Chaîne copiée  | Collez la chaîne de connexion que vous avez copiée dans la section précédente. |
+    | **Type** | Base de données SQL | Utilisez la connexion SQL Database par défaut. |   
+
+3. Cliquez sur **Save**.
 
 À présent, vous pouvez ajouter le code de fonction C# qui se connecte à votre base de données SQL.
 
-## <a name="create-a-timer-triggered-function-from-the-template"></a>Créer une fonction déclenchée par un minuteur à partir du modèle
-1. Dans votre conteneur de fonctions, cliquez sur **+ Nouvelle fonction** > **TimerTrigger - C#** > **Créer**. Cela crée une fonction avec un nom par défaut, qui s’exécute selon la planification par défaut, c’est-à-dire une fois par minute. 
-   
-    ![Créer une nouvelle fonction déclenchée par un minuteur](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
-2. Dans le volet **Code** de l’onglet **Développer**, ajoutez les références d’assembly suivantes en haut du code actuel de la fonction :
+## <a name="update-your-function-code"></a>Mettre à jour le code de votre fonction
+
+1. Dans votre application de fonction, sélectionnez la fonction déclenchée par un minuteur.
+ 
+3. Ajoutez les références d’assembly suivantes en haut du code de la fonction existante :
+
     ```cs
-        #r "System.Configuration"
-        #r "System.Data"
+    #r "System.Configuration"
+    #r "System.Data"
     ```
 
 3. Ajoutez les instructions `using` suivantes à la fonction :
     ```cs
-        using System.Configuration;
-        using System.Data.SqlClient;
-        using System.Threading.Tasks;
+    using System.Configuration;
+    using System.Data.SqlClient;
+    using System.Threading.Tasks;
     ```
 
 4. Remplacez la fonction **Run** existante par le code suivant :
     ```cs
-        public static async Task Run(TimerInfo myTimer, TraceWriter log)
+    public static async Task Run(TimerInfo myTimer, TraceWriter log)
+    {
+        var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
+        using (SqlConnection conn = new SqlConnection(str))
         {
-            var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(str))
+            conn.Open();
+            var text = "UPDATE SalesLT.SalesOrderHeader " + 
+                    "SET [Status] = 5  WHERE ShipDate < GetDate();";
+
+            using (SqlCommand cmd = new SqlCommand(text, conn))
             {
-                conn.Open();
-                var text = "DELETE from dbo.TodoItems WHERE Complete='True'";
-                using (SqlCommand cmd = new SqlCommand(text, conn))
-                {
-                    // Execute the command and log the # rows deleted.
-                    var rows = await cmd.ExecuteNonQueryAsync();
-                    log.Info($"{rows} rows were deleted");
-                }
+                // Execute the command and log the # rows affected.
+                var rows = await cmd.ExecuteNonQueryAsync();
+                log.Info($"{rows} rows were updated");
             }
         }
+    }
     ```
 
-5. Cliquez sur **Enregistrer**, surveillez la prochaine exécution de la fonction dans les fenêtres **Journaux**, puis notez le nombre de lignes supprimées de la table TodoItems.
-6. (Facultatif) À l’aide de [l’application de démarrage rapide Mobile Apps](../app-service-mobile/app-service-mobile-ios-get-started.md), marquez les éléments supplémentaires comme « terminés », puis revenez à la fenêtre **Journaux** et vérifiez que le même nombre de lignes est supprimé par la fonction pendant l’exécution suivante. 
+    Cet exemple de commande met à jour la colonne **Status** en fonction de la date d’envoi. Il doit mettre à jour 32 lignes de données.
+
+5. Cliquez sur **Enregistrer**, surveillez l’exécution suivante de la fonction dans les fenêtres **Journaux**, puis notez le nombre de lignes mises à jour dans la table **SalesOrderHeader**.
+
+    ![Consultez les journaux des fonctions.](./media/functions-scenario-database-table-cleanup/functions-logs.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur Azure Functions, consultez ces rubriques.
 
-* [Référence du développeur Azure Functions](functions-reference.md)  
-   Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
+Découvrez ensuite comment utiliser des fonctions avec Logic Apps pour s’intégrer à d’autres services.
+
+> [!div class="nextstepaction"] 
+> [Créer une fonction qui s’intègre avec Logic Apps](functions-twitter-email.md)
+
+Pour plus d’informations sur Functions, consultez les rubriques suivantes :
+
+* [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
+  Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
 * [Test d’Azure Functions](functions-test-a-function.md)  
-   décrit plusieurs outils et techniques permettant de tester vos fonctions.
-* [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
-  Présente les plans de service disponibles avec Azure Functions, dont le plan de consommation, et explique comment choisir le plan approprié.  
-
-
-
+  décrit plusieurs outils et techniques permettant de tester vos fonctions.  
 

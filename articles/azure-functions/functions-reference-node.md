@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: chrande, glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: ff8a92c66303c81075c8a42baaa841301d65daf1
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: fb0925f2d6eb8edede67cf208c735b7b2a0221ac
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -136,6 +136,21 @@ L’exemple suivant écrit dans la console au niveau de trace d’avertissement�
 context.log.warn("Something has happened."); 
 ```
 Vous pouvez définir le seuil du niveau de trace pour la journalisation dans le fichier host.json, ou le désactiver.  Pour plus d’informations sur l’écriture dans les journaux, consultez la section suivante.
+
+## <a name="binding-data-type"></a>Type de données d’une liaison
+
+Pour définir le type de données pour une liaison d’entrée, utilisez la propriété `dataType` dans la définition de la liaison. Par exemple, pour lire le contenu d’une requête HTTP au format binaire, utilisez le type `binary` :
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Les autres options pour `dataType` sont `stream` et `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>Écrire la sortie de trace dans la console 
 

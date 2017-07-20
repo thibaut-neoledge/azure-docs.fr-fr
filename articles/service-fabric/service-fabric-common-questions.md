@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/10/2017
 ms.author: seanmck
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 2bfbb3b8f7282ec8ae8abe9597230a3485221ecf
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 0d1d795a4d6965de6cdc2b9bd81a24a27a255566
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/25/2017
 
 ---
 
@@ -77,9 +77,14 @@ En général, non. Service Fabric stocke l’état sur des disques éphémères 
 
 Si vous souhaitez créer des clusters pour tester votre application avant de la déployer, nous vous recommandons de les créer dynamiquement dans le cadre de votre [pipeline d’intégration continue/de déploiement continu](service-fabric-set-up-continuous-integration.md).
 
+
+### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>Comment mettre à niveau mon système d’exploitation (par exemple de Windows Server 2012 vers Windows Server 2016) ?
+
+Alors que nous travaillons sur une expérience améliorée, vous êtes aujourd’hui chargé de la mise à niveau. Vous devez mettre à niveau l’image du système d’exploitation sur les machines virtuelles du cluster, une machine virtuelle à la fois. 
+
 ## <a name="container-support"></a>Support pour les conteneurs
 
-### <a name="why-are-my-containers-that-are-deployed-to-sf-are-unable-to-resolve-dns-addresses"></a>Pourquoi mes conteneurs déployés sur SF ne parviennent-ils pas à résoudre les adresses DNS ?
+### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>Pourquoi mes conteneurs déployés sur SF ne parviennent-ils pas à résoudre les adresses DNS ?
 
 Ce problème a été signalé sur les clusters version 5.6.204.9494 
 

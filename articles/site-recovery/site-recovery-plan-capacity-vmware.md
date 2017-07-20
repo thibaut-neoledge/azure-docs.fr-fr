@@ -1,6 +1,6 @@
 ---
-title: "Planifier la capacité et la mise à l’échelle de la réplication VMware dans Azure | Microsoft Docs"
-description: "Utilisez cet article pour planifier la capacité et la mise à l’échelle lors de la réplication des machines virtuelles VMware dans Azure"
+title: "Planifier la capacité et la mise à l’échelle de la réplication VMware vers Azure avec Azure Site Recovery | Microsoft Docs"
+description: "Utilisez cet article pour planifier la capacité et la mise à l’échelle pendant la réplication des machines virtuelles VMware vers Azure avec Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,29 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/05/2017
+ms.date: 05/24/2017
 ms.author: rayne
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 86366359e065c9a9b4a52136254588e67125fb5f
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 8b580ac239bfb6d7b633fb03d4cfb91b168b0610
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planifier la capacité et la mise à l’échelle de la réplication VMware avec Azure Site Recovery
 
-Utilisez cet article pour déterminer comment planifier la capacité et la mise à l’échelle lors de la réplication de serveurs physiques et de machines virtuelles VMware locales dans Azure avec [Azure Site Recovery](site-recovery-overview.md).
+Utilisez cet article pour déterminer la planification de la capacité et de la mise à l’échelle pendant la réplication de serveurs physiques et de machines virtuelles VMware locales vers Azure avec [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="how-do-i-start-capacity-planning"></a>Comment dois-je commencer la planification de la capacité ?
 
-Collectez des informations sur votre environnement de réplication à l’aide de l’outil [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc). Cela inclut des informations sur le nombre de machines virtuelles compatibles et incompatibles, le nombre de disques par machine virtuelle et l’activité des données par disque. Cela couvre également les exigences en bande passante du réseau et l’infrastructure Azure requise pour la réussite de la réplication et du test de basculement.
+Collectez des informations sur votre environnement de réplication en exécutant l’outil [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) pour la réplication VMware. [En savoir plus](site-recovery-deployment-planner.md) sur cet outil. Vous rassemblez ainsi des informations sur la compatibilité des machines virtuelles, le nombre de disques par machines virtuelles et l’activité des données par disque. L’outil couvre également les exigences en bande passante du réseau et l’infrastructure Azure requise pour la réussite de la réplication et du test de basculement.
 
 ## <a name="capacity-considerations"></a>Considérations relatives à la capacité
 
 **Composant** | **Détails** |
 --- | --- | ---
 **Réplication** | **Taux de modification par jour maximal** : une machine protégée ne peut utiliser qu’un serveur de processus, et un seul serveur de processus peut gérer un taux de modification de 2 To par jour au maximum. Par conséquent, 2 To est le taux de modification quotidien maximal de données pris en charge pour une machine protégée.<br/><br/> **Débit maximum** : un ordinateur répliqué peut appartenir à un compte de stockage dans Azure. Un compte de stockage standard peut gérer un maximum de 20 000 requêtes par seconde, et nous vous recommandons de conserver le nombre d’opérations d’entrée/sortie par seconde (IOPS) sur un ordinateur source à 20 000. Par exemple, si vous disposez d’une machine source à 5 disques et si chaque disque génère 120 IOPS (taille de 8 Ko) sur la machine source, la limite de 500 IOPS sur le disque Azure est respectée. (Le nombre de comptes de stockage requis est égal au nombre d’E/S par seconde total de la machine source divisé par 20 000).
-**Serveur de configuration** | Le serveur de configuration doit être en mesure de gérer le taux de modification quotidien pour toutes les charges de travail en cours d’exécution sur des machines protégées, et il a besoin d’une bande passante suffisante pour permettre la réplication continue des données sur Azure Storage.<br/><br/> À titre de meilleure pratique, placez le serveur de configuration sur le même réseau et le même segment de réseau local que les machines à protéger. Il peut se trouver sur un réseau différent, mais les ordinateurs à protéger doivent avoir une visibilité de réseau de couche 3.<br/><br/> Les recommandations en matière de taille du serveur de configuration sont résumées dans le tableau de la section suivante.
+**Serveur de configuration** | Le serveur de configuration doit être en mesure de gérer le taux de modification quotidien pour toutes les charges de travail en cours d’exécution sur des machines protégées, et il a besoin d’une bande passante suffisante pour permettre la réplication continue des données sur Stockage Azure.<br/><br/> À titre de meilleure pratique, placez le serveur de configuration sur le même réseau et le même segment de réseau local que les machines à protéger. Il peut se trouver sur un réseau différent, mais les ordinateurs à protéger doivent avoir une visibilité de réseau de couche 3.<br/><br/> Les recommandations en matière de taille du serveur de configuration sont résumées dans le tableau de la section suivante.
 **Serveur de traitement** | Le premier serveur de processus est installé par défaut sur le serveur de configuration. Vous pouvez déployer des serveurs de processus supplémentaires pour étendre votre environnement. <br/><br/> le serveur de processus reçoit les données de réplication des machines protégées et les optimise grâce à la mise en cache, la compression et le chiffrement avant de les transmettre à Azure. Les données sont ensuite envoyées vers Azure. Le serveur de processus doit disposer de ressources suffisantes pour effectuer ces tâches.<br/><br/> Le serveur de processus utilise un cache disque. Utilisez un disque de cache distinct de 600 Go ou plus pour gérer les modifications apportées aux données stockées en cas de goulot d’étranglement ou de panne.
 
 ## <a name="size-recommendations-for-the-configuration-server"></a>Recommandations de taille pour le serveur de configuration
@@ -79,7 +80,7 @@ La façon dont vous allez mettre à niveau vos serveurs dépend de votre préfé
 
 ## <a name="control-network-bandwidth"></a>Contrôler la bande passante réseau
 
-Vous pouvez utiliser [l’outil Deployment Planner](https://aka.ms/asr-deployment-planner-doc) pour calculer la bande passante requise par la réplication (comprenant la réplication initiale, puis le delta). Vous disposez de plusieurs options pour déterminer la quantité de bande passante utilisée pour la réplication :
+Après avoir utilisé [l’outil Deployment Planner](site-recovery-deployment-planner.md) pour calculer la bande passante nécessaire à la réplication (réplication initiale et delta), vous pouvez contrôler la quantité de bande passante utilisée pour la réplication à l’aide de ces deux options :
 
 * **Limiter la bande passante**: le trafic VMware qui est répliqué sur Azure passe par un serveur de processus spécifique. Vous pouvez limiter la bande passante sur les machines qui s’exécutent en tant que serveurs de processus.
 * **Influer sur la bande passante** : vous pouvez influer sur la bande passante utilisée pour la réplication à l’aide de quelques clés de Registre :
@@ -87,6 +88,7 @@ Vous pouvez utiliser [l’outil Deployment Planner](https://aka.ms/asr-deploymen
   * La valeur de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** détermine le nombre de threads utilisés pour le transfert des données pendant la restauration automatique.
 
 ### <a name="throttle-bandwidth"></a>Limiter la bande passante
+
 1. Ouvrez le composant logiciel enfichable MMC Azure Backup sur la machine qui fait office de serveur de processus. Par défaut, un raccourci vers Backup est créé sur le Bureau, ou dans le dossier suivant : C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
 2. Dans le composant logiciel enfichable, cliquez sur **Modifier les propriétés**.
 
@@ -140,9 +142,7 @@ Si vous devez monter en charge votre déploiement au-delà de 200 machines sourc
 3. Dans **Sélectionner un serveur de traitement cible**, sélectionnez le nouveau serveur de processus à utiliser, puis les machines virtuelles que le serveur va gérer. Cliquez sur l’icône d’information pour obtenir des informations sur le serveur. Pour vous aider à prendre des décisions quant à la charge, l’espace moyen nécessaire à la réplication de chaque machine virtuelle sélectionnée vers le nouveau serveur de processus s’affiche. Cliquez sur la coche pour commencer la réplication vers le nouveau serveur de traitement.
 
 
+## <a name="next-steps"></a>Étapes suivantes
 
-
-
-
-
+Télécharger et exécuter l’outil [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).
 

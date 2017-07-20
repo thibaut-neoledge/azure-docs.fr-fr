@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/17/2017
 ms.author: gauravbh; tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 2763da60fe25f2ca55603ecfcbbcefe3e368c25d
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 041254b07584a52ae92e603f60a439050b747af1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -49,8 +49,7 @@ az group create --name managedResourceGroup --location westcentralus
 Ensuite, utilisez la commande suivante pour déployer le fichier applianceMainTemplate.json dans mainResourceGroup :
 
 ```azurecli
-az group deployment --name managedAppDeployment --resourceGroup mainResourceGroup 
-      --templateUri  
+az group deployment create --name managedAppDeployment --resourceGroup mainResourceGroup --templateUri  
 ```
 
 Lorsque le modèle précédent s’exécute, il vous demande les valeurs des paramètres qui sont définis dans le modèle. Outre les paramètres requis pour l’approvisionnement des ressources dans un modèle, vous avez besoin de deux valeurs de paramètre essentielles :
@@ -94,9 +93,9 @@ Cette commande renvoie la définition d’appliance. Vous avez besoin de la vale
 
 Le portail comporte également le support permettant d’utiliser les applications gérées publiées par les éditeurs de logiciels. Vous pouvez procéder comme suit :
 
-Sélectionnez l’application gérée dans le panneau Créer du portail Azure.
+Sélectionnez l’application managée du catalogue de services dans le panneau Créer du portail Azure.
 
-![](./media/managed-application-consumption/create-blade.png)
+![](./media/managed-application-consumption/create-service-catalog-managed-application.png)
 
 Ensuite, la liste des offres issues des différents éditeurs de logiciels indépendants/partenaires s’affiche. Sélectionnez celle que vous souhaitez créer et cliquez sur « Créer ».
 

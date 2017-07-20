@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 05/30/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 3457601f1d295d17d50725ec19cae96ae6efb5b6
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 7dc2f29db64218b9db17eaf555c43a7ad282ea07
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -47,7 +48,7 @@ Suivez la procédure ci-dessous pour mettre à jour votre appareil vers [Update�
 
 Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 4 (6.3.9600.17820)**. Le paramètre **Dernière date de mise à jour** doit également être modifié. 
 
-* Vous verrez maintenant que les mises à jour en mode maintenance sont disponibles (ce message peut continuer à afficher jusqu’à 24 heures après l’installation des mises à jour). Les mises à jour en mode maintenance entraînent des temps d’arrêt de l’appareil et ne peuvent être appliquées que par le biais de l’interface Windows PowerShell de votre appareil. 
+* Vous verrez maintenant que les mises à jour en mode maintenance sont disponibles (ce message peut continuer à afficher jusqu’à 24 heures après l’installation des mises à jour). Les mises à jour en mode maintenance entraînent des temps d’arrêt de l’appareil et ne peuvent être appliquées que par le biais de l’interface Windows PowerShell de votre appareil.
  
 * Téléchargez les mises à jour en mode maintenance à l’aide de la procédure indiquée dans [Pour télécharger des correctifs logiciels](#to-download-hotfixes) pour rechercher et télécharger KB4011837, qui installe les mises à jour du microprogramme de disque (les autres mises à jour doivent déjà être installées à ce stade). Suivez les étapes répertoriées dans [Installer et vérifier le correctif logiciel en mode Maintenance](#to-install-and-verify-maintenance-mode-hotfixes) pour installer ces mises à jour en mode maintenance. 
 
@@ -76,9 +77,9 @@ Vous devez télécharger et installer les correctifs logiciels suivants dans l�
 
 | Ordre | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Mise à jour logicielle |Standard  <br></br>sans interruption de service |~ 25 minutes |FirstOrderUpdate|
+| 1. |KB4011839 <br> (2 fichiers) |Mise à jour logicielle de l’appareil <br> Mise à jour de l’agent CiS/MDS |Standard  <br></br>sans interruption de service |~ 25 minutes |FirstOrderUpdate <br> _Installez la mise à jour logicielle de l’appareil avant la mise à jour de l’agent de Cis/MDS._|
 | 2A. |KB4011841 <br> KB4011842 |Mises à jour du pilote et du microprogramme LSI <br> Mise à jour du microprogramme USM (version 3.38) |Standard  <br></br>sans interruption de service |~ 3 heures <br> (inclut 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Package de mises à jour de sécurité du système d’exploitation |Standard  <br></br>sans interruption de service |- |SecondOrderUpdate|
+| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3192392  <br> KB3153704, KB3174644 <br> KB3139914  |Package de mises à jour de sécurité du système d’exploitation |Standard  <br></br>sans interruption de service |- |SecondOrderUpdate|
 | 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Package de mises à jour du système d’exploitation |Standard  <br></br>sans interruption de service |- |SecondOrderUpdate|
 
 En outre, vous devez peut-être installer les mises à jour du microprogramme de disque en plus de toutes les mises à jour indiquées dans les tableaux précédents. Pour vérifier si vous avez besoin des mises à jour du microprogramme de disque, vous pouvez exécuter l’applet de commande `Get-HcsFirmwareVersion` . Si vous utilisez la version `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106` du microprogramme, vous n’avez pas besoin d’installer ces mises à jour.

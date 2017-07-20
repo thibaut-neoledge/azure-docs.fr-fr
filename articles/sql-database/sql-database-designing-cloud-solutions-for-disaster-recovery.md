@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 04/21/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: b1b67a83a25159414a80382030903d300aad71f7
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 40fe0ae04eb94322356ed19773512e3bc383639c
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/18/2017
 
@@ -58,7 +58,7 @@ Une fois le basculement des points de terminaison de l’application et de la ba
 Si une panne se produit dans la région secondaire, le lien de réplication entre les bases de données primaire et secondaire est interrompu, mais le basculement n’est pas déclenché, car la base de données primaire n’est pas affectée. L’application reste alors disponible, mais elle est exposée et court donc un risque plus élevé en cas de défaillances successives dans les deux régions.
 
 > [!NOTE]
-> Nous recommandons les configurations de déploiement uniquement avec une seule région de récupération d’urgence. En effet, la plupart des zones géographiques Azure comptent deux régions. Ces configurations ne protègent pas votre application d’une défaillance irrémédiable des deux régions. Dans le cas peu probable d’une telle défaillance, vous pouvez restaurer vos bases de données dans une région tierce à l’aide de [l’opération de géo-restauration](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Pour une récupération d’urgence, nous recommandons la configuration dans laquelle le déploiement de l’application est limité à deux régions. En effet, la plupart des zones géographiques Azure comptent seulement deux régions. Cette configuration ne protège pas votre application d’une défaillance irrémédiable simultanée des deux régions.  Dans le cas peu probable d’une telle défaillance, vous pouvez restaurer vos bases de données dans une région tierce à l’aide de [l’opération de géo-restauration](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
 Une fois la panne résolue, la base de données secondaire se resynchronise automatiquement avec la base de données primaire. Lors de la synchronisation, les performances de la base de données primaire peuvent être légèrement affectées selon la quantité de données à synchroniser. Le diagramme suivant illustre une panne dans la région secondaire.

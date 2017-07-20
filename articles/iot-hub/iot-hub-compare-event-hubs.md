@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: elioda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 944f67d1d5a56c3c478da0c3af0b1f9b8797eee1
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 405dd2f8147c20ce7b96b228fdf417e86a86de92
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -29,19 +29,19 @@ Toutefois, les services présentent de nombreuses différences répertoriées da
 
 | Domaine | IoT Hub | Event Hubs |
 | --- | --- | --- |
-| Modèles de communication | Active [device-to-cloud communications][lnk-d2c-guidance] (messagerie, chargements de fichiers et propriétés signalées) et [cloud-to-device communications][lnk-c2d-guidance] (méthodes directes, propriétés désirées). |Permet uniquement une entrée d’événement (en général utilisé pour les scénarios appareil vers cloud). |
-| Informations d’état de l’appareil | Des [représentations d’appareils][lnk-twins] peuvent stocker et interroger les informations d’état de l’appareil. | Aucune information d’état de l’appareil ne peut être stockée. |
+| Modèles de communication | Active [device-to-cloud communications][lnk-d2c-guidance] (messagerie, chargements de fichiers et propriétés signalées) et [cloud-to-device communications][lnk-c2d-guidance] (méthodes directes, propriétés désirées). |Permet uniquement une entrée d’événement (en général utilisé pour les scénarios appareil-à-cloud). |
+| Informations d’état de l’appareil | Des [jumeaux d’appareils][lnk-twins] peuvent stocker et interroger les informations d’état de l’appareil. | Aucune information d’état de l’appareil ne peut être stockée. |
 | Prise en charge du protocole d’appareil |Prend en charge MQTT, MQTT sur WebSockets, AMQP, AMQP sur WebSocket et HTTP. En outre, IoT Hub fonctionne avec la [passerelle de protocole Azure IoT][lnk-azure-protocol-gateway], une implémentation de passerelle de protocole personnalisable pour prendre en charge les protocoles personnalisés. |Prend en charge AMQP, AMQP sur WebSocket et HTTP. |
 | Sécurité |Fournit une identité par appareil et le contrôle d’accès révocable. Consultez la [section Sécurité du guide du développeur IoT Hub]. |Fournit des [stratégies d’accès partagé][Event Hubs - security] à l’échelle d’Event Hubs, avec une prise en charge de révocation limitée par le biais de [stratégies de l’éditeur][Event Hubs publisher policies]. Les solutions IoT sont souvent nécessaires pour implémenter une solution personnalisée afin de prendre en charge les informations d’identification par appareil et les mesures de lutte contre l’usurpation d’identité. |
 | Surveillance des opérations |Permet aux solutions IoT de s’abonner à un vaste ensemble d’événements de gestion d’identité d’appareil et de connectivité tels que des erreurs d’authentification de chaque appareil, la limitation et les exceptions de format incorrect. Ces événements permettent d’identifier rapidement les problèmes de connectivité au niveau de chaque appareil. |Expose uniquement les mesures d’agrégation. |
-| Scale |est optimisé pour prendre en charge des millions d’appareils connectés simultanément. |peut prendre en charge un nombre de connexions simultanées moindre : jusqu’à 5 000 connexions AMQP, conformément aux [quotas Azure Service Bus][Azure Service Bus quotas]. En revanche, Event Hubs vous permet de spécifier une partition pour chaque message envoyé. |
+| Scale |est optimisé pour prendre en charge des millions d’appareils connectés simultanément. |Limite les connexions tel que défini dans [Quotas Azure Service Bus][Azure Service Bus quotas]. En revanche, Event Hubs vous permet de spécifier une partition pour chaque message envoyé. |
 | Kits de développement logiciel (SDK) d’appareil |fournissent des [appareils SDK][Azure IoT SDKs] pour une grande variété de plateformes et de langages, ainsi que MQTT direct, AMQP et les API HTTP. |sont pris en charge sur .NET, Java et C en plus des interfaces d’envoi HTTP et AMQP. |
 | Chargement de fichiers |Permet à des solutions IoT de charger des fichiers à partir d’appareils vers le cloud. Comprend un point de terminaison de notification de fichier pour l’intégration du workflow et une catégorie de surveillance des opérations pour le débogage de la prise en charge. | Non pris en charge. |
 | Router des messages vers plusieurs points de terminaison | Un maximum de 10 points de terminaison personnalisés sont pris en charge. Les règles déterminent la façon dont les messages sont routés vers les points de terminaison personnalisés. Pour plus d’informations, consultez [Envoyer et recevoir des messages avec IoT Hub][lnk-devguide-messaging]. | Nécessite l’écriture et l’hébergement de code supplémentaire pour la distribution des messages. |
 
-Pour résumer, même si le seul cas d’utilisation est l’entrée de mesures de télémétrie d’un appareil vers le cloud, IoT Hub offre un service conçu pour la connectivité d’appareil IoT. Les propositions de valeur pour ces scénarios continuent à se développer avec des fonctionnalités spécifiques à IoT. Event Hubs est conçu pour les entrées d’événements à grande échelle, dans les contextes inter et intra centres de données.
+Pour résumer, même si le seul cas d’utilisation est l’entrée de mesures de télémétrie appareil-à-cloud, IoT Hub offre un service conçu pour la connectivité d’appareil IoT. Les propositions de valeur pour ces scénarios continuent à se développer avec des fonctionnalités spécifiques à IoT. Event Hubs est conçu pour les entrées d’événements à grande échelle, dans les contextes inter et intra centres de données.
 
-Il n’est pas rare d’utiliser IoT Hub et Event Hubs dans la même solution. IoT Hub gère les communications appareil vers cloud et Event Hubs assure l’entrée des événements dans des moteurs de traitement en temps réel dans les étapes ultérieures.
+Il n’est pas rare d’utiliser IoT Hub et Event Hubs dans la même solution. IoT Hub gère les communications appareil-à-cloud et Event Hubs assure l’entrée des événements dans des moteurs de traitement en temps réel dans les étapes ultérieures.
 
 ### <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la planification de votre déploiement IoT Hub, consultez [Mise à l’échelle, HA et DR][lnk-scaling].

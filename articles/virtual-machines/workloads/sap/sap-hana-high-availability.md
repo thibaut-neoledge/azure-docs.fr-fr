@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 258ccee349e07448ebebaebe64cd6fb6888d7ed4
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 7fa853983119ef4e570b768ca177d169c6e17153
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -46,8 +46,8 @@ Commencez par lire les notes et publications SAP suivantes
 
 * Note SAP [2205917] Recommended OS settings for SUSE Linux Enterprise Server for SAP Applications (Paramètres de système d’exploitation recommandés pour SUSE Linux Enterprise Server for SAP Applications)
 * Note SAP [1944799] SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications (Guide SAP HANA pour SUSE Linux Enterprise Server for SAP Applications)
-* [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide] (Scénario d’optimisation des performances de réplication système de SAP HANA)  
-  Le guide contient toutes les informations requises pour configurer la réplication système SAP HANA en local. Utilisez ce guide comme référence.
+* [Scénario d’optimisation des performances de réplication système de SAP HANA][suse-hana-ha-guide] Le guide contient toutes les informations nécessaires pour configurer la réplication système SAP HANA locale. Utilisez ce guide comme référence.
+  
 ## <a name="deploying-linux"></a>Déploiement de Linux
 
 L’agent de ressource pour SAP HANA est inclus dans SUSE Linux Enterprise Server for SAP Applications.
@@ -432,7 +432,7 @@ Le périphérique STONITH utilise un principal de service pour l’autorisation 
 1. Cliquez sur Inscriptions d’applications
 1. Cliquez sur Ajouter.
 1. Entrez un nom, sélectionnez le type d’application « Application web/API », entrez une URL de connexion (par exemple, http://localhost) et cliquez sur Créer
-1. L’URL de connexion n’est pas utilisé et peut être une URL valide
+1. L’URL de connexion n’est pas utilisée et peut être une URL valide
 1. Sélectionnez la nouvelle application et cliquez sur Clés dans l’onglet Paramètres
 1. Entrez une description pour la nouvelle clé, sélectionnez « N’expire jamais » et cliquez sur Enregistrer
 1. Notez la valeur. Cette valeur est utilisée comme **mot de passe** pour le principal de service

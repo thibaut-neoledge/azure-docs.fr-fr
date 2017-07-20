@@ -1,5 +1,5 @@
 ---
-title: "Sauvegarder des machines virtuelles Linux | Microsoft Docs"
+title: Sauvegarder des machines virtuelles Linux Azure | Microsoft Docs
 description: "Protégez vos machines virtuelles Linux en les sauvegardant à l’aide d’Azure Backup."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/05/2017
 ms.author: cynthn
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 8ec31be4c2cdd634a0e45b58a6afaeaca1c4896e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 4dcfad63fdc610160bd47a3b900591fb06585005
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Sauvegarder des machines virtuelles Linux dans Azure
@@ -94,7 +95,7 @@ Dans cet exemple, nous allons vous montrer comment récupérer la page web nginx
 6. Dans le menu de gauche, sélectionnez **Machines virtuelles**. 
 7. Sélectionnez la machine virtuelle dans la liste.
 8. Dans le panneau de la machine virtuelle, au niveau de la section **Paramètres**, cliquez sur **Sauvegarde**. Le panneau **Sauvegarde** s’ouvre. 
-9. Dans le menu en haut du panneau, sélectionnez **Récupération de fichier (préversion)**. Le panneau **Récupération de fichier (préversion) s’affiche.
+9. Dans le menu en haut du panneau, sélectionnez **Récupération de fichier (préversion)**. Le panneau **Récupération de fichier (préversion)** s’affiche.
 10. Dans **Étape 1 : Sélectionner un point de récupération**, sélectionnez un point de récupération dans la liste déroulante.
 11. Dans **Étape 2 : Télécharger le script pour parcourir et restaurer des fichiers**, cliquez sur le bouton **Télécharger le fichier exécutable**. Enregistrez le fichier téléchargé sur votre ordinateur local.
 7. Cliquez sur **Télécharger le script** pour télécharger le fichier de script localement.

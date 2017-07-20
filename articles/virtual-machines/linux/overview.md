@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: d47447007c3bac51dc9ee0a17948ef9a42377a22
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 981b87540070dff18a01d6bf3dce24a675b451aa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
@@ -32,17 +32,17 @@ Les ressources Microsoft Azure sont réparties sur plusieurs régions géographi
 
 * [Régions Azure](https://azure.microsoft.com/regions/)
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>Disponibilité
 Nous avons annoncé un contrat de niveau de service de pointe pour machine virtuelle à instance unique de 99,9 % à condition de déployer la machine virtuelle avec le stockage premium pour tous les disques.  Afin que votre déploiement puisse bénéficier de notre contrat de niveau de service standard de 99,95 % pour les machines virtuelles, vous devez déployer au moins deux machines virtuelles exécutant votre charge de travail à l’intérieur d’un groupe à haute disponibilité. Ainsi, vos machines virtuelles sont réparties sur plusieurs domaines d’erreur dans nos centres de données et déployées sur des hôtes ayant des fenêtres de maintenance distinctes. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explique la disponibilité garantie d’Azure dans son ensemble.
 
 ## <a name="managed-disks"></a>Managed Disks
 
 Managed Disks se charge de la création et de la gestion du compte de stockage Azure en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez simplement la taille du disque et le niveau de performances (Standard ou Premium) et Azure crée et gère le disque pour vous. Même si vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé. Si vous créez de nouvelles machines virtuelles, [utilisez Azure CLI 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou le portail Azure pour créer des machines virtuelles avec des disques de système d’exploitation et de données gérés. Si vous avez des machines virtuelles qui utilisent des disques non gérés, vous pouvez [convertir vos machines virtuelles pour qu’elles soient sauvegardées avec Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur Managed Disks, voir la page [Managed Disks Overview](../../storage/storage-managed-disks-overview.md) (Vue d’ensemble d’Azure Managed Disks).
+Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur Managed Disks, consultez [Vue d’ensemble de Managed Disks](../../storage/storage-managed-disks-overview.md).
 
 ## <a name="azure-virtual-machines--instances"></a>Machines virtuelles et instances Azure
-Microsoft Azure prend en charge un certain nombre de distributions Linux populaires fournies et gérées par plusieurs partenaires.  Vous trouverez des distributions comme Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD et plus encore dans Azure Marketplace. Nous travaillons activement avec différentes communautés Linux pour enrichir davantage la liste des [distributions Linux approuvées par Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Microsoft Azure prend en charge un certain nombre de distributions Linux populaires fournies et gérées par plusieurs partenaires.  Vous trouverez des distributions comme Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD et plus encore dans la Place de marché Azure. Nous travaillons activement avec différentes communautés Linux pour enrichir davantage la liste des [distributions Linux approuvées par Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Si votre distribution Linux préférée n’est pas présente dans la galerie, vous pouvez « apporter votre propre machine virtuelle Linux » en [créant et chargeant un disque dur virtuel dans Azure](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -52,7 +52,6 @@ Les machines virtuelles Azure vous permettent de déployer un large éventail de
 Lorsque vous déployez une machine virtuelle dans Azure, vous sélectionnez parmi nos tailles disponibles une taille de machine virtuelle qui convient à votre charge de travail. La taille influe également sur les capacités de traitement, de mémoire et de stockage de la machine virtuelle. Vous êtes facturé en fonction de la durée du fonctionnement de la machine virtuelle et de la consommation de ses ressources allouées. La liste complète des [tailles de machines virtuelles](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Voici quelques conseils de base pour la sélection d’une taille de machine virtuelle parmi nos séries (A, D, DS, G et GS).
-
 * Les machines virtuelles de série A sont des machines virtuelles d’entrée de gamme offrant un bon rapport qualité/prix et qui conviennent pour des charges de travail légères et des scénarios de développement/test. Elles sont largement disponibles dans l’ensemble des régions et peuvent se connecter et utiliser toutes les ressources standard disponibles pour les machines virtuelles.
 * Les tailles de série A (A8 - A11) sont des configurations spéciales de calcul intensif adaptées aux applications de cluster informatique à hautes performances.
 * Les machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire.
@@ -79,22 +78,22 @@ Chaque abonnement Azure comporte des limites de quota qui peuvent avoir un impac
 * [Limites du service d’abonnement Azure](../../azure-subscription-service-limits.md)
 
 ## <a name="partners"></a>Partenaires
-Microsoft travaille en étroite collaboration avec nos partenaires afin de garantir que les images disponibles sont mises à jour et optimisées pour un runtime Azure.  Pour plus d’informations sur nos partenaires, consultez leurs pages marketplace ci-dessous.
+Microsoft travaille en étroite collaboration avec nos partenaires afin de garantir que les images disponibles sont mises à jour et optimisées pour un runtime Azure.  Pour plus d’informations sur nos partenaires, consultez leurs pages sur la place de marché ci-dessous.
 
 * Linux sur Azure : [Distributions approuvées](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* SUSE : [Place de marché Microsoft Azure - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
-* Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
-* Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
-* FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-* CoreOS - [Azure Marketplace - CoreOS (Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
-* RancherOS - [Azure Marketplace - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
+* SUSE : [Place de marché Azure - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
+* Redhat - [Place de marché Azure - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Canonical - [Place de marché Azure - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
+* Debian - [Place de marché Azure - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
+* FreeBSD - [Place de marché Azure - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
+* CoreOS - [Place de marché Azure - CoreOS (Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
+* RancherOS - [Place de marché Azure - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
 * Bitnami - [Bitnami Library pour Azure](https://azure.bitnami.com/)
-* Mesosphere - [Azure Marketplace - Mesosphere DC/OS sur Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
-* Docker - [Azure Marketplace - Azure Container Service avec Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
-* Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
+* Mesosphere - [Place de marché Azure - Mesosphere DC/OS sur Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
+* Docker - [Place de marché Azure - Azure Container Service avec Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
+* Jenkins - [Place de marché Azure - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
-## <a name="getting-setup-on-azure"></a>Installation sur Azure
+## <a name="getting-started-with-linux-on-azure"></a>Bien démarrer avec Linux sur Azure
 Pour commencer à utiliser Azure, vous avez besoin d’un compte Azure, de l’interface de ligne de commande Azure installée et d’une paire de clés SSH (publique et privée).
 
 ### <a name="sign-up-for-an-account"></a>Inscrivez-vous pour obtenir un compte
@@ -122,8 +121,8 @@ La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vo
 * [Désactiver les mots de passe SSH sur votre machine virtuelle Linux en configurant SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="related-azure-components"></a>Composants Azure connexes
-## <a name="storage"></a>Storage
-* [Introduction à Microsoft Azure Storage](../../storage/storage-introduction.md)
+## <a name="storage"></a>Stockage
+* [Introduction à Stockage Microsoft Azure](../../storage/storage-introduction.md)
 * [Ajouter un disque à une machine virtuelle Linux avec l’interface de ligne de commande Azure](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Attacher un disque de données à une machine virtuelle Linux dans le Portail Azure](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

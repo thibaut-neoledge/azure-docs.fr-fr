@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
-translationtype: Human Translation
-ms.sourcegitcommit: 541dd7bed5a4a9e306642b2c36dd7c9d45aec690
-ms.openlocfilehash: fcaff51b2897b1b0bce8b1c503adfd9425c9fbb4
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: b562e8cbc84fc3a1e7e6dab1845022dfcce692a3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,7 +28,7 @@ Azure App Service fournit un environnement modulable, sécurisé et facile à 
 ## <a name="architecture-and-planning"></a>Architecture et planification
 Il y a seulement deux conditions requises pour l’installation WordPress de base :
 
-* **Base de données MySQL** : cette spécification est disponible via [ClearDB dans Azure Marketplace][cdbnstore]. Comme alternative, vous pouvez gérer votre propre installation MySQL sur des machines virtuelles Azure, en utilisant [Windows][mysqlwindows] ou [Linux][mysqllinux].
+* **Base de données MySQL** : cette spécification est disponible via [ClearDB dans la Place de marché Azure][cdbnstore]. Comme alternative, vous pouvez gérer votre propre installation MySQL sur des machines virtuelles Azure, en utilisant [Windows][mysqlwindows] ou [Linux][mysqllinux].
 
   > [!NOTE]
   > ClearDB fournit plusieurs configurations MySQL. Chaque configuration présente des caractéristiques de performances différentes. Rendez-vous dans [Microsoft Azure Store][cdbnstore] pour en savoir plus sur les offres fournies dans Microsoft Azure Store, ou directement comme sur le [site web ClearDB](http://www.cleardb.com/pricing.view).
@@ -86,7 +87,7 @@ Le système améliore les performances dans le cloud en tirant parti de deux tec
 
 | Action à réaliser... | Élément à utiliser... |
 | --- | --- |
-| **Compréhension des capacités des instances App Service** |[Détails sur la tarification, y compris les capacités des niveaux App Service][websitepricing] |
+| **Compréhension des capacités des instances App Service** |[Détails des prix, notamment les capacités des niveaux App Service][websitepricing] |
 | **Ressources de cache** |[Cache Redis][rediscache], [Memcache Cloud](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/) ou l’une des autres offres de mise en cache de [Microsoft Azure Store](/gallery/store/) |
 | **Mise en échelle de votre application** |[Mise à l’échelle d’une application web dans Azure App Service][websitescale] et [Routage haute disponibilité ClearDB][cleardbscale] Si vous choisissez d’héberger et de gérer votre propre installation MySQL, pensez au [cluster CGE MySQL][cge] pour l’augmentation de la taille des instances. |
 
@@ -103,7 +104,7 @@ Il existe deux méthodes permettant de migrer un site WordPress existant vers A
 
 ## <a name="step-by-step-instructions"></a>Instructions pas à pas
 ### <a name="create-a-wordpress-site"></a>Créer un site WordPress
-1. Utilisez [Azure Marketplace][cdbnstore] pour créer une base de données MySQL présentant la taille identifiée dans la section [Architecture et planning](#planning), dans la ou les régions où vous hébergerez votre site.
+1. Utilisez la [Place de marché Azure][cdbnstore] pour créer une base de données MySQL présentant la taille identifiée dans la section [Architecture et planning](#planning), dans la ou les régions où vous hébergerez votre site.
 2. Suivez les étapes de la section [Créer une application web WordPress dans Azure App Service][createwordpress] pour créer une application web WordPress. Lors de la création de l’application web, sélectionnez **Utiliser une base de données MySQL existante**, puis choisissez la base de données que vous avez créée à l’étape 1.
 
 Si vous migrez un site WordPress existant, consultez la section [Migration d’un site WordPress existant dans Azure](#Migrate-an-existing-WordPress-site-to-Azure) après la création d’une application web.
@@ -139,12 +140,12 @@ Après avoir importé le site, vous devrez peut-être suivre les étapes suivant
 2. Sauvegardez votre base de données existante en utilisant les informations de la section [Sauvegarde de votre base de données][wordpressdbbackup].
 3. Créez une base de données et restaurez la sauvegarde.
 
-   1. Achetez une nouvelle base de données dans [Azure Marketplace][cdbnstore] ou configurez une base de données MySQL sur une machine virtuelle [Windows][mysqlwindows] ou [Linux][mysqllinux].
+   1. Achetez une nouvelle base de données dans la [Place de marché Azure][cdbnstore] ou configurez une base de données MySQL sur une machine virtuelle [Windows][mysqlwindows] ou [Linux][mysqllinux].
    2. À l’aide d’un client MySQL comme [MySQL Workbench][workbench], connectez-vous à la nouvelle base de données et importez votre base de données WordPress.
    3. Mettez à jour la base de données pour modifier les entrées de domaine sur votre nouveau domaine Azure App Service, par exemple mywordpress.azurewebsites.net. Utilisez la fonction [Rechercher et remplacer du script de bases de données WordPress][searchandreplace] pour modifier de manière sécurisée toutes les instances.
 4. Créez une application web sur le portail Azure et publiez la sauvegarde WordPress.
 
-   1. Pour créer une application web incluant une base de données, accédez au [portail Azure][mgmtportal], cliquez sur **Nouveau** > **Web et mobilité** > **Azure Marketplace** > **Web Apps** > **Application web + SQL** (ou **Application web + MySQL**) > **Créer**. Définissez tous les paramètres requis pour créer une application web vierge.
+   1. Pour créer une application web incluant une base de données, accédez au [portail Azure][mgmtportal], cliquez sur **Nouveau** > **Web et mobilité** > **Place de marché Azure** > **Web Apps** > **Application web + SQL** (ou **Application web + MySQL**) > **Créer**. Définissez tous les paramètres requis pour créer une application web vierge.
    2. Dans votre sauvegarde WordPress, localisez le fichier **wp-config.php** et ouvrez-le dans un éditeur. Remplacez les entrées suivantes par les informations de votre nouvelle base de données MySQL :
 
       * **DB_NAME** : nom d’utilisateur de la base de données.
@@ -162,7 +163,7 @@ Une fois que le site WordPress a été créé ou migré, utilisez les informatio
 | --- | --- |
 | **Définition du mode de plan d’App Service, la taille et activation de la mise à l'échelle** |[Faire évoluer une application web dans Azure App Service][websitescale] |
 | **Activation des connexions permanentes de base de données** |Par défaut, WordPress n’utilise aucune connexion de base de données permanente, ce qui peut ralentir les connexions à votre base de données après plusieurs connexions. Pour permettre la mise en place de connexions persistantes, installez le [plug-in de l’adaptateur de connexions persistantes](https://wordpress.org/plugins/persistent-database-connection-updater/installation/). |
-| **Amélioration des performances** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Désactiver le cookie ARR</a> : peut améliorer les performances lorsque le système WordPress est exécuté sur plusieurs instances Web Apps.</p></li><li><p>Activation de la mise en cache. Vous pouvez utiliser le <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Cache Redis</a> (version préliminaire) avec le <a href="https://wordpress.org/plugins/redis-object-cache/">plug-in WordPress Redis Object Cache</a> ou l’une des offres de mise en cache proposées dans <a href="/gallery/store/">Microsoft Azure Store</a>.</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Accélération de WordPress avec Wincache</a>. Wincache est activé par défaut pour les applications Web Apps.</p></li><li><p>[Mise à l’échelle d’une application dans Azure App Service][websitescale] et <a href="http://www.cleardb.com/developers/cdbr/introduction">Routage haute disponibilité ClearDB</a> ou <a href="http://www.mysql.com/products/cluster/">Cluster CGE MySQL</a>.</p></li></ul> |
+| **Amélioration des performances** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Désactiver le cookie ARR</a> : peut améliorer les performances lorsque le système WordPress est exécuté sur plusieurs instances Web Apps.</p></li><li><p>Activation de la mise en cache. Vous pouvez utiliser le <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Cache Redis</a> (version préliminaire) avec le <a href="https://wordpress.org/plugins/redis-object-cache/">plug-in WordPress Redis Object Cache</a> ou l’une des offres de mise en cache proposées dans <a href="/gallery/store/">Microsoft Azure Store</a>.</p></li><li><p>[Accélération de WordPress avec Wincache](https://wordpress.org/plugins/w3-total-cache/). Wincache est activé par défaut pour les applications Web Apps. Quand vous utilisez conjointement WinCache et le cache dynamique, désactivez le cache de fichiers de WinCache, mais laissez le cache d’utilisateur et de session activé. Pour désactiver le cache de fichiers, dans un fichier .ini de niveau système, définissez la valeur suivante :<br/><code>wincache.fcenabled = 0</code></p></li><li><p>[Mise à l’échelle d’une application dans Azure App Service][websitescale] et <a href="http://www.cleardb.com/developers/cdbr/introduction">Routage haute disponibilité ClearDB</a> ou <a href="http://www.mysql.com/products/cluster/">Cluster CGE MySQL</a>.</p></li></ul> |
 | **Utilisation d’objets blob pour le stockage** |<ol><li><p>[Création d’un compte de stockage Azure](../storage/storage-create-storage-account.md).</p></li><li><p>Apprenez à [utiliser le réseau de distribution de contenu](../cdn/cdn-create-new-endpoint.md) pour géo-distribuer les données stockées dans les objets blob.</p></li><li><p>Installez et configurez le <a href="https://wordpress.org/plugins/windows-azure-storage/">Plug-in Azure Storage pour WordPress</a>.</p><p>Pour des informations détaillées sur l’installation et la configuration du plug-in, consultez le <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">guide d’utilisation</a>.</p> </li></ol> |
 | **Activation d’e-mail** |Activez <a href="https://azure.microsoft.com/en-us/marketplace/partners/sendgrid/sendgrid-azure/">SendGrid</a> via Microsoft Azure Store. Installez le <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">plug-in SendGrid</a> pour WordPress. |
 | **Configurer un nom de domaine personnalisé** |[Configurer un nom de domaine personnalisé dans Azure App Service][customdomain] |
@@ -211,7 +212,7 @@ Pour obtenir un guide présentant les modifications apportées dans le cadre de 
 [storageplugin]: https://wordpress.org/plugins/windows-azure-storage/
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
 [phpwebsite]: web-sites-php-configure.md
-[customdomain]: web-sites-custom-domain-name.md
+[customdomain]: app-service-web-tutorial-custom-domain.md
 [trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
@@ -223,7 +224,7 @@ Pour obtenir un guide présentant les modifications apportées dans le cadre de 
 [staging]: web-sites-staged-publishing.md
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
-[httpscustomdomain]: web-sites-configure-ssl-certificate.md
+[httpscustomdomain]: app-service-web-tutorial-custom-ssl.md
 [mysqlwindows]:../virtual-machines/windows/classic/mysql-2008r2.md
 [mysqllinux]:../virtual-machines/linux/classic/mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
