@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 47fb1724ac72df8b83012bcacdc435ea847547da
-
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
@@ -50,9 +51,9 @@ Le tableau suivant vous aidera à déterminer les avantages et inconvénients de
 
 | Stratégie | Avantages | Inconvénients |
 | --- | --- | --- |
-| **Identités cloud** |Plus faciles à gérer pour les petites entreprises. <br> Rien à installer localement - Aucun matériel supplémentaire requis<br>Faciles à désactiver si l’utilisateur quitte l’entreprise |Les utilisateurs devront se connecter lorsqu’ils accèdent aux charges de travail dans le cloud  <br>  Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
-| **Synchronisée** |Le mot de passe local permettra l’authentification sur les répertoires locaux et cloud  <br>Plus faciles à gérer pour les petites, moyennes et grandes entreprises <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br>  Plus faciles à gérer |Certains clients peuvent rechigner à synchroniser leurs répertoires avec le cloud en raison de la stratégie spécifique de l’entreprise |
-| **Adresses IP fédérées** |Les utilisateurs peuvent disposer de l’authentification unique (SSO)  <br>Si un utilisateur termine une mission ou quitte l’entreprise, le compte peut immédiatement être désactivé et l’accès révoqué,<br>  Prise en charge des scénarios avancés qui ne peuvent pas être effectués avec l’option Synchronisée |Étapes supplémentaires pour installer et configurer <br> Maintenance plus élevée <br> Peut requérir du matériel supplémentaire pour l’infrastructure STS <br> Peut requérir du matériel supplémentaire pour installer le serveur de fédération. Un logiciel supplémentaire est requis si vous utilisez AD FS <br> Requiert une installation complète pour l’authentification unique <br> Point de défaillance critique : si le serveur de fédération est arrêté, les utilisateurs ne sont pas en mesure de s’authentifier |
+| **Identités cloud** |Plus faciles à gérer pour les petites entreprises. <br> Rien à installer localement - Aucun matériel supplémentaire requis<br>Faciles à désactiver si l’utilisateur quitte l’entreprise |Les utilisateurs devront se connecter lorsqu’ils accèdent aux charges de travail dans le cloud  <br> Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
+| **Synchronisée** |Le mot de passe local permettra l’authentification sur les répertoires locaux et cloud  <br>Plus faciles à gérer pour les petites, moyennes et grandes entreprises <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br> Plus faciles à gérer |Certains clients peuvent rechigner à synchroniser leurs répertoires avec le cloud en raison de la stratégie spécifique de l’entreprise |
+| **Adresses IP fédérées** |Les utilisateurs peuvent disposer de l’authentification unique (SSO)  <br>Si un utilisateur termine une mission ou quitte l’entreprise, le compte peut immédiatement être désactivé et l’accès révoqué,<br> Prise en charge des scénarios avancés qui ne peuvent pas être effectués avec l’option Synchronisée |Étapes supplémentaires pour installer et configurer <br> Maintenance plus élevée <br> Peut requérir du matériel supplémentaire pour l’infrastructure STS <br> Peut requérir du matériel supplémentaire pour installer le serveur de fédération. Un logiciel supplémentaire est requis si vous utilisez AD FS <br> Requiert une installation complète pour l’authentification unique <br> Point de défaillance critique : si le serveur de fédération est arrêté, les utilisateurs ne sont pas en mesure de s’authentifier |
 
 ### <a name="client-experience"></a>Expérience client
 La stratégie que vous utilisez détermine l’expérience de connexion utilisateur.  Les tableaux suivants vous fournissent des informations sur ce que les utilisateurs peuvent attendre de leur expérience de connexion.  Notez que tous les fournisseurs d’identité fédérée ne prennent pas en charge l’authentification unique dans tous les scénarios.
@@ -212,10 +213,5 @@ Multi-Factor Authentication est disponible par défaut pour les administrateurs 
 
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -3,7 +3,7 @@ title: "Exemples d’API d’audit de création de rapports Azure Active Directo
 description: "Prise en main de l'API de création de rapports Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
@@ -14,41 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 665b613db31b15b6f6d2826a0795be6275c832ca
-ms.openlocfilehash: 8216fa7ab092b2d0225d075d933fa56fbab56f40
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: aab705688079601bbce93455f7dda80cdd733110
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/28/2016
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="azure-active-directory-reporting-audit-api-samples" class="xliff"></a>
-
-# Exemples d’API d’audit de création de rapports Azure Active Directory
+# <a name="azure-active-directory-reporting-audit-api-samples"></a>Exemples d’API d’audit de création de rapports Azure Active Directory
 Cette rubrique fait partie d’un ensemble de rubriques relatives à l’API de création de rapports Azure Active Directory.  
 La création de rapports Azure AD fournit une API qui vous permet d’accéder aux données d’audit à l’aide de code ou d’outils associés.
 Cette rubrique a pour but de vous fournir un exemple de code pour **l’API d’audit**.
 
 Consultez l'article :
 
-* [Journaux d’audit](active-directory-reporting-azure-portal.md#audit-logs) pour plus d’informations conceptuelles
+* [Journaux d’audit](active-directory-reporting-azure-portal.md#activity-reports) pour plus d’informations conceptuelles
 * [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md) pour plus d’informations sur l’API de création de rapports.
 
 Si vous avez des questions, des problèmes ou des commentaires, veuillez contacter [Aide à la création de rapports AAD](mailto:aadreportinghelp@microsoft.com).
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 Avant de pouvoir utiliser les exemples de cette rubrique, vous devez respecter la [configuration requise pour accéder à l’API de création de rapports Azure AD](active-directory-reporting-api-prerequisites.md).  
 
-<a id="known-issue" class="xliff"></a>
-
-## Problème connu
+## <a name="known-issue"></a>Problème connu
 L’authentification de l’application ne fonctionne pas si votre client se trouve dans la région de l’Union européenne. Utilisez l’authentification de l’utilisateur pour accéder à l’API d’audit comme solution de contournement jusqu'à ce que ce problème soit résolu. 
 
-<a id="powershell-script" class="xliff"></a>
-
-## Script PowerShell
+## <a name="powershell-script"></a>Script PowerShell
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
 
     # Constants
@@ -93,16 +86,12 @@ L’authentification de l’application ne fonctionne pas si votre client se tro
     $x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 
-<a id="executing-the-powershell-script" class="xliff"></a>
-
-### Exécution du script PowerShell
+### <a name="executing-the-powershell-script"></a>Exécution du script PowerShell
 Une fois que vous avez terminé la modification du script, exécutez-le, puis vérifiez que les données attendues dans les journaux d’audit sont retournées.
 
 Le script renvoie la sortie du rapport d’audit au format JSON. Il crée également un fichier `audit.json` avec la même sortie. Vous pouvez expérimenter en modifiant le script pour renvoyer des données à partir d’autres rapports, et également commenter les formats de sortie dont vous n’avez pas besoin.
 
-<a id="bash-script" class="xliff"></a>
-
-## Script Bash
+## <a name="bash-script"></a>Script Bash
     #!/bin/bash
 
     # Author: Ken Hoff (kenhoff@microsoft.com)
@@ -130,9 +119,7 @@ Le script renvoie la sortie du rapport d’audit au format JSON. Il crée égale
 
     echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
 
-<a id="python-script" class="xliff"></a>
-
-## Script Python
+## <a name="python-script"></a>Script Python
     # Author: Michael McLaughlin (michmcla@microsoft.com)
     # Date: January 20, 2016
     # This requires the Python Requests module: http://docs.python-requests.org
@@ -177,9 +164,7 @@ Le script renvoie la sortie du rapport d’audit au format JSON. Il crée égale
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Vous souhaitez personnaliser les exemples de cette rubrique ? Consultez la [référence d’API d’audit Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
 * Si vous souhaitez obtenir une présentation complète de l’utilisation de l’API de création de rapports Azure Active Directory, consultez [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Si vous souhaitez en savoir plus sur la création de rapports Azure Active Directory, consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  

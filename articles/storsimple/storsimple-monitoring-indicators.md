@@ -4,7 +4,7 @@ description: "Décrit les diodes électroluminescentes (LED) et les alarmes sono
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 06/05/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0b8efafadee9bb7636bb204b55758f18a86cf049
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d44f94719bff0cb58b3727050598e55f4774e66
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,7 +35,7 @@ Les LED peuvent prendre trois états pour indiquer l’état d’un module : ver
 Le reste de cet article décrit les différents voyants LED d’analyse, leur emplacement sur l’appareil StorSimple, ainsi que l’état de l’appareil en fonction de l’état des LED et des alarmes sonores associées éventuelles.
 
 ## <a name="front-panel-indicator-leds"></a>Voyants LED du panneau avant
-Le panneau avant, également appelé *panneau de commande** *indique l’état d’ensemble de tous les modules du système. Le panneau avant est identique sur l'appareil StorSimple principal et le boîtier EBOD, comme illustré ci-dessous.  
+Le panneau avant, également appelé *panneau de commande*** indique l’état d’ensemble de tous les modules du système. Le panneau avant est identique sur l'appareil StorSimple principal et le boîtier EBOD, comme illustré ci-dessous.  
 
    ![Panneau avant de l’appareil][1]
 
@@ -135,7 +137,7 @@ Utilisez le tableau suivant pour déterminer si le module de contrôleur fonctio
 ### <a name="controller-indicator-leds"></a>Voyants LED du contrôleur
 | LED | Description |
 | --- | --- |
-| LED d’ID (bleue) |Indique que le module est en cours d’identification. Si la LED bleue clignote sur un contrôleur en marche, cela signifie que ce contrôleur est le contrôleur actif et que l’autre est le contrôleur de secours. Pour plus d’informations, consultez la page [Identifier un contrôleur actif sur votre appareil](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| LED d’ID (bleue) |Indique que le module est en cours d’identification. Si la LED bleue clignote sur un contrôleur en marche, cela signifie que ce contrôleur est le contrôleur actif et que l’autre est le contrôleur de secours. Pour plus d’informations, consultez la page [Identifier un contrôleur actif sur votre appareil](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de panne (orange) |Indique une panne du contrôleur. |
 | LED OK (verte) |Une LED verte indique que le contrôleur est OK. Une LED verte clignotante indique une erreur de configuration de données VPD du contrôleur. |
 | LED d’activité SAS (vertes) |Le vert fixe indique une connexion sans activité en cours. Le vert clignotant indique une activité continue sur la connexion. |
@@ -209,12 +211,11 @@ Le tableau suivant décrit les différents états d’alarme.
 > * Dans l’état d’alarme S1, si vous n’appuyez pas sur le bouton muet dans les 2 minutes, l’état passe automatiquement sur S2 ou S3.  
 > * Les états d’alarmes S1 à S4 reviennent à S0 une fois la condition de panne supprimée.  
 > * L’alarme peut passer à l’état de panne critique S4 depuis n’importe quel autre état.  
-> 
-> 
 
-Vous pouvez désactiver l’alarme sonore en appuyant sur le bouton muet du panneau de commande. L’alarme sonore est automatiquement désactivée au bout de deux minutes si le bouton muet n’est pas actionné manuellement. Lorsque le son d’alarme est coupé, l’alarme continue d’émettre un bip bref par intermittence pour indiquer qu’un problème est toujours présent. L’alarme s’arrête une fois tous les problèmes résolus.  
 
-Le tableau suivant décrit les différentes conditions d’alarme.  
+Vous pouvez désactiver l’alarme sonore en appuyant sur le bouton muet du panneau de commande. L’alarme sonore est automatiquement désactivée au bout de deux minutes si le bouton muet n’est pas actionné manuellement. Lorsque le son d’alarme est coupé, l’alarme continue d’émettre un bip bref par intermittence pour indiquer qu’un problème est toujours présent. L’alarme s’arrête une fois tous les problèmes résolus.
+
+Le tableau suivant décrit les différentes conditions d’alarme.
 
 ### <a name="alarm-conditions"></a>Conditions d’alarme
 | État | Niveau de gravité | Alarme | LED du panneau de commande |
@@ -240,7 +241,7 @@ Le tableau suivant décrit les différentes conditions d’alarme.
 | Alimentation insuffisante |Avertissement |Aucun |Panne de module |
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur [les composants matériels StorSimple et leur état](storsimple-monitor-hardware-status.md).
+En savoir plus sur [les composants matériels StorSimple et leur état](storsimple-8000-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
@@ -249,10 +250,5 @@ En savoir plus sur [les composants matériels StorSimple et leur état](storsimp
 [5]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE05.png
 [6]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE06.png
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

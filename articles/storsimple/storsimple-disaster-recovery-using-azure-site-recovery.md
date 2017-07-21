@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/09/2017
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 19346f2e4f2860258c421d76729abeb82f0e8987
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: b4d575587eec1bcf43c33c7faeb8360ec67b5214
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solution de récupération d’urgence automatisée à l’aide d’Azure Site Recovery pour les partages de fichiers hébergés sur StorSimple
@@ -124,7 +123,7 @@ Reportez-vous à la [documentation d’Azure Site Recovery](../site-recovery/sit
    > Les partages de fichiers seront alors temporairement indisponibles.
    >
    >
-2. [Activez la protection des machines virtuelles](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) du serveur de fichiers à partir du portail Azure Site Recovery.
+2. [Activez la protection des machines virtuelles](../site-recovery/site-recovery-hyper-v-site-to-azure.md) du serveur de fichiers à partir du portail Azure Site Recovery.
 3. Vous pouvez reconnecter la cible dès le lancement de la synchronisation initiale. Accédez à l’initiateur iSCSI, sélectionnez l’appareil StorSimple, puis cliquez sur **Connecter**.
 4. Lorsque la synchronisation est terminée et que la machine virtuelle passe à l’état **Protégé**, sélectionnez la machine virtuelle, puis cliquez sur l’onglet **Configurer** et mettez à jour le réseau de la machine virtuelle en conséquence (il s’agit du réseau auquel sont rattachées les machines virtuelles ayant fait l’objet du basculement). Si le réseau ne s’affiche pas, cela signifie que la synchronisation est en cours.
 

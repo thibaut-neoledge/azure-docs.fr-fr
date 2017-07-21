@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 07/07/2017
 ms.author: jdial
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ab477bcdd2e20f4196fbe74f0d956b2011a5cf05
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68ee013cff4e0be15af30239e0314f779f50177a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -35,7 +35,7 @@ Cet exemple de script permet de créer un réseau virtuel avec des sous-réseaux
 ## <a name="sample-script"></a>Exemple de script
 
 
-[!code-azurecli[main](../../../cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh  "Filtrer le trafic réseau de machine virtuelle")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh  "Filtrer le trafic réseau de machine virtuelle")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 32bff438c2e56b1c21aa907b6bff6c1d1e879de3
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 8a1e5333e893e2a3a205f08223f103793df452cd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -38,11 +38,8 @@ Figure 1 – Diagramme de paire régionale Azure
 |:--- |:--- |:--- |
 | Asie |Est de l'Asie |Asie du Sud-Est |
 | Australie |Est de l’Australie |Sud-est de l’Australie |
-| Brésil |Sud du Brésil (1) |Centre-Sud des États-Unis |
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|
-| Europe |Europe du Nord |Europe de l'Ouest |
-| Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
 | Inde |Inde centrale |Inde du Sud |
 | Japon |Est du Japon |Ouest du Japon |
 | Corée du Sud |Centre de la Corée |Corée du Sud |
@@ -50,17 +47,14 @@ Figure 1 – Diagramme de paire régionale Azure
 | Amérique du Nord |Est des États-Unis |Ouest des États-Unis |
 | Amérique du Nord |Est des États-Unis 2 |Centre des États-Unis |
 | Amérique du Nord |Ouest des États-Unis 2 |Ouest-Centre des États-Unis |
-| Europe |Europe du Nord |Europe de l'Ouest |
-| Asie |Asie du Sud-Est |Est de l'Asie |
-| Chine |Chine orientale |Chine du Nord |
+| Europe |Europe du Nord |Europe de l’Ouest |
 | Japon |Est du Japon |Ouest du Japon |
-| Brésil |Sud du Brésil (1) |Centre-Sud des États-Unis |
-| Australie |Est de l’Australie |Sud-est de l’Australie |
+| Brésil |Sud du Brésil (1) |États-Unis - partie centrale méridionale |
 | Gouvernement américain |Gouvernement américain - Iowa |Gouvernement américain - Virginie |
-| Inde |Inde centrale |Inde du Sud |
-| Canada |Centre du Canada |Est du Canada |
+| Gouvernement américain |Gouvernement américain - Virginie |Gouvernement des États-Unis – Texas |
+| Gouvernement américain |Gouvernement des États-Unis – Texas |Gouvernement des États-Unis – Arizona |
+| Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
 | Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
-| Corée du Sud |Centre de la Corée |Corée du Sud |
 | Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
 
 Tableau 1 - Mise en correspondance des paires régionales Azure

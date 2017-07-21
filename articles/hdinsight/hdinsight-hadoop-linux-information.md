@@ -14,28 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 4004e1601750e9b2874e6f8b05811cdf20306a48
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 1477ed13ef0434ed86938c49e6bb815837cb40fb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-<a id="information-about-using-hdinsight-on-linux" class="xliff"></a>
-
-# Informations sur l’utilisation de HDInsight sous Linux
+# <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
 
 Les clusters Azure HDInsight fournissent Hadoop dans un environnement Linux familier, exécuté dans le cloud Azure. En principe, il fonctionne comme tout autre Hadoop sur une installation Linux. Ce document présente des différences spécifiques que vous devriez connaître.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 
 La plupart des étapes décrites dans ce document utilisent les utilitaires ci-après, que vous pouvez avoir besoin d’installer sur votre système.
 
@@ -43,17 +38,13 @@ La plupart des étapes décrites dans ce document utilisent les utilitaires ci-a
 * [jq](https://stedolan.github.io/jq/) : permet d’analyser des documents JSON.
 * [Interface de ligne de commande Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (version préliminaire) - permet de gérer à distance les services Azure
 
-<a id="users" class="xliff"></a>
-
-## Users
+## <a name="users"></a>Users
 
 Sauf s’il est [joint à un domaine](hdinsight-domain-joined-introduction.md), HDInsight doit être considéré comme un système **mono-utilisateur**. Un compte d’utilisateur SSH unique est créé avec le cluster, avec les autorisations de niveau administrateur. Des comptes SSH supplémentaires peuvent être créés, mais ils auront également l’accès administrateur au cluster.
 
 HDInsight joint à un domaine prend en charge la présence de plusieurs utilisateurs et des paramètres d’autorisation et de rôles plus précis. Pour plus d’informations, consultez la section [Gestion des clusters HDInsight joints à un domaine](hdinsight-domain-joined-manage.md).
 
-<a id="domain-names" class="xliff"></a>
-
-## Noms de domaine
+## <a name="domain-names"></a>Noms de domaine
 
 Le nom de domaine complet (FQDN) à utiliser pour se connecter au cluster depuis Internet est **&lt;clustername>.azurehdinsight.net** ou (pour SSH exclusivement) **&lt;clustername-ssh>.azurehdinsight.net**.
 
@@ -69,9 +60,7 @@ Si vous avez besoin de trouver le nom du nœud d’un service spécifique, vous 
 
 Cette commande renvoie un document JSON qui décrit le service. Ensuite, jq extrait uniquement la valeur `host_name` des hôtes.
 
-<a id="remote-access-to-services" class="xliff"></a>
-
-## Accès à distance aux services
+## <a name="remote-access-to-services"></a>Accès à distance aux services
 
 * **Ambari (Web)** : https://&lt;clustername>.azurehdinsight.net
 
@@ -103,9 +92,7 @@ Cette commande renvoie un document JSON qui décrit le service. Ensuite, jq extr
     > [!NOTE]
     > Vous pouvez accéder aux nœuds principaux du cluster uniquement via SSH depuis une machine cliente. Une fois connecté, vous pouvez ensuite accéder aux nœuds Worker à l’aide de SSH depuis un nœud principal.
 
-<a id="file-locations" class="xliff"></a>
-
-## Emplacements des fichiers
+## <a name="file-locations"></a>Emplacements des fichiers
 
 Les fichiers relatifs à Hadoop se trouvent sur les nœuds du cluster dans `/usr/hdp`. Le répertoire contient les sous-répertoires suivants :
 
@@ -114,9 +101,7 @@ Les fichiers relatifs à Hadoop se trouvent sur les nœuds du cluster dans `/usr
 
 Vous trouverez des exemples de données et de fichiers JAR sur le système HDSF (Hadoop Distributed File System) dans `/example` et `/HdiSamples`.
 
-<a id="hdfs-azure-storage-and-data-lake-store" class="xliff"></a>
-
-## HDFS, stockage Azure et Data Lake Store
+## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, stockage Azure et Data Lake Store
 
 Dans la plupart des distributions Hadoop, le système HDFS est sauvegardé par un stockage local sur les machines dans le cluster. L’utilisation du stockage peut être coûteuse pour une solution basée sur le cloud où vous êtes facturé à l’heure ou à la minute pour les ressources de calcul.
 
@@ -134,9 +119,7 @@ Lorsque vous utilisez le stockage Azure ou Data Lake Store, vous n’avez aucune
 
     hdfs dfs -ls /example/data
 
-<a id="uri-and-scheme" class="xliff"></a>
-
-### URI et schéma
+### <a name="uri-and-scheme"></a>URI et schéma
 
 Certaines commandes peuvent vous imposer de spécifier le schéma dans l’URI lorsque vous accédez à un fichier. Par exemple, le composant Storm-HDFS requiert la spécification du schéma. Lorsque vous n’utilisez pas le stockage par défaut (stockage ajouté en tant que stockage « supplémentaire » au cluster), vous devez toujours indiquer le schéma dans l’URI.
 
@@ -159,9 +142,7 @@ Lorsque vous utilisez __Data Lake Store__, utilisez l’un des schémas d’URI 
 >
 > Lorsque vous utilisez `/` ou `adl:///` pour accéder aux données, vous pouvez uniquement accéder à des données stockées à la racine (par exemple, `/clusters/<cluster-name>/`) du cluster. Pour accéder à des données n’importe où dans le magasin, utilisez le format `adl://<storage-name>.azuredatalakestore.net/`.
 
-<a id="what-storage-is-the-cluster-using" class="xliff"></a>
-
-### Quel stockage le cluster utilise-t-il ?
+### <a name="what-storage-is-the-cluster-using"></a>Quel stockage le cluster utilise-t-il ?
 
 Vous pouvez utiliser Ambari pour récupérer la configuration de stockage par défaut du cluster. Utilisez la commande suivante pour récupérer les informations de configuration HDFS à l’aide de curl, puis filtrez ces informations avec [jq](https://stedolan.github.io/jq/):
 
@@ -194,9 +175,7 @@ Vous pouvez également rechercher les informations de stockage à l’aide du po
 
 2. Dans la section **Propriétés**, sélectionnez **Comptes de stockage**. Les informations de stockage du cluster s’affichent.
 
-<a id="how-do-i-access-files-from-outside-hdinsight" class="xliff"></a>
-
-### Comment accéder à des fichiers situés en dehors de HDInsight ?
+### <a name="how-do-i-access-files-from-outside-hdinsight"></a>Comment accéder à des fichiers situés en dehors de HDInsight ?
 
 Il existe plusieurs façons d’accéder à des données à l’extérieur du cluster HDInsight. Voici quelques liens vers des utilitaires et Kits de développement logiciel (SDK) qui peuvent être utilisés pour exploiter vos données :
 
@@ -262,9 +241,7 @@ Pour obtenir des informations spécifiques sur la mise à l’échelle de votre 
 * [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-portal-linux.md#scale-clusters)
 * [Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
 
-<a id="how-do-i-install-hue-or-other-hadoop-component" class="xliff"></a>
-
-## Comment installer Hue (ou un autre composant Hadoop) ?
+## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Comment installer Hue (ou un autre composant Hadoop) ?
 
 HDInsight est un service géré. Si Azure détecte un problème avec le cluster, il peut supprimer le nœud défaillant et créer un nœud pour le remplacer. Si vous installez manuellement des éléments sur le cluster, ils ne sont pas conservés lorsque cette opération se produit. Utilisez plutôt [Actions de script HDInsight](hdinsight-hadoop-customize-cluster.md). Une action de script peut être utilisée pour effectuer les modifications suivantes :
 
@@ -279,9 +256,7 @@ Les actions de script sont des scripts Bash. Les scripts sont exécutés pendant
 
 Pour plus d’informations sur le développement de vos propres actions de script, consultez [Développement d’actions de Script avec HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
-<a id="jar-files" class="xliff"></a>
-
-### Fichiers Jar
+### <a name="jar-files"></a>Fichiers Jar
 
 Certaines technologies Hadoop sont fournies dans des fichiers jar autonomes, qui contiennent des fonctions utilisées dans le cadre d’un travail MapReduce ou à partir de Pig ou Hive. Bien qu’elles puissent être installées à l’aide d’actions de script, elles ne nécessitent généralement aucune configuration et peuvent être chargées vers le cluster après l’approvisionnement, puis utilisées directement. Si vous souhaitez que le composant survive à la réinitialisation du cluster, vous pouvez stocker le fichier jar dans le stockage par défaut de votre cluster (WASB ou ADL).
 
@@ -301,9 +276,7 @@ Pour utiliser une version différente d’un composant, chargez la version dont 
 >
 > Les composants personnalisés bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org) ; par exemple, [Hadoop](http://hadoop.apache.org/) ou [Spark](http://spark.apache.org/).
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Effectuer la migration de HDInsight Windows vers HDInsight Linux](hdinsight-migrate-from-windows-to-linux.md)
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)

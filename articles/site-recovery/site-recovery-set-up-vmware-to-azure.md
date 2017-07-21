@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: fd331d805c0c6ddcfb492db2902a8e53b23dcab3
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: a2fabc56463c8cbf0b8a76b7a84369ed8e535486
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/14/2017
 
 ---
 
@@ -33,7 +33,7 @@ Cet article décrit la procédure de configuration de votre environnement local 
 
 Cet article suppose que vous avez déjà créé les éléments suivants :
 - Un coffre Recovery Services dans le [portail Azure](http://portal.azure.com "portail Azure").
-- Un compte dédié dans votre serveur VMware vCenter qui peut être utilisé pour la [découverte automatique](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
+- Un compte dédié dans votre serveur VMware vCenter qui peut être utilisé pour la [découverte automatique](./site-recovery-vmware-to-azure.md).
 - Une machine virtuelle sur laquelle installer le serveur de configuration.
 
 ## <a name="configuration-server-minimum-requirements"></a>Configuration minimale requise du serveur
