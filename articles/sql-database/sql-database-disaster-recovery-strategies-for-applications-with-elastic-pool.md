@@ -1,5 +1,5 @@
 ---
-title: "Conception de solutions cloud pour la récupération d’urgence à l’aide de la géoréplication SQL Database | Microsoft Docs"
+title: "Concevoir des solutions de récupération d’urgence - Azure SQL Database | Microsoft Docs"
 description: "Apprenez à concevoir votre solution cloud pour la récupération d’urgence en choisissant le modèle de basculement approprié."
 services: sql-database
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: sashan;carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: f8da648fd38da894cd2d9fbbac09ac69d24be3fb
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 4f5131fdd2ca83e7a0a2f986a2fa1e3551814c6e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -165,7 +165,7 @@ Il y a tout de même des **inconvénients** :
 * Les clients qui utilisent la version payante de l’application peuvent constater une baisse des performances jusqu’à la fin du processus de mise à niveau du pool dans la région B. 
 
 ## <a name="summary"></a>Résumé
-Cet article aborde les différentes stratégies de récupération d’urgence pour la couche de base de données utilisée par une application SaaS à architecture mutualisée. La stratégie choisie repose sur les besoins de l’application, tels que le modèle commercial, le contrat SLA que vous souhaitez offrir à vos clients, les contraintes budgétaires, etc. Nous vous détaillons les avantages et les inconvénients de chaque stratégie afin de vous aider à prendre une décision éclairée. De plus, votre propre application inclut probablement d’autres composants Azure. Vérifiez donc les recommandations associées en termes de continuité des activités et orchestrez la récupération de la couche de base de données avec ces composants. Pour en savoir plus sur la gestion de la récupération des applications de base de données dans Azure, consultez [Conception de services hautement disponibles à l’aide d’Azure SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
+Cet article aborde les différentes stratégies de récupération d’urgence pour la couche de base de données utilisée par une application SaaS à architecture multilocataire. La stratégie choisie repose sur les besoins de l’application, tels que le modèle commercial, le contrat SLA que vous souhaitez offrir à vos clients, les contraintes budgétaires, etc. Nous vous détaillons les avantages et les inconvénients de chaque stratégie afin de vous aider à prendre une décision éclairée. De plus, votre propre application inclut probablement d’autres composants Azure. Vérifiez donc les recommandations associées en termes de continuité des activités et orchestrez la récupération de la couche de base de données avec ces composants. Pour en savoir plus sur la gestion de la récupération des applications de base de données dans Azure, consultez [Conception de services hautement disponibles à l’aide d’Azure SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).

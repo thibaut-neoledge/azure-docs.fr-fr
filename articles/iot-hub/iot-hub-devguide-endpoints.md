@@ -12,23 +12,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2017
+ms.date: 06/16/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b0b2e8f375fa0b80e4f933515e1e8a689478483e
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 2b1e8d35a71609092875f0b20b49876bd43d95aa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Liste de points de terminaison IoT Hub intégrés
-Azure IoT Hub est un service mutualisé qui propose ses fonctionnalités à différents acteurs. Le schéma qui suit illustre les différents points de terminaison proposés par IoT Hub.
+Azure IoT Hub est un service multilocataire qui propose ses fonctionnalités à différents acteurs. Le schéma qui suit illustre les différents points de terminaison proposés par IoT Hub.
 
 ![Points de terminaison IoT Hub][img-endpoints]
 
-Vous trouverez ci-dessous une description des points de terminaison :
+La liste ci-dessous décrit les points de terminaison :
 
 * **Fournisseur de ressources**. Le fournisseur de ressources IoT Hub expose une interface [Azure Resource Manager][lnk-arm] qui permet aux titulaires d’abonnements Azure de créer des IoT Hubs, de les supprimer et de mettre à jour leurs propriétés. Les propriétés des IoT Hubs régissent les [stratégies de sécurité au niveau du hub][lnk-accesscontrol], par opposition au contrôle d’accès au niveau de l’appareil, et les options fonctionnelles pour les messages cloud-à-appareil et appareil-à-cloud. Le fournisseur de ressources IoT Hub vous permet également [d’exporter les identités des appareils][lnk-importexport].
 * **Gestion d’identité de l’appareil**. Chaque IoT Hub expose un ensemble de points de terminaison HTTP REST afin de gérer les identités des appareils (par exemple, pour les opérations de création, de récupération, de mise à jour et de suppression). Les [identités des appareils][lnk-device-identities] sont utilisées pour l’authentification des appareils et le contrôle d’accès.
@@ -42,7 +42,7 @@ Vous trouverez ci-dessous une description des points de terminaison :
   * *Récupérer et mettre à jour les propriétés d’une représentation d’appareil*. Un appareil utilise ce point de terminaison pour accéder aux propriétés de son [jumeau d’appareil][lnk-twins].
   * *Recevoir des requêtes de méthodes directes*. Un appareil utilise ce point de terminaison pour écouter les requêtes de [méthodes directes][lnk-methods].
     
-    Ces points de terminaison sont exposés à l’aide des protocoles [MQTT v3.1.1][lnk-mqtt], HTTP 1.1 et [AMQP 1.0][lnk-amqp]. Notez que le protocole AMQP est également disponible sur [WebSockets][lnk-websockets], sur le port 443.
+    Ces points de terminaison sont exposés à l’aide des protocoles [MQTT v3.1.1][lnk-mqtt], HTTP 1.1 et [AMQP 1.0][lnk-amqp]. Le protocole AMQP est également disponible sur [WebSockets][lnk-websockets], sur le port 443.
     
     Les représentations d’appareil et points de terminaison des méthodes sont disponibles uniquement à l’aide de [MQTT v3.1.1][lnk-mqtt].
 * **Points de terminaison de service**. Chaque IoT Hub expose un ensemble de points de terminaison que votre système principal peut utiliser pour communiquer avec vos appareils. Ces points de terminaison sont actuellement uniquement exposés à l’aide du protocole [AMQP][lnk-amqp], sauf pour le point de terminaison d’appel de méthode, qui est exposé via HTTP 1.1.
@@ -51,14 +51,14 @@ Vous trouverez ci-dessous une description des points de terminaison :
   * *Envoyer des messages Cloud vers appareil et recevoir des accusés de remise*. Ces points de terminaison autorisent votre serveur principal à envoyer des [messages cloud-à-appareil][lnk-c2d] et à recevoir les accusés de réception ou d’expiration correspondants.
   * *Recevoir les notifications de fichier*. Ce point de terminaison de messagerie vous permet de recevoir des notifications lorsqu’un fichier est correctement téléchargé sur votre appareil. 
   * *Invocation de méthode directe*. Ce point de terminaison permet à un service principal d’appeler une [méthode directe][lnk-methods] sur un appareil.
-  * *Recevoir les événements de surveillance des opérations*. Ce point de terminaison vous permet de recevoir les événements de surveillance des opérations si votre IoT hub a été configuré pour les émettre. Pour plus d’informations, voir [Surveillance des opérations IoT Hub][lnk-operations-mon].
+  * *Recevoir les événements de surveillance des opérations*. Ce point de terminaison vous permet de recevoir les événements de surveillance des opérations si votre IoT hub a été configuré pour les émettre. Pour plus d’informations, consultez [Surveillance des opérations IoT Hub][lnk-operations-mon].
 
-L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks] décrit les différentes méthodes permettant d’accéder à ces points de terminaison.
+L’article [Kits Azure IoT SDK][lnk-sdks] décrit les différentes méthodes permettant d’accéder à ces points de terminaison.
 
 Enfin, il est important de noter que tous les points de terminaison IoT Hub utilisent le protocole [TLS][lnk-tls] et qu’aucun point de terminaison n’est jamais exposé sur des canaux non chiffrés/non sécurisés.
 
 ## <a name="custom-endpoints"></a>Points de terminaison personnalisés
-Vous pouvez lier des services Azure existants dans votre abonnement à votre IoT Hub pour qu’ils jouent le rôle de points de terminaison pour le routage des messages. Ces points de terminaison de service jouent le rôle de points de terminaison de service et sont utilisés pour les routages de message. Les appareils ne peuvent pas écrire directement dans des points de terminaison supplémentaires. Pour en savoir plus sur les itinéraires de messages, consultez l’entrée du guide du développeur sur l’[envoi et la réception de messages avec IoT Hub][lnk-devguide-messaging].
+Vous pouvez lier des services Azure existants dans votre abonnement à votre hub IoT pour qu’ils jouent le rôle de points de terminaison pour le routage des messages. Ces points de terminaison de service jouent le rôle de points de terminaison de service et sont utilisés pour les routages de message. Les appareils ne peuvent pas écrire directement dans des points de terminaison supplémentaires. Pour en savoir plus sur les itinéraires de messages, consultez l’entrée du guide du développeur sur l’[envoi et la réception de messages avec IoT Hub][lnk-devguide-messaging].
 
 IoT Hub prend actuellement en charge les services Azure suivants en tant que points de terminaison supplémentaires :
 
@@ -68,23 +68,26 @@ IoT Hub prend actuellement en charge les services Azure suivants en tant que poi
 
 IoT Hub doit pouvoir accéder en écriture à ces points de terminaison de service pour que le routage des messages fonctionne. Si vous configurez vos points de terminaison via le portail Azure, les autorisations nécessaires sont ajoutées pour vous. Veillez à configurer vos services pour prendre en charge le débit prévu. Vous devrez peut-être surveiller vos points de terminaison supplémentaires lors de la première configuration de votre solution IoT, puis apporter les modifications nécessaires en fonction de la charge réelle.
 
-Si un message correspond à plusieurs routages qui pointent vers le même point de terminaison, IoT Hub ne le remet qu’une seule fois à ce point de terminaison. Par conséquent, il est inutile de configurer une déduplication sur votre file d’attente ou votre rubrique Service Bus. Dans les files d’attente partitionnées, l’affinité de la partition assure le classement des messages. Les files d’attente ayant des sessions actives ne sont pas prises en charge en tant que points de terminaison. C’est aussi le cas des files d’attente et rubriques partitionnées pour lesquelles la déduplication est activée.
+Si un message correspond à plusieurs routages qui pointent vers le même point de terminaison, IoT Hub ne le remet qu’une seule fois à ce point de terminaison. Par conséquent, il est inutile de configurer une déduplication sur votre file d’attente ou votre rubrique Service Bus. Dans les files d’attente partitionnées, l’affinité de la partition assure le classement des messages.
+
+> [!NOTE]
+> Les options **Sessions** ou **Détection des doublons** ne doivent pas être activées pour les files d’attente et rubriques Service Bus utilisées comme points de terminaison IoT Hub. Si l’une de ces options est activée, le point de terminaison s’affiche comme **Inaccessible** dans le portail Azure.
 
 Pour connaître les limites du nombre de points de terminaison que vous pouvez ajouter, consultez [Quotas et limitation][lnk-devguide-quotas].
 
 ## <a name="field-gateways"></a>Passerelles de champ
 Dans une solution IoT, une *passerelle de champ* se situe entre vos appareils et vos points de terminaison IoT Hub. Elle est généralement située près de vos appareils. Vos appareils communiquent directement avec la passerelle de champ à l’aide d’un protocole pris en charge. La passerelle de champ se connecte à un point de terminaison IoT Hub à l’aide d’un protocole pris en charge par ce dernier. Une passerelle de champ peut être un matériel très spécialisé ou un ordinateur à faible consommation d'énergie exécutant un logiciel qui accomplit de bout en bout le scénario pour lequel la passerelle est prévue.
 
-Vous pouvez utiliser [Azure IoT Edge][lnk-gateway-sdk] pour implémenter une passerelle de champ. IoT Edge offre des fonctionnalités spécifiques, comme la possibilité de multiplexer la communication à partir de plusieurs appareils sur la même connexion IoT Hub.
+Vous pouvez utiliser [Azure IoT Edge][lnk-iot-edge] pour implémenter une passerelle de champ. IoT Edge offre des fonctionnalités spécifiques, comme la possibilité de multiplexer les communications à partir de plusieurs appareils sur la même connexion IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
 
-* [Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-devguide-query]
+* [Langage de requête IoT Hub pour les jumeaux d’appareils, les travaux et le routage des messages][lnk-devguide-query]
 * [Quotas et limitation][lnk-devguide-quotas]
 * [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt]
 
-[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
+[lnk-iot-edge]: https://github.com/Azure/iot-edge
 
 [img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
 [lnk-amqp]: https://www.amqp.org/
@@ -99,10 +102,10 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-accesscontrol]: iot-hub-devguide-security.md#access-control-and-permissions
 [lnk-importexport]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-device-identities]: iot-hub-devguide-identity-registry.md
 [lnk-upload]: iot-hub-devguide-file-upload.md
-[lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-query]: iot-hub-devguide-query-language.md

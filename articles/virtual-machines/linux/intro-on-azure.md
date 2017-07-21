@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 06/01/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: eaac5300292e328bcff9ddf5447bea0e53075179
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 7bd0c5549a2e1f592681760d5ef464b9570ca4ab
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -26,13 +27,13 @@ ms.lasthandoff: 04/03/2017
 Cette rubrique présente quelques aspects de l'utilisation de machines virtuelles Linux dans le cloud Azure. Le déploiement d'une machine virtuelle Linux est un processus simple qui fait appel à une image de la galerie.
 
 ## <a name="authentication-usernames-passwords-and-ssh-keys"></a>Authentification : noms d’utilisateurs, mots de passe et clés SSH
-Lorsque vous créez une machine virtuelle Linux avec le portail Azure Classic, il vous est demandé de fournir un nom d'utilisateur, un mot de passe et (éventuellement) une clé publique SSH. Le choix de nom d'utilisateur pour le déploiement d'une machine virtuelle Linux sur Azure est soumis à la contrainte suivante : les noms des comptes système (UID <100) déjà présents sur la machine virtuelle ne sont pas autorisés ('root', par exemple).
+Quand vous créez une machine virtuelle Linux avec le portail Azure, il vous est demandé de fournir un nom d’utilisateur et un mot de passe ou une clé publique SSH. Le choix de nom d'utilisateur pour le déploiement d'une machine virtuelle Linux sur Azure est soumis à la contrainte suivante : les noms des comptes système (UID <100) déjà présents sur la machine virtuelle ne sont pas autorisés ('root', par exemple).
 
 * Consultez la rubrique [Création d’une machine virtuelle exécutant Linux](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Consultez la rubrique [Utilisation de SSH avec Linux sur Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="obtaining-superuser-privileges-using-sudo"></a>Obtention de privilèges de superutilisateur avec `sudo`
-Le compte utilisateur qui est spécifié pendant le déploiement de l'instance de machine virtuelle dans Azure est un compte privilégié. Ce compte est configuré par l’agent Linux Azure pour pouvoir élever les privilèges au niveau root (compte superutilisateur) avec l’utilitaire `sudo` . Une fois connecté avec ce compte utilisateur, vous êtes en mesure d'exécuter les commandes en tant que root avec la syntaxe de commande.
+Le compte utilisateur qui est spécifié pendant le déploiement de l'instance de machine virtuelle dans Azure est un compte privilégié. Ce compte est configuré par l’agent Linux Azure pour pouvoir élever les privilèges au niveau root (compte superutilisateur) avec l’utilitaire `sudo` . Une fois connecté avec ce compte d’utilisateur, vous êtes en mesure d’exécuter les commandes en tant que racine avec la syntaxe de commande :
 
     # sudo <COMMAND>
 
@@ -41,7 +42,7 @@ Vous pouvez éventuellement obtenir un interpréteur de commandes root avec **su
 * Consultez la rubrique [Utilisation des privilèges root sur les machines virtuelles Linux dans Azure](use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="firewall-configuration"></a>Configuration du pare-feu
-Azure fournit un filtre de paquets entrants qui limite la connectivité aux ports spécifiés dans le portail Azure Classic. Par défaut, le seul port autorisé est SSH. Vous pouvez ouvrir l'accès à d'autres ports sur votre machine virtuelle Linux en configurant des points de terminaison dans le portail Azure Classic :
+Azure fournit un filtre de paquets entrants qui limite la connectivité aux ports spécifiés dans le portail Azure. Par défaut, le seul port autorisé est SSH. Vous pouvez ouvrir l’accès à d’autres ports sur votre machine virtuelle Linux en configurant des points de terminaison dans le portail Azure :
 
 * Consultez la rubrique [Configuration des points de terminaison sur une machine virtuelle](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -69,9 +70,9 @@ Les images **Ubuntu** et **CoreOS** utilisent cloud-init sur Azure, qui fournit 
 ## <a name="virtual-machine-image-capture"></a>Capture d’une image de machine virtuelle
 Azure vous permet de capturer l'état d'une machine virtuelle existante dans une image qui peut ensuite servir au déploiement d'autres instances de machine virtuelle. L'agent Linux Azure peut être utilisé pour restaurer une partie de la personnalisation réalisée pendant le processus de déploiement. Pour capturer une machine virtuelle en tant qu'image, vous pouvez procéder comme suit :
 
-1. Exécutez **waagent -deprovision** pour annuler la personnalisation du déploiement. Ou exécutez **waagent -deprovision+user** pour éventuellement supprimer le compte utilisateur spécifié pendant le déploiement, avec toutes les données associées.
+1. Exécutez **waagent -deprovision** pour annuler la personnalisation du déploiement. Vous pouvez aussi exécuter **waagent -deprovision+user** pour éventuellement supprimer le compte d’utilisateur spécifié pendant le déploiement, avec toutes les données associées.
 2. Arrêtez/mettez hors tension la machine virtuelle.
-3. Cliquez sur *Capture* dans le portail Azure Classic ou utilisez les outils Powershell ou d'interface de ligne de commande pour capturer la machine virtuelle en tant qu'image.
+3. Cliquez sur **Capture** dans le portail Azure ou utilisez les outils Powershell ou d’interface de ligne de commande pour capturer la machine virtuelle en tant qu’image.
    
    * Consultez la rubrique [Capture d’une machine virtuelle Linux à utiliser comme modèle](classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 

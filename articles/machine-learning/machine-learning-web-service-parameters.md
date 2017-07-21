@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: 4c9f2bb57e3669327d8704b93fa56e2ace1e8b35
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 482726c1dae5385964e08b720e529817d5907537
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -55,7 +56,7 @@ Par exemple, supposons que nous avons une expérience avec un module [Exporter l
    * Sous le message **Veuillez spécifier le type d'authentification**, sélectionnez « Compte ».
    * Entrez les informations de compte correspondant au stockage d’objets blob Azure. 
      <p />
-3. Cliquez sur l'icône à droite du **Chemin d'accès d’objet blob commençant par le paramètre du conteneur**. Voici à quoi cela ressemble :
+3. Cliquez sur l’icône à droite du **Chemin d’accès d’objet blob commençant par le paramètre du conteneur**. Voici à quoi cela ressemble :
    
    ![Icône de paramètre de service Web][icon]
    
@@ -77,7 +78,7 @@ L’utilisateur du service web peut désormais indiquer une nouvelle destination
 ## <a name="more-information"></a>Plus d’informations
 Vous trouverez un exemple plus détaillé en consultant l’entrée [Paramètres de service Web](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) du blog [Machine Learning ](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
-Pour plus d'informations sur l'accès à un service Web Machine Learning, consultez la section [Comment consommer un service Web Machine Learning publié](machine-learning-consume-web-services.md).
+Pour plus d’informations sur l’accès à un service web Machine Learning, consultez [Utilisation d’un service web Azure Machine Learning](machine-learning-consume-web-services.md).
 
 <!-- Images -->
 [icon]: ./media/machine-learning-web-service-parameters/icon.png

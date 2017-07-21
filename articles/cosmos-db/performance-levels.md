@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 929ee15b77215ca6b150918eff6f608dc153776e
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 38afe40cf45cf13d587faf13cc5216e4326b84a0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -141,9 +141,9 @@ Vous pouvez effectuer la migration des niveaux de performance S1, S2 et S3 vers 
     > 
     > 
 
-**Migration vers des collections à partition unique à l’aide du Kit de développement logiciel (SDK) .NET**
+**Migration vers des collections à partition unique à l’aide du Kit SDK .NET**
 
-Vous pouvez également modifier les niveaux de performances de vos collections via nos Kits SDK. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de notre [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), mais le processus est similaire pour nos autres [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si vous ne connaissez pas notre Kit de développement logiciel (SDK) .NET, consultez notre [didacticiel de mise en route](documentdb-get-started.md).
+Vous pouvez également modifier les niveaux de performances de vos collections via nos Kits SDK. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de notre [API .NET DocumentDB](documentdb-sdk-dotnet.md), mais le processus est similaire pour nos autres Kits SDK.
 
 Voici un extrait de code permettant de remplacer le débit de la collection par 5 000 unités de requête par seconde :
     
@@ -177,7 +177,7 @@ Les clients Contrat Entreprise bénéficieront d’une protection en matière de
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la tarification et la gestion des données avec Azure Cosmos DB, explorez les ressources suivantes :
 
-1.    [Partitioning data in Cosmos DB (Partitionnement des données dans Cosmos DB)](documentdb-partition-data.md). Découvrez la différence entre les conteneurs à partition unique et les conteneurs partitionnés, et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.
-2.    [Tarification Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Apprenez-en davantage sur le coût de l’approvisionnement du débit et de la consommation du stockage.
-3.    [Unités de requête](request-units.md). Découvrez la consommation de débit pour les différents types d’opérations, telles que les opérations de lecture, d’écriture et de requête.
+1.  [Partitioning data in Cosmos DB (Partitionnement des données dans Cosmos DB)](documentdb-partition-data.md). Découvrez la différence entre les conteneurs à partition unique et les conteneurs partitionnés, et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.
+2.  [Tarification Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Apprenez-en davantage sur le coût de l’approvisionnement du débit et de la consommation du stockage.
+3.  [Unités de requête](request-units.md). Découvrez la consommation de débit pour les différents types d’opérations, telles que les opérations de lecture, d’écriture et de requête.
 

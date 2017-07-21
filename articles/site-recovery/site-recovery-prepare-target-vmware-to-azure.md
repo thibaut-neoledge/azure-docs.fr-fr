@@ -15,21 +15,21 @@ ms.workload: backup-recovery
 ms.date: 5/31/2017
 ms.author: bsiva
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b7f26df96ddedb579cf5d9d20fee6b2599e762e0
-ms.openlocfilehash: 555ea8eed17e42019513029f7b3ac2167f002578
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: c84a775564769ddc796aa9d75add019ef1003175
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 06/15/2017
 
 ---
 
 # <a name="prepare-target-vmware-to-azure"></a>Préparer la cible (VMware vers Azure)
 > [!div class="op_single_selector"]
-> * [Machines virtuelles VMware](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [Serveurs physiques](./site-recovery-prepare-target-physical-to-azure.md)
+> * [VMware vers Azure](./site-recovery-prepare-target-vmware-to-azure.md)
+> * [Physique vers Azure](./site-recovery-prepare-target-physical-to-azure.md)
 
 Cet article décrit comment préparer votre environnement Azure de manière à lancer la réplication de machines virtuelles VMware vers Azure.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Cet article part des principes suivants :
 - Vous avez créé un coffre Recovery Services pour protéger vos machines virtuelles VMware. Vous pouvez créer un coffre Recovery Services dans le [portail Azure](http://portal.azure.com "portail Azure").
