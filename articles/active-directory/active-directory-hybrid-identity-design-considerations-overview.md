@@ -1,6 +1,6 @@
 ---
 title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : vue d’ensemble | Microsoft Docs"
-description: "Vue d&quot;ensemble et plan du contenu du guide des considérations relatives à la conception des identités hybrides"
+description: "Vue d'ensemble et plan du contenu du guide des considérations relatives à la conception des identités hybrides"
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
 ms.openlocfilehash: b22e34f9ad0644def8a344b261077b44c34420cb
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/09/2017
-
 
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Considérations relatives à la conception d'identités hybrides Azure Active Directory

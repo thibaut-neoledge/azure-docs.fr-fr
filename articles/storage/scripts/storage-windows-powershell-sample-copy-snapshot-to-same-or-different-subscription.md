@@ -1,14 +1,14 @@
 ---
 title: "Exemple de script Azure PowerShell : Copier (déplacer) la capture instantanée d’un disque géré vers un abonnement identique ou différent | Microsoft Docs"
 description: "Exemple de script Azure PowerShell : Copier (déplacer) la capture instantanée d’un disque géré vers un abonnement identique ou différent"
-services: managed-disks
+services: virtual-machines-windows
 documentationcenter: storage
-author: ramankum
+author: ramankumarlive
 manager: kavithag
-editor: ramankum
+editor: tysonn
 tags: azure-service-management
 ms.assetid: 
-ms.service: managed-disks-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows

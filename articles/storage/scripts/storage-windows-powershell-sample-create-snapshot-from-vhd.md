@@ -1,14 +1,14 @@
 ---
 title: "Exemple de script Azure PowerShell - Création d’une capture instantanée à partir d’un disque dur virtuel pour créer rapidement plusieurs disques gérés identiques | Microsoft Docs"
 description: "Exemple de script Azure PowerShell - Création d’une capture instantanée à partir d’un disque dur virtuel pour créer rapidement plusieurs disques gérés identiques"
-services: managed-disks
+services: virtual-machines-windows
 documentationcenter: storage
-author: ramankum
+author: ramankumarlive
 manager: kavithag
-editor: ramankum
+editor: tysonn
 tags: azure-service-management
 ms.assetid: 
-ms.service: managed-disks-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows

@@ -1,14 +1,14 @@
 ---
 title: "Exemple de script Azure PowerShell : exporter/copier une capture instantanée en tant que disque dur virtuel vers un compte de stockage dans une autre région | Microsoft Docs"
 description: "Exemple de script Azure PowerShell : exporter/copier une capture instantanée en tant que disque dur virtuel vers un compte de stockage dans une autre région"
-services: managed-disks
+services: virtual-machines-windows
 documentationcenter: storage
-author: ramankum
+author: ramankumarlive
 manager: kavithag
-editor: ramankum
+editor: tysonn
 tags: azure-service-management
 ms.assetid: 
-ms.service: managed-disks-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows

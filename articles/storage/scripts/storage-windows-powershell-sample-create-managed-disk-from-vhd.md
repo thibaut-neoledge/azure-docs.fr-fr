@@ -1,14 +1,14 @@
 ---
 title: "Exemple de script Azure PowerShell - Créer un disque géré à partir d’un fichier de disque dur virtuel dans un compte de stockage dans le même abonnement ou dans un abonnement différent | Microsoft Docs"
 description: "Exemple de script Azure PowerShell - Créer un disque géré à partir d’un fichier de disque dur virtuel dans un compte de stockage dans le même abonnement ou dans un abonnement différent"
-services: managed-disks
+services: virtual-machines-windows
 documentationcenter: storage
-author: ramankum
+author: ramankumarlive
 manager: kavithag
-editor: ramankum
+editor: tysonn
 tags: azure-service-management
 ms.assetid: 
-ms.service: managed-disks-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
