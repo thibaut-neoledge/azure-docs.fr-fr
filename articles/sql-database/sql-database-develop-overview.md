@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 50024fdb487e859b870a1025b23790f1cc5d1a18
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 94257b68b3a0f62f4ade727277a904ceec082c05
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-database-application-development-overview"></a>Vue d’ensemble du développement de base de données SQL
@@ -36,7 +35,7 @@ Plusieurs exemples de code sont à votre disposition pour divers langages et pla
 * Pour en savoir plus, voir [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 
 ## <a name="tools"></a>Outils 
-Vous pouvez tirer parti des outils open source comme [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) et [VS Code](https://code.visualstudio.com/). En outre, Azure SQL Database fonctionne avec des outils Microsoft, tels que [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) et [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Vous pouvez également utiliser le portail de gestion Azure, PowerShell et les API REST pour accroître votre productivité.
+Vous pouvez tirer parti des outils open source comme [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) et [VS Code](https://code.visualstudio.com/). En outre, Azure SQL Database fonctionne avec des outils Microsoft, tels que [Visual Studio](https://www.visualstudio.com/downloads/) et [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Vous pouvez également utiliser le portail de gestion Azure, PowerShell et les API REST pour accroître votre productivité.
 
 ## <a name="resource-limitations"></a>Limitations des ressources
 La base de données SQL Azure gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : la gouvernance des ressources et l’application de limites.
