@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 07/20/2017
 ms.author: jeedes
+ms.reviewer: jeedes
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 61999ebea05371c53e5ff27644a68039db1aef96
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/18/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Didacticiel : Intégration d’Azure Active Directory à Amazon Web Services (AWS)
@@ -133,7 +133,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     | Nom de l'attribut  | Valeur de l’attribut | Espace de noms |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | Rôle               | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+    | Rôle            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Vous devez configurer l’approvisionnement des utilisateurs dans Azure AD pour extraire tous les rôles de la console AWS. Consultez les étapes de l’approvisionnement ci-dessous.
@@ -172,13 +172,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     ![Configurer l’authentification unique][14]
  
-      a. Pour **Provider Type**, sélectionnez **SAML**.
+    a. Pour **Provider Type**, sélectionnez **SAML**.
 
-      b. Dans la zone de texte **Provider Name**, tapez le nom d’un fournisseur (par ex. : *WAAD*).
+    b. Dans la zone de texte **Provider Name**, tapez le nom d’un fournisseur (par ex. : *WAAD*).
 
-      c. Pour télécharger votre fichier de métadonnées, cliquez sur **Choose File**.
+    c. Pour télécharger votre fichier de métadonnées, cliquez sur **Choose File**.
 
-      d. Cliquez sur **Next Step**.
+    d. Cliquez sur **Next Step**.
 
 13. Dans la page **Verify Provider Information**, cliquez sur **Create**. 
     
@@ -192,25 +192,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     ![Configurer l’authentification unique][17] 
 
-      a. Dans la zone de texte **Role Name**, tapez un nom de rôle (par ex. : *Utilisateur_test*). 
+    a. Dans la zone de texte **Role Name**, tapez un nom de rôle (par ex. : *Utilisateur_test*). 
 
-      b. Cliquez sur **Next Step**.
+    b. Cliquez sur **Next Step**.
 
 16. Dans la boîte de dialogue **Select Role Type** , procédez comme suit : 
     
     ![Configurer l’authentification unique][18] 
 
-      a. Sélectionnez **Role For Identity Provider Access**. 
+    a. Sélectionnez **Role For Identity Provider Access**. 
 
-      b. Dans la section **Grant Web Single Sign-On (WebSSO) access to SAML providers**, cliquez sur **Select**.
+    b. Dans la section **Grant Web Single Sign-On (WebSSO) access to SAML providers**, cliquez sur **Select**.
 
 17. Dans la boîte de dialogue **Establish Trust** , procédez comme suit :  
     
     ![Configurer l’authentification unique][19] 
 
-      a. Pour le fournisseur SAML, sélectionnez celui que vous avez déjà créé (par ex. : *WAAD*)
+    a. Pour le fournisseur SAML, sélectionnez celui que vous avez déjà créé (par ex. : *WAAD*)
   
-      b. Cliquez sur **Next Step**.
+    b. Cliquez sur **Next Step**.
 
 18. Dans la boîte de dialogue **Verify Role Trust**, cliquez sur **Next Step**.
     
@@ -224,7 +224,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     ![Configurer l’authentification unique][34]
  
-      a. Cliquez sur **Create Role**.
+    a. Cliquez sur **Create Role**.
 
     b. Créez autant de rôles que nécessaire et mappez-les vers le fournisseur d’identité.
 

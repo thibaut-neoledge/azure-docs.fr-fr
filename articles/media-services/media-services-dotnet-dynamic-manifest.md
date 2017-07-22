@@ -1,6 +1,6 @@
 ---
 title: "Création de filtres avec le Kit de développement logiciel (SDK) .NET Azure Media Services"
-description: "Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d&quot;un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective."
+description: "Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 07/21/2017
 ms.author: juliako;cenkdin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: 07239a392438afd9807ce69fba657c27e853a219
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/16/2017
-
 
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Création de filtres avec le Kit de développement logiciel (SDK) .NET Azure Media Services

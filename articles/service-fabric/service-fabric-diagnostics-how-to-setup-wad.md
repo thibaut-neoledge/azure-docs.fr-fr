@@ -3,7 +3,7 @@ title: Collecte des journaux avec Azure Diagnostics | Documents Microsoft
 description: "Cet article décrit la procédure de configuration d’Azure Diagnostics pour la collecte de journaux d’un cluster Service Fabric exécuté dans Azure."
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: 9f7e1fa5-6543-4efd-b53f-39510f18df56
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
-ms.author: dekapur
+ms.author: ryanwi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: e8b6709d4b2cbb71fdf2d83c9a95998ab147b4ba
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Collecte des journaux avec Azure Diagnostics
