@@ -381,6 +381,8 @@
               href: classic/hpcpack-cluster-namd.md
         - name: SAP sur Azure
           href: ../workloads/sap/get-started.md
+        - name: Oracle sur Azure
+          href: ../workloads/oracle/oracle-considerations.md
     - name: Docker sur des machines virtuelles
       items:
         - name: >-
