@@ -28,16 +28,6 @@ abstract:
     évolutives, fiables et faciles à gérer. Découvrez comment utiliser Azure
     Service Fabric avec nos guides de démarrage rapide, nos didacticiels et nos
     exemples.
-  aside:
-    image:
-      alt: null
-      height: 140
-      src: >-
-        https://sec.ch9.ms/ch9/cf61/aa41e58e-ec9f-4f7b-982d-40daaaeacf61/IntroAzureServiceFabric_960.jpg
-      width: 250
-    title: 'Présentation de Service Fabric (3:53)'
-    href: 'https://azure.microsoft.com/en-us/resources/videos/azure-service-fabric/'
-    width: 250
 sections:
   - title: "Démarrages en 5\_minutes"
     items:

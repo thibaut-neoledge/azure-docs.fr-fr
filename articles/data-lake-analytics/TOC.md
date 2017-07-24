@@ -6,7 +6,6 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
-## [Guide de programmabilité U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Procédures
 
@@ -37,6 +36,7 @@
 ### [Utiliser l’explorateur de travaux et la vue des travaux](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Utiliser la vue d’exécution du vertex](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 ### [Exécution locale et débogage local dans VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
+### [Guide de programmabilité U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Référence
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
