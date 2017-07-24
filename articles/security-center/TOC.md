@@ -19,6 +19,7 @@
 
 ## Prévention
 ### [Définir des stratégies de sécurité](security-center-policies.md)
+### [Accès juste à temps](security-center-just-in-time.md)
 ### [Implémenter les recommandations en matière de sécurité](security-center-recommendations.md)
 
 ### [Recommandations relatives aux applications](security-center-application-recommendations.md)
