@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 0ba2158a45eb4ec9254ef829894152fe92276920
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -124,6 +124,12 @@ Il est important de surveiller l’état de votre passerelle d’application. La
 #### <a name="azure-monitor"></a>Azure Monitor
 
 Chaque journal de passerelle d’application est intégré à [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Cela vous permet d’effectuer le suivi des informations de diagnostic, y compris des alertes et des journaux WAF.  Cette fonctionnalité est proposée dans la ressource Application Gateway sous l’onglet **Diagnostics** du portail ou directement via le service Azure Monitor. Pour en savoir plus sur l’activation des journaux de diagnostic pour la passerelle d’application, rendez-vous sur la page [Diagnostics Application Gateway](application-gateway-diagnostics.md)
+
+#### <a name="azure-security-center"></a>Centre de sécurité Azure
+
+[Azure Security Center](../security-center/security-center-intro.md) vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Désormais, Application Gateway [s’intègre à Azure Security Center](application-gateway-integration-security-center.md). Le service Azure Security Center analyse votre environnement pour détecter les applications web non protégées. Il peut à présent recommander à Application Gateway WAF de protéger ces ressources vulnérables. Vous pouvez créer des instances Application Gateway WAF directement à partir d’Azure Security Center.  Ces instances WAF sont intégrées à Azure Security Center et renverront des alertes et des informations d’intégrité à Azure Security Center à des fins de création de rapports.
+
+![figure 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 
 #### <a name="logging"></a>Journalisation
 

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2017
+ms.date: 06/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 1436b39fdb9a66a00903442496cc5203b47c1bcb
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -90,7 +90,7 @@ Si vous définissez `resourceGroup`sur le nom d’un groupe de ressources qui n�
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-Pour déployer l’exemple de modèle, vous pouvez utiliser Azure PowerShell ou Azure CLI. Vous devez utiliser une version d’Azure PowerShell ou d’Azure CLI à partir de mai 2017 ou ultérieurement. Les exemples supposent que vous avez enregistré le modèle localement dans un fichier nommé **crossrgdeployment.json**.
+Pour déployer l’exemple de modèle, vous pouvez utiliser le portail, Azure PowerShell ou Azure CLI. Pour Azure PowerShell ou d’Azure CLI, vous devez utiliser une version postérieure au mois d’avril 2017. Les exemples supposent que vous avez enregistré le modèle localement dans un fichier nommé **crossrgdeployment.json**.
 
 Pour PowerShell :
 
@@ -117,6 +117,42 @@ az group deployment create \
 ```
 
 Une fois le déploiement terminé, deux groupes de ressources s’affichent. Chaque groupe de ressources contient un compte de stockage.
+
+## <a name="use-resourcegroup-function"></a>Utiliser la fonction resourceGroup()
+
+Pour des déploiements entre groupes de ressources, la [fonction resouceGroup()](resource-group-template-functions-resource.md#resourcegroup) produit un résultat différent selon la façon dont vous spécifiez le modèle imbriqué. 
+
+Si vous incorporez un modèle dans un autre, la résolution de resouceGroup() dans le modèle imbriqué est le groupe de ressources parent. Un modèle incorporé utilise le format suivant :
+
+```json
+"apiVersion": "2017-05-10",
+"name": "embeddedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "template": {
+        ...
+        resourceGroup() refers to parent resource group
+    }
+}
+```
+
+Si vous liez à un modèle séparé, la résolution de resouceGroup() dans le modèle lié est le groupe de ressources imbriqué. Un modèle lié utilise le format suivant :
+
+```json
+"apiVersion": "2017-05-10",
+"name": "linkedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "templateLink": {
+        ...
+        resourceGroup() in linked template refers to linked resource group
+    }
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

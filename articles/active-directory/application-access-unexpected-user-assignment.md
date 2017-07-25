@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 43ed4b0e96c583d8fd9da57eec40ddd2e96fee2f
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-assign-users-to-applications"></a>Guide pratique pour affecter des utilisateurs à des applications
+<a id="how-to-assign-users-to-applications" class="xliff"></a>
+
+# Guide pratique pour affecter des utilisateurs à des applications
 
 Cet article vous explique comment les utilisateurs sont affectés à une application dans votre client.
 
-## <a name="how-do-users-get-assigned-to-an-application-in-azure-ad"></a>Comment les utilisateurs sont-ils affectés à une application dans Azure AD ?
+<a id="how-do-users-get-assigned-to-an-application-in-azure-ad" class="xliff"></a>
+
+## Comment les utilisateurs sont-ils affectés à une application dans Azure AD ?
 
 Pour qu’un utilisateur puisse accéder à une application, il doit tout d’abord être affecté à cette application d’une certaine manière. L’affectation peut être effectuée par un administrateur, un délégué de l’entreprise ou, parfois, par l’utilisateur lui-même. Voici une description des méthodes permettant d’affecter des utilisateurs à des applications :
 
@@ -59,6 +63,8 @@ Pour qu’un utilisateur puisse accéder à une application, il doit tout d’ab
 
 10. Un utilisateur [donne lui-même son consentement à une application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) en se connectant à l’application
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)
 

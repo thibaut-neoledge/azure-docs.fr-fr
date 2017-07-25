@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3216868d867f4c840a610c45855d22575ded609c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -41,7 +43,7 @@ Une machine virtuelle nommée *VM1* fait partie d’un sous-réseau nommé *Subn
 
 Bien que cet exemple utilise le port TCP 3389, les étapes suivantes permettent de déterminer les échecs de connexion entrante et sortante sur n’importe quel port.
 
-### <a name="view-effective-security-rules-for-a-virtual-machine"></a>Afficher les règles de sécurité effectives pour une machine virtuelle
+### <a name="vm"></a>Afficher les règles de sécurité effectives pour une machine virtuelle
 Pour dépanner des groupes de sécurité réseau pour une machine virtuelle, procédez comme suit :
 
 Vous pouvez afficher la liste complète des règles de sécurité effectives sur une carte réseau à partir de la machine virtuelle elle-même. Vous pouvez également ajouter, modifier et supprimer les règles du groupe de sécurité réseau de carte réseau et de sous-réseau à partir du panneau des règles effectives si vous êtes autorisé à effectuer ces opérations.
@@ -92,7 +94,7 @@ Vous pouvez afficher la liste complète des règles de sécurité effectives sur
    
     Vérifiez que le port TCP 3389 est ouvert en ouvrant une connexion RDP à la machine virtuelle ou en utilisant l’outil PsPing. Pour en savoir plus sur PsPing, lisez la [page de téléchargement de PsPing](https://technet.microsoft.com/sysinternals/psping.aspx).
 
-### <a name="view-effective-security-rules-for-a-network-interface"></a>Afficher les règles de sécurité effectives pour une interface réseau
+### <a name="nic"></a>Afficher les règles de sécurité effectives pour une interface réseau
 Si le flux de trafic de votre machine virtuelle est affecté pour une carte réseau spécifique, vous pouvez afficher la liste complète des règles effectives pour la carte réseau à partir du contexte des interfaces réseau en procédant comme suit :
 
 1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
@@ -109,7 +111,7 @@ Si le flux de trafic de votre machine virtuelle est affecté pour une carte rés
    > 
 4. Vous pouvez modifier directement les règles des groupes de sécurité réseau associés à une carte réseau et à un sous-réseau. Pour en savoir plus, consultez l’étape 8 de la section **Afficher les règles de sécurité effectives pour une machine virtuelle** dans cet article.
 
-## <a name="view-effective-security-rules-for-a-network-security-group-nsg"></a>Afficher les règles de sécurité effectives pour un groupe de sécurité réseau
+## <a name="nsg"></a>Afficher les règles de sécurité effectives pour un groupe de sécurité réseau
 Lorsque vous modifiez les règles d’un groupe de sécurité réseau, vous pouvez examiner l’impact des règles ajoutées à une machine virtuelle particulière. Vous pouvez afficher la liste complète des règles de sécurité effectives pour toutes les cartes réseau auxquelles s’applique un groupe de sécurité réseau donné, sans devoir changer de contexte à partir du panneau du groupe de sécurité réseau. Pour résoudre des problèmes de règles effectives au sein d’un groupe de sécurité réseau, procédez comme suit :
 
 1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
@@ -148,10 +150,5 @@ Lors de la résolution de problèmes de connectivité, considérez les points su
 * Si vous avez des réseaux virtuels homologues, par défaut, la balise VIRTUAL_NETWORK s’étend automatiquement pour inclure les préfixes des réseaux virtuels homologues. Pour résoudre des problèmes liés à la connectivité d’homologation de réseau virtuel, vous pouvez consulter ces préfixes dans la liste **ExpandedAddressPrefix** . 
 * Les règles de sécurité effectives sont affichées uniquement s’il existe un groupe de sécurité réseau associé à la carte réseau et au sous-réseau de la machine virtuelle. 
 * Si aucun groupe de sécurité réseau n’est associé à la carte réseau ou au sous-réseau, et si une adresse IP publique est affectée à votre machine virtuelle, tous les ports sont ouverts pour les accès entrants et sortants. Si la machine virtuelle a une adresse IP publique, l’application de groupes de sécurité réseau à la carte réseau ou au sous-réseau est vivement recommandée.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

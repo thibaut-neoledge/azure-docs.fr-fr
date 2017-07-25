@@ -1,3 +1,5 @@
+Le FAQ relatif aux connexions de réseau virtuel à réseau virtuel s’applique aux connexions de passerelle VPN. Si vous recherchez des informations sur l’homologation de réseaux virtuels, voir [Homologation de réseaux virtuels](../articles/virtual-network/virtual-network-peering-overview.md).
+
 ### <a name="does-azure-charge-for-traffic-between-vnets"></a>Le trafic entre réseaux virtuels est-il facturé par Azure ?
 
 Lorsque vous utilisez une connexion de passerelle VPN, le trafic de réseau virtuel à réseau virtuel au sein d’une même région est gratuit dans les deux sens. Le trafic de réseau virtuel à réseau virtuel de sortie entre différentes régions est facturé au tarif du transfert de données sortantes entre réseaux virtuels en fonction des régions sources. Pour plus d’informations, consultez la [page sur la tarification de passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Si vous vous connectez à vos réseaux virtuels à l’aide de l’homologation de réseaux virtuels, plutôt qu’à l’aide de passerelles VPN, consultez la [page sur la tarification de réseau virtuel](https://azure.microsoft.com/pricing/details/virtual-network/).
@@ -10,15 +12,19 @@ Non. Le trafic de réseau virtuel à réseau virtuel transite sur la dorsale pri
 
 Oui, il est protégé par le chiffrement IPsec/IKE.
 
-###<a name="do-i-need-a-vpn-device-to-connect-vnets-together"></a>Ai-je besoin d’un périphérique VPN pour interconnecter des réseaux virtuels ?
+### <a name="do-i-need-a-vpn-device-to-connect-vnets-together"></a>Ai-je besoin d’un périphérique VPN pour interconnecter des réseaux virtuels ?
 
 Non. L’interconnexion de plusieurs réseaux virtuels Azure ne requiert pas de périphérique VPN, sauf si une connectivité intersite est nécessaire.
 
-###<a name="do-my-vnets-need-to-be-in-the-same-region"></a>Mes réseaux virtuels doivent-ils se trouver dans la même région ?
+### <a name="do-my-vnets-need-to-be-in-the-same-region"></a>Mes réseaux virtuels doivent-ils se trouver dans la même région ?
 
 Non. Les réseaux virtuels peuvent être situés dans des régions (emplacements) identiques ou différentes.
 
-###<a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Puis-je utiliser une connexion de réseau virtuel à réseau virtuel en plus de connexions multisites ?
+### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>Si les réseaux virtuels ne figurent pas dans le même abonnement, les abonnements doivent-ils être associés au même locataire Active Directory ?
+
+Non.
+
+### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Puis-je utiliser une connexion de réseau virtuel à réseau virtuel en plus de connexions multisites ?
 
 Oui. Une connectivité réseau virtuelle peut être utilisée en même temps que des VPN multisites.
 
@@ -26,15 +32,15 @@ Oui. Une connectivité réseau virtuelle peut être utilisée en même temps que
 
 Consultez le tableau [Conditions requises de la passerelle](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements).
 
-###<a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>Puis-je utiliser une connexion de réseau virtuel à réseau virtuel pour connecter des machines virtuelles ou des services cloud en dehors d’un réseau virtuel ?
+### <a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>Puis-je utiliser une connexion de réseau virtuel à réseau virtuel pour connecter des machines virtuelles ou des services cloud en dehors d’un réseau virtuel ?
 
 Non. La connexion de réseau virtuel à réseau virtuel prend en charge la connexion de réseaux virtuels. Elle ne prend pas en charge la connexion de machines virtuelles ou de services cloud qui ne se trouvent pas dans un réseau virtuel.
 
-###<a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Un service cloud ou un point de terminaison d’équilibrage de charge peut-il s’étendre sur différents réseaux virtuels ?
+### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Un service cloud ou un point de terminaison d’équilibrage de charge peut-il s’étendre sur différents réseaux virtuels ?
 
 Non. Un service cloud ou un point de terminaison d’équilibrage de charge ne peut pas s’étendre sur différents réseaux virtuels, même si ces derniers sont interconnectés.
 
-###<a name="can-i-used-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Puis-je utiliser un type de réseau VPN basé sur des stratégies pour les connexions de réseau virtuel à réseau virtuel ou multisites ?
+### <a name="can-i-used-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Puis-je utiliser un type de réseau VPN basé sur des stratégies pour les connexions de réseau virtuel à réseau virtuel ou multisites ?
 
 Non. Les connexions de réseau virtuel à réseau virtuel et multisites nécessitent des passerelles VPN Azure avec des types de VPN basés sur des itinéraires (dits auparavant de routage dynamique).
 
@@ -42,15 +48,15 @@ Non. Les connexions de réseau virtuel à réseau virtuel et multisites nécessi
 
 Non, les deux réseaux virtuels DOIVENT utiliser des réseaux VPN basés sur des itinéraires (dits auparavant de routage dynamique).
 
-###<a name="do-vpn-tunnels-share-bandwidth"></a>Les tunnels VPN se partagent-ils la bande passante ?
+### <a name="do-vpn-tunnels-share-bandwidth"></a>Les tunnels VPN se partagent-ils la bande passante ?
 
 Oui. Tous les tunnels VPN du réseau virtuel partagent la bande passante disponible sur la passerelle VPN Azure, ainsi que le même contrat SLA concernant le temps d’activité des passerelles VPN dans Azure.
 
-###<a name="are-redundant-tunnels-supported"></a>Les tunnels redondants sont pris en charge ?
+### <a name="are-redundant-tunnels-supported"></a>Les tunnels redondants sont pris en charge ?
 
 Les tunnels redondants entre deux réseaux virtuels sont pris en charge lorsqu’une passerelle de réseau virtuel est configurée comme active/active.
 
-###<a name="can-i-have-overlapping-address-spaces-for-vnet-to-vnet-configurations"></a>Des espaces d’adressage peuvent-ils se chevaucher pour les configurations de réseau virtuel à réseau virtuel ?
+### <a name="can-i-have-overlapping-address-spaces-for-vnet-to-vnet-configurations"></a>Des espaces d’adressage peuvent-ils se chevaucher pour les configurations de réseau virtuel à réseau virtuel ?
 
 Non. Il ne peut pas y avoir de chevauchement entre des plages d’adresses IP.
 

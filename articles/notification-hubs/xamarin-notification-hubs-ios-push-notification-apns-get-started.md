@@ -15,9 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53f9d5b37e6f754540e70b534555750dd54895d0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 72a81fa0deb34ace77b8fb9b1a4e6b24ee164b35
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -31,14 +33,14 @@ ms.openlocfilehash: 53f9d5b37e6f754540e70b534555750dd54895d0
 > 
 
 Ce didacticiel vous montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application iOS.
-Vous allez créer une application Xamarin.iOS vide qui reçoit des notifications Push à l’aide du [service de notification Push Apple (APN, Apple Push Notification)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html). Une fois l’opération terminée, vous pouvez utiliser votre hub de notification pour diffuser des notifications Push sur tous les appareils exécutant votre application. Le code finalisé est disponible dans l’exemple d’application [NotificationHubs][GitHub].
+Vous allez créer une application Xamarin.iOS vide qui reçoit des notifications Push à l’aide du [service de notification Push Apple (APN, Apple Push Notification)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html). Une fois l’opération terminée, vous pouvez utiliser votre hub de notification pour diffuser des notifications Push sur tous les appareils exécutant votre application. Le code finalisé est disponible dans l’exemple [Application NotificationHubs][GitHub].
 
 Ce didacticiel présente un scénario de simple diffusion de messages Push utilisant les hubs de notification.
 
 ## <a name="prerequisites"></a>Composants requis
 Ce didacticiel requiert les éléments suivants :
 
-* [Xcode 6.0][Installation de Xcode]
+* [Xcode 6.0][Install Xcode]
 * Un appareil compatible iOS 7.0 (ou version ultérieure)
 * Un abonnement au programme pour développeurs iOS
 * [Xamarin Studio]
@@ -76,7 +78,7 @@ Votre hub de notification est maintenant configuré pour APNS, et vous disposez 
 #### <a name="create-a-new-project"></a>Création d'un projet
 1. Dans Xamarin Studio, créez un projet iOS et sélectionnez le modèle **Unified API** > **Single View Application**.
    
-       ![Xamarin Studio - Select Application Type][31]
+     ![Xamarin Studio - Sélectionner le type d’application][31]
 2. Ajoutez une référence au composant Azure Messaging. Dans la vue Solution, cliquez avec le bouton droit sur le dossier **Components** de votre projet, puis choisissez **Get More Components**. Recherchez le composant **Azure Messaging** et ajoutez-le à votre projet.
 3. Dans **AppDelegate.cs**, ajoutez l'instruction using suivante :
    
@@ -277,32 +279,27 @@ Dans cet exemple simple, vous avez envoyé des notifications Push à tous vos ap
 
 
 <!-- URLs. -->
-[Kit de développement logiciel (SDK) Mobile Services iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Prise en main de Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Portail Azure Classic]: https://manage.windowsazure.com/
-[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
+[portail Azure Classic]: https://manage.windowsazure.com/
+[Vue d’ensemble de Notifications Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Installation de Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Portail d’approvisionnement iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Utilisation de Notification Hubs pour envoyer des notifications push aux utilisateurs]: /manage/services/notification-hubs/notify-users-aspnet
+[Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]: /manage/services/notification-hubs/notify-users-aspnet
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-dotnet
 
-[Guide de programmation des notifications locales et Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[Service de notification Push Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Guide de programmation des notifications locales et Push]:https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
-[Composant Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
+[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin Studio]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
-[Portail Azure]: https://portal.azure.com
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+[Azure Portal]: https://portal.azure.com
 

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 691caf95971ccdd37b12bbc178627f25b228a782
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: ecde5dd3211bfbb290e6910d7d55136d079c6cf3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -57,9 +58,13 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 4. Tapez **Exit** pour fermer le client SSH.
 
    > [!NOTE]
-   > Les étapes restantes supposent que vous avez déjà [installé l’interface CLI Azure](../../../cli-install-nodejs.md) sur votre ordinateur client. Toutes les étapes suivantes peuvent également être effectuées dans le [Portail Azure Classic][Azure classic portal].
+   > Les étapes restantes supposent que vous avez déjà [installé l’interface CLI Azure](../../../cli-install-nodejs.md) sur votre ordinateur client. Toutes les étapes suivantes peuvent également être effectuées dans le [Portail Azure](http://portal.azure.com).
 
 5. À partir de votre ordinateur client, ouvrez la CLI Azure et connectez-vous à votre abonnement Azure. Pour plus d’informations, consultez [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../../../xplat-cli-connect.md).
+
+   > [!NOTE]
+   > Connectez-vous au Portail Azure.
+
 6. Assurez-vous que vous êtes en mode de gestion des services :
 
     ```azurecli
@@ -71,9 +76,10 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
     ```azurecli
     azure vm shutdown myVM
     ```
+   Si nécessaire, vous pouvez voir la liste de toutes les machines virtuelles créées dans votre abonnement à l’aide de la commande `azure vm list`.
 
    > [!NOTE]
-   > Vous pouvez voir la liste de toutes les machines virtuelles créées dans votre abonnement à l’aide de la commande `azure vm list`
+   > Si vous utilisez le Portail Azure, sélectionnez la machine virtuelle et cliquez sur **Arrêter** pour arrêter la machine virtuelle.
 
 8. Lorsque la machine virtuelle est arrêtée, capturez l’image. L’exemple suivant capture la machine virtuelle nommée `myVM` et crée une image généralisée nommée `myNewVM` :
 
@@ -82,6 +88,9 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
     ```
 
     La sous-commande `-t` supprime la machine virtuelle d’origine.
+
+    > [!NOTE]
+    > Dans le Portail Azure, vous pouvez capturer une image en sélectionnant **Image** à partir du menu hub. Vous devez fournir les informations suivantes pour l’image : nom, groupe de ressources, emplacement, type de système d’exploitation et chemin d’accès à l’objet blob de stockage.
 
 9. La nouvelle image est maintenant disponible dans la liste des images pouvant être utilisées pour configurer de nouvelles machines virtuelles. Vous pouvez l'afficher avec la commande :
 
@@ -96,11 +105,10 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 ## <a name="next-steps"></a>Étapes suivantes
 L’image est prête à être utilisée pour créer des machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de l’interface CLI Azure et fournir le nom de l’image que vous avez créée. Pour plus d’informations, consultez [Utilisation de l’interface de ligne de commande Azure avec le modèle de déploiement Classic](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-Vous pouvez également utiliser le [Portail Azure Classic][Azure classic portal] pour créer une machine virtuelle personnalisée en utilisant l’option **À partir de la galerie** et en sélectionnant l’image que vous avez créée. Pour plus d'informations, consultez [Création d’une machine virtuelle personnalisée][How to Create a Custom Virtual Machine].
+Vous pouvez également utiliser le [Portail Azure](http://portal.azure.com) pour créer une machine virtuelle personnalisée en utilisant la méthode **Image** et en sélectionnant l’image que vous avez créée. Pour plus d'informations, consultez [Création d’une machine virtuelle personnalisée][How to Create a Custom Virtual Machine].
 
 **Consultez également :** [Guide d’utilisateur de l’agent Linux Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Azure classic portal]:http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]:create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk.md

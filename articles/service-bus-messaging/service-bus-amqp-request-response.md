@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2017
+ms.date: 06/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: a09aefd00a89c48acdc885f98e34d7faa9c5629a
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 756565b3da6e0a818d1ee3d5e17f942d96be14f0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -36,7 +37,7 @@ Une description d’entité fait référence à un objet Service Bus [classe Que
   
 ### <a name="brokered-message"></a>Message réparti  
 
-Représente un message Service Bus mappé à un message AMQP. Le mappage est défini dans l’article du [guide du protocole AMQP de Service Bus](service-bus-amqp-protocol-guide.md).  
+Représente un message Service Bus mappé à un message AMQP. Le mappage est défini dans le [guide du protocole AMQP de Service Bus](service-bus-amqp-protocol-guide.md).  
   
 ## <a name="attach-to-entity-management-node"></a>Attacher à un nœud de gestion d’entité  
 
@@ -47,10 +48,10 @@ Toutes les opérations décrites dans ce document suivent un modèle demande/ré
 Crée un lien vers le nœud de gestion pour envoyer des demandes.  
   
 ```  
-requestLink = session.attach(       
+requestLink = session.attach(     
 role: SENDER,   
-       target: { address: "<entity address>/$management" },   
-       source: { address: ""<my request link unique address>" }   
+    target: { address: "<entity address>/$management" },   
+    source: { address: ""<my request link unique address>" }   
 )  
   
 ```  
@@ -60,10 +61,10 @@ role: SENDER,
 Crée un lien pour la réception des réponses à partir du nœud de gestion.  
   
 ```  
-responseLink = session.attach(      
+responseLink = session.attach(    
 role: RECEIVER,   
     source: { address: "<entity address>/$management" }   
-       target: { address: "<my response link unique address>" }   
+    target: { address: "<my response link unique address>" }   
 )  
   
 ```  
@@ -93,17 +94,17 @@ Reçoit le message de réponse à partir du lien de réponse.
 responseMessage = responseLink.receiveTransfer()  
 ```  
   
-Le message de réponse se présente au format suivant :  
+La réponse présente le format suivant :
   
 ```  
 Message(  
-properties: {      
+properties: {     
         correlation-id: <request id>  
     },  
     application-properties: {  
             "statusCode" -> <status code>,  
             "statusDescription" -> <status description>,  
-           },          
+           },         
 )  
   
 ```  
@@ -126,14 +127,14 @@ Les entités Service Bus doivent être traitées comme suit :
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
- Le corps du message de demande doit contenir une section amqp-value contenant un mappage avec les entrées suivantes.  
+ Le corps du message de requête doit contenir une section amqp-value comprenant un mappage avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -148,7 +149,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec.|  
 |statusDescription|string|Non|Description de l’état.|  
   
-Le corps du message de réponse doit contenir une section amqp-value contenant un mappage avec les entrées suivantes.  
+Le corps du message de réponse doit contenir une section amqp-value comprenant un mappage avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -160,14 +161,14 @@ Lit furtivement les messages sans les verrouiller.
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -183,13 +184,13 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK : a plus de messages<br /><br /> 0xcc : aucun contenu – plus de messages|  
 |statusDescription|string|Non|Description de l’état.|  
   
-Le corps du message de réponse doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |Cloud vers appareil|liste des mappages|Oui|Liste de messages dans laquelle chaque mappage représente un message.|  
   
-Le mappage représentant un message doit contenir les entrées suivantes.  
+Le mappage représentant un message doit contenir les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -201,20 +202,20 @@ Messages de planification.
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |Cloud vers appareil|liste des mappages|Oui|Liste de messages dans laquelle chaque mappage représente un message.|  
   
-Le mappage représentant un message doit contenir les entrées suivantes.  
+Le mappage représentant un message doit contenir les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -232,7 +233,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec.|  
 |statusDescription|string|Non|Description de l’état.|  
   
-Le corps du message de réponse doit contenir une section **amqp-value** contenant un mappage avec les entrées suivantes.  
+Le corps du message de réponse doit contenir une section **amqp-value** comprenant un mappage avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -244,14 +245,14 @@ Annule les messages planifiés.
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -266,7 +267,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec.|  
 |statusDescription|string|Non|Description de l’état.|  
   
-Le corps du message de réponse doit contenir une section **amqp-value** contenant un mappage avec les entrées suivantes.  
+Le corps du message de réponse doit contenir une section **amqp-value** comprenant un mappage avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -280,14 +281,14 @@ Le corps du message de réponse doit contenir une section **amqp-value** contena
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -302,7 +303,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK : a plus de messages<br /><br /> 0xcc : aucun contenu – plus de messages|  
 |statusDescription|string|Non|Description de l’état.|  
   
-Le corps du message de réponse doit contenir une section **amqp-value** contenant un mappage avec les entrées suivantes.  
+Le corps du message de réponse doit contenir une section **amqp-value** comprenant un mappage avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -314,14 +315,14 @@ Lit furtivement les messages de session sans les verrouiller.
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -338,13 +339,13 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK : a plus de messages<br /><br /> 0xcc : aucun contenu – plus de messages|  
 |statusDescription|string|Non|Description de l’état.|  
   
-Le corps du message de réponse doit contenir une section **amqp-value** contenant un mappage avec les entrées suivantes.  
+Le corps du message de réponse doit contenir une section **amqp-value** comprenant un mappage avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |Cloud vers appareil|liste des mappages|Oui|Liste de messages dans laquelle chaque mappage représente un message.|  
   
- Le mappage représentant un message doit contenir les entrées suivantes.  
+ Le mappage représentant un message doit contenir les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -356,14 +357,14 @@ Définit l’état d’une session.
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -385,14 +386,14 @@ Obtient l’état d’une session.
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -407,7 +408,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
 |statusDescription|string|Non|Description de l’état.|  
   
-Le corps du message de réponse doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -419,14 +420,14 @@ Le corps du message de réponse doit contenir une section **amqp-value** contena
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -443,7 +444,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK : a plus de messages<br /><br /> 0xcc : aucun contenu – plus de messages|  
 |statusDescription|string|Non|Description de l’état.|  
   
-Le corps du message de réponse doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -456,21 +457,21 @@ Le corps du message de réponse doit contenir une section **amqp-value** contena
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |rule-name|string|Oui|Nom de règle, à l’exception des noms d’abonnement et de rubrique.|  
 |rule-description|map|Oui|Description de la règle comme indiqué dans la section suivante.|  
   
-Le mappage **rule-description** doit inclure les entrées suivantes, où **sql-filter** et **correlation-filter** s’excluent mutuellement.  
+Le mappage **rule-description** doit inclure les entrées suivantes, où **sql-filter** et **correlation-filter** s’excluent mutuellement :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -478,13 +479,13 @@ Le mappage **rule-description** doit inclure les entrées suivantes, où **sql-f
 |correlation-filter|map|Oui|`correlation-filter`, comme indiqué dans la section suivante.|  
 |sql-rule-action|map|Oui|`sql-rule-action`, comme indiqué dans la section suivante.|  
   
-Le mappage sql-filter doit inclure les entrées suivantes.  
+Le mappage sql-filter doit inclure les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |expression|string|Oui|Expression de filtre Sql.|  
   
-Le mappage **correlation-filter** doit inclure au moins une des entrées suivantes.  
+Le mappage **correlation-filter** doit inclure au moins l’une des entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -498,7 +499,7 @@ Le mappage **correlation-filter** doit inclure au moins une des entrées suivant
 |content-type|string|Non||  
 |properties|map|Non|Mappage sur [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties) de Service Bus.|  
   
-Le mappage **sql-rule-action** doit inclure les entrées suivantes.  
+Le mappage **sql-rule-action** doit inclure les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -517,14 +518,14 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -547,19 +548,19 @@ Reçoit des messages différés par numéro de séquence.
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |sequence-numbers|tableau de type long|Oui|Numéros de séquence.|  
-|receiver-settle-mode|ubyte|Oui|Mode de réglage du récepteur tel que spécifié dans AMQP core v1.0.|  
+|receiver-settle-mode|ubyte|Oui|Mode de **réglage du récepteur** tel que spécifié dans AMQP core v1.0.|  
   
 #### <a name="response"></a>Réponse  
 
@@ -570,13 +571,13 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
 |statusDescription|string|Non|Description de l’état.|  
   
-Le corps du message de réponse doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |Cloud vers appareil|liste des mappages|Oui|Liste de messages dans laquelle chaque mappage représente un message.|  
   
-Le mappage représentant un message doit contenir les entrées suivantes.  
+Le mappage représentant un message doit contenir les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -589,14 +590,14 @@ Met à jour le statut de disposition des messages différés.
   
 #### <a name="request"></a>Demande  
 
-Le message de demande doit inclure les propriétés d’application suivantes :  
+Le message de requête doit inclure les propriétés d’application suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Oui|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
-Le corps du message de demande doit contenir une section **amqp-value** contenant un **mappage** avec les entrées suivantes.  
+Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Requis|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
@@ -616,6 +617,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
 |statusDescription|string|Non|Description de l’état.|
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour en savoir plus sur AMQP et Service Bus, consultez les liens suivants :
 
 * [Vue d’ensemble d’AMQP de Service Bus]

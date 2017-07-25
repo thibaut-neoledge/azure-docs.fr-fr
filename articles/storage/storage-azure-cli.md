@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 06/02/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 90b67cf3d136882d59ed7fe4210f93fb694e96a6
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 6098216f7dd901ea48fb3ab969c7934cc288b247
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -257,7 +257,8 @@ az storage blob upload \
 
  Pour plus d’informations sur les différents objets blob, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
-### <a name="download-blobs-from-a-container"></a>Télécharger des objets blob depuis un conteneur
+
+### <a name="download-a-blob-from-a-container"></a>Télécharger un objet blob depuis un conteneur
 Cet exemple indique comment télécharger un objet blob à partir d’un conteneur :
 
 ```azurecli
@@ -267,37 +268,49 @@ az storage blob download \
     --file ~/mydownloadedblob.png
 ```
 
+### <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
+
+Répertoriez les objets blob dans un conteneur à l’aide de la commande [az storage blob list](/cli/azure/storage/blob#list).
+
+```azurecli
+az storage blob list \
+    --container-name mycontainer \
+    --output table
+```
+
 ### <a name="copy-blobs"></a>Copier des objets blob
 Vous pouvez copier des objets blob au sein d’un compte de stockage, ou vers des comptes de stockage et des régions et ce, de façon asynchrone.
 
-L’exemple suivant indique comment copier des objets blob depuis un compte de stockage et les coller dans un autre. Nous créons tout d’abord un conteneur dans un autre compte, en spécifiant que ses objets blob sont accessibles de manière publique et anonyme. Ensuite, nous chargeons un fichier dans le conteneur et, enfin, nous copions l’objet blob à partir de ce conteneur dans le conteneur **mycontainer** du compte actuel.
+L’exemple suivant indique comment copier des objets blob depuis un compte de stockage et les coller dans un autre. Nous créons d’abord un conteneur dans le compte de stockage source, en spécifiant l’accès en lecture public pour ses objets blob. Ensuite, nous chargeons un fichier dans le conteneur. Pour finir, nous copions l’objet blob de ce conteneur vers un conteneur du compte de stockage de destination.
 
 ```azurecli
-# Create container in second account
+# Create container in source account
 az storage container create \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --name mycontainer2 \
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --name sourcecontainer \
     --public-access blob
 
-# Upload blob to container in second account
+# Upload blob to container in source account
 az storage blob upload \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --file ~/Images/HelloWorld.png \
-    --container-name mycontainer2 \
-    --name myBlockBlob2
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --container-name sourcecontainer \
+    --file ~/Pictures/sourcefile.png \
+    --name sourcefile.png
 
-# Copy blob from second account to current account
+# Copy blob from source account to destination account (destcontainer must exist)
 az storage blob copy start \
-    --source-uri https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 \
-    --destination-blob myBlobBlob \
-    --destination-container mycontainer
+    --account-name destaccountname \
+    --account-key destaccountkey \
+    --destination-blob destfile.png \
+    --destination-container destcontainer \
+    --source-uri https://sourceaccountname.blob.core.windows.net/sourcecontainer/sourcefile.png
 ```
 
-L’URL de l’objet blob source (spécifiée par `--source-uri`) doit être accessible au public ou inclure un jeton de signature d’accès partagé.
+Dans l’exemple indiqué ci-dessus, le conteneur de destination doit déjà exister dans le compte de stockage de destination pour que l’opération de copie réussisse. En outre, l’objet blob source spécifié dans l’argument `--source-uri` doit inclure un jeton de signature d’accès partagé, ou être accessible publiquement, comme dans cet exemple.
 
-### <a name="delete-a-blob"></a>Supprimer un objet blob
+### <a name="delete-a-blob"></a>Supprimer un objet blob
 Pour supprimer un objet blob, utilisez la commande `blob delete` :
 
 ```azurecli

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: gokuma;weig;bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c35d1548262f25e65c391c927919b8acf1411e10
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 467626354cff5643f5f6e602b9d7b72c6c1281ec
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données
-La machine virtuelle pour la science des données (DSVM, « Data Science Virtual Machine ») Microsoft est un environnement puissant de développement de la science des données qui vous permet d'effectuer diverses tâches de modélisation et d'exploration des données. L’environnement est déjà généré et fourni avec plusieurs outils d’analyse de données courants qui facilitent la prise en main rapide de votre analyse pour les déploiements sur site, dans le cloud ou hybrides. La DSVM fonctionne en lien avec de nombreux services Azure et peut lire et traiter les données déjà stockées sur Azure, dans Azure SQL Data Warehouse, Azure Data Lake, Azure Storage et Azure Cosmos DB. Elle peut également exploiter d’autres outils d’analyse tels qu’Azure Machine Learning et Azure Data Factory.
+La machine virtuelle pour la science des données (DSVM, « Data Science Virtual Machine ») Microsoft est un environnement puissant de développement de la science des données qui vous permet d'effectuer diverses tâches de modélisation et d'exploration des données. L’environnement est déjà généré et fourni avec plusieurs outils d’analyse de données courants qui facilitent la prise en main rapide de votre analyse pour les déploiements sur site, dans le cloud ou hybrides. La DSVM fonctionne en lien avec de nombreux services Azure et peut lire et traiter les données déjà stockées sur Azure, dans Azure SQL Data Warehouse, Azure Data Lake, Stockage Azure et Azure Cosmos DB. Elle peut également exploiter d’autres outils d’analyse tels qu’Azure Machine Learning et Azure Data Factory.
 
 Dans cet article, nous vous guidons dans l'utilisation de votre DSVM afin d'effectuer diverses tâches de science des données et d'interagir avec d'autres services Azure. Voici quelques-unes des tâches que vous pouvez effectuer sur la DSVM :
 
@@ -31,9 +31,9 @@ Dans cet article, nous vous guidons dans l'utilisation de votre DSVM afin d'effe
 2. Utiliser un notebook Jupyter pour faire des expériences avec vos données sur un navigateur à l'aide de Python 2, Python 3 et Microsoft R, une version d'entreprise de R conçue pour l'évolutivité et les performances
 3. Rendre opérationnels des modèles créés avec R et Python sur Azure Machine Learning afin que les applications clientes puissent accéder à vos modèles à l'aide d'une interface de services web simple
 4. Administrer vos ressources Azure à l’aide du portail Azure ou de PowerShell
-5. Augmenter votre espace de stockage et partager des jeux de données / du code à grande échelle avec toute votre équipe en créant un stockage Azure File Storage comme lecteur montable sur votre DSVM
-6. Partager du code avec votre équipe à l’aide de GitHub et accéder à votre référentiel à l’aide des clients Git préinstallés : Git Bash, Git GUI.
-7. Accéder aux différents services de données et d’analyse Azure tels qu’Azure Blob Storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse et bases de données
+5. Augmenter votre espace de stockage et partager des jeux de données / du code à grande échelle avec toute votre équipe en créant un stockage Fichier Azure comme lecteur montable sur votre DSVM
+6. Partager du code avec votre équipe à l’aide de GitHub et accéder à votre dépôt à l’aide des clients Git préinstallés : Git Bash, Git GUI.
+7. Accéder aux différents services de données et d’analytique Azure tels que Stockage Blob Azure, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse et Database
 8. Générer des rapports et des tableaux de bord à l'aide du Power BI Desktop préinstallé sur la DSVM et les déployer sur le cloud
 9. Mettre à l'échelle dynamiquement votre DSVM pour répondre aux besoins de votre projet
 10. Installer des outils supplémentaires sur votre machine virtuelle   
@@ -241,9 +241,9 @@ Vous pouvez désormais accéder à ce lecteur comme à n’importe quel lecteur 
 ## <a name="6-share-code-with-your-team-using-github"></a>6. Partager du code avec votre équipe à l’aide de GitHub
 GitHub est un référentiel de code dans lequel vous trouverez beaucoup d’exemples de code et de sources de différents outils utilisant diverses technologies et partagés par la communauté des développeurs. Il utilise la technologie Git pour suivre et stocker les versions des fichiers de code. GitHub est également une plateforme qui vous permet de créer votre propre référentiel pour stocker le code et la documentation partagés de votre équipe, d’implémenter le contrôle de version et de contrôler les accès pour afficher le code et y contribuer. Visitez les [pages d’aide GitHub](https://help.github.com/) pour plus d’informations sur l’utilisation de Git. Vous pouvez utiliser GitHub pour collaborer avec votre équipe, utiliser le code développé par la communauté et apporter une contribution au code pour la communauté.
 
-La DSVM est déjà livrée avec des outils clients en ligne de commande et avec une interface graphique utilisateur pour accéder au référentiel GitHub. L’outil de ligne de commande pour utiliser Git et GitHub est appelé Git Bash. La version de Visual Studio installée sur la DSVM comprend les extensions Git. Vous pouvez trouver les icônes de démarrage de ces outils dans le menu Démarrer et sur le bureau.
+La DSVM est déjà livrée avec des outils clients en ligne de commande et avec une interface graphique utilisateur pour accéder au dépôt GitHub. L’outil de ligne de commande pour utiliser Git et GitHub est appelé Git Bash. La version de Visual Studio installée sur la DSVM comprend les extensions Git. Vous pouvez trouver les icônes de démarrage de ces outils dans le menu Démarrer et sur le bureau.
 
-Pour télécharger du code à partir d’un référentiel GitHub, vous allez utiliser la commande ```git clone```. Par exemple, pour télécharger le référentiel de science des données publié par Microsoft dans le répertoire actif, vous pouvez exécuter la commande suivante une fois dans ```git-bash```.
+Pour télécharger du code à partir d’un dépôt GitHub, vous allez utiliser la commande ```git clone```. Par exemple, pour télécharger le dépôt de science des données publié par Microsoft dans le répertoire actif, vous pouvez exécuter la commande suivante une fois dans ```git-bash```.
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
@@ -251,7 +251,7 @@ Dans Visual Studio, vous pouvez effectuer la même opération de clonage. La cap
 
 ![Git dans Visual Studio](./media/machine-learning-data-science-vm-do-ten-things/VSGit.PNG)
 
-Vous trouverez plus d’informations sur l’utilisation de Git pour travailler avec votre référentiel GitHub dans plusieurs ressources disponibles sur github.com. L’ [aide-mémoire](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) constitue une référence utile.
+Vous trouverez plus d’informations sur l’utilisation de Git pour travailler avec votre dépôt GitHub dans plusieurs ressources disponibles sur github.com. L’ [aide-mémoire](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) constitue une référence utile.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. Accéder à divers services de données et d'analyse Azure
 ### <a name="azure-blob"></a>Objets blob Azure
@@ -377,7 +377,7 @@ Vous pouvez également créer un pipeline de données pour déplacer les donnée
 
 **Lire des données à partir d'Azure Blob vers Data Lake : U-SQL**
 
-Si vos données se trouvent dans Azure Blob Storage, vous pouvez les lire directement à partir de l'objet blob de stockage Azure dans la requête SQL-U. Avant de composer votre requête SQL-U, assurez-vous que votre compte de stockage d'objets blob soit lié à votre Azure Data Lake. Accédez au **portail Azure**, recherchez votre tableau de bord Azure Data Lake Analytics, cliquez sur **Ajouter une source de données**, sélectionnez le type de stockage **Azure Storage** et entrez votre nom et votre clé de compte de stockage Azure. Vous pourrez ensuite référencer les données stockées dans le compte de stockage.
+Si vos données se trouvent dans Stockage Blob Azure, vous pouvez les lire directement à partir de l'objet blob de stockage Azure dans la requête SQL-U. Avant de composer votre requête SQL-U, assurez-vous que votre compte de stockage d'objets blob soit lié à votre Azure Data Lake. Accédez au **portail Azure**, recherchez votre tableau de bord Azure Data Lake Analytics, cliquez sur **Ajouter une source de données**, sélectionnez le type de stockage **Azure Storage** et entrez votre nom et votre clé de compte de stockage Azure. Vous pourrez ensuite référencer les données stockées dans le compte de stockage.
 
 ![Saisie d'un compte de stockage et d'une clé](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
@@ -805,16 +805,16 @@ Azure Cosmos DB est une base de données NoSQL sur le cloud. Elle vous permet d
 Vous devez suivre les étapes préalables suivantes pour accéder à Azure Cosmos DB à partir de la DSVM.
 
 1. Installez le Kit de développement logiciel (SDK) Python DocumentDB (exécutez ```pip install pydocumentdb``` à partir de l’invite de commandes)
-2. Créez un compte et une base de données Cosmos DB à partir du [portail Azure](https://portal.azure.com)
+2. Créez un compte Azure Cosmos DB et une base de données à partir du [portail Azure](https://portal.azure.com)
 3. Téléchargez [ici](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) « l’outil de migration Azure Cosmos DB » et extrayez-le dans le répertoire de votre choix
 4. Importez les données JSON (données sur le volcan) stockées sur un [objet blob public](https://cahandson.blob.core.windows.net/samples/volcano.json) dans Cosmos DB avec les paramètres de commande suivants pour l’outil de migration (dtui.exe à partir du répertoire où vous avez installé l’outil de migration Cosmos DB). Entrez les paramètres d'emplacement source et cible ci-dessous.
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
-Une fois les données importées, vous pouvez accéder à Jupyter et ouvrir le Notebook intitulé *DocumentDBSample* qui contient le code Python pour accéder à DocumentDB et effectuer des requêtes de base. Pour en savoir plus sur DocumentDB, consultez la [page de documentation](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+Une fois les données importées, vous pouvez accéder à Jupyter et ouvrir le Notebook intitulé *DocumentDBSample* qui contient le code Python pour accéder à DocumentDB et effectuer des requêtes de base. Pour en savoir plus sur Cosmos DB, consultez la [page de documentation](https://docs.microsoft.com/azure/cosmos-db/) du service.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Générer des rapports et des tableaux de bord à l'aide de Power BI Desktop
-Nous allons visualiser le fichier Volcan JSON, que nous avons vu dans l’exemple Cosmos DB ci-dessus, dans Power BI afin d’obtenir un aperçu visuel des données. Les étapes détaillées sont présentées dans [l’article Power BI](../documentdb/documentdb-powerbi-visualize.md). Les étapes de haut niveau sont décrites ci-dessous :
+Nous allons visualiser le fichier Volcan JSON, que nous avons vu dans l’exemple Cosmos DB ci-dessus, dans Power BI afin d’obtenir un aperçu visuel des données. Les étapes détaillées sont présentées dans [l’article Power BI](../cosmos-db/powerbi-visualize.md). Les étapes de haut niveau sont décrites ci-dessous :
 
 1. Ouvrez Power BI Desktop et cliquez sur « obtenir les données ». Spécifiez l’URL comme : https://cahandson.blob.core.windows.net/samples/volcano.json
 2. Vous devez voir les enregistrements JSON importés sous forme de liste
@@ -842,7 +842,7 @@ Vous disposez maintenant des données dans votre modèle de données Power BI. V
 
 ![Power BI Desktop](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
-Vous pouvez commencer à créer des rapports et des visualisations à l'aide du modèle de données. Vous pouvez suivre la procédure décrite dans cet [article Power BI](../documentdb/documentdb-powerbi-visualize.md#build-the-reports) pour générer un rapport. Le résultat final sera un rapport similaire à ce qui suit.
+Vous pouvez commencer à créer des rapports et des visualisations à l'aide du modèle de données. Vous pouvez suivre la procédure décrite dans cet [article Power BI](../cosmos-db/powerbi-visualize.md#build-the-reports) pour générer un rapport. Le résultat final sera un rapport similaire à ce qui suit.
 
 ![Power BI Desktop - Vue Rapport - Connecteur Power BI](./media/machine-learning-data-science-vm-do-ten-things/power_bi_connector_pbireportview2.png)
 
@@ -854,7 +854,7 @@ Vous pouvez mettre à l'échelle la DSVM pour répondre aux besoins de votre pro
 > 
 > 
 
-Si vous devez gérer une analyse à grande échelle et avez besoin de davantage de capacité de processeur, de mémoire et/ou de disque, vous trouverez un grand choix de tailles de machine virtuelle en termes de cœurs de processeur, de capacité de mémoire et de types de disques (y compris les disques SSD) qui répondent à vos besoins budgétaires et de calcul. La liste complète des machines virtuelles, ainsi que leur tarification horaire de calcul, sont disponibles sur la page [Tarification des machines virtuelles Azure](https://azure.microsoft.com/pricing/details/virtual-machines/) .
+Si vous devez gérer une analyse à grande échelle et avez besoin de davantage de capacité de processeur, de mémoire et/ou de disque, vous trouverez un grand choix de tailles de machine virtuelle en termes de cœurs de processeur, de capacité de mémoire et de types de disques (y compris les disques SSD) qui répondent à vos besoins budgétaires et de calcul. La liste complète des machines virtuelles, ainsi que leur tarif horaire de calcul, sont disponibles sur la page [Tarification des machines virtuelles Azure](https://azure.microsoft.com/pricing/details/virtual-machines/) .
 
 De même, si vos besoins en matière de capacité de traitement de la machine virtuelle diminuent (par exemple : vous avez déplacé une charge de travail importante vers un cluster Hadoop ou Spark), vous pouvez descendre en puissance le cluster à partir du [Portail Azure](https://portal.azure.com) en accédant aux paramètres de votre instance de machine virtuelle. Voici une capture d'écran.
 

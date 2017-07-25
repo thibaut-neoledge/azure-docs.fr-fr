@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 46bc735bb288a29828903a5d1891c78c2bfae86a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -172,7 +174,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
             }
         }
 
-## <a name="a-idjsonathumbnail-json-preset"></a><a id="json"></a>JSON de miniature prédéfini
+## <a id="json"></a>JSON de miniature prédéfini
 Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
 
     {
@@ -274,7 +276,7 @@ Pour plus d’informations sur le schéma, consultez [cette](https://msdn.micros
     }
 
 
-## <a name="a-idxmlathumbnail-xml-preset"></a><a id="xml"></a>XML de miniature prédéfini
+## <a id="xml"></a>XML de miniature prédéfini
 Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
 
     <?xml version="1.0" encoding="utf-16"?>
@@ -373,10 +375,5 @@ Les considérations suivantes s'appliquent :
 
 ## <a name="see-also"></a>Voir aussi
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -5,20 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: librown
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/17/2017
 ms.author: kgremban
+ms.reviewer: librown
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 731275c72422a622e1d49f7d362447ef3361338b
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 62242f356afd55a7f9e432faa6cdf3be74b7c18c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/22/2017
 
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Forum aux questions sur l’application Microsoft Authenticator
@@ -31,13 +32,13 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>À quoi servent les codes de l’application ? Pourquoi le nombre ne cesse de diminuer ?
 
-Lorsque vous ouvrez l’application Microsoft Authenticator, vous voyez les comptes que vous avez ajoutés ainsi qu’un numéro de six ou huit chiffres à côté de chacun d’eux. Vous pouvez voir un minuteur de trente secondes exécutant un compte à rebours.
+Lorsque vous ouvrez l’application Microsoft Authenticator, vous voyez les comptes que vous avez ajoutés ainsi qu’un numéro à six ou huit chiffres à côté de chacun d’eux. Vous pouvez voir un minuteur de 30 secondes exécutant un compte à rebours.
 
 Ces codes sont utilisés lorsque vous vous connectez à votre compte. Après avoir entré votre nom d’utilisateur et votre mot de passe, vous serez peut-être invité à entrer un code de vérification. Ouvrez l’application Microsoft Authenticator et copiez le code qui est actuellement affiché. Entrez ce code dans la page de connexion pour terminer.
 
 Comme les codes changent toutes les 30 secondes, vous n’utilisez donc jamais deux fois le même code. Ce n’est pas comme un mot de passe que vous êtes censé mémoriser. L’idée est que seules les personnes ayant accès à votre téléphone connaissent votre code de vérification.
 
-Comme les codes ne nécessitent ni Internet ni données, vous n’avez pas à vous soucier de disposer d’un service téléphonique pour vous connecter ou que l’application utilisera votre forfait de données. Lorsque vous fermez l’application, elle arrête de s’exécuter en arrière-plan et ne décharge donc pas la batterie. Vous pouvez fermer l’application et l’ignorer jusqu’à la prochaine connexion.  
+Comme les codes ne nécessitent ni Internet ni données, vous n’avez pas à vous soucier de disposer d’un service téléphonique pour vous connecter. Lorsque vous fermez l’application, elle arrête de s’exécuter en arrière-plan et ne décharge donc pas la batterie. Vous pouvez fermer l’application et l’ignorer jusqu’à la prochaine connexion.  
 
 ### <a name="i-only-get-notifications-when-i-have-the-app-open-if-the-app-isnt-open-i-dont-get-any-notifications"></a>Je reçois des notifications uniquement lorsque l’application est ouverte. Si l’application n’est pas ouverte, je ne reçois pas de notifications.
 
@@ -49,7 +50,7 @@ Si vous ne recevez pas de notifications, vérifiez les cas suivants :
 - Vous recevez des notifications d’autres applications ? Si ce n’est pas le cas, il peut y avoir un problème avec les connexions réseau sur votre téléphone avec le canal de notifications d’Android ou Apple. Vous pouvez résoudre le premier problème dans les paramètres de votre téléphone, mais vous devrez peut-être contacter votre fournisseur de services pour vous aider dans le deuxième cas.
 - Vous pouvez recevoir des notifications de certains comptes sur l’application, mais pas d’autres ? Si c’est le cas, supprimez de votre application le compte qui pose problème et ajoutez-le à nouveau pour réactiver les notifications push. 
 
-Si vous avez essayé ces suggestions de résolution des problèmes, mais que vous avez toujours des problèmes, envoyez-nous vos journaux pour diagnostic (allez dans les paramètres de l’application, sélectionnez **Aide et commentaires** et **Envoyer les journaux**). Accédez ensuite au [forum d’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) et expliquez-nous le problème que vous rencontrez et les étapes que vous avez testées jusqu’ici. 
+Si vous avez tenté ces suggestions de dépannage mais que les problèmes persistent, envoyez-nous vos journaux pour que nous les vérifiions. Accédez aux paramètres de l’application, puis sélectionnez **Aide et commentaires** et **Envoyer les journaux**. Ensuite, accédez au [forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) et indiquez-nous le problème que vous rencontrez et les étapes que vous avez essayées jusqu’à présent. 
 
 ### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>J’utilise déjà l’application Microsoft Authenticator pour les codes de vérification. Comment puis-je activer les notifications push en un clic ?
 L’approbation d’une connexion via notification push est disponible uniquement pour les comptes Microsoft personnels, professionnels ou scolaires. Les comptes tiers tels que Google ou Facebook ne bénéficient pas de cette fonctionnalité. Si vous disposez d’un compte Microsoft professionnel ou scolaire, votre organisation peut choisir de désactiver cette option.
@@ -85,7 +86,7 @@ Voici la liste complète des autorisations que nous sommes susceptibles de vous 
 * **Draw over other apps (Afficher sur d’autres applications)** : lorsque vous recevez une notification visant à vérifier votre identité, nous affichons cette notification sur une autre application potentiellement en cours d’exécution.
 * **Receive data from the internet (Recevoir des données à partir d’Internet)** : cette autorisation est requise pour l’envoi de notifications.
 * **Prevent phone from sleeping (Empêcher la mise en veille du téléphone)** : si vous enregistrez votre appareil auprès de votre organisation, elle peut modifier cette stratégie sur votre téléphone.
-* **Control vibration (Contrôler les vibrations)** : vous avez la possibilité de choisir si vous souhaitez que votre téléphone vibre chaque fois que vous recevez une notification visant à vérifier votre identité.
+* **Control vibration (Contrôler les vibrations)** : vous pouvez choisir si vous souhaitez que votre téléphone vibre chaque fois que vous recevez une notification visant à vérifier votre identité.
 * **Use fingerprint hardware (Utiliser du matériel de détection de l’empreinte digitale** : certains comptes professionnels et scolaires demandent un code PIN supplémentaire chaque fois que vous vérifiez votre identité. Pour faciliter le processus, nous vous autorisons à utiliser vos empreintes digitales au lieu d’avoir à saisir votre code PIN.
 * **Afficher les connexions réseau** : lorsque vous ajoutez un compte Microsoft, l’application exige une connexion réseau/Internet.
 * **Read the contents of your storage (Lire le contenu de votre stockage)** : cette autorisation est utilisée uniquement lorsque vous signalez un problème technique via les paramètres de l’application. Certaines informations sont collectées à partir de votre espace de stockage afin de diagnostiquer le problème.
@@ -94,7 +95,7 @@ Voici la liste complète des autorisations que nous sommes susceptibles de vous 
 
 ### <a name="why-does-the-microsoft-authenticator-app-allow-you-to-approve-a-request-without-unlocking-the-device"></a>Pourquoi l’application Microsoft Authenticator permet-elle d’approuver une demande sans déverrouiller l’appareil ?
 
-C’est normal. La vérification en deux étapes fait appel à deux éléments : un que vous connaissez, et un autre que vous possédez. L’élément que vous connaissez est le mot de passe. L’élément que vous possédez est votre téléphone (configuré avec l’application Microsoft Authenticator et enregistré comme une preuve MFA).  Par conséquent, le fait d’être en possession du téléphone et d’approuver la demande remplit les critères du second facteur d’authentification. 
+Vous n’êtes pas obligé de déverrouiller votre appareil pour approuver les requêtes de vérification, car vous devez simplement prouver que vous avez votre téléphone avec vous. La vérification en deux étapes fait appel à deux éléments : un que vous connaissez, et un autre que vous possédez. L’élément que vous connaissez est votre mot de passe. L’élément que vous possédez est votre téléphone (configuré avec l’application Microsoft Authenticator et enregistré comme une preuve MFA). Par conséquent, le fait d’être en possession du téléphone et d’approuver la demande remplit les critères du second facteur d’authentification. 
 
 ### <a name="what-does-the-lock-icon-in-the-account-list-mean"></a>Que signifie l’icône de cadenas dans la liste des comptes ?
 

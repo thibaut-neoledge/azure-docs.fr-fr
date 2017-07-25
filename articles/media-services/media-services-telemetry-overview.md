@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 99c43c63f75e01713600ef5ca46a8d11e8c5c7ce
-ms.openlocfilehash: b6560fdd50c93a7e84f12047ec4401328b601deb
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: bc16ef727f0c3942b0be8c633717fd52da246c55
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -40,7 +41,6 @@ Les rubriques suivantes montrent comment activer la télémétrie :
 [Activation de la télémétrie avec .NET](media-services-dotnet-telemetry.md) 
 
 [Activation de la télémétrie avec REST](media-services-rest-telemetry.md)
-
 
 ## <a name="consuming-telemetry-information"></a>informations sur l’utilisation de la télémétrie
 
@@ -67,11 +67,9 @@ Cela devrait permettre d’optimiser la plupart des requêtes courantes :
 - Récupération de toutes les données d’un service donné dans une plage de dates.
 - Récupération des données les plus récentes pour un service.
 
-
 ### <a name="telemetry-table-storage-output-schema"></a>Schéma de sortie de stockage de table de données de télémétrie
 
 Les données de télémétrie sont stockées en agrégat dans une table, « TelemetryMetrics20160321 », où « 20160321 » est la date de création de la table. Le système de télémétrie crée une table distincte pour chaque nouveau jour basé sur l’heure UTC 00:00. La table est utilisée pour stocker des valeurs récurrentes telles que comme la vitesse de transmission de réception dans une fenêtre de temps donnée, les octets envoyés, etc. 
-
 
 Propriété|Valeur|Exemples/notes
 ---|---|---
@@ -83,7 +81,6 @@ Nom|Le nom de l’événement de télémétrie|ChannelHeartbeat/StreamingEndpoin
 ObservedTime|L’heure à laquelle l’événement de télémétrie est survenu (UTC)|2016-09-09T22:42:36.924Z<br/><br/>L’heure observée est fournie par l’entité envoyant les données de télémétrie (par exemple, un canal). Il peut y avoir des problèmes de synchronisation de l’heure entre les composants, cette valeur est donc approximative
 ServiceID|{ID de service}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Propriétés spécifiques à une entité|Comme définies par l’événement|StreamName: stream1, Bitrate 10123, …<br/><br/>Les propriétés restantes sont définies pour le type d’événement donné. Le contenu de la table Azure est constitué de paires clé / valeur.  (Autrement dit, différentes lignes de la table possèdent différents ensembles de propriétés.)
-
 
 ### <a name="entity-specific-schema"></a>Schéma spécifique à une entité
 
@@ -112,7 +109,6 @@ Octets envoyés|Octets agrégés envoyés|2987358
 ServerLatency|Latence moyenne du serveur (stockage inclus)|129
 E2ELatency|Latence moyenne de bout en bout|250
 
-
 **Canal en temps réel**
 
 Propriété|Valeur|Exemples/notes
@@ -138,7 +134,6 @@ UnalignedPresentationTime|Si nous avons reçu des fragments (parmi les différen
 UnexpectedBitrate|True, si la vitesse de transmission réelle/calculée pour la piste audio/vidéo > 40 000 bits/s et IncomingBitrate == 0 ou IncomingBitrate et actualBitrate diffèrent de 50 % |true
 Healthy|True, si <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sont tous 0|true<br/><br/>Healthy est une fonction composite qui retourne la valeur false lorsque l’une des conditions suivantes contient :<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
-
 **Archive en temps réel**
 
 Propriété|Valeur|Exemples/notes
@@ -156,7 +151,6 @@ TrackType|Type de la piste|Audio/vidéo
 CustomAttribute|Chaîne hexadécimale qui fait la distinction entre des pistes différentes avec les mêmes nom et vitesse de transmission (angles multiples de la caméra)|
 Bitrate|Suivre la vitesse de transmission|785000
 Healthy|True si FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False|True (ces deux valeurs ne sont pas présentes dans la mesure, mais elles figurent dans l’événement source)<br/><br/>Healthy est une fonction composite qui retourne la valeur false lorsque l’une des conditions suivantes contient :<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
-
 
 ## <a name="general-qa"></a>Questions et réponses d’ordre général
 
@@ -226,9 +220,4 @@ Le système de télémétrie ne fournit pas de gestion de rétention des donnée
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

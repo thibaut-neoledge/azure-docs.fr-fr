@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: be5bd67ed977a62b1574d8a48de0cfcfe8876bb4
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
+ms.openlocfilehash: cbe7da8670693a6bbc895ce06f000b6a7d6f0ae1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Comment configurer et exécuter des tâches de démarrage pour un service cloud
@@ -120,9 +121,9 @@ Vous trouverez ci-dessous une description des attributs de l’élément **Task*
   
     Pour vous assurer que votre fichier de commandes se termine par un **errorlevel** égal à zéro, exécutez la commande `EXIT /B 0` à la fin du processus de votre fichier de commandes.
 * **background**  
-   sont exécutées de façon asynchrone, en parallèle du démarrage du rôle.
+  sont exécutées de façon asynchrone, en parallèle du démarrage du rôle.
 * **foreground**  
-   sont exécutées de façon asynchrone, en parallèle du démarrage du rôle. La principale différence entre une tâche **foreground** et une tâche **background** est que la tâche **foreground** empêche le recyclage ou l’arrêt du rôle tant qu’elle n’est pas terminée. Les tâches **background** n’ont pas cette restriction.
+  sont exécutées de façon asynchrone, en parallèle du démarrage du rôle. La principale différence entre une tâche **foreground** et une tâche **background** est que la tâche **foreground** empêche le recyclage ou l’arrêt du rôle tant qu’elle n’est pas terminée. Les tâches **background** n’ont pas cette restriction.
 
 ## <a name="environment-variables"></a>Variables d’environnement
 Les variables d’environnement permettent de passer les informations à une tâche de démarrage. Par exemple, vous pouvez indiquer le chemin vers un objet blob qui contient un programme à installer ou les numéros de port que votre rôle va utiliser ou des paramètres pour contrôler les fonctionnalités de votre tâche de démarrage.
@@ -167,9 +168,4 @@ Découvrez comment effectuer certaines [tâches de démarrage courantes](cloud-s
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

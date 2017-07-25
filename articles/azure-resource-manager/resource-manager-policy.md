@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 06/27/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 951a7849beb9653083ed0112dbbb6cf57175469d
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: f27bc3689f228809e9db8f61485ea0c8b4b302d1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -31,8 +31,6 @@ Il y a deux concepts importants à comprendre concernant les stratégies :
 * Affectation de stratégie : vous appliquez la définition de stratégie à une étendue (abonnement ou groupe de ressources).
 
 Cette rubrique porte sur la définition de stratégie. Pour plus d’informations sur l’affectation des stratégies, consultez [Utiliser le portail Azure pour attribuer et gérer les stratégies de ressources](resource-manager-policy-portal.md) ou [Attribuer et gérer les stratégies de ressources via un script](resource-manager-policy-create-assign.md).
-
-Azure fournit certaines définitions de stratégie intégrées qui peuvent réduire le nombre de stratégies à définir. Si une définition de stratégie intégrée fonctionne pour votre scénario, utilisez cette définition lors de l’affectation à une étendue.
 
 Les stratégies sont évaluées lors de la création et de la mise à jour des ressources (opérations PUT et PATCH).
 
@@ -50,6 +48,22 @@ Pour utiliser des stratégies, vous devez vous authentifier au moyen de RBAC. Pl
 * l’autorisation `Microsoft.Authorization/policyassignments/write` pour affecter une stratégie. 
 
 Ces autorisations ne sont pas incluses dans le rôle **Contributeur**.
+
+## <a name="built-in-policies"></a>Stratégies prédéfinies
+
+Azure fournit certaines définitions de stratégie intégrées qui peuvent réduire le nombre de stratégies à définir. Avant de procéder à des définitions de stratégie, vous devez vous demander si une stratégie intégrée fournit déjà la définition dont vous avez besoin. Les définitions de stratégie intégrée sont les suivantes :
+
+* Emplacements autorisés
+* Types de ressources autorisés
+* Références SKU de compte de stockage autorisées
+* Références SKU de machine virtuelle autorisées
+* Appliquer la valeur par défaut et la balise
+* Appliquer une balise et une valeur
+* Types de ressources non autorisés
+* Nécessitent SQL Server version 12.0
+* Nécessitent le chiffrement du compte de stockage
+
+Vous pouvez affecter l’une de ces stratégies par le biais du [portail](resource-manager-policy-portal.md), de [PowerShell](resource-manager-policy-create-assign.md#powershell) ou d’[Azure CLI](resource-manager-policy-create-assign.md#azure-cli).
 
 ## <a name="policy-definition-structure"></a>Structure de la définition de stratégie
 Vous devez utiliser JSON pour créer une définition de stratégie. La définition de stratégie contient des éléments pour :
@@ -149,7 +163,7 @@ Les opérateurs logiques pris en charge sont les suivants :
 
 La syntaxe **not** inverse le résultat de la condition. La syntaxe **allOf** (semblable à l’opération logique **And**) nécessite que toutes les conditions soient remplies. La syntaxe **anyOf** (semblable à l’opération logique **Of**) nécessite qu’au moins une des conditions soit remplie.
 
-Vous pouvez imbriquer des opérateurs logiques. L’exemple suivant illustre une opération **not** imbriquée dans une opération **And**. 
+Vous pouvez imbriquer des opérateurs logiques. L’exemple suivant illustre une opération **not** imbriquée dans une opération **allOf**. 
 
 ```json
 "if": {
@@ -194,27 +208,7 @@ Les champs suivants sont pris en charge :
 * `location`
 * `tags`
 * `tags.*` 
-* Alias de propriété
-
-Les alias de propriété permettent d’accéder aux propriétés spécifiques d’un type de ressource. Les alias pris en charge sont les suivants :
-
-* Microsoft.CDN/profiles/sku.name
-* Microsoft.Compute/virtualMachines/imageOffer
-* Microsoft.Compute/virtualMachines/imagePublisher
-* Microsoft.Compute/virtualMachines/sku.name
-* Microsoft.Compute/virtualMachines/imageSku 
-* Microsoft.Compute/virtualMachines/imageVersion
-* Microsoft.SQL/servers/databases/edition
-* Microsoft.SQL/servers/databases/elasticPoolName
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveId
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveName
-* Microsoft.SQL/servers/elasticPools/dtu
-* Microsoft.SQL/servers/elasticPools/edition
-* Microsoft.SQL/servers/version
-* Microsoft.Storage/storageAccounts/accessTier
-* Microsoft.Storage/storageAccounts/enableBlobEncryption
-* Microsoft.Storage/storageAccounts/sku.name
-* Microsoft.Web/serverFarms/sku.name
+* alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
 
 ### <a name="effect"></a>Résultat
 La stratégie prend en charge trois types d’effet : `deny`, `audit` et `append`. 
@@ -237,127 +231,131 @@ Pour **append**, vous devez fournir les détails suivants :
 
 La valeur peut être une chaîne ou un objet au format JSON. 
 
+## <a name="aliases"></a>Alias
+
+Les alias de propriété permettent d’accéder aux propriétés spécifiques d’un type de ressource. 
+
+**Microsoft.Cache/Redis**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Cache/Redis/enableNonSslPort | Définissez si le port du serveur Redis non-ssl (6379) est activé. |
+| Microsoft.Cache/Redis/shardCount | Définissez le nombre de partitions à créer sur un cache de cluster Premium.  |
+| Microsoft.Cache/Redis/sku.capacity | Définissez la taille du cache Redis à déployer.  |
+| Microsoft.Cache/Redis/sku.family | Définissez la famille de références (SKU) à utiliser. |
+| Microsoft.Cache/Redis/sku.name | Définissez le type de cache Redis à déployer. |
+
+**Microsoft.Cdn/profiles**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.CDN/profiles/sku.name | Définissez le nom du niveau tarifaire. |
+
+**Microsoft.Compute/disks**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Définissez l’offre de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+| Microsoft.Compute/imagePublisher | Définissez le serveur de publication de l’image de plateforme ou de l’image de Place de marché utilisé pour créer la machine virtuelle. |
+| Microsoft.Compute/imageSku | Définissez la référence SKU de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+| Microsoft.Compute/imageVersion | Définissez la version de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+
+
+**Microsoft.Compute/virtualMachines**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Définissez l’offre de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+| Microsoft.Compute/imagePublisher | Définissez le serveur de publication de l’image de plateforme ou de l’image de Place de marché utilisé pour créer la machine virtuelle. |
+| Microsoft.Compute/imageSku | Définissez la référence SKU de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+| Microsoft.Compute/imageVersion | Définissez la version de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+| Microsoft.Compute/licenseType | Définissez si l’image ou le disque est sous licence en local. Cette valeur est utilisée uniquement pour les images qui contiennent le système d’exploitation Windows Server.  |
+| Microsoft.Compute/virtualMachines/imageOffer | Définissez l’offre de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+| Microsoft.Compute/virtualMachines/imagePublisher | Définissez le serveur de publication de l’image de plateforme ou de l’image de Place de marché utilisé pour créer la machine virtuelle. |
+| Microsoft.Compute/virtualMachines/imageSku | Définissez la référence SKU de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+| Microsoft.Compute/virtualMachines/imageVersion | Définissez la version de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+| Microsoft.Compute/virtualMachines/osDisk.Uri | Définissez l’URI du disque dur virtuel. |
+| Microsoft.Compute/virtualMachines/sku.name | Définissez la taille de la machine virtuelle. |
+
+**Microsoft.Compute/virtualMachines/extensions**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Compute/virtualMachines/extensions/publisher | Définissez le nom du serveur de publication de l’extension. |
+| Microsoft.Compute/virtualMachines/extensions/type | Définissez le type d’extension. |
+| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Définissez la version de l’extension. |
+
+**Microsoft.Compute/virtualMachineScaleSets**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Définissez l’offre de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+| Microsoft.Compute/imagePublisher | Définissez le serveur de publication de l’image de plateforme ou de l’image de Place de marché utilisé pour créer la machine virtuelle. |
+| Microsoft.Compute/imageSku | Définissez la référence SKU de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+| Microsoft.Compute/imageVersion | Définissez la version de l’image de plateforme ou de l’image de Place de marché utilisée pour créer la machine virtuelle. |
+| Microsoft.Compute/licenseType | Définissez si l’image ou le disque est sous licence en local. Cette valeur est utilisée uniquement pour les images qui contiennent le système d’exploitation Windows Server. |
+| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Définissez le préfixe du nom de l’ordinateur pour toutes les machines virtuelles dans le groupe identique. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Définisez l’URI de blob pour l’image utilisateur. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Définissez les URL de conteneur utilisées afin de stocker les disques du système d’exploitation pour le groupe identique. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Définissez la taille des machines virtuelles dans un groupe identique. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Définissez le niveau des machines virtuelles dans un groupe identique. |
+  
+**Microsoft.Network/applicationGateways**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Network/applicationGateways/sku.name | Définissez la taille de la passerelle. |
+
+**Microsoft.Network/virtualNetworkGateways**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Network/virtualNetworkGateways/gatewayType | Définissez le type de cette passerelle de réseau virtuel. |
+| Microsoft.Network/virtualNetworkGateways/sku.name | Définissez la référence SKU de la passerelle. |
+
+**Microsoft.Sql/servers**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Sql/servers/version | Définissez la version du serveur. |
+
+**Microsoft.Sql/databases**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Sql/servers/databases/edition | Définissez la modification de la base de données. |
+| Microsoft.Sql/servers/databases/elasticPoolName | Définissez le nom du pool élastique dans lequel se trouve la base de données. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Définissez l’ID d’objectif de niveau de service configuré de la base de données. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Définissez le nom de l’objectif de niveau de service configuré de la base de données.  |
+
+**Microsoft.Sql/elasticpools**
+
+| Alias | Description |
+| ----- | ----------- |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Définissez la valeur DTU partagée totale pour le pool élastique de la base de données. |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Définissez la modification du pool élastique. |
+
+**Microsoft.Storage/storageAccounts**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Storage/storageAccounts/accessTier | Définissez le niveau d’accès utilisé pour la facturation. |
+| Microsoft.Storage/storageAccounts/accountType | Définissez le nom de la référence SKU. |
+| Microsoft.Storage/storageAccounts/enableBlobEncryption | Définissez si le service chiffre les données lorsqu’elles sont stockées dans le service de stockage d’objets blob. |
+| Microsoft.Storage/storageAccounts/enableFileEncryption | Définissez si le service chiffre les données lorsqu’elles sont stockées dans le service de stockage de fichiers. |
+| Microsoft.Storage/storageAccounts/sku.name | Définissez le nom de la référence SKU. |
+| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Indiquez que seul le trafic https est autorisé vers le service de stockage. |
+
+
 ## <a name="policy-examples"></a>Exemples de stratégies
 
 Les rubriques suivantes contiennent des exemples de stratégies :
 
 * Pour obtenir des exemples de stratégies de balises, consultez [Apply resource policies for tags](resource-manager-policy-tags.md) (Appliquer des stratégies de ressources pour les balises).
+* Pour obtenir des exemples de modèles d’affectation de noms et de texte, consultez [Appliquer des stratégies de ressources pour les noms et le texte](resource-manager-policy-naming-convention.md).
 * Pour obtenir des exemples de stratégies de balises, consultez [Apply resource policies to storage accounts](resource-manager-policy-storage.md) (Appliquer des stratégies de ressources aux comptes de stockage).
 * Pour obtenir des exemples de stratégies de machine virtuelle, consultez [Apply resource policies to Linux VMs](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) (Appliquer des stratégies de ressources aux machines virtuelles Linux) et [Apply resource policies to Windows VMs](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) (Appliquer des stratégies de ressources aux machines virtuelles Windows).
 
-### <a name="allowed-resource-locations"></a>Emplacements de ressources autorisés
-Pour spécifier les emplacements autorisés, consultez l’exemple présenté dans la section [Structure de la définition de stratégie](#policy-definition-structure). Pour affecter cette définition de stratégie, utilisez la stratégie intégrée avec l’ID de ressource `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
-
-### <a name="not-allowed-resource-locations"></a>Emplacements de ressources non autorisés
-Pour spécifier les emplacements non autorisés, utilisez la définition de stratégie suivante :
-
-```json
-{
-  "properties": {
-    "parameters": {
-      "notAllowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that are not allowed when deploying resources",
-          "strongType": "location",
-          "displayName": "Not allowed locations"
-        }
-      }
-    },
-    "displayName": "Not allowed locations",
-    "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "field": "location",
-        "in": "[parameters('notAllowedLocations')]"
-      },
-      "then": {
-        "effect": "deny"
-      }
-    }
-  }
-}
-```
-
-### <a name="allowed-resource-types"></a>Types de ressources autorisés
-L’exemple suivant illustre une stratégie qui autorise uniquement les déploiements pour les types de ressources Microsoft.Resources, Microsoft.Compute, Microsoft.Storage et Microsoft.Network. Tous les autres types de ressources sont refusés :
-
-```json
-{
-  "if": {
-    "not": {
-      "anyOf": [
-        {
-          "field": "type",
-          "like": "Microsoft.Resources/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Compute/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Storage/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Network/*"
-        }
-      ]
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-### <a name="set-naming-convention"></a>Définir une convention d’affectation de noms
-L’exemple suivant illustre l’utilisation de caractères génériques, grâce à la condition **like**. La condition stipule que la demande est refusée si le nom ne correspond pas au modèle indiqué (namePrefix\*nameSuffix) :
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "like": "namePrefix*nameSuffix"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-Utilisez la condition de correspondance pour indiquer que des noms de ressources correspondent à un modèle. L’exemple suivant requiert que les noms commencent par `contoso` et contiennent six lettres supplémentaires :
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "match": "contoso??????"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-Pour exiger l’utilisation d’un modèle de date à deux chiffres, tiret, trois lettres, tiret et quatre chiffres, utilisez ce qui suit :
-
-```json
-{
-  "if": {
-    "field": "tags.date",
-    "match": "##-???-####"
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Après avoir défini une règle de stratégie, affectez-la à une étendue. Pour affecter des stratégies via le portail, consultez [Utiliser le portail Azure pour affecter et gérer les stratégies de ressources](resource-manager-policy-portal.md). Pour affecter des stratégies via l’API REST, PowerShell ou Azure CLI, consultez [Affecter et gérer des stratégies via un script](resource-manager-policy-create-assign.md).

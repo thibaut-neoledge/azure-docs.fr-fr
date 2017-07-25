@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 8e0516585e2191caaef70bc973f027925df91bf6
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: d04d1240fb353a973953b2a90eadc65705219edb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -167,7 +167,7 @@ Cette demande renvoie la réponse suivante contenant les métadonnées des plage
     <tr>
         <td>minInclusive</td>
         <td>Valeur de hachage de la clé de partition minimale pour la plage de clés de partition. À usage interne.</td>
-    </tr>        
+    </tr>       
 </table>
 
 Vous pouvez effectuer cette opération à l’aide d’un des [kits de développement logiciel (SDK) d’Azure Cosmos DB](documentdb-sdk-dotnet.md) pris en charge. Par exemple, l’extrait de code suivant montre comment récupérer des plages de clés de partition dans .NET.
@@ -402,5 +402,5 @@ Dans cet article, nous vous avons fourni une procédure pas à pas concernant le
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Essayez les [exemples de code de flux de modification Azure Cosmos DB sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
-* Commencez à coder avec [les kits de développement logiciel (SDK) Azure Cosmos DB](documentdb-sdk-dotnet.md) ou [l’API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+* Commencez à coder avec [les kits de développement logiciel (SDK) Azure Cosmos DB](documentdb-sdk-dotnet.md) ou [l’API REST](/rest/api/documentdb/).
 

@@ -1,6 +1,6 @@
 ---
 title: "Prise en main d’Azure IoT Hub (Python) | Microsoft Docs"
-description: "Cet article décrit comment envoyer des messages à partir d’un périphérique simulé à votre Azure IoT Hub à l’aide de kits de développement logiciel (SDK) IoT Azure pour Python."
+description: "Découvrez comment envoyer des messages appareil-vers-cloud à Azure IoT Hub à l’aide des kits SDK IoT pour Python. Créez un appareil simulé et des applications de service pour inscrire votre appareil, envoyer des messages et lire des messages d’IoT Hub."
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -13,12 +13,11 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 572dfc8965957c4667d4124b045ffbb835786a94
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 05268924a182575b3df66fb6dad6bcac2700ec0c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Connexion du périphérique simulé à votre IoT Hub à l’aide de Python
@@ -78,6 +77,8 @@ Cette section présente les étapes pour créer une application console Python q
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Ajoutez la fonction suivante pour imprimer les informations sur l’appareil.
 
     ```python

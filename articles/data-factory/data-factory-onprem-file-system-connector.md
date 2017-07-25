@@ -1,6 +1,6 @@
 ---
-title: "Déplacer des données vers/depuis un système de fichiers à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Apprenez à déplacer des données vers et depuis un système de fichiers local à l’aide d’Azure Data Factory."
+title: "Copier des données vers/à partir d’un système de fichiers à l’aide d’Azure Data Factory | Microsoft Docs"
+description: "Apprenez à copier des données vers et à partir d’un système de fichiers local à l’aide d’Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: bd38aa5e4dd50b11f52afdc9dfc0f22c8c072f67
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: d25f1346ae35f7733ac3ca95c59a12616a60cc93
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="move-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Déplacer des données vers et depuis un système de fichiers local à l’aide d’Azure Data Factory
+# <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copier des données vers et à partir d’un système de fichiers local à l’aide d’Azure Data Factory
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers et à partir d’un système de fichiers local. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
@@ -76,7 +76,7 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Exemples de définitions de jeux de données et de service liés
 | Scénario | Hôte dans la définition du service lié | folderPath dans la définition du jeu de données |
 | --- | --- | --- |
-| Dossier local sur l’ordinateur passerelle de gestion des données :  <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\* |D:\\\\ (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/> hôte local (pour les versions de la passerelle de gestion des données antérieures à 2.0) |.\\\\ ou dossier\\\\sous-dossier (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/>D:\\\\ ou D:\\\\dossier\\\\sous-dossier (pour les versions de la passerelle antérieures à 2.0) |
+| Dossier local sur l’ordinateur passerelle de gestion des données :  <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\* |D:\\\\ (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/> hôte local (pour les versions de la passerelle de gestion des données antérieures à 2.0) |.\\\\ ou dossier\\\\sous-dossier (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/>D:\\\\ ou D:\\\\dossier\\\\sous-dossier (pour les versions de la passerelle antérieures à 2.0) |
 | Dossier partagé distant :  <br/><br/>Exemples : \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\* |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
 
 

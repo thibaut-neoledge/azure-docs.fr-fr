@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/12/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 34fc513b6d4408e341fc5a723ca743daee39b85d
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 74982663b0501d3a5c7973a5f383e14e0f964696
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -58,7 +58,11 @@ Convertit la valeur en tableau.
 |:--- |:--- |:--- |:--- |
 | convertToArray |Oui |entier, chaîne, tableau ou objet |Valeur à convertir en tableau. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Tableau.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser la fonction de tableau avec des types différents.
 
@@ -99,9 +103,13 @@ L’exemple suivant montre comment utiliser la fonction de tableau avec des type
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Tableau.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| intOutput | Tableau | [1] |
+| stringOutput | Tableau | ["a"] |
+| objectOutput | Tableau | [{"a": "b", "c": "d"}] |
 
 <a id="coalesce" />
 
@@ -117,7 +125,11 @@ Retourne la première valeur non null à partir des paramètres. Les chaînes vi
 | arg1 |Oui |entier, chaîne, tableau ou objet |La première valeur dans laquelle rechercher des valeurs null. |
 | arguments supplémentaires |Non |entier, chaîne, tableau ou objet |Valeurs supplémentaires dans lesquelles rechercher des valeurs null. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Valeur des premiers paramètres non null. Il peut s’agir d’une chaîne, d’un entier, d’un tableau ou d’un objet. Null si tous les paramètres sont null. 
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre la sortie à partir de différentes utilisations de coalesce (fusionner).
 
@@ -128,7 +140,14 @@ L’exemple suivant montre la sortie à partir de différentes utilisations de c
     "parameters": {
         "objectToTest": {
             "type": "object",
-            "defaultValue": {"first": null, "second": null}
+            "defaultValue": {
+                "null1": null, 
+                "null2": null,
+                "string": "default",
+                "int": 1,
+                "object": {"first": "default"},
+                "array": [1]
+            }
         }
     },
     "resources": [
@@ -136,27 +155,37 @@ L’exemple suivant montre la sortie à partir de différentes utilisations de c
     "outputs": {
         "stringOutput": {
             "type": "string",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, 'fallback')]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
         },
         "intOutput": {
             "type": "int",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, 1)]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
         },
         "objectOutput": {
             "type": "object",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, parameters('objectToTest'))]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
         },
         "arrayOutput": {
             "type": "array",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, array(1))]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+        },
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Valeur des premiers paramètres non null. Il peut s’agir d’une chaîne, d’un entier, d’un tableau ou d’un objet. Null si tous les paramètres sont null. 
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| stringOutput | String | default |
+| intOutput | int | 1 |
+| objectOutput | Object | {"first": "default"} |
+| arrayOutput | Tableau | [1] |
+| emptyOutput | Bool | true |
 
 <a id="concat" />
 
@@ -174,7 +203,10 @@ Combine plusieurs tableaux et retourne le tableau concaténé, ou combine plusie
 
 Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres.
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+Chaîne ou tableau de valeurs concaténées.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment combiner deux tableaux.
 
@@ -211,6 +243,12 @@ L’exemple suivant montre comment combiner deux tableaux.
 }
 ```
 
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| return | Tableau | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+
 L’exemple suivant montre comment combiner deux valeurs de chaîne et retourner une chaîne concaténée.
 
 ```json
@@ -226,15 +264,18 @@ L’exemple suivant montre comment combiner deux valeurs de chaîne et retourner
     "resources": [],
     "outputs": {
         "concatOutput": {
-            "value": "[concat(parameters('prefix'), uniqueString(resourceGroup().id))]",
+            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
             "type" : "string"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
-Chaîne ou tableau de valeurs concaténées.
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 <a id="contains" />
 
@@ -247,10 +288,14 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
-| container |Oui |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
+| conteneur |Oui |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
 | itemToFind |Oui |chaîne ou entier |La valeur à trouver. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+**True** si l’élément est trouvé ; sinon, **False**.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser contains avec différents types :
 
@@ -303,9 +348,16 @@ L’exemple suivant montre comment utiliser contains avec différents types :
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-**True** si l’élément est trouvé ; sinon, **False**.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| stringTrue | Bool | true |
+| stringFalse | Bool | False |
+| objectTrue | Bool | true |
+| objectFalse | Bool | False |
+| arrayTrue | Bool | true |
+| arrayFalse | Bool | False |
 
 <a id="createarray" />
 
@@ -321,7 +373,11 @@ Crée un tableau à partir des paramètres.
 | arg1 |Oui |Chaîne, entier, tableau ou objet |La première valeur dans le tableau. |
 | arguments supplémentaires |Non |Chaîne, entier, tableau ou objet |Valeurs supplémentaires dans le tableau. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Tableau.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser createArray avec différents types :
 
@@ -362,9 +418,14 @@ L’exemple suivant montre comment utiliser createArray avec différents types 
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Tableau.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| stringArray | Tableau | ["a", "b", "c"] |
+| intArray | Tableau | [1, 2, 3] |
+| objectArray | Tableau | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | Tableau | [["one", "two", "three"]] |
 
 <a id="empty" />
 
@@ -380,7 +441,11 @@ Détermine si un tableau, un objet ou une chaîne est vide.
 |:--- |:--- |:--- |:--- |
 | itemToTest |Oui |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Retourne **True** si la valeur est vide ; sinon, **False**.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant vérifie si un tableau, un objet et une chaîne sont vides.
 
@@ -421,9 +486,13 @@ L’exemple suivant vérifie si un tableau, un objet et une chaîne sont vides.
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Retourne **True** si la valeur est vide ; sinon, **False**.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayEmpty | Bool | true |
+| objectEmpty | Bool | true |
+| stringEmpty | Bool | true |
 
 <a id="first" />
 
@@ -438,7 +507,11 @@ Retourne le premier élément du tableau ou le premier caractère de la chaîne.
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Type (chaîne, entier, tableau ou objet) du premier élément d’un tableau ou premier caractère d’une chaîne.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser la première fonction avec un tableau et une chaîne.
 
@@ -467,9 +540,12 @@ L’exemple suivant montre comment utiliser la première fonction avec un tablea
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Type (chaîne, entier, tableau ou objet) du premier élément d’un tableau ou chaîne du premier caractère.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 <a id="intersection" />
 
@@ -486,7 +562,11 @@ Retourne un tableau ou un objet unique avec les éléments communs à partir des
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
 | arguments supplémentaires |Non |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Tableau ou objet avec les éléments communs.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant indique comment utiliser l’intersection avec les tableaux et les objets :
 
@@ -527,9 +607,12 @@ L’exemple suivant indique comment utiliser l’intersection avec les tableaux 
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Tableau ou objet avec les éléments communs.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| objectOutput | Object | {"one": "a", "three": "c"} |
+| arrayOutput | Tableau | ["two", "three"] |
 
 <a id="last" />
 
@@ -544,7 +627,11 @@ Retourne le dernier élément du tableau ou le dernier caractère de la chaîne.
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Type (chaîne, entier, tableau ou objet) du dernier élément d’un tableau ou dernier caractère d’une chaîne.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant indique comment utiliser la dernière fonction avec un tableau et une chaîne.
 
@@ -573,9 +660,12 @@ L’exemple suivant indique comment utiliser la dernière fonction avec un table
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Type (chaîne, entier, tableau ou objet) du dernier élément d’un tableau ou chaîne du dernier caractère.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 <a id="length" />
 
@@ -590,7 +680,11 @@ Retourne le nombre d’éléments contenus dans un tableau ou les caractères da
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Un entier. 
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser la longueur avec un tableau et une chaîne :
 
@@ -626,6 +720,13 @@ L’exemple suivant montre comment utiliser la longueur avec un tableau et une c
 }
 ```
 
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayLength | int | 3 |
+| stringLength | int | 13. |
+
 Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d’itérations lors de la création de ressources. Dans l’exemple ci-après, le paramètre **siteNames** fait référence à un tableau de noms à utiliser lors de la création de sites web.
 
 ```json
@@ -637,13 +738,9 @@ Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d�
 
 Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
-### <a name="return-value"></a>Valeur de retour
-
-Un entier. 
-
 <a id="min" />
 
-## <a name="min"></a>Min
+## <a name="min"></a>min
 `min(arg1)`
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
@@ -654,7 +751,11 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Entier représentant la valeur minimale.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant indique comment utiliser la fonction min avec un tableau et une liste d’entiers :
 
@@ -682,9 +783,12 @@ L’exemple suivant indique comment utiliser la fonction min avec un tableau et 
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Entier représentant la valeur minimale.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -699,7 +803,11 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Entier représentant la valeur maximale.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser max avec un tableau et une liste d’entiers :
 
@@ -727,9 +835,12 @@ L’exemple suivant montre comment utiliser max avec un tableau et une liste d�
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Entier représentant la valeur maximale.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 <a id="range" />
 
@@ -745,7 +856,11 @@ Crée un tableau d’entiers à partir d’un entier de départ et contenant un 
 | startingInteger |Oui |int |Premier entier du tableau. |
 | numberofElements |Oui |int |Nombre d’entiers dans le tableau. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Tableau d’entiers.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser la fonction range :
 
@@ -773,9 +888,11 @@ L’exemple suivant montre comment utiliser la fonction range :
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Tableau d’entiers.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| rangeOutput | Tableau | [5, 6, 7] |
 
 <a id="skip" />
 
@@ -791,7 +908,11 @@ Retourne un tableau avec tous les éléments après le nombre spécifié dans le
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
 | numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est renvoyé. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Tableau ou chaîne.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant ignore le nombre spécifié d’éléments dans le tableau et le nombre spécifié de caractères dans une chaîne.
 
@@ -835,9 +956,12 @@ L’exemple suivant ignore le nombre spécifié d’éléments dans le tableau e
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Tableau ou chaîne.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | Tableau | ["three"] |
+| stringOutput | String | two three |
 
 <a id="take" />
 
@@ -851,9 +975,13 @@ Retourne un tableau avec le nombre spécifié d’éléments à partir du début
 | Paramètre | Requis | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
-| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné, tous les éléments du tableau ou de chaîne sont renvoyés. |
+| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne donné(e), tous les éléments du tableau ou de chaîne sont renvoyés. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Tableau ou chaîne.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant prend le nombre spécifié d’éléments du tableau, et les caractères d’une chaîne.
 
@@ -897,9 +1025,12 @@ L’exemple suivant prend le nombre spécifié d’éléments du tableau, et les
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Tableau ou chaîne.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | Tableau | ["one", "two"] |
+| stringOutput | String | sur |
 
 <a id="union" />
 
@@ -916,7 +1047,11 @@ Retourne un tableau ou un objet unique avec tous les éléments communs à parti
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
 | arguments supplémentaires |Non |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Objet ou tableau.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant indique comment utiliser l’intersection avec les tableaux et les objets :
 
@@ -931,7 +1066,7 @@ L’exemple suivant indique comment utiliser l’intersection avec les tableaux 
         },
         "secondObject": {
             "type": "object",
-            "defaultValue": {"four": "d", "five": "e", "six": "f"}
+            "defaultValue": {"three": "c", "four": "d", "five": "e"}
         },
         "firstArray": {
             "type": "array",
@@ -939,7 +1074,7 @@ L’exemple suivant indique comment utiliser l’intersection avec les tableaux 
         },
         "secondArray": {
             "type": "array",
-            "defaultValue": ["four", "five"]
+            "defaultValue": ["three", "four"]
         }
     },
     "resources": [
@@ -957,12 +1092,15 @@ L’exemple suivant indique comment utiliser l’intersection avec les tableaux 
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Objet ou tableau.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| objectOutput | Object | {"one": "a", "two": "b", "three": "c", "four": "d", "five": "e"} |
+| arrayOutput | Tableau | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 * Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 * Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).

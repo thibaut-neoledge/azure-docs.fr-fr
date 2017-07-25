@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: e22fa4ed45ffaed1a05292e9b86d5cebc0079117
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 1063807ac83d2f63229f397da7ecc01f4072efd5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -34,7 +35,10 @@ Les machines virtuelles fournissent un environnement informatique entièrement c
 > * Redimensionner une machine virtuelle
 > * Consulter et comprendre l’état d’une machine virtuelle
 
-Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). Vous pouvez également utiliser [Cloud Shell](/azure/cloud-shell/quickstart) à partir de votre navigateur.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter l’interface de ligne de commande Azure version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
@@ -42,7 +46,7 @@ Créez un groupe de ressources avec la commande [az group create](https://docs.m
 
 Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles. Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *eastus*. 
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus
 ```
 
@@ -54,13 +58,13 @@ Créez une machine virtuelle avec la commande [az vm create](https://docs.micros
 
 Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, comme l’image de système d’exploitation, les informations d’identification d’administration ou le dimensionnement des disques. Dans cet exemple, une machine virtuelle nommée *myVM* est créée et exécute Ubuntu Server. 
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
 Une fois la machine virtuelle créée, l’interface Azure CLI fournit des informations concernant cette machine virtuelle. Notez la valeur de `publicIpAddress`, car cette adresse peut être utilisée pour accéder à la machine virtuelle. 
 
-```azurecli
+```azurecli-interactive 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -93,7 +97,7 @@ La Place de marché Azure comprend de nombreuses images qui permettent de créer
 
 Pour afficher une liste des images les plus couramment utilisées, utilisez la commande [az vm image list](/cli/azure/vm/image#list).
 
-```azurecli
+```azurecli-interactive 
 az vm image list --output table
 ```
 
@@ -117,13 +121,13 @@ CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:
 
 Vous pouvez obtenir une liste complète en ajoutant l’argument `--all`. Vous pouvez également utiliser `--publisher` ou `–-offer` pour filtrer la liste d’images. Dans cet exemple, la liste est filtrée pour toutes les images dont l’offre correspond à *CentOS*. 
 
-```azurecli
+```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
 ```
 
 Résultat partiel :
 
-```azurecli
+```azurecli-interactive 
 Offer             Publisher         Sku   Urn                                     Version
 ----------------  ----------------  ----  --------------------------------------  -----------
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201501         6.5.201501
@@ -136,7 +140,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207     
 
 Pour déployer une machine virtuelle en utilisant une image spécifique, notez la valeur de la colonne *Urn*. Lorsque vous spécifiez l’image, le numéro de version de l’image peut être remplacé par la valeur « latest », qui sélectionne la dernière version de la distribution. Dans cet exemple, l’argument `--image` est utilisé pour spécifier la version la plus récente d’une image CentOS 6.5.  
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
 ```
 
@@ -162,13 +166,13 @@ Le tableau suivant classe les tailles en fonction des cas d’utilisation.
 
 Pour afficher la liste des tailles de machines virtuelles disponibles dans une région particulière, utilisez la commande [az vm list-sizes](/cli/azure/vm#list-sizes). 
 
-```azurecli
+```azurecli-interactive 
 az vm list-sizes --location eastus --output table
 ```
 
 Résultat partiel :
 
-```azurecli
+```azurecli-interactive 
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  2          3584  Standard_DS1                          1           1047552                    7168
@@ -193,7 +197,7 @@ Résultat partiel :
 
 Dans le précédent exemple de création d’une machine virtuelle, aucune taille n’a été spécifiée ; la taille par défaut a donc été appliquée. Vous pouvez sélectionner une taille de machine virtuelle au moment de la création à l’aide de la commande [az vm create](/cli/azure/vm#create) et de l’argument `--size`. 
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM3 \
@@ -208,30 +212,30 @@ Après avoir déployé une machine virtuelle, vous pouvez la redimensionner pour
 
 Avant de redimensionner une machine virtuelle, vérifiez si la taille souhaitée est disponible dans le cluster Azure actuel. La commande [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) commande renvoie la liste des tailles disponibles. 
 
-```azurecli
+```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
 Si la taille souhaitée est disponible, la machine virtuelle peut être redimensionnée à partir d’un état sous tension, mais elle est redémarrée au cours de l’opération. Utilisez la commande [az vm resize]( /cli/azure/vm#resize) commande pour effectuer le redimensionnement.
 
-```azurecli
+```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
 Si la taille souhaitée ne figure pas dans le cluster actuel, la machine virtuelle doit être libérée avant de procéder au redimensionnement. Utilisez la commande [az vm deallocate]( /cli/azure/vm#deallocate) pour arrêter la machine virtuelle et la libérer. Notez que lorsque la machine virtuelle est remise sous tension, toutes les données contenues dans le disque temporaire peuvent être supprimées. L’adresse IP publique change également, sauf si une adresse IP statique est utilisée. 
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
 Après la libération, le redimensionnement peut être effectué. 
 
-```azurecli
+```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
 Après le redimensionnement, la machine virtuelle peut être démarrée.
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
@@ -255,7 +259,7 @@ Une machine virtuelle Azure peut présenter différents états d’alimentation.
 
 Pour récupérer l’état d’une machine virtuelle spécifique, utilisez la commande [az vm get instance-view](/cli/azure/vm#get-instance-view). Veillez à spécifier le nom valide d’une machine virtuelle et d’un groupe de ressources. 
 
-```azurecli
+```azurecli-interactive 
 az vm get-instance-view \
     --name myVM \
     --resource-group myResourceGroupVM \
@@ -264,7 +268,7 @@ az vm get-instance-view \
 
 Output:
 
-```azurecli
+```azurecli-interactive 
 ode                DisplayStatus    Level
 ------------------  ---------------  -------
 PowerState/running  VM running       Info
@@ -278,19 +282,19 @@ Pendant le cycle de vie d’une machine virtuelle, vous souhaiterez exécuter de
 
 Cette commande renvoie les adresses IP publiques et privées d’une machine virtuelle.  
 
-```azurecli
+```azurecli-interactive 
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
 ```
 
 ### <a name="stop-virtual-machine"></a>Arrêt d’une machine virtuelle
 
-```azurecli
+```azurecli-interactive 
 az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
 ### <a name="start-virtual-machine"></a>Démarrage d’une machine virtuelle
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
@@ -298,7 +302,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 La suppression d’un groupe de ressources supprime également toutes les ressources qu’il contient.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes
 ```
 

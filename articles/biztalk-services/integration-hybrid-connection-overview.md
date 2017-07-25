@@ -14,13 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 397a922bf3bf4c39c89f5f69015de4942bda0af9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 9367d6f57e694c8a438781004ef29a09de77aaa8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="hybrid-connections-overview"></a>Aperçu des connexions hybrides
+
+> [!IMPORTANT]
+> Les connexions hybrides BizTalk ont été supprimées et remplacées par les connexions hybrides App Service. Pour plus d’informations, notamment sur la procédure à suivre pour gérer vos connexions hybrides BizTalk existantes, consultez l’article [Connexions hybrides d’Azure App Service](../app-service/app-service-hybrid-connections.md).
+
 Présentation des connexions hybrides, listes des configurations prises en charge et listes des ports TCP requis
 
 ## <a name="what-is-a-hybrid-connection"></a>Présentation des connexions hybrides
@@ -100,9 +106,4 @@ Les ports TCP suivants sont utilisés par les connexions hybrides :
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

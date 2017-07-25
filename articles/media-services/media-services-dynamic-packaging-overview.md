@@ -1,6 +1,6 @@
 ---
 title: "Vue d’ensemble de l’empaquetage dynamique Azure Media Services | Microsoft Docs"
-description: Cette rubrique donne une vue d&quot;ensemble de l&quot;empaquetage dynamique.
+description: Cette rubrique donne une vue d'ensemble de l'empaquetage dynamique.
 author: Juliako
 manager: erikre
 editor: 
@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: da455a350f61e17425cd308d0fdc8bb5294a0b76
 ms.openlocfilehash: 574921fdecdadaa48c572685f7486d4e7b1d25f4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -48,7 +50,7 @@ Pour préparer un élément multimédia à un streaming dynamique, vous disposez
 2. [Utilisez l’encodeur Media Encoder Standard pour produire des ensembles de fichiers MP4 à vitesse de transmission adaptative H.264](media-services-dotnet-encode-with-media-encoder-standard.md).
 3. [Diffusez votre contenu](media-services-deliver-content-overview.md).
 
-## <a name="a-idunsupportedformatsaformats-that-are-not-supported-by-dynamic-packaging"></a><a id="unsupported_formats"></a>Formats non pris en charge pour l'empaquetage dynamique
+## <a id="unsupported_formats"></a>Formats non pris en charge pour l'empaquetage dynamique
 Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaquetage dynamique.
 
 * Fichiers MP4 Dolby Digital
@@ -59,10 +61,5 @@ Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaqu
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

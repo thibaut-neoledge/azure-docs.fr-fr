@@ -1,5 +1,5 @@
 ---
-title: "Résolution des problèmes pour un objet qui ne se synchronise pas avec Azure AD | Microsoft Docs&quot;"
+title: "Résolution des problèmes pour un objet qui ne se synchronise pas avec Azure AD | Microsoft Docs'"
 description: "Résolution des problèmes pour un objet qui ne se synchronise pas avec Azure AD."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
 ms.openlocfilehash: 3c9642e5c2da92203be2bc23820e5b6f544de660
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/04/2017
 
 ---
-# <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Dépanner un objet qui bloque la synchronisation avec Azure AD
+# Dépanner un objet qui bloque la synchronisation avec Azure AD
+<a id="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad" class="xliff"></a>
 
 Si un objet ne se synchronise pas comme attendu avec Azure AD, cela peut être causé par plusieurs raisons. Si vous avez reçu un message d’erreur d’Azure AD ou que vous voyez l’erreur dans Azure AD Connect Health, lisez [Résolution des erreurs d’exportation](active-directory-aadconnect-troubleshoot-sync-errors.md) à la place. Mais si vous essayez de résoudre un problème pour un objet qui n’est pas dans Azure AD, cette rubrique est pour vous. Elle décrit comment rechercher des erreurs dans le composant de synchronisation Azure AD Connect local.
 
@@ -32,7 +34,8 @@ Pour rechercher les erreurs, vous allez examiner différents endroits dans l’o
 
 Démarrez [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) avant de commencer ces étapes.
 
-## <a name="operations"></a>Opérations
+## Opérations
+<a id="operations" class="xliff"></a>
 L’onglet opérations dans le Synchronization Service Manager est là où vous devez commencer le dépannage. L’onglet des opérations affiche les résultats des opérations les plus récentes.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
@@ -50,7 +53,8 @@ La colonne **État** regroupe les informations les plus importantes et présente
 
 Lorsque vous sélectionnez une ligne, la partie inférieure est mise à jour pour afficher les détails de cette exécution. À l’extrême gauche de la partie inférieure, une liste peut s’afficher indiquant **Step #**. Cette liste ne s’affiche que si votre forêt contient plusieurs domaines et que chaque domaine est représenté par une étape. Le nom de domaine se trouve sous le titre **Partition**. Sous **Statistiques de synchronisation**, vous trouverez plus d’informations sur le nombre de modifications qui ont été traitées. Vous pouvez cliquer sur les liens pour obtenir la liste des objets modifiés. Si vous avez des objets comportant des erreurs, celles-ci s’affichent sous **Erreurs de synchronisation**.
 
-### <a name="troubleshoot-errors-in-operations-tab"></a>Résoudre les erreurs dans l’onglet des opérations
+### Résoudre les erreurs dans l’onglet des opérations
+<a id="troubleshoot-errors-in-operations-tab" class="xliff"></a>
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorsync.png)  
 Quand vous avez des erreurs, l’objet comportant l’erreur et l’erreur elle-même s’affichent sous forme de liens qui fournissent davantage d’informations.
 
@@ -64,10 +68,12 @@ Vous pouvez cliquer avec le bouton droit dans la zone **Informations sur la pile
 
 Si l’erreur elle-même ne fournit pas suffisamment d’informations, il est temps d’examiner les données elles-mêmes. Vous pouvez cliquer sur le lien avec l’identificateur d’objet et poursuivre le dépannage de [l’objet importé d’espace de connecteur](#cs-import).
 
-## <a name="connector-space-object-properties"></a>Propriétés de l’objet espace connecteur
+## Propriétés de l’objet espace connecteur
+<a id="connector-space-object-properties" class="xliff"></a>
 Si vous ne trouvez aucune erreur dans l’onglet [Opérations](#operations), exécutez l’étape suivante pour suivre l’objet espace de connecteur d’Active Directory vers le métaverse et Azure AD. Dans ce chemin d’accès, vous devez rechercher la cause du problème.
 
-### <a name="search-for-an-object-in-the-cs"></a>Recherche d’un objet dans le CS
+### Recherche d’un objet dans le CS
+<a id="search-for-an-object-in-the-cs" class="xliff"></a>
 
 Dans **Synchronization Service Manager**, cliquez sur **Connecteurs**, sélectionnez le connecteur Active Directory, et **Espace de connecteur de recherche**.
 
@@ -80,7 +86,8 @@ Une autre recherche utile consiste à sélectionner le connecteur Azure AD. Dans
 ![Recherche d’espace de connecteur orphelin](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
 Ces objets ont été créés par un autre moteur de synchronisation ou un moteur de synchronisation avec une autre configuration de filtrage. Cette vue est une liste d’objets **orphelins** qui ne sont plus gérés. Vous devez examiner cette liste et envisager de supprimer ces objets à l’aide des applets de commande [Azure AD PowerShell](http://aka.ms/aadposh).
 
-### <a name="cs-import"></a>Importation de CS
+### Importation de CS
+<a id="cs-import" class="xliff"></a>
 Quand vous ouvrez un objet cs, plusieurs onglets sont affichés en haut. L’onglet **Importer** affiche les données mises en lot après une importation.  
 ![Objet CS](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
 **L’ancienne valeur** montre ce qui est actuellement stocké dans Connect, et la **nouvelle valeur** ce qui a été reçu à partir du système source et n’a pas encore été appliqué. Si une erreur est présente sur l’objet, les modifications ne sont pas traitées.
@@ -89,7 +96,8 @@ Quand vous ouvrez un objet cs, plusieurs onglets sont affichés en haut. L’ong
 ![Objet CS](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
 L’onglet **Erreur de synchronisation** est visible uniquement s’il existe un problème au niveau de l’objet. Pour plus d’informations, consultez [Résolution des problèmes de synchronisation](#troubleshoot-errors-in-operations-tab).
 
-### <a name="cs-lineage"></a>Lignage CS
+### Lignage CS
+<a id="cs-lineage" class="xliff"></a>
 : l’onglet Lignage montre de quelle manière l’objet espace connecteur est lié à l’objet métaverse. Vous pouvez voir à quel moment le connecteur a importé pour la dernière fois une modification dans le système connecté et connaître les règles appliquées pour remplir les données dans le métaverse.  
 ![Lignage CS](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineage.png)  
 Dans la colonne **Action**, vous pouvez voir une règle de synchronisation **Entrante** avec l’action **Approvisionner**. Cela signifie que tant que cet objet espace connecteur est présent, l’objet métaverse est conservé. Si la liste des règles de synchronisation affiche à la place une règle de synchronisation avec la direction **Sortante** et **Approvisionner**, cela indique que cet objet est supprimé en même temps que l’objet métaverse.  
@@ -100,19 +108,23 @@ Sous l’onglet Lignage, vous pouvez accéder au métaverse en cliquant sur [Pro
 
 Deux boutons apparaissent en bas de tous les onglets : **Aperçu** et **Journal**.
 
-### <a name="preview"></a>VERSION PRÉLIMINAIRE
+### VERSION PRÉLIMINAIRE
+<a id="preview" class="xliff"></a>
 : la page d’aperçu sert à synchroniser un seul objet. Elle est utile si vous résolvez des problèmes liés aux règles de synchronisation personnalisées et que vous souhaitez voir l’effet d’une modification sur un seul objet. Vous pouvez choisir entre **Synchronisation complète** et **Synchronisation delta**. Vous pouvez également choisir entre **Générer l’aperçu**, qui permet de conserver uniquement la modification en mémoire, et **Valider l’aperçu**, qui met à jour le métaverse et implémente toutes les modifications dans les espaces connecteur cibles.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/preview.png)  
 Vous pouvez inspecter l’objet et la règle appliquée pour un flux d’attribut particulier.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
-### <a name="log"></a>Journal
+### Journal
+<a id="log" class="xliff"></a>
 La page du journal est utilisée pour afficher l’état de synchronisation et l’historique du mot de passe. Pour plus d’informations, consultez [Résolution des problèmes de synchronisation de mot de passe](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
-## <a name="metaverse-object-properties"></a>Propriétés de l’objet métaverse
+## Propriétés de l’objet métaverse
+<a id="metaverse-object-properties" class="xliff"></a>
 Il est généralement préférable de commencer la recherche à partir de [l’espace de connecteur](#connector-space) Active Directory source. Mais vous pouvez également démarrer la recherche depuis le métaverse.
 
-### <a name="search-for-an-object-in-the-mv"></a>Recherche d’un objet dans le MV
+### Recherche d’un objet dans le MV
+<a id="search-for-an-object-in-the-mv" class="xliff"></a>
 Dans **Synchronization Service Manager**, cliquez sur **Recherche de métaverse**. Créez une requête capable de trouver l’utilisateur. Vous pouvez rechercher des attributs communs, comme le nom de compte (sAMAccountName) et userPrincipalName. Pour plus d’informations, voir [Recherche de métaverses](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvsearch.png)  
 
@@ -120,7 +132,8 @@ Dans la fenêtre **Résultats de la recherche**, cliquez sur l’objet.
 
 Si vous ne trouvez pas l’objet, il n’a pas encore atteint le métaverse. Continuez à rechercher l’objet dans [l’espace de connecteur](#connector-space-object-properties) Active Directory. Une erreur de synchronisation qui bloque l’arrivée de l’objet dans le métaverse peut s’être produite ou il peut y avoir un filtre appliqué.
 
-### <a name="mv-attributes"></a>Attributs MV
+### Attributs MV
+<a id="mv-attributes" class="xliff"></a>
 : sous l’onglet Attributs, vous pouvez voir les valeurs et le connecteur qui y a contribué.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvobject.png)  
 
@@ -128,7 +141,8 @@ Si un objet n’est pas synchronisé, examinez les attributs suivants dans le m�
 - L’attribut **cloudFiltered** est-il présent et défini sur **true** ? Si c’est le cas, il a été filtré selon la procédure décrite dans [Filtrage par attribut](active-directory-aadconnectsync-configure-filtering.md#attribute-based-filtering).
 - L’attribut **sourceAnchor** est-il présent ? Si ce n’est pas le cas, utilisez-vous une topologie de forêt compte-ressource ? Si un objet est identifié comme une boîte aux lettres liée (l’attribut **msExchRecipientTypeDetails** a la valeur 2), l’attribut sourceAnchor est fourni par la forêt avec un compte Active Directory activé. Assurez-vous que le compte principal a été importé et synchronisé correctement. Le compte principal doit être répertorié dans les [connecteurs](#mv-connectors) pour l’objet.
 
-### <a name="mv-connectors"></a>Connecteurs MV
+### Connecteurs MV
+<a id="mv-connectors" class="xliff"></a>
 : l’onglet Connecteurs affiche tous les espaces connecteur qui ont une représentation de l’objet.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvconnectors.png)  
 Vous devez disposer d’un connecteur pour :
@@ -140,7 +154,8 @@ Si le connecteur Azure AD est manquant, lisez [Attributs MV](#MV-attributes) pou
 
 Cet onglet permet également d’accéder à l’[objet CS (Connector Space)](#connector-space-object-properties). Sélectionnez une ligne et cliquez sur **Propriétés**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

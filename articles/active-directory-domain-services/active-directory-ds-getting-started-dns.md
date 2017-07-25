@@ -12,45 +12,48 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/27/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: abb27292d4b5533fe6f3d66d6921fea8c82f18dd
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: c704ee189072ce8ed196d1ef0a23edd528a10025
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="update-dns-settings-for-the-azure-virtual-network"></a>Mettre à jour les paramètres DNS pour le réseau virtuel Azure
-## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Tâche 4 : mettre à jour les paramètres DNS pour le réseau virtuel Azure
+<a id="enable-azure-active-directory-domain-services-preview" class="xliff"></a>
+
+# Activer Azure Active Directory Domain Services (préversion)
+
+<a id="task-4-update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
+
+## Tâche 4 : Mettre à jour les paramètres DNS pour le réseau virtuel Azure
 Dans les tâches de configuration précédentes, vous avez activé Azure Active Directory Domain Services pour votre répertoire. La tâche suivante consiste à s’assurer que les ordinateurs du réseau virtuel peuvent se connecter et utiliser ces services. Dans cet article, vous mettez à jour les paramètres de serveur DNS de votre réseau virtuel afin qu’il pointe vers les deux adresses IP pour lesquelles Azure Active Directory Domain Services est disponible sur le réseau virtuel.
 
-> [!NOTE]
-> Après avoir activé Azure Active Directory Domain Services pour le répertoire, notez les adresses IP d’Azure Active Directory Domain Services affichées dans l’onglet **Configurer** de votre répertoire.
->
->
+Afin de mettre à jour le paramètre de serveur DNS pour le réseau virtuel sur lequel vous avez activé Azure Active Directory Domain Services, procédez comme suit :
 
-Pour mettre à jour le paramètre de serveur DNS pour le réseau virtuel sur lequel vous avez activé Azure Active Directory Domain Services, procédez comme suit :
+1. L’onglet **Vue d’ensemble** répertorie un ensemble d’**étapes de configuration requises** à effectuer une fois que votre domaine managé est entièrement configuré. La première étape de configuration est **Mettre à jour les paramètres du serveur de noms de domaine pour votre réseau virtuel**.
 
-1. Connectez-vous au [Portail Azure Classic](https://manage.windowsazure.com).
-2. Dans le volet gauche, sélectionnez **Réseaux**.  
-    La fenêtre **Réseaux** s’ouvre.
+    ![Domain Services - Onglet Vue d’ensemble une fois la configuration terminée](./media/getting-started/domain-services-provisioned-overview.png)
 
-    ![Fenêtre Réseaux virtuels](./media/active-directory-domain-services-getting-started/virtual-network-select.png)
-3. Dans l’onglet **Réseaux virtuels**, sélectionnez le réseau virtuel sur lequel vous avez activé Azure Active Directory Domain Services afin d’en afficher les propriétés.
-4. Cliquez sur l'onglet **Configurer** .
+2. Lorsque votre domaine est entièrement configuré, deux adresses IP s’affichent dans cette vignette. Chacune de ces adresses IP représente un contrôleur de domaine pour votre domaine managé.
 
-    ![Fenêtre Réseaux virtuels](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
-5. Dans la section **Serveurs DNS**, entrez les deux adresses IP qui étaient affichées dans la section **Services de domaine** de l’onglet **Configurer** de votre répertoire.
-6. Pour enregistrer les paramètres de serveur DNS pour ce réseau virtuel, cliquez sur **Enregistrer** dans le volet des tâches au bas de la fenêtre.
+3. Pour copier la première adresse IP dans le Presse-papiers, cliquez sur le bouton Copier situé en regard. Cliquez ensuite sur le bouton **Configurer des serveurs DNS**.
 
-   ![Mettre à jour les paramètres de serveur DNS pour le réseau virtuel](./media/active-directory-domain-services-getting-started/update-dns.png)
+4. Collez la première adresse IP dans la zone de texte **Ajouter un serveur DNS** du panneau **Serveurs DNS**. Faites défiler l’écran vers la gauche pour copier la seconde adresse IP et collez-la dans la zone de texte **Ajouter un serveur DNS**.
+
+    ![Domain Services - Mettre à jour le DNS](./media/getting-started/domain-services-update-dns.png)
+
+5. Cliquez sur **Enregistrer** lorsque vous avez fini de mettre à jour les serveurs DNS pour le réseau virtuel.
 
 > [!NOTE]
-> Après la mise à jour des paramètres de serveur DNS pour le réseau virtuel, la mise à jour de la configuration DNS sur les machines virtuelles sur le réseau peut prendre du temps. Si une machine virtuelle ne peut pas se connecter au domaine, vous pouvez vider le cache DNS ('ipconfig /flushdns') sur la machine virtuelle. Cette commande force une actualisation des paramètres DNS sur la machine virtuelle.
+> Les machines virtuelles du réseau n’obtiendront les nouveaux paramètres DNS qu’après un redémarrage. Si vous avez besoin qu’elles obtiennent les paramètres DNS mis à jour immédiatement, déclenchez un redémarrage via le portail, PowerShell ou l’interface CLI.
 >
 >
 
-## <a name="next-steps"></a>Étapes suivantes
-Tâche 5 : [activer la synchronisation du mot de passe pour Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
+<a id="next-step" class="xliff"></a>
+
+## Étape suivante
+[Tâche 5 : Activer la synchronisation du mot de passe pour Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2016
+ms.date: 5/31/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 3d2ba1d63f4bb89ff51275044922fb86b5f70365
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: bb490e7ba64f4db454e1bd7171d600ed9dd9e257
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -45,7 +46,9 @@ Vous pouvez utiliser [Analytique des journaux pour l’équilibreur de charge](l
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Machine virtuelle à charge équilibrée sans adresse IP publique de niveau d’instance
 
-Dans ce scénario, la machine virtuelle fait partie d’un pool Azure Load Balancer. La machine virtuelle n’a pas d’adresse IP publique affectée. Lorsque la machine virtuelle à charge équilibrée crée un flux sortant, Azure convertit l’adresse IP source privée du flux sortant en une adresse IP source publique du frontend d’équilibrage de charge public. Azure utilise le mode SNAT (Source Network Address Translation) pour exécuter cette fonction. Les ports éphémères de l’adresse IP publique de l’équilibrage de charge sont utilisés pour distinguer chaque flux provenant de la machine virtuelle. SNAT alloue dynamiquement des ports éphémères lors de la création de flux sortants. Dans ce contexte, les ports éphémères utilisés pour SNAT sont appelés ports SNAT.
+Dans ce scénario, la machine virtuelle fait partie d’un pool Azure Load Balancer.  La machine virtuelle n’a pas d’adresse IP publique affectée. La ressource d’équilibreur de charge doit être configurée avec une règle pour lier le serveur frontal d’adresse IP publique au pool principal.  Si vous n’effectuez pas cette configuration, le comportement est celui qui est décrit dans la section ci-dessus pour [Machine virtuelle autonome sans adresse IP publique de niveau d’instance](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+
+Lorsque la machine virtuelle à charge équilibrée crée un flux sortant, Azure convertit l’adresse IP source privée du flux sortant en une adresse IP source publique du frontend d’équilibrage de charge public. Azure utilise le mode SNAT (Source Network Address Translation) pour exécuter cette fonction. Les ports éphémères de l’adresse IP publique de l’équilibrage de charge sont utilisés pour distinguer chaque flux provenant de la machine virtuelle. SNAT alloue dynamiquement des ports éphémères lors de la création de flux sortants. Dans ce contexte, les ports éphémères utilisés pour SNAT sont appelés ports SNAT.
 
 Les ports SNAT sont une ressource limitée qui peut être épuisée. Il est important de comprendre leur utilisation. Un seul port SNAT est utilisé par flux vers une adresse IP de destination unique. En cas de flux multiples vers la même adresse IP de destination, chaque flux utiliser un seul port SNAT. Cela garantit que les flux sont uniques s’ils proviennent de la même adresse IP publique et sont dirigés vers la même adresse IP de destination. Plusieurs flux, chacun d’eux dirigé vers une adresse IP de destination différente, utilisent un seul port SNAT par destination. L’adresse IP de destination rend les flux uniques.
 

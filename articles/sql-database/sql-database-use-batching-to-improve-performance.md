@@ -8,24 +8,29 @@ manager: jhubbard
 editor: 
 ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: b62097f945bc5c595c0893d16bb2c1d9bbfd7a07
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 22cff47444306e599325ba3035d83a0266d69c72
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
+<a id="how-to-use-batching-to-improve-sql-database-application-performance" class="xliff"></a>
+
+# Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
 Les opérations de traitement par lots sur la base de données SQL Azure améliorent considérablement les performances et l’évolutivité de vos applications. Pour en comprendre les avantages, la première partie de cet article présente des résultats de test qui comparent des demandes séquentielles à des demandes par lots exécutées sur une base de données SQL. Le reste de cet article décrit des techniques, des scénarios et des remarques à prendre en compte pour vous aider à utiliser efficacement le traitement par lots dans vos applications Azure.
 
-## <a name="why-is-batching-important-for-sql-database"></a>Pourquoi le traitement par lots est-il important pour une base de données SQL ?
+<a id="why-is-batching-important-for-sql-database" class="xliff"></a>
+
+## Pourquoi le traitement par lots est-il important pour une base de données SQL ?
 L’envoi d’appels de traitement par lots sur un service distant constitue une stratégie réputée pour améliorer les performances et l’évolutivité. Toute interaction avec un service distant, notamment la sérialisation, le transfert réseau et la désérialisation, entraîne des coûts de traitement fixes. L’empaquetage de plusieurs transactions distinctes dans un seul lot contribue à réduire ces coûts.
 
 Dans ce document, nous allons examiner divers scénarios et stratégies de traitement par lots associés à la base de données SQL. Bien que ces stratégies soient également importantes pour les applications locales qui utilisent SQL Server, il convient d’insister sur le caractère essentiel de l’utilisation du traitement par lots pour la base de données SQL, et ce pour plusieurs raisons :
@@ -38,14 +43,20 @@ L’un des avantages associés à l’utilisation de la base de données SQL est
 
 La première partie de ce document examine différentes techniques de traitement par lots pour les applications .NET qui utilisent la base de données SQL. Les deux dernières sections décrivent des recommandations et des scénarios de traitement par lots.
 
-## <a name="batching-strategies"></a>Stratégies de traitement par lots
-### <a name="note-about-timing-results-in-this-topic"></a>Remarque relative aux résultats de minutage fournis dans cette rubrique
+<a id="batching-strategies" class="xliff"></a>
+
+## Stratégies de traitement par lots
+<a id="note-about-timing-results-in-this-topic" class="xliff"></a>
+
+### Remarque relative aux résultats de minutage fournis dans cette rubrique
 > [!NOTE]
-> Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives**. Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés il y a quelque temps et ils ne correspondent pas nécessairement au débit que vous pourriez obtenir aujourd’hui. L’avantage relatif de la technique de traitement par lots doit être similaire.
+> Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives**. Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés avant la V12 et ne correspondent pas nécessairement au débit que vous pourriez obtenir avec une base de données V12 utilisant le nouveau [niveau de service](sql-database-service-tiers.md). L’avantage relatif de la technique de traitement par lots doit être similaire.
 > 
 > 
 
-### <a name="transactions"></a>Transactions
+<a id="transactions" class="xliff"></a>
+
+### Transactions
 Il peut sembler étrange d’aborder la question du traitement par lots par la notion de transactions. Mais l’utilisation de transactions côté client a un effet subtil côté serveur subtil qui améliore les performances. Les transactions peuvent être ajoutées avec seulement quelques lignes de code, afin de fournir un moyen rapide d’améliorer les performances des opérations séquentielles.
 
 Examinez le code C# suivant qui contient une séquence d’opérations d’insertion et de mise à jour sur une table simple.
@@ -120,9 +131,11 @@ Bien que l’utilisation de transactions puisse augmenter les performances, nous
 
 L’exemple précédent montre que vous pouvez ajouter une transaction locale au code ADO.NET avec deux lignes. Les transactions offrent un moyen rapide d’améliorer les performances du code qui génère les opérations d’insertion, de mise à jour et de suppression séquentielles. Toutefois, pour de meilleures performances, vous devriez apporter d’autres modifications au code afin de tirer parti des avantages du traitement par lots côté client, tels que les paramètres table.
 
-Pour plus d’informations sur les transactions dans ADO.NET, consultez [Transactions locales dans ADO.NET](https://msdn.microsoft.com/library/vstudio/2k2hy99x.aspx).
+Pour plus d’informations sur les transactions dans ADO.NET, consultez [Transactions locales dans ADO.NET](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
 
-### <a name="table-valued-parameters"></a>Paramètres table
+<a id="table-valued-parameters" class="xliff"></a>
+
+### Paramètres table
 Les paramètres table prennent en charge les types de tables définis par l’utilisateur en tant que paramètres dans les instructions Transact-SQL, en tant que procédures stockées et en tant que fonctions. Cette technique de traitement par lots côté client vous permet d’envoyer plusieurs lignes de données dans le paramètre table. Pour utiliser les paramètres table, commencez par définir un type de table. L’instruction Transact-SQL suivante crée un type de table nommé **MyTableType**.
 
     CREATE TYPE MyTableType AS TABLE 
@@ -200,7 +213,9 @@ Le gain de performances associé au traitement par lots est immédiatement évid
 
 Pour plus d’informations sur les paramètres table, consultez [Paramètres table](https://msdn.microsoft.com/library/bb510489.aspx).
 
-### <a name="sql-bulk-copy"></a>Copie en bloc SQL
+<a id="sql-bulk-copy" class="xliff"></a>
+
+### Copie en bloc SQL
 La copie en bloc SQL est une autre façon d’insérer de grandes quantités de données dans une base de données cible. Les applications .NET peuvent utiliser la classe **SqlBulkCopy** pour effectuer des opérations d’insertion en bloc. Le fonctionnement de la classe **SqlBulkCopy** est similaire à celui de l’outil en ligne de commande **Bcp.exe** ou de l’instruction Transact-SQL, **BULK INSERT**. L’exemple de code suivant montre comment copier en bloc les lignes de la table source **DataTable**dans la table de destination SQL Server, MyTable.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -237,7 +252,9 @@ Dans les lots plus petits, l’utilisation des paramètres table a permis d’ob
 
 Pour plus d’informations sur la copie en bloc dans ADO.NET, consultez [Opérations de copie en bloc dans SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
-### <a name="multiple-row-parameterized-insert-statements"></a>Instructions INSERT paramétrables sur plusieurs lignes
+<a id="multiple-row-parameterized-insert-statements" class="xliff"></a>
+
+### Instructions INSERT paramétrables sur plusieurs lignes
 Une solution pour les petits lots consiste à construire une grande instruction INSERT paramétrable permettant d’insérer plusieurs lignes. L’exemple de code suivant illustre cette technique.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -276,13 +293,19 @@ Les résultats des tests ad hoc suivants montrent les performances de ce type d�
 
 Cette approche peut être légèrement plus rapide pour les lots comportant moins de 100 lignes. Bien que l’amélioration soit négligeable, cette technique constitue une autre solution potentiellement efficace dans votre scénario d’application spécifique.
 
-### <a name="dataadapter"></a>DataAdapter
+<a id="dataadapter" class="xliff"></a>
+
+### DataAdapter
 La classe **DataAdapter** vous permet de modifier un objet **DataSet** puis de soumettre les modifications en tant qu’opérations INSERT, UPDATE et DELETE. Si vous utilisez la classe **DataAdapter** de cette manière, il est important de noter que les appels distincts sont effectués pour chaque opération distincte. Pour améliorer les performances, utilisez la propriété **UpdateBatchSize** sur le nombre d’opérations devant être traitées par lot simultanément. Pour plus d’informations, consultez [Exécution de traitements par lots à l’aide de DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
-### <a name="entity-framework"></a>Entity Framework
+<a id="entity-framework" class="xliff"></a>
+
+### Entity Framework
 Entity Framework ne prend pas actuellement en charge le traitement par lots. Différents développeurs de la communauté ont tenté de démontrer des solutions de contournement, telles que la substitution de la méthode **SaveChanges** . Mais les solutions sont généralement complexes et adaptées à l’application et au modèle de données. Le projet codeplex Entity Framework possède actuellement une page de discussion sur cette demande de fonctionnalité. Pour afficher cette discussion, consultez les [Notes de réunion de conception du 2 août 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
-### <a name="xml"></a>XML
+<a id="xml" class="xliff"></a>
+
+### XML
 Par souci d’exhaustivité, nous estimons qu’il est important de considérer XML comme une stratégie de traitement par lots. Toutefois, l’utilisation du langage XML n’apporte aucun avantage par rapport aux autres méthodes et présente même plusieurs inconvénients. L’approche est similaire aux paramètres table, à ceci près qu’un fichier ou une chaîne XML, et non une table définie par l’utilisateur, est transféré vers une procédure stockée. La procédure stockée analyse les commandes dans la procédure stockée.
 
 Cette approche présente plusieurs inconvénients :
@@ -293,15 +316,21 @@ Cette approche présente plusieurs inconvénients :
 
 Pour ces raisons, l’utilisation de XML pour les requêtes par lots n’est pas recommandée.
 
-## <a name="batching-considerations"></a>Remarques relatives au traitement par lots
+<a id="batching-considerations" class="xliff"></a>
+
+## Remarques relatives au traitement par lots
 Les sections suivantes fournissent davantage de conseils sur l’utilisation du traitement par lots dans les applications de base de données SQL.
 
-### <a name="tradeoffs"></a>Compromis
+<a id="tradeoffs" class="xliff"></a>
+
+### Compromis
 En fonction de votre architecture, le traitement par lots peut vous obliger à faire un compromis entre performances et résilience. Par exemple, pensez à une situation où votre rôle rencontre une défaillance inattendue. Si vous perdez une ligne de données, l’impact sera moins important que celui associé à la perte d’un grand lot de lignes qui n’ont pas été envoyées. Le risque est d’autant plus élevé lorsque vous placez les lignes dans la mémoire tampon avant de les envoyer à la base de données dans un laps de temps spécifié.
 
 Ce compromis doit vous amener à évaluer le type d’opérations que vous souhaitez traiter par lots. Optez pour une approche plus agressive (lots plus volumineux et intervalles plus longs) pour les données moins critiques.
 
-### <a name="batch-size"></a>Taille du lot
+<a id="batch-size" class="xliff"></a>
+
+### Taille du lot
 Dans nos tests, il n’y avait généralement aucun avantage à fractionner les lots volumineux en plusieurs petits segments. En fait, cette sous-division s’est souvent traduite par des performances plus lentes que celles obtenues avec l’envoi d’un seul lot plus volumineux. Imaginez par exemple un scénario où vous souhaitez insérer 1 000 lignes. Le tableau suivant indique la durée nécessaire aux paramètres table pour insérer 1 000 lignes divisées en lots plus petits.
 
 | Taille du lot | Itérations | Paramètres table (ms) |
@@ -322,7 +351,9 @@ Autre facteur à prendre en compte : si le lot total devient trop volumineux, l
 
 Enfin, équilibrez la taille du lot en fonction des risques liés au traitement par lots. Si vous obtenez des erreurs temporaires ou si le rôle échoue, tenez compte des conséquences associées à une nouvelle tentative de l’opération ou à la perte de données dans le lot.
 
-### <a name="parallel-processing"></a>Traitement en parallèle
+<a id="parallel-processing" class="xliff"></a>
+
+### Traitement en parallèle
 Que se passe-t-il si vous avez adopté l’approche consistant à réduire la taille de lot mais que vous avez utilisé plusieurs threads pour exécuter la tâche ? Là encore, nos tests ont montré que plusieurs petits lots multithreads produisaient de moins bonnes performances que celles obtenues avec un seul lot plus volumineux. Le test suivant tente d’insérer 1 000 lignes dans un ou plusieurs lots parallèles. Il montre comment un plus grand nombre de lots simultanés affecte les performances.
 
 | Taille de lot [itérations] | Deux threads (ms) | Quatre threads (ms) | Six threads (ms) |
@@ -350,15 +381,21 @@ Dans certains modèles, l’exécution parallèle de lots plus petits peut entra
 
 Si vous utilisez une exécution parallèle, veillez à contrôler le maximum de threads de travail. Un plus petit nombre peut réduire la contention et accélérer la durée d’exécution. Tenez également compte de la charge supplémentaire qui pèsera sur la base de données cible tant au niveau des connexions que des transactions.
 
-### <a name="related-performance-factors"></a>Facteurs de performances associés
+<a id="related-performance-factors" class="xliff"></a>
+
+### Facteurs de performances associés
 Les conseils classiques sur les performances de base de données s’appliquent également au traitement par lots. Par exemple, les performances d’insertion sont réduites pour les tables qui ont une grande clé primaire ou de nombreux index non ordonnés en clusters.
 
 Si les paramètres table utilisent une procédure stockée, vous pouvez utiliser la commande **SET NOCOUNT ON** au début de la procédure. Cette instruction supprime le retour du nombre de lignes affectées dans la procédure. Toutefois, dans nos tests, l’utilisation de **SET NOCOUNT ON** n’avait aucun effet sur les performances, voire les dégradait. La procédure stockée de test reposait simplement sur l’exécution d’une seule commande **INSERT** à partir du paramètre table. Il est possible que les procédures stockées plus complexes puissent bénéficier de cette instruction. Mais ne partez pas du principe que l’ajout de la commande **SET NOCOUNT ON** à votre procédure stockée améliorera systématiquement les performances. Pour en comprendre l’impact, testez votre procédure stockée avec et sans l’instruction **SET NOCOUNT ON** .
 
-## <a name="batching-scenarios"></a>Scénarios de traitement par lots
+<a id="batching-scenarios" class="xliff"></a>
+
+## Scénarios de traitement par lots
 Les sections suivantes expliquent comment utiliser les paramètres table dans trois scénarios d’application. Le premier scénario montre comment utiliser une mise en mémoire tampon parallèlement à un traitement par lots. Le deuxième scénario améliore les performances en exécutant des opérations maître/détail dans un appel de procédure stockée unique. Le dernier scénario montre comment utiliser des paramètres table dans une opération « UPSERT ».
 
-### <a name="buffering"></a>Mise en mémoire tampon
+<a id="buffering" class="xliff"></a>
+
+### Mise en mémoire tampon
 Bien que certains scénarios apparaissent comme des candidats évidents pour le traitement par lots, il existe de nombreux scénarios qui peuvent tirer parti des avantages d’un traitement par lots différé. Ce type de traitement induit toutefois un risque plus élevé de perte des données en cas de défaillance inattendue. Il est important de comprendre ce risque et de prendre en compte ses conséquences.
 
 Par exemple, considérez une application web qui assure le suivi de l’historique de navigation de chaque utilisateur. À chaque demande de page, l’application peut lancer un appel sur la base de données pour enregistrer la page consultée par l’utilisateur. Mais il est possible d’améliorer les performances et l’évolutivité en plaçant dans la mémoire tampon les activités de navigation des utilisateurs puis en envoyant ces données par lots à la base de données. Vous pouvez déclencher la mise à jour de la base de données par temps écoulé et/ou taille de mémoire tampon. Par exemple, une règle peut spécifier que le lot doit être traité après 20 secondes ou lorsque la mémoire tampon atteint 1 000 éléments.
@@ -447,7 +484,9 @@ Le gestionnaire convertit tous les éléments mis en mémoire tampon en type de 
 
 Pour utiliser cette classe de mise en mémoire tampon, l’application crée un objet NavHistoryDataMonitor statique. À chaque fois qu’un utilisateur accède à une page, l’application appelle la méthode NavHistoryDataMonitor.RecordUserNavigationEntry. La logique de mise en mémoire tampon se poursuit pour envoyer ces entrées à la base de données sous forme de lots.
 
-### <a name="master-detail"></a>Maître/détail
+<a id="master-detail" class="xliff"></a>
+
+### Maître/détail
 Les paramètres table sont utiles pour les scénarios INSERT simples. Il peut toutefois être plus difficile de traiter par lots des insertions qui impliquent plusieurs tables. Le scénario « maître/détail » en est un bon exemple. La table maître identifie l’entité principale. Une ou plusieurs tables détail stockent des données sur l’entité. Dans ce scénario, les relations de clés étrangères imposent la relation de détails à une seule entité maître. Imaginez une version simplifiée d’une table PurchaseOrder et de sa table OrderDetail associée. L’instruction Transact-SQL suivante crée la table PurchaseOrder avec quatre colonnes : OrderID, OrderDate, CustomerID et Status.
 
     CREATE TABLE [dbo].[PurchaseOrder](
@@ -560,7 +599,9 @@ Cette solution permet à chaque lot d’utiliser un ensemble de valeurs OrderID 
 
 Cet exemple montre que les opérations de base de données encore plus complexes, telles que les opérations maître/détail, peuvent être traitées par lots à l’aide des paramètres table.
 
-### <a name="upsert"></a>Opération UPSERT
+<a id="upsert" class="xliff"></a>
+
+### Opération UPSERT
 Un autre scénario de traitement par lots implique la mise à jour simultanée de lignes existantes et l’insertion de nouvelles lignes. Cette opération est parfois appelée « UPSERT » (mise à jour + insertion). Plutôt que d’effectuer des appels distincts pour les opérations INSERT et UPDATE, l’instruction MERGE convient le mieux à cette tâche. L’instruction MERGE peut exécuter les deux opérations d’insertion et de mise à jour en un seul appel.
 
 Les paramètres table peuvent être utilisés avec l’instruction MERGE pour effectuer des mises à jour et des insertions. Par exemple, considérez une table Employee simplifiée contenant les colonnes suivantes : EmployeeID, FirstName, LastName et SocialSecurityNumber :
@@ -598,7 +639,9 @@ Ensuite, créez une procédure stockée ou écrivez du code qui utilise l’inst
 
 Pour plus d’informations, consultez la documentation et les exemples fournis pour l’instruction MERGE. Bien que la même tâche puisse être effectuée dans un appel de procédure stockée en plusieurs étapes avec des opérations INSERT et UPDATE distinctes, l’instruction MERGE est plus efficace. Le code de base de données peut également construire des appels Transact-SQL qui utilisent directement l’instruction MERGE sans nécessiter deux appels de base de données pour les opérations INSERT et UPDATE.
 
-## <a name="recommendation-summary"></a>Résumé des recommandations
+<a id="recommendation-summary" class="xliff"></a>
+
+## Résumé des recommandations
 La liste suivante fournit un résumé des recommandations relatives au traitement par lots présentées dans cette rubrique :
 
 * Utilisez la mise en mémoire tampon et le traitement par lots pour améliorer les performances et l’évolutivité des applications de base de données SQL.
@@ -618,7 +661,9 @@ La liste suivante fournit un résumé des recommandations relatives au traitemen
 * Évitez l’exécution parallèle de lots qui s’exécutent sur une seule table dans une base de données unique. Si vous choisissez de diviser un seul lot sur plusieurs threads de travail, exécutez des tests pour déterminer le nombre idéal de threads. Après un seuil non spécifié, un plus grand nombre de threads aura pour effet de diminuer les performances au lieu de les augmenter.
 * Envisagez la mise en mémoire tampon sur la taille et l’heure comme un moyen d’implémenter le traitement par lot pour d’autres scénarios.
 
-## <a name="next-steps"></a>Étapes suivantes
-Cet article se concentre sur la façon dont les techniques de conception et de codage de bases de données basées sur un traitement par lots peuvent améliorer les performances et l’évolutivité de votre application. Mais cet aspect ne représente qu’un facteur parmi d’autres dans votre stratégie globale. Pour d’autres méthodes d’amélioration des performances et de l’évolutivité, consultez [Guide des performances Azure SQL Database pour les bases de données uniques](sql-database-performance-guidance.md) et [Considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool.md).
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
+Cet article se concentre sur la façon dont les techniques de conception et de codage de bases de données basées sur un traitement par lots peuvent améliorer les performances et l’évolutivité de votre application. Mais cet aspect ne représente qu’un facteur parmi d’autres dans votre stratégie globale. Pour d’autres méthodes d’amélioration des performances et de l’évolutivité, consultez [Guide des performances Azure SQL Database pour les bases de données uniques](sql-database-performance-guidance.md) et [Considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool-guidance.md).
 
 

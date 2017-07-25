@@ -14,19 +14,22 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/09/2017
+ms.date: 05/02/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 088f9fc332f04edfd154450726c4e175ccaf3db3
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: e9a2c3230ec5081a0cfb57ef1dbf311a87bb26b5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
 
-# <a name="configure-a-sql-server-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles dans différentes régions
+<a id="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions" class="xliff"></a>
 
-Cet article explique comment configurer un réplica de groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure dans une région Azure distante. Utilisez cette configuration pour prendre en charge la récupération d’urgence.
+# Configurer un groupe de disponibilité AlwaysOn sur des machines virtuelles Azure dans des emplacements différents
+
+Cet article explique comment configurer un réplica de groupe de disponibilité SQL Server AlwaysOn sur des machines virtuelles Azure dans un emplacement Azure distant. Utilisez cette configuration pour prendre en charge la récupération d’urgence.
 
 Cet article s’applique aux machines virtuelles Azure s’exécutant en mode Resource Manager.
 
@@ -59,7 +62,9 @@ Le schéma suivant montre comment les réseaux communiquent entre les centres de
 >[!IMPORTANT]
 >Cette architecture facture les données sortantes des données répliquées entre des régions Azure. Consultez [Détails de la tarification de la bande passante](http://azure.microsoft.com/pricing/details/bandwidth/).  
 
-## <a name="create-remote-replica"></a>Créer un réplica distant
+<a id="create-remote-replica" class="xliff"></a>
+
+## Créer un réplica distant
 
 Pour créer un réplica dans un centre de données distant, procédez comme suit :
 
@@ -139,7 +144,9 @@ Exécutez le script PowerShell avec le nom réseau du cluster, une adresse IP et
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-## <a name="set-connection-for-multiple-subnets"></a>Configurer la connexion à plusieurs sous-réseaux
+<a id="set-connection-for-multiple-subnets" class="xliff"></a>
+
+## Configurer la connexion à plusieurs sous-réseaux
 
 Le réplica dans le centre de données distant fait partie du groupe de disponibilité, mais il se trouve dans un autre sous-réseau. Si ce réplica devient le réplica principal, la connexion d’application peut être perturbée. Ce comportement est identique à un groupe de disponibilité local dans un déploiement de plusieurs sous-réseaux. Pour autoriser les connexions des applications clientes, mettez à jour la connexion cliente ou configurez la mise en cache de la résolution du nom sur la ressource de nom de réseau de cluster.
 
@@ -147,7 +154,9 @@ Idéalement, mettez à jour les chaînes de connexion au client pour qu’elles 
 
 Si vous ne pouvez pas modifier les chaînes de connexion, vous pouvez configurer la mise en cache de la résolution des noms. Consultez [Connection Timeouts in Multi-subnet Availability Group (Délais d’expiration de la connexion dans le groupe de disponibilité de plusieurs sous-réseaux)](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
 
-## <a name="fail-over-to-remote-region"></a>Basculer vers la région distante
+<a id="fail-over-to-remote-region" class="xliff"></a>
+
+## Basculer vers la région distante
 
 Pour tester la connectivité de l’écouteur à la région distante, vous pouvez basculer le réplica vers la région distante. Si le réplica est asynchrone, le basculement est vulnérable à la perte potentielle de données. Pour effectuer un basculement sans perte de données, modifiez le mode de disponibilité en synchrone et définissez le mode de basculement automatique. Procédez comme suit :
 
@@ -172,14 +181,18 @@ Après avoir testé la connectivité, replacez le réplica principal dans votre 
 | Centre de données secondaire ou distant | SQL-3 | Secondaire | Asynchrone | Manuel
 
 
-### <a name="more-information-about-planned-and-forced-manual-failover"></a>Plus d’informations sur le basculement manuel forcé et planifié
+<a id="more-information-about-planned-and-forced-manual-failover" class="xliff"></a>
+
+### Plus d’informations sur le basculement manuel forcé et planifié
 
 Pour plus d’informations, consultez les rubriques suivantes :
 
 - [Effectuer un basculement manuel planifié d'un groupe de disponibilité (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
 - [Effectuer un basculement manuel forcé d'un groupe de disponibilité (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Liens supplémentaires
+<a id="additional-links" class="xliff"></a>
+
+## Liens supplémentaires
 
 * [Groupes de disponibilité AlwaysOn](http://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)

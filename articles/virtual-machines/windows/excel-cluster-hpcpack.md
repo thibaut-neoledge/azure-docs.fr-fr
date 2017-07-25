@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/11/2017
+ms.date: 06/01/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8c40a0d44463c75e92444b393336db1daf270ee1
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: acd2ee7fb94c43493ffd9ffee157f2c3e795b63e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -61,7 +61,7 @@ Utilisez un modèle de démarrage rapide Azure pour déployer rapidement un clus
    
    a. Sur la page **Paramètres**, saisissez ou modifiez les valeurs des paramètres du modèle. (Cliquez sur l'icône en regard de chaque paramètre pour obtenir de l'aide.) Des exemples de valeurs sont affichés dans l'écran suivant. Cet exemple crée un cluster nommé *hpc01* dans le domaine *hpc.local*, constitué d’un nœud principal et de 2 nœuds de calcul. Les nœuds de calcul sont créés à partir d'une image de machine virtuelle HPC Pack comprenant Microsoft Excel.
    
-   ![Saisie des paramètres][parameters]
+   ![Saisie des paramètres][parameters-new-portal]
    
    > [!NOTE]
    > La machine virtuelle du nœud principal est créée automatiquement à partir de la [dernière image Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) de HPC Pack 2012 R2 sur Windows Server 2012 R2. Actuellement, l'image repose sur HPC Pack 2012 R2 Update 3.
@@ -79,9 +79,9 @@ Utilisez un modèle de démarrage rapide Azure pour déployer rapidement un clus
    e. Lisez les conditions de la page **Mentions légales** . Si vous les acceptez, cliquez sur **Acheter**. Une fois que vous avez défini les valeurs du modèle, cliquez sur **Créer**.
 4. Lorsque le déploiement est terminé (cela dure environ 30 minutes généralement), exportez le fichier de certificat de cluster depuis le nœud principal du cluster. Par la suite, vous importez ce certificat public sur l'ordinateur client pour fournir l'authentification côté serveur pour une liaison HTTP sécurisée.
    
-   a. Connectez-vous au nœud principal par le Bureau à distance à partir du portail Azure.
+   a. Dans le portail Azure, accédez au tableau de bord, sélectionnez le nœud principal, puis cliquez sur **Connecter** en haut de la page pour vous connecter à l’aide du Bureau à distance.
    
-    ![Connexion au nœud principal][connect]
+    <!-- ![Connect to the head node][connect] -->
    
    b. Utilisez les procédures standard du Gestionnaire de certificat pour exporter le certificat du nœud principal (situé sous Cert:\LocalMachine\My) sans la clé privée. Dans cet exemple, exportez *CN = hpc01.eastus.cloudapp.azure.com*.
    
@@ -333,12 +333,12 @@ Pour utiliser une liaison Http sans une file d’attente de stockage Azure, vous
 ```
 
 ### <a name="use-nettcp-binding"></a>Utilisation de la liaison NetTcp
-Pour utiliser une liaison NetTcp, la configuration est la même que pour se connecter à un cluster local. Vous devez ouvrir quelques points de terminaison sur la machine virtuelle du nœud principal. Si vous avez utilisé le script de déploiement HPC Pack IaaS pour créer le cluster, par exemple, définissez les points de terminaison dans le portail Azure Classic comme suit.
+Pour utiliser une liaison NetTcp, la configuration est la même que pour se connecter à un cluster local. Vous devez ouvrir quelques points de terminaison sur la machine virtuelle du nœud principal. Si vous avez utilisé le script de déploiement HPC Pack IaaS pour créer le cluster, par exemple, définissez les points de terminaison dans le portail Azure comme suit.
 
 1. Arrêtez la machine virtuelle.
 2. Ajoutez les ports TCP 9090, 9087, 9091 et 9094 pour les services Session, Broker, worker Broker et de données respectivement
    
-    ![Configuration des points de terminaison][endpoint]
+    ![Configuration des points de terminaison][endpoint-new-portal]
 3. Démarrez la machine virtuelle.
 
 L'application cliente SOA ne nécessite aucune modification à l'exception de la modification du nom principal en nom complet du cluster IaaS.
@@ -352,6 +352,7 @@ L'application cliente SOA ne nécessite aucune modification à l'exception de la
 [github]: ./media/excel-cluster-hpcpack/github.png
 [template]: ./media/excel-cluster-hpcpack/template.png
 [parameters]: ./media/excel-cluster-hpcpack/parameters.png
+[parameters-new-portal]: ./media/excel-cluster-hpcpack/parameters-new-portal.png
 [create]: ./media/excel-cluster-hpcpack/create.png
 [connect]: ./media/excel-cluster-hpcpack/connect.png
 [cert]: ./media/excel-cluster-hpcpack/cert.png
@@ -360,5 +361,6 @@ L'application cliente SOA ne nécessite aucune modification à l'exception de la
 [options]: ./media/excel-cluster-hpcpack/options.png
 [run]: ./media/excel-cluster-hpcpack/run.png
 [endpoint]: ./media/excel-cluster-hpcpack/endpoint.png
+[endpoint-new-portal]: ./media/excel-cluster-hpcpack/endpoint-new-portal.png
 [udf]: ./media/excel-cluster-hpcpack/udf.png
 

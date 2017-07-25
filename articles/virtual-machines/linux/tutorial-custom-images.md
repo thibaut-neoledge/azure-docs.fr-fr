@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/21/2017
 ms.author: cynthn
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: de8ffb5ef81ac9ef4a9217f275f2c96973948eb1
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: d32980f05ad17a76793021d0a5355d597974a4e4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -34,7 +35,10 @@ Les images personnalisées sont comme des images de la Place de marché, sauf qu
 > * Répertorier toutes les images dans votre abonnement
 > * Supprimer une image
 
-Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). Vous pouvez également utiliser [Cloud Shell](/azure/cloud-shell/quickstart) à partir de votre navigateur.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter l’interface de ligne de commande Azure version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -73,13 +77,13 @@ exit
 
 Pour créer une image, la machine virtuelle doit être libérée. Libérez la machine virtuelle à l’aide de [az vm deallocate](/cli//azure/vm#deallocate). 
    
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 Enfin, définissez l’état de la machine virtuelle comme généralisé avec [az vm generalize](/cli//azure/vm#generalize) afin que la plateforme Azure sache que la machine virtuelle a été généralisée. Vous pouvez uniquement créer une image à partir d’une machine virtuelle généralisée.
    
-```azurecli
+```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
@@ -87,7 +91,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 Créez à présent une image de la machine virtuelle à l’aide de [az image create](/cli//azure/image#create). L’exemple suivant crée une image nommée *myimage* à partir d’une machine virtuelle nommée *myimage*.
    
-```azurecli
+```azurecli-interactive 
 az image create \
     --resource-group myResourceGroup \
     --name myImage \
@@ -98,7 +102,7 @@ az image create \
 
 Maintenant que vous avez une image, vous pouvez créer une ou plusieurs nouvelles machines virtuelles à partir de l’image à l’aide de [az vm create](/cli/azure/vm#create). L’exemple suivant crée une machine virtuelle nommée *myVMfromImage* à partir de l’image nommée *myImage*.
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroup \
     --name myVMfromImage \
@@ -113,14 +117,14 @@ Voici quelques exemples de tâches de gestion d’image courantes et comment les
 
 Répertoriez toutes les images par nom dans un format de tableau.
 
-```azurecli
+```azurecli-interactive 
 az image list \
   --resource-group myResourceGroup
 ```
 
 Supprimez une image. Cet exemple supprime l’image nommée *myOldImage* à partir du groupe *myResourceGroup*.
 
-```azurecli
+```azurecli-interactive 
 az image delete \
     --name myOldImage \
     --resource-group myResourceGroup

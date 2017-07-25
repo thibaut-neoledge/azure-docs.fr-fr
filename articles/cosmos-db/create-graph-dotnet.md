@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 597b12b98edb07e453fc3cd5a0884c584a5bfd14
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 3491aa53a55d988876710c0ac19383e642dda27b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -61,7 +61,7 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
 
 Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fichier Program.cs ; vous pouvez constater que ces lignes de code créent les ressources Azure Cosmos DB. 
 
-* Le DocumentClient est initialisé. Dans la préversion, nous avons ajouté une API d’extension graphique sur le client DocumentDB. Nous travaillons actuellement à la mise au point d’un client graphique autonome dissocié du client et des ressources DocumentDB.
+* Le DocumentClient est initialisé. Dans la préversion, nous avons ajouté une API d’extension graphique sur le client Azure Cosmos DB. Nous travaillons actuellement à la mise au point d’un client graphique autonome dissocié du client et des ressources Azure Cosmos DB.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(

@@ -1,6 +1,7 @@
 # Vue d'ensemble
 
 ## [Introduction](storage-introduction.md)
+## [Choisissez des objets blob, des fichiers ou des disques de données](storage-decide-blobs-files-disks.md)
 
 # Prise en main
 
@@ -36,13 +37,18 @@
 ### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-## Stockage de fichiers
-### [Windows, .NET, PowerShell](storage-dotnet-how-to-use-files.md)
+## [Stockage de fichiers](storage-files-introduction.md)
+### [Portail](storage-file-how-to-use-files-portal.md)
+### [.NET](storage-dotnet-how-to-use-files.md)
+### [PowerShell](storage-file-how-to-use-files-powershell.md)
+### [Windows](storage-file-how-to-use-files-windows.md)
 ### [Linux](storage-how-to-use-files-linux.md)
+### [Mac](storage-file-how-to-use-files-mac.md)  
 ### [Java](storage-java-how-to-use-file-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
-
+### [Créer un partage de fichiers](storage-file-how-to-create-file-share.md)
+### [FAQ](storage-files-faq.md)
 ## Stockage sur disque 
 ### [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 ### [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
@@ -50,6 +56,7 @@
 ### [Ajouter un disque géré à une machine virtuelle Linux](../virtual-machines/linux/add-disk.md)
 ### [Créer une copie d’un disque dur virtuel stocké en tant que disque géré à l’aide de la fonction Instantanés dans Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Créer une copie d’un disque dur virtuel stocké en tant que disque géré à l’aide de la fonction Instantanés dans Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [À l’aide de disques gérés dans les modèles Resource Manager](storage-using-managed-disks-template-deployments.md)
 
 # Procédure
 ## [Créer un compte de stockage](storage-create-storage-account.md)
@@ -69,8 +76,9 @@
 ### [Guide de conception de tables](storage-table-design-guide.md)
 ### [Exemples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Utiliser des fichiers
-### [Vue d’ensemble](/rest/api/storageservices/File-Service-Concepts)
-### [Dépanner Sauvegarde Azure](storage-troubleshoot-file-connection-problems.md)
+### [Vue d'ensemble](/rest/api/storageservices/File-Service-Concepts)
+### [Résoudre les problèmes sur des fichiers Azure - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Résoudre les problèmes sur des fichiers Azure - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Exemples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Utiliser des disques
 ### [Disques et disques durs virtuels pour les machines virtuelles Windows](storage-about-disks-and-vhds-windows.md)
@@ -109,14 +117,18 @@
 ## Sécuriser
 ### [Guide sur la sécurité](storage-security-guide.md)
 ### [Chiffrement des données au repos](storage-service-encryption.md)
-### [Authentification par clé partagée](https://msdn.microsoft.com/library/dd179428.aspx)
+### [Chiffrement au repos avec des clés de client](storage-service-encryption-customer-managed-keys.md)
+### [Authentification par clé partagée](/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [Signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Didacticiel : Chiffrement et déchiffrement d’objets blob à l’aide d’Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
+### [Transfert sécurisé requis](storage-require-secure-transfer.md)
 ### chiffrement côté client
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Surveiller et résoudre des problèmes
+### [Guide de récupération d’urgence](storage-disaster-recovery-guidance.md)
+### [Sauvegarde et récupération d’urgence pour les disques IaaS](storage-backup-and-disaster-recovery-for-azure-iaas-disks.md)
 ### [Résoudre les problèmes de l’Explorateur de stockage](storage-explorer-troubleshooting.md)
 ### Mesures et journalisation
 #### [Analyse du stockage](storage-analytics.md)
@@ -127,10 +139,10 @@
 #### [Dans un déploiement Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 #### [Déploiement classique](storage-cannot-delete-storage-account-container-vhd.md)
 ### [Résolution les problèmes de compression de fichiers](storage-troubleshoot-file-connection-problems.md)
-### [Guide de récupération d’urgence](storage-disaster-recovery-guidance.md)
 ## Transfert de données
 ### [Déplacer des données vers Storage et à partir de Storage](storage-moving-data.md)
-### [Utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
+### [AzCopy sur Windows](storage-use-azcopy.md)
+### [AzCopy sur Linux](storage-use-azcopy-linux.md)
 ### [Utilisation du service Import/Export](storage-import-export-service.md)
 ### [Utilisation de l’outil Import/Export](storage-import-export-tool-how-to.md)
 #### [Configuration de l’outil Import/Export](storage-import-export-tool-setup.md)
@@ -196,11 +208,12 @@
 ### [Didacticiel sur la résolution des problèmes](storage-e2e-troubleshooting-classic-portal.md)
 
 # Ressources
-## [Tarification](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Outils clients d’Azure Storage](storage-explorers.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Tarification](https://azure.microsoft.com/pricing/details/storage/blobs/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=storage)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=storage)
 
 ## Azure Storage Explorer

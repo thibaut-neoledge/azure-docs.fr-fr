@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: hanuk;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1cc14b99a4c0dfeb9eec0afaf72200e93cd22e12
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 7dc61a4ea5f7ce9749a3280562e42223dfdbde17
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -86,7 +87,7 @@ Le modèle de cohérence et de réplication compatible avec les centres de donn�
 
 **Déploiement basé sur la proximité :** les applications mutualisées, avec un mappage clair entre les utilisateurs clients et les régions, peuvent tirer parti des faibles latences du cluster à plusieurs régions. Par exemple, des systèmes de gestion de formation pour des établissements d’enseignement peuvent déployer un cluster distribué dans les régions Est et Ouest des États-Unis pour servir les campus respectifs pour les transactions et l’analyse. Les données peuvent être localement cohérentes au moment des lectures et des écritures et peuvent être finalement cohérentes entre les deux régions. Il existe d’autres exemples, tels que la distribution multimédia ou le commerce électronique, et tout ce qui répond aux demandes des bases d’utilisateurs concentrées géographiquement constitue un bon cas d’utilisation pour ce modèle de déploiement.
 
-**Haute disponibilité :** la redondance est un facteur clé dans l’obtention de la haute disponibilité des logiciels et du matériel ; pour plus d’informations, consultez Création de systèmes de cloud fiables sur Microsoft Azure. Sur Microsoft Azure, la seule méthode fiable pour assurer la redondance consiste à déployer un cluster dans plusieurs régions. Vous pouvez déployer les applications en mode actif-actif ou actif-passif et si l’une des régions est défaillante, Microsoft Azure Traffic Manager peut rediriger le trafic vers la région active.  Avec le déploiement dans une seule région, si la disponibilité est de 99,9 %, un déploiement dans deux régions peut atteindre une disponibilité de 99,9999 % calculée par la formule suivante : (1-(1-0.999) *(1-0.999))*100) ; pour plus d’informations, consultez le document ci-dessus.
+**Haute disponibilité :** la redondance est un facteur clé dans l’obtention de la haute disponibilité des logiciels et du matériel ; pour plus d’informations, consultez Création de systèmes de cloud fiables sur Microsoft Azure. Sur Microsoft Azure, la seule méthode fiable pour assurer la redondance consiste à déployer un cluster dans plusieurs régions. Vous pouvez déployer les applications en mode actif-actif ou actif-passif et si l’une des régions est défaillante, Microsoft Azure Traffic Manager peut rediriger le trafic vers la région active.  Avec le déploiement dans une seule région, si la disponibilité est de 99,9 %, un déploiement dans deux régions peut atteindre une disponibilité de 99,9999 % calculée par la formule suivante : (1-(1-0.999) * (1-0.999))*100) ; pour plus d’informations, consultez le document ci-dessus.
 
 **Récupération d’urgence :** un cluster Cassandra à plusieurs régions, conçu correctement, peut résister aux pannes catastrophiques d’un centre de données. Si une région est défaillante, l’application déployée dans d’autres régions peut répondre aux demandes des utilisateurs finaux. Comme toute autre implémentation de continuité des activités métier, l’application doit pouvoir tolérer certaines pertes de données dues aux données contenues dans le pipeline asynchrone. Toutefois, Cassandra accélère la récupération par rapport aux processus de récupération de bases de données traditionnels. La Figure 2 montre le modèle de déploiement dans plusieurs régions classiques avec huit nœuds dans chaque région. Les deux régions sont des images miroirs l’une de l’autre ; les conceptions réelles varient selon le type de charge de travail (par exemple, transactionnelle ou analytique), l’objectif de point de récupération, l’objectif de temps de récupération, la cohérence des données et les exigences de disponibilité.
 
@@ -303,15 +304,13 @@ Assurez-vous que la machine virtuelle est sélectionnée et cliquez sur le lien 
 Cela prendra quelques secondes et l'image devrait être disponible dans la section Mes images de la galerie d'images. La machine virtuelle source sera automatiquement supprimée une fois l’image capturée correctement. 
 
 ## <a name="single-region-deployment-process"></a>Processus de déploiement dans une seule région
-**Étape 1 : Créer le réseau virtuel** Connectez-vous au portail Azure Classic, puis créez un réseau virtuel avec les attributs présentés dans le tableau. Pour connaître les étapes détaillées du processus, consultez [Configuration d’un réseau virtuel de cloud uniquement dans le portail Azure Classic](../../../virtual-network/virtual-networks-create-vnet-classic-portal.md) .      
+**Étape 1 : Créer le réseau virtuel** Connectez-vous au portail Azure, puis créez un réseau virtuel (classique) avec les attributs présentés dans la table suivante. Pour connaître les étapes détaillées du processus, consultez [Créer un réseau virtuel (classique) à l’aide du portail Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md).      
 
 <table>
 <tr><th>Nom d'attribut de machine virtuelle</th><th>Valeur</th><th>Remarques</th></tr>
 <tr><td>Name</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Région</td><td>Ouest des États-Unis</td><td></td></tr>
-<tr><td>Serveurs DNS    </td><td>Aucun</td><td>Ignorez cet attribut, car nous n'utilisons pas de serveur DNS</td></tr>
-<tr><td>Configurer un réseau VPN de point à site</td><td>Aucun</td><td> Ignorez cet attribut</td></tr>
-<tr><td>Configurer un réseau VPN de site à site</td><td>Aucun</td><td> Ignorez cet attribut</td></tr>
+<tr><td>Serveurs DNS</td><td>Aucun</td><td>Ignorez cet attribut, car nous n'utilisons pas de serveur DNS</td></tr>
 <tr><td>Espace d'adressage</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>Adresse IP de départ</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>

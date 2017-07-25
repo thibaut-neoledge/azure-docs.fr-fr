@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ec9da5c9818f03a85e858800bd38be49d8ed14e6
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: ffa791cf4c4be15645a67fef4e94bf6ebdc42a6a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -41,7 +42,7 @@ La configuration de connexions VPN de site à site et ExpressRoute coexistantes 
 * **La passerelle de référence de base n’est pas prise en charge.** Vous devez utiliser une passerelle de référence SKU autre que De base pour la [passerelle ExpressRoute](expressroute-about-virtual-network-gateways.md) et la [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Seule la passerelle VPN basée sur un itinéraire est prise en charge.** Vous devez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) basée sur un itinéraire.
 * L’**itinéraire statique doit être configuré pour votre passerelle VPN.** Si votre réseau local est connecté à la fois à ExpressRoute et à un VPN de site à site, vous devez avoir configuré un itinéraire statique sur votre réseau local pour acheminer la connexion VPN de site à site vers l’Internet public.
-* La **passerelle ExpressRoute doit être configurée en premier.** Vous devez commencer par créer la passerelle ExpressRoute avant d’ajouter la passerelle VPN de site à site.
+* La **passerelle ExpressRoute doit être configurée en premier et liée à un circuit.** Vous devez commencer par créer la passerelle ExpressRoute et la lier à un circuit avant d’ajouter la passerelle VPN de site à site.
 
 ## <a name="configuration-designs"></a>Modèles de configuration
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurer un réseau VPN de site à site comme un chemin d’accès de basculement pour ExpressRoute
@@ -87,6 +88,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et de conne
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
+  $VNetASN = 65010
   ```
 3. Créez un réseau virtuel et un sous-réseau de passerelle. Pour plus d’informations sur la configuration d'un réseau virtuel, consultez la rubrique [Configuration du réseau virtuel Azure](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
    
@@ -136,10 +138,10 @@ Cette procédure vous guide dans la création d’un réseau virtuel et de conne
   New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard"
   ```
    
-    La passerelle VPN Azure prend en charge le protocole BGP. Vous pouvez spécifier - EnableBgp dans la commande suivante.
+    La passerelle VPN Azure prend en charge le protocole de routage BGP. Vous pouvez spécifier le numéro ASN (numéro AS) pour ce réseau virtuel en ajoutant le commutateur -Asn dans la commande suivante. Si vous ne spécifiez pas ce paramètre, la valeur par défaut sera le numéro 65515.
 
   ```powershell
-  $azureVpn = New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard" -EnableBgp $true
+  $azureVpn = New-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "Standard" -Asn $VNetASN
   ```
    
     Vous pouvez trouver l’IP d’homologation BGP et le numéro AS qu’Azure utilise pour la passerelle VPN dans $azureVpn.BgpSettings.BgpPeeringAddress et $azureVpn.BgpSettings.Asn. Pour plus d’informations, consultez [Configurer BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md) pour la passerelle VPN Azure.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: a2bc32193ad539053984794a411ae7307b8d8532
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 777bddea6b1cb325a6f8ede00196b18e1746d80c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-the-azure-portal"></a>Répliquer des machines virtuelles Hyper-V dans des clouds VMM sur un site VMM secondaire avec le portail Azure
@@ -30,7 +29,7 @@ ms.lasthandoff: 03/15/2017
 >
 >
 
-Cet article décrit comment utiliser [Site Recovery](site-recovery-overview.md) dans le portail Azure pour répliquer des machines virtuelles Hyper-V locales gérées sur les clouds System Center Virtual Machines Manager (VMM) dans un site secondaire. En savoir plus sur cette [architecture du scénario](site-recovery-components.md#hyper-v-to-a-secondary-site).
+Cet article décrit comment utiliser [Site Recovery](site-recovery-overview.md) dans le portail Azure pour répliquer des machines virtuelles Hyper-V locales gérées sur les clouds System Center Virtual Machines Manager (VMM) dans un site secondaire. En savoir plus sur cette [architecture du scénario](site-recovery-components.md).
 
 Après avoir lu cet article, publiez des commentaires au bas de ce dernier ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -40,8 +39,8 @@ Après avoir lu cet article, publiez des commentaires au bas de ce dernier ou su
 **Configuration requise** | **Détails**
 --- | ---
 **Microsoft Azure** | Vous avez besoin d’un compte [Microsoft Azure](http://azure.microsoft.com/) . Vous pouvez commencer par une version d’ [essai gratuit](https://azure.microsoft.com/pricing/free-trial/). [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery/) sur la tarification Site Recovery.
-**Instances VMM locales** | Nous vous recommandons de déployer&2; serveurs VMM, un sur le site principal et un sur le site secondaire.<br/><br/> Vous pouvez effectuer la réplication entre des clouds sur un seul serveur VMM.<br/><br/> Les serveurs VMM doivent exécuter au moins System Center 2012 SP1 avec les dernières mises à jour.<br/><br/> Les serveurs VMM doivent avoir accès à Internet.
-**Clouds VMM** | Chaque serveur VMM doit disposer d’un ou plusieurs clouds et tous les clouds doivent avoir le profil de capacité Hyper-V. <br/><br/>Les clouds doivent contenir un ou plusieurs groupes hôtes VMM.<br/><br/> Si vous ne disposez que d’un seul serveur VMM, vous devez lui associer au moins&2; clouds, agissant en tant qu’instances primaire et secondaire.
+**Instances VMM locales** | Nous vous recommandons de déployer 2 serveurs VMM, un sur le site principal et un sur le site secondaire.<br/><br/> Vous pouvez effectuer la réplication entre des clouds sur un seul serveur VMM.<br/><br/> Les serveurs VMM doivent exécuter au moins System Center 2012 SP1 avec les dernières mises à jour.<br/><br/> Les serveurs VMM doivent avoir accès à Internet.
+**Clouds VMM** | Chaque serveur VMM doit disposer d’un ou plusieurs clouds et tous les clouds doivent avoir le profil de capacité Hyper-V. <br/><br/>Les clouds doivent contenir un ou plusieurs groupes hôtes VMM.<br/><br/> Si vous ne disposez que d’un seul serveur VMM, vous devez lui associer au moins 2 clouds, agissant en tant qu’instances primaire et secondaire.
 **Hyper-V** | Les serveurs Hyper-V doivent exécuter au moins Windows Server 2012 avec le rôle Hyper-V et les dernières mises à jour doivent être installées.<br/><br/> Un serveur Hyper-V doit contenir au moins une machine virtuelle.<br/><br/>  Les serveurs hôtes Hyper-V doivent être situés dans des groupes hôtes dans les clouds VMM principaux et secondaires.<br/><br/> Si vous exécutez Hyper-V dans un cluster sur Windows Server 2012 R2, installez la [mise à jour 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Si vous exécutez Hyper-V dans un cluster sous Windows Server 2012, notez que le répartiteur de clusters n’est pas créé automatiquement si vous avez un cluster basé sur des adresses IP statiques. Configurez manuellement le répartiteur de cluster. [En savoir plus](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).<br/><br/> Les serveurs Hyper-V doivent disposer d’un accès Internet.
 **URLs** | Les serveurs VMM et les hôtes Hyper-V doivent être en mesure d’atteindre ces URL :<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
@@ -104,7 +103,7 @@ Installez le fournisseur Azure Site Recovery sur les serveurs VMM puis découvre
     ![Configurer la source](./media/site-recovery-vmm-to-vmm/set-source1.png)
 3. Dans **Ajouter un serveur**, vérifiez que **Serveur System Center VMM** s’affiche dans le champ **Type de serveur** et que le serveur VMM répond à la [configuration requise](#prerequisites).
 4. Téléchargez le fichier d’installation du fournisseur Azure Site Recovery.
-5. Téléchargez la clé d’inscription. Vous en aurez besoin lorsque vous exécuterez le programme d’installation. Une fois générée, la clé reste valide pendant&5; jours.
+5. Téléchargez la clé d’inscription. Vous en aurez besoin lorsque vous exécuterez le programme d’installation. Une fois générée, la clé reste valide pendant 5 jours.
 
     ![Configurer la source](./media/site-recovery-vmm-to-vmm/set-source3.png)
 6. Installez le fournisseur Azure Site Recovery sur le serveur VMM. Vous n’avez besoin de rien installer explicitement sur les serveurs hôtes Hyper-V.
@@ -169,7 +168,7 @@ Sélectionnez le cloud et le serveur VMM cible.
 4. Dans **Type d’authentification** et **Port d’authentification**, indiquez le mode d’authentification du trafic entre les serveurs hôtes Hyper-V principaux et de récupération. Sélectionnez **Certificat** , sauf si vous avez un environnement Kerberos opérationnel. Azure Site Recovery configurera automatiquement des certificats pour l'authentification HTTPS. Vous n’avez pas besoin de faire quoi que ce soit manuellement. Par défaut, les ports 8083 et 8084 (pour les certificats) seront ouverts dans le Pare-feu Windows sur les serveurs hôtes Hyper-V. Si vous sélectionnez **Kerberos**, un ticket Kerberos est utilisé pour l'authentification mutuelle des serveurs hôtes. Notez que ce paramètre n'est utile que pour les serveurs hôtes Hyper-V s'exécutant sur Windows Server 2012 R2.
 5. Dans **Fréquence de copie**, spécifiez la fréquence selon laquelle répliquer les données delta après la réplication initiale (toutes les 30 secondes ou toutes les 5 ou 15 minutes).
 6. Dans **Rétention des points de récupération**, spécifiez la durée de la fenêtre de rétention pour chaque point de récupération (en heures). Les machines protégées peuvent être récupérées à tout moment pendant cette fenêtre temporelle.
-7. Dans **Fréquence des captures instantanées cohérentes de l’application**, spécifiez la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications (entre&1; et&12; heures). Hyper-V utilise deux types d’instantanés : un instantané standard qui fournit un instantané incrémentiel de la machine virtuelle complète et un instantané cohérent avec l'application qui prend un instantané des données d'application d'une machine virtuelle. Les instantanés cohérents avec l'application utilisent le service VSS (Volume Shadow Copy Service) pour s'assurer que les applications sont dans un état cohérent lors de la prise des instantanés. Si vous activez les instantanés cohérents avec l'application, cela affecte les performances des applications exécutées sur les machines virtuelles sources. Assurez-vous que la valeur définie est inférieure au nombre de points de récupération supplémentaires que vous configurez.
+7. Dans **Fréquence des captures instantanées cohérentes de l’application**, spécifiez la fréquence de création des points de récupération contenant des instantanés cohérents au niveau des applications (entre 1 et 12 heures). Hyper-V utilise deux types d’instantanés : un instantané standard qui fournit un instantané incrémentiel de la machine virtuelle complète et un instantané cohérent avec l'application qui prend un instantané des données d'application d'une machine virtuelle. Les instantanés cohérents avec l'application utilisent le service VSS (Volume Shadow Copy Service) pour s'assurer que les applications sont dans un état cohérent lors de la prise des instantanés. Si vous activez les instantanés cohérents avec l'application, cela affecte les performances des applications exécutées sur les machines virtuelles sources. Assurez-vous que la valeur définie est inférieure au nombre de points de récupération supplémentaires que vous configurez.
 8. Dans **Compression du transfert de données**, indiquez si les données répliquées transférées doivent être compressées.
 9. Sélectionnez **Supprimer une machine virtuelle de réplica** pour spécifier que la machine virtuelle doit être supprimée si vous désactivez la protection de la machine virtuelle source. Si vous activez ce paramètre et que vous désactivez la protection de la machine virtuelle source, elle est supprimée de la console Site Recovery, les paramètres Site Recovery de VMM sont supprimés de la console VMM et le réplica est supprimé.
 10. Dans **Méthode de réplication initiale**, si vous effectuez une réplication sur le réseau, indiquez si vous souhaitez lancer la réplication initiale ou la planifier. Pour économiser de la bande passante réseau, il peut être intéressant de la planifier en dehors des heures de pointe. Cliquez ensuite sur **OK**.
@@ -384,7 +383,7 @@ Vous configurez le mappage de stockage en mappant les classifications de stockag
   * **Aucun mappage de stockage**: si vous ne configurez aucun mappage de stockage, les machines virtuelles seront répliquées sur l’emplacement de stockage par défaut spécifié sur le serveur hôte Hyper-V associé à la machine virtuelle de réplica.
 
 Notez les points suivants :
-- Vous pouvez configurer le mappage entre&2; clouds VMM sur un serveur unique.
+- Vous pouvez configurer le mappage entre 2 clouds VMM sur un serveur unique.
 - Les classifications de stockage doivent être accessibles aux groupes hôtes situés dans les clouds source et cible.
 - Il n'est pas obligatoire qu'elles aient le même type de stockage. Par exemple, vous pouvez mapper une classification source contenant des partages SMB à une classification cible contenant des volumes partagés de cluster.
 

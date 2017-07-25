@@ -4,7 +4,7 @@
 2. Vous voyez les balises existantes pour la ressource. Si vous n’avez préalablement appliqué aucune balise, cette liste est vide. 
 
      ![Afficher les balises existantes des panneaux de ressources et de groupe de ressources](./media/resource-manager-tag-resources/existing-tags.png)
-3. Pour ajouter une balise, tapez une clé et une valeur ou sélectionnez-en dans le menu déroulant. Sélectionnez **Enregistrer**.
+3. Pour ajouter une balise, tapez un nom et une valeur ou sélectionnez-en dans le menu déroulant. Sélectionnez **Enregistrer**.
 
      ![Ajouter une balise](./media/resource-manager-tag-resources/tag-resources.png)
 3. Pour afficher toutes les ressources ayant une valeur de balise, sélectionnez **>** (Plus de services) et saisissez le mot **Balises** dans la zone de texte de filtre. Sélectionnez **Balises** parmi les options disponibles.

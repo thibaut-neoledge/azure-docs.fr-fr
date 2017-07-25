@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 06/06/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3b543b1c94122a037cdd3b16e25d60957add1cb7
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 93300ba995f2a556cb90fc657db5cf9ad56b9846
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -120,7 +121,8 @@ Il existe deux causes communes pour cette erreur : une configuration incorrecte 
     Parfois, le service Service Bus peut rencontrer des retards de traitement des requêtes, par exemple pendant les périodes de trafic élevé. Dans ce cas, vous pouvez réessayer l'opération après un certain délai, jusqu'à ce que l'opération réussisse. Si la même opération échoue encore après plusieurs tentatives, consultez le [Site d'état des services Azure](https://azure.microsoft.com/status/) pour voir s'il existe des interruptions de service connues.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des informations complètes sur Service Bus et l’API .NET Event Hubs, consultez les [informations de référence sur l’API .NET Azure](/dotnet/api/).
+
+Pour obtenir des informations complètes sur l’API .NET Service Bus, consultez les [informations de référence sur l’API .NET Azure](/dotnet/api/overview/azure/servicebus).
 
 Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/service-bus/), consultez les rubriques qui suivent.
 

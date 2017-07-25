@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7fc69510ee07f8a0c50fa7ab59c7e1fac38fc5bb
-ms.lasthandoff: 12/08/2016
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 4317cf84760289ca29d8d5a78e2adef99c4cedf2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/04/2017
 
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Modifier l’ID de client du coffre de clés après un déplacement d’abonnement
@@ -32,7 +32,12 @@ Lorsque vous créez un coffre de clés dans un abonnement, il est automatiquemen
 Par exemple, si vous avez un coffre de clés 'myvault' dans un abonnement qui a été déplacé du client A vers le client B, voici comment modifier l’ID de client de ce coffre de clés et supprimer d’anciennes stratégies d’accès.
 
 <pre>
-$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties $vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId $vault.Properties.AccessPolicies = @() Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
+$Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
+$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
+$vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
+$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId
+$vault.Properties.AccessPolicies = @()
+Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
 Dans la mesure où ce coffre se trouvait dans le client A avant son déplacement, la valeur d’origine de **$vault. Properties.TenantId** est le client A, tandis que **(Get-AzureRmContext).Tenant.TenantId** est le client B.

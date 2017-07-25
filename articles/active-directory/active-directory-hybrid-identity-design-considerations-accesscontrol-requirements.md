@@ -1,6 +1,6 @@
 ---
 title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de contrôle d’accès | Microsoft Docs"
-description: "Couvre les piliers de l&quot;identité et l&quot;identification des conditions d&quot;accès aux ressources pour les utilisateurs dans un environnement hybride."
+description: "Couvre les piliers de l'identité et l'identification des conditions d'accès aux ressources pour les utilisateurs dans un environnement hybride."
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: 032467e0885d574a7b0f4a1c043e1800e5cc4071
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/11/2017
 
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins de contrôle d'accès pour votre solution d'identité hybride
@@ -79,10 +80,5 @@ Bien que l'authentification et l'autorisation soient des éléments essentiels p
 
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

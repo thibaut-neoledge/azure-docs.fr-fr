@@ -140,20 +140,22 @@
 ## Integrate
 ### [Accéder aux ressources locales à l’aide de connexions hybrides](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Envoi de courriers électroniques à l’aide de SendGrid avec Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
+### [Exporter vers PowerApps et Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
 
 ## Résolution des problèmes
 ### [Activer la journalisation des diagnostics](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Journaux en continu et console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Résoudre les problèmes à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-# les ressources
-## [portail Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+# Ressources
 ## [Référence App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Portail Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [meilleures pratiques](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [Tarification](https://azure.microsoft.com/pricing/details/app-service/)  
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=app-service) 
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Ressources WebJobs](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Kit de développement logiciel (SDK) WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [REST](https://docs.microsoft.com/rest/api/appservice/)
-## [Tarification](https://azure.microsoft.com/pricing/details/app-service/)  
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
-## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
-## [Mises à jour de service](https://azure.microsoft.com/updates/?product=app-service) 

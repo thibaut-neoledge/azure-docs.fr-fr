@@ -16,11 +16,11 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: e6cffef6559f5486bdfb111808a19da9a1391b6f
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 1a0ff3f8b8fb3eaf398d9fa925ef027b2481d47a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/15/2017
 
 Cet exemple permet de régénérer tout type de clé de compte Azure Cosmos DB à l’aide de l’interface CLI Azure. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -51,9 +51,9 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | Commande | Remarques |
 |---|---|
 | [az group create](/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az cosmosdb create](/cli/azure/cosmosdb/name#create) | Met à jour un compte Azure Cosmos DB. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | Met à jour un compte Azure Cosmos DB. |
 | [az cosmosdb regenerate-key](/cli/azure/cosmosdb/regenerate-key) | Regénère les clés de compte Azure Cosmos DB. |
-| [az group delete](/cli/azure/resource#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

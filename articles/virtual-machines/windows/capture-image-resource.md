@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 4ffbe7e28d8b4c7d421bec477455a94609cd127a
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: e428b755f6696bd6d4047ad77579a8e9665dfbd8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="capture-a-managed-image-of-a-generalized-vm-in-azure"></a>Capturer une image managée d’une machine virtuelle généralisée dans Azure
+# <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
-Une ressource d’image managée peut être créée à partir d’une machine virtuelle généralisée stockée comme un disque géré ou non géré dans un compte de stockage. L’image peut ensuite être utilisée pour créer différentes machines virtuelles utilisant des disques gérés pour le stockage. 
+Une ressource d’image managée peut être créée à partir d’une machine virtuelle généralisée stockée comme un disque géré ou non géré dans un compte de stockage. L’image peut ensuite être utilisée pour créer plusieurs machines virtuelles. 
 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Généraliser la machine virtuelle Windows à l’aide de Sysprep
@@ -117,7 +117,7 @@ Pour plus d’informations, consultez la page relative au [contrôle de version 
 
     ```powershell
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
-    ```    
+    ``` 
 
 
 
@@ -144,7 +144,7 @@ Créez une image managée à l’aide de votre disque dur virtuel généralisé 
 3. Indiquez que la machine virtuelle est généralisée.
 
     ```powershell
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized    
+    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
     ```
 4.  Créez l’image à l’aide de votre disque dur virtuel généralisé de système d’exploitation.
 
@@ -185,10 +185,10 @@ Vous pouvez également créer une image managée à partir d’une capture insta
 
     ```powershell
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```    
+    ``` 
     
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Vous pouvez à présent [créer une machine virtuelle à partir de l’image managée généralisée](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
+- Vous pouvez à présent [créer une machine virtuelle à partir de l’image managée généralisée](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 
 

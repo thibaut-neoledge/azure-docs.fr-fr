@@ -1,6 +1,6 @@
 ---
-title: "Script Azure CLI - Surveillance et mise à l’échelle d’une instance SQL Database unique | Microsoft Docs"
-description: "Exemple de script Azure CLI - Surveillance et mise à l’échelle d’une instance SQL Database unique à l’aide de l’interface Azure CLI"
+title: "Exemple CLI - Surveiller - Mettre à l’échelle -Base de données Azure SQL | Microsoft Docs"
+description: "Exemple de script Azure CLI permettant de surveiller et mettre à l’échelle une base de données Azure SQL"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -9,40 +9,40 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: mvc
+ms.custom: monitor & tune
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: f29da889f90968a82dccaeb1fa7e3c20e6b44458
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 01911b85268244a8fddb32aa726f8a870abbaf77
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/30/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="monitor-and-scale-a-single-sql-database-using-the-azure-cli"></a>Surveiller et mettre à l’échelle une instance unique SQL Database à l’aide de l’interface Azure CLI
+# <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Utiliser CLI pour surveiller et mettre à l’échelle une base de données SQL
 
-Cet exemple de script CLI permet la mise à l’échelle d’une instance unique Azure SQL Database vers un nouveau niveau de performance après l’analyse des données de taille de la base de données. 
-
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Cet exemple de script Azure CLI met à l’échelle une base de données Azure SQL vers un autre niveau de performance après avoir déterminé la taille de la base de données. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-azurecli[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Surveillance et mise à l’échelle d’une instance SQL Database unique")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Surveillance et mise à l’échelle d’une instance SQL Database unique")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

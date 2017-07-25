@@ -65,8 +65,3 @@ Pour terminer, vous allez créer un compte de connexion SQL Server avec des aut
 3. Dans le script ci-dessus, remplacez la chaîne `<**secure_password**>` par un mot de passe sécurisé pour le nouveau *HybridConnectionsLogin*.
 4. **Exécutez** la requête pour créer un compte de connexion et accorder les autorisations requises dans la base de données locale.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

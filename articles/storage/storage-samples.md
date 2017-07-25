@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 01/23/2017
+ms.date: 06/03/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: dd11ad70efd8f78805e74ad193fb9000abf6a3a8
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: aa2b53c514890aa980bc89626e8c7c7336b77a0b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
 # <a name="azure-storage-samples"></a>Exemples relatifs à Microsoft Azure Storage
-## <a name="overview"></a>Vue d'ensemble
-Utilisez les liens ci-dessous pour afficher et télécharger des exemples d’utilisation de Microsoft Azure Storage.
+
+Utilisez les liens ci-dessous pour afficher et télécharger des applications et un exemple de code de stockage Azure.
 
 ## <a name="azure-code-samples-library"></a>Bibliothèque Exemples de code Azure
 La bibliothèque [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?service=storage) comprend des exemples relatifs au service Stockage Azure que vous pouvez télécharger et exécuter localement. Les exemples de code fournis par la bibliothèque sont au format .zip. Vous pouvez également parcourir et cloner le dépôt GitHub pour chaque exemple.
@@ -64,22 +64,18 @@ Pour explorer les exemples C++, téléchargez la [bibliothèque cliente de stoc
 * [Prise en main des tables](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Prise en main des files d’attente](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
+## <a name="api-reference-and-source-code"></a>Informations de référence sur l’API et code source
+
+| language | Informations de référence sur l'API | Code source |
+|----------|---------------|-------------|
+| .NET | [Référence de la bibliothèque cliente .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Code source de la bibliothèque cliente de stockage .NET](https://github.com/Azure/azure-storage-net) |
+| Java | [Référence de la bibliothèque cliente Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Code source de la bibliothèque cliente de stockage Java](https://github.com/azure/azure-storage-java) |
+| Node.js | [Référence de la bibliothèque cliente Node.js](http://azure.github.io/azure-storage-node) | [Code source de la bibliothèque cliente de stockage Node.js](https://github.com/Azure/azure-storage-node) |
+| C++ | [Référence de la bibliothèque cliente C++](http://azure.github.io/azure-storage-cpp/) | [Code source de la bibliothèque cliente de stockage C++](https://github.com/Azure/azure-storage-cpp)|
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-### <a name="net-resources"></a>Ressources relatives à .NET
-* [Code source de la bibliothèque cliente de stockage .NET](https://github.com/Azure/azure-storage-net)
-* [Référence de la bibliothèque cliente .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+Les articles suivants indexent chacun des exemples par service (blob, fichier, file d’attente, table).
 
-### <a name="java-resources"></a>Ressources relatives à Java
-* [Code source de la bibliothèque cliente de stockage Java](https://github.com/azure/azure-storage-java)
-* [Référence de la bibliothèque cliente Java](http://dl.windowsazure.com/storage/javadoc/)
-
-### <a name="nodejs-resources"></a>Ressources relatives à Node.js
-* [Code source de la bibliothèque cliente de stockage Node.js](https://github.com/Azure/azure-storage-node)
-* [Référence de la bibliothèque cliente Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-
-### <a name="c-resources"></a>Ressources relatives à C++
-* [Code source de la bibliothèque cliente de stockage C++](https://github.com/Azure/azure-storage-cpp)
-* [Référence de la bibliothèque cliente C++](http://azure.github.io/azure-storage-cpp/)
-
-
+* [Exemples relatifs au service Stockage Azure avec .NET](storage-samples-dotnet.md)
+* [Exemples relatifs au service Stockage Azure avec Java](storage-samples-java.md)

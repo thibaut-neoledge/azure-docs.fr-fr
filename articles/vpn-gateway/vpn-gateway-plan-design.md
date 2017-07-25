@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2017
+ms.date: 06/06/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 06fe033be4df07d8c691733016bc7c44dd49f51c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: e0c44f6aabb56dfc97188bafa5e54ce2a0183e11
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -37,20 +38,16 @@ Si vous voulez connecter vos sites locaux en toute sécurité à un réseau virt
 * Quel est le type de passerelle VPN requis par la solution que vous souhaitez créer ?
 * Quelle référence SKU de passerelle devez-vous utiliser ?
 
+
+### <a name="planning-table"></a>Tableau de planification
 Le tableau suivant peut vous aider à déterminer la meilleure option de connectivité pour votre solution.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gwrequire"></a>Configuration requise de la passerelle par type de VPN et SKU
-[!INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-Pour plus d’informations sur les références (SKU) de passerelle, consultez [Paramètres de passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-
-#### <a name="aggregate-throughput-by-sku-and-vpn-type"></a>Débit agrégé par référence SKU et type de VPN
+### <a name="gateway-skus"></a>SKU de passerelle
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-#### <a name="supported-configurations-by-sku-and-vpn-type"></a>Configurations prises en charge par référence SKU et type de VPN
-[!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ### <a name="wf"></a>Flux de travail
 La liste suivante présente le flux de travail courant pour la connectivité au cloud :

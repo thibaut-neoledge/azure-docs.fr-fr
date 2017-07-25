@@ -1,6 +1,6 @@
 ---
 title: "Autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure | Microsoft Docs"
-description: "Apprenez à autoriser les utilisateurs à l&quot;aide d&quot;OAuth 2.0 dans Gestion des API."
+description: "Apprenez à autoriser les utilisateurs à l'aide d'OAuth 2.0 dans Gestion des API."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: e43027cdea291f34aa60ad123e0de86b385efb30
-ms.lasthandoff: 01/31/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: a19c453bb3271374b587f3d0b35adad55863b490
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Comment autoriser des comptes de développeurs à l'aide de OAuth 2.0 dans Gestion des API Azure
@@ -66,7 +67,7 @@ Spécifiez le paramètre **Types d'accès accordé aux codes d'autorisation** en
 
 Entrez l' **URL de point de terminaison d'autorisation**. Pour Azure Active Directory, cette URL est similaire à l’URL suivante, où `<client_id>` est remplacé par l’ID client qui identifie votre application sur le serveur OAuth 2.0.
 
-`https://login.windows.net/<client_id>/oauth2/authorize`
+`https://login.microsoftonline.com/<client_id>/oauth2/authorize`
 
 La **Méthode de demande d’autorisation** spécifie comment la demande d'autorisation est envoyée au serveur OAuth 2.0. Par défaut, la méthode **GET** est sélectionnée.
 
@@ -76,7 +77,7 @@ La section suivante permet de spécifier les paramètres **URL de point de termi
 
 Pour un serveur OAuth 2.0 Azure Active Directory, l’**URL de point de terminaison de jeton** a le format suivant, où `<APPID>` a le format `yourapp.onmicrosoft.com`.
 
-`https://login.windows.net/<APPID>/oauth2/token`
+`https://login.microsoftonline.com/<APPID>/oauth2/token`
 
 Le paramètre par défaut pour **Méthodes d’authentification du client** est **De base**, et le paramètre par défaut pour **Méthode d’envoi des jetons d’accès** est **En-tête d’autorisation**. Ces valeurs sont configurées dans cette section du formulaire, ainsi que le paramètre **Étendue par défaut**.
 

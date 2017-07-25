@@ -1,6 +1,6 @@
 ---
 title: "Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services | Microsoft Docs"
-description: "Cette spécification décrit le protocole et le format requis pour l&quot;ingestion de diffusion en continu en direct basée sur le format MP4 fragmenté pour Microsoft Azure Media Services. Microsoft Azure Media Services fournit le service de diffusion en continu en direct qui permet aux clients de diffuser en continu des événements en direct et de diffuser du contenu en temps réel en utilisant Microsoft Azure en tant que plateforme cloud. Ce document explique également les pratiques recommandées en matière de création de mécanismes d&quot;ingestion en direct extrêmement redondants et robustes."
+description: "Cette spécification décrit le protocole et le format requis pour l'ingestion de diffusion en continu en direct basée sur le format MP4 fragmenté pour Microsoft Azure Media Services. Microsoft Azure Media Services fournit le service de diffusion en continu en direct qui permet aux clients de diffuser en continu des événements en direct et de diffuser du contenu en temps réel en utilisant Microsoft Azure en tant que plateforme cloud. Ce document explique également les pratiques recommandées en matière de création de mécanismes d'ingestion en direct extrêmement redondants et robustes."
 services: media-services
 documentationcenter: 
 author: cenkdin
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: cenkd;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 307c9a377fce32c056a54d35f173efd1bafc4df5
-ms.lasthandoff: 01/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 75f117e206df1883ea9eb8a78f9e0ab62f569049
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services
@@ -38,7 +38,7 @@ Le diagramme ci-dessous illustre l'architecture de haut niveau du service de dif
 ![image1][image1]
 
 ## <a name="3-bit-stream-format--iso-14496-12-fragmented-mp4"></a>3. Format de flux binaire – MP4 fragmenté ISO 14496-12
-Le format câble utilisé pour l’ingestion de la diffusion en continu en direct décrite dans ce document repose sur la norme [ISO&14496;-12]. Reportez-vous à [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) pour obtenir une explication détaillée du format MP4 fragmenté et des extensions de fichiers vidéo à la demande et d'ingestion de diffusion en continu en direct.
+Le format câble utilisé pour l’ingestion de la diffusion en continu en direct décrite dans ce document repose sur la norme [ISO 14496-12]. Reportez-vous à [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) pour obtenir une explication détaillée du format MP4 fragmenté et des extensions de fichiers vidéo à la demande et d'ingestion de diffusion en continu en direct.
 
 ### <a name="live-ingest-format-definitions"></a>Définitions de format de réception en temps réel
 Ci-dessous figure la liste des définitions de formats spéciaux qui s'appliquent à l'ingestion en direct dans Microsoft Azure Media Services :

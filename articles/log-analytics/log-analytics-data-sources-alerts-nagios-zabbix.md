@@ -15,26 +15,32 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 6659e1ccbe2b2d918039bf45fbecf199606cd201
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Collecte d’alertes à partir de Nagios et Zabbix dans Log Analytics à partir de l’agent OMS pour Linux 
+<a id="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux" class="xliff"></a>
+
+# Collecte d’alertes à partir de Nagios et Zabbix dans Log Analytics à partir de l’agent OMS pour Linux 
 [Nagios](https://www.nagios.org/) et [Zabbix](http://www.zabbix.com/) sont des outils de surveillance open source.  Vous pouvez collecter des alertes à partir de ces outils dans Log Analytics afin de les analyser avec des [alertes provenant d’autres sources](log-analytics-alerts.md).  Cet article décrit comment configurer l’agent OMS pour Linux pour la collecte d’alertes à partir de ces systèmes.
  
-## <a name="configure-alert-collection"></a>Configuration de la collecte d’alertes
+<a id="configure-alert-collection" class="xliff"></a>
 
-### <a name="configuring-nagios-alert-collection"></a>Configuration de la collecte d’alertes Nagios
+## Configuration de la collecte d’alertes
+
+<a id="configuring-nagios-alert-collection" class="xliff"></a>
+
+### Configuration de la collecte d’alertes Nagios
 Procédez comme suit sur le serveur Nagios pour collecter les alertes.
 
 1. Octroyez à l’utilisateur **omsagent** l’accès en lecture au fichier journal Nagios (par exemple, `/var/log/nagios/nagios.log`). Si le fichier nagios.log appartient au groupe `nagios`, vous pouvez ajouter l’utilisateur **omsagent** au groupe **nagios**. 
 
     sudo usermod -a -G nagios omsagent
 
-2.    Modifiez le fichier de configuration dans (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Vérifiez que les entrées suivantes sont présentes et non mises en commentaire :  
+2.  Modifiez le fichier de configuration dans (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Vérifiez que les entrées suivantes sont présentes et non mises en commentaire :  
 
         <source>  
           type tail  
@@ -54,25 +60,37 @@ Procédez comme suit sur le serveur Nagios pour collecter les alertes.
     sudo sh /opt/microsoft/omsagent/bin/service_control restart
     ```
 
-### <a name="configuring-zabbix-alert-collection"></a>Configuration de la collecte d’alertes Zabbix
+<a id="configuring-zabbix-alert-collection" class="xliff"></a>
+
+### Configuration de la collecte d’alertes Zabbix
 Pour collecter les alertes à partir d’un serveur Zabbix, vous devez indiquer un utilisateur et un mot de passe en *texte clair*. Ce n’est pas l’idéal, mais nous vous recommandons de créer l’utilisateur et d’accorder des autorisations pour surveiller onlu.
 
 Procédez comme suit sur le serveur Nagios pour collecter les alertes.
 
-2.    Modifiez le fichier de configuration dans (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Vérifiez que les entrées suivantes sont présentes et non commentées.  Remplacez le nom d’utilisateur et le mot de passe par des valeurs pour votre environnement Zabbix.
+1. Modifiez le fichier de configuration dans (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Vérifiez que les entrées suivantes sont présentes et non commentées.  Remplacez le nom d’utilisateur et le mot de passe par des valeurs pour votre environnement Zabbix.
 
         <source>
-         type zabbix_alerts    run_interval 1m    tag oms.zabbix    zabbix_url http://localhost/zabbix/api_jsonrpc.php    zabbix_username Admin    zabbix_password zabbix   </source>
+         type zabbix_alerts
+         run_interval 1m
+         tag oms.zabbix
+         zabbix_url http://localhost/zabbix/api_jsonrpc.php
+         zabbix_username Admin
+         zabbix_password zabbix
+        </source>
 
 2. Redémarrez le démon omsagent
 
     sudo sh /opt/microsoft/omsagent/bin/service_control restart
 
 
-## <a name="alert-records"></a>Enregistrements d’alerte
+<a id="alert-records" class="xliff"></a>
+
+## Enregistrements d’alerte
 Vous pouvez récupérer les enregistrements d’alerte de Nagios et Zabbix à l’aide des [recherches dans les journaux](log-analytics-log-searches.md) dans Log Analytics.
 
-### <a name="nagios-alert-records"></a>Enregistrements d’alerte Nagios
+<a id="nagios-alert-records" class="xliff"></a>
+
+### Enregistrements d’alerte Nagios
 
 Pour les enregistrements d’alerte collectés par Nagios, le **type** est **Alerte** et la valeur **SourceSystem** est **Nagios**.  Les propriétés des enregistrements sont décrites dans le tableau suivant.
 
@@ -89,7 +107,9 @@ Pour les enregistrements d’alerte collectés par Nagios, le **type** est **Ale
 | TimeGenerated |Date et heure de la création de l’alerte. |
 
 
-### <a name="zabbix-alert-records"></a>Enregistrements d’alerte Zabbix
+<a id="zabbix-alert-records" class="xliff"></a>
+
+### Enregistrements d’alerte Zabbix
 Pour les enregistrements d’alerte collectés par Zabbix, le **type** est **Alerte** et la valeur **SourceSystem** est **Zabbix**.  Les propriétés des enregistrements sont décrites dans le tableau suivant.
 
 | Propriété | Description |
@@ -107,7 +127,9 @@ Pour les enregistrements d’alerte collectés par Zabbix, le **type** est **Ale
 | TimeLastModified |Date et heure de la dernière modification de l’état de l’alerte. |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 * En savoir plus sur les [alertes](log-analytics-alerts.md) dans Log Analytics.
 * En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions. 
 

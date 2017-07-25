@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6e476e1dc550f246027c015dee75850236baa9a9
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: da848aec495a8248fd4791f350d439e937831d01
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -43,8 +44,10 @@ Effectuez les tâches suivantes pour créer un nouveau référentiel Git.
 1. Lancez un outil de ligne de commande, comme **GitBash** (Windows) ou **Bash** (Unix Shell). Sur les systèmes OS X, la ligne de commande est accessible depuis l'application **Terminal** .
 2. Accédez au répertoire où figure le contenu à déployer.
 3. Utilisez la commande suivante pour initialiser un nouveau référentiel Git :
-   
-        git init
+
+```bash  
+git init
+```
 
 ## <a name="Step2"></a>Étape 2 : validation de votre contenu
 App Service prend en charge des applications créées dans différents langages de programmation. 
@@ -54,11 +57,15 @@ App Service prend en charge des applications créées dans différents langages 
    * À l'aide d'un éditeur de texte, créez un fichier nommé **index.html** à la racine du référentiel Git
    * Ajoutez le texte suivant dans le fichier index.html et enregistrez ce dernier : *Hello Git!*
 2. Dans la ligne de commande, vérifiez que vous êtes bien à la racine de votre référentiel Git. Puis utilisez la commande suivante pour ajouter des fichiers à votre référentiel :
-   
-        git add -A 
+
+```bash  
+git add -A
+```
 3. Ensuite, validez les modifications apportées au référentiel au moyen de la commande suivante :
-   
-        git commit -m "Hello Azure App Service"
+
+```bash  
+git commit -m "Hello Azure App Service"
+```  
 
 ## <a name="Step3"></a>Étape 3 : activation du référentiel de l’application App Service
 Pour activer un référentiel Git pour votre application App Service, procédez comme suit.
@@ -88,10 +95,11 @@ Pour publier votre application vers App Service à l’aide de Git local, procé
    > 
    > 
 4. Diffusez votre contenu vers App Service à l'aide de la nouvelle référence **azure** distante que vous venez de créer.
-   
-        git push azure master
-   
-    Vous êtes invité à indiquer le mot de passe créé précédemment lorsque vous réinitialisez vos informations d'identification de déploiement dans le portail Azure. Entrez le mot de passe (notez que Gitbash ne génère pas d'astérisques dans la console lorsque vous tapez votre mot de passe). 
+
+```bash  
+git push azure master
+```
+    You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 5. Revenez à votre application dans le portail Azure. Une entrée de journal de votre dernière diffusion push doit apparaître dans le panneau **Déploiements** . 
    
     ![](./media/app-service-deploy-local-git/deployment_history.png)
@@ -121,8 +129,9 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 
 **Résolution**: Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple :
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Symptôme**: src refspec [nom_branche] ne correspond à aucun élément.
 
@@ -130,8 +139,9 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 
 **Résolution**: Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple :
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Symptôme** : échec RPC ; résultat=22, Code HTTP = 502.
 
@@ -139,8 +149,9 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 
 **Résolution** : modifiez la configuration git sur l’ordinateur local pour agrandir le postBuffer.
 
-    git config --global http.postBuffer 524288000
-
+```bash  
+git config --global http.postBuffer 524288000
+```
 - - -
 **Symptôme**: erreur : des modifications ont été validées dans le référentiel distant, mais votre application web n’a pas été mise à jour.
 

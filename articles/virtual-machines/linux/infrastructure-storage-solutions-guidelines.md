@@ -13,13 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5cce2dec867478707457a5e1390980129421ae75
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 771e3d1e728f6c85d9f63111b2483d08396ef530
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -34,7 +35,7 @@ Décisions :
 
 * Allez-vous utiliser des disques managés Azure ou des disques non managés ?
 * Devez-vous utiliser le stockage Standard ou Premium pour votre charge de travail ?
-* Avez-vous besoin d’un entrelacement pour créer des disques d’une taille supérieure à 1 023 Go ?
+* Avez-vous besoin d’un entrelacement de disques pour créer des disques d’une taille supérieure à 4 To ?
 * Avez-vous besoin d’un entrelacement pour optimiser les performances d’E/S de votre charge de travail ?
 * Quel est l’ensemble de comptes de stockage dont vous avez besoin pour héberger votre charge de travail ou votre infrastructure informatique ?
 
@@ -63,7 +64,7 @@ La durabilité et la haute disponibilité sont fournies par l’environnement de
 
 Vous pouvez lire [plus d’informations sur les options de réplication pour la haute disponibilité](../../storage/storage-introduction.md#replication-for-durability-and-high-availability).
 
-Les disques de système d’exploitation et disques de données ont une taille maximale de 1 023 gigaoctets (Go). La taille maximale d’un objet blob est de 1 024 Go et doit comprendre les métadonnées (pied de page) du fichier VHD (un Go est égal à 1 024<sup>3</sup> octets). Vous pouvez utiliser le Gestionnaire de volumes logiques (LVM) pour dépasser cette limite en regroupant des disques de données pour présenter des volumes logiques plus de 1 023 Go à votre machine virtuelle.
+Les disques de système d’exploitation et disques de données ont une taille maximale de 4 To. Vous pouvez utiliser le Gestionnaire de volumes logiques (LVM) pour dépasser cette limite en regroupant des disques de données pour présenter des volumes logiques plus de 1 023 Go à votre machine virtuelle.
 
 Il existe certaines limites d’évolutivité lors de la conception de vos déploiements de Stockage Azure. Consultez [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md#storage-limits) pour plus de détails. Voir également [Objectifs de performance et d’extensibilité d’Azure Storage](../../storage/storage-scalability-targets.md).
 
@@ -72,16 +73,15 @@ En ce qui concerne le stockage d’applications, vous pouvez stocker des donnée
 ## <a name="striped-disks"></a>Disques agrégés par bandes
 En plus de vous permettre de créer des disques d’une taille supérieure à 1 023 Go dans plusieurs instances, l’entrelacement de disques améliore les performances en permettant à plusieurs objets blob de sauvegarder le stockage d’un seul volume. Avec l’agrégation par bandes, l’E/S requise pour écrire et lire des données à partir d’un seul disque logique est exécutée en parallèle.
 
-Azure impose des limites quant au nombre de disques de données et à la quantité de bande passante disponible, selon la taille de la machine virtuelle. Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure impose des limites quant au nombre de disques de données et à la quantité de bande passante disponible, selon la taille de la machine virtuelle. Pour en savoir plus, consultez [Tailles de machines virtuelles](sizes.md.
 
 Si vous utilisez l’entrelacement pour les disques de données Azure, respectez les consignes suivantes :
 
-* Les disques de données doivent toujours avoir la taille maximale (1 023 Go).
 * Attachez le nombre maximum autorisé de disques de données pour la taille de machine virtuelle.
 * Utilisez LVM.
 * Évitez d’utiliser des options de mise en cache des disques de données Azure (Stratégie de mise en cache = Aucune).
 
-Pour en savoir plus, consultez la rubrique [Configurer LVM sur une machine virtuelle Linux](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour en savoir plus, consultez la rubrique [Configurer LVM sur une machine virtuelle Linux](configure-lvm.md).
 
 ## <a name="multiple-storage-accounts"></a>Comptes de stockage multiples
 Cette section ne s’applique pas aux [disques managés Azure](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), étant donné que vous ne créez pas de comptes de stockage distincts. 

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 66984bef9e82df80818eea31bd37de524b567b33
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: ae0261134b8d4a934048f58d6c679a48a904950b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Fonctions numériques pour les modèles Azure Resource Manager
@@ -51,7 +50,11 @@ Retourne la somme des deux entiers fournis.
 |operand1 |Oui |int |Premier nombre à ajouter. |
 |operand2 |Oui |int |Deuxième nombre à ajouter. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Entier qui contient la somme des paramètres.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant ajoute deux paramètres.
 
@@ -62,12 +65,14 @@ L’exemple suivant ajoute deux paramètres.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to add"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to add"
             }
@@ -84,9 +89,11 @@ L’exemple suivant ajoute deux paramètres.
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Entier qui contient la somme des paramètres.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| addResult | int | 8 |
 
 <a id="copyindex" />
 
@@ -110,7 +117,7 @@ La propriété **loopName** permet d’indiquer si copyIndex fait référence à
  
 Pour obtenir une description complète d’exemples d’utilisation de l’expression **copyIndex**, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
-### <a name="examples"></a>Exemples
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre une boucle de copie ainsi que la valeur d’index incluse dans le nom. 
 
@@ -146,7 +153,11 @@ Retourne la division entière des deux entiers fournis.
 | operand1 |Oui |int |Le nombre à diviser. |
 | operand2 |Oui |int |Le nombre utilisé pour diviser. Ne peut pas être 0. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Entier représentant la division.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant divise un paramètre par un autre paramètre.
 
@@ -157,12 +168,14 @@ L’exemple suivant divise un paramètre par un autre paramètre.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 8,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -179,9 +192,11 @@ L’exemple suivant divise un paramètre par un autre paramètre.
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Entier représentant la division.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| divResult | int | 2 |
 
 <a id="float" />
 
@@ -196,7 +211,10 @@ Convertit la valeur en nombre à virgule flottante. Vous utilisez uniquement cet
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |chaîne ou entier |Valeur à convertir en nombre à virgule flottante. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+Nombre à virgule flottante.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser float pour passer des paramètres à une application logique :
 
@@ -214,9 +232,6 @@ L’exemple suivant montre comment utiliser float pour passer des paramètres à
         },
 ```
 
-### <a name="return-value"></a>Valeur de retour
-Nombre à virgule flottante.
-
 <a id="int" />
 
 ## <a name="int"></a>int
@@ -230,7 +245,11 @@ Convertit la valeur spécifiée en entier.
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Oui |chaîne ou entier |La valeur à convertir en entier. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Nombre entier de la valeur convertie.
+
+### <a name="example"></a>Exemple
 
 L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisateur en entier.
 
@@ -239,29 +258,32 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appId": { "type": "string" }
-    },
-    "variables": { 
-        "intValue": "[int(parameters('appId'))]"
+        "stringToConvert": { 
+            "type": "string",
+            "defaultValue": "4"
+        }
     },
     "resources": [
     ],
     "outputs": {
-        "divResult": {
+        "intResult": {
             "type": "int",
-            "value": "[variables('intValue')]"
+            "value": "[int(parameters('stringToConvert'))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Nombre entier.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| intResult | int | 4 |
+
 
 <a id="min" />
 
-## <a name="min"></a>Min
+## <a name="min"></a>min
 `min (arg1)`
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
@@ -272,7 +294,11 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur minimale. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Entier représentant la valeur minimale de la collection.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant indique comment utiliser la fonction min avec un tableau et une liste d’entiers :
 
@@ -300,9 +326,12 @@ L’exemple suivant indique comment utiliser la fonction min avec un tableau et 
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Entier représentant la valeur minimale de la collection.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -317,7 +346,11 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau d’entiers ou liste séparée par des virgules d’entiers |Collection permettant d’obtenir la valeur maximale. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Entier représentant la valeur maximale de la collection.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant montre comment utiliser max avec un tableau et une liste d’entiers :
 
@@ -345,9 +378,12 @@ L’exemple suivant montre comment utiliser max avec un tableau et une liste d�
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Entier représentant la valeur maximale de la collection.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 <a id="mod" />
 
@@ -363,7 +399,10 @@ Retourne le reste de la division entière des deux entiers fournis.
 | operand1 |Oui |int |Le nombre à diviser. |
 | operand2 |Oui |int |Le nombre utilisé pour diviser, Ne peut pas être 0. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+Entier représentant le reste.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant renvoie le reste de la division d’un paramètre par un autre paramètre.
 
@@ -374,12 +413,14 @@ L’exemple suivant renvoie le reste de la division d’un paramètre par un aut
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -396,8 +437,11 @@ L’exemple suivant renvoie le reste de la division d’un paramètre par un aut
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
-Entier représentant le reste.
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| modResult | int | 1 |
 
 <a id="mul" />
 
@@ -413,7 +457,11 @@ Retourne la multiplication des deux entiers fournis.
 | operand1 |Oui |int |Premier nombre à multiplier. |
 | operand2 |Oui |int |Deuxième nombre à multiplier. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+
+Entier représentant la multiplication.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant multiplie un paramètre par un autre paramètre.
 
@@ -424,12 +472,14 @@ L’exemple suivant multiplie un paramètre par un autre paramètre.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to multiply"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to multiply"
             }
@@ -446,9 +496,11 @@ L’exemple suivant multiplie un paramètre par un autre paramètre.
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-Entier représentant la multiplication.
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| mulResult | int | 15 |
 
 <a id="sub" />
 
@@ -464,7 +516,10 @@ Retourne la soustraction des deux entiers fournis.
 | operand1 |Oui |int |Le nombre auquel est appliquée la soustraction. |
 | operand2 |Oui |int |Le nombre qui est soustrait. |
 
-### <a name="examples"></a>Exemples
+### <a name="return-value"></a>Valeur de retour
+Entier représentant la multiplication.
+
+### <a name="example"></a>Exemple
 
 L’exemple suivant soustrait un paramètre à un autre paramètre.
 
@@ -475,12 +530,14 @@ L’exemple suivant soustrait un paramètre à un autre paramètre.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer subtracted from"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer to subtract"
             }
@@ -497,8 +554,11 @@ L’exemple suivant soustrait un paramètre à un autre paramètre.
 }
 ```
 
-### <a name="return-value"></a>Valeur de retour
-Entier représentant la multiplication.
+La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
+
+| Nom | Type | Valeur |
+| ---- | ---- | ----- |
+| subResult | int | 4 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).

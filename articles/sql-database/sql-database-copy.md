@@ -1,25 +1,25 @@
 ---
 title: "Copie d’une base de données SQL Azure | Documents Microsoft"
-description: "Création d&quot;une copie d&quot;une base de données SQL Azure"
+description: "Création d'une copie d'une base de données SQL Azure"
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 04/05/2017
-ms.author: sashan;carlrab
+ms.date: 06/15/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: af953e16103951fe2fd283898b3c466a1ebe91fd
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 67c42b8df2f1d12ceecd127ab24d359a6de8ef43
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -39,7 +39,7 @@ Lorsque vous copiez une base de données vers un autre serveur logique, le princ
 
 Si vous utilisez [Azure Active Directory](../active-directory/active-directory-whatis.md), vous n’avez plus du tout besoin de gérer les informations d’identification dans la copie. Toutefois, lorsque vous copiez la base de données sur un nouveau serveur, l’accès par connexion peut ne pas fonctionner, car ces connexions n’existent pas sur le nouveau serveur. Pour en savoir plus sur la gestion des connexions durant la copie d’une base de données vers un autre serveur logique, consultez la page [Gestion de la sécurité d’une base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md). 
 
-Une fois la copie réussie et avant que les autres utilisateurs ne soient remappés, seule la connexion qui a initié la copie, le propriétaire de la base de données, peut se connecter à la nouvelle base de données. Pour résoudre les connexions à l’issue de l’opération de copie, consultez [Résoudre les connexions](sql-database-copy.md#resolve-logins.md).
+Une fois la copie réussie et avant que les autres utilisateurs ne soient remappés, seule la connexion qui a initié la copie, le propriétaire de la base de données, peut se connecter à la nouvelle base de données. Pour résoudre les connexions à l’issue de l’opération de copie, consultez [Résoudre les connexions](#resolve-logins).
 
 ## <a name="copy-a-database-by-using-the-azure-portal"></a>Copier une base de données à l’aide du portail Azure
 
@@ -49,7 +49,7 @@ Pour copier une base de données à l’aide du portail Azure, ouvrez la page de
 
 ## <a name="copy-a-database-by-using-powershell"></a>Copier une base de données à l’aide de PowerShell
 
-Pour copier une base de données à l’aide de PowerShell, utilisez l’applet de commande [`New-AzureRmSqlDatabaseCopy`](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy). 
+Pour copier une base de données à l’aide de PowerShell, utilisez l’applet de commande [New-AzureRmSqlDatabaseCopy](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy). 
 
 ```PowerShell
 New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `

@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: ae6af47c82a5c0425f6cd53b8ba1134797505e6c
-ms.lasthandoff: 04/17/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: aa2a6bf3d7d9ec22020036851fc0f2bca37e31bf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>S’authentifier avec un registre de conteneurs Docker
@@ -52,7 +53,7 @@ L’accès anonyme n’est pas disponible sur les registres de conteneur Azure. 
 
 Vous pouvez affecter plusieurs principaux du service à un registre, ce qui vous permet de définir l’accès pour différents utilisateurs ou applications. Les principaux du service activent également la connectivité « headless » (sans périphérique de contrôle) à un registre dans des scénarios de Développeur ou DevOps, tels que les exemples suivants :
 
-  * Déploiements de conteneurs à partir d’un registre vers des systèmes d’orchestration, y compris DC/OS, Docker Swarm et Kubernetes. Vous pouvez également extraire des registres de conteneurs vers des services Azure connexes tels que [Container Service](../container-service/index.md), [App Service](../app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) et autres.
+  * Déploiements de conteneurs à partir d’un registre vers des systèmes d’orchestration, y compris DC/OS, Docker Swarm et Kubernetes. Vous pouvez également extraire des registres de conteneurs vers des services Azure connexes tels que [Container Service](../container-service/index.yml), [App Service](../app-service/index.md), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/) et autres.
 
   * Solutions d’intégration et de déploiement en continu (comme Visual Studio Team Services ou Jenkins) qui créent des images de conteneur et les envoient vers un registre.
 

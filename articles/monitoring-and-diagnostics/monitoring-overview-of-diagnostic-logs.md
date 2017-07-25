@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/05/2017
 ms.author: johnkem; magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: c3e766b2e4c7bd372dc9c7b9d675a76c2d14a4cc
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: d144dd60192a4b62db393db08b82efeaa8d45447
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -188,6 +188,7 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 | Azure Batch |[Journalisation des diagnostics Azure Batch](../batch/batch-diagnostics.md) |
 | Insights client | Schéma non disponible. |
 | Réseau de distribution de contenu | Schéma non disponible. |
+| CosmosDB | Schéma non disponible. |
 | Data Lake Analytics |[Accès aux journaux de diagnostic d’Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accès aux journaux de diagnostic d’Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Event Hubs |[Journaux de diagnostic d’Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
@@ -215,6 +216,7 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 |Microsoft.DataLakeAnalytics/accounts|Requêtes|Journaux de requête|
 |Microsoft.DataLakeStore/accounts|Audit|Journaux d’audit|
 |Microsoft.DataLakeStore/accounts|Requêtes|Journaux de requête|
+|Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Journaux d’archivage|
 |Microsoft.EventHub/namespaces|OperationalLogs|Journaux des opérations|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Journaux de mise à l’échelle automatique|
@@ -233,7 +235,6 @@ Le schéma pour les journaux de diagnostic varie en fonction de la ressource et 
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Événements Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Éléments répliqués d’Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Journaux des opérations|
-|Microsoft.ServerManagement/nodes|RequestLogs|Journaux de requête|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Journaux des opérations|
 |Microsoft.StreamAnalytics/streamingjobs|Exécution|Exécution|
 |Microsoft.StreamAnalytics/streamingjobs|Création|Création|

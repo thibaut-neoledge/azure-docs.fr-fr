@@ -1,6 +1,6 @@
 ---
-title: "Script Azure PowerShell - Créer une base de données SQL | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Créer une base de données SQL avec PowerShell"
+title: "Exemple PowerShell-Créer une base de données SQL Azure | Microsoft Docs"
+description: "Exemple de script Azure PowerShell pour créer une base de données SQL Azure"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,17 +14,17 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 93abd9955c65e6ea741b7c79c3038ca46f62bccf
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 928f0285d298cad947359d8ba61553af7b8c132a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="create-a-single-sql-database-and-configure-a-firewall-rule-using-powershell"></a>Créer une base de données SQL unique et configurer une règle de pare-feu avec PowerShell
+# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Utiliser PowerShell pour créer une base de données SQL Azure et configurer une règle de pare-feu
 
 Cet exemple de script PowerShell crée une base de données SQL Azure et configure une règle de pare-feu au niveau du serveur. Une fois que le script a été exécuté avec succès, l’instance SQL Database est accessible à partir de tous les services Azure et l’adresse IP configurée. 
 

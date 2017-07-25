@@ -1,183 +1,205 @@
 ---
 title: "Prise en main d’Azure SQL Data Sync (version préliminaire) | Microsoft Docs"
-description: "Ce didacticiel présente la synchronisation des données SQL Azure (aperçu)."
+description: "Ce didacticiel décrit la prise en main d’Azure SQL Data Sync (version préliminaire)."
 services: sql-database
 documentationcenter: 
-author: dearandyxu
+author: douglaslms
 manager: jhubbard
 editor: 
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
-ms.custom: sync data
-ms.workload: data-management
+ms.custom: load & move data
+ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2016
-ms.author: jhubbard
-translationtype: Human Translation
-ms.sourcegitcommit: c8e285fc6fb82ab5c929236ac9cb5dc858924e57
-ms.openlocfilehash: 6535260a1650a2d3cc665eeb9d3ea33ae2de2650
-ms.lasthandoff: 01/25/2017
+ms.date: 06/08/2017
+ms.author: douglasl
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: af4d41f8fa04902c766cd85d7e90f61dff8133e7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Prise en main d’Azure SQL Data Sync (version préliminaire)
-Dans ce didacticiel, vous allez vous familiariser avec les concepts de base d’Azure SQL Data Sync avec le portail Azure.
+Dans ce didacticiel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation hybride contenant des instances SQL Database et SQL Server. Ce nouveau groupe de synchronisation est entièrement configuré et synchronise sur la planification définie.
 
-Ce didacticiel ne présuppose aucune expérience préalable de SQL Server et de la base de données SQL Azure. Au cours de ce didacticiel, vous allez créer un groupe de synchronisation hybride (instances SQL Server et base de données SQL) entièrement configuré et synchronisé avec la planification que vous avez définie.
+Ce didacticiel suppose que vous ayez déjà utilisé SQL Database et SQL Server. 
+
+Pour une vue d’ensemble de SQL Data Sync, consultez la section [Synchronisation des données](sql-database-sync-data.md).
 
 > [!NOTE]
-> La documentation technique complète pour la synchronisation des données SQL Azure, qui se trouvait auparavant sur MSDN, est à présent disponible dans un fichier .pdf. Téléchargez-le [ici](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
->
->
+> La documentation technique complète pour la synchronisation des données SQL Azure, qui se trouvait auparavant sur MSDN, est à présent disponible dans un fichier .pdf. Téléchargez-le [ici](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
-## <a name="step-1-connect-to-the-azure-sql-database"></a>Étape 1 : se connecter à la base de données SQL Azure
-1. Connectez-vous au [Portail Classic](http://manage.windowsazure.com).
-2. Dans le volet gauche, cliquez sur **SQL DATABASES** .
-3. Cliquez sur **SYNC** en bas de la page. Lorsque vous cliquez sur SYNC, la liste qui apparaît affiche les éléments que vous pouvez ajouter, à savoir un **groupe de synchronisation** et un **agent de synchronisation**.
-4. Pour lancer l’Assistant New SQL Data Sync Agent, cliquez sur **New Sync Agent**.
-5. Si vous n’avez pas encore ajouté d’agent, cliquez sur **download it here**.
+## <a name="step-1---create-sync-group"></a>Étape 1 : créer un groupe de synchronisation
 
-    ![Image1](./media/sql-database-get-started-sql-data-sync/SQLDatabaseScreen-Figure1.PNG)
+### <a name="locate-the-data-sync-settings"></a>Localiser les paramètres de synchronisation des données
 
-## <a name="step-2-add-a-client-agent"></a>Étape 2 : ajout d’un agent client
-Cette étape n’est nécessaire que si vous envisagez d’inclure une base de données SQL Server locale dans le groupe de synchronisation.
-Passez à l’étape 4 si votre groupe de synchronisation n'inclut que des instances de base de données SQL.
+1.  Dans votre navigateur, accédez au portail Azure.
 
-<a id="InstallRequiredSoftware"></a>
+2.  Dans le portail, localisez vos bases de données SQL à partir de votre tableau de bord ou de l’icône des bases de données SQL dans la barre d’outils.
 
-### <a name="step-2a-install-the-required-software"></a>Étape 2a : installer les logiciels requis
-Veillez à installer les composants suivants sur l’ordinateur sur lequel vous installez l’agent client.
+    ![Liste des bases de données SQL Azure](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
-* **.NET Framework 4.0**
+3.  Dans le panneau **Bases de données SQL**, sélectionnez la base de données SQL que vous souhaitez utiliser comme base de données Hub pour la synchronisation des données. Le panneau de la base de données SQL s’ouvre.
 
-  Installez le .NET Framework 4.0 à partir de [cet emplacement](http://go.microsoft.com/fwlink/?linkid=205836).
-* **Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**
+4.  Dans le panneau de la base de données SQL choisie, sélectionnez **Synchroniser avec les autres bases de données**. Le panneau de la synchronisation des données s’ouvre.
 
-  Téléchargez Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86) [ici](http://www.microsoft.com/download/en/details.aspx?id=26728)
-* **Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86)**
+    ![Option Synchroniser avec les autres bases de données](media/sql-database-get-started-sql-data-sync/datasync-preview-newsyncgroup.png)
 
-  Téléchargez Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86) [ici](http://www.microsoft.com/download/en/details.aspx?id=26728)
+### <a name="create-a-new-sync-group"></a>Créer un groupe de synchronisation
 
-<a id="InstallClient"></a>
+1.  Dans le panneau de synchronisation des données, sélectionnez **Nouveau groupe de synchronisation**. Le panneau **Nouveau groupe de synchronisation** s’ouvre à l’étape 1 **Créer un groupe de synchronisation**. Le panneau **Créer un groupe de synchronisation de données** s’ouvre également.
 
-### <a name="step-2b-install-a-new-client-agent"></a>Étape 2b : installer un nouvel agent client
-Pour installer l'agent, suivez les instructions de la page [Installer un agent client (synchronisation des données SQL)](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf) .
+2.  Dans le panneau **Créer un groupe de synchronisation de données**, procédez comme suit :
 
-<a id="RegisterSSDb"></a>
+    1.  Dans le champ **Nom du groupe de synchronisation**, entrez le nom du nouveau groupe de synchronisation.
 
-### <a name="step-2c-finish-the-new-sql-data-sync-agent-wizard"></a>Étape 2c : terminer l’Assistant Nouvel agent de synchronisation des données SQL
-1. Revenez à l’Assistant New SQL Data Sync Agent.
-2. Attribuez un nom explicite à l'agent.
-3. Dans la liste déroulante, sélectionnez la **région** (centre de données) hébergeant l'agent.
-4. Dans la liste déroulante, sélectionnez l' **abonnement** (centre de données) hébergeant l'agent.
-5. Cliquez sur la flèche droite.
+    2.  Dans la section **Synchroniser la base de données de métadonnées**, choisissez entre créer une base de données (recommandé) ou utiliser une base de données existante.
 
-## <a name="step-3-register-a-sql-server-database-with-the-client-agent"></a>Étape 3 : inscrire une base de données SQL Server auprès d’un agent client
-Une fois l’agent client installé, inscrivez chaque base de données SQL Server locale que vous souhaitez inclure dans un groupe de synchronisation auprès de l’agent.
-Pour ce faire, suivez les instructions de la page [Inscrire une base de données SQL Server auprès d’un agent client](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+        > [!NOTE]
+        > Microsoft recommande de créer une base de données vide à utiliser comme base de métadonnées de synchronisation. SQL Data Sync crée les tables dans cette base de données et exécute une charge de travail fréquente. Cette base de données est automatiquement partagée comme base des métadonnées de synchronisation pour l’ensemble de vos groupes de synchronisation dans la région sélectionnée. Vous ne pouvez pas modifier la base des métadonnées de synchronisation, son nom ou son niveau de service, sans la supprimer.
 
-## <a name="step-4-create-a-sync-group"></a>Étape 4 : créer un groupe de synchronisation
-<a id="StartNewSGWizard"></a>
+        Si vous avez choisi **Nouvelle base de données**, sélectionnez **Créer une nouvelle base de données.** Le panneau **SQL Database** s’ouvre. Dans le panneau **SQL Database**, nommez et configurez la nouvelle base de données. Sélectionnez ensuite **OK**.
 
-### <a name="step-4a-start-the-new-sync-group-wizard"></a>Étape 4a : démarrer l’Assistant Nouveau groupe de synchronisation
-1. Revenez au [Portail Classic](http://manage.windowsazure.com).
-2. Cliquez sur **SQL DATABASES**.
-3. Cliquez sur **ADD SYNC** en bas de la page, puis sélectionnez New Sync Group dans le menu déroulant.
+        Si vous avez choisi **Utiliser une base de données existante**, sélectionnez la base de données dans la liste.
 
-   ![Image2](./media/sql-database-get-started-sql-data-sync/NewSyncGroup-Figure2.png)
+    3.  Dans la section **Synchronisation automatique**, sélectionnez d’abord **On (Activé)** ou **Off (Désactivé)**.
 
-<a id=""></a>
+        Si vous avez choisi **On (Activé)**, dans la section **Fréquence de synchronisation**, entrez un nombre et sélectionnez les secondes, les minutes, les heures ou les jours.
 
-### <a name="step-4b-enter-the-basic-settings"></a>Étape 4b : entrer les paramètres de base
-1. Attribuez un nom explicite au groupe de synchronisation.
-2. Dans la liste déroulante, sélectionnez la **région** (centre de données) hébergeant le groupe de synchronisation.
-3. Cliquez sur la flèche droite.
+        ![Spécifier la fréquence de synchronisation](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
-    ![Image3](./media/sql-database-get-started-sql-data-sync/NewSyncGroupName-Figure3.PNG)
+    4.  Dans la section **Résolution des conflits**, sélectionnez « Priorité au hub » ou « Member wins (Priorité au membre ».
 
-<a id="DefineHubDB"></a>
+        ![Spécifier le mode de résolution des conflits](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 
-### <a name="step-4c-define-the-sync-hub"></a>Étape 4c : définir le hub de synchronisation
-1. Dans la liste déroulante, sélectionnez l’instance de base de données SQL qui servira de hub de groupe de synchronisation.
-2. Entrez les informations d'identification de l'instance de base de données SQL (**HUB USERNAME** et **HUB PASSWORD**).
-3. Patientez jusqu'à ce que la synchronisation des données confirme le nom d'utilisateur et le mot de passe. Une coche verte apparaît à droite du mot de passe lorsque les informations d’identification sont confirmées.
-4. Dans la liste déroulante, sélectionnez la stratégie **CONFLICT RESOLUTION** .
+    5.  Sélectionnez **OK** et attendez que le nouveau groupe de synchronisation soit créé et déployé.
 
-   **Hub Wins** : les modifications écrites dans la base de données hub sont écrites dans les bases de données de référence et écrasent les modifications apportées dans le même enregistrement de base de données de référence. En pratique, cela signifie que la première modification écrite dans le hub est propagée vers les autres bases de données.
+## <a name="step-2---add-sync-members"></a>Étape 2 : ajouter des membres de synchronisation
 
- **Client Wins** : les modifications apportées au hub sont écrasées par celles apportées aux bases de données de référence. En pratique, cela signifie que la dernière modification écrite dans le hub est conservée et propagée vers les autres bases de données.
+Une fois le nouveau groupe de synchronisation créé et déployé, l’étape 2 **Ajouter des membres de synchronisation** apparaît en surbrillance dans le panneau **Nouveau groupe de synchronisation**.
 
-1. Cliquez sur la flèche droite.
+Dans la section **Base de données Hub**, entrez les informations d’identification pour le serveur SQL Database qui héberge la base de données Hub. N’entrez pas de *nouvelles* informations d’identification dans cette section.
 
-   ![Image4](./media/sql-database-get-started-sql-data-sync/NewSyncGroupHub-Figure4.PNG)
+![Base de données Hub ajoutée au groupe de synchronisation](media/sql-database-get-started-sql-data-sync/datasync-preview-hubadded.png)
 
-<a id="AddRefDB"></a>
+## <a name="add-an-azure-sql-database"></a>Ajouter une base de données SQL Azure Database
 
-### <a name="step-4d-add-a-reference-database"></a>Étape 4d : ajouter une base de données de référence
-Répétez cette procédure pour chaque base de données supplémentaire que vous souhaitez ajouter au groupe de synchronisation.
+Dans la section **Base de données membre**, ajoutez éventuellement une base de données Azure SQL Database au groupe de synchronisation en sélectionnant **Ajouter une base de données Azure**. Le panneau **Configurer une base de données Azure** s’ouvre.
 
-1. Dans la liste déroulante, sélectionnez la base de données à ajouter.
+Dans le panneau **Configurer une base de données Azure**, procédez comme suit :
 
-    Les bases de données figurant dans la liste déroulante incluent aussi bien les bases de données SQL Server inscrites auprès de l'agent que les instances de base de données SQL.
-2. Entrez les informations d'identification de cette base de données, à savoir le **nom d'utilisateur** et le **mot de passe**.
-3. Dans la liste déroulante, sélectionnez le **sens de la synchronisation** de cette base de données.
+1.  Dans le champ **Nom du membre de synchronisation**, indiquez le nom du nouveau membre de synchronisation. Ce nom est différent du nom de la base de données.
 
-   **Bi-directional** : les modifications apportées à la base de données de référence sont écrites dans la base de données hub et inversement.
+2.  Dans le champ **Abonnement**, sélectionnez l’abonnement Azure associé en vue de la facturation.
 
-   **Sync from the Hub** : la base de données reçoit les mises à jour du hub. Elle ne lui envoie pas de modifications.
+3.  Dans le champ **Azure SQL Server**, sélectionnez le serveur de base de données SQL.
 
-   **Sync to the Hub** : la base de données envoie les mises à jour au hub. Les modifications apportées au hub ne sont pas écrites dans cette base de données.
-4. Pour finaliser la création de ce groupe de synchronisation, cliquez sur la coche située en bas à droite de l'Assistant. Patientez jusqu'à ce que la synchronisation des données SQL confirme les informations d'identification, ce qui sera indiqué par une coche verte.
-5. Cliquez une nouvelle fois sur la coche. Vous revenez alors à la page **SYNC** sous Bases de données SQL. Ce groupe de synchronisation est désormais répertorié avec les autres groupes de synchronisation et agents.
+4.  Dans le champ **Azure SQL Database**, sélectionnez la base de données SQL.
 
-   ![Image5](./media/sql-database-get-started-sql-data-sync/NewSyncGroupReference-Figure5.PNG)
+5.  Dans le champ **Sens de la synchronisation**, sélectionnez Synchronisation bidirectionnelle, To the hub (Vers le hub) ou From the hub (À partir du hub).
 
-## <a name="step-5-define-the-data-to-sync"></a>Étape 5 : définir les données à synchroniser
-La synchronisation des données SQL Azure vous permet de sélectionner les tables et colonnes à synchroniser. Si vous souhaitez filtrer une colonne afin que seules les lignes contenant des valeurs spécifiques soient synchronisées (par exemple, un âge supérieur ou égal à&65;), utilisez le portail de la synchronisation des données SQL Azure et reportez-vous à la section de la documentation traitant de la sélection des tables, colonnes et lignes à synchroniser pour définir les données à synchroniser.
+    ![Ajout d’un nouveau membre de synchronisation SQL Database](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadding.png)
 
-1. Revenez au [Portail Classic](http://manage.windowsazure.com).
-2. Cliquez sur **SQL DATABASES**.
-3. Cliquez sur l'onglet **SYNC** .
-4. Cliquez sur le nom du groupe de synchronisation.
-5. Cliquez sur l'onglet **SYNC RULES** .
-6. Sélectionnez la base de données à laquelle vous voulez fournir le schéma de groupe de synchronisation.
-7. Cliquez sur la flèche droite.
-8. Cliquez sur **REFRESH SCHEMA**.
-9. Pour chaque table de la base de données, sélectionnez les colonnes à inclure dans les synchronisations.
-   * Les colonnes qui contiennent des types de données non pris en charge ne peuvent pas être sélectionnées.
-   * Si aucune colonne de la table n'est sélectionnée, la table n'est pas incluse dans le groupe de synchronisation.
-   * Pour sélectionner/désélectionner toutes les tables, cliquez sur Sélectionner en bas de l'écran.
-10. Cliquez sur **Enregistrer**, puis patientez pendant que la configuration du groupe de synchronisation se termine.
-11. Pour revenir à la page d’accueil de la synchronisation des données, cliquez sur la flèche Précédent située en haut à gauche de ’écran (au-dessus du nom du groupe de synchronisation).
+6.  Dans les champs **Nom d’utilisateur** et **Mot de passe**, entrez les informations d’identification du serveur SQL Database qui héberge la base de données membre. N’entrez pas de *nouvelles* informations d’identification dans cette section.
 
-    ![Image6](./media/sql-database-get-started-sql-data-sync/NewSyncGroupSyncRules-Figure6.PNG)
+7.  Sélectionnez **OK** et attendez que le nouveau membre de synchronisation soit créé et déployé.
 
-## <a name="step-6-configure-your-sync-group"></a>Étape 6 : configurer votre groupe de synchronisation
-Vous pouvez toujours synchroniser un groupe de synchronisation en cliquant sur le bouton Synchroniser situé en bas de la page d’accueil de la synchronisation des données.
-Pour synchroniser sur une planification, configurez le groupe de synchronisation dans ce sens.
+    ![Nouveau membre de synchronisation SQL Database ajouté](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-1. Revenez au [Portail Classic](http://manage.windowsazure.com).
-2. Cliquez sur **SQL DATABASES**.
-3. Cliquez sur l'onglet **SYNC** .
-4. Cliquez sur le nom du groupe de synchronisation.
-5. Cliquez sur l’onglet **Configurer** .
-6. **SYNCHRONISATION AUTOMATIQUE**
-   * Pour configurer le groupe de synchronisation pour qu’il soit synchronisé en fonction de la fréquence définie, cliquez sur **ON**. Vous pouvez effectuer une synchronisation à la demande en cliquant sur le bouton Synchroniser.
-   * Cliquez sur **OFF** pour configurer le groupe de synchronisation de manière à ce qu’il soit synchronisé uniquement lorsque vous cliquez sur Synchroniser.
-7. **FRÉQUENCE DE SYNCHRONISATION**
-   * Si la synchronisation automatique est activée, définissez sa fréquence. Celle-ci doit être comprise entre 5 minutes et 1 mois.
-8. Cliquez sur **ENREGISTRER**.
+## <a name="add-an-on-premises-sql-server-database"></a>Ajouter une base de données SQL Server locale
 
-![Image7](./media/sql-database-get-started-sql-data-sync/NewSyncGroupConfigure-Figure7.PNG)
+Dans la section **Base de données membre**, ajoutez éventuellement un serveur SQL local au groupe de synchronisation en sélectionnant **Ajouter une base de données locale**. Le panneau **Configurer localement** s’ouvre.
 
-Félicitations ! Vous avez créé un groupe de synchronisation incluant une instance de base de données SQL et une base de données SQL Server.
+Dans le panneau **Configurer localement**, procédez comme suit :
+
+1.  Sélectionnez **Choisir la passerelle de l’agent de synchronisation**. Le panneau **Sélectionner l’agent de synchronisation** s’ouvre.
+
+    ![Choisir la passerelle de l’agent de synchronisation](media/sql-database-get-started-sql-data-sync/datasync-preview-choosegateway.png)
+
+2.  Dans le panneau **Choisir la passerelle de l’agent de synchronisation**, faites votre choix entre utiliser un agent existant ou en créer un.
+
+    Si vous avez choisi **Agents existants**, sélectionnez un agent dans la liste.
+
+    Si vous avez choisi **Créer un agent**, procédez comme suit :
+
+    1.  Téléchargez le logiciel de l’agent de synchronisation de client à l’aide du lien fourni et installez-le sur l’ordinateur qui héberge le serveur SQL Server.
+ 
+        > [!IMPORTANT]
+        > Vous devez ouvrir le port TCP sortant 1433 dans le pare-feu pour permettre à l’agent du client de communiquer avec le serveur.
+
+
+    2.  Entrez le nom de l’agent.
+
+    3.  Sélectionnez **Créer et générer une clé**.
+
+    4.  Copiez la clé de l’agent dans le Presse-papiers.
+        
+        ![Création d’un agent de synchronisation](media/sql-database-get-started-sql-data-sync/datasync-preview-selectsyncagent.png)
+
+    5.  Sélectionnez **OK** pour fermer le panneau **Sélectionner l’agent de synchronisation**.
+
+    6.  Sur l’ordinateur du serveur SQL Server, recherchez et exécutez l’application de l’agent de synchronisation du client.
+
+        ![Application de l’agent de synchronisation du client](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
+
+    7.  Dans l’application de l’agent de synchronisation, sélectionnez **Submit Agent Key (Envoyer la clé de l’agent)**. La boîte de dialogue **Sync Metadata Database Configuration (Configuration de la base des métadonnées de synchronisation)** s’ouvre.
+
+    8.  Dans la boîte de dialogue **Sync Metadata Database Configuration (Configuration de la base des métadonnées de synchronisation)**, collez la clé de l’agent copiée à partir du portail Azure. Indiquez également les informations d’identification du serveur Azure SQL Database qui héberge la base de données des métadonnées. (Si vous avez créé une base de métadonnées, celle-ci réside sur le même serveur que la base de données Hub.) Sélectionnez **OK** et attendez la fin de la configuration.
+
+        ![Entrer la clé de l’agent et les informations d’identification du serveur](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
+
+        >   [!NOTE] 
+        >   Si vous recevez une erreur de pare-feu à ce stade, vous devez créer une règle de pare-feu sur Windows Azure pour autoriser le trafic entrant en provenance de l’ordinateur qui héberge le serveur SQL Server. Vous pouvez créer cette règle manuellement dans le portail, mais il peut être plus facile de la créer dans SQL Server Management Studio (SSMS). Dans SSMS, essayez de vous connecter à la base de données Hub sur Azure. Entrez son nom sous la forme \<nom_base_données_hub\>.database.windows.net. Suivez les étapes décrites dans la boîte de dialogue pour configurer la règle de pare-feu Azure. Revenez ensuite dans l’application de l’agent de synchronisation du client.
+
+    9.  Dans l’application de l’agent de synchronisation du client, cliquez sur **Inscrire** pour inscrire une base de données SQL Server dans l’agent. La boîte de dialogue **Configuration de SQL Server** s’ouvre.
+
+        ![Ajouter et configurer une base de données SQL Server](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-adddb.png)
+
+    10. Dans la boîte de dialogue **Configuration de SQL Server**, choisissez entre l’authentification SQL Server et l’authentification Windows. Si vous avez choisi l’authentification SQL Server, entrez les informations d’identification. Indiquez le nom du serveur SQL Server et le nom de la base de données que vous voulez synchroniser. Sélectionnez **Tester la connexion** pour tester vos paramètres. Ensuite, sélectionnez **Enregistrer**. La base de données inscrite apparaît dans la liste.
+
+        ![La base de données SQL Server est maintenant inscrite.](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
+
+    11. Vous pouvez fermer l’application de l’agent de synchronisation du client.
+
+    12. Dans le portail, sur le panneau **Configurer localement**, choisissez **Sélectionner la base de données**. Le panneau **Sélectionner la base de données** s’ouvre.
+
+    13. Dans le panneau **Sélectionner la base de données**, indiquez le nom du nouveau membre de synchronisation dans le champ **Nom du membre de synchronisation**. Ce nom est différent du nom de la base de données. Sélectionnez la base de données dans la liste. Dans le champ **Sens de la synchronisation**, sélectionnez Synchronisation bidirectionnelle, To the hub (Vers le hub) ou From the hub (À partir du hub).
+
+        ![Sélectionner la base de données locale](media/sql-database-get-started-sql-data-sync/datasync-preview-selectdb.png)
+
+    14. Sélectionnez **OK** pour fermer le panneau **Sélectionner la base de données**. Puis sélectionnez **OK** pour fermer le panneau **Configurer localement** et attendez que le nouveau membre de synchronisation soit créé et déployé. Enfin, cliquez sur **OK** pour fermer le panneau **Sélectionner les membres de synchronisation**.
+
+        ![Base de données locale ajoutée au groupe de synchronisation](media/sql-database-get-started-sql-data-sync/datasync-preview-onpremadded.png)
+
+3.  Pour vous connecter à SQL Data Sync et à l’agent local, ajoutez votre nom d’utilisateur au rôle `DataSync_Executor`. Data Sync crée ce rôle sur l’instance SQL Server.
+
+## <a name="step-3---configure-sync-group"></a>Étape 3 : configurer le groupe de synchronisation
+
+Une fois les nouveaux membres du groupe de synchronisation créés et déployés, l’étape 3 **Configurer le groupe de synchronisation** apparaît en surbrillance dans le panneau **Nouveau groupe de synchronisation**.
+
+1.  Dans le panneau **Tables**, sélectionnez une base de données dans la liste des membres du groupe de synchronisation, puis sélectionnez **Actualiser le schéma**.
+
+2.  Dans la liste des tables disponibles, sélectionnez celles que vous voulez synchroniser.
+
+    ![Sélectionner les tables à synchroniser](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
+
+3.  Par défaut, toutes les colonnes de la table sont sélectionnées. Si vous ne souhaitez pas synchroniser toutes les colonnes, désactivez la case à cocher de celles à exclure de la synchronisation. Vérifiez que la colonne de la clé primaire est sélectionnée.
+
+    ![Sélectionner les champs à synchroniser](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
+
+4.  Enfin, sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la base de données SQL et la synchronisation des données SQL, consultez les pages suivantes :
+Félicitations ! Vous avez créé un groupe de synchronisation incluant une instance de base de données SQL et une base de données SQL Server.
 
-* [Télécharger la documentation technique complète sur la synchronisation des données SQL](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
-* [Vue d’ensemble des bases de données SQL](sql-database-technical-overview.md)
-* [Gestion du cycle de vie des bases de données](https://msdn.microsoft.com/library/jj907294.aspx)
+Pour plus d’informations sur SQL Database et SQL Data Sync, consultez :
+
+-   [Télécharger la documentation technique complète sur la synchronisation des données SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
+-   [Télécharger la documentation de l’API REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Vue d’ensemble des bases de données SQL](sql-database-technical-overview.md)
+-   [Gestion du cycle de vie des bases de données](https://msdn.microsoft.com/library/jj907294.aspx)
 

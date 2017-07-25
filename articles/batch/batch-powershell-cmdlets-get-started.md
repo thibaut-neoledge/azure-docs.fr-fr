@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e1819a9f081284fa03e9355730689629166006f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -201,7 +202,7 @@ Créez maintenant le pool et spécifiez l’objet de référence du package comm
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
-Pour plus d’informations sur les packages d’application, consultez [Déploiement d’applications avec des packages d’application Azure Batch](batch-application-packages.md).
+Pour plus d’informations sur les packages d’applications, consultez [Déployer des applications sur les nœuds avec des packages d’applications Batch](batch-application-packages.md).
 
 > [!IMPORTANT]
 > Pour utiliser les packages d’application, vous devez commencer par [lier un compte de stockage Azure](#linked-storage-account-autostorage) à votre compte Batch.
@@ -238,6 +239,6 @@ Vous avez mis à jour les propriétés du pool dans le service Batch. Pour dépl
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour connaître la syntaxe détaillée des applets de commande et obtenir des exemples, consultez les [informations de référence sur les applets de commande Azure Batch](/powershell/module/azurerm.batch/#batch).
-* Pour plus d’informations sur les applications et les packages d’application dans Batch, consultez [Déploiement d’applications avec des packages d’application Azure Batch](batch-application-packages.md).
+* Pour plus d’informations sur les applications et les packages d’applications dans Batch, consultez [Déploiement d’applications avec des packages d’applications Azure Batch](batch-application-packages.md).
 
 

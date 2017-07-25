@@ -4,7 +4,7 @@ description: "Un exemple d’application s’exécute sur la carte Adafruit Feat
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "contrôle de la led avec arduino à partir du web, contrôle de la led avec arduino via le web"
 ROBOTS: NOINDEX
@@ -17,33 +17,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
 ms.openlocfilehash: 63113841ca836681232e0aa43b15b444f8bb92e2
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/28/2017
 
-
 ---
-# <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>Exécution d’un exemple d’application pour recevoir des messages cloud-à-appareil
+<a id="run-a-sample-application-to-receive-cloud-to-device-messages" class="xliff"></a>
+
+# Exécution d’un exemple d’application pour recevoir des messages cloud-à-appareil
 Dans cet article, vous déployez un exemple d’application sur votre carte Adafruit Feather M0 WiFi Arduino.
 
 L’exemple d’application surveille les messages entrants à partir de votre IoT Hub. Vous exécutez également une tâche gulp sur votre ordinateur pour envoyer des messages à votre carte Arduino à partir de votre IoT Hub. À la réception des messages, l’exemple d’application fait clignoter la LED. Si vous rencontrez des problèmes, recherchez des solutions dans la [page de résolution des problèmes][troubleshooting].
 
-## <a name="what-you-will-do"></a>Procédure à suivre
+<a id="what-you-will-do" class="xliff"></a>
+
+## Procédure à suivre
 * Connectez l’exemple d’application à votre IoT Hub.
 * Déployez et exécutez l'exemple d'application.
 * Envoyez des messages depuis votre IoT Hub vers votre carte Arduino pour faire clignoter la LED.
 
-## <a name="what-you-will-learn"></a>Contenu
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Contenu
 Cet article portera sur les éléments suivants :
 * Surveillance des messages entrants à partir de votre IoT Hub.
 * Envoi de messages cloud-à-appareil depuis votre IoT Hub vers votre carte Arduino.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 * Votre carte Arduino, configurée et prête à l’utilisation. Pour savoir comment configurer votre carte Arduino, consultez [Configuration de votre appareil][configure-your-device].
 * Un IoT Hub créé dans le cadre de votre abonnement Azure. Pour savoir comment créer votre Azure IoT Hub, consultez [Création de votre Azure IoT Hub][create-your-azure-iot-hub].
 
-## <a name="connect-the-sample-application-to-your-iot-hub"></a>Connexion de l’exemple d’application à votre IoT Hub
+<a id="connect-the-sample-application-to-your-iot-hub" class="xliff"></a>
+
+## Connexion de l’exemple d’application à votre IoT Hub
 
 1. Assurez-vous que vous êtes dans le dossier du référentiel `iot-hub-c-feather-m0-getting-started`.
 
@@ -101,7 +111,9 @@ Cet article portera sur les éléments suivants :
    * Remplacez **[chaîne de connexion d’appareil IoT]** par la chaîne de connexion d’appareil que vous obtenez en exécutant la commande `az iot device show-connection-string --hub-name {my hub name} --device-id {device id}`.
    * Remplacez **[chaîne de connexion d’IoT Hub]** par la chaîne de connexion IoT Hub que vous obtenez en exécutant la commande `az iot hub show-connection-string --name {my hub name}`.
 
-## <a name="deploy-and-run-the-sample-application"></a>Déploiement et exécution de l’exemple d’application
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Déploiement et exécution de l’exemple d’application
 Déployez et exécutez l’exemple d’application sur votre carte Arduino en exécutant les commandes suivantes :
 
 ```bash
@@ -121,10 +133,14 @@ La LED doit clignoter toutes les deux secondes tandis que la tâche gulp envoie 
 
 ![Exemple d’application avec la commande gulp et les messages de clignotement][sample-application]
 
-## <a name="summary"></a>Résumé
+<a id="summary" class="xliff"></a>
+
+## Résumé
 Vous avez correctement envoyé des messages à partir de votre IoT Hub vers votre carte Arduino pour faire clignoter la LED. La tâche suivante est facultative : modifier le comportement activé/désactivé de la LED.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Modification du comportement activé/désactivé de la LED][change-the-on-and-off-led-behavior]
 
 

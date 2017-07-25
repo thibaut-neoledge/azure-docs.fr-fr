@@ -13,34 +13,34 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 06/15/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: c0ff31574c9971abd176f3f5bc0a8b8143ab5d17
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: bacd5783a6db60dcc2aada4e8df55b2ec1e4f3aa
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 
 ---
 
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrer des machines virtuelles Azure vers des disques gérés dans Azure
 
-Les disques gérés du service Azure Managed Disks simplifient la gestion de votre stockage en éliminant la nécessité de gérer séparément les comptes de stockage.  Vous pouvez également migrer vos machines virtuelles Azure existantes vers des disques gérés afin de tirer parti de la fiabilité accrue des machines virtuelles dans un groupe à haute disponibilité. Cela permet de s’assurer que les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés les uns des autres pour éviter les points de défaillance uniques. Les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont automatiquement placés dans des unités d’échelle (tampons) de stockage distinctes, ce qui limite l’impact des défaillances d’unités d’échelle de stockage uniques dues à des défaillances matérielles et logicielles. Selon vos besoins, vous avez le choix entre deux types d’options de stockage : 
- 
+Les disques gérés du service Azure Managed Disks simplifient la gestion de votre stockage en éliminant la nécessité de gérer séparément les comptes de stockage.  Vous pouvez également migrer vos machines virtuelles Azure existantes vers des disques gérés afin de tirer parti de la fiabilité accrue des machines virtuelles dans un groupe à haute disponibilité. Cela permet de s’assurer que les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés les uns des autres pour éviter les points de défaillance uniques. Les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont automatiquement placés dans des unités d’échelle (tampons) de stockage distinctes, ce qui limite l’impact des défaillances d’unités d’échelle de stockage uniques dues à des défaillances matérielles et logicielles.
+Selon vos besoins, vous avez le choix entre deux types d’options de stockage :
+
 - Les [disques gérés Premium](../../storage/storage-premium-storage.md) sont des supports basés sur des disques SSD (Solide State Drive) qui assurent de hautes performances et une faible latence pour les machines virtuelles dont les charges de travail nécessitent de nombreuses E/S. Vous pouvez tirer parti de la vitesse et des performances des disques gérés Premium en migrant vers ces disques.
 
-- Les [disques gérés Standard](../../storage/storage-standard-storage.md) utilisent un support de stockage basé sur un lecteur de disque dur (HDD) et sont mieux adaptés aux charges de travail de développement/test et d’accès peu fréquent, qui sont moins sensibles à la variabilité des performances. 
+- Les [disques gérés Standard](../../storage/storage-standard-storage.md) utilisent un support de stockage basé sur un lecteur de disque dur (HDD) et sont mieux adaptés aux charges de travail de développement/test et d’accès peu fréquent, qui sont moins sensibles à la variabilité des performances.
 
 Vous pouvez migrer vers des disques gérés dans les cas de figure suivants :
 
 | Migrer...                                            | Lien vers la documentation                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Des machines virtuelles d’un groupe à haute disponibilité qui utilisent des disques non gérés vers des disques gérés   | [Convert VMs in an availability set to use managed disks](convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set) (Convertir des machines virtuelles d’un groupe à haute disponibilité pour utiliser des disques gérés)                                                                        |
-| Des disques non gérés Premium vers des disques gérés Premium   | [Convertir des machines virtuelles Azure existantes vers des disques gérés utilisant le même type de stockage](convert-unmanaged-to-managed-disks.md#convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type)                                                                         |
-| Des disques non gérés Standard vers des disques gérés Standard | [Convertir des machines virtuelles Azure existantes vers des disques gérés utilisant le même type de stockage](convert-unmanaged-to-managed-disks.md#convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type)                                                                         |
-| Des disques non gérés Standard vers des disques gérés Premium  | [Migrer des machines virtuelles Azure existantes utilisant des disques non gérés Standard vers des disques gérés Premium](convert-unmanaged-to-managed-disks.md#migrate-existing-azure-vms-using-standard-unmanaged-disks-to-premium-managed-disks)                            |
+| Convertir des machines virtuelles autonomes et des machines virtuelles dans un groupe à haute disponibilité en disques gérés   | [Convertir des machines virtuelles pour utiliser des disques gérés](convert-unmanaged-to-managed-disks.md) |
 | Une machine virtuelle unique du modèle Classic vers le modèle Resource Manager sur des disques gérés     | [Migrer une machine virtuelle unique](migrate-single-classic-to-resource-manager.md)  | 
 | Toutes les machines virtuelles d’un réseau virtuel du modèle Classic vers le modèle Resource Manager sur des disques gérés     | [Migration de ressources IaaS d’un environnement Classic vers Resource Manager](migration-classic-resource-manager-ps.md), puis [Convertir une machine virtuelle à partir de disques non gérés vers des disques gérés](convert-unmanaged-to-managed-disks.md) | 
+
 
 
 
@@ -64,25 +64,25 @@ Passez en revue les caractéristiques de performances des machines virtuelles fo
 
 **Disques gérés Premium**
 
-Il existe trois types de disques gérés Premium qui peuvent être utilisés avec votre machine virtuelle, chacun d’eux présentant des limites d’E/S par seconde et de débit spécifiques. Prenez en compte ces limites lors de la sélection du type de disque Premium pour votre machine virtuelle en fonction des besoins en capacité, en performances, en extensibilité et en charges maximales de votre application.
+Il existe sept types de disques gérés Premium qui peuvent être utilisés avec votre machine virtuelle, chacun d’eux présentant des limites d’E/S par seconde et de débit spécifiques. Prenez en compte ces limites lors de la sélection du type de disque Premium pour votre machine virtuelle en fonction des besoins en capacité, en performances, en extensibilité et en charges maximales de votre application.
 
-| Type de disque Premium  | P10               | P20               | P30               |
-|---------------------|-------------------|-------------------|-------------------|
-| Taille du disque           | 128 Go            | 512 Go            | 1024 Go (1 To)    |
-| IOPS par disque       | 500               | 2 300              | 5 000              |
-| Débit par disque | 100 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde |
+| Type de disque Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| Taille du disque           | 128 Go| 512 Go| 128 Go| 512 Go            | 1024 Go (1 To)    | 2 048 Go (2 To)    | 4 095 Go (4 To)    | 
+| IOPS par disque       | 120   | 240   | 500   | 2 300              | 5 000              | 7500              | 7500              | 
+| Débit par disque | 25 Mo par seconde  | 50 Mo par seconde  | 100 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde |
 
 **Disques gérés Standard**
 
-Il existe cinq types de disques gérés Standard qui peuvent être utilisés avec votre machine virtuelle. Chacun d’eux dispose d’une capacité différente, mais ils partagent les mêmes limites d’E/S par seconde et de débit. Choisissez le type de disque géré Standard selon les besoins en capacité de votre application.
+Il existe sept types de disques gérés Standard qui peuvent être utilisés avec votre machine virtuelle. Chacun d’eux dispose d’une capacité différente, mais ils partagent les mêmes limites d’E/S par seconde et de débit. Choisissez le type de disque géré Standard selon les besoins en capacité de votre application.
 
-| Type de disque Standard  | S4               | S6               | S10              | S20              | S30              |
-|---------------------|------------------|------------------|------------------|------------------|------------------|
-| Taille du disque           | 30 Go            | 64 Go            | 128 Go           | 512 Go           | 1024 Go (1 To)   |
-| IOPS par disque       | 500              | 500              | 500              | 500              | 500              |
-| Débit par disque | 60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde |
+| Type de disque Standard  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
+|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
+| Taille du disque           | 30 Go            | 64 Go            | 128 Go           | 512 Go           | 1024 Go (1 To)   | 2 048 Go (2 To)    | 4 095 Go (4 To)   | 
+| IOPS par disque       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
+| Débit par disque | 60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde | 60 Mo par seconde | 
 
-## <a name="disk-caching-policy"></a>Stratégie de mise en cache du disque 
+## <a name="disk-caching-policy"></a>Stratégie de mise en cache du disque
 
 **Disques gérés Premium**
 

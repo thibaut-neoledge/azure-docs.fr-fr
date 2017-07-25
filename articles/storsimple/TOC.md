@@ -44,16 +44,154 @@
 ## Notes de publication
 ### [Update 0.6 - en cours](storsimple-virtual-array-update-06-release-notes.md)
 ### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
-### [Update 0.4](storsimple-virtual-array-update-04-release-notes.md)
-### [Update 0.3](storsimple-ova-update-03-release-notes.md)
-### [Update 0.2 et 0.1](storsimple-ova-update-01-release-notes.md)
 
-# Gamme StorSimple 8000
+### Archivage
+#### [Update 0.4](storsimple-virtual-array-update-04-release-notes.md)
+#### [Update 0.3](storsimple-ova-update-03-release-notes.md)
+#### [Update 0.2 et 0.1](storsimple-ova-update-01-release-notes.md)
+
+# Gamme StorSimple 8000 (portail Azure)
 
 ## Vue d'ensemble
 ### [Quelle est la solution ?](storsimple-overview.md)
 ### [Carte d’apprentissage StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
-### [Sécurité](storsimple-security.md)
+### [Sécurité](storsimple-8000-security.md)
+
+## Prise en main
+
+### Planification
+#### [Examiner les conditions requises](storsimple-8000-system-requirements.md)
+#### [Passer en revue les spécifications techniques](storsimple-8000-technical-specifications-and-compliance.md)
+#### [Comprendre les limites](storsimple-8000-limits.md)
+#### [meilleures pratiques](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
+
+
+### Installer
+#### [Passer en revue la sécurité](storsimple-8000-safety.md)
+#### [Déballer, monter en rack et brancher un appareil 8100](storsimple-8100-hardware-installation.md)
+#### [Déballer, monter en rack et brancher un appareil 8600](storsimple-8600-hardware-installation.md)
+#### [Matériel pris en charge pour les interfaces réseau 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+
+### Déployer
+#### [Service StorSimple Device Manager](storsimple-8000-manage-service.md)
+#### [Appareil physique dans Azure](storsimple-8000-deployment-walkthrough-u2.md)
+#### [Appareil physique dans le portail Azure Government](storsimple-8000-deployment-walkthrough-gov-u2.md)
+#### [Appliance cloud dans Azure](storsimple-8000-cloud-appliance-u2.md)
+#### [Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md)
+#### [StorSimple Adapter for SharePoint](storsimple-adapter-for-sharepoint.md)
+
+## Procédures
+
+### Gérer
+
+#### [Utilisation du service StorSimple Manager](storsimple-8000-manager-service-administration.md)
+##### [Restaurer à partir d’une sauvegarde](storsimple-8000-restore-from-backup-set-u2.md)
+##### [Clonage d’un volume](storsimple-8000-clone-volume-u2.md)
+##### [Se connecter à distance à votre appareil](storsimple-8000-remote-connect.md)
+##### [Désactiver et supprimer vos données](storsimple-8000-deactivate-and-delete-device.md)
+##### [Basculer votre appareil](storsimple-8000-device-failover-disaster-recovery.md)
+###### [Basculer vers un appareil physique](storsimple-8000-device-failover-physical-device.md)
+###### [Basculer vers une appliance cloud](storsimple-8000-device-failover-cloud-appliance.md)
+###### [Basculer vers le même appareil](storsimple-8000-device-failover-same-device.md)
+##### [Restaurer le catalogue de sauvegarde](storsimple-8000-manage-backup-catalog.md)
+##### [Gestion des stratégies de sauvegarde](storsimple-8000-manage-backup-policies-u2.md)
+##### [Gestion des comptes de stockage](storsimple-8000-manage-storage-accounts.md)
+##### [Gestion de conteneurs de volume](storsimple-8000-manage-volume-containers.md)
+##### [Gérer les volumes - en cours](storsimple-8000-manage-volumes-u2.md)
+###### [Forum aux Questions : volumes épinglés localement](storsimple-8000-local-volume-faq.md)
+##### [Gérer les ACR](storsimple-8000-manage-acrs.md)
+##### [Modèles de bande passante](storsimple-8000-manage-bandwidth-templates.md)
+##### [Afficher et gérer les travaux](storsimple-8000-manage-jobs-u2.md)
+##### [Modifier le mode de l’appareil](storsimple-8000-device-modes.md)
+##### [Modifier le mot de passe d’un appareil](storsimple-8000-change-passwords.md)
+##### [Modifier la configuration de l’appareil](storsimple-8000-modify-device-config.md)
+##### [Activer et désactiver](storsimple-turn-device-on-or-off.md)
+##### [Configurer MPIO sur un hôte Windows Server](storsimple-8000-configure-mpio-windows-server.md)
+##### [Configurer MPIO sur un hôte Linux](storsimple-configure-mpio-on-linux.md)
+##### [Configurer le protocole CHAP](storsimple-8000-configure-chap.md)
+
+
+#### [Utilisation de Windows PowerShell pour StorSimple](storsimple-8000-windows-powershell-administration.md)
+##### [Gérer le contrôleur de l’appareil](storsimple-8000-manage-device-controller.md)
+##### [Configurer le proxy web ](storsimple-8000-configure-web-proxy.md)
+##### [Modifier les paramètres DATA 0](storsimple-8000-modify-data-0.md)
+
+
+#### [Utilisation de StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
+##### [Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
+##### [À propos de l’interface StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md)
+##### [Gérer les appareils via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-devices.md)
+##### [Gérer les stratégies de sauvegarde via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-policies.md)
+##### [Gérer les groupes de volume via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volume-groups.md)
+##### [Gérer le catalogue de sauvegarde via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-catalog.md)
+##### [Gérer les travaux de sauvegarde via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
+##### [Gérer les volumes via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
+##### [Utiliser les actions MMC dans StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+
+### Créer des solutions
+#### [StorSimple avec Veeam](storsimple-configure-backup-target-veeam.md)
+#### [StorSimple avec Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
+#### [StorSimple with Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
+#### [Automatiser le serveur de fichiers DR dans Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [StorSimple avec Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
+#### [StorSimple avec VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
+#### [StorSimple avec Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
+#### [Espace de noms global distribué](https://www.microsoft.com/download/details.aspx?id=45507)
+
+### Surveiller
+#### [Utilisation du résumé du service](storsimple-8000-service-dashboard.md)
+#### [Utilisation du résumé de l’appareil](storsimple-8000-device-dashboard.md)
+#### [Utilisation des graphiques de surveillance](storsimple-8000-monitor-device.md)
+#### [Utilisation des alertes de service](storsimple-8000-manage-alerts.md)
+#### [Utilisation de l’état du matériel](storsimple-8000-monitor-hardware-status.md)
+#### [Utilisation des LED de surveillance](storsimple-monitoring-indicators.md)
+
+
+### Résolution des problèmes
+#### [Problèmes de déploiement](storsimple-8000-troubleshoot-deployment.md)
+#### [À l’aide de l’outil de diagnostic](storsimple-8000-diagnostics.md)
+#### [Problèmes de fonctionnement](storsimple-troubleshoot-operational-device.md)
+#### [Remplacement du matériel](storsimple-8000-hardware-component-replacement.md)
+##### [Remplacer le contrôleur de l’appareil](storsimple-8000-controller-replacement.md)
+##### [Remplacer le contrôleur du boîtier EBOD](storsimple-8000-ebod-controller-replacement.md)
+##### [Remplacer le PCM](storsimple-8000-power-cooling-module-replacement.md)
+##### [Remplacer le lecteur de disque](storsimple-8000-disk-drive-replacement.md)
+##### [Remplacer la batterie de secours](storsimple-8000-battery-replacement.md)
+##### [Remplacer le châssis](storsimple-8000-chassis-replacement.md)
+#### [Contactez le support technique.](storsimple-8000-contact-microsoft-support.md)
+##### [Créer un package de support](storsimple-8000-create-manage-support-package.md)
+
+### Migrer
+#### [À partir d’appareils de la gamme 5000-7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
+#### [À partir d’autres appareils de stockage](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+
+### Mettre à jour
+#### [Installer Update 4 - en cours](storsimple-8000-install-update-4.md)
+
+
+## Notes de publication
+### [Update 4 - en cours](storsimple-update4-release-notes.md)
+### [Update 3](storsimple-update3-release-notes.md)
+### [Update 2.2](storsimple-update21-release-notes.md)
+
+### Archivage
+#### [Update 2 ](storsimple-update2-release-notes.md)
+#### [Update 1 ](storsimple-update1-release-notes.md)
+#### [Update 0.3](storsimple-february-2015-release-notes.md)
+#### [Update 0.2](storsimple-january-2015-release-notes.md)
+#### [Update 0.1](storsimple-october-2014-release-notes.md)
+#### [Version commerciale - GA](storsimple-july-2014-release-notes.md)
+
+## Référence
+### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [Windows PowerShell pour les applets de commande StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
+
+# Gamme StorSimple 8000 (portail Azure Classic)
+
+## Vue d'ensemble
+### [Quelle est la solution ?](storsimple-overview.md)
+### [Carte d’apprentissage StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
+### [Sécurité](storsimple-8000-security.md)
 
 ## Prise en main
 
@@ -62,6 +200,7 @@
 #### [Passer en revue les spécifications techniques](storsimple-technical-specifications-and-compliance.md)
 #### [Comprendre les limites](storsimple-limits.md)
 #### [meilleures pratiques](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
+
 
 ### Installer
 #### [Passer en revue la sécurité](storsimple-safety.md)
@@ -83,6 +222,7 @@
 ## Procédures
 
 ### Gérer
+
 #### [Utilisation du service StorSimple Manager](storsimple-manager-service-administration.md)
 ##### [Restaurer à partir d’une sauvegarde](storsimple-restore-from-backup-set-u2.md)
 ###### [Restaurer à partir d’une sauvegarde](storsimple-restore-from-backup-set.md)
@@ -106,10 +246,10 @@
 ##### [Modifier le mode de l’appareil](storsimple-device-modes.md)
 ##### [Modifier le mot de passe d’un appareil](storsimple-change-passwords.md)
 ##### [Modifier la configuration de l’appareil](storsimple-modify-device-config.md)
-##### [Activer et désactiver](storsimple-turn-device-on-or-off.md)
 ##### [Configurer MPIO sur un hôte Windows Server](storsimple-configure-mpio-windows-server.md)
 ##### [Configurer MPIO sur un hôte Linux](storsimple-configure-mpio-on-linux.md)
 ##### [Configurer le protocole CHAP](storsimple-configure-chap.md)
+
 
 #### [Utilisation de Windows PowerShell pour StorSimple](storsimple-windows-powershell-administration.md)
 ##### [Gérer le contrôleur de l’appareil](storsimple-manage-device-controller.md)
@@ -147,7 +287,6 @@
 
 ### Résolution des problèmes
 #### [Problèmes de déploiement](storsimple-troubleshoot-deployment.md)
-#### [À l’aide de l’outil de diagnostic](storsimple-8000-diagnostics.md)
 #### [Problèmes de fonctionnement](storsimple-troubleshoot-operational-device.md)
 #### [Remplacement du matériel](storsimple-hardware-component-replacement.md)
 ##### [Remplacer le contrôleur de l’appareil](storsimple-controller-replacement.md)
@@ -166,21 +305,20 @@
 ### Mettre à jour
 #### [Installer Update 4](storsimple-install-update-4.md)
 #### [Installer Update 3](storsimple-install-update-3.md)
-#### [Installer Update 2.2](storsimple-install-update-21.md)
-#### [Installer Update 2](storsimple-install-update-2.md)
-#### [Installer Update 1.2](storsimple-install-update-1.md)
 #### [Mettre à jour votre appareil](storsimple-update-device.md)
 
 ## Notes de publication
 ### [Update 4 - en cours](storsimple-update4-release-notes.md)
 ### [Update 3](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
-### [Update 2 ](storsimple-update2-release-notes.md)
-### [Update 1 ](storsimple-update1-release-notes.md)
-### [Update 0.3](storsimple-february-2015-release-notes.md)
-### [Update 0.2](storsimple-january-2015-release-notes.md)
-### [Update 0.1](storsimple-october-2014-release-notes.md)
-### [Version commerciale - GA](storsimple-july-2014-release-notes.md)
+
+### Archivage
+#### [Update 2 ](storsimple-update2-release-notes.md)
+#### [Update 1 ](storsimple-update1-release-notes.md)
+#### [Update 0.3](storsimple-february-2015-release-notes.md)
+#### [Update 0.2](storsimple-january-2015-release-notes.md)
+#### [Update 0.1](storsimple-october-2014-release-notes.md)
+#### [Version commerciale - GA](storsimple-july-2014-release-notes.md)
 
 ## Référence
 ### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
@@ -215,15 +353,16 @@
 # Rubriques connexes
 ## [Gamme StorSimple 5000-7000](http://onlinehelp.storsimple.com)
 
-# les ressources
-## [Tarification](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
-## [Mises à jour de service](https://azure.microsoft.com/updates/?product=storsimple)
+# Ressources
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog Marketing](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Tarification](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Blog sur le support technique](http://blogs.msdn.com/b/storsimple/)
 ## [Mentions tierces](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 

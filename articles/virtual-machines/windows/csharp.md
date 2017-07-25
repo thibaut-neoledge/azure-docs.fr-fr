@@ -13,57 +13,59 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 06/20/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 7f708087dda4cfb7e998b42ce36632d5764c6c0e
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: f04783896eb36e9a8c3e5cc8422a1fb054b36dd2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 06/23/2017
 
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c"></a>Déployer une machine virtuelle Azure avec C# #
+# <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de C# #
 
-Cet article explique comment utiliser C# pour créer une machine virtuelle Azure et ses ressources de soutien.
+Une [machine virtuelle Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a besoin de plusieurs ressources de prise en charge Azure. Cet article décrit comment créer, gérer et supprimer des ressources de machine virtuelle à l’aide de C#. Vous allez apprendre à effectuer les actions suivantes :
+
+> [!div class="checklist"]
+> * Créer un projet Visual Studio
+> * Installation des bibliothèques
+> * Créer des informations d’identification
+> * Créer des ressources
+> * Effectuer d’autres tâches de gestion
+> * Supprimer des ressources
+> * Exécution de l'application
 
 Ces étapes prennent environ 20 minutes.
 
-## <a name="step-1-create-a-visual-studio-project"></a>Étape 1 : création d’un projet Visual Studio
+## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
-Lors de cette étape, assurez-vous que Visual Studio est installé et que vous créez une application console utilisée pour créer les ressources.
-
-1. Si vous ne l’avez pas déjà fait, installez [Visual Studio](https://www.visualstudio.com/).
+1. Si vous ne l’avez pas déjà fait, installez [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Sélectionnez **Développement .NET Desktop** dans la page Charges de travail, puis cliquez sur **Installer**. Dans le résumé, vous pouvez voir que les **Outils de développement .NET Framework 4 - 4.6** sont automatiquement sélectionnés. Si vous avez déjà installé Visual Studio, vous pouvez ajouter la charge de travail .NET en utilisant le lanceur Visual Studio.
 2. Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
-3. Dans **Modèles** > **Visual C#**, sélectionnez **Application console (.NET Framework)**, entrez le nom et l’emplacement du projet, puis cliquez sur **OK**.
+3. Dans **Modèles** > **Visual C#**, sélectionnez **Application console (.NET Framework)**, entrez le nom de projet *myDotnetProject*, sélectionnez l’emplacement du projet, puis cliquez sur **OK**.
 
-## <a name="step-2-install-libraries"></a>Étape 2 : installation des bibliothèques
+## <a name="install-libraries"></a>Installation des bibliothèques
 
 Les packages NuGet sont le moyen le plus simple pour installer les bibliothèques dont vous avez besoin pour terminer ces étapes. Pour obtenir les bibliothèques dont vous avez besoin dans Visual Studio, suivez ces étapes :
 
-
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, cliquez sur **Gérer les packages NuGet** puis sur **Parcourir**.
-2. Entrez *Microsoft.IdentityModel.Clients.ActiveDirectory* dans la zone de recherche, sélectionnez votre projet, cliquez sur **Installer** puis suivez les instructions d’installation du package.
-3. En haut de la page, sélectionnez **Inclure la version préliminaire**. Tapez *Microsoft.Azure.Management.Compute* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur *myDotnetProject*, cliquez sur **Gérer les packages NuGet pour la solution...**, puis cliquez sur **Parcourir**.
+2. Entrez *Microsoft.IdentityModel.Clients.ActiveDirectory* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
+3. Tapez *Microsoft.Azure.Management.Compute* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
 4. Tapez *Microsoft.Azure.Management.Network* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
-5. Tapez *Microsoft.Azure.Management.Storage* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
-6. Tapez *Microsoft.Azure.Management.ResourceManager* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
+5. Tapez *Microsoft.Azure.Management.ResourceManager* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
 
 Vous êtes maintenant prêt à utiliser les bibliothèques permettant de créer votre application.
 
-## <a name="step-3-create-the-credentials-used-to-authenticate-requests"></a>Étape 3 : Créer les informations d’identification utilisées pour authentifier les requêtes
+## <a name="create-credentials"></a>Créer des informations d’identification
 
-Avant de commencer cette étape, assurez-vous que vous avez accès à un [principal de service Active Directory](../../resource-group-authenticate-service-principal.md). Dans le principal de service, vous obtenez le jeton d'authentification des demandes pour Azure Resource Manager.
+Avant de commencer cette étape, assurez-vous que vous avez accès à un [principal de service Active Directory](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Vous devez également enregistrer l’ID d’application, la clé d’authentification et l’ID de locataire dont vous aurez besoin ultérieurement.
 
-1. Ouvrez le fichier Program.cs du projet que vous avez créé, puis ajoutez les instructions using suivantes aux instructions au début du fichier :
+1. Ouvrez le fichier Program.cs créé, puis ajoutez les instructions using suivantes aux instructions au début du fichier :
    
     ```
     using Microsoft.Azure;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Azure.Management.ResourceManager;
     using Microsoft.Azure.Management.ResourceManager.Models;
-    using Microsoft.Azure.Management.Storage;
-    using Microsoft.Azure.Management.Storage.Models;
     using Microsoft.Azure.Management.Network;
     using Microsoft.Azure.Management.Network.Models;
     using Microsoft.Azure.Management.Compute;
@@ -71,13 +73,24 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
     using Microsoft.Rest;
     ```
 
-2. Ajoutez la méthode suivante à la classe Program pour obtenir le jeton nécessaire à la création des informations d’identification :
+2. Ensuite, dans la méthode Main du fichier Program.cs, ajoutez des variables pour spécifier les valeurs communes utilisées dans le code :
+
+    ```   
+    var groupName = "myResourceGroup";
+    var subscriptionId = "subsciption-id";
+    var location = "westus";
+    var vmName = "myVM";
+    ```
+
+    Remplacez **subscription-id** par l’identificateur de votre abonnement.
+
+3. Pour créer les informations d’identification Active Directory dont vous avez besoin pour effectuer des requêtes, ajoutez cette méthode à la classe Program :
    
     ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("client-id", "client-secret");
-      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
+      var cc = new ClientCredential("application-id", "authentication-key");
+      var context = new AuthenticationContext("https://login.microsoftonline.com/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -87,73 +100,42 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
     }
     ```
 
-    Remplacez les valeurs suivantes :
-    
-    - *client-id* avec l’identificateur de l’application Azure Active Directory. Vous pouvez trouver cet identifiant dans le panneau Propriétés de votre application AD. Pour trouver votre application Active Directory dans le portail Azure, cliquez sur **Azure Active Directory** dans le menu de ressources, puis cliquez sur **Inscriptions d’applications**.
-    - *client-secret* avec la clé d’accès de l’application Active Directory. Vous pouvez trouver cet identifiant dans le panneau Propriétés de votre application AD.
-    - *tenant-id* avec l’identificateur de locataire de votre abonnement. Vous trouverez l’identificateur de client dans le panneau Propriétés d’Azure Active Directory dans le portail Azure. Il porte le nom *ID de répertoire*.
+    Remplacez **application-id**, **authentication-key** et **tenant-id** par les valeurs que vous avez recueillies lorsque vous avez créé votre principal de service Azure Active Directory .
 
-3. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main dans le fichier Program.cs :
+4. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main dans le fichier Program.cs :
    
     ```
     var token = GetAccessTokenAsync();
     var credential = new TokenCredentials(token.Result.AccessToken);
     ```
 
-4. Enregistrez le fichier Program.cs.
+## <a name="create-resources"></a>Créer des ressources
 
-## <a name="step-4-create-the-resources"></a>Étape 4 : Créer les ressources
+### <a name="initialize-management-clients"></a>Initialiser les clients de gestion
 
-### <a name="register-the-providers-and-create-a-resource-group"></a>Inscrire les fournisseurs et créer un groupe de ressources
+Les clients de gestion sont nécessaires pour créer et gérer des ressources à l’aide du Kit de développement logiciel (SDK) .NET dans Azure. Pour créer les clients de gestion, ajoutez le code suivant à la méthode Main dans le fichier Program.cs :
 
-Toutes les ressources doivent être contenues dans un groupe de ressources. Pour que vous puissiez ajouter des ressources à un groupe, votre abonnement doit être inscrit auprès des fournisseurs de ressources.
+```
+var resourceManagementClient = new ResourceManagementClient(credential)
+    { SubscriptionId = subscriptionId };
+var networkManagementClient = new NetworkManagementClient(credential)
+    { SubscriptionId = subscriptionId };
+var computeManagementClient = new ComputeManagementClient(credential)
+    { SubscriptionId = subscriptionId };
+```
 
-1. Ajoutez des variables à la méthode Main de la classe Program pour spécifier les noms que vous souhaitez utiliser pour les ressources :
+### <a name="create-the-vm-and-supporting-resources"></a>Créer la machine virtuelle et les ressources de prise en charge
 
-    ```   
-    var groupName = "myResourceGroup";
-    var subscriptionId = "subsciptionId";
-    var storageName = "myStorageAccount";
-    var ipName = "myPublicIP";
-    var subnetName = "mySubnet";
-    var vnetName = "myVnet";
-    var nicName = "myNIC";
-    var avSetName = "myAVSet";
-    var vmName = "myVM";  
-    var location = "location";
-    var adminName = "adminName";
-    var adminPassword = "adminPassword";
-    ```
+Toutes les ressources doivent être contenues dans un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md).
 
-    Remplacez les valeurs suivantes :
-
-    - Remplacez tous les noms de ressource commençant par *my* par des noms appropriés à votre environnement.
-    - *subscriptionId* avec l’identificateur de votre abonnement. Vous trouverez l’identificateur d’abonnement dans le panneau Abonnements du portail Azure.
-    - *location* est la [région Azure](https://azure.microsoft.com/regions/) où vous souhaitez créer les ressources.
-    - *adminName* est le nom du compte d’administrateur sur les machines virtuelles.
-    - *adminPassword* avec le mot de passe du compte administrateur.
-
-2. Pour créer le groupe de ressources et inscrire les fournisseurs, ajoutez cette méthode à la classe Program :
+1. Ajoutez la méthode suivante à la classe Program pour créer un groupe de ressources :
    
     ```
     public static async Task<ResourceGroup> CreateResourceGroupAsync(
-      TokenCredentials credential,
+      ResourceManagementClient resourceManagementClient,
       string groupName,
-      string subscriptionId,
       string location)
-    {
-      var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-   
-      Console.WriteLine("Registering the providers...");
-      var rpResult = resourceManagementClient.Providers.Register("Microsoft.Storage");
-      Console.WriteLine(rpResult.RegistrationState);
-      rpResult = resourceManagementClient.Providers.Register("Microsoft.Network");
-      Console.WriteLine(rpResult.RegistrationState);
-      rpResult = resourceManagementClient.Providers.Register("Microsoft.Compute");
-      Console.WriteLine(rpResult.RegistrationState);
-   
-      Console.WriteLine("Creating the resource group...");
+    {   
       var resourceGroup = new ResourceGroup { Location = location };
       return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(
         groupName, 
@@ -161,255 +143,38 @@ Toutes les ressources doivent être contenues dans un groupe de ressources. Pour
     }
     ```
 
-3. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main :
+2. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main :
    
     ```   
     var rgResult = CreateResourceGroupAsync(
-      credential,
+      resourceManagementClient,
       groupName,
-      subscriptionId,
       location);
-    Console.WriteLine(rgResult.Result.Properties.ProvisioningState);
+    Console.WriteLine("Resource group creation: " + 
+      rgResult.Result.Properties.ProvisioningState + 
+      ". Press enter to continue...");
     Console.ReadLine();
     ```
 
-### <a name="create-a-storage-account"></a>Créez un compte de stockage.
-
-Lorsque vous utilisez un disque non géré, un [compte de stockage](../../storage/storage-create-storage-account.md) est nécessaire pour stocker le fichier du disque dur virtuel généré pour la machine virtuelle.
-
-1. Pour créer un compte de stockage, ajoutez cette méthode à la classe Program :
-
-    ```   
-    public static async Task<StorageAccount> CreateStorageAccountAsync(
-      TokenCredentials credential,       
-      string groupName,
-      string subscriptionId,
-      string location,
-      string storageName)
-    {
-      var storageManagementClient = new StorageManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-      
-      Console.WriteLine("Creating the storage account...");
-
-      return await storageManagementClient.StorageAccounts.CreateAsync(
-        groupName,
-        storageName,
-        new StorageAccountCreateParameters()
-          {
-            Sku = new Microsoft.Azure.Management.Storage.Models.Sku() 
-              { Name = SkuName.StandardLRS},
-            Kind = Kind.Storage,
-            Location = location
-          }
-      );
-    }
-    ```
-
-2. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main :
-   
-    ```
-    var stResult = CreateStorageAccountAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location,
-      storageName);
-    Console.WriteLine(stResult.Result.ProvisioningState);  
-    Console.ReadLine();
-    ```
-
-### <a name="create-a-public-ip-address"></a>Créer une adresse IP publique
-
-Une adresse IP publique est nécessaire pour communiquer avec la machine virtuelle.
-
-1. Pour créer l’adresse IP publique pour la machine virtuelle, ajoutez cette méthode à la classe Program :
-   
-    ```
-    public static async Task<PublicIPAddress> CreatePublicIPAddressAsync(
-      TokenCredentials credential,  
-      string groupName,
-      string subscriptionId,
-      string location,
-      string ipName)
-    {
-      var networkManagementClient = new NetworkManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-      
-      Console.WriteLine("Creating the public ip...");
-
-      return await networkManagementClient.PublicIPAddresses.CreateOrUpdateAsync(
-        groupName,
-        ipName,
-        new PublicIPAddress
-          {
-            Location = location,
-            PublicIPAllocationMethod = "Dynamic"
-          }
-      );
-    }
-    ```
-
-2. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main :
-   
-    ```   
-    var ipResult = CreatePublicIPAddressAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location,
-      ipName);
-    Console.WriteLine(ipResult.Result.ProvisioningState);  
-    Console.ReadLine();
-    ```
-
-### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
-
-Une machine virtuelle créée avec le modèle de déploiement de Resource Manager doit faire partie d’un réseau virtuel.
-
-1. Pour créer un sous-réseau et un réseau virtuel, ajoutez cette méthode à la classe Program :
-
-    ```   
-    public static async Task<VirtualNetwork> CreateVirtualNetworkAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId,
-      string location,
-      string vnetName,
-      string subnetName)
-    {
-      var networkManagementClient = new NetworkManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-   
-      var subnet = new Subnet
-        {
-          Name = subnetName,
-          AddressPrefix = "10.0.0.0/24"
-        };
-   
-      var address = new AddressSpace 
-        {
-          AddressPrefixes = new List<string> { "10.0.0.0/16" }
-        };
-         
-      Console.WriteLine("Creating the virtual network...");
-      return await networkManagementClient.VirtualNetworks.CreateOrUpdateAsync(
-        groupName,
-        vnetName,
-        new VirtualNetwork
-          {
-            Location = location,
-            AddressSpace = address,
-            Subnets = new List<Subnet> { subnet }
-          }
-      );
-    }
-    ```
-
-2. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main :
-
-    ```   
-    var vnResult = CreateVirtualNetworkAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location,
-      vnetName,
-      subnetName);
-    Console.WriteLine(vnResult.Result.ProvisioningState);  
-    Console.ReadLine();
-    ```
-
-### <a name="create-a-network-interface"></a>Créer une interface réseau
-
-Une machine virtuelle a besoin d’une interface réseau pour communiquer sur le réseau virtuel.
-
-1. Pour créer une interface réseau, ajoutez cette méthode à la classe Program :
-
-    ```   
-    public static async Task<NetworkInterface> CreateNetworkInterfaceAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId,
-      string location,
-      string subnetName,
-      string vnetName,
-      string ipName,
-      string nicName)
-    {
-      var networkManagementClient = new NetworkManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-      var subnet = await networkManagementClient.Subnets.GetAsync(
-        groupName,
-        vnetName,
-        subnetName
-      );
-      var publicIP = await networkManagementClient.PublicIPAddresses.GetAsync(
-        groupName, 
-        ipName
-      );
-   
-      Console.WriteLine("Creating the network interface...");
-      return await networkManagementClient.NetworkInterfaces.CreateOrUpdateAsync(
-        groupName,
-        nicName,
-        new NetworkInterface
-          {
-            Location = location,
-            IpConfigurations = new List<NetworkInterfaceIPConfiguration>
-              {
-                new NetworkInterfaceIPConfiguration
-                  {
-                    Name = nicName,
-                    PublicIPAddress = publicIP,
-                    Subnet = subnet
-                  }
-              }
-          }
-      );
-    }
-    ```
-
-2. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main :
-   
-    ```
-    var ncResult = CreateNetworkInterfaceAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location,
-      subnetName,
-      vnetName,
-      ipName,
-      nicName);
-    Console.WriteLine(ncResult.Result.ProvisioningState);  
-    Console.ReadLine();
-    ```
-
-### <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
-
-Les groupes à haute disponibilité facilitent la gestion de la maintenance des machines virtuelles utilisées par votre application.
+Les [groupes à haute disponibilité](tutorial-availability-sets.md) facilitent la maintenance des machines virtuelles utilisées par votre application.
 
 1. Pour créer un groupe à haute disponibilité, ajoutez cette méthode à la classe Program :
 
     ```   
     public static async Task<AvailabilitySet> CreateAvailabilitySetAsync(
-      TokenCredentials credential,
+      ComputeManagementClient computeManagementClient,
       string groupName,
-      string subscriptionId,
-      string location,
-      string avsetName)
+      string location)
     {
-      var computeManagementClient = new ComputeManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-        
-      Console.WriteLine("Creating the availability set...");
       return await computeManagementClient.AvailabilitySets.CreateOrUpdateAsync(
         groupName,
-        avsetName,
+        "myAVSet",
         new AvailabilitySet()
-          { Location = location }
-      );
+        { 
+          Sku = new Microsoft.Azure.Management.Compute.Models.Sku("Aligned"),
+          PlatformFaultDomainCount = 3,
+          Location = location 
+        });
     }
     ```
 
@@ -417,15 +182,139 @@ Les groupes à haute disponibilité facilitent la gestion de la maintenance des 
    
     ```
     var avResult = CreateAvailabilitySetAsync(
-      credential,  
+      computeManagementClient,
       groupName,
-      subscriptionId,
-      location,
-      avSetName);
+      location);
+    Console.WriteLine("Availability set created. Press enter to continue...");
     Console.ReadLine();
     ```
 
-### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
+Une [adresse IP publique](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) est nécessaire pour communiquer avec la machine virtuelle.
+
+1. Pour créer l’adresse IP publique pour la machine virtuelle, ajoutez cette méthode à la classe Program :
+   
+    ```
+    public static async Task<PublicIPAddress> CreatePublicIPAddressAsync( 
+      NetworkManagementClient networkManagementClient,
+      string groupName,
+      string location)
+    {
+      return await networkManagementClient.PublicIPAddresses.CreateOrUpdateAsync(
+        groupName,
+        "myIpAddress",
+        new PublicIPAddress
+        {
+          Location = location,
+          PublicIPAllocationMethod = "Dynamic"
+        });
+    }
+    ```
+
+2. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main :
+   
+    ```   
+    var ipResult = CreatePublicIPAddressAsync(
+      networkManagementClient,
+      groupName,
+      location);
+    Console.WriteLine("IP address creation: " + 
+      ipResult.Result.ProvisioningState + 
+      ". Press enter to continue...");  
+    Console.ReadLine();
+    ```
+
+Une machine virtuelle doit être incluse dans un sous-réseau d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md).
+
+1. Pour créer un sous-réseau et un réseau virtuel, ajoutez cette méthode à la classe Program :
+
+    ```   
+    public static async Task<VirtualNetwork> CreateVirtualNetworkAsync(
+      NetworkManagementClient networkManagementClient,
+      string groupName,
+      string location)
+    {
+      var subnet = new Subnet
+      {
+        Name = "mySubnet",
+        AddressPrefix = "10.0.0.0/24"
+      };
+      var address = new AddressSpace 
+      {
+        AddressPrefixes = new List<string> { "10.0.0.0/16" }
+      };
+      return await networkManagementClient.VirtualNetworks.CreateOrUpdateAsync(
+        groupName,
+        "myVNet",
+        new VirtualNetwork
+        {
+          Location = location,
+          AddressSpace = address,
+          Subnets = new List<Subnet> { subnet }
+        });
+    }
+    ```
+
+2. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main :
+
+    ```   
+    var vnResult = CreateVirtualNetworkAsync(
+      networkManagementClient,
+      groupName,
+      location);
+    Console.WriteLine("Virtual network creation: " + 
+      vnResult.Result.ProvisioningState + 
+      ". Press enter to continue...");  
+    Console.ReadLine();
+    ```
+
+Une machine virtuelle a besoin d’une interface réseau pour communiquer sur le réseau virtuel.
+
+1. Pour créer une interface réseau, ajoutez cette méthode à la classe Program :
+
+    ```   
+    public static async Task<NetworkInterface> CreateNetworkInterfaceAsync(
+      NetworkManagementClient networkManagementClient,
+      string groupName,
+      string location)
+    {
+      var subnet = await networkManagementClient.Subnets.GetAsync(
+        groupName,
+        "myVNet",
+        "mySubnet");
+      var publicIP = await networkManagementClient.PublicIPAddresses.GetAsync(
+        groupName, 
+        "myIPaddress");
+      return await networkManagementClient.NetworkInterfaces.CreateOrUpdateAsync(
+        groupName,
+        "myNic",
+        new NetworkInterface
+        {
+          Location = location,
+          IpConfigurations = new List<NetworkInterfaceIPConfiguration>
+          {
+            new NetworkInterfaceIPConfiguration
+            {
+              Name = "myNic",
+              PublicIPAddress = publicIP,
+              Subnet = subnet
+            }
+          }
+        });
+    }
+    ```
+
+2. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main :
+   
+    ```
+    var ncResult = CreateNetworkInterfaceAsync(
+      networkManagementClient,
+      groupName,
+      location);
+    Console.WriteLine("Network interface creation: " + 
+      ncResult.Result.ProvisioningState + 
+      ". Press enter to continue...");  
+    Console.ReadLine();
+    ```
 
 Maintenant que vous avez créé l’ensemble des ressources de prise en charge, vous pouvez créer une machine virtuelle.
 
@@ -433,81 +322,60 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
 
     ```   
     public static async Task<VirtualMachine> CreateVirtualMachineAsync(
-      TokenCredentials credential, 
+      NetworkManagementClient networkManagementClient,
+      ComputeManagementClient computeManagementClient,
       string groupName,
-      string subscriptionId,
-      string location,
-      string nicName,
-      string avsetName,
-      string storageName,
-      string adminName,
-      string adminPassword,
-      string vmName)
+      string location)
     {
-      var networkManagementClient = new NetworkManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-      var computeManagementClient = new ComputeManagementClient(credential)
-        { SubscriptionId = subscriptionId };  
+ 
       var nic = await networkManagementClient.NetworkInterfaces.GetAsync(
         groupName, 
-        nicName);
+        "myNic");
       var avSet = await computeManagementClient.AvailabilitySets.GetAsync(
         groupName, 
-        avsetName);
-   
-      Console.WriteLine("Creating the virtual machine...");
+        "myAVSet");
       return await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(
         groupName,
-        vmName,
+        "myVM",
         new VirtualMachine
+        {
+          Location = location,
+          AvailabilitySet = new Microsoft.Azure.Management.Compute.Models.SubResource
           {
-            Location = location,
-            AvailabilitySet = new Microsoft.Azure.Management.Compute.Models.SubResource
-              {
-                Id = avSet.Id
-              },
-            HardwareProfile = new HardwareProfile
-              {
-                VmSize = "Standard_A0"
-              },
-            OsProfile = new OSProfile
-              {
-                AdminUsername = adminName,
-                AdminPassword = adminPassword,
-                ComputerName = vmName,
-                WindowsConfiguration = new WindowsConfiguration
-                  {
-                    ProvisionVMAgent = true
-                  }
-              },
-            NetworkProfile = new NetworkProfile
-              {
-                NetworkInterfaces = new List<NetworkInterfaceReference>
-                  {
-                    new NetworkInterfaceReference { Id = nic.Id }
-                  }
-              },
-            StorageProfile = new StorageProfile
-              {
-                ImageReference = new ImageReference
-                  {
-                    Publisher = "MicrosoftWindowsServer",
-                    Offer = "WindowsServer",
-                    Sku = "2012-R2-Datacenter",
-                    Version = "latest"
-                  },
-                OsDisk = new OSDisk
-                  {
-                    Name = "mytestod1",
-                    CreateOption = DiskCreateOptionTypes.FromImage,
-                    Vhd = new VirtualHardDisk
-                      {
-                        Uri = "http://" + storageName + ".blob.core.windows.net/vhds/mytestod1.vhd"
-                      }
-                  }
-              }
+            Id = avSet.Id
+          },
+          HardwareProfile = new HardwareProfile
+          {
+            VmSize = "Standard_DS1"
+          },
+          OsProfile = new OSProfile
+          {
+            AdminUsername = "azureuser",
+            AdminPassword = "Azure12345678",
+            ComputerName = "myVM",
+            WindowsConfiguration = new WindowsConfiguration
+            {
+              ProvisionVMAgent = true
+            }
+          },
+          NetworkProfile = new NetworkProfile
+          {
+            NetworkInterfaces = new List<NetworkInterfaceReference>
+            {
+              new NetworkInterfaceReference { Id = nic.Id }
+            }
+          },
+          StorageProfile = new StorageProfile
+          {
+            ImageReference = new ImageReference
+            {
+              Publisher = "MicrosoftWindowsServer",
+              Offer = "WindowsServer",
+              Sku = "2012-R2-Datacenter",
+              Version = "latest"
+            }
           }
-      );
+        });
     }
     ```
 
@@ -520,21 +388,243 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
    
     ```
     var vmResult = CreateVirtualMachineAsync(
-      credential,
+      networkManagementClient,
+      computeManagementClient,
       groupName,
-      subscriptionId,
-      location,
-      nicName,
-      avSetName,
-      storageName,
-      adminName,
-      adminPassword,
-      vmName);
-    Console.WriteLine(vmResult.Result.ProvisioningState);
+      location);
+    Console.WriteLine("Virtual machine creation: " + 
+      vmResult.Result.ProvisioningState + 
+      ". Press enter to continue...");
     Console.ReadLine();
     ```
 
-## <a name="step-4-delete-the-resources"></a>Étape 4 : supprimer les ressources
+## <a name="perform-management-tasks"></a>Effectuer d’autres tâches de gestion
+
+Pendant le cycle de vie d’une machine virtuelle, vous souhaiterez exécuter des tâches de gestion telles que le démarrage, l’arrêt ou la suppression d’une machine virtuelle. En outre, vous souhaiterez peut-être créer du code pour automatiser les tâches répétitives ou complexes.
+
+### <a name="get-information-about-the-vm"></a>Obtenir des informations sur la machine virtuelle
+
+1. Pour obtenir des informations sur la machine virtuelle, ajoutez cette méthode à la classe Program :
+
+    ```
+    public static async void GetVirtualMachineAsync(
+      string groupName,
+      string vmName,
+      ComputeManagementClient computeManagementClient)
+    {
+      Console.WriteLine("Getting information about the virtual machine...");
+
+      var vmResult = await computeManagementClient.VirtualMachines.GetAsync(
+        groupName,
+        vmName,
+        InstanceViewTypes.InstanceView);
+
+      Console.WriteLine("hardwareProfile");
+      Console.WriteLine("   vmSize: " + vmResult.HardwareProfile.VmSize);
+
+      Console.WriteLine("\nstorageProfile");
+      Console.WriteLine("  imageReference");
+      Console.WriteLine("    publisher: " + vmResult.StorageProfile.ImageReference.Publisher);
+      Console.WriteLine("    offer: " + vmResult.StorageProfile.ImageReference.Offer);
+      Console.WriteLine("    sku: " + vmResult.StorageProfile.ImageReference.Sku);
+      Console.WriteLine("    version: " + vmResult.StorageProfile.ImageReference.Version);
+      Console.WriteLine("  osDisk");
+      Console.WriteLine("    osType: " + vmResult.StorageProfile.OsDisk.OsType);
+      Console.WriteLine("    name: " + vmResult.StorageProfile.OsDisk.Name);
+      Console.WriteLine("    createOption: " + vmResult.StorageProfile.OsDisk.CreateOption);
+      Console.WriteLine("    caching: " + vmResult.StorageProfile.OsDisk.Caching);
+      Console.WriteLine("\nosProfile");
+      Console.WriteLine("  computerName: " + vmResult.OsProfile.ComputerName);
+      Console.WriteLine("  adminUsername: " + vmResult.OsProfile.AdminUsername);
+      Console.WriteLine("  provisionVMAgent: " + vmResult.OsProfile.WindowsConfiguration.ProvisionVMAgent.Value);
+      Console.WriteLine("  enableAutomaticUpdates: " + vmResult.OsProfile.WindowsConfiguration.EnableAutomaticUpdates.Value);
+
+      Console.WriteLine("\nnetworkProfile");
+      foreach (NetworkInterfaceReference nic in vmResult.NetworkProfile.NetworkInterfaces)
+      {
+        Console.WriteLine("  networkInterface id: " + nic.Id);
+      }
+
+      Console.WriteLine("\nvmAgent");
+      Console.WriteLine("  vmAgentVersion" + vmResult.InstanceView.VmAgent.VmAgentVersion);
+      Console.WriteLine("    statuses");
+      foreach (InstanceViewStatus stat in vmResult.InstanceView.VmAgent.Statuses)
+      {
+        Console.WriteLine("    code: " + stat.Code);
+        Console.WriteLine("    level: " + stat.Level);
+        Console.WriteLine("    displayStatus: " + stat.DisplayStatus);
+        Console.WriteLine("    message: " + stat.Message);
+        Console.WriteLine("    time: " + stat.Time);
+      }
+
+      Console.WriteLine("\ndisks");
+      foreach (DiskInstanceView idisk in vmResult.InstanceView.Disks)
+      {
+        Console.WriteLine("  name: " + idisk.Name);
+        Console.WriteLine("  statuses");
+        foreach (InstanceViewStatus istat in idisk.Statuses)
+        {
+          Console.WriteLine("    code: " + istat.Code);
+          Console.WriteLine("    level: " + istat.Level);
+          Console.WriteLine("    displayStatus: " + istat.DisplayStatus);
+          Console.WriteLine("    time: " + istat.Time);
+        }
+      }
+
+      Console.WriteLine("\nVM general status");
+      Console.WriteLine("  provisioningStatus: " + vmResult.ProvisioningState);
+      Console.WriteLine("  id: " + vmResult.Id);
+      Console.WriteLine("  name: " + vmResult.Name);
+      Console.WriteLine("  type: " + vmResult.Type);
+      Console.WriteLine("  location: " + vmResult.Location);
+      Console.WriteLine("\nVM instance status");
+      foreach (InstanceViewStatus istat in vmResult.InstanceView.Statuses)
+      {
+        Console.WriteLine("\n  code: " + istat.Code);
+        Console.WriteLine("  level: " + istat.Level);
+        Console.WriteLine("  displayStatus: " + istat.DisplayStatus);
+      }
+    }
+    ```
+
+2. Pour appeler la méthode que vous avez ajoutée précédemment, ajoutez ce code à la méthode Main :
+
+    ```
+    GetVirtualMachineAsync(
+      groupName,
+      vmName,
+      computeManagementClient);
+    Console.WriteLine("\nPress enter to continue...");
+    Console.ReadLine();
+    ```
+
+### <a name="stop-the-vm"></a>Arrêtez la machine virtuelle.
+
+Vous pouvez arrêter une machine virtuelle et conserver tous ses paramètres, mais continuer à être facturé, ou arrêter une machine virtuelle et la libérer. Lorsqu’une machine virtuelle est libérée, toutes les ressources qui lui sont associées sont également libérées et la facturation de la machine virtuelle prend fin.
+
+1. Pour arrêter la machine virtuelle sans la libérer, ajoutez cette méthode à la classe Program :
+
+    ```
+    public static async void StopVirtualMachineAsync(
+      string groupName,
+      string vmName,
+      ComputeManagementClient computeManagementClient)
+    {
+      Console.WriteLine("Stopping the virtual machine...");
+      await computeManagementClient.VirtualMachines.PowerOffAsync(groupName, vmName);
+    }
+    ```
+
+    Si vous souhaitez libérer la machine virtuelle, modifiez l’appel de mise hors tension avec ce code :
+
+    ```
+    await computeManagementClient.VirtualMachines.Deallocate(groupName, vmName);
+    ```
+
+2. Pour appeler la méthode que vous venez d’ajouter, ajoutez le code suivant à la méthode Main :
+
+    ```
+    StopVirtualMachineAsync(
+      groupName,
+      vmName,
+      computeManagementClient);
+    Console.WriteLine("\nPress enter to continue...");
+    Console.ReadLine();
+    ```
+
+### <a name="start-the-vm"></a>Démarrer la machine virtuelle
+
+1. Pour démarrer la machine virtuelle, ajoutez cette méthode à la classe Program :
+
+    ```
+    public static async void StartVirtualMachineAsync(
+      string groupName, 
+      string vmName, 
+      ComputeManagementClient computeManagementClient)
+    {
+      Console.WriteLine("Starting the virtual machine...");
+      await computeManagementClient.VirtualMachines.StartAsync(groupName, vmName);
+    }
+    ```
+
+2. Pour appeler la méthode que vous venez d’ajouter, ajoutez le code suivant à la méthode Main :
+
+    ```
+    StartVirtualMachineAsync(
+      groupName,
+      vmName,
+      ComputeManagementClient computeManagementClient);
+    Console.WriteLine("\nPress enter to continue...");
+    Console.ReadLine();
+    ```
+
+### <a name="resize-the-vm"></a>Redimensionner la machine virtuelle
+
+Vous devez prendre en compte de nombreux aspects du déploiement lorsque vous déterminez la taille de votre machine virtuelle. Pour plus d’informations, voir [Tailles de machine virtuelle](sizes.md).  
+
+1. Pour modifier la taille de la machine virtuelle, ajoutez cette méthode à la classe Program :
+
+    ```
+    public static async void UpdateVirtualMachineAsync(
+      string groupName,
+      string vmName,
+      ComputeManagementClient computeManagementClient)
+    {
+      Console.WriteLine("Updating the virtual machine...");
+      var vmResult = await computeManagementClient.VirtualMachines.GetAsync(groupName, vmName);
+      vmResult.HardwareProfile.VmSize = "Standard_DS3";
+      await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
+    }
+    ```
+
+2. Pour appeler la méthode que vous venez d’ajouter, ajoutez le code suivant à la méthode Main :
+
+    ```
+    UpdateVirtualMachineAsync(
+      groupName,
+      vmName,
+      computeManagementClient);
+    Console.WriteLine("\nPress enter to continue...");
+    Console.ReadLine();
+    ```
+
+### <a name="add-a-data-disk-to-the-vm"></a>Ajouter un disque de données à la machine virtuelle
+
+1. Pour ajouter un disque de données à la machine virtuelle, ajoutez cette méthode à la classe Program :
+
+    ```
+    public static async void AddDataDiskAsync(
+      string groupName,
+      string vmName,
+      ComputeManagementClient computeManagementClient)
+    {
+      Console.WriteLine("Adding the disk to the virtual machine...");
+      var vmResult = await computeManagementClient.VirtualMachines.GetAsync(groupName, vmName);
+      vmResult.StorageProfile.DataDisks.Add(
+        new DataDisk
+        {
+          Lun = 0,
+          Name = "myDataDisk1",
+          CreateOption = DiskCreateOptionTypes.Empty,
+          DiskSizeGB = 2,
+          Caching = CachingTypes.ReadWrite
+        });
+      await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
+    }
+    ```
+
+2. Pour appeler la méthode que vous venez d’ajouter, ajoutez le code suivant à la méthode Main :
+
+    ```
+    AddDataDiskAsync(
+      groupName,
+      vmName,
+      computeManagementClient);
+    Console.WriteLine("\nPress enter to continue...");
+    Console.ReadLine();
+    ```
+
+## <a name="delete-resources"></a>Supprimer des ressources
 
 Étant donné que les ressources utilisées dans Microsoft Azure vous sont facturées, il est toujours conseillé de supprimer les ressources qui ne sont plus nécessaires. Si vous souhaitez supprimer les machines virtuelles et l’ensemble des ressources de prise en charge, il vous suffit de supprimer le groupe de ressources.
 
@@ -542,13 +632,10 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
    
     ```
     public static async void DeleteResourceGroupAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId)
+      ResourceManagementClient resourceManagementClient,
+      string groupName)
     {
       Console.WriteLine("Deleting resource group...");
-      var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
       await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
     }
     ```
@@ -557,22 +644,23 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
    
     ```   
     DeleteResourceGroupAsync(
-      credential,
-      groupName,
-      subscriptionId);
+      resourceManagementClient,
+      groupName);
     Console.ReadLine();
     ```
 
-## <a name="step-5-run-the-console-application"></a>Étape 5 : Exécuter l’application console
+3. Enregistrez le projet.
+
+## <a name="run-the-application"></a>Exécution de l'application
 
 1. Pour exécuter l’application console, cliquez sur **Démarrer** dans Visual Studio, puis connectez-vous à Microsoft Azure AD en utilisant les mêmes nom d’utilisateur et mot de passe que vous utilisez avec votre abonnement.
 
-2. Appuyez sur **Entrée** lorsque l’état *Réussi* s’affiche. 
-   
-3. Une fois la machine virtuelle créée et avant d’appuyer sur **Entrée** pour démarrer la suppression des ressources, prenez quelques minutes pour vérifier que les ressources dans le portail Azure ont bien été créées.
+2. Appuyez sur **Entrée** une fois que l’état de chaque ressource a été retourné. Dans les informations d’état, vous devez voir l’état d’approvisionnement **Réussi** . Une fois la machine virtuelle créée, vous pouvez supprimer toutes les ressources que vous avez créées. Avant d’appuyer sur **Entrée** pour démarrer la suppression des ressources, prenez quelques minutes pour vérifier qu’elles ont bien été créées dans le Portail Azure. Si le Portail Azure est ouvert, vous devrez peut-être actualiser le panneau pour afficher les nouvelles ressources.  
+
+    L’exécution complète de cette application console devrait durer cinq minutes environ. La suppression de l’ensemble des ressources et du groupe de ressources peut prendre quelques minutes après l’exécution de l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Tirez parti de l’utilisation d’un modèle pour créer une machine virtuelle en utilisant les informations contenues dans [Déploiement d’une machine virtuelle Azure avec C# et un modèle Resource Manager](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Pour apprendre à gérer la machine virtuelle que vous avez créée, consultez [Gestion des machines virtuelles Azure à l’aide de modèles Azure Resource Manager et de C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Consultez [Bibliothèques Azure pour .NET](https://docs.microsoft.com/dotnet/azure/index?view=azure-dotnet) pour en savoir plus sur l’utilisation des bibliothèques Azure pour .NET.
 
 

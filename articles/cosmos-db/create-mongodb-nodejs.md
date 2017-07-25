@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/19/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: bfdf42ef717c090bffb89e9f276a135c58b1884f
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 0265503689e189a3e2e30c2ae9fff39641647d0c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -29,13 +29,17 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 Ce démarrage rapide montre comment utiliser une application [MongoDB](mongodb-introduction.md) existante écrite en Node.js et comment la connecter à votre base de données Azure Cosmos DB, qui prend en charge les connexions clientes MongoDB. En d’autres termes, votre application Node.js sait uniquement qu’elle se connecte à une base de données qui utilise des API MongoDB. L’application sait que les données sont stockées dans Azure Cosmos DB.
 
-Lorsque vous aurez terminé, vous disposerez d’une MEAN (MongoDB, Express, AngularJS et Node.js) exécutée sous [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). 
+Lorsque vous aurez terminé, vous disposerez d’une MEAN (MongoDB, Express, AngularJS et Node.js) exécutée sous [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
 ![Application MEAN.js exécutée dans Azure App Service](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 
-## <a name="prerequisites"></a>Composants requis 
 
-Avant de commencer, vérifiez qu’[Azure CLI est installé](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre ordinateur. En outre, vous avez besoin de [Node.js](https://nodejs.org/) et de [Git](http://www.git-scm.com/downloads). Vous allez exécuter les commandes `az`, `npm` et `git`.
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+## <a name="prerequisites"></a>Composants requis 
+En plus d’Azure CLI, vous devez avoir installé [Node.js](https://nodejs.org/) et [Git](http://www.git-scm.com/downloads) localement pour exécuter les commandes `npm` et `git`.
 
 Vous devriez avoir une bonne connaissance de Node.js. Ce démarrage rapide n’est pas destiné à vous aider à développer des applications Node.js en général.
 
@@ -61,19 +65,17 @@ npm start
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Utilisez maintenant l’interface Azure CLI 2.0 dans une fenêtre de terminal pour créer les ressources nécessaires pour héberger votre application Node.js dans Azure App Service.  Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran. 
+Si vous utilisez une interface de ligne de commande Azure installée, connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran. Vous pouvez ignorer cette étape si vous utilisez Azure Cloud Shell.
 
-```azurecli 
+```azurecli
 az login 
 ``` 
    
-### <a name="add-the-azure-cosmos-db-module"></a>Ajouter le module Azure Cosmos DB
+## <a name="add-the-azure-cosmos-db-module"></a>Ajouter le module Azure Cosmos DB
 
-Pour utiliser les commandes Azure Cosmos DB, ajoutez le module Azure Cosmos DB. 
+Si vous utilisez une interface de ligne de commande Azure installée, vérifiez si le composant `cosmosdb` est déjà installé en exécutant la commande `az`. Si `cosmosdb` figure dans la liste des commandes de base, passez à la commande suivante. Vous pouvez ignorer cette étape si vous utilisez Azure Cloud Shell.
 
-```azurecli
-az component update --add cosmosdb
-```
+Si `cosmosdb` n’apparaît pas dans la liste des commandes de base, réinstallez [Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -81,17 +83,19 @@ Créez un [groupe de ressources](../azure-resource-manager/resource-group-overvi
 
 L’exemple suivant crée un groupe de ressources dans la région Europe de l’Ouest. Choisissez un nom unique pour le groupe de ressources.
 
-```azurecli
+Si vous utilisez Azure Cloud Shell, cliquez sur **Essayer**, suivez les invites à l’écran pour vous connecter, puis copiez la commande dans l’invite de commandes.
+
+```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-## <a name="create-an-azure-cosmos-db-account"></a>Créer un compte Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a>Création d’un compte Azure Cosmos DB
 
 Créez un compte Azure Cosmos DB à l’aide de la commande [az cosmosdb create](/cli/azure/cosmosdb#create).
 
 Dans la commande suivante, indiquez le nom unique de votre compte Azure Cosmos DB là où se trouve l’espace réservé `<cosmosdb_name>`. Ce nom unique sera utilisé en tant que point de terminaison Azure Cosmos DB (`https://<cosmosdb_name>.documents.azure.com/`). Pour cette raison, le nom doit être unique sur l’ensemble des comptes Azure Cosmos DB dans Azure. 
 
-```azurecli
+```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
 ```
 
@@ -139,7 +143,7 @@ Pendant cette étape, vous connectez votre exemple d’application MEAN.js à la
 
 Pour se connecter à une base de données Azure Cosmos DB, vous avez besoin de la clé de la base de données. Utilisez la commande [az documentdb list-keys](/cli/azure/cosmosdb#list-keys) pour récupérer la clé primaire.
 
-```azurecli
+```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 ```
 

@@ -3,7 +3,7 @@ title: "Gérer plusieurs environnements dans Fabric Service | Microsoft Docs"
 description: "Les applications Fabric Service peuvent être exécutées sur des clusters comportant entre une machine et des milliers. Dans certains cas, vous devez configurer votre application différemment pour les différents environnements. Cet article explique comment définir des paramètres d’application par l’environnement."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: 
 ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
@@ -12,19 +12,20 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/06/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: b57655c8041fa366d0aeb13e744e30e834ec85fa
-ms.openlocfilehash: 7432e45ef33bd4d51fca8e8db8ec880e8beaf3ab
-ms.lasthandoff: 02/08/2017
+ms.date: 06/07/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: eaf1daf8d9f973fe82ba9e82c60a2a82f2681786
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>Gestion des paramètres d’application pour plusieurs environnements
-Vous pouvez créer des clusters Service Fabric comportant n’importe quel nombre d’ordinateurs compris entre un et plusieurs milliers. Bien que les fichiers binaires d’application puissent s’exécuter sans modification dans ce large éventail d’environnements, il se peut que vous souhaitiez configurer l’application différemment selon le nombre d’ordinateurs sur lesquels vous la déployez.
+Vous pouvez créer des clusters Service Fabric comportant n’importe quel nombre d’ordinateurs compris entre un et plusieurs milliers. Bien que les fichiers binaires d’application puissent s’exécuter sans modification dans ce large éventail d’environnements, vous souhaiterez certainement configurer l’application différemment, selon le nombre d’ordinateurs sur lesquels vous la déployez.
 
-À titre d’exemple, envisagez d’utiliser `InstanceCount` pour un service sans état. Lorsque vous exécutez des applications dans Azure, vous souhaitez généralement définir ce paramètre à la valeur spéciale « -1 ». Vous êtes ainsi certain que votre service s’exécute sur chaque nœud du cluster (ou tous les nœuds du type de nœud, si vous avez défini une contrainte de placement). Cependant, cette configuration ne convient pas à un cluster à une seule machine, car vous ne disposez pas de plusieurs processus à l’écoute du même point de terminaison sur une machine. Au lieu de cela, vous allez définir `InstanceCount` sur « 1 ».
+À titre d’exemple, envisagez d’utiliser `InstanceCount` pour un service sans état. Lorsque vous exécutez des applications dans Azure, vous souhaitez généralement définir ce paramètre sur la valeur spéciale « -1 ». Cette configuration garantit que votre service s’exécute sur chaque nœud du cluster (ou tous les nœuds du type de nœud, si vous avez défini une contrainte de placement). Cependant, cette configuration ne convient pas à un cluster à une seule machine, car vous ne disposez pas de plusieurs processus à l’écoute du même point de terminaison sur une seule machine. Au lieu de cela, vous définissez généralement `InstanceCount` sur « 1 ».
 
 ## <a name="specifying-environment-specific-parameters"></a>Spécification des paramètres spécifiques à l’environnement
 La solution à ce problème de configuration est un ensemble de services paramétrables par défaut et des fichiers de paramètres d’application qui remplissent ces valeurs de paramètre pour un environnement donné. Les services par défaut et paramètres d’application sont configurés dans les manifestes d’applications et de services. La définition de schéma pour les fichiers ServiceManifest.xml et ApplicationManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric et les outils sous *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
@@ -33,18 +34,18 @@ La solution à ce problème de configuration est un ensemble de services paramé
 Les applications Service Fabric sont constituées d’une collection d’instances de service. Bien qu’il vous soit possible de créer une application vide, puis toutes les instances de service de manière dynamique, la plupart des applications possèdent un ensemble de services de base qui doivent être créés systématiquement lors de l’instanciation de l’application. Ils sont nommés « services par défaut » et sont spécifiés dans le manifeste d’application avec des espaces réservés à la configuration par environnement inclus entre crochets :
 
 ```xml
-    <DefaultServices>
-        <Service Name="Stateful1">
-            <StatefulService
-                ServiceTypeName="Stateful1Type"
-                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
-                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+  <DefaultServices>
+      <Service Name="Stateful1">
+          <StatefulService
+              ServiceTypeName="Stateful1Type"
+              TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+              MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
-                <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]"
-                    LowKey="-9223372036854775808"
-                    HighKey="9223372036854775807"
-                />
+              <UniformInt64Partition
+                  PartitionCount="[Stateful1_PartitionCount]"
+                  LowKey="-9223372036854775808"
+                  HighKey="9223372036854775807"
+              />
         </StatefulService>
     </Service>
   </DefaultServices>
@@ -73,14 +74,14 @@ Le [modèle d’application Service Fabric](service-fabric-application-model.md)
 Supposons que vous utilisiez le paramètre suivant dans le fichier Config\Settings.xml pour le service `Stateful1` :
 
 ```xml
-    <Section Name="MyConfigSection">
-      <Parameter Name="MaxQueueSize" Value="25" />
-    </Section>
+  <Section Name="MyConfigSection">
+     <Parameter Name="MaxQueueSize" Value="25" />
+  </Section>
 ```
 Pour remplacer cette valeur par une paire application/environnement spécifique, créez un `ConfigOverride` lors de l’importation du manifeste de service dans le manifeste d’application.
 
 ```xml
-    <ConfigOverrides>
+  <ConfigOverrides>
      <ConfigOverride Name="Config">
         <Settings>
            <Section Name="MyConfigSection">
@@ -99,7 +100,7 @@ Ce paramètre peut ensuite être configuré par environnement, comme indiqué ci
 
 ### <a name="setting-and-using-environment-variables"></a>Définition et utilisation des variables d’environnement 
 Vous pouvez spécifier et définir des variables d’environnement dans le fichier ServiceManifest.xml, puis les remplacer dans le fichier ApplicationManifest.xml instance par instance.
-L’exemple suivant montre deux variables d’environnement, une avec un ensemble de valeurs et une autre qui sera ignorée. Vous pouvez utiliser les paramètres d’application pour définir les valeurs des variables d’environnement de la même manière que pour les substitutions de configuration.
+L’exemple suivant montre deux variables d’environnement, une avec un ensemble de valeurs et une autre qui est ignorée. Vous pouvez utiliser les paramètres d’application pour définir les valeurs des variables d’environnement de la même manière que pour les substitutions de configuration.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -203,7 +204,7 @@ Par défaut, une nouvelle application contient trois fichiers de paramètres, no
 
 ![Fichiers de paramètres d’application dans l’Explorateur de solutions][app-parameters-solution-explorer]
 
-Pour créer un nouveau fichier de paramètres, il suffit de copier et coller fichier de paramètres existant et de lui donner un nouveau nom.
+Pour créer un fichier de paramètres, il vous suffit de copier et coller un fichier de paramètres existant et de lui donner un nouveau nom.
 
 ## <a name="identifying-environment-specific-parameters-during-deployment"></a>Identification des paramètres spécifiques à l’environnement au cours du déploiement
 Au moment du déploiement, vous devez choisir le fichier de paramètres approprié à utiliser avec votre application. Vous pouvez le faire via la boîte de dialogue Publier de Visual Studio ou via PowerShell.

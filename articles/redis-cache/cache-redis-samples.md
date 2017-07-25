@@ -14,9 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f5716ebd46560793a4f7161705252839a3f70e44
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
+ms.openlocfilehash: 7841fcf0b5f4dcb409abf8bfb804c2e03dad6d3a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -68,10 +70,5 @@ L’exemple [Retwis](https://github.com/SyntaxC4-MSFT/retwis) est Redis Hello Wo
 
 ## <a name="bandwidth-monitor"></a>Surveiller la bande passante
 L’exemple [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) vous permet de surveiller la bande passante utilisée sur le client. Pour mesurer la bande passante, exécutez l’exemple sur l’ordinateur client du cache, effectuez des appels au cache et observez la bande passante signalée par l’exemple de surveillance de la bande passante.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

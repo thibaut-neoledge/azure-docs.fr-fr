@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/9/2017
 ms.author: markgal
-translationtype: Human Translation
-ms.sourcegitcommit: 767e3b2e8330b4c52576c90e8ef090e1abc69b42
-ms.openlocfilehash: 20e486be706c6fc02ced8343c050379ceff99d82
-ms.lasthandoff: 01/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 70ea11a7ee273d8c8497a6f12693ddb41ac7cb77
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -214,7 +215,7 @@ Dans les **Actions** disponibles à droite de la console de l’agent de sauvega
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
 3. Si vous souhaitez ajouter ou modifier des éléments, cliquez sur **Ajouter des éléments** dans l’écran **Sélectionner les éléments à sauvegarder**.
 
-    Vous pouvez également définir les **Paramètres d’exclusion** sur cette page de l’Assistant. Si vous souhaitez exclure des fichiers ou des types de fichiers, lisez la procédure permettant d’ajouter des [paramètres d’exclusion](#exclusion-settings).
+    Vous pouvez également définir les **Paramètres d’exclusion** sur cette page de l’Assistant. Si vous souhaitez exclure des fichiers ou des types de fichiers, lisez la procédure permettant d’ajouter des [paramètres d’exclusion](#manage-exclusion-settings).
 4. Sélectionnez les fichiers et les dossiers que vous souhaitez sauvegarder, puis cliquez sur **OK**.
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/add-items-modify.png)

@@ -3,8 +3,8 @@ title: Comment utiliser le plug-in Apache Cordova pour Azure Mobile Apps
 description: Comment utiliser le plug-in Apache Cordova pour Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
+ms.author: glenga
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
 ms.openlocfilehash: 61aa9e5c004decff18337efe3b1baacfcf9279dc
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/07/2017
-
 
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Comment utiliser la bibliothèque cliente Apache Cordova pour Azure Mobile Apps
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/07/2017
 Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [plug-in Apache Cordova pour Azure Mobile Apps]. Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un serveur principal, créer une table et télécharger un projet Apache Cordova prédéfini. Dans ce guide, nous nous concentrons sur le plug-in Apache Cordova côté client.
 
 ## <a name="supported-platforms"></a>Plateformes prises en charge
-Ce kit de développement logiciel (SDK) prend en charge Apache Cordova&6;.0.0 et version ultérieure sur les appareils iOS, Android et Windows.  La prise en charge de la plate-forme est la suivante :
+Ce kit de développement logiciel (SDK) prend en charge Apache Cordova 6.0.0 et version ultérieure sur les appareils iOS, Android et Windows.  La prise en charge de la plate-forme est la suivante :
 
 * Android API 19-24 (KitKat à Nougat).
 * iOS 8.0 et versions ultérieures.

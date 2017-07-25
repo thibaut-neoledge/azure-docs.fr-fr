@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
+ms.date: 06/30/2017
 ms.author: steveesp
-translationtype: Human Translation
-ms.sourcegitcommit: 50be31e179bf52e009596fbc68339dfb5a1aa1e4
-ms.openlocfilehash: d53b1cae9845be32bd053ef196203ea83df06b10
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 1340048d5d518caff3397f671d0c75caaab4b5ac
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ Une machine virtuelle qui bénéficie de la mise à l’échelle côté récepti
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : False
+    Enabled              : False
     ```
 2. Entrez la commande suivante pour activer la mise à l’échelle côté réception (RSS) :
 
@@ -48,7 +49,7 @@ Une machine virtuelle qui bénéficie de la mise à l’échelle côté récepti
     ```powershell
     Name                    :Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : True
+    Enabled              : True
     ```
 
 ## <a name="linux-vm"></a>Machine virtuelle Linux
@@ -57,7 +58,7 @@ La mise à l’échelle côté réception (RSS) est toujours activée par défau
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de janvier 2017, qui est :
+Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de juin 2017, qui est :
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -80,7 +81,7 @@ Commande facultative :
 
 ### <a name="centos"></a>CentOS
 
-Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de janvier 2017, qui est :
+Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de mai 2017, qui est :
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
@@ -88,7 +89,7 @@ Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la ver
 "Version": "latest"
 ```
 Une fois la mise à jour terminée, installez les Services d’intégration Linux (LIS) les plus récents.
-L’optimisation du débit est incluse dans les LIS, à partir de la version 4.1.3. Entrez les commandes suivantes pour installer LIS :
+L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2. Entrez les commandes suivantes pour installer LIS :
 
 ```bash
 sudo yum update
@@ -99,20 +100,27 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de janvier 2017, qui est :
-
-"Publisher": "RedHat" "Offer": "RHEL" "Sku": "7.3" "Version": "7.3.20161104"
-
+```json
+"Publisher": "RedHat"
+"Offer": "RHEL"
+"Sku": "7.3"
+"Version": "7.3.2017062722"
+```
 Une fois la mise à jour terminée, installez les Services d’intégration Linux (LIS) les plus récents.
-L’optimisation du débit est incluse dans les LIS, à partir de la version 4.1.3. Entrez les commandes suivantes pour télécharger et installer les LIS :
+L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2. Entrez les commandes suivantes pour télécharger et installer les LIS :
 
 ```bash
-mkdir lis4.1.3
-cd lis4.1.3
-wget https://download.microsoft.com/download/7/6/B/76BE7A6E-E39F-436C-9353-F4B44EF966E9/lis-rpms-4.1.3.tar.gz
-tar xvzf lis-rpms-4.1.3.tar.gz
+mkdir lis4.2.1
+cd lis4.2.1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
+tar xvzf lis-rpms-4.2.1-1.tar.gz
 cd LISISO
-install.sh #or upgrade.sh if previous LIS was previously installed
+install.sh #or upgrade.sh if prior LIS was previously installed
 ```
- 
-Apprenez-en plus sur les Services d’intégration Linux version 4.1 pour Hyper-V en consultant la [page de téléchargement](https://www.microsoft.com/download/details.aspx?id=51612).
+
+Apprenez-en plus sur les Services d’intégration Linux version 4.2 pour Hyper-V en consultant la [page de téléchargement](https://www.microsoft.com/download/details.aspx?id=55106).
+
+## <a name="next-steps"></a>Étapes suivantes
+* À présent que la machine virtuelle est optimisée, voyez le résultat avec le [Test de bande passante/débit de machine virtuelle](virtual-network-bandwidth-testing.md) pour votre scénario.
+* En savoir plus avec le [FAQ sur les réseaux virtuels Azure](virtual-networks-faq.md)
 

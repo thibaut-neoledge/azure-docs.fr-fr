@@ -13,16 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/04/2017
 
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect dans Microsoft Cloud Germany - Version préliminaire
-## <a name="introduction"></a>Introduction
+# Azure AD Connect dans Microsoft Cloud Germany - Version préliminaire
+<a id="azure-ad-connect-in-microsoft-cloud-germany---public-preview" class="xliff"></a>
+## Introduction
+<a id="introduction" class="xliff"></a>
 Azure AD Connect fournit la synchronisation entre Active Directory local et Azure Active Directory.
 Actuellement, la plupart des scénarios dans [Microsoft Cloud Germany](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) doivent être réalisés par l’opérateur. Lorsque vous utilisez Microsoft Cloud Germany, vous devez tenir compte de ce qui suit :
 
@@ -35,12 +38,13 @@ Actuellement, la plupart des scénarios dans [Microsoft Cloud Germany](https://w
 * Les fonctionnalités suivantes ne sont pas disponibles :
   * Azure AD Connect Health
   * Mises à jour automatiques
-  * Écriture différée du mot de passe
-
-## <a name="download"></a>Télécharger
+ 
+## Télécharger
+<a id="download" class="xliff"></a>
 Vous pouvez télécharger Azure AD Connect à partir du panneau Azure AD Connect dans le portail.  Utilisez les instructions ci-dessous pour localiser le panneau Azure AD Connect.
 
-### <a name="the-azure-ad-connect-blade"></a>Panneau Azure AD Connect
+### Panneau Azure AD Connect
+<a id="the-azure-ad-connect-blade" class="xliff"></a>
 Une fois connecté au portail Azure, procédez comme suit :
 
 1. Accédez à parcourir
@@ -59,15 +63,12 @@ Le tableau suivant décrit les fonctionnalités affichées dans le panneau.
 | DERNIÈRE SYNCHRONISATION |Dernière fois qu’une synchronisation réussie s’est terminée. |
 | DOMAINES FÉDÉRÉS |Affiche le nombre de domaines fédérés actuellement configurés. |
 
-## <a name="installation"></a>Installation
+## Installation
+<a id="installation" class="xliff"></a>
 Pour installer Azure AD Connect, vous pouvez utiliser la documentation [ici](active-directory-aadconnect.md#install-azure-ad-connect).
 
-## <a name="advanced-features-and-additional-information"></a>Fonctionnalités avancées et informations supplémentaires
+## Fonctionnalités avancées et informations supplémentaires
+<a id="advanced-features-and-additional-information" class="xliff"></a>
 Pour plus d’informations et des conseils sur les paramètres personnalisés ou les configurations avancées, commencez par [Intégration des identités locales avec Azure Active Directory](active-directory-aadconnect.md).  Cette page fournit des informations et des liens vers des conseils supplémentaires.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

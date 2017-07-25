@@ -3,8 +3,8 @@ title: "Utiliser le SDK Java Data Lake Analytics pour développer des applicatio
 description: "Utiliser le SDK Java Azure Data Lake Analytics pour développer des applications"
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 99e1c8956968264fbea696b85ac084281d75f02a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 795d9ec0b0cac5d74673404f1d0d851393336df0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Didacticiel : prise en main d’Azure Data Lake Analytics en utilisant le Kit de développement logiciel (SDK) .NET
+# <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Prise en main d’Azure Data Lake Analytics à l’aide du Kit de développement logiciel Java
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Apprenez à utiliser le Kit de développement logiciel (SDK) Java Azure Data Lake Analytics pour créer un compte Azure Data Lake et effectuer des opérations de base comme créer des dossiers, charger et télécharger des fichiers de données, supprimer votre compte et effectuer des travaux. Pour plus d’informations sur Data Lake, consultez [Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -31,7 +33,6 @@ Dans ce didacticiel, vous allez développer une application de console Java qui 
 * Kit de développement Java (JDK) 8 (avec Java version 1.8).
 * IntelliJ ou un autre environnement de développement Java approprié. Ceci étape est facultatif mais recommandé. Les instructions ci-dessous utilisent IntelliJ.
 * **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Activation de votre abonnement Azure** pour la version préliminaire publique de Data Lake Analytics. Consultez les [instructions](data-lake-analytics-get-started-portal.md).
 * Création d’une application Azure Active Directory (AAD) et récupération de ses **ID client**, **ID de locataire** et **Clé**. Pour plus d’informations sur les applications AAD et pour savoir comment obtenir un ID client, consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](../azure-resource-manager/resource-group-create-service-principal-portal.md). L’URI de réponse et la Clé seront également disponibles sur le portail une fois l’application créée et la clé générée.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Comment s’authentifier à l’aide d’Azure Active Directory ?
@@ -350,9 +351,4 @@ Vous devrez donner à votre application l’autorisation de créer des ressource
 * Pour découvrir U-SQL, consultez les articles [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) et [Référence sur le langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 * Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 * Pour obtenir une vue d’ensemble de Data Lake Analytics, consultez [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md).
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

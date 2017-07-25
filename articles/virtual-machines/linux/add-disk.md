@@ -15,18 +15,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 02/02/2017
-ms.author: rasquill
+ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 7a989ffd72dd3636419dfb91f696f0e38f9271c2
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="add-a-disk-to-a-linux-vm"></a>Ajouter un disque à une machine virtuelle Linux
+<a id="add-a-disk-to-a-linux-vm" class="xliff"></a>
+
+# Ajouter un disque à une machine virtuelle Linux
 Cet article explique comment attacher un disque persistant à votre machine virtuelle afin de conserver vos données, et ce, même si votre machine virtuelle est remise en service en raison d’une opération de maintenance ou de redimensionnement. 
 
-## <a name="quick-commands"></a>Commandes rapides
+<a id="quick-commands" class="xliff"></a>
+
+## Commandes rapides
 L’exemple suivant attache un disque de `50` Go à la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
 
 Pour utiliser des disques gérés :
@@ -43,12 +48,16 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
   --new --size-gb 50
 ```
 
-## <a name="attach-a-managed-disk"></a>Attacher un disque géré
+<a id="attach-a-managed-disk" class="xliff"></a>
+
+## Attacher un disque géré
 
 En utilisant des disques gérés, vous pouvez vous concentrer sur vos machines virtuelles et leurs disques sans vous soucier des comptes de stockage Azure. Vous pouvez rapidement créer et attacher un disque géré à une machine virtuelle en utilisant le même groupe de ressources Azure. Vous pouvez également créer autant de disques que vous le souhaitez et les attacher ensuite à la machine virtuelle.
 
 
-### <a name="attach-a-new-disk-to-a-vm"></a>Attacher un nouveau disque à une machine virtuelle
+<a id="attach-a-new-disk-to-a-vm" class="xliff"></a>
+
+### Attacher un nouveau disque à une machine virtuelle
 
 Si vous avez uniquement besoin d’un nouveau disque sur votre machine virtuelle, vous pouvez utiliser la commande `az vm disk attach`.
 
@@ -57,7 +66,9 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
   --new --size-gb 50
 ```
 
-### <a name="attach-an-existing-disk"></a>Association d'un disque existant 
+<a id="attach-an-existing-disk" class="xliff"></a>
+
+### Association d'un disque existant 
 
 Dans de nombreux cas, vous attachez des disques qui ont déjà été créés. Commencez par rechercher l’ID du disque pour l’intégrer à la commande `az vm disk attach`. L’exemple suivant utilise un disque créé avec `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
 
@@ -95,7 +106,9 @@ Le résultat ressemble à ce qui suit (vous pouvez appliquer l’option `-o tabl
 ```
 
 
-## <a name="attach-an-unmanaged-disk"></a>Attacher un disque non géré
+<a id="attach-an-unmanaged-disk" class="xliff"></a>
+
+## Attacher un disque non géré
 
 Vous pouvez rapidement ajouter un nouveau disque qui sera créé dans le même compte de stockage que votre machine virtuelle. Tapez `azure vm disk attach-new` afin de créer un nouveau disque (Go) et de l’associer à votre machine virtuelle. Si vous n'identifiez pas explicitement un compte de stockage, les disques que vous créez sont placés dans le même compte de stockage que celui sur lequel réside le disque du système d'exploitation. L’exemple suivant attache un disque de `50` Go à la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
 
@@ -104,7 +117,9 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
   --new --size-gb 50
 ```
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Se connecter à la machine virtuelle Linux afin de monter le nouveau disque
+<a id="connect-to-the-linux-vm-to-mount-the-new-disk" class="xliff"></a>
+
+## Se connecter à la machine virtuelle Linux afin de monter le nouveau disque
 > [!NOTE]
 > Dans cette rubrique, la connexion à la machine virtuelle est effectuée à l’aide de noms d’utilisateurs et de mots de passe. Pour utiliser des paires de clés publiques et privées pour interagir avec votre machine virtuelle, consultez [Utilisation de SSH avec Linux sur Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 > 
@@ -310,7 +325,9 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 > 
 > L’option **nofail** garantit que la machine virtuelle démarre même si le système de fichiers est endommagé ou si le disque n’existe pas au moment du démarrage. Sans cette option, vous pouvez être confronté au comportement décrit dans [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (Connexion SSH vers machine virtuelle Linux impossible en raison d’erreurs FSTAB)
 
-### <a name="trimunmap-support-for-linux-in-azure"></a>Prise en charge de TRIM/UNMAP pour Linux dans Azure
+<a id="trimunmap-support-for-linux-in-azure" class="xliff"></a>
+
+### Prise en charge de TRIM/UNMAP pour Linux dans Azure
 Certains noyaux Linux prennent en charge les opérations TRIM/UNMAP pour ignorer les blocs inutilisés sur le disque. Cela est particulièrement utile dans le stockage standard pour informer Azure que des pages supprimées ne sont plus valides et peuvent être ignorées. Vous pouvez ainsi faire des économies si vous créez des fichiers volumineux, puis les supprimez.
 
 Il existe deux façons d’activer la prise en charge de TRIM sur votre machine virtuelle Linux. Comme d’habitude, consultez votre distribution pour connaître l’approche recommandée :
@@ -336,10 +353,14 @@ Il existe deux façons d’activer la prise en charge de TRIM sur votre machine 
     sudo fstrim /datadrive
     ```
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+<a id="troubleshooting" class="xliff"></a>
+
+## Résolution des problèmes
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 * N’oubliez pas que votre nouveau disque n’est pas disponible sur votre machine virtuelle en cas de redémarrage, sauf si vous écrivez les informations sur votre fichier [fstab](http://en.wikipedia.org/wiki/Fstab) .
 * Pour vous assurer que votre machine virtuelle Linux est correctement configurée, passez en revue les recommandations visant à [optimiser les performances de votre machine virtuelle Linux](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 * Développez votre capacité de stockage en ajoutant des disques supplémentaires et [configurez RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour augmenter les performances.

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: edaacfb8e7c179ac6e4831a113656b3cf128f985
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 09b67ca9258a490338d29763710c40ea2da23ce7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -48,7 +50,7 @@ Vous pouvez créer un clone sur le même appareil, sur un autre ou même une mac
       > 
       > 
    2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
-   3. Cliquez sur l'icône en forme de flèche  ![icône-flèche](./media/storsimple-clone-volume/HCS_ArrowIcon.png)  pour passer à la page suivante.
+   3. Cliquez sur l'icône en forme de flèche  ![icône-flèche](./media/storsimple-clone-volume/HCS_ArrowIcon.png) pour passer à la page suivante.
 5. Sous **Spécifier des hôtes qui peuvent utiliser ce volume**:
    
    1. Spécifiez un enregistrement de contrôle d’accès (ACR) pour le clone. Vous pouvez ajouter un nouvel ACR ou en choisir un dans la liste existante.
@@ -89,10 +91,5 @@ Vous devez vérifier un bogue de test dans l’environnement de production. Vous
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -4,22 +4,21 @@ description: "Cet article traite des questions fréquemment posées sur Azure Si
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
+manager: carmonm
 editor: 
 ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
-ms.service: get-started-article
+ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/21/2017
+ms.date: 05/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: d3351e4a480caa1bf02e82545f130b14bf6f0910
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 4ed866cf83ff1d38147c9aecf337fd05b025f01a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery : Forum Aux Questions (FAQ)
@@ -27,20 +26,19 @@ Cet article contient les questions fréquemment posées sur Microsoft Azure Sit
 
 ## <a name="general"></a>Généralités
 ### <a name="what-does-site-recovery-do"></a>À quoi sert Site Recovery ?
-Site Recovery contribue à mettre en œuvre la stratégie de continuité d’activité et de récupération d’urgence (BCDR) de votre entreprise en coordonnant et en automatisant la réplication à partir de machines virtuelles et de serveurs physiques locaux sur Azure ou sur un centre de données secondaire. [Plus d’informations](site-recovery-overview.md)
+Site Recovery contribue à mettre en œuvre la stratégie de continuité d’activité et de récupération d’urgence (BCDR) de votre entreprise en coordonnant et en automatisant la réplication de machines virtuelles Azure entre des régions, de machines virtuelles et serveurs physiques locaux sur Azure et de machines locales sur un centre de données secondaire. [En savoir plus](site-recovery-overview.md).
 
 ### <a name="what-can-site-recovery-protect"></a>Que peut protéger Site Recovery ?
+* **Machines virtuelles Azure** : Site Recovery permet de répliquer n’importe quelle charge de travail exécutée sur une machine virtuelle Azure prise en charge
 * **Machines virtuelles Hyper-V**: Site Recovery peut protéger toute charge de travail en cours d’exécution sur une machine virtuelle Hyper-V.
 * **Serveurs physiques**: Site Recovery peut protéger les serveurs physiques exécutant Windows ou Linux.
 * **Machines virtuelles VMware**: Site Recovery peut protéger toute charge de travail en cours d’exécution dans une machine virtuelle VMware.
 
 ### <a name="does-site-recovery-support-the-azure-resource-manager-model"></a>Site Recovery prend-il en charge le modèle Azure Resource Manager ?
-Site Recovery est disponible non seulement dans le portail Azure Classic, mais également dans le portail Azure, où il prend en charge le modèle Resource Manager. Pour la plupart des scénarios de déploiement, l’utilisation de Site Recovery dans le portail Azure rationalise l’expérience de déploiement et vous permet de répliquer des machines virtuelles et des serveurs physiques aussi bien dans un stockage classique que dans un stockage Resource Manager. Voici les déploiements pris en charge :
+Site Recovery est disponible dans le portail Azure avec prise en charge pour le Gestionnaire des ressources. Site Recovery prend en charge les déploiements existants dans le Portail Azure Classic. Vous ne pouvez pas créer de coffres dans le portail classique, et les nouvelles fonctionnalités ne sont pas prises en charge.
 
-* [Réplication de machines virtuelles VMware ou de serveurs physiques sur Azure dans le portail Azure](site-recovery-vmware-to-azure.md)
-* [Réplication de machines virtuelles Hyper-V gérées dans des clouds VMM sur Azure dans le portail Azure](site-recovery-vmm-to-azure.md)
-* [Réplication de machines virtuelles Hyper-V (sans VMM) sur Azure dans le portail Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Réplication de machines virtuelles Hyper-V gérées dans des clouds VMM sur un site secondaire dans le portail Azure](site-recovery-vmm-to-vmm.md)
+### <a name="can-i-replicate-azure-vms"></a>Puis-je répliquer des machines virtuelles Azure ?
+Oui, vous pouvez répliquer des machines virtuelles Azure prises en charge entre des régions Azure. [En savoir plus](site-recovery-azure-to-azure.md).
 
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>Quelle est la configuration requise dans Hyper-V pour orchestrer la réplication avec Site Recovery ?
 Ce dont vous avez besoin pour le serveur hôte Hyper-V dépend du scénario de déploiement. Découvrez les prérequis dans :
@@ -87,6 +85,10 @@ La licence Site Recovery est destinée à une instance protégée, l’instance 
 
 - Si un disque de machine virtuelle est répliqué vers un compte de stockage standard, les frais de stockage Azure concernent la consommation de stockage. Par exemple, si le disque source présente une taille de 1 To et 400 Go sont utilisés, Site Recovery crée un disque dur virtuel (VHD) de 1 To dans Azure, mais le stockage est facturé pour 400 Go (plus la quantité d’espace de stockage utilisée pour les journaux de réplication).
 - Si un disque de machine virtuelle est répliqué vers un compte de stockage Premium, les frais de stockage Azure concernent la taille de stockage provisionnée, arrondie selon l’option de disque de stockage Premium la plus proche. Par exemple, si le disque source présente une taille de 50 Go, Site Recovery crée un disque de 50 Go dans Azure et Azure mappe celui-ci au disque de stockage Premium le plus proche (P10).  Les coûts sont calculés selon le disque P10 et non selon le disque de 50 Go.  [Plus d’informations](https://aka.ms/premium-storage-pricing)  Si vous utilisez le stockage Premium, un compte de stockage standard est également requis pour la journalisation de réplication, et la quantité d’espace de stockage standard utilisée pour ces journaux est facturée en plus.
+- Aucun disque n’est créé tant qu’un test de basculement ou un basculement n’a pas eu lieu. Dans l’état de réplication, des frais de stockage s’appliquent dans la catégorie « Objet blob de page et disque » tels que déterminés par la [calculatrice du prix de stockage](https://azure.microsoft.com/en-in/pricing/calculator/). Ces frais sont basés sur le type de stockage premium/standard et sur le type de redondance des données (LRS, GRS,RA-GRS, etc.).
+- Si l’option permettant d’utiliser des disques managés sur un basculement est sélectionnée, des [frais de disques managés](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) s’appliquent après un basculement/test de basculement. Les frais de disques managés ne s’appliquent pas pendant la réplication.
+- Si l’option permettant d’utiliser des disques managés sur un basculement n’est pas sélectionnée, des frais de stockage dans la catégorie « Objet blob de page et disque » tels que déterminés par la [calculatrice du prix de stockage](https://azure.microsoft.com/en-in/pricing/calculator/) s’appliquent après le basculement. Ces frais sont basés sur le type de stockage premium/standard et sur le type de redondance des données (LRS, GRS,RA-GRS, etc.).
+- Des transactions de stockage sont facturées pendant la réplication à l’état stationnaire et pour les opérations régulières de machine virtuelle après un basculement/test de basculement. Mais ces coûts sont négligeables.
 
 Des coûts sont aussi facturés pendant le test de basculement, les coûts de la machine virtuelle, du stockage, de la sortie et des transactions de stockage s’appliquant.
 
@@ -124,14 +126,14 @@ Oui. Site Recovery les convertit de la génération 2 à la génération 1 pen
 ### <a name="if-i-replicate-to-azure-how-do-i-pay-for-azure-vms"></a>Si je réplique vers Azure comment vais-je payer les machines virtuelles Azure ?
 Lors de la réplication normale, les données sont répliquées dans le stockage Azure géo-redondant. Ainsi, vous n’avez aucuns frais de gestion des machines virtuelles IaaS Azure à régler, ce qui est un atout majeur. Lorsque vous exécutez un basculement vers Azure, Site Recovery crée automatiquement les machines virtuelles IaaS Azure. Après cela, vous êtes facturé pour les ressources de calcul que vous utilisez dans Azure.
 
-### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Puis-je automatiser des scénarios Site Recovery avec un Kit de développement logiciel (SDK) ?
-Oui. Vous pouvez automatiser les flux de travail Site Recovery à l’aide de l’API Rest, de PowerShell ou du Kit de développement logiciel (SDK) Azure. Scénarios actuellement pris en charge pour le déploiement de Site Recovery à l’aide de PowerShell :
+### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Puis-je automatiser des scénarios Site Recovery avec un kit SDK ?
+Oui. Vous pouvez automatiser les flux de travail Site Recovery à l’aide de l’API Rest, de PowerShell ou du kit SDK Azure. Scénarios actuellement pris en charge pour le déploiement de Site Recovery à l’aide de PowerShell :
 
 * [Réplication vers Azure de machines virtuelles Hyper-V hébergées dans des clouds VMM à l’aide de PowerShell et d’Azure Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 * [Réplication vers Azure de machines virtuelles Hyper-V (sans VMM) à l’aide de PowerShell et d’Azure Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Si je réplique vers Azure, de quel type de compte de stockage ai-je besoin ?
-* **Portail Azure Classic**: si vous déployez Site Recovery dans le portail Azure Classic, vous avez besoin d’un [compte de stockage géoredondant standard](../storage/storage-redundancy.md#geo-redundant-storage). Premium Storage n’est pas actuellement pris en charge. Ce compte doit se trouver dans la même région que le coffre Site Recovery.
+* **Portail Azure Classic**: si vous déployez Site Recovery dans le portail Azure Classic, vous avez besoin d’un [compte de stockage géoredondant standard](../storage/storage-redundancy.md#geo-redundant-storage). Stockage Premium n’est pas pris en charge pour le moment. Ce compte doit se trouver dans la même région que le coffre Site Recovery.
 * **Portail Azure**: si vous déployez Site Recovery dans le portail Azure, vous avez besoin d’un compte de stockage LRS ou GRS. Nous vous recommandons d’utiliser un compte GRS, afin que les données soient résilientes si une panne se produit au niveau régional, ou si la région principale ne peut pas être récupérée. Ce compte doit se trouver dans la même région que le coffre Recovery Services. Le Stockage Premium est maintenant pris en charge pour les machines virtuelles VMware, les machines virtuelles Hyper-V et la réplication de serveurs physiques lorsque vous déployez Site Recovery dans le portail Azure.
 
 ### <a name="how-often-can-i-replicate-data"></a>À quelle fréquence puis-je répliquer les données ?
@@ -160,7 +162,7 @@ Oui. Pour plus d’informations sur la limitation de bande passante, consultez l
 
 * [Planification de la capacité pour la réplication de machines virtuelles VMware et de serveurs physiques](site-recovery-plan-capacity-vmware.md)
 * [Planification de la capacité pour la réplication de machines virtuelles Hyper-V dans des clouds VMM](site-recovery-vmm-to-azure.md#capacity-planning)
-* [Planification de la capacité pour la réplication de machines virtuelles Hyper-V sans VMM](site-recovery-hyper-v-site-to-azure.md#capacity-planning)
+* [Planification de la capacité pour la réplication de machines virtuelles Hyper-V sans VMM](site-recovery-hyper-v-site-to-azure.md)
 
 ## <a name="failover"></a>Basculement
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Si j’effectue le basculement vers Azure, comment accéder aux machines virtuelles Azure après le basculement ?
@@ -176,7 +178,7 @@ Vous pouvez déclencher un basculement non planifié à partir du site secondair
 ### <a name="is-failover-automatic"></a>Le basculement est-il automatique ?
 Le basculement n’est pas automatique. Vous lancez les basculements d’un seul clic dans le portail, ou vous pouvez utiliser [Site Recovery PowerShell](/powershell/module/azurerm.siterecovery) pour déclencher un basculement. La restauration automatique est une action simple dans le portail Site Recovery.
 
-Pour automatiser les processus, vous pouvez utiliser Orchestrator ou Operations Manager localement pour détecter une défaillance de machine virtuelle, puis déclencher le basculement à l’aide du Kit de développement logiciel (SDK).
+Pour automatiser les processus, vous pouvez utiliser Orchestrator ou Operations Manager localement pour détecter une défaillance de machine virtuelle, puis déclencher le basculement à l’aide du kit SDK.
 
 * [Découvrez plus d’informations](site-recovery-create-recovery-plans.md) sur les plans de récupération.
 * [En savoir plus](site-recovery-failover.md) sur le basculement.

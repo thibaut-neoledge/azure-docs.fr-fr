@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 05/01/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: a294ca5b86be31f009aedbea954ba41467fd8a2e
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 8738b266bd007682459d08698fa13828ff67a1b6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -93,7 +93,7 @@ Pour une assistance supplémentaire, essayez notre [forum Azure Stream Analytics
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation de Stream Analytics](stream-analytics-introduction.md)
-* [Prise en main de Stream Analytics](stream-analytics-get-started.md)
+* [Prise en main de Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Stream Analytics](stream-analytics-scale-jobs.md)
 * [Informations de référence sur le langage de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

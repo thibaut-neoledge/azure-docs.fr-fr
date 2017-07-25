@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: d95ab33460d5d86b1d2f6d7f0d4e7a9040568c29
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 48a0eaeb10d406d551c9e5870edde06809bd7544
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -65,7 +65,7 @@ Pour que les agents Windows se connectent et s’inscrivent auprès du service O
 Le tableau suivant présente les ressources nécessaires pour la communication.
 
 >[!NOTE]
->Certaines des ressources suivantes mentionnent Operational Insights, qui était une version précédente d’OMS. Toutefois, les ressources répertoriées sont appelées à évoluer.
+>Certaines des ressources suivantes mentionnent Operational Insights, qui est l’ancien nom de Log Analytics.
 
 | Ressource de l'agent | Ports | Ignorer l’inspection HTTPS |
 |---|---|---|
@@ -114,10 +114,10 @@ Vous pouvez utiliser la procédure suivante pour configurer les paramètres de p
 
 Vous pouvez facilement vérifier si vos agents communiquent avec OMS en procédant comme suit :
 
-1.    Sur l’ordinateur sur lequel l’agent Windows est installé, ouvrez le Panneau de configuration.
-2.    Ouvrez Microsoft Monitoring Agent.
-3.    Cliquez sur l’onglet Azure Log Analytics (OMS).
-4.    Dans la colonne État, vous devez voir que l’agent est correctement connecté au service Operations Management Suite.
+1.  Sur l’ordinateur sur lequel l’agent Windows est installé, ouvrez le Panneau de configuration.
+2.  Ouvrez Microsoft Monitoring Agent.
+3.  Cliquez sur l’onglet Azure Log Analytics (OMS).
+4.  Dans la colonne État, vous devez voir que l’agent est correctement connecté au service Operations Management Suite.
 
 ![agent connecté](./media/log-analytics-windows-agents/mma-connected.png)
 
@@ -167,6 +167,12 @@ L’agent utilise IExpress comme son auto-extracteur à l’aide de la commande 
 |OPINSIGHTS_WORKSPACE_ID                | ID d’espace de travail (GUID) de l’espace de travail à ajouter                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Clé d’espace de travail utilisée initialement pour l’authentification auprès de l’espace de travail |
 |OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Spécifie l’environnement cloud où se trouve l’espace de travail <br> 0 = cloud commercial Azure (par défaut) <br> 1 = Azure Government |
+|OPINSIGHTS_PROXY_URL               | URI du proxy à utiliser |
+|OPINSIGHTS_PROXY_USERNAME               | Nom d’utilisateur permettant d’accéder à un proxy authentifié |
+|OPINSIGHTS_PROXY_PASSWORD               | Mot de passe permettant d’accéder à un proxy authentifié |
+
+>[!NOTE]
+Pour éviter d’atteindre la limite de longueur de ligne de commande d’IExpress, installez l’agent sans aucun espace de travail configuré et utilisez un script pour définir la configuration de l’espace de travail.
 
 >[!NOTE]
 Si vous obtenez `Command line option syntax error.` lors de l’utilisation du paramètre `OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE`, vous pouvez utiliser la solution de contournement suivante :
@@ -174,9 +180,10 @@ Si vous obtenez `Command line option syntax error.` lors de l’utilisation du p
 MMASetup-AMD64.exe /C /T:.\MMAExtract
 cd .\MMAExtract
 setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+```
 
-## Add a workspace using a script
-Add a workspace using the Log Analytics agent scripting API with the following example:
+## <a name="add-a-workspace-using-a-script"></a>Ajouter un espace de travail à l’aide d’un script
+Ajoutez un espace de travail à l’aide de l’API de script de l’agent Log Analytics avec l’exemple suivant :
 
 ```PowerShell
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -206,10 +213,10 @@ Vous pouvez utiliser l’exemple de script suivant pour installer l’agent à l
 Cette procédure et cet exemple de script ne mettent pas à niveau un agent existant.
 
 1. Importez le module DSC xPSDesiredStateConfiguration à partir de [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) dans Azure Automation.  
-2.    Créez des ressources variables Azure Automation pour *OPSINSIGHTS_WS_ID* et *OPSINSIGHTS_WS_KEY*. Affectez votre ID d’espace de travail OMS Log Analytics comme valeur *OPSINSIGHTS_WS_ID* et affectez la clé primaire de votre espace de travail comme valeur *OPSINSIGHTS_WS_KEY*.
-3.    Utilisez le script suivant et enregistrez-le sous le nom MMAgent.ps1
-4.    Modifiez puis utilisez l’exemple suivant pour installer l’agent à l’aide de DSC dans Azure Automation. Importez MMAgent.ps1 dans Azure Automation à l’aide de l’interface ou de l’applet de commande Azure Automation.
-5.    Affectez un nœud à la configuration. En moins de 15 minutes, le nœud vérifie sa configuration et l’agent MMA est poussé vers le nœud.
+2.  Créez des ressources variables Azure Automation pour *OPSINSIGHTS_WS_ID* et *OPSINSIGHTS_WS_KEY*. Affectez votre ID d’espace de travail OMS Log Analytics comme valeur *OPSINSIGHTS_WS_ID* et affectez la clé primaire de votre espace de travail comme valeur *OPSINSIGHTS_WS_KEY*.
+3.  Utilisez le script suivant et enregistrez-le sous le nom MMAgent.ps1
+4.  Modifiez puis utilisez l’exemple suivant pour installer l’agent à l’aide de DSC dans Azure Automation. Importez MMAgent.ps1 dans Azure Automation à l’aide de l’interface ou de l’applet de commande Azure Automation.
+5.  Affectez un nœud à la configuration. En moins de 15 minutes, le nœud vérifie sa configuration et l’agent MMA est poussé vers le nœud.
 
 ```PowerShell
 Configuration MMAgent
@@ -298,17 +305,17 @@ Une fois que les données des ordinateurs analysés ont été collectées par l�
 Si vous utilisez Operations Manager dans votre infrastructure informatique, vous pouvez également utiliser l’agent MMA en tant qu’agent Operations Manager.
 
 ### <a name="to-configure-mma-agents-to-report-to-an-operations-manager-management-group"></a>Configurer les agents afin qu’ils émettent des rapports dans un groupe d’administration Operations Manager
-1.    Sur l’ordinateur sur lequel l’agent est installé, ouvrez le **Panneau de configuration**.  
-2.    Ouvrez l’agent **Microsoft Monitoring Agent**, puis cliquez sur l’onglet **Operations Manager**.  
+1.  Sur l’ordinateur sur lequel l’agent est installé, ouvrez le **Panneau de configuration**.  
+2.  Ouvrez l’agent **Microsoft Monitoring Agent**, puis cliquez sur l’onglet **Operations Manager**.  
     ![onglet Operations Manager de Microsoft Monitoring Agent](./media/log-analytics-windows-agents/om-mg01.png)
-3.    Si vos serveurs Operations Manager sont intégrés à Active Directory, cliquez sur **Met à jour automatiquement les attributions du groupe d’administration à partir d’AD DS**.
-4.    Cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Ajouter un groupe d’administration**.  
+3.  Si vos serveurs Operations Manager sont intégrés à Active Directory, cliquez sur **Met à jour automatiquement les attributions du groupe d’administration à partir d’AD DS**.
+4.  Cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Ajouter un groupe d’administration**.  
     ![Microsoft Monitoring Agent Ajouter un groupe d’administration](./media/log-analytics-windows-agents/oms-mma-om02.png)
-5.    Dans la zone **Nom du groupe d’administration** , entrez le nom de votre groupe d’administration.
-6.    Dans la zone **Serveur d’administration principal** , entrez le nom d’ordinateur du serveur d’administration principal.
-7.    Dans la zone **Port du serveur d’administration** , entrez le numéro de port TCP.
-8.    Sous **Compte d’action d’agent**, choisissez le compte système local ou un compte de domaine local.
-9.    Cliquez sur **OK** pour fermer la boîte de dialogue **Ajouter un groupe d’administration**, puis cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de l’agent Microsoft Monitoring Agent**.
+5.  Dans la zone **Nom du groupe d’administration** , entrez le nom de votre groupe d’administration.
+6.  Dans la zone **Serveur d’administration principal** , entrez le nom d’ordinateur du serveur d’administration principal.
+7.  Dans la zone **Port du serveur d’administration** , entrez le numéro de port TCP.
+8.  Sous **Compte d’action d’agent**, choisissez le compte système local ou un compte de domaine local.
+9.  Cliquez sur **OK** pour fermer la boîte de dialogue **Ajouter un groupe d’administration**, puis cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de l’agent Microsoft Monitoring Agent**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

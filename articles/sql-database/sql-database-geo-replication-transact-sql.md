@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: dad35a2b3beb2b07d5b12afb8a04ba48f8b8ef7e
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: e5011c1c67e051616d53621b72e46ba894ca3c02
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -103,7 +103,7 @@ Utilisez les étapes suivantes pour surveiller un partenariat de géoréplicatio
 2. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **Master**, puis cliquez sur **Nouvelle requête**.
 3. Utilisez l’instruction suivante pour afficher toutes les bases de données avec des liens de géoréplication.
    
-        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
+        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM sys.geo_replication_links;
 4. Cliquez sur **Exécuter** pour exécuter la requête.
 5. Ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **MyDB**, puis cliquez sur **Nouvelle requête**.
 6. Utilisez l’instruction suivante pour afficher les retards de réplication et l’heure de la dernière réplication des bases de données secondaires de MyDB.
@@ -117,7 +117,7 @@ Utilisez les étapes suivantes pour surveiller un partenariat de géoréplicatio
 9. Cliquez sur **Exécuter** pour exécuter la requête.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur la géoréplication active, voir [Géoréplication active](sql-database-geo-replication-overview.md).
+* Pour en savoir plus sur les groupes de basculement et la géo-réplication active, consultez [Groupes de basculement](sql-database-geo-replication-overview.md)
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 
 

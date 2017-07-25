@@ -12,22 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
 ms.openlocfilehash: 7f50ce0d4842bde809664c392ebee5425a70e6f0
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/08/2017
 
 ---
-# <a name="using-the-sync-service-manager-operations-tab"></a>Utilisation de l’onglet Opérations de Sync Service Manager
+# Utilisation de l’onglet Opérations de Sync Service Manager
+<a id="using-the-sync-service-manager-operations-tab" class="xliff"></a>
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
 L’onglet des opérations affiche les résultats des opérations les plus récentes. Cet onglet est essentiel pour comprendre et résoudre les problèmes.
 
-## <a name="understand-the-information-visible-in-the-operations-tab"></a>Comprendre les informations visibles dans l’onglet des opérations
+## Comprendre les informations visibles dans l’onglet des opérations
+<a id="understand-the-information-visible-in-the-operations-tab" class="xliff"></a>
 La partie supérieure affiche toutes les exécutions dans un ordre chronologique. Par défaut, le journal des opérations conserve les informations des sept derniers jours, mais vous pouvez modifier ce paramètre à l’aide du [planificateur](active-directory-aadconnectsync-feature-scheduler.md). Vous souhaitez rechercher toute exécution qui ne présente pas un état de réussite. Vous pouvez modifier le tri en cliquant sur les en-têtes.
 
 La colonne **État** regroupe les informations les plus importantes et présente le problème le plus sévère pour une exécution. Voici un récapitulatif rapide des états les plus courants par ordre de priorité d’inspection (où * indique plusieurs chaînes d’erreur possibles).
@@ -44,7 +47,8 @@ Lorsque vous sélectionnez une ligne, la partie inférieure est mise à jour pou
 
 Pour plus d’informations, consultez [Dépanner un objet qui bloque la synchronisation](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

@@ -1,8 +1,8 @@
 ---
 title: "Mise à l’échelle du nombre d’instances manuellement ou avec la mise à l’échelle automatique avec le portail Azure | Microsoft Docs"
 description: "Découvrez comment effectuer une mise à l’échelle de vos services Azure."
-author: rboucher
-manager: carmonm
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
-ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.date: 06/06/2017
+ms.author: ancav
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Mise à l'échelle manuelle ou automatique du nombre d’instances
@@ -27,7 +26,7 @@ Dans le [portail Azure](https://portal.azure.com/), vous pouvez définir manuell
 
 Avant d’effectuer cette mise à l'échelle en fonction du nombre d'instances, vous devez prendre en considération que la mise à l’échelle est non seulement affectée par le nombre d’instances, mais également par le **niveau de tarification** . Les différentes options de tarification qui vous sont proposées peuvent disposer d’une mémoire et d’un nombre de cœurs plus ou moins importants, et fournir de cette manière de meilleures performances pour le même nombre d'instances (c'est-à-dire *l’extension* ou la *réduction des instances*). Cet article aborde plus en détail la *réduction* ou *l’extension des instances*.
 
-Vous pouvez effectuer une mise à l’échelle dans le portail et utiliser également [l’API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) ou le [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) pour modifier manuellement ou automatiquement la mise à l’échelle .
+Vous pouvez effectuer une mise à l’échelle dans le portail et utiliser également [l’API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) ou le [Kit de développement logiciel (SDK) .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) pour modifier manuellement ou automatiquement la mise à l’échelle .
 
 > [!NOTE]
 > Cet article décrit comment créer un paramètre de mise à l’échelle dans le portail sur [http://portal.azure.com](http://portal.azure.com). Les paramètres de mise à l’échelle créés dans ce portail ne peuvent pas être modifiés dans le portail classique ([http://manage.windowsazure.com](http://manage.windowsazure.com)).

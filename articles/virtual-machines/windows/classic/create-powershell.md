@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/30/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8b823c42743bc477dceaa3270836de8ebd92c28f
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: bd14d9902f4061965c008454a14f91d3927f5b99
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>Créer une machine virtuelle Windows avec PowerShell et le modèle de déploiement Classic
 > [!div class="op_single_selector"]
-> * [Portail Azure Classic - Windows](tutorial.md)
+> * [Portail Azure - Windows](tutorial.md)
 > * [PowerShell - Windows](create-powershell.md)
 > 
 > 
@@ -165,7 +165,7 @@ Option 1 : créez la machine virtuelle dans un service cloud existant.
 
     New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-Le nom abrégé du service cloud est celui qui apparaît dans la liste Cloud Services dans le portail Azure Classic ou dans la liste des groupes de ressources dans le portail Azure.
+Le nom abrégé du service cloud est celui qui apparaît dans la liste Cloud Services dans le portail Azure ou dans la liste des groupes de ressources dans le portail Azure.
 
 Option 2 : créez la machine virtuelle dans un service cloud et un réseau virtuel existants.
 
@@ -181,7 +181,7 @@ Si vous utilisez un éditeur de texte, copiez le jeu de commandes dans le Presse
 Si vous comptez créer cette machine virtuelle de nouveau ou une autre similaire, vous pouvez :
 
 * Enregistrez ce jeu de commandes en tant que fichier de script PowerShell (*.ps1).
-* Enregistrez ce jeu de commandes en tant que Runbook Azure Automation dans la section **Automation** du Portail Azure Classic.
+* Enregistrez ce jeu de commandes en tant que Runbook Azure Automation dans la section **Comptes Automation** du Portail Azure.
 
 ## <a id="examples"></a>Exemples
 Voici deux exemples d'utilisation des étapes ci-dessus pour créer des jeux de commandes Azure PowerShell qui créent des machines virtuelles Azure basées sur Windows.

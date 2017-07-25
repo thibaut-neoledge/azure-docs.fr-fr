@@ -1,6 +1,6 @@
 ---
 title: Prise en main des connexions hybrides Azure Relay dans Node | Microsoft Docs
-description: "Comment écrire une application de console de nœud pour les connexions hybrides"
+description: "Écrivez une application console Node.js pour les connexions hybrides Azure Relay."
 services: service-bus-relay
 documentationcenter: node
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 05/22/2017
+ms.date: 07/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: a97082b38d146964d77cd9029ce74baa781c6c27
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: c3bfc45969f250059988129f532edd12dfe3dcfe
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -26,31 +26,33 @@ ms.lasthandoff: 05/23/2017
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
+Ce tutoriel présente les [connexions hybrides Azure Relay](relay-what-is-it.md#hybrid-connections) et explique comment utiliser Node.js pour créer une application cliente qui envoie des messages à une application d’écouteur correspondante. 
+
 ## <a name="what-will-be-accomplished"></a>Les opérations que nous allons effectuer
 
-Étant donné que les connexions hybrides nécessitent un client et un serveur, nous allons créer deux applications de console dans ce didacticiel. Voici la procédure à suivre :
+Étant donné que les connexions hybrides nécessitent un client et un serveur, vous allez créer deux applications console dans ce tutoriel. Voici la procédure à suivre :
 
 1. Créer un espace de noms Relay à l’aide du portail Azure.
 2. Créer une connexion hybride, à l’aide du portail Azure.
 3. Écrire une application de console de serveur pour recevoir des messages.
 4. Écrire une application de console de client pour envoyer des messages.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-1. [Node.js](https://nodejs.org/en/) (Cet exemple utilise Node 7.0).
+1. [Node.js](https://nodejs.org/en/).
 2. Un abonnement Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Créer un espace de noms à l’aide du Portail Azure
 
-Si vous disposez déjà d’un espace de noms Relay créé précédemment, passez directement à la section [Créer une connexion hybride à l’aide du portail Azure](#2-create-a-hybrid-connection-using-the-azure-portal).
+Si vous disposez déjà créé un espace de noms Relay, passez à la section [Créer une connexion hybride à l’aide du portail Azure](#2-create-a-hybrid-connection-using-the-azure-portal).
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Créer une connexion hybride à l’aide du portail Azure
 
-Si vous disposez déjà d’une connexion hybride, passez directement à la section [Créer une application de serveur](#3-create-a-server-application-listener).
+Si vous disposez déjà d’une connexion hybride, passez à la section [Créer une application de serveur](#3-create-a-server-application-listener).
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
@@ -58,23 +60,23 @@ Si vous disposez déjà d’une connexion hybride, passez directement à la sect
 
 Pour écouter et recevoir des messages à partir de Relay, nous allons écrire une application de console Node.js.
 
-[!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
+[!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Créer une application cliente (expéditeur)
 
 Pour envoyer des messages à Relay, nous allons écrire une application de console Node.js.
 
-[!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
+[!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
 ## <a name="5-run-the-applications"></a>5. Exécution des applications
 
-1. Exécutez l’application de serveur.
-2. Exécutez l’application cliente et entrez du texte.
+1. Exécutez l’application serveur : à partir d’un type d’invite de commandes Node.js `node listener.js`.
+2. Exécutez l’application cliente : à partir d’un type d’invite de commandes Node.js `node sender.js`, puis entrez du texte.
 3. Vérifiez que la console d’application de serveur renvoie le texte entré dans l’application cliente.
 
 ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
-Vous avez créé une application de connexions hybrides complète : félicitations !
+Vous avez créé une application de connexions hybrides complète avec Node.js : félicitations !
 
 ## <a name="next-steps"></a>Étapes suivantes :
 

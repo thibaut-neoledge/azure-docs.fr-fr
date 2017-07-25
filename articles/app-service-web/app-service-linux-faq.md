@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dcce8d855f8c37d40fe8f09ef0a97e46b342e3cf
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 3fb0f6b26f36ef4044c9733ace05c4f59909ddda
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -62,6 +62,10 @@ Si vous avez une question, commentez l’article ; nous vous répondrons dès q
 
 **R :** Oui.
 
+**Q :** Puis-je utiliser le **déploiement web** pour déployer mon application web ?
+
+**R :** Oui, vous devez définir le paramètre d’application `UseWebDeployScm` sur `false`.
+
 ## <a name="language-support"></a>Support multilingue
 
 **Q :** Prenez-vous en charge les applications .NET Core non compilées ?
@@ -70,7 +74,7 @@ Si vous avez une question, commentez l’article ; nous vous répondrons dès q
 
 **Q :** Prenez-vous en charge Composer en tant que gestionnaire de dépendances pour les applications PHP ?
 
-**R :** Non. Vous devez déployer vos applications PHP avec toutes les dépendances. Nous envisageons la création d’une expérience de déploiement complète dans une version ultérieure.
+**R :** Oui. Lors d’un déploiement Git, Kudu doit détecter que vous déployez une application PHP (grâce à la présence d’un fichier composer.json) et déclenchera une installation Composer pour vous.
 
 ## <a name="custom-containers"></a>Conteneurs personnalisés
 

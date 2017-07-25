@@ -13,4 +13,3 @@
 ### [Prise en main de l’application](microsoft-authenticator-app-how-to.md)
 ### [Se connecter sur un téléphone](microsoft-authenticator-app-phone-signin-faq.md)
 ### [FAQ](microsoft-authenticator-app-faq.md)
-

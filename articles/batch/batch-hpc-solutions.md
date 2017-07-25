@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0bab12648a31b416bd7ceca75f0f83f5da226bad
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Solutions Batch et HPC pour les charges de travail de calcul à grande échelle
@@ -93,7 +93,7 @@ Voici des informations supplémentaires sur les services de calcul, de données,
 Les services de calcul Azure sont au cœur d'une solution Big Compute, et les divers services de calcul offrent des avantages pour différents scénarios. Ces services offrent des modes différents pour que les applications s’exécutent sur des instances de calcul basées sur une machine virtuelle qu’Azure fournit à l'aide de la technologie Hyper-V de Windows Server. Ces instances peuvent exécuter des systèmes d’exploitation et des outils Linux et Windows standard et personnalisés. Azure vous propose un choix de [tailles d’instance](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) avec différentes configurations de cœurs d’UC, de mémoire, de capacité de disque et d’autres caractéristiques. Selon vos besoins, vous pouvez mettre à l’échelle les instances à des milliers de cœurs et les réduire lorsque vous avez besoin de moins de ressources.
 
 > [!NOTE]
-> Tirez parti des [instances Azure nécessitant beaucoup de ressources système telles que la série H](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour améliorer les performances et l’évolutivité des charges de travail HPC. Ces instances prennent également en charge des applications MPI parallèles qui nécessitent un réseau d’application à faible latence et à débit élevé. Sont également disponibles les machines virtuelles de [série N](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) avec des processeurs graphiques NVIDIA pour étendre l’éventail de scénarios de calcul et de visualisation dans Azure.  
+> Tirez parti des [instances Azure nécessitant beaucoup de ressources système telles que la série H](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour améliorer les performances et l’évolutivité des charges de travail HPC. Ces instances prennent également en charge des applications MPI parallèles qui nécessitent un réseau d’application à faible latence et à débit élevé. Sont également disponibles les machines virtuelles de [série N](../virtual-machines/windows/sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) avec des processeurs graphiques NVIDIA pour étendre l’éventail de scénarios de calcul et de visualisation dans Azure.  
 > 
 > 
 

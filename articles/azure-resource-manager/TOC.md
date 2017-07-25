@@ -1,6 +1,6 @@
 # Vue d’ensemble
 ## [Présentation de Resource Manager](resource-group-overview.md)
-## [Services pris en charge](resource-manager-supported-services.md)
+## [Fournisseurs et types de ressources](resource-manager-supported-services.md)
 ## [Déploiements Resource Manager et classiques](resource-manager-deployment-model.md)
 ## [Gouvernance de l’abonnement](resource-manager-subscription-governance.md)
 ## [Applications gérées](managed-application-overview.md)
@@ -67,16 +67,21 @@
 
 ## Définir des stratégies de ressources
 ### [Que sont les stratégies de ressources ?](resource-manager-policy.md)
-### [Attribution de la stratégie du portail](resource-manager-policy-portal.md)
-### [Attribution de la stratégie de script](resource-manager-policy-create-assign.md)
-### [Stratégies de balises de ressources](resource-manager-policy-tags.md)
-### [Stratégies de stockage](resource-manager-policy-storage.md)
-### [Stratégies de machine virtuelle Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Stratégies de machine virtuelle Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Utiliser le portail pour attribuer la stratégie](resource-manager-policy-portal.md)
+### [Utiliser des scripts pour attribuer la stratégie](resource-manager-policy-create-assign.md)
+### Exemples
+#### [Balises](resource-manager-policy-tags.md)
+#### [Conventions d’affectation de noms](resource-manager-policy-naming-convention.md)
+#### [Réseau](resource-manager-policy-network.md)
+#### [Stockage](resource-manager-policy-storage.md)
+#### [Machine virtuelle Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Machine virtuelle Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Utiliser des applications gérées
-### [Publier une application gérée](managed-application-publishing.md)
-### [Utiliser une application gérée](managed-application-consumption.md)
+### [Publier l’application de catalogue de services](managed-application-publishing.md)
+### [Utiliser l’application de catalogue de services](managed-application-consumption.md)
+### [Publier l’application de la Place de marché](managed-application-author-marketplace.md)
+### [Utiliser l’application de la Place de marché](managed-application-consume-marketplace.md)
 ### [Créer des définitions d’interface utilisateur](managed-application-createuidefinition-overview.md)
 
 ## Audit
@@ -85,6 +90,11 @@
 
 ## Résolution des problèmes
 ### [Erreurs de déploiement courantes](resource-manager-common-deployment-errors.md)
+### [Comprendre les erreurs de déploiement](resource-manager-troubleshoot-tips.md)
+### [Erreur RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Erreurs de déploiement de la machine virtuelle
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Référence
 ## [Format de modèle](/azure/templates/)
@@ -117,9 +127,10 @@
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
 ## [REST](/rest/api/resources/)
 
-# les ressources
+# Ressources
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Demandes de limitation](resource-manager-request-limits.md)
 ## [Suivre les opérations asynchrones](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Mises à jour de service](https://azure.microsoft.com/updates/?product=azure-resource-manager)

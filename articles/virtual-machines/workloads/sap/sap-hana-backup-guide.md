@@ -13,10 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 587a8e225b18ae2a07d766f1a0d75623e44aec9f
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e3952c6be537e28f7f2cde8f33750b1894fde8e4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -122,7 +123,7 @@ Le service Azure Backup utilise des extensions de machine virtuelle Azure pour g
 L’article SAP HANA [Planning Your Backup and Recovery Strategy](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm) (Planification de votre stratégie de sauvegarde et de récupération) fournit un plan de base pour effectuer les sauvegardes :
 
 - Capture instantanée de stockage (quotidienne)
-- Sauvegarde de données complète à l’aide du fichier ou du stockage (hebdomadaire)
+- Sauvegarde de données complète dans un fichier ou au format bacint (hebdomadaire)
 - Sauvegardes de fichiers journaux automatiques
 
 Si vous le souhaitez, vous pouvez procéder sans captures instantanées de stockage. Celles-ci peuvent être remplacées par des sauvegardes HANA différentielles ou incrémentielles (voir [Delta Backups](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm) (Sauvegardes différentielles) pour plus d’informations).

@@ -25,6 +25,7 @@
 # Procédure
 
 ## [Migrer des données utilisateur à partir d’Azure RemoteApp](remoteapp-migrate.md)
+## [Migrer vers MyCloudIT](remoteapp-migrate-mycloudit.md)
 ## [Migrer vers Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Créer une collection RemoteApp
 ### [De quelle collection ai-je besoin ?](remoteapp-collections.md)
@@ -67,7 +68,8 @@
 ### [Résoudre les problèmes d’une collection cloud](remoteapp-cloudtrouble.md)
 
 # Ressources
-## [Mises à jour de service](https://azure.microsoft.com/updates/?product=remoteapp)
-## [Tarification](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
+## [Tarification](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=remoteapp)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)

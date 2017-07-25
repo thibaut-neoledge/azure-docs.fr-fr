@@ -39,7 +39,7 @@ Une installation du portail de l'utilisateur sur un serveur autre que le serveur
 
 Pour utiliser l'application Microsoft Authenticator, les éléments suivants sont requis afin que l'application puisse communiquer avec le service Web de l’application mobile :
 
-* Azure Multi-Factor Authentication Server&6;.0 ou version ultérieure
+* Azure Multi-Factor Authentication Server 6.0 ou version ultérieure
 * Installez le service Web de l’application mobile sur un serveur Web sur Internet exécutant Microsoft® [Internet Information Services (IIS) 7.x ou version ultérieure](http://www.iis.net/)
 * ASP.NET v4.0.30319 est installé, inscrit et autorisé
 * Les services de rôle requis incluent ASP.NET et une compatibilité avec la métabase IIS 6.

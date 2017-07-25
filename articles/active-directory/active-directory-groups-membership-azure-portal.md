@@ -24,10 +24,14 @@ ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Gérer les groupes auxquels un groupe appartient dans votre client Azure Active Directory
+<a id="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant" class="xliff"></a>
+
+# Gérer les groupes auxquels un groupe appartient dans votre client Azure Active Directory
 Les groupes peuvent contenir d’autres groupes dans Azure Active Directory. Voici comment gérer ces adhésions.
 
-## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>Comment trouver les groupes dont mon groupe est membre ?
+<a id="how-do-i-find-the-groups-my-group-is-a-member-of" class="xliff"></a>
+
+## Comment trouver les groupes dont mon groupe est membre ?
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
@@ -36,7 +40,7 @@ Les groupes peuvent contenir d’autres groupes dans Azure Active Directory. Voi
 
    ![Ouvrir le panneau de groupes](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
 4. Dans le panneau **Utilisateurs et groupes - Tous les groupes** , sélectionnez un groupe.
-5. Dans le panneau **Groupe - *Nom_groupe***, sélectionnez **Appartenances aux groupes**.
+5. Dans le panneau **Groupe - *Nom_groupe*** , sélectionnez **Appartenances aux groupes**.
 
    ![Ouverture du panneau Appartenances aux groupes](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
 6. Pour ajouter votre groupe en tant que membre d’un autre groupe, dans le panneau **Groupe - Appartenances aux groupes**, sélectionnez la commande **Ajouter**.
@@ -49,7 +53,9 @@ Les groupes peuvent contenir d’autres groupes dans Azure Active Directory. Voi
    ![Commande Supprimer des appartenances](./media/active-directory-groups-membership-azure-portal/remove-group-membership.png)
 10. Lorsque vous avez terminé de modifier les appartenances aux groupes de votre groupe, sélectionnez **Enregistrer**.
 
-## <a name="additional-information"></a>Informations supplémentaires
+<a id="additional-information" class="xliff"></a>
+
+## Informations supplémentaires
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)

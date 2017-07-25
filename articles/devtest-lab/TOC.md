@@ -3,6 +3,7 @@
 ## [Concepts](devtest-lab-concepts.md)
 ## Scénarios
 ### [Utiliser des laboratoires à des fins de développement](devtest-lab-developer-lab.md)
+### [Utiliser des laboratoires pour des environnements de test](devtest-lab-test-env.md)
 ### [Utiliser des laboratoires à des fins de formation](devtest-lab-training-lab.md)
 
 # Prise en main
@@ -40,6 +41,7 @@
 
 ## Gérer des modèles réutilisables
 ### [Ajouter un référentiel Git des artefacts et des modèles](devtest-lab-add-artifact-repo.md)
+### [Utiliser un modèle Resource Manager](devtest-lab-use-resource-manager-template.md)
 ### [Créer des artefacts personnalisés](devtest-lab-artifact-author.md)
 ### [Gérer des formules](devtest-lab-manage-formulas.md)
 

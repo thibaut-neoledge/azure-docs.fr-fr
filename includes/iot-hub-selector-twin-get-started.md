@@ -2,10 +2,8 @@
 > * [Node.JS](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
 > * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
-> 
-> 
+> * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 
-## <a name="introduction"></a>Introduction
 Les représentations d’appareil sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). IoT Hub conserve une représentation d’appareil pour chaque appareil que vous y connectez.
 
 Vous pouvez utiliser des représentations d’appareil pour répondre aux besoins suivants :
@@ -17,8 +15,6 @@ Vous pouvez utiliser des représentations d’appareil pour répondre aux besoin
 
 > [!NOTE]
 > Les représentations d’appareil sont conçues pour les synchronisations et pour l’interrogation des configurations et des conditions d’appareil. Pour plus d’informations sur l’utilisation des représentations d’appareils, consultez l’article [Comprendre les représentations d’appareils][lnk-twins].
-> 
-> 
 
 Les représentations d’appareil sont stockées dans un IoT Hub et contiennent les éléments suivants :
 
@@ -33,8 +29,6 @@ Pour plus d’informations sur les représentations d’appareils, consultez l�
 
 > [!NOTE]
 > Actuellement, des représentations d’appareil sont accessibles uniquement à partir d’appareils qui se connectent à IoT Hub à l’aide du protocole MQTT. Pour obtenir des instructions sur la conversion d’une application de périphérique existante pour utiliser MQTT, voir [Support MQTT][lnk-devguide-mqtt].
-> 
-> 
 
 Ce didacticiel vous explique les procédures suivantes :
 

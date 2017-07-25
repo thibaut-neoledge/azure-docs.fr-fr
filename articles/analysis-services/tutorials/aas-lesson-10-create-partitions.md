@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 74a9577e2fb5cc83dd3f01d8ff87374240798700
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: df74d9cbdcf4916c24955e491767589e72389155
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-10-create-partitions"></a>Leçon 10 : Créer des partitions
@@ -53,9 +53,9 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     
-    Dans l’éditeur de requête, dans la section Étapes appliquées, vous pouvez voir une autre étape nommée Lignes filtrées. Il s’agit du filtre que vous avez appliqué pour sélectionner uniquement les dates de commande de 2010.
+    Dans l’éditeur de requête, sous ÉTAPES APPLIQUÉES, vous voyez une autre étape nommée Lignes filtrées. Ce filtre permet de sélectionner uniquement les dates de commande à partir de 2010.
 
-8.  Cliquez sur **Importer** pour exécuter la requête.
+8.  Cliquez sur **Importer**.
 
     Dans le Gestionnaire de partition, notez que l’expression de requête comprend maintenant une clause Lignes filtrées supplémentaire.
 
@@ -113,7 +113,7 @@ Dans le Gestionnaire de partition, notez que la colonne **Dernier traitement** d
   
     Si vous êtes invité à entrer des informations d’identification d’emprunt d’identité, entrez le nom d’utilisateur Windows et le mot de passe spécifiés dans la leçon 2.  
   
-    La boîte de dialogue **Traitement des données** s’affiche et montre les détails du processus pour chaque partition. Notez que le nombre de lignes transférées est différent pour chaque partition. Cela s’explique par le fait que chaque partition contient uniquement les lignes de l’année spécifiée dans la clause WHERE de l’instruction SQL. Lorsque le traitement est terminé, fermez la boîte de dialogue Traitement des données.  
+    La boîte de dialogue **Traitement des données** s’affiche et montre les détails du processus pour chaque partition. Notez que le nombre de lignes transférées est différent pour chaque partition. Chaque partition contient uniquement les lignes de l’année spécifiée dans la clause WHERE de l’instruction SQL. Lorsque le traitement est terminé, fermez la boîte de dialogue Traitement des données.  
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   

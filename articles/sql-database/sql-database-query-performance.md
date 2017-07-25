@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/09/2016
+ms.date: 07/05/2017
 ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
-ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 1925d4ff8f5b16a0df56de987f8653cfd8441c52
 ms.contentlocale: fr-fr
-ms.lasthandoff: 01/31/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -37,7 +37,7 @@ La gestion et le réglage des performances des bases de données relationnelles 
 * Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Si le magasin de requêtes ne fonctionne pas, le portail vous invite à l’activer.
 
 ## <a name="permissions"></a>Autorisations
-Les autorisations [de contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md) suivantes sont requises pour utiliser Query Performance Insight : 
+Les autorisations [de contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md) suivantes sont requises pour utiliser Query Performance Insight : 
 
 * Les autorisations **Reader**, **Owner**, **Contributor**, **SQL DB Contributor** ou **SQL Server Contributor** sont requises pour afficher les requêtes et graphiques consommant le plus de ressources. 
 * Les autorisations **Owner**, **Contributor**, **SQL DB Contributor** ou **SQL Server Contributor** sont requises pour afficher le texte de requête.
@@ -80,7 +80,7 @@ Dans le [portail](http://portal.azure.com) , procédez comme suit :
      
      Sélectionnez ou supprimez des requêtes individuelles pour les inclure ou les exclure du graphique à l’aide des cases à cocher.
 3. Si vos données deviennent obsolètes, cliquez sur le bouton **Actualiser** .
-4. Vous pouvez utiliser les boutons de curseur et de zoom pour modifier l’intervalle d’observation et examiner les pics d’activité :  ![paramètres](./media/sql-database-query-performance/zoom.png)
+4. Vous pouvez utiliser les curseurs et les boutons de zoom pour modifier l’intervalle d’observation et examiner les pics d’activité : ![paramètres](./media/sql-database-query-performance/zoom.png)
 5. Si vous souhaitez un affichage différent, vous pouvez également sélectionner l’onglet **Personnalisé** et définir :
    
    * la mesure (UC, Durée, Nombre d’exécutions) ;

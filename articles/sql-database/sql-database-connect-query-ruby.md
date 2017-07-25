@@ -16,17 +16,16 @@ ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 2d1092af00c1bce3e47d980a512a25eff1f0d9b6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b25ef8333a2836f976a974d6ea6e7fdcea2745e3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 
 # <a name="azure-sql-database-use-ruby-to-connect-and-query-data"></a>Azure SQL Database : utilisez Ruby pour vous connecter et interroger des données
 
-Ce guide de démarrage rapide indique comment utiliser [Ruby](https://Ruby.org) pour se connecter à une base de données SQL Azure, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données à partir des plateformes Mac OS et Ubuntu Linux.
+Ce guide de démarrage rapide indique comment utiliser [Ruby](https://www.ruby-lang.org) pour se connecter à une base de données SQL Azure, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données à partir des plateformes Mac OS et Ubuntu Linux.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -64,7 +63,7 @@ make install
 gem install tiny_tds
 ```
 
-## <a name="get-connection-information"></a>Obtenir des informations de connexion
+## <a name="sql-server-connection-information"></a>Informations de connexion SQL Server
 
 Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
 

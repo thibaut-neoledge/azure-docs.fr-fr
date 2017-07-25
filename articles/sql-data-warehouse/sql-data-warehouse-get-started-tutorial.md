@@ -16,10 +16,10 @@ ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -577,6 +577,9 @@ Commençons par réduire la taille à 100 DWU, afin de déterminer de manière 
 6. Redéfinissez la taille de votre entrepôt de données sur 400 DWU. Rappelez-vous que chaque tranche de 100 DWU entraîne l’ajout d’un autre nœud de calcul dans votre instance Azure SQL Data Warehouse.
 
 7. Exécutez la requête à nouveau. Vous devriez remarquer une différence importante. 
+
+    > [!NOTE]
+    > Étant donné que la requête retourne une grande quantité de données, la disponibilité de la bande passante pour l’ordinateur exécutant SSMS peut être un goulot d’étranglement. Cela peut vous empêcher de noter des améliorations des performances !
 
 > [!NOTE]
 > Étant donné que SQL Data Warehouse utilise le traitement massivement parallèle, les requêtes qui effectuent des opérations d’analyse ou exécutent des fonctions analytiques sur des millions de lignes profitent de la véritable puissance d’Azure SQL Data Warehouse.

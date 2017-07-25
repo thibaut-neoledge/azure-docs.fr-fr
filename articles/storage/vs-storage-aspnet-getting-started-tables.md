@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 5840ec74f6af2e373d9ebb34b0f6e13094c33f19
-ms.openlocfilehash: ca603d4833336ddee1474d365d57159bc288303f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: d9cb32483d3f582bbeb0ccc6a204a8b6d9ea5c96
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage Table Azure et des services connectés de Visual Studio (ASP.NET)
@@ -31,7 +32,7 @@ Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios coura
 
 ##<a name="prerequisites"></a>Composants requis
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Compte Stockage Azure](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -716,8 +717,4 @@ Pour plus d’informations sur les autres options de stockage de données dans A
 
   * [Prise en main du stockage d’objets blob Azure et des services connectés de Visual Studio (ASP.NET)](./vs-storage-aspnet-getting-started-blobs.md)
   * [Prise en main du stockage de files d’attente Azure et des services connectés de Visual Studio (ASP.NET)](./vs-storage-aspnet-getting-started-queues.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
 

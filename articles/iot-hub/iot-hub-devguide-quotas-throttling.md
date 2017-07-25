@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 06/16/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: f36ce029acebfccdfa84122a86ea3a642c048b8c
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 3aab67303fd349195c2ffb8d0854efec74e47070
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -34,7 +34,7 @@ La référence détermine également le seuil de limitation qu’IoT Hub appliq
 ## <a name="operation-throttles"></a>Limitations d’opérations
 Les limitations d’opération sont les limites de taux qui sont appliquées dans les plages de minutes et sont destinées à éviter les abus. IoT Hub essaie d’éviter le renvoi d’erreurs chaque fois que c’est possible, mais les exceptions commencent à être renvoyées si la limitation est dépassée pendant trop longtemps.
 
-Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font référence à un hub individuel.
+Le tableau suivant présente les limitations appliquées. Les valeurs font référence à un hub individuel.
 
 | Limitation | Hubs gratuits et S1 | Hubs S2 | Hubs S3 | 
 | -------- | ------- | ------- | ------- |
@@ -50,7 +50,7 @@ Vous trouverez ci-dessous la liste des limitations appliquées. Les valeurs font
 | Opérations de travaux <br/> (créer, mettre à jour, répertorier, supprimer) | 1.67/s/unité (100/min/unité) | 1.67/s/unité (100/min/unité) | 83.33/s/unité (5 000/min/unité) |
 | Débit d’opérations de travaux par appareil | 10/s | 10/s ou 1/s/unité maximum | 50/s/unité |
 
-Il est important de préciser que la limitation des *connexions d’appareil* régit la fréquence à laquelle les nouvelles connexions d’appareil peuvent être établies avec un IoT Hub et pas le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités configurées pour l’IoT Hub.
+Il est important de préciser que la limitation des *connexions d’appareil* régit la fréquence à laquelle de nouvelles connexions d’appareil peuvent être établies avec un IoT Hub. La limitation des *connexions d’appareils* ne régit pas le nombre maximal d’appareils connectés simultanément. La limitation dépend du nombre d’unités configurées pour l’IoT Hub.
 
 Par exemple, si vous achetez une seule unité S1, vous obtenez une limitation de 100 connexions par seconde. Par conséquent, pour connecter 100 000 appareils, au moins 1 000 secondes (soit environ 16 minutes) sont nécessaires. Toutefois, vous pouvez avoir autant d’appareils connectés simultanément que d’appareils enregistrés dans le registre des identités.
 
@@ -66,7 +66,7 @@ Le billet de blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitation d�
 
 ## <a name="other-limits"></a>Autres limites
 
-IoT Hub applique d’autres limites à ses différentes fonctionnalités.
+IoT Hub impose d’autres limites opérationnelles :
 
 | Opération | Limite |
 | --------- | ----- |
@@ -74,21 +74,28 @@ IoT Hub applique d’autres limites à ses différentes fonctionnalités.
 | Travaux | L’historique des travaux est conservé pendant 30 jours maximum. <br/> Le nombre maximal de travaux simultanés est 1 (pour les niveaux gratuit et S1), 5 (pour S2) ou 10 (pour S3). |
 | Points de terminaison supplémentaires | Les hubs avec SKU payants peuvent avoir 10 points de terminaison supplémentaires. Les hubs avec SKU gratuits peuvent avoir un point de terminaison supplémentaire. |
 | Règles de routage de messages | Les hubs avec SKU payants peuvent avoir 100 règles de routage. Les hubs avec SKU gratuits peuvent avoir cinq règles de routage. |
+| Messages d’appareil-à-cloud | Taille maximale des messages 256 Ko |
+| Messages de cloud-à-appareil | Taille maximale des messages 64 Ko |
+| Messages de cloud-à-appareil | Le nombre maximal de messages en attente de remise est 50 |
 
 > [!NOTE]
-> Actuellement, le nombre maximal d’appareils que vous pouvez connecter à un IoT Hub unique est 500 000. Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/en-us/support/options/).
+> Actuellement, le nombre maximal d’appareils que vous pouvez connecter à un IoT Hub unique est 500 000. Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="latency"></a>Latence
-IoT Hub s’efforce de fournir une faible latence pour toutes les opérations. Toutefois, en raison des conditions du réseau et d’autres facteurs imprévisibles, il ne peut pas garantir une latence maximale. Lors de la conception de votre solution, évitez de faire des suppositions concernant la latence maximale de toute opération IoT Hub. Approvisionnez votre concentrateur IoT dans la région Azure la plus proche de vos périphériques et envisagez d’exécuter les opérations Azure IoT Edge sensibles à la latence sur le périphérique ou sur une passerelle proche de celui-ci.
+IoT Hub s’efforce de fournir une faible latence pour toutes les opérations. Toutefois, en raison des conditions réseau et d’autres facteurs imprévisibles, il ne peut pas garantir une latence maximale. Lorsque vous concevez votre solution, vous devez :
+
+* Éviter de faire d’hypothèses concernant la latence maximale de toute opération IoT Hub.
+* Configurer votre hub IoT dans la région Azure le plus proche de vos appareils.
+* Envisager d’utiliser Azure IoT Edge pour effectuer des opérations sensibles à la latence sur l’appareil ou sur une passerelle proche de celui-ci.
 
 Plusieurs unités IoT Hub affectent la limitation comme décrit précédemment, mais ne fournissent pas d’avantages ni de garanties supplémentaires en termes de latence.
-En cas d’augmentations inattendues de latence des opérations, contactez le [Support Microsoft](https://azure.microsoft.com/en-us/support/options/).
+Si vous constatez des augmentations inattendues de la latence des opérations, contactez le [Support Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
 
 * [Points de terminaison IoT Hub][lnk-devguide-endpoints]
-* [Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-devguide-query]
+* [Langage de requête IoT Hub les jumeaux d’appareils, les travaux et le routage des messages][lnk-devguide-query]
 * [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

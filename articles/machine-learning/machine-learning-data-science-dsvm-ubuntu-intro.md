@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: aaf3e9daca2fb810aa32b1b58acdade6ddfc1744
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 548b4af7619521e4b61b99b94c1d40f835e6efdb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -47,14 +47,14 @@ La machine virtuelle pour la science des données pour Linux contient également
 * JuliaPro - une distribution organisée du langage Julia avec des bibliothèques scientifiques et d’analyse de données courantes
 * Instance Spark autonome et nœud Hadoop unique (HDFS, Yarn)
 * JupyterHub : un serveur de bloc-notes Jupyter multi-utilisateur prenant en charge les noyaux R, Python, PySpark et Julia
-* Azure Storage Explorer
+* Explorateur de stockage Azure
 * Interface de ligne de commande (CLI) Azure pour la gestion des ressources Azure
 * Outils de Machine Learning
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) : système d’apprentissage automatique rapide prenant en charge des techniques (apprentissage en ligne, hachage, allreduce, réductions, learning2search, actif et interactif)
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/) : outil offrant une implémentation rapide et précise des arborescences optimisées
   * [Rattle](http://rattle.togaware.com/) : outil graphique qui facilite la prise en main de l’analyse des données et de l’apprentissage automatique dans R
   * [LightGBM](https://github.com/Microsoft/LightGBM) : infrastructure d’amélioration progressive rapide, distribuée et hautes performances
-* Kit de développement logiciel (SDK) Azure dans Java, Python, node.js, Ruby, PHP
+* Kit SDK Azure dans Java, Python, node.js, Ruby, PHP
 * Bibliothèques dans les langages R et Python à utiliser dans Azure Machine Learning et d’autres services Azure
 * Outils de développement et éditeurs (RStudio, PyCharm, IntelliJ, Emacs, vim)
 
@@ -67,14 +67,14 @@ La science des données consiste à itérer sur une séquence de tâches :
 
 Les scientifiques de données utilisent différents outils pour effectuer ces tâches. La recherche des versions adéquates des logiciels, puis leur téléchargement et leurs téléchargement, compilation et installation peuvent prendre un certain temps.
 
-La machine virtuelle pour la science des données pour Linux est là pour vous soulager en grande partie de cette charge. Utilisez-la pour démarrer rapidement votre projet d’analyse. Elle vous permet de travailler sur des tâches basées sur différents langages, notamment R, Python, SQL, Java et C++. Le Kit de développement logiciel (SDK) Azure inclus dans la machine virtuelle vous permet de créer des applications à l’aide de divers services sous Linux disponibles sur la plateforme Microsoft Cloud. En outre, vous avez accès à d’autres langages tels que Ruby, Perl, PHP et node.js, déjà préinstallés.
+La machine virtuelle pour la science des données pour Linux est là pour vous soulager en grande partie de cette charge. Utilisez-la pour démarrer rapidement votre projet d’analyse. Elle vous permet de travailler sur des tâches basées sur différents langages, notamment R, Python, SQL, Java et C++. Le kit SDK Azure inclus dans la machine virtuelle vous permet de créer des applications à l’aide de divers services sous Linux disponibles sur la plateforme cloud Microsoft. En outre, vous avez accès à d’autres langages tels que Ruby, Perl, PHP et node.js, déjà préinstallés.
 
 Cette image de machine virtuelle de science des données ne génère pas de frais. Vous payez uniquement les frais d’utilisation matérielle Azure en fonction de la taille de la machine virtuelle approvisionnée. Pour plus d’informations sur les frais de calcul, consultez la [liste des machines virtuelles sur la Place de marché Microsoft Azure](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Autres versions de la machine virtuelle pour la science des données
 Une image [CentOS](machine-learning-data-science-linux-dsvm-intro.md) est également disponible avec la plupart des mêmes outils que l’image Ubuntu. Une image [Windows](machine-learning-data-science-provision-vm.md) est également disponible.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Avant de pouvoir créer une machine virtuelle pour la science des données pour Linux, vous devez disposer d’un abonnement Azure. Pour en obtenir un, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Créer une machine virtuelle pour la science des données pour Linux
@@ -153,7 +153,7 @@ Pour plus d’informations, voir la section CNTK de [GitHub](https://github.com/
 Caffe est une infrastructure d’apprentissage approfondi de Berkeley Vision et Learning Center. Elle est disponible dans /opt/caffe. Vous en trouverez des exemples dans /opt/caffe/examples.
 
 #### <a name="h2o"></a>H2O
-H2O est une plateforme d’analyse prédictive et d’apprentissage automatique rapide, en mémoire et distribuée. Un package Python est installé dans les environnements Anaconda racine et py35. Un package R est également installé. L’interface utilisateur Flow Web peut être démarrée avec « java-jar/dsvm/tools/h2o/current/h2o.jar ». Accédez à http://localhost:54321 pour commencer. Des exemples de bloc-notes sont également disponibles dans JupyterHub.
+H2O est une plateforme d’analyse prédictive et d’apprentissage automatique rapide, en mémoire et distribuée. Un package Python est installé dans les environnements Anaconda racine et py35. Un package R est également installé. Pour démarrer H2O à partir de la ligne de commande, exécutez `java -jar /dsvm/tools/h2o/current/h2o.jar` ; il existe différentes [options de ligne de commande](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que vous pouvez configurer. L’interface utilisateur Flow Web est disponible en accédant à http://localhost:54321 pour commencer. Des exemples de bloc-notes sont également disponibles dans JupyterHub.
 
 #### <a name="keras"></a>Keras
 Keras est une API de réseau neuronal principal dans Python qui est capable de s’exécuter sur Tensorflow ou Theano. Elle est disponible dans les environnements Python racine et py35. 
@@ -296,10 +296,10 @@ Des bibliothèques sont disponibles dans R et Python pour l’accès aux bases d
 Les outils Azure suivants sont installés sur la machine virtuelle :
 
 * **Interface de ligne de commande azure**: l’interface CLI Azure vous permet de créer et de gérer des ressources Azure par le biais de commandes dans un interpréteur. Pour appeler les outils Azure, tapez simplement **azure help**. Pour plus d’informations, consultez la [page de documentation relative à l’interface CLI Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Microsoft Azure Storage Explorer**: il s’agit d’un outil graphique qui permet de parcourir les objets stockés dans votre compte de stockage Azure et de charger et télécharger des données vers et à partir des objets blob Azure. Vous pouvez accéder à Storage Explorer à partir de l’icône de raccourci sur le bureau. Vous pouvez l’appeler à partir d’une invite de commandes en tapant **StorageExplorer**. Vous devez être connecté à partir d’un client X2Go ou avoir configuré le transfert X11.
+* **Explorateur de stockage Microsoft**: il s’agit d’un outil graphique qui permet de parcourir les objets stockés dans votre compte de stockage Azure et de charger et télécharger des données vers et à partir des objets blob Azure. Vous pouvez accéder à l’Explorateur de stockage à partir de l’icône de raccourci sur le bureau. Vous pouvez l’appeler à partir d’une invite de commandes en tapant **StorageExplorer**. Vous devez être connecté à partir d’un client X2Go ou avoir configuré le transfert X11.
 * **Bibliothèques Azure**: voici quelques-unes des bibliothèques préinstallées.
   
-  * **Python** : les bibliothèques Azure installées dans Python sont **azure**, **azureml**, **pydocumentdb** et **pyodbc**. Avec les trois premières bibliothèques, vous pouvez accéder aux services de stockage Azure, à Azure Machine Learning et à Azure Cosmos DB (base de données NoSQL sur Azure). La quatrième bibliothèque, pyodbc (avec le pilote Microsoft ODBC pour SQL Server), permet l’accès à SQL Server, Base de données SQL Azure et Azure SQL Data Warehouse à partir de Python à l’aide d’une interface ODBC. Entrez **pip list** pour voir la liste de toutes les bibliothèques. Veillez à exécuter cette commande dans les environnements Python 2.7 et 3.5.
+  * **Python** : les bibliothèques Azure installées dans Python sont **azure**, **azureml**, **pydocumentdb** et **pyodbc**. Avec les trois premières bibliothèques, vous pouvez accéder aux services de stockage Azure, à Azure Machine Learning et à Azure Cosmos DB (base de données NoSQL sur Azure). La quatrième bibliothèque, pyodbc (avec le pilote Microsoft ODBC pour SQL Server), permet l’accès à SQL Server, Azure SQL Database et Azure SQL Data Warehouse à partir de Python à l’aide d’une interface ODBC. Entrez **pip list** pour voir la liste de toutes les bibliothèques. Veillez à exécuter cette commande dans les environnements Python 2.7 et 3.5.
   * **R** : les bibliothèques Azure installées dans R sont **AzureML** et **RODBC**.
   * **Java** : la liste des bibliothèques Azure pour Java est disponible dans le répertoire **/dsvm/sdk/AzureSDKJava** sur la machine virtuelle. Les bibliothèques principales sont les API de gestion et de stockage Azure, Azure Cosmos DB et les pilotes JDBC pour SQL Server.  
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
-ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
-ms.lasthandoff: 02/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 8a1e5333e893e2a3a205f08223f103793df452cd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -35,20 +36,26 @@ Figure 1 – Diagramme de paire régionale Azure
 
 | Geography | Régions jumelées |  |
 |:--- |:--- |:--- |
+| Asie |Est de l'Asie |Asie du Sud-Est |
+| Australie |Est de l’Australie |Sud-est de l’Australie |
+| Canada |Centre du Canada |Est du Canada |
+| Chine |Chine du Nord |Chine orientale|
+| Inde |Inde centrale |Inde du Sud |
+| Japon |Est du Japon |Ouest du Japon |
+| Corée du Sud |Centre de la Corée |Corée du Sud |
 | Amérique du Nord |États-Unis - partie centrale septentrionale |Centre-Sud des États-Unis |
 | Amérique du Nord |Est des États-Unis |Ouest des États-Unis |
-| Amérique du Nord |Est des États-Unis 2 |Centre des États-Unis |
+| Amérique du Nord |Est des États-Unis 2 |Centre des États-Unis |
 | Amérique du Nord |Ouest des États-Unis 2 |Ouest-Centre des États-Unis |
-| Europe |Europe du Nord |Europe de l'Ouest |
-| Asie |Asie du Sud-Est |Est de l'Asie |
-| Chine |Chine orientale |Chine du Nord |
+| Europe |Europe du Nord |Europe de l’Ouest |
 | Japon |Est du Japon |Ouest du Japon |
-| Brésil |Sud du Brésil (1) |Centre-Sud des États-Unis |
-| Australie |Est de l’Australie |Sud-est de l’Australie |
+| Brésil |Sud du Brésil (1) |États-Unis - partie centrale méridionale |
 | Gouvernement américain |Gouvernement américain - Iowa |Gouvernement américain - Virginie |
-| Inde |Inde centrale |Inde du Sud |
-| Canada |Centre du Canada |Est du Canada |
+| Gouvernement américain |Gouvernement américain - Virginie |Gouvernement des États-Unis – Texas |
+| Gouvernement américain |Gouvernement des États-Unis – Texas |Gouvernement des États-Unis – Arizona |
+| Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
 | Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
+| Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
 
 Tableau 1 - Mise en correspondance des paires régionales Azure
 

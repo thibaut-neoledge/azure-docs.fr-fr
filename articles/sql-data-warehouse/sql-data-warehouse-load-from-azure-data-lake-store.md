@@ -15,19 +15,17 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: aca0e4cfdcfb3e3ed2e69ad8153b4c965b299806
-ms.lasthandoff: 03/15/2017
-
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 6f8d220a64e04b7dfa021aacf68dadf0d55393bf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Chargement de données Azure Data Lake Store dans SQL Data Warehouse
 Ce document vous indique toutes les étapes nécessaires pour charger vos propres données d’Azure Data Lake Store (ADLS) dans SQL Data Warehouse à l’aide de PolyBase.
 Même s’il est possible d’exécuter des requêtes ad hoc sur les données stockées dans ADLS à l’aide de tables externes, nous vous recommandons d’importer les données dans SQL Data Warehouse.
 Durée estimée : 10 minutes, si vous remplissez les conditions préalables.
->
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 1. Créer les objets de base de données externe à charger à partir d’Azure Data Lake Store.
@@ -41,12 +39,13 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 >[!NOTE] 
 > Vous avez besoin de l’ID client, de la clé et de la valeur du point de terminaison du jeton OAuth2.0 de votre application Active Directory pour vous connecter à Azure Data Lake depuis SQL Data Warehouse. Pour savoir comment obtenir ces valeurs, cliquez sur le lien ci-dessus.
+>Remarque pour l’inscription à l’application Azure Active Directory : utilisez l’ID d’application en tant qu’ID de client.
 
 * SQL Server Management Studio ou SQL Server Data Tools, pour télécharger SSMS et se connecter, consultez [Interroger SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
 * Un Azure SQL Data Warehouse, pour en créer un, consultez le site : https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* Un Azure Data Lake Store pour lequel le chiffrement n’est pas activé. Pour en créer un, consultez le site : https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+* Un Azure Data Lake Store pour lequel le chiffrement est activé ou non. Pour en créer un, consultez le site : https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 
@@ -80,6 +79,12 @@ WITH
     SECRET = '<key>'
 ;
 
+-- It should look something like this:
+CREATE DATABASE SCOPED CREDENTIAL ADLCredential
+WITH
+    IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
+    SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
+;
 ```
 
 
@@ -161,7 +166,7 @@ La création d’une table externe est facile, mais il existe quelques nuances q
 Le chargement de données avec PolyBase est fortement typé. Cela signifie que chaque ligne de données reçue doit respecter la définition du schéma de la table.
 Si une ligne donnée ne respecte pas la définition du schéma, cette ligne est exclue du chargement.
 
-Les paramètres Type à rejeter et Valeur à rejeter vous permettent de définir le nombre de lignes ou le pourcentage de données à inclure dans la table finale.
+Les options REJECT_TYPE et REJECT_VALUE vous permettent de définir le nombre de lignes ou le pourcentage de données à inclure dans la table finale.
 Au cours du chargement, si la valeur à rejeter est atteinte, le chargement échoue. La principale cause de rejet de lignes est une incompatibilité de définition de schéma.
 Par exemple, si une colonne reçoit par erreur le schéma int alors que les données dans le fichier représentent une chaîne, aucune ligne ne sera chargée.
 

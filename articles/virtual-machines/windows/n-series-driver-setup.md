@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 717f4969a91209576a504c94c31993b938770432
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 96921f4be8aabb6d960ee4f66acd6c07d7ba7f95
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -64,7 +65,11 @@ Vous pouvez vérifier l’installation du pilote dans le Gestionnaire de périph
 
 ![Propriétés du pilote GPU](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-Pour interroger l’état de l’appareil GPU, exécutez l’utilitaire de ligne de commande [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) installé avec le pilote. 
+Pour interroger l’état de l’appareil GPU, exécutez l’utilitaire de ligne de commande [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) installé avec le pilote.
+
+1. Ouvrez une invite de commandes et apportez vos modifications dans le répertoire **C:\Program Files\NVIDIA Corporation\NVSMI**.
+
+2. Exécutez **nvidia-smi**. Si le pilote est installé, vous verrez un résultat du type suivant. **GPU-Util** affiche **0 %** sauf si vous exécutez actuellement une charge de travail GPU sur la machine virtuelle.
 
 ![État de l’appareil NVIDIA](./media/n-series-driver-setup/smi.png)  
 

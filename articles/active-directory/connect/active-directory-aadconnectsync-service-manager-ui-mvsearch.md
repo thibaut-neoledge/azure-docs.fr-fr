@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
 ms.openlocfilehash: dcb58fb00cfaa891825930cf5c34c9dab1c15dec
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/04/2017
 
-
 ---
-# <a name="sync-service-manager-metaverse-search"></a>Recherche de métaverse de Sync Service Manager
+# Recherche de métaverse de Sync Service Manager
+<a id="sync-service-manager-metaverse-search" class="xliff"></a>
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
@@ -29,7 +30,8 @@ L’onglet de recherche de métaverse est utile pour la résolution des problèm
 
 Dans les résultats de la recherche, sélectionnez un objet et **Propriétés** pour afficher les [propriétés de l’objet métaverse](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

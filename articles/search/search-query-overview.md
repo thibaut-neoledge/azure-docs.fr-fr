@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -62,4 +62,10 @@ Pour plus d’informations sur la pagination des résultats de recherche, consul
 ## <a name="hit-highlighting"></a>Mise en surbrillance des correspondances
 Dans Azure Search, vous pouvez mettre facilement en évidence la partie exacte des résultats de recherche qui correspondent à la requête de recherche en utilisant les paramètres `highlight`, `highlightPreTag` et `highlightPostTag`. Vous pouvez spécifier les champs *utilisables dans une recherche* dont le texte correspondant à la requête doit être mis en évidence ainsi que les balises de chaîne exactes à ajouter au début et à la fin du texte correspondant retourné par le service Recherche Azure.
 
+## <a name="try-out-query-syntax"></a>Essais de syntaxe de requête
 
+La meilleure façon de comprendre les différences de syntaxe est de soumettre des requêtes et d’examiner les résultats.
+
++ Utilisez l’[Explorateur de recherche](search-explorer.md) dans le portail Azure. En déployant l’[index d’exemple](search-get-started-portal.md), vous pouvez interroger l’index en quelques minutes à l’aide des outils du portail.
+
++ Utilisez [Fiddler](search-fiddler.md) ou Postman Chrome pour soumettre des requêtes à un index que vous avez chargé sur votre service de recherche. Les deux outils prennent en charge les appels REST vers un point de terminaison HTTP. 

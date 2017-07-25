@@ -14,36 +14,48 @@ ms.tgt_pltfrm: na
 ms.date: 04/24/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: db227bfea10255322c090e68b197cfb2dd1cf15b
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 99685748120b40cd02328f6ece0b8dde55042d61
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/08/2017
 
 ---
-# <a name="what-is-azure-search"></a>Présentation d’Azure Search
+<a id="what-is-azure-search" class="xliff"></a>
+
+# Présentation d’Azure Search
 Le service Recherche Azure est une solution cloud de recherche sous forme de service qui délègue la gestion du serveur et de l’infrastructure à Microsoft pour vous laisser un service prêt à l’emploi que vous renseignez avec vos données pour ensuite ajouter une recherche à votre application web ou mobile. Recherche Azure vous permet de facilement ajouter une expérience de recherche fiable aux applications à l’aide d’une simple [API REST](/rest/api/searchservice/) ou du [Kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md), sans avoir à gérer l’infrastructure de recherche ni même devenir un expert de la recherche.
 
 <a name="feature-drilldown"></a>
 
-## <a name="embed-a-powerful-search-experience-in-your-app-or-site"></a>Incorporer une puissante expérience de recherche dans votre application ou site 
+<a id="embed-a-powerful-search-experience-in-your-app-or-site" class="xliff"></a>
+
+## Incorporer une puissante expérience de recherche dans votre application ou site 
 
 Découvrez les fonctionnalités de Recherche Azure.
 
-### <a name="full-text-search-and-text-analysis"></a>Recherche en texte intégral et analyse de texte
+<a id="full-text-search-and-text-analysis" class="xliff"></a>
 
-La [recherche en texte intégral](https://en.wikipedia.org/wiki/Full_text_search) est le cas d’utilisation principal pour la plupart des applications basées sur la recherche. Dans Recherche Azure, des requêtes peuvent être formulées en employant la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), qui offre des opérateurs logiques, des opérateurs de recherche d’expression, des opérateurs de suffixe et des opérateurs de précédence. Par ailleurs, la [syntaxe de requête Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) permet des recherches approximatives, des recherches de proximité, la valorisation de termes et des expressions régulières. La Recherche Azure prend également en charge des [analyseurs lexicaux personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) pour permettre à votre application de traiter des requêtes complexes à l’aide de la correspondance phonétique et des expressions régulières.
+### Recherche en texte intégral et analyse de texte
 
-### <a name="language-support"></a>Support multilingue
+La [recherche en texte intégral](search-lucene-query-architecture.md) est le cas d’utilisation principal pour la plupart des applications basées sur la recherche. Dans Recherche Azure, des requêtes peuvent être formulées en employant la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), qui offre des opérateurs logiques, des opérateurs de recherche d’expression, des opérateurs de suffixe et des opérateurs de précédence. Par ailleurs, la [syntaxe de requête Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) permet des recherches approximatives, des recherches de proximité, la valorisation de termes et des expressions régulières. La Recherche Azure prend également en charge des [analyseurs lexicaux personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) pour permettre à votre application de traiter des requêtes complexes à l’aide de la correspondance phonétique et des expressions régulières.
+
+<a id="language-support" class="xliff"></a>
+
+### Support multilingue
 
 La Recherche Azure prend en charge des analyseurs lexicaux dans [56 langues différentes](https://docs.microsoft.com/rest/api/searchservice/language-support). À l’aide des analyseurs Lucene et Microsoft (perfectionnés par des années de traitement de langage naturel dans Office et Bing), Recherche Azure peut analyser le texte dans la zone de recherche de votre application pour gérer intelligemment les caractéristiques linguistiques propres à la langue, notamment les temps des verbes, le masculin et le féminin, les noms au pluriel irrégulier (par exemple, « cheval » et « chevaux »), la décomposition des mots, la césure des mots (pour les langues sans espaces), etc.
 
-### <a name="data-integration"></a>Intégration des données
+<a id="data-integration" class="xliff"></a>
+
+### Intégration des données
 
 Vous pouvez transmettre des structures de données JSON pour remplir un index de Recherche Azure. En outre, pour les sources de données prises en charge, vous pouvez utiliser des [indexeurs](search-indexer-overview.md) qui analysent automatiquement [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-documentdb.md) ou le [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md) pour synchroniser le contenu de votre index de recherche avec votre magasin de données principal.
 
 La *Recherche de document* permet [d’indexer la plupart des formats de fichier](search-howto-indexing-azure-blob-storage.md), y compris Microsoft Office, ainsi que les documents PDF et HTML.
 
-### <a name="search-experience"></a>Expérience de recherche
+<a id="search-experience" class="xliff"></a>
+
+### Expérience de recherche
 
 + L’option **Suggestions de recherche** peut être activée pour les barres de recherche de saisie semi-automatique et pour les requêtes prédictives. [Les documents actuellement dans votre index sont suggérés](https://docs.microsoft.com/rest/api/searchservice/suggesters) lorsque les utilisateurs saisissent une entrée de recherche partielle.
 
@@ -59,30 +71,42 @@ La *Recherche de document* permet [d’indexer la plupart des formats de fichier
 
 + **Pagination** et la limitation des résultats de la recherche sont [très simples avec le contrôle finement ajusté](search-pagination-page-layout.md) qu’offre Azure Search sur vos résultats de recherche.  
 
-### <a name="geosearch"></a>Recherche géographique
+<a id="geosearch" class="xliff"></a>
+
+### Recherche géographique
 
 Azure Search traite, filtre et affiche les emplacements géographiques de manière intelligente. Les utilisateurs peuvent ainsi explorer les données selon la proximité d’un résultat de recherche par rapport à un emplacement physique. Cette vidéo explique comment cela fonctionne : [Channel 9 : Azure Search et les données géospatiales](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
-### <a name="monitoring-and-reporting"></a>Surveillance et création de rapports
+<a id="monitoring-and-reporting" class="xliff"></a>
+
+### Surveillance et création de rapports
 
 + Les **Analyses de trafic de recherche** sont [recueillies et analysées](search-traffic-analytics.md) pour fournir une source d’informations à partir des termes utilisés par les utilisateurs dans la zone de recherche.
 
 + Des mesures sur les requêtes par seconde, la latence et la limitation sont capturées et affichées sur les pages du portail sans aucune configuration supplémentaire. Vous pouvez également facilement surveiller le nombre d’index et de documents afin d’ajuster la capacité en fonction des besoins. 
 
-### <a name="tools-for-prototyping-and-inspection"></a>Outils de prototypage et d’inspection
+<a id="tools-for-prototyping-and-inspection" class="xliff"></a>
+
+### Outils de prototypage et d’inspection
 
 Dans le portail, vous pouvez utiliser l’Assistant **Importation de données** pour configurer des indexeurs, le concepteur d’index pour créer un index, et **l’Explorateur de recherche** pour tester les requêtes et affiner les profils de score. Vous pouvez également ouvrir un index pour consulter son schéma.
 
 <a name="cloud-service-advantage"></a>
 
-### <a name="cloud-service-advantages"></a>Avantages du service cloud
+<a id="cloud-service-advantages" class="xliff"></a>
+
+### Avantages du service cloud
 
 + **Haute disponibilité** garantit une expérience de service de recherche extrêmement fiable. Lorsqu’il est correctement mis à l'échelle, [Azure Search offre un SLA de 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 + En tant que solution complète **entièrement gérée et extensible**, Recherche Azure n’exige absolument aucune gestion d’infrastructure. Votre service peut être adapté à vos besoins avec la mise à l’échelle en deux dimensions pour gérer plus de stockage de documents, plus de charge de requêtes, ou les deux.
 
-## <a name="how-it-works"></a>Fonctionnement
-### <a name="step-1-provision-service"></a>Étape 1 : configurer le service
+<a id="how-it-works" class="xliff"></a>
+
+## Fonctionnement
+<a id="step-1-provision-service" class="xliff"></a>
+
+### Étape 1 : configurer le service
 Vous pouvez mettre en place un service Recherche Azure dans le [portail Azure](https://portal.azure.com/) ou via [l’API de gestion des ressources Azure](/rest/api/searchmanagement/). Vous pouvez opter pour le service gratuit partagé avec d’autres abonnés ou pour un [niveau payant](https://azure.microsoft.com/pricing/details/search/) qui dédie les ressources que seul votre service utilise.
 
 Pour les niveaux payants, vous pouvez mettre à l’échelle un service dans deux dimensions : 
@@ -92,22 +116,30 @@ Pour les niveaux payants, vous pouvez mettre à l’échelle un service dans deu
 
 En gérant le stockage de documents et le débit de requêtes séparément, vous pouvez étalonner l’allocation de ressources en fonction des besoins de production.
 
-### <a name="step-2-create-index"></a>Étape 2 : créer un index
+<a id="step-2-create-index" class="xliff"></a>
+
+### Étape 2 : créer un index
 Avant de pouvoir charger du contenu qui peut faire l’objet de recherches, vous devez d’abord définir un index Recherche Azure. Un index est comparable à une table de base de données qui conserve vos données et peut accepter des requêtes de recherche. Vous devez définir le schéma d’index à mapper pour refléter la structure des documents dans lesquels vous voulez effectuer des recherches, de la même façon que les champs d’une base de données.
 
 Il est possible de créer un schéma dans le portail Azure ou par programmation à l’aide du [Kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md) ou de [l’API REST](/rest/api/searchservice/).
 
-### <a name="step-3-index-data"></a>Étape 3 : indexer les données
+<a id="step-3-index-data" class="xliff"></a>
+
+### Étape 3 : indexer les données
 Une fois que vous avez défini un index, vous êtes prêt à charger du contenu. Vous pouvez utiliser un modèle push ou pull.
 
 Le modèle push extrait des données auprès de sources de données externes. Ce modèle est pris en charge grâce aux *indexeurs* qui simplifient et automatisent certains aspects de l’ingestion de données, comme la connexion aux données, leur lecture et leur sérialisation. Des [indexeurs](/rest/api/searchservice/Indexer-operations) sont disponibles pour Azure Cosmos DB, Azure SQL Database, Stockage Blob Azure et SQL Server hébergé dans une machine virtuelle Azure. Vous pouvez configurer un indexeur pour une actualisation de données à la demande ou planifiée.
 
 Le modèle d’émission est fourni via le Kit de développement logiciel (SDK) ou les API REST permettant d’envoyer les documents mis à jour à un index. Vous pouvez émettre des données à partir de n'importe quel groupe de données à l’aide du format JSON. Pour obtenir des conseils sur le chargement des données, consultez [Ajout, mise à jour ou suppression de documents](/rest/api/searchservice/addupdate-or-delete-documents) ou [Utilisation du Kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md).
 
-### <a name="step-4-search"></a>Étape 4 : lancer la recherche
+<a id="step-4-search" class="xliff"></a>
+
+### Étape 4 : lancer la recherche
 Après avoir rempli une index, vous pouvez [émettre des requêtes de recherche](/rest/api/searchservice/Search-Documents) à destination du point de terminaison du service en utilisant des requêtes HTTP simples avec l’API REST ou le SDK .NET.
 
-## <a name="how-it-compares"></a>Comparaison
+<a id="how-it-compares" class="xliff"></a>
+
+## Comparaison
 
 Les clients demandent souvent comment la [recherche en texte intégral dans Recherche Azure](search-lucene-query-architecture.md) se situe par rapport à la [recherche en texte intégral](https://en.wikipedia.org/wiki/Full_text_search) au sein de leur produit de base de données. Nous leur répondons que les capacités de langage de Recherche Azure sont plus riches et plus souples, grâce à une prise en charge des requêtes Lucene, des analyseurs de langage de Lucene et Microsoft, des analyseurs personnalisés pour les entrées phonétiques ou d’autres entrées spécialisées, et à la possibilité de fusionner des données issues de plusieurs sources dans l’index de recherche. 
 
@@ -134,7 +166,9 @@ Parmi les fournisseurs de services cloud, Recherche Azure s’avère plus effica
 
 Parmi nos clients, ceux capables d’exploiter le plus large éventail de fonctionnalités Recherche Azure sont les catalogues en ligne, les programmes métier et les applications de découverte de documents.
 
-## <a name="rest-api--net-sdk"></a>API REST | .Net SDK
+<a id="rest-api--net-sdk" class="xliff"></a>
+
+## API REST | .Net SDK
 
 Bien qu’il soit possible d’effectuer de nombreuses tâches dans le portail, Recherche Azure s’adresse avant tout aux développeurs désireux d’intégrer la fonctionnalité de recherche dans des applications existantes. Les interfaces de programmation suivantes sont disponibles.
 
@@ -143,14 +177,18 @@ Bien qu’il soit possible d’effectuer de nombreuses tâches dans le portail, 
 |[REST](/rest/api/searchservice/) | Commandes HTTP prises en charge par tous les langages et toutes les plateformes de programmation, y compris Xamarin, Java et JavaScript.|
 |[Kit SDK .NET](search-howto-dotnet-sdk.md) | Le wrapper .NET pour l’API REST offre un codage efficace en C# et d’autres langages de code géré ciblant .NET Framework. |
 
-## <a name="free-trial"></a>Essai gratuit
+<a id="free-trial" class="xliff"></a>
+
+## Essai gratuit
 Les abonnés Azure peuvent [configurer un service dans le niveau Gratuit](search-create-service-portal.md).
 
 Si vous n’êtes pas abonné, vous pouvez [ouvrir gratuitement un compte Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez alors des crédits pour tester les services Azure payants. Une fois ceux-ci épuisés, vous pouvez conserver le compte et utiliser les [services Azure gratuits](https://azure.microsoft.com/free/). Votre carte de crédit n’est pas débitée tant que vous n’avez pas explicitement modifié vos paramètres pour demander à l’être.
 
 Vous pouvez aussi [activer les avantages de l’abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants. 
 
-## <a name="watch-a-short-video"></a>Regarder une courte vidéo
+<a id="watch-a-short-video" class="xliff"></a>
+
+## Regarder une courte vidéo
 
 Les moteurs de recherche servent généralement à récupérer les informations sur les applications mobiles, sur le web et dans les magasins de données d’entreprise. Avec la Recherche Azure, vous disposez d’outils permettant de créer une expérience de recherche semblable à celle des grands sites web commerciaux.
 

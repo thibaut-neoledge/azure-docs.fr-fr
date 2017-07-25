@@ -3,7 +3,7 @@ title: "Sélectionner des images de VM Linux avec l’interface de ligne de comm
 description: "Découvrez comment déterminer l’éditeur, l’offre et la référence SKU pour des images quand vous créez une machine virtuelle Linux avec le modèle de déploiement de Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
-author: squillace
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,20 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/15/2017
-ms.author: rasquill
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 1c4e8b5168d15c480d2aea41ddf7570d310e1252
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/03/2017
 
-
 ---
-# <a name="how-to-find-linux-vm-images-with-the-azure-cli"></a>Rechercher des images de machine virtuelle Linux avec l’interface Azure CLI
+<a id="how-to-find-linux-vm-images-with-the-azure-cli" class="xliff"></a>
+
+# Rechercher des images de machine virtuelle Linux avec l’interface Azure CLI
 Cette rubrique décrit comment rechercher des éditeurs, des offres, des références SKU et des versions pour chaque emplacement vers lequel vous souhaitez effectuer un déploiement. 
 
 
-## <a name="use-azure-cli-20"></a>Utiliser Azure CLI 2.0
+<a id="use-azure-cli-20" class="xliff"></a>
+
+## Utiliser Azure CLI 2.0
 
 Une fois que vous avez [installé Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), utilisez la commande `az vm image list` pour afficher une liste d’images de machine virtuelle populaires mise en cache. Par exemple, l’exemple de commande `az vm image list -o table` suivant affiche :
 
@@ -47,13 +51,17 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-### <a name="finding-all-current-images"></a>Recherche de toutes les images actuelles
+<a id="finding-all-current-images" class="xliff"></a>
+
+### Recherche de toutes les images actuelles
 
 Pour obtenir la liste actuelle de toutes les images, utilisez la commande `az vm image list` avec l’option `--all`. Contrairement aux commandes Azure CLI 1.0, la commande `az vm image list --all` renvoie toutes les images dans **westus** par défaut (sauf si vous spécifiez un argument `--location` particulier), l’exécution de la commande `--all` prend donc un certain temps. Si vous souhaitez examiner cela de manière interactive, utilisez `az vm image list --all > allImages.json`, qui renvoie une liste de toutes les images actuellement disponibles sur Azure et les stocke sous forme de fichier pour une utilisation locale. 
 
 Vous pouvez spécifier une des options disponibles pour limiter votre recherche à un emplacement, une offre, un éditeur ou une référence spécifique si vous en avez déjà à l’esprit. Si vous ne spécifiez pas d’emplacement, les valeurs de **westus** sont renvoyées.
 
-### <a name="find-specific-images"></a>Recherche d’images spécifiques
+<a id="find-specific-images" class="xliff"></a>
+
+### Recherche d’images spécifiques
 
 Utilisez `az vm image list` avec un filtre pour trouver des informations spécifiques. Par exemple, ce qui suit affiche les **offres** qui sont disponibles pour **Debian** (n’oubliez pas que sans le switch `--all`, la recherche s’effectue uniquement dans le cache local des images courantes) :
 
@@ -94,7 +102,9 @@ et la sortie est la suivante :
 }
 ```
 
-## <a name="use-azure-cli-10"></a>Utiliser Azure CLI 1.0 
+<a id="use-azure-cli-10" class="xliff"></a>
+
+## Utiliser Azure CLI 1.0 
 
 > [!NOTE]
 > Cet article explique comment parcourir et sélectionner des images de machine virtuelle, à l’aide d’une installation récente de l’interface Azure CLI 1.0 ou Azure PowerShell, qui prend en charge le modèle de déploiement Azure Resource Manager. Vous devez au préalable passer en mode Resource Manager. Avec l'interface CLI Azure, entrez ce mode en tapant `azure config mode arm`. 
@@ -217,6 +227,8 @@ data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201608150  westus   
 info:    vm image list command OK
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 Vous pouvez maintenant choisir précisément l'image que vous voulez utiliser. Pour créer rapidement une machine virtuelle en utilisant les informations d’URN que vous venez de trouver, ou pour utiliser un modèle avec ces informations d’URN, consultez [Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

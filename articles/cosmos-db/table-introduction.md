@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2017
+ms.date: 06/09/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: d1e1f977c9023f4727d8c444b5e490e8f5ba8d9e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef57753aeeace0086c815d83600f92422996032a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/31/2017
 
 ![API de stockage de table Azure et Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
 
-Azure Cosmos DB fournit l’API de table pour les applications nécessitant un stockage clé-valeur avec un schéma flexible. Les kits de développement logiciel et API REST de [stockage de table Azure](../storage/storage-introduction.md) peuvent servir pour travailler avec Azure Cosmos DB. Vous pouvez faire appel à Azure Cosmos DB pour créer des tables avec des exigences de débit élevées. Azure Cosmos DB prend en charge les tables optimisées en débit (appelées de façon informelle « tables premium »), actuellement en préversion publique. 
+Azure Cosmos DB fournit l’API Table (version préliminaire) pour les applications qui ont besoin d’un magasin de paires clé-valeur avec un schéma flexible, des performances prévisibles, une distribution globale et un débit élevé. L’API Table fournit les mêmes fonctionnalités que le stockage Table Azure, mais il tire parti des avantages du moteur Azure Cosmos DB. 
 
-Vous pouvez continuer à utiliser le stockage de table Azure pour les tables avec des exigences de débit et de stockage inférieures. Azure Cosmos DB introduira la prise en charge des tables optimisées pour le stockage dans une prochaine mise à jour, et les comptes de stockage de table Azure nouveaux ou existants seront mis à niveau vers Azure Cosmos DB.
+Vous pouvez continuer à utiliser le stockage Table Azure pour les tables présentant des exigences de débit et de stockage inférieures. Azure Cosmos DB introduira la prise en charge des tables optimisées pour le stockage dans une prochaine mise à jour, et les comptes de stockage de table Azure nouveaux ou existants seront mis à niveau vers Azure Cosmos DB.
 
 ## <a name="premium-and-standard-table-apis"></a>API de table standard et Premium
 Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des avantages suivants en les déplaçant vers la version préliminaire de « table premium » d’Azure Cosmos DB :
@@ -42,7 +42,7 @@ Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des 
 | Diffusion mondiale | Une région unique avec une région de lecture secondaire en option pour la haute disponibilité. Vous ne pouvez pas lancer le basculement | [Distribution mondiale clés en main](distribute-data-globally.md) de 1 à plus de 30 régions, prise en charge des [basculements automatiques et manuels](regional-failover.md) à tout moment, partout dans le monde |
 | Indexation | Index primaire uniquement sur PartitionKey et RowKey. Pas d’index secondaire | Indexation automatique et complète de toutes les propriétés, aucune gestion des index |
 | Requête | L’exécution des requêtes utilise un index de clé primaire, et effectue une recherche dans le cas contraire. | Les requêtes peuvent tirer parti de l’indexation automatique de propriétés pour des temps de requête rapides. Le moteur de base de données d’Azure Cosmos DB est capable de prendre en charge les agrégats, les données géospatiales et le tri. |
-| Cohérence | Robuste au sein de la région principale, avec une région secondaire en option | [cinq niveaux de cohérence bien définis](consistency-levels.md) pour compenser la disponibilité, la latence, le débit ou la cohérence en fonction des besoins de votre application |
+| Cohérence | Robuste au sein de la région principale, avec une région secondaire en option | [Cinq niveaux de cohérence bien définis](consistency-levels.md) pour compenser la disponibilité, la latence, le débit ou la cohérence en fonction des besoins de votre application |
 | Tarification | Optimisé pour le stockage  | Optimisé pour le débit |
 | Contrats SLA | Disponibilité à 99,9 % | Disponibilité de 99,99 % au sein d’une seule région, avec la possibilité d’ajouter d’autres régions pour accroître la disponibilité. [Contrats SLA complets à la pointe du secteur](https://azure.microsoft.com/support/legal/sla/cosmos-db/) sur la disponibilité générale |
 
@@ -56,3 +56,4 @@ Voici quelques conseils pour vous aider à démarrer :
 * Commencez avec [l’API de table Azure Cosmos DB](create-table-dotnet.md) à l’aide du SDK de table .NET existant.
 * En savoir plus sur la [distribution globale avec Azure Cosmos DB](distribute-data-globally.md).
 * Apprenez-en davantage sur le [débit approvisionné dans Azure Cosmos DB](request-units.md).
+

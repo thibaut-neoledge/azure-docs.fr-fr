@@ -10,17 +10,18 @@ ms.service: site-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 06/05/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 491bbfe61cf387f18b903caa45529be206876d49
-ms.openlocfilehash: fe253f5d95b0b9351d6ffd382cbba0c490074f15
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: ef7a25de4536cfd54331e1bce7d22f351768585c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/05/2017
 
 ---
 # <a name="site-recovery-documentation"></a>Documentation Site Recovery
 
-Découvrez comment utiliser Site Recovery pour la stratégie de continuité d’activité et de récupération d’urgence pour les clouds privés. Des didacticiels et d’autres documents vous montrent comment planifier, déployer et gérer l’orchestration de la réplication des machines virtuelles et des serveurs physiques locaux vers le cloud ou un centre de données secondaire.
+Découvrez comment utiliser Site Recovery pour contribuer à la continuité de votre entreprise et à sa stratégie de récupération d’urgence, afin de préserver la disponibilité des applications et des charges de travail pendant le temps d’arrêt. Des didacticiels et d’autres articles vous montrent comment planifier, déployer et gérer la réplication, le basculement et la récupération des machines locales et des machines virtuelles Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -42,7 +43,7 @@ Découvrez comment utiliser Site Recovery pour la stratégie de continuité d�
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager">
+        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=site-recovery">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -145,6 +146,4 @@ Découvrez comment utiliser Site Recovery pour la stratégie de continuité d�
         </div>
     </li>
 </ul>
-
-
 

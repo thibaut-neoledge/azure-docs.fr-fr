@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 4029b699b59bb12eaa9e24b487d2829b5fb26daf
-ms.openlocfilehash: 6780b422138fbe18adfe256e9f7aa279dfed1cd9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 6d7eeaf460674c3ab98425a5412ffa465b9ffd1d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
-Pour chaque abonnement et locataire, Resource Manager limite les requêtes de lecture à 15 000 par heure et les requêtes d’écriture à 1 200 par heure. Si votre application ou script atteint ces limites, vous devez limiter vos requêtes. Cette rubrique vous montre comment déterminer les requêtes restantes dont vous disposez avant d’atteindre la limite et comment réagir si vous avez atteint la limite.
+Pour chaque abonnement et locataire, Resource Manager limite les requêtes de lecture à 15 000 par heure et les requêtes d’écriture à 1 200 par heure. Ces limites s’appliquent à chaque instance Azure Resource Manager. Chaque région Azure comporte plusieurs instances, et Azure Resource Manager est déployé dans toutes les régions Azure.  Par conséquent, dans la pratique, les limites sont effectivement beaucoup plus importantes que celles répertoriées ci-dessus, car les requêtes utilisateur sont généralement prises en charge par de nombreuses instances différentes.
+
+Si votre application ou script atteint ces limites, vous devez limiter vos requêtes. Cette rubrique vous montre comment déterminer les requêtes restantes dont vous disposez avant d’atteindre la limite et comment réagir si vous avez atteint la limite.
 
 Lorsque vous atteignez la limite, vous recevez le code d’état HTTP **429 Trop de requêtes**.
 
@@ -109,9 +113,4 @@ Lorsque vous atteignez la limite de requêtes, Resource Manager renvoie le code 
 
 * Pour plus d’informations sur les limites et les quotas, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 * Pour en savoir plus sur la gestion des demandes REST asynchrones, consultez [Suivi des opérations asynchrones Azure](resource-manager-async-operations.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

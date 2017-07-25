@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2017
+ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 52d83b21f2f2346bfeb8d469a9bfb1b64dd4ba23
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: e9bb11645a0f45449bfc102e1d0cefd6fbf3ffd9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -74,7 +74,7 @@ Pour les jeux de mise à l’échelle de machine virtuelle, la configuration des
 
 La propriété *publisher* avec la valeur **Microsoft.Azure.Diagnostics** et la propriété *type* avec la valeur **IaaSDiagnostics** identifient de façon unique l’extension Diagnostics Azure.
 
-La valeur de la propriété *name* peut être utilisée pour faire référence à l’extension dans le groupe de ressources. Le fait de la définir sur **Microsoft.Insights.VMDiagnosticsSettings** lui permet d’être facilement identifiée par le portail Azure Classic et garantit que les graphiques de surveillance s’affichent correctement dans le portail Azure Classic.
+La valeur de la propriété *name* peut être utilisée pour faire référence à l’extension dans le groupe de ressources. Le fait de la définir sur **Microsoft.Insights.VMDiagnosticsSettings** lui permet d’être facilement identifiée par le portail Azure et garantit que les graphiques de surveillance s’affichent correctement dans le portail Azure.
 
 L’élément *typeHandlerVersion* spécifie la version de l’extension que vous souhaitez utiliser. Le fait de définir la version mineure *autoUpgradeMinorVersion* sur **true** garantit que vous obtenez la dernière version mineure de l’extension qui est disponible. Il est fortement recommandé de toujours définir *autoUpgradeMinorVersion* sur **true** afin de toujours utiliser l’extension Diagnostics la plus récente avec l’ensemble des nouvelles fonctionnalités et des correctifs de bogues. 
 

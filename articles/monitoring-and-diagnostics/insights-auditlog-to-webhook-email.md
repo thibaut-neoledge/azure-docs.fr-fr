@@ -1,8 +1,8 @@
 ---
 title: "Appeler un webhook sur une alerte de journal d’activité Azure | Microsoft Docs"
 description: "Routez les événements du journal d’activité à d’autres services pour les actions personnalisées. Par exemple envoyer des SMS, journaliser des bogues ou notifier une équipe via un service de chat/messagerie."
-author: kamathashwin
-manager: carmonm
+author: johnkemnetz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: ashwink
-translationtype: Human Translation
+ms.author: johnkem
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
 ms.openlocfilehash: 4ee65a10616fff81044c181fce8708a596e9e6de
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/31/2017
-
 
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Appeler un webhook sur une alerte de journal d’activité Azure

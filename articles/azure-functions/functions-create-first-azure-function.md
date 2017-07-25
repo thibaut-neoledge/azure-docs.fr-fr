@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 07/19/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 0c7ef7004618966ae8c2d32027c460b2b643923e
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: ed096cf202a85f44755c9eee110b1b7c5c4074ad
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Créer votre première fonction à l’aide du Portail Azure
@@ -51,7 +51,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 1. Développez votre nouvelle Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**.
 
-2.  Sur la page **Get started quickly** (Commencer rapidement), cliquez sur **WebHook + API**, choisissez le langage de votre fonction, puis cliquez sur **Créer cette fonction**. 
+2.  Sur la page **Get started quickly** (Commencer rapidement), sélectionnez **WebHook + API**, choisissez le langage de votre fonction, puis cliquez sur **Créer cette fonction**. 
    
     ![Démarrage rapide de fonctions dans le portail Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -59,21 +59,19 @@ Une fonction est créée dans le langage que vous avez choisi à l’aide du mod
 
 ## <a name="test-the-function"></a>Tester la fonction
 
-1. Dans votre nouvelle fonction, cliquez sur **</> Obtenir l’URL de fonction**, puis copiez **l’URL de fonction**. 
+1. Dans votre nouvelle fonction, cliquez sur **</> Obtenir l’URL de la fonction**, sélectionnez **par défaut (touche de fonction)**, puis cliquez sur **Copier**. 
 
     ![Copier l’URL de fonction à partir du portail Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Collez l’URL de la demande HTTP dans la barre d’adresses de votre navigateur. Ajoutez la chaîne de requête `&name=<yourname>` à cette URL et exécutez la demande. La capture d’écran suivante du navigateur montre la réponse renvoyée par la fonction suite à la demande GET :
+2. Collez l’URL de fonction dans la barre d’adresse de votre navigateur. Ajoutez la chaîne de requête `&name=<yourname>` à cette URL et appuyez sur la touche `Enter` de votre clavier pour exécuter la requête. Voici un exemple de la réponse retournée par la fonction dans le navigateur Edge :
 
     ![Réponse de la fonction dans le navigateur.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     L’URL de demande inclut une clé qui est requise, par défaut, pour accéder à votre fonction sur HTTP.   
 
-## <a name="view-the-function-logs"></a>Afficher les journaux de fonction 
+3. Lorsque votre fonction s’exécute, des informations de suivi sont écrites dans les journaux. Pour afficher la sortie de suivi de l’exécution précédente, revenez à votre fonction dans le portail et cliquez sur la flèche vers le haut figurant en bas de l’écran pour développer **Journaux**. 
 
-Lorsque votre fonction s’exécute, des informations de suivi sont écrites dans les journaux. Pour afficher la sortie de suivi de l’exécution précédente, revenez à votre fonction dans le portail et cliquez sur la flèche vers le haut figurant en bas de l’écran pour développer **Journaux**. 
-
-![Affichage des journaux de fonction dans le portail Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Affichage des journaux de fonction dans le portail Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

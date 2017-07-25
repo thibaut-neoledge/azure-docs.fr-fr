@@ -4,7 +4,7 @@ description: "Ce document vous aide à résoudre les problèmes dans Azure Secur
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
@@ -12,20 +12,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 06/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: b9f4a8b185f9fb06f8991b6da35a5d8c94689367
-ms.openlocfilehash: dbbec729c14d0d9dc5781e7a88a1db3f66f7df97
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: fa70dffc2a4bade44e1dec583bdfcf7b5dae6801
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure Security Center
 Ce guide s’adresse aux informaticiens professionnels, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises utilisent Azure Security Center et qui doivent résoudre des problèmes liés à ce service.
 
+>[!NOTE] 
+>À compter de début juin 2017, Security Center utilisera Microsoft Monitoring Agent pour collecter et stocker des données. Consultez [Azure Security Center Platform Migration](security-center-platform-migration.md) (Migration de la plateforme Azure Security Center) pour en savoir plus. Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
+>
+
 ## <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
-Ce guide explique comment résoudre les problèmes liés au Centre de sécurité. Vous pouvez résoudre la majorité des problèmes rencontrés dans le Centre de sécurité en commençant par examiner les enregistrements du [journal d’audit](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) pour le composant en échec. Les journaux d’audit vous permettent de déterminer :
+Ce guide explique comment résoudre les problèmes liés au Centre de sécurité. Vous pouvez résoudre la majorité des problèmes rencontrés dans Security Center, en commençant par examiner les enregistrements du [journal d’audit](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) pour le composant en échec. Les journaux d’audit vous permettent de déterminer :
 
 * Les opérations ayant eu lieu.
 * Qui a initié l’opération.
@@ -35,47 +40,48 @@ Ce guide explique comment résoudre les problèmes liés au Centre de sécurité
 
 Le journal d’audit contient toutes les opérations d’écriture (PUT, POST, DELETE) effectuées sur vos ressources, mais n’inclut pas les opérations de lecture (GET).
 
-## <a name="troubleshooting-monitoring-agent-installation-in-windows"></a>Résolution des problèmes d’installation de l’agent de surveillance dans Windows
-L’agent de surveillance d’Azure Security Center est utilisé pour effectuer la collecte de données. Une fois la collecte des données activée et l’agent installé correctement sur l’ordinateur cible, les processus suivants doivent être en cours d’exécution :
+## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
+Security Center utilise Microsoft Monitoring Agent (le même agent que celui utilisé par Operations Management Suite et le service Log Analytics) pour collecter les données relatives à la sécurité sur vos machines virtuelles Azure. Une fois la collecte des données activée et l’agent installé correctement sur l’ordinateur cible, le processus suivant doit être en cours d’exécution :
 
-* ASMAgentLauncher.exe - Agent de surveillance Azure 
-* ASMMonitoringAgent.exe - Extension de l’agent de surveillance Azure
-* ASMSoftwareScanner.exe - Gestionnaire d’analyse Azure
+* HealthService.exe
 
-L’extension Surveillance de la sécurité Azure analyse diverses configurations de sécurité et collecte les journaux de sécurité de la machine virtuelle. Le gestionnaire d’analyse sera utilisé comme module de recherche de correctifs.
+Si vous ouvrez la console de gestion des services (services.msc), vous verrez également le service Microsoft Monitoring Agent en cours d’exécution comme indiqué ci-dessous :
 
-Si l’installation s’effectue correctement, vous devez voir une entrée similaire à celle ci-dessous dans les journaux d’audit pour la machine virtuelle cible :
+![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-![Journaux d’audit](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig1.png)
+Pour vérifier votre version de l’agent, ouvrez le **Gestionnaire des tâches** et, dans l’onglet **Processus**, localisez le **service Microsoft Monitoring Agent**. Cliquez dessus avec le bouton droit de la souris, puis cliquez sur **Propriétés**. Dans l’onglet **Détails**, recherchez la version du fichier, comme indiqué ci-dessous :
 
-Vous pouvez également obtenir plus d’informations sur le processus d’installation en consultant les journaux de l’agent, situés sous *%systemdrive%\windowsazure\logs* (exemple : C:\WindowsAzure\Logs).
+![Fichier](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
+   
 
-> [!NOTE]
-> Si l’agent Azure Security Center ne fonctionne pas correctement, vous devrez redémarrer la machine virtuelle cible, car il n’existe aucune commande pour arrêter et démarrer l’agent.
+## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Scénarios d’installation de Microsoft Monitoring Agent
+Il existe deux scénarios d’installation qui peuvent produire des résultats différents lors de l’installation de Microsoft Monitoring Agent sur votre ordinateur. Les scénarios pris en charge sont les suivants :
 
+* **Agent installé automatiquement par Security Center** : dans ce scénario, vous serez en mesure d’afficher les alertes dans Security Center et dans la recherche de journal. Vous recevrez des notifications par courrier électronique à l’adresse de messagerie qui a été configurée dans la stratégie de sécurité associée à l’abonnement auquel la ressource appartient.
+.
+* **Agent installé manuellement sur une machine virtuelle dans Azure** : dans ce scénario, si vous utilisez des agents téléchargés et installés manuellement avant février 2017, vous ne pouvez afficher les alertes dans le portail Security Center que si vous filtrez sur l’abonnement auquel appartient l’espace de travail. Si vous filtrez sur l’abonnement auquel appartient la ressource, vous ne voyez pas les alertes. Vous recevrez des notifications par courrier électronique à l’adresse de messagerie qui a été configurée dans la stratégie de sécurité associée à l’abonnement auquel l’espace de travail appartient.
 
-Si vous rencontrez toujours des problèmes de collecte des données, vous pouvez désinstaller l’agent en suivant les étapes ci-dessous :
+>[!NOTE]
+> Pour éviter le comportement expliqué dans le second scénario, veillez à télécharger la dernière version de l’agent.
+> 
 
-1. Dans le **portail Azure**, sélectionnez la machine virtuelle concernée par les problèmes de collecte des données, puis cliquez sur **Extensions**.
-2. Cliquez avec le bouton droit sur **Microsoft.Azure.Security.Monitoring**, puis sélectionnez **Désinstaller**.
+## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Résolution des problèmes de configuration réseau requise de l’agent de surveillance
+Pour que les agents se connectent et s’inscrivent auprès de Security Center, ils doivent accéder aux ressources réseau, y compris les numéros de port et les URL de domaine.
 
-![Suppression de l’agent](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
+- Pour les serveurs proxy, vous devez vous assurer que les ressources de serveur proxy appropriées sont configurées dans les paramètres de l’agent. Lisez cet article pour obtenir plus d’informations sur la façon de [modifier les paramètres proxy](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
+- Si un pare-feu restreint l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès à OMS. Aucune action n’est nécessaire dans les paramètres de l’agent.
 
-L’extension Surveillance de la sécurité Azure devrait être réinstallée automatiquement au bout de quelques minutes.
+Le tableau suivant présente les ressources nécessaires pour la communication.
 
-## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Résolution des problèmes d’installation de l’agent de surveillance dans Linux
-Lors de la résolution des problèmes d’installation de l’agent de machine virtuelle sur un système Linux, vous devez vous assurer que l’extension a été téléchargée sous /var/lib/waagent/. Vous pouvez exécuter la commande ci-dessous pour vérifier qu’elle a été installée :
+| Ressource de l'agent | Ports | Ignorer l’inspection HTTPS |
+|---|---|---|
+| *.ods.opinsights.azure.com | 443 | Oui |
+| *.oms.opinsights.azure.com | 443 | Oui |
+| *.blob.core.windows.net | 443 | Oui |
+| *.azure-automation.net | 443 | Oui |
 
-`cat /var/log/waagent.log` 
+Si vous rencontrez des problèmes d’intégration avec l’agent, lisez l’article [Comment faire pour résoudre les problèmes d’intégration de Microsoft Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-Les autres fichiers journaux que vous pouvez consulter pour résoudre les problèmes sont les suivants : 
-
-* /var/log/mdsd.err
-* /var/log/azure/
-
-Dans un système qui fonctionne, vous devez voir une connexion au processus mdsd sur TCP 29130. Il s’agit du journal système communiquant avec le processus mdsd. Vous pouvez vérifier ce comportement en exécutant la commande suivante :
-
-`netstat -plantu | grep 29130`
 
 ## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Dépannage d’une protection du point de terminaison qui ne fonctionne pas correctement
 

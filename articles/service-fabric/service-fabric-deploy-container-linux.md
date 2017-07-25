@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/16/2017
+ms.date: 6/29/2017
 ms.author: msfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: fb73507ed596a65607d60f59d6834cc8bf5734f7
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 9dcec753e5f999a1bac07276373c0c25f89ec58d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -57,44 +57,50 @@ Exécutez les commandes suivantes pour installer Docker dans votre espace de dé
 ```
 
 ## <a name="create-the-application"></a>Création de l'application
-1. Saisissez `yo azuresfguest` dans un terminal.
-2. Choisissez l’infrastructure **Conteneur** .
-3. Donnez un nom à votre application, par exemple, SimpleContainerApp
-4. Fournissez l’URL de l’image de conteneur à partir d’un référentiel DockerHub. Le paramètre d’image prend la forme [référentiel] / [nom de l’image]
+1. Saisissez `yo azuresfcontainer` dans un terminal.
+2. Nommez votre application, par exemple, mycontainerap
+3. Fournissez l’URL de l’image de conteneur à partir d’un référentiel DockerHub. Le paramètre d’image prend la forme [référentiel] / [nom de l’image]
+4. Si l’image ne possède pas de point d’entrée de charge de travail défini, vous devrez alors spécifier des commandes d’entrée explicitement à l’aide d’un ensemble de commandes délimitées par des virgules à exécuter à l’intérieur du conteneur. Ainsi, le conteneur continuera de fonctionner après le démarrage.
 
 ![Générateur Yeoman Service Fabric pour les conteneurs][sf-yeoman]
 
 ## <a name="deploy-the-application"></a>Déployer l’application
+
+### <a name="using-xplat-cli"></a>Utilisation de l’interface de ligne de commande XPlat
 Une fois que l’application est générée, vous pouvez la déployer vers le cluster local à l’aide de l’interface de ligne de commande Azure.
 
 1. Connectez-vous au cluster Service Fabric local.
 
-```bash
+    ```bash
     azure servicefabric cluster connect
-```
+    ```
 
 2. Utilisez le script d’installation fourni dans le modèle pour copier le package d’application dans le magasin d’images du cluster, inscrire le type d’application et créer une instance de l’application.
 
-```bash
+    ```bash
     ./install.sh
-```
+    ```
 
 3. Ouvrez un navigateur et accédez à Service Fabric Explorer à l’adresse http://localhost:19080/Explorer (remplacez localhost par l’adresse IP privée de la machine virtuelle si vous utilisez Vagrant sur Mac OS X).
 4. Développez le nœud Applications et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
 5. Utilisez le script de désinstallation fourni dans le modèle pour supprimer l’instance de l’application et annuler l’inscription du type d’application.
 
-```bash
+    ```bash
     ./uninstall.sh
-```
+    ```
+
+### <a name="using-azure-cli-20"></a>Avec Azure CLI 2.0
+
+Consultez la documentation de référence sur la gestion du [cycle de vie des applications à l’aide de l’interface CLI Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
 Pour un exemple d’application, [consultez les exemples de code de conteneur Service Fabric sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Ajout d’autres services à une application existante
 
-Pour ajouter un autre conteneur à une application déjà créée à l’aide de `yo`, procédez comme suit : 
+Pour ajouter un autre conteneur à une application déjà créée à l’aide de `yo`, procédez comme suit :
 
 1. Accédez au répertoire à la racine de l’application existante.  Par exemple, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` est l’application créée par Yeoman.
-2. Exécutez `yo azuresfguest:AddService`.
+2. Exécutez `yo azuresfcontainer:AddService`.
 
 <a id="manually"></a>
 
@@ -124,6 +130,9 @@ Dans le manifeste de service, ajoutez un `ContainerHost` pour le point d’entr�
 
 Vous pouvez fournir des commandes d’entrée en spécifiant l’élément facultatif `Commands` avec un ensemble de commandes délimitées par des virgules à exécuter au sein du conteneur.
 
+> [!NOTE]
+> Si l’image ne possède pas de point d’entrée de charge de travail défini, vous devrez alors spécifier des commandes d’entrée explicitement à l’intérieur d’éléments `Commands` à l’aide d’un ensemble de commandes délimitées par des virgules à exécuter à l’intérieur du conteneur. Ainsi, le conteneur continuera de fonctionner après le démarrage.
+
 ## <a name="understand-resource-governance"></a>Présentation de la gouvernance des ressources
 La gouvernance des ressources est une fonctionnalité du conteneur, qui limite les ressources que le conteneur peut utiliser sur l’hôte. L’élément `ResourceGovernancePolicy`, spécifié dans le manifeste de l’application, est utilisé pour déclarer des limites relatives aux ressources pour un package de code de service. Des limites de ressources peuvent être définies pour les ressources suivantes :
 
@@ -135,8 +144,8 @@ La gouvernance des ressources est une fonctionnalité du conteneur, qui limite l
 
 > [!NOTE]
 > Dans une version ultérieure, il sera possible de prendre en charge la spécification de limites relatives aux E/S en mode bloc précises (E/S par seconde, bits par seconde en lecture/écriture...).
-> 
-> 
+>
+>
 
 ```xml
     <ServiceManifestImport>
@@ -209,7 +218,7 @@ Si vous spécifiez un point de terminaison à l’aide de la balise `Endpoint` d
     </ServiceManifestImport>
 ```
 
-En vous inscrivant auprès du Naming Service, vous pouvez facilement établir des communications entre les conteneurs dans le code au sein de votre conteneur à l’aide d’un [proxy inverse](service-fabric-reverseproxy.md). Pour établir la communication, vous devez fournir le port d’écoute HTTP associé au proxy inverse et le nom des services avec lesquels vous souhaitez communiquer en tant que variables d’environnement. Pour en savoir plus, consultez la section suivante. 
+En vous inscrivant auprès du Naming Service, vous pouvez facilement établir des communications entre les conteneurs dans le code au sein de votre conteneur à l’aide d’un [proxy inverse](service-fabric-reverseproxy.md). Pour établir la communication, vous devez fournir le port d’écoute HTTP associé au proxy inverse et le nom des services avec lesquels vous souhaitez communiquer en tant que variables d’environnement. Pour en savoir plus, consultez la section suivante.
 
 ## <a name="configure-and-set-environment-variables"></a>Configurer et définir des variables d’environnement
 Des variables d’environnement peuvent être spécifiées pour chaque package de code dans le manifeste de service pour les services déployés dans des conteneurs, ou pour les services déployés en tant qu’exécutables invités/processus. Ces valeurs de variable d’environnement peuvent être remplacées dans le manifeste de l’application, ou spécifiées lors du déploiement, en tant que paramètres d’application.
@@ -317,4 +326,9 @@ Maintenant que vous avez déployé un service en conteneur, découvrez comment g
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png
+
+## <a name="related-articles"></a>Articles connexes
+
+* [Prise en main de Service Fabric et d’Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Prise en main de Service Fabric XPlat CLI](service-fabric-azure-cli.md)
 

@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: df0e99dd79c970dfc4d66565c1286c0c9a5ec532
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: fea70b389b1f1d6af963e3f14fdc48e8d857dd53
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -27,12 +27,12 @@ ms.lasthandoff: 05/18/2017
 > [!div class="op_single_selector"]
 > * [Écouteur interne](../classic/ps-sql-int-listener.md)
 > * [Écouteur externe](../classic/ps-sql-ext-listener.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Vue d'ensemble
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, nous recommandons d’utiliser le modèle Resource Manager.
 
 Afin de configurer un écouteur pour un groupe de disponibilité Always On dans le modèle Resource Manager, voir [Configurer un équilibreur de charge pour un groupe de disponibilité Always On dans Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
@@ -69,37 +69,37 @@ Créez un point de terminaison avec équilibrage de charge pour chaque machine v
 6. Exécutez `Get-AzurePublishSettingsFile`. Cette applet de commande vous dirige vers un navigateur de façon à télécharger un fichier de paramètres de publication dans un répertoire local. Vous serez peut-être invité à entrer les informations d'identification de connexion de votre abonnement Azure.
 
 7. Exécutez la commande `Import-AzurePublishSettingsFile` suivante avec le chemin d'accès du fichier de paramètres de publication que vous avez téléchargé :
-   
+
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
-   
+
     Une fois le fichier de paramètres de publication importé, vous pouvez gérer votre abonnement Azure dans la session PowerShell.
-    
+
 8. Affectez une adresse IP statique pour l’*équilibrage de charge interne*. Examinez la configuration actuelle du réseau virtuel en exécutant la commande suivante :
-   
+
         (Get-AzureVNetConfig).XMLConfiguration
 9. Notez le nom *Subnet* du sous-réseau qui contient les machines virtuelles qui hébergent les réplicas. Ce nom sera utilisé dans le paramètre $SubnetName du script.
 
 10. Notez le nom *VirtualNetworkSite* et la valeur *AddressPrefix* de début pour le sous-réseau qui contient les machines virtuelles qui hébergent les réplicas. Recherchez ensuite une adresse IP disponible en transférant les deux valeurs à la commande `Test-AzureStaticVNetIP` et en examinant la valeur *AvailableAddresses*. Par exemple, si le réseau virtuel est nommé *MyVNet* et a une plage d’adresses de sous-réseau démarrant avec *172.16.0.128*, la commande suivante répertorie les adresses disponibles :
-   
+
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 11. Sélectionnez l’une des adresses disponibles et utilisez-la dans le paramètre $ILBStaticIP du script à l’étape suivante.
 
 12. Copiez le script PowerShell suivant dans un éditeur de texte puis définissez les valeurs des variables en fonction de votre environnement. Les valeurs par défaut ont été fournies pour certains paramètres.  
 
-    Les déploiements existants qui utilisent des groupes d'affinités ne peuvent pas ajouter un équilibrage de charge interne. Pour plus d’informations sur les exigences liées à l’équilibreur de charge interne, consultez la rubrique [Présentation de l’équilibrage de charge interne](../../../load-balancer/load-balancer-internal-overview.md). 
-    
+    Les déploiements existants qui utilisent des groupes d'affinités ne peuvent pas ajouter un équilibrage de charge interne. Pour plus d’informations sur les exigences liées à l’équilibreur de charge interne, consultez la rubrique [Présentation de l’équilibrage de charge interne](../../../load-balancer/load-balancer-internal-overview.md).
+
     Notez que, si votre groupe de disponibilité s'étend sur plusieurs régions Azure, vous devez exécuter le script une fois dans chaque centre de données pour le service cloud et les nœuds qui se trouvent dans ce centre de données.
-   
+
         # Define variables
         $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
         $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
         $SubnetName = "<MySubnetName>" # subnet name that the replicas use in the virtual network
         $ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
         $ILBName = "AGListenerLB" # customize the ILB name or use this default value
-   
+
         # Create the ILB
         Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
-   
+
         # Configure a load-balanced endpoint for each node in $AGNodes by using ILB
         ForEach ($node in $AGNodes)
         {
@@ -107,11 +107,6 @@ Créez un point de terminaison avec équilibrage de charge pour chaque machine v
         }
 
 13. Après avoir défini les variables, copiez le script de l'éditeur de texte dans votre session PowerShell pour l'exécuter. Si l'invite affiche **>>**, appuyez de nouveau sur Entrée pour vous assurer que le script s'exécute.
-
-> [!NOTE]
-> Étant donné que le portail Azure classique ne prend pas en charge l’équilibreur de charge interne, il n’affiche pas l’équilibreur de charge interne ni les points de terminaison. En revanche, si l’équilibreur de charge s’exécute sur le portail classique,`Get-AzureEndpoint` renvoie une adresse IP interne. Sinon, la valeur renvoyée est null.
-> 
-> 
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Vérifiez que KB2854082 est installé le cas échéant
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -128,33 +123,33 @@ Créez l’écouteur de groupe de disponibilité en deux étapes. Tout d’abord
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>Configurez les ressources de cluster dans PowerShell
 1. Pour l'équilibreur de charge interne, vous devez utiliser son adresse IP créée précédemment. Pour obtenir cette adresse IP dans PowerShell, utilisez le script suivant :
-   
+
         # Define variables
         $ServiceName="<MyServiceName>" # the name of the cloud service that contains the AG nodes
         (Get-AzureInternalLoadBalancer -ServiceName $ServiceName).IPAddress
 
 2. Sur l’une des machines virtuelles, copiez le script PowerShell pour votre système d’exploitation dans un éditeur de texte, puis définissez les variables sur les valeurs notées précédemment.
-   
+
     Pour Windows Server 2012 ou version ultérieure, utilisez le script suivant :
-   
+
         # Define variables
         $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
         $IPResourceName = "<IPResourceName>" # the IP address resource name
         $ILBIP = “<X.X.X.X>” # the IP address of the ILB
-   
+
         Import-Module FailoverClusters
-   
+
         Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-   
+
     Pour Windows Server 2008 R2, utilisez le script suivant :
-   
+
         # Define variables
         $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
         $IPResourceName = "<IPResourceName>" # the IP address resource name
         $ILBIP = “<X.X.X.X>” # the IP address of the ILB
-   
+
         Import-Module FailoverClusters
-   
+
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
 3. Une fois les variables définies, ouvrez une fenêtre Windows PowerShell avec élévation de privilèges, puis collez le script de l'éditeur de texte dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche **>>**, appuyez de nouveau sur Entrée pour vous assurer que le script s'exécute.
@@ -173,5 +168,4 @@ Créez l’écouteur de groupe de disponibilité en deux étapes. Tout d’abord
 
 ## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-
 

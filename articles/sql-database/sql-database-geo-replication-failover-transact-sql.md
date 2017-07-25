@@ -1,5 +1,5 @@
 ---
-title: "Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec Transact-SQL | Microsoft Docs"
+title: "TSQL : Lancer un basculement pour Azure SQL Database | Microsoft Docs"
 description: "Lancer un basculement planifié ou non planifié pour une base de données SQL Azure avec Transact-SQL"
 services: sql-database
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 6ea2cfcf41900ecbf4d254cc4a195848144a0fa0
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 459941d2c82e5d4ef62beab4ccf775ab8f5efce4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Surveiller la progression des travaux à l’aide de .NET"
-description: "Apprenez à utiliser le code du gestionnaire d&quot;événements pour suivre la progression des tâches et envoyer des mises à jour de l&quot;état. L’exemple de code est écrit en C# et utilise le Kit de développement logiciel (SDK) Media Services pour .NET."
+description: "Apprenez à utiliser le code du gestionnaire d'événements pour suivre la progression des tâches et envoyer des mises à jour de l'état. L’exemple de code est écrit en C# et utilise le Kit de développement logiciel (SDK) Media Services pour .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 1420c9dbaba1767526fa86a27aacb4fa3b2e2fe0
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="monitor-job-progress-using-net"></a>Surveiller la progression des travaux à l’aide de .NET
@@ -117,10 +118,5 @@ Consultez les parcours d’apprentissage de Media Services.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

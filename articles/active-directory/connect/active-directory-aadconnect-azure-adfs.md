@@ -13,13 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 9119a4523c66415925223b5de10ca0fb4a7147b2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/04/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
@@ -54,7 +55,7 @@ Comme indiqué ci-dessus, vous pouvez soit créer deux sous-réseaux dans un mê
 
 ![Création d’un réseau virtuel](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
 
-Dans le portail Azure, sélectionnez le réseau virtuel de votre choix. D’un simple clic, vous pouvez dès lors déployer immédiatement le réseau virtuel et un sous-réseau. Un sous-réseau INT est également défini et pour à recevoir des machines virtuelles.
+Dans le portail Azure, sélectionnez le réseau virtuel de votre choix. D’un simple clic, vous pouvez dès lors déployer immédiatement le réseau virtuel et un sous-réseau. Un sous-réseau INT est également défini et prêt à recevoir des machines virtuelles.
 L’étape suivante consiste à ajouter un autre sous-réseau au réseau, c’est-à-dire le sous-réseau DMZ. Pour créer le sous-réseau DMZ, procédez simplement comme suit :
 
 * Sélectionnez le réseau que vous venez de créer
@@ -162,7 +163,7 @@ Pour déployer un équilibreur de charge interne, sélectionnez Équilibreurs de
 * **Schéma**: dans la mesure où cet équilibreur de charge sera placé devant les serveurs AD FS et où il a été conçu EXCLUSIVEMENT pour des connexions réseau internes, vous devez sélectionner l’option « Interne »
 * **Réseau virtuel**: choisissez le réseau virtuel dans lequel vous allez déployer vos services AD FS
 * **Sous-réseau**: sélectionnez ici votre sous-réseau interne
-* **Affectation d’adresses IP**: dynamique
+* **Affectation d’adresses IP** : Statique
 
 ![Équilibreur de charge interne](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
 

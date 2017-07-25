@@ -11,21 +11,21 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 06/05/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eccc927550aef4c9cd71ffad64d2eddedb74326e
-ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: a2fabc56463c8cbf0b8a76b7a84369ed8e535486
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 07/14/2017
 
 ---
 
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Configurer l’environnement source (VMware vers Azure)
 > [!div class="op_single_selector"]
-> * [Machines virtuelles VMware](./site-recovery-set-up-vmware-to-azure.md)
-> * [Serveurs physiques](./site-recovery-set-up-physical-to-azure.md)
+> * [VMware vers Azure](./site-recovery-set-up-vmware-to-azure.md)
+> * [Physique vers Azure](./site-recovery-set-up-physical-to-azure.md)
 
 Cet article décrit la procédure de configuration de votre environnement local de manière à lancer la réplication de machines virtuelles exécutées sur VMware dans Azure.
 
@@ -33,7 +33,7 @@ Cet article décrit la procédure de configuration de votre environnement local 
 
 Cet article suppose que vous avez déjà créé les éléments suivants :
 - Un coffre Recovery Services dans le [portail Azure](http://portal.azure.com "portail Azure").
-- Un compte dédié dans votre serveur VMware vCenter qui peut être utilisé pour la [découverte automatique](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
+- Un compte dédié dans votre serveur VMware vCenter qui peut être utilisé pour la [découverte automatique](./site-recovery-vmware-to-azure.md).
 - Une machine virtuelle sur laquelle installer le serveur de configuration.
 
 ## <a name="configuration-server-minimum-requirements"></a>Configuration minimale requise du serveur

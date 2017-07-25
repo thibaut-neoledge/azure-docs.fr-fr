@@ -17,22 +17,26 @@ ms.date: 04/10/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 9b7f84f5ad01335a3ce72b6b2aa654968fdd9499
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: ddabb701d7d5615232d1f6163aa6fb166efe5cb0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Lier un certificat SSL personnalisé à une Function App
 
-Cet exemple de script crée une Function App dans App Service avec ses ressources associées, puis y lie le certificat SSL d’un nom de domaine personnalisé. Pour cet exemple, vous avez besoin des éléments suivants :
+Cet exemple de script crée une Function App dans App Service avec ses ressources associées, puis y lie le certificat SSL d’un nom de domaine personnalisé. Pour cet exemple, vous aurez besoin des éléments suivants :
 
 * Un accès à la page de configuration DNS du Registre de votre domaine.
 * Un fichier .PFX valide et son mot de passe pour le certificat SSL que vous voulez charger et lier.
 
 Pour lier un certificat SSL, votre Function App doit être créée dans un plan App Service et non dans un plan de consommation.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exemple de script
 

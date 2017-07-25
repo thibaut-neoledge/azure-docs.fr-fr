@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5bcdb2cd11ffa633bce4e0faee4f49d9053a662b
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 39761f94efc530452a41ef9f2130976803cff711
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -118,7 +118,7 @@ Une fois que vous avez déployé votre service web à partir de Machine Learnin
 
 La page **Utiliser** fournit toutes les informations dont vous avez besoin pour accéder à votre service web. Elle contient notamment la clé API pour activer l’accès autorisé au service.
 
-Pour plus d'informations sur l'accès à un service Web Machine Learning, consultez [Utilisation d'un service web Azure Machine Learning déployé à partir d'une expérience Machine Learning](machine-learning-consume-web-services.md).
+Pour plus d’informations sur l’accès à un service web Machine Learning, consultez [Utilisation d’un service web Azure Machine Learning](machine-learning-consume-web-services.md).
 
 #### <a name="manage-your-new-web-service"></a>Gestion de votre nouveau service web
 Vous pouvez gérer vos nouveaux services web par le biais du portail Service web Machine Learning. Dans la [page principale du portail](https://services.azureml-test.net/), cliquez sur **Services web**. Sur la page de services web, vous pouvez supprimer ou copier un service. Pour surveiller un service spécifique, cliquez sur le service, puis sur **Tableau de bord**. Pour surveiller les tâches de traitement par lots associées au service web, cliquez sur **Batch Request Log**(Journal de requête de traitement par lots).
@@ -158,7 +158,7 @@ Une fois que vous avez déployé votre service web à partir de Machine Learnin
 
 Le tableau de bord fournit toutes les informations dont vous avez besoin pour accéder à votre service web. Par exemple, la clé API est fournie afin de permettre un accès autorisé au service et des pages d'aide API sont fournies pour vous aider à commencer à écrire votre code.
 
-Pour plus d'informations sur l'accès à un service Web Machine Learning, consultez [Utilisation d'un service web Azure Machine Learning déployé à partir d'une expérience Machine Learning](machine-learning-consume-web-services.md).
+Pour plus d’informations sur l’accès à un service web Machine Learning, consultez [Utilisation d’un service web Azure Machine Learning](machine-learning-consume-web-services.md).
 
 #### <a name="manage-your-classic-web-service"></a>Gestion de votre service web classique
 Vous pouvez effectuer diverses actions pour analyser un service web. Vous pouvez le mettre à jour et le supprimer. Vous pouvez également ajouter des points de terminaison à un service web classique en plus du point de terminaison par défaut créé lors de son déploiement.

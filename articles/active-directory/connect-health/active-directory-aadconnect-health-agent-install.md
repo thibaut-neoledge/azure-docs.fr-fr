@@ -1,6 +1,6 @@
 ---
 title: "Installation de l’agent Azure AD Connect Health | Microsoft Docs"
-description: "Il s&quot;agit de la page Azure AD Connect Health qui décrit l&quot;agent l&quot;installation pour AD FS et la synchronisation."
+description: "Il s'agit de la page Azure AD Connect Health qui décrit l'agent l'installation pour AD FS et la synchronisation."
 services: active-directory
 documentationcenter: 
 author: karavar
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
-ms.author: vakarand
-translationtype: Human Translation
+ms.date: 07/18/2017
+ms.author: billmath
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 7aa1363c3d4164edb5199a21e75b2b08a3218bf5
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/12/2017
-
 
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l'agent Azure AD Connect Health

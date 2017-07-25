@@ -20,6 +20,7 @@
 ### [Surveiller des machines virtuelles à l’aide de l’extension Diagnostics de machine virtuelle v2.x](diagnostic-extension-v2.md)
 ### [Injecter des données personnalisées](inject-custom-data.md)
 ### [Réinitialiser des clés ou des mots de passe Linux, réparer le protocole SSH et vérifier les disques](reset-access.md)
+### [Maintenance](planned-maintenance-schedule.md)
 ### [Créer un hôte Docker à l’aide de l’interface de ligne de commande](cli-use-docker.md)
 ### [Créer un hôte Docker à l’aide du portail](portal-use-docker.md)
 ### [Comment utiliser docker avec swarm](../../virtual-machines-linux-docker-swarm.md)
@@ -77,7 +78,8 @@
 ## [REST Stockage](/rest/api/storageservices)
 
 
-# les ressources
+# Ressources
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Disponibilité régionale](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

@@ -1,5 +1,5 @@
 ---
-title: "Chargement de données dans Azure Search à l’aide de l’API REST | Microsoft Docs"
+title: "Charger des données (API REST - Recherche Azure) | Microsoft Docs"
 description: "Découvrez comment charger des données sur un index dans Azure Search à l’aide de l’API REST."
 services: search
 documentationcenter: 
@@ -15,9 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -179,9 +181,4 @@ Pour plus d’informations sur les actions de document et les réponses de réus
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois votre index Azure Search renseigné, vous pouvez commencer à exécuter des requêtes de recherche de documents. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search](search-query-overview.md) .
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

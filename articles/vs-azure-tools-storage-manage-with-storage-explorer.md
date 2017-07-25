@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: fbcd35529c5d2360f5b0c9de4d3c9c4a08a0cc8f
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 83a6543a8fd95139fdcb6c031979382b4736a4ad
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Prise en main de l’Explorateur de stockage (version préliminaire)
@@ -113,7 +112,7 @@ Pour la preuve de concept (POC) d’Azure Stack, vous devez exporter le certific
     Les détails de chaque champ figurent ci-dessous :
 
     * **Nom de l’environnement** : le champ peut être personnalisé par l’utilisateur.
-    * **Autorité** : la valeur doit être https://login.windows.net. Pour Azure China, utilisez https://login.chinacloudapi.cn.
+    * **Autorité** : la valeur doit être https://login.microsoftonline.com. Pour Azure China, utilisez https://login.chinacloudapi.cn.
     * **Sign in resource id** (ID de ressource de connexion) : récupérez la valeur en exécutant l’un des scripts PowerShell suivants.
 
         Si vous êtes administrateur de cloud :

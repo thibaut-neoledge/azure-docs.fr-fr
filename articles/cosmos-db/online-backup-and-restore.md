@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/23/2017
 ms.author: raprasa
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 11e60ab8dfada4b8b0e1cd73ca60dc428364dc68
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: a438b5079ae48c82fb2dbd5ce4547302364e0ef5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -51,8 +51,9 @@ L’image suivante illustre les sauvegardes complètes périodiques de toutes le
 ![Sauvegardes complètes périodiques de toutes les entités Cosmos DB dans Stockage Azure GRS](./media/online-backup-and-restore/automatic-backup.png)
 
 ## <a name="retention-period-for-a-given-snapshot"></a>Période de rétention pour un instantané donné
-Comme décrit ci-dessus, nous prenons régulièrement des instantanés de vos données et, conformément à nos obligations réglementaires, nous conservons le dernier instantané pendant 90 jours maximum avant qu’il ne soit finalement purgé. Si un conteneur ou un compte sont supprimés, Cosmos DB stocke la dernière sauvegarde pendant 90 jours.
+Comme décrit ci-dessus, nous prenons des instantanés de vos données toutes les 4 heures et conservons les deux derniers pendant 30 jours. Conformément à nos obligations réglementaires, les instantanés sont supprimés au bout de 90 jours.
 
+Si vous souhaitez conserver vos propres instantanés, vous pouvez utiliser l’exportation à l’option d’exportation vers un fichier JSON de l’[outil de migration de données](import-data.md#export-to-json-file) d’Azure Cosmos DB pour planifier des sauvegardes supplémentaires. 
 
 ## <a name="restore-database-from-the-online-backup"></a>Restaurer la base de données à partir de la sauvegarde en ligne
 En cas de suppression accidentelle de vos données, vous pouvez [émettre un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support technique Azure](https://azure.microsoft.com/support/options/) pour restaurer les données à partir de la dernière sauvegarde automatique. Pour obtenir une capture instantanée spécifique de votre sauvegarde à restaurer, Cosmos DB nécessite que les données nous soient accessibles pendant au moins la durée du cycle de sauvegarde de cette capture instantanée.

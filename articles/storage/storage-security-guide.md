@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: fb764e3d228aa852a4d4e6b0f314daa60d099093
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: bee96774abacebe36e61a1f4d051f65dd20342f6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -30,22 +31,22 @@ Cet article fournit une vue d’ensemble sur chacune de ces fonctionnalités de 
 Voici les sujets qui sont abordés dans cet article :
 
 * [Sécurité du plan de gestion](#management-plane-security) – Sécurisation de votre compte de stockage
-  
+
   Le plan de gestion se compose des ressources utilisées pour gérer votre compte de stockage. Dans cette section, nous allons parler du modèle de déploiement Azure Resource Manager et de la façon d’utiliser le contrôle d’accès en fonction du rôle (RBAC) pour contrôler l’accès à vos comptes de stockage. Nous évoquerons aussi la gestion des clés de compte de stockage et vous expliquerons comment les régénérer.
 * [Sécurité du plan de données](#data-plane-security) – Sécurisation de l’accès à vos données
-  
+
   Dans cette section, nous verrons comment autoriser l’accès aux objets de données réels de votre compte de stockage (objets blob, fichiers, files d’attente et tables) en utilisant des signatures d’accès partagé et des stratégies d’accès stockées. Nous évoquerons à la fois les signatures d’accès partagé (SAP) au niveau des services et les signatures d’accès partagé au niveau des comptes. Nous verrons aussi comment limiter l’accès à une adresse IP spécifique (ou à une plage d’adresses IP), comment limiter le protocole utilisé pour HTTPS et comment révoquer une signature d’accès partagé sans attendre son expiration.
 * [Chiffrement en transit](#encryption-in-transit)
-  
+
   Cette section explique comment sécuriser les données pendant leur transfert vers et à partir d’Azure Storage. Nous vous livrerons des recommandations concernant l’utilisation de HTTPS et vous parlerons du chiffrement utilisé par SMB 3.0 pour les partages de fichiers Azure. Nous nous intéresserons aussi au chiffrement côté client, qui vous permet de chiffrer les données avant leur transfert vers Storage dans une application cliente et de déchiffrer les données après leur transfert à partir de Storage.
 * [Chiffrement au repos](#encryption-at-rest)
-  
+
   Nous nous pencherons sur Storage Service Encryption (SSE) et sur la procédure d’activation de ce service pour un compte de stockage, qui a pour effet de chiffrer automatiquement les objets blob de bloc, les objets blog de pages et les objets blob d’ajout quand ils sont écrits dans Azure Storage. Nous verrons aussi comment utiliser Azure Disk Encryption et explorerons les différences fondamentales entre Disk Encryption, SSE et le chiffrement côté client, ainsi que des cas d’utilisation. Nous nous pencherons brièvement sur la conformité aux normes FIPS des ordinateurs de l’administration américaine.
 * Audit de l’accès d’Azure Storage à l’aide de [Storage Analytics](#storage-analytics)
-  
+
   Cette section explique comment rechercher des informations dans les journaux d’analyse du stockage pour une demande donnée. Nous examinerons des données de journal d’analyse de stockage réelles et verrons comment déterminer si une demande est formulée avec la clé de compte de stockage, une signature d’accès partagé ou de façon anonyme, et si elle a abouti ou échoué.
 * [Activation de clients basés sur le navigateur à l’aide de CORS](#Cross-Origin-Resource-Sharing-CORS)
-  
+
   Cette section explique comment autoriser le partage des ressources cross-origin (CORS). Nous évoquerons l’accès intra-domaines, ainsi que sa gestion à l’aide des fonctionnalités CORS intégrées au stockage Azure.
 
 ## <a name="management-plane-security"></a>Sécurité du plan de gestion
@@ -70,14 +71,14 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 * Il est possible d’attribuer des rôles à un compte d’utilisateur spécifique, à un groupe d’utilisateurs ou à une application déterminée.
 * À chaque rôle correspond une liste d’actions et de non-actions. Par exemple, le rôle de contributeur de machine virtuelle dispose d’une action nommée « listKeys » qui autorise la lecture des clés de compte de stockage. Le contributeur dispose de « non-actions », telles que la mise à jour de l’accès des utilisateurs présents dans Active Directory.
 * Les rôles relatifs au stockage sont (entre autres) les suivants :
-  
+
   * Propriétaire : il peut tout gérer, y compris l’accès.
   * Contributeur : il a les mêmes prérogatives que le propriétaire, sauf qu’il ne peut pas attribuer l’accès. Une personne associée à ce rôle peut afficher et régénérer les clés de compte de stockage. Les clés de compte de stockage lui permettent d’accéder aux objets de données.
   * Lecteur : il peut afficher les informations relatives au compte de stockage, à l’exception des secrets. Par exemple, si vous attribuez un rôle avec des autorisations de lecture sur le compte de stockage, l’utilisateur qui en bénéficie peut afficher les propriétés du compte de stockage, mais il ne peut y apporter aucune modification ni afficher les clés de compte de stockage.
   * Contributeur de compte de stockage : il peut gérer le compte de stockage, à savoir lire les groupes de ressources et les ressources de l’abonnement, créer et gérer des déploiements de groupes de ressources d’abonnement. Il peut également accéder aux clés de compte de stockage, ce qui sous-entend qu’il peut accéder au plan de données.
   * Administrateur de l’accès utilisateur :  il peut gérer l’accès utilisateur au compte de stockage. Par exemple, il peut accorder un accès en lecture à un utilisateur spécifique.
   * Contributeur de machine virtuelle : il peut gérer les machines virtuelles, mais pas le compte de stockage auquel elles sont connectées. Ce rôle permet de dresser la liste des clés de compte de stockage, ce qui signifie que l’utilisateur qui en bénéficie peut mettre à jour le plan de données.
-    
+
     Pour pouvoir créer une machine virtuelle, l’utilisateur doit pouvoir créer le fichier VHD correspondant dans un compte de stockage. Pour ce faire, il doit pouvoir récupérer la clé de compte de stockage et la passer à l’API chargée de créer la machine virtuelle. Autrement dit, il doit disposer de cette autorisation pour pouvoir dresser la liste des clés de compte de stockage.
 * Cette possibilité de définir des rôles personnalisés est une spécificité qui vous permet de composer un ensemble d’actions à partir d’une liste d’actions applicables aux ressources Azure.
 * Pour pouvoir affecter un rôle à l’utilisateur, celui-ci doit au préalable avoir été défini dans Azure Active Directory.
@@ -85,25 +86,25 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 
 #### <a name="resources"></a>Ressources
 * [Contrôle d’accès en fonction du rôle Azure Active Directory](../active-directory/role-based-access-control-configure.md)
-  
+
   Cet article décrit le contrôle d’accès en fonction du rôle d’Active Directory Azure et en explique le fonctionnement.
 * [RBAC : rôles intégrés](../active-directory/role-based-access-built-in-roles.md)
-  
+
   Cet article explique en détail tous les rôles intégrés disponibles dans RBAC.
 * [Présentation du déploiement de Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md)
-  
+
   Cet article décrit le modèle de déploiement Resource Manager et le modèle de déploiement classique et explique les avantages liés à l’utilisation de Resource Manager et des groupes de ressources. Il explique le fonctionnement des fournisseurs de solutions de calcul, de réseau et de stockage selon le modèle Resource Manager.
 * [Gestion du contrôle d’accès basé sur les rôles à l’aide de l’API REST](../active-directory/role-based-access-control-manage-access-rest.md)
-  
+
   Cet article montre comment utiliser l’API REST pour gérer RBAC.
 * [Informations de référence sur l’API REST du fournisseur de ressources Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)
-  
+
   Ces informations de référence portent sur l’API que vous pouvez utiliser pour gérer votre compte de stockage par programmation.
 * [Developer’s guide to auth with Azure Resource Manager API (Guide du développeur pour l’authentification avec l’API Azure Resource Manager)](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
-  
+
   Cet article explique l’authentification avec les API Resource Manager.
 * [Role-Based Access Control for Microsoft Azure from Ignite (Contrôle d’accès en fonction du rôle pour Microsoft Azure)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
-  
+
   Ce lien donne accès à une vidéo sur Channel 9 enregistrée à l’occasion de la conférence MS Ignite en 2015. Cette session traite des fonctionnalités de gestion d’accès et de création de rapports d’Azure et explore les bonnes pratiques en ce qui concerne la sécurisation de l’accès aux abonnements Azure à l’aide d’Azure Active Directory.
 
 ### <a name="managing-your-storage-account-keys"></a>Gestion des clés de compte de stockage
@@ -144,16 +145,16 @@ Remarque : Il est recommandé d’utiliser uniquement l’une des clés dans tou
 
 #### <a name="resources"></a>Ressources
 * [À propos des comptes Azure Storage](storage-create-storage-account.md#regenerate-storage-access-keys)
-  
+
   Cet article présente une vue d’ensemble des comptes de stockage et décrit l’affichage, la copie et la régénération des clés d’accès de stockage.
 * [Informations de référence sur l’API REST du fournisseur de ressources Azure Storage](https://msdn.microsoft.com/library/mt163683.aspx)
-  
+
   Cet article contient des liens vers des articles spécifiques sur la récupération des clés de compte de stockage et la régénération des clés de compte de stockage pour un compte Azure à l’aide de l’API REST. Remarque : ceci concerne les comptes de stockage Resource Manager.
 * [Opérations sur les comptes de stockage](https://msdn.microsoft.com/library/ee460790.aspx)
-  
+
   Cet article dans Informations de référence sur l’API REST du gestionnaire de service de stockage contient des liens vers des articles spécifiques sur la récupération et la régénération des clés de compte de stockage à l’aide de l’API REST. Remarque : Seuls les comptes de stockage classiques sont concernés.
 * [Say goodbye to key management – manage access to Azure Storage data using Azure AD (Dites au revoir à la gestion des clés - gérer l’accès aux données Azure Storage avec Azure AD)](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
-  
+
   Cet article montre comment utiliser Active Directory pour contrôler l’accès à vos clés de stockage Azure dans Azure Key Vault. Il montre également comment utiliser un travail Azure Automation pour régénérer les clés toutes les heures.
 
 ## <a name="data-plane-security"></a>Sécurité du plan de données
@@ -212,10 +213,10 @@ Par exemple, avec notre URL ci-dessus, si l’URL pointe vers un fichier au lieu
 
 #### <a name="creating-an-sas-uri"></a>Création d’un URI SAP
 1. Vous pouvez créer un URI approprié à la demande, en définissant chaque fois l’ensemble des paramètres de requête.
-   
+
    Cette opération est vraiment flexible mais, si vous avez un ensemble logique de paramètres qui sont chaque fois similaires, il est plus judicieux d’utiliser une stratégie d’accès stockée.
 2. Vous pouvez créer une stratégie d’accès stockée pour un conteneur entier, un partage de fichiers, une table ou une file d’attente. Vous pouvez ensuite l’utiliser comme base pour les URI SAP que vous créez. Les autorisations basées sur les stratégies d’accès stockées peuvent être facilement révoquées. Jusqu’à 5 stratégies peuvent être définies sur chaque conteneur, file d’attente, table ou partage de fichiers.
-   
+
    Par exemple, si un grand nombre de personnes doivent lire les objets blob dans un conteneur spécifique, vous pouvez créer une stratégie d’accès stockée qui indique « d’accorder l’accès en lecture » et tous les autres paramètres qui seront chaque fois les mêmes. Vous pouvez ensuite créer un URI SAP en utilisant les paramètres de la stratégie d’accès stockée et en spécifiant la date/l’heure d’expiration. L’avantage de cette opération est que vous n’avez pas à spécifier chaque fois tous les paramètres de requête.
 
 #### <a name="revocation"></a>Révocation
@@ -231,59 +232,58 @@ Comme l’utilisation d’une signature d’accès partagé dérivée d’une st
 Pour plus d’informations sur l’utilisation des signatures d’accès partagé et des stratégies d’accès stockées, ainsi que pour obtenir des exemples, consultez les articles suivants :
 
 * Ce sont les articles de référence.
-  
+
   * [Exemples d’associations de sécurité de service](https://msdn.microsoft.com/library/dn140256.aspx)
-    
+
     Cet article fournit des exemples d’utilisation d’une signature d’accès partagé de niveau service avec des objets blob, des messages de file d’attente, des plages de tables et des fichiers.
   * [Construction d’un service SAP](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Construction d’un compte SAP](https://msdn.microsoft.com/library/mt584140.aspx)
 * Il s’agit de didacticiels pour l’utilisation de la bibliothèque cliente .NET pour créer des signatures d’accès partagé et des stratégies d’accès stockées.
-  
+
   * [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md)
   * [Signatures d’accès partagé, partie 2 : création et utilisation d’une signature d’accès partagé avec le service BLOB](storage-dotnet-shared-access-signature-part-2.md)
-    
+
     Cet article contient une description du modèle SAP, des exemples de signatures d’accès partagé et des recommandations pour une utilisation optimale de ces signatures. La révocation de l’autorisation accordée est également abordée.
 * Limitation de l’accès par adresse IP (listes ACL IP)
-  
+
   * [Qu’est-ce qu’une liste de contrôle d’accès de point de terminaison (ACL) ?](../virtual-network/virtual-networks-acl.md)
   * [Construction d’un service SAP](https://msdn.microsoft.com/library/azure/dn140255.aspx)
-    
+
     Il s’agit de l’article de référence pour les signatures d’accès partagé de niveau service ; il inclut un exemple de création de liste ACL IP.
   * [Construction d’un compte SAP](https://msdn.microsoft.com/library/azure/mt584140.aspx)
-    
+
     Il s’agit de l’article de référence pour les signatures d’accès partagé de niveau compte ; il inclut un exemple de création de liste ACL IP.
 * Authentification
-  
+
   * [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Didacticiel de prise en main des signatures d’accès partagé
-  
+
   * [SAS Getting Started Tutorial (Didacticiel de prise en main des signatures d’accès partagé)](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ## <a name="encryption-in-transit"></a>Chiffrement en transit
 ### <a name="transport-level-encryption--using-https"></a>Chiffrement au niveau du transport – Utilisation de HTTPS
 Une autre étape à suivre pour garantir la sécurité de vos données Azure Storage consiste à chiffrer les données entre le client et Azure Storage. La première recommandation est de toujours utiliser le protocole [HTTPS](https://en.wikipedia.org/wiki/HTTPS) , qui garantit une communication sécurisée via l’Internet public.
 
-Vous devez toujours utiliser HTTPS lors de l’appel des API REST ou de l’accès aux objets dans le stockage. De plus, les **signatures d’accès partagé**, qui peuvent être utilisées pour déléguer l’accès aux objets de stockage Azure, incluent une option pour spécifier que seul le protocole HTTPS est autorisé avec les signatures d’accès partagé. Cette option garantit que le protocole approprié est utilisé par tous ceux qui envoient des liens avec des jetons SAP.
+Pour disposer d’un canal de communication sécurisé, vous devez toujours utiliser HTTPS lors de l’appel des API REST ou de l’accès aux objets dans le stockage. De plus, les **signatures d’accès partagé**, qui peuvent être utilisées pour déléguer l’accès aux objets de stockage Azure, incluent une option pour spécifier que seul le protocole HTTPS est autorisé avec les signatures d’accès partagé. Cette option garantit que le protocole approprié est utilisé par tous ceux qui envoient des liens avec des jetons SAP.
 
-#### <a name="resources"></a>Ressources
-* [Activer le protocole HTTPS pour une application dans Azure App Service](../app-service-web/web-sites-configure-ssl-certificate.md)
-  
-  Cet article montre comment activer le protocole HTTPS pour une application web Azure.
+Vous pouvez appliquer l’utilisation du protocole HTTPS lorsque vous appelez les API REST pour accéder aux objets dans les comptes de stockage en activant l’option [Transfert sécurisé requis](storage-require-secure-transfer.md) pour le compte de stockage. Les connexions utilisant le protocole HTTP seront refusées une fois cette option activée.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Utilisation du chiffrement pendant le transit avec des partages de fichiers Azure
-Azure File Storage prend en charge le protocole HTTPS avec l’API REST, mais il est plus couramment utilisé comme partage de fichiers SMB attaché à une machine virtuelle. SMB 2.1 ne prend pas en charge le chiffrement. Les connexions sont donc autorisées uniquement dans la même région Azure. Toutefois, SMB 3.0 prend en charge le chiffrement et peut être utilisé avec Windows Server 2012 R2, Windows 8, Windows 8.1 et Windows 10, ce qui rend possibles les connexions d’accès entre régions et même les accès sur le bureau.
+Azure File Storage prend en charge le protocole HTTPS avec l’API REST, mais il est plus couramment utilisé comme partage de fichiers SMB attaché à une machine virtuelle. SMB 2.1 ne prend pas en charge le chiffrement. Les connexions sont donc autorisées uniquement dans la même région Azure. Toutefois, SMB 3.0 prend en charge le chiffrement et est disponible dans Windows Server 2012 R2, Windows 8, Windows 8.1 et Windows 10, ce qui rend possibles l’accès entre les régions et même l’accès sur le bureau.
 
 Notez que les partages de fichiers Azure peuvent être utilisés avec Unix, mais comme le client SMB de Linux ne prend pas encore en charge le chiffrement, l’accès est autorisé uniquement dans la même région Azure. La prise en charge du chiffrement pour Linux est prévue par les développeurs Linux responsables de la fonctionnalité SMB. Quand ce chiffrement sera pris en charge, vous pourrez accéder à un partage de fichiers Azure sur Linux de la même manière que sur Windows.
 
+Vous pouvez appliquer l’utilisation du chiffrement avec le service Azure Files en activant l’option [Transfert sécurisé requis](storage-require-secure-transfer.md) pour le compte de stockage. Si vous utilisez les API REST, le protocole HTTPS est requis. Pour SMB, seules les connexions SMB qui prennent en charge le chiffrement seront établies avec succès.
+
 #### <a name="resources"></a>Ressources
 * [Utilisation du stockage de fichiers Azure avec Linux](storage-how-to-use-files-linux.md)
-  
+
   Cet article montre comment monter un partage de fichiers Azure sur un système Linux et comment charger/télécharger des fichiers.
 * [Prise en main d’Azure File Storage sur Windows](storage-dotnet-how-to-use-files.md)
-  
+
   Cet article présente une vue d’ensemble des partages de fichiers Azure. Il explique aussi comment monter et utiliser ces partages avec PowerShell et .NET.
 * [Stockage de fichiers dans Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-  
+
   Cet article annonce la disponibilité générale d’Azure File Storage et fournit des informations techniques sur le chiffrement SMB 3.0.
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Utilisation du chiffrement côté client pour sécuriser les données envoyées dans le stockage
@@ -307,7 +307,7 @@ Cette fonctionnalité est disponible pour les comptes de Stockage Standard et Pr
 
 Les données sont chiffrées uniquement si la fonctionnalité SSE est activée. Le chiffrement s’effectue pendant l’écriture des données dans le stockage Blob Storage. L’activation ou la désactivation de SSE n’a pas d’impact sur les données existantes. En d’autres termes, quand vous activez cette fonctionnalité, les données qui existent déjà ne sont pas chiffrées ; de la même façon, si vous la désactivez, les données existantes ne sont pas déchiffrées.
 
-Si vous souhaitez utiliser cette fonctionnalité avec un compte de stockage Classic, vous pouvez créer un compte de stockage Resource Manager et utiliser AzCopy pour copier les données dans ce nouveau compte. 
+Si vous souhaitez utiliser cette fonctionnalité avec un compte de stockage Classic, vous pouvez créer un compte de stockage Resource Manager et utiliser AzCopy pour copier les données dans ce nouveau compte.
 
 ### <a name="client-side-encryption"></a>chiffrement côté client
 Nous avons déjà mentionné le chiffrement côté client quand nous avons parlé du chiffrement des données en transit. Cette fonctionnalité vous permet de chiffrer par programmation vos données dans une application cliente avant de les envoyer via le réseau vers Azure Storage, et de les déchiffrer par programmation une fois que vous les avez récupérées d’Azure Storage.
@@ -322,10 +322,10 @@ Pour le chiffrement proprement dit, vous pouvez créer et gérer vos propres cl�
 
 #### <a name="resources"></a>les ressources
 * [Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
-  
+
   Cet article montre comment utiliser le chiffrement côté client avec Azure Key Vault, notamment comment créer le certificat KEK et le stocker dans le coffre à l’aide de PowerShell.
 * [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](storage-client-side-encryption.md)
-  
+
   Cet article explique le fonctionnement du chiffrement côté client. Il fournit des exemples d’utilisation de la bibliothèque cliente de stockage pour chiffrer et déchiffrer les ressources des quatre services de stockage. Il parle également d’Azure Key Vault.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Utilisation de la fonctionnalité Azure Disk Encryption pour chiffrer les disques utilisés par vos machines virtuelles
@@ -356,14 +356,14 @@ La solution ne prend pas en charge les scénarios, fonctionnalités et technolog
 
 > [!NOTE]
 > Le chiffrement de disque du système d’exploitation Linux est actuellement pris en charge sur les distributions Linux suivantes : RHEL 7.2, CentOS 7.2n et Ubuntu 16.04.
-> 
-> 
+>
+>
 
 Cette fonctionnalité garantit que toutes les données sur les disques de vos machines virtuelles sont chiffrées au repos dans Azure Storage.
 
 #### <a name="resources"></a>les ressources
 * [Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
-  
+
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparaison entre Azure Disk Encryption, SSE et le chiffrement côté client
 #### <a name="iaas-vms-and-their-vhd-files"></a>Machines virtuelles IaaS et fichiers VHD associés
 Pour les disques utilisés par des machines virtuelles IaaS, nous vous recommandons d’utiliser le chiffrement Azure Disk Encryption. Vous pouvez activer SSE pour chiffrer les fichiers VHD qui sont utilisés pour la sauvegarde des disques dans Azure Storage. Notez que cette fonctionnalité chiffre uniquement les nouvelles données écrites. Autrement dit, si vous créez une machine virtuelle et activez ensuite SSE sur le compte de stockage qui contient le fichier VHD, les modifications apportées sont chiffrées, mais pas le fichier VHD d’origine.
@@ -430,32 +430,32 @@ Par exemple, dans les premières lignes de la liste ci-dessus, l’état de la r
 Trois cas nous intéressent.
 
 1. L’objet blob est public et les utilisateurs y accèdent à l’aide d’une URL sans signature d’accès partagé. Dans ce cas, l’état de la requête est « AnonymousSuccess » et authorization-type est « anonymous ».
-   
+
    1.0;2015-11-17T02:01:29.0488963Z;GetBlob;**AnonymousSuccess**;200;124;37;**anonymous**;;mystorage…
 2. L’objet blob est privé et a été utilisé avec une signature d’accès partagé. Dans ce cas, l’état de la requête est « SASSuccess » et authorization-type est « sas ».
-   
+
    1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
 3. L’objet blob est privé et la clé de stockage a été utilisée pour y accéder. Dans ce cas, l’état de la requête est « **Success** » et authorization-type est « **authenticated** ».
-   
+
    1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
 
 Vous pouvez utiliser Microsoft Message Analyzer pour afficher et analyser ces journaux. Il inclue des fonctions de recherche et de filtre. Par exemple, vous voulez peut-être rechercher les instances de GetBlob pour voir si l’utilisation répond à vos attentes, par exemple, pour vérifier que personne n’accède à votre compte de stockage de façon inappropriée.
 
 #### <a name="resources"></a>Ressources
 * [Analyse du stockage](storage-analytics.md)
-  
+
   Cet article est une vue d’ensemble de l’analyse du stockage et de la façon de l’activer.
 * [Format du journal de l’analyse de stockage](https://msdn.microsoft.com/library/azure/hh343259.aspx)
-  
+
   Cet article illustre le format du journal de l’analyse de stockage et présente les champs disponibles, notamment authentication-type, qui indique le type d’authentification utilisé pour la requête.
 * [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md)
-  
+
   Cet article explique comment configurer la surveillance des métriques et la journalisation pour un compte de stockage.
 * [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](storage-e2e-troubleshooting.md)
-  
+
   Cet article traite du dépannage à l’aide de l’analyse du stockage et montre comment utiliser Microsoft Message Analyzer.
 * [Microsoft Message Analyzer Operating Guide (Guide des opérations Microsoft Message Analyzer)](https://technet.microsoft.com/library/jj649776.aspx)
-  
+
   Cet article de référence porte sur Microsoft Message Analyzer et inclut des liens vers un didacticiel, un démarrage rapide et un résumé des fonctionnalités.
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Partage des ressources cross-origin (CORS)
@@ -500,37 +500,38 @@ Voici ce que signifie chaque ligne :
 Pour plus d’informations sur CORS et sur la façon de l’activer, consultez les ressources suivantes.
 
 * [Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage sur Azure.com](storage-cors-support.md)
-  
+
   Cet article fournit une vue d’ensemble de CORS et de la façon de définir les règles pour les différents services de stockage.
 * [Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage sur MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
-  
+
   Il s’agit de la documentation de référence pour la prise en charge de CORS pour les services Azure Storage. Elle propose des liens vers des articles concernant chaque service de stockage, et propose un exemple et une description de chaque élément du fichier CORS.
 * [Microsoft Azure Storage: Introducing CORS (Microsoft Azure Storage : Présentation de CORS)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
-  
+
   Il s’agit d’un lien vers l’article de blog initial qui présente CORS et montre comment l’utiliser.
 
 ## <a name="frequently-asked-questions-about-azure-storage-security"></a>Questions fréquemment posées (FAQ) sur la sécurité Azure Storage
 1. **Comment puis-je vérifier l’intégrité des objets blob que je transfère vers ou à partir du stockage Azure si je ne peux pas utiliser le protocole HTTPS ?**
-   
+
    Si, pour une raison quelconque, vous devez utiliser le protocole HTTP au lieu de HTTPS et que vous travaillez avec des objets blob de blocs, vous pouvez utiliser la vérification MD5 pour vérifier l’intégrité des objets blob transférés. Ceci contribuera à la protection contre les erreurs au niveau du réseau/transport, mais pas nécessairement contre les attaques intermédiaires.
-   
+
    Si vous pouvez utiliser le protocole HTTPS, qui fournit une sécurité au niveau du transport, alors l’utilisation de la vérification MD5 est redondant et inutile.
-   
+
    Pour plus d’informations, consultez [Présentation d’Azure Blob MD5](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
 2. **Qu’en est-il de la conformité aux normes FIPS pour l’État fédéral américain ?**
-   
+
    Les normes FIPS (Federal Information Processing Standard) des États-Unis définissent les algorithmes de chiffrement qui sont approuvés pour une utilisation sur les systèmes informatiques de l’État fédéral américain dans le but de protéger les données sensibles. L’activation du mode FIPS sur un serveur ou un bureau Windows indique au système d’exploitation que seuls les algorithmes de chiffrement conformes aux normes FIPS doivent être utilisés. Si une application utilise des algorithmes non conformes, les applications s’arrêtent. Avec .NET Framework versions 4.5.2 ou ultérieures, l’application bascule automatiquement les algorithmes de chiffrement pour utiliser des algorithmes conformes aux normes FIPS quand l’ordinateur est en mode FIPS.
-   
+
    Microsoft laisse à chaque client le soin de décider si le mode FIPS doit être activé. Nous pensons qu’il n’existe aucune raison valable pour les clients qui ne sont pas soumis aux réglementations gouvernementales d’activer le mode FIPS par défaut.
-   
+
    **Ressources**
 
 * [Why We’re Not Recommending “FIPS Mode” Anymore (Pourquoi nous ne recommandons plus le « mode FIPS »)](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
-  
+
   Cet article de blog donne une vue d’ensemble des normes FIPS et explique pourquoi le mode FIPS n’est plus activé par défaut.
 * [FIPS 140 Validation (Validation de la norme FIPS 140)](https://technet.microsoft.com/library/cc750357.aspx)
-  
+
   Cet article fournit des informations sur la façon dont les produits et les modules de chiffrement Microsoft sont conformes aux normes FIPS pour l’État fédéral américain.
 * [Effets des paramètres de sécurité « Chiffrement système : utilisez des algorithmes compatibles FIPS pour le chiffrement, le hachage et la signature » dans Windows XP et les versions ultérieures de Windows](https://support.microsoft.com/kb/811833)
-  
+
   Cet article traite de l’utilisation du mode FIPS sur des ordinateurs Windows anciens.
+

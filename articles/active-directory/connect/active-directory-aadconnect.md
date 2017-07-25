@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 7701d46be70901d361f8a045c386bfa4cdaf98b6
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Intégrer des répertoires locaux à Azure Active Directory
@@ -153,7 +152,7 @@ Si votre serveur ADFS n’a pas été configuré pour mettre à jour automatique
 
 **Ressources supplémentaires**
 
-Présentation d’Ignite 2015 sur l’extension de vos répertoires locaux dans le cloud.
+Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans le cloud.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: aebe0b74c952045375e264bed88d33d936e34b92
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/14/2017
-
 
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Référence technique du connecteur Lotus Domino
@@ -380,7 +380,7 @@ Le tableau suivant répertorie ces propriétés ainsi que leur description.
 | \_MMS_Certifier |Propriété qui contient le nom de la hiérarchie organisationnelle de l’autorité de certification. Par exemple : OU=Unité d’organisation,O=Organisation,C=Pays. |
 | \_MMS_IDPath |Si la propriété est vide, aucun fichier d’identification utilisateur n’est créé localement sur le serveur de synchronisation. Si la propriété contient un nom de fichier, un fichier UserID est créé dans le dossier madata. Cette propriété peut également contenir un chemin d’accès complet. |
 | \_MMS_IDRegType |Les personnes peuvent être classées dans Contacts, US Users et International Users. Le tableau suivant répertorie les valeurs de sortie possibles : <li>0 - Contact</li><li>1 - Utilisateur des États-Unis</li><li>2 - Utilisateur international</li> |
-| \_MMS_IDStoreType |Propriété requise pour US Users et International Users. La propriété contient une valeur entière qui spécifie si l’identification de l’utilisateur est stockée en tant que pièce jointe dans le carnet d’adresses Notes ou dans le fichier de courrier de l’objet Personne. Si le fichier User ID est une pièce jointe au carnet d’adresses, il peut éventuellement être créé en tant que fichier avec \_MMS_IDPath. <li>Vide : fichier d’ID stocké dans le coffre d’ID, aucun fichier d’identification (utilisé pour les contacts).</li><li> &1; : pièce jointe dans le carnet d’adresses Notes. La propriété \_MMS_Password doit être définie pour les fichiers d’identification utilisateur</li><li>2 : ID stocké dans le fichier de courrier de l’objet Personne. La propriété \_MMS_UseAdminP doit être définie sur false pour que le fichier de messages soit créé lors de l’enregistrement de l’objet Personne. La propriété \_MMS_Password doit être définie pour les fichiers d’identification utilisateur.</li> |
+| \_MMS_IDStoreType |Propriété requise pour US Users et International Users. La propriété contient une valeur entière qui spécifie si l’identification de l’utilisateur est stockée en tant que pièce jointe dans le carnet d’adresses Notes ou dans le fichier de courrier de l’objet Personne. Si le fichier User ID est une pièce jointe au carnet d’adresses, il peut éventuellement être créé en tant que fichier avec \_MMS_IDPath. <li>Vide : fichier d’ID stocké dans le coffre d’ID, aucun fichier d’identification (utilisé pour les contacts).</li><li> 1 : pièce jointe dans le carnet d’adresses Notes. La propriété \_MMS_Password doit être définie pour les fichiers d’identification utilisateur</li><li>2 : ID stocké dans le fichier de courrier de l’objet Personne. La propriété \_MMS_UseAdminP doit être définie sur false pour que le fichier de messages soit créé lors de l’enregistrement de l’objet Personne. La propriété \_MMS_Password doit être définie pour les fichiers d’identification utilisateur.</li> |
 | \_MMS_MailQuotaSizeLimit |Le nombre de mégaoctets autorisés pour la base de données de fichiers e-mail. |
 | \_MMS_MailQuotaWarningThreshold |Le nombre de mégaoctets autorisés pour la base de données de fichiers e-mail avant l’émission d’un avertissement. |
 | \_MMS_MailTemplateName |Le fichier de modèle d’e-mail utilisé pour créer le fichier d’e-mail de l’utilisateur. Si un modèle est spécifié, le fichier de courrier est créé à l’aide du modèle spécifié. Si aucun modèle n’est spécifié, le fichier de modèle par défaut est utilisé pour créer le fichier. |

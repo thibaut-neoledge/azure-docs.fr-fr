@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 4453876c126289f922d6d08d321707e1d10004e3
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: d77dd2b44dca8cee6fa2e93e79cda76c80ccfe1a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gestion des disques Azure avec l’interface de ligne de commande Azure
 
-Les machines virtuelles utilisent des disques pour stocker leur système d’exploitation, leurs applications et leurs données. Lorsque vous créez une machine virtuelle, il est important de choisir une taille de disque et une configuration appropriées pour la charge de travail prévue. Ce didacticiel décrit le déploiement et la gestion des disques de machine virtuelle. Vous en apprendrez davantage sur les points suivants :
+Les machines virtuelles utilisent des disques pour stocker leur système d’exploitation, leurs applications et leurs données. Lorsque vous créez une machine virtuelle, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel décrit le déploiement et la gestion des disques de machine virtuelle. Vous en apprendrez davantage sur les points suivants :
 
 > [!div class="checklist"]
 > * Disques de système d’exploitation et disques temporaires
@@ -36,7 +37,10 @@ Les machines virtuelles utilisent des disques pour stocker leur système d’exp
 > * Redimensionnement des disques
 > * Captures instantanées de disque
 
-Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). Vous pouvez également utiliser [Cloud Shell](/azure/cloud-shell/quickstart) à partir de votre navigateur.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter l’interface de ligne de commande Azure version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="default-azure-disks"></a>Disques Azure par défaut
 
@@ -102,13 +106,13 @@ Des disques de données peuvent être créés et attachés lors de la création 
 
 Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupDisk --location eastus
 ```
 
 Créez une machine virtuelle avec la commande [az vm create]( /cli/azure/vm#create). L’argument `--datadisk-sizes-gb` est utilisé pour spécifier qu’un disque supplémentaire doit être créé et attaché à la machine virtuelle. Pour créer et attacher plusieurs disques, utilisez une liste séparée par des espaces des valeurs de taille de disque. Dans l’exemple suivant, une machine virtuelle est créée avec deux disques de données, tous deux de 128 Go. La taille des disques étant de 128 Go, ces disques sont configurés en tant que disques P10, qui fournissent 500 E/S par seconde maximum par disque.
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
@@ -122,7 +126,7 @@ az vm create \
 
 Pour créer et attacher un nouveau disque à une machine virtuelle existante, utilisez la commande [az vm disk attach](/cli/azure/vm/disk#attach). L’exemple suivant crée un disque Premium de 128 Go et l’attache à la machine virtuelle créée à l’étape précédente.
 
-```azurecli
+```azurecli-interactive 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
 ```
 
@@ -134,7 +138,7 @@ Une fois qu’un disque a été attaché à la machine virtuelle, le système d�
 
 Créez une connexion SSH avec la machine virtuelle. Remplacez l’exemple d’adresse IP par l’adresse IP publique de la machine virtuelle.
 
-```azurecli
+```azurecli-interactive 
 ssh 52.174.34.95
 ```
 
@@ -201,25 +205,25 @@ Une fois qu’une machine virtuelle a été déployée, vous pouvez augmenter la
 
 Avant d’augmenter la taille du disque, l’ID ou le nom du disque est nécessaire. Utilisez la commande [az disk list](/cli/azure/vm/disk#list) pour renvoyer tous les disques d’un groupe de ressources. Notez le nom du disque que vous souhaitez redimensionner.
 
-```azurecli
+```azurecli-interactive 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
 La machine virtuelle doit également être libérée. Utilisez la commande [az vm deallocate]( /cli/azure/vm#deallocate) pour arrêter la machine virtuelle et la libérer.
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
 Utilisez la commande [az disk update](/cli/azure/vm/disk#update) pour redimensionner le disque. Cet exemple redimensionne un disque nommé *myDataDisk* pour que sa taille soit de 1 To.
 
-```azurecli
+```azurecli-interactive 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
 ```
 
 Une fois l’opération de redimensionnement terminée, démarrez la machine virtuelle.
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
@@ -233,7 +237,7 @@ La capture instantanée du disque crée une copie en lecture seule à un moment 
 
 Avant de créer une capture instantanée de disque de machine virtuelle, l’ID ou le nom du disque est nécessaire. Utilisez la commande [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) pour renvoyer l’ID du disque. Dans cet exemple, l’ID du disque est stocké dans une variable pour qu’il puisse être utilisé dans une étape ultérieure.
 
-```azurecli
+```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 ```
 
@@ -247,7 +251,7 @@ az snapshot create -g myResourceGroupDisk --source "$osdiskid" --name osDisk-bac
 
 Cet instantané peut ensuite être converti en disque qui peut être utilisé pour recréer la machine virtuelle.
 
-```azurecli
+```azurecli-interactive 
 az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
 ```
 
@@ -255,13 +259,13 @@ az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --sour
 
 Pour illustrer la récupération de machine virtuelle, supprimez la machine virtuelle existante. 
 
-```azurecli
+```azurecli-interactive 
 az vm delete --resource-group myResourceGroupDisk --name myVM
 ```
 
 Créez une nouvelle machine virtuelle à l’aide du disque d’instantané.
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk mySnapshotDisk --os-type linux
 ```
 
@@ -271,13 +275,13 @@ Tous les disques de données doivent être rattachés à la machine virtuelle.
 
 Trouvez d’abord le nom du disque de données à l’aide de la commande [az disk list](https://docs.microsoft.com/cli/azure/disk#list). Cet exemple place le nom du disque dans une variable nommée *datadisk*, qui est utilisée à l’étape suivante.
 
-```azurecli
+```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
 Utilisez la commande [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) pour attacher le disque.
 
-```azurecli
+```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 

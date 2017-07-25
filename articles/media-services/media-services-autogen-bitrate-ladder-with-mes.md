@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 06/06/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 244413be8b094605883445bb3cbf675b538b704e
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 3bad3219b087523125047f24d643ffdc5e24caa0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -25,9 +26,12 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Cette rubrique explique comment utiliser Media Encoder Standard (MES) pour générer automatiquement une échelle des vitesses de transmission (paires vitesse-résolution) basée sur la résolution d’entrée et la vitesse de transmission. La présélection générée automatiquement ne dépassera jamais la résolution d’entrée et la vitesse de transmission. Par exemple, si l’entrée est 720p à 3 Mbits/s, la sortie restera à 720p maximum démarrera à des vitesses inférieures à 3 Mbits/s.
+Cette rubrique explique comment utiliser Media Encoder Standard (MES) pour générer automatiquement une échelle des vitesses de transmission (paires vitesse-résolution) basée sur la résolution d’entrée et la vitesse de transmission. La présélection générée automatiquement ne dépassera jamais la résolution d’entrée et la vitesse de transmission. Par exemple, si l’entrée est 720p à 3 Mbit/s, la sortie restera à 720p au mieux et démarrera à des vitesses inférieures à 3 Mbit/s.
 
 Pour utiliser cette fonctionnalité, vous devez spécifier la présélection **Diffusion adaptative** lors de la création d’une tâche d’encodage. Lorsque vous utilisez la présélection **Diffusion adaptative**, l’encodeur MES limitera intelligemment l’échelle de vitesse de transmission. Mais vous ne pourrez pas contrôler les frais d’encodage car le service détermine le nombre de couches à utiliser et à quelle résolution. Vous pouvez consulter des exemples de couches de sortie produits par MES suite à un encodage avec la présélection **Diffusion adaptative** à la [fin](#output) de cette rubrique.
+
+>[!NOTE]
+> Cette présélection doit être utilisée uniquement lorsque l’objectif est de produire un élément multimédia de sortie diffusable en continu. Par ailleurs, l’élément multimédia de sortie contiendra des fichiers MP4 où les flux audio et vidéo ne sont pas entrelacés. Si vous avez besoin que la sortie contiennent des fichiers MP4 dont les flux audio et vidéo sont entrelacés (par exemple, pour une utilisation en tant que fichier à téléchargement progressif), utilisez l’une des présélections répertoriées dans [cette section](media-services-mes-presets-overview.md).
 
 ## <a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
 

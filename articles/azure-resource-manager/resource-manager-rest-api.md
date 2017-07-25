@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
-translationtype: Human Translation
-ms.sourcegitcommit: 76864bfc1b59cfc4e6f39094c08394fe32482d17
-ms.openlocfilehash: b7957c52877b262506013a422cd1511dd0ee79a4
-ms.lasthandoff: 01/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -30,13 +31,13 @@ ms.lasthandoff: 01/14/2017
 > 
 > 
 
-Derrière chaque appel à Azure Resource Manager, derrière chaque modèle déployé, derrière chaque compte de stockage configuré se trouvent un ou plusieurs appels à une API RESTful de l’Azure Resource Manager. Cette rubrique est consacrée à ces API et à la manière dont vous pouvez les appeler sans utiliser aucun Kit de développement logiciel (SDK). Cette approche est utile si vous souhaitez un contrôle total des requêtes à Azure ou si le Kit de développement logiciel (SDK) pour votre langue par défaut n’est pas disponible ou ne prend pas en charge les opérations dont vous avez besoin.
+Derrière chaque appel à Azure Resource Manager, derrière chaque modèle déployé, derrière chaque compte de stockage configuré se trouvent un ou plusieurs appels à une API RESTful de l’Azure Resource Manager. Cette rubrique est consacrée à ces API et à la manière dont vous pouvez les appeler sans utiliser aucun kit SDK. Cette approche est utile si vous souhaitez un contrôle total des requêtes à Azure ou si le kit SDK pour votre langue par défaut n’est pas disponible ou ne prend pas en charge les opérations dont vous avez besoin.
 
 Cet article ne traite pas chaque API exposée dans Azure, mais en utilise certaines comme exemple pour vous montrer comment vous y connecter. Si vous comprenez les notions de base, vous pouvez lire la [Référence de l’API REST Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) (en anglais) pour trouver des informations détaillées sur la manière d’utiliser les autres API.
 
 ## <a name="authentication"></a>Authentification
 L’authentification pour Resource Manager est gérée par Azure Active Directory (AD). Pour vous connecter à une API quelconque, vous devez tout d’abord vous authentifier auprès d’Azure AD pour recevoir un jeton d’authentification que vous pouvez transmettre à chaque requête. Comme nous décrivons un appel pur directement à l’API REST, nous partons du principe que vous ne souhaitez pas vous authentifier en étant invité à entrer un nom d’utilisateur et un mot de passe. Nous supposons également que vous n’utilisez pas les mécanismes d’authentification à deux facteurs. Pour cette raison, nous créons ce que l’on appelle une application Azure AD et un principal du service qui sont utilisés pour la connexion. Mais n’oubliez pas qu’Azure AD prend en charge plusieurs procédures d’authentification et qu’elles peuvent toutes être utilisées pour récupérer le jeton d’authentification dont nous avons besoin pour les requêtes API ultérieures.
-Référez-vous à [Création de l’application Active Directory et du principal du service](resource-group-create-service-principal-portal.md) pour obtenir des instructions étape par étape.
+Pour connaître la procédure détaillée, suivez les instructions figurant dans [Créer une application Azure AD et un principal du service](resource-group-create-service-principal-portal.md).
 
 ### <a name="generating-an-access-token"></a>Génération d’un jeton d’accès
 L’authentification auprès d’Azure AD est effectuée en appelant Azure AD à l’adresse login.microsoftonline.com. Pour vous authentifier, vous devez disposer des informations suivantes :

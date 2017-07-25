@@ -1,5 +1,4 @@
 ---
-
 title: "Rapport de connexions risquées dans le portail Azure Active Directory | Microsoft Docs"
 description: "En savoir plus sur le rapport des connexions risquées dans le portail Azure Active Directory"
 services: active-directory
@@ -11,17 +10,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/08/2017
 
-
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapport de connexions à risque dans le portail Azure Active Directory
+# Rapport de connexions à risque dans le portail Azure Active Directory
+<a id="risky-sign-ins-report-in-the-azure-active-directory-portal" class="xliff"></a>
 
 Grâce aux rapports sur la sécurité dans Azure Active Directory (Azure AD), vous pouvez obtenir des informations sur les risques de compromission des comptes d’utilisateur au sein de votre environnement. 
 
@@ -38,7 +38,8 @@ Dans le [portail Azure](https://portal.azure.com), vous trouverez les rapports d
 ![les connexions risquées.](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Édition Azure Active Directory gratuite et de base
+## Édition Azure Active Directory gratuite et de base
+<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
 
 La version gratuite et la version de base d’Azure Active Directory proposent une fonction de création de listes des connexions risquées qui ont été détectées pour les utilisateurs. Un rapport sur les événements à risque fournit les informations suivantes :
 
@@ -63,7 +64,8 @@ Selon votre analyse de la connexion à risque, vous pouvez envoyer des commentai
 
 Pour en savoir plus, voir [Fermeture manuelle des événements à risque](active-directory-identityprotection.md#closing-risk-events-manually).
 
-## <a name="azure-active-directory-premium-editions"></a>Éditions Premium d’Azure Active Directory
+## Éditions Premium d’Azure Active Directory
+<a id="azure-active-directory-premium-editions" class="xliff"></a>
 
 Le rapport des connexions risquées dans les éditions Premium d’Azure Active Directory vous fournit les informations suivantes :
 
@@ -112,7 +114,8 @@ Cette opération ouvre le panneau **Détails** pour cet événement à risque. D
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 
 - Pour en savoir plus sur Azure Active Directory Identity Protection, voir [Protection de l’identité Azure Active Directory](active-directory-identityprotection.md).
 

@@ -13,15 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
-ms.openlocfilehash: 43cf4dad58ee0e12a233125049ab4e62411459fe
-ms.lasthandoff: 01/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/23/2017
 
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](app-service-deploy-local-git.md) et le [déploiement FTP/S](app-service-deploy-ftp.md).
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](app-service-deploy-local-git.md) et le [déploiement FTP/S](app-service-deploy-ftp.md). Ils ne sont pas les mêmes que vos informations d’identification Azure Active Directory.
 
 * **Informations d’identification au niveau de l’utilisateur** : un seul ensemble d’informations d’identification pour l’intégralité du compte Azure. Il peut être utilisé pour déployer sur App Service pour n’importe quelle application et dans n’importe quel abonnement auxquels le compte Azure est autorisé à accéder. Il s’agit de l’ensemble d’informations d’identification par défaut que vous configurez dans **App Services** > **&lt;nom_application>** > **Informations d’identification de déploiement**. C’est également l’ensemble par défaut qui est présenté dans l’interface utilisateur graphique du portail, comme la **vue d’ensemble** et les **propriétés** du [panneau Ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
 
@@ -32,7 +33,12 @@ ms.lasthandoff: 01/06/2017
 
 * **Informations d’identification au niveau de l’application** : un seul ensemble d’informations d’identification pour chaque application. Celui-ci peut être utilisé pour déployer sur cette application uniquement. Les informations d’identification de chaque application sont générées automatiquement lors de la création de l’application et se trouvent dans le profil de publication de l’application. Vous ne pouvez pas configurer manuellement les informations d’identification, mais vous pouvez les réinitialiser à tout moment pour une application.
 
-## <a name="a-nameuserscopeaset-and-reset-user-level-credentials"></a><a name="userscope"></a>Définir et réinitialiser les informations d’identification au niveau de l’utilisateur
+    > [!NOTE]
+    > Pour autoriser quelqu’un à accéder à ces informations d’identification via le contrôle d’accès en fonction du rôle (RBAC), vous devez lui accorder au moins le rôle Collaborateur sur l’application Web. Les lecteurs ne sont pas autorisés à publier et n’ont donc pas accès à ces informations d’identification.
+    >
+    >
+
+## <a name="userscope"></a>Définir et réinitialiser les informations d’identification au niveau de l’utilisateur
 
 Vous pouvez configurer vos informations d’identification au niveau de l’utilisateur dans le [panneau Ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) d’une application. Quelle que soit l’application dans laquelle vous configurez ces informations d’identification, ces dernières s’appliquent à toutes les applications et à tous les abonnements de votre compte Azure. 
 
@@ -60,7 +66,7 @@ et le nom d’utilisateur de déploiement *FTP* dans les **propriétés** de vot
 >
 >  
 
-## <a name="a-nameappscopeaget-and-reset-app-level-credentials"></a><a name="appscope"></a>Obtenir et réinitialiser les informations d’identification au niveau de l’application
+## <a name="appscope"></a>Obtenir et réinitialiser les informations d’identification au niveau de l’application
 Pour chaque application dans App Service, les informations d’identification au niveau de l’application sont stockées dans le profil de publication XML.
 
 Pour obtenir les informations d’identification au niveau de l’application :
@@ -89,3 +95,4 @@ Pour réinitialiser les informations d’identification au niveau de l’applica
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment utiliser ces informations d’identification pour déployer votre application à partir de [Git local](app-service-deploy-local-git.md) ou à l’aide de [FTP/S](app-service-deploy-ftp.md).
+

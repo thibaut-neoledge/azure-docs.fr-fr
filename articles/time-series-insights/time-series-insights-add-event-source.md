@@ -15,42 +15,49 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9dc394c0da34a8ee2796c6114e7f2f647c5345a1
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: ffa2eaf3680e68ac14aabf49b6308caeb173fd43
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/01/2017
 
 ---
 
-# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-azure-portal"></a>Créer une source d’événement pour votre environnement Time Series Insights à l’aide du portail Azure
+<a id="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
 
-La source d’événement Time Series Insights est dérivée d’un service Broker pour les événements tel que les concentrateurs d’événements Azure. Time Series Insights se connecte directement aux sources d’événement, en recevant le flux de données sans demander aux utilisateurs d’écrire une seule ligne de code. Time Series Insights prend actuellement en charge les concentrateurs d’événements Azure et Azure IoT Hubs. D’autres sources d’événement seront ajoutées à l’avenir.
+# Créer une source d’événement pour votre environnement Time Series Insights à l’aide du portail Ibiza
 
-## <a name="steps-to-add-an-event-source-to-your-environment"></a>Étapes pour ajouter une source d’événement à votre environnement
+La source d’événement Time Series Insights est dérivée d’un service Broker pour les événements tel que les concentrateurs d’événements Azure. Time Series Insights se connecte directement aux sources d’événement, en recevant le flux de données sans demander aux utilisateurs d’écrire une seule ligne de code. Actuellement, Time Series Insights prend en charge les concentrateurs d’événements Azure et les IoT Hubs. À l’avenir, plusieurs sources d’événements seront ajoutées.
 
-1.    Connectez-vous au [portail Azure](https://portal.azure.com).
-2.    Cliquez sur « Toutes les ressources » dans le menu de gauche du portail Azure.
-3.    Sélectionnez votre environnement Time Series Insights.
+<a id="steps-to-add-an-event-source-to-your-environment" class="xliff"></a>
 
-  ![Créer la source d’événement Time Series Insights](media/add-event-source/getstarted-create-eventsource1.png)
+## Étapes pour ajouter une source d’événement à votre environnement
 
-4.    Sélectionnez « Sources d’événement », puis cliquez sur « + Ajouter ».
+1.  Connectez-vous au [portail Ibiza](https://portal.azure.com).
+2.  Cliquez sur « Toutes les ressources » dans le menu de gauche du portail Ibiza.
+3.  Sélectionnez votre environnement Time Series Insights.
 
-  ![Créer la source d’événement Time Series Insights - Détails](media/add-event-source/getstarted-create-eventsource2.png)
+  ![Créer la source d’événement Time Series Insights](media/add-event-source/getstarted-create-event-source-1.png)
 
-5.    Spécifiez le nom de la source d’événement. Ce nom est associé à tous les événements provenant de cette source d’événement et est disponible au moment de la requête.
-6.    Sélectionnez un concentrateur d’événements dans la liste des ressources de concentrateur d’événements de l’abonnement actuel ou choisissez l’option d’importation « Fournir les paramètres de hub d'événements manuellement » pour spécifier un concentrateur d’événements situé dans un autre abonnement. Les événements doivent être publiés au format JSON.
-7.    Sélectionnez la stratégie disposant de l’autorisation de lecture sur le concentrateur d’événements.
-8.    Spécifiez un groupe de consommateurs du concentrateur d’événements.
+4.  Sélectionnez « Sources d’événement », puis cliquez sur « + Ajouter ».
+
+  ![Créer la source d’événement Time Series Insights - Détails](media/add-event-source/getstarted-create-event-source-2.png)
+
+5.  Spécifiez le nom de la source d’événement. Ce nom est associé à tous les événements provenant de cette source d’événement et est disponible au moment de la requête.
+6.  Sélectionnez un concentrateur d’événements à partir de la liste des ressources du concentrateur d’événements de l’abonnement actuel. Sinon, choisissez l’option d’importation « Fournir des paramètres Event Hub manuellement » pour spécifier un concentrateur d’événements d’un autre abonnement. Les événements doivent être publiés au format JSON.
+7.  Sélectionnez la stratégie disposant de l’autorisation de lecture sur le concentrateur d’événements.
+8.  Spécifiez un groupe de consommateurs du concentrateur d’événements.
 
   > [!IMPORTANT]
   > Assurez-vous que ce groupe de consommateurs n’est pas utilisé par un autre service (par exemple, la tâche Stream Analytics ou un autre environnement Time Series Insights). Si le groupe de consommateurs est utilisé par d’autres services, l’opération de lecture est affectée pour cet environnement et les autres services. Si vous utilisez le groupe de consommateurs « $Default », ceci peut entraîner une réutilisation potentielle par d’autres lecteurs.
 
-9.    Cliquez sur « Créer ».
+9.  Cliquez sur « Créer ».
 
 Après la création de la source d’événement, Time Series Insights démarre automatiquement la diffusion de données dans votre environnement.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 * [Envoyer des événements](time-series-insights-send-events.md) à la source d’événement
 * Afficher votre environnement dans le [Portail Time Series Insights](https://insights.timeseries.azure.com)

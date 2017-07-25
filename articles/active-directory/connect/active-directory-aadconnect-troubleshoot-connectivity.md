@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: 9684a04b9ce12e6ca09e60909167f7557212c8be
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Résoudre les problèmes de connectivité liés à Azure AD Connect
@@ -46,9 +46,9 @@ Parmi ces URL, le tableau suivant indique celles qui représentent le strict min
 | mscrl.microsoft.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |
 | \*.verisign.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |
 | \*.entrust.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats pour MFA. |
-| \**.windows.net |HTTPS/443 |Permet de se connecter à Azure AD. |
+| \*.windows.net |HTTPS/443 |Permet de se connecter à Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Utilisé pour MFA. |
-| \**.microsoftonline.com |HTTPS/443 |Permet de configurer votre annuaire Azure AD et pour importer/exporter des données. |
+| \*.microsoftonline.com |HTTPS/443 |Permet de configurer votre annuaire Azure AD et pour importer/exporter des données. |
 
 ## <a name="errors-in-the-wizard"></a>Erreurs dans l’Assistant
 L’Assistant Installation utilise deux contextes de sécurité différents. Dans la page **Connexion à Azure AD**, il utilise l’utilisateur actuellement connecté. Dans la page **Configurer**, il passe au [compte exécutant le service pour le moteur de synchronisation](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). S’il existe un problème, il apparaît probablement déjà au niveau de la page **Connexion à Azure AD** page de l’Assistant car la configuration du proxy est globale.

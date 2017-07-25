@@ -12,13 +12,13 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 06/08/2017
 ms.author: LADocs; mandia
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 09a2373585f49a39192a841072d86e395ff311db
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -40,9 +40,9 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 ## <a name="create-an-as2-agreement"></a>Créer un contrat AS2
 
-1.    Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure").  
+1.  Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure").  
 
-2.    Dans le menu de gauche, cliquez sur **Plus de services**. Dans la zone de recherche, entrez **intégration** comme filtre. Sélectionnez **Comptes d’intégration** dans la liste des résultats.
+2.  Dans le menu de gauche, cliquez sur **Plus de services**. Dans la zone de recherche, entrez **intégration** comme filtre. Sélectionnez **Comptes d’intégration** dans la liste des résultats.
 
     > [!TIP]
     > Si vous ne voyez pas l’option **Plus de services**, vous devez d’abord développer le menu. En haut du menu réduit, sélectionnez **Afficher le menu**.
@@ -81,7 +81,7 @@ Si aucun compte d’intégration ne s’affiche, [créez-en un](../logic-apps/lo
 
 Maintenant que vous avez défini les propriétés du contrat, vous pouvez configurer la manière dont ce contrat identifie et traite les messages entrants reçus par votre partenaire par l’intermédiaire de ce contrat.
 
-1.    Sous **Ajouter**, sélectionnez **Paramètres de réception**.
+1.  Sous **Ajouter**, sélectionnez **Paramètres de réception**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez le tableau de cette section.
 
     ![Configurer les « Paramètres de réception »](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
@@ -90,7 +90,7 @@ Configurez ces propriétés selon le contrat conclu avec le partenaire qui écha
 
 3. Sélectionnez **Le message doit être signé** pour demander la signature de tous les messages entrants. Dans la liste **Certificat**, sélectionnez un [certificat public de partenaire invité](../logic-apps/logic-apps-enterprise-integration-certificates.md) existant pour valider la signature dans les messages. Sinon, créez le certificat si vous n’en possédez pas.
 
-4.    Sélectionnez **Le message doit être chiffré** pour exiger que tous les messages entrants soient chiffrés. Dans la liste **Certificat**, sélectionnez un [certificat privé de partenaire hôte](../logic-apps/logic-apps-enterprise-integration-certificates.md) existant pour déchiffrer les messages entrants. Sinon, créez le certificat si vous n’en possédez pas.
+4.  Sélectionnez **Le message doit être chiffré** pour exiger que tous les messages entrants soient chiffrés. Dans la liste **Certificat**, sélectionnez un [certificat privé de partenaire hôte](../logic-apps/logic-apps-enterprise-integration-certificates.md) existant pour déchiffrer les messages entrants. Sinon, créez le certificat si vous n’en possédez pas.
 
 5. Pour exiger que les messages soit compressés, sélectionnez **Le message doit être compressé**.
 
@@ -121,10 +121,10 @@ Votre contrat est maintenant prêt à traiter les messages entrants qui sont con
 
 Vous pouvez configurer la manière dont votre contrat identifie et traite les messages sortants que vous envoyez à vos partenaires par l’intermédiaire de ce contrat.
 
-1.    Sous **Ajouter**, sélectionnez **Paramètres d’envoi**.
+1.  Sous **Ajouter**, sélectionnez **Paramètres d’envoi**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez le tableau de cette section.
 
-    ![Définissez les propriétés de « Paramètres d’envoi »](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)
+    ![Définissez les propriétés de « Paramètres d’envoi »](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
 
 2. Sélectionnez l’option **Activer la signature des messages** pour envoyer des messages signés à votre partenaire. Pour signer les messages, sélectionnez *l’algorithme MIC de certificat privé du partenaire hôte* dans la liste **Algorithme MIC**. Dans la liste **Certificat**, sélectionnez un [certificat privé de partenaire hôte](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
@@ -141,9 +141,11 @@ Dans la liste **Certificat**, sélectionnez un [certificat public de partenaire 
 
 8. Pour recevoir des MDN asynchrones pour les messages envoyés, sélectionnez **Exiger le MDN asynchrone**. Si vous sélectionnez cette option, saisissez l’URL à laquelle envoyer les MDN.
 
-9. Pour exiger la non-répudiation de réception, sélectionnez **Activer NRR**.
+9. Pour exiger la non-répudiation de réception, sélectionnez **Activer NRR**.  
 
-10. Une fois que vous avez terminé, cliquez sur **OK** pour enregistrer vos paramètres.
+10. Pour spécifier le format d’algorithme à utiliser dans le MIC ou pour la signature dans les en-têtes sortants des messages AS2 ou des MDN, sélectionnez **Format de l’algorithme SHA2**.  
+
+11. Une fois que vous avez terminé, cliquez sur **OK** pour enregistrer vos paramètres.
 
 Votre contrat est maintenant prêt à traiter les messages sortants qui sont conformes aux paramètres que vous avez sélectionnés.
 
@@ -162,14 +164,15 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 | Exiger le MDN asynchrone |Exige l’envoi d’un MDN asynchrone à ce contrat. |
 | URL |Spécifiez l’URL vers laquelle envoyer les MDN. |
 | Enable NRR (Activer NRR) |Exige la non-répudiation de réception (NRR), un attribut de communication qui fournit une preuve de réception des données. |
+| Format de l’algorithme SHA2 |Sélectionnez le format d’algorithme à utiliser dans le MIC ou pour la signature dans les en-têtes sortants des messages AS2 ou des MDN. |
 
 ## <a name="find-your-created-agreement"></a>Comment retrouver le contrat que vous avez créé
 
-1.    Après avoir défini toutes les propriétés de votre contrat, dans le panneau **Ajouter**, cliquez sur **OK** pour terminer la création de votre contrat et revenir au panneau de votre compte d’intégration.
+1.  Après avoir défini toutes les propriétés de votre contrat, dans le panneau **Ajouter**, cliquez sur **OK** pour terminer la création de votre contrat et revenir au panneau de votre compte d’intégration.
 
     Le contrat que vous venez d’ajouter s’affiche dans votre liste **Contrats**.
 
-2.    Vous pouvez également afficher vos contrats dans la vue d’ensemble de votre compte d’intégration. Dans le panneau de votre compte d’intégration, choisissez **Vue d’ensemble**, puis sélectionnez la mosaïque **Contrats**. 
+2.  Vous pouvez également afficher vos contrats dans la vue d’ensemble de votre compte d’intégration. Dans le panneau de votre compte d’intégration, choisissez **Vue d’ensemble**, puis sélectionnez la mosaïque **Contrats**. 
 
     ![Sélectionner la mosaïque « Contrats » pour afficher tous les contrats](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
 

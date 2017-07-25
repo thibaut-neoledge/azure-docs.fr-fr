@@ -14,9 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: fefebeae665ccd14f15b0197241b30d33830fd09
-ms.openlocfilehash: 8b09e5c7505554f1007cdf46ae74a100fb083432
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1ae54ed11130223f2795120e199234fec609d3fc
+ms.openlocfilehash: 1ad3ba6853edda93034b84996823262cb017c71a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -117,8 +119,3 @@ Maintenant que vous connaissez les bases du stockage de files d’attente, consu
 
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]: https://github.com/Azure/azure-storage-python
-
-
-<!--HONumber=Nov16_HO3-->
-
-

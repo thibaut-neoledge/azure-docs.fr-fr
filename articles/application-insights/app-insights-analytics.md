@@ -3,7 +3,7 @@ title: "Analytics, le puissant outil de recherche d’Azure Application Insights
 description: "Présentation d’Analytics, le puissant outil de recherche d’Application Insights. "
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 717269a2c0e0b1a3d332e627154eacd2d2c5001e
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 969d4f5c76c0f91c13622cb91d137c7be8007505
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -46,6 +46,10 @@ Par exemple, essayons de découvrir à quelle heure les citoyens de Hyderabad ac
 
 Nous comptons des adresses IP client distinctes, en les regroupant par heure de la journée sur les sept derniers jours. 
 
+> [!NOTE]
+> Pour obtenir des résultats en dehors des dernières 24 heures, incluez explicitement « timestamp » dans votre requête ou utiliser le menu déroulant avec la plage de temps.
+>
+
 Affichons les résultats avec la présentation graphique à barres, en choisissant d’empiler les résultats issus de codes de réponse différents :
 
 ![Sélectionnez le graphique à barres, les axes x et y, puis la segmentation](./media/app-insights-analytics/020.png)
@@ -54,7 +58,7 @@ Il semblerait que notre application soit plus populaire lors de la pause déjeun
 
 Il existe également des opérations statistiques puissantes :
 
-![](./media/app-insights-analytics/025.png)
+![Résultats d’une requête statistique](./media/app-insights-analytics/025.png)
 
 Le langage possède de nombreuses fonctionnalités attrayantes :
 
@@ -83,21 +87,24 @@ Ouvrez Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 
+
+## <a name="query-examples"></a>Exemples de requête
+
+Essayez ces procédures pas à pas pour illustrer la puissance de l’utilisation d’Analytics :
+
+ *    [Diagnostic automatique des pics et sauts d’étape dans les durées des demandes](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Automatic%20diagnostics%20of%20sudden%20spikes%20or%20step%20jumps%20in%20requests%20duration&shared=true)
+ *    [Analyse des baisses de performances avec l’analyse de séries chronologiques](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20performance%20degradations%20with%20time%20series%20analysis&shared=true)
+ *    [Analyse des défaillances d’application avec le cluster automatique et les modèles différentiels](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20application%20failures%20with%20autocluster%20and%20diffpatterns&shared=true)
+ *    [Détections de formes avancées avec l’analyse des séries chronologiques](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Advanced%20shape%20detection%20with%20time%20series%20analysis&shared=true)
+ *    [Utilisation d’opérations de fenêtre glissante pour analyser l’utilisation des applications (déploiement MAU/DAU, etc.)](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Using%20sliding%20window%20calculations%20to%20analyze%20usage%20metrics:%20rolling%20MAU~2FDAU%20and%20cohorts&shared=true)
+ *    [Détection des interruptions de service en fonction de l’analyse des journaux de débogage](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Detection%20of%20service%20disruptions%20based%20on%20regression%20analysis%20of%20trace%20logs&shared=true) et billet de blog sur le même sujet disponible [ici](https://maximshklar.wordpress.com/2017/02/16/finding-trends-in-traces-with-smart-data-analytics).
+ *    [Profilage des performances des applications à l’aide de simples journaux de débogage](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Profiling%20applications'%20performance%20with%20simple%20debug%20logs&shared=true) et billet de blog sur le même sujet disponible [ici](https://yossiattasblog.wordpress.com/2017/03/13/first-blog-post/)
+ *    [Mesure de la durée de chaque étape dans votre flux de code à l’aide de simples journaux de débogage](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Measuring%20the%20duration%20of%20each%20step%20in%20your%20code%20flow%20using%20simple%20debug%20logs&shared=true) et billet de blog sur le même sujet disponible [ici](https://yossiattasblog.wordpress.com/2017/03/14/measuring-the-duration-of-each-step-in-your-code-flow-using-simple-debug-logs/)
+ *    [Analyse de l’accès concurrentiel à l’aide de simples journaux de débogage](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Analyzing%20concurrency%20with%20simple%20debug%20logs&shared=true) et billet de blog sur le même sujet disponible [ici](https://yossiattasblog.wordpress.com/2017/03/23/analyzing-concurrency-using-simple-debug-logs/)
+
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 * Nous vous recommandons de commencer par la [visite guidée du langage](app-insights-analytics-tour.md). 
-
-### <a name="query-examples"></a>Exemples de requête
-
-* Essayez ces procédures pas à pas pour illustrer la puissance de l’utilisation d’Analytics :
- 1.    [Diagnostic automatique des pics et sauts d’étape dans les durées des demandes](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Automatic%20diagnostics%20of%20sudden%20spikes%20or%20step%20jumps%20in%20requests%20duration&shared=true)
- 2.    [Analyse des baisses de performances avec l’analyse de séries chronologiques](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20performance%20degradations%20with%20time%20series%20analysis&shared=true)
- 3.    [Analyse des défaillances d’application avec le cluster automatique et les modèles différentiels](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20application%20failures%20with%20autocluster%20and%20diffpatterns&shared=true)
- 4.    [Détections de formes avancées avec l’analyse des séries chronologiques](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Advanced%20shape%20detection%20with%20time%20series%20analysis&shared=true)
- 5.    [Utilisation d’opérations de fenêtre glissante pour analyser l’utilisation des applications (déploiement MAU/DAU, etc.)](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Using%20sliding%20window%20calculations%20to%20analyze%20usage%20metrics:%20rolling%20MAU~2FDAU%20and%20cohorts&shared=true)
- 6.    [Détection des interruptions de service en fonction de l’analyse des journaux de débogage](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Detection%20of%20service%20disruptions%20based%20on%20regression%20analysis%20of%20trace%20logs&shared=true) et billet de blog sur le même sujet disponible [ici](https://maximshklar.wordpress.com/2017/02/16/finding-trends-in-traces-with-smart-data-analytics).
- 7.    [Profilage des performances des applications à l’aide de simples journaux de débogage](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Profiling%20applications'%20performance%20with%20simple%20debug%20logs&shared=true) et billet de blog sur le même sujet disponible [ici](https://yossiattasblog.wordpress.com/2017/03/13/first-blog-post/)
- 8.    [Mesure de la durée de chaque étape dans votre flux de code à l’aide de simples journaux de débogage](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Measuring%20the%20duration%20of%20each%20step%20in%20your%20code%20flow%20using%20simple%20debug%20logs&shared=true) et billet de blog sur le même sujet disponible [ici](https://yossiattasblog.wordpress.com/2017/03/14/measuring-the-duration-of-each-step-in-your-code-flow-using-simple-debug-logs/)
- 9.    [Analyse de l’accès concurrentiel à l’aide de simples journaux de débogage](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Analyzing%20concurrency%20with%20simple%20debug%20logs&shared=true) et billet de blog sur le même sujet disponible [ici](https://yossiattasblog.wordpress.com/2017/03/23/analyzing-concurrency-using-simple-debug-logs/)
-
-
-
+* En savoir plus sur [l’utilisation de l’analytique](app-insights-analytics-using.md). 
+* [Informations de référence sur le langage](app-insights-analytics-reference.md). 

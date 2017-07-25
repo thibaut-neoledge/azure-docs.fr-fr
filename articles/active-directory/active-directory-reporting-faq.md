@@ -11,17 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e6dcd3f6f9c7c8765409c3b0d50e4b3843bab5c6
 ms.openlocfilehash: e39ee63d190308b87ebeb43adeb8b3e5db86df57
 ms.contentlocale: fr-fr
 ms.lasthandoff: 02/22/2017
 
-
 ---
-# <a name="azure-active-directory-reporting-faq"></a>FAQ sur les rapports Azure Active Directory
+# FAQ sur les rapports Azure Active Directory
+<a id="azure-active-directory-reporting-faq" class="xliff"></a>
 
 Cet article répond aux questions fréquemment posées (FAQ) sur les rapports Azure Active Directory.  
 Pour plus d’informations, consultez la page [Rapports Azure Active Directory](active-directory-reporting-azure-portal.md). 

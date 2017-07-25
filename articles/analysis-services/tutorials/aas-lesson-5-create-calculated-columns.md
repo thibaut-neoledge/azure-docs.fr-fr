@@ -10,27 +10,27 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 0cce578185ba7811e4b13cc061a2adcb18452b13
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 893371145d77e156843271907aeef0c3756d0403
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-5-create-calculated-columns"></a>Leçon 5 : Créer des colonnes calculées
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Dans cette leçon, vous allez créer des données dans votre modèle en ajoutant des colonnes calculées. Vous pouvez créer des colonnes calculées (en tant que colonnes personnalisées) quand vous utilisez Obtenir des données, à l’aide de l’éditeur de requête, ou ultérieurement dans le Concepteur de modèles comme vous allez le faire ici. Pour en savoir plus, consultez [Colonnes calculées](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).
+Dans le cadre de cette leçon, vous créez des données dans votre modèle en ajoutant des colonnes calculées. Vous pouvez créer des colonnes calculées (sous la forme de colonnes personnalisées) lorsque vous utilisez Obtenir des données, à l’aide de l’Éditeur de requêtes, ou ultérieurement dans le Concepteur de modèles comme décrit dans cette leçon. Pour en savoir plus, consultez [Colonnes calculées](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).
   
-Vous allez créer cinq colonnes calculées dans trois tables différentes. Les étapes sont légèrement différentes pour chaque tâche. Il s’agit ici de montrer qu’il existe plusieurs façons de créer des colonnes, de les renommer, puis de les placer à différents emplacements dans une table.  
+Vous créez cinq colonnes calculées dans trois tables différentes. La procédure diffère légèrement pour chacune des tâches, de façon à montrer qu’il existe plusieurs façons de créer des colonnes, de les renommer et de les placer à différents emplacements d’une table.  
 
-Ce sera également la première fois où vous utiliserez le langage DAX (Data Analysis Expressions). DAX est un langage spécial permettant de créer des expressions de formule hautement personnalisables pour les modèles tabulaires. Dans ce didacticiel, vous allez utiliser DAX pour créer des colonnes calculées, des mesures et des filtres de rôle. Pour en savoir plus, consultez [DAX dans les modèles tabulaires](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
+Cette leçon vous permet également d’utiliser pour la première fois le langage DAX (Data Analysis Expressions). DAX est un langage spécial permettant de créer des expressions de formule hautement personnalisables pour les modèles tabulaires. Dans le cadre de ce didacticiel, vous utilisez DAX pour créer des colonnes calculées, des mesures et des filtres de rôle. Pour en savoir plus, consultez [DAX dans les modèles tabulaires](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
   
 Durée estimée pour suivre cette leçon : **15 minutes**  
   
@@ -51,7 +51,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
   
     Une nouvelle colonne nommée **Calculated Column 1** est insérée à gauche de la colonne **Calendar Quarter**.  
   
-4.  Dans la barre de formule située au-dessus de la table, tapez la formule DAX suivante. La saisie semi-automatique vous aide à taper les noms complets de colonnes et de tables, et répertorie les fonctions disponibles.  
+4.  Dans la barre de formule située au-dessus de la table, tapez la formule DAX ci-après. La saisie semi-automatique vous aide à taper les noms complets des colonnes et des tables, et répertorie les fonctions disponibles.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  
@@ -91,7 +91,7 @@ La colonne calculée DayOfWeek fournit un nom triable pour le jour de la semaine
   
 1.  Dans la table **DimProduct**, faites défiler l’affichage jusqu’à l’extrême droite de la table. Notez que la colonne la plus à droite est nommée **Add Column** (en italique). Cliquez sur l’en-tête de colonne.  
   
-2.  Dans la barre de formule, tapez la formule suivante.  
+2.  Dans la barre de formule, tapez la formule suivante :  
     
     ```
     =RELATED('DimProductSubcategory'[EnglishProductSubcategoryName])  
@@ -99,7 +99,7 @@ La colonne calculée DayOfWeek fournit un nom triable pour le jour de la semaine
   
 3.  Renommez la colonne en **ProductSubcategoryName**.  
   
-La colonne calculée ProductSubcategoryName est utilisée pour créer une hiérarchie dans la table DimProduct, qui inclut les données de la colonne EnglishProductSubcategoryName de la table DimProductSubcategory. Les hiérarchies ne peuvent pas couvrir plusieurs tables. Vous allez créer des hiérarchies ultérieurement, dans la leçon 9.  
+La colonne calculée ProductSubcategoryName est utilisée pour créer une hiérarchie dans la table DimProduct, qui inclut les données de la colonne EnglishProductSubcategoryName de la table DimProductSubcategory. Les hiérarchies ne peuvent pas couvrir plusieurs tables. Vous créerez des hiérarchies ultérieurement, dans le cadre de la Leçon 9.  
   
 #### <a name="create-a-productcategoryname-calculated-column-in-the-dimproduct-table"></a>Créer une colonne calculée ProductCategoryName dans la table DimProduct  
   

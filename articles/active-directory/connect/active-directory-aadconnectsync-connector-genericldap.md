@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/14/2017
-
 
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>Référence technique au connecteur LDAP générique
@@ -42,7 +42,7 @@ Globalement, la version actuelle du connecteur prend en charge les fonctionnalit
 
 | Fonctionnalité | Support |
 | --- | --- |
-| Source de données connectée |Le connecteur est pris en charge avec tous les serveurs v3 LDAP (compatibles RFC 4510). Il a été testé avec les éléments suivants :  <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catalogue global Microsoft Active Directory (AD GC)</li><li>Serveur d’annuaire&389;</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (précédemment Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Répertoires notables non pris en charge :** <li>Microsoft Active Directory Domain Services (AD DS) [utiliser le connecteur Active Directory intégré à la place]</li><li>Oracle Internet Directory (OID)</li> |
+| Source de données connectée |Le connecteur est pris en charge avec tous les serveurs v3 LDAP (compatibles RFC 4510). Il a été testé avec les éléments suivants :  <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catalogue global Microsoft Active Directory (AD GC)</li><li>Serveur d’annuaire 389</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (précédemment Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Répertoires notables non pris en charge :** <li>Microsoft Active Directory Domain Services (AD DS) [utiliser le connecteur Active Directory intégré à la place]</li><li>Oracle Internet Directory (OID)</li> |
 | Scénarios |<li>Gestion du cycle de vie des objets</li><li>Gestion des groupes</li><li>Gestion des mots de passe</li> |
 | Opérations |Tous les annuaires LDAP prennent en charge les opérations suivantes :  <li>Importation complète</li><li>Exportation</li>Les opérations suivantes sont uniquement prises en charge dans les annuaires spécifiés :<li>Importation différentielle</li><li>Définition du mot de passe, modification du mot de passe</li> |
 | Schéma |<li>Le schéma est détecté à partir du schéma LDAP (RFC3673 et RFC4512/4.2)</li><li>Prend en charge des classes structurelles, les classes auxiliaires et la classe d’objets extensibleObject (RFC4512/4.3)</li> |
@@ -56,7 +56,7 @@ Les répertoires pris en charge pour l’importation différentielle et la gesti
 * Catalogue global Microsoft Active Directory (AD GC)
   * Prend en charge toutes les opérations d’importation différentielle
   * Prend en charge la définition de mot de passe
-* Serveur d’annuaire&389;
+* Serveur d’annuaire 389
   * Prend en charge toutes les opérations d’importation différentielle
   * Prend en charge la définition de mot de passe et la modification de mot de passe
 * Apache Directory Server
@@ -173,7 +173,7 @@ Voici un exemple de cette configuration :
 
 Sélectionnez la case à cocher **Inclure des attributs opérationnels dans le schéma** pour inclure également les attributs créés par le serveur. Elle inclut des attributs, notamment la date à laquelle l’objet a été créé et l’heure de la dernière mise à jour.
 
-Sélectionnez **Inclure les attributs extensibles dans le schéma** si des objets extensibles (RFC&4512;/4.3) sont utilisés. L’activation de cette option permet d’utiliser chaque attribut sur n’importe quel objet. Cette option peut rendre le schéma très volumineux. Alors, à moins que l’annuaire connecté n’utilise cette fonction, il est conseillé de garder cette option désactivée.
+Sélectionnez **Inclure les attributs extensibles dans le schéma** si des objets extensibles (RFC 4512/4.3) sont utilisés. L’activation de cette option permet d’utiliser chaque attribut sur n’importe quel objet. Cette option peut rendre le schéma très volumineux. Alors, à moins que l’annuaire connecté n’utilise cette fonction, il est conseillé de garder cette option désactivée.
 
 ### <a name="global-parameters"></a>Paramètres globaux
 Sur la page Paramètres globaux, vous configurez un nom unique pour le journal des modifications différentielles et d’autres fonctionnalités LDAP. La page est prérenseignée avec les informations fournies par le serveur LDAP.
@@ -247,7 +247,7 @@ Voici une liste de serveurs LDAP et du point d’ancrage utilisé :
 | Répertoire | Attribut d’ancrage |
 | --- | --- |
 | Microsoft AD LDS et AD GC |objectGUID |
-| Serveur d’annuaire&389; |dn |
+| Serveur d’annuaire 389 |dn |
 | Apache Directory |dn |
 | IBM Tivoli DS |dn |
 | Isode Directory |dn |

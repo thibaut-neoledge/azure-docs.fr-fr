@@ -2,8 +2,8 @@
 title: Activation de la synchronisation hors connexion pour votre application Azure Mobile App (Cordova) | Microsoft Docs
 description: "Découvrez comment utiliser App Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Cordova"
 documentationcenter: cordova
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 services: app-service\mobile
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 425ad7581ec92aed306d4a1c22fbc00e7105a1c1
-ms.openlocfilehash: af80f8fac043f3c0f4c666fffd60b89c2b43818d
-ms.lasthandoff: 02/16/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: d6a0be5d9c876984a323a65f9e0ce73668e94cb8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Activation de la synchronisation hors connexion pour votre application mobile Cordova
@@ -173,7 +173,7 @@ Dans cette section, vous modifiez le projet client pour simuler un scénario hor
 
 5. (Facultatif) À l’aide de Visual Studio, affichez votre table Azure SQL Database pour constater que les données dans la base de données principale n’ont pas changé.
 
-    Dans Visual Studio, ouvrez l' **Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez  **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu.
+    Dans Visual Studio, ouvrez l' **Explorateur de serveurs**. Accédez à votre base de données dans **Azure**->**Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**. Maintenant, vous pouvez accéder à votre table de base de données SQL et à son contenu.
 
 ## <a name="optional-test-the-reconnection-to-your-mobile-backend"></a>(Facultatif) Tester la reconnexion à votre backend
 

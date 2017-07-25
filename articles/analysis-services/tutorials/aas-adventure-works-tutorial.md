@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: b20adfa6c69488b848d4ca5bee2cb4baeca806b8
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: a613bbe84a3834ab4fb237779248c7ad8d75b563
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Didacticiel Adventure Works
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/05/2017
 
 Ce didacticiel fournit des leçons sur la façon de créer et de déployer un modèle tabulaire au niveau de compatibilité 1400 à l’aide de [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Si vous découvrez Analysis Services et la modélisation tabulaire, suivre ce didacticiel est la façon la plus rapide d’apprendre à créer un modèle tabulaire de base et de le déployer sur un serveur Analysis Services réel. Une fois toutes les conditions préalables satisfaites, cela vous prendra environ deux ou trois heures.  
+Si vous découvrez Analysis Services et la modélisation tabulaire, suivre ce didacticiel est la façon la plus rapide d’apprendre à créer et à déployer un modèle tabulaire de base. Une fois les conditions préalables satisfaites, cela vous prendra environ deux ou trois heures.  
   
-## <a name="what-youll-learn"></a>Ce que vous allez apprendre   
+## <a name="what-you-learn"></a>Contenu   
   
 -   Comment créer un projet de modèle tabulaire au **niveau de compatibilité 1400** dans SSDT.
   
@@ -48,7 +48,7 @@ Si vous découvrez Analysis Services et la modélisation tabulaire, suivre ce di
   
 -   Comment déployer un modèle tabulaire sur un serveur **Azure Analysis Services** ou un serveur SQL Server Analysis Services 2017 local.  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Composants requis  
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :  
   
 -   Une instance d’Azure Analysis Services ou de SQL Server Analysis Services 2017 sur laquelle déployer votre modèle. Inscrivez-vous pour bénéficier d’un [essai gratuit d’Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) et [créez un serveur](../analysis-services-create-server.md). Ou inscrivez-vous et téléchargez [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
@@ -64,13 +64,13 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 -   Une application cliente telle que [Power BI Desktop](https://powerbi.microsoft.com/desktop/) ou Excel. 
 
 ## <a name="scenario"></a>Scénario  
-Ce didacticiel repose sur la société fictive Adventure Works Cycles. Adventure Works est une grande entreprise multinationale spécialisée dans la fabrication et la distribution de métaux et de pièces détachées de vélos pour les marchés de l’Amérique du Nord, de l’Europe et de l’Asie. Basée à Bothell, dans l’état de Washington, la société emploie 500 personnes. Par ailleurs, Adventure Works emploie plusieurs équipes commerciales régionales pour couvrir son marché. Vous êtes chargé de créer un modèle tabulaire afin de permettre aux utilisateurs commerciaux et marketing d’analyser les données des ventes sur Internet dans l’exemple de base de données AdventureWorksDW.  
+Ce didacticiel repose sur la société fictive Adventure Works Cycles. Adventure Works est une grande entreprise multinationale spécialisée dans la fabrication et la distribution de métaux et de pièces détachées de vélos pour les marchés de l’Amérique du Nord, de l’Europe et de l’Asie. L’entreprise compte 500 employés. Par ailleurs, Adventure Works emploie plusieurs équipes commerciales régionales pour couvrir son marché. Votre projet consiste à créer un modèle tabulaire afin de permettre aux utilisateurs commerciaux et marketing d’analyser les données des ventes sur Internet dans la base de données AdventureWorksDW.  
   
-Pour effectuer ce didacticiel, vous devez suivre plusieurs leçons. Chaque leçon comprend un certain nombre de tâches. Il est indispensable d’exécuter chaque tâche dans l’ordre pour effectuer la leçon. Une leçon peut comporter plusieurs tâches qui aboutissent au même résultat, mais la façon d’exécuter chaque tâche diffère légèrement. Le but est de montrer qu’il existe souvent plusieurs façons d’effectuer une tâche donnée et de vous tester sur l’utilisation des compétences acquises au cours des leçons et tâches précédentes.  
+Pour effectuer ce didacticiel, vous devez suivre plusieurs leçons. Chaque leçon comprend des tâches. Il est indispensable d’exécuter chaque tâche dans l’ordre pour terminer la leçon. Une leçon peut comporter plusieurs tâches qui aboutissent au même résultat, mais la façon d’exécuter chaque tâche diffère légèrement. Cette méthode montre qu’il existe souvent plusieurs façons d’effectuer une tâche et de vous tester sur l’utilisation des compétences acquises au cours des leçons et tâches précédentes.  
   
-L’objectif des leçons est de vous guider dans la création d’un modèle tabulaire de base s’exécutant à l’aide des nombreuses fonctionnalités incluses dans SSDT. Étant donné que chaque leçon repose sur la leçon précédente, vous devez suivre les leçons dans l’ordre. Une fois que vous aurez terminé toutes les leçons, vous aurez créé et déployé l’exemple de modèle tabulaire Adventure Works Internet Sales sur un serveur Analysis Services.  
+L’objectif des leçons est de vous guider dans la création d’un modèle tabulaire de base s’exécutant à l’aide des nombreuses fonctionnalités incluses dans SSDT. Étant donné que chaque leçon repose sur la leçon précédente, vous devez suivre les leçons dans l’ordre.
   
-Ce didacticiel ne fournit pas de leçons ni d’informations sur la gestion d’un serveur Azure Analysis Services dans le portail Azure, sur la gestion d’un serveur ou d’une base de données déployée à l’aide de SSMS (SQL Server Management Studio) ou sur l’utilisation d’une application cliente de création de rapports permettant de se connecter à un modèle déployé afin de parcourir les données de modèle.  
+Ce didacticiel ne propose pas de leçons sur la gestion d’un serveur dans le portail Azure, sur la gestion d’un serveur ou d’une base de données à l’aide de SSMS, ni sur l’utilisation d’une application cliente pour parcourir les données de modèle. 
 
 
 ## <a name="lessons"></a>Leçons  

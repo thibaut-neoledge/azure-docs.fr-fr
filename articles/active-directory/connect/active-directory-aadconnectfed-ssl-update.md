@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2016
+ms.date: 07/17/2017
 ms.author: anandy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9bb29624324305f5295e0a50ef79d8f4c6d063c0
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/21/2017
-
 
 ---    
 
@@ -65,10 +65,10 @@ Une fois que vous avez confirmé les informations sur les serveurs de la batteri
 
 Une fois que vous fournissez le certificat, Azure AD Connect passe par une série de conditions préalables. Vérifiez le certificat pour vous assurer qu’il est correct pour la batterie de serveurs AD FS :
 
--    Le nom de sujet/l’autre nom de sujet du certificat est identique au nom du service de fédération ou est un certificat à caractères génériques.
--    Le certificat est valide pendant plus de 30 jours.
--    La chaîne d’approbation du certificat est valide.
--    Le certificat est protégé par un mot de passe.
+-   Le nom de sujet/l’autre nom de sujet du certificat est identique au nom du service de fédération ou est un certificat à caractères génériques.
+-   Le certificat est valide pendant plus de 30 jours.
+-   La chaîne d’approbation du certificat est valide.
+-   Le certificat est protégé par un mot de passe.
 
 ## <a name="step-3-select-servers-for-the-update"></a>Étape 3 : Sélectionner les serveurs concernés par la mise à jour
 

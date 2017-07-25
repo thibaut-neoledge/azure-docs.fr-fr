@@ -1,10 +1,10 @@
 ---
 title: "Qu’est-ce que le service Azure SQL Database ? | Microsoft Docs"
-description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
+description: "Introduction à la base de données SQL : détails techniques et fonctionnalités du système de gestion des bases de données relationnelles Microsoft dans le cloud."
 keywords: "introduction à sql, intro à sql, qu’est-ce qu’une base de données sql"
 services: sql-database
 documentationcenter: 
-author: shontnew
+author: CarlRabeler
 manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
@@ -14,54 +14,191 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/17/2017
-ms.author: shkurhek
+ms.date: 06/30/2017
+ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 36a9fd78f5c53891f38bc3a8356cef666f4d0ca2
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 0dbe945f619cf3841b5ae72943d51d3931a3f251
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/01/2017
 
 ---
-# <a name="what-is-sql-database-introduction-to-sql-database"></a>Définition de la base de données SQL Présentation de SQL Database
-SQL Database est un service de base de données relationnelle dans le cloud Microsoft, qui repose sur le moteur Microsoft SQL Server numéro un du marché, pouvant traiter des charges de travail stratégiques. SQL Database offre des performances prévisibles à plusieurs niveaux de service, une extensibilité sans interruption de service, une continuité des activités intégrée et une protection des données, le tout sans presque aucune administration. Ces fonctionnalités vous permettent de vous concentrer sur le développement rapide de vos applications et d’accélérer leur mise sur le marché, plutôt que de consacrer du temps et des ressources à la gestion des machines virtuelles et de leur infrastructure. Comme SQL Database est basé sur le moteur [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), SQL Database prend en charge les outils, les bibliothèques et les API SQL Server existants. Il vous est ainsi plus facile de développer de nouvelles solutions, de déplacer vos solutions SQL Server existantes et de les étendre au cloud Microsoft sans avoir besoin d’une formation particulière.
+<a id="what-is-the-azure-sql-database-service" class="xliff"></a>
 
-Cet article présente les principaux concepts et fonctionnalités de la base de données SQL qui ont trait aux performances, à l’extensibilité et à la facilité de gestion. Il contient également des liens pour en explorer les détails. Consultez ces démarrages rapides pour bien commencer :
- - [Créer une base de données SQL dans le portail Azure](sql-database-get-started-portal.md)  
- - [Créer une base de données SQL avec Azure CLI](sql-database-get-started-cli.md)
- - [Créer une base de données SQL à l’aide de PowerShell](sql-database-get-started-powershell.md)
+# Qu’est-ce que le service Azure SQL Database ? 
 
-Pour accéder à des exemples Azure CLI et PowerShell, consultez :
- - [Exemples Azure CLI pour Azure SQL Database](sql-database-cli-samples.md)
- - [Exemples Azure PowerShell pour Azure SQL Database](sql-database-powershell-samples.md)
+SQL Database est une base de données relationnelle à usage général de Microsoft Azure qui prend en charge des structures telles que les données relationnelles, JSON, les données spatiales et XML. Cette solution offre des [performances évolutives dynamiques](sql-database-service-tiers.md) et fournit des options telles que les [index columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) pour la génération de rapport et l’analyse extrême, et [OLTP en mémoire](sql-database-in-memory.md) pour le traitement transactionnel extrême. Microsoft gère toutes les applications de correctifs et mises à jour de la base de code SQL en toute transparence et élimine toute la gestion de l’infrastructure sous-jacente. 
 
-## <a name="adjust-performance-and-scale-without-downtime"></a>Ajustez les performances et la mise à l'échelle sans interruption de service
-SQL Database propose trois niveaux de service : De base, Standard et Premium, ainsi que Premium RS. Chaque niveau de service offre [différents niveaux de performances et de fonctionnalités](sql-database-service-tiers.md) pour prendre en charge des charges de travail de base de données plus ou moins denses. Vous pouvez créer votre première application sur une petite base de données pour quelques euros par mois et [modifier le niveau de service](sql-database-service-tiers.md) manuellement ou automatiquement à tout moment pour répondre aux besoins de votre solution. Cette opération ne perturbe pas le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
+SQL Database partage sa base de code avec le [moteur de base de données Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Avec la stratégie orientée cloud de Microsoft, les dernières fonctionnalités de SQL Server sont tout d’abord publiées dans SQL Database, puis dans SQL Server. Cette approche vous procure les fonctionnalités SQL Server les plus récentes sans frais d’application de correctifs ou de mise à niveau, et ces fonctionnalités ont déjà été testées sur des millions de bases de données. Pour plus d’informations sur les nouvelles fonctionnalités annoncées, voir :
 
-## <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools élastiques pour optimiser l’utilisation des ressources
-Pour de nombreuses entreprises et applications, la possibilité de créer des bases de données uniques et d’augmenter ou de ralentir les performances à la demande se révèle suffisante, surtout si les modèles d’utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial. [Les pools élastiques](sql-database-elastic-pool.md) sont conçus pour résoudre ce problème. Le concept est simple. Vous allouez des ressources de performance à un pool plutôt qu’à une base de données individuelle et vous payez pour les ressources de performance d’un pool plutôt que pour celles d’une base de données unique. Les pools élastiques vous permettent de ne pas avoir à ajuster les performances de la base de données en fonction des besoins en ressources. Les bases de données regroupées consomment les ressources de performance du pool élastique en fonction des besoins. Les bases de données regroupées consomment mais ne dépassent pas les limites du pool. Vos coûts restent prévisibles, même si l’utilisation de la base de données individuelle ne l’est pas. Par ailleurs, vous pouvez [ajouter et supprimer des bases de données du pool](sql-database-elastic-pool-manage-portal.md), mettre à l’échelle votre application en passant de quelques bases de données à des milliers, le tout dans les limites d’un budget que vous contrôlez. Enfin, vous pouvez également contrôler le nombre minimum et maximum de ressources disponibles pour les bases de données dans le pool. Cela vous permet de garantir qu’aucune base de données du pool n’utilise toutes les ressources du pool et que chaque base de données regroupée dispose d’un nombre minimum de ressources. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Modèles de conception pour les applications SaaS mutualisées avec la base de données SQL Azure).
+- **[Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=databases)** : l’endroit où trouver les nouveautés et les futures fonctionnalités. 
+- **[Blog de Microsoft Azure SQL Database](https://azure.microsoft.com/blog/topics/database)** : l’endroit où les membres de l’équipe produit SQL Server publient des billets de blog sur les nouveautés et les fonctionnalités de SQL Database. 
 
-## <a name="blend-single-databases-with-pooled-databases"></a>Fusionner les bases de données uniques avec les bases de données regroupées
-Quelle que soit la méthode utilisée (bases de données uniques ou pools élastiques), rien n’est irréversible. Vous pouvez fusionner des bases de données uniques avec des pools élastiques et modifier les niveaux de service des bases de données uniques et des pools élastiques rapidement et en toute simplicité, pour adapter le système à votre situation. En outre, grâce à la puissance et à la portée d’Azure, vous pouvez mélanger les autres services Azure avec SQL Database, afin de pouvoir répondre aux besoins uniques de vos applications en matière de conception, réduire les coûts, optimiser l’efficacité et créer de nouvelles opportunités professionnelles.
+SQL Database offre des performances prévisibles à plusieurs niveaux de service qui permettent une évolutivité dynamique avec aucun temps mort, une optimisation intelligente intégrée, une évolutivité et une disponibilité globales, ainsi que des options avancées de sécurité, et tout cela sans (presque) aucune tâche d’administration. Ces fonctionnalités vous permettent de vous concentrer sur le développement rapide de vos applications et d’accélérer leur mise sur le marché, plutôt que de consacrer du temps et des ressources à la gestion des machines virtuelles et de leur infrastructure. Le service SQL Database est actuellement présent dans 38 centres de données du monde entier, et de plus en plus de centres de données passent en ligne régulièrement, ce qui vous permet d’exécuter votre base de données dans un centre de données proche de chez vous.
 
-## <a name="monitoring-and-alerting"></a>Surveillance et alerte
+> [!NOTE]
+> Visitez le [Centre de gestion de la confidentialité Azure](https://azure.microsoft.com/support/trust-center/security/) pour plus d’informations sur la sécurité de la plateforme Azure.
+>
+
+<a id="scalable-performance-and-pools" class="xliff"></a>
+
+## Pools et performances évolutives
+
+Avec SQL Database, chaque base de données est isolée de l’autre et portable, chacune avec son propre [niveau de service](sql-database-service-tiers.md) et donc sa garantie de performances. SQL Database fournit plusieurs niveaux de performances pour des besoins différents et permet de regrouper les bases de données pour optimiser l’utilisation des ressources et économiser de l’argent.
+
+<a id="adjust-performance-and-scale-without-downtime" class="xliff"></a>
+
+### Ajustez les performances et la mise à l'échelle sans interruption de service
+
+SQL Database offre quatre niveaux de service pour prendre en charge des charges de travail de base de données plus ou moins lourdes : de base, standard, Premium et Premium RS. Vous pouvez créer votre première application sur une seule petite base de données pour un coût mensuel modique et modifier le niveau de service manuellement ou automatiquement à tout moment pour répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
+
+   ![mise à l’échelle](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+
+<a id="elastic-pools-to-maximize-resource-utilization" class="xliff"></a>
+
+### Pools élastiques pour optimiser l’utilisation des ressources
+
+Pour de nombreuses entreprises et applications, la possibilité de créer des bases de données uniques et d’augmenter ou de ralentir les performances à la demande se révèle suffisante, surtout si les modèles d’utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial. [Les pools élastiques](sql-database-elastic-pool.md) sont conçus pour résoudre ce problème. Le concept est simple. Vous allouez des ressources de performance à un pool plutôt qu’à une base de données individuelle et vous payez pour les ressources de performance d’un pool plutôt que pour celles d’une base de données unique. 
+
+   ![pools élastiques](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
+
+Les pools élastiques vous permettent de ne pas avoir à ajuster les performances de la base de données en fonction des besoins en ressources. Les bases de données regroupées consomment les ressources de performance du pool élastique en fonction des besoins. Les bases de données regroupées consomment mais ne dépassent pas les limites du pool. Vos coûts restent prévisibles, même si l’utilisation de la base de données individuelle ne l’est pas. Par ailleurs, vous pouvez [ajouter et supprimer des bases de données du pool](sql-database-elastic-pool-manage-portal.md), mettre à l’échelle votre application en passant de quelques bases de données à des milliers, le tout dans les limites d’un budget que vous contrôlez. Vous pouvez également contrôler le nombre minimal et maximal de ressources disponibles pour les bases de données dans le pool. Cela vous permet de garantir qu’aucune base de données du pool n’utilise toutes les ressources du pool et que chaque base de données dispose d’un nombre minimal de ressources. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Modèles de conception pour les applications SaaS mutualisées avec SQL Database).
+
+<a id="blend-single-databases-with-pooled-databases" class="xliff"></a>
+
+### Fusionner les bases de données uniques avec les bases de données regroupées
+
+Quelle que soit la méthode utilisée (bases de données uniques ou pools élastiques), rien n’est irréversible. Vous pouvez fusionner des bases de données uniques avec des pools élastiques et modifier les niveaux de service des bases de données uniques et des pools élastiques rapidement et en toute simplicité, pour adapter le système à votre situation. Grâce à la puissance et à la portée d’Azure, vous pouvez mélanger les autres services Azure avec SQL Database, afin de pouvoir répondre aux besoins uniques de vos applications en matière de conception, réduire les coûts, optimiser l’efficacité des ressources et créer de nouvelles opportunités professionnelles.
+
+<a id="extensive-monitoring-and-alerting-capabilities" class="xliff"></a>
+
+### Fonctionnalités étendues de surveillance et d’alerte
+
 Mais comment comparer les performances relatives des bases de données uniques et des pools élastiques ? Comment faire la part des choses entre les différents niveaux de service selon une mise à l'échelle verticale ? Vous utilisez les outils [d’alerte](sql-database-insights-alerts-portal.md) et [de surveillance des performances intégrés](sql-database-performance.md) en plus des évaluations de performances basées sur [les unités de transaction de base de données (DTU) pour les bases de données uniques et les DTU élastiques (eDTU) pour les pools élastiques](sql-database-what-is-a-dtu.md). Ces outils vous permettent d’évaluer rapidement l’impact des mises à l’échelle (montées ou descentes en charge) en fonction de vos besoins en performances actuels ou pour un projet. Voir [Options et performances de la base de données SQL : comprendre ce qui est disponible dans chaque niveau de service](sql-database-service-tiers.md) pour plus d’informations.
 
-## <a name="keep-your-app-and-business-running"></a>Votre application et votre activité ne s’arrêtent jamais
-Avec un temps de disponibilité de 99,99 %, l’excellent contrat de niveau de service [(SLA)](http://azure.microsoft.com/support/legal/sla/)d’Azure, soutenu par un réseau mondial de centres de données gérés par Microsoft, permet d’exécuter votre application 24 heures sur 24, 7 jours sur 7. Avec chaque base de données SQL, vous tirez parti de la sécurité intégrée, d’une tolérance en cas de panne et de la [protection des données](sql-database-automated-backups.md) que vous seriez de toute manière contraint d’acheter ou de concevoir, de créer et de gérer. Avec SQL Database, chaque niveau de service offre un ensemble complet de fonctionnalités et d’options assurant la continuité des activités, que vous pouvez utiliser pour démarrer votre base de données et vous assurer qu’elle fonctionne de manière continue. Vous pouvez utiliser la [limite de restauration dans le temps](sql-database-recovery-using-backups.md) pour renvoyer une base de données à un état antérieur, jusqu’à 35 jours. Vous pouvez configurer la [rétention des sauvegardes à long terme](sql-database-long-term-retention.md) pour stocker les sauvegardes dans un coffre sécurisé pendant 10 ans maximum. En outre, si le centre de données hébergeant vos bases de données connaît une panne, vous pouvez restaurer les bases de données à partir de [copies géo-redondantes des sauvegardes récentes](sql-database-recovery-using-backups.md). Si nécessaire, vous pouvez également configurer des [réplicas lisibles géo-redondants](sql-database-geo-replication-overview.md) dans une ou plusieurs régions pour un basculement rapide en cas de panne du centre de données. Vous pouvez également utiliser ces réplicas pour améliorer les performances en lecture dans différentes régions géographiques ou pour les [mises à niveau de l’application sans temps d’arrêt](sql-database-manage-application-rolling-upgrade.md). 
+En outre, SQL Database peut [émettre des mesures et des journaux de diagnostic](sql-database-metrics-diag-logging.md) pour faciliter la surveillance. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
 
-![Géoréplication de SQL Database](./media/sql-database-technical-overview/azure_sqldb_map.png)
+- **Stockage Azure** : pour archiver des quantités importantes de données de télémétrie à un petit prix
+- **Hub d’événements Azure** : pour intégrer des données de télémétrie SQL Database à votre solution de surveillance personnalisée ou à vos pipelines très actifs
+- **Azure Log Analytics** : pour une solution de surveillance intégrée avec des fonctionnalités de génération de rapports, d’alerte et d’atténuation
 
-Consultez [Continuité de l’activité](sql-database-business-continuity.md) pour plus d’informations sur les différentes fonctionnalités de continuité d’activité disponibles pour les différents niveaux de service.
+    ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
-## <a name="secure-your-data"></a>Sécurisez vos données
-SQL Server est reconnu pour son expertise en matière de sécurité des données que SQL Database confirme avec des fonctionnalités qui limitent l’accès, protègent les données et vous aident à surveiller l’activité. Pour un récapitulatif rapide des options de sécurité dont vous disposez dans SQL Database, consultez [Sécurisation de votre base de données SQL Database](sql-database-security-overview.md). Pour obtenir une vue plus complète des fonctionnalités de sécurité, consultez [Centre de sécurité pour le moteur de base de données SQL Server et SQL Database](https://msdn.microsoft.com/library/bb510589). Enfin, visitez le [Centre de gestion de la confidentialité Azure](https://azure.microsoft.com/support/trust-center/security/) pour plus d’informations sur la sécurité de la plateforme Azure.
+<a id="availability-capabilities" class="xliff"></a>
 
-## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez lu l’introduction à la base de données SQL et répondu à la question « Qu’est ce qu’une base de données SQL ? », vous êtes prêt à effectuer les opérations suivantes :
+## Fonctionnalités de disponibilité
 
-* Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/sql-database/) pour obtenir un comparatif des coûts entre une base de données unique et des pools élastiques et accéder à des calculateurs.
-* En savoir plus sur les [pools élastiques](sql-database-elastic-pool.md).
-* Commencez par [créer votre première base de données](sql-database-get-started-portal.md).
-* Créez votre première application en C#, Java, Node.js, PHP, Python ou Ruby : [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
+Avec un temps de disponibilité de 99,99 %, l’excellent contrat de niveau de service [(SLA)](http://azure.microsoft.com/support/legal/sla/)d’Azure, soutenu par un réseau mondial de centres de données gérés par Microsoft, permet d’exécuter votre application 24 heures sur 24, 7 jours sur 7. En outre, SQL Database fournit des fonctionnalités intégrées de [continuité d’activité et d’évolutivité globale](sql-database-business-continuity.md), notamment :
 
+- **[Sauvegardes automatiques](sql-database-automated-backups.md)** : SQL Database effectue automatiquement des sauvegardes complètes, différentielles et de fichier journal.
+- **[Restaurations à un point dans le temps](sql-database-recovery-using-backups.md)** : SQL Database prend en charge la récupération à n’importe quel point dans le temps au cours de la période de rétention de sauvegarde automatique.
+- **[Géo-réplication active](sql-database-geo-replication-overview.md)** : SQL Database permet de configurer jusqu’à quatre bases de données secondaires accessibles en lecture, que ce soit dans les mêmes centres de données ou dans des centres de données éparpillés dans le monde.  Par exemple, si vous avez une application SaaS avec une base de données de catalogue qui a un volume élevé de transactions simultanées en lecture seule, utilisez la géo-réplication active pour permettre une mise à l’échelle de lecture globale et supprimer les goulots d’étranglement sur le serveur principal qui sont dus à des charges de travail en lecture. 
+- **[Groupes de basculement](sql-database-geo-replication-overview.md)** : SQL Database permet d’activer la haute disponibilité et l’équilibrage de charge à une échelle globale, y compris la géo-réplication transparente et le basculement de grands ensembles de bases de données et de pools élastiques. Les groupes de basculement et la géo-réplication active permettent la création d’applications SaaS distribuées dans le monde entier avec une administration minimale qui laisse toutes les tâches complexes de surveillance, de routage et d’orchestration de basculement aux bons soins de SQL Database.
+
+<a id="built-in-intelligence" class="xliff"></a>
+
+## Intelligence intégrée
+
+Avec SQL Database, vous obtenez une intelligence intégrée qui permet de réduire considérablement les coûts d’exécution et de gestion des bases de données, et d’optimiser les performances et la sécurité de votre application. Via l’exécution de millions de charges de travail client 24 heures sur 24, SQL Database collecte et traite une quantité vertigineuse de données de télémétrie, tout en respectant également pleinement la confidentialité des clients en arrière-plan. Différents algorithmes évaluent en permanence les données de télémétrie afin que le service puisse apprendre et s’adapter à votre application. En fonction de cette analyse, le service propose des solutions pour améliorer les performances en tenant compte de votre charge de travail spécifique. 
+
+<a id="automatic-performance-tuning" class="xliff"></a>
+
+### Réglage automatique des performances
+
+SQL Database fournit des informations détaillées sur les requêtes que vous devez surveiller. SQL Database en apprend plus sur les modèles de votre base de données et vous permet d’adapter le schéma de base de données à votre charge de travail. SQL Database propose des solutions pour améliorer les performances par le biais de [SQL Database Advisor](sql-database-advisor.md), où vous pouvez passer en revue les actions de réglage et les appliquer. Toutefois, la surveillance permanente de la base de données est une tâche difficile et fastidieuse, en particulier lors du traitement de plusieurs bases de données. La gestion efficace d’un très grand nombre de bases de données peut s’avérer impossible même avec tous les rapports et outils disponibles avec SQL Database et Azure. Au lieu de surveiller et de régler votre base de données manuellement, vous pouvez envisager de déléguer certaines actions de surveillance et de réglage à SQL Database grâce à la fonctionnalité de réglage automatique. SQL Database applique automatiquement les recommandations, puis teste et vérifie chacune de ses actions de réglage afin de garantir l’amélioration continue des performances. De cette manière, SQL Database s’adapte automatiquement à votre charge de travail de façon contrôlée et sécurisée. Le réglage automatique signifie que les performances de votre base de données sont soigneusement surveillées et comparées avant et après chaque action de réglage et, si les performances ne s’améliorent pas, l’action de réglage est annulée.
+
+Aujourd’hui, plusieurs de nos partenaires exécutant des [applications SaaS multi-locataires](sql-database-design-patterns-multi-tenancy-saas-applications.md) sur SQL Database font confiance au réglage des performances pour garantir que leurs applications ont toujours des performances stables et prévisibles. Pour eux, cette fonctionnalité réduit considérablement le risque de voir survenir un incident lié aux performances au milieu de la nuit. En outre, étant donné qu’une partie de leurs clients utilisent également SQL Server, ils se servent des mêmes recommandations d’indexation fournies par SQL Database pour aider leurs clients exécutant SQL Server.
+
+Deux aspects de réglage automatique sont disponibles dans SQL Database :
+
+- **[Gestion automatique des index](sql-database-automatic-tuning.md#automatic-index-management)** : identifie les index qui doivent être ajoutés à votre base de données et ceux qui doivent être supprimés.
+- **[Correction du plan automatique](sql-database-automatic-tuning.md#automatic-plan-choice-correction)** : identifie les plans problématiques et résout les problèmes de performances du plan SQL (déployé prochainement, déjà disponible dans SQL Server 2017).
+
+<a id="adaptive-query-processing" class="xliff"></a>
+
+### Traitement adaptatif des requêtes
+
+Nous ajoutons également à SQL Database la famille des fonctionnalités de traitement adaptatif des requêtes, y compris l’[exécution entrelacée pour les fonctions TVF à instructions multiples, les commentaires d’allocation de mémoire en mode traitement par lots](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-interleaved-execution-for-multi-statement-table-valued-functions/) et les [jointures adaptatives en mode de traitement par lots](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-batch-mode-adaptive-joins/). Chacune de ces fonctionnalités de traitement adaptatif des requêtes applique des techniques similaires d’apprentissage et d’adaptation, ce qui contribue à résoudre les problèmes de performances liés aux soucis d’optimisation de requête historiquement intraitables.
+
+<a id="intelligent-threat-detection" class="xliff"></a>
+
+### Détection intelligente des menaces
+
+ La [détection des menaces SQL](sql-database-threat-detection.md) tire parti de l’[audit SQL Database](sql-database-auditing.md) pour surveiller en permanence les bases de données SQL Azure et repérer les tentatives potentiellement dangereuses d’accès aux données sensibles. La détection des menaces SQL fournit une nouvelle couche de sécurité qui permet aux clients de détecter les menaces potentielles et d’y répondre à mesure qu’elles se présentent en générant des alertes de sécurité sur les activités anormales. Les utilisateurs reçoivent une alerte en cas d’activités de base de données suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Les alertes générées par la détection des menaces SQL fournissent des détails sur les activités suspectes et recommandent l’action à entreprendre pour analyser et atténuer la menace. Les utilisateurs peuvent analyser les événements suspects pour déterminer s’ils sont le résultat d’une tentative d’accès, d’une violation ou d’une exploitation des données dans la base de données. La détection des menaces vous permet de réagir facilement aux menaces potentielles visant la base de données sans devenir un expert en sécurité ou gérer des systèmes avancés de surveillance de la sécurité.
+
+<a id="advanced-security-and-compliance" class="xliff"></a>
+
+## Sécurité et conformité avancées
+
+SQL Database fournit toute une gamme de [fonctionnalités intégrées de sécurité et conformité](sql-database-security-overview.md) pour que votre application réponde aux différentes exigences de conformité et de sécurité. 
+
+<a id="auditing-for-compliance-and-security" class="xliff"></a>
+
+### Audit de sécurité et de conformité
+
+L’[audit SQL Database](sql-database-auditing.md) suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. L’audit peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données et à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité.
+
+<a id="data-encryption-at-rest" class="xliff"></a>
+
+### Chiffrement des données au repos
+
+La fonctionnalité [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) de SQL Database protège le système contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux de transactions au repos, sans qu’il soit nécessaire de modifier l’application. Depuis mai 2017, toutes les nouvelles bases de données SQL Azure sont automatiquement protégées à l’aide de la fonctionnalité TDE. Il s’agit de la technologie de chiffrement au repos éprouvée de SQL, qui est requise par de nombreuses normes de conformité comme protection contre le vol d’un support de stockage. Les clients peuvent gérer les clés de chiffrement TDE et d’autres secrets de manière sécurisée et conforme à l’aide d’Azure Key Vault.
+
+<a id="data-encryption-in-motion" class="xliff"></a>
+
+### Chiffrement des données en mouvement
+
+SQL Database est le seul système de base de données à offrir une protection des données sensibles à la volée, au repos et pendant le traitement des requêtes avec [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted est une nouveauté qui offre une protection inégalée des données contre les failles de sécurité impliquant le vol de données critiques. Par exemple, avec Always Encrypted, les numéros de carte de crédit des clients sont toujours chiffrés dans la base de données, même pendant le traitement des requêtes, ce qui permet le déchiffrement au point d’utilisation par les applications ou le personnel autorisés qui doivent traiter ces données.
+
+<a id="dynamic-data-masking" class="xliff"></a>
+
+### Masquage des données dynamiques
+
+Le [masquage des données dynamiques de SQL Database](sql-database-dynamic-data-masking-get-started.md) limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilège. Le masquage des données dynamiques empêche tout accès non autorisé aux données sensibles en permettant aux clients d’indiquer la quantité de données sensibles à faire apparaître, avec un impact minimal sur la couche application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête dans les champs de la base de données désignés. Les données de la base de données ne sont pas modifiées.
+
+<a id="row-level-security" class="xliff"></a>
+
+### Sécurité au niveau des lignes
+
+La [sécurité au niveau des lignes](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permet aux clients de contrôler l’accès aux lignes d’une table de base de données en fonction des caractéristiques de l’utilisateur qui exécute une requête (par exemple, appartenance à un groupe ou contexte d’exécution). La sécurité au niveau des lignes (RLS) simplifie la conception et le codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux lignes de données. Par exemple, en s’assurant que les employés ne peuvent accéder qu’aux lignes de données utiles à leur service, ou en limitant l’accès aux données d’un client aux données relatives à son entreprise uniquement.
+
+<a id="azure-active-directory-integration-and-multi-factor-authentication" class="xliff"></a>
+
+### Intégration d’Azure Active Directory et authentification multifacteur
+
+SQL Database vous permet de gérer de manière centralisée les identités d’utilisateur de base de données et d’autres services Microsoft avec l’[intégration d’Azure Active Directory](sql-database-aad-authentication.md). Cette fonctionnalité simplifie la gestion des autorisations et améliore la sécurité. Azure Active Directory prend en charge l’[authentification multifacteur](sql-database-ssms-mfa-authentication.md) (MFA) pour augmenter la sécurité des données et des applications, ainsi qu’un processus d’authentification unique.
+
+<a id="compliance-certification" class="xliff"></a>
+
+### Certification de conformité
+
+SQL Database participe à des audits réguliers et a été certifié par rapport à plusieurs normes de conformité. Pour en savoir plus, accédez au [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](https://azure.microsoft.com/support/trust-center/services/).
+
+<a id="easy-to-use-tools" class="xliff"></a>
+
+## Outils simples d’utilisation
+
+SQL Database simplifie la création et la gestion des applications et vous fait gagner en productivité. SQL Database vous aide à vous concentrer sur ce que vous maîtrisez le mieux, à savoir le développement de formidables applications. Dans SQL Database, vous pouvez gérer et développer des applications à l’aide des outils et des compétences dont vous disposez déjà.
+
+- **[Portail Azure](https://portal.azure.com/)** : application web dédiée à la gestion de tous les services Azure 
+- **[SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)** : application client téléchargeable gratuitement dédiée à la gestion des infrastructures SQL, allant de SQL Server à SQL Database
+- **[SQL Server Data Tools dans Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)** : application client téléchargeable gratuitement, dédiée au développement de bases de données relationnelles SQL Server, de bases de données SQL Azure, de packages Integration Services, de modèles de données Analysis Services et de rapports Reporting Services.
+- **[Visual Studio Code](https://code.visualstudio.com/docs)** : éditeur de code open source téléchargeable gratuitement pour Linux, macOS et Windows qui prend en charge les extensions, y compris l’[extension mssql](https://aka.ms/mssql-marketplace) pour l’exécution de requêtes dans Microsoft SQL Server, Azure SQL Database et SQL Data Warehouse.
+
+SQL Database prend en charge la génération d’applications avec Python, Java, Node.js, PHP, Ruby et .NET sur MacOS, Linux et Windows. SQL Database prend en charge les mêmes [bibliothèques de connexions](sql-database-libraries.md) que SQL Server.
+
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
+
+- Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/sql-database/) pour obtenir un comparatif des coûts entre une base de données unique et des pools élastiques et accéder à des calculateurs.
+
+- Consultez ces démarrages rapides pour bien commencer :
+
+  - [Créer une base de données SQL dans le portail Azure](sql-database-get-started-portal.md)  
+  - [Créer une base de données SQL avec Azure CLI](sql-database-get-started-cli.md)
+  - [Créer une base de données SQL à l’aide de PowerShell](sql-database-get-started-powershell.md)
+
+- Pour accéder à des exemples Azure CLI et PowerShell, consultez :
+  - [Exemples d’interface de ligne de commande Azure pour SQL Database](sql-database-cli-samples.md)
+  - [Exemples Azure PowerShell pour SQL Database](sql-database-powershell-samples.md)

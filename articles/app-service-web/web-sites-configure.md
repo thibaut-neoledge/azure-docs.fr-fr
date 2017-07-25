@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: c78b69188136d6df7887e92600984c4fa269d355
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: cacbcf879555907f81d824dc1069b05579dca010
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -52,7 +52,7 @@ Pour des raisons techniques, l’activation de Java pour votre application désa
 **Web Sockets**. Sélectionnez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre application web utilise [ASP.NET SignalR] ou [socket.io].
 
 <a name="alwayson"></a>
-**Toujours actif**. Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. En mode De base ou Standard, vous pouvez activer l’option **Toujours actif** pour garder l’application chargée en permanence. Si votre application exécute des tâches web en continu, activez l’option **Toujours actif**. Sinon, les tâches web risquent de ne pas s’exécuter de façon fiable.
+**Toujours actif**. Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. En mode De base ou Standard, vous pouvez activer l’option **Toujours actif** pour garder l’application chargée en permanence. Si votre application exécute des WebJobs en continu ou après déclenchement par une expression CRON, activez l’option **Toujours actif**. Sinon, ils risquent de ne pas s’exécuter de façon fiable.
 
 **Version de pipeline gérée**. Définit le [mode pipeline]d'IIS. Laissez la valeur par défaut, Intégré, sauf si vous avez une application web qui demande une version plus ancienne d’IIS.
 

@@ -8,17 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
-ms.custom: move data
+ms.custom: load & move data
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 36748312506a08ed7932a6bb355a5dc7393bb002
-ms.openlocfilehash: 5e15f8a0ebb8cab5dce5b3c1cf6b62dee362a8d0
-ms.lasthandoff: 01/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: c017996235459766ca3c45ddac453fb11991b76e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -27,7 +28,7 @@ Vous pouvez utiliser l’utilitaire de ligne de commande BCP pour importer des d
 
 ## <a name="before-you-begin"></a>Avant de commencer
 ### <a name="prerequisites"></a>Composants requis
-Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
+Pour accomplir les étapes décrites dans cet article, vous avez besoin de ce qui suit :
 
 * Serveur logique et base de données SQL Azure
 * Utilitaire de ligne de commande bcp installé
@@ -76,20 +77,20 @@ Ouvrez le Bloc-notes, copiez les lignes de données suivantes dans un nouveau fi
 
 (Facultatif) Pour exporter vos données à partir d’une base de données SQL Server, ouvrez une invite de commandes et exécutez la commande suivante. Remplacez TableName, ServerName, DatabaseName, Username et Password par vos propres informations.
 
-```sql
-bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```bcp
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
 ## <a name="3-load-the-data"></a>3. Chargement des données
 Pour charger les données, ouvrez une invite de commandes et exécutez la commande suivante, en remplaçant les valeurs de ServerName, DatabaseName, Username, et Password par vos propres informations.
 
-```sql
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```bcp
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
 Cette commande permet de vérifier que les données ont été correctement chargées.
 
-```sql
+```bcp
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 

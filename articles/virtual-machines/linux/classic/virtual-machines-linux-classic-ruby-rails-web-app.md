@@ -1,6 +1,6 @@
 ---
 title: "Hébergement d’un Ruby sur le site web de Rails sur une machine virtuelle Linux | Microsoft Docs"
-description: "Configuration et hébergement d&quot;un Ruby sur le site web de Rails dans Azure en utilisant une machine virtuelle Linux."
+description: "Configuration et hébergement d'un Ruby sur le site web de Rails dans Azure en utilisant une machine virtuelle Linux."
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rmcmurray
@@ -13,12 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 06/27/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 7b3c6da0e158c2824a5feb084a13eafe265762ce
-ms.lasthandoff: 01/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 4735a1789c33b7cc51896e26ec8e079f9b0de7d9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -29,20 +30,24 @@ Ce didacticiel a été validé à l’aide d’Ubuntu Server 14.04 LTS. Si vous 
 
 > [!IMPORTANT]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md).  Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-vm"></a>Création d’une machine virtuelle Azure
 Commencez par créer une machine virtuelle Azure avec une image Linux.
 
-Pour créer la machine virtuelle, vous pouvez utiliser le portail Azure Classic ou l’interface de ligne de commande (CLI) Azure.
+Pour créer la machine virtuelle, vous pouvez utiliser le portail Azure ou l’interface de ligne de commande (CLI) Azure.
 
-### <a name="azure-management-portal"></a>Portail de gestion Azure
-1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com)
-2. Cliquez sur **Nouveau** > **Calculer** > **Machine virtuelle** > **Création rapide**. Sélectionnez une image Linux.
-3. Entrez un mot de passe.
+### <a name="azure-portal"></a>Portail Azure
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Cliquez sur **Nouveau**, puis tapez « Ubuntu Server 14.04 » dans la zone de recherche. Cliquez sur l’entrée renvoyée par la recherche. Pour le déploiement du modèle, sélectionnez **Classique**, puis cliquez sur « Créer ».
+3. Dans le panneau des éléments de base, saisissez des valeurs pour les champs requis : nom (de la machine virtuelle), nom d’utilisateur, type d’authentification et les informations d’identification correspondantes, abonnement Azure, groupe de ressources et emplacement.
 
-Une fois que la machine virtuelle est configurée, cliquez sur son nom, puis cliquez sur **Tableau de bord**. Recherchez le point de terminaison SSH répertorié sous **Détails SSH**.
+   ![Create a new Ubuntu Image](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
+
+4. Une fois que la machine virtuelle est configurée, cliquez sur son nom, puis cliquez sur **Points de terminaison** dans la catégorie **Paramètres**. Recherchez le point de terminaison SSH répertorié sous **Autonome**.
+
+   ![Point de terminaison par défaut.](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
 ### <a name="azure-cli"></a>Interface de ligne de commande Azure
 Suivez les étapes de [Create a Virtual Machine Running Linux (Création d’une machine virtuelle exécutant Linux)][vm-instructions].
@@ -54,20 +59,25 @@ Une fois que la machine virtuelle est configurée, vous pouvez obtenir le point 
 ## <a name="install-ruby-on-rails"></a>installation de Ruby sur Rails
 1. Utilisez le protocole SSH pour vous connecter à la machine virtuelle.
 2. Depuis la session SSH, utilisez les commandes suivantes pour installer Ruby sur la machine virtuelle :
-   
+
         sudo apt-get update -y
         sudo apt-get upgrade -y
-        sudo apt-get install ruby ruby-dev build-essential libsqlite3-dev zlib1g-dev nodejs -y
-   
+
+        sudo apt-add-repository ppa:brightbox/ruby-ng
+        sudo apt-get update
+        sudo apt-get install ruby2.4
+
+        > [!TIP]
+        > The brightbox repository contains the current Ruby distribution.
+
     L’installation peut prendre quelques minutes. Lorsqu’elle est terminée, utilisez la commande suivante pour vérifier que Ruby est installé :
-   
+
         ruby -v
-   
-    Cette commande renvoie la version de Ruby qui a été installée.
+
 3. Utilisez la commande suivante pour installer Rails :
-   
+
         sudo gem install rails --no-rdoc --no-ri -V
-   
+
     Utilisez les indicateurs --no-rdoc et--no-ri pour ignorer l’installation de la documentation, ce qui est plus rapide.
     L’exécution de cette commande peut être très longue ; l’ajout de -V permet d’afficher des informations sur la progression de l’installation.
 
@@ -91,28 +101,32 @@ Le résultat ressemble à ce qui suit.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>Ajout d’un point de terminaison
-1. Accédez au [portail Azure Classic][management-portal] et sélectionnez votre machine virtuelle.
-   
-    ![liste des machines virtuelles][vmlist]
-2. Sélectionnez **POINTS DE TERMINAISON** dans la partie supérieure de la page, puis cliquez sur **+ AJOUTER UN POINT DE TERMINAISON** dans la partie inférieure de la page.
-   
-    ![page des points de terminaison][endpoints]
-3. Dans la boîte de dialogue **AJOUTER UN POINT DE TERMINAISON**, sélectionnez « Ajouter un point de terminaison autonome », puis cliquez sur la flèche **Suivant**.
-   
-    ![nouvelle boîte de dialogue de points de terminaison][new-endpoint1]
-4. Dans la page suivante de la boîte de dialogue, entrez les informations suivantes :
-   
-   * **NOM**: HTTP
-   * **PROTOCOLE**: TCP
-   * **PORT PUBLIC**: 80
-   * **PORT PRIVÉ**: 3000
-     
-     Ainsi, un port public 80 est créé pour acheminer le trafic vers le port privé 3000, où le serveur Rails écoute.
-     
-     ![nouvelle boîte de dialogue de points de terminaison][new-endpoint]
-5. Cliquez sur la coche pour enregistrer le point de terminaison.
-6. Un message indiquant **UPDATE IN PROGRESS**doit s'afficher. Une fois que ce message disparaît, le point de terminaison est actif. Vous pouvez désormais tester votre application en accédant au nom DNS de votre machine virtuelle. Le site web qui apparaît doit être semblable à l'illustration ci-dessous :
-   
+1. Accédez au [portail Azure] [https://portal.azure.com] et sélectionnez votre machine virtuelle.
+
+2. Sélectionnez **Points de terminaison** dans les **Paramètres** sur le bord gauche de la page.
+
+3. Cliquez sur **Ajouter** en haut de la page.
+
+4. Dans la boîte de dialogue **Ajouter point de terminaison**, entrez les informations suivantes :
+
+   * **Nom** : HTTP
+   * **Protocole**: TCP
+   * **Port public** : 80
+   * **Port privé** : 3000
+   * **Adresse PI flottante** : Désactivée
+   * **Liste de contrôle d’accès - ordre** : 1001, ou une autre valeur qui viendra définir la priorité de cette règle d’accès.
+   * **Liste de contrôle d’accès - nom** : allowHTTP
+   * **Liste de contrôle d’accès - Action** : autoriser
+   * **Liste de contrôle d’accès - sous-réseau distant** : 1.0.0.0/16
+
+     Ce point de terminaison a un port public de 80 pour acheminer le trafic vers le port privé 3000, où le serveur Rails écoute. La règle de la liste de contrôle de l’accès permet un trafic public sur le port 80.
+
+     ![new-endpoint](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
+
+5. Cliquez sur OK pour enregistrer le point de terminaison.
+
+6. Un message doit apparaître indiquant **Enregistrement du point de terminaison de la machine virtuelle**. Une fois que ce message disparaît, le point de terminaison est actif. Vous pouvez désormais tester votre application en accédant au nom DNS de votre machine virtuelle. Le site web qui apparaît doit être semblable à l'illustration ci-dessous :
+
     ![page rails par défaut][default-rails-cloud]
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -129,7 +143,6 @@ Pour utiliser des services Azure depuis votre application Ruby, consultez :
 <!-- WA.com links -->
 [blobs]:../../../storage/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:https://azure.microsoft.com/develop/ruby/app-services/
-[management-portal]:https://manage.windowsazure.com/
 [tables]:../../../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]:createportal.md
 

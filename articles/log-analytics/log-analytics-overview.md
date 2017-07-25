@@ -1,6 +1,6 @@
 ---
 title: "Qu’est-ce que Log Analytics dans Operations Management Suite (OMS) ? | Microsoft Docs"
-description: "Log Analytics est un service d’Operations Management Suite (OMS) qui vous permet de collecter et d’analyser les données opérationnelles générées par les ressources de votre cloud et de vos environnements locaux.  Cet article fournit une vue d&quot;ensemble des différents composants de Log Analytics ainsi que des liens vers un contenu détaillé."
+description: "Log Analytics est un service d’Operations Management Suite (OMS) qui vous permet de collecter et d’analyser les données opérationnelles générées par les ressources de votre cloud et de vos environnements locaux.  Cet article fournit une vue d'ensemble des différents composants de Log Analytics ainsi que des liens vers un contenu détaillé."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 06/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: c2e78e0191be6ac7d828402859c04c486e8df594
-ms.lasthandoff: 04/20/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/20/2017
 Log Analytics est un service d’[Operations Management Suite \((OMS)\)](../operations-management-suite/operations-management-suite-overview.md) qui vous permet d’analyser votre cloud et de vos environnements locaux pour maintenir leur disponibilité et leurs performances.  Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.  Cet article traite brièvement de la valeur apportée par Log Analytics, fournit une vue d’ensemble de son fonctionnement et des liens vers des contenus plus détaillés pour aller plus loin.
 
 ## <a name="is-log-analytics-for-you"></a>Log Analytics est-il adapté à vos besoins ?
-Si aucune analyse n’est actuellement mise en place pour votre environnement Azure, vous devez commencer avec [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) qui recueille et analyse les données de vos ressources Azure.  Log Analytics peut collecter des données à partir d’Azure Monitor pour les corréler avec d’autres données et fournir une analyse supplémentaire.
+Si aucune analyse n’est actuellement mise en place pour votre environnement Azure, vous devez commencer avec [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) qui recueille et analyse les données de vos ressources Azure.  Log Analytics peut [collecter des données à partir d’Azure Monitor](log-analytics-azure-storage.md) pour les corréler avec d’autres données et fournir une analyse supplémentaire.
 
 Si vous souhaitez analyser votre environnement local ou si vous disposez déjà d’une analyse existante effectuée à l’aide de services comme Azure Monitor ou System Center Operations Manager, sachez que Log Analytics peut se révéler très utile.  La collecte peut s’effectuer directement à partir de vos agents et également de ces autres outils vers un référentiel unique.  Les outils d’analyse de Log Analytics, tels que les recherches de journaux, les vues et les solutions fonctionnent avec toutes les données collectées. Vous disposez ainsi d’une analyse centralisée de l’ensemble de votre environnement.
 

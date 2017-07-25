@@ -1,6 +1,6 @@
 ---
-title: "Script Azure PowerShell - Surveillance et mise à l’échelle d’une instance SQL Database unique | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Surveillance et mise à l’échelle d’une instance SQL Database unique à l’aide de PowerShell"
+title: "Exemple PowerShell-surveiller-mettre à l’échelle-base de données Azure SQL unique | Microsoft Docs"
+description: "Exemple de script Azure PowerShell pour surveiller et mettre à l’échelle une base de données Azure SQL unique"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: fab0994ff9ec4471e0a6814e681b2d3e36433301
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: bfe2875b204d35abba12ee21c749e0a2919b2d1d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
 # <a name="monitor-and-scale-a-single-sql-database-using-powershell"></a>Surveillance et mise à l’échelle d’une instance SQL Database unique à l’aide de PowerShell
 
-Cet exemple de script PowerShell surveille les mesures de performances d’une base de données, l’adapte à un niveau de performances supérieur et crée une règle d’alerte sur l’une des mesures de performances. 
+Cet exemple de script PowerShell surveille les mesures de performance d’une base de données, l’adapte à un niveau de performance supérieur et crée une règle d’alerte sur l’une des mesures de performance. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

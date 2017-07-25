@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 01448fcff64e99429e2ee7df916b110c869307fb
-ms.openlocfilehash: 7776ac35f1a8a30c959286a9e31beb666f5fc799
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 25a13ad3738286795f45bbdec681614356bd3db8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -27,6 +28,10 @@ ms.lasthandoff: 03/02/2017
 ## <a name="overview"></a>Vue d'ensemble
 
 Cette rubrique montre comment personnaliser des présélections Media Encoder Standard. La rubrique [Encodage avec Media Encoder Standard à l’aide de présélections personnalisées](media-services-custom-mes-presets-with-dotnet.md) explique comment utiliser .NET pour créer une tâche de codage et une tâche qui exécute cette tâche. Une fois que vous avez personnalisé une présélection, fournissez les présélections personnalisées pour la tâche d’encodage. 
+
+>[!NOTE]
+>Si vous utilisez une présélection XML, veillez à conserver l’ordre des éléments, comme indiqué dans les exemples XML ci-dessous (par exemple, KeyFrameInterval doit précéder SceneChangeDetection).
+>
 
 Cette rubrique présente les présélections personnalisées qui exécutent les tâches d’encodage suivantes.
 
@@ -909,15 +914,16 @@ Mettez à jour votre présélection personnalisée avec les ID des éléments mu
 Consultez la rubrique [Rogner des vidéos avec l’encodeur multimédia standard](media-services-crop-video.md) .
 
 ## <a id="no_video"></a>Insertion d’une piste vidéo lorsque l’entrée ne comporte aucune vidéo
+
 Par défaut, si vous envoyez à l’encodeur une entrée contenant uniquement de l’audio (sans contenu vidéo), l’élément multimédia de sortie regroupe les fichiers qui contiennent uniquement des données audio. Certains lecteurs, y compris Azure Media Player (consultez [ceci](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) peuvent ne pas être en mesure de gérer ces flux. Dans ce cas, vous pouvez utiliser ce paramètre pour forcer l’encodeur à ajouter à la sortie une piste vidéo monochrome.
 
 > [!NOTE]
 > Le fait de forcer l’encodeur à insérer une piste vidéo de sortie augmente la taille de l’élément multimédia de sortie, et ainsi les coûts associés à la tâche d’encodage. Vous devez exécuter des tests pour vérifier que cette augmentation résultante n’a qu’une légère incidence sur vos frais mensuels.
 >
->
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Insertion de vidéo uniquement avec le débit le plus bas
-Supposons que vous utilisez un encodage à plusieurs vitesses de transmission prédéfinies, par exemple [« H264 multidébit 720p »](media-services-mes-preset-h264-multiple-bitrate-720p.md) pour encoder à des fins de diffusion en continu votre catalogue d’entrée tout entier, qui contient un mélange de fichiers vidéo et audio uniquement. Dans ce scénario, lorsque l’entrée ne comporte aucune vidéo, vous pouvez vouloir forcer l’encodeur à insérer une piste vidéo monochrome au plus faible débit uniquement, et non à toutes les vitesses de transmission de sortie. Pour ce faire, vous devez spécifier l’indicateur « InsertBlackIfNoVideoBottomLayerOnly ».
+
+Supposons que vous utilisez un encodage à plusieurs vitesses de transmission prédéfinies, par exemple [« H264 multidébit 720p »](media-services-mes-preset-h264-multiple-bitrate-720p.md) pour encoder à des fins de diffusion en continu votre catalogue d’entrée tout entier, qui contient un mélange de fichiers vidéo et audio uniquement. Dans ce scénario, lorsque l’entrée ne comporte aucune vidéo, vous pouvez vouloir forcer l’encodeur à insérer une piste vidéo monochrome au plus faible débit uniquement, et non à toutes les vitesses de transmission de sortie. Pour ce faire, vous devez utiliser l’indicateur **InsertBlackIfNoVideoBottomLayerOnly**.
 
 Vous pouvez utiliser l’une des présélections MES documentées dans [cette](media-services-mes-presets-overview.md) section et apporter la modification suivante :
 
@@ -932,9 +938,30 @@ Vous pouvez utiliser l’une des présélections MES documentées dans [cette](m
     }
 
 #### <a name="xml-preset"></a>Présélection XML
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+Avec le XML, utilisez Condition="InsertBlackIfNoVideoBottomLayerOnly" en tant qu’attribut pour l’élément **H264Video** et Condition="InsertSilenceIfNoAudio" en tant qu’attribut pour **AACAudio**.
+    
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>Insertion de vidéo à tous les débits binaires de sortie
 Supposons que vous utilisez un encodage à plusieurs vitesses de transmission prédéfinies, par exemple [« H264 multidébit 720p »](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) pour encoder à des fins de diffusion en continu votre catalogue d’entrée tout entier, qui contient un mélange de fichiers vidéo et audio uniquement. Dans ce scénario, lorsque l’entrée ne comporte aucune vidéo, vous pouvez vouloir forcer l’encodeur à insérer une piste vidéo monochrome à toutes les vitesses de transmission de sortie. Cela garantit que vos éléments multimédias de sortie sont tous homogènes en ce qui concerne le nombre de pistes vidéo et de pistes audio. Pour ce faire, vous devez spécifier l’indicateur « InsertBlackIfNoVideo ».
@@ -952,9 +979,30 @@ Vous pouvez utiliser l’une des présélections MES documentées dans [cette](m
     }
 
 #### <a name="xml-preset"></a>Présélection XML
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideo</Condition>
+
+Avec le XML, utilisez Condition="InsertBlackIfNoVideo" en tant qu’attribut pour l’élément **H264Video** et Condition="InsertSilenceIfNoAudio" en tant qu’attribut pour **AACAudio**.
+
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideo">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .  
 
 ## <a id="rotate_video"></a>Faire pivoter une vidéo
 [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) prend en charge les angles de rotation 0, 90,180 et 270. Le comportement par défaut est « Auto », ce qui signifie qu’il tente de détecter les métadonnées de rotation dans le fichier vidéo entrant et de les compenser. Incluez l’élément **Sources** suivant dans l’une des présélections définies dans [cette](media-services-mes-presets-overview.md) section :

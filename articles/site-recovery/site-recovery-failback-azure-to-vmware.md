@@ -11,21 +11,18 @@ ms.service: site-recovery
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.workload: required
+ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3bd182a775377f912914c0c7a63fe41811146e1a
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: dde0bb6b4f6bc10afdd7d40adc6689d42b37de81
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Restaurer automatiquement des machines virtuelles VMware et des serveurs physiques sur le site local
-> [!div class="op_single_selector"]
-> * [Machines VMware / machines physiques d’Azure](site-recovery-how-to-failback-azure-to-vmware.md)
-> * [Machines virtuelles Hyper-V d’Azure](site-recovery-failback-from-azure-to-hyper-v.md)
+
 
 Cet article explique comment restaurer automatiquement des machines virtuelles Azure à partir d’Azure vers le site local. Suivez ces instructions lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows ou Linux après avoir protégé à nouveau vos machines en suivant cette [référence](site-recovery-how-to-reprotect.md).
 
@@ -72,7 +69,7 @@ Si vous effectuez la restauration automatique vers un autre emplacement, les don
 ## <a name="prerequisites"></a>Composants requis
 * Vous avez besoin d’un environnement VMware afin de restaurer automatiquement les machines virtuelles VMware et les serveurs physiques. La restauration automatique vers les serveurs physiques n’est pas prise en charge.
 * Pour procéder à une restauration automatique, vous devez avoir créé un réseau Azure lors de la configuration initiale de la protection. La restauration automatique nécessite une connexion VPN ou ExpressRoute à partir du réseau Azure dans lequel les machines virtuelles Azure sont situées sur le site local.
-* Si les machines virtuelles vers lesquelles vous voulez effectuer une restauration automatique sont gérées par un serveur vCenter, assurez-vous de disposer des autorisations requises pour la détection des machines virtuelles sur les serveurs vCenter. Pour en savoir plus, consultez l’article [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+* Si les machines virtuelles vers lesquelles vous voulez effectuer une restauration automatique sont gérées par un serveur vCenter, assurez-vous de disposer des autorisations requises pour la détection des machines virtuelles sur les serveurs vCenter. Pour en savoir plus, consultez l’article [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 * Si des instantanés sont présents sur une machine virtuelle, la reprotection échouera. Vous pouvez supprimer les instantanés ou les disques.
 * Avant de procéder à la restauration automatique, créez les composants suivants :
   * **Créez un serveur de processus dans Azure**. Il s’agit d’une machine virtuelle Azure que vous créez et maintenez en cours d’exécution pendant la restauration automatique. Vous pouvez supprimer cette machine virtuelle à l’issue de la restauration automatique.
@@ -112,7 +109,7 @@ Si vous avez protégé vos machines en tant que ressources classiques (la machin
  * Le nom de l’image est *Microsoft Azure Site Recovery Process Server V2*. Sélectionnez le modèle de déploiement **Classique**.
 
        ![Select "Classic" as the Process Server deployment model](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
- * Installez le serveur de processus en suivant les instructions de la rubrique [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
+ * Installez le serveur de processus en suivant les instructions de la rubrique [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 7. Si vous sélectionnez le réseau Azure *Resource Manager*, déployez le serveur de processus en fournissant les informations suivantes :
 
   * Le nom du groupe de ressources dans lequel vous souhaitez déployer le serveur
@@ -125,7 +122,7 @@ Si vous avez protégé vos machines en tant que ressources classiques (la machin
 
     ![Saisir les informations dans la boîte de dialogue « Ajouter un serveur de processus »](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 
-8. Cliquez sur **OK**. Cela déclenche une tâche qui crée une machine virtuelle selon le type de déploiement Resource Manager lors de l’installation du serveur de processus. Pour enregistrer le serveur sur le serveur de configuration, exécutez l’installation au sein de la machine virtuelle en suivant les instructions de la rubrique [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). Une tâche de déploiement du serveur de processus est également déclenchée.
+8. Cliquez sur **OK**. Cela déclenche une tâche qui crée une machine virtuelle selon le type de déploiement Resource Manager lors de l’installation du serveur de processus. Pour enregistrer le serveur sur le serveur de configuration, exécutez l’installation au sein de la machine virtuelle en suivant les instructions de la rubrique [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-vmware-to-azure-classic.md). Une tâche de déploiement du serveur de processus est également déclenchée.
 
   Le serveur de processus s’affiche dans l’onglet **Serveurs de configuration** > **Serveurs associés** > **Serveurs de processus**.
 
@@ -144,7 +141,7 @@ Le serveur cible maître reçoit les données de restauration automatique. Le se
 1. Si vous configurez le serveur cible maître sous Windows, ouvrez la page de démarrage rapide de la machine virtuelle sur laquelle vous installez le serveur cible maître.
 2. Téléchargez le fichier d’installation pour le programme d’installation unifiée d’Azure Site Recovery.
 3. Exécutez le programme d’installation puis, dans la zone **Avant de commencer**, sélectionnez **Ajouter des serveurs de processus supplémentaires pour augmenter la taille du déploiement**.
-4. Terminez l’Assistant de la même façon que lors de la [configuration du serveur d’administration](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). Sur la page **Détails du serveur de configuration**, spécifiez l’adresse IP du serveur cible maître ainsi qu’une phrase secrète pour accéder à la machine virtuelle.
+4. Terminez l’Assistant de la même façon que lors de la [configuration du serveur d’administration](site-recovery-vmware-to-azure-classic.md). Sur la page **Détails du serveur de configuration**, spécifiez l’adresse IP du serveur cible maître ainsi qu’une phrase secrète pour accéder à la machine virtuelle.
 
 ### <a name="set-up-a-linux-vm-as-the-master-target-server"></a>Configurer une machine virtuelle Linux en tant que serveur cible maître
 Pour configurer le serveur d’administration exécutant le serveur cible maître comme une machine virtuelle Linux, installez le système d’exploitation CentOS 6.6 Minimal. Ensuite, récupérez les ID SCSI pour chaque disque dur SCSI, installez des packages supplémentaires et appliquez des modifications personnalisées.
@@ -152,7 +149,7 @@ Pour configurer le serveur d’administration exécutant le serveur cible maîtr
 #### <a name="install-centos-66"></a>Installer CentOS 6.6
 
 1. Installez le système d’exploitation minimal CentOS 6.6 sur la machine virtuelle du serveur d’administration. Conservez l’image ISO dans un lecteur de DVD et démarrez le système. Ignorez les tests de média. Sélectionnez la langue **US English** (Anglais US) et **Appareils de stockage de base**, vérifiez que le disque dur ne comporte pas de données importantes et cliquez sur **Oui** pour supprimer toutes les données. Entrez le nom d’hôte du serveur d’administration et sélectionnez la carte réseau du serveur.  Dans la boîte de dialogue **Système de modification**, sélectionnez **Connecter automatiquement**, puis ajoutez une adresse IP statique, un réseau et des paramètres DNS. Spécifiez un fuseau horaire. Pour accéder au serveur d’administration, entrez le mot de passe racine.
-2. Quand le système vous demande le type d’installation souhaitée, sélectionnez **Créer une disposition personnalisée** comme partition. Cliquez sur **Next**. Sélectionnez **Free** (Libre), puis cliquez sur **Créer**. Créez les partitions **/**,  **/var/crash** et **/home** avec **FS Type:** **ext4**. Créez la partition d’échange **FS Type: swap**.
+2. Quand le système vous demande le type d’installation souhaitée, sélectionnez **Créer une disposition personnalisée** comme partition. Cliquez sur **Suivant**. Sélectionnez **Free** (Libre), puis cliquez sur **Créer**. Créez les partitions **/**,  **/var/crash** et **/home** avec **FS Type:** **ext4**. Créez la partition d’échange **FS Type: swap**.
 3. Si des appareils préexistants sont trouvés, un message d’avertissement s’affiche. Cliquez sur **Format** pour formater le lecteur avec les paramètres de partition. Cliquez sur **Enregistrer les modifications sur le disque** pour appliquer les modifications de partition.
 4. Sélectionnez **Installer le chargeur de démarrage** > **Suivant** pour installer le chargeur de démarrage dans la partition racine.
 5. Une fois l’installation terminée, cliquez sur **Redémarrer**.
@@ -234,7 +231,7 @@ Une fois la validation terminée, vos données devraient se trouver à nouveau s
 Une fois la reprotection effectuée, la machine virtuelle est répliquée vers Azure et vous pouvez effectuer un basculement.
 
 ### <a name="resolve-common-failback-issues"></a>Résoudre les problèmes courants lors de la restauration automatique
-* Si vous effectuez une découverte vCenter en mode lecture seule utilisateur et protégez des machines virtuelles, l’opération réussit et le basculement fonctionne. Au cours de la reprotection, le basculement échoue car les banques de données ne peuvent pas être détectées. Par conséquent, les banques de données ne seront pas répertoriées lors de la reprotection. Pour résoudre ce problème, mettez à jour les informations d’identification vCenter à l’aide du compte approprié disposant des autorisations requises, puis renouvelez l’opération. Pour en savoir plus, consultez l’article [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+* Si vous effectuez une découverte vCenter en mode lecture seule utilisateur et protégez des machines virtuelles, l’opération réussit et le basculement fonctionne. Au cours de la reprotection, le basculement échoue car les banques de données ne peuvent pas être détectées. Par conséquent, les banques de données ne seront pas répertoriées lors de la reprotection. Pour résoudre ce problème, mettez à jour les informations d’identification vCenter à l’aide du compte approprié disposant des autorisations requises, puis renouvelez l’opération. Pour en savoir plus, consultez l’article [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 * Lorsque vous restaurez automatiquement une machine virtuelle Linux et l’exécutez localement, vous constaterez que le package du Gestionnaire de réseau est désinstallé de l’ordinateur. En effet, celui-ci est supprimé une fois la machine virtuelle récupérée dans Azure.
 * Lorsqu’une machine virtuelle est configurée avec une adresse IP statique puis restaurée automatiquement vers Azure, l’adresse IP est obtenue via DHCP. Lorsque vous basculez à nouveau en local, la machine virtuelle continue d’utiliser DHCP pour obtenir l’adresse IP. Connectez-vous manuellement à l’ordinateur et redéfinissez l’adresse IP sur une adresse statique le cas échéant.
 * Si vous utilisez la version gratuite d’ESXi 5.5 ou de vSphere 6 Hypervisor, le basculement aboutira, mais pas la restauration automatique. Vous devrez effectuer une mise à niveau vers une licence d’évaluation d’un des programmes pour activer la restauration automatique.

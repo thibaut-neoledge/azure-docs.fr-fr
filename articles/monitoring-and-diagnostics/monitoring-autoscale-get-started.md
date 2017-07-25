@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: rajram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a0a420adc57a0bcbb3779183324ab7bfafcb5bf1
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 4faccae708b5407d1eb64e746824a23688bc5834
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -69,7 +69,7 @@ En plus de toujours mettre à l’échelle en fonction du processeur, vous pouve
 - Cliquez sur « Ajouter une condition de mise à l’échelle »
 - La définition du mode de mise à l’échelle et des règles est identique à la condition par défaut
 - Sélectionnez « Répéter à des jours spécifiques » pour la planification
-- Sélectionnez les jours, puis les heures de début/fin auxquelles la condition de mise à l’échelle doit être appliquée pour les jours sélectionnés.
+- Sélectionnez les jours, puis les heures de début/fin auxquelles la condition de mise à l’échelle doit être appliquée pour les jours sélectionnés
 
 ![Condition de mise à l’échelle basée sur une planification][9]
 ## <a name="scale-differently-on-specific-dates"></a>Mettre à l’échelle différemment à des dates spécifiques
@@ -78,7 +78,7 @@ En plus de toujours mettre à l’échelle en fonction du processeur, vous pouve
 - Cliquez sur « Ajouter une condition de mise à l’échelle »
 - La définition du mode de mise à l’échelle et des règles est identique à la condition par défaut
 - Sélectionnez « Spécifier les dates de début et de fin » pour la planification
-- Sélectionnez les dates de début/fin, ainsi que les heures de début/fin auxquelles la condition de mise à l’échelle doit être appliquée pour les dates sélectionnées.
+- Sélectionnez les dates de début/fin, ainsi que les heures de début/fin auxquelles la condition de mise à l’échelle doit être appliquée pour les dates sélectionnées
 
 ![Condition de mise à l’échelle en fonction des dates][10]
 
@@ -99,7 +99,7 @@ Vous pouvez apporter des modifications dans le JSON directement, si nécessaire.
 ## <a name="disable-autoscale-and-manually-scale-your-instances"></a>Désactiver la mise à l’échelle automatique et mettre à l’échelle manuellement vos instances
 Il peut arriver que vous souhaitiez désactiver vos paramètres actuels de mise à l’échelle et configurer manuellement votre ressource.
 
-Cliquez sur le bouton « Désactiver la mise à l’échelle automatique » en haut.
+Cliquez sur le bouton « Désactiver la mise à l’échelle automatique » en haut.
 ![Désactiver la mise à l’échelle automatique][13]
 
 Notez que cette option désactive votre configuration, et que vous pouvez toujours y revenir une fois que vous activez à nouveau à la mise à l’échelle automatique. Vous pouvez maintenant définir le nombre d’instances à mettre à l’échelle manuellement.
@@ -123,3 +123,4 @@ Vous pouvez toujours revenir à la mise à l’échelle automatique en cliquant 
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
+

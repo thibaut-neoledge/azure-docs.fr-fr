@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f4bf4138ce3a9a2495a0a0fd46e149f6ac96d82d
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 49091d4a85bed23927850f9c0bbc5ea8b6e8c9e1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -47,7 +47,7 @@ Une fois que vous avez créé l’application, vous pouvez modifier la pile d’
 ![Paramètres de l’application][3]
 
 ## <a name="deploy-your-web-app"></a>Déployez votre application web
-Les **options de déploiement** disponibles dans le portail de gestion vous donnent la possibilité d’utiliser un Git local ou un référentiel GitHub pour déployer votre application. Les autres instructions sont similaires à celles d’une application non-Linux. Vous pouvez suivre les instructions de [déploiement Git local](app-service-deploy-local-git.md) ou [déploiement continu](app-service-continuous-deployment.md) pour déployer votre application.
+Les **options de déploiement** disponibles dans le portail de gestion vous permettent d’utiliser un référentiel Git local ou GitHub pour déployer votre application. Les autres instructions sont similaires à celles d’une application non-Linux. Vous pouvez suivre les instructions de [déploiement Git local](app-service-deploy-local-git.md) ou [déploiement continu](app-service-continuous-deployment.md) pour déployer votre application.
 
 Vous pouvez également utiliser FTP pour télécharger votre application sur votre site. Vous pouvez obtenir le point de terminaison FTP de votre application web à partir de la section des journaux de diagnostics, comme illustré dans l’image suivante :
 

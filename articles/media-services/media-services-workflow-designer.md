@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 07/19/2017
 ms.author: juliako;johndeu;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 74916c9da0c1d71395a087a729513110b663738b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Créer des flux de travail d’encodage avancé avec le Concepteur de flux de travail
@@ -41,7 +42,7 @@ Cet outil permet aussi de modifier nos [flux de travail publiés](media-services
 
 Une fois créé, un fichier de flux de travail peut être téléchargé comme ressource et être utilisé pour l'encodage de fichiers multimédias. Pour plus d'informations sur l'encodage avec **Media Encoder Premium Workflow** en utilisant **.NET**, consultez la page [Encodage avancé avec Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 
-## <a name="a-idexistingworkflowsamodify-existing-workflows"></a><a id="existing_workflows"></a>Modifier des flux de travail existants
+## <a id="existing_workflows"></a>Modifier des flux de travail existants
 Les [flux de travail publiés](media-services-workflow-designer.md#existing_workflows) par défaut peuvent être modifiés à l'aide de l'outil Concepteur. Vous pouvez vous procurer les fichiers de flux de travail par défaut [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Le dossier contient aussi la description de ces fichiers.
 
 Les vidéos suivantes vous indiquent comment utiliser le concepteur.
@@ -51,7 +52,7 @@ La vidéo du jour 1 présente :
 
 * Vue d'ensemble du concepteur
 * Flux de travail de base : « Hello World »
-* Création de plusieurs fichiers de sortie MP4 à utiliser avec le streaming Azure Media Services
+* Création de plusieurs fichiers de sortie MP4 à utiliser avec la diffusion en continu d’Azure Media Services
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
@@ -91,10 +92,5 @@ Si vous avez besoin d'aide ou si vous avez des questions à propos de la créati
 
 ## <a name="see-also"></a>Voir aussi
 [Vidéos de formation pour le Concepteur de flux de travail Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

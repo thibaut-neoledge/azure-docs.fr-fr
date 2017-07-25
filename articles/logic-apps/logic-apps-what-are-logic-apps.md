@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-translationtype: Human Translation
-ms.sourcegitcommit: 11aa3f74d112244cd96278c2b2e3d701e031aee8
-ms.openlocfilehash: 6415b0e1c7feb744c6c13a0ae19ed434b6e9befc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="what-are-logic-apps"></a>Qu'est-ce qu'une application logique ?
-Logic Apps offre un moyen de simplifier et d’implémenter des intégrations et des workflows évolutifs dans le cloud. Son concepteur visuel modélise et automatise votre processus sous la forme d’une série d’étapes appelée workflow.  De [nombreux connecteurs](../connectors/apis-list.md) sont disponibles dans le cloud et sur site pour accélérer l’intégration dans différents services et protocoles.  Une application logique commence par un déclencheur (tel que « Lorsqu’un compte est ajouté à Dynamics CRM »), et après le déclenchement, peut initialiser de nombreuses actions de combinaison, des conversions et une logique de condition.
+<a id="what-are-logic-apps" class="xliff"></a>
+
+# Qu'est-ce qu'une application logique ?
+Logic Apps offre un moyen de simplifier et d’implémenter des intégrations et des workflows évolutifs dans le cloud. Son concepteur visuel modélise et automatise votre processus sous la forme d’une série d’étapes appelée workflow.  De [nombreux connecteurs](../connectors/apis-list.md) sont disponibles dans le cloud et sur site pour accélérer l’intégration dans différents services et protocoles.  Une application logique commence par un déclencheur (tel que « Lorsqu’un compte est ajouté à Dynamics CRM »). Après le déclenchement, cette application peut initialiser de nombreuses combinaisons d’actions, de conversions et de conditions logiques.
 
 Les avantages de Logic Apps sont les suivants :  
 
@@ -44,7 +48,9 @@ Comme indiqué, Logic Apps vous permet d’automatiser vos processus métier. Vo
 
 Ces types de scénarios peuvent être configurés à partir du concepteur visuel, sans la moindre ligne de code. Commencez dès maintenant à [générer votre application logique][create].  Une fois écrite, une application logique peut être [rapidement déployée et reconfigurée](../logic-apps/logic-apps-create-deploy-template.md) dans plusieurs environnements et régions.
 
-## <a name="why-logic-apps"></a>Pourquoi des applications logiques ?
+<a id="why-logic-apps" class="xliff"></a>
+
+## Pourquoi des applications logiques ?
 Logic Apps confère rapidité et évolutivité à l’espace d’intégration d’entreprise.  Grâce à la facilité d’utilisation du concepteur, à la diversité des déclencheurs et des actions disponibles, ainsi qu’à la puissance des outils de gestion, la centralisation de vos API constitue désormais un jeu d’enfant.  À mesure que les entreprises évoluent vers la numérisation, Logic Apps vous permet de connecter des systèmes hérités à des systèmes à la pointe de la technologie.
 
 En outre, avec notre [compte d’intégration d’entreprise][biztalk], vous pouvez évoluer vers des scénarios d’intégration matures grâce à la puissance d’une [messagerie XML][xml], la [gestion des partenaires commerciaux][tpm], etc.
@@ -55,7 +61,9 @@ En outre, avec notre [compte d’intégration d’entreprise][biztalk], vous pou
 * **Extensibilité intégrée** : vous ne trouvez pas le connecteur dont vous avez besoin ? Logic Apps est conçu pour fonctionner avec vos propres API et chaînes de code ; vous pouvez facilement créer votre propre application API à utiliser en tant que connecteur personnalisé, ou appeler une [fonction Azure](https://functions.azure.com) pour exécuter des extraits de code à la demande. 
 * **Une réelle puissance d’intégration** : commencez en douceur et évoluez selon vos besoins. Les applications logiques peuvent facilement exploiter toute la puissance de BizTalk, solution d'intégration Microsoft bien connue, pour permettre aux professionnels de l'intégration de créer les solutions dont ils ont besoin. Apprenez-en davantage sur [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
 
-## <a name="logic-app-concepts"></a>Concepts d'application logique
+<a id="logic-app-concepts" class="xliff"></a>
+
+## Concepts d'application logique
 Voici quelques-uns des éléments clés qui composent l'expérience d'application logique. 
 
 * **Flux de travail** : les applications logiques offrent un moyen graphique de modéliser vos processus d’entreprise sous la forme d’une série d’étapes ou d’un flux de travail.
@@ -64,7 +72,9 @@ Voici quelques-uns des éléments clés qui composent l'expérience d'applicatio
 * **Actions** : chaque étape après le déclencheur dans un flux de travail est appelée une action. Chaque action correspond généralement à une opération sur votre connecteur géré ou vos applications API personnalisées.
 * **Enterprise Integration Pack** : pour les scénarios d’intégration plus élaborés, Logic Apps intègre des fonctionnalités de BizTalk. BizTalk est la plateforme d’intégration de Microsoft, leader sur le marché. Les connecteurs Enterprise Integration Pack vous permettent d’inclure facilement la validation, la transformation et bien plus encore dans vos flux de travail d’application logique.
 
-## <a name="getting-started"></a>Prise en main
+<a id="getting-started" class="xliff"></a>
+
+## Prise en main
 * Pour vous familiariser avec les applications logiques, effectuez le didacticiel [Créer une application logique][create].  
 * [Afficher des exemples et des scénarios courants](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Logic Apps vous permet d’automatiser vos processus métiers](http://channel9.msdn.com/Events/Build/2016/T694) 
@@ -77,9 +87,4 @@ Voici quelques-uns des éléments clés qui composent l'expérience d'applicatio
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 3c04cee00b7dc7c8833daf21cdbca11a065e9dae
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 182a637ab98955129d269e2afc3ba581aa1a7c03
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/14/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -36,6 +36,9 @@ ms.lasthandoff: 03/14/2017
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
 
 L’activité Pig de HDInsight d’un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des requêtes Pig sur [votre propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster ou le cluster [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
+
+> [!NOTE] 
+> Si vous découvrez Azure Data Factory, lisez la [Présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le didacticiel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -113,12 +116,12 @@ PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampl
 Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/sampleoutpig/' USING PigStorage (',');
 ```
 
-Pour exécuter ce script pig dans un pipeline Data Factory, effectuez les opérations suivantes :
+Pour exécuter ce script pig dans un pipeline Data Factory, appliquez les étapes suivantes :
 
 1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié **HDInsightLinkedService**.
 2. Créez un [service lié](data-factory-azure-blob-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié **StorageLinkedService**.
 3. Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d’entrée **PigSampleIn** et le jeu de données de sortie **PigSampleOut**.
-4. Copiez la requête Pig dans le fichier configuré par le stockage d’objets Blob Azure à l’étape #2. Si le stockage Azure qui héberge les données est différent de celui qui héberge le fichier de requête, créez un service de stockage Azure lié distinct. Consultez le service lié dans la configuration de l’activité. Utilisez **scriptPath** pour spécifier le chemin d’accès au fichier de script pig et **scriptLinkedService**. 
+4. Copiez la requête Pig dans le fichier configuré par le stockage d’objets Blob Azure à l’étape #2. Si le stockage Azure qui héberge les données est différent de celui qui héberge le fichier de requête, créez un service de stockage Azure lié distinct. Consultez le service lié dans la configuration de l’activité. Utilisez **scriptPath ** pour spécifier le chemin d’accès au fichier de script pig et **scriptLinkedService**. 
    
    > [!NOTE]
    > Vous pouvez également fournir le script en ligne pig dans la définition d’activité à l’aide de la propriété **script** . Cependant, cela n’est pas recommandé car tous les caractères spéciaux du script au sein du document JSON doivent être placés dans une séquence d’échappement, ce qui risque d’entraîner des problèmes de débogage. La meilleure pratique consiste à suivre l’étape 4.

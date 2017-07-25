@@ -1,5 +1,5 @@
 ---
-title: "Intégration du SDK Android d&quot;Azure Mobile Engagement"
+title: "Intégration du SDK Android d'Azure Mobile Engagement"
 description: "Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -12,12 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 06/27/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd8ba95ee1fb2703926fb35cdb49e6a503637a7d
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -28,11 +29,6 @@ ms.lasthandoff: 11/17/2016
 > 
 
 ## <a name="standard-integration"></a>Intégration standard
-Le SDK du module de couverture nécessite la **bibliothèque de prise en charge Android (v4)**.
-
-Le moyen le plus rapide d’ajouter la bibliothèque à votre projet dans **Eclipse** est le suivant : `Right click on your project -> Android Tools -> Add Support Library...`.
-
-Si vous n'utilisez pas Eclipse, vous pouvez lire les instructions disponibles [ici].
 
 Copiez les fichiers de ressources du module de couverture du SDK dans votre projet :
 
@@ -107,10 +103,6 @@ Modifiez le fichier `AndroidManifest.xml` :
           <uses-permission android:name="android.permission.VIBRATE" />
   
   Sans cette autorisation, Android empêche les notifications système de s'afficher si vous avez activé l'option Sonner ou Vibrer dans le gestionnaire de couverture campagne.
-* Si vous avez créé votre application à l’aide de **ProGuard** et que vous obtenez des erreurs liées à la bibliothèque de support Android ou au fichier .jar d’Engagement, ajoutez les lignes suivantes à votre fichier `proguard.cfg` :
-  
-          -dontwarn android.**
-          -keep class android.support.v4.** { *; }
 
 ## <a name="native-push"></a>Native Push
 Maintenant que vous avez configuré le module Reach, vous devez configurer Native Push pour être en mesure de recevoir les campagnes sur l’appareil.
@@ -243,7 +235,7 @@ Si vous ne voulez pas que la superposition soit ajoutée à votre activité, et 
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="a-namecategoriesa-categories"></a><a name="categories"></a> Catégories
+#### <a name="categories"></a> Catégories
 Quand vous modifiez les dispositions fournies, vous modifiez l'apparence de toutes vos notifications. Les catégories permettent de définir diverses recherches ciblées (et éventuellement des comportements) pour les notifications. Une catégorie peut être spécifiée lorsque vous créez une campagne Reach. N'oubliez pas que les catégories vous permettent également de personnaliser les annonces et les sondages, décrits plus avant dans ce document.
 
 Pour inscrire un gestionnaire de catégories pour vos notifications, vous devez ajouter un appel quand l'application est initialisée.
@@ -636,7 +628,7 @@ Voici la partie la plus intéressante de l'implémentation :
 
 Comme vous pouvez le voir, si vous avez appelé `actionContent(this)` puis terminé l'activité, `exitContent(this)` peut être appelé sans que cela n'ait d'impact.
 
-[ici]:http://developer.android.com/tools/extras/support-library.html#Downloading
+[here]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
 

@@ -2,7 +2,7 @@
 title: "Créer une copie d’un disque géré Azure pour la sauvegarde | Microsoft Docs"
 description: "Découvrez comment créer une copie de disque géré Azure à utiliser pour la sauvegarde ou la résolution des problèmes de disque."
 documentationcenter: 
-author: cwatsonMSFT
+author: cwatson-cat
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,19 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/9/2017
 ms.author: cwatson
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: bb913050fd3388d4632e6f75b36415006f370cbd
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
-
 ---
-# <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Créer une copie d’un disque dur virtuel stocké en tant que disque Azure géré à l’aide de captures instantanées gérées
+<a id="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots" class="xliff"></a>
+
+# Créer une copie d’un disque dur virtuel stocké en tant que disque Azure géré à l’aide de captures instantanées gérées
 Prenez une capture instantanée d’un disque géré pour la sauvegarde ou créez un disque géré à partir de la capture instantanée et attachez-le à une machine virtuelle de test pour résoudre les problèmes. Une capture instantanée gérée est une copie complète d’un disque géré de machine virtuelle à un moment donné. Elle crée une copie en lecture seule de votre disque dur virtuel et, par défaut, le stocke sous la forme d’un disque géré Standard. Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble d’Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-## <a name="before-you-begin"></a>Avant de commencer
+<a id="before-you-begin" class="xliff"></a>
+
+## Avant de commencer
 Si vous utilisez PowerShell, assurez-vous que vous disposez de la dernière version du module PowerShell AzureRM.Compute. Exécutez la commande suivante pour l’installer.
 
 ```
@@ -34,10 +38,14 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 Pour plus d’informations, consultez la page relative au [contrôle de version d’Azure PowerShell](/powershell/azure/overview).
 
-## <a name="copy-the-vhd-with-a-snapshot"></a>Copier le disque dur virtuel avec une capture instantanée
+<a id="copy-the-vhd-with-a-snapshot" class="xliff"></a>
+
+## Copier le disque dur virtuel avec une capture instantanée
 Utilisez le portail Azure ou PowerShell pour prendre une capture instantanée du disque géré.
 
-### <a name="use-azure-portal-to-take-a-snapshot"></a>Utiliser le portail Azure pour prendre une capture instantanée 
+<a id="use-azure-portal-to-take-a-snapshot" class="xliff"></a>
+
+### Utiliser le portail Azure pour prendre une capture instantanée 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans l’angle supérieur gauche, cliquez sur **Nouveau** et recherchez **Capture instantanée**.
@@ -49,7 +57,9 @@ Utilisez le portail Azure ou PowerShell pour prendre une capture instantanée du
 8. Sélectionnez le **type de compte** à utiliser pour stocker la capture instantanée. Nous vous recommandons d’utiliser le type **Standard_LRS**, sauf si vous avez besoin de la stocker sur un disque hautes performances.
 9. Cliquez sur **Create**.
 
-### <a name="use-powershell-to-take-a-snapshot"></a>Utiliser PowerShell pour prendre une capture instantanée
+<a id="use-powershell-to-take-a-snapshot" class="xliff"></a>
+
+### Utiliser PowerShell pour prendre une capture instantanée
 Les étapes suivantes vous expliquent comment obtenir une copie du disque dur virtuel, créer les configurations de capture instantanée et prendre une capture instantanée du disque à l’aide de l’applet de commande New-AzureRmSnapshot<!--Add link to cmdlet when available-->. 
 
 1. Définissez certains paramètres. 

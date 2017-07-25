@@ -11,12 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/05/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 454957b439e327b08dcd6e7f4acee37963970458
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: c8ac99f63bd6700349bb352b2c880a2ffedf7457
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -106,7 +107,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 
 ### <a name="using-ssh-public-key-authentication"></a>Utilisation de l’authentification par clé publique SSH
 
-Pour utiliser l’authentification de base, définissez `authenticationType` sur `SshPublicKey` et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur SFTP présentées dans la dernière section :
+Pour utiliser l’authentification de clé publique SSH, définissez `authenticationType` sur `SshPublicKey` et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur SFTP présentées dans la dernière section :
 
 | Propriété | Description | Requis |
 | --- | --- | --- | --- |
@@ -114,6 +115,9 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 | privateKeyPath | Spécifiez le chemin absolu au fichier de clé privée auquel la passerelle peut accéder. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. <br><br> S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
 | privateKeyContent | Une chaîne sérialisée du contenu de la clé privée. L’Assistant de copie peut lire le fichier de clé privée et extraire le contenu de clé privée automatiquement. Si vous utilisez tout autre outil/SDK, utilisez plutôt la propriété privateKeyPath. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. |
 | passPhrase | Spécifiez la phrase secrète/le mot de passe pour déchiffrer la clé privée si le fichier de clé est protégé par une phrase secrète. | Oui, si le fichier de clé privée est protégé par une phrase secrète. |
+
+> [!NOTE]
+> Le connecteur SFTP prend uniquement en charge la clé OpenSSH. Assurez-vous que votre fichier de clé a un format approprié. Vous pouvez utiliser l’outil Putty pour convertir un fichier .ppk au format OpenSSH.
 
 #### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>Exemple : authentification SshPublicKey à l’aide du chemin du fichier de clé privée
 

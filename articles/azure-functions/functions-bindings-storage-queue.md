@@ -1,9 +1,9 @@
 ---
-title: "Liaisons de file d’attente Stockage Azure Functions | Microsoft Docs"
+title: "Liaisons de stockage de file d’attente d’Azure Functions | Microsoft Docs"
 description: "Découvrez comment utiliser des déclencheurs et des liaisons Azure Storage dans Azure Functions."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: lindydonna
 manager: erikre
 editor: 
 tags: 
@@ -14,90 +14,87 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/18/2017
-ms.author: chrande, glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 770cac8809ab9f3d6261140333ec789ee1390daf
-ms.openlocfilehash: bf9bd2a1b5acdf5a4a4f862bef693f8c60c63a33
+ms.date: 05/30/2017
+ms.author: donnam, glenga
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 85a3386c8159eb1abf01ccd35c6aea04f5710d5c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="azure-functions-storage-queue-bindings"></a>Liaisons de file d’attente Stockage Azure Functions
+# <a name="azure-functions-queue-storage-bindings"></a>Liaisons de stockage de file d’attente d’Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Cet article explique comment configurer et coder des liaisons de file d’attente Stockage Azure dans Azure Functions. Azure Functions prend en charge des liaisons de déclencheur et de sortie pour les files d’attente Stockage Azure.
+Cet article explique comment configurer et coder des liaisons Stockage File d’attente Azure dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur et de sortie pour les files d’attente Azure. Pour les fonctionnalités qui sont disponibles dans toutes les liaisons, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a name="trigger"></a>
 
-## <a name="storage-queue-trigger"></a>Déclencheur de file d’attente Stockage
-Le déclencheur de file d’attente Stockage Azure vous permet de surveiller les nouveaux messages dans une file d’attente et de réagir à ces derniers. 
+## <a name="queue-storage-trigger"></a>Déclencheur de stockage de file d’attente
+Le déclencheur de Stockage File d’attente Azure vous permet de surveiller les nouveaux messages d’un stockage de file d’attente et d’agir en conséquence. 
 
-Le déclencheur de file d’attente Stockage d’une fonction utilise les objets JSON suivants dans le tableau `bindings` de function.json :
+Définissez un déclencheur de file d’attente en utilisant l’onglet **Intégrer** dans le portail Functions. Le portail crée la définition suivante dans la section **bindings** de *function.json* :
 
 ```json
 {
-    "name": "<Name of input parameter in function signature>",
-    "queueName": "<Name of queue to poll>",
-    "connection":"<Name of app setting - see below>",
     "type": "queueTrigger",
-    "direction": "in"
+    "direction": "in",
+    "name": "<The name used to identify the trigger data in your code>",
+    "queueName": "<Name of queue to poll>",
+    "connection":"<Name of app setting - see below>"
 }
 ```
 
-`connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le Portail Azure, vous pouvez configurer ce paramètre d’application sous l’onglet **Intégrer** quand vous créez un compte de stockage ou en sélectionnez un. Pour créer manuellement ce paramètre d’application, consultez [Manage App Service settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings) (Gestion des paramètres App Service).
+* La propriété `connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le portail Azure, l’éditeur standard de l’onglet **Intégrer** configure ce paramètre d’application pour vous quand vous sélectionnez un compte de stockage.
 
-Vous pouvez fournir des [paramètres supplémentaires](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) dans un fichier host.json pour affiner les déclencheurs de file d’attente de stockage.  
-
-### <a name="handling-poison-queue-messages"></a>Gestion des messages de file d’attente incohérents
-En cas d’échec d’une fonction de déclenchement de file d’attente, Azure Functions réessaie cette fonction jusqu’à cinq fois (première tentative comprise) pour un message de file d’attente donné. Si les cinq tentatives échouent, Functions ajoute un message à une file d’attente Stockage nommée *&lt;originalqueuename>-poison*. Vous pouvez écrire une fonction pour traiter les messages de la file d’attente de messages incohérents en les consignant dans un journal ou en envoyant une notification signalant qu’une attention manuelle est nécessaire. 
-
-Pour gérer les messages incohérents manuellement, vous pouvez obtenir le nombre de fois où un message a été récupéré pour traitement en consultant `dequeueCount` (voir [Métadonnées de déclencheur de file d’attente](#meta)).
+Vous pouvez fournir des paramètres supplémentaires dans un [fichier host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) pour optimiser les déclencheurs de stockage de file d’attente. Par exemple, vous pouvez changer l’intervalle d’interrogation de la file d’attente dans host.json.
 
 <a name="triggerusage"></a>
 
-## <a name="trigger-usage"></a>Utilisation du déclencheur
-Dans les fonctions C#, vous effectuez une liaison au message d’entrée à l’aide d’un paramètre nommé dans la signature de votre fonction, comme `<T> <name>`.
-Où `T` est le type de données dans lequel vous souhaitez désérialiser les données et `paramName` le nom que vous avez spécifié dans la [liaison de déclencheur](#trigger). Dans les fonctions Node.js, vous accédez aux données blob d’entrée en utilisant `context.bindings.<name>`.
+## <a name="using-a-queue-trigger"></a>Utilisation d’un déclencheur de file d’attente
+Dans les fonctions Node.js, accédez aux données de la file d’attente en utilisant `context.bindings.<name>`.
 
-Le message de file d’attente peut être désérialisé vers l’un des types suivants :
 
-* [Objet](https://msdn.microsoft.com/library/system.object.aspx) : utilisé pour les messages sérialisés en JSON. Lorsque vous déclarez un type d’entrée personnalisé, le runtime tente de désérialiser l’objet JSON. 
-* String
-* Tableau d’octets
-* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx) (C# uniquement)
+Dans les fonctions .NET, accédez à la charge utile de la file d’attente en utilisant un paramètre de méthode comme `CloudQueueMessage paramName`. Ici, `paramName` est la valeur que vous avez spécifiée dans la [configuration du déclencheur](#trigger). Le message de file d’attente peut être désérialisé vers l’un des types suivants :
+
+* Objet POCO. À utiliser si la charge utile de la file d’attente est un objet JSON. Le runtime Functions désérialise la charge utile dans l’objet POCO. 
+* `string`
+* `byte[]`
+* [`CloudQueueMessage`]
 
 <a name="meta"></a>
 
 ### <a name="queue-trigger-metadata"></a>Métadonnées de déclencheur de file d’attente
-Vous pouvez obtenir les métadonnées de file d’attente dans votre fonction en utilisant les noms de variable suivants :
+Le déclencheur de file d’attente fournit plusieurs propriétés de métadonnées. Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Les valeurs ont la même sémantique que [`CloudQueueMessage`].
 
-* expirationTime
-* insertionTime
-* nextVisibleTime
-* id
-* popReceipt
-* dequeueCount
-* queueTrigger (autre méthode pour récupérer le texte du message de file d’attente sous la forme d’une chaîne)
+* **QueueTrigger** : charge utile de la file d’attente (s’il s’agit d’une chaîne valide)
+* **DequeueCount** : type `int`. Nombre de fois que ce message a été enlevé de la file d’attente.
+* **ExpirationTime** : type `DateTimeOffset?`. Heure à laquelle le message expire.
+* **Id**:type `string`. ID de message de la file d’attente.
+* **InsertionTime** : type `DateTimeOffset?`. Heure à laquelle le message a été ajouté à la file d’attente.
+* **NextVisibleTime** : type « DateTimeOffset » Heure à laquelle le message sera de nouveau visible.
+* **PopReceipt** : type `string`. Réception pop du message.
 
-Découvrez comment utiliser les métadonnées de file d’attente avec [l’exemple de déclencheur](#triggersample).
+Découvrez comment utiliser les métadonnées de file d’attente dans [l’exemple de déclencheur](#triggersample).
 
 <a name="triggersample"></a>
 
 ## <a name="trigger-sample"></a>Exemple de déclencheur
-Supposons le code function.json suivant, qui définit un déclencheur de file d’attente Stockage :
+Supposons le function.json suivant, qui définit un déclencheur de file d’attente :
 
 ```json
 {
     "disabled": false,
     "bindings": [
         {
+            "type": "queueTrigger",
+            "direction": "in",
             "name": "myQueueItem",
             "queueName": "myqueue-items",
-            "connection":"",
-            "type": "queueTrigger",
-            "direction": "in"
+            "connection":"MyStorageConnectionString"
         }
     ]
 }
@@ -112,7 +109,12 @@ Consultez l’exemple dans le langage de votre choix pour voir comment récupér
 
 ### <a name="trigger-sample-in-c"></a>Exemple de déclencheur en C# #
 ```csharp
-public static void Run(string myQueueItem, 
+#r "Microsoft.WindowsAzure.Storage"
+
+using Microsoft.WindowsAzure.Storage.Queue;
+using System;
+
+public static void Run(CloudQueueMessage myQueueItem, 
     DateTimeOffset expirationTime, 
     DateTimeOffset insertionTime, 
     DateTimeOffset nextVisibleTime,
@@ -122,7 +124,7 @@ public static void Run(string myQueueItem,
     int dequeueCount,
     TraceWriter log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}\n" +
+    log.Info($"C# Queue trigger function processed: {myQueueItem.AsString}\n" +
         $"queueTrigger={queueTrigger}\n" +
         $"expirationTime={expirationTime}\n" +
         $"insertionTime={insertionTime}\n" +
@@ -159,113 +161,117 @@ module.exports = function (context) {
 };
 ```
 
+### <a name="handling-poison-queue-messages"></a>Gestion des messages de file d’attente incohérents
+En cas d’échec d’une fonction de déclenchement de file d’attente, Azure Functions réessaie cette fonction jusqu’à cinq fois (première tentative comprise) pour un message de file d’attente donné. Si les cinq tentatives échouent, le runtime Functions ajoute un message à une file d’attente de stockage nommée *&lt;nom_file_attente_origine>-poison*. Vous pouvez écrire une fonction pour traiter les messages de la file d’attente de messages incohérents en les consignant dans un journal ou en envoyant une notification signalant qu’une attention manuelle est nécessaire. 
+
+Pour gérer manuellement les messages incohérents, vérifiez le `dequeueCount` du message de la file d’attente (voir [Métadonnées du déclencheur de file d’attente](#meta)).
+
 <a name="output"></a>
 
-## <a name="storage-queue-output-binding"></a>Liaison de sortie de file d’attente Stockage
-La liaison de sortie de file d’attente Stockage Azure vous permet d’écrire des messages dans une file d’attente Stockage de votre fonction. 
+## <a name="queue-storage-output-binding"></a>Liaison de sortie de stockage de file d’attente
+La liaison de sortie de stockage de file d’attente vous permet d’écrire des messages dans une file d’attente. 
 
-La sortie de file d’attente Stockage pour une fonction utilise les objets JSON suivants dans le tableau `bindings` de function.json :
+Définissez une liaison de sortie de file d’attente en utilisant l’onglet **Intégrer** dans le portail Functions. Le portail crée la définition suivante dans la section **bindings** de *function.json* :
 
 ```json
 {
-  "name": "<Name of output parameter in function signature>",
-    "queueName": "<Name of queue to write to>",
-    "connection":"<Name of app setting - see below>",
-  "type": "queue",
-  "direction": "out"
+   "type": "queue",
+   "direction": "out",
+   "name": "<The name used to identify the trigger data in your code>",
+   "queueName": "<Name of queue to write to>",
+   "connection":"<Name of app setting - see below>"
 }
 ```
 
-`connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le Portail Azure, l’éditeur standard sous l’onglet **Intégrer** configure ce paramètre d’application pour vous quand vous créez un compte de stockage ou en sélectionnez un. Pour créer manuellement ce paramètre d’application, consultez [Manage App Service settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings) (Gestion des paramètres App Service).
+* La propriété `connection` doit contenir le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. Dans le portail Azure, l’éditeur standard de l’onglet **Intégrer** configure ce paramètre d’application pour vous quand vous sélectionnez un compte de stockage.
 
 <a name="outputusage"></a>
 
-## <a name="output-usage"></a>Utilisation en sortie
-Dans les fonctions C#, vous écrivez un message de file d’attente à l’aide du paramètre `out` nommé dans la signature de votre fonction, comme `out <T> <name>`. Dans ce cas, `T` est le type de données dans lequel vous souhaitez sérialiser le message et `paramName` le nom que vous avez spécifié dans la [liaison de sortie](#output). Dans les fonctions Node.js, vous accédez à la sortie en utilisant `context.bindings.<name>`.
+## <a name="using-a-queue-output-binding"></a>Utilisation d’une liaison de sortie de file d’attente
+Dans les fonctions Node.js, vous accédez à la file d’attente de sortie en utilisant `context.bindings.<name>`.
 
-Vous pouvez sortir un message de file d’attente en utilisant n’importe quel type de données dans votre code :
+Dans les fonctions .NET, vous pouvez définir une sortie vers les types suivants. Quand il existe un paramètre de type `T`, `T` doit être un des types de sortie pris en charge, comme `string` ou un objet POCO.
 
-* N’importe quel [objet](https://msdn.microsoft.com/library/system.object.aspx) :`out MyCustomType paramName`  
-Utilisé pour la sérialisation JSON.  Lorsque vous déclarez un type de sortie personnalisé, le runtime tente de sérialiser l’objet en JSON. Si le paramètre de sortie est null quand la fonction s’arrête, le runtime crée un message de file d’attente en tant qu’objet null.
-* Chaîne : `out string paramName`  
-Utilisé pour les messages de test. Le runtime crée un message uniquement si le paramètre de chaîne n’est pas null quand la fonction s’arrête.
-* Tableau d’octets : `out byte[]` 
+* `out T` (sérialisé au format JSON)
+* `out string`
+* `out byte[]`
+* `out` [`CloudQueueMessage`] 
+* `ICollector<T>`
+* `IAsyncCollector<T>`
+* [`CloudQueue`](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
 
-Ces types de sortie supplémentaires sont pris en charge par une fonction C# :
-
-* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx) : `out CloudQueueMessage` 
-* `ICollector<T>` ou `IAsyncCollector<T>` où `T` est l’un des types pris en charge.
+Vous pouvez également utiliser le type de retour de la méthode comme liaison de sortie.
 
 <a name="outputsample"></a>
 
-## <a name="output-sample"></a>Exemple de sortie
-Supposons le code function.json suivant, qui définit un [déclencheur de file d’attente Stockage](functions-bindings-storage-queue.md), une entrée d’objet blob Stockage et une sortie d’objet blob Stockage :
-
-Exemple *function.json* pour une liaison de sortie de file d’attente de stockage qui utilise un déclencheur manuel et écrit l’entrée dans un message de file d’attente :
+## <a name="queue-output-sample"></a>Exemple de sortie de file d’attente
+Le *function.json* suivant définit un déclencheur HTTP avec une liaison de sortie de file d’attente :
 
 ```json
 {
   "bindings": [
     {
-      "type": "manualTrigger",
+      "type": "httpTrigger",
       "direction": "in",
+      "authLevel": "function",
       "name": "input"
     },
     {
+      "type": "http",
+      "direction": "out",
+      "name": "return"
+    },
+    {
       "type": "queue",
-      "name": "myQueueItem",
-      "queueName": "myqueue",
-      "connection": "my_storage_connection",
-      "direction": "out"
+      "direction": "out",
+      "name": "$return",
+      "queueName": "outqueue",
+      "connection": "MyStorageConnectionString",
     }
-  ],
-  "disabled": false
+  ]
 }
 ``` 
 
-Consultez l’exemple dans le langage de votre choix pour voir comment écrire un message de file d’attente de sortie pour chaque message de file d’attente d’entrée.
+Consultez l’exemple spécifique au langage qui génère un message de file d’attente avec la charge utile HTTP entrante.
 
 * [C#](#outcsharp)
 * [Node.JS](#outnodejs)
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>Exemple de sortie en C# #
+### <a name="queue-output-sample-in-c"></a>Exemple de sortie de file d’attente en C# #
 
 ```cs
-public static void Run(string input, out string myQueueItem, TraceWriter log)
+// C# example of HTTP trigger binding to a custom POCO, with a queue output binding
+public class CustomQueueMessage
 {
-    myQueueItem = "New message: " + input;
+    public string PersonName { get; set; }
+    public string Title { get; set; }
+}
+
+public static CustomQueueMessage Run(CustomQueueMessage input, TraceWriter log)
+{
+    return input;
 }
 ```
 
-Ou, pour envoyer plusieurs messages,
+Pour envoyer plusieurs messages, utilisez un `ICollector` :
 
 ```cs
-public static void Run(string input, ICollector<string> myQueueItem, TraceWriter log)
+public static void Run(CustomQueueMessage input, ICollector<CustomQueueMessage> myQueueItem, TraceWriter log)
 {
-    myQueueItem.Add("Message 1: " + input);
-    myQueueItem.Add("Message 2: " + "Some other message.");
+    myQueueItem.Add(input);
+    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
-
-<!--
-<a name="outfsharp"></a>
-### Output sample in F# ## 
-```fsharp
-
-```
--->
 
 <a name="outnodejs"></a>
 
-### <a name="output-sample-in-nodejs"></a>Exemple de sortie en Node.js
+### <a name="queue-output-sample-in-nodejs"></a>Exemple de sortie de file d’attente en Node.js
 
 ```javascript
-module.exports = function(context) {
-    // Define a new message for the myQueueItem output binding.
-    context.bindings.myQueueItem = "new message";
-    context.done();
+module.exports = function (context, input) {
+    context.done(null, input.body);
 };
 ```
 
@@ -281,13 +287,10 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir un exemple de fonction utilisant des liaisons et des déclencheurs de file d’attente Stockage, consultez [Créer une fonction Azure connectée à un service Azure](functions-create-an-azure-connected-function.md).
+Pour obtenir un exemple de fonction utilisant des déclencheurs et de liaisons de file d’attente de stockage, consultez [Créer une fonction Azure connectée à un service Azure](functions-create-an-azure-connected-function.md).
 
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+<!-- LINKS -->
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+[« CloudQueueMessage »]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage

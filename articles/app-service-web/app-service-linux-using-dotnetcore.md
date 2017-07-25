@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: aelnably;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3608ddf86c3d8010b577e6f745dcd5cef016acd9
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 2d979b954912b8f344aa681980514821058ce5da
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -38,7 +38,7 @@ Lors de la dernière mise à jour de notre serveur principal, nous avons introdu
 
         azure webapp config set --name ContosoAppServicePlan --resource-group ContosoLinuxAzureResourceGroup --netframeworkversion v1.0 --appcommandline aspnetcore.dll
 
-Le fichier **aspnetcore.dll** correspond au dll de votre application. Vous pouvez utiliser le nom de votre choix dans votre application.
+Le fichier **aspnetcore.dll** est la DLL de votre application. Vous pouvez utiliser le nom de votre choix dans votre application.
 
 Cette opération charge de l’image .Net Core et démarre votre application web. Vous pouvez vérifier que les paramètres ont été correctement définis à l’aide de la commande **azure webapp config show**. Voici un exemple :
 

@@ -12,17 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 88628fb2c07ad72c646f7e3ed076e7a4b1519200
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformer des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
+<a id="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics" class="xliff"></a>
+# Transformer des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Activité Hive](data-factory-hive-activity.md) 
 > * [Activité pig](data-factory-pig-activity.md)
@@ -43,7 +44,8 @@ Un pipeline dans une fabrique de données Azure traite les données dans les ser
 > Consultez le [didacticiel Concevez votre premier pipeline](data-factory-build-your-first-pipeline.md) pour connaître les étapes détaillées de création d'une fabrique de données, de services liés, de jeux de données et d'un pipeline. Utilisez les extraits de code JSON avec Data Factory Editor ou Visual Studio ou Azure PowerShell pour créer les entités Data Factory.
 
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Service lié Analytique Azure Data Lake
+<a id="azure-data-lake-analytics-linked-service" class="xliff"></a>
+## Service lié Analytique Azure Data Lake
 Vous créez un service lié **Analytique Azure Data Lake** pour lier un service de calcul Analytique Azure Data Lake Analytics à une fabrique de données Azure. L’activité U-SQL Analytique Data Lake dans le pipeline fait référence à ce service lié. 
 
 L’exemple suivant présente la définition JSON pour le service lié Analytique Azure Data Lake. 
@@ -86,7 +88,8 @@ Le code d’autorisation que vous avez généré à l’aide du bouton **Autoris
 
 Pour éviter ou résoudre cette erreur, accordez une nouvelle autorisation à l’aide du bouton **Autoriser** au moment de **l’expiration du jeton**, puis redéployer le service lié. Vous pouvez également générer des valeurs pour les propriétés **sessionId** et **authorization** à l’aide du code fourni dans la section suivante :
 
-### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Pour générer les valeurs des propriétés sessionId et authorization au moyen d’un programme
+<a id="to-programmatically-generate-sessionid-and-authorization-values" class="xliff"></a>
+### Pour générer les valeurs des propriétés sessionId et authorization au moyen d’un programme
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -115,7 +118,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 Pour plus d’informations sur les classes Data Factory utilisées dans le code, consultez les rubriques [AzureDataLakeStoreLinkedService, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) et [AuthorizationSessionGetResponse, classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Ajoutez une référence à Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll pour la classe WindowsFormsWebAuthenticationDialog. 
 
-## <a name="data-lake-analytics-u-sql-activity"></a>Activité U-SQL Data Lake Analytics
+<a id="data-lake-analytics-u-sql-activity" class="xliff"></a>
+## Activité U-SQL Data Lake Analytics
 L'extrait de code JSON suivant définit un pipeline avec une activité U-SQL Data Lake Analytics. La définition d'activité comporte une référence au service lié Azure Data Lake Analytics créé précédemment.   
 
 ```JSON
@@ -185,8 +189,10 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 
 Vous trouverez la définition du script dans la section [Définition du script SearchLogProcessing.txt](#sample-u-sql-script) . 
 
-## <a name="sample-input-and-output-datasets"></a>Exemples de jeux de données d'entrée et de sortie
-### <a name="input-dataset"></a>Jeu de données d'entrée
+<a id="sample-input-and-output-datasets" class="xliff"></a>
+## Exemples de jeux de données d'entrée et de sortie
+<a id="input-dataset" class="xliff"></a>
+### Jeu de données d'entrée
 Dans cet exemple, les données d'entrée se trouvent dans un magasin Azure Data Lake (fichier SearchLog.tsv dans le dossier datalake/input). 
 
 ```JSON
@@ -212,7 +218,8 @@ Dans cet exemple, les données d'entrée se trouvent dans un magasin Azure Data 
 }    
 ```
 
-### <a name="output-dataset"></a>Jeu de données de sortie
+<a id="output-dataset" class="xliff"></a>
+### Jeu de données de sortie
 Dans cet exemple, les données de sortie générées par le script U-SQL sont stockées dans un magasin Azure Data Lake (dossier datalake/output). 
 
 ```JSON
@@ -232,7 +239,8 @@ Dans cet exemple, les données de sortie générées par le script U-SQL sont st
 }
 ```
 
-### <a name="sample-data-lake-store-linked-service"></a>Exemple de service lié Data Lake Store
+<a id="sample-data-lake-store-linked-service" class="xliff"></a>
+### Exemple de service lié Data Lake Store
 Voici la définition de l’exemple de service lié Azure Data Lake Store utilisé par les jeux de données d’entrée/de sortie. 
 
 ```JSON
@@ -251,7 +259,8 @@ Voici la définition de l’exemple de service lié Azure Data Lake Store utilis
 
 Consultez l’article [Déplacer des données vers et depuis Azure Data Lake Store](data-factory-azure-datalake-connector.md) pour obtenir une description des propriétés JSON. 
 
-## <a name="sample-u-sql-script"></a>Exemple de script SQL-U
+<a id="sample-u-sql-script" class="xliff"></a>
+## Exemple de script SQL-U
 
 ```
 @searchlog =
@@ -284,7 +293,8 @@ Les valeurs des paramètres **@in** et **@out** dans le script U-SQL sont passé
 
 Vous pouvez aussi spécifier d’autres propriétés comme degreeOfParallelism et priority dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
 
-## <a name="dynamic-parameters"></a>Paramètres dynamiques
+<a id="dynamic-parameters" class="xliff"></a>
+## Paramètres dynamiques
 Dans l’exemple de définition de pipeline, des valeurs codées en dur sont affectées aux paramètres de sortie. 
 
 ```JSON

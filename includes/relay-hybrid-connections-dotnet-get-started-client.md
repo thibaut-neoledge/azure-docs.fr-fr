@@ -1,12 +1,15 @@
 ### <a name="create-a-console-application"></a>Création d’une application console
-* Ouvrez Visual Studio et créez une nouvelle application de console.
+
+Tout d’abord, ouvrez Visual Studio et créez un projet **Application console (.NET Framework)**.
 
 ### <a name="add-the-relay-nuget-package"></a>Ajout du package NuGet de relais
-1. Cliquez avec le bouton droit sur le projet créé et sélectionnez **Gérer les packages NuGet**.
+
+1. Cliquez avec le bouton droit sur le projet créé, puis sélectionnez **Gérer les packages NuGet**.
 2. Cliquez sur l’onglet **Parcourir**, puis recherchez « Microsoft.Azure.Relay » et sélectionnez l’élément **Microsoft Azure Relay**. Cliquez sur **Installer** pour terminer l’installation, puis fermez cette boîte de dialogue.
 
 ### <a name="write-some-code-to-send-messages"></a>Écriture de code pour envoyer des messages
-1. Remplacez les instructions `using` existantes au début du fichier Program.cs par les instructions suivantes :
+
+1. Remplacez les instructions `using` actuelles au début du fichier Program.cs par les instructions `using` suivantes :
    
     ```csharp
     using System;
@@ -15,7 +18,7 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Ajoutez des constantes à la classe `Program` pour les détails de la connexion hybride. Remplacez les espaces réservés entre crochets avec les valeurs appropriées obtenues lors de la création de la connexion hybride. Veillez à utiliser le nom de l’espace de noms qualifié complet :
+2. Ajoutez des constantes à la classe `Program` pour les détails de la connexion hybride. Remplacez les espaces réservés entre crochets par les valeurs obtenues lors de la création de la connexion hybride. Veillez à utiliser le nom de l’espace de noms qualifié complet :
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -23,7 +26,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Ajoutez la nouvelle méthode suivante à la classe `Program` :
+3. Ajoutez la méthode suivante à la classe `Program` :
    
     ```csharp
     private static async Task RunAsync()

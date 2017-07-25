@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec118430c6262626728c3156634361c977ccb4b
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Utilisation des règles d’alerte dans Log Analytics
 Les alertes sont créées par des règles dédiées, qui exécutent automatiquement des recherches de journaux à intervalles réguliers.  Elles créent un enregistrement d’alerte si les résultats correspondent aux critères spécifiques.  La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus de façon proactive.   
 
-Cet article décrit les processus permettant de créer et de modifier des règles d’alerte à l’aide du portail OMS.  Pour plus d’informations sur les différents paramètres et sur l’implémentation de la logique requise, consultez l’article [Understanding alerts in Log Analytics (Présentation des alertes dans Log Analytics)](log-analytics-alerts.md).
+Cet article décrit les processus permettant de créer et de modifier des règles d’alerte à l’aide du portail OMS.  Pour plus d’informations sur les différents paramètres et sur l’implémentation de la logique requise, consultez l’article [Présentation des alertes dans Log Analytics](log-analytics-alerts.md).
 
 >[!NOTE]
 > Pour le moment, vous ne pouvez pas créer ni modifier une règle d’alerte dans le portail Azure. 
@@ -32,6 +33,9 @@ Cet article décrit les processus permettant de créer et de modifier des règle
 ## <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
 
 Pour créer une règle d’alerte à l’aide du portail OMS, commencez par créer une recherche dans les journaux pour trouver les enregistrements qui doivent appeler l’alerte.  Vous pouvez ensuite utiliser le bouton **Alerte** pour créer et configurer la règle d’alerte.
+
+>[!NOTE]
+> Un maximum de 250 règles d’alerte peut être créé dans un espace de travail OMS. 
 
 1. Dans la page de présentation d’OMS, cliquez sur **Recherche de journal**.
 2. Créez une requête de recherche de journal ou sélectionnez une recherche de journal enregistrée. 
@@ -87,7 +91,7 @@ Définit la fréquence d’exécution de la requête de recherche.
 
 
 ### <a name="generate-alert-based-on"></a>Générer l’alerte selon
-Définit les critères à évaluer dans les résultats de la requête de recherche pour déterminer si une alerte doit être créée.  Ces détails sont différents selon le type de règle d’alerte que vous sélectionnez.  Vous pouvez obtenir des détails correspondant aux différents types de règle d’alerte dans [Vue d’ensemble des alertes dans Log Analytics](log-analytics-alerts.md).
+Définit les critères à évaluer dans les résultats de la requête de recherche pour déterminer si une alerte doit être créée.  Ces détails sont différents selon le type de règle d’alerte que vous sélectionnez.  Vous pouvez obtenir des détails correspondant aux différents types de règle d’alerte dans [Présentation des alertes dans Log Analytics](log-analytics-alerts.md).
 
 | Propriété | Description |
 |:--- |:---|

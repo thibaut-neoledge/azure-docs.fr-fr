@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 098904d8b5262d8a19d1c10003e0bcaa668ef2dc
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 24ee84bdd1c795d6354bb5cb8fe397b078e7c51f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -30,8 +30,8 @@ ms.lasthandoff: 05/26/2017
 Vous pouvez charger des fichiers VHD sur Azure à partir d’AWS ou de solutions de virtualisation locales afin de créer des machines virtuelles qui tirent parti de Managed Disks. Avec Azure Managed Disks, il n’est plus nécessaire de gérer des comptes de stockage pour les machines virtuelles IaaS Azure. Vous spécifiez simplement le type (Premium ou Standard) et la taille de disque dont vous avez besoin, et Azure crée et gère le disque pour vous. 
 
 Vous pouvez charger des disques durs virtuels généralisés et spécialisés. 
-**Disque dur virtuel généralisé** : toutes les informations de votre compte personnel de ce type de disque ont été supprimées avec Sysprep. 
-**Disque dur virtuel spécialisé** : ce type de disque gère les comptes d’utilisateurs, les applications et les autres données d’état à partir de votre machine virtuelle d’origine. 
+- **Disque dur virtuel généralisé** : supprime toutes les informations de votre compte personnel avec Sysprep. 
+- **Disque dur virtuel spécialisé** : gère les comptes d’utilisateurs, les applications et les autres données d’état à partir de votre machine virtuelle d’origine. 
 
 > [!IMPORTANT]
 > Avant de charger un disque dur virtuel dans Azure, vous devez apprendre à [préparer un disque dur virtuel Windows ou un disque VHDX à charger sur Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -41,9 +41,9 @@ Vous pouvez charger des disques durs virtuels généralisés et spécialisés.
 
 | Scénario                                                                                                                         | Documentation                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Vous avez une instance AWS EC2 existante que vous voulez migrer vers Azure Managed Disks                                     | [Migrer d’Amazon Web Services (AWS) vers Azure Managed Disks](aws-to-azure.md)                           |
-| Vous avez une machine virtuelle sur une autre plateforme de virtualisation que vous aimeriez utiliser en tant qu’image pour créer plusieurs machines virtuelles Azure. | [Charger un disque dur virtuel généralisé dans Azure et créer une machine virtuelle à l’aide de Managed Disks](upload-generalized-managed.md) |
-| Vous avez une machine virtuelle unique personnalisée que vous souhaitez recréer dans Azure.                                                      | [Charger un disque dur virtuel spécialisé dans Azure et créer une machine virtuelle à l’aide de Managed Disks](create-vm-specialized.md)         |
+| Vous avez une instance AWS EC2 existante que vous voulez migrer vers Azure Managed Disks                                     | [Migrer une machine virtuelle d’Amazon Web Services (AWS) vers Azure](aws-to-azure.md)                           |
+| Vous avez une machine virtuelle sur une autre plateforme de virtualisation que vous aimeriez utiliser en tant qu’image pour créer plusieurs machines virtuelles Azure. | [Charger un disque dur virtuel généralisé et l’utiliser pour créer une machine virtuelle dans Azure](upload-generalized-managed.md) |
+| Vous avez une machine virtuelle unique personnalisée que vous souhaitez recréer dans Azure.                                                      | [Charger un disque dur virtuel spécialisé dans Azure et créer une machine virtuelle](create-vm-specialized.md)         |
 
 
 ## <a name="overview-of-managed-disks"></a>Vue d’ensemble des disques gérés

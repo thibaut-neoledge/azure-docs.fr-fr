@@ -12,14 +12,14 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 96ed03c48c4be12638aae6ab30f3843a7e68c995
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: d69e70ae178c9ae889d44998938cb2c215ff10ba
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -68,9 +68,9 @@ Commençons par créer un compte Azure Cosmos DB. Si vous avez déjà un compte 
 ## <a id="GitClone"></a>Étape 2 : cloner le projet GitHub
 Vous pouvez commencer par cloner le référentiel GitHub pour une bonne [prise en main d’Azure Cosmos DB et de Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Par exemple, à partir d’un répertoire local, exécutez la commande suivante pour récupérer l’exemple de projet localement.
 
-    git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
+    git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
 
-    cd documentdb-java-getting-started
+    cd azure-cosmos-db-documentdb-java-getting-started
 
 Le répertoire contient un fichier `pom.xml` pour le projet et un dossier `src` contenant le code source Java `Program.java` qui montre comment effectuer des opérations simples avec Azure DocumentDB, comme créer des documents et interroger des données dans une collection. Le fichier `pom.xml` inclut une dépendance au [Kit de développement logiciel (SDK) Java de DocumentDB sur Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
@@ -94,7 +94,7 @@ Dans le portail Azure, accédez à votre compte Azure Cosmos DB, puis cliquez su
 ![Capture d’écran du portail Azure utilisé par le didacticiel NoSQL pour créer une application console Java. Présente un compte Azure Cosmos DB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte Azure Cosmos DB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
 
 ## <a name="step-4-create-a-database"></a>Étape 4 : créer une base de données
-Pour créer votre [base de données](documentdb-resources.md#databases) Azure Cosmos DB, utilisez la méthode [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) de la classe **DocumentClient**. Une base de données est le conteneur logique de stockage de documents JSON partitionné entre les collections.
+Pour créer votre [base de données](documentdb-resources.md#databases) Azure Cosmos DB, utilisez la méthode [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) de la classe **DocumentClient**. Une base de données est le conteneur logique de stockage de documents JSON partitionné entre les collections.
 
     Database database = new Database();
     database.setId("familydb");
@@ -102,11 +102,11 @@ Pour créer votre [base de données](documentdb-resources.md#databases) Azure Co
 
 ## <a id="CreateColl"></a>Étape 5 : créer une collection
 > [!WARNING]
-> **createCollection** crée une collection avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d’informations, consultez notre [page de tarification](https://azure.microsoft.com/pricing/details/documentdb/).
+> **createCollection** crée une collection avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d’informations, consultez notre [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
-Pour créer une [collection](documentdb-resources.md#collections), utilisez la méthode [createCollection](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createCollection-java.lang.String-com.microsoft.azure.documentdb.DocumentCollection-com.microsoft.azure.documentdb.RequestOptions-) de la classe **DocumentClient**. Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript.
+Pour créer une [collection](documentdb-resources.md#collections), utilisez la méthode [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) de la classe **DocumentClient**. Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -120,7 +120,7 @@ Pour créer une [collection](documentdb-resources.md#collections), utilisez la m
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Étape 6 : Création de documents JSON
-Pour créer un [document](documentdb-resources.md#documents), utilisez la méthode [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) de la classe **DocumentClient**. Les documents sont du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser [l’outil de migration de données](import-data.md) de DocumentDB pour importer les données dans une base de données.
+Pour créer un [document](documentdb-resources.md#documents), utilisez la méthode [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) de la classe **DocumentClient**. Les documents sont du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser [l’outil de migration de données](import-data.md) de DocumentDB pour importer les données dans une base de données.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -143,7 +143,7 @@ Pour créer un [document](documentdb-resources.md#documents), utilisez la métho
 ![Diagramme illustrant la relation hiérarchique existant entre le compte, la base de données en ligne, la collection et les documents utilisés par le didacticiel NoSQL pour créer une application console C#](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Étape 7 : interroger les ressources Azure Cosmos DB
-Azure Cosmos DB prend en charge les [requêtes](documentdb-sql-query.md) enrichies sur les documents JSON stockés dans chaque collection.  L’exemple de code suivant montre comment interroger des documents dans Azure Cosmos DB à l’aide de la syntaxe SQL avec la méthode [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-).
+Azure Cosmos DB prend en charge les [requêtes](documentdb-sql-query.md) enrichies sur les documents JSON stockés dans chaque collection.  L’exemple de code suivant montre comment interroger des documents dans Azure Cosmos DB à l’aide de la syntaxe SQL avec la méthode [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -156,7 +156,7 @@ Azure Cosmos DB prend en charge les [requêtes](documentdb-sql-query.md) enrichi
     }
 
 ## <a id="ReplaceDocument"></a>Étape 8 : remplacer le document JSON
-Azure Cosmos DB prend en charge la mise à jour des documents JSON à l’aide de la méthode [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-).
+Azure Cosmos DB prend en charge la mise à jour des documents JSON à l’aide de la méthode [replaceDocument](/java/api/com.microsoft.azure.documentdb._document_client.replacedocument).
 
     // Update a property
     andersenFamily.Children[0].Grade = 6;
@@ -167,7 +167,7 @@ Azure Cosmos DB prend en charge la mise à jour des documents JSON à l’aide d
         null);
 
 ## <a id="DeleteDocument"></a>Étape 9 : supprimer le document JSON
-De la même manière, Azure Cosmos DB prend en charge la suppression des documents JSON à l’aide de la méthode [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-).  
+De la même manière, Azure Cosmos DB prend en charge la suppression des documents JSON à l’aide de la méthode [deleteDocument](/java/api/com.microsoft.azure.documentdb._document_client.deletedocument).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
@@ -177,7 +177,7 @@ Supprimer la base de données créée revient à supprimer la base de données e
     this.client.deleteDatabase("/dbs/familydb", null);
 
 ## <a id="Run"></a>Étape 11 : exécuter votre application console C#
-Pour exécuter l’application à partir de la console, vous devez d’abord la compiler à l’aide de Maven :
+Pour exécuter l’application à partir de la console, accédez au dossier du projet et compilez à l’aide de Maven :
     
     mvn package
 

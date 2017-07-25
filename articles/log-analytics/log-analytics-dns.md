@@ -12,18 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: e15ac73051297665a2880a7818273e304d539624
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 1b2f9c3fc59a83b384a63db00d2d039cab8679e8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Rassembler des informations sur votre infrastructure DNS avec la solution DNS Analytics (préversion)
+
+![Symbole DNS Analytics](./media/log-analytics-dns/dns-analytics-symbol.png)
 
 Cet article explique comment configurer et utiliser la solution Azure DNS Analytics dans Azure Log Analytics pour rassembler des informations sur une infrastructure DNS concernant la sécurité, les performances et les opérations.
 
@@ -155,7 +157,7 @@ Vous pouvez utiliser ces requêtes comme point de départ pour créer vos propre
 - **Enregistrements de ressources non utilisés**. Affiche une liste de tous les enregistrements de ressources inutilisés/périmés. Cette liste contient le nom et le type d’enregistrement de ressource, le serveur DNS associé, l’heure de génération d’enregistrement et le nom de la zone. Cette liste permet d’identifier les enregistrements de ressources DNS qui ne sont plus utilisés. En fonction de ces informations, vous pouvez ensuite supprimer ces entrées des serveurs DNS.
 - **Charge de requête des serveurs DNS**. Affiche des informations afin que vous puissiez obtenir une idée de la charge DNS sur vos serveurs DNS. Ces informations peuvent vous aider à planifier la capacité des serveurs. Vous pouvez accéder à l’onglet **Mesures** pour modifier l’affichage et le remplacer par une visualisation graphique. Cet affichage vous permet de comprendre de quelle façon la charge DNS est répartie entre vos serveurs DNS. Il indique les tendances des taux de requête DNS pour chaque serveur.
 
-    ![Résultats de recherche dans les journaux des requêtes des serveurs DNS](./media/log-analytics-dns/dns-servers-query-load.png) 
+    ![Résultats de recherche dans les journaux des requêtes des serveurs DNS](./media/log-analytics-dns/dns-servers-query-load.png)
 
 - **Charge de requête des zones DNS**. Affiche les statistiques (nombre de requêtes de zone DNS par seconde) de toutes les zones sur les serveurs DNS gérés par la solution. Cliquez sur l’onglet **Mesures** pour modifier l’affichage et passer des enregistrements détaillés à une visualisation graphique des résultats.
 - **Événements de configuration**. Affiche tous les événements de changement de configuration DNS et les messages associés. Vous pouvez ensuite filtrer ces événements en fonction de l’heure de l’événement, de l’ID d’événement, du serveur DNS ou de la catégorie de la tâche. Les données peuvent vous aider à analyser les modifications apportées à des serveurs DNS spécifiques à des moments donnés.

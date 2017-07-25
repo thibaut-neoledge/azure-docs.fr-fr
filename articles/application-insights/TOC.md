@@ -1,6 +1,6 @@
 # Vue d'ensemble
 ## [Présentation d’Application Insights](app-insights-overview.md)
-## [Analyse des performances dans un cycle DevOps](app-insights-detect-triage-diagnose.md)
+## [Vue d’ensemble de la surveillance des performances pour DevOps](app-insights-detect-triage-diagnose.md)
 
 # Prise en main
 ## Analyse Azure
@@ -43,6 +43,7 @@
 ### Microsoft Azure
 #### [Profileur](app-insights-profiler.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
+#### [Versions préliminaires](app-insights-previews.md)
 
 ### ASP.NET
 #### [Obtenir une télémétrie supplémentaire](app-insights-asp-net-more.md)
@@ -79,7 +80,6 @@
 #### [action](app-insights-diagnostic-search.md)
 #### [Métriques](app-insights-metrics-explorer.md)
 #### [Flux live](app-insights-live-stream.md)
-
 #### [Plan de l’application](app-insights-app-map.md)
 #### [Données HockeyApp](app-insights-hockeyapp-bridge-app.md)
 
@@ -91,8 +91,10 @@
 
 ### Usage
 #### [Vue d'ensemble](app-insights-usage-overview.md)
-#### [Rétention](app-insights-usage-retention.md)
 #### [Utilisateurs, sessions, événements](app-insights-usage-segmentation.md)
+#### [Entonnoirs](usage-funnels.md)
+#### [Rétention](app-insights-usage-retention.md)
+#### [Classeurs](app-insights-usage-workbooks.md)
 
 ### Analyse
 
@@ -108,10 +110,13 @@
 ### [Créer des ressources](app-insights-powershell-script-create-resource.md)
 ### [Définir des alertes](app-insights-powershell-alerts.md)
 ### [Azure Diagnostics](app-insights-powershell-azure-diagnostics.md)
+### [Automatiser avec Microsoft Flow](app-insights-automate-with-flow.md)
+### [Automatiser avec une application logique Azure](automate-with-logic-apps.md)
 
 ## Développement
 
-### [API pour les événements personnalisés et les mesures](app-insights-api-custom-events-metrics.md)
+### [API pour les mesures et les événements personnalisés](app-insights-api-custom-events-metrics.md)
+### [Suivre les opérations personnalisées dans le SDK .NET](application-insights-custom-operations-tracking.md)
 ### [Filtrage et prétraitement de la télémétrie](app-insights-api-filtering-sampling.md)
 ### [Échantillonnage](app-insights-sampling.md)
 
@@ -150,7 +155,8 @@
 ### [Contexte](application-insights-data-model-context.md)
 ## [Corrélation des données de télémétrie](application-insights-correlation.md)
 
-# les ressources
+# Ressources
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 
 ## [Langues et plateformes](app-insights-platforms.md)
 

@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: eac5027f39d15e355d1c9f60a31ded567272d5fa
-ms.openlocfilehash: b94ceac2298509817020b32b65125c5f767d8089
-ms.lasthandoff: 12/16/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: abb7f80662650efa8f158f32125ebc5350cb4f62
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Planifier des travaux sur plusieurs appareils
 ## <a name="overview"></a>Vue d'ensemble
-Comme décrit dans les articles précédents, Azure IoT Hub active un certain nombre de blocs de construction ([balises et propriétés de représentation d’appareil][lnk-twin-devguide], et [méthodes directes][lnk-dev-methods]).  Généralement, les applications principales permettent aux administrateurs et opérateurs d’appareil de mettre à jour et d’interagir avec les appareils IoT par lots et à une heure planifiée.  Les travaux englobent l’exécution des mises à jour des représentations d’appareils et des méthodes directes sur un ensemble d’appareils à une heure planifiée.  Par exemple, un opérateur peut utiliser une application principale qui lance et suit un travail pour le redémarrage d’un ensemble d’appareils dans le bâtiment 43 à l’étage 3 à une heure qui ne perturbera pas les opérations du bâtiment.
+Comme décrit dans les articles précédents, Azure IoT Hub utilise un certain nombre de composantes ([balises et propriétés de jumeau d’appareil][lnk-twin-devguide], et [méthodes directes][lnk-dev-methods]).  Généralement, les applications principales permettent aux administrateurs et opérateurs d’appareil de mettre à jour et d’interagir avec les appareils IoT par lots et à une heure planifiée.  Les travaux englobent l’exécution des mises à jour des jumeaux d’appareil et des méthodes directes sur un ensemble d’appareils à une heure planifiée.  Par exemple, un opérateur peut utiliser une application principale qui lance et suit un travail pour le redémarrage d’un ensemble d’appareils dans le bâtiment 43 à l’étage 3 à une heure qui ne perturbera pas les opérations du bâtiment.
 
 ### <a name="when-to-use"></a>Quand utiliser
 Pensez utiliser les travaux dans ce cas : une solution principale doit planifier et suivre la progression des activités suivantes sur un ensemble d’appareils :
@@ -77,8 +78,8 @@ queryCondition = "deviceId IN ['MyDevice1']
 ```
 Le [langage de requête IoT Hub][lnk-query] couvre le langage de requête IoT Hub plus en détail.
 
-## <a name="jobs-to-update-device-twin-properties"></a>Travaux de mise à jour les propriétés d’une représentation d’appareil
-Voici les détails de la requête HTTP 1.1 pour mettre à jour les propriétés d’une représentation d’appareil à l’aide d’un travail :
+## <a name="jobs-to-update-device-twin-properties"></a>Travaux pour mettre à jour les propriétés d’un jumeau d’appareil
+Voici les détails de la requête HTTP 1.1 pour mettre à jour les propriétés d’un jumeau d’appareil à l’aide d’un travail :
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -121,7 +122,7 @@ Voici une liste de propriétés et de descriptions correspondantes qui peuvent �
 | **endTime** |IoT Hub a fourni la date (ISO-8601) de fin du travail. Valide uniquement lorsque la tâche atteint l’état « terminé ». |
 | **type** |Types de tâches : |
 | **scheduledUpdateTwin** : travail permettant de mettre à jour un ensemble de propriétés souhaitées ou de balises. | |
-| **scheduledDeviceMethod** : travail permettant d’appeler une méthode d’appareil sur un ensemble de représentations d’appareil. | |
+| **scheduledDeviceMethod** : travail permettant d’appeler une méthode d’appareil sur un ensemble de jumeaux d’appareil. | |
 | **statut** |État actuel du travail. Valeurs possibles pour l'état : |
 | **pending** : planifié et en attente de récupération par le service du travail. | |
 | **scheduled** : planifié pour une date ultérieure. | |
@@ -148,7 +149,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * La rubrique [Points de terminaison IoT Hub][lnk-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion.
 * La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas appliqués au service IoT Hub, et le comportement de limitation auquel s’attendre en cas d’utilisation du service.
 * La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser lors du développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
-* La rubrique [Langage de requête d’IoT Hub pour les représentations d’appareil et les travaux][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer à partir d’IoT Hub des informations sur des représentations d’appareil et des travaux.
+* L’article [Langage de requête d’IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer, à partir d’IoT Hub, des informations relatives à vos jumeaux d’appareil et à vos travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes

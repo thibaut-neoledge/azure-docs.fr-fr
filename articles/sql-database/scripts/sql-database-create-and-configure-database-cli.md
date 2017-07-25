@@ -1,6 +1,6 @@
 ---
-title: "Script Azure CLI - Créer une instance SQL Database | Microsoft Docs"
-description: "Exemple de script Azure CLI - Créer une base de données SQL avec l’interface CLI Azure"
+title: "Exemple CLI-créer une base de données Azure SQL | Microsoft Docs"
+description: "Exemple de script Azure CLI pour créer une base de données SQL"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,25 +14,25 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: ee66147cc3be917543c9abbf205005fc788cf378
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 908898ca691d2b53b9f54afa60c41e091163bd50
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="create-a-single-sql-database-and-configure-a-firewall-rule-using-the-azure-cli"></a>Créer une instance SQL Database unique et configurer une règle de pare-feu à l’aide de l’interface de ligne de commande Azure
+# <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Utiliser CLI pour créer une seule base de données Azure SQL et configurer une règle de pare-feu
 
 Cet exemple de script CLI crée une base de données SQL Azure et configure une règle de pare-feu au niveau du serveur. Une fois que le script a été exécuté avec succès, l’instance SQL Database est accessible à partir de tous les services Azure et l’adresse IP configurée. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exemple de script
 

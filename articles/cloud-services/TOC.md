@@ -21,8 +21,6 @@
 #### [Stockage File d’attente et services connectés](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Stockage Table et services connectés](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Configurer des packages pour une création et un déploiement continu
-#### [Visual Studio Team Services et Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS et Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurer les règles de trafic pour un rôle](cloud-services-enable-communication-role-instances.md)
 ### [Gérer les événements de cycle de vie du service cloud](cloud-services-role-lifecycle-dotnet.md)
@@ -102,16 +100,21 @@
 ### [Problèmes de déploiement courants](cloud-services-troubleshoot-deployment-problems.md)
 ### [Problèmes de démarrage des rôles](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Conseils sur la récupération d’urgence](cloud-services-disaster-recovery-guidance.md)
-### [Forum aux questions sur Services Cloud](cloud-services-faq.md)
+### Forum aux questions sur les services cloud
+#### [FAQ sur la disponibilité de l’application et du service](cloud-services-application-and-service-availability-faq.md)
+#### [FAQ sur la configuration et la gestion](cloud-services-configuration-and-management-faq.md)
+#### [FAQ sur la connectivité et la mise en réseau](cloud-services-connectivity-and-networking-faq.md)
+#### [FAQ sur le déploiement](cloud-services-deployment-faq.md)
 
 # Référence
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
-# les ressources
-## [Tarification](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [Mises à jour de service](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+# Ressources
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
+## [Tarification](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

@@ -1,7 +1,7 @@
 ---
-title: "Prise en main d’Apache Storm sur Azure HDInsight | Microsoft Docs"
-description: "Prise en main de l’analyse Big Data avec Apache Storm et des exemples Starter Storm sur HDInsight basé sur HDInsight. Découvrez comment utiliser Storm pour traiter les données en temps réel."
-keywords: apache storm,didacticiel apache storm,analyses big data,prise en main storm
+title: Exemples storm-starter sur Apache Storm sur HDInsight - Azure | Microsoft Docs
+description: "Découvrez comment procéder à des analyses de Big Data et traiter les données en temps réel à l’aide d’Apache Storm et des exemples storm-starter sur HDInsight."
+keywords: storm-starter, exemple apache storm
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,20 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 5976051ea06896e4158071cb6839ba415b4622d2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5121861dc9fa11bbde32c12f3987bb60f2dda057
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 ---
-#<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Bien démarrer avec des exemples Storm Starter pour l’analyse de données volumineuses (« Big Data ») sur HDInsight basé sur Linux
+#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Prise en main d’Apache Storm sur HDInsight à l’aide des exemples storm-starter
+
+Découvrez comment utiliser Apache Storm dans HDInsight à l’aide des exemples storm-starter.
 
 Apache Storm est un système de calcul en temps réel, évolutif, distribué, à tolérance de panne, qui permet de traiter des flux de données. Avec Storm sur Azure HDInsight, vous pouvez créer un cluster Storm basé sur le cloud qui effectue l’analyse de données volumineuses en temps réel.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -84,7 +86,7 @@ Utilisez les étapes suivantes pour créer un Storm sur un cluster HDInsight :
     > [!NOTE]
     > La création du cluster peut prendre jusqu’à 20 minutes.
 
-## <a name="run-a-storm-starter-sample-on-hdinsight"></a>Exécution d’un exemple Starter Storm sur HDInsight
+## <a name="run-a-storm-starter-sample-on-hdinsight"></a>Exécuter un exemple storm-starter sur HDInsight
 
 1. Connectez-vous au cluster HDInsight à l’aide de SSH :
 
@@ -106,9 +108,9 @@ Utilisez les étapes suivantes pour créer un Storm sur un cluster HDInsight :
     > [!NOTE]
     > Pendant l’envoi de vos propres topologies au cluster, vous devez d’abord copier le fichier jar contenant le cluster avant d’utiliser la commande `storm`. Utilisez la commande `scp` pour copier le fichier. Par exemple, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
-    > L’exemple WordCount et d’autres exemples de Storm Starter sont déjà inclus dans votre cluster sous `/usr/hdp/current/storm-client/contrib/storm-starter/`.
+    > L’exemple WordCount et d’autres exemples storm-starter sont déjà inclus dans votre cluster sous `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-Si vous êtes intéressé par la source des exemples Storm Starter, vous trouverez le code à l’adresse [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). Ce lien concerne Storm 1.0.x, qui est fourni avec HDInsight 3.5. Pour les autres versions de Storm, utilisez le bouton __Branche__ situé en haut de la page pour sélectionner une autre version de Storm.
+Si vous êtes intéressé par la source des exemples storm-starter, vous trouverez le code à l’adresse [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). Ce lien concerne Storm 1.0.x, qui est fourni avec HDInsight 3.5. Pour les autres versions de Storm, utilisez le bouton __Branche__ situé en haut de la page pour sélectionner une autre version de Storm.
 
 ## <a name="monitor-the-topology"></a>Analyse de la topologie
 
@@ -123,7 +125,7 @@ Suivez la procédure ci-après pour surveiller la topologie à l’aide de l’i
 
 2. Sous **Résumé de la topologie**, sélectionnez l’entrée **Statistiques** située dans la colonne **Nom**. Vous obtenez plus d’informations sur la topologie.
 
-    ![Tableau de bord Storm avec les informations sur la topologie Statistiques Storm Starter.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
+    ![Tableau de bord Storm avec les informations sur la topologie WordCount storm-starter.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
 
     Cette page fournit les informations suivantes :
 

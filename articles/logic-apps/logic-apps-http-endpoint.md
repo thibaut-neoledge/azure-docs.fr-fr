@@ -17,10 +17,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 32a5cfdb520c745dbd0fa5c433849bd3783a364e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -32,9 +32,9 @@ Pour créer des points de terminaison HTTP, vous pouvez ajouter ces déclencheur
 
 * [Requête](../connectors/connectors-native-reqres.md)
 
-* [Déclencheur ApiConnectionWebhook](logic-apps-workflow-actions-triggers.md#api-connection)
+* [Déclencheur ApiConnectionWebhook](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
 
-* [Déclencheur HTTPWebhook](../connectors/connectors-native-http.md)
+* [Déclencheur HTTPWebhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
    > Bien que nos exemples utilisent le déclencheur de **requête**, vous pouvez utiliser l’un des déclencheurs HTTP répertoriés, et tous les principes s’appliquent de la même façon aux autres types de déclencheurs.
@@ -211,7 +211,7 @@ Une fois que vous avez créé votre point de terminaison HTTP, vous pouvez décl
 
 ## <a name="reference-content-from-an-incoming-request"></a>Référencer le contenu à partir d’une requête entrante
 
-Si le type de contenu est `application/json`, vous pouvez référencer des propriétés à partir de la requête entrante. Sinon, le contenu est traité comme une seule unité binaire que vous pouvez transmettre à d’autres API. Vous ne pouvez pas référencer ce contenu dans le workflow sans convertir ce contenu. Par exemple, si vous transmettez le contenu `application/xml`, vous pouvez utiliser `@xpath()` pour une extraction XPath, ou `@json()` pour effectuer la conversion de XML vers JSON. Découvrez plus en détail comment [utiliser les types de contenu](../logic-apps/logic-apps-content-type.md).
+Si le type de contenu est `application/json`, vous pouvez référencer des propriétés à partir de la requête entrante. Sinon, le contenu est traité comme une seule unité binaire que vous pouvez transmettre à d’autres API. Pour référencer ce contenu dans le workflow, vous devez le convertir. Par exemple, si vous transmettez le contenu `application/xml`, vous pouvez utiliser `@xpath()` pour une extraction XPath, ou `@json()` pour effectuer la conversion de XML vers JSON. Découvrez plus en détail comment [utiliser les types de contenu](../logic-apps/logic-apps-content-type.md).
 
 Pour obtenir la sortie à partir d’une requête entrante, vous pouvez utiliser la fonction `@triggerOutputs()`. La sortie peut ressembler à cet exemple :
 
@@ -277,9 +277,11 @@ Voici à quoi ressemble désormais le schéma JSON pour l’action **Response**�
 
 R : Les URL de rappel de l’application logique sont générées de façon sécurisée par Azure via une signature d’accès partagé (SAP). Cette signature est transmise directement comme paramètre de requête et doit être validée avant que votre application logique puisse être déclenchée. Azure génère cette signature via la combinaison unique d’une clé secrète par application logique, du nom du déclencheur et de l’opération qui est effectuée. Ainsi, à moins que quelqu’un ait accès à la clé secrète de l’application logique, personne ne peut générer de signature valide.
 
-   > [!NOTE]
-   > Pour les systèmes de production/sécurisés, nous recommandons vivement d’appeler votre application logique directement à partir du navigateur, car une clé d’accès partagé est incluse dans l’URL, et en raison de l’incapacité à gérer les stratégies de contenu sécurisé lorsque les domaines sont partagés entre clients de l’application logique.
-
+   > [!IMPORTANT]
+   > Pour les systèmes de production et sécurisés, nous vous déconseillons fortement d’appeler votre application logique directement à partir du navigateur, car :
+   > 
+   > * la clé d’accès partagé s’affiche dans l’URL ;
+   > * vous ne pouvez pas gérer de stratégies de contenu sécurisé en raison du partage de domaines entre les clients de l’application logique.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>Q : Puis-je configurer des points de terminaison HTTP de façon plus poussée ?
 

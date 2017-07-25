@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/05/2017
+ms.date: 06/06/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: c3af0df0f2e5a0367bef8e12edaca4937db7e39f
-ms.openlocfilehash: 50bc63845bab1322090097dd0d5736e11642a95b
-ms.lasthandoff: 01/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 9fb4d440fad8e4c5af8030c91e6871c6418ab9be
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -36,7 +37,7 @@ La configuration logicielle suivante est requise pour les clients de stockage qu
 
 | Systèmes d’exploitation pris en charge | Version requise | Conditions/remarques supplémentaires |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Les volumes iSCSI StorSimple sont pris en charge uniquement sur les types de disques Windows suivants :<ul><li>Volume simple sur disque de base</li><li>Volume simple et en miroir sur disque dynamique</li></ul>L’allocation dynamique Windows Server 2012 et 2016 les fonctionnalités ODX sont prises en charge si vous utilisez un volume iSCSI StorSimple.<br><br>StorSimple peut créer des volumes alloués dynamiquement et de façon complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués.<br><br>Le reformatage d’un volume alloué dynamiquement peut prendre beaucoup de temps. Nous vous recommandons de supprimer le volume, puis d’en créer un nouveau plutôt que de le reformater. Si vous préférez toutefois reformater un volume :<ul><li>Exécutez la commande suivante avant le reformatage pour éviter les retards de récupération d’espace : <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Une fois le formatage terminé, utilisez la commande suivante pour réactiver une récupération de l’espace :<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Appliquez le correctif Windows Server 2012, comme décrit dans l’article [KB 2878635](https://support.microsoft.com/kb/2870270) sur votre ordinateur Windows Server.</li></ul></li></ul></ul> Si vous configurez le Gestionnaire d’instantanés StorSimple ou l’adaptateur StorSimple pour SharePoint, consultez [Configuration logicielle requise pour les composants facultatifs](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Les volumes iSCSI StorSimple sont pris en charge uniquement sur les types de disques Windows suivants :<ul><li>Volume simple sur disque de base</li><li>Volume simple et en miroir sur disque dynamique</li></ul>Seuls les initiateurs logiciels iSCSI présents en mode natif dans le système d’exploitation sont pris en charge. Les initiateurs matériels iSCSI ne sont pas pris en charge.<br></br>L’allocation dynamique Windows Server 2012 et 2016 les fonctionnalités ODX sont prises en charge si vous utilisez un volume iSCSI StorSimple.<br><br>StorSimple peut créer des volumes alloués dynamiquement et de façon complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués.<br><br>Le reformatage d’un volume alloué dynamiquement peut prendre beaucoup de temps. Nous vous recommandons de supprimer le volume, puis d’en créer un nouveau plutôt que de le reformater. Si vous préférez toutefois reformater un volume :<ul><li>Exécutez la commande suivante avant le reformatage pour éviter les retards de récupération d’espace : <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Une fois le formatage terminé, utilisez la commande suivante pour réactiver une récupération de l’espace :<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Appliquez le correctif Windows Server 2012, comme décrit dans l’article [KB 2878635](https://support.microsoft.com/kb/2870270) sur votre ordinateur Windows Server.</li></ul></li></ul></ul> Si vous configurez le Gestionnaire d’instantanés StorSimple ou l’adaptateur StorSimple pour SharePoint, consultez [Configuration logicielle requise pour les composants facultatifs](#software-requirements-for-optional-components). |
 | VMWare ESX |5.5 et 6.0 |Pris en charge avec VMware vSphere en tant que client iSCSI. La fonctionnalité VAAI-block est prise en charge avec VMware vSphere sur les appareils StorSimple. |
 | Linux RHEL/CentOS |5, 6 et 7 |Prise en charge des clients Linux iSCSI avec initiateur Open-iSCSI versions 5, 6 et 7. |
 | Linux |SUSE Linux 11 | |

@@ -15,17 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: venkatja
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 92e3e64f235e165a6a1772b6e1724789f3ec3049
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 9f2d3b57a42efb7b04566278d3267b3cdbed713a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/01/2017
 
 ---
-# <a name="send-events-to-a-time-series-insights-environment-via-event-hub"></a>Envoyer des événements à un environnement Time Series Insights via un concentrateur d’événements
+<a id="send-events-to-a-time-series-insights-environment-via-event-hub" class="xliff"></a>
 
-Ce didacticiel explique comment créer et configurer le concentrateur d’événements et exécuter un exemple d’application pour envoyer des événements. Si vous disposez d’un concentrateur d’événements qui a déjà des événements au format JSON, vous pouvez ignorer ce didacticiel et afficher votre environnement dans [l’explorateur Time Series](https://insights.timeseries.azure.com).
+# Envoyer des événements à un environnement Time Series Insights via un concentrateur d’événements
 
-## <a name="configure-an-event-hub"></a>Configurer un concentrateur d’événements
+Ce didacticiel explique comment créer et configurer le concentrateur d’événements et exécuter un exemple d’application pour envoyer des événements. Si vous disposez d’un concentrateur d’événements existant qui a déjà des événements au format JSON, ignorez ce didacticiel et affichez votre environnement dans [time series insights](https://insights.timeseries.azure.com).
+
+<a id="configure-an-event-hub" class="xliff"></a>
+
+## Configurer un concentrateur d’événements
 1. Pour créer un concentrateur d’événements, suivez les instructions de la [documentation](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) relative aux concentrateurs d’événements.
 
 2. Veillez à créer un groupe de consommateurs qui sera utilisé exclusivement par votre source d’événement Time Series Insights.
@@ -35,25 +40,29 @@ Ce didacticiel explique comment créer et configurer le concentrateur d’évén
 
   ![Sélectionnez le groupe de consommateurs du concentrateur d’événements](media/send-events/consumer-group.png)
 
-3. Dans le concentrateur d’événements, créez la stratégie « MySendPolicy » qui sera utilisée pour envoyer des événements dans l’exemple ci-dessous.
+3. Dans le concentrateur d’événements, créez la stratégie « MySendPolicy » utilisée pour envoyer des événements dans l’exemple csharp.
 
   ![Sélectionnez des stratégies d’accès partagé et cliquez sur le bouton Ajouter](media/send-events/shared-access-policy.png)  
 
   ![Ajoutez une stratégie d’accès partagé](media/send-events/shared-access-policy-2.png)  
 
-## <a name="create-time-series-insights-event-source"></a>Créer la source d’événement Time Series Insights
+<a id="create-time-series-insights-event-source" class="xliff"></a>
+
+## Créer la source d’événement Time Series Insights
 1. Si vous n’avez pas créé de source d’événement, suivez les instructions spécifiées [ici](time-series-insights-add-event-source.md) pour créer une source d’événement.
 
-2. Spécifiez « deviceTimestamp » comme nom de la propriété timestamp. Cette propriété définit l’horodatage réel dans l’exemple ci-dessous. Le nom de la propriété timestamp est sensible à la casse et les valeurs doivent être au format __aaaa-MM-jjTHH:mm:ss.FFFFFFFK__ lors de l’envoi au format JSON au concentrateur d’événements. Si la propriété n’existe pas dans l’événement, le système utilise l’heure à laquelle l’événement a été placé dans la file d’attente du concentrateur d’événements.
+2. Spécifiez « deviceTimestamp » comme nom de la propriété timestamp. Cette propriété définit l’horodatage réel dans l’exemple csharp. Le nom de la propriété timestamp est sensible à la casse et les valeurs doivent être au format __aaaa-MM-jjTHH:mm:ss.FFFFFFFK__ lors de l’envoi au format JSON au concentrateur d’événements. Si la propriété n’existe pas dans l’événement, le système utilise l’heure à laquelle l’événement a été placé dans la file d’attente du concentrateur d’événements.
 
   ![Créez la source d’événement](media/send-events/event-source-1.png)
 
-## <a name="run-sample-code-to-push-events"></a>Exécuter l’exemple de code pour envoyer des événements
+<a id="sample-code-to-push-events" class="xliff"></a>
+
+## Exemple de code pour envoyer des événements
 1. Accédez à la stratégie de concentrateur d’événements « MySendPolicy » et copiez la chaîne de connexion avec la clé de stratégie.
 
   ![Copiez la chaîne de connexion MySendPolicy](media/send-events/sample-code-connection-string.png)
 
-2. Exécutez le code suivant qui enverra 600 événements pour chacun des trois périphériques. Mettez à jour `eventHubConnectionString` avec votre chaîne de connexion.
+2. Exécutez le code suivant qui envoie 600 événements pour chacun des trois appareils. Mettez à jour `eventHubConnectionString` avec votre chaîne de connexion.
 
 ```csharp
 using System;
@@ -122,51 +131,68 @@ namespace Microsoft.Rdx.DataGenerator
 }
 
 ```
-## <a name="supported-json-shapes"></a>Structures JSON prises en charge
-### <a name="sample-1"></a>Exemple 1
+<a id="supported-json-shapes" class="xliff"></a>
 
-#### <a name="input"></a>Entrée
+## Structures JSON prises en charge
+<a id="sample-1" class="xliff"></a>
+
+### Exemple 1
+
+<a id="input" class="xliff"></a>
+
+#### Entrée
 
 Un objet JSON simple.
 
 ```json
 {
-    "deviceId":"device1",
-    "deviceTimestamp":"2016-01-08T01:08:00Z"
+    "id":"device1",
+    "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### <a name="output---1-event"></a>Sortie - 1 événement
+<a id="output---1-event" class="xliff"></a>
 
-|deviceId|deviceTimestamp|
+#### Sortie - 1 événement
+
+|id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
-### <a name="sample-2"></a>Exemple 2
+<a id="sample-2" class="xliff"></a>
 
-#### <a name="input"></a>Entrée
+### Exemple 2
+
+<a id="input" class="xliff"></a>
+
+#### Entrée
 Un tableau JSON avec deux objets JSON. Chaque objet JSON sera converti en un événement.
 ```json
 [
     {
-        "deviceId":"device1",
-        "deviceTimestamp":"2016-01-08T01:08:00Z"
+        "id":"device1",
+        "timestamp":"2016-01-08T01:08:00Z"
     },
     {
-        "deviceId":"device2",
-        "deviceTimestamp":"2016-01-17T01:17:00Z"
+        "id":"device2",
+        "timestamp":"2016-01-17T01:17:00Z"
     }
 ]
 ```
-#### <a name="output---2-events"></a>Sortie - 2 événements
+<a id="output---2-events" class="xliff"></a>
 
-|deviceId|deviceTimestamp|
+#### Sortie - 2 événements
+
+|id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
+<a id="sample-3" class="xliff"></a>
 
-### <a name="sample-3"></a>Exemple 3
+### Exemple 3
 
-#### <a name="input"></a>Entrée
+<a id="input" class="xliff"></a>
+
+#### Entrée
 
 Un objet JSON avec un tableau JSON imbriqué contenant deux objets JSON.
 ```json
@@ -174,50 +200,58 @@ Un objet JSON avec un tableau JSON imbriqué contenant deux objets JSON.
     "location":"WestUs",
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z"
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z"
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z"
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z"
         }
     ]
 }
 
 ```
-#### <a name="output---2-events"></a>Sortie - 2 événements
+<a id="output---2-events" class="xliff"></a>
+
+#### Sortie - 2 événements
 Notez que la propriété « location » est copiée dans chacun des événements.
 
-|location|events.deviceId|events.deviceTimestamp|
+|location|events.id|events.timestamp|
 |--------|---------------|----------------------|
 |WestUs|device1|2016-01-08T01:08:00Z|
 |WestUs|device2|2016-01-08T01:17:00Z|
 
-### <a name="sample-4"></a>Exemple 4
+<a id="sample-4" class="xliff"></a>
 
-#### <a name="input"></a>Entrée
+### Exemple 4
+
+<a id="input" class="xliff"></a>
+
+#### Entrée
+
+Un objet JSON avec un tableau JSON imbriqué contenant deux objets JSON. Cette entrée montre que les propriétés globales peuvent être représentées par l’objet JSON complexe.
 
 ```json
 {
     "location":"WestUs",
-    "manufacturerInfo":{
+    "manufacturer":{
         "name":"manufacturer1",
         "location":"EastUs"
     },
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z",
-            "deviceData":{
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z",
+            "data":{
                 "type":"pressure",
                 "units":"psi",
                 "value":108.09
             }
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z",
-            "deviceData":{
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z",
+            "data":{
                 "type":"vibration",
                 "units":"abs G",
                 "value":217.09
@@ -226,14 +260,18 @@ Notez que la propriété « location » est copiée dans chacun des événemen
     ]
 }
 ```
-#### <a name="output---2-events"></a>Sortie - 2 événements
+<a id="output---2-events" class="xliff"></a>
 
-|location|manufacturerInfo.name|manufacturerInfo.location|events.deviceId|events.deviceTimestamp|events.deviceData.type|events.deviceData.units|events.deviceData.value|
+#### Sortie - 2 événements
+
+|location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
-|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+|WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 * Afficher votre environnement dans le [Portail Time Series Insights](https://insights.timeseries.azure.com)
 

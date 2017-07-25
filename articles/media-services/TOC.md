@@ -1,14 +1,18 @@
 # [Vue d'ensemble](media-services-overview.md)
-## [Concepts ](media-services-concepts.md)
+## [Scénarios et disponibilité](scenarios-and-availability.md)
+## [Concepts](media-services-concepts.md)
 
 # Prise en main
 ## [Créer et gérer un compte](media-services-portal-create-account.md)
 ## [Configurer votre environnement de développement](media-services-set-up-computer.md)
-###[.NET](media-services-dotnet-how-to-use.md)
-###[REST](media-services-rest-how-to-use.md)  
-## Se connecter par programme
-### [.NET](media-services-dotnet-connect-programmatically.md)
-### [REST](media-services-rest-connect-programmatically.md)
+### [.NET](media-services-dotnet-how-to-use.md)
+### [REST](media-services-rest-how-to-use.md)  
+## [Utiliser l’authentification Azure AD pour accéder aux API](media-services-use-aad-auth-to-access-ams-api.md)
+### [Utiliser le portail pour gérer l’authentification Azure AD](media-services-portal-get-started-with-aad.md)
+### [Accéder aux API avec .NET](media-services-dotnet-get-started-with-aad.md)
+### [Accéder aux API avec REST](media-services-rest-connect-with-aad.md)
+### [Utiliser l’interface de ligne de commande pour créer et configurer l’application AAD](media-services-cli-create-and-configure-aad-app.md)
+### [Utiliser PowerShell pour créer et configurer l’application AAD](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Proposer la vidéo à la demande
 ### [Portail](media-services-portal-vod-get-started.md)
@@ -127,16 +131,15 @@
 ### [Vue d’ensemble du modèle de licence Widevine](media-services-widevine-license-template-overview.md)
 ### [Remise de licence DRM](media-services-deliver-keys-and-licenses.md)
 ### [Utilisation de partenaires pour fournir des licences Widevine à Media Services](media-services-licenses-partner-integration.md)
+#### [Utilisation d’Axinom pour fournir des licences Widevine à Media Services](media-services-axinom-integration.md)
+#### [Utilisation de castLabs pour fournir des licences Widevine à Media Services](media-services-castlabs-integration.md)
 ### [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md)
 ### [Diffuser en continu votre contenu HLS protégé avec Apple FairPlay](media-services-protect-hls-with-fairplay.md)
+### [Modèle hybride de sous-système de DRM](hybrid-design-drm-sybsystem.md)
 ### [CENC avec Multi-DRM et Access Control](media-services-cenc-with-multidrm-access-control.md)
-### [Utilisation d’Axinom pour fournir des licences Widevine à Media Services](media-services-axinom-integration.md)
-### [Utilisation de castLabs pour fournir des licences Widevine à Media Services](media-services-castlabs-integration.md)
-
-### Distribution d’éléments multimédia
-#### Configurer des stratégies de distribution d’éléments multimédia
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-##### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### Configurer des stratégies de distribution d’éléments multimédia
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Créer des ContentKeys
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
@@ -149,6 +152,7 @@
 ### [Analyser les supports à l’aide du portail](media-services-portal-analyze.md)
 ### [Traiter avec Indexer 2](media-services-process-content-with-indexer2.md)
 ### [Traiter avec Indexer](media-services-index-content.md)
+#### [Présélection des tâches](indexer-task-preset.md)
 ### [Traiter avec Hyperlapse](media-services-hyperlapse-content.md)
 ### [Traiter avec Face Detector](media-services-face-and-emotion-detection.md)
 ### [Traiter avec Motion Detector](media-services-motion-detection.md)
@@ -214,10 +218,11 @@
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (gestion des services)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [REST](/rest/api/media/mediaservice)  
 
-# les ressources
-## [Notes de publication](media-services-release-notes.md)
-## [Tarification](https://azure.microsoft.com/pricing/details/media-services/)
+# Ressources
 ## [Communauté Azure Media Services](media-services-community.md)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+## [Tarification](https://azure.microsoft.com/pricing/details/media-services/)
+## [Notes de publication](media-services-release-notes.md)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=media-services)

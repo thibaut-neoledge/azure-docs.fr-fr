@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e22f76f912e568f1ef0ae636a4b5c0ef24e8854c
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: a3e9b2d0a8c851939acd228d8086ddfc9f38a4c1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/14/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -36,6 +36,9 @@ ms.lasthandoff: 03/14/2017
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
 
 L’activité Hive HDInsight d’un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des requêtes Hive sur [votre propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster ou cluster [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
+
+> [!NOTE] 
+> Si vous découvrez Azure Data Factory, lisez la [Présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le didacticiel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -126,7 +129,7 @@ Pour exécuter ce script Hive dans un pipeline Data Factory, vous devez effectue
 1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié « HDInsightLinkedService ».
 2. Créez un [service lié](data-factory-azure-blob-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié « StorageLinkedService ».
 3. Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d'entrée « HiveSampleIn » et le jeu de données de sortie « HiveSampleOut »
-4. Copiez la requête Hive en tant que fichier dans le stockage d’objets blob Azure configuré à l’étape 2 ci-dessus. Si le stockage pour l’hébergement des données est différent de celui qui héberge ce fichier de requête, créez un service lié de stockage Azure distinct et référencez-le dans l’activité. Utilisez **scriptPath** pour spécifier le chemin d’accès au fichier de requête Hive et **scriptLinkedService** pour spécifier le stockage Azure qui contient le fichier de script. 
+4. Copiez la requête Hive en tant que fichier dans le stockage d’objets blob Azure configuré à l’étape 2 ci-dessus. Si le stockage pour l’hébergement des données est différent de celui qui héberge ce fichier de requête, créez un service lié de stockage Azure distinct et référencez-le dans l’activité. Utilisez **scriptPath ** pour spécifier le chemin d’accès au fichier de requête Hive et **scriptLinkedService** pour spécifier le stockage Azure qui contient le fichier de script. 
    
    > [!NOTE]
    > Vous pouvez également fournir le script en ligne Hive dans la définition d’activité à l’aide de la propriété **script** . Nous ne le recommandons pas, car tous les caractères spéciaux du script dans le document JSON doivent être placés dans une séquence d’échappement, ce qui risque d’entraîner des problèmes de débogage. La meilleure pratique consiste à suivre l’étape 4.
@@ -135,9 +138,9 @@ Pour exécuter ce script Hive dans un pipeline Data Factory, vous devez effectue
 5. Créez un pipeline avec l’activité HDInsightHive. L’activité traite/transforme les données.
 
     ```JSON   
-    {    
+    {   
         "name": "HiveActivitySamplePipeline",
-           "properties": {
+        "properties": {
         "activities": [
             {
                 "name": "HiveActivitySample",
@@ -147,21 +150,21 @@ Pour exécuter ce script Hive dans un pipeline Data Factory, vous devez effectue
                     "name": "HiveSampleIn"
                 }
                 ],
-                 "outputs": [
-                   {
+                "outputs": [
+                {
                     "name": "HiveSampleOut"
-                   }
-                 ],
-                 "linkedServiceName": "HDInsightLinkedService",
-                 "typeproperties": {
-                       "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                       "scriptLinkedService": "StorageLinkedService"
-                 },
+                }
+                ],
+                "linkedServiceName": "HDInsightLinkedService",
+                "typeproperties": {
+                    "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                    "scriptLinkedService": "StorageLinkedService"
+                },
                 "scheduler": {
                     "frequency": "Hour",
-                       "interval": 1
-                 }
-               }
+                    "interval": 1
+                }
+            }
             ]
         }
     }

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 0ce6114073b80c1d9bb719654ab8cebc30dfefac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/19/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -55,7 +55,7 @@ Site Recovery permet de répliquer n’importe quelle application exécutée sur
 | System Center Operations Manager |O |O |O |O |
 | SharePoint |O |O |O |O |
 | SAP<br/><br/>Réplication d’un site SAP vers Microsoft Azure (aucun cluster) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |
-| Microsoft Exchange (aucun DAG) |O |Bientôt disponible |O |O |
+| Microsoft Exchange (aucun DAG) |O |O |O |O |
 | Bureau à distance/VDI |O |O |O |N/A |
 | Linux (système d’exploitation et applications) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |
 | Dynamics AX |O |O |O |O |
@@ -138,11 +138,11 @@ Utilisez Site Recovery pour protéger votre déploiement IIS comme suit :
 
 Azure Site Recovery assure la récupération d’urgence en répliquant les composants critiques de votre environnement vers un site distant à froid ou un cloud public comme Microsoft Azure. Étant donné que la machine virtuelle avec le serveur web et la base de données sont répliquées vers le site de récupération, il n’est pas obligatoire de sauvegarder séparément les fichiers de configuration ou les certificats. Les mappages et les liaisons d’application dépendant des variables d’environnement modifiées post-basculement peuvent être mis à jour via des scripts intégrés dans les plans de récupération d’urgence. Les machines virtuelles sont montées sur le site de récupération uniquement en cas de basculement. Azure Site Recovery vous aide également à orchestrer le basculement de bout en bout en mettant à disposition les fonctionnalités suivantes :
 
--    Séquencement de l’arrêt et du démarrage des machines virtuelles dans les différents niveaux.
--    Ajout de scripts pour autoriser la mise à jour des liaisons et des dépendances d’applications sur les machines virtuelles après le démarrage. Les scripts peuvent également être utilisés pour mettre à jour le serveur DNS pour pointer vers le site de récupération.
--    Allouez des adresses IP aux machines virtuelles pré-basculement en mappant les réseaux principaux et de récupération et, par conséquent, utilisez des scripts qui ne nécessitent pas de mise à jour post-basculement.
--    Possibilité de basculement en un clic pour plusieurs applications web sur les serveurs web, limitant ainsi la confusion en cas de sinistre.
--    Possibilité de tester les plans de récupération dans un environnement isolé pour les exercices de récupération d’urgence.
+-   Séquencement de l’arrêt et du démarrage des machines virtuelles dans les différents niveaux.
+-   Ajout de scripts pour autoriser la mise à jour des liaisons et des dépendances d’applications sur les machines virtuelles après le démarrage. Les scripts peuvent également être utilisés pour mettre à jour le serveur DNS pour pointer vers le site de récupération.
+-   Allouez des adresses IP aux machines virtuelles pré-basculement en mappant les réseaux principaux et de récupération et, par conséquent, utilisez des scripts qui ne nécessitent pas de mise à jour post-basculement.
+-   Possibilité de basculement en un clic pour plusieurs applications web sur les serveurs web, limitant ainsi la confusion en cas de sinistre.
+-   Possibilité de tester les plans de récupération dans un environnement isolé pour les exercices de récupération d’urgence.
 
 [En savoir plus](https://aka.ms/asr-iis) sur la protection de la batterie de serveurs web IIS.
 

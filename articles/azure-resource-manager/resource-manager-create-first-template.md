@@ -15,10 +15,10 @@ ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 80fd9d79652e4f0d9c4c524e3a762bcc3462bb53
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -74,7 +74,7 @@ Commençons par un modèle vide qui inclut uniquement les sections de base d’u
        {
          "name": "string",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-05-01",
+         "apiVersion": "2016-12-01",
          "sku": {
            "name": "string"
          },
@@ -102,6 +102,8 @@ Commençons par un modèle vide qui inclut uniquement les sections de base d’u
    }
    ```
 
+  Visual Studio Code peut indiquer que 2016-12-01 n’est pas une version valide de l’API. Si vous utilisez un numéro de version issu de la documentation de référence du modèle, vous pouvez ignorer cet avertissement. Vous voyez cet avertissement lorsque le schéma n’a pas été mis à jour avec le numéro de la version la plus récente émise par le fournisseur de ressources. 
+  
   L’exemple précédent inclut de nombreuses valeurs d’espace réservé et des propriétés dont vous n’aurez peut-être pas besoin dans votre compte de stockage.
 
 ## <a name="set-values-for-storage-account"></a>Définir des valeurs pour le compte de stockage
@@ -117,7 +119,7 @@ Commençons par un modèle vide qui inclut uniquement les sections de base d’u
      {
        "name": "string",
        "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-05-01",
+       "apiVersion": "2016-12-01",
        "sku": {
          "name": "string"
        },
@@ -156,7 +158,7 @@ Votre modèle doit maintenant ressembler à ceci :
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -199,7 +201,7 @@ Votre modèle doit maintenant ressembler à ceci :
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -328,7 +330,7 @@ Après avoir effectué les étapes de cet article, votre modèle doit maintenant
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },

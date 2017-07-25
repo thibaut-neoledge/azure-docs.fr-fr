@@ -1,6 +1,6 @@
 ---
-title: "Script Azure PowerShell - Configuration de la géoréplication d’une instance unique SQL Database | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Configurer la géoréplication active pour une base de données Azure SQL Database unique à l’aide de PowerShell"
+title: "Exemple PowerShell - géoréplication active d’une instance unique Azure SQL Database | Microsoft Docs"
+description: "Exemple de script Azure PowerShell permettant de configurer la géoréplication active pour une base de données SQL Azure unique"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: b406c288f1e3eee7e92d690915ca0bdebe6cdb3d
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 80bc573233b73882d4bce553de1a627ae76ed1b4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="configure-active-geo-replication-for-a-single-azure-sql-database-using-powershell"></a>Configurer la géoréplication active pour une base de données Azure SQL Database unique à l’aide de PowerShell
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>Utiliser PowerShell pour configurer la géoréplication active pour une base de données SQL Azure unique
 
-Cet exemple de script PowerShell configure la géoréplication active pour une base de données unique et la fait basculer vers le réplica secondaire.
+Cet exemple de script PowerShell configure la géoréplication active pour une base de données SQL Azure unique et la fait basculer vers le réplica secondaire de la base de données SQL Azure.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

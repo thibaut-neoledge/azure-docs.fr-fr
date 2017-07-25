@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d8ae05316b424af7d87c3c5ebdac575bcc04998d
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: f5c33212da13b33be60488992d93305807c98d38
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Approvisionnement d’une machine virtuelle de science des données Linux
 La machine virtuelle pour la science des données pour Linux est une machine virtuelle Azure basée sur CentOS et fournie avec un ensemble d’outils préinstallés. Ces outils sont couramment utilisés pour faire de l’analytique des données et du Machine Learning. Les principaux composants logiciels inclus sont les suivants :
 
+* Système d’exploitation : distribution Linux CentOS.
 * Microsoft R Server Developer Edition
 * Distribution Anaconda Python (versions 2.7 et 3.5), comprenant les bibliothèques courantes d’analyse des données
 * JuliaPro - une distribution organisée du langage Julia avec des bibliothèques scientifiques et d’analyse de données courantes

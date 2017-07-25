@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
+ms.author: cephalin;aelnably
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 49aa35a42e4f6dab2f8d556f7b1b10bfdef7b7db
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 61396e8a3521c25eaf49c66a4948e520377d342a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -35,26 +35,26 @@ La restauration à partir de sauvegardes est disponible pour des applications ex
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>Restauration d’une application à partir d’une sauvegarde existante
-1. Dans le panneau **Paramètres** de votre application dans le portail Azure, cliquez sur **Sauvegardes** pour afficher le panneau **Sauvegardes**. Puis cliquez sur **Restaurer maintenant** dans la barre de commandes.
+1. Dans le panneau **Paramètres** de votre application dans le portail Azure, cliquez sur **Sauvegardes** pour afficher le panneau **Sauvegardes**. Cliquez ensuite sur **Restaurer**.
    
     ![Sélectionner Restaurer maintenant][ChooseRestoreNow]
 2. Dans le panneau **Restaurer** , sélectionnez tout d'abord la source de la sauvegarde.
    
-    ![](./media/web-sites-restore/021ChooseSource.png)
+    ![](./media/web-sites-restore/021ChooseSource1.png)
    
     L’option de **sauvegarde d’une application** vous montre toutes les sauvegardes existantes de l’application actuelle, et vous pouvez facilement sélectionner une.
     L’option de **stockage** vous permet de sélectionner un fichier ZIP de sauvegarde quelconque à partir de n’importe quel compte de stockage Azure et conteneur existants dans votre abonnement.
     Si vous essayez de restaurer une sauvegarde d’une autre application, utilisez l’option **Stockage** .
 3. Ensuite, spécifiez la destination de la restauration de l'application dans **Destination de restauration**.
    
-    ![](./media/web-sites-restore/022ChooseDestination.png)
+    ![](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > Si vous choisissez **Remplacer**, toutes les données existantes dans votre application actuelle seront effacées et remplacées. Avant de cliquer sur **OK**, vérifiez que c'est bien ce que vous voulez faire.
    > 
    > 
    
-    Vous pouvez sélectionner **Application existante** pour restaurer la sauvegarde d'une application vers une autre application dans le même groupe de ressources. Avant d’utiliser cette option, vous devez avoir créé une autre application dans votre groupe de ressources avec mise en miroir de la configuration sur celle définie dans la sauvegarde de l’application.
+    Vous pouvez sélectionner **Application existante** pour restaurer la sauvegarde d'une application vers une autre application dans le même groupe de ressources. Avant d'utiliser cette option, vous devez avoir créé une autre application dans votre groupe de ressources avec mise en miroir de la configuration de la base de données sur celle définie dans la sauvegarde de l'application. Vous pouvez également créer une **nouvelle** application dans laquelle restaurer votre contenu.
 
 4. Cliquez sur **OK**.
 
@@ -86,7 +86,7 @@ Vous pouvez sauvegarder et restaurer des applications App Service à l’aide de
 
 
 <!-- IMAGES -->
-[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
+[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow1.png
 [ViewContainers]: ./media/web-sites-restore/03ViewContainers.png
 [StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
 [BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png

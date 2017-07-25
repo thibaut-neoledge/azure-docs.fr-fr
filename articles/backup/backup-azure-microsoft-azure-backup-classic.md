@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 06/14/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 2b278b5c512d3ea0ff045869487d4551118c0e5c
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 348df3f4359e572d3514e1b11ce709f946c2efea
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/14/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -59,11 +59,13 @@ Si vous envisagez de joindre le serveur de sauvegarde Azure à un domaine, il es
 ## <a name="2-backup-vault"></a>2. Archivage de sauvegarde
 ![étape 2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
-Que vous envoyiez des données de sauvegarde vers Azure ou que vous les conserviez localement, le serveur de sauvegarde Azure doit être inscrit dans un coffre.
+Que vous envoyiez des données de sauvegarde vers Azure ou que vous les conserviez localement, le serveur de sauvegarde Azure doit être inscrit dans un coffre. Si vous êtes un nouvel utilisateur de la Sauvegarde Azure et que vous souhaitez utiliser un serveur de sauvegarde Azure, consultez la version de cet article pour le Portail Azure : [Préparer la sauvegarde des charges de travail à l’aide du serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md).
 
 > [!IMPORTANT]
-> Depuis mars 2017, vous ne pouvez plus utiliser le portail Classic pour créer des coffres de sauvegarde. Les coffres de sauvegarde existants sont toujours pris en charge, et il est possible [d’utiliser Azure PowerShell pour créer des coffres de sauvegarde](./backup-client-automation-classic.md#create-a-backup-vault). Toutefois, Microsoft vous recommande de créer des coffres Recovery Services pour tous les déploiements, car les améliorations futures s’appliquent uniquement aux coffres Recovery Services.
->
+> Depuis mars 2017, vous ne pouvez plus utiliser le portail Classic pour créer des coffres de sauvegarde.
+> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> **À compter du 1er novembre 2017** :
+>- Les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
+>- Vous ne pourrez plus accéder à vos données de sauvegarde depuis le portail Classic. Au lieu de cela, vous devrez utiliser le portail Azure pour accéder à ces données au sein de coffres Recovery Services.
 >
 
 

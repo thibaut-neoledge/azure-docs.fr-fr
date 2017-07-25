@@ -15,43 +15,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 738ff9882cffc428f571ab6aea96c0927d2ce443
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: daff6ab4c0eaf17d1cb488f1c16aa111b6ed9a88
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/23/2017
 
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Déployer une machine virtuelle Azure à l’aide de C# et d’un modèle Resource Manager
+<a id="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template" class="xliff"></a>
+
+# Déployer une machine virtuelle Azure à l’aide de C# et d’un modèle Resource Manager
 Cet article explique la procédure de déploiement d’un modèle Azure Resource Manager à l’aide de C#. Le [modèle](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) déploie une machine virtuelle unique exécutant Windows Server dans un nouveau réseau virtuel avec un seul sous-réseau.
 
 Pour obtenir une description détaillée de la ressource de machine virtuelle, consultez [Virtual machines in an Azure Resource Manager template (Machines virtuelles dans un modèle Azure Resource Manager)](template-description.md). Pour plus d’informations sur toutes les ressources d’un modèle, consultez [Guide de création d’un modèle Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Ces étapes prennent environ 10 minutes.
 
-## <a name="step-1-create-a-visual-studio-project"></a>Étape 1 : création d’un projet Visual Studio
+<a id="step-1-create-a-visual-studio-project" class="xliff"></a>
+
+## Étape 1 : création d’un projet Visual Studio
 
 Lors de cette étape, assurez-vous que Visual Studio est installé et que vous créez une application console utilisée pour déployer le modèle.
 
 1. Si vous ne l’avez pas déjà fait, installez [Visual Studio](https://www.visualstudio.com/).
 2. Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
-3. Dans **Modèles** > **Visual C#**, sélectionnez **Application console**, entrez le nom et l’emplacement du projet, puis cliquez sur **OK**.
+3. Dans **Modèles** > **Visual C#**, sélectionnez **Application console (.NET Framework)**, entrez le nom et l’emplacement du projet, puis cliquez sur **OK**.
 
-## <a name="step-2-install-libraries"></a>Étape 2 : installation des bibliothèques
+<a id="step-2-install-libraries" class="xliff"></a>
+
+## Étape 2 : installation des bibliothèques
 
 Les packages NuGet sont le moyen le plus simple pour installer les bibliothèques dont vous avez besoin pour terminer ces étapes. Vous avez besoin de la bibliothèque Azure Resource Manager et de la bibliothèque d’authentification pour créer les ressources. Pour obtenir ces bibliothèques dans Visual Studio, suivez ces étapes :
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, et cliquez sur **Gérer les packages NuGet**, puis sur **Parcourir**.
-2. Entrez *Microsoft.IdentityModel.Clients.ActiveDirectory* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, et cliquez sur **Gérer les packages NuGet pour la solution...**, puis sur **Parcourir**.
+2. Entrez *Microsoft.IdentityModel.Clients.ActiveDirectory* dans la zone de recherche, sélectionnez votre projet, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
 3. En haut de la page, sélectionnez **Inclure la version préliminaire**. Tapez *Microsoft.Azure.Management.ResourceManager* dans la zone de recherche, cliquez sur **Installer**, puis suivez les instructions d’installation du package.
 
 Vous êtes maintenant prêt à utiliser les bibliothèques permettant de créer votre application.
 
-## <a name="step-3-create-credentials-used-to-authenticate-requests"></a>Étape 3 : création des informations d’identification utilisées pour authentifier les requêtes
+<a id="step-3-create-credentials-used-to-authenticate-requests" class="xliff"></a>
+
+## Étape 3 : création des informations d’identification utilisées pour authentifier les requêtes
 
 Avant de commencer cette étape, assurez-vous que vous avez accès à un [principal de service Active Directory](../../resource-group-authenticate-service-principal.md). Dans le principal de service, vous obtenez le jeton d'authentification des demandes pour Azure Resource Manager.
 
-1. Ouvrez le fichier Program.cs du projet que vous avez créé, puis ajoutez les instructions suivantes au début du fichier :
+1. Ouvrez le fichier Program.cs du projet que vous avez créé, puis ajoutez les instructions suivantes à celles qui existent au début du fichier :
 
     ```
     using Microsoft.Azure;
@@ -67,8 +75,8 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
     ```
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.microsoftonline.com/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -80,9 +88,9 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
 
     Remplacez les valeurs suivantes :
     
-    - *{client-id}* avec l'identificateur de l'application Azure Active Directory. Vous pouvez trouver cet identifiant dans le panneau Propriétés de votre application AD. Pour trouver votre application Active Directory dans le portail Azure, cliquez sur **Azure Active Directory** dans le menu de ressources, puis cliquez sur **Inscriptions d’applications**.
-    - *{client-secret}* avec la clé d’accès de l’application Active Directory. Vous pouvez trouver cet identifiant dans le panneau Propriétés de votre application AD.
-    - *{tenant-id}* avec l’identificateur de client de votre abonnement. Vous trouverez l’identificateur de client dans le panneau Propriétés d’Azure Active Directory dans le portail Azure. Il porte le nom *ID de répertoire*.
+    - *client-id* avec l’identificateur de l’application Azure Active Directory. Vous pouvez trouver cet identifiant dans le panneau Propriétés de votre application AD. Pour trouver votre application Active Directory dans le portail Azure, cliquez sur **Azure Active Directory** dans le menu de ressources, puis cliquez sur **Inscriptions d’applications**.
+    - *client-secret* avec la clé d’accès de l’application Active Directory. Vous pouvez trouver cet identifiant dans le panneau Propriétés de votre application AD.
+    - *tenant-id* avec l’identificateur de locataire de votre abonnement. Vous trouverez l’identificateur de client dans le panneau Propriétés d’Azure Active Directory dans le portail Azure. Il porte le nom *ID de répertoire*.
 
 3. Pour appeler la méthode que vous venez d’ajouter, ajoutez le code suivant à la méthode Main :
 
@@ -93,7 +101,9 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
 
 4. Enregistrez le fichier Program.cs.
 
-## <a name="step-4-create-a-resource-group"></a>Étape 4 : création d’un groupe de ressources
+<a id="step-4-create-a-resource-group" class="xliff"></a>
+
+## Étape 4 : création d’un groupe de ressources
 
 Même s’il est possible de créer un groupe de ressources à partir d’un modèle, le modèle que vous utilisez à partir de la galerie n’en crée pas. Lors de cette étape, vous ajoutez le code pour créer un groupe de ressources.
 
@@ -102,7 +112,7 @@ Même s’il est possible de créer un groupe de ressources à partir d’un mod
     ```
     var groupName = "myResourceGroup";
     var subscriptionId = "subsciptionId";
-    var deploymentName = "deploymentName;
+    var deploymentName = "deploymentName";
     var location = "location";
     ```
 
@@ -145,7 +155,9 @@ Même s’il est possible de créer un groupe de ressources à partir d’un mod
     Console.ReadLine();
     ```
 
-## <a name="step-5-create-a-parameters-file"></a>Étape 5 : création d’un fichier de paramètres
+<a id="step-5-create-a-parameters-file" class="xliff"></a>
+
+## Étape 5 : création d’un fichier de paramètres
 
 Pour spécifier des valeurs pour les paramètres de ressource qui ont été définis dans le modèle, créez un fichier de paramètres qui contient les valeurs. Le fichier de paramètres est utilisé lorsque vous déployez le modèle. Le modèle que vous utilisez dans la galerie attend des valeurs pour les paramètres *adminUserName*, *adminPassword*, et *dnsLabelPrefix*.
 
@@ -171,7 +183,9 @@ Dans Visual Studio, suivez ces étapes :
 
 4. Enregistrez le fichier Parameters.json.
 
-## <a name="step-6-deploy-a-template"></a>Étape 6 : déploiement d’un modèle
+<a id="step-6-deploy-a-template" class="xliff"></a>
+
+## Étape 6 : déploiement d’un modèle
 
 Dans cet exemple, vous déployez un modèle à partir de la galerie de modèles Azure et lui fournissez les valeurs de paramètre à partir du fichier local que vous avez créé. 
 
@@ -219,7 +233,9 @@ Dans cet exemple, vous déployez un modèle à partir de la galerie de modèles 
     Console.ReadLine();
     ```
 
-## <a name="step-7-delete-the-resources"></a>Étape 7 : suppression des ressources
+<a id="step-7-delete-the-resources" class="xliff"></a>
+
+## Étape 7 : suppression des ressources
 
 Étant donné que les ressources utilisées dans Microsoft Azure vous sont facturées, il est toujours conseillé de supprimer les ressources qui ne sont plus nécessaires. Vous n’avez pas besoin de supprimer séparément les ressources d’un groupe de ressources. Supprimez le groupe de ressources pour supprimer automatiquement toutes ses ressources.
 
@@ -248,7 +264,9 @@ Dans cet exemple, vous déployez un modèle à partir de la galerie de modèles 
    Console.ReadLine();
    ```
 
-## <a name="step-8-run-the-console-application"></a>Étape 8 : Exécuter l’application console
+<a id="step-8-run-the-console-application" class="xliff"></a>
+
+## Étape 8 : Exécuter l’application console
 
 L’exécution complète de cette application console devrait durer cinq minutes environ. 
 
@@ -260,8 +278,9 @@ L’exécution complète de cette application console devrait durer cinq minutes
 
 3. Avant d’appuyer sur **Entrée** pour démarrer la suppression des ressources, prenez quelques minutes pour vérifier que les ressources dans le portail Azure ont bien été créées. Cliquez sur l’état du déploiement pour afficher des informations sur le déploiement.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 * Si vous rencontrez des problèmes lors du déploiement, nous vous conseillons de consulter la section [Résolution des erreurs courantes dans un déploiement Azure avec Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Découvrez comment déployer une machine virtuelle et ses ressources de soutien en consultant [Déployer une machine virtuelle Azure à l’aide de C#](csharp.md).
-* Pour apprendre à gérer la machine virtuelle que vous avez créée, consultez [Gestion des machines virtuelles Azure à l’aide de modèles Azure Resource Manager et de C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

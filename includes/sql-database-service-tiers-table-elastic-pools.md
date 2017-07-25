@@ -5,7 +5,9 @@ sql-database-resource-limits.md
 sql-database-service-tiers.md  
 -->
  
-### <a name="basic-elastic-pool-limits"></a>Limites du pool élastique de base
+<a id="basic-elastic-pool-limits" class="xliff"></a>
+
+### Limites du pool élastique de base
 
 | Taille du pool (nombre d’eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | **1 200** | **1 600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
@@ -20,7 +22,9 @@ sql-database-service-tiers.md
 | Espace de stockage de données maximal par base de données | 2 Go | 2 Go | 2 Go | 2 Go | 2 Go | 2 Go | 2 Go | 2 Go | 
 ||||||||
 
-### <a name="standard-elastic-pool-limits"></a>Limites du pool élastique standard
+<a id="standard-elastic-pool-limits" class="xliff"></a>
+
+### Limites du pool élastique standard
 
 | Taille du pool (nombre d’eDTU)  | **50** | **100** | **200**** | **300**** | **400**** | **800****| 
 |:---|---:|---:|---:| ---: | ---: | ---: | 
@@ -35,7 +39,9 @@ sql-database-service-tiers.md
 | Espace de stockage de données maximal par base de données | 250 Go | 250 Go | 250 Go | 250 Go | 250 Go | 250 Go |
 ||||||||
 
-### <a name="standard-elastic-pool-limits-continued"></a>Limites du pool élastique standard (suite) 
+<a id="standard-elastic-pool-limits-continued" class="xliff"></a>
+
+### Limites du pool élastique standard (suite) 
 
 | Taille du pool (nombre d’eDTU)  |  **1200**** | **1600**** | **2000**** | **2500**** | **3000**** |
 |:---|---:|---:|---:| ---: | ---: |
@@ -50,22 +56,26 @@ sql-database-service-tiers.md
 | Espace de stockage de données maximal par base de données | 250 Go | 250 Go | 250 Go | 250 Go | 250 Go | 
 ||||||||
 
-### <a name="premium-elastic-pool-limits"></a>Limites du pool élastique Premium
+<a id="premium-elastic-pool-limits" class="xliff"></a>
+
+### Limites du pool élastique Premium
 
 | Taille du pool (nombre d’eDTU)  | **125** | **250** | **500** | **1 000** | **1500*****| 
 |:---|---:|---:|---:| ---: | ---: | 
-| Espace de stockage de données maximal par pool* | 250 Go | 500 Go | 750 Go | 750 Go | 1,5 To | 
+| Espace de stockage de données maximal par pool* | 250 Go | 500 Go | 750 Go | 1 To | 1,5 To | 
 | Stockage OLTP en mémoire maximal par pool | 1 Go| 2 Go| 4 Go| 10 Go| 12 Go| 
 | Nombre maximal de bases de données par pool | 50 | 100 | 100 | 100 | 100 |  
 | Nombre maximal d’ouvriers simultanés par pool (demandes) | 200 | 400 | 800 | 1 600 |  2 400 | 
 | Nombre maximal de connexions simultanées par pool | 200 | 400 | 800 | 1 600 |  2 400 |
 | Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Nombre minimal d’eDTU par base de données | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
-| Nombre maximal d’eDTU par base de données | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
+| Nombre minimal d’eDTU par base de données | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000 | 
+| Nombre maximal d’eDTU par base de données | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000 |
 | Espace de stockage de données maximal par base de données | 500 Go | 500 Go | 500 Go | 500 Go | 500 Go | 
 ||||||||
 
-### <a name="premium-elastic-pool-limits-continued"></a>Limites du pool élastique Premium (suite) 
+<a id="premium-elastic-pool-limits-continued" class="xliff"></a>
+
+### Limites du pool élastique Premium (suite) 
 
 | Taille du pool (nombre d’eDTU) | **2000***** | **2500***** | **3000***** | **3500***** | **4000*****|
 |:---|---:|---:|---:| ---: | ---: | 
@@ -80,7 +90,9 @@ sql-database-service-tiers.md
 | Espace de stockage de données maximal par base de données | 500 Go | 500 Go | 500 Go | 500 Go | 500 Go | 
 ||||||||
 
-### <a name="premium-rs-elastic-pool-limits"></a>Limites du pool élastique Premium RS
+<a id="premium-rs-elastic-pool-limits" class="xliff"></a>
+
+### Limites du pool élastique Premium RS
 
 | Taille du pool (nombre d’eDTU)  | **125** | **250** | **500** | **1 000** |
 |:---|---:|---:|---:| ---: | ---: | 
@@ -101,5 +113,5 @@ sql-database-service-tiers.md
 >
 >\*\* Le nombre minimal/maximal d’eDTU par base de données commençant à 200 eDTU et plus est en préversion publique.
 >
->\*\*\* Le stockage de données max. par défaut par pool pour les pools Premium avec 1 500 eDTU ou plus est de 750 Go. Pour obtenir la taille maximale de stockage de données par pool, vous devez explicitement la sélectionner à l’aide du portail Azure ou [PowerShell](../articles/sql-database/sql-database-elastic-pool-manage-powershell.md#change-the-storage-limit-for-an-elastic-pool). Les pools Premium avec plus de 750 To de stockage sont actuellement en version préliminaire publique dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Canada Centre et Canada Est. Le stockage maximal par pool pour toutes les autres régions est actuellement limité à 750 Go.
+>\*\*\* Le stockage de données max. par défaut par pool pour les pools Premium avec 500 eDTU ou plus est de 750 Go. Pour obtenir la taille maximale de stockage de données par pool Premium pour 1 000 eDTU ou plus, vous devez explicitement la sélectionner à l’aide du portail Azure ou [PowerShell](../articles/sql-database/sql-database-elastic-pool-manage-powershell.md#change-the-storage-limit-for-an-elastic-pool). Les pools Premium avec plus de 1000 To de stockage sont actuellement en version préliminaire publique dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie, Canada Centre et Canada Est. Le stockage maximal par pool pour toutes les autres régions est actuellement limité à 750 Go.
 >

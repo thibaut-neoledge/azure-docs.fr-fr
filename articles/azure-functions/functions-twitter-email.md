@@ -1,6 +1,6 @@
 ---
 title: "Créer une fonction qui s’intègre avec Azure Logic Apps | Documents Microsoft"
-description: "Créer une fonction qui classe le sentiment des tweets à l’aide des services Azure."
+description: "Créez une fonction qui s’intègre à Azure Logic Apps et à Azure Cognitive Services pour catégoriser les sentiments de tweets et envoyer des notifications quand le sentiment est peu favorable."
 services: functions, logic-apps, cognitive-services
 keywords: "flux de travail, applications cloud, services cloud, processus d’entreprise, intégration de systèmes, intégration d’applications d’entreprise, IAE"
 documentationcenter: 
@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 05/15/2017
 ms.author: glenga, riande
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: b8bf047be9796935ce815f4d803e229c7208ade5
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c1c7e291e30cc519f089dec259fdf8c5a75d2677
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -65,7 +66,7 @@ Un compte Cognitive Services est requis pour détecter les sentiments des tweets
     | **Nom** | MyCognitiveServicesAccnt | Choisissez un nom de compte unique. |
     | **Type d’API** | API Analyse de texte | API utilisée pour analyser le texte.  |
     | **Emplacement** | Ouest des États-Unis | Actuellement, seule la région **États-Unis de l’Ouest** est disponible pour l’analyse de texte. |
-    | **Niveau de tarification** | F0 | Démarrez avec le niveau le plus bas. Si vous manquez d’appels, choisissez un niveau plus élevé.|
+    | **Niveau tarifaire** | F0 | Démarrez avec le niveau le plus bas. Si vous manquez d’appels, choisissez un niveau plus élevé.|
     | **Groupe de ressources** | myResourceGroup | Utilisez le même groupe de ressources pour tous les services de ce didacticiel.|
 
 4. Cliquez sur **Créer** pour créer votre compte. Une fois le compte créé, cliquez sur votre nouveau compte Cognitive Services épinglé au tableau de bord. 

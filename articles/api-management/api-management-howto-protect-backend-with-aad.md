@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 690f820b3beb6b7d5d68732b94470602a92e9268
-ms.openlocfilehash: bf0d72f97a32771f86bdff62029fb43e279b6842
-ms.lasthandoff: 02/23/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 0dfb4102904c2e972e6617fd3851fb1c50147357
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API
@@ -388,7 +389,7 @@ Choisissez **Application web et/ou API web**, saisissez un nom, puis cliquez sur
 
 ![Nouvelle application][api-management-aad-new-application-devportal-1]
 
-Pour **URL d’authentification **, saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise `https://contoso5.portal.azure-api.net/signin` .
+Pour **URL d’authentification** , saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise `https://contoso5.portal.azure-api.net/signin` .
 
 Pour **URL d’ID d’application**, saisissez l’URL de votre service Gestion des API et ajoutez quelques caractères uniques. Il peut s’agir des caractères de votre choix. Dans cet exemple, on utilise `https://contoso5.portal.azure-api.net/dp`. Lorsque les **Propriétés de l’application** sont configurées, cliquez sur la coche pour créer l’application.
 
@@ -500,7 +501,7 @@ La procédure finale de la vidéo commence à 20’48’’ et vous montre comme
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
+    <openid-config url="https://login.microsoftonline.com/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
             <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>

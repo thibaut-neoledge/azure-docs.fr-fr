@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 7599ea9fef4b2e8368ffdc18f357fe8938cc024f
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 0899a8f3c87b6b25e52313ff271364f862d0a893
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
-
 # <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>Guide pratique pour surveiller une machine virtuelle Linux dans Azure
 
 Pour vérifier que vos machines virtuelles dans Azure fonctionnent correctement, vous pouvez consulter les diagnostics de démarrage et les métriques de performances. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -36,19 +36,22 @@ Pour vérifier que vos machines virtuelles dans Azure fonctionnent correctement,
 > * Créer des alertes en fonction des métriques des diagnostics
 > * Configurer la surveillance avancée
 
-Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). Vous pouvez également utiliser [Cloud Shell](/azure/cloud-shell/quickstart) à partir de votre navigateur.
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-vm"></a>Créer une machine virtuelle
+
 Pour voir les diagnostics et les métriques en action, vous avez besoin d’une machine virtuelle. Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/gropu#create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupMonitor* à l’emplacement *eastus*.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
 Créez maintenant une machine virtuelle avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm#create). L’exemple suivant crée une machine virtuelle nommée *myVM* :
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myResourceGroupMonitor \
   --name myVM \
@@ -57,14 +60,13 @@ az vm create \
   --generate-ssh-keys
 ```
 
-
 ## <a name="enable-boot-diagnostics"></a>Activer les diagnostics de démarrage
 
 Au démarrage des machines virtuelles Linux, l’extension Diagnostics de démarrage capture la sortie du démarrage et la stocke dans le stockage Azure. Ces données peuvent être utilisées pour résoudre les problèmes de démarrage des machines virtuelles. Les diagnostics de démarrage ne sont pas activés automatiquement quand vous créez une machine virtuelle Linux à l’aide d’Azure CLI.
 
 Avant d’activer les diagnostics de démarrage, vous devez créer un compte de stockage pour stocker les journaux de démarrage. Les comptes de stockage doivent avoir un nom global unique, comprenant entre 3 et 24 caractères, et contenant seulement des chiffres et des lettres minuscules. Créez un compte de stockage avec la commande [az storage account create](/cli/azure/storage/account#create). Dans cet exemple, une chaîne aléatoire est utilisée pour créer un nom de compte de stockage unique. 
 
-```azurecli
+```azurecli-interactive 
 storageacct=mydiagdata$RANDOM
 
 az storage account create \
@@ -76,13 +78,13 @@ az storage account create \
 
 Lors de l’activation des diagnostics de démarrage, l’URI vers le conteneur de stockage d’objets blob est nécessaire. La commande suivante interroge le compte de stockage et retourne cet URI. La valeur de l’URI est stockée dans une variable nommée *bloburi*, qui est utilisé à l’étape suivante.
 
-```azurecli
+```azurecli-interactive 
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
 Activez maintenant les diagnostics de démarrage avec la commande [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable). La valeur de `--storage` est l’URI de l’objet blob collecté à l’étape précédente.
 
-```azurecli
+```azurecli-interactive 
 az vm boot-diagnostics enable \
   --resource-group myResourceGroupMonitor \
   --name myVM \
@@ -94,19 +96,19 @@ az vm boot-diagnostics enable \
 
 Quand les diagnostics de démarrage sont activés, chaque fois que vous arrêtez et que vous démarrez la machine virtuelle, des informations sur le processus de démarrage sont écrites dans un fichier journal. Pour cet exemple, désallouez d’abord la machine virtuelle avec la commande [az vm deallocate](/cli/azure/vm#deallocate) comme suit :
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
 Démarrez maintenant la machine virtuelle avec la commande [az vm start]( /cli/azure/vm#stop) comme suit :
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
 Vous pouvez obtenir les données des diagnostics de démarrage pour *myVM* avec la commande [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) comme suit :
 
-```azurecli
+```azurecli-interactive 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
 ```
 
@@ -116,19 +118,24 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 Une machine virtuelle Linux a un hôte dédié dans Azure qui interagit avec elle. Les métriques sont automatiquement collectées pour l’hôte et peuvent être visualisées dans le portail Azure comme suit :
 
 1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
-2. Pour voir comment la machine virtuelle hôte fonctionne, cliquez sur **Métriques** dans le panneau de la machine virtuelle, puis sélectionnez une des métriques de *[hôte]* sous **Métriques disponibles**.
+1. Pour voir comment la machine virtuelle hôte fonctionne, cliquez sur **Métriques** dans le panneau de la machine virtuelle, puis sélectionnez une des métriques de *[hôte]* sous **Métriques disponibles**.
 
     ![Afficher les métriques de l’hôte](./media/tutorial-monitoring/monitor-host-metrics.png)
 
 
 ## <a name="install-diagnostics-extension"></a>Installer l’extension Diagnostics
 
+> [!IMPORTANT]
+> Ce document décrit la version 2.3 de l’extension de diagnostic Linux, qui est déconseillée. La version 2.3 sera prise en charge jusqu’au 30 juin 2018.
+>
+> La version 3.0 de l’extension de diagnostic Linux peut être activée à la place. Pour plus d’informations, consultez [la documentation](./diagnostic-extension.md).
+
 Les métriques de base de l’hôte sont disponibles, mais pour voir des métriques plus précises et spécifiques à la machine virtuelle, vous devez installer l’extension Diagnostics Azure sur la machine virtuelle. L’extension Diagnostics Azure permet de récupérer des données supplémentaires de surveillance et de diagnostic auprès de la machine virtuelle. Vous pouvez voir ces métriques de performances et créer des alertes basées sur le fonctionnement de la machine virtuelle. L’extension Diagnostics est installée via le portail Azure comme suit :
 
 1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroup** puis sélectionnez **myVM** dans la liste des ressources.
-2. Cliquez sur **Paramètres de diagnostic**. La liste montre que les *Diagnostics de démarrage* sont déjà activés depuis la section précédente. Cliquez sur la case à cocher *Métriques de base*.
-3. Dans la section *Compte de stockage*, recherchez et sélectionnez le compte *mydiagdata[1234]* créé dans la section précédente.
-4. Cliquez sur le bouton **Enregistrer** .
+1. Cliquez sur **Paramètres de diagnostic**. La liste montre que les *Diagnostics de démarrage* sont déjà activés depuis la section précédente. Cliquez sur la case à cocher *Métriques de base*.
+1. Dans la section *Compte de stockage*, recherchez et sélectionnez le compte *mydiagdata[1234]* créé dans la section précédente.
+1. Cliquez sur le bouton **Enregistrer** .
 
     ![Afficher les métriques de diagnostic](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
@@ -138,7 +145,7 @@ Les métriques de base de l’hôte sont disponibles, mais pour voir des métriq
 Vous pouvez afficher les métriques de la machine virtuelle de la même façon que vous avez affiché le mesures de la machine virtuelle hôte :
 
 1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroup** puis sélectionnez **myVM** dans la liste des ressources.
-2. Pour voir comment la machine virtuelle fonctionne, cliquez sur **Métriques** dans le panneau de la machine virtuelle puis sélectionnez une des métriques de diagnostic sous **Métriques disponibles**.
+1. Pour voir comment la machine virtuelle fonctionne, cliquez sur **Métriques** dans le panneau de la machine virtuelle puis sélectionnez une des métriques de diagnostic sous **Métriques disponibles**.
 
     ![Afficher les métriques de la machine virtuelle](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
@@ -163,7 +170,7 @@ Vous pouvez faire une surveillance plus avancée de votre machine virtuelle en u
 
 Quand vous avez accès au portail OMS, vous pouvez trouver la clé de l’espace de travail et l’identificateur de l’espace de travail dans le panneau Paramètres. Remplacez <workspace-key> et <workspace-id> par les valeurs correspondant à votre espace de travail OMS et utilisez ensuite **az vm extension set** pour ajouter l’extension OMS à la machine virtuelle :
 
-```azurecli
+```azurecli-interactive 
 az vm extension set \
   --resource-group myResourceGroupMonitor \
   --vm-name myVM \

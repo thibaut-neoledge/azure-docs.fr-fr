@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 44e0d7c920bc32bf3293ca5ab197b6d2332a43f8
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 662db10a30d4581a77c75204f49e7f5c731342ac
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -54,7 +54,7 @@ La procédure suivante fournit des instructions pas à pas pour créer une activ
 ## <a name="walkthrough-create-a-custom-activity"></a>Procédure pas à pas : création d’une activité personnalisée
 ### <a name="prerequisites"></a>Conditions préalables
 * Visual Studio 2012/2013/2015
-* Téléchargez et installez le [kit de développement logiciel (SDK) Azure .NET][azure-developer-center]
+* Téléchargez et installez le kit [Azure .NET SDK][azure-developer-center]
 
 ### <a name="azure-batch-prerequisites"></a>Configuration requise pour Azure Batch
 Dans la procédure pas à pas, vous allez exécuter vos activités .NET personnalisées à l’aide de la ressource de calcul Azure Batch. **Azure Batch** est une plateforme qui permet d’exécuter efficacement des applications de calcul haute performance (HPC) en parallèle et à grande échelle dans le cloud. Azure Batch planifie les travaux nécessitant une grande quantité de ressources système à exécuter sur une **collection gérée de machines virtuelles**. Il peut mettre automatiquement à l’échelle les ressources de calcul pour répondre aux besoins de vos travaux. Consultez l’article [Notions de base d’Azure Batch][batch-technical-overview] pour une présentation détaillée du service Azure Batch.
@@ -138,26 +138,26 @@ La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ult
 
     ```csharp
 
-// Comment these lines if using VS 2017
-using System.IO;
-using System.Globalization;
-using System.Diagnostics;
-using System.Linq;
-// --------------------
+    // Comment these lines if using VS 2017
+    using System.IO;
+    using System.Globalization;
+    using System.Diagnostics;
+    using System.Linq;
+    // --------------------
 
-// Comment these lines if using <= VS 2015
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-// ---------------------
+    // Comment these lines if using <= VS 2015
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    // ---------------------
 
-using Microsoft.Azure.Management.DataFactories.Models;
-using Microsoft.Azure.Management.DataFactories.Runtime;
+    using Microsoft.Azure.Management.DataFactories.Models;
+    using Microsoft.Azure.Management.DataFactories.Runtime;
 
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
     ```
 6. Remplacez le nom de **l’espace de noms** par **MyDotNetActivityNS**.
 
@@ -267,7 +267,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path    
+        // log the output folder path   
         logger.Write("Writing blob to the folder: {0}", folderPath);
     
         // create a storage object for the output blob.
@@ -303,7 +303,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
             return null;
         }
 
-        // get type properties of the dataset    
+        // get type properties of the dataset   
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
@@ -389,8 +389,8 @@ using Microsoft.WindowsAzure.Storage.Blob;
     > Tous les fichiers contenus dans le fichier zip de l’activité personnalisée doivent se trouver au **premier niveau** et ne doivent pas contenir de sous-dossiers.
 
     ![Fichiers de sortie binaires](./media/data-factory-use-custom-activities/Binaries.png)
-14. Si nécessaire, créez un conteneur de blobs nommé **customactivitycontainer**.    
-15. Chargez MyDotNetActivity.zip comme un blob dans customactivitycontainer dans un compte de stockage Blob Azure **à usage général** (pas de stockage Blob chaud/froid) référencé par AzureStorageLinkedService.  
+14. Si nécessaire, créez un conteneur de blobs nommé **customactivitycontainer**. 
+15. Chargez MyDotNetActivity.zip en tant qu’objet blob dans le customactivitycontainer dans un compte Stockage Blob Azure **à usage général** (pas un Stockage Blob chaud/froid) référencé par AzureStorageLinkedService.  
 
 > [!IMPORTANT]
 > Si vous ajoutez ce projet d’activité .NET à une solution dans Visual Studio qui contient un projet Data Factory, et que vous ajoutez une référence au projet d’activité .NET à partir du projet d’application Data Factory, vous n’avez pas besoin d’effectuer les deux dernières étapes pour créer manuellement le fichier zip et le télécharger dans le stockage Blob Azure à usage général. Lorsque vous publiez des entités Data Factory à l'aide de Visual Studio, ces étapes sont effectuées automatiquement par le processus de publication. Pour plus d’informations, consultez la section [Projet Data Factory dans Visual Studio](#data-factory-project-in-visual-studio).
@@ -444,16 +444,16 @@ Voici les étapes que vous effectuez dans cette section :
     ![Panneau Data Factory](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>Étape 2 : Créer des services liés
-Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Dans cette étape, vous allez lier vos comptes Azure Storage et Azure Batch à votre fabrique de données.
+Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Dans cette étape, vous allez lier vos comptes Stockage Azure et Azure Batch à votre fabrique de données.
 
-#### <a name="create-azure-storage-linked-service"></a>Créer le service lié Azure Storage
+#### <a name="create-azure-storage-linked-service"></a>Créer le service lié Stockage Azure
 1. Cliquez sur la vignette **Créer et déployer** dans le panneau **DATA FACTORY** de **CustomActivityFactory**. Data Factory Editor s’affiche.
-2. Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **Stockage Azure**. Le script JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans l’éditeur.
+2. Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **Stockage Azure**. Le script JSON de création d’un service lié Stockage Microsoft Azure doit apparaître dans l’éditeur.
     
     ![Nouveau magasin de données - Stockage Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
 3. Remplacez `<accountname>` par le nom de votre compte de stockage Azure et `<accountkey>` par la clé d’accès du compte de stockage Azure. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#manage-your-storage-account).
 
-    ![Service lié Azure Storage](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
+    ![Service lié Stockage Azure](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
 #### <a name="create-azure-batch-linked-service"></a>Créer un service lié Azure Batch
@@ -628,7 +628,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
    * Il existe une activité dans la section des activités ; elle présente le type suivant : **DotNetActivity**.
    * Le paramètre **AssemblyName** est défini sur le nom de la DLL **MyDotnetActivity.dll**.
    * Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**.
-   * **PackageLinkedService** est défini sur **AzureStorageLinkedService**, qui pointe vers le stockage d’objets blob contenant le fichier .zip de l’activité personnalisée. Si vous utilisez des comptes de stockage différents pour les fichiers d’entrée/sortie et le fichier zip de l’activité personnalisée, vous créez un autre service lié Azure Storage. Cet article suppose que vous utilisez le même compte Azure Storage.
+   * **PackageLinkedService** est défini sur **AzureStorageLinkedService**, qui pointe vers le stockage d’objets blob contenant le fichier .zip de l’activité personnalisée. Si vous utilisez des comptes de stockage différents pour les fichiers d’entrée/sortie et le fichier zip de l’activité personnalisée, vous créez un autre service lié Stockage Azure. Cet article suppose que vous utilisez le même compte Stockage Azure.
    * Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format : conteneur_du_zip/nom_du_zip.zip.
    * L’activité personnalisée utilise **InputDataset** comme entrée et **OutputDataset** comme sortie.
    * La propriété linkedServiceName de l’activité personnalisée pointe vers **AzureBatchLinkedService**, ce qui indique à Azure Data Factory que l’activité personnalisée doit s’exécuter sur des machines virtuelles Azure Batch.
@@ -716,7 +716,7 @@ Quelques techniques de base peuvent être utilisées pour résoudre les défaill
 5. Tous les fichiers contenus dans le fichier zip de l’activité personnalisée doivent se trouver au **premier niveau** et ne doivent pas contenir de sous-dossiers.
 6. Assurez-vous que les paramètres **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/Mydotnetactivity.zip) et **packageLinkedService** (qui doit pointer vers le Stockage Blob Azure **à usage général** contenant le fichier .zip) sont définis sur des valeurs correctes.
 7. Si vous avez corrigé une erreur et souhaitez relancer le traitement de la tranche, cliquez avec le bouton droit sur la tranche dans le panneau **OutputDataset** puis cliquez sur **Exécuter**.
-8. Si vous voyez l’erreur suivante, vous utilisez une version du package Azure Storage supérieure à 4.3.0. Le lanceur du service Data Factory requiert la version 4.3 du package Windows Azure Storage. Consultez la section [Isolation du domaine d’application](#appdomain-isolation) pour obtenir une autre solution si vous devez utiliser la dernière version de l’assembly du stockage Azure. 
+8. Si vous voyez l’erreur suivante, vous utilisez une version du package Stockage Azure supérieure à 4.3.0. Le lanceur du service Data Factory requiert la version 4.3 du package Windows Azure Storage. Consultez la section [Isolation du domaine d’application](#appdomain-isolation) pour obtenir une autre solution si vous devez utiliser la dernière version de l’assembly du stockage Azure. 
 
     ```
     Error in Activity: Unknown error in module: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Could not load type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from assembly 'Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, 
@@ -728,7 +728,7 @@ Quelques techniques de base peuvent être utilisées pour résoudre les défaill
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
-    Créez le projet. Supprimez la version supérieure à 4.3.0 de l'assembly Azure Storage du dossier bin/Debug. Créez un fichier zip avec les fichiers binaires et le fichier PDB. Remplacez l’ancien fichier zip par celui-ci dans le conteneur d’objets blob (customactivitycontainer). Exécutez de nouveau les tranches ayant échoué (en cliquant avec le bouton droit sur la tranche, puis en choisissant Exécuter).   
+    Créez le projet. Supprimez la version supérieure à 4.3.0 de l'assembly Stockage Azure du dossier bin/Debug. Créez un fichier zip avec les fichiers binaires et le fichier PDB. Remplacez l’ancien fichier zip par celui-ci dans le conteneur d’objets blob (customactivitycontainer). Exécutez de nouveau les tranches ayant échoué (en cliquant avec le bouton droit sur la tranche, puis en choisissant Exécuter).   
 8. L’activité personnalisée n’utilise pas le ficher **app.config** de votre package. Par conséquent, si votre code lit des chaînes de connexion dans le fichier de configuration, il ne fonctionne pas lors de l’exécution. Quand vous utilisez Azure Batch, la meilleure pratique consiste à stocker les clés secrètes dans un coffre de clés **Azure KeyVault**, à utiliser un principal de service basé sur certificat pour protéger le **coffre de clés** et à distribuer le certificat à un pool Azure Batch. L’activité personnalisée .NET peut alors accéder aux secrets du coffre de clés au moment de l’exécution. Cette solution est générique et peut s’adapter à n’importe quel type de clé secrète, et pas uniquement aux chaînes de connexion.
 
    Il existe une solution plus simple (mais non recommandée) : vous pouvez créer un **service lié SQL Azure** avec des paramètres de chaîne de connexion, puis créer un jeu de données qui utilise le service lié et chaîner le jeu de données à l’activité .NET personnalisée en tant que jeu de données d’entrée factice. Vous pouvez ensuite accéder à la chaîne de connexion du service lié dans le code de l’activité personnalisée.  
@@ -903,8 +903,8 @@ Dans le code **JSON du pipeline**, utilisez le service lié HDInsight (celui cr�
 }
 ```
 
-## <a name="create-a-custom-activity-by-using-net-sdk"></a>Créer une activité personnalisée à l’aide du Kit de développement logiciel .NET
-Dans la procédure pas à pas de cet article, vous créez une fabrique de données avec un pipeline qui utilise l’activité personnalisée à l’aide du portail Azure. Le code suivant montre comment créer la fabrique de données à l’aide du Kit de développement logiciel (SDK) .NET à la place. Vous trouverez plus d’informations sur l’utilisation du Kit SDK pour créer des pipelines par programme dans l’article [Créer un pipeline avec une activité de copie à l’aide de l’API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md). 
+## <a name="create-a-custom-activity-by-using-net-sdk"></a>Créer une activité personnalisée à l’aide du kit .NET SDK
+Dans la procédure pas à pas de cet article, vous créez une fabrique de données avec un pipeline qui utilise l’activité personnalisée à l’aide du portail Azure. Le code suivant montre comment créer la fabrique de données à l’aide du kit .NET SDK à la place. Vous trouverez plus d’informations sur l’utilisation du Kit SDK pour créer des pipelines par programme dans l’article [Créer un pipeline avec une activité de copie à l’aide de l’API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md). 
 
 ```csharp
 using System;
@@ -1150,7 +1150,7 @@ L’exemple [Azure Data Factory - Environnement local](https://github.com/gbruec
 ## <a name="sample-custom-activities-on-github"></a>Exemples d’activités personnalisées sur GitHub
 | Exemple | Rôle des activités personnalisées |
 | --- | --- |
-| [Téléchargeur de données HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Télécharge des données à partir d'un point de terminaison HTTP vers Azure Blob Storage à l'aide d’une activité C# personnalisée dans Data Factory. |
+| [Téléchargeur de données HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Télécharge des données à partir d'un point de terminaison HTTP vers Stockage Blob Azure à l'aide d’une activité C# personnalisée dans Data Factory. |
 | [Exemple d’analyse d’opinions Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Appelle un modèle Azure ML et effectue l’analyse, la notation, la prédiction, etc. des opinions. |
 | [Exécuter un script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Appelle un script R en exécutant RScript.exe sur votre cluster HDInsight, sur lequel R est installé. |
 | [Activité .NET entre AppDomains](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Utilise des versions d’assembly différentes de celles utilisées par le lanceur de Data Factory |

@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1eb7da270accedd9dcadca230422b14cd15f24b5
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 6d5a5814977d05fbe7be52dcb482a622de1c2ef6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -186,7 +186,7 @@ Voici les types d'index pris en charge et les exemples de requêtes qui peuvent 
 | Plage      | La plage disposant de l’élément /prop/? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
 | spatial     | La plage disposant de l’élément /prop/? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --avec indexation sur les points activée<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --avec indexation sur les polygones activée              |
 
-Par défaut, une erreur est renvoyée pour les requêtes disposant d’opérateurs de plage tels que >= s'il n'existe aucun index de plage (de n’importe quelle précision) pour signaler qu'une analyse peut être requise pour traiter la requête. Les requêtes peuvent être effectuées sans index de plage à l’aide de l’en-tête x-ms-documentdb-enable-scan header dans l’API REST ou l’option de requête EnableScanInQuery à l’aide du Kit de développement logiciel (SDK) .NET. Si d'autres filtres de la requête peuvent être utilisés par DocumentDB sur l’index, aucune erreur ne vous sera renvoyée.
+Par défaut, une erreur est renvoyée pour les requêtes disposant d’opérateurs de plage tels que >= s'il n'existe aucun index de plage (de n’importe quelle précision) pour signaler qu'une analyse peut être requise pour traiter la requête. Les requêtes peuvent être effectuées sans index de plage à l’aide de l’en-tête x-ms-documentdb-enable-scan header dans l’API REST ou l’option de requête EnableScanInQuery à l’aide du Kit de développement logiciel (SDK) .NET. Si d’autres filtres de la requête peuvent être utilisés par Azure Cosmos DB sur l’index, aucune erreur ne vous sera renvoyée.
 
 Les mêmes règles s'appliquent pour les requêtes spatiales. Par défaut, une erreur est renvoyée pour les requêtes spatiales s’il n’existe aucun index spatial et qu’aucun autre filtre ne peut être fourni à partir de l’index. Elles peuvent être effectuées en tant qu'analyse à l'aide de x-ms-documentdb-enable-scan/EnableScanInQuery.
 
@@ -229,7 +229,7 @@ Vous pouvez choisir si vous souhaitez que la collection indexe automatiquement t
 
 Si l'indexation automatique est désactivée, vous ne pouvez continuer à ajouter des documents spécifiques à l'index que de façon sélective. À l'inverse, vous pouvez laisser l'indexation automatique activée et choisir ne d'exclure de façon sélective que des documents spécifiques. Les configurations d'indexation activée/désactivée sont utiles lorsque vous n'avez qu'un sous-ensemble de documents à interroger.
 
-Ainsi, l’exemple suivant montre comment inclure un document explicitement à l’aide du [Kit de développement logiciel (SDK) .NET DocumentDB](https://github.com/Azure/azure-documentdb-java) et de la propriété [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+Ainsi, l’exemple suivant montre comment inclure un document explicitement à l’aide du [Kit de développement logiciel (SDK) .NET de l’API DocumentDB](https://github.com/Azure/azure-documentdb-java) et de la propriété [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -409,8 +409,8 @@ Si votre code approvisionne des collections avec une stratégie d'indexation per
 ## <a name="next-steps"></a>Étapes suivantes
 Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratégie d’index et en savoir plus sur le langage de requête d’Azure Cosmos DB.
 
-1. [Exemples de code de gestion d’index DocumentDB .NET](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [Opérations sur la collection de l’API REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [Interrogation avec le langage SQL de DocumentDB](documentdb-sql-query.md)
+1. [Exemples de code de gestion d’index .NET de l’API DocumentDB](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2. [Opérations de collecte de l’API REST DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+3. [Requête avec SQL](documentdb-sql-query.md)
 
 

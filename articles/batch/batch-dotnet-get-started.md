@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 162f4e753524f0d1236575618fc8413466481857
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -297,7 +297,7 @@ Les signatures d’accès partagé sont des chaînes qui, une fois intégrées �
 
 Un **pool** Batch est une collection de nœuds de calcul (machines virtuelles) sur lequel Batch exécute les tâches d’un travail.
 
-Après le chargement des fichiers d’application et de données dans le compte de stockage, *DotNetTutorial* commence à interagir avec le service Batch à l’aide de la bibliothèque Batch .NET. Dans ce but, un élément [BatchClient][net_batchclient] est créé en premier lieu :
+Après avoir chargé l’application et les fichiers de données dans le compte de stockage avec les API de stockage Azure, *DotNetTutorial* commence par appeler le service Batch avec les API fournies par la bibliothèque .NET Batch. Le code crée d’abord un élément [BatchClient][net_batchclient] :
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
@@ -310,7 +310,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
     ...
 ```
 
-Ensuite, un pool de nœuds de calcul est créé dans le compte Batch avec un appel de `CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync` utilise la méthode [BatchClient.PoolOperations.CreatePool][net_pool_create] pour créer un pool dans le service Batch.
+Ensuite, l’exemple crée un pool de nœuds de traitement dans le compte Batch, avec un appel à `CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync` utilise la méthode [BatchClient.PoolOperations.CreatePool][net_pool_create] pour créer un pool dans le service Batch :
 
 ```csharp
 private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -375,7 +375,7 @@ Outre ces propriétés de nœuds physiques, vous pouvez spécifier une tâche [S
 Dans cet exemple d’application, la tâche StartTask copie les fichiers qu’elle a téléchargés à partir de Storage (spécifiés avec la propriété [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) depuis le répertoire de travail de StartTask vers le répertoire partagé accessible à *toutes* les tâches qui s’exécutent sur le nœud. Pour l’essentiel, ceci copie `TaskApplication.exe` et ses dépendances dans le répertoire partagé sur chaque nœud lorsque le nœud rejoint le pool, afin que toutes les tâches qui s’exécutent sur le nœud puissent y accéder.
 
 > [!TIP]
-> La fonctionnalité **packages d’application** d’Azure Batch offre une autre manière d’intégrer votre application aux nœuds de calcul d’un pool. Pour plus d’informations, consultez [Déploiement d’applications avec des packages d’applications Azure Batch](batch-application-packages.md) .
+> La fonctionnalité **packages d’application** d’Azure Batch offre une autre manière d’intégrer votre application aux nœuds de calcul d’un pool. Consultez [Déployer des applications sur les nœuds avec des packages d’applications Batch](batch-application-packages.md) pour plus de détails.
 >
 >
 

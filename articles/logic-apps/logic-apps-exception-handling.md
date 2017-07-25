@@ -1,4 +1,4 @@
-﻿---
+---
 title: Gestion des erreurs et des exceptions - Azure Logic Apps | Microsoft Docs
 description: "Modèles de gestion des erreurs et des exceptions dans Azure Logic Apps"
 services: logic-apps
@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ddb7c2fd9437cb342e68b5a1ad47f9bd06ec476b
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -159,11 +159,11 @@ Pour exécuter une action *pour chaque* action dans une étendue marquée comme 
 
 Voici la procédure détaillée pour décrire ce qui se produit :
 
-1. Pour obtenir le résultat de toutes les actions au sein de `My_Scope`, l’action **Filter_array** permet de filtrer `@result('My_Scope')`.
+1. Pour obtenir le résultat de toutes les actions au sein de `My_Scope`, l’action **Filtrer le tableau** permet de filtrer `@result('My_Scope')`.
 
-2. La condition de l’action **Filter_array** est tout élément `@result()` dont l’état est égal à `Failed`. Cette condition filtre le tableau de tous les résultats d’action de `My_Scope` selon un tableau contenant uniquement les résultats d’action ayant échoué.
+2. La condition de l’action **Filtrer le tableau** est tout élément `@result()` dont l’état est égal à `Failed`. Cette condition filtre le tableau de tous les résultats d’action de `My_Scope` selon un tableau contenant uniquement les résultats d’action ayant échoué.
 
-3. Exécution d’une action **For Each** sur les résultats du **Filter_array**. Cette étape exécute une action *for each* résultat d’action ayant échoué filtré précédemment.
+3. Exécution d’une action **For Each** sur les résultats du **tableau filtré**. Cette étape exécute une action *pour chaque* résultat d’action ayant échoué filtré précédemment.
 
     Si une action unique dans l’étendue a échoué, les actions de `foreach` s’exécutent une seule fois. 
     De nombreuses actions ayant échoué peuvent provoquer une action par échec.

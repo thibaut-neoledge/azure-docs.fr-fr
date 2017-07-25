@@ -16,10 +16,10 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -180,13 +180,14 @@ Les conseils suivants peuvent vous aider lors de la résolution de problèmes su
 * Utilisez `-h` pour obtenir le **texte d’aide** d’une commande d’interface de ligne de commande.
 * Utilisez `-v` et `-vv` pour afficher la sortie de la commande **verbose**. Lorsque l’indicateur `-vv` est inclus, Azure CLI affiche les requêtes REST réelles et les réponses correspondantes. Ces commutateurs sont pratiques pour afficher une sortie complète des erreurs.
 * L’option `--json` permet d’afficher la **sortie de commande au format JSON**. Par exemple, `az batch pool show pool001 --json` affiche les propriétés de pool001 au format JSON. Vous pouvez ensuite copier et modifier cette sortie pour l’utiliser dans un `--json-file` (voir la section [Fichiers JSON](#json-files) plus haut dans cet article).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * Le [forum Batch][batch_forum] est géré par les membres de l’équipe Batch. Vous pouvez y publier vos questions si vous rencontrez des problèmes ou si vous avez besoin d’aide pour une opération spécifique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur Azure CLI, consultez la [documentation relative à Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 * Pour plus d’informations sur les ressources Batch, consultez [Vue d’ensemble d’Azure Batch pour les développeurs](batch-api-basics.md).
-* Consultez l’article [Déploiement d’applications avec des packages d’applications Azure Batch](batch-application-packages.md) pour découvrir comment utiliser cette fonctionnalité pour gérer et déployer les applications que vous exécutez sur les nœuds de calcul Batch.
+* Consultez [Déployer des applications sur les nœuds avec des packages d’applications Batch](batch-application-packages.md) pour découvrir comment utiliser cette fonctionnalité afin de gérer et de déployer les applications que vous exécutez sur les nœuds de calcul Batch.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

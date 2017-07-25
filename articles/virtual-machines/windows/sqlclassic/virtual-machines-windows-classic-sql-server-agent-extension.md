@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/18/2017
+ms.date: 07/05/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 49dd3d64b8f6bc8e0dc40d40db909648f287a068
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: d61334063cfaa8707cdd811490e14b359ead40b9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatiser les tâches de gestion sur des machines virtuelles Azure avec l’extension SQL Server Agent (Classic)
@@ -50,6 +50,7 @@ Configuration requise pour utiliser l’extension Agent IaaS SQL Server sur votr
 ### <a name="operating-system"></a>Système d’exploitation :
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 ### <a name="sql-server-versions"></a>Versions de SQL Server :
 * SQL Server 2012

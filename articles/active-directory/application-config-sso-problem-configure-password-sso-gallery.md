@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4394a5ddd17e635661cd89b42f76b0558ffa17ab
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 32c6d4ed5470077856d4ab175a5df5188b3690a6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/13/2017
 
 ---
 
-# <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problème de configuration de l’authentification unique avec mot de passe pour une application de la galerie Azure AD
+<a id="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+# Problème de configuration de l’authentification unique avec mot de passe pour une application de la galerie Azure AD
 
 Cet article vous aide à comprendre les problèmes courants auxquels les utilisateurs sont confrontés lors de la configuration d’une **authentification unique avec mot de passe** pour une application de la galerie Azure AD.
 
-## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Les informations d’identification sont fournies, mais l’extension ne les envoie pas
+<a id="credentials-are-filled-in-but-the-extension-does-not-submit-them" class="xliff"></a>
+
+## Les informations d’identification sont fournies, mais l’extension ne les envoie pas
 
 Cela se produit généralement lorsque le fournisseur de l’application a modifié sa page de connexion pour ajouter un champ, pour modifier un identificateur sous-jacent que nous utilisions en vue de détecter les champs de nom d’utilisateur et de mot de passe ou pour modifier le fonctionnement de la connexion pour l’application. Heureusement, dans de nombreux cas, Microsoft peut collaborer avec les fournisseurs d’applications afin de résoudre rapidement les problèmes.
 
@@ -33,7 +37,9 @@ Bien que Microsoft dispose de technologies lui permettant de détecter automatiq
 
 En outre, **si vous êtes en contact avec le fournisseur de l’application,** **mettez-le en relation avec nous** afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Les informations d’identification sont fournies et envoyées, mais la page indique qu’elles sont incorrectes
+<a id="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect" class="xliff"></a>
+
+## Les informations d’identification sont fournies et envoyées, mais la page indique qu’elles sont incorrectes
 
 Pour résoudre ce problème, vérifiez les points suivants :
 
@@ -61,13 +67,15 @@ Bien que Microsoft dispose de technologies lui permettant de détecter automatiq
 
 En outre, **si vous êtes en contact avec le fournisseur de l’application,** **mettez-le en relation avec nous** afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>L’extension fonctionne avec Chrome et Firefox, mais pas avec Internet Explorer
+<a id="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer" class="xliff"></a>
+
+## L’extension fonctionne avec Chrome et Firefox, mais pas avec Internet Explorer
 
 Il existe deux causes principales à ce problème :
 
 -   Selon les paramètres de sécurité activés dans Internet Explorer, si le site web ne fait pas partie d’une **zone approuvée**, il arrive parfois que l’exécution de l’application par notre script soit bloquée.
 
-  *  Pour résoudre ce problème, demandez à l’utilisateur d’**ajouter le site web de l’application** à la liste des **sites de confiance** dans **les paramètres de sécurité Internet Explorer**. Pour obtenir des instructions détaillées, vos utilisateurs peuvent consulter l’article [Comment ajouter un site à la liste des sites de confiance](https://answers.microsoft.com/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5).
+  *  Pour résoudre ce problème, demandez à l’utilisateur d’**ajouter le site web de l’application** à la liste des **sites de confiance** dans **les paramètres de sécurité Internet Explorer**. Pour obtenir des instructions détaillées, vos utilisateurs peuvent consulter l’article [Comment ajouter un site à la liste des sites de confiance](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5).
 
 -   Dans de rares cas, la validation de la sécurité d’Internet Explorer peut provoquer un chargement de la page plus lent que l’exécution de notre script.
 
@@ -75,7 +83,9 @@ Il existe deux causes principales à ce problème :
 
 En outre, **si vous êtes en contact avec le fournisseur de l’application,** **mettez-le en relation avec nous** afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Vérifiez si la page de connexion à l’application a été modifiée récemment ou requiert un champ supplémentaire.
+<a id="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field" class="xliff"></a>
+
+## Vérifiez si la page de connexion à l’application a été modifiée récemment ou requiert un champ supplémentaire.
 
 Si la page de connexion à l’application a considérablement changé, cela provoque parfois l’interruption de nos intégrations. Par exemple, cela peut être le cas lorsque le fournisseur d’une application ajoute un champ de connexion, un captcha ou une authentification multifacteur à son système. Heureusement, dans de nombreux cas, Microsoft peut collaborer avec les fournisseurs d’applications afin de résoudre rapidement les problèmes.
 
@@ -83,23 +93,25 @@ Bien que Microsoft dispose de technologies lui permettant de détecter automatiq
 
 En outre, **si vous êtes en contact avec le fournisseur de l’application,** **mettez-le en relation avec nous** afin que nous puissions collaborer pour intégrer nativement son application avec Azure Active Directory. Pour commencer, vous pouvez rediriger le fournisseur vers la page [Affichage de votre application dans la galerie d’applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Comment installer l’extension de navigateur du volet d’accès
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Comment installer l’extension de navigateur du volet d’accès
 
 Pour installer l’extension de navigateur du volet d’accès, effectuez les étapes suivantes :
 
-1.  Ouvrez le [volet d’accès](https://myapps.microsoft.com) dans l’un des navigateurs pris en charge et connectez-vous en tant qu’**utilisateur** dans Azure AD.
+1.  Ouvrez le [volet d’accès](https://myapps.microsoft.com) dans l’un des navigateurs pris en charge et connectez-vous en tant **qu’utilisateur** dans Azure AD.
 
-2.  Cliquez sur une **application avec authentification unique basée sur mot de passe** dans le volet d’accès.
+2.  Cliquez sur une **application avec authentification unique par mot de passe** dans le volet d’accès.
 
 3.  Dans l’invite vous demandant d’installer le logiciel, sélectionnez **Installer maintenant**.
 
-4.  En fonction de votre navigateur, vous allez être redirigé vers le lien de téléchargement. **Ajoutez** l’extension à votre navigateur.
+4.  Vous êtes redirigé vers le lien de téléchargement selon votre navigateur. **Ajoutez** l’extension à votre navigateur.
 
 5.  Si votre navigateur vous le demande, sélectionnez l’option **Activer** ou **Autoriser** pour l’extension.
 
 6.  Une fois l’extension installée, **redémarrez** votre session de navigateur.
 
-7.  Connectez-vous au volet d’accès et essayez de **démarrer** vos applications à authentification unique basée sur un mot de passe.
+7.  Connectez-vous au volet d’accès et essayez de **lancer** vos applications à authentification unique par mot de passe.
 
 Vous pouvez également télécharger l’extension pour Chrome et Firefox à partir des liens directs ci-dessous :
 
@@ -107,7 +119,9 @@ Vous pouvez également télécharger l’extension pour Chrome et Firefox à par
 
 -   [Extension du volet d’accès pour Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
 
 

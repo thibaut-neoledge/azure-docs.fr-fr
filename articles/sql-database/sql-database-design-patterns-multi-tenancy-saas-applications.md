@@ -1,6 +1,6 @@
 ---
-title: "Modèles de conception pour les applications SaaS mutualisées et Azure SQL Database | Microsoft Docs"
-description: "Cet article décrit la configuration requise et les modèles d’architecture de données les plus courants pour les applications de base de données SaaS mutualisées s’exécutant dans un environnement cloud, ainsi que les compromis associés à ces modèles. Il explique également comment Base de données SQL Azure, avec ses outils et ses pools élastiques, permet de satisfaire ces exigences sans aucun compromis."
+title: "Modèles de conception pour les applications SaaS multilocataires et Azure SQL Database | Microsoft Docs"
+description: "Cet article décrit la configuration requise et les modèles d’architecture de données les plus courants pour les applications de base de données multilocataires s’exécutant dans un environnement cloud, ainsi que les compromis associés à ces modèles. Il explique également comment Azure SQL Database, avec ses outils et ses pools élastiques, permet de satisfaire ces exigences sans aucun compromis."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -9,29 +9,30 @@ manager: jhubbard
 editor: 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
-ms.custom: development
+ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
-translationtype: Human Translation
-ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
-ms.openlocfilehash: c30f1d879f46805cf802679613089a16dc47ad40
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="design-patterns-for-multitenant-saas-applications-and-azure-sql-database"></a>Modèles de conception pour les applications SaaS mutualisées et Base de données SQL Azure
-Cet article vous fournit des informations sur la configuration requise et les modèles d’architecture de données les plus courants pour les applications de base de données SaaS (software as a service) mutualisées s’exécutant dans un environnement cloud. Il explique également les facteurs à prendre en compte et les compromis en fonction de chaque modèle de conception. Les pools élastiques et les outils élastiques dans Base de données SQL Azure peuvent vous aider à répondre à des besoins spécifiques sans compromettre d’autres objectifs.
+# <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Modèles de conception pour les applications SaaS multilocataires et Azure SQL Database
+Cet article vous fournit des informations sur la configuration requise et les modèles d’architecture de données les plus courants pour les applications de base de données SaaS (Software as a Service) multilocataires s’exécutant dans un environnement cloud. Il explique également les facteurs à prendre en compte et les compromis en fonction de chaque modèle de conception. Les pools élastiques et les outils élastiques dans Azure SQL Database peuvent vous aider à répondre à des besoins spécifiques sans compromettre d’autres objectifs.
 
-Les développeurs qui conçoivent des modèles de conception pour les couches de données d’applications mutualisées prennent parfois des décisions qui vont à l’encontre de leurs intérêts à long terme. Il se peut que dans un premier temps le développeur perçoive la facilité de déploiement et le coût réduit du fournisseur de service cloud comme plus important que l’isolation des locataires ou l’évolutivité d’une application. Ce choix peut donner lieu à des problèmes de satisfaction du client doublés d’une correction ultérieure coûteuse.
+Les développeurs qui conçoivent des modèles de location pour les couches de données d’applications multilocataires prennent parfois des décisions qui vont à l’encontre de leurs intérêts à long terme. Il se peut que dans un premier temps le développeur perçoive la facilité de déploiement et le coût réduit du fournisseur de service cloud comme plus important que l’isolation des locataires ou l’évolutivité d’une application. Ce choix peut donner lieu à des problèmes de satisfaction du client doublés d’une correction ultérieure coûteuse.
 
-Une application mutualisée désigne une application hébergée dans un environnement cloud, qui fournit le même ensemble de services à des centaines ou milliers de locataires qui ne partagent pas ou ne voient pas les données d’autrui. Il peut par exemple s’agir d’une application SaaS qui fournit des services aux locataires dans un environnement hébergé dans le cloud.
+Une application multilocataire désigne une application hébergée dans un environnement cloud, qui fournit le même ensemble de services à des centaines ou milliers de locataires qui ne partagent pas ou ne voient pas les données d’autrui. Il peut par exemple s’agir d’une application SaaS qui fournit des services aux locataires dans un environnement hébergé dans le cloud.
 
-## <a name="multitenant-applications"></a>Applications mutualisées
-Dans les applications mutualisées, il est aisé de partitionner les données et la charge de travail. Vous pouvez par exemple le faire en fonction des limites de chaque locataire, dans la mesure où la plupart des requêtes sont exécutées dans les limites d’un seul locataire. Cette propriété est inhérente dans les données et la charge de travail. Elle favorise les modèles d’applications décrits dans cet article.
+## <a name="multi-tenant-applications"></a>Applications multilocataires
+Dans les applications multilocataires, il est aisé de partitionner les données et la charge de travail. Vous pouvez par exemple le faire en fonction des limites de chaque locataire, dans la mesure où la plupart des requêtes sont exécutées dans les limites d’un seul locataire. Cette propriété est inhérente dans les données et la charge de travail. Elle favorise les modèles d’applications décrits dans cet article.
 
 Les développeurs utilisent ce type d’applications dans toute la gamme d’applications basées sur le cloud, notamment :
 
@@ -40,46 +41,46 @@ Les développeurs utilisent ce type d’applications dans toute la gamme d’app
 * Les applications directes orientées client
 * Les applications d’entreprise orientées employé
 
-Les applications SaaS conçues pour le cloud et celles avec des racines dans la mesure où les applications de base de données partenaires sont généralement des applications mutualisées. Ces applications SaaS offrent une application logicielle spécialisée en tant que service aux locataires. Les locataires peuvent accéder au service d’applications et ont la pleine propriété des données associées stockées dans le cadre de l’application. Toutefois, pour tirer parti des avantages du SaaS, les locataires doivent renoncer à une partie du contrôle de leurs propres données. Ils font confiance au fournisseur de services SaaS pour protéger leurs données et les isoler des données des autres locataires. MYOB, SnelStart et Salesforce.com sont des exemples de ce type d’applications SaaS mutualisées. Chacune de ces applications peut être partitionnée en respectant les limites de chaque locataire et prendre en charge les modèles de conception d’application présentés dans cet article.
+Les applications SaaS conçues pour le cloud et celles avec des racines comme applications de base de données partenaires sont généralement des applications multilocataires. Ces applications SaaS offrent une application logicielle spécialisée en tant que service aux locataires. Les locataires peuvent accéder au service d’applications et ont la pleine propriété des données associées stockées dans le cadre de l’application. Toutefois, pour tirer parti des avantages du SaaS, les locataires doivent renoncer à une partie du contrôle de leurs propres données. Ils font confiance au fournisseur de services SaaS pour protéger leurs données et les isoler des données des autres locataires. MYOB, SnelStart et Salesforce.com sont des exemples de ce type d’applications SaaS multilocataires. Chacune de ces applications peut être partitionnée en respectant les limites de chaque locataire et prendre en charge les modèles de conception d’application présentés dans cet article.
 
-Les applications qui fournissent un service direct aux consommateurs ou aux employés au sein d’une organisation (souvent appelés utilisateurs, plutôt que locataires) forment une autre catégorie de la gamme d’applications mutualisées. Les clients s’abonnent au service et ne possèdent pas les données collectées et stockées par le fournisseur de services. Les fournisseurs de services ont des exigences réduites pour conserver les données de leurs clients à l’écart, en dehors des réglementations de confidentialité imposées par les gouvernements. Les fournisseurs de contenus multimédias comme Netflix, Spotify et Xbox LIVE sont des exemples de ce type d’applications mutualisées orientées client. Il existe d’autres exemples d’applications facilement configurables en partition comme les applications Internet orientées client ou les applications IoT (Internet des objets), dans lesquelles chaque client ou appareil peut servir de partition. Les limites de partition peuvent séparer les utilisateurs et les appareils.
+Les applications qui fournissent un service direct aux clients ou aux employés au sein d’une organisation (souvent appelés utilisateurs, plutôt que locataires) forment une autre catégorie de la gamme d’applications multilocataires. Les clients s’abonnent au service et ne possèdent pas les données collectées et stockées par le fournisseur de services. Les fournisseurs de services ont des exigences réduites pour conserver les données de leurs clients à l’écart, en dehors des réglementations de confidentialité imposées par les gouvernements. Les fournisseurs de contenus multimédias comme Netflix, Spotify et Xbox LIVE sont des exemples de ce type d’applications multilocataires orientées client. Il existe d’autres exemples d’applications facilement configurables en partition comme les applications Internet orientées client ou les applications IoT (Internet des objets), dans lesquelles chaque client ou appareil peut servir de partition. Les limites de partition peuvent séparer les utilisateurs et les appareils.
 
 Le partitionnement des applications n’est pas toujours simple pour une propriété unique (locataire, client, utilisateur, appareil, etc.). Une application ERP complexe, par exemple, traite des produits, des commandes et des clients. Elle suit généralement un schéma complexe avec des milliers de tables hautement interconnectées.
 
-Aucune stratégie de partition unique ne s’applique à l’ensemble des tables et ne fonctionne sur une charge de travail complète. Cet article se concentre sur les applications mutualisées comportant des charges de travail et des données facilement configurables en partition.
+Aucune stratégie de partition unique ne s’applique à l’ensemble des tables et ne fonctionne sur une charge de travail complète. Cet article se concentre sur les applications multilocataires comportant des charges de travail et des données facilement configurables en partition.
 
-## <a name="multitenant-application-design-trade-offs"></a>Compromis de conception des applications mutualisées
-Le modèle de conception choisi par un développeur d’applications mutualisées se base généralement sur la prise en compte des facteurs suivants :
+## <a name="multi-tenant-application-design-trade-offs"></a>Compromis de conception des applications multilocataires
+Le modèle de conception choisi par un développeur d’applications multilocataires se base généralement sur la prise en compte des facteurs suivants :
 
 * **Isolation des locataires**. Le développeur doit s’assurer qu’aucun locataire ne dispose d’une accès non autorisé aux données des autres locataires. Cette exigence d’isolation s’étend à d’autres propriétés, comme la fourniture d’une protection vis-à-vis des voisins bruyants, la possibilité de restaurer les données d’un locataire et la mise en œuvre des personnalisations spécifiques à un locataire.
-* **Coût des ressources du cloud**. Une application SaaS doit être compétitive. Un développeur d’applications mutualisées peut choisir l’optimisation pour réduire le coût de l’utilisation des ressources du cloud, tels que les coûts de stockage et de traitement.
-* **Convivialité DevOps**. Un développeur d’applications mutualisées doit intégrer la protection par l’isolation, gérer et surveiller l’intégrité de son schéma de base de données et d’application, et résoudre les problèmes des locataires. La complexité du développement et du fonctionnement des applications se traduit directement par des coûts supplémentaires et une difficulté à maintenir la satisfaction des locataires.
+* **Coût des ressources du cloud**. Une application SaaS doit être compétitive. Un développeur d’applications multilocataires peut choisir l’optimisation pour réduire le coût de l’utilisation des ressources cloud, comme les coûts de stockage et de traitement.
+* **Convivialité DevOps**. Un développeur d’applications multilocataires doit intégrer la protection par l’isolation, gérer et surveiller l’intégrité de son schéma de base de données et d’application, et résoudre les problèmes des locataires. La complexité du développement et du fonctionnement des applications se traduit directement par des coûts supplémentaires et une difficulté à maintenir la satisfaction des locataires.
 * **Extensibilité**. Pour les locataires qui l’exigent, la possibilité d’ajouter des locataires et des capacités supplémentaires est indispensable à un bon fonctionnement du SaaS.
 
 Chacun de ces facteurs implique des compromis par rapport aux autres. L’offre cloud la plus économique ne permet pas forcément de vivre l’expérience de développement la plus pratique. Il est important pour un développeur de prendre des décisions éclairées concernant ces options et leurs compromis pendant le processus de conception d’application.
 
-Un modèle de développement courant consiste à regrouper plusieurs locataires dans une ou plusieurs bases de données. Les avantages de cette approche sont le coût réduit (vous payez pour un petit nombre de bases de données) et la simplicité relative de l’utilisation d’un nombre limité de bases de données. Mais au fil du temps, un développeur d’applications mutualisées SaaS réalisera que ce choix présente des inconvénients substantiels pour l’isolation des locataires et l’évolutivité. Si l’isolation des locataires devient importante, il faut faire une effort supplémentaire pour protéger les données des locataires contre les accès non autorisés ou les voisins bruyants sur un stockage partagé. Cet effort supplémentaire peut augmenter considérablement les efforts de développement et les coûts de maintenance de l’isolation. De même, si l’ajout de locataires est requis, ce modèle de conception requiert généralement une certaine expertise pour redistribuer les données des locataires entre les bases de données en vue de mettre correctement à l’échelle la couche données d’une application.  
+Un modèle de développement courant consiste à regrouper plusieurs locataires dans une ou plusieurs bases de données. Les avantages de cette approche sont le coût réduit (vous payez pour un petit nombre de bases de données) et la simplicité relative de l’utilisation d’un nombre limité de bases de données. Toutefois, au fil du temps, un développeur d’applications multilocataires SaaS réalisera que ce choix présente des inconvénients substantiels pour l’isolation des locataires et la scalabilité. Si l’isolation des locataires devient importante, il faut faire une effort supplémentaire pour protéger les données des locataires contre les accès non autorisés ou les voisins bruyants sur un stockage partagé. Cet effort supplémentaire peut augmenter considérablement les efforts de développement et les coûts de maintenance de l’isolation. De même, si l’ajout de locataires est requis, ce modèle de conception requiert généralement une certaine expertise pour redistribuer les données des locataires entre les bases de données en vue de mettre correctement à l’échelle la couche données d’une application.  
 
-L’isolation des locataires est généralement une exigence fondamentale pour les applications SaaS mutualisées destinées aux entreprises et aux organisations. Un développeur peut se laisser tenter par les avantages apparents liés à la simplicité et au coût, au lieu de privilégier l’isolation des locataires et l’évolutivité. Ce compromis peut s’avérer complexe et coûteux lorsque le service se développe, et que les exigences d’isolation des locataires s’accentuent et doivent être gérées au niveau de la couche d’application. Toutefois, dans les applications mutualisées fournissant un service orienté utilisateur direct clients, l’isolation des locataires peut devenir moins prioritaire que l’optimisation du coût des ressources du cloud.
+L’isolation des locataires est généralement une exigence fondamentale pour les applications multilocataires SaaS destinées aux entreprises et aux organisations. Un développeur peut se laisser tenter par les avantages apparents liés à la simplicité et au coût, au lieu de privilégier l’isolation des locataires et l’évolutivité. Ce compromis peut s’avérer complexe et coûteux lorsque le service se développe, et que les exigences d’isolation des locataires s’accentuent et doivent être gérées au niveau de la couche d’application. Toutefois, dans les applications multilocataires fournissant un service direct orienté utilisateur aux clients, l’isolation des locataires peut devenir moins prioritaire que l’optimisation pour réduire le coût des ressources cloud.
 
-## <a name="multitenant-data-models"></a>Modèles de données mutualisés
+## <a name="multi-tenant-data-models"></a>Modèles de données multilocataires
 Les pratiques de conception courantes pour placer les données des locataires suivent trois modèles distincts illustrés dans la Figure 1.
 
-![Modèles de données d’application mutualisés](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
+![modèles de données d’applications multilocataires](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
 
-Figure 1 : Pratiques de conception courantes pour les modèles de données mutualisés
+Figure 1 : Pratiques de conception courantes pour les modèles de données multilocataires
 
 * **Base de données par locataire**. Chaque locataire a sa propre base de données. Toutes les données spécifiques des locataires sont limitées à leur base de données. Elles sont isolées des autres locataires et de leurs données.
 * **Base de données partagée partitionnée**. Plusieurs locataires partagent l’une des différentes bases de données. Un ensemble distinct de clients est attribué à chaque base de données à l’aide d’une stratégie de partitionnement telle que le hachage, la plage ou le partitionnement de liste. Cette stratégie de distribution des données est souvent appelée partitionnement.
 * **Base de données partagée unique**. Une base de données unique et parfois volumineuse contient des données permettant d’éviter toute ambiguïté à propos des locataires dans une colonne d’ID de locataire.
 
 > [!NOTE]
-> Un développeur d’applications peut choisir de placer plusieurs locataires dans des schémas de base de données différents, puis d’utiliser le nom de schéma pour enlever toute ambiguïté concernant les différents locataires. Nous ne recommandons pas cette approche car elle requiert généralement l’utilisation du SQL dynamique, et elle ne peut pas être efficace pour le caching de plan. Le reste de cet article est consacré à l’approche de la table partagée pour cette catégorie d’application mutualisée.
+> Un développeur d’applications peut choisir de placer plusieurs locataires dans des schémas de base de données différents, puis d’utiliser le nom de schéma pour enlever toute ambiguïté concernant les différents locataires. Nous ne recommandons pas cette approche car elle requiert généralement l’utilisation du SQL dynamique, et elle ne peut pas être efficace pour le caching de plan. Le reste de cet article est consacré à l’approche de la table partagée pour cette catégorie d’application multilocataire.
 > 
 > 
 
-## <a name="popular-multitenant-data-models"></a>Modèles de données mutualisés courants
-Il est important d’évaluer les différents types de modèles de données mutualisés en fonction des compromis de conception d’application que nous avons déjà identifiés. Ces facteurs permettent de caractériser les trois modèles de données mutualisés courants décrits précédemment et leur utilisation des bases de données, comme illustré dans la Figure 2.
+## <a name="popular-multi-tenant-data-models"></a>Modèles de données multilocataires courants
+Il est important d’évaluer les différents types de modèles de données multilocataires en fonction des compromis de conception d’application que nous avons déjà identifiés. Ces facteurs permettent de caractériser les trois modèles de données multilocataires les plus courants décrits précédemment et leur utilisation des bases de données, comme illustré dans la Figure 2.
 
 * **Isolement**. Niveau d’isolation entre les locataires permettant de mesurer l’isolation des locataires fournie par un modèle de données.
 * **Coût des ressources du cloud**. La quantité de partage de ressources entre les clients peut optimiser le coût des ressources du cloud. Une ressource peut être définie en fonction du coût de calcul et de stockage.
@@ -87,9 +88,9 @@ Il est important d’évaluer les différents types de modèles de données mutu
 
 Dans la Figure 2, l’axe Y indique le niveau d’isolation des locataires. L’axe X indique le niveau de partage des ressources. La flèche diagonale grise au milieu indique l’évolution des coûts DevOps, à la hausse ou à la baisse.
 
-![Modèles courants de conception d’applications mutualisés](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png)
+![Modèles courants de conception d’applications multilocataires](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png)
 
-Figure 2 : Modèles de données mutualisés courants
+Figure 2 : Modèles de données multilocataires courants
 
 Dans la Figure 2, le quadrant inférieur droit montre un modèle d’application qui utilise une base de données unique partagée potentiellement volumineuse et l’approche de la table partagée (ou du schéma distinct). C’est une bonne chose pour le partage de ressources, car tous les locataires utilisent les mêmes ressources de base de données (processeur, mémoire et entrée/sortie) dans une base de données unique. Cependant, l’isolation des locataires est limitée. Vous devrez peut-être prendre des mesures supplémentaires pour protéger les locataires les uns des autres au niveau de la couche application. Ces étapes supplémentaires peuvent augmenter considérablement le coût DevOps de développement et de gestion de l’application. L’évolutivité est limitée par la mise à l’échelle du matériel qui héberge la base de données.
 
@@ -103,17 +104,17 @@ Ces facteurs influencent également le modèle de conception choisi par un clien
 * **Mettant à l’échelle**. Une application qui cible des centaines de milliers ou des millions de clients favorise les approches de partage des bases de données comme le partitionnement. Les exigences d’isolation peuvent encore poser des problèmes.
 * **Modèle de valeur et d’entreprise**. Si le chiffre d’affaires par locataire d’une application est faible (moins d’un dollar), les exigences d’isolation deviennent moins critiques et il est plus logique de recourir à des bases de données partagées. Si le chiffre d’affaires par locataire est de quelques dollars ou plus, il est préférable d’utiliser un modèle de base de données par locataire. Cela peut contribuer à réduire les coûts de développement.
 
-Selon les compromis de conception indiqués dans la Figure 2, un modèle mutualisé idéal doit intégrer de bonnes propriétés d’isolation des locataires avec une partage optimal des ressources entre locataires. Il s’agit d’un modèle qui correspond à la catégorie décrite dans le quadrant supérieur droit de la Figure 2.
+Selon les compromis de conception indiqués dans la Figure 2, un modèle multilocataire idéal doit intégrer de bonnes propriétés d’isolation des locataires avec un partage optimal des ressources entre locataires. Il s’agit d’un modèle qui correspond à la catégorie décrite dans le quadrant supérieur droit de la Figure 2.
 
-## <a name="multitenancy-support-in-azure-sql-database"></a>Prise en charge d’une architecture mutualisée dans Base de données SQL Azure
-Base de données SQL Azure prend en charge tous les modèles d’application mutualisés décrits dans la Figure 2. En plus des pools élastiques, il prend aussi en charge un modèle d’application combinant les avantages du partage des ressources et de l’isolation dans l’approche de base de données par locataire (voir le quadrant supérieur droit dans la Figure 3). Dans SQL Database, les outils et les fonctions de base de données élastiques peuvent contribuer à réduire le coût de développement et de fonctionnement d’une application qui comporte de nombreuses bases de données (comme indiqué par la zone ombrée dans la Figure 3). Ces outils peuvent vous aider à créer et gérer des applications qui utilisent des modèles de bases de données multiples.
+## <a name="multi-tenancy-support-in-azure-sql-database"></a>Prise en charge des modèles multilocataires dans Azure SQL Database
+Azure SQL Database prend en charge tous les modèles d’applications multilocataires décrits dans la Figure 2. En plus des pools élastiques, il prend aussi en charge un modèle d’application combinant les avantages du partage des ressources et de l’isolation dans l’approche de base de données par locataire (voir le quadrant supérieur droit dans la Figure 3). Dans SQL Database, les outils et les fonctions de base de données élastiques peuvent contribuer à réduire le coût de développement et de fonctionnement d’une application qui comporte de nombreuses bases de données (comme indiqué par la zone ombrée dans la Figure 3). Ces outils peuvent vous aider à créer et gérer des applications qui utilisent des modèles de bases de données multiples.
 
-![Modèles dans Base de données SQL Azure](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
+![Modèles dans Azure SQL Database](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
 
-Figure 3 : Modèles d’application mutualisés dans Base de données SQL Azure
+Figure 3 : Modèles d’applications multilocataires dans Azure SQL Database
 
 ## <a name="database-per-tenant-model-with-elastic-pools-and-tools"></a>Modèle de base de données par locataire avec outils et pools élastiques
-Dans SQL Database, les pools de base de données élastiques combinent l’isolation des locataires et le partage de ressources entre les bases de données des locataires pour mieux prendre en charge l’approche de base de données par locataire. SQL Database est une solution de couche de données pour les fournisseurs SaaS qui créent des applications mutualisées. La charge du partage de ressources entre les locataires se déplace de la couche d’application à la couche de service de base de données. La gestion et l’interrogation à l’échelle entre les bases de données deviennent plus simples avec les tâches, les requêtes et les transactions élastiques, ainsi que la bibliothèque cliente de base de données élastique.
+Dans SQL Database, les pools de base de données élastiques combinent l’isolation des locataires et le partage de ressources entre les bases de données des locataires pour mieux prendre en charge l’approche de base de données par locataire. SQL Database est une solution de couche de données pour les fournisseurs SaaS qui créent des applications multilocataires. La charge du partage de ressources entre les locataires se déplace de la couche d’application à la couche de service de base de données. La gestion et l’interrogation à l’échelle entre les bases de données deviennent plus simples avec les tâches, les requêtes et les transactions élastiques, ainsi que la bibliothèque cliente de base de données élastique.
 
 | Exigences de l’application | Fonctionnalités de Base de données SQL |
 | --- | --- |
@@ -125,7 +126,7 @@ Dans SQL Database, les pools de base de données élastiques combinent l’isola
 | | [Bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md): permet de gérer la distribution de données et de mapper les locataires sur les bases de données. |
 
 ## <a name="shared-models"></a>Modèles partagés
-Comme indiqué précédemment, pour la plupart des fournisseurs SaaS une approche de modèle partagé peut engendrer des problèmes d’isolation des locataires, mais aussi compliquer le développement et la maintenance des applications. Toutefois, pour les applications mutualisées qui fournissent directement un service aux consommateurs, les exigences d’isolation des locataires peuvent ne pas être aussi prioritaires que le désir de minimiser les coûts. Il est possible de regrouper les locataires dans une ou plusieurs bases de données haute densité afin de réduire les coûts. Les modèles de base de données partagée qui utilisent une base de données unique ou plusieurs bases de données partitionnées peuvent améliorer le partage des ressources et faire baisser les coûts globaux. Base de données SQL Azure fournit des fonctionnalités qui aident les clients à générer une isolation pour améliorer la sécurité et la gestion à grande échelle dans la couche de données.
+Comme indiqué précédemment, pour la plupart des fournisseurs SaaS une approche de modèle partagé peut engendrer des problèmes d’isolation des locataires, mais aussi compliquer le développement et la maintenance des applications. Toutefois, pour les applications multilocataires qui fournissent directement un service aux consommateurs, les exigences d’isolation des locataires peuvent ne pas être aussi prioritaires que le souhait de minimiser les coûts. Il est possible de regrouper les locataires dans une ou plusieurs bases de données haute densité afin de réduire les coûts. Les modèles de base de données partagée qui utilisent une base de données unique ou plusieurs bases de données partitionnées peuvent améliorer le partage des ressources et faire baisser les coûts globaux. Azure SQL Database fournit des fonctionnalités qui aident les clients à générer une isolation pour améliorer la sécurité et la gestion à grande échelle dans la couche de données.
 
 | Exigences de l’application | Fonctionnalités de Base de données SQL |
 | --- | --- |
@@ -138,32 +139,35 @@ Comme indiqué précédemment, pour la plupart des fournisseurs SaaS une approch
 | | [Fractionnement et fusion de base de données élastique](sql-database-elastic-scale-overview-split-and-merge.md) |
 
 ## <a name="summary"></a>Résumé
-Les exigences en matière d’isolation des locataires sont importantes pour la plupart des applications SaaS mutualisées. Pour assurer l’isolation, la meilleure solution s’appuie sur l’approche de base de données par locataire. Les deux autres approches nécessitent des investissements dans des couches d’application complexes, et donc une équipe de développement spécialisée pour assurer l’isolation, ce qui augmente largement les coûts et les risques. Si les exigences d’isolation ne sont pas prises en considération suffisamment tôt dans le développement du service, une adaptation a posteriori des deux premiers modèles peut se révéler encore plus onéreuse. Les principaux inconvénients liés au modèle de base de données par locataire concernent l’augmentation du coût des ressources cloud due à la baisse du partage, ainsi qu’à la maintenance et à la gestion d’un grand nombre de bases de données. Les développeurs d’applications SaaS sont souvent bien embêtés de devoir faire ces compromis.
+Les exigences en matière d’isolation des locataires sont importantes pour la plupart des applications multilocataires SaaS. Pour assurer l’isolation, la meilleure solution s’appuie sur l’approche de base de données par locataire. Les deux autres approches nécessitent des investissements dans des couches d’application complexes, et donc une équipe de développement spécialisée pour assurer l’isolation, ce qui augmente largement les coûts et les risques. Si les exigences d’isolation ne sont pas prises en considération suffisamment tôt dans le développement du service, une adaptation a posteriori des deux premiers modèles peut se révéler encore plus onéreuse. Les principaux inconvénients liés au modèle de base de données par locataire concernent l’augmentation du coût des ressources cloud due à la baisse du partage, ainsi qu’à la maintenance et à la gestion d’un grand nombre de bases de données. Les développeurs d’applications SaaS sont souvent bien embêtés de devoir faire ces compromis.
 
-Si ces compromis peuvent constituer des obstacles majeurs pour la plupart des fournisseurs de services de base de données cloud, ce n’est pas le cas de Base de données SQL Azure, avec son « pool élastique » et ses « fonctionnalités de base de données élastique ». Les développeurs SaaS peuvent combiner les caractéristiques d’isolation du modèle de base de données par locataire tout en optimisant le partage des ressources et la facilité de gestion d’un grand nombre de bases de données à l’aide de pools élastiques et d’outils associés.
+Si ces compromis peuvent constituer des obstacles majeurs pour la plupart des fournisseurs de services de base de données cloud, ce n’est pas le cas d’Azure SQL Database, avec son « pool élastique » et ses « fonctionnalités de base de données élastique ». Les développeurs SaaS peuvent combiner les caractéristiques d’isolation du modèle de base de données par locataire tout en optimisant le partage des ressources et la facilité de gestion d’un grand nombre de bases de données à l’aide de pools élastiques et d’outils associés.
 
-Pour les fournisseurs d’applications mutualisées qui n’affichent aucune exigence en termes d’isolation des locataires et peuvent regrouper les locataires dans une base de données à haute densité, les modèles de données partagées offrent la possibilité d’améliorer le partage des ressources et de réduire le coût total. Les outils de base de données élastiques de Base de données SQL Azure, les bibliothèques de partitionnement et les fonctionnalités de sécurité aident les fournisseurs SaaS à créer et à gérer des applications mutualisées.
+Pour les fournisseurs d’applications multilocataires qui n’affichent aucune exigence en termes d’isolation des locataires et peuvent regrouper les locataires dans une base de données à haute densité, les modèles de données partagées offrent la possibilité d’améliorer le partage des ressources et de réduire le coût total. Les outils de bases de données élastiques Azure SQL Database, les bibliothèques de partitionnement et les fonctionnalités de sécurité aident les fournisseurs SaaS à créer et à gérer des applications multilocataires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Prenez en main les outils de base de données élastiques](sql-database-elastic-scale-get-started.md) avec un exemple d’application illustrant la bibliothèque cliente.
 
 Créez un [tableau de bord personnalisé de pool élastique pour SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) avec un exemple d’application qui utilise des pools élastiques pour fournir une solution de base de données économique et évolutive.
 
-Utilisez les outils de Base de données SQL Azure pour [migrer les bases de données et augmenter la taille des instances](sql-database-elastic-convert-to-use-elastic-tools.md).
+Utilisez les outils d’Azure SQL Database pour [migrer les bases de données et augmenter la taille des instances](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 Pour créer un pool élastique avec le portail Microsoft Azure, consultez [Création d’un pool élastique](sql-database-elastic-pool-manage-portal.md).  
 
 Découvrez comment [surveiller et gérer un pool élastique](sql-database-elastic-pool-manage-portal.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
+
+* [Déployer et explorer une application multilocataire qui utilise Azure SQL Database - Wingtip SaaS](sql-database-saas-tutorial.md)
 * [Qu’est-ce qu’un pool élastique Azure ?](sql-database-elastic-pool.md)
-* [Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md)
-* [Applications mutualisées avec des outils de base de données élastique et la sécurité au niveau des lignes](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-* [Authentification sur des applications mutualisées à l’aide d’Azure Active Directory et d’OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+* [Montée en charge avec Azure SQL Database](sql-database-elastic-scale-introduction.md)
+* [applications multilocataires avec des outils de bases de données élastiques et la sécurité au niveau des lignes](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+* [Authentification dans des applications multilocataires à l’aide d’Azure Active Directory et d’OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Application Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 
 ## <a name="questions-and-feature-requests"></a>Questions et demandes de fonctionnalités
+
 Pour toute question, retrouvez-nous sur le [forum de Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Ajoutez une demande de fonctionnalité dans le [forum de commentaires de Base de données SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 

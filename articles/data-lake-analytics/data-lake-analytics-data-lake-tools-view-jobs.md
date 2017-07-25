@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/17/2016
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: ac5a64b759376c06e058ae015b73f1b73b7d1e7b
-ms.openlocfilehash: 8f3c0f7a1b16afdbada39017d28bed49620cc34c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 2e5dbaf595e3d3cd7dee09431fbb1cb6f2403ef4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -172,18 +174,8 @@ L’option Détail de la tâche affiche des informations détaillées sur le tra
     Affiche des détails sur l’exécution des vertex. Le profil du travail archive chaque journal d’exécution du vertex, notamment le total des données lues/écrites, le temps d’exécution, l’état, etc. Dans cette vue, vous pouvez obtenir plus d’informations sur la façon dont un travail a été exécuté. Pour plus d’informations, consultez [Utilisation de la vue d’exécution du vertex dans Azure Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour obtenir une vue d'ensemble de Data Lake Analytics, consultez [Vue d'ensemble de Data Lake Analytics Azure](data-lake-analytics-overview.md).
-* Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* Pour connaître U-SQL, voir [Prise en main du langage U-SQL d’Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
-* Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 * Pour consigner les informations de diagnostic, consultez [Accès aux journaux de diagnostic d’Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Pour voir une requête plus complexe, consultez [Analyse de journaux des sites web à l'aide d'Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Pour utiliser la vue d’exécution du vertex, consultez [Utilisation de la vue d’exécution du vertex dans Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-* Pour découvrir les outils Data Lake pour Visual Studio Code, consultez la page [Use the Azure Data Lake Tools for Visual Studio Code (Utiliser les outils Azure Data Lake pour Visual Studio Code)](data-lake-analytics-data-lake-tools-for-vscode.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

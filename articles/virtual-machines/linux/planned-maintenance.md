@@ -16,15 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2017
 ms.author: zivr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 28c2fb5a67eca0c5ab2f0299bba7c11375e10558
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: f5e52f4642b85a75f0c9f1892fbf0e565aa8b35b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
 
-# <a name="planned-maintenance-for-linux-virtual-machines"></a>Maintenance planifiée pour les machines virtuelles Linux 
+<a id="planned-maintenance-for-linux-virtual-machines" class="xliff"></a>
+
+# Maintenance planifiée pour les machines virtuelles Linux 
 
 Microsoft Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilité, les performances et la sécurité de l’infrastructure hôte qui supporte les machines virtuelles. Ces mises à jour vont de la mise à jour corrective de composants logiciels dans l’environnement d’hébergement (système d’exploitation, hyperviseur et différents agents déployés sur l’hôte) en passant par la mise à niveau des composants réseau, jusqu’à la désaffectation de matériel.
 
@@ -36,4 +38,5 @@ Cependant, il existe des cas où les mises à jour ont un impact sur les machine
 
 -   La maintenance avec redémarrage des machines virtuelles, qui nécessite un redémarrage ou un redéploiement sur les machines virtuelles hébergées.
 
-Notez que cette page décrit comment Microsoft Azure effectue une maintenance planifiée. Pour plus d’informations sur les événements non planifiés (interruptions), consultez [Gérer la disponibilité des machines virtuelles](../windows/manage-availability.md).
+Notez que cette page décrit comment Microsoft Azure effectue une maintenance planifiée. Pour plus d’informations sur les événements non planifiés (interruptions), consultez [Gérer la disponibilité des machines virtuelles](../linux/manage-availability.md).
+

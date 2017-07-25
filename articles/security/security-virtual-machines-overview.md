@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 05/04/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 70d22ae8d7f67f1e12a233e004f1eb749927e7d8
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 9307b1688ed9e3dc412d044e72bdf88b7bb4d1ec
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="azure-virtual-machines-security-overview"></a>Vue d’ensemble de la sécurité des machines virtuelles Azure
+<a id="azure-virtual-machines-security-overview" class="xliff"></a>
+
+# Vue d’ensemble de la sécurité des machines virtuelles Azure
 Azure Virtual Machines vous permet de déployer un large éventail de solutions de calcul de façon agile. Avec la prise en charge de Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP et Azure BizTalk Services, vous pouvez déployer des charges de travail et des langages variés sur la plupart des systèmes d’exploitation.
 
 Une machine virtuelle Azure vous donne la flexibilité de la virtualisation sans devoir acheter le matériel physique qui exécute la machine virtuelle ni en assurer la maintenance.  Vous pouvez créer et déployer vos applications en ayant la certitude que vos données sont protégées au sein de nos centres de données hautement sécurisés.
@@ -47,8 +50,10 @@ Les principales fonctionnalités de sécurité des machines virtuelles Azure son
 * Gestion des stratégies de sécurité et création de rapports
 * Conformité
 
-## <a name="antimalware"></a>Logiciel anti-programme malveillant
-Azure met à votre disposition des logiciels anti-programmes malveillants provenant de fournisseurs de sécurité tels que Microsoft, Symantec, Trend Micro, McAfee et Kaspersky. Ceux-ci permettent de protéger vos machines virtuelles contre les fichiers malveillants, les logiciels de publicité et d’autres menaces. Consultez la section En savoir plus ci-dessous pour rechercher des articles sur les solutions partenaires.
+<a id="antimalware" class="xliff"></a>
+
+## Logiciel anti-programme malveillant
+Azure met à votre disposition des logiciels anti-programmes malveillants provenant de fournisseurs de sécurité tels que Microsoft, Symantec, Trend Micro et Kaspersky. Ceux-ci permettent de protéger vos machines virtuelles contre les fichiers malveillants, les logiciels de publicité et d’autres menaces. Consultez la section En savoir plus ci-dessous pour rechercher des articles sur les solutions partenaires.
 
 Microsoft Antimalware pour Azure Cloud Services et Virtual Machines offre une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants.  Microsoft Antimalware fournit des alertes configurables lorsqu’un logiciel malveillant ou indésirable connu tente de s’installer ou de s’exécuter sur vos systèmes Azure.
 
@@ -73,10 +78,11 @@ En savoir plus : pour en savoir plus sur les logiciels anti-programme malveillan
 * [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure (en anglais)](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows](../virtual-machines/windows/classic/install-trend.md)
 * [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows](../virtual-machines/windows/classic/install-symantec.md)
-* [Nouvelles options anti-programmes malveillants pour protéger les machines virtuelles – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 * [Solutions de sécurité dans Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-## <a name="hardware-security-module"></a>Module de sécurité matériel
+<a id="hardware-security-module" class="xliff"></a>
+
+## Module de sécurité matériel
 Le chiffrement et l’authentification n’améliorent pas la sécurité, sauf si les clés elles-mêmes sont protégées. Vous pouvez simplifier la gestion et la sécurité de vos clés et secrets critiques en les stockant dans Azure Key Vault. Key Vault permet de stocker les clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Vos clés de chiffrement SQL Server pour la sauvegarde ou le [chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx) peuvent toutes être stockées dans Key Vault avec les clés ou secrets de vos applications. Les autorisations et l’accès à ces éléments protégés sont gérés via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 En savoir plus :
@@ -85,7 +91,9 @@ En savoir plus :
 * [Prise en main du coffre de clés Azure](../key-vault/key-vault-get-started.md)
 * [Blog Azure Key Vault](https://blogs.technet.microsoft.com/kv/)
 
-## <a name="virtual-machine-disk-encryption"></a>Chiffrement du disque de machine virtuelle
+<a id="virtual-machine-disk-encryption" class="xliff"></a>
+
+## Chiffrement du disque de machine virtuelle
 Azure Disk Encryption est une nouvelle fonctionnalité qui vous permet de chiffrer vos disques de machine virtuelle Windows et Linux Azure. Azure Disk Encryption utilise la fonctionnalité standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) Windows et la fonctionnalité [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux pour fournir le chiffrement de volume du système d’exploitation et des disques de données.
 
 La solution est intégrée à Azure Key Vault pour vous aider à contrôler et à gérer les clés de chiffrement de disque et les secrets de votre abonnement au coffre de clés, tout en vous assurant que toutes les données des disques virtuels sont chiffrées au repos dans le stockage Azure.
@@ -96,7 +104,9 @@ En savoir plus :
 * [Azure Disk Encryption pour les machines virtuelles Windows et Linux](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
 * [Chiffrement d’une machine virtuelle](../security-center/security-center-disk-encryption.md)
 
-## <a name="virtual-machine-backup"></a>Sauvegarde de machine virtuelle
+<a id="virtual-machine-backup" class="xliff"></a>
+
+## Sauvegarde de machine virtuelle
 Azure Backup est une solution évolutive qui protège les données de vos applications, sans investissement en capital et avec des frais de fonctionnement minimaux. Les erreurs rencontrées par les applications peuvent endommager vos données et les erreurs humaines peuvent introduire des bogues dans vos applications. Avec Azure Backup, vos machines virtuelles exécutant Windows et Linux sont protégées.
 
 En savoir plus :
@@ -105,7 +115,9 @@ En savoir plus :
 * [Parcours d’apprentissage Azure Backup](https://azure.microsoft.com/documentation/learning-paths/backup/)
 * [Service Azure Backup – Forum aux questions](../backup/backup-azure-backup-faq.md)
 
-## <a name="azure-site-recovery"></a>Azure Site Recovery
+<a id="azure-site-recovery" class="xliff"></a>
+
+## Azure Site Recovery
 Une partie importante de la stratégie de continuité des activités et de récupération d’urgence de votre organisation consiste à savoir comment maintenir les charges de travail et les applications d’entreprise opérationnelles lorsque des interruptions planifiées et non planifiées se produisent. Azure Site Recovery aide à coordonner la réplication, le basculement et la récupération des charges de travail et des applications afin qu’elles soient disponibles à partir d’un site secondaire si votre site principal tombe en panne.
 
 Site Recovery :
@@ -122,7 +134,9 @@ En savoir plus :
 * [Comment Azure Site Recovery fonctionne-t-il ?](../site-recovery/site-recovery-components.md)
 * [Quelles sont les charges de travail protégées par Azure Site Recovery ?](../site-recovery/site-recovery-workload.md)
 
-## <a name="virtual-networking"></a>Réseau virtuel
+<a id="virtual-networking" class="xliff"></a>
+
+## Réseau virtuel
 Les machines virtuelles nécessitent une connectivité réseau. Pour cela, les machines virtuelles doivent être connectées à un réseau virtuel Azure. Un réseau virtuel Azure est une construction logique basée sur le réseau physique Azure. Chaque réseau virtuel logique Azure est isolé des autres réseaux virtuels Azure. Cet isolement permet de s’assurer que le trafic réseau dans votre déploiement n’est pas accessible aux autres clients Microsoft Azure.
 
 En savoir plus :
@@ -131,7 +145,9 @@ En savoir plus :
 * [Présentation du réseau virtuel.](../virtual-network/virtual-networks-overview.md)
 * [Fonctionnalités de mise en réseau et partenariats pour les scénarios d’entreprise](https://azure.microsoft.com/blog/networking-enterprise/)
 
-## <a name="security-policy-management-and-reporting"></a>Gestion des stratégies de sécurité et création de rapports
+<a id="security-policy-management-and-reporting" class="xliff"></a>
+
+## Gestion des stratégies de sécurité et création de rapports
 Azure Security Center vous aide à prévenir, détecter et résoudre les menaces, en vous apportant une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
 Le Centre de sécurité Azure vous permet d’optimiser et de surveiller la sécurité des machines virtuelles grâce aux opérations suivantes :
@@ -145,7 +161,9 @@ En savoir plus :
 * [FAQ du Centre de sécurité Azure](../security-center/security-center-faq.md)
 * [Opérations et planification du Centre de sécurité Azure](../security-center/security-center-planning-and-operations-guide.md)
 
-## <a name="compliance"></a>Conformité
+<a id="compliance" class="xliff"></a>
+
+## Conformité
 Azure Virtual Machines bénéficie des certifications FISMA, FedRAMP, HIPAA, PCI DSS Level 1 et de celles d’autres programmes majeurs de conformité. Cette certification facilite le respect des exigences de conformité pour vos propres applications Azure, et donne à votre entreprise la possibilité de se conformer à un large éventail d’exigences réglementaires internationales et locales.
 
 En savoir plus :

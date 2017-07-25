@@ -18,7 +18,6 @@ ms.openlocfilehash: bb836357af6d006c18db578164f02fa7bd043b45
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>Diagnostiquer les changements soudains dans la télémétrie de votre application
 
@@ -33,8 +32,8 @@ Dans cet exemple, Smart Diagnostics a identifié un modèle de valeurs de propri
 
 ## <a name="diagnose-data-changes"></a>Diagnostiquer les modifications de données
 
-1.    Exécutez une requête dans Analytics et affichez-la sous la forme d’un graphique de temps. 
-2.    Cliquez sur l’un des points représentant un pic d’activité, le cas échéant.
+1.  Exécutez une requête dans Analytics et affichez-la sous la forme d’un graphique de temps. 
+2.  Cliquez sur l’un des points représentant un pic d’activité, le cas échéant.
  
     ![point représentant un pic d’activité](./media/app-insights-analytics-diagnostics/peak.png)
 
@@ -48,11 +47,11 @@ Dans cet exemple, Smart Diagnostics a identifié un modèle de valeurs de propri
 
     Notez également les deux composants du graphique, avec un filtre true et false. Le composant false indique une tendance inchangée. En d’autres termes, il n’y a aucune modification des résultats de télémétrie, si l’on exclut la combinaison problématique de dimensions identifiée par Diagnostics. En revanche, les résultats de cette combinaison montrent une modification très importante dans la zone d’investigation sélectionnée. Cela indique que Diagnostics a trouvé une combinaison de propriétés expliquant cette modification.
 
-4.    Si le modèle est complexe, vous devrez passer la souris sur **Afficher tout** pour voir les dimensions.
+4.  Si le modèle est complexe, vous devrez passer la souris sur **Afficher tout** pour voir les dimensions.
 
     ![afficher tout](./media/app-insights-analytics-diagnostics/show-all.png)
  
-5.    Si Diagnostics ne trouve aucun modèle significatif, la page « aucun résultat » s’affiche. À ce stade, vous pouvez modifier votre requête. Par exemple, vous pouvez limiter l’intervalle de temps et compartimenter la requête Analytics, pour une analyse plus approfondie et obtenir potentiellement de meilleurs résultats.
+5.  Si Diagnostics ne trouve aucun modèle significatif, la page « aucun résultat » s’affiche. À ce stade, vous pouvez modifier votre requête. Par exemple, vous pouvez limiter l’intervalle de temps et compartimenter la requête Analytics, pour une analyse plus approfondie et obtenir potentiellement de meilleurs résultats.
 
 Maintenant que vous savez qu’une page spécifique de votre site web a un problème sur un navigateur en particulier, vous pouvez désormais accéder directement à la page en question et examiner les modifications récentes.
 

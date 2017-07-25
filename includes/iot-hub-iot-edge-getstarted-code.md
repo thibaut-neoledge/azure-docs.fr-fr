@@ -1,6 +1,6 @@
 ## <a name="typical-output"></a>Exemple de résultat
 
-Voici un exemple de sortie inscrit dans le fichier journal par l’exemple Hello World. Nous avons mis la sortie en forme pour optimiser la lisibilité :
+L’exemple ci-après présente la sortie inscrite dans le fichier journal par l’exemple Hello World. Nous avons mis la sortie en forme pour optimiser la lisibilité :
 
 ```json
 [{
@@ -36,9 +36,9 @@ Cette section présente certains éléments clés du code dans l’exemple hello
 
 ### <a name="iot-edge-gateway-creation"></a>Création de la passerelle IoT Edge
 
-Le développeur doit écrire le *processus de passerelle*. Ce programme crée l’infrastructure interne (le répartiteur), charge les modules IoT Edge et configure tous les éléments pour qu’ils fonctionnent correctement. IoT Edge fournit la fonction **Gateway\_Create\_From\_JSON** pour vous permettre d’amorcer une passerelle à partir d’un fichier JSON. Pour pouvoir utiliser la fonction **Gateway\_Create\_From\_JSON**, vous devez lui transmettre le chemin d’accès à un fichier JSON qui spécifie les modules IoT Edge à charger.
+Vous devez implémenter un *processus de passerelle*. Ce programme crée l’infrastructure interne (le répartiteur), charge les modules IoT Edge et configure le processus de passerelle. IoT Edge fournit la fonction **Gateway\_Create\_From\_JSON** pour vous permettre d’amorcer une passerelle à partir d’un fichier JSON. Pour utiliser la fonction **Gateway\_Create\_From\_JSON**, transmettez-lui le chemin d’accès à un fichier JSON qui spécifie les modules IoT Edge à charger.
 
-Vous trouverez le code du processus de passerelle dans l’exemple Hello World du fichier [main.c][lnk-main-c]. Pour une meilleure lisibilité, l’extrait de code ci-dessous affiche une version abrégée du code du processus de passerelle. Cet exemple crée une passerelle, puis attend que l’utilisateur appuie sur la touche **ENTRÉE** avant de mettre fin à la passerelle.
+Vous trouverez le code du processus de passerelle de l’exemple *Hello World* dans le fichier [main.c][lnk-main-c]. Pour une meilleure lisibilité, l’extrait de code ci-dessous affiche une version abrégée du code du processus de passerelle. Cet exemple crée une passerelle, puis attend que l’utilisateur appuie sur la touche **ENTRÉE** avant de mettre fin à la passerelle.
 
 ```c
 int main(int argc, char** argv)
@@ -62,9 +62,9 @@ int main(int argc, char** argv)
 Le fichier de paramètres JSON contient une liste des modules IoT Edge à charger et des liens entre ces modules. Chaque module IoT Edge doit spécifier les éléments suivants :
 
 * **nom** : un nom unique pour le module.
-* **chargeur** : un chargeur qui sait comment charger le module souhaité. Les chargeurs correspondent à un point d’extension pour le chargement des différents types de modules. Nous fournissons des chargeurs compatibles avec des modules écrits nativement en C, en Node.js, en Java et en .NET. L’exemple Hello World utilise uniquement le chargeur C natif, car tous les modules de cet exemple sont des bibliothèques dynamiques écrites en C. Reportez-vous aux exemples [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample) ou [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) pour en savoir plus sur l’utilisation des modules IoT Edge écrits dans d’autres langages.
-    * **nom** : nom du chargeur utilisé pour charger le module.
-    * **point d’entrée** : le chemin d'accès à la bibliothèque contenant le module. Il s’agit d’un fichier .so sous Linux, et d’un fichier .dll sous Windows. Le point d’entrée est spécifique au type de chargeur utilisé. Le point d’entrée du chargeur Node.js est un fichier .js. Le point d’entrée du chargeur Java est un chemin de classe associé à un nom de classe. Le point d’entrée du chargeur .NET est un nom d’assembly associé à un nom de classe.
+* **chargeur** : un chargeur qui sait comment charger le module souhaité. Les chargeurs correspondent à un point d’extension pour le chargement des différents types de modules. IoT Edge fournit des chargeurs compatibles avec des modules écrits nativement en C, en Node.js, en Java et en .NET. L’exemple Hello World utilise uniquement le chargeur C natif, car tous les modules de cet exemple sont des bibliothèques dynamiques écrites en C. Reportez-vous aux exemples [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample) ou [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) pour en savoir plus sur l’utilisation des modules IoT Edge écrits dans d’autres langages.
+    * **nom** : le nom du chargeur utilisé pour charger le module.
+    * **point d’entrée** : le chemin d'accès à la bibliothèque contenant le module. Il s’agit d’un fichier .so sous Linux, et d’un fichier .dll sous Windows. Le point d’entrée est spécifique au type de chargeur utilisé. Le point d’entrée du chargeur Node.js est un fichier .js. Le point d’entrée du chargeur Java est un chemin de classe et un nom de classe. Le point d’entrée du chargeur .NET est un nom d’assembly et un nom de classe.
 
 * **args** : toute information de configuration nécessaire au module.
 
@@ -98,10 +98,10 @@ Le code suivant correspond au code JSON utilisé pour déclarer tous les module
 
 Le fichier JSON contient également les liaisons entre les modules transmis au répartiteur. Une liaison possède deux propriétés :
 
-* **source** : un nom de module de la section `modules`, ou « \* ».
+* **source** : un nom de module de la section `modules`, ou `\*`.
 * **récepteur** : un nom de module de la section `modules`.
 
-Chaque liaison définit un itinéraire de message et une direction. Les messages du module `source` sont remis au module `sink`. `source` peut avoir la valeur « \* », qui signifie que `sink` reçoit des messages à partir de n’importe quel module.
+Chaque liaison définit un itinéraire de message et une direction. Les messages du module **source** sont remis au module **sink**. Vous pouvez définir le module **source** sur `\*`, ce qui indique que le module **sink** reçoit les messages de n’importe quel module.
 
 Le code suivant correspond au code JSON utilisé pour configurer les liens entre les modules utilisés dans l’exemple hello\_world sur Linux. Tous les messages générés par le module `hello_world` sont utilisés par le module `logger`.
 
@@ -180,7 +180,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 
 Le module d’enregistreur d’événements reçoit des messages du répartiteur et les écrit dans un fichier. Il ne publie jamais les messages. Par conséquent, le code du module enregistreur n’appelle jamais la fonction **Broker_Publish**.
 
-La fonction **Logger_Recieve** du fichier [logger.c][lnk-logger-c] est le rappel que le répartiteur appelle pour remettre les messages au module enregistreur. L’extrait de code ci-dessous représente une version modifiée de ce code. Les commentaires ajoutés et une partie du code de gestion d’erreur utilisé ont été supprimés pour une meilleure lisibilité :
+La fonction **Logger_Receive** du fichier [logger.c][lnk-logger-c] est le rappel que le répartiteur appelle pour remettre les messages au module enregistreur. L’extrait de code ci-dessous représente une version modifiée de ce code. Les commentaires ajoutés et une partie du code de gestion d’erreur utilisé ont été supprimés pour une meilleure lisibilité :
 
 ```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -223,14 +223,13 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir comment utiliser Azure IoT Edge, consultez les articles suivants :
+Dans le cadre de cet article, vous avez exécuté une passerelle IoT Edge simple qui consigne des messages dans un fichier journal. Pour exécuter un exemple qui envoie des messages à IoT Hub, consultez l’article [Utilisation d’Azure IoT Edge pour envoyer des messages appareil-à-cloud avec un appareil simulé (Linux)][lnk-gateway-simulated-linux] ou [Utilisation d’Azure IoT Edge pour envoyer des messages appareil-à-cloud avec un appareil simulé (Windows)][lnk-gateway-simulated-windows].
 
-* [IoT Edge – send device-to-cloud messages with a simulated device using Linux (IoT Edge : envoyer des messages appareil-à-cloud avec un appareil simulé à l’aide de Linux)][lnk-gateway-simulated].
-* [Azure IoT Edge][lnk-iot-edge] sur GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/iot-edge/blob/master/samples/hello_world/src/main.c
 [lnk-helloworld-c]: https://github.com/Azure/iot-edge/blob/master/modules/hello_world/src/hello_world.c
 [lnk-logger-c]: https://github.com/Azure/iot-edge/blob/master/modules/logger/src/logger.c
 [lnk-iot-edge]: https://github.com/Azure/iot-edge/
-[lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md
+[lnk-gateway-simulated-linux]: ../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md
+[lnk-gateway-simulated-windows]: ../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md

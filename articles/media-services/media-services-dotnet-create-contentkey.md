@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c547afd9535eb4764caf6b37d4e38a22f6e88186
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="create-contentkeys-with-net"></a>Création de ContentKeys avec .NET
@@ -67,7 +68,7 @@ Une des valeurs que vous devez définir lors de la création d’une clé de con
         EnvelopeEncryption = 4
     }
 
-## <a name="a-idenvelopecontentkeyacreate-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Créer une ContentKey de type enveloppe
+## <a id="envelope_contentkey"></a>Créer une ContentKey de type enveloppe
 L’extrait de code suivant crée une clé de contenu du type de chiffrement d’enveloppe. Il associe ensuite la clé à l’élément multimédia spécifié.
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -104,7 +105,7 @@ appel
 
 
 
-## <a name="a-idcommoncontentkeyacreate-common-type-contentkey"></a><a id="common_contentkey"></a>Créer une ContentKey de type commun
+## <a id="common_contentkey"></a>Créer une ContentKey de type commun
 L’extrait de code suivant crée une clé de contenu du type de chiffrement commun. Il associe ensuite la clé à l’élément multimédia spécifié.
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
@@ -147,10 +148,5 @@ appel
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

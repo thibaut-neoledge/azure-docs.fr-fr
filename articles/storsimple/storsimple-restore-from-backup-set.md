@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c507135c4db758e58d8236de4bc76435b8caf32d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 12484338f5b4d489604d70a657ef0992b6267297
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -64,7 +66,7 @@ Avant de lancer la restauration d’un volume, assurez-vous que celui-ci est hor
    1. Sélectionnez l’appareil approprié.
    2. Dans la liste déroulante, choisissez la stratégie de sauvegarde ou le volume pour la sauvegarde à sélectionner.
    3. Indiquez l’intervalle de temps.
-   4. Cliquez sur l’icône en forme de coche  ![icône en forme de coche](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png)  pour exécuter cette requête.
+   4. Cliquez sur l’icône en forme de coche  ![icône en forme de coche](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) pour exécuter cette requête.
       
       Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 3. Développez le jeu de sauvegarde pour afficher les volumes associés. Ces volumes doivent être mis hors connexion sur l’hôte et l’appareil avant leur restauration. Suivez les étapes de la [Mise hors connexion d’un volume](storsimple-manage-volumes.md#take-a-volume-offline).
@@ -87,10 +89,5 @@ Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de cl
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [gérer des volumes StorSimple](storsimple-manage-volumes.md).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

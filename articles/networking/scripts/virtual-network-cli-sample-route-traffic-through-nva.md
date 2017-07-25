@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 07/07/2017
 ms.author: jdial
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e1ab4fd899b31eba3929b8c78e04bc8c09f39e14
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 78091b515c00591a4af8d807945475b6be50188a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -32,10 +32,11 @@ Cet exemple de script permet de créer un réseau virtuel avec des sous-réseaux
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+
 ## <a name="sample-script"></a>Exemple de script
 
 
-[!code-azurecli[principal](../../../cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh "Acheminer le trafic via une appliance virtuelle réseau")]
+[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh "Acheminer le trafic via une appliance virtuelle réseau")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 

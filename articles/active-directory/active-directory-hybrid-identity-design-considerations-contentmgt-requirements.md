@@ -1,6 +1,6 @@
 ---
-title: "Considérations relatives à la conception d&quot;identités hybrides Azure Active Directory : déterminer les exigences en matière de gestion de contenu | Microsoft Docs"
-description: "Fournit un aperçu de la façon de déterminer les besoins de gestion de contenu de votre entreprise. Généralement, lorsqu&quot;un utilisateur a son propre appareil, il a peut-être également plusieurs informations d&quot;identification qu’il utilisera en alternance en fonction de l&quot;application utilisée. Il est important de faire la différence entre le contenu créé avec des informations d&quot;identification personnelles et celui créé avec des informations d&quot;identification d’entreprise. Votre solution d&quot;identité doit être en mesure d&quot;interagir avec les services du cloud pour fournir une expérience transparente à l&quot;utilisateur final, tout en garantissant sa confidentialité et en augmentant la protection contre les fuites de données."
+title: "Considérations relatives à la conception d'identités hybrides Azure Active Directory : déterminer les exigences en matière de gestion de contenu | Microsoft Docs"
+description: "Fournit un aperçu de la façon de déterminer les besoins de gestion de contenu de votre entreprise. Généralement, lorsqu'un utilisateur a son propre appareil, il a peut-être également plusieurs informations d'identification qu’il utilisera en alternance en fonction de l'application utilisée. Il est important de faire la différence entre le contenu créé avec des informations d'identification personnelles et celui créé avec des informations d'identification d’entreprise. Votre solution d'identité doit être en mesure d'interagir avec les services du cloud pour fournir une expérience transparente à l'utilisateur final, tout en garantissant sa confidentialité et en augmentant la protection contre les fuites de données."
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 69f7b49fd82e4d34b1d54718cfbd2f4dedd2ae47
 ms.openlocfilehash: 2b0ff24b692b9be7c7792d6f78e31ac2a7d8a97e
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/05/2017
-
 
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Déterminer les exigences de gestion de contenu pour votre solution d'identité hybride

@@ -167,7 +167,7 @@ Pour modifier la valeur par défaut, ouvrez le fichier `app.config` à partir de
 
       <!--Table creation options -->
       <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}">
+      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/11/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 6e91a8b21fe7bfe2c6944cfa1c10d835a75ddd13
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 848284f37ae2470a169d8f8a8c9c0bb5b926abe3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -64,8 +64,7 @@ Effectuez ces étapes préalables avant d’installer manuellement le service Mo
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Installer le service Mobilité manuellement à l’aide de l’interface utilisateur
 
 >[!IMPORTANT]
-> L’installation basée sur l’interface utilisateur fonctionne uniquement avec les systèmes d’exploitation Windows.
-> Si vous utilisez un Configuration Server pour répliquer des machines virtuelles Azure IaaS d’un abonnement/une région Azure à un(e) autre, utilisez la méthode d’installation par de ligne de commande
+> Si vous utilisez un **Serveur de configuration** pour répliquer les **machines virtuelles Azure IaaS** d’un abonnement/d’une région Azure sur un(e) autre, il vous faudra **utiliser la méthode d’installation en ligne de commande**.
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 

@@ -1,29 +1,27 @@
 ---
 title: "Bibliothèques de connexions de la base de données Azure pour PostgreSQL | Microsoft Docs"
-description: "Liste chaque bibliothèque ou pilote que les programmes clients peuvent utiliser pour se connecter à la base de données Azure pour PostgreSQL."
-keywords: azure cloud postgresql postgres
+description: "Cet article décrit plusieurs bibliothèques et pilotes que les développeurs peuvent utiliser lorsqu’ils codent des applications pour se connecter à une base de données Azure pour PostgreSQL et l’interroger."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
-ms.service: postgresql - database
-ms.tgt_pltfrm: portal
+editor: jasonwhowell
+ms.service: postgresql-database
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/15/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6bb3f393a8e9533b86919e9a1ebe3490ab838714
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 7099e26fd749820ab6869c0262e1f97d993ab7b2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Bibliothèques de connexions de la base de données Azure pour PostgreSQL
-Cette rubrique liste toutes les bibliothèques et tous les pilotes que les programmes clients peuvent utiliser pour se connecter à la base de données Azure pour PostgreSQL.
+Cette rubrique répertorie les bibliothèques et pilotes que les développeurs peuvent utiliser lorsqu’ils programment des applications pour se connecter à une base de données Azure pour PostgreSQL et l’interroger.
 
 ## <a name="client-interfaces"></a>Interfaces clients
-La plupart des bibliothèques clientes de langages qui se connectent au serveur PostgreSQL sont des projets externes, distribués de manière indépendante. Ils sont pris en charge sur les plateformes Windows, Linux et Mac. Voici quelques-uns des pilotes clients les plus courants.
+La plupart des bibliothèques clientes de langages qui se connectent au serveur PostgreSQL sont des projets externes, distribués de manière indépendante. Ils sont pris en charge sur les plateformes Windows, Linux et Mac. Voici quelques-uns des pilotes clients les plus courants :
+
 | **Langage** | **Interface client** | **Informations supplémentaires** | **Télécharger** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
 | Python | [psycopg](http://initd.org/psycopg/) | Compatible DB API 2.0 | [Télécharger](http://initd.org/psycopg/download/) |
@@ -38,7 +36,7 @@ La plupart des bibliothèques clientes de langages qui se connectent au serveur 
 | C++ | [libpqxx](http://pqxx.org/) | Interface C++ remaniée | [Télécharger](http://pqxx.org/download/software/) |
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Vous trouverez une vue d’ensemble du service à la page [Vue d’ensemble de la base de données Azure pour PostgreSQL](overview.md).
-- Pour plus d’informations sur les serveurs, consultez la page [Base de données Azure pour les serveurs PostgreSQL](concepts-servers.md).
-- Pour créer votre premier serveur PostgreSQL, consultez la page [Créer une base de données Azure pour PostgreSQL sur le Portail Azure](quickstart-create-server-database-portal.md).
+Lisez ces guides de démarrage rapide expliquant comment vous connecter à une base de données Azure pour PostgreSQL et l’interroger à l’aide du langage de votre choix :
+
+[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET (C#)](./connect-csharp.md)
 

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/28/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80d58a6ab5f2148b2391d4d63e70371724e5990b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a61c57cd74a0df8363648dd8df40e433b0e6489d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -118,7 +120,7 @@ Vous [avez créé un volume](storsimple-deployment-walkthrough-u2.md#step-6-crea
       
         ![Spécifier l’ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
    2. Nous vous recommandons de cocher la case **Autoriser une sauvegarde par défaut pour ce volume** .
-   3. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)  pour créer le volume avec les paramètres spécifiés.
+   3. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) pour créer le volume avec les paramètres spécifiés.
 
 Le nouveau volume est maintenant prêt à l’emploi.
 
@@ -154,9 +156,9 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 6. Enregistrez vos modifications en cliquant sur l’icône en forme de coche  ![icône-coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). Le portail Azure Classic affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
 7. Si vous développez un volume, procédez comme suit sur votre ordinateur hôte Windows :
    
-   1. Accédez à **Gestion de l’ordinateur** ->** Gestion des disques**.
+   1. Accédez à **Gestion de l’ordinateur** -> **Gestion des disques**.
    2. Cliquez avec le bouton droit sur **Gestion des disques**, puis sélectionnez **Analyser les disques de nouveau**.
-   3. Dans la liste des disques, sélectionnez le volume que vous avez mis à jour, cliquez avec le bouton droit, puis sélectionnez **Étendre le volume**. L’Assistant Étendre le volume démarre. Cliquez sur **Next**.
+   3. Dans la liste des disques, sélectionnez le volume que vous avez mis à jour, cliquez avec le bouton droit, puis sélectionnez **Étendre le volume**. L’Assistant Étendre le volume démarre. Cliquez sur **Suivant**.
    4. Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Une fois l’Assistant terminé, le volume doit afficher la taille augmentée.
       
       > [!NOTE]
@@ -214,8 +216,8 @@ Si vous convertissez plusieurs volumes (prenant en charge différentes charges d
 5. Cliquez sur l’icône en forme de flèche ![Icône en forme de flèche](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) pour accéder à la page **Paramètres supplémentaires** . Si vous configurez un volume épinglé localement, le message suivant s'affiche.
    
     ![Message de modification du type de volume](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
-6. Cliquez sur l’icône en forme de flèche  ![Icône en forme de flèche](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)  pour continuer.
-7. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png)  pour démarrer le processus de conversion. Le portail Azure affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
+6. Cliquez sur l’icône en forme de flèche  ![Icône en forme de flèche](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) pour continuer.
+7. Cliquez sur l’icône en forme de coche  ![Icône en forme de coche](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) pour démarrer le processus de conversion. Le portail Azure affiche un message de mise à jour de volume. Il affiche un message de réussite quand le volume a été mis à jour avec succès.
 
 ## <a name="take-a-volume-offline"></a>Mise hors connexion d’un volume
 Vous devrez peut-être mettre un volume hors connexion si vous envisagez de le modifier ou de le supprimer. Lorsqu’un volume est hors connexion, il n’est pas disponible pour l’accès en lecture-écriture. Vous devrez mettre le volume hors connexion à la fois sur l’ordinateur hôte et sur l’appareil. 
@@ -253,7 +255,7 @@ Pour supprimer un volume, procédez comme indiqué ci-dessous.
 5. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération. Le volume est ensuite supprimé et la liste des volumes du conteneur affichée dans la page **Volumes** est mise à jour.
    
    > [!NOTE]
-   > Si vous supprimez un volume épinglé localement, l'espace disponible pour les nouveaux volumes ne sera peut-être pas mis à jour immédiatement. Le service StorSimple Manager met à jour l'espace local disponible régulièrement. Nous vous recommandons de patienter quelques minutes avant d’essayer de créer le volume.<br>  En outre, les tâches de suppression de volume s’exécutent de façon séquentielle si vous supprimez un volume épinglé localement, puis un autre volume du même type immédiatement après. La première tâche de suppression de volume doit se terminer pour que la deuxième puisse commencer.
+   > Si vous supprimez un volume épinglé localement, l'espace disponible pour les nouveaux volumes ne sera peut-être pas mis à jour immédiatement. Le service StorSimple Manager met à jour l'espace local disponible régulièrement. Nous vous recommandons de patienter quelques minutes avant d’essayer de créer le volume.<br> En outre, les tâches de suppression de volume s’exécutent de façon séquentielle si vous supprimez un volume épinglé localement, puis un autre volume du même type immédiatement après. La première tâche de suppression de volume doit se terminer pour que la deuxième puisse commencer.
    > 
    > 
 
@@ -272,10 +274,5 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [cloner un volume StorSimple](storsimple-clone-volume.md).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

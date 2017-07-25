@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 9c29390756ac2cd925ed7d2989393e63ed0a1239
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: f0cf88a06c5470ef173b22e7213419a6c8760723
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -58,6 +58,29 @@ Vous pouvez également [attacher un disque de données à l’aide de PowerShell
 8. Dans la boîte de dialogue **Formater un nouveau disque**, vérifiez les paramètres puis cliquez sur **Démarrer**.
 9. Un message vous informe que le formatage des disques va effacer toutes les données. Cliquez sur **OK**.
 10. Lorsque le formatage est terminé, cliquez sur **OK**.
+
+## <a name="use-trim-with-standard-storage"></a>Utilisation de TRIM avec le stockage standard
+
+Si vous utilisez le stockage standard (disque dur), vous devez activer la fonction TRIM. TRIM ignore les blocs inutilisés sur le disque afin que vous soyez facturé uniquement pour le stockage que vous utilisez réellement. Vous pouvez ainsi faire des économies si vous créez des fichiers volumineux, puis les supprimez. 
+
+Vous pouvez exécuter cette commande pour vérifier le paramètre TRIM. Ouvrez une invite de commandes sur votre machine virtuelle Windows et saisissez :
+
+```
+fsutil behavior query DisableDeleteNotify
+```
+
+Si la commande renvoie 0, TRIM est bien activé. Si la valeur 1 est renvoyée, exécutez la commande suivante pour activer TRIM :
+```
+fsutil behavior set DisableDeleteNotify 0
+```
+
+Après la suppression de données de votre disque, vous pouvez vous assurer du bon vidage des opérations TRIM en exécutant la défragmentation avec TRIM :
+
+```
+defrag.exe <volume:> -l
+```
+
+Pour vous assurer que les blocs de données inutilisés sont bien effacés sur tout le volume, vous pouvez également le formater.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si votre application doit utiliser le lecteur D: pour stocker des données, vous pouvez [changer la lettre de lecteur du disque temporaire Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

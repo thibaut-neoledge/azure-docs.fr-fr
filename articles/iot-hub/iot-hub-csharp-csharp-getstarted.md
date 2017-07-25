@@ -1,6 +1,6 @@
 ---
 title: "Prise en main d’Azure IoT Hub (.NET) | Microsoft Docs"
-description: "Envoi de messages appareil-vers-cloud d’un appareil vers un Azure IoT Hub à l’aide des kits de développement logiciel Azure IoT pour .NET. Vous créez une application de périphérique simulé pour envoyer des messages, une application de service pour inscrire votre appareil dans le registre des identités et une application de service pour lire les messages appareil-vers-cloud à partir du IoT Hub."
+description: "Découvrez comment envoyer des messages appareil-vers-cloud à Azure IoT Hub à l’aide des kits SDK Azure IoT pour .NET. Créez un appareil simulé et des applications de service pour inscrire votre appareil, envoyer des messages et lire des messages d’IoT Hub."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 4b15801b2ddda0dfd61b025535e379d9a8eed287
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 103d64ea73c309f387ff90d181f472ad246d3026
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-net"></a>Connexion du périphérique simulé à votre hub IoT à l’aide de .NET
@@ -192,7 +191,7 @@ Dans cette section, vous allez créer une application console .NET qui simule un
    Console.ReadLine();
    ```
    
-   Par défaut, la méthode de création **Create** crée une instance **DeviceClient** qui utilise le protocole AMQP pour communiquer avec IoT Hub. Pour utiliser le protocole MQTT ou HTTP, remplacez la méthode **Create** afin de pouvoir spécifier le protocole. Si vous utilisez le protocole HTTP, vous devez également ajouter le package NuGet **Microsoft.AspNet.WebApi.Client** à votre projet de manière à inclure l’espace de noms **System.Net.Http.Formatting**.
+   Par défaut, la méthode de **création** d’une application .NET Framework crée une instance **DeviceClient** qui utilise le protocole AMQP pour communiquer avec IoT Hub (les clients UWP et PCL utilisent HTTP par défaut.) Pour utiliser le protocole MQTT ou HTTP, remplacez la méthode **Create** afin de pouvoir spécifier le protocole. Si vous utilisez le protocole HTTP, vous devez également ajouter le package NuGet **Microsoft.AspNet.WebApi.Client** à votre projet de manière à inclure l’espace de noms **System.Net.Http.Formatting**.
 
 Ce didacticiel vous accompagne tout au long des étapes de création d'une application d'appareil IoT Hub simulé. Vous pouvez également utiliser l’extension [Connected Service for Azure IoT Hub][lnk-connected-service] de Visual Studio pour ajouter le code nécessaire à votre application d’appareil.
 

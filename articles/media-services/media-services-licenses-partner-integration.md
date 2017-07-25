@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: b4211cef3b4f3ffa2c0c97fd7650606f3eef7008
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="using-partners-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilisation de partenaires pour fournir des licences Widevine à Azure Media Services
@@ -42,10 +43,5 @@ Vous pouvez utiliser [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) pou
 [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md)
 
 [Blog de Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4ecf4f8594f7a274bec231fb74c4caa22c3cc354
 ms.openlocfilehash: b5f2ae124ca3276e15e0d1f75d655ec346bf8ee8
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/06/2017
 
 
 ---
-# <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Diffuser des données à partir d’un objet blob Azure Storage dans Data Lake Store à l’aide d’Azure Stream Analytics
+<a id="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics" class="xliff"></a>
+# Diffuser des données à partir d’un objet blob Azure Storage dans Data Lake Store à l’aide d’Azure Stream Analytics
 Dans cet article, vous allez apprendre à utiliser Azure Data Lake Store comme sortie d’une tâche Azure Stream Analytics. Cet article présente un scénario simple qui lit des données à partir d’un objet blob Azure Storage (entrée) et écrit les données dans Data Lake Store (sortie).
 
 > [!NOTE]
@@ -29,7 +31,8 @@ Dans cet article, vous allez apprendre à utiliser Azure Data Lake Store comme s
 >
 >
 
-## <a name="prerequisites"></a>Composants requis
+<a id="prerequisites" class="xliff"></a>
+## Composants requis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -38,7 +41,8 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
   
 * **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d'Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md). Imaginons que vous ayez un compte Data Lake Store nommé **asadatalakestore**. 
 
-## <a name="create-a-stream-analytics-job"></a>Créer un objet blob Stream Analytics
+<a id="create-a-stream-analytics-job" class="xliff"></a>
+## Créer un objet blob Stream Analytics
 Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une source d’entrée et une destination de sortie. Pour ce didacticiel, la source est un conteneur d’objets blob Azure et la destination est Lake Data Store.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
@@ -51,7 +55,8 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
     > Vérifiez que vous créez le travail dans la même région que le compte de stockage ou le transfert des données entre les régions génèrera des coûts supplémentaires.
     >
 
-## <a name="create-a-blob-input-for-the-job"></a>Créer une entrée d’objets Blob pour la tâche
+<a id="create-a-blob-input-for-the-job" class="xliff"></a>
+## Créer une entrée d’objets Blob pour la tâche
 
 1. Ouvrez la page du travail Stream Analytics et, dans le volet gauche, cliquez sur l’onglet **Entrées**, puis sur **Ajouter**.
 
@@ -74,7 +79,8 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
     Cliquez sur **Create**. Le portail ajoute désormais l’entrée et teste la connexion à celle-ci.
 
 
-## <a name="create-a-data-lake-store-output-for-the-job"></a>Créer une sortie Data Lake Store pour la tâche
+<a id="create-a-data-lake-store-output-for-the-job" class="xliff"></a>
+## Créer une sortie Data Lake Store pour la tâche
 
 1. Ouvrez la page du travail Stream Analytics, cliquez sur l’onglet **Sorties**, puis sur **Ajouter**.
 
@@ -102,7 +108,8 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
     
     Cliquez sur **Create**. Le portail ajoute désormais la sortie et teste la connexion à celle-ci.
     
-## <a name="run-the-stream-analytics-job"></a>Exécuter la tâche Stream Analytics
+<a id="run-the-stream-analytics-job" class="xliff"></a>
+## Exécuter la tâche Stream Analytics
 
 1. Pour exécuter un travail Stream Analytics, vous devez exécuter une requête à partir de l’onglet **Requête**. Pour ce didacticiel, vous pouvez exécuter l’exemple de requête en remplaçant les espaces réservés par les alias d’entrée et de sortie de la tâche, comme illustré dans la capture d’écran ci-dessous.
 
@@ -126,6 +133,7 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
     Dans le volet Explorateur de données, notez que la sortie est écrite dans un dossier spécifié dans les paramètres de sortie Data Lake Store (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Voir aussi
+<a id="see-also" class="xliff"></a>
+## Voir aussi
 * [Créer un cluster HDInsight pour utiliser Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 

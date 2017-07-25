@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: 1ea286a04c84d031fcefa8dc771cbdef9d8a9b72
-ms.lasthandoff: 01/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 63f2638cd0d50d1aa9a3b6864daba0b8854768d7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC avec Multi-DRM et contrôle d’accès : une conception de référence et l’application sur Windows Azure et Azure Media Services
@@ -116,9 +116,9 @@ Avant de passer à la rubrique suivante, quelques mots sur la conception de la g
 
 | **ContentKey vers ressources** | **Scénario** |
 | --- | --- |
-| 1 à&1; |Le cas le plus simple. Il offre le meilleur contrôle. Il génère en général le coût de licence le plus élevé. Chaque ressource protégée nécessite au moins une licence. |
+| 1 à 1 |Le cas le plus simple. Il offre le meilleur contrôle. Il génère en général le coût de licence le plus élevé. Chaque ressource protégée nécessite au moins une licence. |
 | 1 à plusieurs |Vous pouvez utiliser la même clé de contenu pour plusieurs éléments multimédias. Par exemple, pour tous les éléments multimédias d’un groupe logique comme un genre ou un sous-ensemble de genre (ou séquence génétique), vous pouvez utiliser une clé de contenu unique. |
-| Plusieurs à&1; |Plusieurs clés de contenu sont nécessaires pour chaque élément multimédia. <br/><br/>Par exemple, si vous devez appliquer la protection dynamique CENC avec multi-DRM à MPEG-DASH et le chiffrement AES-128 pour TLS, vous avez besoin de deux clés de contenu distinctes, chacune avec son propre ContentKeyType. (Concernant la clé de contenu utilisée pour la protection CENC dynamique, ContentKeyType.CommonEncryption doit être utilisée. Pour la clé de contenu servant au chiffrement dynamique AES-128, c’est la clé ContentKeyType.EnvelopeEncryption qui doit être utilisée.)<br/><br/>Autre exemple, pour la protection CENC du contenu DASH, en théorie, une clé de contenu peut être utilisée pour protéger les flux vidéo et une autre clé de contenu pour protéger des flux audio. |
+| Plusieurs à 1 |Plusieurs clés de contenu sont nécessaires pour chaque élément multimédia. <br/><br/>Par exemple, si vous devez appliquer la protection dynamique CENC avec multi-DRM à MPEG-DASH et le chiffrement AES-128 pour TLS, vous avez besoin de deux clés de contenu distinctes, chacune avec son propre ContentKeyType. (Concernant la clé de contenu utilisée pour la protection CENC dynamique, ContentKeyType.CommonEncryption doit être utilisée. Pour la clé de contenu servant au chiffrement dynamique AES-128, c’est la clé ContentKeyType.EnvelopeEncryption qui doit être utilisée.)<br/><br/>Autre exemple, pour la protection CENC du contenu DASH, en théorie, une clé de contenu peut être utilisée pour protéger les flux vidéo et une autre clé de contenu pour protéger des flux audio. |
 | Plusieurs à plusieurs |Combinaison des deux scénarios ci-dessus : un jeu de clés de contenu est utilisé pour chacun des éléments multimédia du même « groupe ». |
 
 Autre facteur important à prendre en compte : l’utilisation des licences persistantes et non persistantes.
@@ -274,7 +274,7 @@ Azure AD utilise une norme standard pour établir une relation de confiance entr
 
 Vous trouverez des informations détaillées sur la substitution de la clé Azure AD dans le document intitulé [Informations importantes sur la substitution des clés de signature dans Azure AD](../active-directory/active-directory-signing-key-rollover.md).
 
-Dans la [paire de clés publique-privée](https://login.windows.net/common/discovery/keys/),
+Dans la [paire de clés publique-privée](https://login.microsoftonline.com/common/discovery/keys/),
 
 * la clé privée est utilisée par Azure Active Directory pour créer un jeton JWT ;
 * la clé publique est utilisée par une application telle que le service de distribution de licences DRM dans AMS pour vérifier le jeton JWT ;

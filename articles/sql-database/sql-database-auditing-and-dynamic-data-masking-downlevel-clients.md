@@ -1,29 +1,36 @@
 ---
-title: Audit, redirection TDS et points de terminaison IP pour Azure SQL Database | Microsoft Docs
-description: "En savoir plus sur l’audit, la redirection TDS et les modifications de point de terminaison IP lors de l’implémentation de l’audit de table dans Azure SQL Database."
+title: Audit de table, redirection TDS et points de terminaison IP pour Azure SQL Database | Microsoft Docs
+description: "Découvrez l’audit, la redirection TDS et les modifications de point de terminaison IP pendant l’implémentation de l’audit de table dans Azure SQL Database."
 services: sql-database
 documentationcenter: 
-author: ronitr
+author: giladm
 manager: jhubbard
 editor: 
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: security-protect
+ms.custom: security
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
-ms.author: ronitr
-translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: bcc02abb62b21aadb10e62320b02b33c3c244c17
-ms.lasthandoff: 02/17/2017
+ms.date: 05/31/2017
+ms.author: giladm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 1447a75758475dd6536ef1bcd0e8432e5618dab8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database : prise en charge des clients de niveau inférieur et modification des points de terminaison IP à des fins d’audit
-L[’audit de base de données](sql-database-auditing.md) fonctionne automatiquement avec les clients SQL qui prennent en charge la redirection TDS. Notez que la redirection ne s’applique pas lorsque vous utilisez la méthode de l’audit d’objets Blob.
+
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database : prise en charge des clients de niveau inférieur et modification des points de terminaison IP à des fins d’audit de table
+
+> [!IMPORTANT]
+> Ce document s’applique uniquement à l’audit de table, qui est **maintenant déprécié**.<br>
+> Utilisez la nouvelle méthode [d’audit d’objets blob](sql-database-auditing.md), qui **n’exige pas** de modifications de la chaîne de connexion pour les clients de niveau inférieur. Vous trouverez des informations supplémentaires sur l’audit d’objets blob dans [Prise en main de l’audit de base de données SQL](sql-database-auditing.md).
+
+L’[audit de base de données](sql-database-auditing.md) fonctionne automatiquement avec les clients SQL qui prennent en charge la redirection TDS. Notez que la redirection ne s’applique pas lorsque vous utilisez la méthode de l’audit d’objets Blob.
 
 ## <a id="subheading-1"></a>Prise en charge des clients de niveau inférieur
 Tout client qui implémente TDS 7.4 doit également prendre en charge la redirection. Cependant, cette règle comporte deux exceptions : JDBC 4.0, qui ne prend pas complètement en charge la fonctionnalité de redirection et Tedious pour Node.JS, où la redirection n’a pas été implémentée.
@@ -66,16 +73,16 @@ Le nouveau point de terminaison IP de la base de données dépend de la région 
 | Inde occidentale |104.211.161.152, 104.211.162.21 |
 | Est du Japon |104.41.179.1, 40.115.253.81, 23.102.64.207, 40.115.250.196 |
 | Ouest du Japon |104.214.140.140, 104.214.146.31, 191.233.32.34, 104.214.146.198 |
-| États-Unis - partie centrale septentrionale |191.236.155.178, 23.96.192.130, 23.96.177.169, 23.96.193.231 |
+| Centre-Nord des États-Unis |191.236.155.178, 23.96.192.130, 23.96.177.169, 23.96.193.231 |
 | Europe du Nord |104.41.209.221, 40.85.139.245, 137.116.251.66, 40.85.142.176 |
 | Centre-Sud des États-Unis |191.238.184.128, 40.84.190.84, 23.102.160.153, 40.84.186.66 |
 | Asie du Sud-Est |104.215.198.156, 13.76.252.200, 23.97.51.109, 13.76.252.113 |
 | Europe de l'Ouest |104.40.230.120, 13.80.23.64, 137.117.171.161, 13.80.8.37, 104.47.167.215, 40.118.56.193, 104.40.176.73, 40.118.56.20 |
-| Ouest des États-Unis |191.236.123.146, 138.91.163.240, 168.62.194.148, 23.99.6.91 |
-| Ouest des États-Unis 2 |13.66.224.156, 13.66.227.8 |
+| États-Unis de l’Ouest |191.236.123.146, 138.91.163.240, 168.62.194.148, 23.99.6.91 |
+| États-Unis de l’Ouest 2 |13.66.224.156, 13.66.227.8 |
 | Centre-Ouest des États-Unis |52.161.29.186, 52.161.27.213 |
 | Centre du Canada |13.88.248.106, 13.88.248.110 |
 | Est du Canada |40.86.227.82, 40.86.225.194 |
-| Nord du Royaume-Uni |13.87.101.18, 13.87.100.232 |
-| Sud du Royaume-Uni 2 |13.87.32.202, 13.87.32.226 |
+| Royaume-Uni Nord |13.87.101.18, 13.87.100.232 |
+| Royaume-Uni Sud 2 |13.87.32.202, 13.87.32.226 |
 

@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 992b08a1e88062923d0775c59b8baf93fee5364b
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 ---
 
@@ -296,11 +297,11 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 ## <a name="delete-all-resources"></a>Supprimer toutes les ressources
 
-Pour supprimer toutes les ressources créées dans cet article, procédez comme suit :
+Pour supprimer toutes les ressources créées dans cet article, procédez comme suit :
 
 1. Allez dans le panneau **Favoris** du portail Azure, puis cliquez sur **Toutes les ressources**. Cliquez sur le groupe de ressources **contosorg** dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte plusieurs ressources, vous pouvez saisir **contosorg** dans la case **Filtrer par nom...** pour accéder facilement au groupe de ressources.
 1. Dans le panneau **contosorg**, cliquez sur le bouton **Supprimer**.
-1. Le portail nécessite que vous saisissiez le nom du groupe de ressources pour confirmer la suppression. Cliquez sur **Supprimer**, tapez *contosorg* comme nom du groupe de ressources, puis cliquez sur **Supprimer**. La suppression d’un groupe de ressources supprime toutes les ressources qu’il contient. Veuillez donc toujours vérifier le contenu d’un groupe de ressources avant de le supprimer. Le portail supprime toutes les ressources contenues dans le groupe de ressources, puis supprime le groupe de ressources lui-même. Cette opération prend plusieurs minutes.
+1. Le portail nécessite que vous saisissiez le nom du groupe de ressources pour confirmer la suppression. Tapez *contosorg* comme nom du groupe de ressources, puis cliquez sur **Supprimer**. La suppression d’un groupe de ressources supprime toutes les ressources qu’il contient. Veuillez donc toujours vérifier le contenu d’un groupe de ressources avant de le supprimer. Le portail supprime toutes les ressources contenues dans le groupe de ressources, puis supprime le groupe de ressources lui-même. Cette opération prend plusieurs minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,23 +11,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 5ccb9e920ce8e1c95b9ce0ffc8626f2dcf3783d8
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Un mauvais ensemble d’utilisateurs est affecté à une application de la galerie Azure AD
+<a id="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application" class="xliff"></a>
+
+# Un mauvais ensemble d’utilisateurs est affecté à une application de la galerie Azure AD
 
 Le choix des utilisateurs affectés à l’application dépend principalement des utilisateurs et groupes qui ont été **affectés** à l’application.
 
 Utilisez les ressources ci-dessous pour déterminer quels utilisateurs et groupes ont été affectés à une application dans Azure Active Directory.
 
-## <a name="assign-a-user-directly-as-an-administrator"></a>Affecter un utilisateur directement en tant qu’administrateur
+<a id="assign-a-user-directly-as-an-administrator" class="xliff"></a>
+
+## Affecter un utilisateur directement en tant qu’administrateur
 
 Pour affecter un ou plusieurs utilisateurs directement à une application, effectuez les étapes suivantes :
 
@@ -65,7 +69,9 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 Si l’approvisionnement est configuré et déjà en cours d’exécution pour une application, les nouveaux utilisateurs doivent être affectés à une application en 10 minutes environ. Consultez **les journaux d’audit** pour plus d’informations.
 
-## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Affecter un groupe directement à une application en tant qu’administrateur
+<a id="assign-a-group-directly-to-an-application-as-an-administrator" class="xliff"></a>
+
+## Affecter un groupe directement à une application en tant qu’administrateur
 
 Pour affecter un ou plusieurs groupes directement à une application, procédez comme suit :
 
@@ -110,6 +116,8 @@ Si l’approvisionnement est configuré et déjà en cours d’exécution pour u
 
 Si les groupes de configuration sont activés, veillez à passer en revue les mappages d’attributs afin de vous assurer qu'un champ approprié est utilisé pour l’« ID correspondant ». Il peut s’agir du nom d’affichage ou de l’alias de courrier électronique, comme le groupe et ses membres qui ne sont pas approvisionnés si la propriété correspondante est vide ou n’est pas remplie pour un groupe dans Azure AD.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md)
 

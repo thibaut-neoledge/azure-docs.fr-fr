@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 9b6668bf4b3f826a1d41527ce4a7ae8d05936731
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -144,15 +145,9 @@ Le runtime Actors autorise la réentrance par défaut. Cela signifie que, si une
 Le runtime Actors fournit ces garanties d'accès concurrentiel dans les situations où il contrôle l'appel de ces méthodes. Par exemple, il fournit ces garanties pour les appels de méthode effectués en réponse à une demande du client, ainsi que pour les rappels de minuterie et de rappel. Toutefois, si le code de l'acteur appelle directement ces méthodes en dehors des mécanismes fournis par le runtime Actors, celui-ci ne peut pas fournir de garanties d'accès concurrentiel. Par exemple, si la méthode est appelée dans le contexte d’une tâche qui n’est pas associée à la tâche retournée par les méthodes d’acteur, le runtime ne peut pas fournir de garantie d’accès concurrentiel. Il en va de même si la méthode est appelée à partir d’un thread créé par l’acteur de son côté. Ainsi, pour effectuer des opérations d’arrière-plan, les acteurs doivent utiliser les [minuteurs d’acteur et les rappels d’acteur](service-fabric-reliable-actors-timers-reminders.md) , qui respectent l’accès concurrentiel en alternance.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Prise en main de Reliable Actors](service-fabric-reliable-actors-get-started.md)
-* [Comment les Acteurs fiables utilisent la plateforme Service Fabric](service-fabric-reliable-actors-platform.md)
-* [Gestion des états d’acteur](service-fabric-reliable-actors-state-management.md)
-* [Cycle de vie des acteurs et Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
-* [Minuteries et rappels d’acteur](service-fabric-reliable-actors-timers-reminders.md)
-* [Événements d’acteurs](service-fabric-reliable-actors-events.md)
-* [Réentrance des acteurs](service-fabric-reliable-actors-reentrancy.md)
-* [Polymorphisme des acteurs et modèles de conception orientée objet](service-fabric-reliable-actors-polymorphism.md)
-* [Diagnostics et surveillance des performances d’acteur](service-fabric-reliable-actors-diagnostics.md)
+* Commencez par créer votre premier service Reliable Actors :
+   * [Prise en main de Reliable Actors sur .NET](service-fabric-reliable-actors-get-started.md)
+   * [Prise en main de Reliable Actors sur Java](service-fabric-reliable-actors-get-started-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

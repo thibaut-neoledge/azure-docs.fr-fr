@@ -1,10 +1,10 @@
 ---
-title: "Prise en main d&quot;Azure Mobile Apps pour les applications Xamarin.Android"
-description: "Suivez ce didacticiel pour commencer à utiliser Azure Mobile Apps pour le développement d&quot;applications Xamarin Android."
+title: "Prise en main d'Azure Mobile Apps pour les applications Xamarin.Android"
+description: "Suivez ce didacticiel pour commencer à utiliser Azure Mobile Apps pour le développement d'applications Xamarin Android."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
+ms.author: glenga
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinandroid-app"></a>Création d'une application Xamarin.Android
@@ -41,8 +41,8 @@ Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
 > [!NOTE]
 > Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](https://azure.microsoft.com/try/app-service/mobile/).  Vous pouvez créer immédiatement une application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Créer un serveur principal d'applications mobiles Azure
 Suivez ces étapes pour créer un serveur principal d’application mobile.
@@ -56,19 +56,19 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
 
 ## <a name="download-and-run-the-xamarinandroid-app"></a>Télécharger et exécuter l'application Xamarin.Android
 1. Sous **Télécharger et exécuter votre projet Xamarin.Android**, cliquez sur le bouton **Télécharger**.
-   
+
       Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 2. Appuyez sur la touche **F5** pour générer le projet et démarrer l’application.
 3. Dans l’application, tapez un texte explicite, comme *Suivre le didacticiel* , puis cliquez sur l’icône **Ajouter**.
-   
+
     ![][10]
-   
+
     Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le serveur principal d'applications mobiles et les données apparaissent dans la liste.
-   
+
    > [!NOTE]
    > Vous pouvez vérifier le code qui se trouve dans le fichier C# ToDoActivity.cs et permet d'accéder à votre backend d'application mobile pour exécuter une requête et insérer des données.
-   > 
-   > 
+   >
+   >
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajout de la synchronisation hors connexion à votre application](app-service-mobile-xamarin-android-get-started-offline-data.md)

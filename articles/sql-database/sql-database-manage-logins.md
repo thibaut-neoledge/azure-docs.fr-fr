@@ -18,10 +18,10 @@ ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: f29b2c1da0d9b761634370f5f08ea942b66d9f1f
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -34,7 +34,7 @@ Lorsque les règles de pare-feu ont été configurées, les personnes peuvent se
 >
 
 > [!TIP]
-> Pour obtenir un didacticiel sur l’utilisation de l’authentification SQL Server, consultez [Didacticiel : authentification SQL Server](sql-database-control-access-sql-authentication-get-started.md). Pour obtenir un didacticiel sur l’utilisation de l’authentification Azure Active Directory, voir [Didacticiel : authentification AAD](sql-database-control-access-aad-authentication-get-started.md).
+> Pour obtenir un didacticiel, consultez [Sécuriser votre base de données SQL Azure](sql-database-security-tutorial.md).
 >
 
 
@@ -191,9 +191,7 @@ Prenez en compte les aspects suivants lors de la gestion des connexions et des u
 
 - Pour en savoir plus sur les règles de pare-feu, consultez [Vue d’ensemble des règles de pare-feu d’Azure SQL Database](sql-database-firewall-configure.md).
 - Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Vue d’ensemble de la sécurité SQL](sql-database-security-overview.md).
-- Pour obtenir un didacticiel, consultez [Didacticiel sur la base de données SQL : créer des comptes d’utilisateurs de base de données SQL pour accéder et gérer une base de données](sql-database-control-access-sql-authentication-get-started.md).
+- Pour obtenir un didacticiel, consultez [Sécuriser votre base de données SQL Azure](sql-database-security-tutorial.md).
 - Pour plus d’informations sur les vues et procédures stockées, consultez [Création des vues et des procédures stockées](https://msdn.microsoft.com/library/ms365311.aspx).
 - Pour plus d’informations sur l’octroi d’accès à un objet de base de données, consultez [Octroi de l’accès à un objet de base de données](https://msdn.microsoft.com/library/ms365327.aspx).
-- Pour obtenir un didacticiel sur l’utilisation de l’authentification SQL Server, consultez [Didacticiel : authentification SQL Server](sql-database-control-access-sql-authentication-get-started.md).
-- Pour obtenir un didacticiel sur l’utilisation de l’authentification Azure Active Directory, voir [Didacticiel : authentification AAD](sql-database-control-access-aad-authentication-get-started.md).
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 9d788bf8e41fe225a4c24a4f5b464e8664f3d677
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 0153ea9d0c9a957de4db401b95b531ab758879dd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -202,7 +202,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
     }
     ```
     L’extrait de code JSON définit un jeu de données appelé **AzureBlobOuput** qui représente les données de sortie produites par l’activité Hive dans le pipeline. Vous indiquez que les données de sortie sont produites par l’activité Hive et placées dans le conteneur de blobs nommé `adfgetstarted` et dans le dossier nommé `partitioneddata`. 
-     
+    
     La section **availability** spécifie que le jeu de données de sortie est produit tous les mois. Le jeu de données de sortie détermine la programmation du pipeline. Le pipeline s’exécute tous les mois entre ses heures de début et de fin. 
 
     Consultez la section **Créer le jeu de données d’entrée** pour obtenir une description de ces propriétés. Vous ne définissez pas la propriété externe sur un jeu de données de sortie, car le jeu de données est produit par le pipeline.
@@ -320,7 +320,7 @@ Quelques points importants à prendre en compte :
 
 - Si vous recevez le message d’erreur : « **L’abonnement n’est pas inscrit pour utiliser l’espace de noms Microsoft.DataFactory** », effectuez l’une des opérations suivantes et essayez de relancer la publication :
     - Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory.
-        ```PowerShell    
+        ```PowerShell   
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Vous pouvez exécuter la commande suivante pour confirmer que le fournisseur Data Factory est bien enregistré.

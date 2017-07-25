@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 34cc5f5b2947f775c00548e5d8699976caabfd47
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 030a1fc9f36d6fcfa607552d85ce232e36eaa64b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -112,16 +112,16 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Configurer l’authentification unique](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url11.png)
 
-       In the **Reply URL** textbox, type a URL using the following pattern: `https://<sub domain>.mobilexpense.com/SSO/SAML20/SAML/AssertionConsumerService.aspx`
+    Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<sub domain>.mobilexpense.com/SSO/SAML20/SAML/AssertionConsumerService.aspx`
 
 4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** :
 
     ![Configurer l’authentification unique](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url22.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<sub domain>.mobilexpense.com/<customername>`
-     
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe de support technique MobileXpense](http://www.mobilexpense.net/contact). 
+Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<sub domain>.mobilexpense.com/<customername>`
+
+> [!NOTE] 
+> Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe de support technique MobileXpense](http://www.mobilexpense.net/contact). 
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 

@@ -4,7 +4,7 @@ description: "Explique comment utiliser les actions de menu standard de la conso
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
 ms.service: storsimple
@@ -12,17 +12,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/25/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b2be03e12b2deaecb352f8703650cf23cdefdebd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Utilisez les actions du menu MMC dans Gestionnaire d’instantanés StorSimple
+
 ## <a name="overview"></a>Vue d'ensemble
-Dans le Gestionnaire d’instantanés StorSimple, les actions suivantes figureront sur tous les menus d’action et toutes les variations du volet **Actions** . 
+Dans le Gestionnaire d’instantanés StorSimple, les actions suivantes figureront sur tous les menus d’action et toutes les variations du volet **Actions** .
 
 * Affichage
 * Nouvelle fenêtre à partir d’ici 
@@ -99,10 +102,5 @@ Utilisez le menu **Aide** pour consulter l’aide en ligne disponible du Gestion
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur [l’interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 * En savoir plus sur [l’utilisation du Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

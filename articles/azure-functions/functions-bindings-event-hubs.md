@@ -1,6 +1,6 @@
 ---
-title: "Liaisons d’Event Hub Azure Functions | Microsoft Docs"
-description: "Découvrez comment utiliser des liaisons Azure Event Hub dans Azure Functions."
+title: "Liaisons d’Event Hubs Azure Functions | Microsoft Docs"
+description: "Découvrez comment utiliser des liaisons Azure Event Hubs dans Azure Functions."
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -14,39 +14,39 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 06/20/2017
 ms.author: wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 04a8563a0035992cfa4b7d25a4edc14e1db80e44
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: eaa97e31fbc2ffb8464b5ec2bd1f0eb5c59fdbd2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="azure-functions-event-hub-bindings"></a>Liaisons d’Event Hub Azure Functions
+# <a name="azure-functions-event-hubs-bindings"></a>Liaisons d’Event Hubs Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Cet article explique comment configurer et coder des liaisons [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md) pour Azure Functions.
+Cet article explique comment configurer et utiliser des liaisons [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) pour Azure Functions.
 Azure Functions prend en charge des liaisons de déclencheur et de sortie pour des Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Si vous débutez avec Azure Event Hubs, consultez la [vue d’ensemble d’Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md).
+Si vous débutez avec Azure Event Hubs, consultez la [vue d’ensemble d’Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
-## <a name="event-hub-trigger"></a>Déclencheur Event Hub
-Utilisez le déclencheur Event Hub pour répondre à un événement envoyé à un flux d’événements d’un hub d’événements. Vous devez disposer de l’accès en lecture au hub d’événements pour configurer le déclencheur.
+## <a name="event-hub-trigger"></a>Déclencheur Event Hubs
+Utilisez le déclencheur Event Hubs pour répondre à un événement envoyé à un flux d’événements d’un hub d’événements. Vous devez disposer de l’accès en lecture au hub d’événements pour configurer le déclencheur.
 
-Le déclencheur Event Hub d’une fonction utilise l’objet JSON suivant dans le tableau `bindings` de function.json :
+Le déclencheur Event Hubs d’une fonction utilise l’objet JSON suivant dans le tableau `bindings` de function.json :
 
 ```json
 {
     "type": "eventHubTrigger",
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
-    "path": "<Name of the Event Hub>",
+    "path": "<Name of the event hub>",
     "consumerGroup": "Consumer group to use - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
@@ -56,17 +56,17 @@ Le déclencheur Event Hub d’une fonction utilise l’objet JSON suivant dans l
 `connection` doit être le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements.
 Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour *l’espace de noms*, et non pour le hub d’événements lui-même. Cette chaîne de connexion doit avoir au moins des droits de lecture pour activer le déclencheur.
 
-Vous pouvez fournir des [paramètres supplémentaires](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) dans un fichier host.json pour affiner les déclencheurs Event Hub.  
+Vous pouvez fournir des [paramètres supplémentaires](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) dans un fichier host.json pour affiner les déclencheurs Event Hubs.  
 
 <a name="triggerusage"></a>
 
 ## <a name="trigger-usage"></a>Utilisation du déclencheur
-Quand une fonction de déclenchement Event Hub est déclenchée, le message qui le déclenche est passé à la fonction en tant que chaîne.
+Quand une fonction de déclenchement Event Hubs est déclenchée, le message qui le déclenche est passé à la fonction en tant que chaîne.
 
 <a name="triggersample"></a>
 
 ## <a name="trigger-sample"></a>Exemple de déclencheur
-Supposez que le tableau `bindings` de function.json contient le déclencheur Event Hub suivant :
+Supposez que le tableau `bindings` de function.json contient le déclencheur Event Hubs suivant :
 
 ```json
 {
@@ -119,8 +119,8 @@ module.exports = function (context, myEventHubMessage) {
 
 <a name="output"></a>
 
-## <a name="event-hub-output-binding"></a>Liaison de sortie Event Hub
-Utilisez la liaison de sortie Event Hub pour écrire des événements dans un flux d’événements du hub d’événements. Vous devez disposer de l’autorisation d’envoi à un hub d’événements pour y écrire les événements.
+## <a name="event-hubs-output-binding"></a>Liaison de sortie Event Hubs
+Utilisez la liaison de sortie Event Hubs pour écrire des événements dans un flux d’événements du hub d’événements. Vous devez disposer de l’autorisation d’envoi à un hub d’événements pour y écrire les événements.
 
 La liaison de sortie utilise l’objet JSON suivant dans le tableau `bindings` de function.json :
 
@@ -138,7 +138,7 @@ La liaison de sortie utilise l’objet JSON suivant dans le tableau `bindings` d
 Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour *l’espace de noms*, et non pour le hub d’événements lui-même. Cette chaîne de connexion doit disposer d’autorisations d’envoi pour envoyer le message au flux d’événements.
 
 ## <a name="output-usage"></a>Utilisation en sortie
-Cette section vous montre comment utiliser la liaison de sortie Event Hub dans le code de votre fonction.
+Cette section vous montre comment utiliser la liaison de sortie Event Hubs dans le code de votre fonction.
 
 Vous pouvez générer des messages au concentrateur d’événements configuré avec les types de paramètres suivants :
 
@@ -149,7 +149,7 @@ Vous pouvez générer des messages au concentrateur d’événements configuré 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Exemple de sortie
-Supposez que le tableau `bindings` de function.json contient la liaison de sortie Event Hub suivante :
+Supposez que le tableau `bindings` de function.json contient la liaison de sortie Event Hubs suivante :
 
 ```json
 {

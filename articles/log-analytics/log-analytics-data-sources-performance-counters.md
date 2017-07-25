@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 06/16/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ce90e15108ace97d86e7180d79e38652e1be9872
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 4ce302095fc36f046785ac45d1a9452de321113c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -46,7 +46,10 @@ Pour les compteurs de performances Windows, vous pouvez choisir une instance sp�
 
 Suivez cette procédure pour ajouter un nouveau compteur de performances Windows à collecter.
 
-1. Tapez le nom du compteur dans la zone de texte, au format *objet(instance)\compteur*.  Lorsque vous commencez à taper, la liste des compteurs correspondants s’affiche.  Vous pouvez soit choisir un compteur dans cette liste, soit taper le nom de votre choix.  Vous pouvez également retourner toutes les instances d’un compteur particulier en spécifiant *objet\compteur*.
+1. Tapez le nom du compteur dans la zone de texte, au format *objet(instance)\compteur*.  Lorsque vous commencez à taper, la liste des compteurs correspondants s’affiche.  Vous pouvez soit choisir un compteur dans cette liste, soit taper le nom de votre choix.  Vous pouvez également retourner toutes les instances d’un compteur particulier en spécifiant *objet\compteur*.  
+
+    Lors de la collecte des compteurs de performances SQL Server à partir d’instances nommées, tous les compteurs des instances nommées commencent par *MSSQL$* qui est suivi du nom de l’instance.  Par exemple, pour collecter le compteur Taux d’accès au cache de journal pour toutes les bases de données à partir de l’objet de performance de base de données pour l’instance SQL nommée INST2, spécifiez `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`. 
+ 
 2. Cliquez sur **+** ou appuyez sur **Entrée** pour ajouter le compteur à la liste.
 3. Lorsque vous ajoutez un compteur, il utilise la valeur par défaut de 10 secondes comme **Intervalle d’échantillonnage**.  Vous pouvez configurer jusqu’à 1 800 secondes (30 minutes) si vous souhaitez réduire l’espace de stockage requis pour les données de performances collectées.
 4. Après avoir ajouté les compteurs souhaités, cliquez sur le bouton **Enregistrer** en haut de l’écran pour enregistrer la configuration.
@@ -217,6 +220,7 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 | Type=Perf CounterName="% du temps processeur" InstanceName="_Total"  &#124; measure avg(CounterValue) by Computer Interval 1HOUR |Moyenne horaire d’utilisation du processeur sur tous les ordinateurs |
 | Type=Perf Computer="Monordinateur" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |70e centile horaire de chaque compteur de pourcentage pour un ordinateur particulier |
 | Type=Perf CounterName="% du temps processeur" InstanceName="_Total"  (Computer="MonOrdinateur") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Moyenne horaire, minimum, maximum et 75e centile d’utilisation du processeur pour un ordinateur spécifique |
+| Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | Toutes les données de performances de l’objet de performance de base de données pour la base de données MASTER à partir de l’instance de SQL Server nommée INST2.  
 
 ## <a name="viewing-performance-data"></a>Affichage des données de performances
 Lorsque vous recherchez des données de performances dans les journaux, la vue **Liste** s’affiche par défaut.  Pour afficher les données sous forme graphique, cliquez sur **Mesures**.  Pour une vue graphique détaillée, cliquez sur le signe **+** en regard d’un compteur.  

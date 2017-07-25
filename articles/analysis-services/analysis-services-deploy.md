@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/17/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 04b809a6fdd7b993a048a67f66a9851c2a7bf3d2
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 0b15399cade0a9dc21b2274a64172d65f2f4e877
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -29,12 +29,12 @@ Une fois que vous avez créé un serveur dans votre abonnement Azure, vous êtes
 ## <a name="before-you-begin"></a>Avant de commencer
 Pour commencer, vous avez besoin des éléments suivants :
 
-* **Serveur Analysis Services** dans Azure. Pour en savoir plus, voir [Créer un serveur Analysis Services dans Azure](analysis-services-create-server.md).
-* **Projet de modèle tabulaire** dans SSDT ou modèle tabulaire existant au niveau de compatibilité 1200 ou ultérieur sur une instance Analysis Services. Vous ne l’avez jamais fait ? Essayez le [didacticiel Adventure Works](https://msdn.microsoft.com/library/hh231691.aspx).
+* **Serveur Analysis Services** dans Azure. Pour plus d’informations, consultez l’article [Création d’un serveur Azure Analysis Services dans le portail Azure](analysis-services-create-server.md).
+* **Projet de modèle tabulaire** dans SSDT ou modèle tabulaire existant au niveau de compatibilité 1200 ou ultérieur. Vous ne l’avez jamais fait ? Essayez le [didacticiel Adventure Works](https://msdn.microsoft.com/library/hh231691.aspx).
 * **Passerelle locale** : si une ou plusieurs sources de données sont locales dans le réseau de votre entreprise, vous devez installer une [Passerelle de données locale](analysis-services-gateway.md). La passerelle est nécessaire pour que votre serveur se connecte dans le cloud à vos sources de données locales pour traiter et actualiser les données du modèle.
 
 > [!TIP]
-> Avant de déployer, assurez-vous que vous pouvez traiter les données de vos tables. Dans SSDT, cliquez sur **Modèle** > **Traiter** > **Traiter tout**. Si le traitement échoue, le déploiement échouera également.
+> Avant de déployer, assurez-vous que vous pouvez traiter les données de vos tables. Dans SSDT, cliquez sur **Modèle** > **Traiter** > **Traiter tout**. Si le traitement échoue, vous ne pourrez pas procéder au déploiement.
 > 
 > 
 

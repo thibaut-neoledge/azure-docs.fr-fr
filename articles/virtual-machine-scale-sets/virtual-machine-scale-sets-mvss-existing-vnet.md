@@ -1,5 +1,5 @@
 ---
-title: "Référencer un réseau virtuel dans un modèle de groupe identique Azure | Microsoft Docs"
+title: "Référencer un réseau virtuel existant dans un modèle de groupe identique Azure | Microsoft Docs"
 description: "Découvrez comment ajouter un réseau virtuel à un modèle de groupe de machines virtuelles identiques Azure existant"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/06/2017
+ms.date: 06/27/2017
 ms.author: negat
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8e9caf7eebc17682b3204004e3a74331efbd04fb
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 28117d467b491704aed8d45e5eba42530579dfa2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="add-reference-to-a-virtual-network-to-an-azure-scale-set-template"></a>Ajouter une référence à un réseau virtuel dans un modèle de groupe identique Azure
+# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Ajouter une référence à un réseau virtuel existant dans un modèle de groupe identique Azure
 
 Cet article explique comment modifier le [modèle de groupe identique viable minimal](./virtual-machine-scale-sets-mvss-start.md) pour un déploiement dans un réseau virtuel existant au lieu d’en créer un.
 

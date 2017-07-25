@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
@@ -22,9 +22,9 @@ ms.openlocfilehash: f98d769542f5a52d659f561e970f0a7e9dce9fd9
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/02/2017
 
-
 ---
-# <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Utilisation de C# avec Diffusion en continu MapReduce sur Hadoop dans HDInsight
+# Utilisation de C# avec Diffusion en continu MapReduce sur Hadoop dans HDInsight
+<a id="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight" class="xliff"></a>
 
 Découvrez comment utiliser C# pour créer une solution MapReduce dans HDInsight.
 
@@ -33,13 +33,15 @@ Découvrez comment utiliser C# pour créer une solution MapReduce dans HDInsight
 
 Diffusion en continu Hadoop est un utilitaire qui vous permet d’exécuter des tâches MapReduce à l’aide d’un script ou d’un exécutable. Dans cet exemple, .NET est utilisé pour implémenter le mappeur et le raccord de réduction pour une solution de comptage de mots.
 
-## <a name="net-on-hdinsight"></a>.NET sur HDInsight
+## .NET sur HDInsight
+<a id="net-on-hdinsight" class="xliff"></a>
 
 Les clusters __HDInsight sous Linux__ utilisent [Mono (https://mono-project.com)](https://mono-project.com) pour exécuter des applications .NET. La version 4.2.1 de Mono est incluse dans la version 3.5 de HDInsight. Pour plus d’informations sur la version de Mono fournie avec HDInsight, consultez [Versions des composants HDInsight](hdinsight-component-versioning.md). Pour utiliser une version particulière de Mono, consultez le document [Installation ou mise à jour de Mono](hdinsight-hadoop-install-mono.md).
 
 Pour plus d’informations sur la compatibilité Mono avec les versions de .NET Framework, consultez [Compatibilité Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 
-## <a name="how-hadoop-streaming-works"></a>Fonctionnement de la diffusion en continu Hadoop
+## Fonctionnement de la diffusion en continu Hadoop
+<a id="how-hadoop-streaming-works" class="xliff"></a>
 
 Le processus de base utilisé pour la diffusion en continu dans ce document est la suivante :
 
@@ -51,7 +53,8 @@ Le processus de base utilisé pour la diffusion en continu dans ce document est 
 
 Pour plus d’informations sur la diffusion en continu, consultez [Diffusion en continu Hadoop (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
-## <a name="prerequisites"></a>Composants requis
+## Composants requis
+<a id="prerequisites" class="xliff"></a>
 
 * Des connaissances en écriture et en génération de code C# qui cible .NET Framework 4.5. Dans le cadre de ce document, Visual Studio 2017 a été utilisé.
 
@@ -61,7 +64,8 @@ Pour plus d’informations sur la diffusion en continu, consultez [Diffusion en 
 
 * Un cluster Hadoop sur HDInsight. Pour plus d’informations sur la création d’un cluster, consultez [Créer un cluster HDInsight](hdinsight-provision-clusters.md).
 
-## <a name="create-the-mapper"></a>Créer le mappeur
+## Créer le mappeur
+<a id="create-the-mapper" class="xliff"></a>
 
 Dans Visual Studio, créez une nouvelle __Application console__ nommée __mappeur__. Utilisez le code suivant pour l’application :
 
@@ -98,7 +102,8 @@ namespace mapper
 
 Après avoir créé l’application, générez-la pour produire le fichier `/bin/Debug/mapper.exe` dans le répertoire du projet.
 
-## <a name="create-the-reducer"></a>Créer le raccord de réduction
+## Créer le raccord de réduction
+<a id="create-the-reducer" class="xliff"></a>
 
 Dans Visual Studio, créez une nouvelle __Application console__ nommée __raccord de réduction__. Utilisez le code suivant pour l’application :
 
@@ -151,7 +156,8 @@ namespace reducer
 
 Après avoir créé l’application, générez-la pour produire le fichier `/bin/Debug/reducer.exe` dans le répertoire du projet.
 
-## <a name="upload-to-storage"></a>Téléchargement vers le stockage
+## Téléchargement vers le stockage
+<a id="upload-to-storage" class="xliff"></a>
 
 1. Dans Visual Studio, ouvrez l' **Explorateur de serveurs**.
 
@@ -177,7 +183,8 @@ Après avoir créé l’application, générez-la pour produire le fichier `/bin
 
     Une fois que le chargement de __mapper.exe__ est terminé, répétez le processus de chargement pour le fichier __reducer.exe__.
 
-## <a name="run-a-job-using-an-ssh-session"></a>Exécution d’une tâche : avec une session SSH
+## Exécution d’une tâche : avec une session SSH
+<a id="run-a-job-using-an-ssh-session" class="xliff"></a>
 
 1. Utilisez SSH pour vous connecter au cluster HDInsight. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -222,7 +229,8 @@ Après avoir créé l’application, générez-la pour produire le fichier `/bin
         yourselves      3
         youth   17
 
-## <a name="run-a-job-using-powershell"></a>Exécution d’une tâche : avec PowerShell
+## Exécution d’une tâche : avec PowerShell
+<a id="run-a-job-using-powershell" class="xliff"></a>
 
 Utilisez le script PowerShell suivant pour exécuter une tâche MapReduce et télécharger les résultats.
 
@@ -240,7 +248,8 @@ Ce script vous invite à entrer le nom et le mot de passe du compte de connexion
     yourselves      3
     youth   17
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 
 Pour plus d’informations sur l’utilisation de MapReduce avec HDInsight, consultez [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md).
 

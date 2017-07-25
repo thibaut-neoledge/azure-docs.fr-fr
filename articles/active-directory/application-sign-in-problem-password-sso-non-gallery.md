@@ -11,23 +11,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 4f8ebf5e734cc2e79819593c942f0e55227e522c
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problèmes de connexion à une application de la galerie Azure AD configurée pour l’authentification unique par mot de passe
+<a id="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on" class="xliff"></a>
+
+# Problèmes de connexion à une application de la galerie Azure AD configurée pour l’authentification unique par mot de passe
 
 Le volet d’accès est un portail web qui permet à un utilisateur disposant d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD) d’afficher et de lancer des applications basées sur le cloud auxquelles l’administrateur Azure AD lui a accordé un accès. Un utilisateur disposant d’éditions Azure AD peut également utiliser des fonctionnalités de gestion de groupes et d’applications en libre-service via le volet d’accès. Le volet d’accès est distinct du portail Azure et n’exige pas des utilisateurs qu’ils aient un abonnement Azure.
 
 Pour utiliser l’authentification unique par mot de passe dans le volet d’accès, l’extension du volet d’accès doit être installée dans le navigateur de l’utilisateur. Cette extension est téléchargée automatiquement lorsqu’un utilisateur sélectionne une application configurée pour l’authentification unique (SSO) avec mot de passe.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Configuration requise du navigateur pour le volet d’accès
+<a id="meeting-browser-requirements-for-the-access-panel" class="xliff"></a>
+
+## Configuration requise du navigateur pour le volet d’accès
 
 Le volet d’accès nécessite un navigateur qui prend en charge JavaScript et dans lequel le CSS est activé. Pour utiliser l’authentification unique par mot de passe dans le volet d’accès, l’extension du volet d’accès doit être installée dans le navigateur de l’utilisateur. Cette extension est téléchargée automatiquement lorsqu’un utilisateur sélectionne une application configurée pour l’authentification unique (SSO) avec mot de passe.
 
@@ -44,7 +48,9 @@ Pour l’authentification unique par mot de passe, les navigateurs de l’utilis
 >
 >
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Comment installer l’extension de navigateur du volet d’accès
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Comment installer l’extension de navigateur du volet d’accès
 
 Pour installer l’extension de navigateur du volet d’accès, effectuez les étapes suivantes :
 
@@ -68,7 +74,9 @@ Vous pouvez également télécharger l’extension pour Chrome et Firefox à par
 
 -   [Extension du volet d’accès pour Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Configuration d’une stratégie de groupe pour Internet Explorer
+<a id="setting-up-a-group-policy-for-internet-explorer" class="xliff"></a>
+
+## Configuration d’une stratégie de groupe pour Internet Explorer
 
 Vous pouvez configurer une stratégie de groupe pour installer à distance l’extension Volet d’accès pour Internet Explorer sur les ordinateurs de vos utilisateurs.
 
@@ -80,11 +88,15 @@ Les prérequis sont les suivants :
 
 Suivez le didacticiel [Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) pour obtenir des instructions pas à pas sur la configuration et le déploiement d’une stratégie de groupe.
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Résoudre les problèmes liés au volet d’accès dans Internet Explorer
+<a id="troubleshoot-the-access-panel-in-internet-explorer" class="xliff"></a>
+
+## Résoudre les problèmes liés au volet d’accès dans Internet Explorer
 
 Consultez le guide [Résolution des problèmes liés à l’extension Volet d’accès pour Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) pour accéder à un outil de diagnostic et pour obtenir des instructions pas à pas sur la configuration de l’extension pour Internet Explorer.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique par mot de passe pour une application ne figurant pas dans la galerie
+<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+## Comment configurer l’authentification unique par mot de passe pour une application ne figurant pas dans la galerie
 
 Pour configurer une application à partir de la galerie Azure AD, vous devez effectuer les opérations suivantes :
 
@@ -94,7 +106,9 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
 -   [Affecter des utilisateurs à l’application](#assign-users-to-the-application)
 
-### <a name="add-a-non-gallery-application"></a>Ajouter une application ne figurant pas dans la galerie
+<a id="add-a-non-gallery-application" class="xliff"></a>
+
+### Ajouter une application ne figurant pas dans la galerie
 
 Pour ajouter une application à partir de la galerie Azure AD, effectuez les étapes suivantes :
 
@@ -114,7 +128,9 @@ Pour ajouter une application à partir de la galerie Azure AD, effectuez les ét
 
 Après une courte période, vous pourrez voir le panneau de configuration de l’application.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Configurer l’application pour l’authentification unique par mot de passe
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+### Configurer l’application pour l’authentification unique par mot de passe
 
 Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 
@@ -142,7 +158,9 @@ Pour configurer l’authentification unique pour une application, effectuez les 
 
 11. En outre, vous pouvez également fournir des informations d’identification pour le compte de l’utilisateur en sélectionnant les lignes des utilisateurs, en cliquant sur **Mettre à jour les informations d’identification** et en entrant le nom d’utilisateur et le mot de passe à la place des utilisateurs. Autrement, les utilisateurs devront entrer les informations d’identification eux-mêmes lors du lancement.
 
-### <a name="assign-users-to-the-application"></a>Affecter des utilisateurs à l’application
+<a id="assign-users-to-the-application" class="xliff"></a>
+
+### Affecter des utilisateurs à l’application
 
 Pour affecter un ou plusieurs utilisateurs directement à une application, effectuez les étapes suivantes :
 
@@ -180,7 +198,9 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 Après une courte période, les utilisateurs que vous avez sélectionnés sont en mesure de lancer ces applications dans le volet d’accès.
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Si ces étapes de dépannage ne résolvent pas le problème
+<a id="if-these-troubleshooting-steps-do-not-the-resolve-the-issue" class="xliff"></a>
+
+## Si ces étapes de dépannage ne résolvent pas le problème
 
 Créez un ticket de support en fournissant les informations suivantes, si disponibles :
 
@@ -196,7 +216,9 @@ Créez un ticket de support en fournissant les informations suivantes, si dispon
 
 -   Traces Fiddler
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)
 
 

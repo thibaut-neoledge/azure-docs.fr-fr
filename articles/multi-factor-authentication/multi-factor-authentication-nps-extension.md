@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 06/13/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 58b289530e16c2a2e9bbe59b372c858ff22ad5ac
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 46f5761caf2883d6083245a9a1fe689ea0529212
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Intégrer votre infrastructure NPS existante à Azure Multi-Factor Authentication - Version préliminaire publique
 
 L’extension de serveur NPS (Network Policy Server) pour Azure MFA permet d’ajouter des fonctionnalités de MFA basées sur le cloud à votre infrastructure d’authentification à l’aide de vos serveurs existants. Avec l’extension NPS, vous pouvez ajouter des vérifications basées sur des appels téléphoniques, des SMS ou des applications mobiles à votre flux d’authentification existant sans avoir à installer, configurer et gérer les nouveaux serveurs. 
 
-Cette extension a été créée pour les organisations qui souhaitent protéger des connexions VPN sans déployer le serveur Azure MFA. L’extension NPS joue le rôle d’adaptateur entre RADIUS et Azure MFA sur le cloud pour fournir un second facteur d’authentification pour les utilisateurs fédérés ou synchronisés. 
+Cette extension a été créée pour les organisations qui souhaitent protéger des connexions VPN sans déployer le serveur Azure MFA. L’extension NPS joue le rôle d’adaptateur entre RADIUS et Azure MFA sur le cloud pour fournir un second facteur d’authentification pour les utilisateurs fédérés ou synchronisés.
 
 Lorsque vous utilisez l’extension NPS pour Azure MFA, le flux d’authentification inclut les composants suivants : 
 
@@ -41,11 +41,11 @@ Le diagramme suivant illustre ce flux de demande d’authentification de niveau 
 
 ## <a name="plan-your-deployment"></a>Planifier votre déploiement
 
-L’extension NPS gère automatiquement la redondance, vous n’avez pas besoin d’une configuration spéciale. 
+L’extension NPS gère automatiquement la redondance, vous n’avez pas besoin d’une configuration spéciale.
 
-Vous pouvez créer autant de serveurs NPS compatibles avec Azure Multi-Factor Authentication que vous le souhaitez. Si vous installez plusieurs serveurs, vous devez utiliser un certificat client différent pour chacun d'entre eux. La création d’un certificat pour chaque serveur signifie que vous pouvez mettre à jour chaque certificat individuellement et que vous n’avez pas à craindre une interruption de service sur tous vos serveurs. 
+Vous pouvez créer autant de serveurs NPS compatibles avec Azure Multi-Factor Authentication que vous le souhaitez. Si vous installez plusieurs serveurs, vous devez utiliser un certificat client différent pour chacun d'entre eux. La création d’un certificat pour chaque serveur signifie que vous pouvez mettre à jour chaque certificat individuellement et que vous n’avez pas à craindre une interruption de service sur tous vos serveurs.
 
-Comme les serveurs VPN acheminent les demandes d’authentification, ils doivent connaître les nouveaux serveurs NPS compatibles avec Azure MFA. 
+Comme les serveurs VPN acheminent les demandes d’authentification, ils doivent connaître les nouveaux serveurs NPS compatibles avec Azure MFA.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -61,9 +61,9 @@ Windows Server 2008 R2 SP1 ou version ultérieure.
 
 ### <a name="libraries"></a>Bibliothèques
 
-Ces bibliothèques sont installées automatiquement avec l’extension. 
--    [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--    [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+Ces bibliothèques sont installées automatiquement avec l’extension.
+-   [Visual C++ Redistributable Packages pour Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-   [Module Microsoft Azure Active Directory pour Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -75,7 +75,7 @@ Lorsque vous installez l’extension, vous devez disposer de l’ID de répertoi
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
 
-Avant d’installer l’extension NPS, vous souhaitez préparer votre environnement pour qu’il gère le trafic d’authentification. 
+Avant d’installer l’extension NPS, vous souhaitez préparer votre environnement pour qu’il gère le trafic d’authentification.
 
 ### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>Activer le rôle NPS sur un serveur joint à un domaine
 
@@ -84,17 +84,17 @@ Le serveur NPS se connecte à Azure Active Directory et authentifie les demandes
 1. Sur votre serveur, ouvrez l’**Assistant d’ajout de rôles et fonctionnalités** à partir du menu Démarrage rapide du Gestionnaire de serveur.
 2. Choisissez **Installation basée sur un rôle ou une fonctionnalité** pour votre type d’installation.
 3. Sélectionnez le rôle de serveur **Services de stratégie et d’accès réseau**. Une fenêtre peut s’afficher pour vous informer des fonctionnalités requises pour exécuter ce rôle.
-4. Suivez les instructions de l’Assistant jusqu'à la page de confirmation. Sélectionnez **Installer**. 
+4. Suivez les instructions de l’Assistant jusqu'à la page de confirmation. Sélectionnez **Installer**.
 
-Maintenant que vous avez un serveur désigné pour NPS, vous devez également configurer ce serveur pour traiter les demandes RADIUS entrantes à partir de la solution VPN. 
+Maintenant que vous avez un serveur désigné pour NPS, vous devez également configurer ce serveur pour traiter les demandes RADIUS entrantes à partir de la solution VPN.
 
 ### <a name="configure-your-vpn-solution-to-communicate-with-the-nps-server"></a>Configurer votre solution VPN pour communiquer avec le serveur NPS
 
-En fonction de la solution VPN utilisée, la procédure servant à configurer votre stratégie d’authentification RADIUS n’est pas la même. Configurez cette stratégie pour qu’elle pointe vers votre serveur NPS RADIUS. 
+En fonction de la solution VPN utilisée, la procédure servant à configurer votre stratégie d’authentification RADIUS n’est pas la même. Configurez cette stratégie pour qu’elle pointe vers votre serveur NPS RADIUS.
 
 ### <a name="sync-domain-users-to-the-cloud"></a>Synchronisation des utilisateurs de domaine dans le cloud
 
-Même si cette étape peut déjà avoir été effectuée sur votre client, il est judicieux de vérifier qu’Azure AD Connect a récemment synchronisé vos bases de données. 
+Même si cette étape peut déjà avoir été effectuée sur votre client, il est judicieux de vérifier qu’Azure AD Connect a récemment synchronisé vos bases de données.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Sélectionnez **Azure Active Directory** > **Connexion Azure AD**
@@ -102,9 +102,23 @@ Même si cette étape peut déjà avoir été effectuée sur votre client, il es
 
 Si vous avez besoin de lancer un nouveau cycle de synchronisations, suivez les instructions figurant dans [Planificateur Azure AD Connect Sync](../active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler).
 
+### <a name="determine-which-authentication-methods-your-users-can-use"></a>Déterminer les méthodes d’authentification que vos utilisateurs peuvent employer
+
+Il existe deux facteurs qui affectent les méthodes d’authentification disponibles avec un déploiement d’extension NPS :
+
+1. L’algorithme de chiffrement de mot de passe utilisé entre le client RADIUS (VPN, Netscaler server ou autre) et les serveurs NPS.
+   - **PAP** prend en charge toutes les méthodes d’authentification de Microsoft Azure Multi-Factor Authentication dans le cloud : appel téléphonique, message texte, notification d’application mobile et code de vérification d’application mobile.
+   - **CHAPv2** prend en charge l’appel téléphonique et la notification d’application mobile.
+   - **EAP** n’est pas pris en charge.
+2. Les méthodes d’entrée que l’application cliente (VPN, Netscaler server ou autre) peut gérer. Par exemple, le client VPN dispose-t-il de moyens permettant d’autoriser l’utilisateur à taper un code de vérification à partir d’un texte ou d’une application mobile ?
+
+Lorsque vous déployez l’extension NPS, utilisez ces facteurs pour déterminer quelles méthodes sont disponibles pour vos utilisateurs. Si votre point d’accès sans fil compatible 802.1X prend en charge PAP, mais que le client UX ne dispose pas des champs d’entrée pour un code de vérification, l’appel téléphonique et la notification d’application mobile sont les deux options prises en charge.
+
+Vous pouvez [désactiver les méthodes d’authentification non prises en charge](multi-factor-authentication-whats-next.md#selectable-verification-methods) dans Azure.
+
 ### <a name="enable-users-for-mfa"></a>Autoriser des utilisateurs à utiliser MFA
 
-Avant de déployer l’extension NPS complète, vous devez activer l’authentification MFA pour les utilisateurs pour lesquels vous souhaitez effectuer la vérification en deux étapes. De manière plus immédiate, pour tester l’extension lorsque vous la déployez, il vous faut au moins un compte de test entièrement inscrit pour Multi-Factor Authentication. 
+Avant de déployer l’extension NPS complète, vous devez activer l’authentification MFA pour les utilisateurs pour lesquels vous souhaitez effectuer la vérification en deux étapes. De manière plus immédiate, pour tester l’extension lorsque vous la déployez, il vous faut au moins un compte de test entièrement inscrit pour Multi-Factor Authentication.
 
 Pour créer un compte de test, suivez la procédure suivante :
 1. [Activez un compte pour MFA](multi-factor-authentication-get-started-user-states.md).
@@ -116,23 +130,23 @@ Vos utilisateurs doivent également suivre ces étapes pour s’inscrire avant d
 ## <a name="install-the-nps-extension"></a>Installer l’extension NPS
 
 > [!IMPORTANT]
-> Installez l’extension NPS sur un serveur autre que le point d’accès VPN. 
+> Installez l’extension NPS sur un serveur autre que le point d’accès VPN.
 
-### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Télécharger et installer l’extension NPS pour Azure MFA 
+### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Télécharger et installer l’extension NPS pour Azure MFA
 
-1.    [Téléchargez l’extension NPS](https://aka.ms/npsmfa) à partir du Centre de téléchargement Microsoft.
-2.    Copiez le fichier binaire sur le serveur NPS (Network Policy Server) que vous souhaitez configurer.
-3.    Exécutez le fichier *setup.exe* et suivez les instructions d’installation. Si vous rencontrez des erreurs, vérifiez que les deux bibliothèques de la section Configuration requise ont été installées avec succès.
+1.  [Téléchargez l’extension NPS](https://aka.ms/npsmfa) à partir du Centre de téléchargement Microsoft.
+2.  Copiez le fichier binaire sur le serveur NPS (Network Policy Server) que vous souhaitez configurer.
+3.  Exécutez le fichier *setup.exe* et suivez les instructions d’installation. Si vous rencontrez des erreurs, vérifiez que les deux bibliothèques de la section Configuration requise ont été installées avec succès.
 
 ### <a name="run-the-powershell-script"></a>Exécution du script PowerShell
 
 Le programme d’installation crée un script PowerShell à cet emplacement : `C:\Program Files\Microsoft\AzureMfa\Config` (C:\ étant le lecteur d’installation). Ce script PowerShell effectue les opérations suivantes :
 
--    Vous pouvez créer un certificat auto-signé.
--    Associer la clé publique du certificat au principal du service sur Azure AD.
--    Stocker le certificat dans le magasin de certificats de l’ordinateur local.
--    Accorder l’accès à la clé privée du certificat à l’utilisateur réseau.
--    Redémarrer le serveur NPS.
+-   Vous pouvez créer un certificat auto-signé.
+-   Associer la clé publique du certificat au principal du service sur Azure AD.
+-   Stocker le certificat dans le magasin de certificats de l’ordinateur local.
+-   Accorder l’accès à la clé privée du certificat à l’utilisateur réseau.
+-   Redémarrer le serveur NPS.
 
 À moins que vous ne souhaitiez utiliser vos propres certificats (au lieu des certificats auto-signés générés par le script PowerShell), exécutez le script PowerShell pour terminer l’installation. Si vous installez l’extension sur plusieurs serveurs, chacun d’eux doit avoir son propre certificat.
 
@@ -145,11 +159,11 @@ Le programme d’installation crée un script PowerShell à cet emplacement : `
 
    `.\AzureMfaNpsExtnConfigSetup.ps1`
 
-4. PowerShell vous invite à entrer votre ID client. Utilisez l’ID de répertoire GUID que vous avez copié à partir du portail Azure dans la section Configuration requise. 
+4. PowerShell vous invite à entrer votre ID client. Utilisez l’ID de répertoire GUID que vous avez copié à partir du portail Azure dans la section Configuration requise.
 5. Connectez-vous à Azure AD en tant qu’administrateur.
 6. PowerShell affiche un message de réussite une fois le script terminé.  
 
-Répétez ces étapes sur les serveurs NPS supplémentaires que vous souhaitez configurer pour l’équilibrage de charge. 
+Répétez ces étapes sur les serveurs NPS supplémentaires que vous souhaitez configurer pour l’équilibrage de charge.
 
 ## <a name="configure-your-nps-extension"></a>Configurer votre extension NPS
 
@@ -159,6 +173,10 @@ Cette section comprend des considérations relatives à la conception ainsi que 
 
 - L’extension NPS pour Azure MFA n’inclut pas les outils permettant de migrer les utilisateurs et les paramètres du serveur MFA vers le cloud. De ce fait, nous vous conseillons d’utiliser l’extension pour les nouveaux déploiements, plutôt que pour les déploiements existants. Si vous utilisez l’extension sur un déploiement existant, vos utilisateurs devront suivre de nouveau la procédure de vérification pour remplir leurs détails MFA dans le cloud.  
 - L’extension NPS utilise l’UPN de l’annuaire Active Directory local pour identifier l’utilisateur sur Azure MFA afin de procéder à l’authentification secondaire. L’extension ne peut pas être configurée pour utiliser un identificateur autre que l’UPN (un ID de connexion alternatif ou un champ AD personnalisé, par exemple).  
+- Tous les protocoles de chiffrement ne prennent pas en charge toutes les méthodes de vérification.
+   - **PAP** prend en charge les méthodes suivantes : appel téléphonique, message texte, notification d’application mobile et code de vérification de l’application mobile
+   - **CHAPv2** prend en charge l’appel téléphonique et la notification d’application mobile
+   - **EAP** n’est pas pris en charge
 
 ### <a name="control-radius-clients-that-require-mfa"></a>Contrôler les clients RADIUS nécessitant l’authentification MFA
 
@@ -220,6 +238,7 @@ Vérifiez qu’AD Connect est en cours d’exécution et que l’utilisateur se 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Pourquoi existe-t-il des erreurs de connexion HTTP dans les journaux pour tous mes échecs d’authentification ?
 
 Vérifiez que https://adnotifications.windowsazure.com est accessible à partir du serveur exécutant l’extension NPS.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

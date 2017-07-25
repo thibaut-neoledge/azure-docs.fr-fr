@@ -59,7 +59,7 @@
 
 # Référence
 ## [PowerShell](/powershell/module/azurerm.datalakestore)
-## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
+## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (gestion des comptes)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
@@ -67,11 +67,12 @@
 ## [REST](/rest/api/datalakestore)
 ## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
 
-# les ressources
-## [Mises à jour de service](https://azure.microsoft.com/updates/?product=data-lake-store)
-## [Tarification](https://azure.microsoft.com/pricing/details/data-lake-store/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Forum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Envoyer des commentaires sur UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+# Ressources
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog sur Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Envoyer des commentaires sur UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Tarification](https://azure.microsoft.com/pricing/details/data-lake-store/)
+## [Mises à jour de service](https://azure.microsoft.com/updates/?product=data-lake-store)
+## [Forum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

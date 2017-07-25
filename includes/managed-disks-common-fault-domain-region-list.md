@@ -18,12 +18,15 @@
 | Sud du Royaume-Uni            | 2                       |
 | Ouest du Royaume-Uni             | 2                       |
 |                     |                         |
-| Est de l’Asie           | 3                       |
+| Est de l'Asie           | 2                       |
 | Asie du Sud-Est     | 2                       |
 | Est du Japon          | 2                       |
 | Ouest du Japon          | 2                       |
 | Inde du Sud         | 2                       |
 | Inde centrale       | 2                       |
+| Inde occidentale          | 2                       |
+| Centre de la Corée       | 2                       |
+| Corée du Sud         | 2                       |
 |                     |                         |
 | Est de l’Australie      | 2                       |
 | Sud-est de l’Australie | 2                       |

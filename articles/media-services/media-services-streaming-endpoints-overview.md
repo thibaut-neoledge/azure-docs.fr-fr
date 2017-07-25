@@ -14,11 +14,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7e18325426bac86d89ff0235e18ddca9fd21e8de
-ms.openlocfilehash: 41a58493c8931e8ce241ce31ecb1ca20b5a82cb3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: cbdc964b16cbc6cf291dbc4b6f60b20d67d9fc41
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -26,7 +28,7 @@ ms.openlocfilehash: 41a58493c8931e8ce241ce31ecb1ca20b5a82cb3
 
 ##<a name="overview"></a>Vue d'ensemble
 
-Dans Microsoft Azure Media Services (AMS), un **point de terminaison de diffusion en continu** représente un service de diffusion en continu qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de diffusion de contenu (CDN) pour être redistribué. Media Services fournit également une intégration transparente au CDN Azure. Le flux sortant d’un service StreamingEndpoint peut être un flux dynamique ou un élément multimédia de vidéo à la demande ou un téléchargement progressif de votre ressource dans votre compte Media Services. Chaque compte Azure Media Services comprend une valeur StreamingEndpoint par défaut. Vous pouvez créer d’autres StreamingEndpoint sous votre compte. Il existe deux versions de StreamingEndpoint, 1.0 et 2.0. À compter du 10 janvier 2017, les nouveaux comptes AMS incluront la version 2.0 de StreamingEndpoint **par défaut**. Les autres points de terminaison que vous ajoutez à ce compte seront également de la version 2.0. Cette modification n’aura aucune incidence sur les comptes existants ; les StreamingEndpoint existants auront la version 1.0 et pourront être mis à niveau vers la version 2.0. Avec cette modification, il y aura des changements de comportement, de facturation et de fonctionnalités (pour plus d’informations, consultez la section **Types et versions de streaming** ci-dessous).
+Dans Microsoft Azure Media Services (AMS), un **point de terminaison de diffusion en continu** représente un service de diffusion en continu qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de diffusion de contenu (CDN) pour être redistribué. Media Services fournit également une intégration transparente au CDN Azure. Le flux sortant d’un service StreamingEndpoint peut être un flux dynamique, une vidéo à la demande ou un téléchargement progressif de votre ressource dans votre compte Media Services. Chaque compte Azure Media Services comprend une valeur de point de terminaison de streaming par défaut. Vous pouvez créer d’autres points de terminaison de streaming sous votre compte. Il existe deux versions du point de terminaison de streaming : 1.0 et 2.0. À compter du 10 janvier 2017, les nouveaux comptes AMS incluront la version 2.0 du point de terminaison de streaming **par défaut**. Les autres points de terminaison que vous ajoutez à ce compte seront également de la version 2.0. Cette modification n’aura aucune incidence sur les comptes existants ; les StreamingEndpoint existants auront la version 1.0 et pourront être mis à niveau vers la version 2.0. Avec cette modification, il y aura des changements de comportement, de facturation et de fonctionnalités (pour plus d’informations, consultez la section **Types et versions de streaming** ci-dessous).
 
 En outre, à partir de la version 2.15 (publiée en janvier 2017), Azure Media Services a ajouté les propriétés suivantes à l’entité du point de terminaison de streaming : **CdnProvider**, **CdnProfile**, **FreeTrialEndTime** et **StreamingEndpointVersion**. Pour une présentation détaillée de ces propriétés, consultez [ceci](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
@@ -54,7 +56,7 @@ Pour plus d’informations, consultez la section **Comparaison des types de stre
 
 Pour les utilisateurs qui ont créé des comptes AMS avant la version du 10 janvier 2017, vous avez un type **classique** de point de terminaison de streaming. Ce type fait partie de la version de la version « 1.0 » du point de terminaison de streaming.
 
-Si votre point de terminaison de streaming **version « 1.0 »** continu a&1; ou plusieurs unités de streaming (SU) Premium, le point de terminaison sera Premium et fournira toutes les fonctionnalités AMS (tout comme le **Standard/Premium**) sans aucune étape de configuration supplémentaire.
+Si votre point de terminaison de streaming **version « 1.0 »** continu a 1 ou plusieurs unités de streaming (SU) Premium, le point de terminaison sera Premium et fournira toutes les fonctionnalités AMS (tout comme le **Standard/Premium**) sans aucune étape de configuration supplémentaire.
 
 >[!NOTE]
 >Les points de terminaison de streaming de type **Classique** continu (version « 1.0 » et 0 SU), fournissent des fonctionnalités limitées et n’incluent pas de contrat de niveau de service. Il est recommandé de migrer vers le type **Standard** pour obtenir une meilleure expérience et utiliser des fonctionnalités telles que l’empaquetage dynamique ou le chiffrement et d’autres fonctionnalités qui accompagnent le type **Standard**. Pour migrer vers le type **Standard**, accédez au [portail Azure](https://portal.azure.com/) et sélectionnez **Opt-in to Standard** (Abonnement Standard). Pour plus d’informations sur la migration, consultez la section [Migration](#migration-between-types).
@@ -112,10 +114,5 @@ Consultez les parcours d’apprentissage de Media Services.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

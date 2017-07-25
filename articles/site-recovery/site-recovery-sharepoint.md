@@ -22,12 +22,14 @@ ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Répliquer une application SharePoint multiniveau pour la récupération d’urgence à l’aide d’Azure Site Recovery
+# Répliquer une application SharePoint multiniveau pour la récupération d’urgence à l’aide d’Azure Site Recovery
+<a id="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery" class="xliff"></a>
 
 Cet article explique en détail comment protéger une application SharePoint à l’aide d’[Azure Site Recovery](site-recovery-overview.md).
 
 
-## <a name="overview"></a>Vue d'ensemble
+## Vue d'ensemble
+<a id="overview" class="xliff"></a>
 
 Microsoft SharePoint est une application puissante qui peut aider un groupe ou service à s’organiser, à collaborer et à partager des informations. SharePoint permet les portails intranet, la gestion des documents et fichiers, la collaboration, les réseaux sociaux, les réseaux extranet, les sites web, la recherche de contenu d’entreprise et le décisionnel. Elle offre également des capacités d’intégration de système, d’intégration de processus et d’automatisation de flux de travail. En règle générale, les organisations le considèrent comme une application de niveau 1 sensible à la perte de données et au temps d’arrêt.
 
@@ -39,10 +41,11 @@ Cet article explique en détail comment protéger une application SharePoint à 
 
 Vous pouvez regarder la vidéo ci-dessous sur la récupération d’une application multiniveau dans Azure.
 
-> [!VIDÉO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Composants requis
+## Composants requis
+<a id="prerequisites" class="xliff"></a>
 
 Avant de commencer, veillez à bien comprendre ce qui suit :
 
@@ -53,7 +56,8 @@ Avant de commencer, veillez à bien comprendre ce qui suit :
 5. [Réplication d’un contrôleur de domaine](site-recovery-active-directory.md)
 6. [Réplication de SQL Server](site-recovery-sql.md)
 
-## <a name="sharepoint-architecture"></a>Architecture SharePoint
+## Architecture SharePoint
+<a id="sharepoint-architecture" class="xliff"></a>
 
 SharePoint peut être déployée sur un ou plusieurs serveurs à l’aide de rôles de serveur et de topologies à plusieurs niveaux pour implémenter une conception de batterie de serveurs qui répond à des objectifs spécifiques. Une batterie de serveurs SharePoint de grande capacité et à forte demande qui prend en charge un grand nombre d’utilisateurs simultanés et un grand nombre d’éléments de contenu utilise le regroupement de service dans le cadre de sa stratégie d’évolutivité. Cette approche implique d’exécuter les services sur des serveurs dédiés, de regrouper ces services puis d’augmenter la taille des instances des serveurs en tant que groupe. La topologie suivante illustre le regroupement des services et serveurs pour une batterie de serveurs SharePoint à trois niveaux. Reportez-vous à la documentation de SharePoint et aux architectures de gamme de produits pour des instructions détaillées sur les différentes topologies de SharePoint. Vous trouverez plus d’informations sur le déploiement de SharePoint 2013 dans [ce document](https://technet.microsoft.com/en-us/library/cc303422.aspx).
 
@@ -62,11 +66,13 @@ SharePoint peut être déployée sur un ou plusieurs serveurs à l’aide de rô
 ![Modèle de déploiement 1](./media/site-recovery-sharepoint/sharepointarch.png)
 
 
-## <a name="site-recovery-support"></a>Prise en charge de Site Recovery
+## Prise en charge de Site Recovery
+<a id="site-recovery-support" class="xliff"></a>
 
 Pour la création de cet article, des machines virtuelles VMware avec Windows Server 2012 R2 Enterprise ont été utilisées. Les applications SharePoint 2013 Enterprise Edition et SQL Server 2014 Enterprise Edition ont été utilisées. Comme la réplication Site Recovery est indépendante des applications, les recommandations indiquées ici sont censées également s’appliquer aux scénarios suivants.
 
-### <a name="source-and-target"></a>Source et cible
+### Source et cible
+<a id="source-and-target" class="xliff"></a>
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
@@ -74,7 +80,8 @@ Pour la création de cet article, des machines virtuelles VMware avec Windows Se
 **VMware** | Oui | Oui
 **Serveur physique** | Oui | Oui
 
-### <a name="sharepoint-versions"></a>Versions de SharePoint
+### Versions de SharePoint
+<a id="sharepoint-versions" class="xliff"></a>
 Les versions suivantes de SharePoint Server sont prises en charge.
 
 * SharePoint Server 2013 Standard
@@ -82,11 +89,13 @@ Les versions suivantes de SharePoint Server sont prises en charge.
 * SharePoint Server 2016 Standard
 * SharePoint Server 2016 Enterprise
 
-### <a name="things-to-keep-in-mind"></a>Éléments à prendre en compte
+### Éléments à prendre en compte
+<a id="things-to-keep-in-mind" class="xliff"></a>
 
 Si vous utilisez un cluster basé sur disque partagé comme n’importe quel niveau dans votre application, vous ne pourrez pas utiliser la réplication de Site Recovery pour répliquer ces machines virtuelles. Vous pouvez utiliser la réplication native fournie par l’application, puis utiliser un [plan de récupération](site-recovery-create-recovery-plans.md) pour basculer tous les niveaux.
 
-## <a name="replicating-virtual-machines"></a>Réplication des machines virtuelles
+## Réplication des machines virtuelles
+<a id="replicating-virtual-machines" class="xliff"></a>
 
 Suivez [ce guide](site-recovery-vmware-to-azure.md) pour démarrer la réplication de la machine virtuelle dans Azure.
 
@@ -98,9 +107,11 @@ Suivez [ce guide](site-recovery-vmware-to-azure.md) pour démarrer la réplicati
 
 * Pour obtenir des conseils sur la protection d’un niveau de base de données en cours d’exécution sur SQL Server, consultez le document [Protéger SQL Server](site-recovery-active-directory.md).
 
-## <a name="networking-configuration"></a>Configuration de la mise en réseau
+## Configuration de la mise en réseau
+<a id="networking-configuration" class="xliff"></a>
 
-### <a name="network-properties"></a>Propriétés du réseau
+### Propriétés du réseau
+<a id="network-properties" class="xliff"></a>
 
 * Pour les machines virtuelles de niveau web et de niveau application, configurez les paramètres réseau dans le portail Azure afin que les machines virtuelles soient associées au bon réseau de récupération d’urgence après le basculement.
 
@@ -111,7 +122,8 @@ Suivez [ce guide](site-recovery-vmware-to-azure.md) pour démarrer la réplicati
 
     ![Définir l’adresse IP statique](./media/site-recovery-sharepoint/set-static-ip.png)
 
-### <a name="dns-and-traffic-routing"></a>Routage du trafic et DNS
+### Routage du trafic et DNS
+<a id="dns-and-traffic-routing" class="xliff"></a>
 
 Pour les sites accessibles sur Internet, [créez un profil Traffic Manager de type « Priorité »](../traffic-manager/traffic-manager-create-profile.md) dans l’abonnement Azure. Puis, configurez votre profil DNS et Traffic Manager de la manière suivante.
 
@@ -132,11 +144,13 @@ Hébergez une page de test sur un port spécifique (800 par exemple) du niveau w
 * Durée de vie du DNS - « 30 secondes »
 * Paramètres d’analyse de point de terminaison - Si vous pouvez activer l’authentification anonyme, vous pouvez donner un point de terminaison de site web spécifique. Ou bien, vous pouvez utiliser une page de test sur un port spécifique (800 par exemple).
 
-## <a name="creating-a-recovery-plan"></a>Création d’un plan de récupération
+## Création d’un plan de récupération
+<a id="creating-a-recovery-plan" class="xliff"></a>
 
 Un plan de récupération permet de séquencer le basculement de différents niveaux d’une application multiniveau, ce qui contribue au maintien de la cohérence de l’application. Suivez les étapes indiquées ci-dessous lorsque vous créez un plan de récupération pour une application web multiniveau. [En savoir plus sur la création d’un plan de récupération](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
-### <a name="adding-virtual-machines-to-failover-groups"></a>Ajout de machines virtuelles à des groupes de basculement
+### Ajout de machines virtuelles à des groupes de basculement
+<a id="adding-virtual-machines-to-failover-groups" class="xliff"></a>
 
 1. Créez un plan de récupération en ajoutant des machines virtuelles de niveau web et application.
 2. Cliquez sur « Personnaliser » pour regrouper les machines virtuelles. Par défaut, toutes les machines virtuelles font partie du « Groupe 1 ».
@@ -146,7 +160,8 @@ Un plan de récupération permet de séquencer le basculement de différents niv
 3. Créez un autre groupe (Groupe 2) et déplacez les machines virtuelles de niveau web dans le nouveau groupe. Vos machines virtuelles de niveau application doivent faire partie du « Groupe 1 » tandis que les machines virtuelles de niveau web doivent faire partie du « Groupe 2 ». Cela permet de s’assurer que les machines virtuelles de niveau application démarrent avant les machines virtuelles de niveau web.
 
 
-### <a name="adding-scripts-to-the-recovery-plan"></a>Ajout de scripts au plan de récupération
+### Ajout de scripts au plan de récupération
+<a id="adding-scripts-to-the-recovery-plan" class="xliff"></a>
 
 Vous pouvez déployer les scripts Azure Site Recovery les plus couramment utilisés dans votre compte Automation en cliquant sur le bouton « Déployer dans Azure » ci-dessous. Lorsque vous utilisez n’importe quel script publié, assurez-vous de suivre les instructions dans le script.
 
@@ -191,7 +206,8 @@ Vous pouvez déployer les scripts Azure Site Recovery les plus couramment utilis
 
     ![RP enregistré](./media/site-recovery-sharepoint/saved-rp.png)
 
-## <a name="doing-a-test-failover"></a>Exécution d’un test de basculement
+## Exécution d’un test de basculement
+<a id="doing-a-test-failover" class="xliff"></a>
 Suivez [ce guide](site-recovery-test-failover-to-azure.md) pour effectuer un test de basculement.
 
 1.  Accédez au portail Azure et sélectionnez votre coffre Recovery Services.
@@ -205,7 +221,8 @@ Pour obtenir des conseils sur la réalisation du test de basculement pour Active
 
 Pour obtenir des conseils sur la réalisation du test de basculement pour les groupes de disponibilité SQL AlwaysOn, consultez le document [Réalisation d’un test de basculement pour SQL Server AlwaysOn](site-recovery-sql.md#steps-to-do-a-test-failover).
 
-## <a name="doing-a-failover"></a>Exécution d’un basculement
+## Exécution d’un basculement
+<a id="doing-a-failover" class="xliff"></a>
 Suivez [ce guide](site-recovery-failover.md) pour réaliser un basculement.
 
 1.  Accédez au portail Azure et sélectionnez votre coffre Recovery Services.
@@ -213,6 +230,7 @@ Suivez [ce guide](site-recovery-failover.md) pour réaliser un basculement.
 3.  Cliquez sur « Basculement ».
 4.  Sélectionnez un point de récupération pour démarrer le processus de basculement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
+<a id="next-steps" class="xliff"></a>
 Vous pouvez en savoir plus sur la [réplication d’autres applications](site-recovery-workload.md) à l’aide de Site Recovery.
 

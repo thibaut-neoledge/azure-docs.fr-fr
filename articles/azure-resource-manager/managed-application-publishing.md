@@ -41,8 +41,8 @@ La première étape consiste à créer le package d’application gérée qui co
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-            "storageAccountName": {
-                "type": "String"
+          "storageAccountName": {
+              "type": "String"
           }
       },
       "resources": [{
@@ -54,10 +54,10 @@ La première étape consiste à créer le package d’application gérée qui co
               "name": "Standard_LRS"
           },
           "kind": "Storage",
-          "properties": {        
+          "properties": {       
           }
       }],
-      "outputs": {        
+      "outputs": {      
       }
   }
   ```
@@ -102,7 +102,7 @@ La première étape consiste à créer le package d’application gérée qui co
               "Parameters": {
                   "storageAccountName": {
                       "value": "[parameters('storageAccountName')]"
-                  }                
+                  }             
               }
           }
       }]
@@ -118,13 +118,13 @@ Une fois que tous les fichiers nécessaires sont prêts, vous chargez le package
 Créez ensuite un groupe d’utilisateurs ou une application que vous souhaitez utiliser pour gérer les ressources pour le compte du client. Ce groupe d’utilisateurs ou l’application dispose d’autorisations sur le groupe de ressources géré comme décrit par le rôle. Le rôle peut être n’importe quel rôle RBAC intégré, tel que **Propriétaire** ou **Collaborateur**. Un utilisateur individuel peut également se voir attribuer des autorisations pour gérer les ressources, mais en général, cette autorisation est attribuée pour utiliser un groupe d’utilisateurs. Pour créer un nouveau groupe d’utilisateurs Active Directory, utilisez :
 
 ```azurecli
-az ad group create –display-name "name" –mail-nickname "nickname"
+az ad group create --display-name "name" --mail-nickname "nickname"
 ```
 
 Vous pouvez également utiliser un groupe existant. Vous avez besoin de l’ID d’objet du groupe d’utilisateurs que vous venez de créer d’un groupe d’utilisateurs existant. L’exemple suivant montre comment obtenir l’ID d’objet à partir du nom d’affichage utilisé pour créer le groupe.
 
 ```azurecli
-az ad group show –group "groupName"
+az ad group show --group "groupName"
 ```
 
 Exemple :
@@ -210,3 +210,4 @@ Les paramètres utilisés dans cet exemple sont les suivants :
 * Consultez les [exemples d’application gérée](https://github.com/Azure/azure-managedapp-samples/tree/master/samples) pour voir des exemples de fichiers.
 * Pour comprendre l’expérience client, consultez [Utiliser une application gérée Azure](managed-application-consumption.md).
 * Pour en savoir plus sur la création d’un fichier de définition de l’interface utilisateur pour une application gérée, consultez [Prise en main de CreateUiDefinition](managed-application-createuidefinition-overview.md).
+

@@ -113,6 +113,10 @@ Si vous pouvez accéder à l’application, assurez-vous que votre périphériqu
 * Le trafic des demandes des applications sortantes, de votre ordinateur client à la machine virtuelle Azure.
 * Le trafic des réponses des applications entrantes, de la machine virtuelle Azure.
 
+## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Étape 4 Si vous ne pouvez pas accéder à l’application, utilisez Vérification IP pour vérifier les paramètres. 
+
+Pour plus d’informations, consultez [Vue d’ensemble de la surveillance réseau Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+
 ## <a name="additional-resources"></a>Ressources supplémentaires
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 

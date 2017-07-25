@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 51de0e9aa1d29d0b3f3ffc4f126b8ca688be3504
 ms.openlocfilehash: 5e96805f8880a30a5fc8779d8f07addb6d068c09
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -46,10 +48,5 @@ Pour les applications nécessitant une mise à l’échelle des ressources de ca
 Au lieu d’effectuer la mise en corrélation de plusieurs ressources telles que des cartes réseau et des machines virtuelles, un jeu de mise à l’échelle comprend un réseau, un stockage, une machine virtuelle et des propriétés d’extension que vous pouvez configurer de manière centralisée.
 
 Pour une présentation des jeux de mise à l’échelle de machine virtuelle, consultez la page [Jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/). Pour plus d’informations, consultez la [documentation Jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

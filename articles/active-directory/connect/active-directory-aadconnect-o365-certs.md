@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
 ms.openlocfilehash: 51eafa16bd918a065f896ba89dec54d2340b5c69
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/27/2017
-
 
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renouvellement des certificats de fédération pour Office 365 et Azure Active Directory
@@ -40,7 +40,7 @@ Les certificats de signature et de déchiffrement de jetons sont généralement 
 >
 >
 
-Azure AD tente d’analyser les métadonnées de fédération et de mettre à jour les certificats de signature de jeton, comme indiqué par ces métadonnées. Pour vérifier la disponibilité de nouveaux certificats, Azure AD interroge les métadonnées de fédération&30; jours avant l’expiration des certificats de signature de jeton.
+Azure AD tente d’analyser les métadonnées de fédération et de mettre à jour les certificats de signature de jeton, comme indiqué par ces métadonnées. Pour vérifier la disponibilité de nouveaux certificats, Azure AD interroge les métadonnées de fédération 30 jours avant l’expiration des certificats de signature de jeton.
 
 * Aucune notification n’est envoyée par e-mail ou ne s’affiche dans le portail Office 365 si Azure AD réussit à récupérer les nouveaux certificats après interrogation des métadonnées de fédération.
 * Si, en revanche, les nouveaux certificats de signature de jetons ne peuvent être récupérés (les métadonnées de fédération étant inaccessibles ou la substitution automatique des certificats étant inactivée), Azure AD enverra une notification par e-mail et affichera également une annonce dans le portail Office 365.

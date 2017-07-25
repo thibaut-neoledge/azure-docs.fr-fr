@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 91a4e54b3dd2e1f44a6b52c548a243ae98e3ba3f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="azure-active-directory-automatic-device-registration-faq"></a>FAQ sur l’inscription d’appareils automatique Azure Active Directory
@@ -59,17 +59,17 @@ Seuls les appareils suivants sont répertoriés sous les informations UTILISATEU
 
 Pour Windows 10 et Windows Server 2016 sur site AD et joints à un domaine :
 
-1.    Ouvrez une invite de commandes en tant qu’administrateur.
+1.  Ouvrez une invite de commandes en tant qu’administrateur.
 
-2.    Saisissez `dsregcmd.exe /debug /leave`
+2.  Saisissez `dsregcmd.exe /debug /leave`
 
-3.    Déconnectez puis reconnectez-vous pour déclencher la tâche planifiée qui inscrit à nouveau l’appareil. 
+3.  Déconnectez puis reconnectez-vous pour déclencher la tâche planifiée qui inscrit à nouveau l’appareil. 
 
 Pour les autres plateformes Windows sur site AD et jointes à un domaine :
 
-1.    Ouvrez une invite de commandes en tant qu’administrateur.
-2.    Saisissez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-3.    Saisissez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+1.  Ouvrez une invite de commandes en tant qu’administrateur.
+2.  Saisissez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+3.  Saisissez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
 
@@ -77,13 +77,13 @@ Pour les autres plateformes Windows sur site AD et jointes à un domaine :
 
 **R :**
 
--    Pour Windows 10 et Windows Server 2016, en cas de tentatives répétées visant à disjoindre et à joindre à nouveau le même appareil, des entrées dupliquées peuvent s’afficher. 
+-   Pour Windows 10 et Windows Server 2016, en cas de tentatives répétées visant à disjoindre et à joindre à nouveau le même appareil, des entrées dupliquées peuvent s’afficher. 
 
--    Si vous avez utilisé « Ajouter un compte professionnel ou scolaire », chaque utilisateur Windows qui utilise « Ajouter un compte professionnel ou scolaire » créera un nouvel enregistrement d’appareil avec le même nom d’appareil.
+-   Si vous avez utilisé « Ajouter un compte professionnel ou scolaire », chaque utilisateur Windows qui utilise « Ajouter un compte professionnel ou scolaire » créera un nouvel enregistrement d’appareil avec le même nom d’appareil.
 
--    Les autres plateformes Windows sur site AD jointes à un domaine à l’aide de l’inscription automatique créeront un nouvel enregistrement d’appareil avec le même nom d’appareil pour chaque utilisateur du domaine qui se connecte à l’appareil. 
+-   Les autres plateformes Windows sur site AD jointes à un domaine à l’aide de l’inscription automatique créeront un nouvel enregistrement d’appareil avec le même nom d’appareil pour chaque utilisateur du domaine qui se connecte à l’appareil. 
 
--    Une machine AADJ qui a été réinitialisée, réinstallée et jointe à nouveau avec le même nom s’affichera en tant que nouvel enregistrement avec le même nom d’appareil.
+-   Une machine AADJ qui a été réinitialisée, réinstallée et jointe à nouveau avec le même nom s’affichera en tant que nouvel enregistrement avec le même nom d’appareil.
 
 ---
 

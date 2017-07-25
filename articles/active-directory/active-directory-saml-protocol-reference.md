@@ -12,15 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 07/19/2017
 ms.author: priyamo
-ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: dceaab3f89675ae8e046419aaa5173c2733b0660
+ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
+ms.openlocfilehash: 53e9fd58e72d83db32fa1fab937b4618cd4cd159
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/29/2017
-
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Prise en charge du protocole SAML dans Azure Active Directory
@@ -28,9 +26,7 @@ Azure Active Directory (Azure AD) utilise le protocole SAML 2.0 pour permettre a
 
 Le protocole SAML a besoin du fournisseur d’identité (Azure AD) et du fournisseur de services (l’application) pour échanger des informations à leur sujet.
 
-Lorsqu’une application est enregistrée auprès d’Azure AD, le développeur d’applications enregistre les informations liées à la fédération auprès d’Azure AD. Ces informations englobent notamment **l’URI de redirection** et **l’URI des métadonnées** de l’application.
-
-Azure AD utilise **l’URI des métadonnées** du service cloud pour récupérer la clé de signature et l’URI de déconnexion du service cloud. Si l’application ne prend pas en charge l’URI des métadonnées, le développeur doit contacter le support Microsoft pour obtenir l’URI de déconnexion et la clé de signature.
+Lorsqu’une application est enregistrée auprès d’Azure AD, le développeur d’applications enregistre les informations liées à la fédération auprès d’Azure AD. Ces informations englobent notamment **l’URI de redirection** de l’application.
 
 Azure Active Directory expose les points de terminaison d’authentification unique et de déconnexion unique communs (indépendants du client) et spécifiques au client. Ces URL représentent les emplacements adressables et ne jouent pas simplement le rôle d’identificateurs. Vous pouvez donc accéder au point de terminaison pour lire les métadonnées.
 

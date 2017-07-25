@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 08a84ace63465e7c058add69a25687fe46c7ea07
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 9e19618a1b24bbdf3163ddfc3423c5c932dcd7af
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="manage-a-web-app-in-azure-app-service"></a>Gérer une application web dans Azure App Service
@@ -78,10 +77,6 @@ Si vous n'avez pas activé les sauvegardes automatiques, vous pouvez créer une 
 
 Envisagez d'utiliser le [déploiement intermédiaire](web-sites-staged-publishing.md). Cette option vous permet de publier des mises à jour pour un déploiement intermédiaire qui s'exécute parallèlement à votre déploiement de production. 
 
-Si vous utilisez Visual Studio Team Services, vous pouvez configurer le déploiement continu depuis le contrôle de la source :
-
-* [Utilisation de TFVC (Team Foundation Version Control)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
-* [Utilisation de Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
 
 <!-- Anchors. -->
 

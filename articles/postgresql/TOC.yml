@@ -11,12 +11,22 @@
     href: quickstart-create-server-database-portal.md
   - name: Créer une base de données - Interface de ligne de commande Azure
     href: quickstart-create-server-database-azure-cli.md
-  - name: Connecter
-    items:
-    - name: Node.js
-      href: connect-nodejs.md
+  - name: Connexion et requête
+    items: 
     - name: Python
       href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: PHP
+      href: connect-php.md
+    - name: .NET
+      href: connect-csharp.md
+    - name: Go
+      href: connect-go.md
 - name: Didacticiels
   items:
   - name: 1 - Concevoir une base de données
@@ -27,6 +37,10 @@
       href: tutorial-design-database-using-azure-cli.md
   - name: 2 - Concevoir une application web - Python
     href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+- name: Exemples
+  items:
+  - name: Interface de ligne de commande Azure
+    href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
   - name: Base de données et serveurs
@@ -57,10 +71,6 @@
     items:
     - name: Bibliothèques de connexions
       href: concepts-connection-libraries.md
-- name: Exemples
-  items:
-  - name: Interface de ligne de commande Azure
-    href: sample-scripts-azure-cli.md
 - name: Procédures
   items:
   - name: Règles de pare-feu
@@ -73,6 +83,8 @@
     items:
     - name: Portail Azure
       href: howto-restore-server-portal.md
+    - name: Interface de ligne de commande Azure
+      href: howto-restore-server-cli.md
   - name: Migrer votre base de données
     items:
     - name: Vider et restaurer
@@ -93,12 +105,16 @@
     href: /cli/azure/postgres
 - name: Ressources
   items:
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Tarification
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: Forum MSDN
     href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
   - name: Dépassement de capacité de la pile
     href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+  - name: Vidéos
+    href: videos.md    
   - name: Forum de commentaires
     href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
   - name: Disponibilité des régions

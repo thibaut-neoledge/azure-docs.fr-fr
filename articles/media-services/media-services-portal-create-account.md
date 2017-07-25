@@ -1,5 +1,5 @@
 ---
-title: " Création d’un compte Azure Media Services avec le portail Azure | Microsoft Docss"
+title: "Création d’un compte Azure Media Services avec le portail Azure | Microsoft Docs"
 description: "Ce didacticiel vous guide à travers les étapes de création d’un compte Azure Media Services à l’aide du portail Azure."
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 07/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7ef0383ae88dcb8beb4b30792eaf60dec2911507
-ms.openlocfilehash: 08b8629502f99fc46fbe28ad17cd173f11259721
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9ab5368c173f016f44546d6c8acb360598f5f5ab
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Création d’un compte Azure Media Services à l’aide du portail Azure
@@ -40,13 +41,10 @@ L'accès à Media Services requiert deux comptes associés :
 
 * Un compte Media Services. Votre compte vous donne accès à un ensemble de services Media Services sur le cloud, disponibles dans Azure. Un compte Media Services ne stocke pas de contenu multimédia à proprement parler. Il stocke des métadonnées relatives au contenu multimédia et aux travaux de traitement multimédia dans votre compte. Lorsque vous créez le compte, vous sélectionnez une région Media Services disponible. Cette dernière est un centre de données qui stocke les enregistrements de métadonnées pour votre compte.
   
-    Les régions de disponibilité des Media Services (AMS) sont les suivantes : Europe du Nord, Europe de l’Ouest, Ouest des États-Unis, Est des États-Unis, Sud-Est de l’Asie, Est de l’Asie, Ouest du Japon, Est du Japon. Media Services n'utilise pas de groupes d'affinités.
-  
-    AMS est désormais également disponible dans les centres de données suivants : Sud du Brésil, Inde-Ouest, Inde-Sud et Inde-Centre. Vous pouvez maintenant utiliser le portail Azure pour créer des comptes Media Service et effectuer les différentes tâches décrites ici. La fonctionnalité Live Encoding n'est cependant pas activée dans ces centres de données. En outre, tous les types d'unités réservées d'encodage ne sont pas disponibles dans ces centres de données.
-  
-  * Sud du Brésil : seules les unités réservées d’encodage standard et de base sont disponibles.
-  * Inde-Ouest, Inde-Sud : 
 * Un compte de stockage Azure. Les comptes de stockage doivent se trouver dans la même zone géographique que le compte Media Services. Lorsque vous créez un compte Media Services, vous pouvez choisir un compte de stockage existant dans la même région ou en créer un. Si vous supprimez un compte Media Services, les objets blob de votre compte de stockage associé ne seront pas supprimés.
+
+> [!NOTE]
+> Pour plus d’informations sur la disponibilité des fonctionnalités Azure Media Services dans des régions différentes, consultez la [disponibilité des fonctionnalités AMS entre les centres de données](scenarios-and-availability.md#a-idavailabilitya-availability-of-media-services-features-across-datacenters).
 
 ## <a name="create-an-ams-account"></a>Création d’un compte AMS
 Cette section montre comment créer un compte AMS.
@@ -74,35 +72,21 @@ Cette section montre comment créer un compte AMS.
     >[!NOTE]
     >Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
    
-    ![Media Services Paramètres](./media/media-services-create-account/media-services-settings.png)
-   
-    Pour gérer votre compte AMS (par exemple, charger des vidéos, encoder des éléments multimédias ou surveiller la progression de tâches), utilisez la fenêtre **Paramètres** .
+## <a name="to-manage-your-ams-account"></a>Pour gérer votre compte AMS
 
-## <a name="manage-keys"></a>Gérer les clés
-Vous avez besoin du nom de compte et des informations de clé primaire pour accéder par programme au compte Media Services.
+Pour gérer votre compte AMS (par exemple, vous connecter à l’API AMS par programme, charger des vidéos, encoder des ressources, configurer la protection du contenu, surveiller la progression du travail) sélectionnez **Paramètres** sur le côté gauche du portail. À partir de **Paramètres**, accédez à l’un des panneaux disponibles (par exemple : **Accès API**, **Ressources**, **Travaux**, **Protection du contenu**).
 
-1. Dans le portail Azure, sélectionnez votre compte. 
-   
-    La fenêtre **Paramètres** s’affiche sur la droite. 
-2. Dans la fenêtre **Paramètres**, sélectionnez **Clés**. 
-   
-    La fenêtre **Gérer les clés** affiche le nom du compte ainsi que les clés primaires et secondaires. 
-3. Cliquez sur le bouton de copie pour copier les valeurs.
-   
-    ![Media Services Clés](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Vous pouvez maintenant télécharger des fichiers dans votre compte AMS. Pour plus d’informations, consultez la section [Téléchargement de fichiers dans un compte Media Services à l’aide du portail Azure](media-services-portal-upload-files.md).
+
+Si vous envisagez d’accéder à l’API AMS par programme, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -43,6 +43,7 @@
 ### [Installer et configurer Trend Micro Deep Security comme service](install-trend.md)
 ### [Configurer un groupe à haute disponibilité](configure-availability.md)
 ### [Redimensionner une machine virtuelle Windows créée avec le modèle de déploiement classique](resize-vm.md)
+### [Maintenance](planned-maintenance-schedule.md)
 
 ## Gérer
 ### [Migration à partir de déploiements classiques vers des déploiements Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
@@ -55,7 +56,6 @@
 ## Planification
 ### [À propos des images](about-images.md)
 ### [Tailles de machines virtuelles](../../virtual-machines-windows-sizes.md)
-#### [À propos des machines virtuelles de série H ou de calcul intensif de série A](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Maintenance planifiée des machines virtuelles Azure](../../virtual-machines-windows-planned-maintenance.md)
 ### [Instructions d’implémentation des services d’infrastructure Azure](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
@@ -70,11 +70,7 @@
 #### [Soumettre des travaux locaux vers Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Configurer Oracle Data Guard pour Azure](configure-oracle-data-guard.md)
-####[Configurer GoldenGate Oracle pour Azure](configure-oracle-goldengate.md)
-####[Remarques diverses concernant les images](oracle-considerations.md)
-####[Liste des images de machine virtuelle Oracle](oracle-images.md)
+### [Oracle](../../workloads/oracle/oracle-considerations.md)
 ### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
@@ -98,7 +94,8 @@
 ## [REST Réseau](/rest/api)
 ## [REST Stockage](/rest/api/storageservices)
 
-# les ressources
+# Ressources
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Tarification](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Disponibilité régionale](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

@@ -1,6 +1,6 @@
 ---
 title: "Traiter les messages appareil-à-cloud Azure IoT Hub en utilisant les itinéraires (.Net) | Microsoft Docs"
-description: "Comment traiter des messages appareil-à-cloud IoT Hub en utilisant les règles de routage et les point de terminaison personnalisés pour distribuer les messages vers d’autres services principaux."
+description: "Comment traiter des messages appareil-à-cloud IoT Hub en utilisant les règles de routage et les points de terminaison personnalisés pour distribuer les messages vers d’autres services principaux."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: ff0b234f27e2d5068cc0dcdc73e32e60f8622633
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: f8917ca67aa5f15ccc11030fd0292ac803d9e994
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 03/06/2017
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## <a name="introduction"></a>Introduction
-Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Les autres didacticiels ([Prise en main d’IoT Hub] et [Envoyer des messages du cloud vers des appareils avec IoT Hub][lnk-c2d]) vous expliquent comment utiliser la fonctionnalité de base de la messagerie « appareil vers cloud » et « cloud vers appareil » offerte par IoT Hub.
+Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Les autres didacticiels ([Prise en main d’IoT Hub] et [Envoyer des messages cloud-à-appareil avec IoT Hub][lnk-c2d]) vous expliquent comment utiliser la fonctionnalité de base de messagerie appareil-à-cloud et cloud-à-appareil offerte par IoT Hub.
 
 Ce didacticiel s’appuie sur le code indiqué dans le didacticiel [Prise en main d’IoT Hub] et explique comment utiliser les règles de routage pour distribuer facilement les messages appareil-à-cloud. Ce didacticiel vous indique comment isoler les messages qui nécessitent une action immédiate du serveur principal de la solution pour un traitement ultérieur. Par exemple, un appareil peut envoyer un message d’alerte qui déclenche l’insertion d’un ticket dans un système CRM. Par opposition, les messages de point de données sont simplement chargés dans un moteur d’analyse. Par exemple, les données de télémétrie de température d’un appareil qui doivent être enregistrées pour analyse ultérieure constituent un message de point de données.
 
@@ -113,6 +114,9 @@ Dans cette section, vous allez :
 Pour plus d’informations sur la façon de traiter les messages des files d’attente Service Bus, consultez [Prise en main des files d’attente][Service Bus queue].
 
 1. Créez une file d’attente Service Bus, comme décrit dans [Prise en main des files d’attente][Service Bus queue]. La file d’attente doit être située dans les mêmes région et abonnement que votre IoT hub. Prenez note de l’espace de noms et de la file d’attente.
+
+    > [!NOTE]
+    > Les options **Sessions** ou **Détection des doublons** ne doivent pas être activées pour les files d’attente et rubriques Service Bus utilisées comme points de terminaison IoT Hub. Si l’une de ces options est activée, le point de terminaison s’affiche comme **Inaccessible** dans le portail Azure.
 
 2. Dans le portail Azure, ouvrez votre IoT Hub, puis cliquez sur **Points de terminaison**.
     

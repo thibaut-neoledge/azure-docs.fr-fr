@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 6cf48883d397a4b04e707111306d4596cd7af683
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 708bf39b69cf798ac44aca65cf7dee6fa9a24591
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solution Azure Key Vault Analytics dans Log Analytics
+
+![Symbole de Key Vault](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
 
 Vous pouvez utiliser la solution Azure Key Vault dans Log Analytics pour consulter les journaux AuditEvent d’Azure Key Vault.
 
@@ -35,8 +38,8 @@ Pour l’utiliser, vous devez activer la journalisation des diagnostics d’Azur
 ## <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
 Suivez les instructions suivantes pour installer et configurer la solution Azure Key Vault :
 
-1. Activez la solution Azure Key Vault depuis la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md). 
-2. Activer la journalisation des diagnostics pour les ressources Key Vault à surveiller à l’aide du [portai](#enable-key-vault-diagnostics-in-the-portal) ou de [PowerShell](#enable-key-vault-diagnostics-using-powershell) 
+1. Activez la solution Azure Key Vault depuis la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
+2. Activer la journalisation des diagnostics pour les ressources Key Vault à surveiller à l’aide du [portai](#enable-key-vault-diagnostics-in-the-portal) ou de [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Activer les diagnostics Key Vault dans le portail
 
@@ -62,8 +65,8 @@ $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
- 
- 
+
+
 
 ## <a name="review-azure-key-vault-data-collection-details"></a>Examiner les détails de la collecte de données par Azure Key Vault
 La solution Azure Key Vault collecte des journaux de diagnostics directement à partir de Key Vault.
@@ -94,7 +97,7 @@ Après avoir cliqué sur la vignette **Vue d’ensemble**, vous pouvez consulter
 ### <a name="to-view-details-for-any-operation"></a>Pour afficher les détails d’une opération
 1. Dans la page **Vue d’ensemble**, cliquez sur la vignette **Azure Key Vault**.
 2. Sur le tableau de bord **Azure Key Vault**, examinez les informations résumées dans l’un des panneaux, puis cliquez sur l’une d’elles pour afficher des informations détaillées dans la page Recherche de journal.
-   
+
     Sur l’une des pages de recherche de journal, vous pouvez afficher les résultats par date, les résultats détaillés et votre historique de recherches de journaux. Vous pouvez également filtrer par facettes pour affiner les résultats.
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
@@ -142,7 +145,7 @@ Pour utiliser la solution mise à jour :
   - Pour tous les champs dont le suffixe est \_o, les données sont réparties sur plusieurs champs, selon les noms de champs imbriqués. Par exemple, l’UPN de l’appelant est stocké dans un champ `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`.
    - Le champ CallerIpAddress est remplacé par CallerIPAddress
    - Le champ RemoteIPCountry n’est plus présent
-4. Supprimez la solution *Key Vault Analytics (déprécié)*. Avec PowerShell, utilisez `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`. 
+4. Supprimez la solution *Key Vault Analytics (déprécié)*. Avec PowerShell, utilisez `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`.
 
 Les données collectées avant la modification ne seront pas visibles dans la nouvelle solution. Vous pouvez continuer à interroger ces données à l’aide de l’ancien type et des anciens noms de champs.
 
@@ -151,5 +154,4 @@ Les données collectées avant la modification ne seront pas visibles dans la no
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez les [recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées de Azure Key Vault.
-
 

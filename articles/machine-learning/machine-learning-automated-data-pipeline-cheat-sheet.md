@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: d109c50be94a227efd39f151c01070a8e30b237d
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 22f9369d18edae34f51f20712c3f92e0a57700f2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -40,7 +41,7 @@ Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format ta
 ## <a name="more-help-with-machine-learning-studio"></a>Aide supplémentaire sur Machine Learning Studio
 * Pour une vue d’ensemble de Microsoft Azure Machine Learning, consultez [Présentation de l’apprentissage automatique sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
 * Pour plus d’informations sur le déploiement d’un service web d’évaluation, consultez [Déploiement d’un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
-* Pour plus d’informations sur l’utilisation d’un service web d’évaluation, consultez [Utilisation d’un service web Azure Machine Learning déployé à partir d’une expérience Machine Learning](machine-learning-consume-web-services.md).
+* Pour plus d’informations sur l’utilisation d’un service web d’évaluation, consultez [Utilisation d’un service web Azure Machine Learning](machine-learning-consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

@@ -1,8 +1,8 @@
 ---
 title: "Mise à l’échelle automatique avancée à l’aide de Machines virtuelles Azure | Microsoft Docs"
 description: "Utilisez Resource Manager et VM Scale Sets avec plusieurs règles et profils qui envoient un e-mail et appellent les URL webhook avec des actions de mise à l’échelle."
-author: kamathashwin
-manager: carmonm
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
-ms.author: ashwink
+ms.author: ancav
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 6f1234381a6aad9632d88825aab1a5bf304a20fb
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/10/2017
-
 
 ---
 

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/11/2017
+ms.date: 05/30/2017
 ms.author: asaxton
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: ee480f4382a93a2420f7c73f7259ce1f0a03d595
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 1d35dc01aba57dcf8a37db757138abbd7b22c8c5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -39,11 +40,12 @@ Pour plus d’informations sur les licences et les tarifs actuellement pratiqué
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>Images de SQL Server disponibles dans la galerie de machines virtuelles Azure
 La galerie de machines virtuelles Microsoft Azure inclut plusieurs images qui contiennent Microsoft SQL Server. Le logiciel installé sur les images de machine virtuelle varie selon la version du système d’exploitation et la version de SQL Server. La liste des images disponibles dans la galerie de machines virtuelles Azure change souvent.
 
-![Image SQL dans la galerie de machines virtuelles Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)
+<!--![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)-->
+![Image SQL dans la galerie de machines virtuelles Azure](./media/virtual-machines-windows-classic-ps-sql-bi/vm-sql-images.png)
 
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Le script PowerShell suivant renvoie la liste des images Azure dont le nom ImageName contient « SQL Server » :
 
-    # assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
+    # assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "Subscriptions" menu in Azure portal.
 
     $subscriptionID = ""    # REQUIRED: Provide your subscription ID.
     $subscriptionName = "" # REQUIRED: Provide your subscription name.
@@ -66,7 +68,7 @@ Pour plus d’informations sur les éditions et les fonctionnalités prises en c
 * [Fonctionnalités prises en charge par les éditions de SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>Fonctionnalités d’aide à la décision installées sur les images de la galerie de machines virtuelles SQL Server
-Le tableau suivant récapitule les fonctionnalités Business Intelligence installées sur les images de la galerie de machines virtuelles Microsoft Azure pour SQL Server.
+Le tableau suivant récapitule les fonctionnalités Business Intelligence installées sur les images de la galerie de machines virtuelles Microsoft Azure pour SQL Server :
 
 * SQL Server 2016 SP1 Enterprise
 * SQL Server 2016 SP1 Standard
@@ -156,18 +158,22 @@ Il existe deux flux de travail courants pour la connexion à une machine virtuel
      
       Pour plus d’informations, consultez [Présentation d’un service cloud](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
-**Démarrez le Gestionnaire de configuration Reporting Services.**
 
-1. Dans **Windows Server 2012/2016** :
-2. Dans l’écran de **démarrage**, tapez **Reporting Services** pour afficher une liste d’applications.
-3. Cliquez avec le bouton droit sur **Gestionnaire de configuration de Reporting Services**, puis cliquez sur **Exécuter en tant qu’administrateur**.
-4. Dans **Windows Server 2008 R2**:
-5. Cliquez sur **Démarrer**, puis sur **Tous les programmes**.
-6. Cliquez sur **Microsoft SQL Server 2016**.
-7. Cliquez sur **Outils de configuration**.
-8. Cliquez avec le bouton droit sur **Gestionnaire de configuration de Reporting Services**, puis cliquez sur **Exécuter en tant qu’administrateur**.
+**Démarrer le Gestionnaire de configuration de Reporting Services**
 
-ou
+Dans **Windows Server 2012/2016** :
+
+1. Dans l’écran de **démarrage**, tapez **Reporting Services** pour afficher une liste d’applications.
+2. Cliquez avec le bouton droit sur **Gestionnaire de configuration de Reporting Services**, puis cliquez sur **Exécuter en tant qu’administrateur**.
+
+Dans **Windows Server 2008 R2**:
+
+1. Cliquez sur **Démarrer**, puis sur **Tous les programmes**.
+2. Cliquez sur **Microsoft SQL Server 2016**.
+3. Cliquez sur **Outils de configuration**.
+4. Cliquez avec le bouton droit sur **Gestionnaire de configuration de Reporting Services**, puis cliquez sur **Exécuter en tant qu’administrateur**.
+
+Ou :
 
 1. Cliquez sur **Start**.
 2. Dans la boîte de dialogue **Rechercher les programmes et fichiers**, tapez **reporting services**. Si la machine virtuelle exécute Windows Server 2012, tapez **reporting services** à l’écran de démarrage de Windows Server 2012.

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/5/2017
+ms.date: 06/9/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8446790af6af160c4b2d463191405faaed68bf0e
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 4b6f21c7949493ac1f95e7c0f255e5c96613adf1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
 # <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>Accéder à des sources de données locales à partir d’applications logiques avec la passerelle de données locale
 
-Pour accéder à des sources de données locales à partir de vos applications logiques, configurez une passerelle de données locale que les applications logiques peuvent utiliser avec des connecteurs pris en charge. La passerelle agit comme un pont permettant un transfert et un chiffrement de données rapides entre les sources de données locales et vos applications logiques. La passerelle relaie les données des sources locales sur des canaux chiffrés via Azure Service Bus. Tout le trafic provient, en tant que trafic sortant sécurisé, de l’agent de passerelle. Pour en savoir plus, voir [Fonctionnement de la passerelle de données](logic-apps-gateway-install.md#gateway-cloud-service). 
+Pour accéder à des sources de données locales à partir de vos applications logiques, configurez une passerelle de données locale que les applications logiques peuvent utiliser avec des connecteurs pris en charge. La passerelle agit comme un pont permettant un transfert et un chiffrement de données rapides entre les sources de données locales et vos applications logiques. La passerelle relaie les données des sources locales sur des canaux chiffrés via Azure Service Bus. Tout le trafic est initialisé en tant que trafic sortant de l’agent de passerelle sécurisé. Pour en savoir plus, voir [Fonctionnement de la passerelle de données](logic-apps-gateway-install.md#gateway-cloud-service). 
 
 La passerelle prend en charge les connexions aux sources de données locales suivantes :
 
@@ -56,9 +56,9 @@ Pour plus d’informations sur les passerelles de données pour d’autres servi
 
 * Vous devez avoir déjà [installé la passerelle de données sur un ordinateur local](logic-apps-gateway-install.md).
 
-* Vous avez besoin du compte Azure dont l’adresse e-mail professionnelle ou scolaire a été utilisée pour [installer la passerelle de données locale](logic-apps-gateway-install.md#requirements).
+* Lorsque vous vous connectez au portail Azure, vous devez utiliser le même compte professionnel ou scolaire qui a été utilisé pour [installer la passerelle de données locale](logic-apps-gateway-install.md#requirements). Votre compte de connexion doit aussi avoir un abonnement Azure à utiliser lorsque vous créez une ressource de passerelle dans le portail Azure pour l’installation de votre passerelle.
 
-* Votre installation de la passerelle ne peut pas être revendiquée par une autre ressource de passerelle Azure. Vous pouvez associer votre installation de passerelle à une seule ressource de passerelle. Une revendication se produit lorsque vous créez la ressource de passerelle de façon à ce que l’installation soit indisponible pour d’autres ressources.
+* L’installation de votre passerelle ne peut pas être revendiquée par une autre ressource de passerelle Azure. Vous ne pouvez associer l’installation de votre passerelle qu’à une seule ressource de passerelle. Une revendication se produit lorsque vous créez la ressource de passerelle de façon à ce que l’installation soit indisponible pour d’autres ressources.
 
 ## <a name="set-up-the-data-gateway-connection"></a>Configurer la connexion de passerelle de données
 

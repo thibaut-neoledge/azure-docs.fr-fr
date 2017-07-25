@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: ea0b54a1041c0008071a9b11afc81e1b91f3e409
+ms.contentlocale: fr-fr
 ms.lasthandoff: 02/11/2017
 
 
@@ -60,7 +61,7 @@ Media Services définit également un ensemble de classes .NET susceptibles d'ê
 
 Pour obtenir un exemple de bout en bout utilisant les classes .NET pour configurer le modèle de licence PlayReady, consultez [Utilisation du chiffrement dynamique et du service de fourniture de licence PlayReady](media-services-protect-with-drm.md).
 
-## <a name="a-idclassesamedia-services-net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Classes .NET de Media Services permettant de configurer des modèles de licence
+## <a id="classes"></a>Classes .NET de Media Services permettant de configurer des modèles de licence
 Les classes .NET principales utilisées pour configurer des modèles de licence Media Services PlayReady sont répertoriées ci-dessous. Ces classes correspondent aux types définis dans [Schéma XML de modèle de licence PlayReady](media-services-playready-license-template-overview.md#schema).
 
 La classe [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) permet de sérialiser et de désérialiser à destination et à partir du code XML de modèle de licence Media Services.
@@ -73,7 +74,7 @@ Il s'agit de la classe « de niveau supérieur » dans la hiérarchie des mod�
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
 [PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) : Cette classe représente un modèle de licence permettant de créer les licences PlayReady à retourner aux utilisateurs finaux. Elle contient les données relatives à la clé de contenu figurant dans la licence et à tous les droits ou restrictions qui doivent être appliqués par le runtime de gestion des droits numériques (DRM) PlayReady quand la clé de contenu est utilisée.
 
-### <a name="a-idplayreadyplayrightaplayreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
+### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) : Cette classe représente le droit de lecture d'une licence PlayReady. Elle accorde à l'utilisateur la capacité de lire le contenu faisant l'objet de restrictions de niveau zéro ou supérieur, configurées dans la licence et sur le droit de lecture lui-même (pour la stratégie spécifique de lecture). Une grande partie de la stratégie relative au droit de lecture se rapporte aux restrictions de sortie qui contrôlent les types de sortie utilisables pour la lecture du contenu, ainsi qu'aux restrictions qui doivent être mises en place quand une sortie donnée est utilisée. Par exemple, si la restriction DigitalVideoOnlyContentRestriction est activée, le runtime DRM autorise uniquement l'affichage de la vidéo via des sorties numériques (les sorties vidéo analogiques ne sont pas autorisées à transmettre le contenu).
 
 > [!IMPORTANT]
@@ -83,7 +84,7 @@ Il s'agit de la classe « de niveau supérieur » dans la hiérarchie des mod�
 
 Pour obtenir un exemple des niveaux de protection que Silverlight prend charge, consultez [Protections de sortie prises en charge par Silverlight](http://go.microsoft.com/fwlink/?LinkId=617318).
 
-## <a name="a-idschemaaplayready-license-template-xml-schema"></a><a id="schema"></a>Schéma XML de modèle de licence PlayReady
+## <a id="schema"></a>Schéma XML de modèle de licence PlayReady
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />

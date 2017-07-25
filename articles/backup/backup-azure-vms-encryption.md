@@ -16,10 +16,10 @@ ms.date: 04/24/2017
 ms.author: pajosh;markgal;trinadhk
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: d76fb43a1b045b98a14ae91ac339d53e9a48f1de
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: b6aed1f34a899f4e182f0cf48426ec2da88b51c2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -97,5 +97,6 @@ Pour restaurer la machine virtuelle chiffrée, commencez par restaurer les disqu
 | Sauvegarde |La validation a échoué, car la machine virtuelle est chiffrée avec une clé BEK uniquement. Les sauvegardes peuvent être activées uniquement pour les machines virtuelles chiffrées aussi bien avec des clés BEK qu’avec des clés KEK. |La machine virtuelle doit être chiffrée simultanément à l’aide de clés BEK et KEK. Déchiffrez d’abord la machine virtuelle et chiffrez-la à l’aide de BEK et KEK. Activez la sauvegarde une fois que la machine virtuelle est chiffrée à l’aide de BEK et KEK. En savoir plus sur la façon dont vous pouvez [déchiffrer et chiffrer la machine virtuelle](../security/azure-security-disk-encryption.md)  |
 | Restauration |Vous ne pouvez pas restaurer cette machine virtuelle chiffrée, car le coffre de clés associé à cette machine virtuelle n’existe pas. |Pour créer un coffre de clés, voir [Prise en main d’Azure Key Vault](../key-vault/key-vault-get-started.md). Consultez [Restore key vault key and secret using Azure Backup](backup-azure-restore-key-secret.md) (Restaurer la clé et le secret de coffre de clés à l’aide de Sauvegarde Azure) pour restaurer la clé et la clé secrète si celles-ci n’existent pas. |
 | Restauration |Vous ne pouvez pas restaurer cette machine virtuelle chiffrée, car la clé et la clé secrète associées n’existent pas. |Consultez [Restore key vault key and secret using Azure Backup](backup-azure-restore-key-secret.md) (Restaurer la clé et le secret de coffre de clés à l’aide de Sauvegarde Azure) pour restaurer la clé et la clé secrète si celles-ci n’existent pas. |
-| Restauration |Le service de sauvegarde n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Comme indiqué ci-dessus, commencez par restaurer les disques en suivant les étapes mentionnées dans la section **Restore backed up disks** (Restaurer les disques sauvegardés) dans [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration) (Choisir la configuration de restauration de la machine virtuelle). Ensuite, utilisez PowerShell pour [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+| Restauration |Le service de sauvegarde n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Comme indiqué ci-dessus, commencez par restaurer les disques en suivant les étapes mentionnées dans la section **Restore backed up disks** (Restaurer les disques sauvegardés) dans [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration) (Choisir la configuration de restauration de la machine virtuelle). Ensuite, utilisez PowerShell pour [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
+|Sauvegarde | Le service de sauvegarde Azure n’a pas les autorisations requises sur Key Vault pour effectuer une sauvegarde des machines virtuelles chiffrées. | La machine virtuelle doit être chiffrée à l’aide de la clé de chiffrement BitLocker et de la clé KEK (Key Encryption Key, clé de chiffrement de clé). Après l’application de ce chiffrement, la sauvegarde doit être activée.  Ces autorisations doivent être accordées au service de sauvegarde dans PowerShell à l’aide des étapes mentionnées dans la section **Activer la protection** de la documentation PowerShell sous [Utilisez les applets de commande AzureRM.RecoveryServices.Backup pour sauvegarder des machines virtuelles](backup-azure-vms-automation.md). |  
 

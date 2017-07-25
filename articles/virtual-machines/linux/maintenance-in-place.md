@@ -1,5 +1,5 @@
 ---
-title: "Maintenance préservant les machines virtuelles Windows dans Azure | Microsoft Docs"
+title: "Maintenance de préservation pour les machines virtuelles Windows dans Azure | Microsoft Docs"
 description: "Migration de machines virtuelles sur place pour des mises à jour préservant la mémoire."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: 
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 08da5407cc5ddceeba21a558dc0de1008a566bab
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 09fc9021e8dfb910d1a81178434ca2e27c0bacf7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -37,4 +38,4 @@ Les mises à jour ne peuvent pas toutes êtes déployées à l’aide de ce méc
 
 Les mises à jour multi-instances (machines virtuelles d’un groupe à haute disponibilité) se voient appliquer un seul domaine de mise à jour à la fois.
 
-Les applications qui s’exécutent sur une machine virtuelle peuvent obtenir des informations sur les mises à jour à venir en appelant les événements planifiés du service de métadonnées. Pour plus d’informations sur les événements planifiés, consultez [Azure Metadata Service - Événements planifiés](../virtual-machines-scheduled-events.md).
+Certaines applications peuvent être affectées plus que d’autres par ces mises à jour. Par exemple, les applications qui effectuent des scénarios de traitement d’événements en temps réel, de streaming multimédia, de transcodage multimédia ou de mise en réseau à débit élevé ne peuvent pas être conçues pour tolérer une pause de 30 secondes. Les applications qui s’exécutent sur une machine virtuelle peuvent obtenir des informations sur les mises à jour à venir en appelant l’API des [événements planifiés](../virtual-machines-scheduled-events.md) [d’Azure Metadata Service](../virtual-machines-instancemetadataservice-overview.md).

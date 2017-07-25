@@ -12,25 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/29/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3a2166fefc8d0b1602562b753e0413be458fae98
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: e9a858addb768ce051fccce0eaf83e49a83da21b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="assign-and-manage-resource-policies"></a>Attribuer et gérer les stratégies de ressources
 
-Pour implémenter une stratégie, vous devez suivre trois étapes :
+Pour implémenter une stratégie, vous devez suivre ces étapes :
 
-1. Définir la règle de stratégie avec JSON.
-2. Créer une définition de stratégie dans votre abonnement à partir du JSON que vous avez créé à l’étape précédente. Cette opération rend la stratégie attribuable mais n’applique pas les règles à votre abonnement.
-3. Attribuer la stratégie à une étendue (par exemple, un groupe de ressources ou un abonnement). Les règles de la stratégie sont à présent appliquées.
-
-Azure fournit quelques stratégies prédéfinies qui peuvent réduire le nombre de stratégies à définir. Si une stratégie prédéfinie fonctionne pour votre scénario, ignorez les deux premières étapes et attribuez la stratégie prédéfinie à une étendue.
+1. Vérifiez les définitions de stratégie (y compris les stratégies intégrées fournies par Azure) pour voir s’il en existe déjà une dans votre abonnement qui répond à vos besoins.
+2. S’il en existe une, obtenez son nom.
+3. S’il n’en existe pas, définissez la règle de stratégie avec JSON et ajoutez-la en tant que définition de stratégie dans votre abonnement. Cette opération rend la stratégie attribuable mais n’applique pas les règles à votre abonnement.
+4. Dans les deux cas, attribuez la stratégie à une étendue (par exemple, un groupe de ressources ou un abonnement). Les règles de la stratégie sont à présent appliquées.
 
 Cet article est centré sur les étapes de création d’une définition de stratégie et d’attribution de cette définition à une étendue via l’API REST, PowerShell ou Azure CLI. Si vous préférez utiliser le portail pour affecter des stratégies, consultez [Utiliser le portail Azure pour affecter et gérer les stratégies de ressources](resource-manager-policy-portal.md). Il n’aborde pas la syntaxe de création de la définition de stratégie. Pour plus d’informations sur la syntaxe des stratégies, consultez la page [Vue d’ensemble des stratégies de ressources](resource-manager-policy.md).
 
@@ -145,30 +144,55 @@ L'exemple suivant montre une définition d’alias : Comme vous pouvez le voir, 
 
 Avant de passer aux exemples PowerShell, assurez-vous que vous avez [installé la dernière version](/powershell/azure/install-azurerm-ps) d’Azure PowerShell. Les paramètres de stratégie ont été ajoutés dans la version 3.6.0. Si vous utilisez une version antérieure, les exemples renvoient une erreur indiquant que le paramètre est introuvable.
 
-### <a name="create-policy-definition"></a>Créer une définition de stratégie
-Vous pouvez créer une définition de stratégie en utilisant l’applet de commande `New-AzureRmPolicyDefinition`. L’exemple suivant crée une définition de stratégie qui permet d’autoriser uniquement les ressources en Europe du Nord et en Europe de l’Ouest.
+### <a name="view-policy-definitions"></a>Afficher les définitions de stratégie
+Pour afficher toutes les définitions de stratégie dans votre abonnement, utilisez la commande suivante :
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{
-   "if": {
-     "not": {
-       "field": "location",
-       "in": "[parameters(''allowedLocations'')]"
-     }
-   },
-   "then": {
-     "effect": "deny"
-   }
- }' -Parameter '{
-     "allowedLocations": {
-       "type": "array",
-       "metadata": {
-         "description": "An array of permitted locations for resources.",
-         "strongType": "location",
-         "displayName": "List of locations"
-       }
-     }
- }'
+Get-AzureRmPolicyDefinition
+```
+
+Elle renvoie toutes les définitions de stratégie disponibles, y compris les stratégies intégrées. Chaque stratégie est renvoyée au format suivant :
+
+```powershell
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+Avant de passer à la création d’une définition de stratégie, examinez les stratégies intégrées. Si vous trouvez une stratégie intégrée qui applique les limites dont vous avez besoin, vous pouvez ignorer la création d’une définition de stratégie. À la place, assignez la stratégie intégrée à l’étendue souhaitée.
+
+### <a name="create-policy-definition"></a>Créer une définition de stratégie
+Vous pouvez créer une définition de stratégie en utilisant l’applet de commande `New-AzureRmPolicyDefinition`.
+
+```powershell
+$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
 ```            
 
 Le résultat est stocké dans un objet `$policy` utilisé lors de l’attribution de la stratégie. 
@@ -176,39 +200,41 @@ Le résultat est stocké dans un objet `$policy` utilisé lors de l’attributio
 Au lieu de spécifier le JSON comme paramètre, vous pouvez fournir le chemin d’accès à un fichier .json contenant la règle de stratégie.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy "c:\policies\storageskupolicy.json"
+$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
 ```
 
 ### <a name="assign-policy"></a>Attribuer la stratégie
 
-Appliquez la stratégie à l’étendue souhaitée à l’aide de l’applet de commande `New-AzureRmPolicyAssignment` :
+Appliquez la stratégie à l’étendue souhaitée à l’aide de la cmdlet `New-AzureRmPolicyAssignment`. L’exemple suivant assigne la stratégie à un groupe de ressources.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $policy
+```
+
+Pour assigner une stratégie qui requiert des paramètres, créez un objet avec ces valeurs. L’exemple suivant récupère une stratégie intégrée et transmet les valeurs de paramètres :
+
+```powershell
+$rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+$policy = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
 $array = @("West US", "West US 2")
-$param = @{"allowedLocations"=$array}
-New-AzureRMPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
+$param = @{"listOfAllowedLocations"=$array}
+New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
 ```
 
-### <a name="view-policies"></a>Afficher les stratégies
+### <a name="view-policy-assignment"></a>Afficher l’attribution de stratégie
 
-Pour obtenir toutes les attributions de stratégies, utilisez :
-
-```powershell
-Get-AzureRmPolicyAssignment
-```
-
-Pour obtenir une stratégie spécifique, utilisez :
+Pour obtenir une affectation de stratégie spécifique, utilisez :
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
-(Get-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId
+(Get-AzureRmPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId
 ```
 
 Pour afficher la règle de stratégie pour une définition de stratégie, utilisez :
 
 ```powershell
-(Get-AzureRmPolicyDefinition -Name regionPolicyDefinition).Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Name coolAccessTier).Properties.policyRule | ConvertTo-Json
 ```
 
 ### <a name="remove-policy-assignment"></a>Supprimer l’attribution de stratégie 
@@ -219,39 +245,70 @@ Pour supprimer une affectation de stratégie, utilisez :
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## <a name="azure-cli-20"></a>Azure CLI 2.0
+## <a name="azure-cli"></a>Interface de ligne de commande Azure
+
+### <a name="view-policy-definitions"></a>Afficher les définitions de stratégie
+Pour afficher toutes les définitions de stratégie dans votre abonnement, utilisez la commande suivante :
+
+```azurecli
+az policy definition list
+```
+
+Elle renvoie toutes les définitions de stratégie disponibles, y compris les stratégies intégrées. Chaque stratégie est renvoyée au format suivant :
+
+```azurecli
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",                                                                                                                "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                 "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                                                                    "policyRule": {                                                                                                                                      "if": {                                                                                                                                              "not": {                                                                                                                                             "field": "location",                                                                                                                               "in": "[parameters('listOfAllowedLocations')]"                                                                                                   }                                                                                                                                                },                                                                                                                                                 "then": {                                                                                                                                            "effect": "Deny"                                                                                                                                 }                                                                                                                                                },                                                                                                                                                 "policyType": "BuiltIn"
+}
+```
+
+Avant de passer à la création d’une définition de stratégie, examinez les stratégies intégrées. Si vous trouvez une stratégie intégrée qui applique les limites dont vous avez besoin, vous pouvez ignorer la création d’une définition de stratégie. À la place, assignez la stratégie intégrée à l’étendue souhaitée.
 
 ### <a name="create-policy-definition"></a>Créer une définition de stratégie
 
-Vous pouvez créer une définition de stratégie à l’aide d’Azure CLI 2.0 et de la commande de définition de stratégie. L’exemple suivant crée une stratégie permettant d’attribuer des ressources uniquement en Europe du Nord et en Europe de l’Ouest.
+Vous pouvez créer une définition de stratégie à l’aide d’Azure CLI avec la commande de définition de stratégie.
 
 ```azurecli
-az policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --rules '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
+az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
   },
-  "then" : {
-    "effect" : "deny"
+  "then": {
+    "effect": "deny"
   }
 }'    
 ```
 
 ### <a name="assign-policy"></a>Attribuer la stratégie
 
-Vous pouvez appliquer la stratégie selon l’étendue de votre choix à l’aide de la commande d’affectation de stratégie :
+Vous pouvez appliquer la stratégie selon l’étendue de votre choix à l’aide de la commande d’affectation de stratégie. L’exemple suivant assigne une stratégie à un groupe de ressources.
 
 ```azurecli
-az policy assignment create --name regionPolicyAssignment --policy regionPolicyDefinition --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+az policy assignment create --name coolAccessTierAssignment --policy coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-### <a name="view-policy-definition"></a>Afficher la définition de stratégie
-Pour récupérer une définition de stratégie, utilisez la commande suivante :
+### <a name="view-policy-assignment"></a>Afficher l’attribution de stratégie
+
+Pour afficher une attribution de stratégie, fournissez le nom de l’attribution de stratégie et l’étendue :
 
 ```azurecli
-az policy definition show --name regionPolicyAssignment
+az policy assignment show --name coolAccessTierAssignment --scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}"
 ```
 
 ### <a name="remove-policy-assignment"></a>Supprimer l’attribution de stratégie 
@@ -259,62 +316,7 @@ az policy definition show --name regionPolicyAssignment
 Pour supprimer une affectation de stratégie, utilisez :
 
 ```azurecli
-az policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-## <a name="azure-cli-10"></a>Azure CLI 1.0
-
-### <a name="create-policy-definition"></a>Créer une définition de stratégie
-
-Vous pouvez créer une définition de stratégie à l’aide de l’interface de ligne de commande Azure avec la commande de définition de stratégie. L’exemple suivant crée une stratégie permettant d’attribuer des ressources uniquement en Europe du Nord et en Europe de l’Ouest.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}'    
-```
-
-Il est possible de spécifier le chemin d’accès au fichier .json contenant la stratégie plutôt que la stratégie en ligne.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
-```
-
-### <a name="assign-policy"></a>Attribuer la stratégie
-
-Vous pouvez appliquer la stratégie selon l’étendue de votre choix à l’aide de la commande d’affectation de stratégie :
-
-```azurecli
-azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/{subscription-id}/providers/Microsoft.Authorization/policyDefinitions/{policy-name} --scope    /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-L'étendue est ici le nom du groupe de ressources que vous spécifiez. Si la valeur du paramètre policy-definition-id est inconnue, il est possible de l’obtenir grâce à l’interface de ligne de commande Azure : 
-
-```azurecli
-azure policy definition show {policy-name}
-```
-
-### <a name="view-policy"></a>Afficher la stratégie
-Pour obtenir une stratégie, utilisez la commande suivante :
-
-```azurecli
-azure policy definition show {definition-name} --json
-```
-
-### <a name="remove-policy-assignment"></a>Supprimer l’attribution de stratégie 
-
-Pour supprimer une affectation de stratégie, utilisez :
-
-```azurecli
-azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

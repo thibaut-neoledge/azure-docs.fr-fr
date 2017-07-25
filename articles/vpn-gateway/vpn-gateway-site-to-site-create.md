@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 63d0972f31c2b26b391d5ba019f3e415d8053511
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 04cf35d89937cd0e6aee03ed8b6db3ff79ce1819
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal-classic"></a>Créer un réseau virtuel avec une connexion de site à site à l’aide du portail Classic
@@ -52,9 +51,10 @@ Si vous souhaitez connecter des réseaux virtuels, consultez [Configurer une con
 
 Vérifiez que vous disposez des éléments suivants avant de commencer la configuration :
 
-* Un périphérique VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous ne maîtrisez pas la configuration de votre appareil VPN ou les plages d’adresses IP mentionnées dans la configuration de votre réseau local, vous devez contacter une personne qui peut vous fournir ces informations.
-* Une adresse IP publique exposée en externe pour votre appareil VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
-* Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial).
+* Assurez-vous de vouloir utiliser le modèle de déploiement classique. Si vous souhaitez utiliser le modèle de déploiement Resource Manager, voir [Create a Site-to-Site connection (Resource Manager) (Créer une connexion de site à site [Resource Manager])](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Dans la mesure du possible, nous vous recommandons d’utiliser le modèle de déploiement Resource Manager.
+* Veillez à disposer d’un périphérique VPN compatible et à être entouré d’une personne en mesure de le configurer. Pour plus d’informations sur les périphériques VPN compatibles et la configuration de votre périphérique, consultez l’article [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md).
+* Vérifiez que vous disposez d’une adresse IPv4 publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
+* Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, vous devez contacter une personne en mesure de vous aider. Lorsque vous créez cette configuration, vous devez spécifier les préfixes des plages d’adresses IP qu’Azure acheminera vers votre emplacement local. Aucun des sous-réseaux de votre réseau local ne peut chevaucher les sous-réseaux du réseau virtuel auquel vous souhaitez vous connecter.
 
 ## <a name="CreateVNet"></a>Créer votre réseau virtuel
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/).

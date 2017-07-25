@@ -12,21 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/28/2017
 ms.author: sethm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
 ms.openlocfilehash: 0c727a47d6b947484f9a5cd678fef14d6fe2b4ab
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Files d’attente, rubriques et abonnements Service Bus
+
 Microsoft Azure Service Bus prend en charge un ensemble de technologies middleware Cloud orientées messages, notamment la mise en file d’attente de messages fiable et la messagerie de publication/abonnement durable. Ces fonctionnalités de messagerie répartie peuvent être considérées comme des fonctions de messagerie découplée prenant en charge le découplage temporel de publication-souscription, l’abonnement de messagerie temporel découplage, les scénarios d’infrastructure d’équilibrage de charge à l’aide de la structure de messagerie Service Bus. La communication découplée présente de nombreux avantages ; par exemple, les clients et les serveurs peuvent se connecter en fonction des besoins et exécuter leurs opérations de manière asynchrone.
 
 Les entités de messagerie qui constituent l’essentiel des fonctionnalités de messagerie dans Service Bus sont les files d’attente, les rubriques et abonnements, les règles et les actions.
 
 ## <a name="queues"></a>Files d’attente
+
 Les files d’attente permettent la livraison de messages sur le principe du *premier entré, premier sorti (FIFO)* à un ou plusieurs destinataires concurrents. En d’autres termes, les messages sont généralement prévus pour être reçus et traités par les récepteurs dans l’ordre dans lesquels ils ont été ajoutés à la file d’attente, et chaque message est reçue et traitée par un seul consommateur de message. Un des principaux avantages de l’utilisation des files d’attente consiste à réaliser le « découplage temporel » des composants d’application. En d’autres termes, les producteurs (expéditeurs) et les consommateurs (récepteurs) ne sont pas forcés d’envoyer et de recevoir des messages simultanément, car les messages sont stockés durablement dans la file d’attente. En outre, le producteur n’a pas à attendre de réponse du destinataire pour continuer de traiter et d’envoyer d’autres messages.
 
 Un des avantages associés est le nivellement de charge, qui permet aux producteurs et aux consommateurs d’envoyer et de recevoir des messages à des vitesses différentes. Dans de nombreuses applications, la charge système varie au fil du temps. Cependant le temps de traitement nécessaire à chaque élément de travail est normalement constant. L’ajout d’une file d’attente entre les producteurs et les consommateurs des messages fait que l’application de destination doit être en mesure de gérer seulement une charge moyenne, plutôt que la charge de travail maximale. La file d’attente s’allonge et se raccourcit en fonction de la charge entrante. Ceci permet de faire des économies concernant les infrastructures nécessaires pour faire face à la charge de travail de l’application. À mesure que la charge augmente, d’autres processus de travail peuvent être ajoutés pour lire les éléments de la file d’attente. Chaque message est traité par un seul des processus de travail. De plus, cet équilibrage de la charge basé sur l’extraction permet d’optimiser l’utilisation des ordinateurs de travail, même si ceux-ci diffèrent en termes de puissance de traitement, car ils demandent les messages au maximum de leur capacité. Ce modèle est souvent appelé modèle consommateur concurrent.

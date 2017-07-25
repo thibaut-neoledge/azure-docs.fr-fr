@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 620a28f4fb4421179c0ba030c10acba861760adf
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/20/2017
 
 
@@ -44,7 +45,7 @@ Le script suivant vous aidera à obtenir les informations sur la machine virtuel
 ```powershell
 # Select resource group
 
-    $rg = Get-AzureRMReseourceGroup | Out-GridView `
+    $rg = Get-AzureRMResourceGroup | Out-GridView `
         -Title "Select the resource group" `
         -PassThru
 

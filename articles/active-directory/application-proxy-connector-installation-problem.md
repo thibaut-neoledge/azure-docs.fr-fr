@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 3dabb8adb67345c56750bb88373f5f740aa19036
+ms.contentlocale: fr-fr
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="problem-installing-the-application-proxy-agent-connector"></a>Problèmes lors de l’installation du connecteur d’agent de proxy d’application
+<a id="problem-installing-the-application-proxy-agent-connector" class="xliff"></a>
+
+# Problèmes lors de l’installation du connecteur d’agent de proxy d’application
 
 Le connecteur de proxy d’application Microsoft AAD est un composant de domaine interne qui utilise des connexions sortantes pour établir la connectivité à partir du point de terminaison disponible dans le cloud vers le domaine interne.
 
-## <a name="general-problem-areas-with-connector-installation"></a>Problèmes généraux avec l’installation du connecteur
+<a id="general-problem-areas-with-connector-installation" class="xliff"></a>
+
+## Problèmes généraux avec l’installation du connecteur
 
 En cas d’échec de l’installation d’un connecteur, la cause est généralement liée à l’un des aspects suivants :
 
@@ -35,7 +39,9 @@ En cas d’échec de l’installation d’un connecteur, la cause est générale
 
 3.  **Authentification de l’administrateur** : pendant l’installation, l’utilisateur doit fournir des informations d’identification d’administrateur pour terminer l’installation du connecteur.
 
-## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Vérification de la connectivité vers le service de proxy d’application cloud et la page de connexion Microsoft
+<a id="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page" class="xliff"></a>
+
+## Vérification de la connectivité vers le service de proxy d’application cloud et la page de connexion Microsoft
 
 **Objectif :** vérifier que l’ordinateur connecteur peut se connecter au point de terminaison d’inscription du proxy d’application AAD ainsi qu’à la page de connexion Microsoft.
 
@@ -45,7 +51,9 @@ En cas d’échec de l’installation d’un connecteur, la cause est générale
 
 3.  Ouvrez un navigateur (onglet distinct) et accédez à la page web suivante : <https://login.microsoftonline.com>. Assurez-vous que vous pouvez vous connecter à cette page.
 
-## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Vérification de la prise en charge du certificat de confiance du proxy d’application par la machine et les composants principaux
+<a id="verify-machine-and-backend-components-support-for-application-proxy-trust-cert" class="xliff"></a>
+
+## Vérification de la prise en charge du certificat de confiance du proxy d’application par la machine et les composants principaux
 
 **Objectif :** vérifier que l’ordinateur connecteur, le pare-feu et le proxy principal peuvent prendre en charge le certificat créé par le connecteur en vue d’une approbation ultérieure.
 
@@ -60,7 +68,9 @@ En cas d’échec de l’installation d’un connecteur, la cause est générale
 
 2.  Contactez votre administrateur réseau et demandez-lui de vérifier que le proxy principal et le pare-feu ne bloquent par SHA512 pour le trafic sortant.
 
-## <a name="verify-admin-is-used-to-install-the-connector"></a>Vérification de l’utilisation d’une connexion administrateur pour l’installation du connecteur
+<a id="verify-admin-is-used-to-install-the-connector" class="xliff"></a>
+
+## Vérification de l’utilisation d’une connexion administrateur pour l’installation du connecteur
 
 **Objectif :** vérifier que l’utilisateur qui tente d’installer le connecteur est un administrateur disposant des informations d’identification correctes. Actuellement, l’installation requiert que l’utilisateur soit un administrateur général.
 
@@ -70,6 +80,8 @@ Connectez-vous à <https://login.microsoftonline.com> et utilisez les mêmes inf
 
 Sélectionnez votre compte d’utilisateur, puis sélectionnez « Rôle d’annuaire » dans le menu qui s’affiche. Vérifiez que le rôle sélectionné est « Administrateur général ». Si vous ne pouvez accéder à aucune des pages de cette procédure, cela signifie que vous n’êtes pas administrateur général.
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)
 

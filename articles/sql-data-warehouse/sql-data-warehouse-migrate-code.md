@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 01/30/2017
+ms.date: 06/23/2017
 ms.author: joeyong;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3fd5224983c723faefb8001888ae20e78acdb8ce
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migration de votre code SQL vers SQL Data Warehouse
-Lors de la migration de votre code vers SQL Data Warehouse, il vous faudra probablement apporter des modifications à votre base de code. Certaines fonctionnalités de SQL Data Warehouse peuvent améliorer considérablement les performances, dans la mesure où elles sont conçues pour fonctionner selon un modèle distribué. Toutefois, pour maintenir des niveaux appropriés de performance et d’évolutivité, certaines fonctions ne sont pas disponibles.
+Cet article vous explique les éventuelles modifications de code que vous aurez à réaliser lors de la migration de votre code depuis une autre base de données vers SQL DATA Warehouse. Certaines fonctionnalités de SQL Data Warehouse peuvent améliorer considérablement les performances, dans la mesure où elles sont conçues pour fonctionner selon un modèle distribué. Toutefois, pour maintenir des niveaux appropriés de performance et d’évolutivité, certaines fonctions ne sont pas disponibles.
 
 ## <a name="common-t-sql-limitations"></a>Limites courantes de T-SQL
-La liste suivante répertorie les fonctionnalités les plus courantes qui ne sont pas prises en charge dans Azure SQL Data Warehouse. Les liens vous présentent des solutions de contournement pour la fonctionnalité non prise en charge :
+La liste suivante répertorie les fonctionnalités les plus courantes que SQL Data Warehouse ne prend pas en charge. Les liens vous présentent des solutions de contournement pour les fonctionnalités non prises en charge :
 
 * [Jointures ANSI sur les opérations UPDATE][ANSI joins on updates]
 * [Jointures ANSI sur les opérations DELETE][ANSI joins on deletes]
@@ -80,7 +80,7 @@ Les expressions de table communes présentent certaines restrictions dans SQL Da
 * Lorsqu’une CTE est utilisée dans des instructions préparées par sp_prepare, celle-ci se comporte de la même façon que les autres instructions SELECT dans PDW. Toutefois, si les expressions de table communes sont utilisées dans le cadre de CETAS préparées par sp_prepare, le comportement peut différer selon qu’il s’agit d’instructions SQL Server ou PDW en raison de la façon dont la liaison est mise en œuvre pour sp_prepare. Si l’instruction SELECT qui référence CTE utilise une colonne erronée, qui n’existe pas dans CTE, sp_prepare transmet sans détecter l’erreur, mais l’erreur est levée pendant l’instruction sp_execute.
 
 ## <a name="recursive-ctes"></a>CTE récursives
-Les expressions de table communes récursives ne sont pas prises en charge dans SQL Data Warehouse.  La migration de CTE récursives peut être relativement complète ; le mieux est de décomposer le processus en plusieurs étapes. Vous pouvez généralement utiliser une boucle pour une table temporaire pendant que vous parcourez les requêtes intermédiaires récursives. Une fois la table temporaire remplie, vous pouvez renvoyer les données sous forme d’un seul jeu de résultats. Une approche similaire a été utilisée pour résoudre `GROUP BY WITH CUBE` dans l’article [Regroupement par clause à l’aide des options rollup/cube/grouping sets][group by clause with rollup / cube / grouping sets options].
+Les expressions de table communes récursives ne sont pas prises en charge dans SQL Data Warehouse.  La migration de CTE récursives peut être relativement complexe et la meilleure solution reste de décomposer le processus en plusieurs étapes. Vous pouvez généralement utiliser une boucle pour une table temporaire pendant que vous parcourez les requêtes intermédiaires récursives. Une fois la table temporaire remplie, vous pouvez renvoyer les données sous forme d’un seul jeu de résultats. Une approche similaire a été utilisée pour résoudre `GROUP BY WITH CUBE` dans l’article [Regroupement par clause à l’aide des options rollup/cube/grouping sets][group by clause with rollup / cube / grouping sets options].
 
 ## <a name="unsupported-system-functions"></a>Fonctions système non prises en charge
 Certaines fonctions système ne sont pas prises en charge. Voici les principales fonctions habituellement associées aux entrepôts de données :

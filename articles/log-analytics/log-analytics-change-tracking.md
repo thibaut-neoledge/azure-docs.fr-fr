@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a3d958e1a37ddf6821d41afe7427faec1b8259b2
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivi des modifications apportées aux logiciels dans votre environnement grâce à la solution de suivi des modifications
+
+![Symbole Change Tracking](./media/log-analytics-change-tracking/change-tracking-symbol.png)
 
 Cet article vous aidera à utiliser la solution de suivi des modifications de Log Analytics pour identifier facilement les modifications dans votre environnement. La solution suit les modifications apportées aux logiciels Windows et Linux, aux clés de Registre, fichiers et services Windows et aux démons Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels.
 
@@ -33,6 +35,17 @@ Utilisez les informations suivantes pour installer et configurer la solution.
 
 * Vous devez disposer d’un agent [Windows](log-analytics-windows-agents.md), d'un [Operations Manager](log-analytics-om-agents.md) ou d'un agent [Linux](log-analytics-linux-agents.md) sur chaque ordinateur où vous souhaitez analyser les modifications.
 * Ajoutez la solution de suivi des modifications à votre espace de travail OMS depuis la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).  Aucune configuration supplémentaire n’est requise.
+
+### <a name="configure-linux-files-to-track"></a>Configuration des fichiers Linux à suivre
+Suivez les étapes ci-dessous pour configurer les fichiers à suivre sur les ordinateurs Linux.
+
+1. Dans le portail OMS, cliquez sur **Paramètres** (symbole d'engrenage).
+2. Sur la page **Paramètres** cliquez sur **Données**, puis sur **Suivi des fichiers Linux**.
+3. Sous Suivi des modifications des fichiers Linux, tapez le chemin d’accès complet, y compris le nom du fichier que vous souhaitez suivre, puis cliquez sur le symbole **Ajouter**. Par exemple : « /etc/*.conf »
+4. Cliquez sur **Save**.  
+  
+> [!NOTE]
+> Le suivi des fichiers Linux est doté de fonctionnalités supplémentaires, y compris le suivi du répertoire, la récursivité dans les répertoires et le suivi des caractères génériques.
 
 ### <a name="configure-windows-files-to-track"></a>Configuration des fichiers Windows à suivre
 Utilisez les étapes suivantes pour configurer les fichiers à suivre sur les ordinateurs Windows.
@@ -52,14 +65,30 @@ Utilisez les étapes suivantes pour configurer les clés de Registre à suivre s
 4. Cliquez sur **Save**.  
    ![Suivi des modifications du Registre Windows](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
-### <a name="limitations"></a>Limitations
+### <a name="explanation-of-linux-file-collection-properties"></a>Explication des propriétés de collection de fichiers Linux
+1. **Type**
+   * **Fichier** (rapport des métadonnées du fichier : taille, date de modification, code de hachage, etc.)
+   * **Répertoire** (rapport des métadonnées du fichier : taille, date de modification, etc.)
+2. **Liens** (gestion des références de lien symbolique Linux pour les autres fichiers ou répertoires)
+   * **Ignorer** (ignorer les liens symboliques pendant les opérations de récursivité pour ne pas inclure les fichiers/répertoires référencés)
+   * **Suivre** (suivre les liens symboliques pendant les opérations de récursivité pour inclure aussi les fichiers/répertoires référencés)
+   * **Gérer** (suivre les liens symboliques et modifier le traitement des contenus renvoyés) 
+   
+   > [!NOTE]   
+   > L’option de liens « Gérer » est déconseillée, car la récupération des contenus de fichier n’est actuellement pas prise en charge.
+   
+3. **Traiter récursivement** (traiter récursivement via les niveaux de dossiers et suivre tous les fichiers respectant l’instruction de chemin d’accès)
+4. **Sudo** (activer les répertoires ou fichiers d’accès qui nécessitent un privilège sudo)
+
+### <a name="limitations"></a>Limites
 La solution de suivi des modifications ne prend pas en charge les éléments suivants :
 
-* dossiers (répertoires)
-* récursivité
-* caractères génériques
-* variables de chemin d'accès
-* systèmes de fichiers réseau
+* Dossiers (répertoires) pour le suivi des fichiers Windows
+* Récursivité pour le suivi des fichiers Windows
+* Caractères génériques pour le suivi des fichiers Windows
+* Variables de chemin d’accès
+* Systèmes de fichiers réseau
+* Contenu du fichier
 
 Autres limitations :
 

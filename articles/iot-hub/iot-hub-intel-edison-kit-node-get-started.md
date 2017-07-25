@@ -13,19 +13,21 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
+ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 231d9f2e4a501f20a47b1cec55c75fba4c2e57c8
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 9e9198f827d0906f65f59322126ef27ba6428d3e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
 
-# <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>Connecter Intel Edison à Azure IoT Hub (Node.js)
+<a id="connect-intel-edison-to-azure-iot-hub-nodejs" class="xliff"></a>
+
+# Connecter Intel Edison à Azure IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
@@ -33,7 +35,9 @@ Dans ce didacticiel, vous commencez par découvrir les principes fondamentaux de
 
 Vous n’avez pas encore de kit ? Démarrer [ici](https://azure.microsoft.com/develop/iot/starter-kits)
 
-## <a name="what-you-do"></a>Procédure
+<a id="what-you-do" class="xliff"></a>
+
+## Procédure
 
 * Configurez Intel Edison et les modules Grove.
 * Créez un hub IoT.
@@ -42,14 +46,18 @@ Vous n’avez pas encore de kit ? Démarrer [ici](https://azure.microsoft.com/de
 
 Connectez Intel Edison à un IoT Hub créé à cette fin. Exécutez ensuite un exemple d’application sur Edison pour collecter des données de température et d’humidité provenant d’un capteur de température Grove. Enfin, envoyez les données du capteur à votre IoT Hub.
 
-## <a name="what-you-learn"></a>Contenu
+<a id="what-you-learn" class="xliff"></a>
+
+## Contenu
 
 * Création d’un Azure IoT Hub et obtention de la chaîne de connexion de votre nouvel appareil.
 * Connexion d’Edison à un capteur de température Grove.
 * Collecte des données du capteur en exécutant un exemple d’application sur Edison.
 * Envoi des données du capteur à votre IoT Hub.
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+<a id="what-you-need" class="xliff"></a>
+
+## Ce dont vous avez besoin
 
 ![Ce dont vous avez besoin](media/iot-hub-intel-edison-kit-node-get-started/0_kit.png)
 
@@ -76,9 +84,13 @@ Ces éléments sont facultatifs, car l’exemple de code prend en charge les don
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="setup-intel-edison"></a>Configuration d’Intel Edison
+<a id="setup-intel-edison" class="xliff"></a>
 
-### <a name="assemble-your-board"></a>Assembler votre carte
+## Configuration d’Intel Edison
+
+<a id="assemble-your-board" class="xliff"></a>
+
+### Assembler votre carte
 
 Cette section présente les étapes permettant de connecter votre module Intel® Edison à votre carte d’extension.
 
@@ -104,7 +116,9 @@ Votre carte est maintenant assemblée.
 
    ![carte assemblée](media/iot-hub-intel-edison-kit-node-get-started/5_assembled_board.jpg)
 
-### <a name="connect-the-grove-base-shield-and-the-temperature-sensor"></a>Connecter le module Grove Base Shield et le capteur de température
+<a id="connect-the-grove-base-shield-and-the-temperature-sensor" class="xliff"></a>
+
+### Connecter le module Grove Base Shield et le capteur de température
 
 1. Placez le module Grove Base Shield sur votre carte. Assurez-vous que toutes les broches sont bien insérées dans votre carte.
    
@@ -118,7 +132,9 @@ Votre carte est maintenant assemblée.
 
 Votre capteur est maintenant prêt.
 
-### <a name="power-up-edison"></a>Mise sous tension d’Edison
+<a id="power-up-edison" class="xliff"></a>
+
+### Mise sous tension d’Edison
 
 1. Branchez le bloc d’alimentation.
 
@@ -131,7 +147,9 @@ Votre capteur est maintenant prêt.
    > [!NOTE]
    > Si vous ne disposez pas d’un bloc d’alimentation CC, vous pouvez toujours alimenter la carte via un port USB. Consultez la section `Connect Edison to your computer` pour plus d’informations. Cette procédure de mise sous tension de votre carte peut entraîner un comportement imprévisible de la carte, en particulier si vous utilisez un réseau Wi-Fi ou des moteurs d’entraînement.
 
-### <a name="connect-edison-to-your-computer"></a>Connexion d’Edison à votre ordinateur
+<a id="connect-edison-to-your-computer" class="xliff"></a>
+
+### Connexion d’Edison à votre ordinateur
 
 1. Basculez le microcommutateur vers les deux ports micro-USB afin de placer Edison est en mode appareil. Veuillez vous reporter [ici](https://software.intel.com/en-us/node/628233#usb-device-mode-vs-usb-host-mode) pour connaître les différences entre le mode appareil et le mode hôte.
 
@@ -147,23 +165,31 @@ Votre capteur est maintenant prêt.
 
 4. Vous saurez que votre carte est entièrement initialisée lorsque l’ordinateur monte un nouveau lecteur (comme lorsque vous insérez une carte SD dans votre ordinateur).
 
-## <a name="download-and-run-the-configuration-tool"></a>Téléchargement et exécution de l’outil de configuration
+<a id="download-and-run-the-configuration-tool" class="xliff"></a>
+
+## Téléchargement et exécution de l’outil de configuration
 Consultez [ce lien](https://software.intel.com/en-us/iot/hardware/edison/downloads) répertorié sous le titre `Installers` pour obtenir le dernier outil de configuration. Exécutez l’outil et suivez ses instructions à l'écran en cliquant sur Suivant si nécessaire.
 
-### <a name="flash-firmware"></a>Flashage du microprogramme
+<a id="flash-firmware" class="xliff"></a>
+
+### Flashage du microprogramme
 1. Sur la page `Set up options`, cliquez sur `Flash Firmware`.
 2. Sélectionnez l’image à flasher sur votre carte en effectuant l’une des opérations suivantes :
    - Pour télécharger et flasher votre carte avec la dernière image de microprogramme disponible d’Intel, sélectionnez `Download the latest image version xxxx`.
    - Pour flasher votre carte avec une image que vous avez déjà enregistrée sur votre ordinateur, sélectionnez `Select the local image`. Recherchez et sélectionnez l’image à flasher sur votre carte.
 3. L’outil d’installation tente de flasher votre carte. L’ensemble du processus de flashage peut prendre jusqu’à 10 minutes.
 
-### <a name="set-password"></a>Définition du mot de passe
+<a id="set-password" class="xliff"></a>
+
+### Définition du mot de passe
 1. Sur la page `Set up options`, cliquez sur `Enable Security`.
 2. Vous pouvez attribuer un nom personnalisé à votre carte Intel® Edison. Cette étape est facultative.
 3. Tapez un mot de passe pour votre carte, puis cliquez sur `Set password`.
 4. Notez le mot de passe, qui sera utilisé ultérieurement.
 
-### <a name="connect-wi-fi"></a>Connexion Wi-Fi
+<a id="connect-wi-fi" class="xliff"></a>
+
+### Connexion Wi-Fi
 1. Sur la page `Set up options`, cliquez sur `Connect Wi-Fi`. Attendez environ une minute que votre ordinateur recherche les réseaux Wi-Fi disponibles.
 2. Dans la liste déroulante `Detected Networks`, sélectionnez votre réseau.
 3. Dans la liste déroulante `Security`, sélectionnez le type de sécurité du réseau.
@@ -177,9 +203,13 @@ Consultez [ce lien](https://software.intel.com/en-us/iot/hardware/edison/downloa
 
 Félicitations ! Vous avez réussi à configurer Edison.
 
-## <a name="run-a-sample-application-on-intel-edison"></a>Exécution d’un exemple d’application sur Intel Edison
+<a id="run-a-sample-application-on-intel-edison" class="xliff"></a>
 
-### <a name="prepare-the-azure-iot-device-sdk"></a>Préparer le SDK Azure IoT Device
+## Exécution d’un exemple d’application sur Intel Edison
+
+<a id="prepare-the-azure-iot-device-sdk" class="xliff"></a>
+
+### Préparer le SDK Azure IoT Device
 
 1. Utilisez l’un des clients SSH suivants à partir de votre ordinateur hôte pour vous connecter à votre Intel Edison. L’adresse IP est obtenue à partir de l’outil de configuration et le mot de passe est celui que vous avez défini dans cet outil.
     - [PuTTY](http://www.putty.org/) pour Windows.
@@ -194,11 +224,14 @@ Félicitations ! Vous avez réussi à configurer Edison.
 3. Accédez ensuite au dossier de référentiel pour exécuter la commande suivante afin d’installer tous les packages (la procédure peut prendre quelques minutes).
    
    ```bash
+   cd iot-hub-node-intel-edison-client-app
    npm install
    ```
 
 
-### <a name="configure-and-run-the-sample-application"></a>Configurer et exécuter l’exemple d’application
+<a id="configure-and-run-the-sample-application" class="xliff"></a>
+
+### Configurer et exécuter l’exemple d’application
 
 1. Ouvrez le fichier de configuration en exécutant les commandes suivantes :
 
@@ -208,9 +241,9 @@ Félicitations ! Vous avez réussi à configurer Edison.
 
    ![Fichier de configuration](media/iot-hub-intel-edison-kit-node-get-started/13_configure_file.png)
 
-   Deux éléments de type macros peuvent être configurés dans ce fichier. Le premier est `INTERVAL`, qui définit le délai entre deux messages envoyés au cloud. Le deuxième est `SIMULATED_DATA`, qui est une valeur booléenne pour l’utilisation ou non des données de capteur simulées.
+   Deux éléments de type macros peuvent être configurés dans ce fichier. Le premier est `INTERVAL`, qui définit le délai entre deux messages envoyés au cloud. Le deuxième est `simulatedData`, qui est une valeur booléenne pour l’utilisation ou non des données de capteur simulées.
 
-   Si vous **ne disposez pas du capteur**, définissez la valeur `SIMULATED_DATA` sur `1` pour que l’exemple d’application crée et utilise des données de capteur simulées.
+   Si vous **ne disposez pas du capteur**, définissez la valeur `simulatedData` sur `true` pour que l’exemple d’application crée et utilise des données de capteur simulées.
 
 1. Enregistrez et quittez en appuyant sur Ctrl-O > Entrée > Ctrl-X.
 
@@ -228,8 +261,11 @@ Vous devriez voir le résultat suivant, qui affiche les données de capteur et l
 
 ![Sortie : données de capteur envoyées depuis Intel Edison vers votre IoT Hub](media/iot-hub-intel-edison-kit-node-get-started/15_message_sent.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+<a id="next-steps" class="xliff"></a>
+
+## Étapes suivantes
 
 Vous avez exécuté un exemple d’application pour collecter des données de capteur et les envoyer à votre IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

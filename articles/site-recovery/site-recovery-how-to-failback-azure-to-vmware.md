@@ -11,23 +11,18 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1c56a7f16361ac4fae97be6c9f21c959723b396c
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 622604dc3ce69085feff6705168d58ad9938c429
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Restauration automatique d’Azure vers un site local
-
-> [!div class="op_single_selector"]
-> * [Machines VMware / machines physiques d’Azure](site-recovery-failback-azure-to-vmware.md)
-> * [Machines virtuelles Hyper-V d’Azure](site-recovery-failback-from-azure-to-hyper-v.md)
-
 
 Cet article explique comment restaurer automatiquement des machines virtuelles Azure sur le site local. Suivez les instructions de cet article pour restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure, en suivant le didacticiel [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 
@@ -76,7 +71,7 @@ Si la machine virtuelle locale n’existe pas avant la reprotection, la solution
 
 Une machine physique basculée vers Azure ne peut être restaurée automatiquement que comme une machine virtuelle VMware (également appelée P2A2V). Ce flux s’inscrit dans le cadre de la récupération d’un autre emplacement.
 
-* Un serveur Windows Server 2008 R2 SP1 protégé et basculé vers Azure ne peut pas être restauré automatiquement.
+* Un serveur physique Windows Server 2008 R2 SP1 protégé et basculé vers Azure ne peut pas être restauré automatiquement.
 * Veillez à détecter au moins un serveur cible maître et les hôtes ESX/ESXi nécessaires sur lesquels vous devez effectuer une restauration automatique.
 
 ## <a name="have-you-completed-reprotection"></a>Vous avez terminé la reprotection ?
@@ -112,7 +107,7 @@ Notez que les points de récupération cohérents d’application peuvent se tro
 
 ### <a name="what-happens-to-vmware-tools-post-failback"></a>Que se passe-t-il au niveau des outils VMware après une restauration automatique ?
 
-Pendant le basculement vers Azure, les outils VMware ne peuvent pas s’exécuter sur la machine virtuelle Azure. Dans le cas d’une machine virtuelle Windows, ASR désactive les outils VMware pendant le basculement. Dans le cas d’une machine virtuelle Linux, ASR désinstalle les outils VMware pendant le basculement. 
+Pendant le basculement vers Azure, les outils VMware ne peuvent pas s’exécuter sur la machine virtuelle Azure. Dans le cas d’une machine virtuelle Windows, ASR désactive les outils VMware pendant le basculement. Dans le cas d’une machine virtuelle Linux, ASR désinstalle les outils VMware pendant le basculement.
 
 Lors du basculement de la machine virtuelle Windows, les outils VMware sont réactivés au moment de la restauration automatique. De même, pour une machine virtuelle Linux, les outils VMware sont réinstallés sur la machine pendant le basculement.
 

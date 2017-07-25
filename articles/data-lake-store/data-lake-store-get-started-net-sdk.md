@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/09/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 74ea95349faa7ee3376050c22b4bb2375837b5c0
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: f637b8617c4a9ed3be1eb0932a94b0ffcc7c8f7e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -29,7 +29,6 @@ ms.lasthandoff: 05/10/2017
 > * [Kit SDK .NET](data-lake-store-get-started-net-sdk.md)
 > * [Kit SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
-> * [Interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
@@ -45,7 +44,7 @@ Découvrez comment utiliser le [Kit de développement logiciel (SDK) .NET Azure 
 
 * **Compte Azure Data Lake Store**. Pour savoir comment créer un compte, consultez [Prise en main d’Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
-* **Créez une application Azure Active Directory**. Vous utilisez l’application Azure AD pour authentifier l’application Data Lake Store auprès d’Azure AD. Il existe différentes approches pour l’authentification auprès d’Azure AD : **authentification de l’utilisateur final** ou **authentification de service à service**. Pour plus d’informations sur l’authentification et la procédure associée, consultez [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md)(Authentification auprès de Data Lake Store à l’aide d’Azure Active Directory).
+* **Créez une application Azure Active Directory**. Vous utilisez l’application Azure AD pour authentifier l’application Data Lake Store auprès d’Azure AD. Il existe différentes approches pour l’authentification auprès d’Azure AD : **authentification de l’utilisateur final** ou **authentification de service à service**. Pour obtenir des instructions et plus d’informations sur l’authentification, consultez [l’authentification de l’utilisateur final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [l’authentification de service à service](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Créer une application .NET
 1. Ouvrez Visual Studio et créez une application console.
@@ -118,7 +117,7 @@ Dans les sections suivantes de cet article, vous pouvez découvrir comment utili
 
 Utilisez-le avec une application native Azure AD pour authentifier votre application **interactivement**, ce qui signifie que vous devrez entrer vos informations d’identification Azure.
 
-Pour simplifier l’utilisation, l’extrait de code ci-dessous utilise les valeurs par défaut pour l’ID client et l’URI de redirection qui fonctionne avec n’importe quel abonnement Azure. Pour effectuer ce didacticiel plus rapidement, nous vous recommandons d’utiliser cette approche. Dans l’extrait de code ci-dessous, fournissez simplement la valeur de votre ID locataire. Vous pouvez les récupérer en suivant les instructions fournie sur la page [Créer une Application Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+Pour simplifier l’utilisation, l’extrait de code ci-dessous utilise les valeurs par défaut pour l’ID client et l’URI de redirection qui fonctionne avec n’importe quel abonnement Azure. Pour effectuer ce didacticiel plus rapidement, nous vous recommandons d’utiliser cette approche. Dans l’extrait de code ci-dessous, fournissez simplement la valeur de votre ID locataire. Vous pouvez les récupérer en suivant les instructions fournies sur la page [Créer une Application Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
     // User login via interactive popup
     // Use the client ID of an existing AAD Web application.
@@ -161,7 +160,7 @@ Vous pouvez également, utiliser l’extrait de code pour authentifier votre app
     var creds = await ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate);
 
 ## <a name="create-client-objects"></a>Créer des objets clients
-L’extrait de code suivant crée le compte Data Lake Store et les objets clients filesystem, qui sont utilisés pour adresserdes demandes au service.
+L’extrait de code suivant crée le compte Data Lake Store et les objets clients filesystem, qui sont utilisés pour adresser des demandes au service.
 
     // Create client objects and set the subscription ID
     _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
@@ -248,7 +247,7 @@ L’extrait de code suivant montre une méthode `AppendToFile` qui permet d’aj
 L’extrait de code suivant montre une méthode `DownloadFile` que vous pouvez utiliser pour télécharger un fichier depuis un compte Data Lake Store.
 
     // Download file
-       public static void DownloadFile(string srcFilePath, string destFilePath)
+    public static void DownloadFile(string srcFilePath, string destFilePath)
     {
          _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath);
     }
