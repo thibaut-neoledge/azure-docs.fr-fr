@@ -195,6 +195,7 @@
 ## Integrate
 ### [Accéder aux ressources locales à l’aide de connexions hybrides](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Envoi de courriers électroniques à l’aide de SendGrid avec Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Exporter vers PowerApps et Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Résolution des problèmes
 ### Dépannage général pour Mobile Apps
@@ -230,7 +231,7 @@
 ### [Synchronisation des données structurées](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
 ### Démarrage rapide terminé
 #### [Backend .NET](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
-#### [Back-end Node.js](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/) :
+#### [Back-end Node.js](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
 #### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
 #### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
 
