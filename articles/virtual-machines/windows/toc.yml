@@ -386,6 +386,10 @@
               href: migration-classic-resource-manager-faq.md
     - name: Résolution des problèmes
       items:
+        - name: >-
+            Prise en charge de l'ajout de machines virtuelles Azure dans un
+            groupe de disponibilité existant
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Comprendre un redémarrage du système
           href: understand-vm-reboot.md
         - name: Connexions Bureau à distance

@@ -412,6 +412,10 @@
           href: migration-classic-resource-manager-faq.md
     - name: Résolution des problèmes
       items:
+        - name: >-
+            Prise en charge de l'ajout de machines virtuelles Azure dans un
+            groupe de disponibilité existant
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Réinitialiser le mot de passe Linux VM
           href: virtual-machines-linux-reset-password.md
         - name: Comprendre un redémarrage du système
