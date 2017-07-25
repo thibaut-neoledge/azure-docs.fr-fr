@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 08ba157ba783d00069750cdc1c80d13111b6a670
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -35,7 +37,7 @@ Avant de commencer l’installation d’Azure AD Connect, veillez à [téléchar
 Si vous n’effectuez pas une mise à niveau à partir de DirSync, consultez la section [Documentation connexe](#related-documentation) pour d’autres scénarios.
 
 ## <a name="upgrade-from-dirsync"></a>Effectuer une mise à niveau à partir de DirSync
-Selon votre déploiement DirSync actuel, il existe différentes options pour la mise à niveau. Si la durée de mise à niveau attendue est inférieure à&3; heures, nous vous recommandons de l’effectuer sur place. Si elle est supérieure à&3; heures, nous vous recommandons d’effectuer un déploiement en parallèle sur un autre serveur. Nos estimations montrent que, si vous avez plus de 50 000 objets, la mise à niveau prendra plus de 3 heures.
+Selon votre déploiement DirSync actuel, il existe différentes options pour la mise à niveau. Si la durée de mise à niveau attendue est inférieure à 3 heures, nous vous recommandons de l’effectuer sur place. Si elle est supérieure à 3 heures, nous vous recommandons d’effectuer un déploiement en parallèle sur un autre serveur. Nos estimations montrent que, si vous avez plus de 50 000 objets, la mise à niveau prendra plus de 3 heures.
 
 | Scénario |
 | --- | --- |
@@ -134,7 +136,7 @@ Si vous avez moins de 50 000 objets mais que vous souhaitez effectuer un déploi
 1. Lancez le programme d’installation d’Azure AD Connect (MSI).
 2. Lorsque l'écran **Bienvenue à Azure AD Connect** s'affiche, quittez l'Assistant d'installation en cliquant sur le X en haut à droite de la fenêtre.
 3. Ouvrez une invite de commandes.
-4. À partir de l'emplacement d'installation d'Azure AD Connect (par défaut C:\Program Files\Microsoft Azure Active Directory Connect), exécutez la commande suivante :  `AzureADConnect.exe /ForceExport`.
+4. À partir de l’emplacement d’installation d’Azure AD Connect (par défaut C:\Program Files\Microsoft Azure Active Directory Connect), exécutez la commande suivante : `AzureADConnect.exe /ForceExport`.
 5. Cliquez sur le bouton **Paramètres d'exportation** . Lorsque vous installez Azure AD Connect sur un autre serveur, ces paramètres sont migrés de votre installation DirSync vers votre nouvelle installation Azure AD Connect.
 
 ![Analyse terminée](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
@@ -147,7 +149,7 @@ Lorsque vous installez Azure AD Connect sur un nouveau serveur, le système pré
 1. Lancez le programme d’installation d’Azure AD Connect (MSI).
 2. Lorsque l'écran **Bienvenue à Azure AD Connect** s'affiche, quittez l'Assistant d'installation en cliquant sur le X en haut à droite de la fenêtre.
 3. Ouvrez une invite de commandes.
-4. À partir de l'emplacement d'installation d'Azure AD Connect (par défaut C:\Program Files\Microsoft Azure Active Directory Connect), exécutez la commande suivante :  `AzureADConnect.exe /migrate`.
+4. À partir de l'emplacement d'installation d'Azure AD Connect (par défaut C:\Program Files\Microsoft Azure Active Directory Connect), exécutez la commande suivante : `AzureADConnect.exe /migrate`.
    L’Assistant d’installation d’Azure AD Connect démarre et affiche l’écran suivant :  
    ![Entrez vos informations d’identification Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
 5. Sélectionnez le fichier de paramètres exportés à partir de votre installation de la synchronisation d’annuaires.
@@ -216,9 +218,4 @@ Pour en savoir plus sur ces nouvelles fonctionnalités, qui sont activées lors 
 Pour en savoir plus sur ces sujets courants, consultez l’article [Planificateur Azure AD Connect Sync](active-directory-aadconnectsync-feature-scheduler.md).
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

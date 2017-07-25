@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/03/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -38,7 +38,7 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 
-2. Sélectionnez **Compute** puis **Windows Server 2016 Datacenter** et vérifiez que le modèle de déploiement sélectionné est **Resource Manager**. Cliquez sur le bouton **Créer** . 
+2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
 
 3. Saisissez les informations de la machine virtuelle. Le nom d’utilisateur et le mot de passe que vous avez entrés vous serviront pour vous connecter à la machine virtuelle. Lorsque vous avez terminé, cliquez sur **OK**.
 
@@ -48,7 +48,7 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
     ![Capture d’écran montrant les tailles de machine virtuelle](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. Dans le panneau Paramètres, sélectionnez **Oui** sous **Utiliser des disques gérés**, conservez les valeurs par défaut pour le reste des paramètres, puis cliquez sur **OK**.
+5. Conservez les valeurs par défaut dans le panneau des paramètres et cliquez sur **OK**.
 
 6. Sur la page Résumé, cliquez sur **OK** pour lancer le déploiement de machine virtuelle.
 

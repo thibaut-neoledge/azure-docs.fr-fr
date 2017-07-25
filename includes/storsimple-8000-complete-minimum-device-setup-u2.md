@@ -1,8 +1,10 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-#### Pour mener à bien la configuration minimale d’un appareil StorSimple
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Pour mener à bien la configuration minimale d’un appareil StorSimple
 
+   > [!NOTE]
+   > Vous ne pouvez pas modifier le nom de l’appareil une fois la configuration de l’appareil terminée.
+   
 1. Sélectionnez votre appareil et cliquez dessus dans la liste tubulaire des appareils du panneau **Appareils**. L’appareil se trouve à l’état **Prêt pour la configuration**. Le panneau **Configurer l’appareil** s’ouvre.
 
      ![Interfaces réseau de la configuration minimale d’un appareil StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
@@ -26,9 +28,6 @@
 1. Cliquez sur **OK**. La configuration de l’appareil démarre. Lorsque la configuration de l’appareil est terminée, vous êtes averti. L’état de l’appareil devient **En ligne** dans le panneau **Appareils**.
 
     ![Interfaces réseau de la configuration minimale d’un appareil StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
-
-   > [!NOTE]
-   > Vous pouvez modifier tous les autres paramètres de l’appareil à tout moment en accédant au panneau **Paramètres de l’appareil**.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

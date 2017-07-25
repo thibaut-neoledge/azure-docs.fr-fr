@@ -16,17 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: rachelap, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2d539dd51834e935f9c5f7a6be42011ffe9e0870
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: be7a9979ba7e6aa26c60b24bcc892ca35af3c1fc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="create-your-first-function-using-visual-studio"></a>Créer votre première fonction à l’aide de Visual Studio 
+# <a name="create-your-first-function-using-visual-studio"></a>Créer votre première fonction à l’aide de Visual Studio
 
-Azure Functions vous permet d’exécuter votre code dans un environnement sans serveur et sans avoir à créer une machine virtuelle ou à publier une application web au préalable. 
+Azure Functions vous permet d’exécuter votre code dans un environnement sans serveur et sans avoir à créer une machine virtuelle ou à publier une application web au préalable.
+
+> [!IMPORTANT]
+> Cette rubrique utilise une préversion de Visual Studio afin d’effectuer la procédure. Vérifiez que vous avez installé la [préversion 15.3 de Visual Studio 2017](https://www.visualstudio.com/vs/preview/) avant de poursuivre.
 
 Dans cette rubrique, vous allez apprendre à vous servir des outils Azure Functions pour Visual Studio 2017 afin de créer et tester en local une fonction « Hello World ». Vous allez ensuite publier le code de la fonction vers Azure.
 
@@ -37,7 +39,7 @@ Dans cette rubrique, vous allez apprendre à vous servir des outils Azure Funct
 Pour suivre ce didacticiel, installez le logiciel suivant :
 
 * [Visual Studio 2017 Preview version 15.3](https://www.visualstudio.com/vs/preview/), y compris la charge de travail de **développement Azure**.
-    
+
     ![Installer Visual Studio 2017 avec la charge de travail de développement Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

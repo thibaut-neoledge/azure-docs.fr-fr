@@ -1,7 +1,6 @@
 ---
-
 title: "Création de rapports Azure Active Directory | Microsoft Docs"
-description: "Répertorie les différents rapports disponibles pour Azure Active Directory"
+description: "Fournit une vue d’ensemble de la création de rapports Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,190 +12,110 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 738c8f4a56586b87f03973ec258b0a3023affa60
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-active-directory-reporting"></a>Création de rapports Active Directory
 
+Les rapports Azure Active Directory vous permettent d’obtenir de précieuses informations sur le comportement de votre environnement.  
+Les données fournies vous permettent de :
 
-*Cette documentation fait partie du guide [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
+- déterminer la façon dont les applications et les services sont utilisés ;
+- détecter les risques potentiels affectant l’intégrité de votre environnement ;
+- résoudre les problèmes empêchant les utilisateurs d’effectuer leur travail.  
 
-Dans Azure Active Directory (Azure AD), vous pouvez obtenir toutes les informations dont vous avez besoin pour évaluer l’état de votre environnement.
+L’architecture de création de rapports s’appuie sur deux axes principaux :
 
-La création de rapports couvre principalement deux domaines :
+- Rapports de sécurité
+- Rapports d’activité
 
-* **Activités de connexion** – Informations sur l’utilisation des applications gérées et les activités de connexion des utilisateurs
-* **Activités du système** – Informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, à vos applications gérées et aux activités de répertoire
+![Reporting](./media/active-directory-reporting-azure-portal/01.png)
 
-Selon l’étendue des données que vous recherchez, vous pouvez accéder à ces rapports en cliquant sur **Utilisateurs et groupes** ou **Applications d’entreprise** dans la liste des services au sein du [portail Azure](https://portal.azure.com).
 
-## <a name="sign-in-activities"></a>Activités de connexion
-### <a name="user-sign-in-activities"></a>Activités de connexion des utilisateurs
-Avec les informations fournies par le rapport sur les connexions des utilisateurs, trouvez des réponses aux questions telles que :
 
-* Quel est le modèle de connexion d’un utilisateur ?
-* Combien d’utilisateurs se sont connectés au cours d’une semaine ?
-* Quel est l’état de ces connexions ?
+## <a name="security-reports"></a>Rapports de sécurité
 
-Votre point d’entrée pour ces données est le graphique des connexions des utilisateurs dans la section **Overview** (Vue d’ensemble) sous **Utilisateurs et groupes**.
+Les rapports de sécurité d’Azure Active Directory vous aident à protéger les identités de votre organisation.  
+Il existe deux types de rapports de sécurité dans Azure Active Directory :
 
- ![Reporting](./media/active-directory-reporting-azure-portal/05.png "Reporting")
+- **Utilisateurs avec indicateur de risque** : le [rapport de sécurité de ce type](active-directory-reporting-security-user-at-risk.md) présente une vue d’ensemble des comptes d’utilisateurs qui peuvent avoir été compromis.
 
-Le graphique des connexions des utilisateurs affiche les agrégations hebdomadaires des connexions de tous les utilisateurs au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
+- **Connexions à risque** : le [rapport de sécurité de ce type](active-directory-reporting-security-risky-sign-ins.md) contient un indicateur pour les tentatives de connexion susceptibles d’avoir été effectuées par une personne autre que le propriétaire légitime d’un compte d’utilisateur. 
 
-![Reporting](./media/active-directory-reporting-azure-portal/02.png "Reporting")
+**De quelle licence Azure AD avez-vous besoin pour accéder à un rapport de sécurité ?**  
+Toutes les éditions d’Azure Active Directory vous indiquent les rapports de sécurité Utilisateurs avec indicateur de risque et Connexions à risque.  
+Toutefois, le niveau de granularité d’un rapport varie entre les éditions : 
 
-Lorsque vous cliquez sur un jour dans le graphique des connexions, vous obtenez une liste détaillée des activités de connexion.
+- Dans les **éditions Azure Active Directory Free et Basic**, vous obtenez déjà la liste des utilisateurs avec indicateur de risque et des connexions à risque. 
 
-![Reporting](./media/active-directory-reporting-azure-portal/03.png "Reporting")
+- L’édition **Azure Active Directory Premium 1** étend ce modèle en vous permettant également d’examiner certains événements à risque sous-jacent qui ont été détectés pour chaque rapport. 
 
-Chaque ligne dans la liste des activités de connexion vous fournit des informations détaillées sur la connexion sélectionnée, par exemple :
+- L’édition **Azure Active Directory Premium 2** vous fournit les informations les plus détaillées sur les événements à risque sous-jacent. Elle vous permet également de configurer des stratégies de sécurité répondant automatiquement aux niveaux de risque configurés.
 
-* Qui s’est connecté ?
-* Qui a l’UPN associé ?
-* Quelle application a été la cible de la connexion ?
-* Quelle est l’adresse IP de la connexion ?
-* Quel est l’état de la connexion ?
 
-### <a name="usage-of-managed-applications"></a>Utilisation des applications gérées
-En disposant d’une vue centrée sur les applications de vos données de connexion, vous pouvez répondre aux questions telles que :
+## <a name="activity-reports"></a>Rapports d’activité
 
-* Qui utilise mes applications ?
-* Quelles sont les 3 principales applications dans votre organisation ?
-* J’ai récemment déployé une application. Comment se comporte-t-elle ?
+Il existe deux types de rapports d’activité dans Azure Active Directory :
 
-Les 3 principales applications de votre organisation dans le rapport sur les 30 derniers jours apparaissant dans la section **Vue d’ensemble** sous **Enterprise applications** (Applications d’entreprise) constituent votre point d’entrée.
+- **Journaux d’audit** : le [rapport d’activité de ce type](active-directory-reporting-activity-audit-logs.md) vous permet d’accéder à l’historique de toutes les tâches effectuées dans votre locataire.
 
- ![Reporting](./media/active-directory-reporting-azure-portal/06.png "Reporting")
+- **Connexions** : le [rapport d’activité de ce type](active-directory-reporting-activity-sign-ins.md) vous permet d’identifier qui a effectué les tâches signalées par le rapport de journaux d’audit.
 
-Le graphique d’utilisation des applications affiche les agrégations hebdomadaires des connexions pour vos 3 principales applications au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
 
-![Reporting](./media/active-directory-reporting-azure-portal/78.png "Reporting")
 
-Si vous le souhaitez, vous pouvez définir la focalisation sur une application spécifique.
+Le **rapport de journaux d’audit** vous fournit les enregistrements des activités du système relatifs à la conformité.
+Les données fournies vous permettent, entre autres choses, de résoudre des scénarios courants :
 
-![Reporting](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Reporting")
+- Une personne de mon locataire a obtenu l’accès à un groupe d’administration. Qui lui a fourni cet accès ? 
 
-Lorsque vous cliquez sur un jour dans le graphique d’utilisation des applications, vous obtenez une liste détaillée des activités de connexion.
+- Je souhaite connaître la liste des utilisateurs se connectant à une application spécifique, car j’ai récemment intégré l’application et souhaite savoir si j’ai bien fait.
 
-![Reporting](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Reporting")
+- Je souhaite connaître le nombre de réinitialisations de mot de passe qui se produisent dans mon locataire.
 
-L’option **Connexions** vous fournit une vue d’ensemble complète de tous les événements de connexion à vos applications.
 
-![Reporting](./media/active-directory-reporting-azure-portal/85.png "Reporting")
+**De quelle licence Azure AD avez-vous besoin pour accéder au rapport de journaux d’audit ?**  
+Le rapport de journaux d’audit est disponible pour les fonctionnalités dont vous disposez les licences. Si vous possédez une licence pour une fonctionnalité spécifique, vous avez également accès aux informations du journal d’audit correspondantes.
 
-En utilisant le sélecteur de colonne, vous pouvez sélectionner les champs de données que vous souhaitez afficher.
+Pour en savoir plus, voir la section **Comparaison des caractéristiques de disponibilité générale des éditions Free, Basic et Premium**  de l’article [Fonctionnalités d’Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
 
-![Reporting](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-sign-ins"></a>Filtrage des connexions
-Vous pouvez filtrer les connexions pour limiter la quantité de données affichées en utilisant les champs suivants :
 
-* Date et heure 
-* Nom d’utilisateur principal de l’utilisateur
-* Nom de l’application
-* Nom du client
-* État de la connexion
+Le **rapport d’activité des connexions** vous permet de trouver les réponses aux questions suivantes :
 
-![Reporting](./media/active-directory-reporting-azure-portal/293.png "Reporting")
+- Quel est le modèle de connexion d’un utilisateur ?
+- Combien d’utilisateurs se sont connectés au cours d’une semaine ?
+- Quel est l’état de ces connexions ?
 
-Une autre méthode de filtrage des entrées des activités de connexion consiste à rechercher des entrées spécifiques.
-La méthode de recherche vous permet de centrer les connexions sur des **utilisateurs**, des **groupes** ou des **applications** spécifiques.
 
-![Reporting](./media/active-directory-reporting-azure-portal/84.png "Reporting")
+**De quelle licence Azure AD avez-vous besoin pour accéder au rapport d’activité des connexions ?**  
+Pour accéder au rapport d’activité des connexions, votre locataire doit posséder une licence Azure AD Premium qui lui est associée.
 
-## <a name="audit-logs"></a>Journaux d’audit
-Les journaux d’audit dans Azure Active Directory fournissent des enregistrements des activités du système pour la conformité.
 
-Dans le portail Azure, les activités connexes à l’audit portent sur trois catégories principales :
+## <a name="programmatic-access"></a>Accès par programme
 
-* Utilisateurs et groupes   
-* applications
-* Répertoire   
+Outre l’interface utilisateur, les rapports Azure Active Directory vous fournissent également un [accès par programme](active-directory-reporting-api-getting-started-azure-portal.md) à leurs données. Les données de ces rapports peuvent être très utiles pour vos applications, telles que les systèmes SIEM, l’audit et les outils d’analyse décisionnelle. Les API de création de rapports Azure AD fournissent un accès par programme aux données via un ensemble d’API REST. Vous pouvez appeler ces API à partir de divers outils et langages de programmation. 
 
-Pour obtenir une liste complète des activités de rapport d’audit, consultez la [liste des événements de rapport d’audit](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
-Les **Journaux d’audit** dans la section **Activité** **d’Azure Active Directory** constituent votre point d’entrée pour toutes les données d’audit.
-
-![Audit](./media/active-directory-reporting-azure-portal/61.png "Audit")
-
-Un journal d’audit comporte un affichage de liste qui montre les acteurs (qui), les activités (quoi) et les cibles.
-
-![Audit](./media/active-directory-reporting-azure-portal/345.png "Audit")
-
-En cliquant sur un élément dans l’affichage de liste, vous pouvez obtenir plus d’informations sur cet élément.
-
-![Audit](./media/active-directory-reporting-azure-portal/873.png "Audit")
-
-### <a name="users-and-groups-audit-logs"></a>Journaux d’audit des utilisateurs et des groupes
-Les rapports d’audit basés sur les utilisateurs et les groupes vous permettent d’obtenir des réponses aux questions telles que :
-
-* Quels types de mises à jour ont été appliquées aux utilisateurs ?
-* Combien d’utilisateurs ont été modifiés ?
-* Combien de mots de passe ont été modifiés ?
-* Qu’a fait un administrateur dans un répertoire ?
-* Quels sont les groupes qui ont été ajoutés ?
-* Existe-t-il des groupes comportant des modifications d’adhésion ?
-* Les propriétaires de groupe ont-ils été modifiés ?
-* Quelles licences ont été attribuées à un groupe ou un utilisateur ?
-
-Si vous souhaitez simplement consulter les données d’audit connexes aux utilisateurs et aux groupes, vous pouvez trouver une vue filtrée sous **Journaux d’audit** dans la section **Activité** de **Utilisateurs et groupes**.
-
-![Audit](./media/active-directory-reporting-azure-portal/93.png "Audit")
-
-### <a name="application-audit-logs"></a>Journaux d’audit des applications
-Les rapports d’audit basés sur les applications vous permettent d’obtenir des réponses aux questions telles que :
-
-* Quelles applications ont été ajoutées ou mises à jour ?
-* Quelles applications ont été supprimées ?
-* Le principal du service d’une application a-t-il été modifié ?
-* Les noms des applications ont-ils été modifiés ?
-* Qui a donné son consentement à une application ?
-
-Si vous souhaitez simplement consulter les données d’audit connexes aux applications, vous pouvez trouver une vue filtrée sous **Journaux d’audit** dans la section **Activité** de **Applications d’entreprise**.
-
-![Audit](./media/active-directory-reporting-azure-portal/134.png "Audit")
-
-### <a name="filtering-audit-logs"></a>Filtrage des journaux d’audit
-Vous pouvez filtrer les connexions pour limiter la quantité de données affichées en utilisant les champs suivants :
-
-* Date et heure
-* Nom d’utilisateur principal de l’acteur
-* Type d’activité
-* Activité
-
-![Audit](./media/active-directory-reporting-azure-portal/356.png "Audit")
-
-Le contenu de la liste **Type d’activité** est lié à votre point d’entrée pour ce panneau.  
-Si votre point d’entrée est Azure Active Directory, cette liste contient tous les types d’activités possibles :
-
-* Application 
-* Groupe 
-* Utilisateur
-* Appareil
-* Répertoire
-* Stratégie
-* Autres
-
-![Audit](./media/active-directory-reporting-azure-portal/825.png "Audit")
-
-Les activités répertoriées sont limitées par type d’activité.
-Par exemple, si vous avez **groupe** sélectionné comme **Type d’activité**, la liste **Activité** contient uniquement le groupe des activités associées.   
-
-![Audit](./media/active-directory-reporting-azure-portal/654.png "Audit")
-
-Une autre méthode de filtrage des entrées d’un journal d’audit consiste à rechercher des entrées spécifiques.
-
-![Audit](./media/active-directory-reporting-azure-portal/237.png "Audit")
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
+
+Pour en savoir plus sur les différents types de rapports dans Azure Active Directory, voir :
+
+- [Rapport des utilisateurs avec indicateur de risque](active-directory-reporting-security-user-at-risk.md)
+- [Rapport sur les connexions à risque](active-directory-reporting-security-risky-sign-ins.md)
+- [Rapport de journaux d’audit](active-directory-reporting-activity-audit-logs.md)
+- [Rapport de journaux de connexions](active-directory-reporting-activity-sign-ins.md)
+
+Pour en savoir plus sur l’accès aux données des rapports à l’aide de l’API de création de rapports, voir : 
+
+- [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started-azure-portal.md)
 
 
+<!--Image references-->
+[1]: ./media/active-directory-reporting-azure-portal/ic195031.png

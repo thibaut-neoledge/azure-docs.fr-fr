@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: b9e61950654ba427b09dd608d354589a0804aaa5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Rapports d’activité de connexion dans le portail Azure Active Directory
-<a id="sign-in-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
 Grâce à la fonction de création de rapports Azure Active Directory (Azure AD) dans le [portail Azure](https://portal.azure.com), vous pouvez obtenir les informations dont vous avez besoin pour évaluer l’état de votre environnement.
 
@@ -38,22 +37,18 @@ L’architecture de création de rapports dans Azure Active Directory comprend l
 
 Cette rubrique vous donne une vue d’ensemble des activités de connexion.
 
-## Conditions préalables
-<a id="pre-requisite" class="xliff"></a>
+## <a name="pre-requisite"></a>Conditions préalables
 
-### Qui peut accéder aux données ?
-<a id="who-can-access-the-data" class="xliff"></a>
+### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 * Utilisateurs ayant le rôle d’administrateur de sécurité ou de lecteur de la sécurité
 * Administrateurs généraux
 * Tous les utilisateurs (non administrateurs) peuvent accéder à leurs propres connexions 
 
-### De quelle licence Azure AD avez-vous besoin pour accéder à l’activité de connexion ?
-<a id="what-azure-ad-license-do-you-need-to-access-sign-in-activity" class="xliff"></a>
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>De quelle licence Azure AD avez-vous besoin pour accéder à l’activité de connexion ?
 * Votre client doit avoir une licence Azure AD Premium associée pour afficher tous les rapports d’activités de connexion.
 
 
-## Activités de connexion
-<a id="signs-in-activities" class="xliff"></a>
+## <a name="signs-in-activities"></a>Activités de connexion
 
 Avec les informations fournies par le rapport sur les connexions des utilisateurs, trouvez des réponses aux questions telles que :
 
@@ -89,8 +84,7 @@ En cliquant sur un élément dans le mode Liste, vous pouvez obtenir toutes les
 ![Activité de connexion](./media/active-directory-reporting-activity-sign-ins/43.png "Activité de connexion")
 
 
-## Filtrage des activités de connexion
-<a id="filtering-sign-in-activities" class="xliff"></a>
+## <a name="filtering-sign-in-activities"></a>Filtrage des activités de connexion
 
 Pour limiter les données transmises à un niveau qui vous convient, vous pouvez filtrer les données de connexion à l’aide des champs suivants :
 
@@ -126,8 +120,7 @@ Le filtre **État de la connexion** vous permet de sélectionner l’un des filt
 - Échec
 
 
-## Raccourcis relatifs aux activités de connexion
-<a id="sign-in-activities-shortcuts" class="xliff"></a>
+## <a name="sign-in-activities-shortcuts"></a>Raccourcis relatifs aux activités de connexion
 
 En plus d’Azure Active Directory, le portail Azure vous offre deux autres points d’entrée pour les données sur les activités de connexion :
 
@@ -135,8 +128,7 @@ En plus d’Azure Active Directory, le portail Azure vous offre deux autres p
 - Applications d’entreprise
 
 
-### Activités de connexion des utilisateurs et des groupes
-<a id="users-and-groups-sign-ins-activities" class="xliff"></a>
+### <a name="users-and-groups-sign-ins-activities"></a>Activités de connexion des utilisateurs et des groupes
 
 Avec les informations fournies par le rapport sur les connexions des utilisateurs, trouvez des réponses aux questions telles que :
 
@@ -172,8 +164,7 @@ L’option **Connexions** vous fournit une vue d’ensemble complète de toutes 
 
 
 
-## Utilisation des applications gérées
-<a id="usage-of-managed-applications" class="xliff"></a>
+## <a name="usage-of-managed-applications"></a>Utilisation des applications gérées
 
 En disposant d’une vue centrée sur les applications de vos données de connexion, vous pouvez répondre aux questions telles que :
 
@@ -206,8 +197,8 @@ L’option **Connexions** vous fournit une vue d’ensemble complète de tous le
 
 
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
-Consultez le [Guide Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour en savoir plus sur les codes d’erreur de l’activité des connexions, voir [Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory](active-directory-reporting-activity-sign-ins-errors.md).
 
 

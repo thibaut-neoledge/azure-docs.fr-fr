@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
-ms.lasthandoff: 04/07/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure
@@ -41,7 +41,7 @@ Vous pouvez voir qui a accès à une ressource, un groupe de ressources ou un ab
    
     ![Panneau Utilisateurs - comparaison Accès hérité et accès affecté (capture d’écran)](./media/role-based-access-control-configure/view-access.png)
 
-Notez que les utilisateurs ont soit un accès **Attribué**, soit un accès **Hérité**. L’accès est attribué spécifiquement au groupe de ressources ou hérité d’une affectation à l’abonnement parent.
+Notez que certains rôles inclus dans l’étendue de **cette ressource**, tandis que d’autres sont **hérités** à partir d’une autre étendue. L’accès est attribué spécifiquement au groupe de ressources ou hérité d’une affectation à l’abonnement parent.
 
 > [!NOTE]
 > Les administrateurs et coadministrateurs d’abonnement classiques sont considérés comme propriétaires de l’abonnement dans le nouveau modèle RBAC.
@@ -60,9 +60,10 @@ Vous accordez l’accès à partir de la ressource, du groupe de ressources ou d
 Une fois l’attribution de rôle ajoutée, elle apparaît dans le panneau **Utilisateurs** .
 
 ## <a name="remove-access"></a>Supprimer un accès
-1. Utilisez les cases à cocher du panneau Contrôle d’accès pour sélectionner une ou plusieurs affectations de rôles.
+1. Faites passer votre curseur sur le nom de l’affectation que vous souhaitez supprimer. Une case à cocher s’affiche en regard du nom.
+2. Utilisez les cases à cocher pour sélectionner une ou plusieurs affectations de rôles.
 2. Sélectionnez **Supprimer**.  
-3. Une fenêtre contextuelle vous demandera de confirmer l’action. Sélectionnez **Oui** pour supprimer les affectations de rôles.
+3. Sélectionnez **Oui** pour confirmer la suppression.
 
 Les attributions héritées ne peuvent pas être supprimées. Si vous avez besoin de supprimer une affectation héritée, vous devez le faire au niveau de l’étendue où l’affectation de rôle a été créée. Dans la colonne **Étendue**, en regard de **Hérité**, un lien vous dirige vers les ressources auxquelles ce rôle a été affecté. Accédez à la ressource indiquée pour supprimer l’attribution de rôle.
 

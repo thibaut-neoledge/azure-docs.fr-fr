@@ -1,6 +1,6 @@
 ---
 title: "Surveiller une application web ASP.NET active avec Azure Application Insights | Microsoft Docs"
-description: "Analysez les performances d&quot;un site web sans le redéployer. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure."
+description: "Analysez les performances d'un site web sans le redéployer. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure."
 services: application-insights
 documentationcenter: .net
 author: CFreemanwa
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 457ba9c9f74bc9d88800607a2f78a3c3c96cea07
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumenter des applications web lors de l’exécution avec Application Insights
@@ -42,10 +41,10 @@ Voici un résumé de ce que vous apporte chaque méthode :
 | [Exceptions plus détaillées](app-insights-asp-net-exceptions.md) | |Oui |
 | [Diagnostics de dépendance](app-insights-asp-net-dependencies.md) |Sur .NET 4.6 +, mais moins détaillé |Oui, tous les détails : codes de résultat, texte de commande SQL, verbe HTTP|
 | [Compteurs de performances système](app-insights-performance-counters.md) |Oui |Oui |
-| [API pour la télémétrie personnalisée][api] |Oui | |
-| [Intégration des journaux de suivi](app-insights-asp-net-trace-logs.md) |Oui | |
-| [Mode Page et données utilisateur](app-insights-javascript.md) |Oui | |
-| Régénération du code inutile |Non | |
+| [API pour la télémétrie personnalisée][api] |Oui |Non |
+| [Intégration des journaux de suivi](app-insights-asp-net-trace-logs.md) |Oui |Non |
+| [Mode Page et données utilisateur](app-insights-javascript.md) |Oui |Non |
+| Nécessité de régénérer le code |Oui | Non |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Surveiller une application web Azure active

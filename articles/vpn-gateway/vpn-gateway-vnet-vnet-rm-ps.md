@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2017
+ms.date: 07/05/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 56f101f4aecb6987d7ea6fb81bbf7f19a52baacd
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 4f91921142b9500252c53eee36cb872e324773c5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
 
-Cet article vous explique comment créer une connexion de passerelle VPN entre des réseaux virtuels. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager et utilisent PowerShell. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
+Cet article vous explique comment créer une connexion de passerelle VPN entre des réseaux virtuels. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Lors de la connexion de réseaux virtuels provenant de différents abonnements, les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. 
+
+Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager et utilisent PowerShell. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -69,7 +70,7 @@ Les étapes de cet article utilisent les variables déclarées au début de chaq
 
 ### <a name="before-you-begin"></a>Avant de commencer
 
-Avant de commencer, vous devez installer les applets de commande PowerShell Azure Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). 
+Au préalable, vous devez installer la dernière version des applets de commande PowerShell Azure Resource Manager, au moins la version 4.0 ou ultérieure. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="Step1"></a>Étape 1 : planifier vos plages d’adresses IP
 
@@ -282,7 +283,7 @@ Une fois que vous avez configuré TestVNet1, créez TestVNet4. Suivez les étape
 
 ![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-Dans ce scénario, nous connectons TestVNet1 et TestVNet5. TestVNet1 et TestVNet5 se trouvent dans des abonnements différents. La différence entre ce processus et le précédent réside dans le fait qu’une partie des étapes de configuration doit être exécutée dans une session PowerShell distincte dans le contexte d’un deuxième abonnement. notamment lorsque les deux abonnements appartiennent à différentes organisations.
+Dans ce scénario, nous connectons TestVNet1 et TestVNet5. TestVNet1 et TestVNet5 se trouvent dans des abonnements différents. Les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. La différence entre ce processus et le précédent réside dans le fait qu’une partie des étapes de configuration doit être exécutée dans une session PowerShell distincte dans le contexte d’un deuxième abonnement. notamment lorsque les deux abonnements appartiennent à différentes organisations.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Étape 5 : créez et configurez TestVNet1
 

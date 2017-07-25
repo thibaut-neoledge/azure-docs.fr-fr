@@ -7,6 +7,42 @@
 
 * La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
+
+## <a name="esv3-series"></a>Série ESv3
+
+ACU : 160-190
+
+Les tailles des machines virtuelles de la série ESv3 sont basées sur le processeur Intel XEON® v4-2.0 5GHz (Broadwell) de 2673 GHz, peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0 et utilisent un stockage premium. Les tailles des machines virtuelles de la série ESv3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
+
+| Taille             | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque local et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
+|------------------|-----------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
+| Standard_E2s_v3  | 2         | 16          | 32             | 4              | 4 000 / 32 (50)                                                       | 3 200 / 48                                | 2 / Modérée                                   |
+| Standard_E4s_v3  | 4         | 32          | 64             | 8              | 8 000 / 64 (100)                                                      | 6 400 / 96                                | 2 / Modérée                                   |
+| Standard_E8s_v3  | 8         | 64          | 128            | 16             | 16 000 / 128 (200)                                                    | 12 800 / 192                              | 4 / Élevée                                       |
+| Standard_E16s_v3 | 16        | 128         | 256            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / Élevée                                       |
+| Standard_E32s_v3 | 32        | 256         | 512            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / Extrêmement élevée                             |
+| Standard_E64s_v3 | 64        | 432         | 864            | 32             | 128 000/1 024 (1 600)                                                   | 80 000 / 1 200                             | 8 / Extrêmement élevée                             |
+
+
+
+## <a name="ev3-series"></a>Série Ev3
+
+ACU : 160-190 
+
+Les tailles des machines virtuelles de la série Ev3 sont basées sur le processeur Intel Xeon® v4-2.0 5GHz (Broadwell) de 2673 GHz et peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0. Les tailles des machines virtuelles de la série ESv3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
+
+Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez des machines virtuelles au format ESv3. Les tarifs et compteurs de facturation pour les tailles ESv3 sont identiques à ceux de la série Ev3. 
+
+| Taille             | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque local et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
+|------------------|-----------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
+| Standard_E2_v3  | 2         | 16          | 32             | 4              | 4 000 / 32 (50)                                                       | 3 200 / 48                                | 2 / Modérée                                   |
+| Standard_E4_v3  | 4         | 32          | 64             | 8              | 8 000 / 64 (100)                                                      | 6 400 / 96                                | 2 / Modérée                                   |
+| Standard_E8_v3  | 8         | 64          | 128            | 16             | 16 000 / 128 (200)                                                    | 12 800 / 192                              | 4 / Élevée                                       |
+| Standard_E16_v3 | 16        | 128         | 256            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / Élevée                                       |
+| Standard_E32_v3 | 32        | 256         | 512            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / Extrêmement élevée                             |
+| Standard_E64_v3 | 64        | 432         | 864            | 32             | 128 000/1 024 (1 600)                                                   | 80 000 / 1 200                             | 8 / Extrêmement élevée                             |
+
+
 ## <a name="m-series"></a>Série M*
 
 ACU : 160-180
@@ -73,7 +109,7 @@ ACU : 210-250
 
 * Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DSv2 peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/storage/storage-premium-storage.md).
 
-**L’instance G5 est isolée sur un matériel dédié à un client unique.
+** Instance est un nœud isolé qui garantit que votre machine virtuelle est la seule machine virtuelle sur notre nœud Intel Haswell.
 
 ***25 000 Mbits/s avec mise en réseau accélérée.
 
@@ -91,7 +127,7 @@ ACU : 210-250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32 x 500                       | 8 / 6 000 à 12 000 &#8224;          |
 | Standard_D15_v2* | 20        | 140         | 1 000          | 60000 / 937 / 468                                        | 40 / 40 x 500                       | 8 / 20000** |
 
-*L’instance est isolée sur un matériel dédié à un client unique.
+** Instance est un nœud isolé qui garantit que votre machine virtuelle est la seule machine virtuelle sur notre nœud Intel Haswell.
 
 **25 000 Mbits/s avec mise en réseau accélérée.
 
