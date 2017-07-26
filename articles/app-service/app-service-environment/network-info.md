@@ -128,7 +128,7 @@ Lorsqu’une application possède sa propre adresse SSL basée sur IP, l’ASE r
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau ##
 
-Les [groupes de sécurité réseau] [ NSGs] permettent de contrôler l’accès réseau au sein d’un réseau virtuel. Lorsque vous utilisez le portail, il existe une règle de refus implicite au niveau de priorité le plus bas qui fait que tout accès est refusé. Par conséquent, ce que vous créez correspond à vos règles d’autorisation.
+Les [groupes de sécurité réseau][NSGs] permettent de contrôler l’accès réseau au sein d’un réseau virtuel. Lorsque vous utilisez le portail, il existe une règle de refus implicite au niveau de priorité le plus bas qui fait que tout accès est refusé. Par conséquent, ce que vous créez correspond à vos règles d’autorisation.
 
 Dans un ASE, vous n’avez pas accès aux machines virtuelles utilisées pour héberger l’ASE lui-même. Elles se trouvent dans un abonnement géré par Microsoft. Si vous souhaitez restreindre l’accès aux applications dans l’ASE, vous devez définir les groupes de sécurité réseau sur le sous-réseau de l’ASE. Ce faisant, vous devez prêter une attention particulière aux dépendances de l’ASE. Si vous bloquez certaines dépendances, l’ASE cessera de fonctionner.
 
