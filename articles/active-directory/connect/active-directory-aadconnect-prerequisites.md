@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 0ce1dbf9f2baf9369875370866690010fe8e9e37
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: eb9697edc5a6085417ec1339c334db6451ebbf12
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
@@ -63,7 +62,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server utilisé par Azure AD Connect
 * Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Par défaut, une base de données SQL Server 2012 Express LocalDB (version légère de SQL Server Express) est installée. SQL Server Express a une limite de 10 Go qui vous permet de gérer environ 100 000 objets. Si vous avez besoin de gérer un volume plus important d’objets d’annuaire, vous devez pointer l’assistant d’installation vers une autre installation de SQL Server.
 * Si vous utilisez un serveur SQL Server distinct, ces conditions s’appliquent :
-  * Azure AD Connect prend en charge toutes les versions de Microsoft SQL Server à partir de SQL Server 2008 (avec le dernier Service Pack) et jusqu’à SQL Server 2016. La Base de données SQL Microsoft Azure n’est **pas prise en charge** comme base de données.
+  * Azure AD Connect prend en charge toutes les versions de Microsoft SQL Server à partir de SQL Server 2008 (avec le dernier Service Pack) et jusqu’à SQL Server 2016 SP1. La Base de données SQL Microsoft Azure n’est **pas prise en charge** comme base de données.
   * Vous devez utiliser un classement SQL qui ne respecte pas la casse. Ces classements sont identifiés par un \_CI_ dans leur nom. L’utilisation d’un classement qui respecte la casse, identifié par \_CS_ dans le nom, **n’est pas prise en charge**.
   * Vous ne pouvez avoir qu’un seul moteur de synchronisation par instance SQL. Le partage de l’instance SQL avec FIM/MIM Sync, DirSync ou Azure AD Sync n’est **pas pris en charge**.
 

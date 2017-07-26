@@ -129,8 +129,7 @@ Voici une liste de propriétés et de descriptions correspondantes qui peuvent �
 | **running** : le travail est actuellement actif. | |
 | **cancelled** : le travail a été annulé. | |
 | **failed** : échec de la tâche. | |
-| <seg>
-  **completed** : le travail est terminé..</seg> | |
+| **completed** : le travail est terminé..</seg> | |
 | **deviceJobStatistics** |Statistiques relatives à l’exécution du travail. |
 
 Propriétés **deviceJobStatistics**.

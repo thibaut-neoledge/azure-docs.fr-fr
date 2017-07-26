@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/08/2016
 ms.author: jucoriol
-translationtype: Human Translation
-ms.sourcegitcommit: c5e05a8693bd000010013922ed6f2a127e998efe
-ms.openlocfilehash: db58703f573c09ba45abed87547c5e80ef58638b
-ms.lasthandoff: 12/14/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 86472a523b457d6fe06940accba0794e2d37395e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -166,7 +167,7 @@ Vous devez ajouter deux étapes Docker pour chaque image, une pour créer l’im
 
 4. Après avoir configuré les étapes de build et push pour chacune des cinq images, ajoutez deux étapes supplémentaires dans le flux de travail de la build.
 
-    a. Une tâche de ligne de commande qui utilise un script bash pour remplacer l’occurrence *BuildNumber* dans le fichier docker-compose.yml par l’ID de build actuel. Consultez l’écran suivant pour plus de détails.
+    a. Une tâche de ligne de commande qui utilise un script bash pour remplacer l’occurrence *BuildNumber* dans le fichier docker-compose.yml par l’ID de la build actuelle. Consultez l’écran suivant pour plus de détails.
 
     ![Visual Studio Team Services - Mise à jour du fichier Compose](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 
@@ -230,3 +231,4 @@ Maintenant que vous avez terminé la configuration, il est temps de tester ce no
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur CI/CD avec Visual Studio Team Services, consultez la [vue d’ensemble de la build VSTS](https://www.visualstudio.com/docs/build/overview).
+

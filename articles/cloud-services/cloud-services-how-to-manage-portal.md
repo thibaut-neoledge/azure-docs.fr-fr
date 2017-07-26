@@ -12,24 +12,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 07/05/2017
 ms.author: adegeo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a8f1bf660c44f7716767d3244a7d6e7f7acf8a83
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: c4ec436df17926114e3e27eabc8ed12761c9614e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="how-to-manage-cloud-services"></a>Gestion des services cloud
 > [!div class="op_single_selector"]
 > * [Portail Azure](cloud-services-how-to-manage-portal.md)
-> * [Portail Azure Classic](cloud-services-how-to-manage.md)
+> * [portail Azure Classic](cloud-services-how-to-manage.md)
 >
 >
 
-Votre service cloud est géré dans la zone **Cloud Services (classique)** du portail Azure. Cet article décrit certaines actions courantes disponibles lors de la gestion de vos services cloud. Cela inclut la mise à jour, la suppression, la mise à l’échelle et la promotion d’un déploiement intermédiaire vers la production.
+Dans la zone **Services cloud (classique)** du portail Azure, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d’étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
 
 Vous trouverez plus d’informations sur la mise à l’échelle de votre service cloud [ici](cloud-services-how-to-scale-portal.md).
 
@@ -48,7 +47,7 @@ Si vous devez mettre à jour le code de l'application pour votre service cloud, 
 4. **éventuellement** à jour l'étiquette de déploiement et le compte de stockage.
 5. Si l’un des rôles ne comporte qu’une seule instance, sélectionnez **Déployer même si un ou plusieurs rôles contiennent une seule instance** afin de permettre à la mise à niveau de continuer.
 
-    Azure ne peut garantir 99,95 % de disponibilité du service pendant la mise à jour du service cloud que si chaque rôle dispose d'au moins deux instances de rôle (machines virtuelles). Avec deux instances de rôle, une machine virtuelle traitera les demandes du client pendant que l'autre est mise à jour.
+    Azure ne peut garantir 99,95 % de disponibilité du service pendant la mise à jour du service cloud que si chaque rôle dispose d'au moins deux instances de rôle (machines virtuelles). Avec deux instances de rôle, une machine virtuelle traite les demandes du client pendant que l'autre est mise à jour.
 
 6. Cochez la case **Démarrer le déploiement** pour appliquer la mise à jour après le téléchargement du package.
 7. Cliquez sur **OK** pour démarrer la mise à jour du service.
@@ -81,13 +80,13 @@ Il existe deux conditions préalables principales pour qu’un échange de dépl
 
 - Si vous souhaitez utiliser une adresse IP statique pour votre emplacement de production, vous devez en réserver une pour votre emplacement intermédiaire également. Sinon, l’échange échoue.
 
-- Toutes les instances de vos rôles doivent être en cours d’exécution pour que vous puissiez effectuer l’échange. Vous pouvez vérifier l’état de vos instances dans le panneau Vue d’ensemble du portail Azure ou à l’aide de la [commande Get-AzureRole dans Windows PowerShell](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0).
+- Toutes les instances de vos rôles doivent être en cours d’exécution pour que vous puissiez effectuer l’échange. Vous pouvez vérifier l’état de vos instances dans le volet d’aperçu du portail Azure. Vous pouvez également utiliser la commande [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) dans Windows PowerShell.
 
-Notez que les mises à jour du système d’exploitation invité et les opérations de réparation de service peuvent entraîner l’échec du déploiement. Consultez [Résoudre les problèmes de déploiement de service cloud](cloud-services-troubleshoot-deployment-problems.md) pour plus de détails.
+Notez que les mises à jour du système d’exploitation invité et les opérations de réparation de service peuvent entraîner l’échec du déploiement. Pour plus d’informations, consultez [Résoudre les problèmes de déploiement de service cloud](cloud-services-troubleshoot-deployment-problems.md).
 
 **Un échange implique-t-il un temps d’arrêt pour mon application ? Comment dois-je le gérer ?**
 
-Comme décrit dans la dernière section, un échange de déploiements est généralement très rapide puisqu’il s’agit simplement d’une modification de configuration d’Azure Load Balancer. Toutefois, dans certains cas, il peut prendre au moins dix secondes et entraîner des échecs de connexion temporaires. Pour limiter l’impact sur vos clients, envisagez d’implémenter la [logique de nouvelle tentative client](../best-practices-retry-general.md).
+Comme décrit dans la dernière section, un échange de déploiements est généralement rapide puisqu’il s’agit simplement d’une modification de configuration d’Azure Load Balancer. Toutefois, dans certains cas, il peut prendre au moins dix secondes et entraîner des échecs de connexion temporaires. Pour limiter l’impact sur vos clients, envisagez d’implémenter la [logique de nouvelle tentative client](../best-practices-retry-general.md).
 
 ## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Liaison d’une ressource à un service cloud
 Le portail Azure ne lie pas les ressources comme le fait le portail Azure Classic actuel. Déployez plutôt des ressources supplémentaires vers le même groupe de ressources que celui utilisé par le service cloud.
@@ -113,8 +112,14 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 
 > [!NOTE]
 > Lorsqu’un service cloud est supprimé et que la surveillance détaillée est configurée, vous devez supprimer manuellement les données de votre compte de stockage. Pour plus d'informations sur les tables de mesures, consultez [cet](cloud-services-how-to-monitor.md) article.
->
->
+
+
+## <a name="how-to-find-more-information-about-failed-deployments"></a>Comment trouver plus d’informations sur les déploiements échoués
+Le panneau **d’aperçu** possède une barre d’état en haut. Lorsque vous cliquez sur la barre, un nouveau panneau s’ouvre et affiche toutes les informations d’erreur. Si le déploiement ne contient pas d’erreurs, le panneau informations est vide.
+
+![Inverser les services cloud](./media/cloud-services-how-to-manage-portal/status-info.png)
+
+
 
 [Azure portal]: https://portal.azure.com
 

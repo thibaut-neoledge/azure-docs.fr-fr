@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 6ec025e4abddde1a850dc3b8d0711dc620864f15
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: f36cd801a0572d671977e2e48a7f1e743e38e768
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -37,9 +37,9 @@ Vous pouvez commencer par créer une application logique. Pour cela, consultez [
 > 
 > 
 
-## <a name="view-the-swagger"></a>Afficher le swagger
+## <a name="connector-specific-details"></a>Détails spécifiques aux connecteurs
 
-Consultez les [détails sur Swagger](/connectors/microsofttranslator/).
+Consultez tous les déclencheurs et les actions définies dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/microsofttranslator/).
 
 ## <a name="more-connectors"></a>Autres connecteurs
 Revenir à la [liste des API](apis-list.md).

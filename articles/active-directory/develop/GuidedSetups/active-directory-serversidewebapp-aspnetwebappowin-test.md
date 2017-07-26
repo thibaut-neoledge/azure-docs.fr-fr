@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 77030e3e6375682c416d99ef22d754b908ad484d
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 00cb963e85111274c36c3a84489894811ad2dabd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -48,7 +49,7 @@ Sélectionnez le lien hypertexte pour afficher les revendications de l’utilisa
 | Objet| {Objet}|Une chaîne pour identifier de façon unique l’ouverture de session utilisateur sur le web.|
 | ID client| {Guid}| Un *GUID* qui identifie l’organisation Azure Active Directory de l’utilisateur.|
 
-En outre, vous verrez une table contenant toutes les revendications de l’utilisateur incluses dans la demande d’authentification. Pour obtenir la liste des revendications dans un jeton d’ID et des informations complémentaires, consultez cet [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+En outre, vous verrez une table contenant toutes les revendications de l’utilisateur incluses dans la demande d’authentification. Pour obtenir la liste des revendications dans un jeton d’ID et des informations complémentaires, consultez l’[article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "Liste des revendications dans un jeton d’ID").
 
 
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Test de l’accès à une méthode disposant d’un attribut *[Authorize]* (facultatif)
@@ -82,6 +83,6 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 > Pour autoriser uniquement les utilisateurs de certaines organisations à se connecter, définissez `ValidateIssuer` sur true et utilisez le paramètre `ValidIssuers` pour créer une liste d’organisations.
 
-> Une autre option consiste à implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre IssuerValidator. Pour plus d’informations sur `TokenValidationParameters`, consultez [cet article MSDN](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters.aspx).
+> Une autre option consiste à implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre IssuerValidator. Pour en savoir plus sur `TokenValidationParameters`, consultez [l’](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "article MSDN sur la propriété TokenValidationParameters").
 
 

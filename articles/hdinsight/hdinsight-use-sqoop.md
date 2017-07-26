@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 1901613b3e0db19f86247ee78828eccd58fb026b
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 8e77153493b6f37f5f48116b86bad6b25a50d1a1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -34,7 +34,7 @@ Bien que Hadoop soit préférable pour traiter des données non structurées et 
 
 [Sqoop][sqoop-user-guide-1.4.4] est un outil conçu pour transférer des données entre les clusters Hadoop et les bases de données relationnelles. Vous pouvez l’utiliser pour importer des données depuis un système de gestion de base de données relationnelle (SGBDR) tel que SQL Server, MySQL ou Oracle dans un système de fichiers distribués Hadoop (HDFS), transformer des données dans Hadoop avec MapReduce ou Hive et exporter à nouveau les données dans un SGBDR. Dans ce didacticiel, vous allez utiliser une base de données SQL Server comme base de données relationnelle.
 
-Pour obtenir la liste des versions Sqoop prises en charge par les clusters HDInsight, consultez la rubrique [Nouveautés sur les versions de cluster fournies par HDInsight][hdinsight-versions].
+Pour obtenir la liste des versions Sqoop prises en charge par les clusters HDInsight, consultez la rubrique [Quels sont les composants et versions Hadoop disponibles avec HDInsight ?][hdinsight-versions]
 
 ## <a name="understand-the-scenario"></a>Présentation du scénario
 
@@ -62,7 +62,7 @@ Le cluster HDInsight inclut des exemples de données. Vous utilisez les deux él
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
-Vous commencez par exporter *sample.log* et *hivesampletable* vers la base de données SQL Azure ou vers SQL Server, puis vous importez à nouveau la table contenant les données de l’appareil mobile dans HDInsight en utilisant la procédure suivante :
+Vous commencez par exporter *sample.log* et *hivesampletable* vers la base de données SQL Azure ou vers SQL Server, puis vous importez à nouveau la table contenant les données de l’appareil mobile dans HDInsight en utilisant la procédure suivante :
 
     /tutorials/usesqoop/importeddata
 
@@ -114,7 +114,7 @@ Si vous choisissez d’utiliser une base de données SQL Azure ou Microsoft SQL 
 * **Base de données SQL Azure**: vous devez configurer une règle de pare-feu pour le serveur de base de données SQL Azure afin d’autoriser l'accès depuis votre station de travail. Pour des instructions sur la création d’une base de données SQL Azure et la configuration d’un pare-feu, consultez la rubrique [Prise en main de la base de données SQL Azure][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels qu’Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d’une base de données SQL Azure et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d’une base de données SQL][sqldatabase-create-configue].
+  > Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels qu’Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer depuis le portail Azure. Pour obtenir des instructions sur la création d’une base de données SQL Azure et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d’une base de données SQL][sqldatabase-create-configue].
   > 
   > 
 * **SQL Server**: si votre cluster HDInsight se trouve sur le même réseau virtuel que SQL Server dans Azure, vous pouvez utiliser les étapes décrites dans cet article pour importer et exporter des données vers une base de données SQL Server.

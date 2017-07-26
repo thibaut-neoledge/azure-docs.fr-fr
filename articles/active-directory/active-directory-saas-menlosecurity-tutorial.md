@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 05/08/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: baf984be59e19f7503c36b12d2b90570ce957edf
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 75366abafa551d21630b0edddb65db23b9ea9d42
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -31,7 +31,7 @@ L’intégration de Menlo Security à Azure AD vous fait bénéficier des avanta
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Menlo Security (via l’authentification unique) avec leur compte Azure AD
 - Vous pouvez gérer vos comptes depuis un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration de l’application SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+Pour en savoir plus sur l’intégration de l’application SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -67,7 +67,7 @@ Pour configurer l’intégration de Menlo Security à Azure AD, vous devez ajou
 
     ![Applications][2]
     
-3. Pour ajouter la nouvelle application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Applications][3]
 
@@ -112,7 +112,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-menlosecurity-tutorial/tutorial_menlosecurity_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL selon le modèle suivant : `https://<subdomain>.menlosecurity.com/account/login`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.menlosecurity.com/account/login`
 
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
 
@@ -224,7 +224,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD.
 
-Connectez-vous à votre application via une URL avec préfixe (par exemple `https://safe.menlosecurity.com/http://www.cnn.com/`) et entrez les informations d’identification Azure AD. Vous êtes alors redirigé vers le site web approprié une fois que l’authentification a abouti.
+Ouvrez une fenêtre de navigateur en mode « InPrivate » ou « Incognito » afin de déclencher une nouvelle authentification.  Dans Internet Explorer, utilisez Ctrl+Maj+P.  Dans Chrome, utilisez Ctrl+Maj+N.  Dans la fenêtre de navigation privée, accédez à une ressource protégée et connectez-vous à l’aide de vos identifiants Azure AD.  Dès la connexion établie, vous êtes redirigé vers le site demandé dans une session d’isolation.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

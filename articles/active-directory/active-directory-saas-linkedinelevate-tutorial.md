@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: c175d54fcc7e55bae5057adbb4b9dba0a8843fe2
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 5949ae254233aa32384aab50b188fdd6527787a0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -140,11 +140,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
-    a. Cliquez sur Ajouter un attribut pour ouvrir la page de détails de l’attribut et ajouter l’attribut de département comme illustré ci-dessous-
-    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
 
-    b. Cliquez sur **OK** pour enregistrer l’attribut.
+       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+
+       b. Click on **Ok** to save the attribute.
+
+    c. Remplacez le nom de l’attribut **emailaddress** par **email**.
+
 
 10. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
@@ -237,6 +240,7 @@ Lorsque vous cliquez sur la mosaïque LinkedIn Elevate dans le volet d’accès,
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
+* [Didacticiel : Configuration de LinkedIn Elevate pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
@@ -254,4 +258,3 @@ Lorsque vous cliquez sur la mosaïque LinkedIn Elevate dans le volet d’accès,
 [201]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_203.png
-

@@ -3,7 +3,7 @@ title: "Bien démarrer avec Azure AD AngularJS | Microsoft Docs"
 description: "Création d’une application à page unique AngularJS qui s’intègre avec Azure AD pour la connexion et appelle des API protégées par Azure AD à l’aide d’OAuth."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
@@ -13,10 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: a9997b6a6d30fbd2d21dee5d9c1e3ea92dfa97ab
-ms.openlocfilehash: 0ace1ee96d9266db9310ba73c36788a787a9dd15
+ms.author: jmprieur
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 797b6236afad45e3e308ce073a8beb90cb7e94a1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -29,6 +32,7 @@ Azure Active Directory (Azure AD) simplifie l’ajout d’appels API OAuth de co
 Pour les applications JavaScript s’exécutant dans un navigateur, Azure AD fournit la bibliothèque d’authentification Active Directory (ADAL) ou adal.js. adal.js a pour seule fonction de simplifier l’obtention des jetons d’accès pour votre application. Pour illustrer sa facilité d’utilisation, nous allons créer une application de liste des tâches AngularJS qui effectue les actions suivantes :
 
 * connecte l’utilisateur à l’application à l’aide d’Azure AD comme fournisseur d’identité ;
+
 * affiche des informations sur l’utilisateur ;
 * appelle en toute sécurité l’API de liste des tâches de l’application en utilisant des jetons porteurs d’Azure AD ;
 * déconnecte l’utilisateur de l’application.
@@ -45,7 +49,7 @@ Pour commencer, téléchargez [la structure de l’application](https://github.c
 Pour autoriser votre application à authentifier les utilisateurs et à obtenir des jetons, vous devez tout d’abord l’inscrire dans votre client Azure AD :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans la barre supérieure, cliquez sur votre compte. Dans la liste **Répertoire**, choisissez le locataire Azure AD auprès duquel vous voulez inscrire votre application.
+2. Si vous êtes connecté à plusieurs répertoires, vous devez peut-être vous assurer que vous consultez le répertoire approprié. Pour ce faire, dans la barre supérieure, cliquez sur votre compte. Dans la liste **Répertoire**, choisissez le locataire Azure AD auprès duquel vous voulez inscrire votre application.
 3. Dans le volet gauche, cliquez sur **Plus de services**, puis sélectionnez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
 5. Suivez les invites et créez une application web et/ou API web :
@@ -61,6 +65,7 @@ Pour autoriser votre application à authentifier les utilisateurs et à obtenir 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Étape 2 : Installer la bibliothèque ADAL et configurer l’application à page unique
 Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer adal.js et écrire votre code lié à l’identité.
 
+### <a name="configure-the-javascript-client"></a>Configurer le client JavaScript
 Commencez par ajouter adal.js au projet TodoSPA à l’aide de la console du gestionnaire de package :
   1. Téléchargez [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js) et ajoutez-le au répertoire du projet `App/Scripts/`.
   2. Téléchargez [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) et ajoutez-le au répertoire du projet `App/Scripts/`.
@@ -73,6 +78,7 @@ Commencez par ajouter adal.js au projet TodoSPA à l’aide de la console du ges
     ...
     ```
 
+### <a name="configure-the-back-end-server"></a>Configurer le serveur principal
 Pour que l’API de liste des tâches de serveur principal de l’application à page unique accepte les jetons à partir du navigateur, le serveur principal a besoin d’informations de configuration sur l’inscription de l’application. Dans le projet TodoSPA, ouvrez `web.config`. Remplacez les valeurs des éléments de la section `<appSettings>` afin qu’elles reflètent les valeurs que vous avez utilisées dans le portail Azure. Votre code se réfère à ces valeurs chaque fois qu’il utilise la bibliothèque ADAL.
   * `ida:Tenant` est le domaine de votre client Azure AD, par exemple, contoso.onmicrosoft.com.
   * `ida:Audience` est l’ID client de votre application, copié à partir du portail.
@@ -156,9 +162,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est d
 Vous pouvez à présent aborder d’autres scénarios. Vous souhaiterez peut-être essayer : [Appeler une API web CORS à partir d’une application à page unique](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

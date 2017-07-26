@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 807c80b397abe6ff4dfebc2aa7e443c7c5e84e99
-ms.openlocfilehash: 313118740815de02a9f0797ab334eb7f6f900c58
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 57b170539513953bd6a01ab4dd362a65cf905496
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 03/02/2017
 
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Comprendre les jetons utilisateur Azure AD B2B Collaboration
 
-Si vous souhaitez savoir à quoi ressemble le jeton pour un utilisateur de B2B Collaboration, voici les détails du jeton du porteur et le contenu des jetons pour un invité Azure Active Directory (Azure AD) et un invité de compte Microsoft dans le locataire de la ressource (pour tenantid:04dcc6ab-388a-4559-b527-fbec656300ea). Utilisez [https://jwt.io/](https://jwt.io/) ou [http://calebb.net](http://calebb.net/) pour afficher le contenu des jetons web JSON (JWT).
+Si vous souhaitez savoir à quoi ressemble le jeton pour un utilisateur de B2B Collaboration, voici les détails du jeton du porteur ainsi que le contenu des jetons pour un invité Azure Active Directory (Azure AD) et un invité de compte Microsoft dans le locataire de la ressource (pour tenantid:04dcc6ab-388a-4559-b527-fbec656300ea). Utilisez [https://jwt.io/](https://jwt.io/) ou [http://calebb.net](http://calebb.net/) pour afficher le contenu des jetons web JSON (JWT).
 
 ## <a name="azure-ad-guest-token"></a>Jeton invité Azure AD
 ```

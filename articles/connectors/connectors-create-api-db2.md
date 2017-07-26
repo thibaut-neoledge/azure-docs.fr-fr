@@ -16,20 +16,15 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2dc4c912f018f5d71d8c874763f204cf6c2c415b
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="get-started-with-the-db2-connector"></a>Prise en main du connecteur DB2
 Le connecteur Microsoft pour DB2 connecte Logic Apps aux ressources stockées dans une base de données IBM DB2. Ce connecteur inclut un client Microsoft permettant de communiquer avec les ordinateurs serveurs DB2 distants via un réseau TCP/IP. Cela inclut les bases de données cloud, telles qu’IBM Bluemix dashDB ou IBM DB2 pour Windows en cours d’exécution dans la virtualisation Azure et les bases de données locales utilisant la passerelle de données locale. Consultez la [liste de prise en charge](connectors-create-api-db2.md#supported-db2-platforms-and-versions) des plates-formes et versions IBM DB2 (dans cette rubrique).
-
-> [!NOTE]
-> Cette version de l’article s’applique à la disponibilité générale des applications logiques. 
-> 
-> 
 
 Le connecteur DB2 prend en charge les opérations de bases de données suivantes :
 
@@ -283,8 +278,9 @@ Ce connecteur prend en charge les plateformes et versions IBM DB2 suivantes, ain
 * IBM DB2 pour LUW 11
 * IBM DB2 pour LUW 10.5
 
-## <a name="view-the-swagger"></a>Afficher Swagger
-Consultez les [détails sur Swagger](/connectors/db2/). 
+## <a name="connector-specific-details"></a>Détails spécifiques aux connecteurs
+
+Consultez tous les déclencheurs et les actions définies dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/db2/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
