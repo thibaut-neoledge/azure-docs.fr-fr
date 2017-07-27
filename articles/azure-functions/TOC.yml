@@ -94,8 +94,7 @@
         - name: Créer une définition OpenAPI 2.0
           href: functions-api-definition-getting-started.md
         - name: Exporter vers PowerApps et Microsoft Flow
-          href: >-
-            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Référence
   items:
     - name: Liaisons
@@ -131,7 +130,7 @@
 - name: Ressources
   items:
     - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Tarification
       href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: Disponibilité régionale
@@ -145,5 +144,4 @@
     - name: Référentiel GitHub de fonctions Azure
       href: 'https://github.com/Azure/Azure-Functions/'
     - name: Mises à jour de service
-      href: >-
-        https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+      href: 'https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform='
