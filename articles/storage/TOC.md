@@ -135,9 +135,7 @@
 #### [Activer et afficher les mesures](storage-enable-and-view-metrics.md)
 #### [Surveiller, diagnostiquer et résoudre les problèmes](storage-monitoring-diagnosing-troubleshooting.md)
 #### [Didacticiel sur la résolution des problèmes](storage-e2e-troubleshooting.md)
-### Résoudre les problèmes de suppression de disque
-#### [Dans un déploiement Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [Déploiement classique](storage-cannot-delete-storage-account-container-vhd.md)
+### [Résoudre les problèmes d’erreurs de suppression de disque](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 ### [Résolution les problèmes de compression de fichiers](storage-troubleshoot-file-connection-problems.md)
 ## Transfert de données
 ### [Déplacer des données vers Storage et à partir de Storage](storage-moving-data.md)
@@ -208,7 +206,7 @@
 ### [Didacticiel sur la résolution des problèmes](storage-e2e-troubleshooting-classic-portal.md)
 
 # Ressources
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Outils clients d’Azure Storage](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Tarification](https://azure.microsoft.com/pricing/details/storage/blobs/)

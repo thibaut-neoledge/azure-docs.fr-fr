@@ -72,7 +72,7 @@
 ## [Sécurité Azure](/azure/security/)
 
 # Ressources
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog Azure sur la sécurité, la confidentialité et la conformité](http://blogs.msdn.com/b/azuresecurity/)
 ## [Tarification](security-center-pricing.md)
 ## [Vue d’ensemble du service](https://azure.microsoft.com/services/security-center/)

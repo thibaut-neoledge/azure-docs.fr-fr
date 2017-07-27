@@ -59,8 +59,9 @@
 ### [Dépannage](azure-diagnostics-troubleshooting.md)
 
 # Référence
-## [Listes des mesures prises en charge](monitoring-supported-metrics.md)
 ## [Sources de données d’analyse](monitoring-data-sources.md)
+## [Listes des mesures prises en charge](monitoring-supported-metrics.md)
+## [Schéma d’événement du journal d’activité](monitoring-activity-log-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
@@ -71,7 +72,7 @@
 
 # Ressources
 ## [Exemples Azure CLI 1.0](insights-cli-samples.md)
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Exemples PowerShell](insights-powershell-samples.md)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Modèles de démarrage rapide](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)
