@@ -16,10 +16,10 @@ ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 7f0fbaf5d8e0379fc67ad62ea7c9ab63c6737150
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 0c8a4b518c6946781c2340f79ab479612b595c74
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>Connecter votre appareil à votre IoT Hub à l’aide de Java
@@ -303,12 +303,8 @@ Dans cette section, vous allez créer une application console Java qui lit les m
     mvn clean package -DskipTests
     ```
 
-<<<<<<< HEAD
 ## <a name="create-a-device-app"></a>Créer une application d’appareil
-=======
-## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
-
->>>>>>> master Dans cette section, vous créez une application console Java qui simule un appareil envoyant des messages appareil-à-cloud à un IoT Hub.
+Dans cette section, vous allez créer une application console Java qui simule un appareil envoyant des messages des appareils vers le cloud à un IoT Hub.
 
 1. Dans le dossier iot-java-get-started que vous avez créé à la section *Création d’une identité d’appareil*, créez un projet Maven appelé **simulated-device** en entrant la commande suivante à l’invite de commandes. Il s’agit d’une commande unique et longue :
 
@@ -378,19 +374,10 @@ Dans cette section, vous allez créer une application console Java qui lit les m
       }
     }
     ```
-<<<<<<< HEAD
 9. Ajoutez la classe imbriquée **EventCallback** suivante dans la classe **App** pour afficher l’état d’accusé de réception que l’IoT Hub renvoie lorsqu’il traite un message provenant de l’application d’appareil. Cette méthode avertit également le thread principal de l’application lorsque le message a été traité :
    
-    ```
-    private static class EventCallback implements IotHubEventCallback
-    {
-=======
-
-9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
-
     ```java
     private static class EventCallback implements IotHubEventCallback {
->>>>>>> master
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    
@@ -500,11 +487,7 @@ Vous êtes maintenant prêt à exécuter les applications.
     ![Vignette Utilisation du portail Azure indiquant le nombre de messages envoyés à IoT Hub][43]
 
 ## <a name="next-steps"></a>Étapes suivantes
-<<<<<<< HEAD Dans ce didacticiel, vous avez configuré un nouvel IoT Hub dans le portail Azure, puis créé une identité d’appareil dans le registre des identités de l’IoT Hub. Vous avez utilisé cette identité d’appareil pour permettre à l’application d’appareil d’envoyer des messages appareil-à-cloud à l’IoT Hub. Vous avez également créé une application qui affiche les messages reçus par l’IoT Hub. 
-=======
-
-Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azure, puis créé une identité d’appareil dans le registre des identités de l’IoT Hub. Vous avez utilisé cette identité d’appareil pour permettre à l’appareil simulé d’envoyer des messages Appareil vers cloud à l’IoT Hub. Vous avez également créé une application qui affiche les messages reçus par l’IoT Hub.
->>>>>>> master
+Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azure, puis créé une identité d’appareil dans le registre des identités de l’IoT Hub. Vous avez utilisé cette identité d’appareil pour permettre à l’application d’appareil d’envoyer des messages appareil-à-cloud à l’IoT Hub. Vous avez également créé une application qui affiche les messages reçus par l’IoT Hub.
 
 Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT, consultez les articles suivants :
 
