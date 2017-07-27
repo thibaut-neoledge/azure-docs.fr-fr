@@ -23,8 +23,7 @@ ms.lasthandoff: 05/11/2017
 
 ---
 
-# Journaux de diagnostic pour Azure CDN
-<a id="diagnostics-logs-for-azure-cdn" class="xliff"></a>
+# <a name="diagnostics-logs-for-azure-cdn"></a>Journaux de diagnostic pour Azure CDN
 
 Après avoir activé le CDN pour votre application, vous souhaiterez probablement surveiller l’utilisation du CDN, vérifier l’intégrité de votre application et corriger les éventuels problèmes. Azure CDN fournit ces fonctionnalités avec les [analyses de base](cdn-analyze-usage-patterns.md).
 
@@ -41,8 +40,7 @@ Les journaux de diagnostic vous permettent d’exporter des métriques d’utili
 
 La procédure ci-dessous passera par le schéma des données d’analyse de base, les étapes d’activation de la fonctionnalité et la livraison à différentes destinations, et la consommation à partir de ces destinations.
 
-## Activation de la journalisation avec le portail Azure
-<a id="enable-logging-with-azure-portal" class="xliff"></a>
+## <a name="enable-logging-with-azure-portal"></a>Activation de la journalisation avec le portail Azure
 
 Les journaux de diagnostic sont **désactivés** par défaut. Suivez les étapes ci-dessous pour les activer :
 
@@ -64,13 +62,11 @@ Connectez-vous au [portail Azure](http://portal.azure.com). Si vous n’avez pas
     Les données de journal Verizon sont retardées de 1 heure et ont besoin de jusqu'à 2 heures pour commencer à apparaître après l’achèvement de la propagation du point de terminaison.
     Les données de journal Akamai sont retardées de 24 heures et ont besoin de jusqu'à 2 heures pour commencer à apparaître si la création remonte à plus de 24 heures. Si elle vient d’être effectuée, il falloir jusqu'à 25 heures pour que les journaux commencent à apparaître.
 
-## Activation de la journalisation avec PowerShell
-<a id="enable-logging-with-powershell" class="xliff"></a>
+## <a name="enable-logging-with-powershell"></a>Activation de la journalisation avec PowerShell
 
 Voici deux exemples d’activation et d’obtention des journaux de diagnostic via les applets de commande Azure PowerShell.
 
-###Activation des journaux de diagnostic dans un compte de stockage
-<a id="enabling-diagnostic-logs-in-a-storage-account" class="xliff"></a>
+###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Activation des journaux de diagnostic dans un compte de stockage
 
 Pour activer les journaux de diagnostic dans un compte de stockage, utilisez cette commande :
 
@@ -78,12 +74,10 @@ Pour activer les journaux de diagnostic dans un compte de stockage, utilisez cet
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
 
-## Consommation des journaux depuis le stockage
-<a id="consuming-logs-from-storage" class="xliff"></a>
+## <a name="consuming-logs-from-storage"></a>Consommation des journaux depuis le stockage
 Cette section décrit le schéma d’analyses de base de CDN et leur organisation à l’intérieur d’un compte de stockage Azure, et fournit des exemples de code pour télécharger les journaux dans un fichier CSV.
 
-### Utilisation de l’explorateur de stockage Microsoft Azure
-<a id="using-microsoft-azure-storage-explorer" class="xliff"></a>
+### <a name="using-microsoft-azure-storage-explorer"></a>Utilisation de l’explorateur de stockage Microsoft Azure
 Pour pouvoir accéder aux données d’analyse de base à partir du compte de stockage Azure, vous avez d’abord besoin d’un outil pour accéder au contenu dans un compte de stockage. Si plusieurs outils sont disponibles sur le marché, celui que nous recommandons est Microsoft Azure Storage Explorer. Vous pouvez télécharger l’outil [ici](http://storageexplorer.com/). Après le téléchargement et l’installation du logiciel, veuillez le configurer pour utiliser le même compte de stockage Azure que celui qui a été configuré en tant que destination pour les journaux de diagnostic CDN.
 
 1.    Ouvrez **l’explorateur de stockage Microsoft Azure**
@@ -115,8 +109,7 @@ Pour pouvoir accéder aux données d’analyse de base à partir du compte de st
 |jour|    Représentation à 2 chiffres du jour du mois|
 |PT1H.json|    Fichier JSON où sont effectivement stockées les données d’analyse|
 
-### Exportation des données de Core Analytics vers un fichier CSV
-<a id="exporting-the-core-analytics-data-to-a-csv-file" class="xliff"></a>
+### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Exportation des données de Core Analytics vers un fichier CSV
 
 Pour faciliter l’accès à Core Analytics, nous fournissons un exemple de code pour un outil qui permet de télécharger les fichiers JSON dans un format de fichier plat avec séparation par virgules qui peut être utilisé pour créer facilement des graphiques ou autres agrégations.
 
@@ -128,13 +121,11 @@ Voici comment vous pouvez utiliser l’outil :
 4.    Exécuter l’outil
 5.    Le fichier CSV résultant présente les données d’analyse dans une hiérarchie plate simple.
 
-## Types de journaux de diagnostic
-<a id="diagnostic-logs-types" class="xliff"></a>
+## <a name="diagnostic-logs-types"></a>Types de journaux de diagnostic
 
 Nous proposons actuellement uniquement les journaux Core Analytics qui contiennent les métriques affichant les statistiques de réponse HTTP et de sortie, comme dans les points de présence/périmètres CDN. Au fil du temps, nous allons ajouter des types de journaux supplémentaires.
 
-### Détails des métriques de Core Analytics
-<a id="core-analytics-metrics-details" class="xliff"></a>
+### <a name="core-analytics-metrics-details"></a>Détails des métriques de Core Analytics
 Voici une liste des métriques disponibles dans les journaux de Core Analytics. Toutes les métriques ne sont pas disponibles auprès tous les fournisseurs, même si ces différences sont minimes. Le tableau ci-dessous indique également si une métrique donnée est disponible à partir d’un fournisseur particulier. Veuillez noter que les métriques sont disponibles uniquement pour les points de terminaison CDN recevant du trafic.
 
 
@@ -158,10 +149,10 @@ Voici une liste des métriques disponibles dans les journaux de Core Analytics. 
 | RequestCountCacheOthers | Nombre de toutes les requêtes avec un état du cache non traité ci-dessus.              |Oui   | Non  |
 | EgressTotal | Transfert de données sortantes en Go              |Oui   |Oui   |
 | EgressHttpStatus2xx | Transfert de données sortantes * pour les réponses avec des codes d’état HTTP 2xx en Go            |Oui   |Non   |
-| EgressHttpStatus3xx | Transfert de données sortantes * pour les réponses avec des codes d’état HTTP 3xx en Go              |Oui   |Non   |
-| EgressHttpStatus4xx | Transfert de données sortantes * pour les réponses avec des codes d’état HTTP 4xx en Go               |Oui   | Non  |
-| EgressHttpStatus5xx | Transfert de données sortantes * pour les réponses avec des codes d’état HTTP 5xx en Go               |Oui   |  Non |
-| EgressHttpStatusOthers | Transfert de données sortantes * pour les réponses avec d’autres codes d’état HTTP en Go                |Oui   |Non   |
+| EgressHttpStatus3xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 3xx en Go              |Oui   |Non   |
+| EgressHttpStatus4xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 4xx en Go               |Oui   | Non  |
+| EgressHttpStatus5xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 5xx en Go               |Oui   |  Non |
+| EgressHttpStatusOthers | Transfert de données sortantes pour les réponses avec d’autres codes d’état HTTP en Go                |Oui   |Non   |
 | EgressCacheHit |  Transfert de données sortantes pour les réponses qui ont été livrées directement depuis le cache CDN sur les points de présence/périmètres CDN    |Oui   |  Non |
 | EgressCacheMiss | Transfert des données sortantes pour les réponses introuvables sur le serveur le plus proche et récupérées à partir du serveur d’origine              |Oui   |  Non |
 | EgressCacheNoCache | Transferts de données sortants pour les ressources empêchés d’être mis en cache en raison d’une configuration de l’utilisateur sur le périmètre.                |Oui   |Non   |
@@ -171,8 +162,7 @@ Voici une liste des métriques disponibles dans les journaux de Core Analytics. 
 *Le transfert de données sortantes fait référence au trafic produit des serveurs POP CDN vers le client.
 
 
-### Schéma des journaux Core Analytics
-<a id="schema-of-the-core-analytics-logs" class="xliff"></a> 
+### <a name="schema-of-the-core-analytics-logs"></a>Schéma des journaux Core Analytics 
 
 Tous les journaux sont stockés au format JSON, et chaque entrée comprend des champs de chaîne au schéma présenté ci-après :
 
@@ -256,8 +246,7 @@ Exemple de propriétés ci-dessous :
 }
 
 ```
-## Ressources supplémentaires
-<a id="additional-resources" class="xliff"></a>
+## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Journaux de diagnostic Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Core Analytics via le portail supplémentaire Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
