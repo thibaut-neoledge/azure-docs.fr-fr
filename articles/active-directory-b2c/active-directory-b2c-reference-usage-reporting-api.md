@@ -1,6 +1,6 @@
 ---
-title: "Définitions et exemples de l’API Rapports d’utilisation Azure AD B2C | Microsoft Docs"
-description: "Guide et exemples sur la façon d’obtenir des rapports sur les utilisateurs, les authentifications et l’authentification multifacteur pour le client B2C."
+title: "Azure Active Directory B2C : Définitions et exemples de l’API de rapports d’utilisation | Microsoft Docs"
+description: "Guide et exemples d’obtention de rapports sur les utilisateurs, les authentifications et les authentifications multifacteurs des locataires Azure AD B2C"
 services: active-directory-b2c
 documentationcenter: dev-center-name
 author: rojasja
@@ -12,37 +12,37 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
 ms.author: joroja
-translationtype: Human Translation
-ms.sourcegitcommit: 274ed196cc7159e77f6de4d84328c3607b155ee9
-ms.openlocfilehash: 9bb528aa0172fb7179b5498be89aee9a92b788f8
-ms.lasthandoff: 02/11/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: 0171ce0bbeab783ac9b63c1fa02c7a9184cc5145
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/26/2017
 
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Accès aux rapports d’utilisation dans Azure AD B2C via l’API de création de rapports
 
-Azure Active Directory B2C fournit l’authentification de la connexion et l’authentification MFA pour tous les utilisateurs finaux de votre famille d’applications entre plusieurs fournisseurs d’identité.  Le fait de connaître le nombre d’utilisateurs inscrits dans le client, les fournisseurs qu’ils ont utilisé pour s’enregistrer et le nombre d’authentifications par type, permet de répondre à des questions telles que les suivantes :
-* Combien d’utilisateurs de chaque type de fournisseur d’identité (par exemple, compte Microsoft, LinkedIn) se sont inscrits au cours des 10 derniers jours ?
-* Combien d’authentifications multifacteur ont réussi au cours du mois dernier ?
-* Combien d’authentifications basées sur la connexion ont été effectuées ce mois-ci ? Par jour ? Par application ?
-* Comment puis-je estimer le coût mensuel prévu de l’activité de mon client B2C ?
+Azure Active Directory B2C (Azure AD B2C) fournit une authentification basée sur la connexion des utilisateurs et de l’authentification multifacteur d’Azure. L’authentification est fournie pour les utilisateurs finals de votre famille d’applications à travers les fournisseurs d’identité. Quand vous connaissez le nombre d’utilisateurs inscrits dans le locataire, les fournisseurs qu’ils ont utilisés pour s’inscrire et le nombre d’authentifications par type, vous pouvez répondre à des questions comme celles-ci :
+* Combien d’utilisateurs de chaque type de fournisseur d’identité (par exemple un compte Microsoft ou LinkedIn) se sont inscrits au cours des 10 derniers jours ?
+* Combien d’authentifications utilisant l’authentification multifacteur ont réussi au cours du mois dernier ?
+* Combien d’authentifications basées sur la connexion ont été effectuées ce mois-ci ? Par jour ? Par application ?
+* Comment puis-je estimer le coût mensuel prévu de l’activité de mon locataire Azure AD B2C ?
 
-Cet article se concentre sur les rapports plus étroitement liées à l’activité de facturation, qui est basée sur le nombre d’utilisateurs, le nombre d’authentifications facturables basées sur la connexion et le nombre d’authentifications multifacteur.
+Cet article se concentre sur les rapports liés à l’activité de facturation, qui est basée sur le nombre d’utilisateurs, les authentifications facturables basées sur la connexion et les authentifications multifacteurs.
 
 
-## <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Configuration requise pour accéder à l’API de création de rapports Azure AD
-Avant de commencer, vous devez respecter la [configuration requise pour accéder à l’API de création de rapports Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).  Créez une application, obtenez une clé secrète pour celle-ci et accordez-lui des autorisations d’accès aux rapports de votre client Azure AD B2C. Des exemples *Script Bash* et *Script Python* sont également fournis ici.
+## <a name="prerequisites"></a>Prérequis
+Avant de commencer, vous devez effectuer les étapes décrites dans [Prérequis pour accéder aux API de création de rapports d’Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Créez une application, obtenez une clé secrète pour celle-ci et accordez-lui des autorisations d’accès aux rapports de votre client Azure AD B2C. Des exemples *Script Bash* et *Script Python* sont également fournis ici. 
 
 ## <a name="powershell-script"></a>Script PowerShell
-Ce script illustre les quatre rapports d’utilisation utilisant le paramètre **TimeStamp** et le filtre **- ApplicationId**.
+Ce script montre la création de quatre rapports d’utilisation avec le paramètre `TimeStamp` et le filtre `ApplicationId`.
 
-```
+```powershell
 # This script will require the Web Application and permissions setup in Azure Active Directory
 
 # Constants
 $ClientID      = "your-client-application-id-here"  
 $ClientSecret  = "your-client-application-secret-here"
-$loginURL      = "https://login.windows.net"
+$loginURL      = "https://login.microsoftonline.com"
 $tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"  
 # Get an Oauth 2 access token based on client id, secret and tenant domain
 $body          = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
@@ -89,7 +89,7 @@ if ($oauth.access_token -ne $null) {
 
     Write-host Data from the b2cMfaRequestCount report with ApplicationId filter
     Write-host ====================================================
-       $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/b2cMfaRequestCountSummary?%24filter=ApplicationId+eq+ada78934-a6da-4e69-b816-10de0d79db1d&api-version=beta")
+    $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/b2cMfaRequestCountSummary?%24filter=ApplicationId+eq+ada78934-a6da-4e69-b816-10de0d79db1d&api-version=beta")
      Write-host $myReport.Content
 
 } else {
@@ -99,32 +99,33 @@ if ($oauth.access_token -ne $null) {
 
 
 ## <a name="usage-report-definitions"></a>Définitions de rapport d’utilisation
-**tenantUserCount** : le nombre d’utilisateurs dans le client par type de fournisseur d’identité par jour au cours des 30 derniers jours. (Facultatif : un filtre TimeStamp fournit le nombre d’utilisateurs à partir d’une date spécifiée jusqu’à la date actuelle). Le rapport fournit les éléments suivants :
- * TotalUserCount = nombre de tous les objets utilisateur
- * OtherUserCount = nombre d’utilisateurs AAD Directory (utilisateurs non B2C)
- * LocalUserCount = nombre de comptes utilisateur B2C créés avec les informations d’identification locales au client B2C
- * AlternateIdUserCount** = nombre d’utilisateurs B2C inscrits auprès de fournisseurs d’identité externes (par exemple, Facebook, compte Microsoft, autres clients AAD - également appelé OrgId)
+* **tenantUserCount** : le nombre d’utilisateurs dans le locataire par type de fournisseur d’identité, par jour, au cours des 30 derniers jours. (Facultatif : un filtre `TimeStamp` fournit le nombre d’utilisateurs à partir d’une date spécifiée jusqu’à la date du jour.) Le rapport fournit les éléments suivants :
+  * **TotalUserCount** : nombre de tous les objets utilisateur.
+  * **OtherUserCount** : nombre d’utilisateurs d’Azure Active Directory (pas les utilisateurs d’Azure AD B2C).
+  * **LocalUserCount** : nombre de comptes utilisateur Azure AD B2C créés avec les informations d’identification locales du locataire Azure AD B2C.
 
-**b2cAuthenticationCountSummary** : additionner le nombre journalier d’authentifications facturables au cours des 30 derniers jours, par jour et par type de flux d’authentification
+* **AlternateIdUserCount** : nombre d’utilisateurs d’Azure AD B2C inscrits auprès de fournisseurs d’identité externes (par exemple Facebook, un compte Microsoft ou un autre locataire Azure Active Directory, également appelé `OrgId`).
 
-**b2cAuthenticationCount** : compter le nombre d’authentifications dans une période de temps définie. Valeur par défaut : 30 derniers jours.  (Facultatif : les paramètres TimeStamp de début et de fin définissent une période spécifique des décomptes souhaités) La sortie inclut StartTimeStamp (première date d’activité pour ce client) et EndTimeStamp (dernière mise à jour)
+* **b2cAuthenticationCountSummary** : récapitulatif du nombre quotidien d’authentifications facturables au cours des 30 derniers jours, par jour et par type de flux d’authentification.
 
-**b2cMfaRequestCountSummary** : additionner le nombre journalier d’authentifications multifacteur, par jour et par type d’authentification multifacteur (SMS ou vocale)
+* **b2cAuthenticationCount** : nombre d’authentifications dans une période de temps définie. La période par défaut est celle des 30 derniers jours.  (Facultatif : les paramètres `TimeStamp` de début et de fin définissent une période spécifique.) La sortie inclut `StartTimeStamp` (première date d’activité de ce locataire ) et `EndTimeStamp` (dernière mise à jour).
+
+* **b2cMfaRequestCountSummary** : récapitulatif du nombre quotidien d’authentifications multifacteurs, par jour et par type (SMS ou vocales).
 
 
 ## <a name="limitations"></a>Limitations
-* Les données du décompte d’utilisateurs sont actualisées toutes les 24 à 48 heures.  Les authentifications sont mises à jour plusieurs fois par jour.
-* Lorsque vous utilisez le filtre ApplicationId, une réponse de rapport vide peut être due à l’une des conditions suivantes :
- * L’ID d’application n’existe pas dans le client. Assurez-vous qu’il est correct.
- * L’ID d’application existe, mais aucune donnée n’a été trouvée dans la période du rapport. Passez en revue vos paramètres d’heure et de date.
+Les données du décompte d’utilisateurs sont actualisées toutes les 24 à 48 heures. Les authentifications sont mises à jour plusieurs fois par jour. Quand vous utilisez le filtre `ApplicationId`, une réponse de rapport vide peut être due à une des conditions suivantes :
+  * L’ID d’application n’existe pas dans le locataire. Assurez-vous qu’il est correct.
+  * L’ID d’application existe, mais aucune donnée n’a été trouvée dans la période du rapport. Passez en revue vos paramètres de date/heure.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-### <a name="estimating-your-azure-ad-monthly-bill"></a>Estimation de votre facture mensuelle Azure AD.
-Lorsque vous utilisez également [la tarification Azure AD B2C la plus récente disponible](https://azure.microsoft.com/pricing/details/active-directory-b2c/), vous pouvez estimer la consommation Azure quotidienne, hebdomadaire et mensuelle.  Une estimation est particulièrement utile lorsque vous planifiez des changements de comportement du client qui peuvent avoir un impact sur le coût global.  Vous pouvez examiner les coûts réels dans votre [abonnement Azure lié.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-how-to-enable-billing)
+### <a name="monthly-bill-estimates-for-azure-ad"></a>Estimations de la facturation mensuelle pour Azure AD
+Lorsque vous utilisez également [la tarification Azure AD B2C la plus récente disponible](https://azure.microsoft.com/pricing/details/active-directory-b2c/), vous pouvez estimer la consommation Azure quotidienne, hebdomadaire et mensuelle.  Une estimation est particulièrement utile quand vous prévoyez des changements de comportement du locataire qui peuvent avoir un impact sur le coût global. Vous pouvez examiner les coûts réels dans votre [abonnement Azure lié](active-directory-b2c-how-to-enable-billing.md).
 
 ### <a name="options-for-other-output-formats"></a>Options pour les autres formats de sortie
-```
+Le code suivant montre des exemples de l’envoi de la sortie vers JSON, vers une liste de valeurs de noms et vers XML :
+```powershell
 # to output to JSON use following line in the PowerShell sample
 $myReport.Content | Out-File -FilePath b2cUserJourneySummaryEvents.json -Force
 
@@ -134,10 +135,4 @@ $myReport.Content | Out-File -FilePath b2cUserJourneySummaryEvents.json -Force
 # to output the content in XML use the following line
 (($myReport.Content | ConvertFrom-Json).value | ConvertTo-Xml).InnerXml | Out-File -FilePath name-your-file.xml -Force
 ```
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
 

@@ -186,7 +186,7 @@ Si votre application web ou votre application API est déjà déployée, vous po
 
 1. Dans le [Portail Azure](https://portal.azure.com "https://portal.azure.com"), recherchez et sélectionnez votre application web ou votre application API. 
 
-2. Sous **Paramètres**, choisissez **Authentification/Autorisation**. Sous **Authentification App Service**, activez l’authentification****. Sous **Fournisseurs d’authentification**, sélectionnez **Azure Active Directory**.
+2. Sous **Paramètres**, choisissez **Authentification/Autorisation**. Sous **Authentification App Service**, activez **l’authentification**. Sous **Fournisseurs d’authentification**, sélectionnez **Azure Active Directory**.
 
    ![Activer l’authentification](./media/logic-apps-custom-hosted-api/custom-web-api-app-authentication.png)
 

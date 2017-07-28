@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 07/03/2017
 ms.author: yurid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ad88c17e0c6bad7cb58c8517a47bbe5fe0fae763
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 4e02b55272fee8460886bb807a45cad99612dd86
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -29,7 +29,7 @@ L’Internet des objets (IoT, Internet of Things) confronte les entreprises du m
 
 Cet article étudie de quelle façon Microsoft Azure IoT Suite fournit une solution IoT cloud sécurisée et privée. Azure IoT Suite offre une solution complète, de bout en bout, intégrant la sécurité à chaque étape. Enraciné dans des décennies d’expérience, le développement de logiciels sécurisés fait partie intégrante des pratiques de Microsoft en matière d’ingénierie logicielle. À cet égard, l’approche Security Development Lifecycle (SDL) représente la méthodologie de développement fondamentale. Elle est associée à une multitude de services de sécurité au niveau de l’infrastructure, comme le processus OSA (Operational Security Assurance), la Microsoft Digital Crimes Unit, Microsoft Security Response Center et le Centre de protection Microsoft contre les programmes malveillants. 
 
-Azure IoT Suite offre des fonctionnalités uniques, assurant la simplicité, la transparence et, surtout, la sécurité de l’approvisionnement des appareils IoT, de la connexion à ces appareils et du stockage des données qu’ils fournissent. Dans ce document, nous examinons les fonctionnalités de sécurité d’Azure IoT Suite et les stratégies de déploiement garantissant la résolution des problèmes de sécurité, de confidentialité et de conformité. 
+Azure IoT Suite offre des fonctionnalités uniques, assurant la simplicité, la transparence et surtout la sécurité de l’approvisionnement des appareils IoT, de la connexion à ces appareils et du stockage des données qu’ils fournissent. Dans cet article, nous examinons les fonctionnalités de sécurité d’Azure IoT Suite et les stratégies de déploiement garantissant la résolution des problèmes de sécurité, de confidentialité et de conformité. 
 
 ## <a name="introduction"></a>Introduction
 L’Internet des objets (IoT, Internet of Things) marque le début d’une nouvelle ère. Il offre aux entreprises des opportunités réelles et immédiates pour réduire leurs coûts, augmenter leur chiffre d’affaires et transformer leur activité. Beaucoup d’entreprises, cependant, hésitent à déployer l’IoT dans leurs organisations, préoccupées par la sécurité, la confidentialité et la conformité. La nature unique de l’infrastructure IoT représente un point de préoccupation majeur : cette infrastructure fusionne les mondes physique et informatique, réunissant les risques inhérents à chacun d’eux. La sécurité de l’IoT consiste à garantir l’intégrité du code s’exécutant sur les appareils, à assurer l’authentification des appareils et des utilisateurs, à définir clairement la propriété des appareils (et des données générées par ces appareils) et à résister aux cyber-attaques et aux attaques physiques. 
@@ -101,7 +101,7 @@ Chaque solution préconfigurée Azure IoT Suite crée des instances de services 
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/documentdb/) : service de base de données évolutif et entièrement indexé pour données semi-structurées, qui gère les métadonnées (attributs, configuration, propriétés de sécurité, etc.) des appareils que vous approvisionnez. Cosmos DB assure un traitement hautes performances et à débit élevé, ainsi qu’une indexation des données indépendante du schéma. Ce service offre également une interface de requête SQL enrichie.
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/) : traitement des flux en temps réel dans le cloud, permettant de développer et de déployer rapidement une solution d’analyse à faible coût pour obtenir des informations en temps réel de la part des appareils, capteurs, infrastructures et applications. Les données de ce service entièrement géré peuvent être mises à l’échelle selon n’importe quel volume. Vous continuez à bénéficier d’un débit élevé, d’une faible latence et de la résilience.
 * [**Azure App Services**](https://azure.microsoft.com/services/app-service/) : plateforme cloud permettant de créer de puissantes applications web et mobiles qui se connectent aux données n’importe où, que ce soit localement ou dans le cloud. Créez des applications mobiles attrayantes pour iOS, Android et Windows. Assurez l’intégration avec vos applications SaaS (Software as a Service) et d’entreprise grâce à une connectivité prête à l’emploi à des dizaines d’applications et services basés sur le cloud. Encodez dans votre environnement de développement intégré et votre langage favoris (.NET, Node.js, PHP, Python ou Java) pour créer rapidement des applications web et des API.
-* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/) : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
+* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/) : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
 * [**Blob Storage**](https://azure.microsoft.com/services/storage/) : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.
 
 ## <a name="next-steps"></a>Étapes suivantes

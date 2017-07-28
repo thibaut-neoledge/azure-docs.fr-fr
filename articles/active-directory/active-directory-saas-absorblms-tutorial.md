@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: e42c541ce15b2e025c7019e91ae3c6c74483b6c2
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 5119772dd7c3d55ed4e0ad44e71bd67b2e923409
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -67,7 +67,7 @@ Pour configurer l’intégration d’Absorb LMS avec Azure AD, vous devez ajou
 
     ![Applications][2]
     
-3. Pour ajouter la nouvelle application, cliquez sur le bouton **New application** (Nouvelle application) en haut de la boîte de dialogue.
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Applications][3]
 
@@ -175,7 +175,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 14. Cliquez sur **Save** (Enregistrer).
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Single Sign-On** (Authentification unique) et accédez à la documentation incorporée via la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -241,7 +241,7 @@ Pour Absorb LMS, l’approvisionnement est une tâche manuelle.
 
     d. Dans la zone de texte **Password** (Mot de passe), tapez le mot de passe de Britta Simon.
 
-    e. Dans la liste déroulante **Confirm Password** (Confirmer le mot de passe), confirmez le mot de passe de Britta Simon.
+    e. Dans la zone de texte **Confirmer le mot de passe**, tapez le même mot de passe.
     
     f. Définissez-le comme **ACTIVE** (Actif).    
 

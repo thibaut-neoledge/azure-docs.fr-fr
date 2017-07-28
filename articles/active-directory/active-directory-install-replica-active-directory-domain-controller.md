@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7b267f11a2989b1e621906a46ea4e3bf7f58ca2b
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 2adf6d6758c260f539277dafe8b9fadc3d9acb8b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -28,7 +28,7 @@ Cette rubrique montre comment installer des contrôleurs de domaine supplémenta
 Les rubriques suivantes peuvent également vous intéresser :
 
 * Vous pouvez, si vous le souhaitez, installer une nouvelle forêt Active Directory sur un réseau virtuel Azure. Dans ce cas, consultez la page [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md).
-* Pour obtenir des recommandations sur l'installation des services de domaine Active Directory (AD DS) sur un réseau virtuel Azure, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
+* Pour obtenir des recommandations sur l'installation d’AD DS (Active Directory Domain Services) sur un réseau virtuel Azure, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Schéma du scénario
 Dans ce scénario, des utilisateurs externes doivent accéder à des applications qui s'exécutent sur des serveurs appartenant à un domaine. Les machines virtuelles qui exécutent les serveurs d'applications et les contrôleurs de domaine de réplication sont installées sur un réseau virtuel Azure. Le réseau virtuel peut être connecté au réseau local par une connexion [VPN de site à site](../vpn-gateway/vpn-gateway-site-to-site-create.md), comme illustré dans le schéma suivant, ou vous pouvez utiliser [ExpressRoute](../expressroute/expressroute-locations-providers.md) pour obtenir une connexion plus rapide.
@@ -71,17 +71,17 @@ Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu d
    |  **Configuration de la machine virtuelle** |<p>Sélectionnez <b>Installer l'agent de la machine virtuelle</b> et toutes les extensions dont vous avez besoin.</p> |
 2. Attachez un disque à chaque machine virtuelle qui exécutera le rôle de serveur de contrôleur de domaine. Le disque supplémentaire est nécessaire pour stocker la base de données Active Directory, les journaux et SYSVOL. Spécifiez une taille pour le disque (par exemple, 10 Go) et laissez l'option **Préférences de cache d'hôte** définie sur **Aucun**. Pour ces étapes, consultez [Association d'un disque de données à une machine virtuelle Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 3. Après votre première connexion à la machine virtuelle, ouvrez **Gestionnaire de serveur** > **Services de fichiers et de stockage** pour créer un volume sur ce disque à l'aide de NTFS.
-4. Réservez une adresse IP statique pour les machines virtuelles qui exécuteront le rôle de contrôleur de domaine. Pour réserver une adresse IP statique, téléchargez Microsoft Web Platform Installer, [installez Azure PowerShell](/powershell/azure/overview) , puis exécutez la cmdlet Set-AzureStaticVNetIP. Par exemple :
+4. Réservez une adresse IP statique pour les machines virtuelles qui exécuteront le rôle de contrôleur de domaine. Pour réserver une adresse IP statique, téléchargez Microsoft Web Platform Installer, [installez Azure PowerShell](/powershell/azure/overview) , puis exécutez l’applet de commande Set-AzureStaticVNetIP. Par exemple :
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 Set-AzureStaticVNetIP -IPAddress 10.0.0.4 Update-AzureVM
 
 Pour plus d’informations sur la configuration d’une adresse IP, consultez [Configuration d’une adresse IP interne statique pour une machine virtuelle](../virtual-network/virtual-networks-reserved-private-ip.md).
 
-## <a name="install-ad-ds-on-azure-vms"></a>installation des services AD DS sur des machines virtuelles Azure
+## <a name="install-ad-ds-on-azure-vms"></a>Installation des services AD DS sur des machines virtuelles Azure
 Connectez-vous à une machine virtuelle et vérifiez que vous disposez d'une connectivité sur la connexion VPN de site à site ou la connexion ExpressRoute aux ressources sur votre réseau local. Ensuite, installez les services AD DS sur les machines virtuelles Azure. Vous pouvez appliquer la même procédure que celle utilisée pour installer un contrôleur de domaine supplémentaire sur votre réseau local (interface utilisateur, Windows PowerShell ou un fichier de réponses). Lors de l'installation des services AD DS, veillez à spécifier le nouveau volume comme emplacement de la base de données Active Directory, des journaux et de SYSVOL. Si vous avez besoin d’un rappel concernant l’installation des services AD DS, consultez [Installer les services de domaine Active Directory (Niveau 100)](https://technet.microsoft.com/library/hh472162.aspx) ou [Installer un contrôleur de domaine de réplication Windows Server 2012 dans un domaine existant (Niveau 200)](https://technet.microsoft.com/library/jj574134.aspx).
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>reconfiguration du serveur DNS pour le réseau virtuel
-1. Dans le [portail Azure Classic](https://manage.windowsazure.com), cliquez sur le nom du réseau virtuel, puis cliquez sur l'onglet **Configurer** pour [reconfigurer les adresses IP du serveur DNS pour votre réseau virtuel](../virtual-network/virtual-networks-manage-dns-in-vnet.md) afin d'utiliser les adresses IP statiques attribuées aux contrôleurs de domaines de réplica au lieu des adresses IP des serveurs DNS locaux.
+1. Dans le [portail Azure](https://portal.azure.com), dans la zone **Rechercher des ressources**, entrez *Réseaux virtuels*, puis cliquez sur **Réseaux virtuels (classiques)** dans les résultats de recherche. Cliquez sur le nom du réseau virtuel, puis [reconfigurez les adresses IP du serveur DNS pour votre réseau virtuel](../virtual-network/virtual-network-manage-network.md#dns-servers) afin d’utiliser les adresses IP statiques attribuées aux contrôleurs de domaines de réplication au lieu des adresses IP des serveurs DNS locaux.
 2. Pour vous assurer que toutes les réplicas de machines virtuelles de contrôleur de domaine sur le réseau virtuel sont configurées pour utiliser des serveurs DNS sur le réseau virtuel, cliquez sur **Machines virtuelles** et cliquez sur la colonne d’état pour chaque machine virtuelle, puis cliquez sur **Redémarrer**. Attendez que la machine virtuelle affiche l’état **En cours d’exécution** avant d’essayer de vous y connecter.
 
 ## <a name="create-vms-for-application-servers"></a>création de machines virtuelles pour les serveurs d'applications
@@ -97,17 +97,17 @@ Connectez-vous à une machine virtuelle et vérifiez que vous disposez d'une con
 
 Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu de l'interface utilisateur, consultez [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Prise en main des cmdlets Azure](/powershell/azure/overview) et le [Guide de référence des cmdlets Azure](/powershell/azure/get-started-azureps).
+Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Bien démarrer avec les applets de commande Azure](/powershell/azure/overview) et le [Guide de référence des applets de commande Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Instructions pour le déploiement de Windows Server Active Directory sur Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+* [Instructions pour le déploiement de Windows Server Active Directory sur Machines virtuelles Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 * [Comment télécharger des contrôleurs de domaine Hyper-V locaux existants vers Azure à l’aide de PowerShell Azure](http://support.microsoft.com/kb/2904015)
 * [Installer une nouvelle forêt Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md)
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * [Iaas des professionnels de l’informatique Microsoft Azure : principes de base des machines virtuelles (01)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Iaas des professionnels de l’informatique Microsoft Azure :(05) Création de réseaux virtuels pour la connectivité entre différents locaux](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Cmdlets de gestion Azure](/powershell/module/azurerm.compute/#virtual_machines)
+* [Applets de commande de gestion Azure](/powershell/module/azurerm.compute/#virtual_machines)
 
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory : Création d’une rubrique d’assistance de client | Microsoft Docs"
-description: "Création d&quot;un client Azure Active Directory ou d&quot;un client Azure Active Directory B2C : problèmes et résolutions"
+title: "Azure Active Directory B2C : Résoudre les problèmes liés à la création de locataires | Microsoft Docs"
+description: "Problèmes et résolutions pour la création d’un locataire Azure Active Directory ou Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
@@ -14,23 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 42c00632fee16b61f502b5a8ac15825788403ab8
-ms.lasthandoff: 12/28/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 81af4536fc223319369aff262d42149cfbf1a1e9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="creating-an-azure-active-directory-azure-ad-tenant-or-azure-ad-b2c-tenant-issues-and-resolutions"></a>Création d'un client Azure Active Directory (Azure AD) ou d'un client Azure AD B2C : problèmes et résolutions
-## <a name="creating-an-azure-ad-tenant"></a>Création d'un client Azure AD
-Si vous ne pouvez pas créer un client Azure AD la première fois, veuillez essayer à nouveau. Si le problème persiste, contactez le support technique.
+# <a name="troubleshoot-creating-an-azure-active-directory-or-azure-active-directory-b2c-tenant"></a>Résoudre les problèmes de création d’un locataire Azure Active Directory ou Azure Active Directory B2C 
 
-## <a name="creating-an-azure-ad-b2c-tenant"></a>Création d’un client Azure AD B2C
-Si vous rencontrez des problèmes lors de la [création d’un client Azure Active Directory B2C](active-directory-b2c-get-started.md), procédez comme suit :
+## <a name="create-an-azure-ad-tenant"></a>Créer un locataire Azure AD
+Si vous ne pouvez pas créer de locataire Azure Active Directory (Azure AD) lors de votre première tentative, réessayez. Si le problème persiste, contactez le support Azure.
 
-* Si le client Azure AD B2C n'apparaît pas dans votre liste de clients, essayez à nouveau.
-* Si le client Azure AD B2C figure dans la liste des clients et que vous voyez s’afficher un message d’erreur ("Impossible de terminer la création du client B2C 'contosob2c'. Consultez ce [lien](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) pour plus d’informations."), supprimez le client que vous venez de créer, puis réessayez.
-* Notez qu’il existe des problèmes connus liés à la suppression d’un client B2C existant et à sa recréation sous le même nom de domaine. Vous devez créer un client B2C portant un nom de domaine différent.
-* Si aucune de ces solutions ne résout votre problème, contactez le support technique. En savoir plus sur la [prise en charge des demandes d’assistance pour Azure AD B2C](active-directory-b2c-support.md).
+## <a name="create-an-azure-ad-b2c-tenant"></a>Créer un client Azure AD B2C
+Si vous rencontrez des problèmes quand vous [créez un locataire Azure Active Directory B2C (Azure AD B2C)](active-directory-b2c-get-started.md), essayez les options suivantes :
+
+* Si le locataire Azure AD B2C n’apparaît pas dans votre liste de locataires, réessayez de le créer.
+* Si le locataire Azure AD B2C apparaît dans la liste des locataires et que le message d’erreur suivant s’affiche, supprimez le locataire et recréez-le :
+
+    « Impossible de terminer la création du locataire B2C ’contosob2c’. Visitez ce [lien](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) pour plus d’informations. »
+* Il existe des problèmes connus liés à la suppression d’un locataire Azure AD B2C existant et à sa recréation à l’aide du même nom de domaine. Quand vous créez un locataire Azure AD B2C, vous devez utiliser un nom de domaine différent.
+* Si aucune de ces solutions ne résout votre problème, contactez le support technique Azure. Pour plus d’informations, consultez [Prise en charge des demandes d’assistance pour Azure AD B2C](active-directory-b2c-support.md).
 
 

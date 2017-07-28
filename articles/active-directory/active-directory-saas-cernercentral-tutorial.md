@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/22/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 5e363a3e59b077a7bccfaff2ae6eee51418c77e5
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 77b5fb94cdfa5722081198aabc59fbf86229c2b0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -38,7 +38,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 Pour configurer l’intégration d’Azure AD à Cerner Central, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement Cerner Central pour lequel l’authentification unique est activée
+- Un compte du système Central Cerner approuvé
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -110,18 +110,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Configurer l’authentification unique](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_url.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez la valeur au format suivant : `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata`
+    a. Dans la zone de texte **Identificateur**, tapez la valeur au format suivant :
+    
+    | |
+    |--|
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.sandboxcerner.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso`
+    b. Dans la zone de texte **URL de réponse** , tapez une URL en respectant les formats suivants : 
+    | |
+    |--|
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
+    | `https://cernercentral.com/<instasncename>` |
+    | `https://sandboxcernercentral.com/<instancename>` |
+    | `https://sandboxcernercentral.com/<instancename>` |
+    | `https://<subdomain>.sandboxcernercentral.com/<instancename>` |
 
     > [!NOTE] 
-    > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Nous vous suggérons d’utiliser ici la valeur de chaîne unique dans l’identificateur. Pour obtenir ces valeurs, contactez l’[équipe de support technique Cerner Central](https://www.cerner.com/support).
+    > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations).
  
-5. Cliquez sur le bouton **Enregistrer** .
+4. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l’authentification unique](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
 
-6. Pour générer l’URL des **métadonnées**, effectuez les étapes suivantes :
+5. Pour générer l’URL des **métadonnées**, effectuez les étapes suivantes :
 
     a. Cliquez sur **Inscriptions des applications**.
     
@@ -141,7 +156,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     e. Générez l’**URL des métadonnées** en utilisant le format suivant : `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-7. Pour configurer l’authentification unique côté **Cerner Central**, vous devez envoyer l’**URL des métadonnées** au [support technique Cerner Central](https://www.cerner.com/support). Il configure l’authentification unique (SSO) côté application pour terminer l’intégration.
+6. Pour configurer l’authentification unique côté **Cerner Central**, vous devez envoyer l’**URL des métadonnées** au [support technique Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Il configure l’authentification unique (SSO) côté application pour terminer l’intégration.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -180,7 +195,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="creating-a-cerner-central-test-user"></a>Création d’un utilisateur de test Cerner Central
 
-Pour permettre aux utilisateurs Azure AD de se connecter à Cerner Central, vous devez les approvisionner dans Cerner Central. Il existe de nombreuses façons de créer des utilisateurs dans l’application Cerner Central. Pour créer manuellement l’utilisateur dans l’application Cerner Central, collaborez avec l’équipe de [support technique Cerner Central](https://www.cerner.com/support).
+L’application **Cerner Central** permet l’authentification à partir de n’importe quel fournisseur d’identité fédérée. Si un utilisateur peut se connecter à la page d’accueil de l’application, il est fédéré et n’a besoin d’aucun approvisionnement manuel.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
@@ -216,7 +231,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la mosaïque Cerner Central dans le volet d’accès, vous devez être automatiquement connecté à votre application Cerner Central. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Quand vous cliquez sur la mosaïque Cerner Central dans le volet d’accès, vous devez être automatiquement connecté à votre application Cerner Central. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

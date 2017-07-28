@@ -1,6 +1,6 @@
 ---
-title: "FAQ de l’intégration des journaux Azure | Microsoft Docs"
-description: "Ce FAQ répond à des questions concernant l’intégration des journaux Azure."
+title: "Forum aux questions sur l’intégration des journaux Azure | Microsoft Docs"
+description: "Ce forum aux questions répond à des questions sur l’intégration des journaux Azure."
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 06/26/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
-ms.lasthandoff: 03/31/2017
+ms.custom: azlog
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: e6aefe5f16e7148f7837a8741355c61851618495
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/29/2017
 
 
 ---
-# <a name="azure-log-integration-frequently-asked-questions-faq"></a>FAQ de l’intégration des journaux Azure
+# <a name="azure-log-integration-frequently-asked-questions-faq"></a>Forum aux questions sur l’intégration des journaux Azure
 Ce forum aux questions (FAQ) répond aux questions sur l’intégration des journaux Azure, un service qui vous permet d’intégrer des journaux bruts de vos ressources Azure dans vos systèmes SIEM (Security Information and Event Management) locaux. Cette intégration offre un tableau de bord unifié pour toutes vos ressources, en local ou dans le cloud, pour vous permettre d’agréger, de mettre en corrélation, d’analyser et d’alerter en cas d’événements de sécurité associés à vos applications.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Le logiciel d’intégration des journaux Azure est-il disponible ?
@@ -31,8 +33,18 @@ Oui. Il n’existe aucun frais pour le logiciel d’intégration des journaux Az
 
 Elle est actuellement disponible dans les versions commerciales d’Azure et dans Azure Government, mais n’est pas disponible en Chine ni en Allemagne.
 
-## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Comment puis-je voir les comptes de stockage desquels l’intégration des journaux Azure extrait des journaux de machines virtuelles Azure ?
+## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Comment puis-je voir les comptes de stockage desquels l’intégration des journaux Azure extrait des journaux de machines virtuelles Azure ?
 Exécutez la commande **azlog source list**.
+
+## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Comment puis-je savoir de quel abonnement proviennent les journaux d’intégration Azure ?
+
+Dans le cas des journaux d’audit qui sont placés dans les répertoires AzureResourcemanagerJson, l’ID d’abonnement figure dans le nom du fichier journal. Il en va de même pour les journaux dans le dossier AzureSecurityCenterJson. Par exemple :
+
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+
+Les noms des journaux d’audit Azure Active Directory incluent l’ID de locataire.
+
+Les noms des journaux de diagnostic lus à partir d’un hub d’événements n’incluent pas l’ID d’abonnement, mais plutôt le nom convivial spécifié lors de la création de la source du hub d’événements. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Comment puis-je mettre à jour la configuration du proxy ?
 Si vos paramètres de proxy ne permettent pas un accès direct au stockage Azure, ouvrez le fichier **AZLOG. EXE. CONFIGURATION** dans **c:\Program Files\Microsoft Azure Log Integration**. Mettez à jour le fichier de manière à y inclure la section **defaultProxy** avec l’adresse de proxy de votre organisation. Une fois la mise à jour effectuée, arrêtez et démarrez le service à l’aide des commandes **net stop azlog** et **net start azlog**.
@@ -111,8 +123,11 @@ L’exemple suivant est une configuration où seuls l’ID d’événement 4624 
 
 Après avoir apporté les modifications, vérifiez le compte de stockage pour vous assurer que les événements corrects sont collectés.
 
-Si vous rencontrez des problèmes pendant l’installation et la configuration, ouvrez une [demande de support technique](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) et sélectionnez le service **Intégration des journaux** pour votre demande.
+Si vous rencontrez des problèmes pendant l’installation et la configuration, ouvrez une [demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) et sélectionnez le service **Intégration des journaux** pour demander un support.
 
+### <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>Puis-je utiliser l’intégration des journaux Azure pour intégrer des journaux Network Watcher dans mon SIEM ?
+
+Network Watcher génère de grandes quantités d’informations de journalisation, et ces journaux ne sont pas destinés à être envoyés à un serveur SIEM. La seule destination prise en charge pour les journaux Network Watcher est un compte de stockage. L’intégration des journaux Azure ne prend pas en charge la lecture de ces journaux et leur mise à disposition d’un serveur SIEM.
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

@@ -1,5 +1,5 @@
 ---
-title: Partage de fichiers pour un DC/OS Azure | Microsoft Docs
+title: Partage de fichiers pour un cluster DC/OS Azure | Microsoft Docs
 description: "Créer et monter un partage de fichiers sur un cluster DC/OS dans Azure Container Service"
 services: container-service
 documentationcenter: 
@@ -14,145 +14,148 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 06/07/2017
 ms.author: juliens
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 6d40821327a9df47bb85ea12ecd33e4a0f49e39e
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: b4c81845b521eb1e8003ad399b466e911582b348
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Créer et monter un partage de fichiers sur un cluster DC/OS
-Dans cet article, nous allons découvrir comment créer un partage de fichiers sur Azure et le monter sur chaque agent et maître du cluster DC/OS. La configuration d’un partage de fichiers facilite le partage de fichiers sur votre cluster, par exemple la configuration, l’accès, les journaux et bien plus encore.
+Ce didacticiel explique en détail comment créer un partage de fichiers dans Azure et comment le monter sur chaque agent et chaque maître du cluster DC/OS. La configuration d’un partage de fichiers facilite le partage de fichiers sur votre cluster, par exemple la configuration, l’accès, les journaux et bien plus encore. Dans ce didacticiel, les tâches suivantes sont effectuées :
 
-Avant d’étudier cet exemple, vous devez avoir un cluster DC/OS configuré dans Azure Container Service. Consultez [Déploiement d’un cluster Azure Container Service](container-service-deployment.md).
+> [!div class="checklist"]
+> * Créer un compte de stockage Azure
+> * Créer un partage de fichiers
+> * Montage du partage sur votre cluster DC/OS
+
+Vous avez besoin d’un cluster DC/OS ACS pour suivre les étapes de ce didacticiel. Le cas échéant, cet [exemple de script](./scripts/container-service-cli-deploy-dcos.md) peut en créer un pour vous.
+
+Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-file-share-on-microsoft-azure"></a>Créer un partage de fichiers sur Microsoft Azure
-### <a name="using-the-portal"></a>Utiliser le portail
 
-1. Connectez-vous au portail.
-2. Créez un compte de stockage.
-   
-  ![Azure Container Service crée un compte de stockage](media/container-service-dcos-fileshare/createSA.png)
+Avant d’utiliser un partage de fichiers Azure avec un cluster ACS DC/OS, vous devez créer le compte de stockage et le partage de fichiers. Exécutez le script suivant pour créer le stockage et le partage de fichiers. Mettez à jour les paramètres avec ceux de votre environnement.
 
-3. Lorsqu’il est créé, cliquez sur **Fichiers** dans la section **Services**.
-   
-  ![Section fichiers d’Azure Container Service](media/container-service-dcos-fileshare/filesServices.png)
-
-4. Cliquez sur **+ Partage de fichiers** et entrez un nom pour ce nouveau partage (**Quota** n’est pas obligatoire).
-   
-  ![Azure Container Service + Partage de fichiers](media/container-service-dcos-fileshare/newFileShare.png)  
-
-### <a name="using-azure-cli-20"></a>Avec Azure CLI 2.0
-
-Si besoin, [installez et configurez Azure CLI](/cli/azure/install-azure-cli.md).
-
-```azurecli
-################# Change these four parameters ##############
-DCOS_PERS_STORAGE_ACCOUNT_NAME=anystorageaccountname
-DCOS_PERS_RESOURCE_GROUP=AnyResourceGroupName
+```azurecli-interactive
+# Change these four parameters
+DCOS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
+DCOS_PERS_RESOURCE_GROUP=myResourceGroup
 DCOS_PERS_LOCATION=eastus
-DCOS_PERS_SHARE_NAME=demoshare
-#############################################################
+DCOS_PERS_SHARE_NAME=dcosshare
 
 # Create the storage account with the parameters
 az storage account create -n $DCOS_PERS_STORAGE_ACCOUNT_NAME -g $DCOS_PERS_RESOURCE_GROUP -l $DCOS_PERS_LOCATION --sku Standard_LRS
 
-# Export the connection string as an environment variable
+# Export the connection string as an environment variable, this is used when creating the Azure file share
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $DCOS_PERS_STORAGE_ACCOUNT_NAME -g $DCOS_PERS_RESOURCE_GROUP -o tsv`
 
 # Create the share
 az storage share create -n $DCOS_PERS_SHARE_NAME
 ```
 
-## <a name="mount-the-share-in-your-cluster"></a>Montage du partage sur votre cluster
+## <a name="mount-the-share-in-your-cluster"></a>Monter le partage sur votre cluster
 
-Ensuite, nous devons monter ce partage sur chaque machine virtuelle à l’intérieur de votre cluster à l’aide de l’outil/du protocole cifs. Nous le faisons avec la ligne de commande suivante : `mount -t cifs`.
+Ensuite, le partage de fichiers doit être monté sur chaque machine virtuelle à l’intérieur de votre cluster. Cette tâche est effectuée à l’aide de l’outil/protocole cifs. Vous pouvez effectuer manuellement cette opération de montage sur chaque nœud du cluster, ou exécuter un script sur chacun d’eux.
 
-Voici un exemple qui utilise :
-* Nom du compte de stockage **`anystorageaccountname`**
-* La clé de compte fictif **`P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==`** 
-* Le point de montage **`/mnt/share/demoshare`**
+Dans cet exemple, deux scripts sont exécutés, l’un pour monter le partage de fichiers Azure, l’autre pour exécuter ce script sur chaque nœud du cluster DC/OS.
 
-```bash
-sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
+Tout d’abord, vous devez connaître le nom du compte de stockage Azure et la clé d’accès. Pour récupérer ces informations, utilisez les commandes suivantes. Notez-les, car elles vont être utiles à une prochaine étape.
+
+Nom du compte de stockage :
+
+```azurecli-interactive
+STORAGE_ACCT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
+echo $STORAGE_ACCT
 ```
 
-Cette commande s’exécutera sur chaque machine virtuelle de notre cluster (nœuds master et agent). Si vous avez un grand nombre d’agents, nous vous recommandons d’automatiser ce processus en créant des scripts.  
+Clé d’accès au compte de stockage :
 
-### <a name="set-up-scripts"></a>Configuration de scripts
+```azurecli-interactive
+az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCT --query "[0].value" -o tsv
+```
 
-1. Tout d’abord, connectez-vous par SSH au master (ou premier master) de votre cluster basé sur DC/OS. Par exemple, `ssh userName@masterFQDN –A –p 22`, où masterFQDN est le nom de domaine complet de la machine virtuelle principale.
+Récupérez ensuite le nom de domaine complet du maître DC/OS et stockez-le dans une variable.
 
-2. Copiez votre clé privée dans le répertoire de travail (~) sur le master.
+```azurecli-interactive
+FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
+```
 
-3. Modifiez les autorisations sur celui-ci avec la commande suivante : `chmod 600 yourPrivateKeyFile`.
+Copiez votre clé privée dans le nœud principal. Cette clé est nécessaire pour créer une connexion ssh avec tous les nœuds du cluster. Si une valeur non définie par défaut a été utilisée lors de la création du cluster, mettez à jour le nom d’utilisateur. 
 
-4. Importez votre clé privée à l’aide de la commande `ssh-add yourPrivateKeyFile`. Vous devrez peut-être exécuter `eval ssh-agent -s` si cela ne fonctionne pas la première fois.
+```azurecli-interactive
+scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh
+```
 
-5. À partir du master, créez deux fichiers, à l’aide de votre éditeur favori, comme vi, nano ou vim : 
-  
-  * Un avec le script à exécuter sur chaque machine virtuelle, appelé **cifsMount.sh** 
-  * Un autre pour lancer toutes les connexions SSH qui appelleront le premier script, appelé **mountShares.sh**
+Connectez-vous par SSH au maître (ou premier maître) de votre cluster DC/OS. Si une valeur non définie par défaut a été utilisée lors de la création du cluster, mettez à jour le nom d’utilisateur.
 
+```azurecli-interactive
+ssh azureuser@$FQDN
+```
 
-```bash
-# cifsMount.sh
+Créez un fichier nommé **cifsMount.sh** et copiez le contenu suivant dedans. 
+
+Ce script est utilisé pour monter le partage de fichiers Azure. Mettez à jour les variables `STORAGE_ACCT_NAME` et `ACCESS_KEY` avec les informations recueillies précédemment.
+
+```azurecli-interactive
+#!/bin/bash
+
+# Azure storage account name and access key
+STORAGE_ACCT_NAME=mystorageaccount
+ACCESS_KEY=mystorageaccountKey
 
 # Install the cifs utils, should be already installed
 sudo apt-get update && sudo apt-get -y install cifs-utils
 
 # Create the local folder that will contain our share
-if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
+if [ ! -d "/mnt/share/dcosshare" ]; then sudo mkdir -p "/mnt/share/dcosshare" ; fi
 
 # Mount the share under the previous local folder created
-sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/dcosshare /mnt/share/dcosshare -o vers=3.0,username=$STORAGE_ACCT_NAME,password=$ACCESS_KEY,dir_mode=0777,file_mode=0777
 ```
-  
-```bash
-# mountShares.sh
+Créez un deuxième fichier nommé **getNodesRunScript.sh** et copiez le contenu suivant dans le fichier. 
+
+Ce script détecte tous les nœuds de cluster, puis exécute le script **cifsMount.sh** pour monter le partage de fichiers sur chacun d’eux.
+
+```azurecli-interactive
+#!/bin/bash
 
 # Install jq used for the next command
-sudo apt-get install jq
-
-# Create the local folder that will contain our share
-if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
-
-# Mount the share on the current vm (master)
-sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
+sudo apt-get install jq -y
 
 # Get the IP address of each node using the mesos API and store it inside a file called nodes
 curl http://leader.mesos:1050/system/health/v1/nodes | jq '.nodes[].host_ip' | sed 's/\"//g' | sed '/172/d' > nodes
-  
+
 # From the previous file created, run our script to mount our share on each node
 cat nodes | while read line
-  do
-    ssh `whoami`@$line -o StrictHostKeyChecking=no -i yourPrivateKeyFile < ./cifsMount.sh
-    done
+do
+  ssh `whoami`@$line -o StrictHostKeyChecking=no < ./cifsMount.sh
+  done
+```
+
+Exécutez le script pour monter le partage de fichiers Azure sur tous les nœuds du cluster.
+
+```azurecli-interactive
+sh ./getNodesRunScript.sh
 ```  
-> [!IMPORTANT]
-> Vous devez modifier la commande **mount** avec vos propres paramètres, tels que le nom et le mot de passe de votre compte de stockage.
->  
 
-Le dossier dans lequel vous avez créé les scripts précédents doit maintenant contenir 3 fichiers :  
-
-* **cifsMount.sh**
-* **mountShares.sh**
-* **votreFichierDeCléPrivée** 
-
-### <a name="run-the-scripts"></a>Exécuter les scripts
-
-Exécutez le fichier **mountShares.sh** avec la commande suivante : `sh mountShares.sh`.
-
-Vous devriez voir l’impression du résultat dans le terminal. Une fois les scripts terminés, vous pouvez utiliser le partage de fichiers dans votre cluster.
-
-Vous pouvez optimiser les scripts, mais cet exemple est simple et son objectif est de vous guider.
-
-> [!NOTE] 
-> Cette méthode n’est pas recommandée pour les scénarios qui requièrent des E/S par seconde élevées, mais elle est très utile pour partager des documents et des informations sur le cluster.
->
+Le partage de fichiers est désormais accessible sur `/mnt/share/dcosshare` dans chaque nœud du cluster.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur la [gestion de vos conteneurs DC/OS](container-service-mesos-marathon-ui.md).
-* Gestion de conteneur DC/OS au moyen de [l’API REST Marathon](container-service-mesos-marathon-rest.md).
+
+Dans ce didacticiel, un partage de fichiers Azure a été rendu disponible sur un cluster DC/OS en suivant les étapes suivantes :
+
+> [!div class="checklist"]
+> * Créer un compte de stockage Azure
+> * Créer un partage de fichiers
+> * Monter le partage sur votre cluster DC/OS
+
+Passez au didacticiel suivant pour en savoir plus sur l’intégration d’un service Azure Container Registry avec DC/OS dans Azure.  
+
+> [!div class="nextstepaction"]
+> [Équilibrer la charge des applications](./container-service-dcos-acr.md)

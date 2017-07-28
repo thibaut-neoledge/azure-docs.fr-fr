@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 06/16/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0fb7e8fe778c8d6f7e12b1c8a75c95941da3d4d9
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: b8cac63967bf837183095cbb235c4a84f2dabcb9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine
@@ -33,6 +33,7 @@ Le cas échéant, consultez les références suivantes :
 
 - Pour plus d’informations sur l’accès conditionnel, consultez l’article [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md). 
 - Pour plus d’informations sur les appareils Windows 10 dans l’espace de travail et sur les expériences améliorées après inscription auprès d’Azure AD, consultez l’article [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md).
+- Windows 10 Entreprise E3 dans CSP. Consultez la [Vue d’ensemble de Windows 10 Entreprise E3 dans CSP](https://docs.microsoft.com/en-us/windows/deployment/windows-10-enterprise-e3-overview).
 
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -59,13 +60,12 @@ Pour améliorer la lisibilité des descriptions, cet article utilise les termes 
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- L’inscription des appareils Windows de bas niveau **n’est pas** prise en charge pour les éléments suivants :
-    - Environnements non fédérés (configurations de synchronisation du hachage de mot de passe).  
-    - Appareils utilisant des profils itinérants. Si vous vous appuyez sur l’itinérance de profils ou de paramètres, utilisez Windows 10.
+- L’inscription d’appareils de bas niveau Windows **est** prise en charge dans les environnements non fédérés via l’authentification unique transparente [Authentification unique transparente d’Azure Active Directory](https://aka.ms/hybrid/sso).
+- L’inscription des appareils Windows de bas niveau **n’est pas** prise en charge pour les appareils utilisant des profils d’itinérance. Si vous vous appuyez sur l’itinérance de profils ou de paramètres, utilisez Windows 10.
 
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer à activer l’inscription automatique d’appareils joints à un domaine dans votre organisation, vous devez vous assurer que vous exécutez une version à jour d’Azure AD Connect.
 
@@ -137,7 +137,10 @@ Le script ci-après présente un exemple d’utilisation de l’applet de comman
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
-L’applet de commande `Initialize-ADSyncDomainJoinedComputerSync` utilise le module Active Directory PowerShell qui s’appuie sur les services Web Active Directory (ADWS) s’exécutant sur un contrôleur de domaine. Les services Web Active Directory sont pris en charge sur les contrôleurs de domaine exécutant Windows Server 2008 R2 et les versions ultérieures. 
+L’applet de commande `Initialize-ADSyncDomainJoinedComputerSync` :
+
+- utilise le module Active Directory PowerShell qui s’appuie sur les services Web Active Directory s’exécutant sur un contrôleur de domaine. Les services Web Active Directory sont pris en charge sur les contrôleurs de domaine exécutant Windows Server 2008 R2 et les versions ultérieures.
+- Est pris en charge seulement par le **module MSOnline PowerShell version 1.1.166.0**. Pour télécharger ce module, utilisez ce [lien](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
 
 Pour les contrôleurs de domaine exécutant Windows Server 2008 ou des versions antérieures, utilisez le script ci-après pour créer le point de connexion de service.
 
@@ -525,6 +528,8 @@ Pour éviter les invites de certificat lorsque les utilisateurs des appareils in
 ## <a name="step-4-control-deployment-and-rollout"></a>Étape 4 : Contrôle du déploiement et du lancement
 
 Une fois que vous avez exécuté les étapes requises, les appareils joints à un domaine sont prêts à s’inscrire automatiquement auprès d’Azure AD. Tous les appareils joints à un domaine qui exécutent Mise à jour anniversaire Windows 10 et Windows Server 2016 s’inscrivent automatiquement auprès d’Azure AD lors du redémarrage des appareils ou de la connexion des utilisateurs. Les nouveaux appareils s’inscrivent auprès d’Azure AD au moment de leur redémarrage une fois l’opération de jonction de domaine effectuée.
+
+Les appareils qui ont fait précédemment l’objet d’une jonction d’espace de travail à Azure AD (par exemple pour Intune) passent à « *Joint au domaine, Enregistré avec AAD* ». Cependant, un certain temps est nécessaire pour que ce processus soit effectué sur tous les appareils, en raison du flux normal de l’activité du domaine et des utilisateurs.
 
 ### <a name="remarks"></a>Remarques
 

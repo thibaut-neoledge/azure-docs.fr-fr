@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: ce4d51c4ed38645ee81325404ff7214f845d5bf0
-ms.openlocfilehash: 317f3be6cb39da7c7c57f7f368c750672609726e
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 37df8d66d0a3ce738db2960d4283bdc672fb0fc4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/04/2017
 
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect : considérations spéciales relatives aux instances
@@ -38,7 +39,7 @@ Fonctionnalités actuellement absentes de Microsoft Cloud Allemagne :
 
 * **Azure AD Connect Health** n’est pas disponible.
 * Les **mises à jour automatiques** ne sont pas disponibles.
-* **L’écriture différée du mot de passe** n’est pas disponible.
+* L’**écriture différée de mot de passe** est disponible en préversion avec Azure AD Connect version 1.1.570.0 et ultérieures.
 * Les autres services Azure AD Premium ne sont pas disponibles.
 
 ## <a name="microsoft-azure-government-cloud"></a>Cloud Microsoft Azure Government
@@ -49,6 +50,7 @@ Ce cloud a été pris en charge par des versions antérieures de DirSync. À par
 | URL à ouvrir dans le serveur proxy |
 | --- |
 | \**.microsoftonline.com |
+| \*.microsoftonline.us |
 | \**.gov.us.microsoftonline.com |
 | + Listes de révocation de certificat |
 
@@ -63,14 +65,9 @@ Fonctionnalités actuellement absentes du cloud Microsoft Azure Government :
 
 * **Azure AD Connect Health** n’est pas disponible.
 * Les **mises à jour automatiques** ne sont pas disponibles.
-* **L’écriture différée du mot de passe** n’est pas disponible.
+* L’**écriture différée de mot de passe** est disponible en préversion avec Azure AD Connect version 1.1.570.0 et ultérieures.
 * Les autres services Azure AD Premium ne sont pas disponibles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -1,148 +1,238 @@
 ---
 title: "Didacticiel : Intégration d’Azure Active Directory à Concur | Microsoft Docs"
-description: "Apprenez à utiliser Concur avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Concur."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 1eee0a5d-24fa-4986-9aef-3c543cfe3296
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 06/16/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
-ms.openlocfilehash: 87f8547486d9c77aeaa49e574b3c05e1a1fd877a
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 0b44437b3dcf69dae3587529da7d12e7809b9f55
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Didacticiel : Intégration d’Azure Active Directory à Concur
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Concur.  
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-* Un abonnement Azure valide
-* Un client dans Concur
+Dans ce didacticiel, vous allez apprendre à intégrer Concur à Azure Active Directory (Azure AD).
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+L’intégration de Concur à Azure AD vous offre les avantages suivants :
 
-* Activation de l’intégration d’applications pour Concur
-* Configuration de l’authentification unique (SSO)
-* Configuration de l'approvisionnement des utilisateurs
-* Affectation d’utilisateurs
+- Dans Azure AD, vous pouvez contrôler qui a accès à Concur.
+- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Concur (par l’intermédiaire de l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
 
-![Scénario](./media/active-directory-saas-concur-tutorial/IC769766.png "Scénario")
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
->[!NOTE]
->La configuration de votre abonnement Concur pour l’authentification unique fédérée via SAML constitue une tâche séparée qui doit être effectuée par Concur à votre demande. 
-> 
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="enable-the-application-integration-for-concur"></a>Activer l’intégration d’applications pour Concur
-Cette section décrit l’activation de l’intégration d’applications pour Concur.
+Pour configurer l’intégration d’Azure AD avec Concur, vous avez besoin des éléments suivants :
 
-**Pour activer l’intégration d’applications pour Concur, suivez les étapes ci-dessous :**
-1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
-   
-  ![Active Directory](./media/active-directory-saas-concur-tutorial/IC700993.png "Active Directory")
-2. Dans la liste **Annuaire** , sélectionnez l’annuaire pour lequel vous voulez activer l’intégration d’annuaire.
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
-   
-  ![Applications](./media/active-directory-saas-concur-tutorial/IC700994.png "Applications")
-4. Pour ouvrir la **Galerie d’applications**, cliquez sur **Ajouter une application**, puis sur **Ajouter une application utilisable par mon organisation**.
-   
-  ![Que souhaitez-vous faire ?](./media/active-directory-saas-concur-tutorial/IC700995.png "Que souhaitez-vous faire ?")
-5. Dans la **zone de recherche**, tapez **Concur**.
-   
-  ![Galerie d’applications](./media/active-directory-saas-concur-tutorial/IC721727.png "Galerie d’applications")
-6. Dans le volet des résultats, sélectionnez **Concur**, puis cliquez sur **Terminer** pour ajouter l’application.
-   
-  ![Concur](./media/active-directory-saas-concur-tutorial/IC721728.png "Concur")
-   
-## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
+- Un abonnement Azure AD
+- Un abonnement Concur pour lequel l’authentification unique est activée
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Concur avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
+> [!NOTE]
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
+
+Vous devez en outre suivre les recommandations ci-dessous :
+
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+
+1. Ajout de Concur à partir de la galerie
+2. Configuration et test de l’authentification unique Azure AD
 
 >[!NOTE]
->La configuration de votre abonnement Concur pour l’authentification unique fédérée via SAML constitue une tâche séparée qui doit être effectuée par Concur à votre demande.
-> 
+>La configuration de votre abonnement Concur pour l’authentification unique fédérée par le biais de SAML constitue une tâche séparée qui doit être effectuée par l’[équipe de support technique Concur](https://www.concur.co.in/contact) à votre demande. 
 
-**Pour configurer l’authentification unique, procédez comme suit :**
+## <a name="adding-concur-from-the-gallery"></a>Ajout de Concur à partir de la galerie
+Pour configurer l’intégration de Concur avec Azure AD, vous devez ajouter Concur dans la galerie à votre liste d’applications SaaS gérées.
 
-1. Sur la page d’intégration d’applications **Concur** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-concur-tutorial/IC769767.png "Configurer l’authentification unique")
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Concur**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-concur-tutorial/IC769768.png "Configurer l’authentification unique")
-3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Concur**, tapez l’URL de connexion de votre client Concur, puis cliquez sur **Suivant** : 
-   
-   ![Configurer l’URL de connexion](./media/active-directory-saas-concur-tutorial/IC769769.png "Configurer l’URL de connexion")
-4. Dans la page de configuration **Configurer l’authentification unique sur Concur** , procédez comme suit.
-   
-   ![Configurer l’URL de connexion](./media/active-directory-saas-concur-tutorial/IC769770.png "Configurer l’URL de connexion")
-   1. Cliquez sur Télécharger les métadonnées, puis enregistrez le fichier de données sur votre ordinateur.
-   2. Contactez l’équipe du support technique Concur pour configurer l’authentification unique de votre client.
-   3. Sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.  
-   
-   >[!NOTE]
-   >La configuration de votre abonnement Concur pour l’authentification unique fédérée via SAML constitue une tâche séparée qui doit être effectuée par Concur à votre demande. 
-   > 
+**Pour ajouter Concur à partir de la galerie, effectuez les étapes suivantes :**
 
-## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
-Cette section décrit comment activer l’approvisionnement des comptes d’utilisateurs Active Directory sur Concur.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-Pour activer des applications dans le service Dépenses, vous devez vous assurer que la bonne configuration est définie et qu’un profil d’administrateur des services Web est utilisé. Ne vous contentez pas d’ajouter le rôle WS Admin au profil d’administrateur existant que vous utilisez pour les fonctions administratives T&E.
+    ![Active Directory][1]
 
-Concur Consultants ou l’administrateur des clients doit créer un profil d’administrateur des services Web distinct, et l’administrateur des clients doit utiliser ce profil pour les fonctions d’administrateur des services Web (par exemple, l’activation d’applications). Ces profils doivent être séparés du profil d’administrateur T&E utilisé quotidiennement par l’administrateur des clients (le profil d’administrateur T&E ne doit pas se voir affecter le rôle WS Admin).
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-Quand vous créez le profil à utiliser pour l’activation de l’application, entrez le nom de l’administrateur des clients dans les champs du profil utilisateur. Cela permet d’affecter la propriété au profil. Une fois le ou les profils créés, le client doit se connecter avec ce profil pour pouvoir cliquer sur le bouton *Activer* d’une application partenaire dans le menu Services Web.
+    ![Applications][2]
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-Cette action ne doit pas être exécutée avec le profil utilisé pour l’administration T&E normale, et ce pour les raisons suivantes.
+    ![Applications][3]
 
-1. Le client doit être celui qui clique sur *Oui* dans la boîte de dialogue qui s’affiche quand une application est activée. Ce clic signifie que le client accepte que l’application partenaire accède aux données. Par conséquent, vous ou le partenaire ne pouvez pas cliquer sur le bouton Oui.
-2. Si un administrateur de clients ayant activé une application à l’aide du profil d’administrateur T&E quitte l’entreprise (entraînant la désactivation du profil), toute application activée à l’aide de ce profil cessera de fonctionner jusqu’à son activation au moyen d’un autre profil WS Admin actif. C’est pourquoi vous êtes censé créer des profils WS Admin distincts.
-3. Si un administrateur quitte l’entreprise, le nom associé au profil WS Admin peut être remplacé par celui du nouvel administrateur sans affecter l’application activée, dans la mesure où le profil n’a pas besoin d’être désactivé.
+4. Dans la zone de recherche, tapez **Concur**.
 
-**Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :**
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-concur-tutorial/tutorial_concur_search.png)
 
-1. Connectez-vous à votre client **Concur** .
-2. Dans le menu **Administration**, sélectionnez **Web Services**.
-   
-   ![Client Concur](./media/active-directory-saas-concur-tutorial/IC721729.png "Client Concur")
-3. Sur le côté gauche, dans le volet **Web Services**, sélectionnez **Enable Partner Application**.
-   
-   ![Enable Partner Application](./media/active-directory-saas-concur-tutorial/IC721730.png "Enable Partner Application")
-4. Dans la liste **Enable Application**, sélectionnez **Azure Active Directory**, puis cliquez sur **Enable**.
-   
-   ![Microsoft Azure Active Directory](./media/active-directory-saas-concur-tutorial/IC721731.png "Microsoft Azure Active Directory")
-5. Cliquez sur **Yes** pour fermer la boîte de dialogue **Confirm Action**.
-   
-   ![Confirm Action](./media/active-directory-saas-concur-tutorial/IC721732.png "Confirm Action")
-6. Dans le portail Azure Classic, sélectionnez **Concur** dans la liste des applications pour ouvrir la page de boîte de dialogue **Concur**.
-7. Pour ouvrir la boîte de dialogue **Configurer l’approvisionnement d’utilisateurs**, cliquez sur **Configurer l’approvisionnement d’utilisateurs**.
-8. Entrez le nom d’utilisateur et le mot de passe de l’administrateur Concur, puis cliquez sur **Suivant**.
-9. Pour terminer la configuration, dans la page **Confirmation**, cliquez sur le bouton**Terminé**.
+5. Dans le volet de résultats, sélectionnez **Concur**, puis cliquez sur **Ajouter** pour ajouter l’application.
 
-Vous pouvez maintenant créer un compte de test, attendre 10 minutes, puis vérifier la synchronisation du compte à Concur.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-concur-tutorial/tutorial_concur_addfromgallery.png)
 
-## <a name="assign-users"></a>Affecter des utilisateurs
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Concur avec un utilisateur de test appelé « Britta Simon ».
 
-**Pour affecter des utilisateurs à Concur, suivez les étapes ci-dessous :**
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Concur équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Concur associé doit être établie.
 
-1. Dans le portail Azure Classic, créez un compte de test.
-2. Dans la page d’intégration d’applications **Concur**, cliquez sur **Affecter des utilisateurs**.
-   
-   ![Affecter des utilisateurs](./media/active-directory-saas-concur-tutorial/IC769771.png "Affecter des utilisateurs")
-3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
-   
-   ![Oui](./media/active-directory-saas-concur-tutorial/IC767830.png "Oui")
+Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **Nom d’utilisateur** dans Concur.
 
-À présent, patientez 10 minutes et vérifiez que le compte est bien synchronisé avec Concur.
+Pour configurer et tester l’authentification unique Azure AD avec Concur, vous devez suivre les indications des sections suivantes :
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test Concur](#creating-a-concur-test-user)** pour avoir un équivalent de Britta Simon dans Concur lié à la représentation Azure AD associée.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Concur.
+
+**Pour configurer l’authentification unique Azure AD avec Concur, effectuez les étapes suivantes :**
+
+1. Dans le portail Azure, dans la page d’intégration de l’application **Concur**, cliquez sur **Authentification unique**.
+
+    ![Configurer l’authentification unique][4]
+
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Configurer l’authentification unique](./media/active-directory-saas-concur-tutorial/tutorial_concur_samlbase.png)
+
+3. Dans la section **Domaine et URL Concur**, effectuez les étapes suivantes :
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-concur-tutorial/tutorial_concur_url.png)
+
+    a. Dans la zone de texte **URL de connexion**, tapez la valeur au format suivant : `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
+
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<customer-domain>.concursolutions.com`
+
+    > [!NOTE] 
+    > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Concur](https://www.concur.co.in/contact). 
+
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-concur-tutorial/tutorial_concur_certificate.png) 
+
+5. Cliquez sur le bouton **Enregistrer** .
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-concur-tutorial/tutorial_general_400.png)
+<CS>
+
+6. Pour configurer l’authentification unique du côté **Concur**, vous devez envoyer le **XML de métadonnées** téléchargé aux techniciens du support technique Concur. Ils configurent ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+
+  >[!NOTE]
+  >La configuration de votre abonnement Concur pour l’authentification unique fédérée par le biais de SAML constitue une tâche séparée qui doit être effectuée par l’[équipe de support technique Concur](https://www.concur.co.in/contact) à votre demande. 
+  
+<CE>
+
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+
+![Créer un utilisateur Azure AD][100]
+
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-concur-tutorial/create_aaduser_01.png) 
+
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-concur-tutorial/create_aaduser_02.png) 
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-concur-tutorial/create_aaduser_03.png) 
+
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-concur-tutorial/create_aaduser_04.png) 
+
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
+
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
+
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+
+    d. Cliquez sur **Create**.
+ 
+### <a name="creating-a-concur-test-user"></a>Création d’un utilisateur de test Concur
+
+L’application prend en charge l’approvisionnement d’utilisateur juste-à-temps, et après authentification, les utilisateurs sont créés automatiquement dans l’application.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Concur.
+
+![Affecter des utilisateurs][200] 
+
+**Pour affecter Britta Simon à Concur, effectuez les étapes suivantes :**
+
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+
+    ![Affecter des utilisateurs][201] 
+
+2. Dans la liste des applications, sélectionnez **Concur**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-concur-tutorial/tutorial_concur_app.png) 
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Affecter des utilisateurs][202] 
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
+    ![Affecter des utilisateurs][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Quand vous cliquez sur la mosaïque Concur dans le panneau d’accès, la page de connexion de l’application Concur doit apparaître.
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Ressources supplémentaires
+
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Configurer l’approvisionnement de l’utilisateur](active-directory-saas-concur-provisioning-tutorial.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-concur-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-concur-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-concur-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-concur-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-concur-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-concur-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-concur-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-concur-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-concur-tutorial/tutorial_general_203.png
 
 

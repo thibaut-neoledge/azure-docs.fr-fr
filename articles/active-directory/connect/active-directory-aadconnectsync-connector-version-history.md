@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 244ca634cfd47ee37e3845380ac05dc68d406621
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: e9699abe0c1bdb6ea449c99e087ae56adb717b8d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="connector-version-release-history"></a>Historique de publication des versions du connecteur
@@ -38,11 +38,53 @@ Liens connexes :
 * [connecteur PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
 * [connecteur Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
+## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
+
+### <a name="fixed-issues"></a>Problèmes résolus :
+
+* Services web génériques :
+  * L’outil Wsconfig n’a pas converti correctement le tableau Json à partir de « exemple de demande » pour la méthode de service REST. Pour cette raison, des problèmes se sont produits lors de la sérialisation de ce tableau Json pour la demande REST.
+  * L’outil de configuration du connecteur de service web ne prend pas en charge l’utilisation de symboles d’espace dans les noms d’attributs JSON. Le modèle de substitution peut être ajouté manuellement au fichier WSConfigTool.exe.config, par exemple ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+
+* Lotus Notes :
+  * Quand l’option **Allow custom certifiers for Organization/Organizational Units** (Autoriser les certificateurs personnalisés pour les organisations/unités d’organisation) est désactivée, le connecteur échoue pendant l’exportation (mise à jour). Après le flux d’exportation, tous les attributs sont exportés vers Domino, mais au moment de l’exportation KeyNotFoundException est retournée à la synchronisation. Cela se produit car l’opération de renommage échoue quand elle tente de changer le nom unique (attribut UserName) en modifiant l’un des attributs ci-dessous :  
+    - LastName
+    - FirstName
+    - MiddleInitial
+    - AltFullName
+    - AltFullNameLanguage
+    - Unité d’organisation
+    - altcommonname
+
+  * Quand l’option **Allow custom certifiers for Organization/Organizational Units** (Autoriser les certificateurs personnalisés pour les organisations/unités d’organisation) est activée, mais que les certificateurs nécessaires sont encore vides, une exception KeyNotFoundException se produit.
+
+### <a name="enhancements"></a>Améliorations :
+
+* SQL générique :
+  * **Scénario : Réimplémenté :** fonctionnalité « * »
+  * **Description de la solution :** modification de l’approche pour la [gestion des attributs de référence à valeurs multiples](active-directory-aadconnectsync-connector-genericsql.md).
+
+
+### <a name="fixed-issues"></a>Problèmes résolus :
+
+* Services web génériques :
+  * Impossible d’importer la configuration serveur si le connecteur de service web est présent
+  * Le connecteur de service web ne fonctionne pas avec plusieurs services web
+
+* SQL générique :
+  * Aucun type d’objet n’est répertorié pour l’attribut référencé à valeur unique
+  * L’importation différentielle sur la stratégie Change Tracking supprime objet lorsque la valeur est supprimée de la table à valeurs multiples
+  * OverflowException dans le connecteur GSQL avec DB2 sur AS/400
+
+Lotus :
+  * Ajout de l’option pour activer/désactiver la recherche d’unités d’organisation avant d’ouvrir la page GlobalParameters
+
 ## <a name="114430"></a>1.1.443.0
 
 Publié : mars 2017
 
 ### <a name="enhancements"></a>Améliorations
+
 * SQL générique :</br>
   **Symptômes du scénario :** Avec cette limitation connue du connecteur SQL, seule une référence à un type d’objet est autorisée et une référence croisée avec des membres est requise. </br>
   **Description de la solution :** À l’étape de traitement des références pour lesquelles l’option « * » est sélectionnée, toutes les combinaisons de types d’objets sont renvoyées au moteur de synchronisation.

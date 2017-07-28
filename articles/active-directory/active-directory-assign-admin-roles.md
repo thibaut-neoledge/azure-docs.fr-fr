@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/14/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: b29633d93484950d6657fc1d618fa0f1a2d5c01a
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 1d3c9023ff4d3a722363d38d3c927fb7f4304448
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -35,7 +35,9 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **Administrateur de facturation**: effectue les achats, gère les abonnements ainsi que les tickets de support et surveille l’état des services.
 
-* **Administrateur de conformité** : les utilisateurs disposant de ce rôle possèdent des autorisations de gestion dans le Centre de sécurité et conformité compatibilité de la sécurité Office 365 et le Centre d'administration Exchange. Pour plus d’informations, consultez l’article [À propos des rôles d’administrateur Office 365](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1).
+* **Administrateur de conformité** : les utilisateurs ayant ce rôle disposent des autorisations de gestion dans le Centre de sécurité et conformité Office 365 et dans le Centre d’administration Exchange. Pour plus d’informations, consultez l’article [À propos des rôles d’administrateur Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+
+* **Administrateur de l’accès conditionnel** : les utilisateurs disposant de ce rôle peuvent gérer les paramètres d’accès conditionnel Azure Active Directory.
 
 * **Administrateur de service CRM** : les utilisateurs disposant de ce rôle ont des autorisations globales dans Microsoft CRM Online, lorsque le service est présent. Ils peuvent également gérer les tickets de support et surveiller l’état des services. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -102,11 +104,15 @@ Les rôles d’administrateur disponibles sont les suivants :
 | --- | --- |
 |<p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p><p>Effectuer des opérations de facturation et d’achat pour des produits Office</p> |<p>Réinitialiser les mots de passe utilisateur</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Afficher les journaux d’audit</p>|
 
+### <a name="conditional-access-administrator"></a>Administrateur de l’accès conditionnel
+| Peut | Ne peut pas |
+| --- | --- |
+|<p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les paramètres d’accès conditionnel</p> |<p>Réinitialiser les mots de passe utilisateur</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Afficher les journaux d’audit</p>|
+
 ### <a name="global-administrator"></a>Administrateur général
 | Peut | Ne peut pas |
 | --- | --- |
-| <p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p><p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Réinitialiser les mots de passe utilisateur</p>
-<p>Réinitialiser les mots de passe de l’autre administrateur</p> <p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Activer ou désactiver l’authentification multifacteur</p><p>Afficher les journaux d’audit</p> |N/A |
+|<p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p><p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Réinitialiser les mots de passe utilisateur</p><p>Réinitialiser les mots de passe de l’autre administrateur</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Activer ou désactiver l’authentification multifacteur</p><p>Afficher les journaux d’audit</p> |<p>N/A</p>|
 
 ### <a name="password-administrator"></a>Administrateur de mots de passe
 | Peut | Ne peut pas |
@@ -156,6 +162,17 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 
 ## <a name="assign-or-remove-administrator-roles"></a>Attribution ou suppression de rôles d’administrateur
 Pour découvrir comment attribuer des rôles d’administration à un utilisateur dans Azure Active Directory, consultez l’article [Attribution de rôles d’administrateur à un utilisateur d’Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="deprecated-roles"></a>Rôles déconseillés
+
+Les rôles suivants ne doivent pas être utilisés. Ils sont déconseillés et seront prochainement supprimés d’Azure AD.
+
+* Administrateur de licences ad hoc
+* Créateur d’utilisateur vérifié par e-mail
+* Jonction d’appareils
+* Gestionnaires d’appareils
+* Utilisateurs d’appareils
+* Jonction d’appareils d’espace de travail
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la modification des administrateurs d’un abonnement Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md)

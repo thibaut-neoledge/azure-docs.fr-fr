@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 07/17/2017
+ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 08df9939eb31c224d62d96a0d034d1cda10ba270
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 32b5e5a8025be3381e20aad0b22289b2c641f74e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure Active Directory Connect Sync : attributs synchronisés avec Azure Active Directory
@@ -54,6 +53,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Détermine si un compte est activé. |
 | assistant |X |X | | |
+| altRecipient |X | | |Nécessite Azure AD Connect 1.1.552.0 ou version ultérieure. |
 | authOrig |X |X |X | |
 | c |X |X | | |
 | cn |X | |X | |
@@ -432,6 +432,7 @@ Ces attributs sont écrits en différé depuis Azure AD vers Active Directory lo
 | msExchUCVoiceMailSettings |X | | |Activer la messagerie unifiée (MU) - messagerie vocale en ligne : utilisée par l’intégration de Microsoft Lync Server pour indiquer à Lync Server local que l’utilisateur dispose de la messagerie vocale dans les services en ligne. |
 | msExchUserHoldPolicies |X | | |Conservation pour litige : permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige. |
 | proxyAddresses |X |X |X |Seule l’adresse x500 d’Exchange Online est insérée. |
+| publicDelegates |X | | |Permet à une boîte aux lettres Exchange Online d’obtenir des droits SendOnBehalfTo sur les boîtes aux lettres Exchange sur site des utilisateurs. Nécessite Azure AD Connect 1.1.552.0 ou version ultérieure. |
 
 ## <a name="exchange-mail-public-folder"></a>Dossier public de messagerie Exchange
 Ces attributs sont synchronisés de l’annuaire Active Directory local vers Azure AD quand vous choisissez d’activer le **dossier public d’Exchange Mail**.

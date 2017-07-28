@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 07/05/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d1756dee37771941caae781682b342986c7ecbc9
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: f3f4a2e721b1a75a5b92a5c17a9939c7013340d4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/27/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Présentation des API .NET standard pour les connexions hybrides Azure Relay
+
 Cet article passe en revue les principales [API clientes](/dotnet/api/microsoft.azure.relay) .NET standard pour les connexions hybrides Azure Relay.
   
 ## <a name="relay-connection-string-builder"></a>Générateur de chaînes de connexion Relay
-La classe [RelayConnectionStringBuilder][RelayConnectionStringBuilder] permet d’obtenir des chaînes de connexion présentant le format spécifique des connexions hybrides Relay. Vous pouvez l’utiliser pour vérifier le format d’une chaîne de connexion ou pour créer une chaîne de connexion à partir de zéro. Par exemple :
+
+La classe [RelayConnectionStringBuilder][RelayConnectionStringBuilder] met en forme des chaînes de connexion propres aux connexions hybrides Relay. Vous pouvez l’utiliser pour vérifier le format d’une chaîne de connexion ou pour créer une chaîne de connexion à partir de zéro. Le code suivant montre un exemple :
 
 ```csharp
 var endpoint = "{Relay namespace}";
@@ -44,7 +46,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 };
 ```
 
-Vous pouvez également transmettre une chaîne de connexion directement à la méthode `RelayConnectionStringBuilder`. Cela vous permet de vérifier que la chaîne de connexion présente un format valide. Si les paramètres ne sont pas valides, le constructeur lèvera une exception `ArgumentException`.
+Vous pouvez également transmettre une chaîne de connexion directement à la méthode `RelayConnectionStringBuilder`. Cette opération vous permet de vérifier que le format de la chaîne de connexion est valide. Si des paramètres ne sont pas valides, le constructeur génère une `ArgumentException`.
 
 ```csharp
 var myConnectionString = "{RelayConnectionString}";
@@ -67,7 +69,7 @@ La classe [HybridConnectionStream][HCStream] est l’objet principal utilisé po
 ### <a name="getting-a-hybrid-connection-stream"></a>Obtention d’un flux de connexion hybride
 
 #### <a name="listener"></a>Écouteur
-À l’aide d’un [HybridConnectionListener][HCListener], vous pouvez obtenir un `HybridConnectionStream` comme suit :
+À l’aide d’un [HybridConnectionListener][HCListener], vous pouvez obtenir un objet `HybridConnectionStream` comme suit :
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -79,7 +81,7 @@ var hybridConnectionStream = await listener.AcceptConnectionAsync();
 ```
 
 #### <a name="client"></a>Client
-À l’aide d’un [HybridConnectionClient][HCClient], vous pouvez obtenir un `HybridConnectionStream` comme suit :
+À l’aide d’un [HybridConnectionClient][HCClient], vous pouvez obtenir un objet `HybridConnectionStream` comme suit :
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -89,9 +91,9 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
 ### <a name="receiving-data"></a>Réception de données
-La classe [HybridConnectionStream][HCStream] permet une communication bidirectionnelle. Dans la plupart des cas, vous aurez besoin de recevoir des données en continu à partir du flux. Si vous lisez du texte à partir du flux, vous pouvez également utiliser un [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx), qui facilite l’analyse des données. Par exemple, vous pouvez lire les données sous forme de texte plutôt que sous forme de `byte[]`.
+La classe [HybridConnectionStream][HCStream] permet une communication bidirectionnelle. Dans la plupart des cas, vous recevez en continu à partir du flux. Si vous lisez du texte à partir du flux, vous pouvez également utiliser un objet [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx), qui facilite l’analyse des données. Par exemple, vous pouvez lire les données sous forme de texte plutôt que sous forme de `byte[]`.
 
-Le code suivant lit des lignes individuelles de texte à partir du flux jusqu’à ce qu’une annulation soit demandée.
+Le code suivant lit des lignes individuelles de texte à partir du flux jusqu’à ce qu’une annulation soit demandée :
 
 ```csharp
 // Create a CancellationToken, so that we can cancel the while loop
