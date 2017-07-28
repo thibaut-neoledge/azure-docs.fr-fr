@@ -15,20 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 756141fda3148726af0030a010465ee14e8ce6b6
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 1eb90d44797d66f3e09811918ce5a7f4ad4287c6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-# Les différentes méthodes de création d’une machine virtuelle Linux dans Azure
-<a id="different-ways-to-create-a-linux-virtual-machine-in-azure" class="xliff"></a>
+# <a name="different-ways-to-create-a-linux-virtual-machine-in-azure"></a>Les différentes méthodes de création d’une machine virtuelle Linux dans Azure
 Dans Azure, vous avez la possibilité de créer une machine virtuelle (VM) Linux à l’aide des outils et des flux de travail qui vous conviennent. Cet article résume ces différences et fournit des exemples pour créer vos machines virtuelles Linux.
 
-## Interface de ligne de commande Azure
-<a id="azure-cli" class="xliff"></a>
+## <a name="azure-cli"></a>Interface de ligne de commande Azure
 Vous pouvez créer des machines virtuelles dans Azure à l’aide d’une des versions suivantes de CLI :
 
 - Azure CLI 1.0 : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager (cet article)
@@ -66,18 +63,15 @@ L’interface de ligne de commande Azure 1.0 est disponible sur les plateformes
         --size-in-GB 5
     ```
 
-## Portail Azure
-<a id="azure-portal" class="xliff"></a>
+## <a name="azure-portal"></a>Portail Azure
 Le [portail Azure](https://portal.azure.com) vous permet de créer rapidement une machine virtuelle, puisque vous n’avez rien à installer sur votre système. Utilisez le portail Azure pour créer la machine virtuelle :
 
 * [Créer une machine virtuelle Linux à l’aide du portail Azure](quick-create-portal.md) 
 
-## Système d'exploitation et choix d'images
-<a id="operating-system-and-image-choices" class="xliff"></a>
+## <a name="operating-system-and-image-choices"></a>Système d'exploitation et choix d'images
 Lors de la création d’une machine virtuelle, vous choisissez une image basée sur le système d’exploitation que vous souhaitez exécuter. Microsoft Azure et ses partenaires proposent de nombreuses images, dont certaines comprennent des applications et des outils préinstallés. Sinon, téléchargez l’une de vos propres images (voir [la section ci-dessous](#use-your-own-image)).
 
-### Images Microsoft Azure
-<a id="azure-images" class="xliff"></a>
+### <a name="azure-images"></a>Images Microsoft Azure
 Utilises les commandes de l’interface de ligne de commande `azure vm image` pour voir ce qui est disponible par éditeur, version de distributeur et build.
 
 Procédez comme suit pour répertorier les éditeurs disponibles :
@@ -104,8 +98,6 @@ Procédez comme suit pour répertorier toutes les images disponibles pour une ve
 azure vm image list --location eastus --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
 ```
 
-Pour obtenir des exemples sur la navigation et l’utilisation d’images disponibles, consultez la page [Sélectionner des images de VM Linux avec l’interface de ligne de commande Azure](cli-ps-findimage.md#use-azure-cli-10).
-
 Les commandes `azure vm quick-create` et `azure vm create` disposent d’alias que vous pouvez utiliser pour accéder rapidement aux distributeurs les plus courants et à leurs versions les plus récentes. Il est souvent plus rapide d’utiliser des alias que d’avoir à spécifier l’éditeur, l’offre, la référence et la version à chaque fois que vous créez une machine virtuelle :
 
 | Alias | Éditeur | Offer | SKU | Version |
@@ -118,8 +110,7 @@ Les commandes `azure vm quick-create` et `azure vm create` disposent d’alias q
 | SLES |SLES |SLES |12-SP1 |le plus récent |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |le plus récent |
 
-### Utiliser votre propre image
-<a id="use-your-own-image" class="xliff"></a>
+### <a name="use-your-own-image"></a>Utiliser votre propre image
 Si vous avez besoin de personnalisations spécifiques, vous pouvez utiliser une image basée sur une machine virtuelle Azure existante, en *capturant* cette machine virtuelle. Vous pouvez également télécharger une image créée sur site. Pour plus d’informations sur les versions prises en charge et comment utiliser vos propres images, consultez les articles suivants :
 
 * [Distributions prises en charge par Azure](endorsed-distros.md)
@@ -135,8 +126,7 @@ Si vous avez besoin de personnalisations spécifiques, vous pouvez utiliser une 
     azure vm capture --resource-group myResourceGroup --vm-name myVM --vhd-name-prefix myCapturedVM
     ```
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 * Créez une machine virtuelle Linux à partir du [portail](quick-create-portal.md), avec l’[interface de ligne de commande](quick-create-cli.md) ou à l’aide d’un [modèle Azure Resource Manager](../windows/cli-deploy-templates.md).
 * Après avoir créé une machine virtuelle Linux, [ajoutez un disque de données](add-disk.md).
 * Étapes rapides pour [réinitialiser un mot de passe ou des clés SSH et gérer les utilisateurs](using-vmaccess-extension.md)

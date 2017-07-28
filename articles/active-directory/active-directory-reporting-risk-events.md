@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 07/15/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 4a70001f22b47546674c365705554ab30e05f53d
-ms.lasthandoff: 03/24/2017
-
+ms.reviewer: dhanyahk
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: cb36fdd0032d6d3c47e68a782d3bba427fe9fcd5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/14/2017
 
 ---
 # <a name="azure-active-directory-risk-events"></a>Événements à risque dans Azure Active Directory
@@ -64,7 +65,7 @@ Il s’agit d’un algorithme d’apprentissage automatique qui ignore les «*fa
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Connexions depuis des emplacements non connus
 
-Ce type d’événement à risque prend en compte les emplacements de connexion passés (IP, latitude/longitude et NSA) pour déterminer les emplacements non connus/nouveaux. Le système stocke les informations sur les emplacements précédents d’un utilisateur et considère ces emplacements comme « connus ». L’événement à risque est déclenché lorsque la connexion a lieu depuis un emplacement qui ne figure pas dans la liste des emplacements connus. Le système présente une période d’apprentissage initiale de 14 jours, durant laquelle il ne signale pas les nouveaux emplacements en tant qu’emplacements non connus. Le système ignore également les connexions depuis les appareils connus et les emplacements géographiquement proches d’un emplacement connu. 
+Ce type d’événement à risque prend en compte les emplacements de connexion passés (IP, latitude/longitude et NSA) pour déterminer les emplacements non connus/nouveaux. Le système stocke les informations sur les emplacements précédents d’un utilisateur et considère ces emplacements comme « connus ». L’événement à risque est déclenché quand la connexion se fait depuis un emplacement qui ne figure pas dans la liste des emplacements connus. Le système a une période d’apprentissage initiale de 30 jours, durant laquelle il ne signale pas les nouveaux emplacements en tant qu’emplacements non connus. Le système ignore également les connexions depuis les appareils connus et les emplacements géographiquement proches d’un emplacement connu. 
 
 ### <a name="sign-ins-from-infected-devices"></a>Connexions depuis des appareils infectés
 
@@ -131,11 +132,11 @@ Nous vous recommandons de contacter immédiatement l’utilisateur pour vérifie
 En règle générale, les événements de ce type donnent une bonne indication qu’un pirate est parvenu à se connecter avec le compte correspondant. Cependant, des faux positifs peuvent se produire lorsqu’un utilisateur en déplacement utilise un nouvel appareil ou un VPN qu’aucun autre membre de l’organisation n’utilise. Des faux positifs peuvent également survenir si des applications transmettent incorrectement des adresses IP de serveurs en tant qu’adresses IP de clients, ce qui peut donner l’impression que les connexions se font depuis le centre de données où le serveur principal de cette application est hébergé (il s’agit souvent d’un centre de données Microsoft, ce qui peut donner l’impression que les connexions se font depuis des adresses IP appartenant à Microsoft). En raison de ces faux positifs, le niveau de risque de cet événement est défini sur **Moyen**.
 
 > [!TIP]
-> Vous pouvez réduire la quantité de faux positifs signalés pour ce type d’événement à risque en configurant des [réseaux nommés](active-directory-known-networks-azure-portal.md). 
+> Vous pouvez réduire la quantité de faux positifs signalés pour ce type d’événement à risque en configurant des [emplacements nommés](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Connexions depuis des emplacements non connus
 
-Les emplacements non connus peuvent donner une indication forte qu’un pirate tente d’utiliser une identité volée. Des faux positifs peuvent se produire lorsqu’un utilisateur est en déplacement, essaie un nouvel appareil ou utilise un nouveau VPN. C’est pourquoi le niveau de risque de ce type d’événement est défini sur **Moyen**.
+Les emplacements non connus peuvent donner une indication forte qu’un pirate tente d’utiliser une identité volée. De faux positifs peuvent se produire quand un utilisateur est en déplacement, essaie un nouvel appareil ou utilise un nouveau VPN. C’est pourquoi le niveau de risque de ce type d’événement est défini sur **Moyen**.
 
 ### <a name="sign-ins-from-infected-devices"></a>Connexions depuis des appareils infectés
 
@@ -176,3 +177,4 @@ Il existe deux emplacements dans lesquels vous pouvez passer en revue les évén
 
 Bien que la détection des événements à risque représente déjà un aspect important de la protection de vos identités, vous pouvez également les résoudre manuellement ou implémenter des réponses automatisées en configurant des stratégies d’accès conditionnel. Pour plus de détails, consultez [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
  
+

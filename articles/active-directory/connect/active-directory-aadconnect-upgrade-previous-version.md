@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 085706dacdcb0cd5a4169ccac4dc7fd8b8ddb6e0
-ms.lasthandoff: 03/03/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 03de42352b92692a0fa5c6ee3f335592cb2b66c1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect : effectuer une mise à niveau vers la dernière version
@@ -46,6 +46,8 @@ Nous vous recommandons cette méthode si vous avez un seul serveur et moins de 1
 ![Mise à niveau sur place](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
 Si vous avez apporté des modifications aux règles de synchronisation par défaut, celles-ci retrouvent leur configuration par défaut au moment de la mise à niveau. Pour conserver votre configuration d’une mise à niveau à l’autre, vérifiez que les modifications sont effectuées conformément aux [meilleures pratiques pour modifier la configuration par défaut](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
+
+Pendant la mise à niveau sur place, des modifications introduites peuvent nécessiter l’exécution d’activités de synchronisation spécifiques (notamment les étapes d’importation complète et de synchronisation complète) une fois la mise à niveau terminée. Pour différer ces activités, consultez la section [Comment différer la synchronisation complète après la mise à niveau](#how-to-defer-full-synchronization-after-upgrade).
 
 ## <a name="swing-migration"></a>Migration « swing »
 Si vous avez un déploiement complexe ou un nombre d’objets élevé, il peut être difficile d’effectuer une mise à niveau sur place sur le système réel. Pour certains clients, ce processus peut prendre plusieurs jours pendant lesquels aucune modification différentielle n’est traitée. Vous pouvez également utiliser cette méthode lorsque vous envisagez d’apporter des modifications importantes à votre configuration et que vous souhaitez les tester avant de les envoyer dans le cloud.
@@ -89,6 +91,42 @@ Pour déplacer des règles de synchronisation personnalisées, procédez comme s
 3. Le GUID du connecteur est différent sur le serveur intermédiaire et doit être modifié. Pour obtenir le GUID, démarrez **l’Éditeur de règles de synchronisation**, sélectionnez une des règles par défaut représentant le même système connecté, puis cliquez sur **Exporter**. Remplacez le GUID dans votre fichier PS1 par le GUID se trouvant sur le serveur de test.
 4. Dans une invite de PowerShell, exécutez le fichier PS1. Cette action crée la règle de synchronisation personnalisée sur le serveur intermédiaire.
 5. Répétez cette procédure pour toutes vos règles personnalisées.
+
+## <a name="how-to-defer-full-synchronization-after-upgrade"></a>Comment différer la synchronisation complète après la mise à niveau
+Pendant la mise à niveau sur place, des modifications introduites peuvent nécessiter l’exécution d’activités de synchronisation spécifiques (notamment les étapes d’importation complète et de synchronisation complète). Par exemple, les modifications du schéma de connecteur nécessitent l’exécution de l’étape **Importation complète**, et les modifications des règles de synchronisation par défaut nécessitent l’exécution de l’étape **Synchronisation complète** sur les connecteurs affectés. Pendant la mise à niveau, Azure AD Connect détermine les activités de synchronisation requises et les enregistre en tant qu’*actions prioritaires*. Dans le cycle de synchronisation suivant, le planificateur de synchronisation récupère ces actions prioritaires et les exécute. Dès qu’une action prioritaire a été exécutée avec succès, elle est supprimée.
+
+Il peut arriver que vous ne souhaitiez pas que ces actions prioritaires aient lieu immédiatement après la mise à niveau. Par exemple, vous avez de nombreux objets synchronisés et vous souhaitez que ces étapes de synchronisation aient lieu après les heures de bureau. Pour supprimer ces actions prioritaires :
+
+1. Pendant la mise à niveau, **désactivez** l’option **Démarrez le processus de synchronisation une fois la configuration terminée**. Cela désactive le planificateur de synchronisation et empêche l’exécution automatique du cycle de synchronisation avant la suppression des actions prioritaires.
+
+   ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
+
+2. Une fois la mise à niveau terminée, exécutez l’applet de commande suivante pour connaître les actions prioritaires qui ont été ajoutées : `Get-ADSyncSchedulerConnectorOverride | fl`
+
+   >[!NOTE]
+   > Les actions prioritaires sont propres au connecteur. Dans l’exemple suivant, les étapes d’importation complète et de synchronisation complète ont été ajoutées au connecteur Active Directory et au connecteur Azure AD locaux.
+
+   ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync02.png)
+
+3. Prenez note des actions prioritaires existantes qui ont été ajoutées.
+   
+4. Pour supprimer les actions prioritaires pour l’importation complète et la synchronisation complète sur un connecteur arbitraire, exécutez l’applet de commande suivante : `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+
+   Pour supprimer les actions prioritaires sur tous les connecteurs, exécutez le script PowerShell suivant :
+
+   ```
+   foreach ($connectorOverride in Get-ADSyncSchedulerConnectorOverride)
+   {
+       Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier $connectorOverride.ConnectorIdentifier.Guid -FullSyncRequired $false -FullImportRequired $false
+   }
+   ```
+
+5. Pour redémarrer le planificateur, exécutez l’applet de commande suivante : `Set-ADSyncScheduler -SyncCycleEnabled $true`
+
+   >[!IMPORTANT]
+   > N’oubliez pas d’exécuter les étapes de synchronisation requises dès que vous le pourrez. Vous pouvez exécuter ces étapes manuellement à l’aide de Synchronization Service Manager ou rajouter les actions prioritaires à l’aide de l’applet de commande Set-ADSyncSchedulerConnectorOverride.
+
+Pour ajouter les actions prioritaires pour l’importation complète et la synchronisation complète sur un connecteur arbitraire, exécutez l’applet de commande suivante : `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur [l’intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

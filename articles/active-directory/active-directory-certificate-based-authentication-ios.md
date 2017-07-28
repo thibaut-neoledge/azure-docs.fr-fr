@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/30/2017
+ms.date: 06/07/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e30d5c81817eb3501615763553d501509c559f0c
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 162be9faa51047f4d0be0e73e3dbe6a3dc87ba4c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Authentification par certificat Azure Active Directory sur iOS
@@ -30,7 +30,7 @@ L’authentification par certificat (CBA) vous permet d’être authentifié par
 
 La configuration de cette fonctionnalité élimine le besoin d’entrer un nom d’utilisateur et un mot de passe dans certaines applications de messagerie et Microsoft Office sur votre appareil mobile. 
 
-Cette rubrique vous indique la configuration requise et les scénarios pris en charge pour la configuration de l’authentification par certificat sur un appareil iOS pour les utilisateurs de locataires dans les plans Office 365 Entreprise, Business, Éducation et US Government. 
+Cette rubrique vous indique la configuration requise et les scénarios pris en charge pour la configuration de l’authentification par certificat sur un appareil iOS pour les utilisateurs des locataires dans les plans Office 365 Enterprise, Business, Education, US Government et Chine.
 
 Cette fonctionnalité est disponible en version préliminaire dans les plans Office 365 US Government Defense et US Government Federal.
 
@@ -47,6 +47,7 @@ Cette fonctionnalité est disponible en version préliminaire dans les plans Off
 | Outlook |![Vérification][1] |
 | Yammer |![Vérification][1] |
 | Skype Entreprise |![Vérification][1] |
+| Microsoft Teams |![Vérification][1] |
 
 ## <a name="requirements"></a>Configuration requise 
 

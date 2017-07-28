@@ -22,9 +22,11 @@ Les nouvelles références SKU de passerelle rationalisent les ensembles de fonc
 
 | **Référence (SKU)**| **Caractéristiques**|
 | ---    | ---         |
-| VpnGw1<br>VpnGw2<br>VpnGw3|VPN basé sur l’itinéraire jusqu’à 30 tunnels* <br>P2S, BGP, actif/actif, stratégie IPsec/IKE personnalisée, coexistence de ExpressRoute/VPN <br><br>* Vous pouvez configurer « PolicyBasedTrafficSelectors » pour connecter une passerelle VPN basée sur l’itinéraire (VpnGw1, VpnGw2, VpnGw3) à plusieurs pare-feu locaux basés sur des stratégies. Pour en savoir plus, consultez la section [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Connecter des passerelles VPN à plusieurs appareils VPN basés sur des stratégies via PowerShell). |
 |De base   | Basé sur l’itinéraire : 10 tunnels avec P2S<br>Basée sur la stratégie (IKEv1) : 1 tunnel 1 ; aucun P2S|
+| VpnGw1, VpnGw2, VpnGw3 |VPN basé sur l’itinéraire jusqu’à 30 tunnels (*) <br>P2S, BGP, actif/actif, stratégie IPsec/IKE personnalisée, coexistence de ExpressRoute/VPN |
 |        |             |
+
+(*) Vous pouvez configurer « PolicyBasedTrafficSelectors » pour connecter une passerelle VPN basée sur l’itinéraire (VpnGw1, VpnGw2, VpnGw3) à plusieurs pare-feu locaux basés sur des stratégies. Pour en savoir plus, consultez la section [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Connecter des passerelles VPN à plusieurs appareils VPN basés sur des stratégies via PowerShell).
 
 ###  <a name="resize"></a>Redimensionnement des références SKU de passerelle
 

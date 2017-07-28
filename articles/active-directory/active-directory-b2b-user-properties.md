@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/25/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3d7801d8a53ac048333e43ee64724c11c25bf6a8
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 6e49cb202ed03bf50fb9ca34d34924cda434829c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -29,7 +30,7 @@ Un utilisateur Azure Active Directory (Azure AD) B2B (interentreprises) Collabor
 
 Selon les besoins de l’organisation qui émet l’invitation, un utilisateur Azure AD B2B Collaboration peut présenter l’un des états de compte suivants :
 
-- État 1 : hébergé dans une instance externe d’Azure AD et représenté sous la forme d’un utilisateur invité de l’organisation hôte. Dans ce cas, l’utilisateur B2B se connecte avec un compte Azure AD qui appartient à sa location d’origine. Si l’organisation externe de l’utilisateur n’utilise pas Azure AD au moment de l’invitation, l’utilisateur invité d’Azure AD est créé lorsque l’utilisateur utilise son invitation et qu’Azure AD a vérifié son adresse e-mail. Dans ce cas, on parle également de location juste-à-temps (JIT) ou de location virale.
+- État 1 : hébergé dans une instance externe d’Azure AD et représenté sous la forme d’un utilisateur invité de l’organisation à l’origine de l’invitation. Dans ce cas, l’utilisateur B2B se connecte avec un compte Azure AD qui appartient au locataire invité. Même si l’organisation partenaire n’utilise pas Azure AD, l’utilisateur invité d’Azure AD est créé. Les conditions requises sont les suivantes : les utilisateurs se servent de leur invitation et Azure AD vérifie leur adresse e-mail. Dans ce cas, on parle également de location juste-à-temps (JIT) ou de location « virale ».
 
 - État 2 : hébergé dans un compte Microsoft et représenté en tant qu’utilisateur invité dans l’organisation hôte. Dans ce cas, l’utilisateur invité se connecte avec un compte Microsoft. L’identité sociale de l’utilisateur invité (google.com ou similaire), qui n’est pas un compte Microsoft, est créée en tant que compte Microsoft au cours de l’échange d’offre.
 
@@ -52,10 +53,10 @@ Selon les besoins de l’organisation qui émet l’invitation, un utilisateur A
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Propriétés clés de l’utilisateur Azure AD B2B collaboration
 ### <a name="usertype"></a>UserType
-Cette propriété indique la relation de l’utilisateur avec la location hôte. Il peut avoir deux valeurs :
+Cette propriété indique la relation de l’utilisateur avec la location hôte. Cette propriété peut avoir deux valeurs :
 - Membre : cette valeur désigne un employé de l’organisation hôte et un utilisateur du service de paie de l’organisation. Par exemple, cet utilisateur ne peut accéder qu’à des sites internes. Cet utilisateur ne peut pas être considéré comme collaborateur externe.
 
-- Invité : cette valeur désigne un utilisateur qui n’est pas considéré comme interne à la société. Il peut s’agir d’un collaborateur externe, d’un partenaire, d’un client ou d’un utilisateur similaire qui n’est par exemple pas censé recevoir de mémos internes du PDG, ni obtenir d’avantages de la société.
+- Invité : cette valeur indique un utilisateur qui n’est pas considéré comme interne à l’entreprise, tel qu’un collaborateur externe, un partenaire, un client ou un utilisateur similaire. Un tel utilisateur n’est pas censé recevoir de mémo interne du PDG ou bénéficier des avantages de la société, par exemple.
 
   > [!NOTE]
   > La valeur UserType n’a aucun lien avec le mode de connexion de l’utilisateur, le rôle d’annuaire de l’utilisateur, etc. Cette propriété indique simplement la relation de l’utilisateur avec l’organisation hôte et permet à l’organisation d’appliquer des stratégies qui dépendent de cette propriété.
@@ -76,7 +77,7 @@ Cette propriété indique le mode de connexion de l’utilisateur.
   > Les propriétés Source et UserType sont indépendantes. Une valeur Source donnée n’implique pas une valeur UserType spécifique.
 
 ## <a name="can-azure-ad-b2b-users-be-added-as-members-instead-of-guests"></a>Des utilisateurs Azure AD B2B peuvent-ils être ajoutés en tant que membres plutôt qu’en tant qu’invités ?
-En règle générale, un utilisateur Azure AD B2B et un utilisateur invité sont synonymes. Par conséquent, un utilisateur Azure AD B2B Collaboration est ajouté par défaut en tant qu’utilisateur avec la propriété UserType = Invité. Toutefois, dans certains cas, l’organisation partenaire est un membre d’une organisation plus vaste à laquelle appartient également l’organisation hôte. Il est alors possible que l’organisation hôte veuille traiter les utilisateurs de l’organisation partenaire comme membres plutôt que comme invités. Dans ce cas, utilisez les API du Gestionnaire d’invitations Azure AD B2B pour ajouter ou inviter un utilisateur de l’organisation partenaire dans l’organisation hôte en tant que membre.
+En règle générale, un utilisateur Azure AD B2B et un utilisateur invité sont synonymes. Par conséquent, un utilisateur Azure AD B2B Collaboration est ajouté par défaut en tant qu’utilisateur avec la propriété UserType = Invité. Toutefois, dans certains cas, l’organisation partenaire est un membre d’une organisation plus vaste à laquelle appartient également l’organisation hôte. Il est alors possible que l’organisation hôte veuille traiter les utilisateurs de l’organisation partenaire comme membres plutôt que comme invités. Utilisez les API du Gestionnaire d’invitations Azure AD B2B pour ajouter ou inviter un utilisateur de l’organisation partenaire dans l’organisation hôte en tant que membre.
 
 ## <a name="filter-for-guest-users-in-the-directory"></a>Filtrer les utilisateurs invités dans l’annuaire
 
@@ -86,9 +87,9 @@ En règle générale, un utilisateur Azure AD B2B et un utilisateur invité sont
 Actuellement, les utilisateurs peuvent convertir la valeur Membre de la propriété UserType en valeur Invité, et inversement, en utilisant PowerShell. Toutefois, la propriété UserType est supposée représenter la relation de l’utilisateur avec l’organisation. Par conséquent, la valeur de cette propriété ne doit être modifiée que si la relation de l’utilisateur avec l’organisation change. La modification de cette relation implique-t-elle l’obligation de procéder à d’autres opérations, telles que le changement du nom d’utilisateur principal (UPN) ? L’utilisateur doit-il continuer à avoir accès aux mêmes ressources ? Une boîte aux lettres doit-elle être attribuée ? Nous déconseillons donc la modification de la valeur UserType à l’aide de PowerShell sous la forme d’une activité atomique. En outre, si cette propriété devient non modifiable par le biais de PowerShell, nous déconseillons l’utilisation d’une dépendance sur cette valeur.
 
 ## <a name="remove-guest-user-limitations"></a>Supprimer des limitations pour les utilisateurs invités
-Dans certains cas, vous souhaiterez peut-être donner aux utilisateurs invités des privilèges plus élevés. Dans cette situation, vous pouvez ajouter un utilisateur invité à un rôle quelconque et même supprimer les restrictions d’utilisateur invité par défaut dans l’annuaire afin d’attribuer à l’utilisateur les mêmes privilèges que les membres.
+Dans certains cas, vous souhaiterez peut-être donner aux utilisateurs invités des privilèges plus élevés. Vous pouvez ajouter un utilisateur invité à un rôle quelconque et même supprimer les restrictions d’utilisateur invité par défaut dans le répertoire afin d’attribuer à l’utilisateur les mêmes privilèges que les membres.
 
-Il est possible de désactiver les limitations des utilisateurs invités par défaut afin qu’un utilisateur invité dans l’annuaire de la société reçoive les mêmes autorisations pour l’annuaire qu’un utilisateur standard, qui est un membre.
+Il est possible de désactiver les limitations des utilisateurs invités par défaut afin qu’un utilisateur invité dans le répertoire de la société reçoive les mêmes autorisations qu’un utilisateur membre.
 
 ![Supprimer des limitations pour les utilisateurs invités](media/active-directory-b2b-user-properties/remove-guest-limitations.png)
 

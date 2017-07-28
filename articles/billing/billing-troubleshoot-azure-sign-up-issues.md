@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: a50b4fb4b19acf270aaf94fea613e745ec2af649
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 647509ea36e487aca5db661adb3268e845988f78
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Résoudre les problèmes d’inscription pour Azure
@@ -38,14 +39,17 @@ Effectuez la procédure suivante pour mettre à jour les paramètres de cookies 
 3. Actualisez la page d’inscription à Azure, puis vérifiez si le problème est résolu.
 4. Si l’actualisation n’a pas résolu le problème, quittez et redémarrez votre navigateur, puis réessayez.
 
-## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Aucun message texte ni appel lors de la vérification du compte à l’inscription
-Si vous avez sélectionné **Envoyer un message texte**, il peut falloir jusqu'à quatre minutes pour que votre code texte arrive sur votre téléphone. Évidemment, pour la vérification d’identité, vous devez saisir un numéro de téléphone qui permet de recevoir des messages SMS ou, pour l’option **M’appeler**, des appels. Le numéro de téléphone que vous entrez est utilisé uniquement pour la vérification d’identité et n’est pas stocké sous forme de numéro de contact pour le compte.
+## <a name="credit-card-form-doesnt-support-my-billing-address"></a>Le formulaire relatif à la carte de crédit ne prend pas en charge mon adresse de facturation
+Votre adresse de facturation doit se trouver dans le pays que vous avez sélectionné dans la section **About you** (À propos de vous). Veillez à sélectionner le bon pays.
 
-Voici quelques conseils :
+## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Aucun message texte ni appel lors de la vérification du compte à l’inscription
+Bien que cette opération soit généralement beaucoup plus rapide, jusqu’à quatre minutes peuvent être nécessaires pour obtenir le code de vérification. Le numéro de téléphone que vous entrez pour la vérification n’est pas stocké sous forme de numéro de contact pour le compte.
+
+Voici quelques conseils supplémentaires :
 * Vous ne pouvez pas utiliser un numéro de téléphone VoIP pour le processus de vérification par téléphone.
 * Vérifiez par deux fois le numéro de téléphone saisi, y compris l’indicatif du pays que vous avez sélectionné dans le menu déroulant.
-* Si votre téléphone ne reçoit pas les messages texte (SMS), utilisez l’option **M’appeler**.
-* Si l’étape de vérification par téléphone échoue lorsque vous essayez les options **Envoyer un message texte** et **M’appeler**, utilisez un autre numéro de téléphone.
+* Si votre téléphone ne reçoit pas les messages texte (SMS), essayez l’option **M’appeler**.
+* Vérifiez que votre téléphone peut recevoir des appels ou des SMS provenant d’un numéro basé aux États-Unis.
 
 Lorsque vous obtenez le message texte ou recevez l’appel, entrez le code que vous avez reçu dans la zone de texte.
 
@@ -55,6 +59,9 @@ Les cartes de crédit ou de débit virtuelles ou prépayées ne sont pas accept�
 ## <a name="free-trial-is-not-available"></a>« L'essai gratuit n'est pas disponible »
 Avez-vous utilisé un abonnement Azure auparavant ? Les conditions d’utilisation d’Azure n’autorisent l’activation que d’une seule évaluation gratuite pour tout utilisateur n’ayant jamais utilisé Azure. Si vous avez déjà souscrit un autre type d’abonnement Azure, vous ne pouvez pas activer une version d'évaluation gratuite. Inscrivez-vous à un [abonnement de type paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
+## <a name="i-saw-a-charge-on-my-free-trial-account"></a>J’ai vu des frais sur mon compte d’essai gratuit
+Vous pouvez voir une petite vérification retenue sur votre compte de carte de crédit après que vous vous soyez inscrit, qui est supprimée après 3 à 5 jours. Si vous êtes soucieux quant à la gestion des coûts, lisez-en davantage sur la [prévention des coûts inattendus](https://docs.microsoft.com/azure/billing/billing-getting-started).
+
 ## <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Je n’arrive pas à activer un plan d’avantages Azure de type MSDN, BizSpark, BizSparkPlus ou MPN
 Assurez-vous que vous utilisez les bonnes informations de connexion. Consultez ensuite le programme d’avantages pour vous assurer que vous êtes éligible. 
 
@@ -63,7 +70,7 @@ Assurez-vous que vous utilisez les bonnes informations de connexion. Consultez e
   * Si vous ne pouvez pas vérifier votre état, contactez l’un des [Centres de service client des abonnements MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
 * BizSpark
   * Connectez-vous au [portail BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) et vérifiez l’état de votre éligibilité pour BizSpark et BizSpark Plus.
-  * Si vous ne pouvez pas vérifier votre éligibilité, vous pouvez [contacter l’équipe BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
+  * Si vous ne pouvez pas vérifier votre état, vous pouvez [obtenir de l’aide sur les forums BizSpark](http://aka.ms/bzforums).
 * MPN
   * Connectez-vous au [portail MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) et vérifiez l’état de votre éligibilité. Vous pouvez bénéficier d’avantages supplémentaires si vous disposez des [compétences de plateforme cloud](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) appropriées.
   * Si vous ne pouvez pas vérifier votre état, contactez le [support MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).

@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 19ae04785d78eae43795b92e808ee835b9047229
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: db23eba9ff8debd5268cd02bc4f37c4e6501bfac
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 
 ---
 
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
-Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier son parcours de migration pour que tout se passe sans heurts. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration. 
+Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier le parcours de migration pour éviter tout heurt. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration.
 
-> [!NOTE] 
-> L’aide suivante a majoritairement été rédigée par l’équipe Azure Customer Advisory et les architectes de solutions Cloud qui travaillent avec les clients sur la migration d’environnements de grande taille. De ce fait, ce document sera mis à jour au fil de l’émergence de nouveaux modèles de réussite : revenez régulièrement voir s’il comporte de nouvelles recommandations.
+> [!NOTE]
+> L’aide suivante a majoritairement été rédigée par l’équipe Azure Customer Advisory et les architectes de solutions cloud qui travaillent avec les clients sur la migration d’environnements de grande taille. De ce fait, ce document sera mis à jour au fil de l’émergence de nouveaux modèles de réussite : revenez régulièrement voir s’il comporte de nouvelles recommandations.
 
 Le parcours de migration comprend quatre étapes générales :<br>
 
@@ -39,7 +40,7 @@ Le parcours de migration comprend quatre étapes générales :<br>
 
 Selon la dimension de vos spécifications techniques, vos zones géographiques et vos pratiques opérationnelles, il peut être intéressant de prendre en compte les aspects suivants :
 
-1. Pourquoi votre organisation souhaite-elle passer à Azure Resource Manager ?  Quelles sont les raisons métier de la migration ?
+1. Pourquoi votre organisation souhaite-t-elle passer à Azure Resource Manager ?  Quelles sont les raisons métier de la migration ?
 2. Quelles sont les justifications techniques d’Azure Resource Manager ?  Quels services Azure supplémentaires aimeriez-vous utiliser, le cas échéant ?
 3. Quelles sont les applications (ou les groupes de machines virtuelles) incluses dans la migration ?
 4. Quels sont les scénarios pris en charge par l’API de migration ?  Consultez les [fonctionnalités et configurations non prises en charge](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations).
@@ -53,7 +54,7 @@ Selon la dimension de vos spécifications techniques, vos zones géographiques e
 
 ### <a name="patterns-of-success"></a>Modèles de réussite
 
-Les clients les plus efficaces disposent de plans détaillés qui abordent, documentent et régissent les questions ci-dessus.  Veillez à diffuser largement les plans de migration auprès des commanditaires et des parties prenantes.  Informez-vous sur les options de migration à votre disposition ; il est fortement recommandé de lire cet ensemble de documents sur la migration.
+Les clients les plus efficaces disposent de plans détaillés qui abordent, documentent et régissent les questions précédentes.  Veillez à diffuser largement les plans de migration auprès des commanditaires et des parties prenantes.  Informez-vous sur les options de migration à votre disposition ; il est fortement recommandé de lire cet ensemble de documents sur la migration.
 
 * [Vue d’ensemble de la migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -71,17 +72,17 @@ Les clients les plus efficaces disposent de plans détaillés qui abordent, docu
 - Absence de planification d’une interruption potentielle de l’application pour les utilisateurs finaux.  Prévoyez suffisamment de tampon pour avertir convenablement les utilisateurs finaux que l’application sera potentiellement indisponible pendant un certain temps.
 
 
-## <a name="lab-test"></a>Test en labo 
+## <a name="lab-test"></a>Test en labo
 
 **Répliquer un environnement et effectuer un test de migration**
   > [!NOTE]
   > La réplication à l’exact de l’environnement existant est réalisée à l’aide d’un outil développé par la communauté, qui n’est pas pris en charge officiellement par le Support Microsoft. Il s’agit par conséquent d’une étape **facultative** ; cependant, c’est le meilleur moyen d’identifier des problèmes sans toucher aux environnements de production. S’il ne vous est pas possible d’utiliser un outil développé par la communauté, lisez le passage sur la recommandation d’essai à blanc Valider/Préparer/Abandonner ci-dessous.
   >
-  
-  La meilleure solution pour garantir une migration sans heurts est de mener un test en labo de votre scénario en particulier (calcul, réseau et stockage), afin de garantir :
+
+  La meilleure solution pour garantir une migration sans heurts est de mener un test en labo de votre scénario en particulier (calcul, mise en réseau et stockage), afin de garantir :
 
   - Un laboratoire totalement distinct ou un environnement hors production existant pour les tests. Nous recommandons un laboratoire totalement distinct qui peut faire l’objet de plusieurs migrations et de modifications destructrices.  Les scripts pour collecter/sérialiser les métadonnées à partir des abonnements réels sont listés ci-dessous.
-  - Il est judicieux de créer le laboratoire dans un abonnement distinct. La raison en est que le labo sera détruit à plusieurs reprises ; le fait de disposer d’un abonnement distinct et isolé réduit le risque de supprimer accidentellement des données réelles.
+  - Il est judicieux de créer le laboratoire dans un abonnement distinct. En effet, le labo sera détruit à plusieurs reprises, et le fait de disposer d’un abonnement distinct et isolé réduit le risque de supprimer accidentellement des données réelles.
 
   Pour cela, vous pouvez utiliser l’outil AsmMetadataParser. [En savoir plus sur cet outil](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -89,27 +90,35 @@ Les clients les plus efficaces disposent de plans détaillés qui abordent, docu
 
 Voici quelques-uns des problèmes rencontrés dans la majorité des migrations importantes. Cette liste n’est pas exhaustive. Reportez-vous aux [fonctionnalités et configurations non prises en charge](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) pour plus de détails.  Il n’est pas certain que vous rencontriez ces problèmes techniques ; si c’est le cas, vous garantirez une meilleure expérience en résolvant ces points avant de tenter la migration.
 
-- **Effectuer un essai à blanc Valider/Préparer/Abandonner** : il s’agit sans doute de l’étape la plus importante pour garantir la réussite de la migration de Classic vers Azure Resource Manager. L’API de migration comporte trois étapes principales : valider, préparer et soumettre. L’étape Valider lit l’état de votre environnement Classic et retourne un résultat comportant tous les problèmes. Toutefois, dans la mesure où il peut exister des problèmes dans la pile Azure Resource Manager, elle n’intercepte pas tout. L’étape suivante dans le processus de migration, Préparer, aide à mettre en évidence ces problèmes. Elle déplace les métadonnées de Classic vers Azure Resource Manager, mais ne valide pas le déplacement et ne supprime ni ne modifie rien côté Classic. L’essai à blanc implique de préparer la migration, puis d’abandonner (**ne pas soumettre**) la préparation de la migration. L’essai à blanc Valider/Préparer/Abandonner a pour objectif de montrer toutes les métadonnées de la pile Azure Resource Manager, de les examiner (*par programme ou dans le portail*) et de vérifier que tous les éléments migrent correctement et viennent à bout des problèmes techniques.  Il donne également une idée de la durée de la migration de façon à permettre de planifier un temps d’arrêt adapté.  Une opération Valider/Préparer/Abandonner ne provoque pas de temps d’arrêt pour les utilisateurs ; par conséquent, elle ne perturbe pas l’utilisation des applications.
+- **Effectuer un essai à blanc Valider/Préparer/Abandonner** : il s’agit sans doute de l’étape la plus importante pour garantir la réussite de la migration de Classic vers Azure Resource Manager. L’API de migration comporte trois étapes principales : valider, préparer et soumettre. L’étape Valider lit l’état de votre environnement Classic et retourne un résultat comportant tous les problèmes. Toutefois, dans la mesure où il peut exister des problèmes dans la pile Azure Resource Manager, elle n’intercepte pas tout. L’étape suivante du processus de migration, Préparer, aide à mettre en évidence ces problèmes. Elle déplace les métadonnées de Classic vers Azure Resource Manager, mais ne valide pas le déplacement et ne supprime ni ne modifie rien du côté de Classic. L’essai à blanc implique de préparer la migration, puis d’abandonner (**ne pas soumettre**) la préparation de la migration. L’essai à blanc Valider/Préparer/Abandonner a pour objectif de montrer toutes les métadonnées de la pile Azure Resource Manager, de les examiner (*par programme ou dans le portail*) et de vérifier que tous les éléments migrent correctement et viennent à bout des problèmes techniques.  Il donne également une idée de la durée de la migration de façon à permettre de planifier un temps d’arrêt adapté.  Une opération Valider/Préparer/Abandonner ne provoque pas de temps d’arrêt pour les utilisateurs ; par conséquent, elle ne perturbe pas l’utilisation des applications.
   - Les éléments ci-dessous devront être résolus avant l’essai à blanc, mais un test d’essai à blanc éliminera également sans risque ces étapes de préparation si elles ne sont pas suivies. Nous avons conclu que l’essai à blanc représente un moyen sûr et incomparable d’assurer la préparation à la migration lors de la migration d’entreprise.
   - Au cours de la préparation, le plan de contrôle (opérations de gestion Azure) sera verrouillé pour l’ensemble du réseau virtuel ; ainsi, aucune modification ne pourra être apportée aux métadonnées de la machine virtuelle au cours de l’opération Valider/Préparer/Abandonner.  Par ailleurs, aucune fonction de l’application (bureau à distance, utilisation de la machine virtuelle, etc.) ne sera affectée.  Les utilisateurs des machines virtuelles ne sauront pas que l’essai à blanc est en cours d’exécution.
 
-- **Circuits Express Route et VPN**. Actuellement, il n’est pas possible de migrer les passerelles Express Route avec liens d’autorisation sans temps mort. Vous trouverez une solution de contournement sur la page [Migrer des circuits ExpressRoute et les réseaux virtuels associés du modèle de déploiement classique au modèle de déploiement Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md).
+- **Circuits ExpressRoute et VPN**. Actuellement, il n’est pas possible de migrer les passerelles ExpressRoute avec liens d’autorisation sans temps mort. Vous trouverez une solution de contournement à la page [Migrer des circuits ExpressRoute et les réseaux virtuels associés du modèle de déploiement Classic au modèle de déploiement Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
-- **Extensions de machines virtuelles** : les extensions de machines virtuelles sont potentiellement l’un des principaux obstacles à la migration de machines virtuelles en cours d’exécution. La correction des extensions de machines virtuelles peut prendre plus d’un ou deux jours : adaptez votre planification en conséquence.  Un agent Azure fonctionnel est nécessaire pour rapporter l’état des extensions de machines virtuelles en cours d’exécution. Si l’état renvoyé pour une machine virtuelle en cours d’exécution est mauvais, la migration sera interrompue. L’agent lui-même n’a pas besoin d’être en état de fonctionnement pour permettre la migration, mais, si des extensions existent sur la machine virtuelle, un agent fonctionnel ET une connectivité internet sortante (avec DNS) seront nécessaires pour que la migration se poursuive.
-  - Si la connexion à un serveur DNS est perdue pendant la migration, toutes les extensions de machines virtuelles, à l’exception BGInfo v1.\*, doivent tout d’abord être supprimées de chacune des machines virtuelles avant la préparation de la migration, puis rajoutées à la machine virtuelle après la migration d’Azure Resource Manager.  **Cela concerne uniquement les machines virtuelles en cours d’exécution.**  Si les machines virtuelles sont arrêtées et libérées, il n’est pas nécessaire de supprimer les extensions de machines virtuelles. **Remarque :** de nombreuses extensions, par exemple les diagnostics Azure et le contrôle de Security Center, se réinstallent après la migration ; les supprimer n’est donc pas un problème.
-  - Par ailleurs, assurez-vous que les groupes de sécurité réseau ne restreignent pas l’accès à Internet sortant. Cela peut se produire avec certaines configurations de groupes de sécurité réseau. Un accès à Internet sortant (et un DNS) est nécessaire pour migrer les extensions de machines virtuelles vers Azure Resource Manager. 
-  - Il existe deux versions de l’extension BGInfo : v1 et v2.  Si la machine virtuelle a été créée à l’aide du Portail Classic ou de PowerShell, elle comportera probablement l’extension v1. Il n’est pas nécessaire de supprimer cette extension : elle sera ignorée (non migrée) par l’API de migration. En revanche, si la machine virtuelle Classic a été créée avec le nouveau Portail Azure, elle comportera probablement la version v2 JSON de BGInfo, qui peut être migrée vers Azure Resource Manager à condition que l’agent fonctionne et dispose d’un accès à Internet sortant (et d’un DNS). 
-  - **Option de correction 1**. Si vous savez que vos machines virtuelles ne disposeront pas d’un accès à Internet sortant, d’un service DNS fonctionnel et d’agents Azure fonctionnels, désinstallez toutes les extensions de machines virtuelles dans le cadre de la migration avant l’opération Préparer, puis réinstallez-les après la migration. 
-  - **Option de correction 2**. Si les extensions de machines virtuelles représentent un trop gros obstacle, il est également possible d’arrêter/libérer toutes les machines virtuelles avant la migration. Migrez les machines virtuelles libérées, puis redémarrez-les côté Azure Resource Manager. L’avantage est que les extensions de machines virtuelles seront migrées. L’inconvénient est que toutes les adresses IP virtuelles publiques seront perdues (ce qui peut être inenvisageable) et, bien évidemment, que les machines virtuelles seront arrêtées, ce qui aura un impact bien plus important sur les applications en cours d’exécution.
+- **Extensions de machines virtuelles** : les extensions de machines virtuelles sont potentiellement l’un des principaux obstacles à la migration de machines virtuelles en cours d’exécution. La correction des extensions de machines virtuelles peut prendre plus d’un ou deux jours : adaptez votre planification en conséquence.  Un agent Azure fonctionnel est nécessaire pour rapporter l’état des extensions de machines virtuelles en cours d’exécution. Si l’état renvoyé pour une machine virtuelle en cours d’exécution est mauvais, la migration sera interrompue. L’agent lui-même n’a pas besoin d’être en état de fonctionnement pour permettre la migration, mais, si des extensions existent sur la machine virtuelle, un agent fonctionnel ET une connectivité Internet sortante (avec DNS) seront nécessaires pour que la migration se poursuive.
+  - Si la connectivité à un serveur DNS est perdue pendant la migration, toutes les extensions de machines virtuelles, à l’exception de BGInfo version 1.\* doivent être supprimées de chacune des machines virtuelles avant la préparation de la migration, puis rajoutées aux machines virtuelles après la migration d’Azure Resource Manager.  **Cela concerne uniquement les machines virtuelles en cours d’exécution.**  Si les machines virtuelles sont arrêtées et libérées, il n’est pas nécessaire de supprimer les extensions de machines virtuelles.
 
-    > [!NOTE] 
+  > [!NOTE]
+  > De nombreuses extensions, par exemple Azure Diagnostics et la surveillance Security Center, se réinstallent après la migration. Les supprimer n’est donc pas un problème.
+
+  - Par ailleurs, assurez-vous que les groupes de sécurité réseau ne restreignent pas l’accès à Internet sortant. Cela peut se produire avec certaines configurations de groupes de sécurité réseau. Un accès à Internet sortant (et un DNS) est nécessaire pour migrer les extensions de machines virtuelles vers Azure Resource Manager.
+  - Deux versions de l’extension BGInfo existent et sont appelées versions 1 et 2.  
+
+      - Si la machine virtuelle utilise l’extension BGInfo version 1, vous pouvez laisser cette extension telle quelle. L’API de migration ignore cette extension. L’extension BGInfo peut être ajoutée après la migration.
+      - Si la machine virtuelle utilise l’extension BGInfo version 2 basée sur JSON, cela signifie que la machine virtuelle a été créée à l’aide du portail Azure. L’API de migration inclut cette extension dans la migration vers Azure Resource Manager, à condition que l’agent fonctionne et dispose d’un accès internet sortant (et d’un DNS).
+
+  - **Option de correction 1**. Si vous savez que vos machines virtuelles ne disposeront pas d’un accès à Internet sortant, d’un service DNS fonctionnel et d’agents Azure fonctionnels, désinstallez toutes les extensions de machines virtuelles dans le cadre de la migration avant l’opération Préparer, puis réinstallez-les après la migration.
+  - **Option de correction 2**. Si les extensions de machines virtuelles représentent un trop gros obstacle, il est également possible d’arrêter/libérer toutes les machines virtuelles avant la migration. Migrez les machines virtuelles libérées, puis redémarrez-les du côté d’Azure Resource Manager. L’avantage est que les extensions de machines virtuelles seront migrées. L’inconvénient est que toutes les adresses IP virtuelles publiques seront perdues (ce qui peut être inenvisageable) et, bien évidemment, que les machines virtuelles seront arrêtées, ce qui aura un impact bien plus important sur les applications en cours d’exécution.
+
+    > [!NOTE]
     > S’il existe une stratégie de sécurité Azure Security Center configurée sur les machines virtuelles en cours d’exécution et de migration, elle doit être arrêtée avant de supprimer les extensions ; sinon, l’extension de contrôle de la sécurité sera réinstallée automatiquement sur la machine virtuelle après sa suppression.
-  
-- **Groupes à haute disponibilité** : pour qu’un réseau virtuel migre vers Azure Resource Manager, toutes les machines virtuelles contenues dans le déploiement Classic (c’est-à-dire le service cloud) doivent se trouver dans un même groupe à haute disponibilité ou bien n’être dans aucun groupe à haute disponibilité. Il n’est pas possible d’avoir plusieurs groupes à haute disponibilité dans le service cloud avec Azure Resource Manager ; cela a pour effet de stopper la migration.  En outre, il ne peut pas y avoir des machines virtuelles dans un groupe à haute disponibilité et d’autres ailleurs que dans un groupe à haute disponibilité. Pour résoudre ce problème, vous devrez corriger ou remanier votre service cloud.  Adaptez votre planification en conséquence, car cette opération peut prendre du temps. 
 
-- **Déploiements de rôles Web/de travail** : il n’est pas possible de migrer les services cloud contenant des rôles Web et de travail vers Azure Resource Manager. Les rôles Web et de travail doivent être retirés du réseau virtuel pour que la migration puisse démarrer.  Une solution classique consiste tout simplement à déplacer les instances de rôles Web/de travail vers un réseau virtuel Classic distinct, également lié à un circuit ExpressRoute, ou à migrer le code vers des PaaS App Services plus récents (cet aspect n’est pas abordé dans ce document). Dans le premier cas de redéploiement, créez un réseau virtuel Classic, déplacez/redéployez les rôles Web/de travail sur ce réseau virtuel, puis supprimez les déploiements du réseau virtuel déplacé. Aucune modification de code requise : La nouvelle fonctionnalité [d’homologation de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md) peut être utilisée pour apparier le réseau virtuel Classic contenant les rôles Web/de travail et d’autres réseaux virtuels de la même région Azure, par exemple le réseau virtuel en cours de migration (**après la fin de la migration du réseau virtuel, car il n’est pas possible de migrer des réseaux virtuels homologués**), ce qui fournit les mêmes fonctionnalités sans perte de performances et sans pénalités du point de vue de la latence et de la bande passante. Grâce à l’ajout de [l’homologation de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md), il est maintenant facile de corriger les déploiements de rôles Web/de travail, de sorte qu’ils ne bloquent pas la migration vers Azure Resource Manager.
+- **Groupes à haute disponibilité** : pour qu’un réseau virtuel migre vers Azure Resource Manager, toutes les machines virtuelles contenues dans le déploiement Classic (c’est-à-dire le service cloud) doivent se trouver dans un même groupe à haute disponibilité ou bien n’être dans aucun groupe à haute disponibilité. Il n’est pas possible d’avoir plusieurs groupes à haute disponibilité dans le service cloud avec Azure Resource Manager ; cela a pour effet de stopper la migration.  En outre, il ne peut pas y avoir des machines virtuelles dans un groupe à haute disponibilité et d’autres ailleurs que dans un groupe à haute disponibilité. Pour résoudre ce problème, vous devrez corriger ou remanier votre service cloud.  Adaptez votre planification en conséquence, car cette opération peut prendre du temps.
 
-- **Quotas d’Azure Resource Manager** : les régions Azure disposent de quotas/limites distincts pour Classic et Azure Resource Manager. Bien qu’il n’y ait pas de nouveau matériel utilisé dans un scénario de migration *(on permute les machines virtuelles existantes de Classic vers Azure Resource Manager)*, les quotas d’Azure Resource Manager devront être mis en place avec une capacité suffisante pour que la migration puisse démarrer. Vous trouverez ci-dessous les principales limites dont nous avons constaté qu’elles posaient problème.  Ouvrez un ticket de support concernant les quotas pour relever les limites. 
+- **Déploiements de rôles Web/de travail** : il n’est pas possible de migrer les services cloud contenant des rôles Web et de travail vers Azure Resource Manager. Les rôles Web/de travail doivent être retirés du réseau virtuel pour que la migration puisse démarrer.  Une solution classique consiste tout simplement à déplacer les instances de rôles Web/de travail vers un réseau virtuel Classic distinct, également lié à un circuit ExpressRoute, ou à migrer le code vers des App Services PaaS plus récents (cet aspect n’est pas abordé dans ce document). Dans le premier cas de redéploiement, créez un réseau virtuel Classic, déplacez/redéployez les rôles Web/de travail sur ce réseau virtuel, puis supprimez les déploiements du réseau virtuel déplacé. Aucune modification de code requise : La nouvelle fonctionnalité [d’homologation de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md) peut être utilisée pour apparier le réseau virtuel Classic contenant les rôles Web/de travail et d’autres réseaux virtuels de la même région Azure, par exemple le réseau virtuel en cours de migration (**après la fin de la migration du réseau virtuel, car il n’est pas possible de migrer des réseaux virtuels homologués**), ce qui fournit les mêmes fonctionnalités sans perte de performances et sans pénalités du point de vue de la latence et de la bande passante. Grâce à l’ajout de [l’homologation de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md), il est maintenant facile de corriger les déploiements de rôles Web/de travail, de sorte qu’ils ne bloquent pas la migration vers Azure Resource Manager.
+
+- **Quotas d’Azure Resource Manager** : les régions Azure disposent de quotas/limites distincts pour Classic et Azure Resource Manager. Bien qu’il n’y ait pas de nouveau matériel utilisé dans un scénario de migration *(on permute les machines virtuelles existantes de Classic vers Azure Resource Manager)*, les quotas d’Azure Resource Manager devront être mis en place avec une capacité suffisante pour que la migration puisse démarrer. Vous trouverez ci-dessous les principales limites dont nous avons constaté qu’elles posaient problème.  Ouvrez un ticket de support concernant les quotas pour relever les limites.
 
     > [!NOTE]
     > Ces limites doivent être relevées dans la même région que votre environnement actuel à migrer.
@@ -132,25 +141,25 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
     ```
 
     **Réseau** *(réseaux virtuels, adresses IP publiques statiques, adresses IP publiques, groupes de sécurité réseau, interfaces réseau, équilibreurs de charge, tables de routage)*
-    
+
     ```powershell
     Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
     **Stockage** *(compte de stockage)*
-    
+
     ```powershell
     Get-AzureRmStorageUsage
     ```
 
-- **Limitations de l’API Azure Resource Manager** : si vous avez un environnement de grande taille (par exemple, plus de 400 machines virtuelles dans un réseau virtuel), vous risquez d’atteindre les limitations par défaut de l’API pour les écritures (actuellement, `1200 writes/hour`) dans Azure Resource Manager. Avant de commencer la migration, il vous faut déclencher un ticket de support pour augmenter cette limite pour votre abonnement.
+- **Limitations de l’API Azure Resource Manager** : si vous avez un environnement de grande taille (par exemple, plus de 400 machines virtuelles dans un réseau virtuel), vous risquez d’atteindre les limitations par défaut de l’API pour les écritures (actuellement, `1200 writes/hour`) dans Azure Resource Manager. Avant de commencer la migration, il vous faut déclencher un ticket de support afin d’augmenter cette limite pour votre abonnement.
 
 
-- **État Provisioning Timed Out pour une machine virtuelle** : si une machine virtuelle a l’état `provisioning timed out`, la situation doit être résolue avant la migration. La seule façon de procéder consiste à déprovisionner/réapprovisionner la machine virtuelle (la supprimer, conserver le disque et recréer la machine virtuelle) avec temps d’arrêt. 
+- **État Provisioning Timed Out pour une machine virtuelle** : si une machine virtuelle a l’état `provisioning timed out`, la situation doit être résolue avant la migration. La seule façon de procéder consiste à déprovisionner/réapprovisionner la machine virtuelle (la supprimer, conserver le disque et recréer la machine virtuelle) avec temps d’arrêt.
 
-- **État RoleStateUnknown pour une machine virtuelle** : si la migration s’arrête à cause d’un message d’erreur `role state unknown`, inspectez la machine virtuelle avec le portail et vérifiez qu’elle est en cours d’exécution. Cette erreur disparaîtra normalement toute seule (aucune correction n’est requise) après quelques minutes ; souvent de type temporaire, elle est généralement constatée au cours des opérations `start`, `stop` et `restart` de machine virtuelle. **Pratique recommandée :** effectuez une nouvelle tentative de migration après quelques minutes. 
+- **État RoleStateUnknown pour une machine virtuelle** : si la migration s’arrête à cause d’un message d’erreur `role state unknown`, inspectez la machine virtuelle avec le portail et vérifiez qu’elle est en cours d’exécution. Cette erreur disparaîtra normalement toute seule (aucune correction n’est requise) après quelques minutes ; souvent de type temporaire, elle est généralement constatée au cours des opérations `start`, `stop` et `restart` de machine virtuelle. **Pratique recommandée :** effectuez une nouvelle tentative de migration après quelques minutes.
 
-- **La structure du cluster n’existe pas** : il arrive qu’il ne soit pas possible de migrer une machine virtuelle pour d’obscures raisons. Parmi les cas connus figure le cas où la machine virtuelle a été créée récemment (aux alentours de la semaine précédente) et s’est retrouvée sur un cluster Azure qui n’était pas encore équipé pour les charges de travail Azure Resource Manager.  Vous obtiendrez une erreur `fabric cluster does not exist` et il ne sera pas possible de migrer la machine virtuelle. Il suffit en général de patienter quelques jours pour résoudre ce problème en particulier, car le cluster sera bientôt compatible avec Azure Resource Manager. Toutefois, il existe une solution de contournement immédiat, qui consiste à `stop-deallocate` la machine virtuelle, puis à poursuivre la migration et à lancer la sauvegarde de la machine virtuelle dans Azure Resource Manager après la migration.
+- **La structure du cluster n’existe pas** : il arrive qu’il ne soit pas possible de migrer une machine virtuelle pour d’obscures raisons. Parmi les cas connus figure celui où la machine virtuelle a été créée récemment (aux alentours de la semaine précédente) et s’est retrouvée sur un cluster Azure qui n’était pas encore équipé pour les charges de travail Azure Resource Manager.  Vous obtiendrez une erreur `fabric cluster does not exist` et il ne sera pas possible de migrer la machine virtuelle. Il suffit en général de patienter quelques jours pour résoudre ce problème en particulier, car le cluster sera bientôt compatible avec Azure Resource Manager. Toutefois, il existe une solution de contournement immédiat, qui consiste à `stop-deallocate` la machine virtuelle, puis à poursuivre la migration et à lancer la sauvegarde de la machine virtuelle dans Azure Resource Manager après la migration.
 
 ### <a name="pitfalls-to-avoid"></a>Pièges à éviter
 
@@ -167,12 +176,12 @@ Voici les aspects à prendre en compte pour les migrations réelles :
 
 1. Planifiez et programmez le réseau virtuel (la plus petite unité de migration) avec une priorité supérieure.  Commencez par les réseaux virtuels simples, puis continuez avec les réseaux virtuels plus complexes.
 2. La plupart des clients ont des environnements de production et hors production.  Planifiez la production en dernier.
-3. **(FACULTATIF)**  Planifiez un temps d’arrêt pour maintenance avec suffisamment de mémoire tampon en cas de problème inattendu.
+3. **(FACULTATIF)** Planifiez un temps d’arrêt pour maintenance avec suffisamment de mémoire tampon en cas de problème inattendu.
 4. Communiquez et coordonnez-vous avec vos équipes du support technique au cas où des problèmes surviendraient.
 
 ### <a name="patterns-of-success"></a>Modèles de réussite
 
-Il est conseillé d’étudier et d’appliquer l’aide technique de la section Test en labo ci-dessus avant toute migration réelle.  Avec les tests appropriés, la migration se déroule sans aucun problème.  Pour les environnements de production, il peut être utile de disposer d’un support supplémentaire, par exemple un partenaire de confiance Microsoft ou des services Microsoft Premier.
+Il est conseillé d’étudier et d’appliquer l’aide technique de la section _Test en labo_ avant toute migration réelle.  Avec les tests appropriés, la migration se déroule sans aucun problème.  Pour les environnements de production, il peut être utile de disposer d’un support supplémentaire, par exemple un partenaire de confiance Microsoft ou des services Microsoft Premier.
 
 ### <a name="pitfalls-to-avoid"></a>Pièges à éviter
 
@@ -186,13 +195,13 @@ Maintenant que vous êtes en mode Azure Resource Manager, tirez le meilleur part
 
 Points importants à prendre en compte :
 
-- Groupez la migration avec d’autres activités.  La plupart des clients choisissent une fenêtre de maintenance des applications.  Dans ce cas, vous pouvez utiliser ce temps d’arrêt pour activer d’autres fonctionnalités d’Azure Resource Manager comme le cryptage et la migration vers Managed Disks.
+- Groupez la migration avec d’autres activités.  La plupart des clients choisissent une fenêtre de maintenance des applications.  Dans ce cas, vous pouvez utiliser ce temps d’arrêt pour activer d’autres fonctionnalités d’Azure Resource Manager, comme le chiffrement et la migration vers Managed Disks.
 - Repassez en revue les raisons techniques et commerciales d’Azure Resource Manager ; activez les services supplémentaires disponibles uniquement sur Azure Resource Manager qui s’appliquent à votre environnement.
 - Modernisez votre environnement avec les services PaaS.
 
 ### <a name="patterns-of-success"></a>Modèles de réussite
 
-Ciblez les services que vous voulez activer dans Azure Resource Manager.  De nombreux clients trouvent les services ci-dessous incontournable pour leur environnement Azure :
+Ciblez les services que vous voulez activer dans Azure Resource Manager.  De nombreux clients trouvent les services ci-dessous incontournables pour leur environnement Azure :
 
 - [Contrôle d’accès en fonction du rôle](../../azure-resource-manager/resource-group-overview.md#access-control).
 - [Modèles Azure Resource Manager, pour un déploiement plus facile et mieux contrôlé](../../azure-resource-manager/resource-group-overview.md#template-deployment).

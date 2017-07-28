@@ -15,14 +15,15 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: ed82300211f54f39423c24039ca418fca9da94c3
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 0a0d91d622ed72ed22cfaaa0350b31ca653de483
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C : stratégies personnalisées
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 ## <a name="what-are-custom-policies"></a>Que sont les stratégies personnalisées ?
 
@@ -61,15 +62,15 @@ Les stratégies prédéfinies dans Azure AD B2C suivent le modèle à trois fich
 
 Service de gestion des accès et des identités clients d’Azure. Il comprend :
 
-1. un annuaire d’utilisateurs sous la forme d’un service Azure Active Directory spécifique accessible via Microsoft Graph, qui contient des données utilisateur pour les comptes locaux et les comptes fédérés ; 
-2. L’accès au **moteur d’expérience d’identité** qui orchestre les relations de confiance entre les utilisateurs et les entités et transmet les revendications des uns aux autres pour mener à bien une tâche de gestion des identités et des accès ; 
-3. un service d’émission de jeton de sécurité (STS) qui émet des jetons d’ID, des jetons d’actualisation et des jetons d’accès (ainsi que les assertions SAML équivalentes) et les valide afin de protéger les ressources.
+1. Un annuaire d’utilisateurs sous la forme d’un service Azure Active Directory spécifique accessible via Microsoft Graph, qui contient des données utilisateur pour les comptes locaux et les comptes fédérés. 
+2. L’accès à **l’infrastructure d’expérience d’identité** qui orchestre les relations de confiance entre les utilisateurs et les entités et transmet les revendications des uns aux autres pour mener à bien une tâche de gestion des identités et des accès. 
+3. Un service d’émission de jeton de sécurité (STS) qui émet des jetons d’ID, des jetons d’actualisation et des jetons d’accès (ainsi que les assertions SAML équivalentes) et les valide afin de protéger les ressources.
 
-Azure AD B2C interagit de façon séquentielle avec les fournisseurs d’identité, les utilisateurs, d’autres systèmes et l’annuaire d’utilisateurs locaux pour effectuer une tâche d’identité (par exemple, connexion d’un utilisateur, inscription d’un nouvel utilisateur ou réinitialisation d’un mot de passe). La plateforme sous-jacente qui établit la confiance mutuelle et effectue ces étapes est appelée le moteur d’expérience d’identité et une stratégie (également appelée parcours utilisateur ou stratégie d’infrastructure de confiance) définit explicitement les acteurs, les actions, les protocoles et la séquence d’étapes à effectuer.
+Azure AD B2C interagit de façon séquentielle avec les fournisseurs d’identité, les utilisateurs, d’autres systèmes et l’annuaire d’utilisateurs locaux pour effectuer une tâche d’identité (par exemple, connexion d’un utilisateur, inscription d’un nouvel utilisateur ou réinitialisation d’un mot de passe). La plateforme sous-jacente qui établit la confiance mutuelle et effectue ces étapes est appelée « infrastructure d’expérience d’identité ». Une stratégie (également appelée « parcours utilisateur » ou « stratégie d’infrastructure de confiance ») définit explicitement les acteurs, les actions, les protocoles et la séquence d’étapes à effectuer.
 
-### <a name="identity-experience-engine"></a>Moteur d’expérience d’identité
+### <a name="identity-experience-framework"></a>Identity Experience Framework (Infrastructure d’expérience d’identité)
 
-Plateforme Azure cloud, entièrement configurable et pilotée par des stratégies, qui orchestre les relations de confiance entre entités (en général des fournisseurs de revendications) dans des formats de protocoles standard, notamment OpenID Connect, OAuth, SAML, WS-Fed, ainsi que quelques protocoles non standard (par exemple, des échanges de revendications intersystèmes basés sur l’API REST). Le I2E crée des expériences conviviales en marque blanche qui prennent en charge HTML, CSS et JScript.  Aujourd'hui, le moteur d’expérience d’identité est disponible uniquement dans le contexte du service Azure AD B2C, en priorité pour les tâches relatives au service de gestion des accès et des identités clients.
+Plateforme Azure cloud, entièrement configurable et pilotée par des stratégies, qui orchestre les relations de confiance entre entités (en général des fournisseurs de revendications) dans des formats de protocoles standard, notamment OpenID Connect, OAuth, SAML, WS-Fed, ainsi que quelques protocoles non standard (par exemple, des échanges de revendications intersystèmes basés sur l’API REST). Le I2E crée des expériences conviviales en marque blanche qui prennent en charge HTML, CSS et JScript.  Aujourd’hui, l’infrastructure d’expérience d’identité est disponible uniquement dans le contexte du service Azure AD B2C, en priorité pour les tâches relatives au service de gestion des accès et des identités clients.
 
 ### <a name="built-in-policies"></a>Stratégies prédéfinies
 
@@ -78,17 +79,9 @@ Fichiers de configuration prédéfinis qui contrôlent le comportement d’Azure
 
 ### <a name="custom-policies"></a>Stratégies personnalisées
 
-Fichiers de configuration qui définissent le comportement du moteur d’expérience d’identité de votre client Azure AD B2C. Une stratégie personnalisée est accessible sous la forme d’un ou plusieurs fichiers XML (voir les définitions de fichiers de stratégie) qui sont exécutés par le moteur d’expérience d’identité lorsqu’ils sont appelés par une partie de confiance (par exemple, une application). Les stratégies personnalisées peuvent être modifiées directement par un développeur d’identité pour effectuer un nombre quasiment illimité de tâches. Les développeurs qui configurent des stratégies personnalisées doivent définir les relations de confiance dans leurs moindres détails pour inclure les points de terminaison de métadonnées et les définitions exactes des échanges de revendications, et configurer les secrets, les clés et les certificats selon les besoins de chaque fournisseur d’identité.
+Fichiers de configuration qui définissent le comportement de l’infrastructure d’expérience d’identité de votre locataire Azure AD B2C. Une stratégie personnalisée est accessible sous la forme d’un ou plusieurs fichiers XML (voir les définitions de fichiers de stratégie) qui sont exécutés par l’infrastructure d’expérience d’identité lorsqu’ils sont appelés par une partie de confiance (par exemple, une application). Les stratégies personnalisées peuvent être modifiées directement par un développeur d’identité pour effectuer un nombre quasiment illimité de tâches. Les développeurs qui configurent des stratégies personnalisées doivent définir les relations de confiance dans leurs moindres détails pour inclure les points de terminaison de métadonnées et les définitions exactes des échanges de revendications, et configurer les secrets, les clés et les certificats selon les besoins de chaque fournisseur d’identité.
 
-### <a name="policy-files"></a>Fichiers de stratégie
-
-Une stratégie personnalisée est représentée par un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. Les éléments XML définissent notamment les éléments suivants : schéma de revendications, transformation de revendications, définitions de contenu, fournisseurs de revendications / profils techniques et étapes d’orchestration du parcours utilisateur. Nous vous recommandons d’utiliser trois types de fichiers de stratégie :
-
-- **Un fichier de BASE**, qui contient la plupart des définitions et pour lequel Azure fournit un échantillon complet.  Nous vous recommandons d’apporter aussi peu de modifications que possible à ce fichier pour faciliter la résolution des problèmes et la maintenance à long terme de vos stratégies.
-- **Un fichier d’EXTensions** qui contient les modifications de configuration propres à votre client.
-- **Un fichier de la partie de confiance (RP)**, le seul fichier centré sur les tâches qui est appelé directement par l’application ou le service (la partie de confiance).  Lisez l’article sur les définitions de fichiers de stratégie pour plus d’informations.  Chaque tâche unique nécessite sa propre partie de confiance et, en fonction des exigences de personnalisation, le nombre peut être « le nombre total d’applications multiplié par le nombre total de cas d’utilisation ».
-
-## <a name="policy-file-definitions-for-identity-experience-engine-trustframeworks"></a>Définitions de fichiers de stratégie pour les infrastructures de confiance du moteur d’expérience d’identité
+## <a name="policy-file-definitions-for-identity-experience-framework-trustframeworks"></a>Définitions de fichiers de stratégie pour les infrastructures de confiance de l’infrastructure d’expérience d’identité
 
 ### <a name="policy-files"></a>Fichiers de stratégie
 
@@ -108,7 +101,7 @@ Une stratégie personnalisée est représentée par un ou plusieurs fichiers au 
 
 ### <a name="inheritance-model"></a>Modèle d’héritage
 
-Lorsqu’une application appelle le fichier de stratégie de la partie de confiance, le moteur d’expérience d’identité B2C ajoute tous les éléments de BASE, puis d’EXTENSIONS et enfin du fichier de stratégie de la partie de confiance pour assembler la stratégie en vigueur.  Les éléments du même type et du même nom du fichier de la partie de confiance remplacent ceux des EXTENSIONS, et ceux des EXTENSIONS remplacent ceux de la BASE.
+Lorsqu’une application appelle le fichier de stratégie de la partie de confiance, l’infrastructure d’expérience d’identité B2C ajoute tous les éléments de BASE, puis d’EXTENSIONS et enfin du fichier de stratégie de la partie de confiance pour assembler la stratégie en vigueur.  Les éléments du même type et du même nom du fichier de la partie de confiance remplacent ceux des EXTENSIONS, et ceux des EXTENSIONS remplacent ceux de la BASE.
 
 Les **stratégies prédéfinies** dans Azure AD B2C suivent le modèle à trois fichiers décrit ci-dessus, mais le développeur ne voit que le fichier de la partie de confiance (RP), tandis que le portail modifie en arrière-plan le fichier d’EXTensions.  L’ensemble d’Azure AD B2C partage un fichier de stratégie de BASE, sous le contrôle de l’équipe Azure B2C et mis à jour fréquemment.
 

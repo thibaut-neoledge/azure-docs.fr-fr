@@ -13,19 +13,19 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/5/2017
+ms.date: 06/9/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8a1ae2ef790455383118bb55c34f6ca10fe0169e
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 7122b970c2e4703df9771e8ace4e710399ca3e6c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installer la passerelle de données locale pour Azure Logic Apps
 
-Pour que vos applications logiques puissent accéder à des sources de données locales, vous devez installer et configurer la passerelle de données locale. La passerelle agit comme un pont permettant un transfert et un chiffrement de données rapides entre les systèmes locaux et vos applications logiques. La passerelle relaie les données des sources locales sur des canaux chiffrés via Azure Service Bus. Tout le trafic provient, en tant que trafic sortant sécurisé, de l’agent de passerelle. Pour en savoir plus, voir [Fonctionnement de la passerelle de données](#gateway-cloud-service).
+Pour que vos applications logiques puissent accéder à des sources de données locales, vous devez installer et configurer la passerelle de données locale. La passerelle agit comme un pont permettant un transfert et un chiffrement de données rapides entre les systèmes locaux et vos applications logiques. La passerelle relaie les données des sources locales sur des canaux chiffrés via Azure Service Bus. Tout le trafic est initialisé en tant que trafic sortant de l’agent de passerelle sécurisé. Pour en savoir plus, voir [Fonctionnement de la passerelle de données](#gateway-cloud-service).
 
 La passerelle prend en charge les connexions aux sources de données locales suivantes :
 
@@ -76,19 +76,22 @@ Vous ne pouvez pas installer la passerelle sur un contrôleur de domaine.
 
 * N’installez pas la passerelle sur un ordinateur qui s’éteint, passe en mode veille ou ne se connecte pas à Internet, car la passerelle ne peut pas s’exécuter dans de telles circonstances. De même, les performances de la passerelle peuvent être moindres sur un réseau sans fil.
 
-* Vous pouvez vous connecter uniquement avec un compte Azure disposant d’une adresse e-mail professionnelle ou scolaire gérée par Azure Active Directory (Azure AD). Vous avez besoin de ce compte pour associer la passerelle de données locale à un abonnement Azure pour un compte basé sur Azure AD.
+* Pendant l’installation, vous devez vous connecter avec un [compte professionnel ou scolaire](https://docs.microsoft.com/azure/active-directory/sign-up-organization) géré par Azure Active Directory (Azure AD), et non un compte Microsoft. 
 
-  > [!TIP] 
-  > Si vous avez un compte Microsoft, par exemple, @outlook.com, vous pouvez utiliser votre compte Azure pour [créer une adresse e-mail professionnelle ou scolaire](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal). Si vous avez souscrit une offre Office 365 sans fournir votre adresse e-mail professionnelle réelle, votre adresse de connexion peut ressembler à ceci : jeff@contoso.onmicrosoft.com. 
+  Vous devez utiliser le même compte professionnel ou scolaire par la suite dans le portail Azure lorsque vous créez et associez une ressource de passerelle à votre installation de passerelle. Vous sélectionnerez ensuite cette ressource de passerelle lors de la création de la connexion entre votre application logique et la source de données locale. [Pourquoi dois-je utiliser un compte professionnel ou scolaire Azure AD ?](#why-azure-work-school-account)
+
+  > [!TIP]
+  > Si vous avez souscrit une offre Office 365 sans fournir votre adresse de messagerie professionnelle réelle, votre adresse de connexion peut ressembler à ceci : jeff@contoso.onmicrosoft.com. 
 
 * Si vous disposez d’une passerelle existante que vous configurez avec un programme d’installation antérieur à la version 14.16.6317.4, vous ne pouvez pas modifier l’emplacement de votre passerelle en exécutant le programme d’installation le plus récent. Toutefois, vous pouvez utiliser le programme d’installation le plus récent pour configurer une nouvelle passerelle avec l’emplacement que vous souhaitez à la place.
   
   Si vous avez un programme d’installation de passerelle antérieur à la version 14.16.6317.4, mais n’avez pas encore installé votre passerelle, vous pouvez télécharger et utiliser le programme d’installation le plus récent.
 
 <a name="install-gateway"></a>
+
 ## <a name="install-the-data-gateway"></a>Installer la passerelle de données
 
-1.    [Téléchargez et exécutez le programme d’installation de passerelle sur un ordinateur local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1.  [Téléchargez et exécutez le programme d’installation de passerelle sur un ordinateur local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Lisez et acceptez les conditions d’utilisation et la déclaration de confidentialité.
 
@@ -96,29 +99,38 @@ Vous ne pouvez pas installer la passerelle sur un contrôleur de domaine.
 
 4. Lorsque vous y êtes invité, connectez-vous à votre compte Azure professionnel ou scolaire, pas à un compte Microsoft.
 
-5. Inscrivez maintenant votre installation de passerelle auprès du [service cloud de passerelle](#gateway-cloud-service). 
+   ![Connexion avec le compte professionnel ou scolaire Azure](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-     Le service cloud de passerelle chiffre et stocke les informations d’identification de votre source de données et les détails de la passerelle. 
-     Le service achemine également les requêtes et leurs résultats entre des utilisateurs dans le cloud, par exemple votre application logique, la passerelle de données locale et votre source de données locale.
+5. Inscrivez maintenant la passerelle installée auprès du [service cloud de passerelle](#gateway-cloud-service). Choisissez **Inscrivez une nouvelle passerelle sur cet ordinateur**.
 
-     1. Fournissez un nom pour votre installation de passerelle et créez une clé de récupération. 
-     Vérifiez votre clé de récupération.
+   Le service cloud de passerelle chiffre et stocke les informations d’identification de votre source de données et les détails de la passerelle. 
+   Le service achemine également les requêtes et leurs résultats entre votre application logique, la passerelle de données locale et votre source de données locale.
 
-        > [!IMPORTANT] 
-        > Votre clé de récupération doit contenir au moins huit caractères. Veillez à enregistrer et à conserver la clé en lieu sûr. Vous avez également besoin de cette clé lorsque vous souhaitez migrer, restaurer ou contrôler une passerelle existante.
+6. Entrez un nom pour votre installation de passerelle. Créez une clé de récupération, puis confirmez votre clé de récupération. 
 
-     2. Pour modifier la région par défaut pour le service cloud de passerelle et l’Azure Service Bus utilisé par votre installation de passerelle, choisissez **Changer la région**.
+   > [!IMPORTANT] 
+   > Votre clé de récupération doit contenir au moins huit caractères. Veillez à enregistrer et à conserver la clé en lieu sûr. Vous avez également besoin de cette clé pour migrer, restaurer ou contrôler une passerelle existante.
 
-        Par exemple, vous pouvez sélectionner la même région que celle de votre application logique, ou sélectionner la région la plus proche de votre source de données locale afin de réduire la latence. Votre ressource de passerelle et votre application logique se trouvent dans des emplacements différents.
+   1. Pour modifier la région par défaut pour le service cloud de passerelle et l’Azure Service Bus utilisé par votre installation de passerelle, choisissez **Changer la région**.
 
-        > [!IMPORTANT]
-        > Vous ne pouvez pas modifier cette région après l’installation. Cette région détermine et restreint également l’emplacement où vous pouvez créer la ressource Azure pour votre passerelle. Par conséquent, lorsque vous créez votre ressource de passerelle dans Azure, assurez-vous que l’emplacement de la ressource correspond à la région que vous avez sélectionnée lors de l’installation de la passerelle.
-        > 
-        > Si vous souhaitez utiliser une autre région pour votre passerelle ultérieurement, vous devrez configurer une nouvelle passerelle.
+      ![Modification de la région](./media/logic-apps-gateway-install/change-region-gateway-install.png)
 
-     3. Lorsque vous êtes prêt, choisissez **Enregistrer**.
+      La région par défaut est la région associée à votre client Azure AD.
 
-6. Suivez à présent ces étapes dans le portail Azure pour [créer une ressource Azure pour votre passerelle](../logic-apps/logic-apps-gateway-connection.md). 
+   2. Dans le volet suivant, cliquez sur la liste déroulante **Sélectionnez une région** pour choisir une autre région.
+
+      ![Sélection d’une autre région](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+
+      Par exemple, vous pouvez sélectionner la même région que celle de votre application logique, ou sélectionner la région la plus proche de votre source de données locale afin de réduire la latence. Votre ressource de passerelle et votre application logique se trouvent dans des emplacements différents.
+
+      > [!IMPORTANT]
+      > Vous ne pouvez pas modifier cette région après l’installation. Cette région détermine et restreint également l’emplacement où vous pouvez créer la ressource Azure pour votre passerelle. Par conséquent, lorsque vous créez votre ressource de passerelle dans Azure, assurez-vous que l’emplacement de la ressource correspond à la région que vous avez sélectionnée lors de l’installation de la passerelle.
+      > 
+      > Si vous souhaitez utiliser une autre région pour votre passerelle ultérieurement, vous devrez configurer une nouvelle passerelle.
+
+   3. Une fois ces opérations effectuées, sélectionnez **Terminé**.
+
+7. Suivez à présent ces étapes dans le portail Azure pour [créer une ressource Azure pour votre passerelle](../logic-apps/logic-apps-gateway-connection.md). 
 
 Pour en savoir plus, voir [Fonctionnement de la passerelle de données](#gateway-cloud-service).
 
@@ -127,7 +139,12 @@ Pour en savoir plus, voir [Fonctionnement de la passerelle de données](#gateway
 Pour effectuer ces tâches, vous devez disposer de la clé de récupération spécifiée lors de l’installation de la passerelle.
 
 1. Dans le menu Démarrer de votre ordinateur, choisissez **Passerelle de données locale**.
-2. Une fois le programme d’installation ouvert, fournissez la clé de récupération pour la passerelle que vous souhaitez migrer, restaurer ou contrôler.
+
+2. Une fois le programme d’installation ouvert, connectez-vous avec le compte professionnel ou scolaire utilisé précédemment pour installer la passerelle.
+
+3. Choisissez **Migrer, restaurer ou contrôler une passerelle existante**.
+
+4. Fournissez le nom et la clé de récupération de la passerelle que vous souhaitez migrer, restaurer ou contrôler.
 
 <a name="restart-gateway"></a>
 ## <a name="restart-the-gateway"></a>Redémarrez la passerelle
@@ -199,7 +216,7 @@ Si vous devez mettre sur liste approuvée des adresses IP au lieu des domaines, 
 <a name="gateway-cloud-service"></a>
 ## <a name="how-does-the-data-gateway-work"></a>Fonctionnement de la passerelle de données
 
-La passerelle de données facilite une communication rapide et sécurisée entre un utilisateur dans le cloud, par exemple votre application logique ou service cloud de passerelle, et votre source de données locale. 
+La passerelle de données assure une communication rapide et sécurisée entre votre application logique, le service cloud de passerelle et votre source de données locale. 
 
 ![diagramme de flux de passerelle de données locale](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -228,8 +245,10 @@ Ainsi, quand l’utilisateur dans le cloud interagit avec un élément connecté
 **Q** : La passerelle doit-elle être installée sur le même ordinateur que la source de données ? <br/>
 **R** : Non. La passerelle se connecte à la source de données en utilisant les informations de connexion fournies. En ce sens, considérez la passerelle comme une application cliente. La passerelle doit juste être en mesure de se connecter au nom du serveur qui a été fourni.
 
+<a name="why-azure-work-school-account"></a>
+
 **Q** : Pourquoi dois-je utiliser un compte professionnel ou scolaire Azure pour me connecter ? <br/>
-**R** : vous pouvez associer la passerelle de données locale uniquement à un compte professionnel ou scolaire Azure. Votre compte de connexion est stocké dans un client géré par Azure Active Directory (Azure AD). En règle générale, l’UPN de votre compte Azure AD correspond à l’adresse de messagerie.
+**R** : lorsque vous installez la passerelle de données locale, vous pouvez uniquement utiliser un compte professionnel ou scolaire Azure. Votre compte de connexion est stocké dans un client géré par Azure Active Directory (Azure AD). En règle générale, le nom d’utilisateur principal (UPN) de votre compte Azure AD correspond à l’adresse de messagerie.
 
 **Q** : où mes informations d’identification sont-elles stockées ? <br/>
 **R** : Les informations d’identification que vous entrez pour une source de données sont chiffrées et stockées dans le service cloud de passerelle. Les informations d’identification sont déchiffrées au niveau de la passerelle de données locale.

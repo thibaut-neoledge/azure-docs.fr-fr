@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5b0fcc28637e95484d33ce99c7d7a379c4513948
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 6dfa8307162c377ef57412233a81f2769e0f891d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -44,7 +44,7 @@ Voici certains attributs de Cosmos DB qui rendent cette base de données parfait
 
 * Cosmos DB partitionne vos données en mode natif pour offrir une disponibilité et une évolutivité élevées. Ce service assure des garanties de disponibilité, de débit, de faible latence et de cohérence de 99,99 %.
 * Cosmos DB dispose d’un stockage SSD avec des temps de réponse de l’ordre des millisecondes à faible latence.
-* La prise en charge par Cosmos DB des niveaux de cohérence finale, de préfixe, de session et liée sans état offre un rapport coût-performances faible. Aucun service de base de données n’offre autant de flexibilité que Cosmos DB en matière de niveaux de cohérence. 
+* La prise en charge par Cosmos DB des niveaux de cohérence finale, de préfixe, de session et liée sans état offre un rapport coût-performances faible et une flexibilité totale. Aucun service de base de données n’offre autant de flexibilité que Cosmos DB en matière de niveaux de cohérence. 
 * Cosmos DB possède un modèle de tarification flexible et adapté aux données qui mesure indépendamment le stockage et le débit.
 * Le modèle de débit réservé de Cosmos DB vous permet de raisonner en termes de nombre de lectures/écritures au lieu de processeur/mémoire/IOPS du matériel sous-jacent.
 * La conception de Cosmos DB vous permet de monter en puissance pour des volumes de requêtes énormes, de l’ordre de billions de requêtes par jour.

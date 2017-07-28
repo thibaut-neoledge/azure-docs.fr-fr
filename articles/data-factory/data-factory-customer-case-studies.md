@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 0850b42e15e2daf4868560a1518f7906c7ae0800
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: bfe86b8cfe9ad0fc9fbda7664873b2b590fc2805
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -30,7 +30,7 @@ Data Factory est un service de gestion des informations dans le cloud qui automa
 [L’entreprise Top Actuarial transforme le secteur des assurances](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
 
 ## <a name="rockwell-automation"></a>Rockwell Automation
-[L’entreprise d’automatisation industrielle réduit ses coûts jusqu'à 90 % grâce à des solutions Big Data](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+[L’entreprise d’automatisation industrielle réduit ses coûts jusqu’à 90 % grâce à des solutions Big Data](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
 ## <a name="ziosk"></a>Ziosk
 [Quel jeu souhaitez-vous avec votre hamburger ? Ziosk le sait peut-être déjà.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)

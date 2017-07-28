@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/26/2017
+ms.date: 06/14/2017
 ms.author: genli
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ed9945ae007d22c18d259984ee68f9c669927f9a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -37,10 +37,11 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
 1. Réinitialisez la configuration du Bureau à distance.
 2. Vérifiez les règles de groupe de sécurité réseau / de point de terminaison de services cloud.
 3. Examinez les journaux de console de la machine virtuelle.
-4. Vérifiez l’intégrité des ressources de la machine virtuelle.
-5. Réinitialisez le mot de passe de votre machine virtuelle.
-6. Redémarrez votre machine virtuelle.
-7. Redéployez votre machine virtuelle.
+4. Réinitialisez la carte d’interface réseau pour la machine virtuelle.
+5. Vérifiez l’intégrité des ressources de la machine virtuelle.
+6. Réinitialisez le mot de passe de votre machine virtuelle.
+7. Redémarrez votre machine virtuelle.
+8. Redéployez votre machine virtuelle.
 
 Si vous avez besoin de procédures plus détaillées et d’explications, poursuivez la lecture. Vérifiez que l’équipement réseau local, notamment les routeurs et les pare-feu, ne bloque pas le port TCP 3389 sortant, comme indiqué dans les [scénarios détaillés de dépannage RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -87,23 +88,25 @@ Après chaque étape de résolution des problèmes, essayez de nouveau de vous c
     Si vous ne disposez pas d’une règle autorisant le trafic RDP, [créez une règle de groupe de sécurité réseau](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Autorisez le port TCP 3389.
 3. **Passez en revue les diagnostics de démarrage de la machine virtuelle**. Cette étape de dépannage passe en revue les journaux de la console de la machine virtuelle afin de déterminer si celle-ci signale un problème. Les diagnostics de démarrage ne sont pas activés sur toutes les machines virtuelles et cette étape de dépannage peut être facultative.
    
-    Les étapes de dépannage spécifiques ne sont pas abordées dans cet article, mais elles peuvent indiquer un problème plus large affectant la connectivité RDP. Pour plus d’informations sur l’examen des journaux de la console et pour obtenir une capture d’écran de la machine virtuelle, consultez [Diagnostics de démarrage pour les machines virtuelles](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
-4. **Vérifiez l’intégrité des ressources de la machine virtuelle**. Cette étape de dépannage vérifie qu’il n’existe aucun problème connu sur la plateforme Azure susceptible d’avoir un impact sur la connectivité à la machine virtuelle.
+    Les étapes de dépannage spécifiques ne sont pas abordées dans cet article, mais elles peuvent indiquer un problème plus large affectant la connectivité RDP. Pour plus d’informations sur l’examen des journaux de la console et pour obtenir une capture d’écran de la machine virtuelle, consultez [Diagnostics de démarrage pour les machines virtuelles](boot-diagnostics.md).
+
+4. **Réinitialisez la carte d’interface réseau pour la machine virtuelle**. Pour en savoir plus, consultez la page [How to reset NIC for Azure Windows VM](reset-network-interface.md) (Réinitialiser une carte d’interface réseau pour une machine virtuelle Windows Azure).
+5. **Vérifiez l’intégrité des ressources de la machine virtuelle**. Cette étape de dépannage vérifie qu’il n’existe aucun problème connu sur la plateforme Azure susceptible d’avoir un impact sur la connectivité à la machine virtuelle.
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Intégrité des ressources**. Une machine virtuelle saine est indiquée comme étant **Disponible** :
    
     ![Vérifier l’intégrité des ressources de la machine virtuelle dans le portail Azure](./media/troubleshoot-rdp-connection/check-resource-health.png)
-5. **Réinitialisez les informations d’identification de l’utilisateur**. Cette étape de dépannage réinitialise le mot de passe sur un compte d’administrateur local lorsque vous ne connaissez pas ou si vous avez oublié les informations d’identification.
+6. **Réinitialisez les informations d’identification de l’utilisateur**. Cette étape de dépannage réinitialise le mot de passe sur un compte d’administrateur local lorsque vous ne connaissez pas ou si vous avez oublié les informations d’identification.
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Réinitialiser le mot de passe**. Assurez-vous que le **Mode** est défini sur **Réinitialiser le mot de passe**, puis entrez votre nom d’utilisateur et un nouveau mot de passe. Enfin, cliquez sur le bouton **Mettre à jour** :
    
     ![Réinitialiser les informations d’identification de l’utilisateur dans le portail Azure](./media/troubleshoot-rdp-connection/reset-password.png)
-6. **Redémarrez votre machine virtuelle**. Cette étape de dépannage permet de corriger tout problème sous-jacent rencontré par la machine virtuelle.
+7. **Redémarrez votre machine virtuelle**. Cette étape de dépannage permet de corriger tout problème sous-jacent rencontré par la machine virtuelle.
    
     Sélectionnez votre machine virtuelle dans le portail Azure et cliquez sur l’onglet **Vue d’ensemble**. Cliquez sur le bouton **Redémarrer** :
    
     ![Redémarrer la machine virtuelle dans le portail Azure](./media/troubleshoot-rdp-connection/restart-vm.png)
-7. **Redéployez votre machine virtuelle**. Cette étape de dépannage redéploie votre machine virtuelle sur un autre hôte dans Azure pour corriger tout problème sous-jacent lié au réseau ou à la plateforme.
+8. **Redéployez votre machine virtuelle**. Cette étape de dépannage redéploie votre machine virtuelle sur un autre hôte dans Azure pour corriger tout problème sous-jacent lié au réseau ou à la plateforme.
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Redéployer**, puis sur **Redéployer** :
    

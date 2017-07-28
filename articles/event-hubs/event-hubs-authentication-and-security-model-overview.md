@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 05/30/2017
 ms.author: sethm;clemensv
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 31bf24034558582eb138251207580e8f7fd7ddaf
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 5abdbf70d4fdb2c7feb0f3537ecc0f2abf0775a0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -40,7 +41,8 @@ Bien que cela soit déconseillé, il est possible d’équiper les appareils de 
 Tous les jetons sont signés avec une clé SAS. En règle générale, tous les jetons sont signés avec la même clé. Les clients ne sont pas conscients de la clé. Cela empêche que d’autres clients fabriquent des jetons.
 
 ### <a name="create-the-sas-key"></a>Créer la clé SAP
-Lorsque vous créez un espace de noms Azure Event Hubs, le service génère une clé SAS de 256 bits nommée **RootManageSharedAccessKey**. Cette clé accorde les droits d'envoi, d'écoute et de gestion pour l'espace de noms. Vous pouvez créer des clés supplémentaires. Nous vous recommandons de produire une clé qui accorde les droits d’envoi au hub d’événements spécifique. Pour le reste de cette rubrique, supposons que vous avez nommé cette clé **EventHubSendKey**.
+
+Lorsque vous créez un espace de noms Event Hubs, le service génère une clé SAS de 256 bits nommée **RootManageSharedAccessKey**. Cette clé accorde les droits d'envoi, d'écoute et de gestion pour l'espace de noms. Vous pouvez aussi créer des clés supplémentaires. Nous vous recommandons de produire une clé qui accorde les droits d’envoi au hub d’événements spécifique. Pour le reste de cette rubrique, supposons que vous avez nommé cette clé **EventHubSendKey**.
 
 L’exemple suivant crée une clé exclusivement pour l’envoi, lors de la création du hub d’événements :
 
@@ -63,6 +65,7 @@ nm.CreateEventHub(ed);
 ```
 
 ### <a name="generate-tokens"></a>Générer des jetons
+
 Vous pouvez générer des jetons à l'aide de la clé SAS. Vous ne devez produire qu’un seul jeton par client. Les jetons peuvent ensuite être générés à l'aide de la méthode suivante. Tous les jetons sont générés à l'aide de la clé **EventHubSendKey** . Une URI unique est affectée à chaque jeton.
 
 ```csharp
@@ -88,7 +91,7 @@ En règle générale, les jetons ont une durée de vie équivalente ou supérieu
 ### <a name="sending-data"></a>Envoi de données
 Une fois les jetons créés, chaque client est configuré avec son propre jeton unique.
 
-Lorsque le client envoie des données dans un hub d’événements, il balise son jeton avec la requête d’envoi. Pour empêcher un intrus de procéder à des écoutes clandestines et de voler le jeton, la communication entre le client et le hub d’événements doit avoir lieu sur un canal chiffré.
+Lorsque le client envoie des données dans un hub d’événements, il balise sa requête d’envoi avec le jeton. Pour empêcher un intrus de procéder à des écoutes clandestines et de voler le jeton, la communication entre le client et le hub d’événements doit avoir lieu sur un canal chiffré.
 
 ### <a name="blacklisting-clients"></a>Inscription des clients sur liste noire
 Si un jeton est volé par un intrus, celui-ci peut emprunter l’identité du client à qui le jeton a été volé. L’inscription d’un client sur liste noire le rend inutilisable, jusqu’à ce qu’il reçoive un nouveau jeton qui utilise un éditeur différent.
@@ -96,7 +99,6 @@ Si un jeton est volé par un intrus, celui-ci peut emprunter l’identité du cl
 ## <a name="authentication-of-back-end-applications"></a>Authentification des applications principales
 
 Pour authentifier des applications principales qui consomment les données générées par les clients Event Hubs, Event Hubs utilise un modèle de sécurité qui est similaire au modèle utilisé pour les rubriques Service Bus. Un groupe de consommateurs Event Hubs est équivalent à un abonnement à une rubrique Service Bus. Un client peut créer un groupe de consommateurs si la requête de création du groupe de consommateurs est accompagnée d’un jeton qui accorde des droits de gestion pour le hub d’événements ou pour l’espace de noms auxquels appartient le hub d’événements. Un client est autorisé à consommer des données à partir d’un groupe de consommateurs si la requête de réception est accompagnée d’un jeton qui accorde des droits de réception pour ce groupe de consommateurs, le hub d’événements ou l’espace de noms auxquels appartient le hub d’événements.
-
 
 La version actuelle de Service Bus ne prend pas en charge les règles SAS pour les abonnements individuels. Il en va de même pour les groupes de consommateurs de hubs d'événements. La prise en charge SAS sera ajoutée ultérieurement pour ces deux fonctionnalités.
 

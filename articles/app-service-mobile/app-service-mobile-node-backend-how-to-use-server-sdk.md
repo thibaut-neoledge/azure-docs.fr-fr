@@ -3,8 +3,8 @@ title: "Utiliser le Kit de développement logiciel (SDK) de serveur principal No
 description: "Découvrez comment utiliser le Kit de développement logiciel (SDK) du serveur principal Node.js pour Azure App Service Mobile Apps."
 services: app-service\mobile
 documentationcenter: 
-author: dhei
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 ms.translationtype: Human Translation
 ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
 ms.openlocfilehash: 8a6fd3711bf273d7035587d3731a334fd2268c32
@@ -37,7 +37,7 @@ Les deux types d’opérations permettent une authentification entre tous les fo
 Vous trouverez des exemples de chaque cas de figure dans le [répertoire d’exemples sur GitHub].
 
 ## <a name="supported-platforms"></a>Plateformes prises en charge
-Le kit de développement logiciel Node dans Azure Mobile Apps prend en charge la version actuelle de LTS de Node ainsi que les versions ultérieures.  Au moment de la rédaction, la dernière version LTS de Node est&4;.5.0.  Les autres versions de Node peuvent fonctionner, mais elles ne sont pas prises en charge.
+Le kit de développement logiciel Node dans Azure Mobile Apps prend en charge la version actuelle de LTS de Node ainsi que les versions ultérieures.  Au moment de la rédaction, la dernière version LTS de Node est 4.5.0.  Les autres versions de Node peuvent fonctionner, mais elles ne sont pas prises en charge.
 
 Le kit de développement logiciel Node dans Azure Mobile Apps prend en charge deux pilotes de base de données : le pilote node-mssql prend en charge SQL Azure et les instances SQL Server locales.  Le pilote sqlite3 prend en charge les bases de données SQLite sur une seule instance.
 
@@ -750,7 +750,7 @@ Le Kit de développement logiciel (SDK) Azure Mobile Apps utilise l’ [intergic
     // Start listening on HTTP
     app.listen(process.env.PORT || 3000);
 
-Le fichier est codé en base&64; avant la transmission.  Cela augmente la taille du téléchargement réel (et par conséquent la taille dont vous devez tenir compte).
+Le fichier est codé en base 64 avant la transmission.  Cela augmente la taille du téléchargement réel (et par conséquent la taille dont vous devez tenir compte).
 
 ### <a name="howto-customapi-sql"></a>Procédure : exécution d’instructions SQL personnalisées
 Le kit de développement logiciel (SDK) Azure Mobile Apps permet d’accéder à l’ensemble du contexte via l’objet de la demande, ce qui vous permet d’exécuter facilement des instructions SQL paramétrées pour le fournisseur de données défini :

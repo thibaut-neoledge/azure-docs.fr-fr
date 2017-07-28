@@ -16,15 +16,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 89117c59ae8948eeb32b51a0ecd4fdf0a3a2edd7
-ms.openlocfilehash: d026d6d901374a91864edf9f6ee38d5450e7f179
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: fd51bf9e965d2efd5a6bea9de142ab2ec8d27836
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry sur Azure
 
-Cloud Foundry est une solution platform as a service (PaaS) open source pour la génération, le déploiement et l’exploitation d’applications 12 facteurs développées selon différents langages et infrastructures. Ce document décrit les options dont vous disposez pour exécuter Cloud Foundry sur Azure et vous explique comment commencer.
+Cloud Foundry est une solution de type plate-forme en tant que service (PaaS) open source pour la génération, le déploiement et l’exploitation d’applications 12 facteurs développées dans plusieurs langages et infrastructures. Ce document décrit les options dont vous disposez pour exécuter Cloud Foundry sur Azure et vous explique comment commencer.
 
 ## <a name="cloud-foundry-offerings"></a>Offres Cloud Foundry
 
@@ -53,7 +55,7 @@ Outre les canaux de support répertoriés ci-avant pour OSS CF, une licence PCF 
 
 ## <a name="azure-service-broker"></a>Azure Service Broker
 
-Cloud Foundry recommande la méthodologie basée sur les [« applications&12; facteurs »](https://12factor.net/), qui encourage une séparation claire entre les processus d’application sans état et les services de soutien avec état. Les [Service Brokers](https://docs.cloudfoundry.org/services/api.html) offrent un moyen cohérent de configurer et de lier les services de soutien aux applications. [Azure Service Broker](https://github.com/Azure/meta-azure-service-broker) propose certains services Azure clés par le biais de ce canal, notamment Stockage Azure et Azure SQL.
+Cloud Foundry recommande la méthodologie basée sur les [« applications 12 facteurs »](https://12factor.net/), qui encourage une séparation claire entre les processus d’application sans état et les services de soutien avec état. Les [Service Brokers](https://docs.cloudfoundry.org/services/api.html) offrent un moyen cohérent de configurer et de lier les services de soutien aux applications. [Azure Service Broker](https://github.com/Azure/meta-azure-service-broker) propose certains services Azure clés par le biais de ce canal, notamment Stockage Azure et Azure SQL.
 
 Si vous utilisez Pivotal Cloud Foundry, le Service Broker est également [disponible sous forme de mosaïque](https://docs.pivotal.io/azure-sb/installing.html) à partir du réseau Pivotal.
 
@@ -66,9 +68,4 @@ Cloud Foundry convient idéalement au développement agile de logiciels et perme
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Déploiement de Pivotal Cloud Foundry à partir de la Place de marché Microsoft Azure](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+- [Déployer une application vers Cloud Foundry dans Azure](./cloudfoundry-deploy-your-first-app.md)

@@ -4,7 +4,7 @@ description: "Utilisez une passerelle IoT pour convertir le format des données 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "conversion de données de passerelle iot, transformation des données de passerelle iot"
 ms.assetid: 75f2573d-500b-4405-bff7-61021c4c3500
@@ -13,14 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 06/25/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7bf9e64db91cb0fec37ff242bea94dbbd0833054
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 5f5151c9e250fb8a19a953c6212dd2675004dc55
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/26/2017
 
 ---
 # <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>Utiliser une passerelle IoT pour la transformation des données de capteur avec Azure IoT Edge
@@ -73,11 +72,11 @@ Vous apprenez à créer un module pour convertir les messages de SensorTag en un
 Pour compiler le module, exécutez les commandes suivantes :
 
 ```bash
-cd iot-hub-c-intel-nuc-gateway-customized-module
+cd iot-hub-c-intel-nuc-gateway-customized-module/my_module
 # change the build script runnable
 chmod 777 build.sh
 # remove the invalid windows character
-sed -i -e "s/\r$\/\/" build.sh
+sed -i -e "s/\r$//" build.sh
 # run the build shell script
 ./build.sh
 ```
@@ -149,3 +148,4 @@ Vous obtenez un fichier `libmy_module.so` une fois la compilation terminée. Not
 Vous avez correctement utilisé la passerelle IoT pour convertir le message au format .json SensorTag.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

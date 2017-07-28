@@ -1,9 +1,9 @@
 ---
 title: "En savoir plus sur les options de support d’Azure Service Fabric | Microsoft Docs"
-description: Versions de clusters Azure Service Fabric prises en charge et liens pour soumettre des tickets de support.
+description: Versions de clusters Azure Service Fabric prises en charge et liens pour soumettre des tickets de support
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: pkc
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/10/2017
-ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 44e95f78b5fe592713570e53f2469c88202a02aa
-ms.lasthandoff: 03/11/2017
+ms.date: 06/15/2017
+ms.author: pkc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: de5795d4781d8c01bce7313ae53ad801a0e48149
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -77,13 +78,19 @@ Consultez les documents suivants pour savoir plus en détails comment faire en s
  
 Voici la liste des versions de Service Fabric prises en charge et la date associée de fin de prise en charge.
 
-| **Cluster runtime Service Fabric** | **Date de fin de prise en charge** |
-| --- | --- |
-| Toutes les versions de clusters antérieures à 5.3.121 |20 janvier 2017 |
-| 5.3.* |24 février 2017 |
-| 5.4.* |10 mai 2017     |
-| 5.5.* |Version actuelle ; par conséquent, pas de date de fin
+| **Cluster runtime Service Fabric** | **Kit de développement logiciel compatible / Versions de package NuGet** | **Date de fin de prise en charge** |
+| --- | --- | --- |
+| Toutes les versions de clusters antérieures à 5.3.121 |Inférieure ou égale à la version 2.3 |20 janvier 2017 |
+| 5.3.* |Inférieure ou égale à la version 2.3 |24 février 2017 |
+| 5.4.* |Inférieure ou égale à la version 2.4 |10 mai 2017     |
+| 5.5.* |Inférieure ou égale à la version 2.5 |10 août 2017    |
+| 5.6.* |Inférieure ou égale à la version 2.6 |Version actuelle ; par conséquent, pas de date de fin
 
+<a id="previewversion"></a>
+## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versions préliminaires de Service Fabric – non pris en charge pour la production.
+De temps à autre, nous publions des versions dotées de fonctionnalités significatives, sur lesquelles nous souhaitons avoir un retour et qui sont publiées sous forme de version préliminaire. Ces versions préliminaires doivent uniquement être utilisées à des fins de test. Votre cluster de production doit toujours exécuter une version de Service Fabric prise en charge et stable. Les versions préliminaires commencent toujours par un numéro de version majeure et mineure : 255. Par exemple, la version 255.255.5703.949 de Service Fabric ne doit être utilisée que dans les clusters de test. Il s’agit d’une version préliminaire. Ces versions préliminaires sont également annoncées sur le [blog de l’équipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) et s’accompagnent d’informations sur les fonctionnalités incluses.
+
+Il n’existe aucune option de support technique payant pour ces versions préliminaires. Utilisez l’une des options répertoriées dans la rubrique [Signaler des problèmes Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) pour poser des questions ou laisser un commentaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

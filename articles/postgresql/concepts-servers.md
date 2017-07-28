@@ -10,10 +10,10 @@ ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e14712b8fd68d6364f44c116448a9a8f33622a91
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5197a3f44a085d25d964f355154d92b08e65560b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Serveurs de base de données Azure pour PostgreSQL
@@ -42,7 +42,7 @@ Les éléments suivants permettent de garantir un accès sécurisé à votre bas
 
 |||
 | :-- | :-- |
-| **Authentification et autorisation** | Le serveur de base de données Azure pour PostgreSQL prend en charge l’authentification PostgreSQL native. Vous pouvez vous connecter et vous authentifier auprès du serveur avec les informations de connexion d’administrateur du serveur.<br />Pour plus d’informations, consultez la page [Gestion des utilisateurs et des rôles dans la base de données Azure pour PostgreSQL](/azure/sql-database/sql-database-manage-logins). |
+| **Authentification et autorisation** | Le serveur de base de données Azure pour PostgreSQL prend en charge l’authentification PostgreSQL native. Vous pouvez vous connecter et vous authentifier auprès du serveur avec les informations de connexion d’administrateur du serveur. |
 | **Protocole** | Le service prend en charge un protocole par messages utilisé par PostgreSQL. |
 | **TCP/IP** | Le protocole est pris en charge via TCP/IP et des sockets du domaine Unix. |
 | **Pare-feu** | Pour aider à protéger vos données, une règle de pare-feu empêche tout accès à votre serveur de base de données ou à ses bases de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Consultez la page [Règles de pare-feu d’un serveur de base de données Azure pour PostgreSQL](concepts-firewall-rules.md). |
@@ -50,7 +50,7 @@ Les éléments suivants permettent de garantir un accès sécurisé à votre bas
 
 ## <a name="how-do-i-manage-a-server"></a>Comment gérer un serveur ?
 
-Vous pouvez gérer des serveurs de bases de données Azure pour PostgreSQL à l’aide du Portail Azure ou d’Azure CLI.
+Vous pouvez gérer des serveurs de bases de données Azure pour PostgreSQL à l’aide du Portail Azure ou [d’Azure CLI](/cli/azure/postgres).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

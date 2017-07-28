@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 06/15/2017
 ms.author: hkanna
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: cbc33fa15d069b55844cc6e4356ca5a01b40c199
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 613fd0c1164ac34d36d5f21d07dfdf00c8aad614
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 
@@ -229,7 +229,7 @@ Configurez votre solution en respectant les instructions dans les sections suiva
 
 -   La base de données NetBackup doit être locale sur le serveur et ne doit pas se trouver sur un volume StorSimple.
 -   Pour la récupération d’urgence, sauvegardez la base de données NetBackup sur un volume StorSimple.
--   Nous prenons en charge les sauvegardes complètes et incrémentielles NetBackup pour cette solution. Nous vous déconseillons d’utiliser les sauvegardes synthétiques et différentielles.
+-   Nous prenons en charge les sauvegardes complètes et incrémentielles NetBackup (également appelées sauvegardes incrémentielles différentielles dans NetBackup) pour cette solution. Nous vous déconseillons d’utiliser les sauvegardes synthétiques et incrémentielles cumulatives.
 -   Les fichiers de données de sauvegarde doivent uniquement contenir les données d’un travail spécifique. Par exemple, aucun ajout de supports n’est autorisé entre les différents travaux.
 
 Pour obtenir les paramètres et les meilleures pratiques de NetBackup relatifs à l’implémentation de ces exigences, consultez la documentation de NetBackup à l’adresse [www.veritas.com](https://www.veritas.com).

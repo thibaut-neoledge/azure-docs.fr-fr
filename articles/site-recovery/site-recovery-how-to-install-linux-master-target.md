@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/05/2017
+ms.date: 02/13/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 60102ebb43efc8710f102450df5b98edcb1d4b39
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c7c50c539149a929b15f50e4b52dc48d92534640
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="how-to-install-a-linux-master-target-server"></a>Installation d’un serveur cible maître Linux
 Après avoir basculé une machine virtuelle, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. Si votre machine virtuelle protégée est de type Windows, vous avez besoin d’un serveur cible maître Windows. Si vous avez une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux. Pour savoir comment créer et installer un serveur cible maître Linux, lisez les étapes ci-dessous.
+
+> [!IMPORTANT]
+> À partir de la version de 9.10.0 du serveur cible maître, le serveur cible maître le plus récent ne peut être installé que sur un serveur Ubuntu 16.04. De nouvelles installations ne sont pas autorisées sur les serveurs CentOS6.6. Toutefois, vous pouvez continuer la mise à niveau de vos anciens serveurs cible maître via la version 9.10.0.
 
 ## <a name="overview"></a>Vue d'ensemble
 Cet article fournit des informations utiles et la marche à suivre pour installer un serveur cible maître Linux.
@@ -50,99 +53,115 @@ Le serveur cible maître doit être créé selon les contraintes de dimensionnem
 
 ## <a name="steps-to-deploy-the-master-target-server"></a>Procédure de déploiement du serveur maître cible
 
-### <a name="install-centos-66-minimal"></a>Installer CentOS 6.6 Minimal
+**Installez Ubuntu version 16.04.2 Minimal**
 
-Pour installer le système d’exploitation CentOS 6.6 64 bits, procédez comme suit :
+Suivez les étapes indiquées ci-dessous pour installer le système d’exploitation Ubuntu 16.04.2 64 bits.
 
-1. Parmi les liens suivants, choisissez le serveur miroir le plus proche afin de télécharger un fichier ISO de CentOS 6.6 Minimal 64 bits.
+**Étape 1 :** à l’aide du lien suivant, choisissez le serveur miroir le plus proche afin de télécharger un fichier ISO contenant Ubuntu 16.04.2 Minimal 64 bits
 
-    <http://archive.kernel.org/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+<https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64>
 
-    <http://mirror.symnds.com/distributions/CentOS-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et démarrez le système.
 
-    <http://bay.uchicago.edu/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+**Étape 2 :** sélectionnez **French** (Français) comme langue par défaut, puis appuyez sur Entrée.
 
-    <http://mirror.nsc.liu.se/centos-store/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
 
-    Placez le fichier ISO de CentOS 6.6 Minimal 64 bits dans le lecteur DVD et démarrez le système.
+**Étape 3 :** sélectionnez **Install Ubuntu Server** (Installer serveur Ubuntu), puis appuyez sur Entrée
 
-    ![Boîte de dialogue Welcome (Bienvenue) de CentoOS 6.6](./media/site-recovery-how-to-install-linux-master-target/media/image1.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png)
 
-2. Cliquez sur **Skip** (Ignorer) pour ignorer le processus de test du support.
+**Étape 4 :** sélectionnez **French** (Français) comme langue par défaut, puis appuyez sur Entrée
 
-    ![Cliquer sur Skip (Ignorer) pour ignorer le processus de test du support](./media/site-recovery-how-to-install-linux-master-target/media/image2.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png)
 
-3. Dans l’écran d’accueil, cliquez sur le bouton **Next** (Suivant).
+**Étape 5 :** sélectionnez l’option appropriée dans la liste **Time Zone** (Fuseau horaire), puis appuyez sur Entrée
 
-    ![Bouton Next (Suivant) dans l’écran de bienvenue de l’installation](./media/site-recovery-how-to-install-linux-master-target/media/image3.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png)
 
-4. Sélectionnez **French** (Français) comme langue par défaut, puis cliquez sur **Next** (Suivant).
+**Étape 6 :** sélectionnez l’option par défaut **NO** (NON), puis appuyez sur Entrée
 
-    ![Sélectionner une langue](./media/site-recovery-how-to-install-linux-master-target/media/image4.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
 
-5. Sélectionnez **French** (Français) comme disposition de clavier, puis cliquez sur **Next** (Suivant).
+**Étape 7 :** sélectionnez **French (France)** (Français (France)) comme pays d’origine pour le clavier, puis appuyez sur Entrée
 
-    ![Sélectionner la disposition de clavier française](./media/site-recovery-how-to-install-linux-master-target/media/image5.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image6.png)
 
-6. Sélectionnez **Basic Storage Devices** (Appareils de stockage de base), puis cliquez sur **Next** (Suivant).
+**Étape 8 :** sélectionnez **French (France)** (Français (France)) comme disposition du clavier, puis appuyez sur Entrée
 
-    ![Sélectionner un appareil de stockage](./media/site-recovery-how-to-install-linux-master-target/media/image6.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image7.png)
 
-7. Un message d’avertissement indique que les données existant sur le disque dur vont être supprimées. Vérifiez que le disque dur ne contient pas de données importantes, puis cliquez sur **Yes, discard any data** (Oui, rejeter les données).
+**Étape 9 :** entrez le nom d’hôte de votre serveur dans la **zone de texte Hostname** (Nom d’hôte), puis cliquez sur le bouton **Continue** (Continuer)
 
-    ![Avertissement concernant la suppression des données si vous continuez](./media/site-recovery-how-to-install-linux-master-target/media/image7.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image8.png)
 
-8. Entrez le nom d’hôte de votre serveur dans la zone **Hostname** (Nom d’hôte), puis cliquez sur **Configure Network** (Configurer le réseau). Dans la boîte de dialogue **Network Connection** (Connexion réseau), sélectionnez l’interface réseau, puis cliquez sur le bouton **Edit** (Modifier) pour configurer les paramètres IPV4.
+**Étape 10 :** entrez un **User name** (Nom utilisateur) pour créer un compte utilisateur dans la **zone de texte**, puis cliquez sur le bouton **Continue** (Continuer)
 
-    ![Sélectionner un nom d’hôte et configurer IPV4](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
 
-9. Dans la boîte de dialogue **Editing System eth0** (Modifier le système eth0), activez la case à cocher **Connect automatically** (Se connecter automatiquement). Dans l’onglet **IPv4 Settings** (Paramètres IPv4), choisissez **Manual** (Manuel) dans **Method** (Méthode), puis cliquez sur le bouton **Add** (Ajouter). Renseignez les champs **Static IP** (Adresse IP statique), **Netmask** (Masque de réseau), **Gateway** (Passerelle) et **DNS Server** (Serveur DNS). Cliquez sur **Apply** (Appliquer) pour enregistrer les informations.
+**Étape 11 :** entrez un **Password** (Mot de passe) pour votre compte utilisateur dans la **zone de texte**, puis cliquez sur le bouton **Continue** (Continuer)
 
-    ![Paramètres de configuration du réseau](./media/site-recovery-how-to-install-linux-master-target/media/image9.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image10.png)
 
-10. Sélectionnez votre fuseau horaire, puis cliquez sur **Next** (Suivant).
+**Étape 12 :** confirmez votre **Password** (Mot de passe) pour votre compte utilisateur dans la **zone de texte**, puis cliquez sur le bouton **Continue** (Continuer)
 
-    ![Sélectionner un fuseau horaire](./media/site-recovery-how-to-install-linux-master-target/media/image10.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png)
 
-11. Renseignez le champ **Root password** (Mot de passe racine), confirmez le mot de passe, puis cliquez sur **Next** (Suivant).
+**Étape 13 :** sélectionnez l’option par défaut **NO,** (NON) puis appuyez sur **Entrée**
 
-    ![Ajouter un mot de passe](./media/site-recovery-how-to-install-linux-master-target/media/image11.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image12.png)
 
-12. Sélectionnez **Create Custom Layout** (Créer une mise en page personnalisée), puis cliquez sur **Next** (Suivant).
+**Étape 14 :** sélectionnez l’option par défaut **YES** (OUI) si le fuseau horaire affiché est correct, puis appuyez sur **Entrée.**
 
-    ![Sélectionner un type d’installation](./media/site-recovery-how-to-install-linux-master-target/media/image12.png)
+Vous pouvez sélectionner l’option **No** (Non) pour reconfigurer votre fuseau horaire.
 
-13. Sélectionnez la partition **Free** (Libre), puis cliquez sur **Create** (Créer) pour créer les partitions **/**, **/var/crash** et **/home** avec le type de système de fichiers **ext4**. Créez une **Swap Partition** (Partition d’échange) avec **swap** (Échange) comme type de système de fichiers. Pour allouer une taille de partition, suivez la formule d’allocation de taille, indiquée dans le tableau.
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image13.png)
 
-    > [!NOTE]
-    > Le serveur cible maître Linux ne doit pas utiliser LVM (Logical Volume Manager) pour les espaces de stockage racine ou de rétention. Par défaut, le serveur cible maître Linux est configuré pour ne pas rechercher les disques/partitions LVM.
+**Étape 15 :** sélectionnez l’option « **Guided -** (Guidée) **Use entire disk** (Utiliser ensemble disque) » depuis les options de méthode de partitionnement, puis appuyez sur **Entrée.**
 
-    ![Tableau des noms de partition, des tailles de partition et des types de système de fichiers](./media/site-recovery-how-to-install-linux-master-target/media/image13.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
 
-14. Après avoir créé la partition, cliquez sur **Next** (Suivant).
+**Étape 16 :** sélectionnez le disque approprié depuis l’option **Select disk to partition** (Sélectionner disque pour partition), puis appuyez sur **Entrée.**
 
-    ![Boîte de dialogue affichant les valeurs sélectionnées pour les partitions](./media/site-recovery-how-to-install-linux-master-target/media/image14.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png)
 
-15. Si des appareils sont détectés, un message d’avertissement relatif au formatage apparaît. Cliquez sur **Format** (Formater) pour formater le disque dur avec la dernière table de partition.
+**Étape 17 :** sélectionnez **YES** (OUI) pour écrire les modifications des disques, puis appuyez sur **Entrée.**
 
-    ![Cliquer sur le bouton Format (Formater) pour formater le disque](./media/site-recovery-how-to-install-linux-master-target/media/image15.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image16.png)
 
-16. Cliquez sur **Write changes to disk** (Enregistrer les modifications sur le disque) pour appliquer les modifications de partition au disque.
+**Étape 18 :** sélectionnez l’option par défaut NO (NON), puis appuyez sur Entrée.
 
-    ![Cliquer sur Enregistrer les modifications sur le disque](./media/site-recovery-how-to-install-linux-master-target/media/image16.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png)
 
-17. Cochez l’option **Install boot loader** (Installer le chargeur de démarrage), puis cliquez sur **Next** (Suivant) pour installer le chargeur de démarrage sur la partition racine.
+**Étape 19 :** sélectionnez l’option appropriée pour gérer les mises à niveau de votre système et appuyez sur **Entrée**
 
-    ![Installer le chargeur de démarrage sur la partition racine](./media/site-recovery-how-to-install-linux-master-target/media/image17.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
+
+> [!WARNING]
+> Le serveur cible maître de Azure Site Recovery nécessite une version spécifique de Ubuntu. Vous devez donc veiller à ce que les mises à niveau du noyau de la machine virtuelle soient désactivées. Si elles sont activées, toute mise à niveau entraîne un dysfonctionnement du serveur cible maître. Veillez à sélectionner l’option « No automatic updates » (Aucune mise à jour automatique).
 
 
-18. Le processus d’installation démarre. Vous pouvez en surveiller l’état d’avancement.
+**Étape 20 :** vous pouvez commencer avec les options par défaut. Si vous souhaitez qu’openSSH pour SSH connect, sélectionnez l’option « OpenSSH server » (Serveur OpenSSH), puis Continue (Continuer).
 
-    ![Boîte de dialogue affichant l’état d’avancement de l’installation](./media/site-recovery-how-to-install-linux-master-target/media/image18.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png)
 
-19. L’écran suivant apparaît à la fin de l’installation. Cliquez sur **Reboot** (Redémarrer).
+**Étape 21 :** sélectionnez l’option **YES** (OUI), puis appuyez sur **Entrée**
 
-    ![Écran d’installation réussie](./media/site-recovery-how-to-install-linux-master-target/media/image19.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image20.png)
+
+**Étape 22 :** sélectionnez le périphérique approprié (de préférence dev ou sda) pour l’installation du chargeur de démarrage et appuyez sur **Entrée.**
+
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image21.png)
+
+**Étape 23 :** sélectionnez **Continue** (Continuer), puis appuyez sur **Entrée** pour **terminer l’installation.**
+
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png)
+
+Une fois l’installation terminée. Connectez-vous à la machine virtuelle à l’aide des nouvelles informations d’identification de l’utilisateur (voir **Étape 10**).
+
+Suivez les étapes mentionnées dans la capture d’écran suivante pour définir le mot de passe de l’utilisateur racine, pour se connecter en tant qu’utilisateur racine pour d’autres opérations.
+
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
 
 
 ### <a name="post-installation-steps"></a>Étapes de post-installation
@@ -176,83 +195,20 @@ Pour ce faire, procédez comme suit :
 
     ![Vérification de la présence de disk.EnableUUID](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
 
+#### <a name="disable-kernel-upgrades"></a>**Désactiver les mises à niveau du noyau**
+
+Le serveur cible maître de Azure Site Recovery nécessite une version spécifique de Ubuntu. Vous devez donc veiller à ce que les mises à niveau du noyau de la machine virtuelle soient désactivées. Si elles sont activées, toute mise à niveau entraîne un dysfonctionnement du serveur cible maître. Utilisez les étapes ci-dessous pour désactiver les mises à niveau du noyau.
+> [!IMPORTANT]
+> Nécessaire pour les étapes de script
+
 #### <a name="download-and-install-additional-packages"></a>Télécharger et installer les packages supplémentaires
 
 > [!NOTE]
 > Vérifiez que vous avez accès à Internet pour télécharger et installer les packages supplémentaires. Si vous n’êtes pas connecté à Internet, vous devez rechercher ces packages RPM et les installer manuellement.
 
 ```
-yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx
 ```
-
-La commande précédente télécharge les 15 packages suivants à partir du référentiel CentOS 6.6 et les installe. Si vous n’avez pas accès à Internet, vous devrez télécharger les packages RPM suivant :
-
-
-bc-1.06.95-1.el6.x86\_64.rpm
-
-busybox-1.15.1-20.el6.x86\_64.rpm
-
-elfutils-libs-0.158-3.2.el6.x86\_64.rpm
-
-kexec-tools-2.0.0-280.el6.x86\_64.rpm
-
-lsscsi-0.23-2.el6.x86\_64.rpm
-
-lzo-2.03-3.1.el6\_5.1.x86\_64.rpm
-
-perl-5.10.1-136.el6\_6.1.x86\_64.rpm
-
-perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
-
-perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
-
-perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
-
-perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
-
-perl-version-0.77-136.el6\_6.1.x86\_64.rpm
-
-rsync-3.0.6-12.el6.x86\_64.rpm
-
-snappy-1.1.0-1.el6.x86\_64.rpm
-
-wget-1.12-5.el6\_6.1.x86\_64.rpm
-
-
-#### <a name="install-additional-packages-for-specific-operating-systems"></a>Installer les packages supplémentaires pour des systèmes d’exploitation spécifiques
-
-> [!NOTE]
-> Si les machines sources protégées utilisent un système de fichiers Reiser ou XFS pour la racine ou l’appareil de démarrage, téléchargez et installez les packages supplémentaires suivants sur le serveur cible maître Linux avant la protection.
-
-
-***ReiserFS (s’il est utilisé dans Suse11SP3. ReiserFS n’est pas le système de fichiers par défaut dans Suse11SP3.)***
-
-```
-cd /usr/local
-
-wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
-
-wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
-
-rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
-reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
-```
-
-***XFS (RHEL, CentOS 7 et versions ultérieures)***
-
-```
-cd /usr/local
-
-wget
-<http://archive.kernel.org/centos-vault/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
-
-rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
-
-yum install device-mapper-multipath
-```
-Requis pour activer les packages multichemins sur le serveur maître cible.
 
 ### <a name="get-the-installer-for-setup"></a>Obtenir le programme d’installation
 
@@ -361,12 +317,14 @@ Pour créer un disque de rétention, procédez comme suit :
 3. Exécutez la commande suivante pour installer le serveur cible maître et l’inscrire auprès du serveur de configuration.
 
     ```
-    ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i <Configuration Server IP Address> -p 443 -s y -c https -P passphrase.txt
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 
-    Exemple : ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
+    Exemple : /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
 
     Attendez la fin du script. Si le serveur cible maître est déjà inscrit, il figure dans la page Site Recovery Infrastructure (Infrastructure Site Recovery) du portail.
+
 
 #### <a name="install-the-master-target-by-using-interactive-install"></a>Installer le serveur cible maître en mode interactif
 
@@ -380,22 +338,31 @@ Pour créer un disque de rétention, procédez comme suit :
 
     ![Choix d’un emplacement par défaut pour l’installation du serveur cible maître](./media/site-recovery-how-to-install-linux-master-target/image17.png)
 
+Une fois l’installation terminée, vous devez enregistrer le serveur de configuration à l’aide de la ligne de commande.
 
-3. Choisissez les paramètres **globaux** à configurer.
+1. Notez l’adresse IP du serveur de configuration. Vous en aurez besoin à l’étape suivante.
 
-    ![Configuration des paramètres globaux](./media/site-recovery-how-to-install-linux-master-target/image18.png)
+2. Exécutez la commande suivante pour installer le serveur cible maître et l’inscrire auprès du serveur de configuration.
 
-4. Spécifiez les adresses IP du serveur de configuration.
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
+    ```
 
-5. Spécifiez le port 443 pour le serveur de configuration.
+    Exemple : /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
 
-    ![Définition de l’adresse IP et du port du serveur de configuration](./media/site-recovery-how-to-install-linux-master-target/image19.png)
+    Attendez la fin du script. Si le serveur cible maître est déjà inscrit, il figure dans la page Site Recovery Infrastructure (Infrastructure Site Recovery) du portail.
 
-6. Copiez la phrase secrète du serveur de configuration à partir de C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase sur le serveur de configuration et collez-la dans la zone **Passphrase** (Phrase secrète). La zone reste vide, même lorsque vous y collez le texte.
 
-7. Sélectionnez **Quit** (Quitter) dans le menu.
+### <a name="upgrade-the-master-target"></a>Mettez le serveur cible maître à niveau
 
-8. Attendez la fin de l’installation et de l’inscription.
+Exécutez le programme d’installation. Il détecte automatiquement que l’agent est installé sur le serveur cible maître. Sélectionnez « Y » (O) pour mettre à niveau. Une fois la configuration terminée, vous pouvez vérifier la version du serveur cible maître installée à l’aide de la commande suivante.
+
+    ```
+        cat /usr/local/.vx_version
+    ```
+
+Vous pouvez constater que le champ VERSION indique le numéro de version du serveur cible maître.
 
 ### <a name="install-vmware-tools-on-the-master-target-server"></a>Installer les outils VMware sur le serveur maître cible
 

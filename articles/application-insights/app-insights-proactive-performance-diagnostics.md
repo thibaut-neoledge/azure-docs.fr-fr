@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 5/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 080b732d78731e6281e82ddc28a3e84ae8755ffa
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 0e9c10b77110efe90239863ee603acbd54b17ead
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -63,7 +63,7 @@ Les notifications de détection intelligente sont activées par défaut et envoy
   
   ![Paramètres de détection intelligente](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
   
-  * Le lien de **désabonnement** dans le courrier électronique de détection intelligente également 
+  * Vous pouvez utiliser le lien **se désabonner** dans l’e-mail de détection intelligente pour ne plus recevoir de notifications par courrier électronique.
 
 Les courriers électroniques relatifs aux anomalies de performances de détections intelligentes se limitent à un courrier électronique par jour et par ressource Application Insights. Le courrier électronique n’est envoyé que si au moins un nouveau problème a été détecté ce jour-là. Vous n’obtiendrez pas plusieurs fois le même message. 
 
@@ -117,7 +117,7 @@ Ouvrez le panneau métrique des navigateurs. L'affichage segmenté du temps de c
 ### <a name="improve-slow-pages"></a>Améliorer les pages lentes
 Il existe un site web plein de conseils sur l’amélioration des temps de chargement des réponses serveur et des pages, et nous n’essaierons pas de tous les répéter ici. Voici quelques conseils que vous connaissez sans doute déjà, simplement pour susciter votre réflexion :
 
-* Chargement lent dus à de gros fichiers : charger des scripts et les autres éléments de façon asynchrone. Utiliser le regroupement de scripts. Divisiez la page principale en widgets chargeant leurs données séparément. N’envoyez pas d’ancien langage HTML pour les longs tableaux : utilisez un script pour demander les données JSON ou un autre format compact, puis renseignez le tableau sur place. Il existe de grandes structures pour aider à cela. (Elles aussi comportent des scripts volumineux, bien sûr.)
+* Chargement lent du à de gros fichiers : charger des scripts et les autres éléments de façon asynchrone. Utiliser le regroupement de scripts. Divisez la page principale en widgets chargeant leurs données séparément. N’envoyez pas d’ancien langage HTML pour les longs tableaux : utilisez un script pour demander les données JSON ou un autre format compact, puis renseignez le tableau sur place. Il existe de grandes structures pour aider à cela. (Elles aussi comportent des scripts volumineux, bien sûr.)
 * Ralentir les dépendances de serveur : prendre en compte des emplacements géographiques de vos composants. Par exemple, si vous utilisez Azure, assurez-vous que le serveur web et la base de données se trouvent dans la même région. Les requêtes récupèrent-elles plus d’informations que nécessaire ? La mise en mémoire cache ou en lot peut-elle aider ?
 * Problèmes de capacité : examinez les métriques de serveur des temps de réponse et le nombre de demandes. Si les temps de réponse présentent des pics disproportionnés en termes de nombre de requêtes, vos serveurs sont étirés.
 
@@ -139,7 +139,7 @@ La notification de dégradation du temps de réponse indique :
 
 ## <a name="dependency-duration-degradation"></a>Dégradation de la durée de dépendance
 
-Les applications modernes adoptent de plus en plus l’approche de conception de micro-services qui, dans de nombreux cas, confère aux services externes une haute fiabilité. Par exemple, si votre application s’appuie sur une plateforme de données ou si vous créez votre propre service bot, vous vous appuierez probablement sur un fournisseur de services cognitifs pour que vos bots interagissent de manière plus humaine et sur des services de banque de données dans lequel le bot extraira les réponses.  
+Les applications modernes adoptent de plus en plus l’approche de conception de microservices qui, dans de nombreux cas, confère aux services externes une haute fiabilité. Par exemple, si votre application s’appuie sur une plateforme de données ou si vous créez votre propre service bot, vous vous appuierez probablement sur un fournisseur de services cognitifs pour que vos bots interagissent de manière plus humaine et sur des services de banque de données dans lequel le bot extraira les réponses.  
 
 Exemple de notification de dégradation de dépendance :
 

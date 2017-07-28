@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 542817c562e10ff32c62afd186cf012abbe82ac5
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -55,33 +56,27 @@ Avant de déployer un service cloud, vous devez créer le package de service clo
 Trois fonctions du service cloud nécessitent une configuration spécifique avant d'exporter le package de service :
 
 * Si vous souhaitez déployer un service cloud qui utilise le chiffrement de données SSL (Secure Sockets Layer), [configurez votre application](cloud-services-configure-ssl-certificate-portal.md#modify) pour SSL.
-* Si vous voulez configurer les connexions Bureau à distance aux instances de rôle, [configurez les rôles](cloud-services-role-enable-remote-desktop.md) pour le Bureau à distance. Pour cela, utilisez le portail Classic.
+* Si vous voulez configurer les connexions Bureau à distance aux instances de rôle, [configurez les rôles](cloud-services-role-enable-remote-desktop-new-portal.md) pour le Bureau à distance.
 * Si vous voulez configurer la surveillance détaillée pour votre service cloud, activez Azure Diagnostics pour le service cloud. *Surveillance minimale* (niveau de surveillance par défaut) utilise des compteurs de performances récupérés sur le système d'exploitation hôte des instances de rôle (machine virtuelle). *surveillance détaillée* recueille des mesures supplémentaires sur les données de performances dans les instances de rôle, afin de permettre une analyse plus fine des problèmes qui surviennent au cours du traitement de l'application. Pour savoir comment activer Azure Diagnostics, consultez la page [Activation des diagnostics dans Azure](cloud-services-dotnet-diagnostics.md).
 
 Pour créer un service cloud avec des déploiements de rôles web ou de rôles de travail, vous devez [créer le package de service](cloud-services-model-and-package.md#servicepackagecspkg).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 * Si vous n'avez pas installé le Kit de développement logiciel (SDK), cliquez sur **Install Azure SDK** pour ouvrir la page des [téléchargements Azure](https://azure.microsoft.com/downloads/), puis téléchargez le Kit de développement logiciel dans le langage souhaité pour le développement de votre code. (Vous pourrez le faire ultérieurement.)
-* Si des instances de rôle nécessitent des certificats, créez ces certificats. Les services cloud requièrent un fichier .pfx avec une clé privée. [Vous pouvez charger les certificats sur Azure]() quand vous créez et déployez le service cloud.
-* Si vous prévoyez de déployer le service cloud dans un groupe d'affinités, créez le groupe d'affinités. Vous pouvez utiliser un groupe d'affinités pour déployer votre service cloud et d'autres services Azure dans le même emplacement dans une région. Vous pouvez créer le groupe d’affinités dans la zone **Réseaux** du portail Azure Classic, dans la page **Groupes d’affinités**.
+* Si des instances de rôle nécessitent des certificats, créez ces certificats. Les services cloud requièrent un fichier .pfx avec une clé privée. Vous pouvez charger les certificats sur Azure quand vous créez et déployez le service cloud.
 
 ## <a name="create-and-deploy"></a>Création et déploiement
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Nouveau >Calculer**, faites défiler la page vers le bas, puis cliquez sur **Service cloud**.
 
     ![Publier votre service cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. En bas de la page d’informations qui s’affiche, cliquez sur **Créer**.
-4. Dans le nouveau panneau **Service cloud**, entrez une valeur pour le **nom DNS**.
-5. Créez un **groupe de ressources** ou sélectionnez-en un.
-6. Sélectionnez un **emplacement**.
-7. Cliquez sur **Package**. Le panneau **Télécharger un package** s’affiche. Renseignez les champs obligatoires. Si l’un de vos rôles contient une seule et même instance, vérifiez que l’option **Déployer même si un ou plusieurs rôles ne contiennent qu’une seule et même instance** est sélectionnée.
-
-    > [!IMPORTANT]
-    > Les services cloud peuvent uniquement être associés à des [comptes de stockage classiques](../azure-resource-manager/resource-manager-deployment-model.md). Si vous voyez un message indiquant qu’aucun compte de stockage n’a été trouvé pour votre abonnement et votre emplacement, assurez-vous que vous avez créé un compte de stockage classique pour votre service cloud à cet emplacement.
-
-8. Vérifiez que l’option **Démarrer le déploiement** est sélectionnée.
-9. Cliquez sur **OK** pour fermer le panneau **Télécharger un package**.
-10. Si vous n’avez aucun certificat à ajouter, cliquez sur **Créer**.
+3. Dans le nouveau panneau **Service cloud**, entrez une valeur pour le **nom DNS**.
+4. Créez un **groupe de ressources** ou sélectionnez-en un.
+5. Sélectionnez un **emplacement**.
+6. Cliquez sur **Package**. Le panneau **Télécharger un package** s’affiche. Renseignez les champs obligatoires. Si l’un de vos rôles contient une seule et même instance, vérifiez que l’option **Déployer même si un ou plusieurs rôles ne contiennent qu’une seule et même instance** est sélectionnée.
+7. Vérifiez que l’option **Démarrer le déploiement** est sélectionnée.
+8. Cliquez sur **OK** pour fermer le panneau **Télécharger un package**.
+9. Si vous n’avez aucun certificat à ajouter, cliquez sur **Créer**.
 
     ![Publier votre service cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 

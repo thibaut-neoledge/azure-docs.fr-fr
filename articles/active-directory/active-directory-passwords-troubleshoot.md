@@ -6,20 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 4dae8b87904fff2f2f8665d235bf790fb1e073d0
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 963749bce0a84a97a0938f5531ebf7d694a3ca58
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 
@@ -60,7 +61,7 @@ Si vous rencontrez des problèmes avec la réinitialisation du mot de passe en l
 | L’annuaire est activé pour la réinitialisation du mot de passe. Toutefois, l’utilisateur n’a fourni qu’une seule partie des données de contact alors que la stratégie nécessite deux étapes de vérification. | Avant de continuer, vérifiez que l’utilisateur a configuré correctement au moins deux méthodes de contact (par exemple, un téléphone mobile **et** un téléphone fixe). |
 | L’annuaire est activé pour la réinitialisation du mot de passe et l’utilisateur est correctement configuré, mais l’utilisateur est injoignable. | Cela peut être dû à une erreur de service temporaire ou à des données de contact incorrectement configurées qui n’ont pas été signalées comme telles. <br> <br> Si l’utilisateur patiente pendant 10 secondes, un lien l’invitant à réessayer et à contacter son administrateur apparaît. Cliquer sur Réessayer lance une nouvelle tentative d’appel, alors que « Contacter votre administrateur » envoie un e-mail aux administrateurs leur demandant d’effectuer une réinitialisation de mot de passe pour ce compte d’utilisateur. |
 | L’utilisateur ne reçoit jamais l’appel téléphonique ou le SMS de réinitialisation du mot de passe. | Cela peut être dû à un numéro de téléphone mal formé dans l’annuaire. Assurez-vous que le numéro de téléphone est au format « +ccc xxxyyyzzzzXeeee ». <br> <br> La réinitialisation du mot de passe ne prend pas en charge les extensions, même si en vous spécifiez un dans l’annuaire (elles sont supprimées avant le déploiement de l’appel). Essayez d’utiliser un nombre sans numéro de poste ou d’intégrer le numéro de poste dans le numéro de téléphone dans votre PBX. |
-| L’utilisateur ne reçoit jamais le message électronique de réinitialisation du mot de passe. | La cause la plus probable de ce problème est que le message est rejeté par un filtre antispam. Consultez votre dossier de courrier indésirable ou d’éléments supprimés pour y rechercher le message électronique. <br> Assurez-vous également que vous vérifiez la bonne adresse de messagerie pour le message. |
+| L’utilisateur ne reçoit jamais l’e-mail de réinitialisation du mot de passe. | La cause la plus probable de ce problème est que le message est rejeté par un filtre antispam. Consultez votre dossier de courrier indésirable ou d’éléments supprimés pour y rechercher l’e-mail. <br> Assurez-vous également que vous vérifiez la bonne adresse e-mail pour le message. |
 | J’ai défini une stratégie de réinitialisation du mot de passe, mais quand un compte d’administrateur utilise la réinitialisation du mot de passe, cette stratégie n’est pas appliquée. | Microsoft gère et contrôle la stratégie de réinitialisation du mot de passe administrateur afin de garantir le plus haut niveau de sécurité possible. |
 | L’utilisateur est empêché de tenter de réinitialiser son mot de passe un nombre de fois par jour trop élevé. | Nous implémentons un mécanisme de limitation automatique pour empêcher les utilisateurs d’essayer de réinitialiser leurs mots de passe un nombre de fois trop élevé sur un court laps de temps. Cette limitation se produit quand : <br> 1. L’utilisateur tente de valider un numéro de téléphone cinq fois en une heure. <br> 2. L’utilisateur tente d’utiliser la méthode des questions de sécurité cinq fois en une heure. <br> 3. L’utilisateur tente de réinitialiser un mot de passe pour le même compte d’utilisateur cinq fois en une heure. <br> Pour résoudre ce problème, demandez à l’utilisateur d’attendre 24 heures après la dernière tentative. Il pourra alors réinitialiser son mot de passe. |
 | L’utilisateur rencontre une erreur lors de la validation de son numéro de téléphone | Cette erreur se produit quand le numéro de téléphone entré ne correspond pas au numéro de téléphone enregistré. Assurez-vous que l’utilisateur entre le numéro de téléphone complet, y compris le code de zone et de pays, quand il essaie d’utiliser une méthode par téléphone pour la réinitialisation du mot de passe. |
@@ -76,7 +77,6 @@ Si vous rencontrez des problèmes avec la réinitialisation du mot de passe en l
 | Le journal des événements de l’ordinateur Azure AD Connect contient l’erreur 32002 levée par PasswordResetService. <br> <br> L’erreur stipule : « Erreur lors de la connexion à ServiceBus. Le fournisseur de jetons était dans l’incapacité de fournir un jeton de sécurité... » | Votre environnement local n’est pas en mesure de se connecter au point de terminaison Service Bus dans le cloud. Cette erreur est due à une règle de pare-feu qui bloque une connexion sortante vers une adresse web ou un port spécifique. Consultez [Configuration requise pour le réseau](active-directory-passwords-how-it-works.md#network-requirements) pour plus d’informations. Une fois que vous avez mis à jour ces règles, redémarrez l’ordinateur Azure AD Connect. L’écriture différée des mots de passe doit fonctionner de nouveau. |
 | Après avoir pu réinitialiser leurs mots de passe pendant un certain temps, les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe ne parviennent plus à réinitialiser leurs mots de passe. | Dans certains cas rares, le service d’écriture différée des mots de passe peut ne pas réussir à redémarrer quand Azure AD Connect a redémarré. Dans ce cas, commencez par vérifier si l’écriture différée des mots de passe est activée localement. Pour cela, utilisez l’Assistant Azure AD Connect ou PowerShell (voir les procédures ci-dessus). Si la fonctionnalité semble être activée, essayez de l’activer ou de la désactiver de nouveau par le biais de l’interface utilisateur ou de PowerShell. Si le problème persiste, essayez de désinstaller et réinstaller Azure AD Connect complètement. |
 | Les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe qui tentent de réinitialiser leurs mots de passe voient une erreur après avoir soumis un mot de passe qui leur indique un problème du service. <br ><br> En outre, pendant les opérations de réinitialisation de mot de passe, une erreur peut figurer dans vos journaux des événements locaux, laquelle concerne l’agent de gestion auquel l’accès a été refusé. | Si vous voyez ces erreurs dans votre journal des événements, vérifiez que le compte de l’agent de gestion AD (qui a été spécifié dans l’Assistant au moment de la configuration) dispose des autorisations nécessaires pour l’écriture différée des mots de passe. <br> <br> **Une fois que cette autorisation est accordée, cela peut prendre jusqu’à 1 heure pour que les autorisations arrivent via la tâche en arrière-plan sdprop sur le contrôleur de domaine.** <br> <br> Pour que la réinitialisation du mot de passe fonctionne, l’autorisation doit être marquée sur le descripteur de sécurité de l’objet utilisateur dont le mot de passe est réinitialisé. Tant que cette autorisation n’apparaît pas sur l’objet utilisateur, la réinitialisation du mot de passe continue d’échouer avec un accès refusé. |
-| Impossible de réinitialiser le mot de passe des utilisateurs inclus dans des groupes spéciaux tels que les administrateurs de domaine/d’entreprise | Les utilisateurs privilégiés dans Active Directory sont protégés à l’aide d’AdminSDHolder. Consultez [http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx](http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx) pour plus de détails. <br> <br> Cela signifie que les descripteurs de sécurité sur ces objets sont régulièrement vérifiés pour correspondre à celui spécifié dans AdminSDHolder et qu’ils sont réinitialisés s’ils sont différents. Les autorisations supplémentaires nécessaires pour l’écriture différée des mots de passe n’arrivent donc pas à ces utilisateurs. L’Écriture différée du mot de passe ne fonctionne alors pas pour de tels utilisateurs. Par conséquent, **nous ne prenons pas en charge la gestion des mots de passe pour les utilisateurs au sein de ces groupes, car cela enfreint le modèle de sécurité AD.**
 | Les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe qui tentent de réinitialiser leurs mots de passe voient une erreur après avoir soumis un mot de passe qui leur indique un problème du service. <br> <br> En outre, lors des opérations de réinitialisation de mot de passe, une erreur peut apparaître dans vos journaux des événements du service Azure AD Connect indiquant une erreur « Objet introuvable ». | Cette erreur indique généralement que le moteur de synchronisation est incapable de trouver l’objet utilisateur dans l’espace du connecteur AAD ou l’objet espace du connecteur MV ou AD lié. <br> <br> Pour résoudre ce problème, assurez-vous que l’utilisateur est véritablement synchronisé localement avec AAD via l’instance actuelle d’Azure AD Connect et examinez l’état des objets dans les espaces du connecteur et MV. Vérifiez que l’objet AD CS est le connecteur à l’objet MV via la règle « Microsoft.InfromADUserAccountEnabled.xxx ».|
 | Les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe qui tentent de réinitialiser leurs mots de passe voient une erreur après avoir soumis un mot de passe qui leur indique un problème du service. <br> <br> En outre, lors des opérations de réinitialisation de mot de passe, une erreur peut apparaître dans vos journaux des événements du service Azure AD Connect indiquant une erreur « Plusieurs correspondances trouvées ». | Cette erreur indique que le moteur de synchronisation a détecté que l’objet MV est connecté à plusieurs objets AD CS via « Microsoft.InfromADUserAccountEnabled.xxx ». Cela signifie que l’utilisateur dispose d’un compte activé dans plusieurs forêts. **Ce scénario n’est pas pris en charge pour l’écriture différée de mot de passe.** |
 | Les opérations nécessitant un mot de passe échouent en renvoyant un message d’erreur de configuration. L’application que le journal des événements contient <br> <br> Erreur Azure AD Connect 6329 avec le texte : 0x8023061f (L’opération a échoué, car la synchronisation de mot de passe n’est pas activée pour cet agent de gestion). | Cela se produit si la configuration d’Azure AD Connect est modifiée pour ajouter une nouvelle forêt AD (ou pour supprimer et rajouter une forêt existante) après l’activation de la fonctionnalité d’écriture différée du mot de passe. Les opérations nécessitant un mot de passe pour les utilisateurs dans de telles forêts nouvellement ajoutées échouent. Pour résoudre le problème, désactivez, puis réactivez la fonctionnalité d’écriture différée du mot de passe une fois les modifications de configuration de la forêt effectuées. |
@@ -143,7 +143,7 @@ Pour résoudre les problèmes liés à l’écriture différée des mots de pass
 
 Si vous rencontrez des interruptions de service avec le composant d’écriture différée de mot de passe d’Azure AD Connect, voici quelques mesures rapides à prendre pour résoudre le problème :
 
-* [Redémarrer le service de synchronisation Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
+* [Redémarrer le service de synchronisation Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Désactiver et réactiver la fonctionnalité d’écriture différée de mot de passe](#disable-and-re-enable-the-password-writeback-feature)
 * [Installer la dernière version d’Azure AD Connect](#install-the-latest-azure-ad-connect-release)
 * [Résoudre les problèmes d’écriture différée du mot de passe](#troubleshoot-password-writeback)
@@ -199,6 +199,27 @@ Ces étapes vont rétablir votre connexion au service cloud et résoudre toute i
 
 Si l’installation de la dernière version du serveur Azure AD Connect ne résout pas votre problème, la dernière étape recommandée consiste à essayer la désactivation et la réactivation de l’écriture différée de mot de passe après l’installation de la dernière version.
 
+## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Vérifier si Azure AD Connect a l’autorisation nécessaire pour l’écriture différée du mot de passe 
+Azure AD Connect a besoin de l’autorisation AD **Réinitialiser le mot de passe** pour effectuer une écriture différée du mot de passe. Pour savoir si Azure AD Connect a l’autorisation pour un compte d’utilisateur AD local donné, vous pouvez utiliser la fonctionnalité d’autorisation effective de Windows :
+
+1. Connectez-vous au serveur Azure AD Connect et démarrez **Synchronization Service Manager** (Démarrer → Service de synchronisation).
+2. Sous l’onglet **Connecteurs**, sélectionnez le **Connecteur AD** local et cliquez sur **Propriétés**.  
+![Autorisation effective - Étape 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+3. Dans la boîte de dialogue contextuelle, sélectionnez l’onglet **Se connecter à la forêt Active Directory** et prenez note de la propriété **Nom d’utilisateur**. Il s’agit du compte AD DS utilisé par Azure AD Connect pour effectuer la synchronisation d’annuaire. Pour qu’Azure AD Connect effectue une écriture différée du mot de passe, il faut que le compte des services AD DS dispose de l’autorisation Réinitialiser le mot de passe.  
+![Autorisation effective - Étape 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png)  
+4. Connectez-vous à un contrôleur de domaine local et démarrez l’application **Utilisateurs et ordinateurs Active Directory**.
+5. Cliquez sur **Affichage** et vérifiez que l’option **Fonctionnalités avancées** est activée.  
+![Autorisation effective - Étape 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png)  
+6. Recherchez le compte d’utilisateur Active Directory à vérifier. Cliquez avec le bouton droit sur le compte et sélectionnez **Propriétés**.  
+![Autorisation effective - Étape 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png)  
+7. Dans la boîte de dialogue contextuelle, accédez à l’onglet **Sécurité** et cliquez sur **Avancé**.  
+![Autorisation effective - Étape 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png)  
+8. Dans la boîte de dialogue contextuelle Paramètres de sécurité avancés, accédez à l’onglet **Accès effectif**.
+9. Cliquez sur **Sélectionner un utilisateur** et sélectionnez le compte des services AD DS utilisé par Azure AD Connect (voir l’étape 3). Ensuite, cliquez sur **Afficher l’accès effectif**.  
+![Autorisation effective - Étape 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png)  
+10. Faites défiler vers le bas et recherchez **Réinitialiser le mot de passe**. Si l’entrée est cochée, cela signifie que le compte des services AD DS est autorisé à réinitialiser le mot de passe du compte d’utilisateur AD sélectionné.  
+![Autorisation effective - Étape 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
 ## <a name="azure-ad-forums"></a>Forums d’Azure AD
 
 Si vous avez une question générale sur Azure AD et la réinitialisation du mot de passe en libre-service, vous pouvez demander de l’aide à la communauté sur les [forums d’Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Les membres de la communauté comprennent les ingénieurs, les chefs de produit, MVP et autres professionnels de l’informatique.
@@ -211,10 +232,11 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
 
 * **Description générale de l’erreur** : quelle est l’erreur ? Quel était le comportement que vous avez remarqué ? Comment pouvons-nous reproduire l’erreur ? Fournissez autant de détails que possible.
 * **Page** : sur quelle page étiez-vous sur lorsque vous remarqué l’erreur ? Indiquez l’URL si possible, ainsi qu’une capture d’écran.
-* **Date, heure et fuseau horaire** : veuillez inclure la date et l’heure **avec le fuseau horaire** d’occurrence de l’erreur.
 * **Code de support** : quel était le code de support généré lorsque l’utilisateur a vu l’erreur ? 
     * Pour le trouver, reproduisez l’erreur, puis cliquez sur le lien Code de support en bas de l’écran et envoyez à l’ingénieur du support technique le GUID obtenu.
+    ![Recherchez le code de support en bas de l’écran][Support Code]
     * Si vous êtes dans une page sans code de support dans la partie inférieure, appuyez sur F12 et recherchez le SID et le CID et envoyez ces deux résultats à l’ingénieur de support.
+* **Date, heure et fuseau horaire** : veuillez inclure la date et l’heure **avec le fuseau horaire** d’occurrence de l’erreur.
 * **ID d’utilisateur** : qui était l’utilisateur qui a vu l’erreur ? (user@contoso.com)
     * S’agit-il d’un utilisateur fédéré ?
     * S’agit-il d’un utilisateur disposant de la synchronisation du hachage de mot de passe ?
@@ -222,13 +244,16 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
 * **Licences** : l'utilisateur disposait-il d'une licence Azure AD Premium ou Azure AD de base ?
 * **Journal des événements de l’application** : si vous utilisez l’écriture différée de mot de passe et que l’erreur se produit dans votre infrastructure locale, veuillez compresser une copie du journal des événements de l’application provenant de votre serveur Azure AD Connect et l’inclure lorsque vous contactez le support technique.
 
+    
+
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Redémarrer le service de synchronisation Azure AD"
+[Support Code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Le code de support se trouve en bas à droite de la fenêtre"
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
-* [**Démarrage rapide**](active-directory-passwords-getting-started.md) : soyez rapidement opérationnel avec la gestion des mots de passe en libre-service d’Azure AD. 
+* [**Démarrage rapide**](active-directory-passwords-getting-started.md) : soyez rapidement opérationnel avec la gestion des mots de passe en libre-service Azure AD. 
 * [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.
 * [**Données**](active-directory-passwords-data.md) : comprenez mieux les données requises et leur utilisation dans la gestion des mots de passe.
 * [**Déploiement**](active-directory-passwords-best-practices.md) : planifiez et déployez la réinitialisation de mot de passe en libre-service pour vos utilisateurs grâce aux conseils figurant ici.
@@ -237,5 +262,5 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [**Écriture différée du mot de passe**](active-directory-passwords-writeback.md) : fonctionnement de l’écriture différée du mot de passe avec votre répertoire local.
 * [**Rapports**](active-directory-passwords-reporting.md) : découvrez si, quand et où vos utilisateurs accèdent aux fonctionnalités de réinitialisation de mot de passe en libre-service.
 * [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qui se passe sous le capot pour mieux comprendre le fonctionnement.
-* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) - Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours
+* [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) : Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours
 

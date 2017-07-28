@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 7c13931aa6d17036e59674cdd917e3ca221ac57f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -39,16 +41,11 @@ Cette rubrique répertorie les emplacements POP actuels du **CDN Azure fourni pa
 | Europe du Sud |Madrid, Espagne<br />Milan, Italie |**&#x2713;**\* |
 | Est de l'Asie |Tokyo, Japon<br />Osaka, Japon<br />Batam, Indonésie<br />Jakarta, Indonésie<br />Hong Kong<br />Kaohsiung, Taïwan<br />Séoul, Corée du Sud<br />Singapour |**&#x2713;**\* |
 | Asie du Sud et Asie centrale |Bangalore, Inde<br />Chennai, Inde<br />Delhi, Inde<br />Mumbai, Inde |**&#x2713;**\* |
-| Moyen-Orient/Asie de l’Ouest |Muscat, Oman |**&#x2713;**\* |
+| Moyen-Orient/Asie de l’Ouest |Muscat, Oman <br /> Fujirah, Émirats Arabes Unis |**&#x2713;**\* |
 | Afrique | |**&#x2713;**\* |
 | Australie et Nouvelle Zélande |Melbourne, Australie<br />Sydney, Australie |**&#x2713;**\* |
 
 ## <a name="see-also"></a>Voir aussi
-* [Azure CDN Edge Nodes API to get latest IP addresses for whitelisting (API de nœuds périphériques Azure CDN pour obtenir les dernières adresses IP pour la création de listes autorisées)](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
+* [API de nœuds de périphérie Azure CDN pour obtenir les dernières adresses IP à ajouter à la liste verte](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
 
 

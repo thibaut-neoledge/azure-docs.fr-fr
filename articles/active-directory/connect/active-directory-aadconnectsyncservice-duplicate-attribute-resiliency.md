@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 07/12/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 1209acfb13d53288b1ff0ed232c44c3fdcd3a9f4
-ms.lasthandoff: 03/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 7a8700e70f64851a0c5e5e8c6b31ec7a6884a96c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronisation des identités et résilience d’attribut en double
@@ -158,7 +158,7 @@ Aucun de ces problèmes connus n’entraîne une dégradation du service ou une 
    
     b. **L’utilisateur B** fait ensuite l’objet d’une tentative de synchronisation avec **UPN = User@contoso.com**.
    
-    c. L’UPN de **lutilisateur B** est remplacé par ****User1234@contoso.onmicrosoft.com et **User@contoso.com** est ajouté dans **DirSyncProvisioningErrors**.
+    c. L’UPN de **lutilisateur B** est remplacé par **User1234@contoso.onmicrosoft.com** et **User@contoso.com** est ajouté dans **DirSyncProvisioningErrors**.
    
     d. Le message d’erreur de **l’utilisateur B** doit indiquer que **l’utilisateur A** a déjà **User@contoso.com** comme UPN, mais il affiche le paramètre displayName de **l’utilisateur B**.
 

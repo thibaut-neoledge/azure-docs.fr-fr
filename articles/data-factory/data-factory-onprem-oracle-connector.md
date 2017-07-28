@@ -1,6 +1,6 @@
 ---
-title: "Déplacer des données vers/depuis Oracle à l’aide de Data Factory | Microsoft Docs"
-description: "Découvrez comment déplacer des données vers et depuis une base de données Oracle locale à l’aide d’Azure Data Factory."
+title: "Copier des données vers/à partir d’Oracle à l’aide de Data Factory | Microsoft Docs"
+description: "Découvrez comment copier des données vers et à partir d’une base de données Oracle locale à l’aide d’Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 18fffb6cae9107b9301ff702d483b598836ac180
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: bb6af719fe6f1a30c5933ce4342a4c0c072f3ff4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Déplacer des données vers/depuis Oracle en local à l’aide d’Azure Data Factory
+# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copier des données vers/à partir d’Oracle en local à l’aide d’Azure Data Factory
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données vers/à partir d’une base de données Oracle locale. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
@@ -570,15 +570,15 @@ Lors du déplacement de données à partir d’Oracle, les mappages suivants son
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Décimal |
-| INTEGER |Décimal |
+| FLOAT |Décimale, chaîne (si précision > 28) |
+| INTEGER |Décimale, chaîne (si précision > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
 | INTERVAL DAY TO SECOND |intervalle de temps |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Décimal |
+| NUMBER |Décimale, chaîne (si précision > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

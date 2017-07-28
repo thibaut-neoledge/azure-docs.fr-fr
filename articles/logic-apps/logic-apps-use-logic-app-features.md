@@ -1,5 +1,5 @@
 ---
-title: "Ajouter une logique conditionnelle pour exécuter les workflows - Azure Logic Apps | Microsoft Docs"
+title: "Ajouter des conditions pour exécuter les workflows - Azure Logic Apps | Microsoft Docs"
 description: "Contrôlez le mode d’exécution des workflows dans Azure Logic Apps en ajoutant une logique conditionnelle, des déclencheurs, des actions et des paramètres."
 author: stepsic-microsoft-com
 manager: anneta
@@ -15,55 +15,75 @@ ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9f7d623ec213de6d46f59547aff9d4417ac95ede
-ms.openlocfilehash: 41aafe94d24f0e22fe2256ab213c7668b670764c
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/15/2017
+ms.lasthandoff: 06/24/2017
 
 
 ---
 # <a name="use-logic-apps-features"></a>Utiliser les fonctionnalités des applications logiques
-Dans la [rubrique précédente](../logic-apps/logic-apps-create-a-logic-app.md), vous avez créé votre première application logique. Vous allez maintenant créer un processus plus complet avec Azure Logic Apps. Cette rubrique présente les nouveaux concepts Azure Logic Apps suivants :
 
-* logique conditionnelle, qui exécute une action uniquement si une certaine condition est remplie ;
+Dans une [rubrique précédente](../logic-apps/logic-apps-create-a-logic-app.md), vous avez créé votre première application logique. Pour contrôler le workflow de votre application logique, vous pouvez définir des chemins d’accès différents pour l’exécution de votre application logique et spécifier comment traiter les données dans des tableaux, des collections et des lots. Vous pouvez inclure les éléments suivants dans le workflow de votre application logique :
+
+* Les conditions et les [instructions switch](../logic-apps/logic-apps-switch-case.md) permettent à votre application logique d’exécuter différentes actions si certaines conditions sont remplies ou non.
+
+* Les [boucles](../logic-apps/logic-apps-loops-and-scopes.md) permettent à votre application logique d’exécuter des étapes à plusieurs reprises. Par exemple, vous pouvez répéter des actions sur un tableau en utilisant une boucle **For_each**. Vous pouvez également répéter des actions jusqu’à ce qu’une condition soit remplie à l’aide d’une boucle **Until**.
+
+* Les [étendues](../logic-apps/logic-apps-loops-and-scopes.md) permettent de regrouper des séries d’actions, par exemple pour mettre en œuvre la gestion des exceptions.
+
+* La [décomposition](../logic-apps/logic-apps-loops-and-scopes.md) permet à votre application logique de démarrer des workflows distincts pour les éléments d’un tableau lorsque vous utilisez la commande **SplitOn**.
+
+Cette rubrique présente d’autres concepts utiles pour la création de votre application logique :
+
 * mode code pour modifier une application logique existante ;
-* options de démarrage d'un flux de travail.
+* options de démarrage d’un flux de travail.
 
-Avant d’effectuer les étapes de cette rubrique, vous devez effectuer celles de la rubrique [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Dans le [portail Azure], accédez à votre application logique, cliquez sur **Déclencheurs et actions** dans le résumé pour modifier la définition de l’application logique.
+## <a name="conditions-run-steps-only-after-meeting-a-condition"></a>Conditions : exécuter des étapes uniquement lorsqu’une condition est remplie
 
-## <a name="reference-material"></a>Documents de référence
-Les documents suivants peuvent vous être utiles :
+Pour que votre application logique exécute des étapes uniquement lorsque les données remplissent des critères spécifiques, vous pouvez ajouter une condition qui compare les données du workflow à des champs ou des valeurs spécifiques.
 
-* [API REST de gestion et d’exécution](https://msdn.microsoft.com/library/azure/mt643787.aspx) - notamment comment appeler directement des applications logiques
-* [Référence sur le langage](https://msdn.microsoft.com/library/azure/mt643789.aspx) - liste complète de toutes les fonctions/expressions prises en charge
-* [Types de déclencheurs et d'actions](https://msdn.microsoft.com/library/azure/mt643939.aspx) - les différents types d'actions et ce qu’elles prennent en entrée
-* [Vue d'ensemble d’App Service](../app-service/app-service-value-prop-what-is.md) - description des composants à choisir pour la création d’une solution
+Par exemple, supposons que vous disposez d’une application logique qui vous envoie un trop grand nombre d’e-mails pour des publications sur le flux RSS d’un site web. Vous pouvez ajouter une condition afin que votre application logique envoie un e-mail uniquement lorsque la nouvelle publication appartient à une catégorie spécifique.
 
-## <a name="add-conditional-logic-to-your-logic-app"></a>Ajouter la logique conditionnelle à votre application logique
+1. Dans le [portail Azure](https://portal.azure.com), recherchez et ouvrez votre application logique dans le concepteur d’application logique.
 
-Bien que le flux d’origine de votre application logique fonctionne, nous pouvions améliorer certains domaines.
+2. Ajoutez une condition dans le workflow à l’emplacement souhaité. 
 
-### <a name="conditional"></a>Logique conditionnelle
+   Pour ajouter la condition entre des étapes existantes du workflow de l’application logique, déplacez le pointeur sur la flèche où vous voulez ajouter la condition. 
+   Cliquez sur le **signe plus** (**+**), puis choisissez **Ajouter une condition**. Par exemple :
 
-Votre première application logique pourra causer la réception d’un trop grand nombre de messages électroniques. Les étapes suivantes ajoutent une logique conditionnelle pour que vous receviez un e-mail uniquement lorsque le tweet provient d’une personne avec un certain nombre d’abonnés.
+   ![Ajouter une condition à l’application logique](./media/logic-apps-use-logic-app-features/add-condition.png)
 
-0. Dans le concepteur d’applications logiques, choisissez **Nouvelle étape** (+) > **Ajouter une action**.
-0.    Recherchez et ajoutez l’action **Obtenir l’utilisateur** pour Twitter.
-0. Transmettez le champ **Tweeted by** à partir du déclencheur pour obtenir les informations relatives à l’utilisateur Twitter.
+   > [!NOTE]
+   > Si vous souhaitez ajouter une condition à la fin de votre workflow actuel, accédez au bas de votre application logique et sélectionnez **+ Nouvelle étape**.
 
-    ![Get User](media/logic-apps-use-logic-app-features/getuser.png)
+3. Maintenant, définissez la condition. Spécifiez le champ source à évaluer, l’opération à effectuer et la valeur ou le champ cible. Pour ajouter des champs existants à votre condition, utilisez la liste **Ajouter du contenu dynamique**.
 
-0. Choisissez **Nouvelle étape** (+) > **Ajouter une condition**.
-0. Pour filtrer le nombre d’abonnés qu’ont les utilisateurs, sous **Nom de l’objet**, choisissez **Ajouter du contenu dynamique**. 
-0.    Dans la zone de recherche, recherchez et ajoutez le champ **Nombre d’abonnés**.
-0. Sous **Relation**, sélectionnez **est supérieur à**.
-0. Dans la zone **Valeur**, saisissez le nombre d’abonnés que les utilisateurs doivent avoir.
+   Par exemple :
 
-    ![Logique conditionnelle](media/logic-apps-use-logic-app-features/conditional.png)
+   ![Modifier la condition en mode de base](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
 
-0. Enfin, effectuez un glisser-déplacer de la **Envoi d’e-mail** vers la zone **If Yes** . 
+   Voici la condition complète :
 
-Maintenant, vous obtenez des messages électroniques uniquement lorsque le nombre d’abonnés répond à votre condition.
+   ![Condition complète](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
+
+   > [!TIP]
+   > Pour définir la condition dans le code, choisissez **Modifier en mode Avancé**. Par exemple :
+   > 
+   > ![Modifier la condition dans le code](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
+
+4. Sous **SI OUI** et **SI NON**, ajoutez les étapes à effectuer si la condition est remplie ou non.
+
+   Par exemple :
+
+   ![Condition avec les chemins SI OUI et SI NON](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
+
+   > [!TIP]
+   > Vous pouvez faire glisser des actions existantes dans les chemins **SI OUI** et **SI NON**.
+
+5. Lorsque vous avez terminé, enregistrez votre application logique.
+
+À présent, vous ne recevrez des e-mails que lorsque les publications remplissent votre condition.
 
 ## <a name="repeat-actions-over-a-list-with-foreach"></a>Répétition des actions sur une liste à l’aide de forEach
 
@@ -84,31 +104,32 @@ Même si vous avez le concepteur d’applications logiques, vous pouvez modifier
 
 2. Pour enregistrer vos modifications, cliquez sur **Enregistrer**.
 
-### <a name="parameters"></a>Paramètres
+## <a name="parameters"></a>parameters
 
 Certaines fonctionnalités de Logic Apps sont disponibles uniquement en mode code, les paramètres par exemple. Les paramètres simplifient la réutilisation des valeurs dans votre application logique. Par exemple, si vous avez une adresse de messagerie que vous souhaitez utiliser dans plusieurs actions, vous devez la définir en tant que paramètre.
 
-Les paramètres constituent un bon moyen d'extraire des valeurs que vous êtes susceptible de modifier souvent. Ils sont particulièrement utiles quand vous devez substituer des paramètres dans différents environnements. Pour plus d’informations sur la façon de substituer des paramètres en fonction de l’environnement, consultez la [Documentation sur l’API REST](https://docs.microsoft.com/rest/api/logic).
+Les paramètres constituent un bon moyen d'extraire des valeurs que vous êtes susceptible de modifier souvent. Ils sont particulièrement utiles quand vous devez substituer des paramètres dans différents environnements. Pour découvrir comment substituer des paramètres en fonction de l’environnement, consultez [Créer des définitions d’application logique](../logic-apps/logic-apps-author-definitions.md) et la [documentation de l’API REST](https://docs.microsoft.com/rest/api/logic).
 
 L’exemple montre comment mettre à jour votre application logique existante pour utiliser des paramètres pour le terme de requête.
 
-1. En mode code, recherchez l’objet `parameters : {}` et ajoutez un objet de rubrique :
+1. En mode code, recherchez l’objet `parameters : {}` et ajoutez un objet `currentFeedUrl` :
 
-        "topic" : {
+        "currentFeedUrl" : {
             "type" : "string",
-            "defaultValue" : "MicrosoftAzure"
+            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
         }
 
-2. Naviguez jusqu’à l’action `twitterconnector`, recherchez la valeur de la requête et remplacez-la par `#@{parameters('topic')}`. 
+2. Naviguez jusqu’à l’action `When_a_feed-item_is_published`, recherchez la section `queries` et remplacez la valeur de la requête par `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
 
     Pour joindre deux chaînes ou plus, vous pouvez également utiliser la fonction `concat`. 
-    Par exemple, `@concat('#',parameters('topic'))` fonctionne de la même façon que ci-dessus.
+    Par exemple, `"@concat('#',parameters('currentFeedUrl'))"` 
+    fonctionne de la même façon que ci-dessus.
 
-3.    Une fois ces opérations effectuées, sélectionnez **Enregistrer**. 
+3.  Une fois ces opérations effectuées, sélectionnez **Enregistrer**. 
 
-    À présent, toutes les heures, les nouveaux tweets qui ont plus de cinq retweets sont envoyés dans un dossier nommé **tweets** dans votre dossier Dropbox.
+    Vous pouvez maintenant modifier le flux RSS du site web en transmettant une autre URL via l’objet `currentFeedURL`.
 
-Pour en savoir plus sur les définitions d'application logique, consultez la rubrique [Créer des définitions d'application logique](../logic-apps/logic-apps-author-definitions.md).
+En savoir plus sur la [création de définitions d’application logique](../logic-apps/logic-apps-author-definitions.md).
 
 ## <a name="start-logic-app-workflows"></a>Démarrage de workflows d’application logique
 
@@ -125,3 +146,8 @@ Pour démarrer un workflow, les services peuvent appeler un point de terminaison
 <!-- Shared links -->
 [portail Azure]: https://portal.azure.com
 
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Instructions switch](../logic-apps/logic-apps-switch-case.md) 
+* [Boucles, étendues et décomposition](../logic-apps/logic-apps-loops-and-scopes.md)
+* [Créer des définitions d’application logique](../logic-apps/logic-apps-author-definitions.md)

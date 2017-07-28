@@ -1,0 +1,183 @@
+---
+title: "Démarrage rapide avec Azure Container Service - Déployer un cluster DC/OS | Microsoft Docs"
+description: "Démarrage rapide avec Azure Container Service - Déployer un cluster DC/OS"
+services: container-service
+documentationcenter: 
+author: neilpeterson
+manager: timlt
+editor: 
+tags: acs, azure-container-service
+keywords: Docker, conteneurs, micro-services, Kubernetes, DC/OS, Azure
+ms.assetid: 
+ms.service: container-service
+ms.devlang: azurecli
+ms.topic: sample
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 06/05/2017
+ms.author: nepeters
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 848c38ea9d0676c90090ee7b0bc917aec9d31b81
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
+
+---
+
+# <a name="deploy-a-dcos-cluster"></a>Déployer un cluster DC/OS
+
+DC/OS propose une plateforme distribuée destinée à exécuter des applications en conteneur modernes. Avec Azure Container Service, l’approvisionnement d’un cluster DC/OS prêt pour la production est une opération simple et rapide. Ce démarrage rapide décrit en détail les étapes de base à suivre pour déployer un cluster DC/OS et exécuter une charge de travail de base.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## <a name="log-in-to-azure"></a>Connexion à Azure 
+
+Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran.
+
+```azurecli-interactive
+az login
+```
+
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
+
+L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
+```
+
+## <a name="create-dcos-cluster"></a>Créer un cluster DC/OS
+
+Pour créer un cluster DC/OS, utilisez la commande [az acs create](/cli/azure/acs#create).
+
+L’exemple suivant crée un cluster DC/OS nommé *myDCOSCluster* et crée des clés SSH si elles n’existent pas déjà. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`.  
+
+```azurecli-interactive
+az acs create \
+  --orchestrator-type dcos \
+  --resource-group myResourceGroup \
+  --name myDCOSCluster \
+  --generate-ssh-keys
+```
+
+Au bout de quelques minutes, la commande se termine et retourne des informations sur le déploiement.
+
+## <a name="connect-to-dcos-cluster"></a>Se connecter à un cluster DC/OS
+
+Dès lors qu’un cluster DC/OS est créé, il est accessible via un tunnel SSH. Exécutez la commande suivante pour retourner l’adresse IP du maître DC/OS. Cette adresse IP est stockée dans une variable et utilisée à l’étape suivante.
+
+```azurecli-interactive
+ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
+```
+
+Pour créer le tunnel SSH, exécutez la commande suivante et suivez les instructions qui s’affichent à l’écran. Si le port 80 est déjà utilisé, la commande échoue. Remplacez le port tunnelisé par un port non utilisé, tel que `85:localhost:80`. 
+
+```azurecli-interactive
+sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
+```
+
+Le tunnel SSH peut être testé en accédant à `http://localhost`. Si le port utilisé n’est pas le port 80, modifiez l’emplacement en conséquence. 
+
+Si le tunnel SSH a bien été créé, le portail DC/OS est retourné.
+
+![Interface utilisateur DC/OS](./media/container-service-dcos-quickstart/dcos-ui.png)
+
+## <a name="install-dcos-cli"></a>Installer l’interface de ligne de commande DC/OS
+
+L’interface de ligne de commande (CLI) DC/OS permet de gérer un cluster DC/OS à partir de la ligne de commande. Installez l’interface CLI DC/OS en utilisant la commande [az acs dcos install-cli](/azure/acs/dcos#install-cli). Si vous utilisez Azure CloudShell, l’interface CLI DC/OS est déjà installée. 
+
+Si vous exécutez Azure CLI sur macOS ou Linux, vous devrez peut-être exécuter la commande avec sudo.
+
+```azurecli-interactive
+az acs dcos install-cli
+```
+
+Avant de pouvoir être utilisée avec le cluster, l’interface CLI doit être configurée pour utiliser le tunnel SSH. Pour ce faire, exécutez la commande suivante en modifiant le port, si nécessaire.
+
+```azurecli-interactive
+dcos config set core.dcos_url http://localhost
+```
+
+## <a name="run-an-application"></a>Exécuter une application
+
+Le mécanisme de planification par défaut d’un cluster ACS DC/OS est Marathon. Marathon permet de démarrer une application et de gérer son état sur le cluster DC/OS. Pour planifier une application via Marathon, créez un fichier sous le nom *marathon-app.json* et copiez-y le contenu suivant. 
+
+```json
+{
+  "id": "demo-app",
+  "cmd": null,
+  "cpus": 1,
+  "mem": 32,
+  "disk": 0,
+  "instances": 1,
+  "container": {
+    "docker": {
+      "image": "nginx",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp",
+          "name": "80",
+          "labels": null
+        }
+      ]
+    },
+    "type": "DOCKER"
+  },
+  "acceptedResourceRoles": [
+    "slave_public"
+  ]
+}
+```
+
+Exécutez la commande suivante pour planifier l’exécution de l’application sur le cluster DC/OS.
+
+```azurecli-interactive
+dcos marathon app add marathon-app.json
+```
+
+Pour afficher l’état de déploiement de l’application, exécutez la commande suivante.
+
+```azurecli-interactive
+dcos marathon app list
+```
+
+Quand la valeur de la colonne **WAITING** passe de *True* à *False*, le déploiement de l’application est terminé.
+
+```azurecli-interactive
+ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
+/test   32   1     1/1    ---       ---      False      DOCKER   None
+```
+
+Procurez-vous l’adresse IP publique des agents du cluster DC/OS.
+
+```azurecli-interactive
+az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
+```
+
+Le site NGINX par défaut vous est retourné dès lors que vous accédez à cette adresse.
+
+![NGINX](./media/container-service-dcos-quickstart/nginx.png)
+
+## <a name="delete-dcos-cluster"></a>Supprimer un cluster DC/OS
+
+Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#delete) pour supprimer le groupe de ressources, le cluster DC/OS et toutes les ressources associées.
+
+```azurecli-interactive
+az group delete --name myResourceGroup --no-wait
+```
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce démarrage rapide, vous avez déployé un cluster DC/OS et exécuté un conteneur Docker simple sur le cluster. Pour en savoir plus sur Azure Container Service, passez aux didacticiels ACS.
+
+> [!div class="nextstepaction"]
+> [Gérer un cluster ACS DC/OS](container-service-dcos-manage-tutorial.md)

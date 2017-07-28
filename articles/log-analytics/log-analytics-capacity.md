@@ -12,26 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a26b1f6c13b11d0fb6b47599fee43f955cbf7b7a
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: bb89bed9778056c52e47d984e5d559a4abf864a2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planifier la capacité des machines virtuelles Hyper-V avec la solution Capacité et performances (version préliminaire)
 
-![Solution Capacité et performances](./media/log-analytics-capacity/capacity-solution.png) Vous pouvez utiliser la solution Capacité et performances dans Log Analytics pour vous aider à comprendre la capacité de vos serveurs Hyper-V. La solution fournit des informations sur votre environnement Hyper-V en vous indiquant l’utilisation globale (processeur, mémoire et disque) des hôtes et des machines virtuelles en cours d’exécution sur ces hôtes Hyper-V. Des mesures sont collectées pour le processeur, la mémoire et les disques sur la totalité des hôtes et des machines virtuelles qui s’exécutent sur ceux-ci.
+![Symbole de Capacity and Performance](./media/log-analytics-capacity/capacity-solution.png)
+
+Vous pouvez utiliser la solution Capacité et performances dans Log Analytics pour vous aider à comprendre la capacité de vos serveurs Hyper-V. La solution fournit des informations sur votre environnement Hyper-V en vous indiquant l’utilisation globale (processeur, mémoire et disque) des hôtes et des machines virtuelles en cours d’exécution sur ces hôtes Hyper-V. Des mesures sont collectées pour le processeur, la mémoire et les disques sur la totalité des hôtes et des machines virtuelles qui s’exécutent sur ceux-ci.
 
 La solution :
 
--    Indique les hôtes dont les utilisations de processeur et de mémoire sont la plus élevée et la plus faible
--    Indique les machines virtuelles dont les utilisations de processeur et de mémoire sont la plus élevée et la plus faible
--    Indique les machines virtuelles avec le nombre d’E/S par seconde et l’utilisation de débit les plus élevés et les plus faibles
--    Indique quelles machines virtuelles sont exécutées sur tels hôtes
--    Indique les principaux disques ayant un débit, un nombre d’E/S par seconde et une latence élevés dans les volumes partagés de cluster
+-   Indique les hôtes dont les utilisations de processeur et de mémoire sont la plus élevée et la plus faible
+-   Indique les machines virtuelles dont les utilisations de processeur et de mémoire sont la plus élevée et la plus faible
+-   Indique les machines virtuelles avec le nombre d’E/S par seconde et l’utilisation de débit les plus élevés et les plus faibles
+-   Indique quelles machines virtuelles sont exécutées sur tels hôtes
+-   Indique les principaux disques ayant un débit, un nombre d’E/S par seconde et une latence élevés dans les volumes partagés de cluster
 - Vous permet de personnaliser et de filtrer des données en fonction de groupes
 
 > [!NOTE]

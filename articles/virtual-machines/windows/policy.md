@@ -13,94 +13,135 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2016
+ms.date: 06/28/2017
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 4d63e904e5e844a68cd986e2be2bfb3e0d2fee5d
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 9874a825ea81ebb191710ebd46dceb70c1f20e60
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="apply-security-and-policies-to-windows-vms-with-azure-resource-manager"></a>Appliquer la sécurité et des stratégies aux machines virtuelles Windows avec Azure Resource Manager
-Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation. Dans cet article, nous allons décrire comment utiliser les stratégies d'Azure Resource Manager pour définir le comportement souhaité pour les machines virtuelles de votre organisation.
+# <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Appliquer des stratégies aux machines virtuelles Windows avec Azure Resource Manager
+Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation. Dans cet article, nous expliquons comment utiliser les stratégies d’Azure Resource Manager afin de définir le comportement souhaité pour les machines virtuelles de votre entreprise.
 
-Les grandes lignes des étapes sont présentées ci-dessous.
+Pour une introduction aux stratégies, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](../../azure-resource-manager/resource-manager-policy.md).
 
-1. Introduction aux stratégies Azure Resource Manager
-2. Définition d’une stratégie pour votre machine virtuelle
-3. Création de la stratégie
-4. Application de la stratégie
+## <a name="define-policy-for-permitted-virtual-machines"></a>Définition d’une stratégie pour les machines virtuelles autorisées
+Pour vous assurer que les machines virtuelles de votre entreprise sont compatibles avec une application, vous pouvez limiter les systèmes d’exploitation autorisés. Dans l’exemple de stratégie suivant, vous autorisez uniquement la création de machines virtuelles Windows Server 2012 R2 Datacenter :
 
-## <a name="azure-resource-manager-policy-101"></a>Introduction aux stratégies Azure Resource Manager
-Pour débuter avec les stratégies Azure Resource Manager, nous vous conseillons de lire l’article ci-dessous et de continuer avec les étapes de cet article. L'article ci-dessous décrit la définition de base et la structure d'une stratégie, la façon dont les stratégies sont évaluées, et divers exemples de définitions de stratégie.
-
-* [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](../../resource-manager-policy.md)
-
-## <a name="define-a-policy-for-your-virtual-machine"></a>Définition d’une stratégie pour votre machine virtuelle
-L'un des scénarios courants pour une entreprise peut consister à autoriser uniquement les utilisateurs à créer des machines virtuelles à partir de systèmes d'exploitation spécifiques dont la compatibilité avec une application métier a été vérifiée. À l'aide d'une stratégie Azure Resource Manager, cette tâche peut être accomplie en quelques étapes.
-Dans cet exemple de stratégie, nous allons autoriser uniquement la création de machines virtuelles Windows Server 2012 R2 Datacenter. La définition de stratégie se présente comme suit
-
-```
-"if": {
-  "allOf": [
-    {
-      "field": "type",
-      "equals": "Microsoft.Compute/virtualMachines"
-    },
-    {
-      "not": {
-        "allOf": [
-          {
-            "field": "Microsoft.Compute/virtualMachines/imagePublisher",
-            "equals": "MicrosoftWindowsServer"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/imageOffer",
-            "equals": "WindowsServer"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/imageSku",
-            "equals": "2012-R2-Datacenter"
-          }
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "in": [
+          "Microsoft.Compute/disks",
+          "Microsoft.Compute/virtualMachines",
+          "Microsoft.Compute/VirtualMachineScaleSets"
         ]
+      },
+      {
+        "not": {
+          "allOf": [
+            {
+              "field": "Microsoft.Compute/imagePublisher",
+              "in": [
+                "MicrosoftWindowsServer"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageOffer",
+              "in": [
+                "WindowsServer"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageSku",
+              "in": [
+                "2012-Datacenter"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageVersion",
+              "in": [
+                "latest"
+              ]
+            }
+          ]
+        }
       }
-    }
-  ]
-},
-"then": {
-  "effect": "deny"
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
 }
 ```
 
-La stratégie ci-dessus peut facilement être modifiée pour un scénario dans lequel vous souhaitez autoriser l’utilisation de n'importe quelle image Windows Server Datacenter pour un déploiement de machines virtuelles avec les modifications ci-dessous
+Utilisez un caractère générique pour modifier la stratégie précédente afin qu’elle autorise toutes les images Windows Server Datacenter :
 
-```
+```json
 {
-  "field": "Microsoft.Compute/virtualMachines/imageSku",
+  "field": "Microsoft.Compute/imageSku",
   "like": "*Datacenter"
 }
 ```
 
-#### <a name="virtual-machine-property-fields"></a>Champs de propriété de la machine virtuelle
-Le tableau ci-dessous décrit les propriétés de machine virtuelle qui peuvent être utilisées en tant que champs dans votre définition de stratégie. Pour plus d'informations sur les champs de stratégie, consultez l'article ci-dessous :
+Pour plus d’informations sur les champs de la stratégie, consultez les [alias de stratégie](../../azure-resource-manager/resource-manager-policy.md#aliases).
 
-* [Champs et sources](../../azure-resource-manager/resource-manager-policy.md#conditions)
+## <a name="define-policy-for-using-managed-disks"></a>Définir une stratégie d’utilisation des disques gérés
 
-| Nom du champ | Description |
-| --- | --- |
-| imagePublisher |Spécifie l’éditeur de l'image |
-| imageOffer |Spécifie l'offre pour l'éditeur d'image sélectionné |
-| imageSku |Spécifie le SKU de l’offre choisie |
-| imageVersion |Spécifie la version de l’image du SKU choisi |
+Pour exiger l’utilisation de disques gérés, employez la stratégie suivante :
 
-## <a name="create-the-policy"></a>Création de la stratégie
-Une stratégie peut facilement être créée directement à l'aide de l'API REST ou avec des applets de commande PowerShell. Pour créer la stratégie, consultez l'article ci-dessous :
+```json
+{
+  "if": {
+    "anyOf": [
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachines"
+          },
+          {
+            "field": "Microsoft.Compute/virtualMachines/osDisk.uri",
+            "exists": true
+          }
+        ]
+      },
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/VirtualMachineScaleSets"
+          },
+          {
+            "anyOf": [
+              {
+                "field": "Microsoft.Compute/VirtualMachineScaleSets/osDisk.vhdContainers",
+                "exists": true
+              },
+              {
+                "field": "Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl",
+                "exists": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
 
-* [Création d’une stratégie](../../resource-manager-policy.md)
-
-## <a name="apply-the-policy"></a>Application de la stratégie
-Après avoir créé la stratégie, vous devez l’appliquer sur une étendue définie. L’étendue peut être appliquée à un abonnement, à un groupe de ressources ou même à une ressource. Pour appliquer la stratégie, consultez l'article ci-dessous :
-
-* [Création d’une stratégie](../../resource-manager-policy.md)
+## <a name="next-steps"></a>Étapes suivantes
+* Après avoir défini une règle de stratégie (comme le montrent les exemples précédents), vous devez créer la définition de stratégie et l’attribuer à une étendue. L’étendue peut être un abonnement, un groupe de ressources ou une ressource. Pour affecter des stratégies via le portail, consultez [Utiliser le portail Azure pour affecter et gérer les stratégies de ressources](../../azure-resource-manager/resource-manager-policy-portal.md). Pour affecter des stratégies via l’API REST, PowerShell ou Azure CLI, consultez [Affecter et gérer des stratégies via un script](../../azure-resource-manager/resource-manager-policy-create-assign.md).
+* Pour une introduction aux stratégies de ressources, consultez la page [Vue d’ensemble des stratégies de ressources](../../azure-resource-manager/resource-manager-policy.md).
+* Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](../../azure-resource-manager/resource-manager-subscription-governance.md).
 

@@ -12,18 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 06/30/2017
 ms.author: mfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ce1291261cd8f65d44873217345ae6efaa515534
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="configure-security-policies-for-your-application"></a>Configurer les stratégies de sécurité de votre application
-Avec Azure Service Fabric, vous pouvez sécuriser les applications en cours d’exécution dans le cluster sous différents comptes utilisateurs. Service Fabric permet également de sécuriser les ressources utilisées par des applications au moment du déploiement sous les comptes utilisateurs, par exemple les fichiers, les annuaires et les certificats. Ainsi, les applications en cours d’exécution sont plus sécurisées, même dans un environnement hébergé partagé.
+Avec Azure Service Fabric, vous pouvez sécuriser les applications en cours d’exécution dans le cluster sous différents comptes d’utilisateur. Service Fabric permet également de sécuriser les ressources utilisées par des applications au moment du déploiement sous les comptes utilisateurs, par exemple les fichiers, les annuaires et les certificats. Ainsi, les applications en cours d’exécution sont plus sécurisées, même dans un environnement hébergé partagé.
 
 Par défaut, les applications Service Fabric s’exécutent sous le compte qui exécute le processus Fabric.exe. Service Fabric permet également d’exécuter des applications sous un compte utilisateur ou système local spécifié dans le manifeste de l’application. Les types de comptes système locaux pris en charge sont **LocalUser**, **NetworkService**, **LocalService** et **LocalSystem**.
 
@@ -203,7 +203,7 @@ Echo "Test console redirection which writes to the application log folder on the
 Dans les étapes précédentes, vous avez vu comment appliquer une stratégie RunAs à un point SetupEntryPoint. Allons plus loin et voyons comment créer des principaux différents qui peuvent être appliqués en tant que stratégies de service.
 
 ### <a name="create-local-user-groups"></a>Création de groupes d'utilisateurs locaux
-Vous pouvez définir et créer des groupes d’utilisateurs permettant d’ajouter un ou plusieurs utilisateurs à un groupe. Cela est particulièrement utile s'il existe plusieurs utilisateurs pour des points d'entrée de service différents et s'ils doivent disposer de certains privilèges courants disponibles au niveau du groupe. L’exemple suivant montre un groupe local appelé **LocalAdminGroup** disposant de privilèges d’administrateur. Deux utilisateurs, Customer1 et Customer2, deviennent membres de ce groupe local.
+Vous pouvez définir et créer des groupes d’utilisateurs permettant d’ajouter un ou plusieurs utilisateurs à un groupe. Cela est utile s’il existe plusieurs utilisateurs pour des points d’entrée de service différents et s’ils doivent disposer de certains privilèges courants disponibles au niveau du groupe. L’exemple suivant montre un groupe local appelé **LocalAdminGroup** disposant de privilèges d’administrateur. Deux utilisateurs, Customer1 et Customer2, deviennent membres de ce groupe local.
 
 ```xml
 <Principals>
@@ -240,7 +240,7 @@ Vous pouvez créer un utilisateur local qui peut être utilisé pour sécuriser 
 </Principals>
 ```
 
-Si une application nécessite que le compte d’utilisateur et le mot de passe soient identiques sur tous les ordinateurs (par exemple, pour activer l’authentification NTLM), le manifeste de cluster doit définir NTLMAuthenticationEnabled sur « true ». Le manifeste de cluster doit également spécifier un élément NTLMAuthenticationPasswordSecret à utiliser pour générer le même mot de passe sur tous les ordinateurs.
+Si une application nécessite que le compte d’utilisateur et le mot de passe soient identiques sur tous les ordinateurs (par exemple, pour activer l’authentification NTLM), le manifeste de cluster doit définir NTLMAuthenticationEnabled sur « true ». Le manifeste de cluster doit également spécifier un élément NTLMAuthenticationPasswordSecret à utiliser pour générer le même mot de passe sur toutes les machines.
 
 ```xml
 <Section Name="Hosting">
@@ -271,7 +271,7 @@ La section **DefaultRunAsPolicy** permet de spécifier un compte utilisateur par
 </Policies>
 ```
 ### <a name="use-an-active-directory-domain-group-or-user"></a>Utiliser un utilisateur ou groupe de domaine Active Directory
-Pour une instance de Service Fabric installée sur Windows Server par le biais du programme d’installation autonome, vous pouvez exécuter le service sous les informations d’identification d’un compte de groupe ou d’utilisateur Active Directory. Remarque : il s’agit d’Active Directory en local au sein de votre domaine et non avec Azure Active Directory (Azure AD). En utilisant un groupe ou un utilisateur de domaine, vous pouvez accéder à d’autres ressources dans le domaine (par exemple, les partages de fichiers) qui disposent d’autorisations.
+Pour une instance de Service Fabric installée sur Windows Server par le biais du programme d’installation autonome, vous pouvez exécuter le service sous les informations d’identification d’un compte de groupe ou d’utilisateur Active Directory. Il s’agit d’Active Directory en local au sein de votre domaine et non avec Azure Active Directory (Azure AD). En utilisant un groupe ou un utilisateur de domaine, vous pouvez accéder à d’autres ressources dans le domaine (par exemple, les partages de fichiers) qui disposent d’autorisations.
 
 L’exemple suivant montre un utilisateur Active Directory appelé *TestUser* avec un mot de passe de domaine chiffré à l’aide d’un certificat nommé *MyCert*. Vous pouvez utiliser la commande PowerShell `Invoke-ServiceFabricEncryptText` pour créer le texte de chiffrement du secret. Consultez [Gestion des secrets dans des applications Service Fabric](service-fabric-application-secret-management.md) pour en savoir plus.
 
@@ -331,7 +331,7 @@ Test-AdServiceAccount svc-Test$
 ```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Affectation d’une stratégie d’accès de sécurité pour des points de terminaison HTTP et HTTPS
-Si vous appliquez une stratégie RunAs à un service et que le manifeste de service déclare des ressources de point de terminaison avec le protocole HTTP, vous devez spécifier une stratégie **SecurityAccessPolicy** pour vous assurer que les ports affectés à ces points de terminaison sont bien au format ACL pour le compte utilisateur RunAs sous lequel le service est exécuté. Sinon, **http.sys** n’a pas accès au service et les appels en provenance du client échouent. L’exemple suivant applique le compte Customer3 au point de terminaison **ServiceEndpointName**, ce qui lui attribue des droits d’accès complets.
+Si vous appliquez une stratégie RunAs à un service et que le manifeste de service déclare des ressources de point de terminaison avec le protocole HTTP, vous devez spécifier une stratégie **SecurityAccessPolicy** pour vous assurer que les ports affectés à ces points de terminaison sont bien au format ACL pour le compte utilisateur RunAs sous lequel le service est exécuté. Sinon, **http.sys** n’a pas accès au service et les appels en provenance du client échouent. L’exemple suivant applique le compte Customer1 au point de terminaison **EndpointName**, ce qui lui attribue des droits d’accès complets.
 
 ```xml
 <Policies>
@@ -352,7 +352,12 @@ Pour le point de terminaison HTTPS, vous devez également indiquer le nom du cer
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Mise à niveau de plusieurs applications avec des points de terminaison https
+Vous devez veiller à ne pas utiliser le **même port** pour différentes instances de la même application lors de l’utilisation de http**s**. En effet, Service Fabric ne pourra plus mettre à niveau le certificat pour l’une des instances de l’application. Par exemple, si l’application 1 ou l’application 2 souhaitent mettre à niveau leur certificat 1 vers le certificat 2. Lors de la mise à niveau, Service Fabric peut avoir nettoyé l’inscription de certificat 1 auprès de http.sys même si l’autre application l’utilise toujours. Pour éviter cela, Service Fabric détecte l’existence d’une autre instance d’application inscrite sur le port avec le certificat (en raison de http.sys) et l’opération échoue.
 
+Par conséquent, Service Fabric ne prend pas en charge la mise à niveau de deux services utilisant **le même port** dans des instances d’application différentes. En d’autres termes, vous ne pouvez pas utiliser le même certificat sur les différents services au niveau du même port. Si vous avez besoin d’un certificat partagé sur le même port, vous devez vous assurer que les services sont placés sur des machines différentes avec des contraintes de placement. Vous pouvez aussi envisager d’utiliser le cas échéant les ports dynamiques Service Fabric pour chaque service de chaque instance d’application. 
+
+Si une mise à niveau avec https échoue, un avertissement d’erreur indique que l’API du serveur HTTP Windows ne prend pas en charge plusieurs certificats pour les applications qui partagent le même port.
 
 ## <a name="a-complete-application-manifest-example"></a>Exemple complet de manifeste d'application
 Le manifeste d’application suivant affiche un grand nombre des différents paramètres :

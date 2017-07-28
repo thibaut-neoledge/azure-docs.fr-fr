@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 06/13/2017
 ms.author: yuemlu
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 37a22be9fba7b245b2c1ea3ca6e495601d63b611
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 01597767a03a5959c4c0cde994b6a7b8a34bfb7e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -31,7 +32,7 @@ Cet article porte sur l’utilisation du stockage Standard pour les disques de m
 
 Il existe deux façons de créer des disques Standard pour les machines virtuelles Azure :
 
-**Disques non gérés** : avec cette méthode d’origine, vous gérez les comptes de stockage utilisés pour stocker les fichiers VHD qui correspondent aux disques des machines virtuelles. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage. Les disques non gérés peuvent être associés à n’importe quelle taille de machine virtuelle Azure, y compris les machines virtuelles qui utilisent principalement le stockage Premium, telles que les séries DSv2 et GS. Les machines virtuelles Azure prennent en charge l’association de plusieurs disques Standard, autorisant jusqu’à 64 To de stockage par machine virtuelle.
+**Disques non gérés** : avec cette méthode d’origine, vous gérez les comptes de stockage utilisés pour stocker les fichiers VHD qui correspondent aux disques des machines virtuelles. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage. Les disques non gérés peuvent être associés à n’importe quelle taille de machine virtuelle Azure, y compris les machines virtuelles qui utilisent principalement le stockage Premium, telles que les séries DSv2 et GS. Les machines virtuelles Azure prennent en charge l’association de plusieurs disques Standard, autorisant jusqu’à 256 To de stockage par machine virtuelle.
 
 [**Disques gérés Azure**](storage-managed-disks-overview.md) : cette fonctionnalité gère les comptes de stockage que vous utilisez pour les disques de machines virtuelles. Vous spécifiez le type (Premium ou Standard) et la taille du disque dont vous avez besoin, et Azure crée et gère le disque pour vous. Vous n’avez pas à vous occuper de placer les disques sur plusieurs comptes de stockage pour être sûr de rester dans les limites de scalabilité des comptes de stockage : Azure le fait pour vous.
 
@@ -85,7 +86,7 @@ Contrairement aux disques Premium, les opérations d’entrée/sortie par second
 
 | **Niveau Machine Virtuelle**            | **Niveau de base - Machine virtuelle** | **Niveau standard - Machine virtuelle** |
 |------------------------|-------------------|----------------------|
-| Taille maximale du disque          | 1 023 Go           | 1 023 Go              |
+| Taille maximale du disque          | 4095 Go           | 4095 Go              |
 | Max 8 Ko d’E/S par seconde par disque | Jusqu’à 300         | Jusqu’à 500            |
 | Bande passante maximale par disque | Jusqu’à 60 Mo/s     | Jusqu’à 60 Mo/s        |
 
@@ -121,7 +122,7 @@ Les considérations de facturation suivantes s’appliquent à l’utilisation d
 * Transferts de données sortantes
 * Transactions
 
-**Données de stockage et taille de disque non gérées :** pour les disques non gérés et les autres données (objets blob, tables, files d’attente et fichiers), vous êtes facturé uniquement pour la quantité d’espace utilisée. Par exemple, si vous avez une machine virtuelle dont les objets blob de pages sont configurés sur 127 Go, mais que la machine virtuelle n’utilise réellement que 10 Go d’espace, vous êtes facturé pour 10 Go d’espace. 
+**Données de stockage et taille de disque non gérées :** pour les disques non gérés et les autres données (objets blob, tables, files d’attente et fichiers), vous êtes facturé uniquement pour la quantité d’espace utilisée. Par exemple, si vous avez une machine virtuelle dont les objets blob de pages sont configurés sur 127 Go, mais que la machine virtuelle n’utilise réellement que 10 Go d’espace, vous êtes facturé pour 10 Go d’espace. Nous prenons en charge le stockage Standard jusqu’à 8 191 Go et les disques non gérés Standard jusqu’à 4 095 Go. 
 
 **Disques gérés :** les disques gérés sont facturés selon la taille configurée. Si votre disque est configuré comme un disque de 10 Go et que vous utilisez uniquement 5 Go, vous êtes tout de même facturé pour la taille configurée de 10 Go.
 
@@ -154,3 +155,4 @@ Vous pouvez également utiliser le service Sauvegarde Azure avec Managed Disks
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
 * [Création d'une machine virtuelle Linux à l’aide d’Aide CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
+

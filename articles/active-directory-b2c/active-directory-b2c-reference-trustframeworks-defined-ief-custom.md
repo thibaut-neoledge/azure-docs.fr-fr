@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory B2C : informations de référence sur les infrastructures de confiance | Microsoft Docs"
-description: "Une rubrique sur les stratégies personnalisées Azure Active Directory B2C"
+description: "Rubrique sur les stratégies personnalisées Azure Active Directory B2C et l’infrastructure d’expérience d’identité"
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -15,97 +15,120 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 019dd66d5abe4242ffb6cdc3276929dcd7f04466
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: 70922ec4813d32580acdd20bf43521fcc2d24081
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/24/2017
 
 
 ---
 
-# <a name="defining-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Définition des infrastructures de confiance avec l’infrastructure d’expérience d’identité Azure AD B2C
+# <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Définir des infrastructures de confiance avec l’infrastructure d’expérience d’identité Azure AD B2C
 
-Les stratégies personnalisées Azure AD B2C reposant sur l’infrastructure d’expérience d’identité (IEF) fournissent à votre organisation un service centralisé qui simplifie la fédération des identités dans une grande communauté d’intérêt sous la forme d’une relation d’approbation unique et d’un échange de métadonnées unique.
+Les stratégies personnalisées Azure Active Directory B2C (Azure AD B2C) qui tirent parti de l’infrastructure d’expérience d’identité fournissent un service centralisé à votre organisation. Ce service permet de réduire la complexité de la fédération des identités dans une communauté d’intérêts étendue à une relation d’approbation unique et à un échange de métadonnées unique.
 
-Vous aurez besoin de stratégies personnalisées Azure AD B2C reposant sur l’infrastructure d’expérience d’identité pour répondre aux questions suivantes.
+Les stratégies personnalisées Azure AD B2C qui tirent parti de l’infrastructure d’expérience d’identité vous permettent de répondre aux questions suivantes :
 
-- *Quelles stratégies de conformité, de sécurité, de confidentialité et de protection de données doivent être appliquées ?*
-- *Quels sont les contacts et les processus pour devenir un participant agréé ?*
-- *Quels sont les fournisseurs d’informations d’identité agréés (également appelés fournisseurs de revendications) et que proposent-ils ?*
-- *Quelles sont les parties de confiance agréées [et que nécessitent-elles éventuellement] ?*
-- *Quelles sont les exigences techniques d’interopérabilité réseau pour les participants ?*
-- *Quelles sont les règles de « runtime » opérationnel à appliquer pour échanger des informations d’identité numérique ?*
+- Quelles stratégies de conformité, de sécurité, de confidentialité et de protection des données doivent être appliquées ?
+- Quels sont les contacts et les processus pour devenir un participant agréé ?
+- Quels sont les fournisseurs d’informations d’identité agréés (également appelés « fournisseurs de revendications ») et que proposent-ils ?
+- Quelles sont les parties de confiance agréées (et éventuellement, que nécessitent-elles) ?
+- Quelles sont les exigences techniques d’interopérabilité réseau pour les participants ?
+- Quelles sont les règles de « runtime » opérationnelles à appliquer pour échanger des informations d’identité numérique ?
 
-Pour répondre à toutes ces questions, les stratégies personnalisées Azure AD B2C reposant sur l’IEF utilisent la structure Trust Framework (TF). Décrivons cette structure et les fonctionnalités offertes dans ce cadre.
+Pour répondre à toutes ces questions, les stratégies personnalisées Azure AD B2C reposant sur l’infrastructure d’expérience d’identité utilisent la construction d’infrastructure de confiance. Décrivons cette construction et ce qu’elle offre.
 
-## <a name="understanding-the-trust-framework-and-federation-management-foundation"></a>Présentation de l’infrastructure de confiance (TF) et de la gestion de la fédération
+## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Présentation des concepts de base de l’infrastructure de confiance et de la gestion de fédération
 
-Une structure de ce type doit être interprétée comme une spécification écrite des stratégies d’identité, de sécurité, de confidentialité et de protection des données auxquelles doivent se conformer les membres d’une communauté d’intérêt.
+L’infrastructure de confiance est une spécification écrite des stratégies d’identité, de sécurité, de confidentialité et de protection des données auxquelles doivent se conformer les membres d’une communauté d’intérêt.
 
-L’identité fédérée fournit une base pour la protection de l’identité des utilisateurs sur Internet.  En déléguant la gestion des identités à des tierces parties, l’identité numérique unique d’un utilisateur peut être réutilisée avec plusieurs parties de confiance.  
+L’identité fédérée fournit une base pour la protection de l’identité des utilisateurs sur Internet. En déléguant la gestion des identités à des tiers, l’identité numérique unique d’un utilisateur peut être réutilisée avec plusieurs parties de confiance.  
 
-La protection de l’identité exige en effet que les fournisseurs d’identité et d’attributs respectent certaines pratiques et stratégies opérationnelles, de sécurité et de confidentialité.  Ne pouvant effectuer d’inspections directes, les parties de confiance doivent développer des relations d’approbation avec les fournisseurs d’identité et d’attributs avec lesquels elles choisissent de travailler.  Alors que le nombre de consommateurs et de fournisseurs d’informations d’identité numérique augmente à toute vitesse, il n’est plus possible de continuer à gérer ces relations d’approbation par paire, ou même à procéder à un échange par paire des métadonnées techniques requises pour la connectivité réseau.  Les concentrateurs de fédération n’ont pas réussi à résoudre totalement ces problèmes.
+La protection de l’identité en effet que les fournisseurs d’identité et d’attributs respectent certaines pratiques et stratégies opérationnelles, de sécurité et de confidentialité.  Si elles ne peuvent pas effectuer d’inspections directes, les parties de confiance doivent développer des relations d’approbation avec les fournisseurs d’identité et d’attributs avec lesquels elles choisissent de travailler.  
 
-Les infrastructures de confiance (TF) constituent l’élément central du modèle d’infrastructure de confiance Open Identity Exchange (OIX) où chaque communauté d’intérêt est régie par une spécification TF particulière. Ce type de spécification TF définit :
+Alors que le nombre de consommateurs et de fournisseurs d’informations d’identité numérique augmente, il est difficile de continuer à gérer ces relations d’approbation par paire, ou même de procéder à un échange par paire des métadonnées techniques nécessaires pour la connectivité réseau.  Les hubs de fédération n’ont pas réussi à résoudre totalement ces problèmes.
 
-- Les mesures de sécurité et de confidentialité pour la communauté d’intérêt avec la définition de plusieurs éléments :
-    - Les niveaux de garantie proposés/requis par les participants, c’est-à-dire un ensemble ordonné d’évaluations de confiance relatives à l’authenticité des informations d’identité numérique.
-    - Les niveaux de protection proposés/requis par les participants, c’est-à-dire un ensemble ordonné d’évaluations de confiance relatives à la protection des informations d’identité numérique gérées par les participants de la communauté d’intérêt.
-- Les informations d’identité numérique proposées/requises par les participants.
-- Les stratégies techniques pour la production et la consommation des informations d’identité numérique, qui serviront à calculer les niveaux de garantie et de protection. Ces stratégies écrites incluent généralement les catégories de stratégies suivantes :
-    - Stratégies de vérification de l’identité : *quel est le niveau de vérification des informations d’identité d’une personne ?*
-    - Stratégies de sécurité : *quel est le niveau de protection de la confidentialité et de l’intégrité des informations ?*
-    - Stratégies de confidentialité : *quel contrôle un utilisateur a-t-il sur ses données personnelles ?*
-    - Stratégies de survie : continuité et protection des données personnelles si un fournisseur cesse son activité.
-- Les profils techniques pour la production et la consommation des informations d’identité numérique. Ces profils :
-    - Définissent l’étendue des interfaces ayant accès aux informations d’identité numérique pour chaque niveau de garantie ;
-    - Décrivent les exigences techniques d’interopérabilité réseau.
-- Les descriptions des différents rôles pouvant être attribués aux participants de la communauté, ainsi que des qualifications requises pour exécuter ces rôles.
+### <a name="what-a-trust-framework-specification-defines"></a>Ce qui est défini par une infrastructure de confiance
+Les infrastructures de confiance constituent l’élément central du modèle d’infrastructure de confiance Open Identity Exchange (OIX), où chaque communauté d’intérêt est régie par une spécification d’infrastructure de confiance particulière. Ce type de spécification TF définit :
+
+- **Les métriques de sécurité et de confidentialité pour la communauté d’intérêts avec la définition de plusieurs éléments :**
+    - Les niveaux de garantie offerts/exigés par les participants, par exemple un ensemble ordonné d’évaluations de confiance relatives à l’authenticité des informations d’identité numérique.
+    - Les niveaux de protection offerts/exigés par les participants, par exemple un ensemble ordonné d’évaluations de confiance relatives à la protection des informations d’identité numérique gérées par les participants de la communauté d’intérêts.
+
+- **La description des informations d’identité numérique offertes/exigées par les participants**.
+
+- **Les stratégies techniques pour la production et la consommation des informations d’identité numérique, qui serviront à calculer les niveaux de garantie et de protection. Ces stratégies écrites incluent généralement les catégories de stratégies suivantes :**
+    - Stratégies de vérification de l’identité, par exemple : *Quel est le niveau de vérification des informations d’identité d’une personne ?*
+    - Stratégies de sécurité, par exemple : *Quel est le niveau de protection de la confidentialité et de l’intégrité des informations ?*
+    - Stratégies de confidentialité, par exemple : *Quel contrôle un utilisateur a-t-il sur ses informations d’identification personnelle ?*
+    - Stratégies de survie, par exemple : *Si un fournisseur cesse son activité, comment fonctionne la continuité et la protection des informations d’identification personnelle ?*
+
+- **Les profils techniques pour la production et la consommation des informations d’identité numérique. Ces profils incluent :**
+    - Des interfaces d’étendue pour lesquelles des informations d’identité numérique sont accessibles à un niveau de garantie spécifié.
+    - Des exigences techniques d’interopérabilité réseau.
+
+- **Les descriptions des différents rôles pouvant être attribués aux participants de la communauté, et les qualifications nécessaires pour remplir ces rôles.**
 
 Par conséquent, une spécification TF détermine comment les informations d’identité sont échangées entre les participants de la communauté d’intérêt : les parties de confiance, les fournisseurs d’identité et d’attributs, et les vérificateurs d’attributs.
 
-Dans le jargon de ce modèle TF OIX, une spécification TF comprend un ou plusieurs documents qui servent de référence pour la gouvernance de la communauté d’intérêt qui régule la revendication et la consommation des informations d’identité numérique au sein de la communauté d’intérêt. Cela implique un ensemble documenté de stratégies et de procédures, conçues pour établir l’approbation des identités numériques utilisées pour les transactions en ligne entre les différents membres d’une communauté d’intérêt.  **Une spécification TF définit les règles pour la création d’un écosystème d’identité fédérée viable pour une communauté donnée.**
+Une spécification d’infrastructure de confiance est constituée d’un ou plusieurs documents qui servent de référence pour la gouvernance de la communauté d’intérêts qui régule l’assertion et la consommation des informations d’identité numérique au sein de la communauté. Il s’agit d’un ensemble documenté de stratégies et de procédures, conçues pour établir la confiance dans les identités numériques utilisées pour les transactions en ligne entre les différents membres d’une communauté d’intérêts.  
 
-Les avantages de cette approche sont aujourd’hui globalement reconnus et il ne fait aucun doute que les spécifications TF faciliteront le développement d’écosystèmes d’identité numérique avec des caractéristiques de sécurité, de garantie et de confidentialité vérifiables, qui pourront ainsi être réutilisés pour d’autres communautés d’intérêt.
+En d’autres termes, une spécification d’infrastructure de confiance définit les règles pour la création d’un écosystème d’identités fédéré viable pour une communauté.
 
-Pour cette raison, les stratégies personnalisées Azure AD B2C reposant sur l’IEF utilisent cette spécification comme base pour la représentation des données afin de faciliter l’interopérabilité.  
+Il existe actuellement un large consensus sur les avantages d’une telle approche. Il ne fait aucun doute que les spécifications d’infrastructure de confiance facilitent le développement d’écosystèmes d’identité numérique avec des caractéristiques de sécurité, de garantie et de confidentialité vérifiables, ce qui signifie qu’ils peuvent être réutilisés à travers plusieurs communautés d’intérêts.
 
-Les stratégies personnalisées Azure AD B2C reposant sur l’IEF représentent une spécification TF contenant à la fois des données humaines et machine : certaines sections de ce modèle (celles faisant généralement référence à la gouvernance) sont représentées en tant que références à la documentation de sécurité et de confidentialité disponible, ainsi qu’aux procédures associées, le cas échéant, tandis que les autres sections décrivent en détail les métadonnées de configuration et les règles de runtime pour faciliter l’automatisation des opérations.
+Pour cette raison, les stratégies personnalisées Azure AD B2C reposant sur l’infrastructure d’expérience d’identité utilisent la spécification comme base de sa représentation des données pour une infrastructure de confiance afin de faciliter l’interopérabilité.  
 
-## <a name="understanding-trust-framework-policies"></a>Présentation des stratégies Trust Framework
+Les stratégies personnalisées Azure AD B2C qui tirent parti de l’infrastructure d’expérience d’identité représentent une spécification d’infrastructure de confiance comme un mélange de données lisibles par les humains et d’autres lisibles par un ordinateur. Certaines sections de ce modèle (en général, les sections qui sont les plus orientées vers la gouvernance) sont représentées en tant que références à une documentation publiée sur les politiques de sécurité et de confidentialité, ainsi que sur les procédures associées (le cas échéant). D’autres sections décrivent en détail les règles de métadonnées et d’exécution de configuration qui facilitent l’automatisation des opérations.
 
-En termes d’implémentation, la spécification TF ci-dessus se compose de stratégies personnalisées Azure AD B2C reposant sur l’IEF dans un ensemble de stratégies qui permettent de contrôler totalement les comportements et expériences en matière d’identité.  Les stratégies personnalisées Azure AD B2C reposant sur l’IEF vous permettent en effet de créer votre propre spécification TF via ces stratégies déclaratives qui peuvent définir et configurer :
+## <a name="understand-trust-framework-policies"></a>Présentation des stratégies d’infrastructure de confiance
 
-- Les références de documents définissant l’écosystème d’identité fédérée de la communauté associé à la spécification TF. Il s’agit de liens vers la documentation TF. Les règles de « runtime » opérationnel (prédéfinies), ou les parcours utilisateur qui automatisent et/ou contrôlent l’échange et l’utilisation de revendications. Ces parcours utilisateur sont associés à un niveau de garantie (et de protection). Une stratégie peut donc contenir des parcours utilisateur avec différents niveaux de garantie (et de protection).
+En termes d’implémentation, la spécification d’infrastructure de confiance se compose d’un ensemble de stratégies qui permettent de contrôler totalement les comportements et les expériences d’identité.  Les stratégies personnalisées Azure AD B2C reposant sur l’infrastructure d’expérience d’identité vous permettent de créer votre propre spécification d’infrastructure de confiance via ces stratégies déclaratives qui peuvent définir et configurer :
+
+- La ou les références de document définissant l’écosystème d’identités fédéré de la communauté associée à la spécification d’infrastructure de confiance. Il s’agit de liens vers la documentation TF. Les règles de « runtime » opérationnel (prédéfinies), ou les parcours utilisateur qui automatisent et/ou contrôlent l’échange et l’utilisation de revendications. Ces parcours utilisateur sont associés à un niveau de garantie (et de protection). Une stratégie peut donc avoir des parcours utilisateur avec différents niveaux de garantie (et de protection).
+
 - Les fournisseurs d’identité et d’attributs, ou fournisseurs de revendications, de la communauté d’intérêt et les profils techniques qu’ils prennent en charge, ainsi que leur agrément de niveau de garantie/protection (hors bande) respectif.
-- L’intégration avec les vérificateurs d’attributs, ou les fournisseurs de revendications.
+
+- L’intégration à des vérificateurs d’attributs ou des fournisseurs de revendications.
+
 - Les parties de confiance de la communauté (par inférence).
-- Les métadonnées pour établir des communications réseau entre les participants. Ces métadonnées et les profils techniques seront utilisés au cours d’une transaction pour analyser l’interopérabilité réseau entre la partie de confiance et les autres participants de la communauté.
-- La conversion de protocole, le cas échéant (SAML, OAuth2, WS-Federation et OpenID Connect).
+
+- Les métadonnées pour établir des communications réseau entre les participants. Ces métadonnées, ainsi que les profils techniques, sont utilisées pendant une transaction pour analyser l’interopérabilité réseau entre la partie de confiance et les autres participants de la communauté.
+
+- Conversion de protocole, le cas échéant (par exemple SAML, OAuth2, WS-Federation et OpenID Connect).
+
 - Les exigences d’authentification.
+
 - L’orchestration multifacteur, le cas échéant.
-- Un schéma partagé pour toutes les revendications disponibles et des mappages aux participants d’une communauté d’intérêt.
-- Toutes les transformations de revendications, ainsi que la réduction possible des données dans ce contexte, pour maintenir l’échange et l’utilisation des revendications.
+
+- Un schéma partagé pour toutes les revendications disponibles et des mappages aux participants d’une communauté d’intérêts.
+
+- Toutes les transformations de revendications, ainsi que la réduction possible des données dans ce contexte, pour soutenir l’échange et l’utilisation des revendications.
+
 - La liaison et le chiffrement.
+
 - Le stockage des revendications.
 
+### <a name="understand-claims"></a>Présentation des revendications
+
 > [!NOTE]
-> Nous faisons référence à tous les types d’informations d’identité pouvant être échangés en tant que revendications : revendications concernant les informations d’authentification d’un utilisateur, la vérification de l’identité, le périphérique de communication, l’emplacement physique, les attributs d’identification personnelle, etc.  
+> Nous faisons collectivement référence à tous les types possibles d’informations d’identité qui peuvent être échangées en tant que « revendications » : les revendications concernant les informations d’authentification d’un utilisateur, la vérification d’identité, le périphérique de communication, l’emplacement physique, les attributs d’identification personnelle, etc.  
 >
-> Nous utilisons le terme *revendications* plutôt que le terme « attributs » qui en est un sous-ensemble. En effet, dans le cas de transactions en ligne, ce ne sont pas des faits qui peuvent être vérifiés directement par la partie de confiance ; ce sont des assertions ou des revendications concernant des faits pour lesquels la partie de confiance doit développer une confiance suffisante pour autoriser la transaction demandée par l’utilisateur.  
+> Nous utilisons le terme « revendications » au lieu de celui « d’attributs », car dans le cas des transactions en ligne, celles-ci ne sont pas des faits qui peuvent être vérifiés directement par la partie de confiance. Il s’agit plutôt d’assertions, ou de revendications, à propos de faits pour lesquels la partie de confiance doit développer une confiance suffisante pour accorder la transaction demandée de l’utilisateur final.  
 >
-> C’est également dû au fait que les stratégies personnalisées Azure AD B2C reposant sur l’IEF sont conçues pour simplifier l’échange de tous les types d’informations d’identité numériques de manière cohérente, peu importe si le protocole sous-jacent a été défini pour l’authentification des utilisateurs ou la récupération des attributs.  De même, nous utiliserons le terme « fournisseurs de revendications » pour désigner collectivement les fournisseurs d’identité, les fournisseurs d’attributs et les vérificateurs d’attributs lorsque nous ne souhaitons pas faire la distinction entre leurs fonctions respectives.   
+> Nous utilisons aussi le terme « revendications » parce que les stratégies personnalisées Azure AD B2C reposant sur l’infrastructure d’expérience d’identité sont conçues pour simplifier l’échange de tous les types d’informations d’identité numériques de manière cohérente, que le protocole sous-jacent soit ou non défini pour l’authentification des utilisateurs ou la récupération des attributs.  De même, nous utilisons le terme « fournisseurs de revendications » pour désigner collectivement les fournisseurs d’identité, les fournisseurs d’attributs et les vérificateurs d’attributs quand nous ne voulons pas faire la distinction entre leurs fonctions respectives.   
 
-Par conséquent, elles déterminent comment les informations d’identité sont échangées entre une partie de confiance, les fournisseurs d’identité et d’attributs, et les vérificateurs d’attributs. Elles spécifient les fournisseurs d’identité et d’attributs requis pour l’authentification d’une partie de confiance. Elles doivent être considérées comme un langage spécifique à un domaine (DSL), autrement dit, un langage informatique dédié à un domaine d’application spécifique avec un héritage, des instructions *IF* et du polymorphisme.
+Par conséquent, elles déterminent comment les informations d’identité sont échangées entre une partie de confiance, les fournisseurs d’identité et d’attributs, et les vérificateurs d’attributs. Elles spécifient les fournisseurs d’identité et d’attributs requis pour l’authentification d’une partie de confiance. Elles doivent être considérées comme un langage spécifique à un domaine, autrement dit un langage informatique spécialisé dans un domaine d’application spécifique avec de l’héritage, des instructions *if* et du polymorphisme.
 
-Ces stratégies constituent la partie de données machine de la structure TF dans les stratégies personnalisées Azure AD B2C reposant sur l’IEF avec tous les détails opérationnels, notamment les métadonnées et les profils techniques des fournisseurs de revendications, la définition du schéma de revendications, les fonctions de transformation des revendications, ainsi que les parcours utilisateur renseignés, ce dans le but de faciliter l’automatisation et l’orchestration des opérations.  
+Ces stratégies constituent la partie lisible par un ordinateur de la construction d’infrastructure de confiance dans les stratégies personnalisées d’Azure AD B2C tirant parti de l’infrastructure d’expérience d’identité. Elles comprennent tous les détails opérationnels, notamment les métadonnées et les profils techniques des fournisseurs de revendications, les définitions de schéma des revendications, les fonctions de transformation des revendications et les parcours utilisateur qui sont renseignés pour faciliter l’orchestration et l’automatisation opérationnelles.  
 
-Elles sont supposées être des *documents dynamiques* dans les stratégies personnalisées Azure AD B2C reposant sur l’IEF car il y a de fortes chances que leur contenu change au fil du temps, notamment concernant les participants actifs déclarés dans les stratégies et dans certaines situations, les conditions requises pour devenir participant.  
+Elles sont supposées être des *documents dynamiques*, car il est probable que leur contenu changera au fil du temps quant aux participants actifs déclarés dans les stratégies. Il est également possible que les termes et conditions pour être participant changent.  
+
 La configuration et la gestion de la fédération sont grandement simplifiées en épargnant aux parties de confiance la reconfiguration permanente de la connectivité et de l’approbation lors de l’arrivée ou du départ des différents fournisseurs/vérificateurs de revendications de la communauté représentée par l’ensemble de stratégies.
 
-L’interopérabilité constitue un autre défi au moment d’intégrer des fournisseurs/vérificateurs de revendications supplémentaires dans la mesure où les parties de confiance sont peu susceptibles de prendre en charge tous les protocoles nécessaires. Les stratégies personnalisées Azure AD B2C reposant sur l’IEF répondent à ce problème en prenant en charge les protocoles standard et en appliquant des parcours utilisateur spécifiques pour transposer les demandes lorsque les parties de confiance et les fournisseurs d’attributs ne prennent pas en charge le même protocole.  
+L’interopérabilité est un autre défi important. Des fournisseurs/vérificateurs de revendications supplémentaires doivent être intégrés, car les parties de confiance sont peu susceptibles de prendre en charge tous les protocoles nécessaires. Les stratégies personnalisées Azure AD B2C résolvent ce problème en prenant en charge les protocoles standard et en appliquant des parcours utilisateur spécifiques pour transposer les demandes quand les parties de confiance et les fournisseurs d’attributs ne prennent pas en charge le même protocole.  
 
-Les parcours utilisateur incluent les profils et les métadonnées des protocoles qui seront utilisés pour analyser l’interopérabilité réseau entre la partie de confiance et les autres participants.  Il existe également des règles de runtime opérationnel qui seront appliquées aux messages de réponse/demande d’échange d’informations d’identité afin de garantir la conformité avec les stratégies publiées dans le cadre de la spécification TF. L’idée de parcours utilisateur est essentielle pour la personnalisation de l’expérience client et dévoile le fonctionnement du système au niveau du protocole.
+Les parcours utilisateur incluent les profils et les métadonnées des protocoles qui sont utilisés pour analyser l’interopérabilité réseau entre la partie de confiance et les autres participants. Il existe également des règles de runtime opérationnelles qui seront appliquées aux messages de demande/réponse des échanges d’informations d’identité afin de garantir la conformité avec les stratégies publiées dans le cadre de la spécification d’infrastructure de confiance. L’idée de parcours utilisateur est fondamentale pour la personnalisation de l’expérience utilisateur. Elle apporte également un éclairage sur la façon dont le système fonctionne au niveau du protocole.
 
-Sur cette base, les portails et applications des parties de confiance peuvent, selon leur contexte, appeler des stratégies personnalisées Azure AD B2C reposant sur l’IEF en transmettant le nom d’une stratégie spécifique afin d’obtenir le comportement et l’échange d’informations attendus sans risque ni complication.
+Sur cette base, les portails et applications par partie de confiance peuvent, selon leur contexte, appeler des stratégies personnalisées Azure AD B2C reposant sur l’infrastructure d’expérience d’identité en passant le nom d’une stratégie spécifique afin d’obtenir le comportement et l’échange d’informations attendus sans risque ni complication.
 

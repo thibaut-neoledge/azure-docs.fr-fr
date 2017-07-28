@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 384f4bc285f62b102778118a92a912e73d241663
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -60,8 +60,8 @@ Le format iOS d’un URI de redirection est le suivant :
 <app-scheme>://<bundle-id>
 ```
 
-* **aap-scheme** : il est enregistré dans votre projet XCode. Cela permet aux autres applications de vous appeler. Il se trouve dans le projet XCode dans **Info.plist** > **Types d’URL** > **Identificateur d’URL**. Vous devez en créer une si vous n’en avez pas encore au moins une configurée.
-* **bundle-id** : il s’agit de l’identificateur d’offre groupée se trouvant sous **identity** dans les paramètres de votre projet XCode.
+* **aap-scheme** : il est enregistré dans votre projet XCode. Cela permet aux autres applications de vous appeler. Vous trouverez cela sous Info.plist -> Types d’URL -> Identificateur d’URL. Vous devez en créer une si vous n’en avez pas encore au moins une configurée.
+* **bundle-id** : il s’agit de l’identificateur d’offre groupée se trouvant sous « identité » dans les paramètres de votre projet XCode.
 
 Voici un exemple de code de démarrage rapide : ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 

@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: cfdc507d5e45fc716940bd4607631ba500bf4c59
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="view-azure-activity-logs"></a>Consulter des journaux d’activité Azure
 
- ![Symbole des journaux d’activité Azure](./media/log-analytics-activity/activity-log-analytics.png) La solution Activity Log Analytics vous aide à analyser et rechercher le [journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) parmi tous vos abonnements Azure. Le journal d’activité Azure est un journal qui fournit des informations sur les opérations réalisées sur les ressources de vos abonnements. Le journal d’activité était précédemment appelé *journal d’audit* ou *journal des opérations*, car il indique les événements pour vos abonnements.
+![Symbole des journaux d’activité Azure](./media/log-analytics-activity/activity-log-analytics.png)
+
+La solution Activity Log Analytics vous aide à analyser et rechercher le [journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) parmi tous vos abonnements Azure. Le journal d’activité Azure est un journal qui fournit des informations sur les opérations réalisées sur les ressources de vos abonnements. Le journal d’activité était précédemment appelé *journal d’audit* ou *journal des opérations*, car il indique les événements pour vos abonnements.
 
 Avec le journal d’activité, vous pouvez déterminer *qui*, *quand* et *quoi* pour toutes les opérations d’écriture (PUT, POST, DELETE) réalisées sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état des opérations et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations pour les ressources qui utilisent le modèle de déploiement Classic.
 
@@ -57,7 +60,7 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Stockage Azure](log-analytics-azure-storage.md) | Non | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Pour accéder aux informations des journaux d’activité Azure, vous devez posséder un abonnement Azure.
 

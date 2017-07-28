@@ -16,10 +16,6 @@ Dans la boîte de dialogue **Créer une App Service**, utilisez les paramètres
 | **[Plan App Service](../articles/azure-functions/functions-scale.md)** | Plan de consommation | Veillez à choisir la **Consommation** sous **Taille** lorsque vous créez un nouveau plan.  |
 | **[Compte de stockage](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Nom globalement unique | Utilisez un compte de stockage existant ou créez-en un.   |
 
-Cliquez sur **Créer** pour créer une application de fonction dans Azure avec ces paramètres. 
-
-Une fois l’approvisionnement terminé, cliquez sur **Publier** pour déployer votre code de projet vers la nouvelle application de fonction. 
+Cliquez sur **Créer** pour créer une application de fonction dans Azure avec ces paramètres. Une fois l’approvisionnement terminé, notez la valeur **URL du site**, qui est l’adresse de votre application de fonction dans Azure. 
 
 ![Azure runtime local](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
-
-Prenez en note la valeur **URL du site**, qui est l’adresse de votre application de fonction dans Azure. 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 07/06/2017
 ms.author: ganesr;cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 23b88e4dd3af3cd3e1e13f80890311bdbfb7fe84
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 964ea38569062a7127f60dd6309b328db263bf6f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -57,43 +57,6 @@ Vous devez déplacer un circuit ExpressRoute de l’environnement classique à l
 
 Cette opération n’implique pas de temps d’arrêt. Vous pouvez continuer à transférer des données entre votre site et Microsoft pendant la migration.
 
-## <a name="prepare-your-virtual-network-for-migration"></a>Préparer votre réseau virtuel pour la migration
-Vous devez vous assurer que le réseau de votre réseau virtuel à migrer ne présente pas d’artefacts inutiles. Pour télécharger la configuration de votre réseau virtuel afin d’y apporter les modifications nécessaires, exécutez l’applet de commande PowerShell suivante :
-
-```powershell
-Add-AzureAccount
-Select-AzureSubscription -SubscriptionName <VNET Subscription>
-Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
-```
-      
-Vous devez vous assurer que toutes les références à <ConnectionsToLocalNetwork> sont supprimées des réseaux virtuels à migrer. Un exemple de configuration réseau est illustré dans l’extrait de code suivant :
-
-```
-    <VirtualNetworkSite name="MyVNet" Location="East US">
-        <AddressSpace>
-            <AddressPrefix>10.0.0.0/8</AddressPrefix>
-        </AddressSpace>
-        <Subnets>
-            <Subnet name="Subnet-1">
-                <AddressPrefix>10.0.0.0/11</AddressPrefix>
-            </Subnet>
-            <Subnet name="GatewaySubnet">
-                <AddressPrefix>10.32.0.0/28</AddressPrefix>
-            </Subnet>
-        </Subnets>
-        <Gateway>
-            <ConnectionsToLocalNetwork>
-            </ConnectionsToLocalNetwork>
-        </Gateway>
-    </VirtualNetworkSite>
-```
- 
-Si <ConnectionsToLocalNetwork> n’est pas vide, supprimez les références dans cette section et soumettez à nouveau la configuration de votre réseau. Vous pouvez le faire en exécutant l’applet de commande PowerShell suivante :
-
-```powershell
-Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml
-```
-
 ## <a name="migrate-virtual-networks-gateways-and-associated-deployments"></a>Migrer des réseaux virtuels, des passerelles et les déploiements associés
 
 Les étapes à suivre pour migrer varient selon que vos ressources se trouvent dans le même abonnement, dans des abonnements différents ou les deux.
@@ -121,71 +84,6 @@ Cette section décrit les étapes à suivre pour migrer un réseau virtuel, une 
 
   ```powershell
   Move-AzureVirtualNetwork -Abort $vnetName
-  ```
-
-### <a name="migrate-virtual-networks-gateways-and-associated-deployments-in-a-different-subscription-from-that-of-the-expressroute-circuit"></a>Migrer les réseaux virtuels, les passerelles et les déploiements associés se trouvant dans un autre abonnement que le circuit ExpressRoute
-
-1. Assurez-vous que le circuit ExpressRoute a été déplacé de l’environnement classique à l’environnement Resource Manager.
-2. Assurez-vous que le réseau virtuel a été préparé correctement pour la migration.
-3. Assurez-vous que le circuit ExpressRoute peut fonctionner dans l’environnement classique et l’environnement Resource Manager. Pour permettre l’utilisation du circuit dans l’environnement classique et l’environnement Resource Manager, utilisez le script PowerShell suivant :
-
-  ```powershell
-  Login-AzureRmAccount
-  Select-AzureRmSubscription -SubscriptionName <My subscription>
-  $circuit = Get-AzureRmExpressRouteCircuit -Name <CircuitName> -ResourceGroupName <ResourceGroup Name> 
-  $circuit.AllowClassicOperations = $true
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
-  ```
-4. Créez des autorisations dans l’environnement Resource Manager. Pour savoir comment créer des autorisations, consultez [Lier un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md). Pour créer une autorisation, utilisez l’extrait de code PowerShell suivant :
-
-  ```powershell
-  circuit = Get-AzureRmExpressRouteCircuit -Name <CircuitName> -ResourceGroupName <ResourceGroup Name> 
-  Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "AuthorizationForMigration"
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
-  $circuit = Get-AzureRmExpressRouteCircuit -Name MigrateCircuit -ResourceGroupName MigrateRGWest
-
-  $id = $circuit.id 
-  $auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "AuthorizationForMigration"
-
-  $key=$auth1.AuthorizationKey 
- ```
-
-    Notez l’ID du circuit et la clé d’autorisation. Ces éléments sont utilisés pour connecter le circuit au réseau virtuel une fois la migration terminée.
-  
-5. Supprimez le lien de circuit dédié associé au réseau virtuel. Pour supprimer le lien de circuit dans l’environnement classique, utilisez l’applet de commande suivante :
-
-  ```powershell
-  $skey = Get-AzureDedicatedCircuit | select ServiceKey
-  Remove-AzureDedicatedCircuitLink -ServiceKey $skey -VNetName $vnetName
-  ```  
-
-6. Inscrivez votre abonnement pour la migration de ressources. Pour inscrire votre abonnement pour la migration de ressources, utilisez l’extrait de code PowerShell suivant :
-
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName <Your Subscription Name>
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  ```
-7. Effectuez la validation, la préparation et la migration. Pour déplacer le réseau virtuel, utilisez l’extrait de code PowerShell suivant :
-
-  ```powershell
-  Move-AzureVirtualNetwork -Prepare $vnetName  
-  Move-AzureVirtualNetwork -Commit $vnetName
-  ```
-
-    Vous pouvez également abandonner la migration en exécutant l’applet de commande PowerShell suivante :
-
-  ```powershell
-  Move-AzureVirtualNetwork -Abort $vnetName
-  ```
-8. Connectez à nouveau le réseau virtuel au circuit ExpressRoute. L’extrait de code PowerShell suivant est exécuté dans le contexte de l’abonnement dans lequel le réseau virtuel est créé. Vous ne devez pas exécuter cet extrait de code dans l’abonnement dans lequel le circuit est créé. Utilisez l’ID du circuit en tant que PeerID et la clé d’autorisation notée à l’étape 4.
-
-  ```powershell
-  Select-AzureRMSubscription –SubscriptionName <customer subscription>  
-  $gw = Get-AzureRmVirtualNetworkGateway -Name $vnetName-Default-Gateway -ResourceGroupName ($vnetName + "-Migrated")
-  $vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroup  ($vnetName + "-Migrated")  
-
-  New-AzureRmVirtualNetworkGatewayConnection -Name  ($vnetName + "-GwConn") -ResourceGroupName ($vnetName + "-Migrated")  -Location $vnet.Location -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey $key
   ```
 
 ## <a name="next-steps"></a>Étapes suivantes

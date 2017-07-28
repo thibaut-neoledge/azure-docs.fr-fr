@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 12c89a6fcbb6d299b64e6b0ec9d1dba29bb41d16
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1dfaa7ade664e43dcb9aa788b0197ca17e6ec4cc
 ms.contentlocale: fr-fr
 
 
@@ -35,7 +35,7 @@ Maintenant, vous devez inscrire votre application dans le *portail d’inscripti
 1. Accédez au [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app) pour inscrire une application.
 2. Entrez un nom pour votre application, ainsi que votre adresse e-mail. 
 3. Assurez-vous que la case de l’option Guided Setup (Installation guidée) est désactivée.
-4. Cliquez sur `Add Platforms`, puis sélectionnez `Native Application` et appuyez sur Save (Enregistrer).
+4. Cliquez sur `Add Platform`, puis sélectionnez `Native Application` et appuyez sur Save (Enregistrer).
 5. Copiez le GUID dans Application ID (ID de l’application), revenez à Visual Studio, ouvrez `App.xaml.cs` et remplacez `your_client_id_here` par l’ID de l’application que vous venez d’enregistrer :
 
 ```csharp

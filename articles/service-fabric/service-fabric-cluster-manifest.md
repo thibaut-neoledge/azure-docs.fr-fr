@@ -1,6 +1,6 @@
 ---
-title: Configuration de votre cluster autonome | Microsoft Docs
-description: "Cet article explique comment configurer votre cluster Service Fabric autonome ou privé."
+title: Configurer votre cluster Azure Service Fabric autonome | Microsoft Docs
+description: "Découvrez comment configurer votre cluster Service Fabric autonome ou privé."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2017
+ms.date: 06/02/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 8192f9e36ebadd41d93ec3c2fa61b05e342d5bc1
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 3b65f9391a4ff5a641546f8d0048f36386a7efe8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -37,7 +38,7 @@ Cette section couvre les configurations spécifiques à de larges clusters, comm
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "01-2017",
 
 Vous pouvez attribuer un nom convivial à votre cluster Service Fabric en lui assignant la variable **name** . **clusterConfigurationVersion** est le numéro de version de votre cluster, que vous devez augmenter chaque fois que vous mettez à niveau votre cluster Service Fabric. Il est cependant recommandé de conserver la valeur par défaut attribuée à **apiVersion** .
 
@@ -87,6 +88,10 @@ La section**reliabilityLevel** définit le nombre de copies des services systèm
     "reliabilityLevel": "Bronze",
 
 Notez que dans la mesure où un nœud principal exécute une copie unique des services système, vous avez besoin d’au moins 3 nœuds principaux pour le niveau de fiabilité *Bronze*, 5 pour *Silver*, 7 pour *Gold* et 9 pour *Platinum*.
+
+Si vous ne spécifiez pas la propriété reliabilityLevel dans votre fichier clusterConfig.json, notre système calcule la propriété reliabilityLevel optimale en fonction du nombre de nœuds « Type de nœud principal » dont vous disposez. Par exemple, si vous disposez de 4 nœuds principaux, la propriété reliabilityLevel est définie sur Bronze ; si vous avez 5 nœuds de ce type, la propriété reliabilityLevel est définie sur Silver. Dans un futur proche, nous allons supprimer la possibilité de configurer votre niveau de fiabilité, étant donné que le cluster détectera et utilisera automatiquement le niveau de fiabilité optimal.
+
+La propriété reliabilityLevel peut être mise à niveau. Vous pouvez créer une v2 du fichier clusterConfig.json et monter ou descendre en puissance via une [mise à niveau de la configuration du cluster autonome](service-fabric-cluster-upgrade-windows-server.md). Vous pouvez également mettre à niveau vers une v2 du fichier clusterConfig.json dans laquelle la propriété reliabilityLevel n’est pas spécifiée, afin qu’elle soit calculée automatiquement. 
 
 ### <a name="diagnostics"></a>Diagnostics
 La section **diagnosticsStore** vous permet de configurer des paramètres pour activer les diagnostics et corriger les défaillances de nœud ou du cluster, comme illustré dans l’extrait de code suivant. 
@@ -183,6 +188,21 @@ L’exemple ci-dessous montre comment modifier le journal des transactions parta
             "value": "4096"
         }]
     }]
+
+### <a name="add-on-features"></a>Fonctionnalités supplémentaires
+Pour configurer les fonctionnalités supplémentaires, apiVersion doit être configuré sur « 04-2017 » ou version ultérieure, et addonFeatures doit être configuré :
+
+    "apiVersion": "04-2017",
+    "properties": {
+      "addOnFeatures": [
+          "DnsService",
+          "RepairManager"
+      ]
+    }
+
+### <a name="container-support"></a>Support pour les conteneurs
+Pour activer le support pour les conteneurs Windows Server et Hyper-V pour les clusters autonomes, la fonctionnalité supplémentaire « DnsService » doit être activée.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous disposez d’un fichier ClusterConfig.JSON complètement configuré selon votre cluster autonome, vous pouvez déployer votre cluster en suivant les instructions de l’article [Créer un cluster Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md), puis passez à l’étape [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).

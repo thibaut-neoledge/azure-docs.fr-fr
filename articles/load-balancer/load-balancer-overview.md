@@ -1,6 +1,6 @@
 ---
 title: "Présentation de l’équilibrage de charge Azure | Microsoft Docs"
-description: "Présentation des fonctionnalités, de l&quot;architecture et de l&quot;implémentation de l&quot;équilibrage de charge Azure. Découvrez comment fonctionne l’équilibrage de charge et l’exploiter dans le cloud."
+description: "Présentation des fonctionnalités, de l'architecture et de l'implémentation de l'équilibrage de charge Azure. Découvrez comment fonctionne l’équilibrage de charge et l’exploiter dans le cloud."
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2f0b7a04f4b732277abc65dd5fe0844d6e906496
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 78025789fd03d3c3a6cfb170329d9d51ac282034
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -118,6 +119,10 @@ L’équilibrage de charge peut maintenant être géré à l’aide des outils, 
 Vous pouvez affecter plusieurs adresses IP publiques à charge équilibrée à un jeu de machines virtuelles. Cela vous permet d'héberger plusieurs sites Web SSL et/ou plusieurs écouteurs de groupe de disponibilité SQL Server Always On sur le même jeu de machines virtuelles. Pour en savoir plus, consultez [Plusieurs adresses IP virtuelles par service cloud](load-balancer-multivip.md).
 
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
+
+## <a name="limitations"></a>Limites
+
+Les pools back-end d’équilibreur de charge peuvent héberger toutes les références SKU de machines virtuelles, sauf le niveau De base.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

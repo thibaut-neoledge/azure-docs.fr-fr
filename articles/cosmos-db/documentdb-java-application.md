@@ -1,6 +1,6 @@
 ---
 title: "Didacticiel de développement d’applications Java avec Azure Cosmos DB | Microsoft Docs"
-description: "Ce didacticiel d’application web Java vous montre comment utiliser le service Azure Cosmos DB pour stocker les données et y accéder à partir d’une application Java hébergée sur les sites web Azure."
+description: "Ce didacticiel d’application web Java vous montre comment utiliser le service Azure Cosmos DB et l’API DocumentDB pour stocker les données et y accéder à partir d’une application Java hébergée sur les sites web Azure."
 keywords: "Développement d’applications, didacticiel de base de données, application java, didacticiel de l’application web java, documentdb, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: java
@@ -10,20 +10,20 @@ editor: mimig
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 06/23/2017
 ms.author: denlee
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 3c22c33b27b793e19850c405df9b6b7bc3fe3362
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: 09df5cb8d83dd9366d268a4245aaf25abf3ab55a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/24/2017
 
 
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db"></a>Création d’une application web Java avec Azure Cosmos DB
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Création d’une application web Java avec Azure Cosmos DB et l’API DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.JS](documentdb-nodejs-application.md)

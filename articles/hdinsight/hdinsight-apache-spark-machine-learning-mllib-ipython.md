@@ -1,6 +1,7 @@
 ---
-title: "Utiliser la bibliothèque MLlib dans Spark pour créer des applications d’apprentissage automatique sur Azure HDInsight | Microsoft Docs"
-description: "Instructions pas à pas sur l’utilisation de la bibliothèque MLlib dans Apache Spark pour créer des applications d’apprentissage automatique"
+title: Exemple de Machine Learning avec Spark MLlib sur HDInsight - Azure | Microsoft Docs
+description: "Découvrez comment utiliser Spark MLlib pour créer une application de Machine Learning qui analyse un jeu de données à l’aide d’une classification de régression logistique."
+keywords: machine learning spark, exemple de machine learning spark
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,7 +10,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: c0fd4baa-946d-4e03-ad2c-a03491bd90c8
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,21 +18,22 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2b9b635abac0d74a270933b8f39d13b1c8436dde
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 47cbb4ba34bb075f51306cc9481afd308ff672b4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/18/2017
-
+ms.lasthandoff: 06/09/2017
 
 ---
-# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight"></a>Machine Learning : analyse prédictive des données d’inspections alimentaires à l’aide de MLlib avec un cluster Apache Spark sur HDInsight
+# <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utiliser Spark MLlib pour créer une application de Machine Learning et analyser un jeu de données
+
+Découvrez comment utiliser Spark **MLlib** pour créer une application de Machine Learning afin d’effectuer une analyse prédictive simple sur un jeu de données ouvert. À partir des bibliothèques de Machine Learning intégrées de Spark, cet exemple utilise une *classification* de régression logistique. 
 
 > [!TIP]
-> Ce didacticiel est également disponible en tant que bloc-notes Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface du bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour lire le didacticiel au sein d’un bloc-notes, créez un cluster Spark, lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), puis exécutez le bloc-notes **Spark Machine Learning - Analyse prédictive des données d’inspections alimentaires MLLib.ipynb** dans le dossier **Python**.
+> Ce exemple est également disponible en tant que bloc-notes Jupyter sur un cluster Spark (Linux) que vous créez dans HDInsight. L’interface du bloc-notes vous permet d’exécuter des extraits de code Python à partir du bloc-notes lui-même. Pour suivre le didacticiel à partir d’un bloc-notes, créez un cluster Spark et lancez un bloc-notes Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Ensuite, exécutez le bloc-notes, **Machine Learning Spark : analyse prédictive des données d’inspections alimentaires à l’aide de MLLib** figurant dans le dossier **Python**.
 >
 >
 
-Cet article explique comment utiliser **MLLib**, les bibliothèques Machine Learning intégrées de Spark, pour réaliser une analyse prédictive simple sur un jeu de données ouvertes. MLLib est une bibliothèque Spark principale qui fournit un certain nombre d’utilitaires qui sont utiles pour les tâches Machine Learning, y compris les utilitaires qui conviennent pour :
+MLLib est une bibliothèque principale Spark qui fournit de nombreux utilitaires pratiques pour l’exécution de tâches de Machine Learning. Certains de ces utilitaires conviennent pour les tâches suivantes :
 
 * Classification
 * Régression
@@ -40,21 +42,19 @@ Cet article explique comment utiliser **MLLib**, les bibliothèques Machine Lear
 * Décomposition de valeur singulière (SVD) et analyse des composants principaux (PCA)
 * Hypothèse de test et de calcul des exemples de statistiques
 
-Cet article présente une approche simple de *classification* via la régression logistique.
-
 ## <a name="what-are-classification-and-logistic-regression"></a>Qu’est-ce que la classification et la régression logistique ?
-La *classification*, une tâche Machine Learning très courante, correspond au classement des données d’entrée dans des catégories. L’algorithme de classification doit déterminer comment attribuer les « étiquettes » aux données d’entrée que vous fournissez. Par exemple, vous pouvez utiliser un algorithme Machine Learning qui accepte les informations de stock en tant qu’entrée et divise le stock en deux catégories : ce qu’il faut vendre et ce qu’il faut conserver.
+Une *classification*, tâche de Machine Learning très courante, est le processus de tri de données d’entrée par catégories. L’algorithme de classification doit déterminer comment attribuer les « étiquettes » aux données d’entrée que vous fournissez. Par exemple, vous pouvez utiliser un algorithme Machine Learning qui accepte les informations de stock en tant qu’entrée et divise le stock en deux catégories : ce qu’il faut vendre et ce qu’il faut conserver.
 
 La régression logistique correspond à l’algorithme que vous utilisez pour la classification. L’API de régression logistique de Spark est utile pour la *classification binaire*ou pour classer les données d’entrée dans un des deux groupes. Pour plus d’informations sur la régression logistique, consultez [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
 En résumé, le processus de régression logistique génère une *fonction logistique* qui peut être utilisée pour prédire la probabilité qu’un vecteur d’entrée appartienne à un groupe ou à l’autre.  
 
-## <a name="what-are-we-trying-to-accomplish-in-this-article"></a>Quel est l’objectif des actions de cet article ?
-Spark vous permet d’effectuer une analyse prédictive sur les données d’inspection alimentaires (**Food_Inspections1.csv**) qui ont été acquises par le biais du [portail de données de la ville de Chicago](https://data.cityofchicago.org/). Ce jeu de données contient des informations sur les inspections de produits alimentaires qui ont été effectuées à Chicago, y compris des informations sur chaque installation alimentaire qui a été inspectée, sur les violations détectées (le cas échéant) et sur les résultats de l’inspection. Le fichier de données CSV est déjà disponible dans le compte de stockage associé au cluster dans **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
+## <a name="predictive-analysis-example-on-food-inspection-data"></a>Exemple d’analyse prédictive sur des données d’inspection alimentaire
+Dans cet exemple, vous utilisez Spark pour effectuer une analyse prédictive de données d’inspection alimentaire (**Food_Inspections1.csv**) qui ont été acquises via le [portail de données de la ville de Chicago](https://data.cityofchicago.org/). Ce jeu de données contient des informations relatives aux inspections d’établissements alimentaires effectuées à Chicago, notamment des informations sur chaque établissement, les violations éventuelles relevées et les résultats des inspections. Le fichier de données CSV est déjà disponible dans le compte de stockage associé au cluster dans **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
 Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est nécessaire à la réussite ou à l’échec d’une inspection de produits alimentaires.
 
-## <a name="start-building-a-machine-learning-application-using-spark-mllib"></a>Création d’une application Machine Learning à l’aide de Spark MLlib
+## <a name="start-building-a-spark-mmlib-machine-learning-app"></a>Commencer à créer une application de Machine Learning Spark MMLib
 1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
 1. Dans le panneau du cluster Spark, cliquez sur **Tableau de bord du cluster**, puis sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
@@ -64,12 +64,12 @@ Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est 
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-1. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
+1. Créez un bloc-notes. Cliquez sur **Nouveau**, puis sur **PySpark**.
 
-    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Créer un bloc-notes Jupyter")
+    ![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-create-jupyter.png "Créer un bloc-notes Jupyter")
 1. Un nouveau bloc-notes est créé et ouvert sous le nom Untitled.pynb. Cliquez sur le nom du bloc-notes en haut, puis entrez un nom convivial.
 
-    ![Donnez un nom au bloc-notes](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Donnez un nom au bloc-notes")
+    ![Donnez un nom au bloc-notes](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-name-jupyter.png "Donnez un nom au bloc-notes")
 1. Comme vous avez créé un bloc-notes à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer à créer votre application d'apprentissage automatique en important les types requis pour ce scénario. Pour ce faire, placez le curseur dans la cellule, puis appuyez sur **MAJ + ENTRÉE**.
 
         from pyspark.ml import Pipeline
@@ -92,9 +92,9 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
             sio.close()
             return value
 
-        inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+        inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
-1. Nous avons maintenant le fichier CSV sous forme de RDD. Extrayons une ligne du RDD pour comprendre le schéma de données.
+1. Nous avons maintenant le fichier CSV sous forme de RDD.  Pour comprendre le schéma de données, nous extrayons une ligne du RDD.
 
         inspections.take(1)
 
@@ -121,7 +121,7 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. Le résultat ci-dessus nous donne une idée du schéma du fichier d’entrée. Le fichier inclut le nom de chaque établissement, le type de l’établissement, l’adresse, les données des inspections et l’emplacement, entre autres choses. Nous allons sélectionner quelques colonnes qui seront utiles pour notre analyse prédictive et regrouper les résultats dans une trame de données, que nous utiliserons ensuite pour créer une table temporaire
+1. La sortie précédente donne une idée du schéma du fichier d’entrée. Elle inclut notamment, pour chaque établissement, le nom, le type, l’adresse, les données des inspections et l’emplacement. Nous allons sélectionner quelques colonnes utiles pour notre analyse prédictive et regrouper les résultats dans une tramedonnées que nous utiliserons ensuite pour créer une table temporaire.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -131,7 +131,7 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
 
         df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
         df.registerTempTable('CountResults')
-1. Nous avons maintenant un *tableau de données*, `df` sur lequel nous pouvons effectuer l’analyse. Nous obtenons également une table temporaire **CountResults**. Nous avons inclus 4 colonnes d’intérêt dans le tableau de données : **id**, **nom**, **résultats** et **violations**.
+1. Nous avons maintenant un *tableau de données*, `df` sur lequel nous pouvons effectuer l’analyse. Nous obtenons également une table temporaire **CountResults**. Nous avons inclus dans la tramedonnées quatre colonnes intéressantes : **id**, **nom**, **résultats** et **violations**.
 
     Prenons un petit échantillon de données :
 
@@ -182,9 +182,9 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
 
     Un résultat similaire à ce qui suit s’affiche normalement :
 
-    ![Résultat de la requête SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "Résultat de la requête SQL")
+    ![Résultat de la requête SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Résultat de la requête SQL")
 
-    Pour plus d’informations sur la méthode magique `%%sql` , ainsi que les autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    Pour plus d’informations sur la méthode magique `%%sql` et d’autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Spark HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 1. Vous pouvez également utiliser Matplotlib, une bibliothèque permettant de construire une visualisation des données, pour créer un tracé. Étant donné que le tracé doit être créé à partir du tableau de données **countResultsdf** conservé localement, l’extrait de code doit commencer par la commande magique `%%local`. Cela garantit l’exécution locale du code sur le serveur Jupyter.
 
         %%local
@@ -199,7 +199,7 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
 
     Un résultat similaire à ce qui suit s’affiche normalement :
 
-    ![Résultats](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_13_1.png)
+    ![Sortie de l’application de Machine Learning Spark : graphique en secteurs avec cinq résultats d’inspection distincts](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Sortie du résultat de l’application de Machine Learning Spark")
 1. Vous pouvez voir qu’il existe 5 résultats d’inspection distincts.
 
    * Entreprise introuvable
@@ -208,8 +208,8 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
    * Réussite avec conditions
    * Cessation d’activités
 
-     Développons un modèle capable de deviner le résultat d’une inspection alimentaire, en fonction des violations. Étant donné que la régression logistique est une méthode de classification binaire, il est judicieux de regrouper les données en deux catégories : **échec** et **réussite**. Une « Réussite avec conditions » reste une Réussite. Par conséquent, lorsque nous formons le modèle, nous devons considérer ces deux résultats au même titre. Les données contenant les autres résultats (« Entreprise introuvable », « Cessation d’activités ») ne sont pas utiles. Nous pouvons donc les supprimer de notre jeu d’apprentissage. Cela ne devrait pas poser de problème, puisque ces deux catégories ne représentent qu’un faible pourcentage du résultat total.
-1. À présent, convertissons notre trame de données existante (`df`) en une nouvelle trame de données dans laquelle chaque inspection est représentée par une paire de violations étiquetée. Dans notre cas, une étiquette `0.0` représente un échec, une étiquette `1.0` représente une réussite et une étiquette `-1.0` représente d’autres résultats. Nous filtrerons ces autres résultats lors du calcul de la nouvelle trame de données.
+     Développons un modèle capable de deviner le résultat d’une inspection alimentaire, en fonction des violations. Étant donné que la régression logistique est une méthode de classification binaire, il est judicieux de regrouper les données en deux catégories : **échec** et **réussite**. Une « Réussite avec conditions » reste une Réussite. Par conséquent, lorsque nous formons le modèle, nous considérons ces deux résultats comme équivalents. Les données contenant les autres résultats (« Entreprise introuvable » ou « Cessation d’activités ») étant inutiles, nous pouvons donc les supprimer de notre jeu d’apprentissage. Cela ne devrait pas poser de problème, puisque ces deux catégories ne représentent qu’un faible pourcentage du résultat total.
+1. À présent, convertissons notre trame de données existante (`df`) en une nouvelle trame de données dans laquelle chaque inspection est représentée par une paire de violations étiquetée. Dans notre cas, une étiquette `0.0` représente un échec, une étiquette `1.0` représente une réussite et une étiquette `-1.0` représente d’autres résultats. Nous filtrons ces autres résultats lors du calcul de la nouvelle trame de données.
 
         def labelForResults(s):
             if s == 'Fail':
@@ -221,7 +221,7 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
         label = UserDefinedFunction(labelForResults, DoubleType())
         labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
 
-    Récupérons une ligne de données étiquetées pour voir à quoi elle ressemble.
+    Pour voir à quoi ressemblent les données étiquetées, extrayons une ligne.
 
         labeledData.take(1)
 
@@ -234,11 +234,11 @@ Nous pouvons utiliser `sqlContext` pour effectuer des transformations sur des do
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Créer un modèle de régression logistique à partir de la trame de données d’entrée
-La dernière tâche consiste à convertir les données étiquetées dans un format qui peut être analysé par régression logistique. L’entrée dans un algorithme de régression logistique doit correspondre à un jeu de *paires de vecteur de fonctionnalité d’étiquette*, où « vecteur de fonctionnalité » est un vecteur de nombres qui représente le point d’entrée d’une certaine façon. Nous devons donc trouver un moyen de convertir la colonne « violations », qui est semi-structurée et qui contient un grand nombre de commentaires en texte libre, en un tableau de nombres réels qu’une machine peut facilement comprendre.
+La dernière tâche consiste à convertir les données étiquetées dans un format qui peut être analysé par régression logistique. L’entrée dans un algorithme de régression logistique doit être un jeu de *paires de vecteurs étiquette-fonctionnalité*, où le « vecteur fonctionnalité » est un vecteur de nombres représentant le point d’entrée. Nous devons donc convertir la colonne « violations », qui est semi-structurée et contient un grand nombre de commentaires sous forme de texte libre, en un tableau de nombres réels qu’une machine peut facilement comprendre.
 
 Une approche Machine Learning standard pour le traitement du langage naturel consiste à assigner un « index » à chaque mot distinct et à transmettre un vecteur à l’algorithme de Machine Learning, de manière à ce que la valeur de chaque index contienne la fréquence relative de ce mot dans la chaîne de texte.
 
-MLLib permet d’effectuer cette opération en toute simplicité. Tout d’abord, nous allons « tokéniser » chaque chaîne de violations pour obtenir les mots individuels dans chaque chaîne, puis nous allons utiliser un `HashingTF` pour convertir chaque jeu de jetons dans un vecteur de fonctionnalité qui peut ensuite être transmis à l’algorithme de régression logistique pour construire un modèle. Nous allons effectuer toutes ces étapes de manière séquentielle, à l’aide d’un « pipeline ».
+MLLib permet d’effectuer cette opération en toute simplicité. Tout d’abord, il convertit en jetons chaque chaîne de violations afin d’obtenir les mots de celle-ci. Ensuite, il utilise un `HashingTF` pour convertir chaque ensemble de jetons en un vecteur fonctionnalité qui peut ensuite être transmis à l’algorithme de régression logistique pour construire un modèle. Nous allons effectuer toutes ces étapes successivement à l’aide d’un « pipeline ».
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -250,9 +250,9 @@ MLLib permet d’effectuer cette opération en toute simplicité. Tout d’abord
 ## <a name="evaluate-the-model-on-a-separate-test-dataset"></a>Évaluer le modèle sur un jeu de données de test séparé
 Nous pouvons utiliser le modèle que nous avons créé précédemment pour *prédire* les résultats des nouvelles inspections, en fonction des violations qui ont été observées. Nous avons formé ce modèle sur le jeu de données **Food_Inspections1.csv**. Utilisons un second jeu de données, **Food_Inspections2.csv**, pour *évaluer* la puissance de ce modèle sur les nouvelles données. Ce second jeu de données (**Food_Inspections2.csv**) doit déjà se trouver dans le conteneur de stockage par défaut associé au cluster.
 
-1. L’extrait de code ci-dessous crée une nouvelle trame de données, **predictionsDf** , qui contient la prédiction générée par le modèle. L’extrait de code crée également une table temporaire **Predictions** basée sur la trame de données.
+1. L’extrait de code ci-dessous crée une tramedonnées, **predictionsDf**, qui contient la prédiction générée par le modèle. Il crée également une table temporaire, **Predictions**, basée sur la tramedonnées.
 
-        testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+        testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                  .map(csvParse) \
                  .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
         testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -279,8 +279,8 @@ Nous pouvons utiliser le modèle que nous avons créé précédemment pour *pré
 
         predictionsDf.take(1)
 
-    Vous verrez la prédiction pour la première entrée dans le jeu de données de test.
-1. La méthode `model.transform()` applique la même transformation à toutes les nouvelles données possédant le même schéma, pour obtenir une prédiction permettant de classer les données. Nous pouvons faire des statistiques simples pour avoir une idée de la précision de nos prédictions :
+   Une prédiction pour la première entrée figure dans le jeu de données de test.
+1. La méthode `model.transform()` applique la même transformation à toutes les nouvelles données possédant le même schéma afin d’obtenir une prédiction permettant de classer les données. Nous pouvons faire des statistiques simples pour avoir une idée de la précision de nos prédictions :
 
         numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
                                               (prediction = 1 AND (results = 'Pass' OR
@@ -329,14 +329,14 @@ Nous pouvons désormais créer une visualisation finale pour nous aider à exami
         plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
         plt.axis('equal')
 
-    La sortie suivante s'affiche.
+    Vous devez normalement voir la sortie suivante.
 
-    ![Prédictions](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_26_1.png)
+    ![Sortie de l’application de Machine Learning Spark : graphique en secteurs des pourcentages d’inspections alimentaires qui ont échoué.](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Sortie du résultat de l’application de Machine Learning Spark")
 
     Dans ce graphique, un résultat « positif » fait référence à l’inspection de produits alimentaires ayant échoué, tandis qu’un résultat négatif fait référence à une inspection réussie.
 
 ## <a name="shut-down-the-notebook"></a>Arrêtez le bloc-notes
-Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter**. Cette opération permet d’arrêter et de fermer le bloc-notes.
+Une fois l’exécution de l’application terminée, fermez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, cliquez sur **Fermer et arrêter**. Cela a pour effet d’arrêter et de fermer le bloc-notes.
 
 ## <a name="seealso"></a>Voir aussi
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -352,9 +352,9 @@ Une fois l’exécution de l’application terminée, arrêtez le bloc-notes pou
 * [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Outils et extensions
-* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Utilisation du plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

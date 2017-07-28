@@ -16,17 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 1776d41266d451f03ebcd71b83912c1cb35512bf
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 1a0ff3f8b8fb3eaf398d9fa925ef027b2481d47a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
-<a id="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli" class="xliff"></a>
-
-# Régénérer une clé de compte Azure Cosmos DB à l’aide de la CLI Azure
+# <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>Régénérer une clé de compte Azure Cosmos DB à l’aide de la CLI Azure
 
 Cet exemple permet de régénérer tout type de clé de compte Azure Cosmos DB à l’aide de l’interface CLI Azure. 
 
@@ -34,15 +32,11 @@ Cet exemple permet de régénérer tout type de clé de compte Azure Cosmos DB �
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="sample-script" class="xliff"></a>
-
-## Exemple de script
+## <a name="sample-script"></a>Exemple de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-regenerate-keys/secure-cosmosdb-regenerate-keys.sh?highlight=27-31 "Regénérer les clés de compte Azure Cosmos DB")]
 
-<a id="clean-up-deployment" class="xliff"></a>
-
-## Nettoyer le déploiement
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
 
@@ -50,22 +44,18 @@ Une fois l’exemple de script exécuté, la commande suivante permet de supprim
 az group delete --name myResourceGroup
 ```
 
-<a id="script-explanation" class="xliff"></a>
-
-## Explication du script
+## <a name="script-explanation"></a>Explication du script
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
 | Commande | Remarques |
 |---|---|
 | [az group create](/cli/azure/group#create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az cosmosdb create](/cli/azure/cosmosdb/name#create) | Met à jour un compte Azure Cosmos DB. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | Met à jour un compte Azure Cosmos DB. |
 | [az cosmosdb regenerate-key](/cli/azure/cosmosdb/regenerate-key) | Regénère les clés de compte Azure Cosmos DB. |
-| [az group delete](/cli/azure/resource#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

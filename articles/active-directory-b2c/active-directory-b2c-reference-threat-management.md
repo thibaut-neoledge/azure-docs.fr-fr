@@ -1,6 +1,6 @@
 ---
-title: Gestion des menaces pour Azure B2C | Microsoft Docs
-description: "Techniques de détection et d’atténuation des attaques par déni de service et de mot de passe dans Azure B2C."
+title: "Azure Active Directory B2C : Gestion des menaces | Microsoft Docs"
+description: "Découvrez les techniques de détection et de prévention d’attaques par déni de service et d’attaques de mot de passe dans Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: 
 author: vigunase
@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2016
 ms.author: 
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5cca5fcd445e70b4eab9197258bb783e20016f76
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 9472cb01eb713e297053727b1a314293574bb657
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/29/2017
 
 
 ---
-# <a name="azure-ad-b2c-threat-management"></a>Azure AD B2C : Gestion des menaces
-La Gestion des menaces inclut une protection contre les attaques des systèmes et des réseaux. Une attaque par déni de service (DoS) peut affecter la disponibilité de la ressource et rendre celle-ci indisponible pour les utilisateurs auxquels elle est destinée. Une attaque de mot de passe peut mener à un accès non autorisé aux ressources. Microsoft Azure Active Directory B2C dispose de fonctionnalités intégrées pour protéger vos données contre ces menaces de plusieurs façons. 
+# <a name="azure-active-directory-b2c-threat-management"></a>Azure Active Directory B2C : Gestion des menaces
 
-## <a name="denial-of-service-attack"></a>Attaque par déni de service
+La gestion des menaces inclut la planification de la protection contre les attaques des systèmes et des réseaux. Les attaques par déni de service peuvent rendre les ressources inaccessibles aux utilisateurs prévus. Une attaque de mot de passe peut mener à un accès non autorisé aux ressources. Azure Active Directory B2C (Azure AD B2C) dispose de fonctionnalités intégrées qui peuvent vous aider à protéger vos données contre ces menaces de plusieurs façons.
 
-Azure AD B2C utilise des techniques de détection et d’atténuation telles que les cookies SYN ainsi que les limites de débit et de connexion pour protéger les ressources sous-jacentes contre ces attaques.  
+## <a name="denial-of-service-attacks"></a>Attaques par déni de service
+
+Azure AD B2C utilise des techniques de détection et d’atténuation telles que les cookies SYN ainsi que les limites de débit et de connexion pour protéger les ressources sous-jacentes contre les attaques par déni de service.
 
 ## <a name="password-attacks"></a>Attaques de mot de passe
 
-Azure AD B2C dispose également de dispositifs d’atténuation pour contrer les attaques de mot de passe.  Cette technique couvre tant les attaques de mot de passe par force brute que les attaques de mot de passe basées sur un dictionnaire.  Les mots de passe définis par les utilisateurs doivent être d’une complexité raisonnable.  Azure AD B2C analyse l’intégrité des demandes afin de différencier intelligemment, à l’aide de différents signaux, les utilisateurs prévus des pirates et autres botnets. B2C offre une stratégie sophistiquée de verrouillage des comptes basée sur les mots de passe entrés et sur la probabilité d’attaque.
+Azure AD B2C dispose également de techniques d’atténuation pour contrer les attaques de mot de passe. L’atténuation couvre à la fois les attaques de mot de passe par force brute et celles basées sur un dictionnaire. Les mots de passe définis par les utilisateurs doivent être d’une complexité raisonnable. À l’aide de différents signaux, Azure AD B2C analyse l’intégrité des demandes. Azure AD B2C est conçu pour différencier intelligemment les utilisateurs prévus des pirates et botnets. Azure AD B2C fournit une stratégie sophistiquée pour verrouiller les comptes en fonction des mots de passe entrés, dans l’éventualité d’une attaque.
 
-[Informations supplémentaires sur la Gestion des menaces de Microsoft](https://www.microsoft.com/trustcenter/security/threatmanagement)
+Pour plus d’informations, consultez le [Centre de gestion de la confidentialité de Microsoft](https://www.microsoft.com/trustcenter/security/threatmanagement).
+

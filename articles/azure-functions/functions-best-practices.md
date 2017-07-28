@@ -14,29 +14,28 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 53dcaea155471d47eb61317c52d38524c05e4600
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 5408bf986b67d420d4d1359961ec83510c97cd05
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
 
-# <a name="tips-for-improving-the-performance-and-reliability-of-azure-functions"></a>Conseils pour améliorer les performances et la fiabilité d’Azure Functions
+# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
-##<a name="overview"></a>Vue d'ensemble
-
-Cet article fournit un ensemble de bonnes pratiques à prendre en compte durant l’implémentation des applications de fonction. Gardez à l’esprit que votre Function App est une application dans Azure App Service. Les meilleures pratiques App Service s’appliquent donc également.
+Cet article fournit des instructions pour améliorer les performances et la fiabilité de vos applications de fonction. 
 
 
-## <a name="avoid-large-long-running-functions"></a>Éviter les fonctions volumineuses dont l’exécution prend beaucoup de longtemps
+## <a name="avoid-long-running-functions"></a>Évitez les fonctions dont l’exécution prend beaucoup de longtemps
 
-Ces fonctions peuvent provoquer des problèmes de délai d’attente inattendus. Une fonction peut être volumineuse en raison des nombreuses dépendances Node.js. L’importation de ces dépendances peut entraîner une augmentation des temps de chargement aboutissant à des délais d’attente inattendus. Les dépendances Node.js peuvent être chargées explicitement par plusieurs instructions `require()` dans votre code. Les dépendances peuvent également être implicites, en fonction d’un module spécifique chargé par votre code possédant ses propres dépendances internes.  
+Ces fonctions peuvent provoquer des problèmes de délai d’attente inattendus. Une fonction peut devenir volumineuse en raison d’un nombre important de dépendances Node.js. L’importation des dépendances peut entraîner une augmentation des temps de chargement aboutissant à des délais d’attente inattendus. Les dépendances sont chargées tant explicitement qu’implicitement. Un module chargé par votre code peut charger ses propres modules supplémentaires.  
 
-Chaque fois que possible, subdivisez les fonctions volumineuses en ensembles de fonctions plus petits qui collaborent et retournent des réponses rapides. Par exemple, un webhook ou une fonction de déclenchement HTTP peut nécessiter une réponse avec accusé de réception dans un délai imparti. Vous pouvez passer la charge utile du déclencheur HTTP dans une file d’attente en vue de son traitement par une fonction de déclenchement de file d’attente. Cette approche vous permet de différer le travail réel et de retourner une réponse immédiate. Il est courant que les webhooks demandent une réponse immédiate.
+Autant que possible, subdivisez les fonctions volumineuses en ensembles de fonctions plus petits qui fonctionnent ensemble et retournent des réponses rapides. Par exemple, un webhook ou une fonction de déclenchement HTTP peut nécessiter une réponse avec accusé de réception dans un délai imparti. Il est courant que des webhooks demandent une réponse immédiate. Vous pouvez passer la charge utile du déclencheur HTTP dans une file d’attente en vue de son traitement par une fonction de déclenchement de file d’attente. Cette approche vous permet de différer le travail réel et de retourner une réponse immédiate.
 
 
 ## <a name="cross-function-communication"></a>Communication entre fonctions
@@ -48,7 +47,6 @@ La taille de chaque message d’une file d’attente de stockage est limitée à
 Les rubriques Service Bus sont utiles si vous avez besoin de filtrer les messages avant de les traiter.
 
 Les hubs d’événements sont utiles pour prendre en charge les communications de volume élevé.
-
 
 
 ## <a name="write-functions-to-be-stateless"></a>Écrire des fonctions sans état 
@@ -92,18 +90,15 @@ N’utilisez pas de journalisation détaillée dans le code de production. Cela 
 
 ## <a name="use-async-code-but-avoid-taskresult"></a>Utiliser du code asynchrone tout en évitant Task.Result
 
-La programmation asynchrone est une pratique recommandée. Toutefois, évitez toujours de référencer la propriété `Task.Result`. Cette approche effectue essentiellement une attente active sur un verrou d’un autre thread. Le maintien d’un verrou peut donner lieu à des blocages.
+La programmation asynchrone est une pratique recommandée. Toutefois, évitez toujours de référencer la propriété `Task.Result`. Cette approche peut mener à un épuisement des threads.
 
 
-
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
-* [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
-* [Informations de référence pour les développeurs C# sur Azure Functions](functions-reference-csharp.md)
-* [Informations de référence pour les développeurs F# sur Azure Functions](functions-reference-fsharp.md)
-* [Azure Functions NodeJS developer reference (Référence pour les développeurs NodeJS Azure Functions)](functions-reference-node.md)
-* [Modèles et pratiques d’optimisations des performances HTTP](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)
+Étant donné qu’Azure Functions utilise Azure App Service, vous devez également connaître les directives d’App Service.
+* [Modèles et pratiques d’optimisations des performances HTTP](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
 
 

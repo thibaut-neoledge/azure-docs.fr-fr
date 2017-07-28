@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/01/2017
+ms.date: 05/24/2017
 ms.author: sasubram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: fd02c79d967c5076353f1f9219c22f068b56fb1d
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: aea802af038786c58d9640333458ad88fe8f90bd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -31,10 +31,11 @@ ms.lasthandoff: 05/02/2017
 ## <a name="azure-ad-and-microsoft-account-users"></a>Utilisateurs Azure AD et de comptes Microsoft
 Pour les utilisateurs de comptes Azure AD ou Microsoft existants, l’expérience d'utilisation des invitations est aussi simple que l’ouverture d'une session.
 
-## <a name="social-id-user-first-time-redemption"></a>Première utilisation avec l'ID sociale de l'utilisateur
-Avec Azure AD B2B Collaboration, il est facile de prendre n'importe quelle adresse e-mail pour utiliser une invitation. Regardez l’expérience d'utilisation d'une invitation lorsqu’une adresse e-mail non-Microsoft est utilisée pour B2B Collaboration. Dans cette procédure, vous êtes plus impliqué, car vous devrez peut-être créer un compte au moment de l'utilisation de l'invitation. Regardez la vidéo suivante :
+## <a name="social-id-user-first-time-redemption"></a>Première utilisation avec l’ID social de l’utilisateur
+Avec Azure AD B2B Collaboration, il est facile de prendre n'importe quelle adresse e-mail pour utiliser une invitation. Regardez l’expérience d’échange lorsqu’une adresse e-mail tierce est utilisée pour B2B Collaboration. Vous êtes plus impliqué, car vous devrez peut-être créer un compte au moment de l’échange. Regardez la vidéo suivante :
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
+> 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

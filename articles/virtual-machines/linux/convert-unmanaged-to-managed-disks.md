@@ -1,6 +1,6 @@
 ---
-title: "Convertir une machine virtuelle Linux dans Azure à partir de disques non gérés vers des disques gérés | Microsoft Docs"
-description: "Procédure de conversion d’une machine virtuelle à partir de disques non gérés vers Azure Managed Disks à l’aide d’Azure CLI 2.0"
+title: "Convertir une machine virtuelle Linux dans Azure à partir de disques non gérés vers Managed Disks | Microsoft Docs"
+description: "Conversion d’une machine virtuelle Linux à partir de disques non gérés vers Azure Managed Disks à l’aide d’Azure CLI 2.0 dans le modèle de déploiement Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -13,31 +13,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 6bab6cbd84c55e668f2caf9b9f94621eec982203
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 37c47061b0774d9670b9a2d304d069d5f683c2d2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/01/2017
 
 ---
 
-# <a name="how-to-convert-a-linux-vm-from-unmanaged-disks-to-azure-managed-disks"></a>Procédure de conversion d’une machine virtuelle Linux à partir de disques non gérés vers Azure Managed Disks
+# <a name="convert-a-linux-vm-from-unmanaged-disks-to-azure-managed-disks"></a>Convertir une machine virtuelle Linux à partir de disques non gérés vers Azure Managed Disks
 
-Si vous avez des machines virtuelles Linux existantes dans Azure qui utilisent des disques non gérés dans des comptes de stockage et que vous souhaitez qu’elles puissent tirer parti des disques gérés, vous pouvez les convertir. Ce processus convertit le disque du système d’exploitation ainsi que tous les autres disques de données attachés. Le processus de conversion nécessite un redémarrage de la machine virtuelle. Par conséquent, planifiez la migration de vos machines virtuelles au cours d’une fenêtre de maintenance préexistante. Le processus de migration n’est pas réversible. Veillez à tester le processus en migrant une machine virtuelle de test avant d’effectuer la migration en production.
+Si vos machines virtuelles Linux existantes utilisent des disques non gérés, vous pouvez les convertir pour qu’elles utilisent [Azure Managed Disks](../../storage/storage-managed-disks-overview.md). Ce processus convertit le disque du système d’exploitation ainsi que tous les autres disques de données attachés.
 
-> [!IMPORTANT]
-> Lors de la conversion, vous libérez la machine virtuelle. Celle-ci reçoit une nouvelle adresse IP lorsqu’elle est démarrée après la conversion. Si vous avez une dépendance sur une adresse IP fixe, utilisez une adresse IP réservée.
+Cet article explique comment convertir des machines virtuelles avec Azure CLI. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli.md). 
 
-Vous ne pouvez pas convertir un disque non géré vers un disque géré s’il se trouve dans un compte de stockage qui est, ou qui a été à un moment donné, chiffré à l’aide [d’Azure SSE (Storage Service Encryption)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les étapes suivantes décrivent comment convertir des disques non gérés qui sont, ou ont été, dans un compte de stockage chiffré :
+## <a name="before-you-begin"></a>Avant de commencer
 
-- Copiez le disque dur virtuel (VHD) avec la commande [az storage blob copy start](/cli/azure/storage/blob/copy#start) dans un compte de stockage pour lequel Azure Storage Service Encryption n’a jamais été activé.
-- Créez une machine virtuelle qui utilise des disques gérés et spécifiez ce fichier de disque dur virtuel lors de la création avec la commande [az vm create](/cli/azure/vm#create), ou
-- Attachez le disque dur virtuel copié avec la commande [az vm disk attach](/cli/azure/vm/disk#attach) à une machine virtuelle en cours d’exécution avec des disques gérés.
+[!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-## <a name="convert-vm-to-azure-managed-disks"></a>Convertir une machine virtuelle vers Azure Managed Disks
-Cette section explique comment convertir vos machines virtuelles Azure existantes à partir de disques non gérés en disques gérés. Vous pouvez utiliser ce processus pour convertir des disques non gérés Premium (SSD) en disques gérés Premium, ou des disques non gérés Standard (HDD) en disques gérés Standard.
+
+## <a name="convert-single-instance-vms"></a>Convertir des machines virtuelles à instance unique
+Cette section explique comment convertir vos machines virtuelles Azure à instance unique à partir de disques non gérés vers des disques gérés. (Voir la section suivante si vos machines virtuelles sont dans un groupe à haute disponibilité.) Vous pouvez utiliser ce processus pour convertir des disques non gérés Premium (SSD) en disques gérés Premium, ou des disques non gérés Standard (HDD) en disques gérés Standard.
 
 1. Libérez la machine virtuelle avec la commande [az vm deallocate](/cli/azure/vm#deallocate). L’exemple suivant libère la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
 
@@ -57,7 +55,7 @@ Cette section explique comment convertir vos machines virtuelles Azure existante
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-## <a name="convert-vm-in-an-availability-set-to-managed-disks"></a>Convertir une machine virtuelle dans un groupe à haute disponibilité en disques gérés
+## <a name="convert-vms-in-an-availability-set"></a>Convertir des machines virtuelles dans un groupe à haute disponibilité
 
 Si les machines virtuelles que vous souhaitez convertir pour utiliser des disques gérés se trouvent dans un groupe à haute disponibilité, vous devez tout d’abord convertir ce dernier en groupe à haute disponibilité géré.
 
@@ -66,8 +64,11 @@ Toutes les machines virtuelles dans le groupe à haute disponibilité doivent ê
 1. Répertoriez toutes les machines virtuelles contenues dans un groupe à haute disponibilité avec la commande [az vm availability-set list](/cli/azure/vm/availability-set#list). L’exemple suivant répertorie toutes les machines virtuelles dans le groupe à haute disponibilité nommé `myAvailabilitySet` dans le groupe de ressources nommé `myResourceGroup` :
 
     ```azurecli
-    az vm availability-set show --resource-group myResourceGroup \
-        --name myAvailabilitySet --query [virtualMachines[*].id] --output table
+    az vm availability-set show \
+        --resource-group myResourceGroup \
+        --name myAvailabilitySet \
+        --query [virtualMachines[*].id] \
+        --output table
     ```
 
 2. Libérez toutes les machines virtuelles avec la commande [az vm deallocate](/cli/azure/vm#deallocate). L’exemple suivant libère la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup` :
@@ -79,7 +80,8 @@ Toutes les machines virtuelles dans le groupe à haute disponibilité doivent ê
 3. Convertissez le groupe à haute disponibilité avec la commande [az vm availability-set convert](/cli/azure/vm/availability-set#convert). L’exemple suivant convertit le groupe à haute disponibilité nommé `myAvailabilitySet` dans le groupe de ressources nommé `myResourceGroup` :
 
     ```azurecli
-    az vm availability-set convert --resource-group myResourceGroup \
+    az vm availability-set convert \
+        --resource-group myResourceGroup \
         --name myAvailabilitySet
     ```
 
@@ -95,6 +97,17 @@ Toutes les machines virtuelles dans le groupe à haute disponibilité doivent ê
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
+## <a name="managed-disks-and-azure-storage-service-encryption"></a>Disques gérés et chiffrement du service Stockage Azure
+Vous ne pouvez pas utiliser les étapes précédentes pour convertir un disque non géré vers un disque géré s’il se trouve dans un compte de stockage qui a déjà été chiffré à l’aide [d’Azure SSE (Storage Service Encryption)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les étapes suivantes décrivent comment copier et utiliser des disques non gérés qui ont été dans un compte de stockage chiffré :
+
+1. Copiez le disque dur virtuel (VHD) avec la commande [az storage blob copy start](/cli/azure/storage/blob/copy#start) dans un compte de stockage pour lequel Azure Storage Service Encryption n’a jamais été activé.
+
+2. Utilisez la machine virtuelle copiée de l’une des manières suivantes :
+
+* Créez une machine virtuelle qui utilise des disques gérés et spécifiez ce fichier de disque dur virtuel lors de la création avec la commande [az vm create](/cli/azure/vm#create).
+
+* Attachez le disque dur virtuel copié avec la commande [az vm disk attach](/cli/azure/vm/disk#attach) à une machine virtuelle en cours d’exécution avec des disques gérés.
+
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les options de stockage, voir la page [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md) (Vue d’ensemble d’Azure Managed Disks).
+Pour plus d’informations sur les options de stockage, voir la page [Vue d’ensemble d’Azure Managed Disks](../../storage/storage-managed-disks-overview.md).
 

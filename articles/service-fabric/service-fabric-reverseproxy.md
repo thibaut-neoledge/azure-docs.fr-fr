@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/07/2017
 ms.author: bharatn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 121bf91a2476a079c0737187aef8791be0b4b250
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 80669943f5b9f9d55cc6395c4dab76b32fc72c8f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -60,12 +61,12 @@ Le proxy inverse utilise un format d’URI (Uniform Resource Identifier) spécif
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s) :** le proxy inverse peut être configuré pour accepter le trafic HTTP ou HTTPS. Pour le trafic HTTPS, un arrêt SSL (Secure Sockets Layer) se produit au niveau du proxy inverse. Le proxy inverse utilise HTTP pour transférer les demandes aux services du cluster.
-
-    Remarque : Les services HTTPS ne sont pas pris en charge pour le moment.
+* **http(s) :** le proxy inverse peut être configuré pour accepter le trafic HTTP ou HTTPS. Pour le transfert HTTPS, reportez-vous à [Se connecter à un service sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md) une fois que vous avez configuré le proxy inverse pour écouter sur HTTPS.
 * **Cluster fully qualified domain name (FQDN) | internal IP :** pour les clients externes, vous pouvez configurer le proxy inverse de façon à le rendre accessible par le biais du domaine du cluster, par exemple mycluster.eastus.cloudapp.azure.com. Par défaut, le proxy inverse s’exécute sur chacun des nœuds. Pour le trafic interne, le proxy inverse est accessible sur l’hôte local ou sur n’importe quelle adresse IP de nœud interne, par exemple 10.0.0.1.
-* **Port :** port, par exemple 19008, spécifié pour le proxy inverse.
+* **Port :** port, par exemple 19081, spécifié pour le proxy inverse.
 * **ServiceInstanceName :** nom complet de l’instance de service déployée que vous tentez d’atteindre sans le schéma « fabric:/ ». Par exemple, pour atteindre le service *fabric:/myapp/myservice/*, vous pouvez utiliser *myapp/myservice*.
+
+    Le nom d’instance de service respecte la casse. L’utilisation d’une casse différente pour le nom d’instance de service dans l’URL entraîne l’échec des demandes avec l’erreur 404 (Introuvable).
 * **Suffix path :** chemin d’accès réel à l’URL, par exemple *myapi/values/add/3*, associée au service auquel vous souhaitez vous connecter.
 * **PartitionKey :** pour un service partitionné, il s’agit de la clé calculée associée à la partition que vous souhaitez atteindre. Il ne s’agit *pas* du GUID d’ID de la partition. Ce paramètre n’est pas obligatoire pour les services qui utilisent le schéma de partition de singleton.
 * **PartitionKind :** schéma de partition du service. Il peut s’agir de Named ou Int64Range. Ce paramètre n’est pas obligatoire pour les services qui utilisent le schéma de partition de singleton.
@@ -89,18 +90,18 @@ Voici les ressources du service :
 
 Si le service utilise le schéma de partitionnement singleton, les paramètres de chaîne de requête *PartitionKey* et *PartitionKind* ne sont pas requis ; le service est accessible avec la passerelle de la façon suivante :
 
-* En externe : `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService`
-* En interne : `http://localhost:19008/MyApp/MyService`
+* En externe : `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
+* En interne : `http://localhost:19081/MyApp/MyService`
 
 Si le service utilise le schéma de partitionnement Int64 uniforme, les paramètres de chaîne de requête *PartitionKey* et *PartitionKind* doivent être utilisés pour atteindre une partition du service :
 
-* En externe : `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* En interne : `http://localhost:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* En externe : `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* En interne : `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
 Pour atteindre les ressources exposées par le service, il vous suffit de placer le chemin d’accès à la ressource après le nom du service dans l’URL :
 
-* En externe : `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* En interne : `http://localhost:19008/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* En externe : `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+* En interne : `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 La passerelle transmet ensuite ces requêtes à l’URL du service :
 
@@ -146,7 +147,7 @@ Tout d’abord, vous récupérez le modèle du cluster que vous souhaitez déplo
     ```json
     "SFReverseProxyPort": {
         "type": "int",
-        "defaultValue": 19008,
+        "defaultValue": 19081,
         "metadata": {
             "description": "Endpoint for Service Fabric Reverse proxy"
         }
@@ -298,6 +299,7 @@ Tout d’abord, vous récupérez le modèle du cluster que vous souhaitez déplo
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir un exemple de communication HTTP entre services, consultez cet [exemple de projet sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
+* [Transfert vers un service HTTP sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Appels de procédure distante avec Reliable Services à distance](service-fabric-reliable-services-communication-remoting.md)
 * [API Web qui utilise OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Communication WCF à l’aide de Reliable Services](service-fabric-reliable-services-communication-wcf.md)

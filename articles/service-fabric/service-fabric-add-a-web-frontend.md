@@ -12,30 +12,39 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/28/2017
+ms.date: 06/01/2017
 ms.author: vturecek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 182c3d02883ceae83c9ba12c0f27085d133ac47a
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Créer un service web frontal pour votre application à l’aide d’ASP.NET Core
 Par défaut, les services Azure Service Fabric ne fournissent pas une interface publique sur le web. Pour exposer les fonctionnalités de votre application pour les clients HTTP, vous devez créer un projet web qui agit comme point d'entrée et ensuite établir la communication avec vos services individuels.
 
-Dans ce didacticiel, nous reprenons les choses là où nous les avions laissées dans [Création de votre première application dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) et ajoutons un service web devant le service de compteur avec état. Si vous ne l’avez pas encore fait, revenez d’abord à ce didacticiel et suivez-le.
+Dans ce didacticiel, nous reprenons les choses là où nous les avions laissées dans [Création de votre première application dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) et ajoutons un service web ASP.NET Core devant le service de compteur avec état. Si vous ne l’avez pas encore fait, revenez d’abord à ce didacticiel et suivez-le.
+
+## <a name="set-up-your-environment-for-aspnet-core"></a>Configurer votre environnement pour ASP.NET Core
+
+Pour suivre ce didacticiel, vous avez besoin de Visual Studio 2017. N’importe quelle édition fera l’affaire. 
+
+ - [Installer Visual Studio 2017](https://www.visualstudio.com/)
+
+Pour développer des applications ASP.NET Core Service Fabric, les charges de travail suivantes doivent être installées :
+ - **Développement Azure** (sous *Web & Cloud*)
+ - **Développement web et ASP.NET** (sous *Web & Cloud*)
+ - **Développement multiplateforme .NET Core** (sous *Autres jeux d’outils*)
+
+>[!Note] 
+>Les outils .NET Core pour Visual Studio 2015 ne sont plus mis à jour, mais si vous utilisez encore Visual Studio 2015, [.NET Core VS 2015 Tooling Preview 2](https://www.microsoft.com/net/download/core) doit être installé.
 
 ## <a name="add-an-aspnet-core-service-to-your-application"></a>Ajouter un service ASP.NET Core à votre application
-ASP.NET Core est une infrastructure légère de développement web inter-plateformes, que vous pouvez utiliser pour créer des API web et d’interfaces utilisateur web modernes. Pour obtenir une compréhension complète de la façon dont ASP.NET Core s’intègre à Service Fabric, nous recommandons fortement de lire l’article [ASP.NET Core dans le modèle Reliable Services de Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md), mais pour l’instant vous pouvez suivre ce guide pour démarrer rapidement.
+ASP.NET Core est une infrastructure légère de développement web inter-plateformes, que vous pouvez utiliser pour créer des API web et d’interfaces utilisateur web modernes. 
 
 Ajoutons un projet d’API web ASP.NET à notre application existante.
-
-
-> [!NOTE]
-> Ce didacticiel est basé sur les [outils ASP.NET Core pour Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). Les outils .NET Core pour Visual Studio 2015 ne sont plus mis à jour.
-
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Services** dans le projet d’application et choisissez **Ajouter > Nouveau Service Fabric**.
    
@@ -44,52 +53,54 @@ Ajoutons un projet d’API web ASP.NET à notre application existante.
    
     ![Choix du service web ASP.NET dans la boîte de dialogue Nouveau service][vs-new-service-dialog]
 
-3. La page suivante fournit un ensemble de modèles de projets ASP.NET Core. Notez que vous disposez des mêmes options que si vous créez un projet ASP.NET Core en dehors d’une application Service Fabric, avec un peu de code supplémentaire pour enregistrer le service auprès du runtime Service Fabric. Pour ce didacticiel, nous allons sélectionner **API web**. Toutefois, vous pouvez appliquer les mêmes concepts pour la création d'une application web complète.
+3. La page suivante fournit un ensemble de modèles de projets ASP.NET Core. Notez que vous disposez des mêmes options que si vous créez un projet ASP.NET Core en dehors d’une application Service Fabric, avec un peu de code supplémentaire pour enregistrer le service auprès du runtime Service Fabric. Pour ce didacticiel, sélectionnez **API web**. Toutefois, vous pouvez appliquer les mêmes concepts pour la création d'une application web complète.
    
     ![Choix du type de projet ASP.NET][vs-new-aspnet-project-dialog]
    
-    Une fois votre projet d’API web créé, vous aurez deux services dans votre application. Lorsque vous continuez à générer votre application, vous allez ajouter davantage de services exactement de la même façon. Chacun peut être mis à niveau et faire l'objet d'un contrôle de version indépendamment.
-
-> [!TIP]
-> Pour en savoir plus sur ASP.NET Core, consultez la [Documentation d’ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
-> 
+    Une fois votre projet d’API web créé, vous devriez avoir deux services dans votre application. Lorsque vous continuez à générer votre application, vous pouvez ajouter davantage de services exactement de la même façon. Chacun peut être mis à niveau et faire l'objet d'un contrôle de version indépendamment.
 
 ## <a name="run-the-application"></a>Exécution de l'application
 Pour obtenir une idée de ce que nous avons fait, nous allons déployer la nouvelle application et observer le comportement par défaut fourni par le modèle d’API web ASP.NET Core.
 
 1. Appuyez sur F5 dans Visual Studio pour déboguer l'application.
-2. À la fin du déploiement, Visual Studio lance le navigateur à la racine du service API web ASP.NET, qui écoute par défaut sur le port 8966. Le modèle d’API web ASP.NET Core ne fournit pas de comportement par défaut pour la racine, donc vous obtiendrez une erreur dans le navigateur.
+2. À la fin du déploiement, Visual Studio lance un navigateur à la racine du service API web ASP.NET. Le modèle d’API web ASP.NET Core ne fournit pas de comportement par défaut pour la racine, donc vous devriez voir une erreur 404 dans le navigateur.
 3. Ajoutez `/api/values` à l'emplacement dans le navigateur. Cette action appelle la méthode `Get` sur ValuesController dans le modèle d’API web. Elle retourne la réponse par défaut fournie par le modèle, un tableau JSON contenant deux chaînes :
    
     ![Valeurs par défaut retournées par le modèle d’API web ASP.NET Core][browser-aspnet-template-values]
    
-    À la fin du didacticiel, nous aurons remplacé ces valeurs par défaut par la valeur de compteur la plus récente de notre service avec état.
+    À la fin du didacticiel, cette page indiquera la valeur de compteur la plus récente de notre service avec état au lieu des chaînes par défaut.
 
 ## <a name="connect-the-services"></a>Connecter les services
-Service Fabric fournit une flexibilité complète sur votre façon de communiquer avec Reliable Services. Dans une seule application, vous pouvez avoir des services accessibles via TCP, d'autres services accessibles via une API REST HTTP et encore d'autres services qui sont accessibles via des sockets web. Pour obtenir des informations sur les options disponibles et leurs avantages/inconvénients respectifs, consultez [Communication avec les services](service-fabric-connect-and-communicate-with-services.md). Dans ce didacticiel, nous suivrons l’une des approches les plus simples et utiliserons les classes `ServiceProxy`/`ServiceRemotingListener` fournies dans le Kit SDK.
+Service Fabric fournit une flexibilité complète sur votre façon de communiquer avec Reliable Services. Dans une seule application, vous pouvez avoir des services accessibles via TCP, d'autres services accessibles via une API REST HTTP et encore d'autres services qui sont accessibles via des sockets web. Pour obtenir des informations sur les options disponibles et leurs avantages/inconvénients respectifs, consultez [Communication avec les services](service-fabric-connect-and-communicate-with-services.md). Dans ce didacticiel, nous utilisons [Service à distance Service Fabric](service-fabric-reliable-services-communication-remoting.md), fourni dans le Kit de développement logiciel.
 
-Dans l’approche `ServiceProxy` (modélisée sur les appels de procédure distante ou RPC), vous définissez une interface qui agit comme contrat public pour le service. Ensuite, vous utilisez cette interface pour générer une classe proxy pour l'interaction avec le service.
+Dans l’approche Service à distance (modélisée sur les appels de procédure distante ou RPC), vous définissez une interface qui agit comme contrat public pour le service. Ensuite, vous utilisez cette interface pour générer une classe proxy pour l'interaction avec le service.
 
-### <a name="create-the-interface"></a>Créer l’interface
-Nous allons commencer par la création de l’interface en tant que contrat entre le service avec état et ses clients, y compris le projet ASP.NET Core.
+### <a name="create-the-remoting-interface"></a>Créer l’interface de communication à distance
+Commençons par la création de l’interface en tant que contrat entre le service avec état et les autres services, dans le cas présent le projet web ASP.NET Core. Cette interface doit être partagée par tous les services qui l’utilisent pour effectuer des appels RPC. Nous allons donc la créer dans son propre projet de bibliothèque de classes.
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre solution et choisissez **Ajoutez** > **Nouveau projet**.
+
 2. Choisissez l’entrée **Visual C#** dans le volet de navigation gauche, puis sélectionnez le modèle **Bibliothèque de classes**. Assurez-vous que la version du .NET Framework est définie sur **4.5.2**.
    
     ![Création d’un projet d’interface de votre service avec état][vs-add-class-library-project]
 
-3. Pour qu’une interface soit utilisable par `ServiceProxy`, elle doit dériver de l’interface IService. Cette interface est incluse dans l'un des packages NuGet de Service Fabric. Pour ajouter le package, cliquez avec le bouton droit sur votre projet de bibliothèque de classes et choisissez **Gérer les packages NuGet**.
-4. Recherchez le package **Microsoft.ServiceFabric.Services.Remoting** et installez-le.
+3. Installez le package NuGet **Microsoft.ServiceFabric.Services.Remoting**. Recherchez **Microsoft.ServiceFabric.Services.Remoting** dans le gestionnaire de packages NuGet et installez-le pour tous les projets de la solution qui utilisent le service à distance, y compris :
+   - Le projet de bibliothèque de classes qui contient l’interface de service
+   - Le projet de service avec état
+   - Le projet de service web ASP.NET Core
    
     ![Obtention du package NuGet de services][vs-services-nuget-package]
 
-5. Dans la bibliothèque de classes, créez une interface avec une méthode unique, `GetCountAsync`, et étendez l'interface depuis IService.
+4. Dans la bibliothèque de classes, créez une interface avec une méthode unique, `GetCountAsync`, et étendez l'interface depuis `Microsoft.ServiceFabric.Services.Remoting.IService`. L’interface de communication à distance doit dériver de cette interface pour indiquer qu’il s’agit d’une interface de service à distance.
    
     ```c#
+    using Microsoft.ServiceFabric.Services.Remoting;
+    using System.Threading.Tasks;
+        
+    ...
+
     namespace MyStatefulService.Interface
     {
-        using Microsoft.ServiceFabric.Services.Remoting;
-   
         public interface ICounter: IService
         {
             Task<long> GetCountAsync();
@@ -112,7 +123,7 @@ Maintenant que nous avons défini l'interface, nous devons la mettre en œuvre d
    
     public class MyStatefulService : StatefulService, ICounter
     {        
-          // ...
+         ...
     }
     ```
 3. À présent, implémentez la méthode unique définie par l’interface `ICounter`, `GetCountAsync`.
@@ -120,8 +131,8 @@ Maintenant que nous avons défini l'interface, nous devons la mettre en œuvre d
     ```c#
     public async Task<long> GetCountAsync()
     {
-      var myDictionary =
-        await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
+        var myDictionary = 
+            await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
    
         using (var tx = this.StateManager.CreateTransaction())
         {          
@@ -132,14 +143,14 @@ Maintenant que nous avons défini l'interface, nous devons la mettre en œuvre d
     ```
 
 ### <a name="expose-the-stateful-service-using-a-service-remoting-listener"></a>Exposer le service avec état à l’aide d’un écouteur de communication à distance
-Avec l'interface `ICounter` mise en œuvre, l'étape finale de l'activation du service avec état à appeler à partir d'autres services consiste à ouvrir un canal de communication. Pour les services avec état, Service Fabric fournit une méthode remplaçable appelée `CreateServiceReplicaListeners`. Avec cette méthode, vous pouvez spécifier un ou plusieurs écouteurs de communication, en fonction du type de communication que vous voulez activer pour votre service.
+Une fois l’interface `ICounter` implémentée, l’étape finale consiste à ouvrir le canal de communication du service à distance. Pour les services avec état, Service Fabric fournit une méthode remplaçable appelée `CreateServiceReplicaListeners`. Avec cette méthode, vous pouvez spécifier un ou plusieurs écouteurs de communication, en fonction du type de communication que vous voulez activer pour votre service.
 
 > [!NOTE]
 > La méthode équivalente pour ouvrir un canal de communication sur des services sans état est appelée `CreateServiceInstanceListeners`.
-> 
-> 
 
 Dans ce cas, nous remplaçons la méthode `CreateServiceReplicaListeners` existante par une instance de `ServiceRemotingListener`, ce qui crée un point de terminaison RPC pouvant être appelé à partir de clients via `ServiceProxy`.  
+
+La méthode d’extension `CreateServiceRemotingListener` sur l’interface `IService` vous permet de créer facilement un `ServiceRemotingListener` avec tous les paramètres par défaut. Pour utiliser cette méthode d’extension, assurez-vous d’avoir importé l’espace de noms `Microsoft.ServiceFabric.Services.Remoting.Runtime`. 
 
 ```c#
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
@@ -159,11 +170,11 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 
 ### <a name="use-the-serviceproxy-class-to-interact-with-the-service"></a>Utiliser la classe ServiceProxy pour interagir avec le service
-Notre service avec état est maintenant prêt à recevoir le trafic provenant d'autres services. Il ne reste donc qu'à ajouter le code pour communiquer avec celui-ci à partir du service web ASP.NET.
+Notre service avec état est maintenant prêt à recevoir le trafic provenant d'autres services via RPC. Il ne reste donc qu'à ajouter le code pour communiquer avec celui-ci à partir du service web ASP.NET.
 
 1. Dans votre projet ASP.NET, ajoutez une référence à la bibliothèque de classes contenant l’interface `ICounter` .
 
-2. Ajoutez le package Microsoft.ServiceFabric.Services.Remoting au projet ASP.NET, tout comme vous l’avez fait précédemment pour le projet de bibliothèque de classes. Ceci fournira la classe `ServiceProxy` .
+2. Précédemment, vous avez ajouté le package NuGet **Microsoft.ServiceFabric.Services.Remoting** au projet ASP.NET. Ce package fournit la classe `ServiceProxy`, que vous utilisez pour effectuer des appels RPC au service avec état. Vérifiez que ce package NuGet est installé dans le projet de service web ASP.NET Core.
 
 4. Dans le dossier **Contrôleurs**, ouvrez la classe `ValuesController`. Notez que la méthode `Get` renvoie actuellement uniquement un tableau de chaînes codées en dur avec « valeur1 » et « valeur2 », ce qui correspond à ce que nous avons vu précédemment dans le navigateur. Remplacez par le code suivant :
    
@@ -173,7 +184,8 @@ Notre service avec état est maintenant prêt à recevoir le trafic provenant d'
     using Microsoft.ServiceFabric.Services.Remoting.Client;
    
     ...
-   
+
+    [HttpGet]
     public async Task<IEnumerable<string>> Get()
     {
         ICounter counter =
@@ -207,22 +219,20 @@ Le serveur web ASP.NET Core par défaut, appelé Kestrel, n’est [actuellement 
 
 Pour en savoir plus sur Kestrel et WebListener dans les services Service Fabric, reportez-vous à [ASP.NET Core dans le modèle Reliable Services de Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md).
 
-## <a name="connecting-to-a-reliable-actors-service"></a>Connexion à un service d’acteurs fiables (Reliable Actors)
-Ce didacticiel s'est concentré sur l'ajout d'un serveur web frontal communiquant avec un service avec état. Toutefois, vous pouvez suivre un modèle très similaire pour communiquer avec les acteurs. En fait, il est un peu plus simple.
-
-Lorsque vous créez un projet d’acteur, Visual Studio génère automatiquement un projet d’interface pour vous. Vous pouvez utiliser cette interface pour générer un proxy d’acteur intervenant dans le projet web pour communiquer avec l’acteur. Le canal de communication est fourni automatiquement. Vous n’avez donc aucune opération à faire, telle que l’établissement d’un `ServiceRemotingListener` comme vous l’avez fait pour le service avec état dans ce didacticiel.
+## <a name="connecting-to-a-reliable-actor-service"></a>Connexion à un service Reliable Actor
+Ce didacticiel s'est concentré sur l'ajout d'un serveur web frontal communiquant avec un service avec état. Toutefois, vous pouvez suivre un modèle très similaire pour communiquer avec les acteurs. Lorsque vous créez un projet Reliable Actor, Visual Studio génère automatiquement un projet d’interface pour vous. Vous pouvez utiliser cette interface pour générer un proxy d’acteur intervenant dans le projet web pour communiquer avec l’acteur. Le canal de communication est fourni automatiquement. Vous n’avez donc aucune opération à faire, telle que l’établissement d’un `ServiceRemotingListener` comme vous l’avez fait pour le service avec état dans ce didacticiel.
 
 ## <a name="how-web-services-work-on-your-local-cluster"></a>Fonctionnement des services web sur votre cluster local
-En général, vous pouvez déployer exactement la même application Service Fabric sur un cluster de plusieurs ordinateurs déployé sur votre cluster local et être assuré qu'elle fonctionnera comme prévu. Cela est dû au fait que votre cluster local est simplement une configuration de cinq nœuds réduite à un seul ordinateur.
+En général, vous pouvez déployer exactement la même application Service Fabric sur un cluster de plusieurs ordinateurs déployé sur votre cluster local et être assuré qu'elle fonctionne comme prévu. Cela est dû au fait que votre cluster local est simplement une configuration de cinq nœuds réduite à un seul ordinateur.
 
-En ce qui concerne les services web, toutefois, il existe une nuance clé. Lorsque votre cluster se trouve derrière un équilibreur de charge, comme c’est le cas dans Azure, vous devez vous assurer que vos services web sont déployés sur chaque ordinateur, car l’équilibreur de charge alternera simplement le trafic entre les ordinateurs. Vous pouvez le faire en définissant `InstanceCount` pour le service sur la valeur spécifique « -1 ».
+En ce qui concerne les services web, toutefois, il existe une nuance clé. Lorsque votre cluster se trouve derrière un équilibreur de charge, comme c’est le cas dans Azure, vous devez vous assurer que vos services web sont déployés sur chaque ordinateur, car l’équilibreur de charge alterne simplement le trafic entre les ordinateurs. Vous pouvez le faire en définissant `InstanceCount` pour le service sur la valeur spécifique « -1 ».
 
-En revanche, lorsque vous exécutez un service web localement, vous devez vous assurer qu'une seule instance du service est en cours d'exécution. Sinon, vous rencontrerez des conflits à cause de plusieurs processus qui sont à l'écoute sur le même chemin d'accès et le même port. Par conséquent, le nombre d'instances de service web doit être défini sur « 1 » pour les déploiements locaux.
+En revanche, lorsque vous exécutez un service web localement, vous devez vous assurer qu'une seule instance du service est en cours d'exécution. Sinon, vous rencontrez des conflits à cause de plusieurs processus qui sont à l'écoute sur le même chemin d'accès et le même port. Par conséquent, le nombre d'instances de service web doit être défini sur « 1 » pour les déploiements locaux.
 
 Pour apprendre à configurer des valeurs différentes pour un environnement différent, consultez [Gestion des paramètres d'application pour plusieurs environnements](service-fabric-manage-multiple-environment-app-configuration.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez un serveur web frontal pour votre application avec ASP.NET Core, découvrez comment ASP.NET Core s’intègre à Service Fabric dans cet article sur [ASP.NET Core dans le modèle Reliable Services de Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md).
+Maintenant que vous avez configuré un serveur web frontal pour votre application avec ASP.NET Core, consultez [ASP.NET Core dans le modèle Reliable Services de Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) pour comprendre comment ASP.NET Core fonctionne avec Service Fabric.
 
 Ensuite, [accédez à des informations supplémentaires sur la communication avec les services](service-fabric-connect-and-communicate-with-services.md) en général pour obtenir une image complète de la façon dont les communications avec les services fonctionnent dans Service Fabric.
 

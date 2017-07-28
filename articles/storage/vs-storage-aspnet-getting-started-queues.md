@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 5840ec74f6af2e373d9ebb34b0f6e13094c33f19
-ms.openlocfilehash: 4e5638938c8e9fa0de12aa273d03f3eead35a383
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 76b0d5e270e16a317ce8a7b424c06c867b537a8e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage File d’attente Azure et des services connectés de Visual Studio (ASP.NET)
@@ -31,7 +32,7 @@ Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios coura
 
 ##<a name="prerequisites"></a>Composants requis
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Compte Stockage Azure](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
@@ -230,7 +231,7 @@ Une fois que vous avez [créé une file d’attente](#create-a-queue), vous pouv
   
     ![Ajouter un message](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
-Les deux sections - [Lire un message depuis une file d’attente, sans le supprimer](#read-a-message-from-a-queue-without-removing-it) et [Lire et supprimer un message dans une file d’attente](#read-and-remove-a-message-from-a-queue) montrent comment lire les messages d’une file d’attente.     
+Les deux sections - [Lire un message depuis une file d’attente, sans le supprimer](#read-a-message-from-a-queue-without-removing-it) et [Lire et supprimer un message dans une file d’attente](#read-and-remove-a-message-from-a-queue) montrent comment lire les messages d’une file d’attente.    
 
 ## <a name="read-a-message-from-a-queue-without-removing-it"></a>Lire un message depuis une file d’attente, sans le supprimer
 
@@ -281,7 +282,7 @@ Cette section illustre comment lire rapidement un message mis en file d’attent
 1. Mettez à jour l'objet **ViewBag** avec deux valeurs : le nom de la file d’attente et le message qui été lu. L'objet **CloudQueueMessage** expose deux propriétés permettant d'obtenir la valeur de l'objet : **CloudQueueMessage.AsBytes** et **CloudQueueMessage.AsString**. **AsString** (utilisé dans cet exemple) retourne une chaîne, tandis que **AsBytes** retourne un tableau d’octets.
 
     ```csharp
-    ViewBag.QueueName = queue.Name;    
+    ViewBag.QueueName = queue.Name; 
     ViewBag.Message = (message != null ? message.AsString : "");
     ```
 
@@ -318,7 +319,7 @@ Cette section illustre comment lire rapidement un message mis en file d’attent
 
 ## <a name="read-and-remove-a-message-from-a-queue"></a>Lire et supprimer un message dans une file d’attente
 
-Dans cette section, vous allez apprendre à lire et à supprimer un message d’une file d’attente.     
+Dans cette section, vous allez apprendre à lire et à supprimer un message d’une file d’attente.   
 
 > [!NOTE]
 > 
@@ -579,8 +580,4 @@ Pour plus d’informations sur les autres options de stockage de données dans A
 
   * [Prise en main du stockage d’objets blob Azure et des services connectés de Visual Studio (ASP.NET)](./vs-storage-aspnet-getting-started-blobs.md)
   * [Prise en main du stockage de tables Azure et des services connectés de Visual Studio (ASP.NET)](./vs-storage-aspnet-getting-started-tables.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
 

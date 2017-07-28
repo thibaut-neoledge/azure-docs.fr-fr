@@ -12,16 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 7e9ca0c15c29fb670b742d939107bb5d4a48245c
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 5c2cb05ced7841899c2bd19f627d13b86a4b05cc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solution Analyseur de performances réseau dans Log Analytics
+
+![Symbole de Network Performance Monitor](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
 Ce document décrit l’installation et l’utilisation de la solution Analyseur de performances réseau de Log Analytics, qui vous aide à surveiller les performances de vos réseaux en quasi temps réel afin de détecter et de localiser d’éventuels goulots d’étranglement affectant les performances réseau. La solution Analyseur de performances réseau vous permet de surveiller la perte et la latence entre deux réseaux, sous-réseaux ou serveurs. L’Analyseur de performances réseau détecte divers problèmes réseau, tels que des pertes de trafic, des erreurs de routage et d’autres problèmes que les méthodes de surveillance réseau classiques ne sont pas en mesure de détecter. L’Analyseur de performances réseau génère des alertes et des notifications en cas de dépassement d’un seuil pour une liaison réseau. Le système peut apprendre ces seuils automatiquement, et vous pouvez également les configurer pour utiliser des règles d’alerte personnalisées. L’Analyseur de performances réseau détecte en temps opportun les problèmes de performances réseau, et en localise la source en identifiant un segment ou un appareil réseau particuliers.
 
@@ -178,7 +181,7 @@ Si vous choisissez ICMP quand vous créez une règle de transaction synthétique
 Avant de choisir un protocole, tenez compte des informations suivantes :
 
 ##### <a name="discovering-multiple-network-routes"></a>Détection de plusieurs routages réseau
-TCP fournit des résultats plus précis dans le cadre de la détection de plusieurs routages et nécessite moins d’agents dans chaque sous-réseau. Par exemple, un ou deux agents utilisant TCP peuvent détecter tous les chemins redondants entre les sous-réseaux. En revanche, plusieurs agents utilisant ICMP sont nécessaires pour obtenir des résultats similaires. Avec ICMP, si vous avez *N* routages entre deux sous-réseaux, il vous faut plus de 5*N* agents dans un sous-réseau source ou de destination.
+TCP est plus précis dans le cadre de la détection de plusieurs routages et nécessite moins d’agents dans chaque sous-réseau. Par exemple, un ou deux agents utilisant TCP peuvent détecter tous les chemins redondants entre les sous-réseaux. En revanche, plusieurs agents utilisant ICMP sont nécessaires pour obtenir des résultats similaires. Avec ICMP, si vous avez *N* routages entre deux sous-réseaux, il vous faut plus de 5*N* agents dans un sous-réseau source ou de destination.
 
 ##### <a name="accuracy-of-results"></a>Précision des résultats
 Les routeurs et les commutateurs ont tendance à accorder aux paquets ICMP ECHO une priorité inférieure à celle des paquets TCP. Dans certaines situations, quand les appareils réseau sont lourdement chargés, les données obtenues par TCP reflètent plus fidèlement la perte et la latence constatées par les applications. Cela vient du fait que la plupart du trafic des applications passe par TCP. Dans de tels cas, ICMP offre de moins bons résultats que TCP.
@@ -199,9 +202,9 @@ Contrairement à TCP, le protocole ICMP n’utilise pas de port. Dans la plupart
 Si vous avez choisi ICMP durant le déploiement, vous pouvez basculer vers TCP à tout moment en modifiant la règle de surveillance par défaut.
 
 ##### <a name="to-edit-the-default-monitoring-rule"></a>Pour modifier la règle de surveillance par défaut
-1.    Accédez à **Performances réseau** > **Moniteur** > **Configurer** > **Moniteur**, puis cliquez sur **Règle par défaut**.
-2.    Faites défiler la page jusqu’à la section **Protocole** et sélectionnez le protocole à utiliser.
-3.    Cliquez sur **Enregistrer** pour appliquer le paramètre.
+1.  Accédez à **Performances réseau** > **Moniteur** > **Configurer** > **Moniteur**, puis cliquez sur **Règle par défaut**.
+2.  Faites défiler la page jusqu’à la section **Protocole** et sélectionnez le protocole à utiliser.
+3.  Cliquez sur **Enregistrer** pour appliquer le paramètre.
 
 Même si la règle par défaut utilise un protocole spécifique, vous pouvez créer des règles avec un autre protocole. Vous pouvez même créer une combinaison de règles : certaines règles utilisant ICMP et d’autres TCP.
 

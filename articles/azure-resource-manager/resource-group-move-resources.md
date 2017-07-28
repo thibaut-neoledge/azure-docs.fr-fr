@@ -12,27 +12,27 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 06/28/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: f1b9beabfb0a92e5cc49d6af762693ae45a85e42
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 4c373eef77605ab45c9a08ed7f60476abafa229c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 Cette rubrique vous montre comment déplacer des ressources vers un nouvel abonnement ou un nouveau groupe de ressources dans le même abonnement. Vous pouvez utiliser le portail, PowerShell, Azure CLI ou l’API REST pour déplacer des ressources. Les opérations de déplacement de cette rubrique sont disponibles sans assistance du support technique Azure.
 
-Lorsque vous déplacez des ressources, le groupe source et le groupe cible sont verrouillés pendant l’opération. Les opérations d’écriture et de suppression sont bloquées sur les groupes de ressources tant que le déplacement n’est pas terminé. Ce verrou signifie que vous ne pouvez pas ajouter, mettre à jour ou supprimer des ressources dans les groupes de ressources, mais il ne signifie pas que les ressources sont figées. Par exemple, si vous déplacez un serveur SQL Server et sa base de données vers un nouveau groupe de ressources, une application qui utilise la base de données ne rencontre aucune interruption de service. Elle peut toujours lire et écrire dans la base de données. 
+Lorsque vous déplacez des ressources, le groupe source et le groupe cible sont verrouillés pendant l’opération. Les opérations d’écriture et de suppression sont bloquées sur les groupes de ressources tant que le déplacement n’est pas terminé. Ce verrou signifie que vous ne pouvez pas ajouter, mettre à jour ou supprimer des ressources dans les groupes de ressources, mais il ne signifie pas que les ressources sont figées. Par exemple, si vous déplacez un serveur SQL Server et sa base de données vers un nouveau groupe de ressources, une application qui utilise la base de données ne rencontre aucune interruption de service. Elle peut toujours lire et écrire dans la base de données.
 
 Vous ne pouvez pas modifier l’emplacement de la ressource. Le déplacement d’une ressource consiste uniquement en sa translation vers un nouveau groupe de ressources. Le nouveau groupe de ressources peut présenter à un autre emplacement, mais l’emplacement de la ressource n’est aucunement modifié.
 
 > [!NOTE]
-> Cet article décrit le déplacement des ressources dans une offre de compte Azure. Si vous souhaitez en fait modifier votre offre de compte Azure (par exemple, en procédant à une mise à niveau d’une version par paiement à l’utilisation vers une version par prépaiement) tout en continuant à utiliser vos ressources existantes, consultez [Changer d’offre pour votre abonnement Azure](../billing/billing-how-to-switch-azure-offer.md). 
-> 
-> 
+> Cet article décrit le déplacement des ressources dans une offre de compte Azure. Si vous souhaitez en fait modifier votre offre de compte Azure (par exemple, en procédant à une mise à niveau d’une version par paiement à l’utilisation vers une version par prépaiement) tout en continuant à utiliser vos ressources existantes, consultez [Changer d’offre pour votre abonnement Azure](../billing/billing-how-to-switch-azure-offer.md).
+>
+>
 
 ## <a name="checklist-before-moving-resources"></a>Liste de contrôle avant le déplacement de ressources
 Plusieurs étapes importantes doivent être effectuées avant de déplacer une ressource. Vérifiez ces conditions pour prévenir d'éventuelles erreurs.
@@ -51,20 +51,20 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  Si les ID clients des abonnements source et de destination ne sont pas identiques, vous pouvez essayer de changer l’annuaire de l’abonnement. Toutefois, cette option est uniquement disponible pour les administrateurs de service qui sont connectés avec un compte Microsoft (pas un compte de société). Pour essayer de changer l’annuaire, connectez-vous au [portail classique](https://manage.windowsazure.com/) et sélectionnez **Paramètres**, puis l’abonnement. Si l’icône **Modifier l’annuaire** est disponible, sélectionnez-la pour modifier l’annuaire Azure Active Directory associé. 
+  Si les ID clients des abonnements source et de destination ne sont pas identiques, vous pouvez essayer de changer l’annuaire de l’abonnement. Toutefois, cette option est uniquement disponible pour les administrateurs de service qui sont connectés avec un compte Microsoft (pas un compte de société). Pour essayer de changer l’annuaire, connectez-vous au [portail classique](https://manage.windowsazure.com/) et sélectionnez **Paramètres**, puis l’abonnement. Si l’icône **Modifier l’annuaire** est disponible, sélectionnez-la pour modifier l’annuaire Azure Active Directory associé.
 
-  ![Modifier l’annuaire](./media/resource-group-move-resources/edit-directory.png) 
+  ![Modifier l’annuaire](./media/resource-group-move-resources/edit-directory.png)
 
   Si cette icône n’est pas disponible, vous devez contacter le support pour déplacer les ressources vers un nouveau client.
 
 2. Le service doit activer la possibilité de déplacer des ressources. Cette rubrique répertorie les services permettant de déplacer des ressources et les services qui ne le permettent pas.
-3. L’abonnement de destination doit être inscrit pour le fournisseur de la ressource déplacée. Sinon, vous recevez une erreur indiquant que **l’abonnement n’est pas inscrit pour un type de ressource**. Vous pouvez rencontrer ce problème lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource. Pour découvrir comment vérifier l’état d’inscription et inscrire des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](resource-manager-supported-services.md#resource-providers-and-types).
+3. L’abonnement de destination doit être inscrit pour le fournisseur de la ressource déplacée. Sinon, vous recevez une erreur indiquant que **l’abonnement n’est pas inscrit pour un type de ressource**. Vous pouvez rencontrer ce problème lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource. Pour découvrir comment vérifier l’état d’inscription et inscrire des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](resource-manager-supported-services.md).
 
 ## <a name="when-to-call-support"></a>Quand appeler le support technique
 Vous pouvez déplacer la plupart des ressources via les opérations en libre-service présentées dans cette rubrique. Utilisez les opérations en libre-service pour :
 
 * Déplacer des ressources Resource Manager.
-* Déplacer des ressources classiques conformément aux [limitations du déploiement classique](#classic-deployment-limitations). 
+* Déplacer des ressources classiques conformément aux [limitations du déploiement classique](#classic-deployment-limitations).
 
 Appelez le support technique quand vous devez :
 
@@ -93,7 +93,7 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 * Event Hubs
 * Clusters HDInsight - voir [Limitations de HDInsight](#hdinsight-limitations)
 * IoT Hubs
-* Key Vault 
+* Key Vault
 * Équilibreurs de charge
 * Logic Apps
 * Apprentissage automatique
@@ -114,13 +114,14 @@ Pour l’instant, les services qui permettent le déplacement vers un nouveau gr
 * Stream Analytics
 * Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées.
 * Traffic Manager
-* Machines virtuelles : ne prend pas en charge le déplacement vers un nouvel abonnement lorsque ses certificats sont stockés dans un Key Vault
+* Machines virtuelles
+* Machines virtuelles avec un certificat stocké dans Key Vault : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements n’est pas activé.
 * Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Jeux de mise à l’échelle de machine virtuelle
-* Réseaux virtuels : actuellement, un réseau virtuel homologué ne peut pas être déplacé tant que l’homologation de réseau virtuel est activée. Une fois cette dernière désactivée, le réseau virtuel peut être déplacé correctement et l’homologation de réseau virtuel peut être activée.
-* Passerelle VPN 
+* Réseaux virtuels : actuellement, un réseau virtuel homologué ne peut pas être déplacé tant que l’homologation de réseau virtuel est activée. Une fois cette dernière désactivée, le réseau virtuel peut être déplacé correctement et l’homologation de réseau virtuel peut être activée. En outre, un réseau virtuel ne peut pas être déplacé vers un autre abonnement s’il contient un sous-réseau avec des liens de navigation dans les ressources. Par exemple, un sous-réseau de réseau virtuel dispose d’un lien de navigation dans les ressources lorsqu’une ressource Microsoft.Cache redis est déployée dans ce sous-réseau.
+* Passerelle VPN
 
- 
+
 ## <a name="services-that-do-not-enable-move"></a>Services qui ne permettent pas le déplacement
 Les services qui ne permettent pas actuellement le déplacement d’une ressource sont les suivants :
 
@@ -138,7 +139,7 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Coffre Recovery Services : par ailleurs, ne déplacez pas les ressources de calcul, de réseau et de stockage associées au coffre Recovery Services. Consultez [Limitations de Recovery Services](#recovery-services-limitations).
 * Sécurité
 * Instantanés créés à partir de disques gérés
-* Machines virtuelles avec un certificat stocké dans Key Vault
+* StorSimple Device Manager
 * Machines virtuelles avec des disques managés
 * Réseaux virtuels (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Les machines virtuelles créées à partir de ressources de la Place de marché ne peuvent pas être déplacées entre des abonnements. La ressource doit être déprovisionnée dans l’abonnement actuel et déployée à nouveau dans le nouvel abonnement.
@@ -146,10 +147,10 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 ## <a name="app-service-limitations"></a>limitations d’App Service
 Lorsque vous travaillez avec des applications App Service, vous ne pouvez pas déplacer uniquement un plan App Service. Pour déplacer des applications App Service, les options disponibles sont :
 
-* Déplacez le plan App Service et toutes les autres ressources d’App Service dans ce groupe de ressources vers un nouveau groupe de ressources qui ne dispose pas encore des ressources d’App Service. Cette exigence signifie que vous devez déplacer même les ressources d’App Service qui ne sont pas associées au plan App Service. 
+* Déplacez le plan App Service et toutes les autres ressources d’App Service dans ce groupe de ressources vers un nouveau groupe de ressources qui ne dispose pas encore des ressources d’App Service. Cette exigence signifie que vous devez déplacer même les ressources d’App Service qui ne sont pas associées au plan App Service.
 * Déplacer les applications vers un autre groupe de ressources, mais conserver tous les plans App Service dans le groupe de ressources d'origine.
 
-Le plan App Service ne doit pas forcément résider dans le même groupe de ressources que l’application pour que l’application fonctionne correctement.
+Le plan App Service ne doit pas forcément résider dans le même groupe de ressources que l’application pour que cette dernière fonctionne correctement.
 
 Par exemple, si votre groupe de ressources contient :
 
@@ -183,7 +184,7 @@ Vous pouvez déplacer un certificat App Service vers un nouveau groupe de ressou
 3. Charger le certificat sur l’application web
 
 ## <a name="recovery-services-limitations"></a>Limitations de Recovery Services
-Le déplacement n’est pas possible pour les ressources de stockage, de réseau ou de calcul utilisées pour configurer la récupération d’urgence avec Azure Site Recovery. 
+Le déplacement n’est pas possible pour les ressources de stockage, de réseau ou de calcul utilisées pour configurer la récupération d’urgence avec Azure Site Recovery.
 
 Par exemple, supposons que vous avez configuré la réplication de vos machines locales vers un compte de stockage (Storage1) et que vous souhaitez que la machine protégée apparaisse après le basculement vers Azure comme une machine virtuelle (VM1) connectée à un réseau virtuel (Network1). Vous ne pouvez pas déplacer ces ressources Azure (Storage1, VM1 et Network1) sur différents groupes de ressources dans le même abonnement ou sur différents abonnements.
 
@@ -194,13 +195,13 @@ Vous pouvez déplacer des clusters HDInsight vers un nouvel abonnement ou groupe
 Lorsque vous déplacez un cluster HDInsight vers un nouvel abonnement, déplacez tout d’abord les autres ressources (le compte de stockage, par exemple). Puis, déplacez le cluster HDInsight par lui-même.
 
 ## <a name="classic-deployment-limitations"></a>Limitations relatives au déploiement Classic
-Les options de déplacement des ressources déployées avec le modèle classique diffèrent selon que vous déplaciez les ressources au sein d’un abonnement ou vers un nouvel abonnement. 
+Les options de déplacement des ressources déployées avec le modèle classique diffèrent selon que vous déplaciez les ressources au sein d’un abonnement ou vers un nouvel abonnement.
 
 ### <a name="same-subscription"></a>Même abonnement
 Lors du déplacement de ressources d’un groupe de ressources vers un autre au sein du même abonnement, les restrictions suivantes s’appliquent :
 
 * Les réseaux virtuels (classiques) ne peuvent pas être déplacés.
-* Les machines virtuelles (classiques) doivent être déplacées avec le service cloud. 
+* Les machines virtuelles (classiques) doivent être déplacées avec le service cloud.
 * Le service cloud ne peut être déplacé que lorsque le déplacement comprend toutes ses machines virtuelles.
 * Un seul service cloud peut être déplacé à la fois.
 * Un seul compte de stockage (classique) peut être déplacé à la fois.
@@ -222,18 +223,18 @@ Pour déplacer des ressources classiques vers un nouvel abonnement, utilisez des
   ```HTTP   
   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
-   
+
      Dans le corps de la demande, spécifiez :
 
-  ```json 
+  ```json
   {
     "role": "source"
   }
   ```
-  
+
      La réponse pour l’opération de validation est au format suivant :
 
-  ```json 
+  ```json
   {
     "status": "{status}",
     "reasons": [
@@ -245,34 +246,34 @@ Pour déplacer des ressources classiques vers un nouvel abonnement, utilisez des
 
 2. Vérifiez si l’abonnement de destination peut participer à un déplacement entre abonnements. Utilisez l’opération suivante :
 
-  ```HTTP 
+  ```HTTP
   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
 
      Dans le corps de la demande, spécifiez :
 
-  ```json 
+  ```json
   {
     "role": "target"
   }
   ```
-   
+
      La réponse est dans le même format que la validation de l’abonnement source.
 3. Si les deux abonnements sont validés, déplacez toutes les ressources classiques d’un abonnement à l’autre via l’opération suivante :
 
-  ```HTTP 
+  ```HTTP
   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
   ```
 
     Dans le corps de la demande, spécifiez :
 
-  ```json 
+  ```json
   {
     "target": "/subscriptions/{target-subscription-id}"
   }
   ```
 
-Cette opération peut prendre plusieurs minutes. 
+Cette opération peut prendre plusieurs minutes.
 
 ## <a name="use-portal"></a>Utilisation du portail
 Pour déplacer des ressources, sélectionnez le groupe de ressources contenant ces ressources, puis sélectionnez le bouton **Déplacer**.
@@ -378,7 +379,7 @@ Vous devez confirmer que vous souhaitez déplacer la ressource spécifiée.
 Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, exécutez :
 
 ```HTTP
-POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
 ```
 
 Dans le corps de la requête, vous indiquez le groupe de ressources cible et les ressources à déplacer. Pour plus d’informations sur l’opération REST de déplacement, consultez [Déplacer des ressources](https://msdn.microsoft.com/library/azure/mt218710.aspx).
@@ -388,5 +389,4 @@ Dans le corps de la requête, vous indiquez le groupe de ressources cible et les
 * Pour plus d’informations sur les commandes de l’interface de ligne de commande Azure permettant de gérer votre abonnement, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Pour plus d’informations sur les fonctionnalités du portail permettant de gérer votre abonnement, consultez [Utilisation du Portail Azure pour gérer les ressources](resource-group-portal.md).
 * Pour plus d’informations sur l’application d’une organisation logique à vos ressources, consultez [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
-
 

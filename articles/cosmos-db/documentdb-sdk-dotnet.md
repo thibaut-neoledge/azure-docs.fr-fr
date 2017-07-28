@@ -1,6 +1,6 @@
 ---
 title: SDK et ressources .NET Azure DocumentDB | Microsoft Docs
-description: "Découvrez l&quot;API et le Kit SDK .NET, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit SDK .NET DocumentDB."
+description: "Découvrez l'API et le Kit SDK .NET, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit SDK .NET DocumentDB."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/05/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 38bd198958180caece4747b972476475059191df
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e42d4746c89614f6990cb84c0b25871a078ecbec
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 
-<tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](documentdb-dotnet-samples.md)</td></tr>
 
@@ -53,16 +53,22 @@ ms.lasthandoff: 05/31/2017
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
+*   Ajout de la prise en charge de la spécification des JsonSerializerSettings personnalisés lors de l’instanciation de [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
+
+### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
+*   Correction d’un problème qui affectait les ordinateurs x64 qui ne prennent pas en charge l’instruction SSE4 et lèvent une SEHException lors de l’exécution de requêtes d’API DocumentDB.
+
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-*    Ajout de la prise en charge de la fonctionnalité Unité de requête par minute (RU/m).
-*    Prise en charge ajoutée pour un nouveau niveau de cohérence nommé ConsistentPrefix.
-*    Prise en charge ajoutée pour les mesures de requête liées aux partitions individuelles.
-*    Prise en charge ajoutée pour la limitation de la taille du jeton de continuation concernant les requêtes.
-*    Prise en charge ajoutée pour un suivi plus détaillé des demandes ayant échoué.
-*    Améliorations des performances du Kit de développement logiciel (SDK).
+*   Ajout de la prise en charge de la fonctionnalité Unité de requête par minute (RU/m).
+*   Prise en charge ajoutée pour un nouveau niveau de cohérence nommé ConsistentPrefix.
+*   Prise en charge ajoutée pour les mesures de requête liées aux partitions individuelles.
+*   Prise en charge ajoutée pour la limitation de la taille du jeton de continuation concernant les requêtes.
+*   Prise en charge ajoutée pour un suivi plus détaillé des demandes ayant échoué.
+*   Améliorations des performances du Kit de développement logiciel (SDK).
 
 ### <a name="a-name11341134"></a><a name="1.13.4"/>1.13.4
-* Fonctionnalités identiques à 1.13.4. Plusieurs modifications internes.
+* Fonctionnalités identiques à 1.13.3. Plusieurs modifications internes.
 
 ### <a name="a-name11331133"></a><a name="1.13.3"/>1.13.3
 * Fonctionnalités identiques à 1.13.2. Plusieurs modifications internes.
@@ -169,11 +175,11 @@ ms.lasthandoff: 05/31/2017
 * **[Résolu]** L’interrogation du point de terminaison DocumentDB retourne : « System.Net.Http.HttpRequestException : Une erreur s’est produite lors de la copie du contenu vers un flux ».
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
-* Prise en charge LINQ étendue, y compris de nouveaux opérateurs pour la pagination, les expressions conditionnelles et la comparaison de plages.
+* Extension de la prise en charge de LINQ, y compris de nouveaux opérateurs pour la pagination, les expressions conditionnelles et la comparaison de plages.
   * Opérateur Take pour activer le comportement SELECT TOP dans LINQ
   * Opérateur CompareTo pour activer les comparaisons de plages de chaînes
   * Opérateurs Conditional (?) et Coalesce (??)
-* **[Résolu]** ArgumentOutOfRangeException en cas de combinaison de la projection de modèle avec Where-In dans la requête linq.  [No.81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+* **[Résolu]** ArgumentOutOfRangeException en cas de combinaison de la projection de modèle avec Where-In dans la requête LINQ. [No.81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
 * **[Résolu]** Si la dernière expression n’est pas Select, le fournisseur LINQ n’effectuait aucune projection et créait une expression SELECT * incorrecte.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -181,7 +187,7 @@ ms.lasthandoff: 05/31/2017
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 * Mise en œuvre de l’opération Upsert, ajout des méthodes UpsertXXXAsync
 * Améliorations des performances pour toutes les requêtes
-* Prise en charge par le fournisseur LINQ des méthodes conditionnelles, de regroupement et CompareTo pour les chaînes
+* Prise en charge par le fournisseur LINQ des méthodes conditionnelles, de fusion et CompareTo pour les chaînes
 * **[Résolu]** Fournisseur LINQ --> Implémentation de la méthode Contains sur List pour générer le même SQL que sur IEnumerable et Array
 * **[Résolu]** BackoffRetryUtility utilise de nouveau le même HttpRequestMessage au lieu d’en créer un nouveau à chaque tentative
 * **[Obsolète]** UriFactory.CreateCollection --> doit désormais utiliser UriFactory.CreateDocumentCollection
@@ -190,57 +196,59 @@ ms.lasthandoff: 05/31/2017
 * **[Résolu]** Erreurs de localisation lors de l’utilisation d’autres langues que l’anglais, comme nl-NL, etc. 
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
-* Routage basé sur l’ID
-  * Nouvelle application d’assistance UriFactory pour faciliter la construction de liens de ressources basés sur l’ID
+* Ajout du routage basé sur l’ID
+  * Nouvelle application auxiliaire UriFactory pour faciliter la construction de liens de ressources basés sur l’ID
   * Nouvelles surcharges sur DocumentClient pour prendre en compte l’URI
 * Ajout de IsValid() et IsValidDetailed() dans LINQ pour les données géospatiales
-* Amélioration de la prise en charge du fournisseur LINQ
+* Amélioration de la prise en charge du fournisseur LINQ :
   * **Mathématiques** - Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate
   * **Chaîne** - Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper
   * **Tableau** - Concat, Contains, Count
   * **IN** 
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
-* Ajout de la prise en charge de la modification des stratégies d’indexation
+* Ajout de la prise en charge de la modification des stratégies d’indexation.
   * Nouvelle méthode ReplaceDocumentCollectionAsync dans DocumentClient
   * Nouvelle propriété IndexTransformationProgress dans ResourceResponse<T> pour le suivi de l’évolution du pourcentage de modification de la stratégie d’indexation
   * DocumentCollection.IndexingPolicy est désormais mutable
-* Ajout de la prise en charge de l’indexation et des requêtes spatiales
+* Ajout de la prise en charge de l’indexation et des requêtes spatiales.
   * Nouvel espace de noms Microsoft.Azure.Documents.Spatial pour la sérialisation/désérialisation des types de données spatiales comme Point et Polygon
   * Nouvelle classe SpatialIndex pour l’indexation des données GeoJSON stockées dans Cosmos DB
-* **[Résolu]** : requête SQL incorrecte générée à partir de l’expression linq [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
+* **[Résolu]** Requête SQL incorrecte générée à partir d’une expression LINQ [#38](https://github.com/Azure/azure-documentdb-net/issues/38).
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Dépendance de Newtonsoft.Json v5.0.7 
-* Modifications pour prendre en charge la clause Order By
+* Ajout d’une dépendance sur Newtonsoft.Json v5.0.7.
+* Modifications pour prendre en charge la clause Order By :
   
   * Prise en charge du fournisseur LINQ pour OrderBy() ou OrderByDescending()
   * IndexingPolicy pour prendre en charge la clause Order By 
     
-    **NB : modification avec rupture possible** 
+    **Modification avec rupture possible** 
     
-    Si vous avez un code qui configure les collections avec une stratégie d'indexation personnalisée, vous devrez le mettre à jour de sorte qu'il prenne en charge la nouvelle classe IndexingPolicy. Si vous n'avez pas de stratégie d'indexation personnalisée, cette modification ne vous affecte pas.
+    Si vous avez un code qui configure les collections avec une stratégie d’indexation personnalisée, vous devez le mettre à jour de sorte qu’il prenne en charge la nouvelle classe IndexingPolicy. Si vous n'avez pas de stratégie d'indexation personnalisée, cette modification ne vous affecte pas.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Prise en charge du partitionnement des données à l’aide des nouvelles classes HashPartitionResolver et RangePartitionResolver et de IPartitionResolver
-* Sérialisation DataContract
-* Prise en charge des Guid dans le fournisseur LINQ
-* Prise en charge UDF dans LINQ
+* Ajout de la prise en charge du partitionnement des données à l’aide des nouvelles classes HashPartitionResolver et RangePartitionResolver et de IPartitionResolver.
+* Ajout de la sérialisation DataContract.
+* Ajout de la prise en charge de l’identificateur global unique dans le fournisseur LINQ.
+* Ajout de la prise en charge d’UDF dans LINQ.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Kit SDK GA
 
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
-Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
+Microsoft envoie une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible. 
 
-Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé.
+Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
 
 <br/>
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.15.0](#1.15.0) |30 juin 2017 |--- |
+| [1.14.1](#1.14.1) |23 mai 2017 |--- |
 | [1.14.0](#1.14.0) |10 mai 2017 |--- |
 | [1.13.4](#1.13.4) |09 mai 2017 |--- |
 | [1.13.3](#1.13.3) |06 mai 2017 |--- |

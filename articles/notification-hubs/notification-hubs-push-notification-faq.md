@@ -15,10 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 029401a1884aebf0625ad8d68410dcdcd491d0ad
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: c8592ea38d62213327549583a1e931ea682ee56e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -46,7 +47,7 @@ Fonctionnalités du niveau standard :
 Pour les niveaux De base et Standard de Notification Hubs, les applications correctement configurées peuvent envoyer des notifications push ou effectuer des opérations de gestion d’inscription au moins 99,9 % du temps. Pour plus d’informations sur le contrat de niveau de service, voir la page [Contrat SLA de Notification Hubs](https://azure.microsoft.com/support/legal/sla/notification-hubs/) .
 
 > [!NOTE]
-> Étant donné que les notifications Push dépendent de Platform Notification System tiers (APNS d’Apple, FCM de Google, etc.), il n’existe aucun contrat de niveau de service pour la remise de ces messages. Après l’envoi par lots aux Platform Notification Systems (contrat de niveau de service garanti), il est de leur responsabilité de remettre les notifications Push (aucun contrat de niveau de service garanti).
+> Étant donné que les notifications Push dépendent de Platform Notification System tiers (APNS d’Apple, FCM de Google, etc.), il n’existe aucun contrat de niveau de service pour la remise de ces messages. Une fois que Notification Hubs a envoyé les lots aux Platform Notification Systems (contrat de niveau de service garanti), il est de la responsabilité de ces derniers de remettre les notifications Push (aucun contrat de niveau de service garanti).
 
 ### <a name="which-customers-are-using-notification-hubs"></a>Quels sont vos clients du service Notification Hubs ?
 De nombreux clients utilisent Notification Hubs. Parmi les plus importants figurent les suivants :

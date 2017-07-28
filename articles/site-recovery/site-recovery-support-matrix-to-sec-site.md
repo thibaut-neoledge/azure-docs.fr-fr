@@ -4,7 +4,7 @@ description: "Résume les systèmes d’exploitation et composants pris en charg
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,28 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/08/2017
+ms.date: 05/24/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: d53d4cfdc7b673d2816fa9372dedbed540380cce
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: db7ee5251f2e2016081e55ca4b295e284c8b08cf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/15/2017
 
 
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matrice de prise en charge pour la réplication sur un site secondaire avec Azure Site Recovery
 
-> [!div class="op_single_selector"]
-> * [Réplication vers Azure](site-recovery-support-matrix-to-azure.md)
-> * [Réplication vers un emplacement local](site-recovery-support-matrix-to-sec-site.md)
-
 Cet article résume ce qui est pris en charge lorsque vous utilisez Azure Site Recovery pour répliquer sur un site secondaire local.
 
 ## <a name="deployment-options"></a>Options de déploiement
 
-**Déploiement** | **Serveur VMware/physique** | **Hyper-V (avec ou sans SCVMM)
+**Déploiement** | **Serveur VMware/physique** | **Hyper-V (avec ou sans SCVMM)**
 --- | --- | --- | ---
-**Portail Azure** | Machines virtuelles VMware locales vers site VMware secondaire.<br/><br/> Téléchargez le [guide de l’utilisateur InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (non disponible dans le portail Azure). | Machines virtuelles Hyper-V locales résidant dans des clouds VMM vers un cloud VMM secondaire.<br></br> Non pris en charge sans SCVMM  <br/><br/> Réplication Hyper-V standard uniquement. SAN non pris en charge.
+**Portail Azure** | Machines virtuelles VMware locales vers site VMware secondaire.<br/><br/> Téléchargez le [guide de l’utilisateur InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (non disponible dans le portail Azure). | Machines virtuelles Hyper-V locales résidant dans des clouds VMM vers un cloud VMM secondaire.<br></br> Non pris en charge sans VMM  <br/><br/> Réplication Hyper-V standard uniquement. SAN non pris en charge.
 **Portail classique** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Mode Maintenance uniquement<br></br> Non pris en charge sans SCVMM
 **PowerShell** | Non pris en charge | Pris en charge<br></br> Non pris en charge sans SCVMM
 
@@ -140,5 +137,6 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [Conditions préalables au déploiement](site-recovery-prereq.md).
+- [Répliquer des machines virtuelles Hyper-V résidant dans des clouds VMM vers un site secondaire](site-recovery-vmm-to-vmm.md)
+- [Répliquer des machines virtuelles VMware et des serveurs physiques vers un site secondaire](site-recovery-vmware-to-vmware.md)
 

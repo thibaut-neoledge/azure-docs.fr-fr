@@ -19,6 +19,7 @@
 
 ## Prévention
 ### [Définir des stratégies de sécurité](security-center-policies.md)
+### [Accès juste à temps](security-center-just-in-time.md)
 ### [Implémenter les recommandations en matière de sécurité](security-center-recommendations.md)
 
 ### [Recommandations relatives aux applications](security-center-application-recommendations.md)
@@ -71,7 +72,7 @@
 ## [Sécurité Azure](/azure/security/)
 
 # Ressources
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog Azure sur la sécurité, la confidentialité et la conformité](http://blogs.msdn.com/b/azuresecurity/)
 ## [Tarification](security-center-pricing.md)
 ## [Vue d’ensemble du service](https://azure.microsoft.com/services/security-center/)

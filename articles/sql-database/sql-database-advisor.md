@@ -1,6 +1,6 @@
 ---
-title: "Recommandations relatives au réglage des performances des requêtes - Azure SQL Database | Microsoft Docs"
-description: "Azure SQL Database Advisor fournit des recommandations pour vos bases de données SQL existantes afin d’améliorer les performances actuelles des requêtes."
+title: "Recommandations relatives aux performances - Azure SQL Database | Microsoft Docs"
+description: "Azure SQL Database fournit des recommandations pour vos bases de données SQL afin d’améliorer le niveau de performance actuel des requêtes."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,32 +8,45 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
 ms.service: sql-database
-ms.custom: monitor & manage
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/30/2016
+ms.date: 07/05/2017
 ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
-ms.openlocfilehash: a8d0b08abc7e3c688f9ab79499b3459b33f06848
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 357a25a665894c86ddb0f93beeb4dd59d8837489
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/02/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="sql-database-advisor"></a>SQL Database Advisor
+# <a name="performance-recommendations"></a>Recommandations en matière de performances
 
-Azure SQL Database apprend et s’adapte à votre application afin de vous fournir des recommandations personnalisées qui vous permettront d’optimiser les performances de vos bases de données SQL. SQL Database Advisor fournit des recommandations concernant la création et la suppression d’index, le paramétrage des requêtes et la résolution des problèmes de schéma. SQL Database Advisor évalue les performances en analysant l’historique d’utilisation de votre base de données SQL. Les recommandations les plus adaptées pour exécuter la charge de travail standard de votre base de données sont fournies. 
+Azure SQL Database apprend et s’adapte à votre application afin de vous fournir des recommandations personnalisées qui vous permettront d’optimiser les performances de vos bases de données SQL. Vos performances sont évaluées en permanence grâce à l’analyse de votre historique d’utilisation de SQL Database. Les recommandations fournies se fondent sur un modèle unique de charge de travail d’une base de données, et aident à améliorer les performances de la base de données.
 
-Les recommandations suivantes sont disponibles pour les serveurs Azure SQL Database. Actuellement, vous pouvez définir l’application automatique des recommandations de création et de suppression d’index. Pour plus d’informations, consultez [Gestion automatique des index](sql-database-advisor-portal.md#enable-automatic-index-management).
+> [!NOTE]
+> Il est conseillé d’utiliser les recommandations en activant l’option de réglage automatique sur votre base de données. Pour en savoir plus, consultez la page [Réglage automatique](sql-database-automatic-tuning.md).
+>
 
-## <a name="create-index-recommendations"></a>Recommandations de création d’index
-**Créer un index** s'affichent lorsque le service de base de données SQL détecte un index manquant qui, s’il était créé, pourrait être utile à votre charge de travail de bases de données (index non ordonnés en cluster uniquement).
+## <a name="create-index-recommendations"></a>Recommandations relatives à la création d’un index
+Azure SQL Database surveille de manière continue les requêtes exécutées et identifie les index capables d’améliorer le niveau de performance. Dès que la base de données estime qu’un index manque, une recommandation **Créer un index** est créée. Azure SQL Database renforce le climat de confiance en estimant le gain de performances que l’index pourrait apporter au fil du temps. Selon le gain de performances estimé, les recommandations sont réparties en trois catégories : Élevée, Moyenne ou Faible. 
 
-## <a name="drop-index-recommendations"></a>Recommandations de suppression d’index
-**Supprimer un index** s'affichent lorsque le service de base de données SQL détecte des index dupliqués (actuellement en version préliminaire, s'applique aux index en double uniquement).
+Les index créés à l’aide de recommandations portent toujours l’indicateur auto_created. Vous pouvez voir quels index possèdent l’indicateur auto_created en examinant la vue sys.indexes. Les index créés automatiquement ne bloquent pas les commandes ALTER/RENAME. Si vous essayez de supprimer la colonne qui possède un index créé automatiquement, la commande est transmise et l’index supprimé en même temps que la commande. Les index normaux peuvent bloquer les commandes ALTER/RENAME sur les colonnes indexées.
+
+Une fois que la recommandation de création de l’index est appliquée, Azure SQL Database compare le niveau de performance des requêtes avec le référentiel de performances. Si le niveau de performance est amélioré grâce au nouvel index, la recommandation sera désignée comme réussie et un rapport d’impact sera généré. Si l’index n’apporte aucun avantage, il sera automatiquement restauré. De cette manière, Azure SQL Database garantit que l’utilisation des recommandations améliore uniquement le niveau de performance.
+
+N’importe quelle recommandation **Créer un index** possède une stratégie d’abstention. Cette stratégie n’autorise pas l’application d’une recommandation si la base de données ou l’utilisation du DTU de pool atteint 80 % dans les dernières 20 minutes, ou si le stockage atteint un taux d’utilisation de plus de 90 %. Dans ce cas, la recommandation est reportée.
+
+## <a name="drop-index-recommendations"></a>Recommandations relatives à la suppression d’index
+En plus de détecter un index manquant, Azure SQL Database analyse continuellement le niveau de performance des index existants. Si l’index n’est pas utilisé, Azure SQL Database recommande sa suppression. Il est recommandé de supprimer un index dans deux cas :
+* L’index est un doublon d’un autre index (même colonne, schéma de partition et filtres indexés et inclus)
+* L’index n’est pas utilisé pendant une période prolongée (93 jours)
+
+Les recommandations de suppression d’index passent également par la vérification, suite à l’implémentation. Si le niveau de performance est amélioré, le rapport d’impact est disponible. Si une dégradation du niveau de performance est détectée, la recommandation est restaurée.
+
 
 ## <a name="parameterize-queries-recommendations"></a>Recommandations de paramétrage de requêtes
 Les recommandations liées au **paramétrage des requêtes** s’affichent lorsque vous disposez d’une ou plusieurs requêtes qui sont constamment recompilées, mais ont en fin de compte le même plan d’exécution de requête. Cela ouvre la possibilité d’appliquer un paramétrage forcé, ce qui permet de mettre en cache les plans de requête et de les réutiliser pour améliorer les performances et réduire l’utilisation des ressources. 
@@ -65,12 +78,12 @@ Les recommandations « Résoudre les problèmes de schéma » s’affichent lors
 ## <a name="next-steps"></a>Étapes suivantes
 Surveillez vos recommandations et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. SQL Database Advisor continue à surveiller et à fournir des recommandations pouvant potentiellement améliorer les performances de votre base de données. 
 
-* Consultez la page [SQL Database Advisor dans le portail Azure](sql-database-advisor-portal.md) pour savoir comment utiliser SQL Database Advisor dans le portail Azure.
+* Consultez la page [Performance recommendations in the Azure portal](sql-database-advisor-portal.md) (Recommandations en matière de performances dans le portail Azure) afin d’obtenir des instructions sur l’utilisation des recommandations relatives aux performances dans le portail Azure.
 * Pour connaître l’impact de vos principales requêtes sur les performances, consultez [Query Performance Insights](sql-database-query-performance.md) (Analyse des performances des requêtes).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md)
+* [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md)
 
 

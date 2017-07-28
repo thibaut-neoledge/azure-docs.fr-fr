@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/23/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 3528294d944fd71fc98a30e2736e1245e50c3be6
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: aa6b75ef1786021b56a59ad1bea2d45eb74ad25f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -180,6 +181,15 @@ Maintenant que vous avez créé un coffre, préparez votre infrastructure de sau
 
 L’agent est désormais installé et votre ordinateur est inscrit dans le coffre. Vous êtes prêt à configurer et à planifier votre sauvegarde.
 
+## <a name="network-and-connectivity-requirements"></a>Conditions de connectivité et réseau
+
+Si votre ordinateur/proxy a un accès à Internet limité, assurez-vous que les paramètres du pare-feu sur l’ordinateur/le proxy sont configurés pour autoriser les URL suivantes : <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.MicrosoftAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.ne
+
 
 ## <a name="create-the-backup-policy"></a>Création de la stratégie de sauvegarde
 La stratégie de sauvegarde couvre a planification d’exécution des points de récupération et la durée de rétention de ces points de récupération. Utilisez l’agent Microsoft Azure Backup pour créer la stratégie de sauvegarde de vos fichiers et dossiers.
@@ -201,7 +211,7 @@ La stratégie de sauvegarde couvre a planification d’exécution des points de 
 6. Sur la page **Sélectionner les éléments à sauvegarder**, cliquez sur **Suivant**.
 7. Sur la page **Spécifier la planification de sauvegarde**, spécifiez la planification de sauvegarde, puis cliquez sur **Suivant**.
 
-    Vous pouvez planifier des sauvegardes quotidiennes (au maximum&3; fois par jour) ou hebdomadaires.
+    Vous pouvez planifier des sauvegardes quotidiennes (au maximum 3 fois par jour) ou hebdomadaires.
 
     ![Éléments de sauvegarde de Windows Server](./media/backup-configure-vault/specify-backup-schedule-close.png)
 

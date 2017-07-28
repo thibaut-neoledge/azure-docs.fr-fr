@@ -9,24 +9,24 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 8567061a98ec5a0619a8e10cb44501dd88d8166c
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 547851972f13ec69a8f65d01290874ad7d07f192
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="restore-a-single-tenant-database"></a>Restaurer une base de données à client unique
+# <a name="restore-a-wingtip-saas-tenants-sql-database"></a>Restaurer une base de données SQL de clients SaaS Wingtip
 
-De par sa conception, l’application SaaS Wingtip Tickets utilise un modèle de base de données par client, où chaque client possède sa propre base de données. L’un des avantages de ce modèle est la facilité avec laquelle il est possible de restaurer les données d’un client unique de manière isolée, sans affecter les autres clients.
+Par sa conception, l’application SaaS Wingtip utilise un modèle de base de données par client, où chaque client possède sa propre base de données. L’un des avantages de ce modèle est la facilité avec laquelle il est possible de restaurer les données d’un client unique de manière isolée, sans affecter les autres clients.
 
 Dans ce didacticiel, vous allez découvrir deux modèles de récupération des données :
 
@@ -42,9 +42,9 @@ Dans ce didacticiel, vous allez découvrir deux modèles de récupération des d
 | **Restaurer un client sur place** | Ce modèle est généralement utilisé pour récupérer un client à un point antérieur dans le temps, après la suppression accidentelle des données. La base de données d’origine est mise hors connexion et remplacée par la base de données restaurée. |
 |||
 
-Pour suivre ce didacticiel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
+Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
 
-* L’application WTP est déployée. Pour la déployer en moins de cinq minutes, consultez [Déployer et découvrir l’application SaaS WTP](sql-database-saas-tutorial.md).
+* L’application SaaS Wingtip est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer une application SaaS Wingtip](sql-database-saas-tutorial.md)
 * Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-tenant-restore-pattern"></a>Introduction au modèle SaaS de restauration d’un client
@@ -57,11 +57,11 @@ Dans le second modèle (qui suppose que le client a perdu des données ou qu’e
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
 
-Les scripts et le code source de l’application Wingtip Tickets sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Les fichiers de script se trouvent dans le [dossier Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Téléchargez le dossier **Learning Modules** en local sur votre ordinateur, tout en conservant l’arborescence.
+Les scripts et le code source de l’application SaaS Wingtip sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procédure de téléchargement des scripts SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simuler la suppression accidentelle des données par le client
 
-Pour illustrer ces scénarios de récupération, nous devons *accidentellement* supprimer certaines données dans l’une des bases de données client. Même si vous pouvez supprimer n’importe quel enregistrement, l’étape suivante dans la démonstration permet de ne pas rester bloqué suite à une violation de l’intégrité du référentiel. Elle ajoute également des données d’achat de ticket à utiliser ultérieurement dans les *didacticiels WTP Analytics*.
+Pour illustrer ces scénarios de récupération, nous devons *accidentellement* supprimer certaines données dans l’une des bases de données client. Même si vous pouvez supprimer n’importe quel enregistrement, l’étape suivante dans la démonstration permet de ne pas rester bloqué suite à une violation de l’intégrité du référentiel. Elle ajoute également des données d’achat de ticket à utiliser ultérieurement dans les *didacticiels Wingtip SaaS Analytics*.
 
 Exécutez le script de génération de ticket et créez des données supplémentaires. Intentionnellement, le générateur de ticket n’achète pas de ticket pour le dernier événement des clients.
 
@@ -148,6 +148,7 @@ Dans ce didacticiel, vous avez appris à :
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Autres didacticiels reposant sur le déploiement initial d’applications Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Autres [didacticiels reposant sur l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL](sql-database-business-continuity.md)
 * [En savoir plus sur les sauvegardes SQL Database](sql-database-automated-backups.md)
+

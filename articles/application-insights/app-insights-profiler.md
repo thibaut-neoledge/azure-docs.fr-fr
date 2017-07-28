@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6a3c4273042a7684307d56341de1065ad45eb617
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -26,8 +26,7 @@ ms.lasthandoff: 05/10/2017
 
 Découvrez combien de temps vous consacrez à chaque méthode dans votre application web dynamique à l’aide de l’outil de profilage [d’Azure Application Insights](app-insights-overview.md). Cet outil vous montre les profils détaillés des requêtes dynamiques qui ont été traitées par votre application et met en évidence le « chemin réactif » qui est le plus souvent utilisé. Il sélectionne automatiquement des exemples associés à des temps de réponse différents. Le profileur utilise diverses techniques pour réduire la charge.
 
-Le profileur fonctionne actuellement pour les applications web ASP.NET s’exécutant sur Azure App Services, au moins au niveau tarifaire de base. (Si vous utilisez ASP.NET Core, le framework cible doit être `.NetCoreApp`.)
-
+Le profileur fonctionne actuellement pour les applications web ASP.NET s’exécutant sur Azure App Services, au moins au niveau tarifaire de base. 
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Activer le profileur
@@ -196,18 +195,21 @@ Lorsque vous voyez des threads parallèles dans vos traces, vous devez identifie
 
 ## <a name="manual-installation"></a>Installation manuelle
 
-Lorsque vous configurez le profileur, les mises à jour suivantes sont appliquées aux paramètres de Web App. Vous pouvez les effectuer manuellement par vous-même si votre environnement le requiert, par exemple, si votre application s’exécute dans un réseau privé utilisant l’équilibreur de charge interne :
+Lorsque vous configurez le profileur, les mises à jour suivantes sont appliquées aux paramètres de Web App. Vous pouvez les effectuer manuellement par vous-même si votre environnement le requiert, par exemple, si votre application s’exécute dans l’environnement Azure App Service (ASE) :
 
-1. Dans le panneau de contrôle Application web, ouvrez Paramètres.
+1. Dans le panneau de contrôle de l’application web, ouvrez Paramètres.
 2. Définissez « Version du .NET Framework » sur 4.6.
 3. Activez l’option « Toujours actif ».
 4. Ajoutez le paramètre d’application « __APPINSIGHTS_INSTRUMENTATIONKEY__ » et définissez la valeur sur la même clé d’instrumentation que celle utilisée par le Kit de développement logiciel (SDK).
-5. Dans **Extensions**, ajoutez Application Insights. L’installation prend quelques minutes.
+5. Ouvrez Outils avancés.
+6. Cliquez sur « Go » pour ouvrir le site web Kudu.
+7. Sur le site web Kudu, sélectionnez « Site extensions » (Extensions de site).
+8. Installez « __Application Insights__ »à partir de la galerie.
+9. Redémarrez l’application web.
 
 ## <a id="aspnetcore"></a>Prise en charge d’ASP.NET Core
 
-Les applications ASP.NET Core 1.1.2 ciblant la version AI SDK 2.0 ou une version ultérieure fonctionnerait avec le profileur. 
-
+L’application ASP.NET Core doit installer le package Nuget Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 ou une version supérieure pour fonctionner avec le profileur. Les versions antérieures au 27/06/2017 ne sont plus prises en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

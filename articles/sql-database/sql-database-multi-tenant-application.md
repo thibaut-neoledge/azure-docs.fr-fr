@@ -9,7 +9,7 @@ editor: monicar
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-develop, mvc
+ms.custom: mvc,scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 05/08/2017
 ms.author: AyoOlubek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 80df7b504d13fe1b3be9806eb95e3980d7790970
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0aea69d86a51c38c99a72f46737de1eea27bef83
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -42,18 +42,21 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
+## <a name="prerequisites"></a>Composants requis
+
 Pour suivre ce didacticiel, vérifiez que vous disposez des éléments suivants :
-* Un ordinateur sur lequel ont été installés PowerShell et la [dernière version du SDK Azure PowerShell](http://azure.microsoft.com/downloads/)
+
+* La dernière version de PowerShell et le [dernier Kit de développement logiciel (SDK) Azure PowerShell](http://azure.microsoft.com/downloads/)
 
 * La dernière version de [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). L’installation de SQL Server Management Studio installe également la version la plus récente de SQLPackage, un utilitaire de ligne de commande qui peut être utilisé pour automatiser de nombreuses tâches de développement de bases de données.
 
-* Un ordinateur disposant de [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) et du [dernier kit de développement JAVA](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 
+* Un ordinateur disposant de [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) et du [dernier kit de développement JAVA (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 
 
 * [Apache Maven](https://maven.apache.org/download.cgi). Maven servira à gérer les dépendances et à générer, tester et exécuter l’exemple de projet Java.
 
-## <a name="set-up-data-environment"></a>Configuration de l’environnement de données
+## <a name="set-up-data-environment"></a>Configuration de l’environnement des données
 
-Vous allez approvisionner une base de données par locataire. Le modèle « base de données par locataire » constitue la meilleure manière d’isoler les locataires tout en réduisant les coûts DevOps. Pour optimiser le coût des ressources cloud, vous devrez également configurer les bases de données de locataires dans un pool élastique, de manière à optimiser le rapport prix/performances d’un groupe de bases de données. Pour en savoir plus sur les autres modèles d’approvisionnement de bases de données, [cliquez ici](sql-database-design-patterns-multi-tenancy-saas-applications.md#multitenant-data-models). 
+Vous allez approvisionner une base de données par locataire. Le modèle « base de données par locataire » constitue la meilleure manière d’isoler les locataires tout en réduisant les coûts DevOps. Pour optimiser le coût des ressources cloud, vous devrez également configurer les bases de données de locataires dans un pool élastique, de manière à optimiser le rapport prix/performances d’un groupe de bases de données. Pour en savoir plus sur les autres modèles d’approvisionnement de bases de données, [cliquez ici](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
 
 Suivez ces étapes pour créer un serveur SQL et un pool élastique qui hébergeront toutes vos bases de données de locataires. 
 
@@ -71,7 +74,7 @@ Suivez ces étapes pour créer un serveur SQL et un pool élastique qui héberg
    
    # Store current client IP address (modify to include your IP address)
    $startIpAddress = 0.0.0.0 
-   $endIpAddress = 0.0.0.1
+   $endIpAddress = 0.0.0.0
    ```
    
 2. Connectez-vous à Azure et créez un serveur SQL et un pool élastique 
@@ -505,6 +508,7 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 Essayez de vous connecter au « locataire1 » à l’aide de l’application Java. Vous obtiendrez une erreur indiquant que le client n’existe pas.
 
 ## <a name="next-steps"></a>Étapes suivantes 
+
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Configuration d’un environnement de base de données pour la prise en charge d’une application SaaS mutualisée, à l’aide du modèle « base de données par locataire »

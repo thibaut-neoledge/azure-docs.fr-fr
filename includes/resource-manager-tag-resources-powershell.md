@@ -12,35 +12,74 @@ Version
 3.5.0
 ```
 
-Chaque fois que vous appliquez des balises à une ressource ou un groupe de ressources, vous remplacez les balises existantes de cette ressource ou de ce groupe de ressources. Par conséquent, vous devez utiliser une approche différente selon que la ressource ou le groupe de ressources a des balises existantes que vous souhaitez conserver. Pour ajouter des balises à :
+Pour afficher les balises existantes pour un **groupe de ressources**, utilisez :
 
-* un groupe de ressources sans les balises existantes.
+```powershell
+(Get-AzureRmResourceGroup -Name examplegroup).Tags
+```
 
-  ```powershell
-  Set-AzureRmResourceGroup -Name TagTestGroup -Tag @{ Dept="IT"; Environment="Test" }
-  ```
+Elle retourne les informations au format suivant :
 
-* un groupe de ressources avec les balises existantes.
+```powershell
+Name                           Value
+----                           -----
+Dept                           IT
+Environment                    Test
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResourceGroup -Name TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResourceGroup -Tag $tags -Name TagTestGroup
-  ```
+Pour afficher les balises existantes pour une **ressource avec un ID de ressource spécifié**, utilisez :
 
-* une ressource sans les balises existantes.
+```powershell
+(Get-AzureRmResource -ResourceId {resource-id}).Tags
+```
 
-  ```powershell
-  Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+Alternativement, pour afficher les balises existantes pour une **ressource avec un nom et un groupe de ressources spécifiés**, utilisez :
 
-* une ressource avec les balises existantes.
+```powershell
+(Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResource -ResourceName storageexample -ResourceGroupName TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResource -Tag $tags -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+Pour obtenir **les groupes de ressources contenant une balise spécifique**, utilisez :
+
+```powershell
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
+```
+
+Pour obtenir **les ressources contenant une balise spécifique**, utilisez :
+
+```powershell
+(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+```
+
+Chaque fois que vous appliquez des balises à une ressource ou un groupe de ressources, vous remplacez les balises existantes de cette ressource ou de ce groupe de ressources. Par conséquent, vous devez utiliser une approche différente selon que la ressource ou le groupe de ressources a des balises existantes. 
+
+Pour ajouter des balises à un **groupe de ressources ne contenant pas de balises existantes**, utilisez :
+
+```powershell
+Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
+```
+
+Pour ajouter des balises à un **groupe de ressources avec des balises existantes**, récupérer les balises existantes, ajoutez la nouvelle balise et réappliquer les balises :
+
+```powershell
+$tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
+```
+
+Pour ajouter des balises à une **ressource ne contenant pas de balises existantes**, utilisez :
+
+```powershell
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName exampleroup
+```
+
+Pour ajouter des balises à une **ressource contenant des balises existantes**.
+
+```powershell
+$tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
+```
 
 Pour appliquer toutes les balises d’un groupe de ressources à ses ressources **sans conserver les balises existantes**, utilisez le script suivant :
 
@@ -77,18 +116,8 @@ foreach ($g in $groups)
 Pour supprimer toutes les balises, utilisez une table de hachage vide.
 
 ```powershell
-Set-AzureRmResourceGroup -Tag @{} -Name TagTestGgroup
+Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
 
-Pour obtenir les groupes de ressources avec une balise spécifique, utilisez l’applet de commande `Find-AzureRmResourceGroup`.
 
-```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
-```
-
-Pour obtenir toutes les ressources contenant une balise et une valeur spécifiques, utilisez l’applet de commande `Find-AzureRmResource`.
-
-```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
-```
 

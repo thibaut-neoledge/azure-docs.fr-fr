@@ -1,268 +1,94 @@
-
-
 # Vue d'ensemble
-
-
 ## [Présentation de Gestion des API](api-management-key-concepts.md)
-
-
 # Prise en main
-
-
 ## [Gérer votre première API](api-management-get-started.md)
-
-
 ## [Protéger votre API avec des limites de débit](api-management-howto-product-with-rules.md)
-
-
 ## [Ajouter la mise en cache pour améliorer les performances](api-management-howto-cache.md)
-
-
 ## [Forum Aux Questions](api-management-faq.md)
-
-
 # Procédures
-
-
 ## Développer des API
-
-
 ### [Ajouter et publier un produit API](api-management-howto-add-products.md)
-
-
 ### [Ajouter des opérations](api-management-howto-add-operations.md)
-
-
 ### [Création d'une API](api-management-howto-create-apis.md)
-
-
 ### [Importer une définition d’API](api-management-howto-import-api.md)
-
-
 ## Sécuriser votre serveur principal
-
-
 ### [Protéger le serveur principal d’API web avec AAD](api-management-howto-protect-backend-with-aad.md)
-
-
 ### [Se connecter à un réseau virtuel](api-management-using-with-vnet.md)
-
-
 ### [Se connecter à un réseau virtuel interne](api-management-using-with-internal-vnet.md)
-
-
 ### [Intégrer Application Gateway à un réseau virtuel interne](api-management-howto-integrate-internal-vnet-appgateway.md)
-
-
 ### [Authentification mutuelle des certificats](api-management-howto-mutual-certificates.md)
-
-
 ## Configuration des stratégies
-
-
 ### [Mise en cache personnalisée](api-management-sample-cache-by-key.md)
-
-
 ### [Surveillance avancée](api-management-log-to-eventhub-sample.md)
-
-
 ### [Limitation avancée des tentatives d’accès](api-management-sample-flexible-throttling.md)
-
-
 ### [Utilisation de services externes](api-management-sample-send-request.md)
-
-
 ### [Index de référence de stratégie](api-management-policy-reference.md)
-
-
 ### [Vue d’ensemble des stratégies](api-management-howto-policies.md)
-
-
 ### [Gérer les secrets à l’aide de propriétés](api-management-howto-properties.md)
-
-
 ### [Sécuriser des API à l’aide de l’authentification du certificat client](api-management-howto-mutual-certificates-for-clients.md)
-
-
 ## Personnalisation de l’expérience de développement
-
-
 ### [Modifier la disposition et le contenu des pages](api-management-modify-content-layout.md)
-
-
 ### [Personnaliser le style des éléments de page](api-management-customize-styles.md)
-
-
 ### [Personnaliser les pages système à l’aide de modèles](api-management-developer-portal-templates.md)
-
-
 ### [Authentification avec AAD](api-management-howto-aad.md)
-
-
 ### [Authentification avec AAD B2C](api-management-howto-aad-b2c.md)
-
-
 ### [Authentification déléguée](api-management-howto-setup-delegation.md)
-
-
 ### [Notifications électroniques et modèles](api-management-howto-configure-notifications.md)
-
-
 ### [Activer la prise en charge de la console OAuthActiver la prise en charge de la console OAuth](api-management-howto-oauth2.md)
-
-
 ## Gérer en production
-
-
 ### [Gérer les groupes](api-management-howto-create-groups.md)
-
-
 ### [Déployer sur plusieurs régions Azure](api-management-howto-deploy-multi-region.md)
-
-
 ### [Journaliser les événements dans Azure Event Hubs](api-management-howto-log-event-hubs.md)
-
-
 ### [Installer la récupération d’urgence à l’aide de la sauvegarde/restauration](api-management-howto-disaster-recovery-backup-restore.md)
-
-
 ### [Tracer les appels avec l’inspecteur d’API](api-management-howto-api-inspector.md)
-
-
 ### [Gérer les comptes d’utilisateurs](api-management-howto-create-or-invite-developers.md)
-
-
 ### [Gérer à l’aide d’Automation](automation-manage-api-management.md)
-
-
 ### [Configurer à l’aide de Git](api-management-configuration-repository-git.md)
-
-
 ### [Surveiller à l’aide d’Azure Monitor](api-management-howto-use-azure-monitor.md)
-
-
 ### [Utiliser le contrôle d’accès en fonction du rôle](api-management-role-based-access-control.md)
-
+### Intégrer avec Service Fabric
+#### [Vue d'ensemble](../service-fabric/service-fabric-api-management-overview.md)
+#### [Démarrage rapide](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Référence
-
-
 ## [PowerShell](/powershell/azure/overview)
-
-
 ## [REST](/rest/api/apimanagement/)
-
-
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
-
-
 ## [Stratégies](api-management-policies.md)
-
-
 ### Référence de stratégie
-
-
 #### [Accès aux stratégies de restriction](api-management-access-restriction-policies.md)
-
-
 #### [Stratégies avancées](api-management-advanced-policies.md)
-
-
 #### [Stratégies d’authentification](api-management-authentication-policies.md)
-
-
 #### [Stratégies de mise en cache](api-management-caching-policies.md)
-
-
 #### [Stratégies interdomaines](api-management-cross-domain-policies.md)
-
-
 #### [Stratégies de transformation](api-management-transformation-policies.md)
-
-
 ### [Gestion des erreurs](api-management-error-handling-policies.md)
-
-
 ### [Expressions de stratégie](api-management-policy-expressions.md)
-
-
 ## [Modèles](api-management-developer-portal-templates-reference.md)
-
-
 ### Référence de modèle
-
-
 #### [API](api-management-api-templates.md)
-
-
 #### [Produits](api-management-product-templates.md)
-
-
 #### [Applications](api-management-application-templates.md)
-
-
 #### [Problèmes](api-management-issue-templates.md)
-
-
 #### [Profil utilisateur](api-management-user-profile-templates.md)
-
-
 #### [Pages](api-management-page-templates.md)
-
-
 ### [Référence du modèle de données](api-management-template-data-model-reference.md)
-
-
 ### [Contrôles de page](api-management-page-controls.md)
-
-
 ### [Ressources de modèle](api-management-template-resources.md)
-
-
 # Ressources
-
-
 ## [Guide de conception d’API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
-
-
 ## [Recommandations relatives à l’implémentation de l’API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
-
-
 ## [Gestion des API - Fonctionne étroitement avec les autres services Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
-
-
 ## [Plug-in Gestion des API pour l’API SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-
-
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
-
-
 ## [Connexion d’Event Hubs à Gestion des API](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
-
-
 ## [Utilisation de services WCF SOAP sur HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
-
-
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
-
-
 ## [Tarification](https://azure.microsoft.com/pricing/details/api-management/)
-
-
 ## [Fournir un accès RBAC à l’aide de l’API REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
-
-
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=api-management)
-
-
 ## [Configurer PostMan pour appeler les API Gestion des API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
-
-
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
-
-
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
-
-
 ## [Livre blanc : gestion des API basée sur le cloud](http://j.mp/ms-apim-whitepaper)
 

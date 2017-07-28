@@ -3,7 +3,7 @@ title: Gestion de vos applications dans Visual Studio | Microsoft Docs
 description: "Utilisez Visual Studio pour créer, développer, packager, déployer et déboguer vos applications et services Service Fabric."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: 
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
-ms.author: seanmck;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 60d440c75d6352d5e65e0158e439df9db2315ecd
-ms.openlocfilehash: 70c393f1185844bb26ff1f89cb69cb06b51fc155
+ms.date: 06/07/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 3f6a47a15b74a7ceb6504b2834be62e76ab70bcc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -30,54 +32,48 @@ Par défaut, le déploiement d’une application regroupe les étapes suivantes 
 2. Téléchargement du package d'application dans le magasin d'images
 3. Enregistrement du type d'application
 4. Suppression des instances d'application en cours d'exécution
-5. Création d'une instance d'application
+5. Création d’une instance d’application
 
-Dans Visual Studio, vous pouvez aussi appuyer sur **F5** pour déployer votre application et attacher le débogueur à toutes les instances de l'application. Vous pouvez utiliser **Ctrl + F5** pour déployer une application sans débogage ou la publier sur un cluster local ou distant à l’aide du profil de publication. Pour plus d’informations, reportez-vous à la section [Publication d’une application dans un cluster à distance avec Visual Studio](service-fabric-publish-app-remote-cluster.md).
+Dans Visual Studio, appuyer sur **F5** permet de déployer votre application et d’attacher le débogueur à toutes les instances de l’application. Vous pouvez utiliser **Ctrl + F5** pour déployer une application sans débogage ou la publier sur un cluster local ou distant à l’aide du profil de publication. Pour plus d’informations, reportez-vous à la section [Publication d’une application dans un cluster à distance avec Visual Studio](service-fabric-publish-app-remote-cluster.md).
 
 ### <a name="application-debug-mode"></a>Mode de débogage d’application
-Par défaut, Visual Studio supprime les instances existantes de votre type d’application quand vous arrêtez le débogage ou (si vous avez déployé l’application sans attacher le débogueur) quand vous redéployez l’application. Dans ce cas, toutes les données de l’application sont supprimées. Lors du débogage en local, vous pouvez souhaiter conserver les données que vous avez déjà créées lorsque vous testez une nouvelle version de l’application, vous souhaitez que l’application continue à s’exécuter ou vous souhaitez que les sessions de débogage suivantes mettent l’application à niveau. Les outils Service Fabric de Visual Studio fournissent une propriété appelée **Mode de débogage d’application** qui vérifie si **F5** doit désinstaller l’application, la conserver après une session de débogage ou permettre à l’application d’être mise à niveau lors de sessions de débogage suivantes, plutôt que d’être supprimée et redéployée.
+Visual Studio fournit une propriété appelée **Mode de débogage de l’application**, qui contrôle la façon dont vous souhaitez que Visual Studio gère le déploiement de l’application dans le cadre du débogage.
 
 #### <a name="to-set-the-application-debug-mode-property"></a>Pour définir la propriété Mode de débogage d’application
-1. Dans le menu contextuel du projet d’application, cliquez sur **Propriétés** (ou appuyez sur la touche **F4**).
+1. Dans le menu contextuel du projet d’application Service Fabric (*.sfproj), cliquez sur **Propriétés** (ou appuyez sur la touche **F4**).
 2. Dans la fenêtre **Propriétés**, définissez la propriété **Mode de débogage d’application**.
 
-    ![Définir la propriété Mode de débogage d’application][debugmodeproperty]
+![Définir la propriété Mode de débogage d’application][debugmodeproperty]
 
-Il s’agit des options disponibles pour le **Mode de débogage d’application** .
+#### <a name="application-debug-modes"></a>Modes de débogage de l’application
 
-1. **Mise à niveau automatique**: l’application continue à s’exécuter lorsque la session de débogage se termine. Le **F5** suivant traite le déploiement comme une mise à niveau, en utilisant le mode automatique non contrôlé pour mettre rapidement à niveau l’application vers une version plus récente avec une chaîne de date ajoutée. Le processus de mise à niveau conserve les données que vous avez saisies au cours de la précédente session de débogage.
-2. **Conserver l’application**: l’application continue à s’exécuter dans le cluster lorsque la session de débogage se termine. Le **F5** suivant supprime l’application et l’application nouvellement créée sera déployée sur le cluster.
-3. **Supprimer l’application** entraîne la suppression de l’application lorsque la session de débogage se termine.
+1. **Actualiser l’application** Ce mode vous permet de modifier et de déboguer rapidement votre code, et prend en charge la modification des fichiers web statiques pendant le débogage. Ce mode fonctionne uniquement si votre cluster de développement local est en [mode 1 nœud](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+2. **Supprimer l’application** entraîne la suppression de l’application lorsque la session de débogage se termine.
+3. **Mise à niveau automatique** L’application continue à s’exécuter lorsque la session de débogage se termine. La session de débogage suivante traitera le déploiement comme une mise à niveau. Le processus de mise à niveau conserve les données que vous avez saisies au cours de la précédente session de débogage.
+4. **Conserver l’application** L’application continue à s’exécuter dans le cluster lorsque la session de débogage se termine. Au début de la prochaine session de débogage, l’application sera supprimée.
 
-Avec l’option **Mise à niveau automatique** , les données sont conservées en appliquant les fonctionnalités de mise à niveau d’application de Service Fabric, mais avec une optimisation des performances plutôt que de la sécurité. Pour plus d’informations sur la mise à niveau des applications et sur la façon d’effectuer une mise à niveau dans un environnement réel, consultez [Mise à niveau d’application Service Fabric](service-fabric-application-upgrade.md).
-
-![Exemple d’une nouvelle version de l'application avec une date ajoutée][preservedata]
-
-> [!NOTE]
-> Cette propriété n’existe pas avant la version 1.1 des outils Service Fabric pour Visual Studio. Avant la version 1.1, veuillez utiliser la propriété **Conserver les données au démarrage** pour obtenir le même comportement. L’option « Conserver l’application » a été introduite dans la version 1.2 des outils Service Fabric pour Visual Studio.
->
->
+Avec l’option **Mise à niveau automatique**, les données sont conservées en appliquant les fonctionnalités de mise à niveau d’application de Service Fabric. Pour plus d’informations sur la mise à niveau des applications et sur la façon d’effectuer une mise à niveau dans un environnement réel, consultez [Mise à niveau d’application Service Fabric](service-fabric-application-upgrade.md).
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Ajouter un service à votre application Service Fabric
 Vous pouvez ajouter de nouveaux services à votre application pour étendre ses fonctionnalités.  Pour garantir que le service est inclus dans votre package d’application, ajoutez-le via l’élément de menu **Nouveau service Service Fabric…** .
 
-![Ajoutez un nouveau service Service Fabric à votre application][newservice]
+![Ajouter un service Service Fabric][newservice]
 
 Sélectionnez un type de projet Service Fabric à ajouter à votre application et spécifiez un nom pour le service.  Consultez [Choix d’une infrastructure pour votre service](service-fabric-choose-framework.md) pour vous aider à choisir le type de service à utiliser.
 
-![Sélectionner un type de projet Service Fabric à ajouter à votre application][addserviceproject]
+![Sélectionner un type de projet de service Service Fabric à ajouter à votre application][addserviceproject]
 
-Le nouveau service est ajouté à votre solution et au package d'application existant. Les références du service et une instance de service par défaut sont ajoutés au manifeste d'application. Le service est créé et démarré la prochaine fois que vous déployez l'application.
+Le nouveau service est ajouté à votre solution et au package d’application existant. Les références de service et une instance de service par défaut seront ajoutées au manifeste de l’application, provoquant la création et le démarrage du service la prochaine fois que vous déployez l’application.
 
-![Le nouveau service est ajouté à votre manifeste d'application][newserviceapplicationmanifest]
+![Le nouveau service est ajouté à votre manifeste de l’application][newserviceapplicationmanifest]
 
 ## <a name="package-your-service-fabric-application"></a>Empaquetage de votre application Service Fabric
-Pour déployer l’application et ses services dans un cluster, vous devez créer un package d’application.  Le package organise le manifeste d'application, le ou les manifestes de service et les autres fichiers nécessaires dans une disposition spécifique.  Visual Studio configure et gère le package dans le dossier du projet d'application, dans le répertoire « pkg ».  Cliquez sur **Package** dans le menu contextuel **Application** pour créer ou mettre à jour le package d’application.  Cela peut être utile si vous déployez l’application à l’aide de scripts Powershell personnalisés.
+Pour déployer l’application et ses services dans un cluster, vous devez créer un package d’application.  Le package organise le manifeste de l’application, les manifestes de service et les autres fichiers nécessaires dans une disposition spécifique.  Visual Studio configure et gère le package dans le dossier du projet d'application, dans le répertoire « pkg ».  Cliquez sur **Package** dans le menu contextuel **Application** pour créer ou mettre à jour le package d’application.
 
 ## <a name="remove-applications-and-application-types-using-cloud-explorer"></a>Supprimer des applications et des types d’applications à l’aide de Cloud Explorer
 Vous pouvez effectuer des opérations de gestion de cluster de base à partir de Visual Studio à l’aide de Cloud Explorer, que vous pouvez lancer à partir du menu **Affichage** . Par exemple, vous pouvez supprimer des applications et annuler la mise en service de types d’applications sur des clusters locaux ou distants.
 
-![Supprimer une application](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
+![Supprimer une application][removeapplication]
 
 > [!TIP]
 > Pour obtenir des fonctionnalités de gestion de clusters enrichies, consultez [Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
@@ -97,11 +93,5 @@ Vous pouvez effectuer des opérations de gestion de cluster de base à partir de
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]:./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]:./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
-[preservedata]:./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [debugmodeproperty]:./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+[removeapplication]:./media/service-fabric-manage-application-in-visual-studio/removeapplication.png

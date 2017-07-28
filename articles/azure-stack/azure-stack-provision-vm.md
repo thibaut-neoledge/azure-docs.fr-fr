@@ -12,18 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/03/2017
+ms.date: 7/21/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 5e6cfad6bef232e3e437aa531c7ff8e8782e2789
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4e3f90fe35b7fb2509db0eb7a467305f4c4167ef
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
-# Create a test virtual machine in Azure Stack
-<a id="create-a-test-virtual-machine-in-azure-stack" class="xliff"></a>
+# <a name="create-a-test-virtual-machine-in-azure-stack"></a>Create a test virtual machine in Azure Stack
 As a cloud operator, you can create a test virtual machine to validate your Azure Stack deployment.
 
 > [!NOTE]
@@ -31,21 +29,16 @@ As a cloud operator, you can create a test virtual machine to validate your Azur
 > 
 > 
 
-## Create a virtual machine
-<a id="create-a-virtual-machine" class="xliff"></a>
-1. On the Azure Stack Development Kit host, [sign in](azure-stack-connect-azure-stack.md) to the administrator portal (`https://adminportal.local.azurestack.external`), and then click **New** > **Virtual machines** > **Windows Server 2016 Datacenter Eval**.  
-
-2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
-3. In the **Choose a size** blade, click **A1 Basic**, and then click **Select**.  
-4. In the **Settings** blade, click **Virtual network**. In the **Choose virtual network** blade, click **Create new**. In the **Create virtual network** blade, accept all the defaults, and click **OK**. In the **Settings** blade, click **OK**.
-
-   ![](media/azure-stack-provision-vm/image04.png)
+## <a name="create-a-virtual-machine"></a>Create a virtual machine
+1. On the Azure Stack Development Kit host, [sign in](azure-stack-connect-azure-stack.md) to the administrator portal (`https://adminportal.local.azurestack.external`), and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval** > **Create**.  
+2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
+3. In the **Choose a size** blade, click **A1 Standard**, and then click **Select**.  
+4. In the **Settings** blade, accept the defaults and click **OK**
 5. In the **Summary** blade, click **OK** to create the virtual machine.  
 6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
-
     ![](media/azure-stack-provision-vm/image06.png)
 
-## Next steps
-<a id="next-steps" class="xliff"></a>
+
+## <a name="next-steps"></a>Next steps
 [Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)
 

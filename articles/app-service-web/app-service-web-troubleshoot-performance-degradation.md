@@ -7,7 +7,7 @@ author: cephalin
 manager: erikre
 editor: 
 tags: top-support-issue
-keywords: performances d&quot;application web, application lente
+keywords: performances d'application web, application lente
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
-ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
-ms.lasthandoff: 02/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 97ef8d2693296fc2692be46afcedfd01b07d743f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -115,6 +116,12 @@ Pour obtenir des instructions détaillées sur la façon de configurer votre app
 Dans Azure Service App, Web Apps, API Apps et WebJobs peuvent être profilés à distance. Si votre processus s’exécute plus lentement que prévu, ou si la latence des demandes HTTP est supérieure à la normale et le taux d’utilisation de l’UC du processus élevé, vous pouvez analyser à distance le profil de vos processus et faire en sorte que les piles d’appel d’exemple analysent l’activité du processus et les chemins actifs de code.
 
 Pour plus d’informations, consultez [Prise en charge d’analyse de profil distant dans Azure App Service](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
+
+#### <a name="use-application-insights-profiler"></a>Utiliser Application Insights Profiler
+
+Parfois, l’application App Service est lente, car un code spécifique n’a pas été écrit de manière performante. Il peut s’agir par exemple d’un code séquentiel exécuté en parallèle et de conflits indésirables de verrouillage de base de données. Pour augmenter les performances de l’application, il faut supprimer ces goulots d’étranglement dans le code. Mais ceux-ci sont difficiles à détecter si vous ne configurez par des journaux et des suivis élaborés. Application Insights Profiler résout ce problème pour les applications App Service. 
+
+Avec une configuration minimale, Application Insights Profiler fournit des statistiques sur les temps de réponse de chaque appel web et des suivis qui indiquent la ligne de code responsable des réponses lentes. Pour plus d’informations, consultez [Profilage des applications web dynamiques Azure avec Application Insights](../application-insights/app-insights-profiler.md). 
 
 #### <a name="use-the-azure-app-service-support-portal"></a>Utilisation du portail de support Azure App Service
 Web Apps vous offre la possibilité de résoudre les problèmes liés à votre application web grâce à des journaux HTTP, les journaux des événements, les vidages de processus et bien plus encore. Vous pouvez accéder à toutes ces informations à l’aide de notre portail de support à l’adresse **http://&lt;your app name>.scm.azurewebsites.net/Support**

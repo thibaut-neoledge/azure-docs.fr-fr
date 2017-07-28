@@ -1,6 +1,6 @@
 ---
 title: "Créer votre premier microservice Azure fiable en Java | Microsoft Docs"
-description: "Introduction à la création d&quot;une application Microsoft Azure Service Fabric avec des services avec et sans état."
+description: "Introduction à la création d'une application Microsoft Azure Service Fabric avec des services avec et sans état."
 services: service-fabric
 documentationcenter: java
 author: vturecek
@@ -12,12 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 5a29d6838af7f3952ad96158e5962b17c0f4cb6b
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 35d7f6d655f53891c00ca6c736c8c12b99fdc5ef
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -158,15 +159,29 @@ public static void main(String[] args) throws Exception {
 ```
 
 ## <a name="run-the-application"></a>Exécution de l'application
-La génération de modèles automatique Yeoman inclut un script Gradle pour créer l’application et des scripts Bash pour déployer l’application et annuler son déploiement. Pour exécuter l’application, commencez par créer l’application avec Gradle :
+
+La génération de modèles automatique Yeoman inclut un script Gradle permettant de créer l’application et des scripts bash permettant le déploiement et la suppression de l’application. Pour exécuter l’application, commencez par créer l’application avec Gradle :
 
 ```bash
 $ gradle
 ```
 
-Cela génère un package d’application Service Fabric qui peut être déployé à l’aide de l’interface de ligne de commande Azure Service Fabric. Le script install.sh contient les commandes d’interface de ligne de commande Azure nécessaires pour déployer le package d’application. Exécutez le script install.sh à déployer :
+Cela génère un package d’application Service Fabric qui peut être déployé à l’aide de l’interface de ligne de commande Azure Service Fabric.
+
+### <a name="deploy-with-xplat-cli"></a>Déploiement avec l’interface de ligne de commande XPlat
+
+Si vous utilisez la CLI XPlat, le script install.sh contient les commandes Azure CLI nécessaires pour déployer le package d’application. Exécutez le script install.sh pour déployer l’application.
 
 ```bash
 $ ./install.sh
 ```
+
+### <a name="deploy-with-azure-cli-20"></a>Déploiement avec Azure CLI 2.0
+
+Si vous utilisez Azure CLI 2.0, consultez la documentation de référence sur la gestion d’un [cycle de vie des applications à l’aide d’Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
+
+## <a name="related-articles"></a>Articles connexes
+
+* [Prise en main de Service Fabric et d’Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Prise en main de l’interface de ligne de commande Service Fabric XPlat](service-fabric-azure-cli.md)
 

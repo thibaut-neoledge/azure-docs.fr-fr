@@ -12,16 +12,16 @@ En plus de la puissance substantielle du processeur, la série H offre différe
 
 ACU : 290-300
 
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de disque max : E/S par seconde | Nombre max de cartes réseau |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1 000 |16 |16 x 500 |2 / Élevée |
-| Standard_H16 |16 |112 |2000 |32 |32 x 500 |4 / Très élevée |
-| Standard_H8m |8 |112 |1 000 |16 |16 x 500 |2 / Élevée |
-| Standard_H16m |16 |224 |2000 |32 |32 x 500 |4 / Très élevée |
-| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |4 / Très élevée |
-| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |4 / Très élevée |
+| Standard_H8 |8 |56 |1 000 |16 |16 x 500 |2  |
+| Standard_H16 |16 |112 |2000 |32 |32 x 500 |4 |
+| Standard_H8m |8 |112 |1 000 |16 |16 x 500 |2  |
+| Standard_H16m |16 |224 |2000 |32 |32 x 500 |4  |
+| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |4  |
+| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |4 |
 
-*Prenant en charge RDMA
+*Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.
 
 <br>
 
@@ -31,14 +31,14 @@ ACU : 290-300
 
 ACU : 225
 
-| Taille | Cœurs d’unité centrale | Mémoire : Gio | Disque dur local : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Cartes réseau (max)/Bande passante réseau |
+| Taille | Cœurs d’unité centrale | Mémoire : Gio | Disque dur local : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Nombre max de cartes réseau|
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16 x 500 |2 / Élevée |
-| Standard_A9* |16 |112 |382 |16 |16 x 500 |4 / Très élevée |
-| Standard_A10 |8 |56 |382 |16 |16 x 500 |2 / Élevée |
-| Standard_A11 |16 |112 |382 |16 |16 x 500 |4 / Très élevée |
+| Standard_A8* |8 |56 |382 |16 |16 x 500 |2 |
+| Standard_A9* |16 |112 |382 |16 |16 x 500 |4 |
+| Standard_A10 |8 |56 |382 |16 |16 x 500 |2  |
+| Standard_A11 |16 |112 |382 |16 |16 x 500 |4 |
 
-*Prenant en charge RDMA
+*Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.
 
 <br>
 

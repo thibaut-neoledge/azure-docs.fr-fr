@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 24ccafb4df95e0010416485199e19f81e1ae31aa
-ms.openlocfilehash: 11017c7c0a761569892aebcd085d5d3fb2d67a69
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 02c51e6a576b5a91044eae784c72d7529497b814
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/14/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -84,8 +84,38 @@ Installez [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Sélectionner une visualisation](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Actualisez le rapport manuellement selon des intervalles ou configurez une actualisation planifiée dans la page des options.
 
+## <a name="troubleshooting"></a>résolution des problèmes
+
+### <a name="401-or-403-unauthorized"></a>401 ou 403 non autorisé 
+Cela peut se produire si votre jeton d’actualisation n’a pas été mis à jour. Essayez les opérations suivantes pour vérifier que vous avez toujours accès. Si vous avez accès et que l’actualisation des informations d’identification échoue, ouvrez un ticket de support.
+
+1. Connectez-vous au portail Azure et vérifiez que vous avez accès à la ressource.
+2. Essayez d’actualiser les informations d’identification du tableau de bord.
+
+### <a name="502-bad-gateway"></a>502 Passerelle incorrecte
+Cela est généralement dû à une requête Analytics qui renvoie trop de données. Essayez d’utiliser une plage de temps plus réduite ou, en utilisant les fonctions [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) ou [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) de [projeter](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator) les champs dont vous avez besoin.
+
+Si la réduction du jeu de données provenant de la requête Analytics ne vous convient pas, utilisez l’[API](https://dev.applicationinsights.io/documentation/overview) pour en extraire un plus grand. Voici les instructions permettant de convertir l’export M-Query pour utiliser l’API.
+
+1. Créez une [clé d’API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
+2. Mettez à jour le script Power BI M que vous avez exporté d’Analytics en remplaçant l’URL ARM par l’API AI (voir l’exemple ci-dessous).
+   * Remplacez **https://management.azure.com/subscriptions/...**
+   * par **https://api.applicationinsights.io/beta/apps/...**
+3. Enfin, mettez à jour les informations d’identification de base et utilisez votre clé d’API.
+  
+
+**Script existant**
+ ```
+ Source = Json.Document(Web.Contents("https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups//providers/microsoft.insights/components//api/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+**Script mis à jour**
+ ```
+ Source = Json.Document(Web.Contents("https://api.applicationinsights.io/beta/apps/<APPLICATION_ID>/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+
 ## <a name="about-sampling"></a>À propos de l’échantillonnage
 Si votre application envoie beaucoup de données, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et envoyer seulement un pourcentage de vos données de télémétrie. Il en est de même si vous avez défini manuellement l’échantillonnage dans le Kit SDK ou sur ingestion. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Power BI - En savoir plus](http://www.powerbi.com/learning/)

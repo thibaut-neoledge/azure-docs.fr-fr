@@ -85,8 +85,6 @@
           href: preserving-maintenance.md
         - name: Redémarrage de maintenance
           href: impactful-maintenance.md
-        - name: Planification
-          href: planned-maintenance-schedule.md
     - name: Tailles de machine virtuelle
       href: sizes.md
       items:
@@ -388,6 +386,10 @@
               href: migration-classic-resource-manager-faq.md
     - name: Résolution des problèmes
       items:
+        - name: >-
+            Prise en charge de l'ajout de machines virtuelles Azure dans un
+            groupe de disponibilité existant
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Comprendre un redémarrage du système
           href: understand-vm-reboot.md
         - name: Connexions Bureau à distance
@@ -427,6 +429,8 @@
               href: troubleshoot-recovery-disks.md
             - name: Portail Azure
               href: troubleshoot-recovery-disks-portal.md
+        - name: Utiliser PerfInsights pour résoudre les problèmes de performance
+          href: how-to-use-perfInsights.md
 - name: Référence
   items:
     - name: Interface de ligne de commande Azure

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 371976a35ae285942decaf8e22651e98f6217a95
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="community-portal"></a>Portail de la communauté
@@ -57,7 +56,7 @@ Découvrez plus d’informations à ce sujet sur [GitHub](https://github.com/jco
 ### <a name="swagger-rest-api-for-documentdb"></a>API REST Swagger pour DocumentDB
 *par Howard Edidin*
 
-Fichier Swagger d’API REST Azure Cosmos DB qui peut être facilement déployé en tant qu’application API.
+Fichier Swagger d’API REST Azure Cosmos DB pour l’API DocumentDB, qui peut être facilement déployé en tant qu’application API.
 
 Découvrez plus d’informations à ce sujet sur [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
@@ -105,7 +104,7 @@ Pour vous tenir informé des dernières nouveautés et fonctionnalités Azure C
 |[Code Camp en Floride du Sud : NoSQL pour les développeurs .NET en moins de 10 minutes avec Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, Floride|11 mars 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[Code Camp à Orlando : NoSQL pour les développeurs .NET en moins de 10 minutes avec Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, Floride|8 avril 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
 |[Camp d'entraînement Azure mondial : l’informatique sans serveur dans Azure avec Azure Functions et DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| [Josh Lane](https://twitter.com/jplane)|Atlanta, GA|22 avril 2017|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
-|[NDC Olso 2017: Azure DocumentDB - The Best NoSQL Database You’re Probably Not Using (Yet) (Conférence des développeurs norvégiens - Olso 2017 : Azure DocumentDB : la meilleure base de données NoSQL que vous n’utilisez probablement pas (encore))](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)|[Josh Lane](https://twitter.com/jplane)|Olso, Norvège|14 juin 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
+|[NDC Olso 2017: Azure DocumentDB - The Best NoSQL Database You’re Probably Not Using (Yet) (Conférence des développeurs norvégiens - Olso 2017 : Azure DocumentDB : la meilleure base de données NoSQL que vous n’utilisez probablement pas (encore))](http://ndcoslo.com/talk/azure-cosmos-db-the-best-nosql-database-youre-probably-not-using-yet/)|[Josh Lane](https://twitter.com/jplane)|Olso, Norvège|14 juin 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
 *Vous accueillez un événement ou y participez ? [Dites-nous](mailto:askcosmosdb@microsoft.com) en quoi nous pouvons vous aider !*
 

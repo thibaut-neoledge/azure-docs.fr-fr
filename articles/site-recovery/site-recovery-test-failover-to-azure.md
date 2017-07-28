@@ -15,17 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: pratshar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 0df4b3535449c88f11fa7a58811f68c82549558f
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 198640030b638720863ffae05543b32692608f1b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
-# <a name="test-----failover-to-azure-in-site-recovery"></a>Test de basculement vers Azure dans Site Recovery
-> [!div class="op_single_selector"]
-> * [Test de basculement vers Azure](./site-recovery-test-failover-to-azure.md)
-> * [Test de basculement (VMM à VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
+# <a name="test--failover-to-azure-in-site-recovery"></a>Test de basculement vers Azure dans Site Recovery
+
 
 
 Cet article fournit des informations et des instructions relatives à l’exécution d’un test de basculement ou d’un test de récupération d’urgence de machines virtuelles et de serveurs physiques protégés par Site Recovery en utilisant Azure comme site de récupération.
@@ -50,7 +48,7 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
     1.  **Dernier point dans le temps traité** : cette option permet de basculer toutes les machines virtuelles du plan de récupération vers le dernier point de récupération ayant déjà été traité par le service Site Recovery. Lorsque vous effectuez un test de basculement d’une machine virtuelle, la date et l’heure du dernier point de récupération traité sont également affichées. Si vous effectuez le basculement d’un plan de récupération, vous pouvez accéder à une machine virtuelle individuelle et consulter la vignette **Latest Recovery Points** (Derniers points de récupération) pour obtenir ces informations. Comme aucun temps n’est passé à traiter les données non traitées, cette option assure un basculement avec un objectif de délai récupération (RTO) faible.
     1.    **Dernier point dans le temps cohérent de l’application** : cette option permet de basculer toutes les machines virtuelles du plan de récupération vers le dernier point de récupération cohérent d’application ayant déjà été traité par le service Site Recovery. Lorsque vous effectuez un test de basculement d’une machine virtuelle, la date et l’heure du dernier point de récupération cohérent d’application sont également affichées. Si vous effectuez le basculement d’un plan de récupération, vous pouvez accéder à une machine virtuelle individuelle et consulter la vignette **Latest Recovery Points** (Derniers points de récupération) pour obtenir ces informations.
     1.    **Dernier point dans le temps** : cette option permet de traiter d’abord toutes les données qui ont été envoyées au service de récupération de site afin de créer un point de récupération pour chaque machine virtuelle avant de basculer les machines virtuelles vers celui-ci. Cette option offre l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement disposera de toutes les données qui ont été répliquées vers le service de récupération de site lorsque le basculement a été déclenché.
-    1.    **Personnalisé** : si vous effectuez un test de basculement d’une machine virtuelle, vous pouvez utiliser cette option pour réaliser le basculement vers un point de récupération spécifique.
+    1.  **Personnalisé** : si vous effectuez un test de basculement d’une machine virtuelle, vous pouvez utiliser cette option pour réaliser le basculement vers un point de récupération spécifique.
 1. **Réseau virtuel Azure** : spécifiez le réseau virtuel Azure où les machines virtuelles seront créées. Site Recovery tente de créer les machines virtuelles de test dans un sous-réseau du même nom et à l’aide de la même adresse IP que dans les paramètres **Calcul et réseau** de la machine virtuelle. Si le réseau virtuel Azure indiqué pour le test de basculement ne contient pas de sous-réseau du même nom, la machine virtuelle de test est créée dans le premier sous-réseau dans l’ordre alphabétique. Si la même adresse IP n’est pas disponible dans le sous-réseau, la machine virtuelle reçoit une autre adresse IP disponible dans le sous-réseau. Pour plus d’informations, consultez [cette section](#creating-a-network-for-test-failover).
 1. Si vous effectuez le basculement vers Azure et la fonction de chiffrement des données est activée, accédez à la zone **Clé de chiffrement** et sélectionnez le certificat émis lorsque vous avez activé le chiffrement des données pendant l’installation du fournisseur. Vous pouvez ignorer cette étape si vous n’avez pas activé le chiffrement sur la machine virtuelle.
 1. Effectuez un suivi de l’opération sur l’onglet **Tâches** . Vous devriez voir apparaître l’ordinateur virtuel de réplication de test sur le portail Microsoft Azure.
@@ -77,19 +75,19 @@ Le déclenchement d’un test basculement implique les étapes suivantes :
 
 Dans certains cas, le basculement des machines virtuelles nécessite une étape supplémentaire intermédiaire qui dure généralement de 8 à 10 minutes. Il s’agit des cas suivants :
 
-* Machines virtuelles VMware utilisant une version antérieure à la 9.8 pour le service de mobilité
-* Serveurs physiques 
+* Machines virtuelles VMware utilisant une version du service Mobilité antérieure à la version 9.8
+* Serveurs physiques
 * Machines virtuelles VMware Linux
 * Machines virtuelles Hyper-V protégées en tant que serveurs physiques
-* Machines virtuelles où les pilotes suivants ne sont pas présents en tant que pilotes de démarrage 
-    * storvsc 
-    * vmbus 
-    * storflt 
-    * intelide 
+* Machines virtuelles où les pilotes suivants ne sont pas présents en tant que pilotes de démarrage
+    * storvsc
+    * vmbus
+    * storflt
+    * intelide
     * atapi
 * Machines virtuelles VMware qui n’ont pas de service DHCP activé, que vous utilisiez des adresses IP statiques ou DHCP
 
-Dans tous les autres cas, cette étape intermédiaire n’est pas nécessaire et le temps nécessaire au basculement est nettement plus faible. 
+Dans tous les autres cas, cette étape intermédiaire n’est pas nécessaire et le temps nécessaire au basculement est nettement plus faible.
 
 
 ## <a name="creating-a-network-for-test-failover"></a>Création d’un réseau pour le test de basculement

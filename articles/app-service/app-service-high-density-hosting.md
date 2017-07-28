@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 06/12/2017
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: 0c2677b388f7a88ff88715a05212633565393cc2
-ms.openlocfilehash: 2d5d1d5123ca718b2e7dcdf426b77f91969dc9dc
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 459a310a719695f6366470976d857ec2f9d6f4a1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -36,7 +37,7 @@ Toutefois, lorsque plusieurs applications partagent un plan App Service, une ins
 ## <a name="per-app-scaling"></a>Mise à l’échelle par application
 *La mise à l’échelle par application* est une fonction qui peut être activée au niveau du plan App Service et activée par chaque application.
 
-La mise à l’échelle par application permet de mettre à l’échelle une application indépendamment du plan App Service qui l’héberge. De cette façon, un plan App Service peut être configuré pour fournir 10 instances, mais une application peut être définie pour être mise l’échelle pour seulement 5 d’entre elles.
+La mise à l’échelle par application permet de mettre à l’échelle une application indépendamment du plan App Service qui l’héberge. De cette manière, un plan App Service peut passer à 10 instances, mais une application peut être définie de manière à n’en utiliser que cinq.
 
    >[!NOTE]
    >La mise à l’échelle par application est disponible uniquement pour les plans App Service **Premium** de référence
@@ -60,32 +61,35 @@ Si vous souhaitez mettre à jour un plan App Service existant pour utiliser cett
 - Validez les modifications vers Azure ```Set-AzureRmAppServicePlan``` 
 
 ```
-    # Get the new App Service Plan and modify the "PerSiteScaling" property.
-    $newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-    $newASP
+# Get the new App Service Plan and modify the "PerSiteScaling" property.
+$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
+$newASP
 
-    #Modify the local copy to use "PerSiteScaling" property.
-    $newASP.PerSiteScaling = $true
-    $newASP
+#Modify the local copy to use "PerSiteScaling" property.
+$newASP.PerSiteScaling = $true
+$newASP
     
-    #Post updated app service plan back to azure
-    Set-AzureRmAppServicePlan $newASP
+#Post updated app service plan back to azure
+Set-AzureRmAppServicePlan $newASP
 ```
 
-Une fois qu’un plan a été configuré, vous pouvez définir le nombre maximal d’instances de chacune des applications.
+Au niveau de l’application, nous devons configurer le nombre d’instances que l’application peut utiliser dans le plan App Service.
 
-Dans l’exemple ci-dessous, l’application est limitée à deux instances maximum quel que soit le nombre d’instances mis à l’échelle pour le plan App Service sous-jacent.
+Dans l’exemple ci-dessous, l’application est limitée à deux instances quel que soit le nombre d’instances mis à l’échelle pour le plan App Service sous-jacent.
 
 ```
-    # Get the app we want to configure to use "PerSiteScaling"
-    $newapp = Get-AzureRmWebApp -ResourceGroupName $ResourceGroup -Name $webapp
+# Get the app we want to configure to use "PerSiteScaling"
+$newapp = Get-AzureRmWebApp -ResourceGroupName $ResourceGroup -Name $webapp
     
-    # Modify the NumberOfWorkers setting to the desired value.
-    $newapp.SiteConfig.NumberOfWorkers = 2
+# Modify the NumberOfWorkers setting to the desired value.
+$newapp.SiteConfig.NumberOfWorkers = 2
     
-    # Post updated app back to azure
-    Set-AzureRmWebApp $newapp
+# Post updated app back to azure
+Set-AzureRmWebApp $newapp
 ```
+
+> [!IMPORTANT]
+> $newapp.SiteConfig.NumberOfWorkers est différent de $newapp.MaxNumberOfWorkers. La mise à l’échelle par application utilise $newapp. SiteConfig.NumberOfWorkers pour déterminer les caractéristiques de mise à l’échelle de l’application.
 
 ### <a name="per-app-scaling-using-azure-resource-manager"></a>Mise à l’échelle par application avec Azure Resource Manager
 
@@ -97,61 +101,66 @@ Le *modèle Azure Resource Manager* ci-dessous crée les éléments suivants :
 Le plan App Service définit la propriété **PerSiteScaling** sur true ```"perSiteScaling": true```. L’application définit le **nombre de Workers** à utiliser sur 5 ```"properties": { "numberOfWorkers": "5" }```.
 
 ```
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters":{
-            "appServicePlanName": { "type": "string" },
-            "appName": { "type": "string" }
-         },
-        "resources": [
-        {
-            "comments": "App Service Plan with per site perSiteScaling = true",
-            "type": "Microsoft.Web/serverFarms",
-            "sku": {
-                "name": "P1",
-                "tier": "Premium",
-                "size": "P1",
-                "family": "P",
-                "capacity": 10
-                },
-            "name": "[parameters('appServicePlanName')]",
-            "apiVersion": "2015-08-01",
-            "location": "West US",
-            "properties": {
-                "name": "[parameters('appServicePlanName')]",
-                "perSiteScaling": true
-            }
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters":{
+        "appServicePlanName": { "type": "string" },
+        "appName": { "type": "string" }
         },
-        {
-            "type": "Microsoft.Web/sites",
-            "name": "[parameters('appName')]",
-            "apiVersion": "2015-08-01-preview",
-            "location": "West US",
-            "dependsOn": [ "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" ],
-            "properties": { "serverFarmId": "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" },
-            "resources": [ {
-                    "comments": "",
-                    "type": "config",
-                    "name": "web",
-                    "apiVersion": "2015-08-01",
-                    "location": "West US",
-                    "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
-                    "properties": { "numberOfWorkers": "5" }
-             } ]
-         }]
-    }
+    "resources": [
+    {
+        "comments": "App Service Plan with per site perSiteScaling = true",
+        "type": "Microsoft.Web/serverFarms",
+        "sku": {
+            "name": "P1",
+            "tier": "Premium",
+            "size": "P1",
+            "family": "P",
+            "capacity": 10
+            },
+        "name": "[parameters('appServicePlanName')]",
+        "apiVersion": "2015-08-01",
+        "location": "West US",
+        "properties": {
+            "name": "[parameters('appServicePlanName')]",
+            "perSiteScaling": true
+        }
+    },
+    {
+        "type": "Microsoft.Web/sites",
+        "name": "[parameters('appName')]",
+        "apiVersion": "2015-08-01-preview",
+        "location": "West US",
+        "dependsOn": [ "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" ],
+        "properties": { "serverFarmId": "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" },
+        "resources": [ {
+                "comments": "",
+                "type": "config",
+                "name": "web",
+                "apiVersion": "2015-08-01",
+                "location": "West US",
+                "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
+                "properties": { "numberOfWorkers": "5" }
+            } ]
+        }]
+}
 ```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Configuration recommandée pour l’hébergement haute densité
-La fonctionnalité de mise à l’échelle par application est activée dans les régions Azure et les environnements App Service publics. Toutefois, la stratégie recommandée consiste à utiliser des environnements App Service pour tirer parti de leurs fonctionnalités avancées et des pools de capacité supérieure.  
+La fonctionnalité de mise à l’échelle par application est activée dans les régions Azure et les environnements App Service globaux. Toutefois, la stratégie recommandée consiste à utiliser des environnements App Service pour tirer parti de leurs fonctionnalités avancées et des pools de capacité supérieure.  
 
 Suivez ces étapes pour configurer un hébergement haute densité pour vos applications :
 
 1. Configurez l’environnement App Service et choisissez un pool de Workers consacré au scénario d’hébergement haute densité.
-2. Créez un seul plan App Service et mettez-le à l’échelle pour utiliser toute la capacité disponible sur le pool de Workers.
-3. Définissez l’indicateur PerSiteScaling sur true dans le plan App Service.
-4. Les nouvelles applications sont créées et attribuées à ce plan App Service avec la propriété **numberOfWorkers** définie sur **1**. Cela donne la densité la plus élevée possible sur ce pool de Workers.
-5. Le nombre de Workers peut être configuré indépendamment par application pour accorder des ressources supplémentaires en fonction des besoins. Par exemple, une application à utilisation élevée peut définir **numberOfWorkers** sur **3** afin d’avoir plus de capacité de traitement pour cette application, tandis que les applications à faible utilisation peuvent définir **numberOfWorkers** sur **1**.
+1. Créez un seul plan App Service et mettez-le à l’échelle pour utiliser toute la capacité disponible sur le pool de Workers.
+1. Définissez l’indicateur PerSiteScaling sur true dans le plan App Service.
+1. Les nouvelles applications sont créées et attribuées à ce plan App Service avec la propriété **numberOfWorkers** définie sur **1**. Cela donne la densité la plus élevée possible sur ce pool de Workers.
+1. Le nombre de Workers peut être configuré indépendamment par application pour accorder des ressources supplémentaires en fonction des besoins. Par exemple :
+    - Une application à haut niveau d’utilisation peut définir **numberOfWorkers** sur **3** pour accroître la capacité de traitement de cette application. 
+    - Les applications à faible niveau d’utilisation définiraient **numberOfWorkers** sur **1**.
 
+## <a name="next-steps"></a>Étapes suivantes
 
+- [Présentation détaillée des plans Azure App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md)
+- [Présentation de l'environnement App Service](../app-service-web/app-service-app-service-environment-intro.md)

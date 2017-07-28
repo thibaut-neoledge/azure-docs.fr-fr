@@ -1,6 +1,6 @@
 ---
 title: "Mise à niveau d’une application : sérialisation des données | Microsoft Docs"
-description: "Meilleures pratiques pour la sérialisation de données et son impact sur le déploiement des mises à niveau d&quot;applications."
+description: "Meilleures pratiques pour la sérialisation de données et son impact sur le déploiement des mises à niveau d'applications."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -12,19 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d8cc770e863381bcc9dc4417bd2b1f91ac0a34e9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 6aa3ac7842df4657fca7f6b4264e1c6fe52dc0c6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/01/2017
 
 
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Impact de la sérialisation des données sur la mise à niveau d’une application
-Dans un [mise à niveau d'application propagée](service-fabric-application-upgrade.md), la mise à niveau est appliquée à un sous-ensemble de nœuds, à raison d'un domaine de mise à niveau à la fois. Pendant ce processus, certains domaines de mise à niveau se trouvent sur la version la plus récente de votre application, tandis que d'autres se trouvent sur la version antérieure. Pendant le déploiement, la nouvelle version de votre application doit être en mesure de lire l’ancienne version de vos données, tandis que l’ancienne version de votre application doit être à même de lire la nouvelle version de vos données. Si le format de données n’offre pas une compatibilité ascendante et descendante, la mise à niveau peut échouer ou, pire, des données peuvent être perdues ou endommagées. Cet article explique ce qui constitue le format de données et détaille les méthodes recommandées pour que les données offrent une compatibilité ascendante et descendante.
+Dans un [mise à niveau d'application propagée](service-fabric-application-upgrade.md), la mise à niveau est appliquée à un sous-ensemble de nœuds, à raison d'un domaine de mise à niveau à la fois. Pendant ce processus, certains domaines de mise à niveau se trouvent sur la version la plus récente de votre application, tandis que d’autres se trouvent sur la version antérieure. Pendant le déploiement, la nouvelle version de votre application doit être en mesure de lire l’ancienne version de vos données, tandis que l’ancienne version de votre application doit être à même de lire la nouvelle version de vos données. Si le format de données n’offre pas une compatibilité ascendante et descendante, la mise à niveau peut échouer ou, pire, des données peuvent être perdues ou endommagées. Cet article explique ce qui constitue le format de données et détaille les méthodes recommandées pour que les données offrent une compatibilité ascendante et descendante.
 
 ## <a name="what-makes-up-your-data-format"></a>Qu'est-ce qui constitue le format de données ?
-Dans Azure Service Fabric, les données qui sont rendues persistantes et répliquées proviennent de vos classes C#. Dans le cas des applications utilisant des [collections fiables](service-fabric-reliable-services-reliable-collections.md), il s’agit des objets qui se trouvent dans les files d’attente et les dictionnaires fiables. Dans le cas des applications utilisant [Reliable Actors](service-fabric-reliable-actors-introduction.md), il s’agit de l’état de sauvegarde de l’acteur. Ces classes C# doivent être sérialisables pour être persistantes et répliquées. Le format de données est donc défini par les champs et propriétés sérialisés, ainsi que par la manière dont ils sont sérialisés. Par exemple, dans un `IReliableDictionary<int, MyClass>`, les données sont un `int` sérialisé et un `MyClass` sérialisé.
+Dans Azure Service Fabric, les données qui sont rendues persistantes et répliquées proviennent de vos classes C#. Dans le cas des applications utilisant des [collections fiables](service-fabric-reliable-services-reliable-collections.md), ces données sont les objets qui se trouvent dans les files d’attente et les dictionnaires fiables. Dans le cas des applications utilisant [Reliable Actors](service-fabric-reliable-actors-introduction.md), il s’agit de l’état de sauvegarde de l’acteur. Ces classes C# doivent être sérialisables pour être persistantes et répliquées. Le format de données est donc défini par les champs et propriétés sérialisés, ainsi que par la manière dont ils sont sérialisés. Par exemple, dans un `IReliableDictionary<int, MyClass>`, les données sont un `int` sérialisé et un `MyClass` sérialisé.
 
 ### <a name="code-changes-that-result-in-a-data-format-change"></a>Modifications du code résultant dans une modification du format de données
 Le format de données étant déterminé par les classes C#, les modifications apportées aux classes peuvent entraîner une modification du format de données. Veillez à ce que la mise à niveau propagée puisse gérer la modification du format de données. Exemples d'opérations pouvant entraîner une modification du format de données :
@@ -53,19 +55,14 @@ Les deux versions de format de données et de code doivent être mutuellement co
 Le contrat de données est la solution recommandée pour s’assurer de la compatibilité des données. Il possède des règles de gestion de version bien définies pour l'ajout, la suppression et la modification de champs. En outre, il prend en charge les champs inconnus, avec raccordement au processus de sérialisation et de désérialisation, ainsi que l’héritage de classe. Pour plus d'informations, consultez la page [Utilisation du contrat de données](https://msdn.microsoft.com/library/ms733127.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[mise à niveau de votre application à l'aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l'application à l'aide de Visual Studio.
+[mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
 
-[mise à niveau de votre application à l'aide de Powershell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l'application à l'aide de PowerShell.
+[mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.
 
 Contrôlez les mises à niveau de votre application à l'aide des [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).
 
 Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
 
 Résolvez les problèmes courants de mise à niveau de l'application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications ](service-fabric-application-upgrade-troubleshooting.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

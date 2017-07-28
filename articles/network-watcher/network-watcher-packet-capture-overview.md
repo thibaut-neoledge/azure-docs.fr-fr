@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: dde3d1b1b0708d49ac713e18242c3376d301c675
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4fdd007c2cfad7b42f26ab2cacfba06d95c8dad3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -37,7 +38,7 @@ Pour capturer uniquement les informations qui vous intéressent, vous disposez d
 
 |Propriété|Description|
 |---|---|
-|**Nombre maximal d’octets par paquet (octets)** | Nombre d’octets capturés dans chaque paquet. Si ce champ est vide, tous les octets sont capturés. Nombre d’octets capturés dans chaque paquet. Si ce champ est vide, tous les octets sont capturés. Si seul l’en-tête IPv4 vous intéresse, indiquez 60 dans ce champ. |
+|**Nombre maximal d’octets par paquet (octets)** | Nombre d’octets capturés dans chaque paquet. Si ce champ est vide, tous les octets sont capturés. Nombre d’octets capturés dans chaque paquet. Si ce champ est vide, tous les octets sont capturés. Si seul l’en-tête IPv4 vous intéresse, indiquez 34 dans ce champ. |
 |**Nombre maximal d’octets par session (octets)** | Nombre total d’octets capturés. Une fois que cette valeur est atteinte, la session prend fin.|
 |**Délai imparti (secondes)** | Contrainte de temps définie pour la session de capture de paquets. La valeur par défaut est de 18 000 secondes (5 heures).|
 

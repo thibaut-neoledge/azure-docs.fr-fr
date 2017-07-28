@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation d’Azure Container Instances
+metadata:
+  title: Documentation d’Azure Container Instances - Didacticiels | Microsoft Docs
+  description: 'Azure Container Instances propose la façon la plus simple et rapide d’exécuter un conteneur dans Azure, sans avoir à configurer des machines virtuelles et sans avoir à adopter un service de niveau supérieur.'
+  services: container-instances
+  author: carolz
+  manager: carolz
+  ms.service: container-instances
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Container Instances propose la façon la plus simple et rapide d’exécuter un conteneur dans Azure, sans avoir à configurer des machines virtuelles et sans avoir à adopter un service de niveau supérieur. Si vous avez besoin d’une solution d’orchestration de conteneur complète, consultez la <a href="/azure/container-service/kubernetes/">documentation de Kubernetes sur Azure Container Service</a>. Découvrez comment créer et gérer des instances de conteneurs avec nos démarrages rapides, nos didacticiels et nos exemples.'
+sections:
+  - title: "Démarrages en 5\_minutes"
+    items:
+      - type: paragraph
+        text: Découvrez comment déployer des images conteneur à l’aide d’Azure Container Instances.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/container-instances/media/container-instances.png
+            text: Créer une instance de conteneur
+            href: /azure/container-instances/container-instances-quickstart
+  - title: Didacticiels pas à pas
+    items:
+      - type: paragraph
+        text: Découvrez comment packager du code dans une image conteneur et l’exécuter dans Azure Container Instances.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Packager une application dans une image conteneur</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Créer un registre Azure Container Registry et charger l’image conteneur</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Déployer l’image conteneur dans une instance Azure Container Instances</a>

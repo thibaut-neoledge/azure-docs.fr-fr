@@ -12,16 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 813120692232096275f3a7500c3b54e16af26b77
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: a9fc8427e76ee8fa48fa8f1ad452c6fe9b544ce2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/09/2017
 
 ---
 
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solution Analyse VMware (version préliminaire) dans Log Analytics
+
+![Symbole VMware](./media/log-analytics-vmware/vmware-symbol.png)
+
 La solution Analyse VMware dans Log Analytics vous aide à créer une approche centralisée de la journalisation et de l’analyse des journaux VMware volumineux. Cet article décrit comment dépanner, capturer et gérer les hôtes ESXi dans un emplacement unique à l’aide de la solution. La solution vous permet de consulter des données détaillées pour tous vos hôtes ESXi dans un emplacement unique. Vous pouvez voir le nombre, l’état et les tendances des principaux événements des hôtes de machine virtuelle et ESXi, fournis via les journaux d’hôte ESXi. Vous pouvez résoudre des problèmes en consultant des journaux d’hôte ESXi centralisés et en y effectuant des recherches. Et vous pouvez créer des alertes basées sur des requêtes de recherche de journal.
 
 La solution utilise la fonctionnalité syslog native de l’hôte ESXi pour transmettre des données à une machine virtuelle cible, qui dispose de l’agent OMS. Toutefois, la solution n’écrit pas de fichiers dans syslog sur la machine virtuelle cible. L’agent OMS ouvre le port 1514 et l’écoute. Une fois les données reçues, l’agent OMS envoie les données dans OMS.
@@ -77,7 +81,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 | plateforme | Agent OMS pour Linux | Agent SCOM | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Linux |![Oui](./media/log-analytics-vmware/oms-bullet-green.png) |![Non](./media/log-analytics-vmware/oms-bullet-red.png) |![Non](./media/log-analytics-vmware/oms-bullet-red.png) |![Non](./media/log-analytics-containers/oms-bullet-red.png) |![Non](./media/log-analytics-vmware/oms-bullet-red.png) |Toutes les 3 minutes. |
+| Linux |![Oui](./media/log-analytics-vmware/oms-bullet-green.png) |![Non](./media/log-analytics-vmware/oms-bullet-red.png) |![Non](./media/log-analytics-vmware/oms-bullet-red.png) |![Non](./media/log-analytics-containers/oms-bullet-red.png) |![Non](./media/log-analytics-vmware/oms-bullet-red.png) |Toutes les 3 minutes. |
 
 Le tableau suivant affiche des exemples de champs de données collectés par la solution Analyse VMware :
 

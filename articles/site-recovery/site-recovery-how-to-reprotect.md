@@ -11,18 +11,20 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 02/13/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3156ca5b2b8ba836e94d79a97b28bf591c799b48
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d77f9c4e6365c95b0ea1bf4d00b9f2e9c35eefde
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotection d’Azure vers un site local
+
+
 
 ## <a name="overview"></a>Vue d’ensemble
 Cet article explique comment reprotéger des machines virtuelles Azure d’Azure vers le site local. Suivez les instructions de cet article lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure, en utilisant la procédure [Répliquer des machines virtuelles VMware et des serveurs physiques sur Azure avec Azure Site Recovery](site-recovery-failover.md).
@@ -44,7 +46,7 @@ Voici les quelques étapes préalables à prendre en compte lors de la préparat
 
 * Si les machines virtuelles vers lesquelles vous voulez effectuer une restauration automatique sont gérées par un serveur vCenter, vous devez vous assurer de disposer des autorisations requises pour la détection des machines virtuelles sur les serveurs vCenter. [En savoir plus](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 
-> [!WARNING] 
+> [!WARNING]
 > Si des captures instantanées sont présentes sur la cible maître local ou la machine virtuelle, la reprotection échoue. Vous pouvez supprimer les captures instantanées sur la cible maître avant de procéder à la reprotection. Les captures instantanées sur la machine virtuelle vont être fusionnées automatiquement lors de la tâche de reprotection.
 
 * Avant de procéder à une restauration automatique, vous allez devoir créer deux autres composants :
@@ -103,6 +105,10 @@ Cliquez sur les liens suivants pour en savoir plus sur l’installation d’un s
 * [Installation d’un serveur cible maître Linux](site-recovery-how-to-install-linux-master-target.md)
 
 
+### <a name="what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback"></a>Quels types de banques de données sont pris en charge sur l’hôte ESXi local lors d’une restauration automatique ?
+
+Actuellement, ASR prend en charge uniquement la restauration automatique vers une banque de données VMFS. Les banques de données vSAN ou NFS ne sont pas prises en charge. Notez que vous pouvez protéger des machines virtuelles s’exécutant sur un banque de données vSAN ou NFS. En raison de cette limitation, l’entrée de sélection de banque de données dans l’écran de reprotection est vide s’il s’agit d’une banque de données NFS, ou affiche la banque de données vSAN mais échoue lors de l’exécution du travail. Si vous voulez une restauration automatique, vous pouvez créer une banque de données VMFS locale, puis opérer la restauration automatique sur celle-ci. Cette restauration automatique provoque un téléchargement complet du VMDK. Dans les versions à venir, nous ajouterons la prise en charge des banques de données NFS et vSAN.
+
 #### <a name="common-things-to-check-after-completing-installation-of-the-master-target-server"></a>Points à vérifier après l’installation du serveur cible maître
 
 * Si la machine virtuelle est présente en local sur le serveur vCenter, le serveur cible maître a besoin d’accéder au VMDK de la machine virtuelle locale. Cet accès est nécessaire pour écrire les données répliquées sur des disques de la machine virtuelle. Assurez-vous que le magasin de données de la machine virtuelle locale est monté sur l’hôte du serveur cible maître avec accès en lecture/écriture.
@@ -129,7 +135,7 @@ Cliquez sur les liens suivants pour en savoir plus sur l’installation d’un s
    * Le volume de rétention par défaut pour Windows est le volume R.
 
    * Le volume de rétention par défaut pour Linux est /mnt/retention.
-   
+
    > [!IMPORTANT]
    > Vous devez ajouter un nouveau lecteur si vous utilisez une machine CS+PS existante, une mise à l’échelle ou une machine PS+MT. Le nouveau lecteur doit respecter les conditions ci-dessus. Si le lecteur de rétention n’est pas présent, aucun n’apparaît dans la liste de sélection déroulante sur le portail. Une fois que vous avez ajouté un lecteur au serveur cible maître local, quinze minutes sont nécessaires pour que ce lecteur apparaisse dans la sélection sur le portail. Vous pouvez également actualiser le serveur de configuration si le lecteur n’apparaît pas au bout de 15 minutes.
 

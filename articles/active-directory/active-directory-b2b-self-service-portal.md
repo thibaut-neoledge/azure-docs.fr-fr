@@ -13,24 +13,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/11/2017
+ms.date: 05/24/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: f629eeb6f12c8785cab2585190f70e98b02fa5b4
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 307373c75bbb87cec683f7a3097f8f159c9d5e61
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/25/2017
 
 
 ---
 
 
-# <a name="self-service-sign-up-portal-for-azure-ad-b2b-collaboration"></a>Portail d’inscription en libre-service pour Azure AD B2B Collaboration
+# <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portail d’inscription en libre-service pour Azure AD B2B Collaboration
 
-Les clients peuvent faire beaucoup d’opérations avec les fonctionnalités prédéfinies du produit, qui sont exposées via nos expériences d’administration informatique dans le [portail Azure](https://portal.azure.com) et notre [volet d’accès aux applications](https://myapps.microsoft.com) pour les non-administrateurs. Mais nous sommes également conscients que les entreprises ont besoin de personnaliser le flux de travail d’intégration pour les utilisateurs B2B en fonction des besoins de leur organisation. Elles le peuvent avec [nos API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+Les clients peuvent faire beaucoup d’opérations avec les fonctionnalités intégrées qui sont exposées par le biais de notre [portail Azure](https://portal.azure.com) d’administration utilisateur et notre [panneau d’accès aux applications](https://myapps.microsoft.com) pour les utilisateurs. Mais nous sommes également conscients que les entreprises ont besoin de personnaliser le flux de travail d’intégration pour les utilisateurs B2B en fonction des besoins de leur organisation. Elles le peuvent avec [nos API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
-En discutant avec la plupart de nos clients, nous avons constaté un besoin commun de sortir du lot. Ce fut le cas d’une organisation invitante qui ne pouvait (ou ne voulait) pas savoir à l’avance quels collaborateurs externes auraient besoin de pouvoir accéder à ses ressources. Elle souhaitait disposer d’un moyen de permettre à des utilisateurs d’entreprises partenaires de s’auto-inscrire avec un ensemble de stratégies que l’organisation invitante contrôlerait. Cela est possible grâce à nos API. Nous avons donc publié un projet sur Github qui faisait exactement cela : [exemple de projet Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
+En discutant avec nos clients, nous avons constaté un besoin commun de sortir du lot. Une organisation invitante ne peut pas savoir à l’avance quels collaborateurs externes auront besoin d’accéder à ses ressources. Elle souhaite disposer d’un moyen de permettre à des utilisateurs d’entreprises partenaires de s’inscrire eux-mêmes avec un ensemble de stratégies que l’organisation invitante contrôle. Ce scénario est possible grâce à nos API. Nous avons donc publié un projet dédié sur GitHub : [exemple de projet GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-Notre projet Github montre comment les organisations peuvent utiliser nos API afin d’offrir à leurs partenaires approuvés des fonctionnalités d’inscription en libre-service basées sur une stratégie, avec des règles déterminant les applications auxquelles ils doivent pouvoir accéder. De cette façon, les utilisateurs partenaires peuvent accéder aux ressources appropriées quand ils en ont besoin, en toute sécurité, mais sans que personne au sein de l’organisation invitante doive les intégrer manuellement. Vous pouvez facilement déployer le projet en un clic sur un bouton dans un abonnement Azure de votre choix. Essayez !
+Notre projet GitHub montre comment les organisations peuvent utiliser nos API afin d’offrir à leurs partenaires approuvés des fonctionnalités d’inscription en libre-service basées sur une stratégie, avec des règles déterminant les applications auxquelles ils peuvent accéder. Les utilisateurs partenaires peuvent accéder aux ressources quand ils en ont besoin, en toute sécurité, mais sans que l’organisation invitante n’ait à les intégrer manuellement. Vous pouvez facilement déployer le projet dans un abonnement Azure de votre choix.
 
 ## <a name="as-is-code"></a>Code en l’état
 

@@ -1,8 +1,8 @@
 ---
 title: "Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure | Microsoft Docs"
 description: "Découvrez comment mettre à l’échelle votre ressource par une métrique personnalisée dans Azure."
-author: rajram
-manager: rboucher
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: rajram
+ms.author: ancav
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 894d5dc2599246fda59ecc9e8b542888d2ce7f74
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 428cfb29fe5d436073744a369da8ca1c2784044b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure
@@ -28,7 +27,7 @@ Cet article décrit comment mettre à l’échelle votre ressource par une mesur
 La mise à l’échelle automatique Azure Monitor s’applique uniquement aux jeux de mise à l’échelle de machine virtuelle, services cloud, plans App Service et environnements App Service. 
 
 # <a name="lets-get-started"></a>Prise en main
-Cet article suppose que vous disposez d’une application web configurée avec Application Insights déjà configuré. Si vous ne l’avez pas encore fait, vous pouvez [configurer Application Insights pour votre site web ASP.NET][1]
+Cet article suppose que vous disposez d’une application web avec Application Insights déjà configuré. Si vous ne l’avez pas encore fait, vous pouvez [configurer Application Insights pour votre site web ASP.NET][1]
 
 - Ouvrez le [portail Azure][2]
 - Cliquez sur l’icône Azure Monitor dans le volet de navigation gauche.
@@ -58,3 +57,4 @@ Félicitations ! Vous avez maintenant correctement créé vos valeurs de mise �
 [5]: ./media/monitoring-autoscale-scale-by-custom-metric/scale-setting-new-web-app.png
 [6]: ./media/monitoring-autoscale-scale-by-custom-metric/scale-by-custom-metric.png
 [7]: ./media/monitoring-autoscale-scale-by-custom-metric/autoscale-setting-custom-metrics-ai.png
+

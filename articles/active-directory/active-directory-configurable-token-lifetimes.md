@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 7d0c5f83d907af9109e27d69806d6106d4bc3214
-ms.lasthandoff: 03/28/2017
-
+ms.custom: aaddev
+ms.reviewer: anchitn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: d1d72932d8156fdada44ad6f375fe81c0428846c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (version préliminaire publique)
@@ -73,8 +75,8 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 | --- | --- | --- | --- | --- | --- |
 | Durée de vie de jeton d’accès |AccessTokenLifetime |Jetons d’accès, jetons d’ID, jetons SAML2 |1 heure |10 minutes |1 jour |
 | Délai d’inactivité maximale de jeton d’actualisation |MaxInactiveTime |Jetons d’actualisation |14 jours |10 minutes |90 jours |
-| Âge maximal de jeton d’actualisation à facteur unique |MaxAgeSingleFactor |Jetons d’actualisation (pour tous les utilisateurs) |90 jours |10 minutes |Jusqu’à révocation<sup>1</sup> |
-| Âge maximal de jeton d’actualisation multifacteur |MaxAgeMultiFactor |Jetons d’actualisation (pour tous les utilisateurs) |90 jours |10 minutes |Jusqu’à révocation<sup>1</sup> |
+| Âge maximal de jeton d’actualisation à facteur unique |MaxAgeSingleFactor |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
+| Âge maximal de jeton d’actualisation multifacteur |MaxAgeMultiFactor |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 | Âge maximal de jeton de session à facteur unique |MaxAgeSessionSingleFactor<sup>2</sup> |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 | Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor<sup>3</sup> |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 
@@ -85,9 +87,11 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 ### <a name="exceptions"></a>Exceptions
 | Propriété | Éléments affectés | Default |
 | --- | --- | --- |
-| Délai d’inactivité maximale de jeton d’actualisation (émis pour les utilisateurs fédérés disposant d’informations de révocation insuffisantes) |Jetons d’actualisation (émis pour les utilisateurs fédérés disposant d’informations de révocation insuffisantes) |12 heures |
+| Âge maximal de jeton d’actualisation (émis pour les utilisateurs fédérés disposant d’informations de révocation insuffisantes<sup>1</sup>) |Jetons d’actualisation (émis pour les utilisateurs fédérés disposant d’informations de révocation insuffisantes<sup>1</sup>) |12 heures |
 | Délai d’inactivité maximale de jeton d’actualisation (émis pour les clients confidentiels) |Jetons d’actualisation (émis pour les clients confidentiels) |90 jours |
 | Âge maximal de jeton d’actualisation (émis pour les clients confidentiels) |Jetons d’actualisation (émis pour les clients confidentiels) |Jusqu’à révocation |
+
+* <sup>1</sup>Les utilisateurs fédérés qui disposent d’informations de révocation insuffisantes incluent tous les utilisateurs qui n’ont pas l’attribut « LastPasswordChangeTimestamp » synchronisé. Cette valeur Âge maximal courte est affectée à ces utilisateurs car AAD est incapable de vérifier quand révoquer les jetons qui sont liés à d’anciennes informations d’identification (par exemple un mot de passe qui a été changé) et doit vérifier plus fréquemment pour s’assurer que les jetons associés sont toujours conformes. Pour améliorer cette expérience, les administrateurs de locataires doivent s’assurer qu’ils synchronisent l’attribut « LastPasswordChangeTimestamp » (cela peut être défini sur l’objet utilisateur à l’aide de Powershell ou d’AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Définition des priorités et évaluation de la stratégie
 Vous pouvez créer, puis affecter une stratégie de durée de vie à une application spécifique, à votre organisation et à vos principaux de service. Plusieurs stratégies peuvent s’appliquer à une application spécifique. La stratégie de durée de vie du jeton appliquée suit les règles ci-dessous :
@@ -191,7 +195,7 @@ Dans les exemples, vous pouvez apprendre à :
 * Créer une stratégie pour une application native qui appelle une API web
 * Gérer une stratégie avancée
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
 Dans les exemples suivants, vous allez créer, mettre à jour, lier et supprimer des stratégies pour les applications, les principaux de service et votre organisation globale. Si vous débutez avec Azure AD, nous vous recommandons de vous documenter sur [l’obtention d’un client Azure Active Directory](active-directory-howto-tenant.md) avant de continuer avec ces exemples.  
 
 Pour commencer, suivez les étapes ci-dessous :
@@ -270,7 +274,7 @@ Dans cet exemple, vous créez une stratégie qui nécessite que vos utilisateurs
 
     1.  Pour afficher tous les principaux de service de votre organisation, vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ou, dans [l’explorateur Azure AD Graph](https://graphexplorer.cloudapp.net/), connectez-vous à votre compte Azure AD.
 
-    2.  Une fois que vous disposez de **l’ID d’objet** de votre principal de service, exécutez la commande suivante :
+    2.  Une fois que vous disposez de **l’ID d’objet**  de votre principal de service, exécutez la commande suivante :
 
         ```PowerShell
         Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
@@ -296,7 +300,7 @@ Dans cet exemple, vous créez une stratégie qui nécessite que vos utilisateurs
 
 2. Affectez la stratégie à votre API web. Vous devez également obtenir **l’ID d’objet** de votre application. La meilleure façon de trouver **l’ID d’objet** de votre application consiste à utiliser le [portail Azure](https://portal.azure.com/).
 
-   Une fois que vous disposez de **l’ID d’objet** de votre application, exécutez la commande suivante :
+   Une fois que vous disposez de **l’ID d’objet**  de votre application, exécutez la commande suivante :
 
         ```PowerShell
         Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
@@ -326,7 +330,7 @@ Dans cet exemple, vous créez quelques stratégies, pour savoir comment fonction
 
     1.  Pour afficher tous les principaux de service de votre organisation, vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ou, dans [l’explorateur Azure AD Graph](https://graphexplorer.cloudapp.net/), connectez-vous à l’aide de votre compte Azure AD.
 
-    2.  Une fois que vous disposez de **l’ID d’objet** de votre principal de service, exécutez la commande suivante :
+    2.  Une fois que vous disposez de **l’ID d’objet**  de votre principal de service, exécutez la commande suivante :
 
             ```PowerShell
             Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
@@ -346,7 +350,7 @@ Dans cet exemple, vous créez quelques stratégies, pour savoir comment fonction
 
     À présent, la stratégie d’origine est liée à votre principal de service, et la nouvelle stratégie est définie comme stratégie par défaut de votre organisation. Il est important de se rappeler que les stratégies appliquées aux principaux de service ont priorité sur les stratégies par défaut d’organisation.
 
-## <a name="cmdlet-reference"></a>Référence sur les cmdlets
+## <a name="cmdlet-reference"></a>Référence sur les applets de commande
 
 ### <a name="manage-policies"></a>Gérer les stratégies
 

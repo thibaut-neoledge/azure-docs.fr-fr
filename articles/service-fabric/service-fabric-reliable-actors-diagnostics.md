@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 06/29/2017
 ms.author: abhisram
-translationtype: Human Translation
-ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
-ms.openlocfilehash: 1a8a36d3b6f14c75965afca970be808015059dbb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 1c53a6bbe0152f6f2b9666e6059af7c6d02e481f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -116,7 +118,7 @@ Le runtime Acteurs fiables publie les compteurs de performances suivants liés �
 
 | Nom de la catégorie | Nom du compteur | Description |
 | --- | --- | --- |
-| Service Fabric Actor |# Nombre d'appels d'acteur en attente du verrou d'acteur |Nombre d'appels d'acteur en attente d'acquisition du verrou par acteur qui applique l'accès concurrentiel en alternance |
+| Service Fabric Actor |Nombre d'appels d'acteur en attente du verrou d'acteur |Nombre d'appels d'acteur en attente d'acquisition du verrou par acteur qui applique l'accès concurrentiel en alternance |
 | Service Fabric Actor |Moyenne en millisecondes par attente de verrou |Délai (en millisecondes) d'acquisition du verrou par acteur qui applique l'accès concurrentiel en alternance |
 | Service Fabric Actor |Moyenne en millisecondes de maintien du verrou par acteur |Durée (en millisecondes) pendant laquelle le verrou par acteur est maintenu |
 
@@ -162,7 +164,7 @@ Lorsqu'un client appelle une méthode via un objet proxy d'acteur, un message de
 
 | Nom de la catégorie | Nom du compteur | Description |
 | --- | --- | --- |
-| Service Fabric Actor |# Nombre de requêtes en attente |Nombre de requêtes en cours de traitement dans le service |
+| Service Fabric Actor |Nombre de requêtes en attente |Nombre de requêtes en cours de traitement dans le service |
 | Service Fabric Actor |Moyenne en millisecondes par requête |Durée (en millisecondes) nécessaire au service pour traiter une requête |
 | Service Fabric Actor |Moyenne en millisecondes pour la désérialisation de la requête |Durée (en millisecondes) nécessaire pour désérialiser le message de requête d'acteur lorsqu'il est reçu au niveau du service |
 | Service Fabric Actor |Moyenne en millisecondes pour la sérialisation de la réponse |Durée (en millisecondes) nécessaire pour sérialiser le message de réponse d'acteur au niveau du service avant l’envoi de la réponse au client |
@@ -172,9 +174,4 @@ Lorsqu'un client appelle une méthode via un objet proxy d'acteur, un message de
 * [Documentation de référence de l’API d’acteur](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Exemple de code](https://github.com/Azure/servicefabric-samples)
 * [Fournisseurs EventSource dans PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

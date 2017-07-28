@@ -14,9 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e329d152ea6a95c8cdfa6a507504601d4e0957cd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -41,7 +43,7 @@ Les nombreux exemples de cette rubrique illustrent l’éventail de scénarios p
 * Exécuter une seule fois à une date et une heure spécifiques
 * Exécuter et répéter un nombre de fois explicites
 * Exécuter immédiatement et répéter
-* Exécuter et répéter tou(te)s les *n* minutes, heures, jours, semaines ou mois, en commençant à un moment spécifique
+* Exécuter et répéter tous/toutes les *n* minutes, heures, jours, semaines ou mois, en commençant à un moment spécifique
 * Exécuter et répéter selon une fréquence hebdomadaire ou mensuelle, mais uniquement des jours spécifiques, des jours spécifiques de la semaine ou des jours spécifiques du mois
 * Exécuter et répéter à plusieurs reprises dans une période : par exemple, le dernier vendredi et lundi de chaque mois, ou à 5h15 et 17h15 chaque jour
 
@@ -128,7 +130,7 @@ Le tableau suivant décrit les éléments *schedule* en détail.
 | **minutes** |Minutes de l'heure auxquelles le travail sera exécuté |<ul><li>Entier, ou</li><li>Tableau d’entiers</li></ul> |
 | **hours** |Heures de la journée auxquelles le travail sera exécuté |<ul><li>Entier, ou</li><li>Tableau d’entiers</li></ul> |
 | **weekDays** |Jours de la semaine auxquels le travail sera exécuté Peut uniquement être spécifié avec une fréquence hebdomadaire. |<ul><li>« Lundi », « mardi» , « mercredi », « jeudi », « vendredi », « samedi » ou « dimanche »</li><li>Tableau comprenant l’une des valeurs ci-dessus (taille de tableau maximale 7)</li></ul>*Ne* respectant pas la casse |
-| **monthlyOccurrences** |Détermine les jours du mois pour l'exécution du travail. Peut uniquement être spécifié avec une fréquence mensuelle. |<ul><li>Tableau d’objets monthlyOccurence :</li></ul> <pre>{« day » : *day*,<br />  « occurrence » : *occurrence*<br />}</pre><p> *day* est le jour de la semaine où la tâche sera exécutée, par exemple, {Sunday} correspond à tous les dimanches du mois. Obligatoire.</p><p>Occurrence est *l’occurrence* du jour au cours du mois. Par exemple, {Sunday, -1} est le dernier dimanche du mois. facultatif.</p> |
+| **monthlyOccurrences** |Détermine les jours du mois pour l'exécution du travail. Peut uniquement être spécifié avec une fréquence mensuelle. |<ul><li>Tableau d’objets monthlyOccurrence :</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *day* est le jour de la semaine où la tâche sera exécutée, par exemple, {Sunday} correspond à tous les dimanches du mois. Obligatoire.</p><p>Occurrence est *l’occurrence* du jour au cours du mois. Par exemple, {Sunday, -1} est le dernier dimanche du mois. facultatif.</p> |
 | **monthDays** |Jour du mois auquel le travail sera exécuté. Peut uniquement être spécifié avec une fréquence mensuelle. |<ul><li>Toute valeur < = -1 et > = -31.</li><li>Toute valeur >= 1 et <= 31.</li><li>Un tableau composé des valeurs ci-dessus</li></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Exemples : planifications de périodicité
@@ -188,10 +190,5 @@ Les planifications ci-dessous supposent que la valeur *interval* est définie su
  [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
 
  [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

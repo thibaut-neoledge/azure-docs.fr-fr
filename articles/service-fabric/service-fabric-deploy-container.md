@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 5/16/2017
 ms.author: msfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 17e9f4f81c60d86f804d1d9e6df2014dd4568d75
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: 25d6b056421e71fa70ed20a39589f77dbbc25c69
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -31,9 +31,9 @@ ms.lasthandoff: 05/17/2017
 
 Cet article vous guide dans le processus de création des services dans des conteneurs Windows.
 
-Service Fabric dispose de plusieurs fonctionnalités de gestion des conteneurs, qui vous aident à créer des applications composées de microservices mis en conteneur. 
+Service Fabric dispose de plusieurs fonctionnalités qui vous aident à créer des applications composées de microservices exécutés dans des conteneurs. 
 
-Ces fonctionnalités sont les suivantes :
+Ces fonctionnalités sont les suivantes :
 
 * Activation et déploiement d’images de conteneur
 * Gouvernance des ressources
@@ -55,32 +55,32 @@ Visual Studio fournit un modèle de service Service Fabric pour vous aider à d�
 
 1. Sélectionnez **Fichier** > **Nouveau projet** pour créer une application Service Fabric.
 2. Choisissez **Conteneur d’invités** comme modèle de service.
-3. Choisissez **Nom de l’image** et indiquez le chemin d’accès à l’image dans votre référentiel de conteneur, comme https://hub.docker.com/, par exemple : myrepo/myimage:v1 
+3. Choisissez **Nom de l’image** et indiquez le chemin d’accès à l’image dans votre référentiel de conteneur. Par exemple, `myrepo/myimage:v1` dans https://hub.docker.com
 4. Donnez un nom à votre service et cliquez sur **OK**.
 5. Si votre service en conteneur a besoin d’un point de terminaison pour les communications, vous pouvez désormais ajouter le protocole, le port et le type dans le fichier ServiceManifest.xml. Par exemple : 
      
     `<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
     
-    En fournissant `UriScheme`, ceci enregistre automatiquement le point de terminaison du conteneur avec le service Service Fabric Naming pour la découverte. Le port peut être affecté de façon fixe (comme dans l’exemple précédent) ou dynamique (le champ est vide, et un port est alloué à partir de la plage de ports désignée de l’application) comme avec n’importe quel service.
-    Vous devez également configurer le mappage port/hôte du conteneur en spécifiant une stratégie `PortBinding` dans le manifeste d’application comme décrit ci-dessous.
+    En fournissant `UriScheme`, Service Fabric enregistre automatiquement le point de terminaison du conteneur avec le Naming Service pour la découverte. Le port peut être fixe (comme indiqué dans l’exemple précédent) ou alloué de manière dynamique. Si vous ne spécifiez pas de port, il est alloué de manière dynamique à partir de la plage de ports d’application (comme avec n’importe quel service).
+    Vous devez également configurer le mappage conteneur/port hôte en spécifiant une stratégie `PortBinding` dans le manifeste d’application. Pour plus d’informations, voir [Configurer le mappage conteneur/port hôte](#Portsection).
 6. Si votre conteneur a besoin de gouvernance des ressources, ajoutez un `ResourceGovernancePolicy`.
 8. Si votre conteneur doit s’authentifier auprès d’un référentiel privé, ajoutez `RepositoryCredentials`.
-7. Vous pouvez maintenant utiliser le package et l’action de publication sur votre cluster local s’il s’agit de Windows Server 2016 avec prise en charge du conteneur activée. 
+7. Si vous utilisez un ordinateur Windows Server 2016 avec prise en charge du conteneur, vous pouvez utiliser le package et publier des actions pour déployer sur votre cluster local. 
 8. Vous pouvez, quand vous le souhaitez, publier l’application sur un cluster à distance ou archiver la solution pour contrôler le code source. 
 
-Pour un exemple d’application, [consultez les exemples de code de conteneur Service Fabric sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+Pour un exemple, consultez les [exemples de code de conteneur Service Fabric sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="creating-a-windows-server-2016-cluster"></a>Création d’un cluster Windows Server 2016
-Pour déployer votre application en conteneur, vous devez créer un cluster exécutant Windows Server 2016 avec la prise en charge du conteneur activée. Cela peut se trouver sur votre ordinateur de développement local ou être déployé via Azure Resource Manager (ARM) dans Azure. 
+Pour déployer votre application en conteneur, vous devez créer un cluster exécutant Windows Server 2016 avec la prise en charge du conteneur activée. Votre cluster peut s’exécuter localement ou être déployé via Azure Resource Manager dans Azure. 
 
-Pour déployer un cluster à l’aide d’ARM, choisissez l’option d’image **Windows Server 2016 avec Containers** dans Azure. Consultez l’article [Création d’un cluster Service Fabric dans Azure à l’aide d’un modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Assurez-vous d’utiliser les paramètres ARM suivants :
+Pour déployer un cluster à l’aide d’Azure Resource Manager, choisissez l’option d’image **Windows Server 2016 avec Containers** dans Azure. Consultez l’article [Création d’un cluster Service Fabric dans Azure à l’aide d’un modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Assurez-vous d’utiliser les paramètres suivants dans Azure Resource Manager :
 
 ```xml
 "vmImageOffer": { "type": "string","defaultValue": "WindowsServer"     },
 "vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
 "vmImageVersion": { "defaultValue": "latest","type": "string"     },  
 ```
-Vous pouvez également utiliser le [modèle ARM 5 nœuds ici](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) pour créer un cluster. Vous pouvez également lire [l’article de blog de Loek ici](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) sur l’utilisation des conteneurs de Service Fabric et Windows.
+Vous pouvez également utiliser le [modèle Azure Resource Manager à cinq nœuds](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) pour créer un cluster. Vous pouvez également lire [l’article de blog](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) de la communauté sur l’utilisation des conteneurs de Service Fabric et Windows.
 
 <a id="manually"></a>
 
@@ -108,7 +108,7 @@ Dans le manifeste de service, ajoutez un `ContainerHost` pour le point d’entr�
     </CodePackage>
 ```
 
-Vous pouvez fournir des commandes d’entrée en spécifiant l’élément facultatif `Commands` avec un ensemble de commandes délimitées par des virgules à exécuter au sein du conteneur.
+Vous pouvez spécifier des commandes facultatives à exécuter lors du démarrage du conteneur sous l’élément `Commands`. Si vous avez plusieurs commandes, séparez-les par des virgules. 
 
 ## <a name="understand-resource-governance"></a>Présentation de la gouvernance des ressources
 La gouvernance des ressources est une fonctionnalité du conteneur, qui limite les ressources que le conteneur peut utiliser sur l’hôte. L’élément `ResourceGovernancePolicy`, spécifié dans le manifeste de l’application, est utilisé pour déclarer des limites relatives aux ressources pour un package de code de service. Des limites de ressources peuvent être définies pour les ressources suivantes :
@@ -120,7 +120,7 @@ La gouvernance des ressources est une fonctionnalité du conteneur, qui limite l
 * BlkioWeight (poids relatif de l’élément BlockIO)
 
 > [!NOTE]
-> Dans une version ultérieure, il sera possible de prendre en charge la spécification de limites relatives aux E/S en mode bloc précises (E/S par seconde, bits par seconde en lecture/écriture...).
+> La prise en charge de la spécification de limites relatives aux E/S en mode bloc précises (E/S par seconde, bits par seconde en lecture/écriture...) est prévue dans une version ultérieure.
 > 
 > 
 
@@ -165,7 +165,7 @@ La clé privée du certificat utilisée pour déchiffrer le mot de passe doit ê
     </ServiceManifestImport>
 ```
 
-## <a name="configure-container-port-to-host-port-mapping"></a>Configuration du mappage des ports de conteneur aux ports hôtes
+## <a name ="Portsection"></a> Configurer le mappage conteneur/port hôte
 Vous pouvez configurer un port d’hôte utilisé pour communiquer avec le conteneur en spécifiant un élément `PortBinding` dans le manifeste de l’application. La liaison de port mappe le port sur lequel le service écoute, à l’intérieur du conteneur, à un port sur l’hôte.
 
 ```xml
@@ -180,9 +180,8 @@ Vous pouvez configurer un port d’hôte utilisé pour communiquer avec le conte
 ```
 
 ## <a name="configure-container-to-container-discovery-and-communication"></a>Configuration de la découverte et de la communication entre des conteneurs.
-À l’aide de la stratégie `PortBinding`, vous pouvez mapper un port de conteneur à un élément `Endpoint` dans le manifeste de service, comme indiqué dans l’exemple suivant. Le point de terminaison `Endpoint1` peut spécifier un port fixe (par exemple, le port 80). Il peut également ne spécifier aucun port, auquel cas un port aléatoire est sélectionné dans la plage de ports des applications du cluster.
+Vous pouvez utiliser l’élément `PortBinding` pour mapper un port de conteneur à un point de terminaison dans le manifeste de service. Dans l’exemple suivant, le point de terminaison `Endpoint1` spécifie un port fixe, 8905. Il peut également ne spécifier aucun port, auquel cas un port aléatoire est sélectionné dans la plage de ports des applications du cluster.
 
-Si vous spécifiez un point de terminaison à l’aide de la balise `Endpoint` dans le manifeste de service d’un conteneur invité, Service Fabric peut publier automatiquement ce point de terminaison au Naming Service. D’autres services exécutés dans le cluster peuvent ainsi détecter ce conteneur à l’aide de requêtes REST pour la résolution.
 
 ```xml
     <ServiceManifestImport>
@@ -194,11 +193,12 @@ Si vous spécifiez un point de terminaison à l’aide de la balise `Endpoint` d
         </Policies>
     </ServiceManifestImport>
 ```
+Si vous spécifiez un point de terminaison à l’aide de la balise `Endpoint` dans le manifeste de service d’un conteneur invité, Service Fabric peut publier automatiquement ce point de terminaison au Naming Service. D’autres services exécutés dans le cluster peuvent ainsi détecter ce conteneur à l’aide de requêtes REST pour la résolution.
 
-En vous inscrivant auprès du Naming Service, vous pouvez facilement établir des communications entre les conteneurs dans le code au sein de votre conteneur à l’aide d’un [proxy inverse](service-fabric-reverseproxy.md). Pour établir la communication, vous devez fournir le port d’écoute HTTP associé au proxy inverse et le nom des services avec lesquels vous souhaitez communiquer en tant que variables d’environnement. Pour en savoir plus, consultez la section suivante. 
+En vous inscrivant auprès du Naming Service, vous pouvez établir des communications entre les conteneurs au sein de votre conteneur à l’aide d’un [proxy inverse](service-fabric-reverseproxy.md). Pour établir la communication, vous devez fournir le port d’écoute HTTP associé au proxy inverse et le nom des services avec lesquels vous souhaitez communiquer en tant que variables d’environnement. Pour en savoir plus, consultez la section suivante. 
 
 ## <a name="configure-and-set-environment-variables"></a>Configurer et définir des variables d’environnement
-Des variables d’environnement peuvent être spécifiées pour chaque package de code dans le manifeste de service pour les services déployés dans des conteneurs, ou pour les services déployés en tant qu’exécutables invités/processus. Ces valeurs de variable d’environnement peuvent être remplacées dans le manifeste de l’application, ou spécifiées lors du déploiement, en tant que paramètres d’application.
+Il est possible de spécifier des variables d’environnement pour chaque package de code dans le manifeste de service. Cette fonctionnalité est disponible pour tous les services, qu’ils soient déployés sous forme de conteneurs, de processus ou d’exécutables invités. Vous pouvez remplacer les valeurs de variable d’environnement dans le manifeste de l’application, ou les spécifier lors du déploiement, en tant que paramètres d’application.
 
 L’extrait de code XML du manifeste de service suivant illustre la méthode à suivre pour spécifier des variables d’environnement pour un package de code :
 
@@ -236,6 +236,15 @@ Ces variables d’environnement peuvent être remplacées au niveau du manifeste
 ```
 
 Dans l’exemple ci-dessus, nous avons indiqué une valeur explicite pour la variable d’environnement `HttpGateway` (19000) alors que la valeur du paramètre `BackendServiceName` est définie par le biais du paramètre d’application `[BackendSvc]`. De cette manière, vous pouvez spécifier la valeur de l’élément `BackendServiceName`au moment du déploiement de l’application, sans avoir de valeur fixe dans le manifeste.
+
+## <a name="configure-isolation-mode"></a>Configurer le mode d’isolation
+
+Windows prend en charge deux modes d’isolation pour les conteneurs : Processus et Hyper-V.  Avec le mode d’isolation Processus, tous les conteneurs s’exécutant sur le même hôte partagent le noyau avec l’hôte. Avec le mode d’isolation Hyper-V, les noyaux sont isolés entre chaque conteneur Hyper-V et l’hôte du conteneur. Le mode d’isolation est spécifié dans la balise `ContainerHostPolicies` dans le fichier manifeste de l’application.  Les modes d’isolation qui peuvent être définis sont `process`, `hyperv` et `default`. Par défaut, le mode d’isolation `default` est défini sur `process` sur les hôtes Windows Server et sur `hyperv` sur les hôtes Windows 10.  L’extrait de code suivant montre comment le mode d’isolation est spécifié dans le fichier manifeste de l’application.
+
+```xml
+   <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
+```
+
 
 ## <a name="complete-examples-for-application-and-service-manifest"></a>Exemples complets pour le manifeste de l’application et de service
 
@@ -299,5 +308,5 @@ Voici un exemple de manifeste de service (indiqué dans le manifeste de l’appl
 Maintenant que vous avez déployé un service en conteneur, découvrez comment gérer son cycle de vie en lisant [Cycle de vie des applications Service Fabric](service-fabric-application-lifecycle.md).
 
 * [Vue d’ensemble de Service Fabric et des conteneurs](service-fabric-containers-overview.md)
-* Pour un exemple d’application, [consultez les exemples de code de conteneur Service Fabric sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* Pour un exemple, consultez les [exemples de code de conteneur Service Fabric sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 

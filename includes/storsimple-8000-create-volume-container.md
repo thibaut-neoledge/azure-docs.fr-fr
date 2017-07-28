@@ -12,7 +12,7 @@
 3. Dans le panneau **Ajouter un conteneur de volumes** :
    
    1. L’appareil est automatiquement sélectionné.
-   2. Saisissez un **Nom** pour votre conteneur de volume. Le nom doit contenir de 3 à 32 caractères.
+   2. Saisissez un **Nom** pour votre conteneur de volume. Le nom doit contenir de 3 à 32 caractères. Vous ne pouvez pas renommer un conteneur de volumes une fois qu’il a été créé.
    3. Sélectionnez **Activer le chiffrement de stockage cloud** pour activer le chiffrement des données envoyées à partir de l’appareil vers le cloud.
    4. Indiquez et confirmez une **Clé de chiffrement de stockage cloud** contenant de 8 à 32 caractères. Cette clé est utilisée par l’appareil pour accéder aux données chiffrées.
    5. Sélectionnez un **Compte de stockage** à associer à ce conteneur de volume. Vous pouvez choisir un compte de stockage existant ou un compte par défaut qui est généré au moment de la création du service. Vous pouvez également utiliser l’option **Ajouter nouveau** pour spécifier un compte de stockage qui n’est pas lié à cet abonnement au service.

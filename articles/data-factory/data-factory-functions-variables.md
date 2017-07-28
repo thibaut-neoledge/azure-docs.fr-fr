@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 95ffafb276009f0acfa9cd96b9d4e575bd6a9d28
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 72a966bdc271f86b9568d3310d2e22d83b447594
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -29,12 +29,12 @@ Cet article fournit des informations sur les fonctions et variables prises en ch
 | Nom de la variable | Description | Portée de l’objet | Étendue JSON et cas d’utilisation |
 | --- | --- | --- | --- |
 | WindowStart |Début de l’intervalle de temps pour l’intervalle d’exécution d’activité en cours |activité |<ol><li>Spécifier des requêtes de sélection de données. Consultez les articles connexes référencés par l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).</li> |
-| WindowEnd |Fin de l’intervalle de temps de l’intervalle d’exécution d’activité en cours |activité |Identique à ce qui précède. |
+| WindowEnd |Fin de l’intervalle de temps de l’intervalle d’exécution d’activité en cours |activité |identique à WindowStart. |
 | SliceStart |Début de l’intervalle de temps pour une tranche de données en cours de génération |activité<br/>jeu de données |<ol><li>Spécifier les chemins d’accès et les noms de fichiers dynamiques tout en travaillant avec [Blob Azure](data-factory-azure-blob-connector.md) et [Jeux de données du système de fichiers](data-factory-onprem-file-system-connector.md).</li><li>Spécifier les dépendances d’entrée avec les fonctions Data Factory dans la collecte d’activité.</li></ol> |
-| SliceEnd |Fin de l’intervalle de temps pour une tranche de données en cours de génération |activité<br/>dataset |identique à SliceStart. |
+| SliceEnd |Fin de l’intervalle de temps pour la tranche de données en cours. |activité<br/>dataset |identique à SliceStart. |
 
 > [!NOTE]
-> Actuellement Data Factory exige que le calendrier spécifié dans l’activité corresponde exactement à la planification spécifiée dans la disponibilité du jeu de données de sortie. Ainsi, WindowStart, WindowEnd, SliceStart et SliceEnd font toujours correspondre la même période de temps et une tranche de sortie unique.
+> Actuellement, la fabrique de données exige que le calendrier spécifié dans l’activité corresponde exactement à la planification spécifiée dans la disponibilité du jeu de données de sortie. Ainsi, WindowStart, WindowEnd, SliceStart et SliceEnd font toujours correspondre la même période de temps et une tranche de sortie unique.
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>Exemple d’utilisation d’une variable système
@@ -78,30 +78,30 @@ Les tables qui suivent répertorient toutes les fonctions dans Azure Data Factor
 
 | Catégorie | Fonction | Paramètres | Description |
 | --- | --- | --- | --- |
-| Time |AddHours(X,Y) |X: DateTime  <br/><br/>Y: int |Ajoute Y heures à l’heure donnée X. <br/><br/>Exemple : 9/5/2013 12:00:00 PM + 2 heures = 9/5/2013 2:00:00 PM |
-| Temps |AddMinutes(X,Y) |X: DateTime  <br/><br/>Y: int |Ajoute Y minutes à X.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 15 minutes = 9/15/2013 12:15:00 PM |
-| Time |StartOfHour(X) |X: DateTime  |Obtient l’heure de début de l’heure représentée par le composant heure de X. <br/><br/>Exemple : StartOfHour 9/15/2013 05:10:23 PM est 9/15/2013 05:00:00 PM |
-| Date |AddDays(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y jours à X. <br/><br/>Exemple : 9/15/2013 12:00:00 PM + 2 jours = 9/17/2013 12:00:00 PM.<br/><br/>Vous pouvez également soustraire les jours en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : 9/15/2013 12:00:00 PM - 2 jours = 9/13/2013 12:00:00 PM. |
-| Date |AddMonths(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y mois à X.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 1 mois = 10/15/2013 12:00:00 PM.<br/><br/>Vous pouvez également soustraire les mois en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : 9/15/2013 12:00:00 PM - 1 mois = 8/15/2013 12:00:00 PM.|
-| Date |AddQuarters(X,Y) |X: DateTime  <br/><br/>Y: int |Ajoute Y * 3 mois à X.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 1 trimestre = 12/15/2013 12:00:00 PM |
-| Date |AddWeeks(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y * 7 jours à X<br/><br/>Exemple : 15/9/2013 12:00:00 PM + 1 semaine = 22/9/2013 12:00:00 PM<br/><br/>Vous pouvez également soustraire les semaines en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : 15/9/2013 12:00:00 PM - 1 semaine = 7/9/2013 12:00:00 PM |
-| Date |AddYears(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y années à X.<br/><br/>Exemple : 9/15/2013 12:00:00 PM + 1 an = 9/15/2014 12:00:00 PM<br/><br/>Vous pouvez également soustraire les années en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : 9/15/2013 12:00:00 PM - 1 an = 9/15/2012 12:00:00 PM |
-| Date |Day(X) |X: DateTime  |Obtient le composant jour de X.<br/><br/>Exemple : le jour du 9/15/2013, 12:00:00 PM est 9. |
-| Date |DayOfWeek(X) |X: DateTime  |Obtient le composant semaine de X.<br/><br/>Exemple : DayOfWeek du 9/15/2013, 12:00:00 PM est dimanche. |
-| Date |DayOfYear(X) |X: DateTime  |Permet d’obtenir le jour de l’année représenté par le composant année de X.<br/><br/>Exemples :<br/>12/1/2015 : jour 335 de 2015<br/>12/31/2015 : jour 365 de 2015<br/>12/31/2016 : jour 366 de 2016 (année bissextile) |
-| Date |DaysInMonth(X) |X: DateTime  |Permet d’obtenir les jours du mois représentés par le composant mois du paramètre X.<br/><br/>Exemple : DaysInMonth du 9/15/2013 s’élève à 30 puisqu’il y a 30 jours dans le mois de septembre. |
-| Date |EndOfDay(X) |X: DateTime  |Obtient la valeur date-heure qui représente la fin de la journée (composant jour) de X.<br/><br/>Exemple : EndOfDay du 9/15/2013 05:10:23 PM est 9/15/2013 11:59:59 PM. |
-| Date |EndOfMonth(X) |X: DateTime  |Permet d’obtenir la fin du mois représentée par le composant mois du paramètre X. <br/><br/>Exemple : EndOfMonth 9/15/2013 05:10:23 PM est 9/30/2013 11:59:59 PM (date-heure qui représente la fin du mois de septembre) |
-| Date |StartOfDay(X) |X: DateTime  |Permet d’obtenir le début de la journée représenté par le composant jour du paramètre X.<br/><br/>Exemple : la valeur StartOfDay de 9/15/2013 05:10:23 PM est 9/15/2013 12:00:00 AM. |
+| Time |AddHours(X,Y) |X: DateTime  <br/><br/>Y: int |Ajoute Y heures à l’heure donnée X. <br/><br/>Exemple : `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Temps |AddMinutes(X,Y) |X: DateTime  <br/><br/>Y: int |Ajoute Y minutes à X.<br/><br/>Exemple : `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Temps |StartOfHour(X) |X: DateTime  |Obtient l’heure de début de l’heure représentée par le composant heure de X. <br/><br/>Exemple : `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Date |AddDays(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y jours à X. <br/><br/>Exemple : 9/15/2013 12:00:00 PM + 2 jours = 9/17/2013 12:00:00 PM.<br/><br/>Vous pouvez également soustraire les jours en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Date |AddMonths(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y mois à X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Vous pouvez également soustraire les mois en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Date |AddQuarters(X,Y) |X: DateTime  <br/><br/>Y: int |Ajoute Y * 3 mois à X.<br/><br/>Exemple : `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Date |AddWeeks(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y * 7 jours à X<br/><br/>Exemple : 15/9/2013 12:00:00 PM + 1 semaine = 22/9/2013 12:00:00 PM<br/><br/>Vous pouvez également soustraire les semaines en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Date |AddYears(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y années à X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Vous pouvez également soustraire les années en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Date |Day(X) |X: DateTime  |Obtient le composant jour de X.<br/><br/>Exemple : `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Date |DayOfWeek(X) |X: DateTime  |Obtient le composant semaine de X.<br/><br/>Exemple : `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Date |DayOfYear(X) |X: DateTime  |Permet d’obtenir le jour de l’année représenté par le composant année de X.<br/><br/>Exemples :<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Date |DaysInMonth(X) |X: DateTime  |Permet d’obtenir les jours du mois représentés par le composant mois du paramètre X.<br/><br/>Exemple : `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
+| Date |EndOfDay(X) |X: DateTime  |Obtient la valeur date-heure qui représente la fin de la journée (composant jour) de X.<br/><br/>Exemple : `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Date |EndOfMonth(X) |X: DateTime  |Permet d’obtenir la fin du mois représentée par le composant mois du paramètre X. <br/><br/>Exemple : `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (date-heure qui représente la fin du mois de septembre) |
+| Date |StartOfDay(X) |X: DateTime  |Permet d’obtenir le début de la journée représenté par le composant jour du paramètre X.<br/><br/>Exemple : `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
 | DateTime |From(X) |X: String |Analyser la chaîne X à une heure de date. |
 | DateTime |Ticks(X) |X: DateTime  |Permet d’obtenir la propriété de graduation du paramètre X. Un cycle est égal à 100 nanosecondes. La valeur de cette propriété représente le nombre de graduations écoulées depuis 12:00:00 minuit, le 1er janvier 0001. |
 | Texte |Format(X) |X : variable de chaîne |Met en forme le texte (utilisez la combinaison `\\'` pour échapper le caractère `'`).|
 
 > [!IMPORTANT]
-> Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' et RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**. 
+> Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' et RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**. 
 
 #### <a name="example"></a>Exemple
-Dans l’exemple suivant, les paramètres d’entrée et de sortie de l’activité Hive sont déterminés à l’aide de la fonction Text.Format et de la variable système SliceStart. 
+Dans l’exemple suivant, les paramètres d’entrée et de sortie de l’activité Hive sont déterminés à l’aide de la fonction `Text.Format` et de la variable système SliceStart. 
 
 ```json  
 {
@@ -142,7 +142,7 @@ Dans l’exemple suivant, les paramètres d’entrée et de sortie de l’activi
 
 ### <a name="example-2"></a>Exemple 2
 
-Dans l’exemple suivant, le paramètre DateTime de l’activité de procédure stockée est déterminé à l’aide de la fonction Text.Format et de la variable système SliceStart. 
+Dans l’exemple suivant, le paramètre DateTime de l’activité de procédure stockée est déterminé à l’aide de la fonction Text. Format et de la variable SliceStart. 
 
 ```json
 {

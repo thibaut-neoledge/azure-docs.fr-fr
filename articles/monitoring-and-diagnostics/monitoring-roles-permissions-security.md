@@ -63,7 +63,7 @@ Les personnes affectées au rôle de contributeur d’analyse peuvent afficher t
 * Créer ou supprimer des recherches enregistrées de Log Analytics (OMS).
 * Créer ou supprimer la configuration du stockage Log Analytics (OMS).
 
-* L’utilisateur doit aussi séparément obtenir l’autorisation ListKeys sur la ressource cible (compte de stockage ou espace de noms de hub d’événements) pour définir un profil de journalisation ou un paramètre de diagnostic.
+*L’utilisateur doit aussi séparément obtenir l’autorisation ListKeys sur la ressource cible (compte de stockage ou espace de noms de hub d’événements) pour définir un profil de journalisation ou un paramètre de diagnostic.
 
 > [!NOTE]
 > Ce rôle ne donne pas l’accès en lecture aux données de journal diffusées vers un hub d’événements ou stockées dans un compte de stockage. [Consultez ce qui suit](#security-considerations-for-monitoring-data) pour plus d’informations sur la configuration de l’accès à ces ressources.

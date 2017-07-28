@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a8221c35a440ae859c82072ea170b438dc40d261
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -49,7 +50,7 @@ Lorsque vous choisissez le modèle de déploiement à utiliser pour vos ressourc
 2. Le service prend en charge Resource Manager mais fournit deux types : un pour le modèle de déploiement Resource Manager et un pour le modèle classique. Ce scénario s’applique uniquement aux machines virtuelles, aux comptes de stockage et aux réseaux virtuels.
 3. Le service ne prend pas en charge Resource Manager.
 
-Pour découvrir si un service prend en charge Resource Manager, consultez la liste des [fournisseurs pris en charge pour Resource Manager](resource-manager-supported-services.md).
+Pour découvrir si un service prend en charge Resource Manager, voir [Fournisseurs et types de ressources](resource-manager-supported-services.md).
 
 Si le service que vous souhaitez utiliser ne prend pas en charge Resource Manager, vous devez continuer à l’aide du déploiement classique.
 

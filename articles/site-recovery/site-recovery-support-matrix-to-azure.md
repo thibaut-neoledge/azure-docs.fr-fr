@@ -12,20 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/25/2017
+ms.date: 06/05/2017
 ms.author: rajanaki
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 711fb0715b7f12e12a742136f75af8069cbc83d8
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 6664cb20393ec5f588c8eeb119d6f606a0072861
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/15/2017
 
 
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication vers Azure
-
-> [!div class="op_single_selector"]
-> * [Réplication vers Azure](site-recovery-support-matrix-to-azure.md)
-> * [Réplication vers un site secondaire appartenant au client](site-recovery-support-matrix-to-sec-site.md)
+# <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication de machines virtuelles locales vers Azure
 
 
 Cet article résume les composants et les configurations pris en charge pour Azure Site Recovery lors de la réplication et de la récupération vers Azure. Pour plus d’informations sur les conditions requises pour Azure Site Recovery, consultez la [configuration requise](site-recovery-prereq.md).
@@ -68,29 +65,36 @@ Cet article résume les composants et les configurations pris en charge pour Azu
 Les machines virtuelles qui sont protégées doivent répondre aux [conditions requises pour Azure](#failed-over-azure-vm-requirements) lors de la réplication vers Azure.
 Le tableau ci-dessous récapitule la prise en charge des systèmes d’exploitation répliqués dans différents scénarios de déploiement lors de l’utilisation d’Azure Site Recovery. Cette prise en charge est applicable pour toutes les charges de travail en cours d’exécution sur le système d’exploitation mentionné.
 
- **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)** |
+ **Serveur VMware/physique** | **Hyper-V (avec ou sans VMM)** |
 --- | --- |
-Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(La mise à niveau des machines de réplication de SLES 11 SP3 vers SLES 11 SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau, de SLES 11SP3 vers SLES 11 SP4, vous devez désactiver la réplication et protéger à nouveau la machine après la mise à niveau.) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
+Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/>CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(La mise à niveau des machines de réplication de SLES 11 SP3 vers SLES 11 SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau, de SLES 11SP3 vers SLES 11 SP4, vous devez désactiver la réplication et protéger à nouveau la machine après la mise à niveau.) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 
 >[!IMPORTANT]
 >(Applicable aux serveurs physiques / VMware avec réplication vers Azure)
 >
-> Sur les serveurs Red Hat Enterprise Linux Server 7 + et CentOS 7 +, la version de noyau 3.10.0-514 est prise en charge à partir de la version 9.8 du service mobilité Azure Site Recovery.<br/><br/>
-> Les clients sur le noyau 3.10.0-514 avec une version du service mobilité inférieure à la version 9.8 doivent désactiver la réplication, mettre à jour et installer la version 9.8 du service mobilité et activer à nouveau la réplication.  
+> Sur les serveurs Red Hat Enterprise Linux Server 7+ et CentOS 7+, la version de noyau 3.10.0-514 est prise en charge à partir de la version 9.8 du service Mobilité Azure Site Recovery.<br/><br/>
+> Les clients sur le noyau 3.10.0-514 avec une version du service Mobilité inférieure à la version 9.8 doivent désactiver la réplication, installer la version 9.8 du service Mobilité et réactiver la réplication.
+
+
+### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Versions du noyau Ubuntu prises en charge pour les serveurs VMware/physiques
+
+**Version release** | **Version du service Mobilité** | **Version du noyau** |
+--- | --- | --- |
+14.04 LTS | 9.9 | 3.13.0-24-generic à 3.13.0-117-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-75-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Systèmes de fichiers pris en charge et configurations de stockage invité sous Linux (serveurs physiques / VMware)
 
 Les systèmes de fichiers et le logiciel de configuration de stockage suivants sont pris en charge sur les serveurs Linux exécutés sur des serveurs VMware ou physiques :
 * Systèmes de fichiers : ext3, ext4, ReiserFS (Suse Linux Enterprise Server uniquement), XFS (jusqu’à v4 uniquement)
-* Gestionnaire de volume : LVM2
+* Gestionnaire de volume : LVM2
 * Logiciel multichemin : Device Mapper
 
 Les serveurs physiques avec le contrôleur de stockage HP CCISS ne sont pas pris en charge.
 
 >[!Note]
 > Sur les serveurs Linux, les répertoires suivants (s’ils sont configurés en tant que partitions / systèmes de fichiers séparés) doivent tous se trouver sur le même disque (le disque du système d’exploitation) sur le serveur source : / (racine), /boot, / usr, / usr/local, / var, /etc.<br/><br/>
-> Les fonctionnalités de XFS v5 telles que les sommes de contrôle des métadonnées ne sont actuellement pas prises en charge par ASR sur les systèmes de fichiers XFS. Assurez-vous que vos systèmes de fichiers XFS n’utilisent pas de fonctionnalités v5. Vous pouvez utiliser l’utilitaire xfs_info pour vérifier le superbloc XFS pour la partition. Si ftype est défini sur 1, les fonctionnalités XFSv5 sont utilisées. 
+> Les fonctionnalités de XFS v5 telles que les sommes de contrôle des métadonnées ne sont actuellement pas prises en charge par ASR sur les systèmes de fichiers XFS. Assurez-vous que vos systèmes de fichiers XFS n’utilisent pas de fonctionnalités v5. Vous pouvez utiliser l’utilitaire xfs_info pour vérifier le superbloc XFS pour la partition. Si ftype est défini sur 1, les fonctionnalités XFSv5 sont utilisées.
 >
 
 
@@ -180,9 +184,9 @@ Service Import/Export | Non | Non
 **Fonctionnalité de calcul** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | --- | ---
 Groupes à haute disponibilité | Oui | Oui
-CONCENTRATEUR | Oui | Oui  
+HUB | Oui | Oui  
 
-## <a name="failed-over-azure-vm-requirements"></a>Exigences de machine virtuelle Azure basculée
+## <a name="failed-over-azure-vm-requirements"></a>Configuration requise des machines virtuelles Azure basculées
 
 Vous pouvez déployer Site Recovery pour répliquer des machines virtuelles et des serveurs physiques exécutant n’importe quel système d’exploitation pris en charge par Azure. La plupart des versions de Windows et Linux sont concernées. Les machines virtuelles locales à répliquer doivent répondent à la configuration requise d’Azure ci-dessous lors de la réplication vers Azure.
 

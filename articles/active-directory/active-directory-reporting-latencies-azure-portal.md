@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1c6b79c5f67cee5d62c9879bdeec926091253af6
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: a1e385c235c3530744a83527574880c5f37caadd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="azure-active-directory-reporting-latencies---preview"></a>Latences de création de rapports Azure Active Directory - Préversion
+# <a name="azure-active-directory-reporting-latencies"></a>Latences de création de rapports Azure Active Directory
 
-Dans la [version préliminaire](active-directory-preview-explainer.md) d’Azure Active Directory, la création de rapports vous permet d’obtenir toutes les informations dont vous avez besoin pour déterminer quel est l’état de votre environnement. Le temps nécessaire pour que les données de rapport s’affichent dans le portail Azure est également appelé latence. 
+Dans Azure Active Directory, la [création de rapports](active-directory-preview-explainer.md) vous permet d’obtenir toutes les informations dont vous avez besoin pour déterminer l’état de votre environnement. Le temps nécessaire pour que les données de rapport s’affichent dans le portail Azure est également appelé latence. 
 
 Cette rubrique répertorie les informations de latence pour toutes les catégories de rapports dans le portail Azure. 
 
@@ -91,3 +91,4 @@ Pour en savoir plus sur les rapports de sécurité dans le portail Azure, consul
 - [Rapport de connexions à risque dans le portail Azure Active Directory ](active-directory-reporting-security-risky-sign-ins.md)
 
 Pour en savoir plus sur les événements à risque, consultez [Événements à risque dans Azure Active Directory](active-directory-reporting-risk-events.md).
+

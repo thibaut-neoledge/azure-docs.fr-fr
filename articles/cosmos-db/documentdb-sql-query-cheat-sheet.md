@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/05/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: e714d3585b78d28aba069464a444162103739657
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 04810ffa33d90d31003d0919c3edb2710fed453c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Aide-mémoire pour les requêtes SQL Azure Cosmos DB au format PDF
-L’**aide-mémoire pour les requêtes SQL Azure Cosmos DB au format PDF** vous permet d’écrire rapidement des requêtes pour les données Azure Cosmos DB en affichant des requêtes de base de données courantes, des mots clés, des fonctions intégrées et des opérateurs dans une feuille de référence au format PDF facile à imprimer. 
+# <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Aide-mémoire pour les requêtes SQL API DocumentDB Azure Cosmos DB au format PDF
+**L’aide-mémoire pour les requêtes SQL API DocumentDB Azure Cosmos DB au format PDF** vous permet d’écrire rapidement des requêtes pour les données API DocumentDB en affichant des requêtes de base de données courantes, des mots-clés, des fonctions intégrées et des opérateurs dans une feuille de référence au format PDF facile à imprimer. 
 
 Cosmos DB prend en charge les interrogations relationnelles, hiérarchiques et spatiales des documents JSON par le biais de [SQL](documentdb-sql-query.md) sans spécifier de schéma ni d’index secondaire. Outre les opérateurs et mots-clés SQL ANSI standard, Cosmos DB prend en charge les fonctions définies par l’utilisateur (UDF) en JavaScript, les opérateurs JavaScript et une multitude de fonctions intégrées.
 

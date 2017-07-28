@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 06/19/2017
 ms.author: v-jysur
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0aa41bbc0e0135737d352553607f48a39757bcc3
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 54974ef06efdae69ddbfa12b1ba9278b48b113d3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)
+
+![Symbole d’IT Service Management Connector](./media/log-analytics-itsmc/itsmc-symbol.png)
 
 Vous pouvez utiliser IT Service Management Connector (ITSMC) dans OMS Log Analytics pour surveiller et gérer de manière centralisée les éléments de travail de vos produits/services ITSM.
 
@@ -56,6 +58,12 @@ Une fois ajoutée, la solution IT Service Management Connector s’affiche sous 
 
 ![ITSMC connecté](./media/log-analytics-itsmc/itsmc-overview-solution-in-connected-sources.png)
 
+> [!NOTE]
+
+> Par défaut, IT Service Management Connector actualise les données de la connexion une fois dans toutes les 24 heures. Pour actualiser instantanément les données de votre connexion en rapport avec des modifications ou mises à jour de modèle que vous apportez, cliquez sur le bouton d’actualisation en regard de votre connexion.
+
+ ![Actualisation d’ITSMC](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
+
 ## <a name="management-packs"></a>Packs d’administration
 Cette solution ne requiert aucun pack d’administration.
 
@@ -78,6 +86,9 @@ Une fois que vous avez connecté la solution OMS IT Service Management Connector
 > [!NOTE]
 > - Les données importées par la solution IT Service Management Connector s’affichent dans Log Analytics en tant qu’événements nommés **ServiceDesk_CL**.
 - Chaque événement contient un champ nommé **ServiceDeskWorkItemType_s** qui est défini sur Incident ou Demande de modification selon les données de l’élément de travail contenues dans l’événement **ServiceDesk_CL**.
+
+## <a name="input-data"></a>Données d’entrée
+Éléments de travail importés à partir des produits/services ITSM.
 
 Les informations suivantes présentent des exemples de données collectées par IT Service Management Connector :
 
@@ -144,7 +155,54 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Description
 - Ordinateur
 
-Exemple d’écran Log Analytics pour les données ITSM :
+## <a name="output-data-for-a-servicenow-incident"></a>Données de sortie pour un incident ServiceNow
+
+| Champ OMS | Champ ITSM |
+|:--- |:--- |
+| ServiceDeskId_s| Number |
+| IncidentState_s | State |
+| Urgency_s |Urgence |
+| Impact_s |Impact|
+| Priority_s | Priorité |
+| CreatedBy_s | Ouvert par |
+| ResolvedBy_s | Résolu par|
+| ClosedBy_s  | Fermé par |
+| Source_s| Type de contact |
+| AssignedTo_s | Affecté à  |
+| Category_s | Catégorie |
+| Title_s|  Brève description |
+| Description_s|  Remarques |
+| CreatedDate_t|  Ouvert |
+| ClosedDate_t| Fermé|
+| ResolvedDate_t|Résolu|
+| Ordinateur  | Élément de configuration |
+
+## <a name="output-data-for-a-servicenow-change-request"></a>Données de sortie pour une demande de modification ServiceNow
+
+| Champ OMS | Champ ITSM |
+|:--- |:--- |
+| ServiceDeskId_s| Number |
+| CreatedBy_s | Demandé par |
+| ClosedBy_s | Fermé par |
+| AssignedTo_s | Affecté à  |
+| Title_s|  Brève description |
+| Type_s|  Type |
+| Category_s|  Catégorie |
+| CRState_s|  State|
+| Urgency_s|  Urgence |
+| Priority_s| Priorité|
+| Risk_s| Risque|
+| Impact_s| Impact|
+| RequestedDate_t  | Date demandée |
+| ClosedDate_t | Date de fermeture |
+| PlannedStartDate_t  |     Date de début prévue |
+| PlannedEndDate_t  |   Date de fin prévue |
+| WorkStartDate_t  | Date de début réelle |
+| WorkEndDate_t | Date de fin réelle|
+| Description_s | Description |
+| Ordinateur  | Élément de configuration |
+
+**Exemple d’écran Log Analytics pour les données ITSM :**
 
 ![Écran Log Analytics](./media/log-analytics-itsmc/itsmc-overview-sample-log-analytics.png)
 
@@ -207,6 +265,22 @@ Vous pouvez créer des éléments de travail dans les sources ITSM connectées �
 4. Indiquez les valeurs appropriées dans les zones de texte **Type de contact**, **Impact**, **Urgence**, **Catégorie** et **Sous-catégorie**, puis cliquez sur **Créer**.
 
 L’élément de travail sera créé dans ITSM, que vous pouvez également afficher dans OMS.
+
+## <a name="troubleshoot-itsm-connections-in-oms"></a>Dépanner des connexions ITSM dans OMS
+1.  Si la connexion échoue à partir de l’interface utilisateur d’une source connectée et que le message **Erreur lors de l’enregistrement de la connexion** s’affiche, procédez comme suit :
+ - En cas de connexions ServiceNow, Cherwell et Provance, assurez-vous de que vous avez correctement entré les nom d’utilisateur/mot de passe et ID client/Clé secrète client pour chacune des connexions. Si l’erreur persiste, vérifiez si vous disposez de privilèges suffisants dans le produit ITSM correspondant pour établir la connexion.
+ - Dans le cas de Service Manager, assurez-vous que l’application Web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+
+2.  Si les données de ServiceNow ne sont pas synchronisées dans OMS, vérifiez que l’instance ServiceNow n’est pas en état de veille. Cela peut se produire parfois dans les instances de ServiceNow Dev en cas d’inactivité. Autrement, signalez le problème.
+3.  Si des alertes sont déclenchées à partir d’OMS mais que des éléments de travail ne sont pas créés dans le produit ITSM, ou si des éléments de configuration ne sont pas créés/liés à des éléments de travail, ou pour des informations générales, procédez comme suit :
+ -  La solution IT Service Management Connector dans le portail OMS pourrait être utilisée pour obtenir un résumé des connexions, éléments de travail, ordinateurs etc. Cliquez sur le message d’erreur dans le panneau d’état, accédez à **Recherche dans les journaux**, puis affichez la connexion concernée en utilisant les détails fournis dans le message d’erreur.
+ - Vous pouvez afficher les erreurs et informations associées directement dans la page **Recherche dans les journaux** en entrant *Type = ServiceDeskLog_CL*.
+
+## <a name="troubleshoot-service-manager-web-app-deployment"></a>Résoudre les problèmes de déploiement de l’application web Service Manager
+1.  En cas de problème de déploiement de l’application web, vérifiez que vous disposez des autorisations suffisantes dans l’abonnement mentionné pour créer/déployer des ressources.
+2.  Si le message d’erreur **Référence d’objet non définie sur une instance d’un objet** s’affiche lors de l’exécution du [script](log-analytics-itsmc-service-manager-script.md), vérifiez que vous avez entré des valeurs valides dans la section **Configuration utilisateur**.
+3.  Si vous échouez à créer l’espace de noms du relais Service Bus, vérifiez que le fournisseur de ressources requis est inscrit dans l’abonnement. S’il n’est pas inscrit, créez-le manuellement à partir du portail Azure. Vous pouvez également le créer lors de la [création de la connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) à partir du portail Azure.
+
 
 ## <a name="contact-us"></a>Nous contacter
 

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7937a4070907faa5848f125f83c23849320b9cf4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: c1185358cc10e450c0c67baab407c49de56ad767
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -56,6 +57,7 @@ Si vous savez que ces conditions existent déjà dans votre environnement, passe
 Avant de préparer votre environnement, notez les limitations.
 
 * La sauvegarde de machines virtuelles ayant plus de 16 disques de données n’est pas prise en charge.
+* La sauvegarde des machines virtuelles ayant des disques de 4 To n’est pas prise en charge. 
 * La sauvegarde de machines virtuelles avec une adresse IP réservée et sans point de terminaison n’est pas prise en charge.
 * La sauvegarde des machines virtuelles chiffrées BEK seulement n’est pas prise en charge. La sauvegarde des machines virtuelles Linux chiffrées LUKS n’est pas prise en charge.
 * La sauvegarde d’ordinateurs virtuels Linux avec l’extension Docker n’est pas pris en charge.

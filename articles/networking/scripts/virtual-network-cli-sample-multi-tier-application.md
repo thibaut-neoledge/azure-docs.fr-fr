@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 07/07/2017
 ms.author: jdial
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a7c7bc0e6321a4169609b60f270b701a743dad92
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: de65d820f2d9eea49b58185c81d815675fd76740
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -32,10 +32,11 @@ Cet exemple de script permet de créer un réseau virtuel avec des sous-réseaux
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+
 ## <a name="sample-script"></a>Exemple de script
 
 
-[!code-azurecli[principal](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "Créer un réseau virtuel pour les applications multiniveau")]
+[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "Créer un réseau virtuel pour les applications multiniveau")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
 
@@ -55,9 +56,9 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 | [az network vnet create](/cli/azure/network/vnet#create) | Crée un réseau virtuel et un sous-réseau frontal Azure. |
 | [az network subnet create](/cli/azure/network/vnet/subnet#create) | Crée un sous-réseau principal. |
 | [az network public-ip create](/cli/azure/network/public-ip#create) | Crée une adresse IP publique pour accéder à la machine virtuelle à partir d’Internet. |
-| [az network nic create](/cli/azure/network/nic#create) | Crée des interfaces réseau virtuelles et les attache aux sous-réseaux du réseau frontaux et principaux du réseau virtuel. |
+| [az network nic create](/cli/azure/network/nic#create) | Crée des interfaces réseau virtuelles et les attache aux sous-réseaux frontaux et principaux du réseau virtuel. |
 | [az network nsg create](/cli/azure/network/nsg#create) | Crée des groupes de sécurité réseau (NSG) associés aux sous-réseaux frontaux et principaux. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#create) |Crée des règles NSG qui autorisent ou bloquent des ports spécifiques sur des sous-réseaux spécifiques. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule#create) |Crée des règles NSG qui autorisent ou bloquent des ports spécifiques sur des sous-réseaux donnés. |
 | [az vm create](/cli/azure/vm#create) | Crée des machines virtuelles et associe une carte d’interface réseau à chacune d’elles. Cette commande spécifie également l’image de machine virtuelle à utiliser ainsi que les informations d’identification d’administration. |
 | [az group delete](/cli/azure/group#delete) | Supprime un groupe de ressources, ainsi que toutes ses ressources. |
 

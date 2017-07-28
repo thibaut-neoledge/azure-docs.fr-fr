@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 05/18/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 223edfde090c9b77467e032198c2150fbaa56a5b
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 61bb5379cd94dd00814e14420947e7783999ff0a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -27,15 +28,11 @@ ms.lasthandoff: 04/12/2017
 > * [Utilisation de l’application de surveillance et gestion](data-factory-monitor-manage-app.md)
 
 
-Azure Data Factory offre une vision fiable et complète de vos services de stockage, de traitement et de déplacement des données. Le service vous fournit un tableau de bord de surveillance que vous pouvez utiliser pour effectuer les opérations suivantes :
+> [!IMPORTANT]
+> L’application de surveillance et gestion favorise la surveillance et la gestion de vos pipelines de données, ainsi que la résolution des problèmes. Pour en savoir plus sur l’utilisation de l’application, consultez [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md). 
 
-* Évaluer rapidement l’intégrité du pipeline de données de bout en bout.
-* Identifier les problèmes et prendre des mesures correctives si nécessaire.
-* Suivre le lignage des données.
-* Les relations entre relations de suivi dans toutes vos sources.
-* Consultez une comptabilité historique complète de l'exécution du travail, de l'intégrité du système et des dépendances.
 
-Dans cet article, vous apprendrez à surveiller, gérer et déboguer vos pipelines. Vous obtiendrez également des informations sur la façon de créer des alertes et d’être averti en cas d’échec.
+Cet article décrit comment surveiller, gérer et déboguer vos pipelines à l’aide du Portail Azure et de PowerShell. Il offre également des informations sur la façon de créer des alertes et d’être averti en cas d’échec.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Présentation des pipelines et des états d’activité
 À l’aide du portail Azure, vous pouvez :
@@ -44,15 +41,13 @@ Dans cet article, vous apprendrez à surveiller, gérer et déboguer vos pipelin
 * Afficher les activités à l’intérieur d’un pipeline.
 * Afficher des jeux de données d’entrée et de sortie.
 
-Cette section décrit également comment une tranche de données passe d’un état à un autre.   
+Cette section décrit également comment une tranche de jeu de données passe d’un état à un autre.   
 
 ### <a name="navigate-to-your-data-factory"></a>Accédez à votre fabrique de données
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquer sur **Fabriques de données** dans le menu de gauche. Si vous ne voyez pas cette option, cliquez sur **Autres services >**, puis sur **Fabriques de données** dans la catégorie **INTELLIGENCE + ANALYSE**.
 
    ![Parcourir tout > Fabriques de données](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
-
-   Vous devez voir toutes les fabriques de données dans le panneau **Fabriques de données**.
 3. Dans le panneau **Fabriques de données**, sélectionnez la fabrique de données qui vous intéresse.
 
     ![Sélectionner une fabrique de données](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
@@ -62,13 +57,11 @@ Cette section décrit également comment une tranche de données passe d’un é
    ![Panneau Data Factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### <a name="diagram-view-of-your-data-factory"></a>Vue schématique de votre fabrique de données
-La vue **schématique** d’une fabrique de données est un point unique de surveillance et de gestion de la fabrique de données et de ses ressources.
-
-Cliquez sur **Schématique** sur la page d’accueil de la fabrique de données ci-dessus pour afficher la vue **schématique** de votre fabrique de données.
+La vue **schématique** d’une fabrique de données est un point unique de surveillance et de gestion de la fabrique de données et de ses ressources. Cliquez sur **Schématique** sur la page d’accueil de la fabrique de données ci-dessus pour afficher la vue **schématique** de votre fabrique de données.
 
 ![Vue schématique](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster l’affichage à la taille de l’écran, figer l’affichage schématique, et positionner automatiquement les pipelines et les tables. Vous pouvez également afficher le lignage (c.-à-d. mise en surbrillance des éléments en amont et en aval des éléments sélectionnés).
+Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster l’affichage à la taille de l’écran, figer l’affichage schématique et positionner automatiquement les pipelines et les jeux de données. Vous pouvez également afficher le lignage (c.-à-d. mise en surbrillance des éléments en amont et en aval des éléments sélectionnés).
 
 ### <a name="activities-inside-a-pipeline"></a>Activités à l'intérieur d'un pipeline
 1. Cliquez avec le bouton droit sur le pipeline de votre choix, puis cliquez sur **Ouvrir le pipeline** pour faire apparaître toutes les activités dans le pipeline, ainsi que les jeux de données d’entrée et de sortie des activités. Cette fonctionnalité est utile quand votre pipeline comprend plusieurs activités et que vous souhaitez comprendre le lignage opérationnel d’un seul pipeline.
@@ -172,17 +165,13 @@ Au départ, la tranche a l’état **En attente**, en attente des conditions req
 
 Vous pouvez réinitialiser la tranche pour revenir de l’état **Prête** ou **Échec** à l’état **En attente**. Vous pouvez également définir l’état de la tranche sur **Ignorer** pour empêcher l’exécution de l’activité et ne pas traiter la tranche.
 
-## <a name="manage-pipelines"></a>Gestion des pipelines
-Vous pouvez gérer vos pipelines à l’aide d’Azure PowerShell. Par exemple, vous pouvez suspendre et reprendre les pipelines en exécutant les applets de commande Azure PowerShell.
+## <a name="pause-and-resume-pipelines"></a>Suspension et reprise des pipelines
+Vous pouvez gérer vos pipelines à l’aide d’Azure PowerShell. Par exemple, vous pouvez suspendre et reprendre les pipelines en exécutant les applets de commande Azure PowerShell. 
 
-### <a name="pause-and-resume-pipelines"></a>Suspension et reprise des pipelines
-Vous pouvez suspendre l’exécution des pipelines à l’aide de l’applet de commande PowerShell **Suspend-AzureRmDataFactoryPipeline**. Cette applet de commande est utile lorsque vous ne voulez pas exécuter vos pipelines jusqu'à ce qu’un problème est résolu.
+> [!NOTE] 
+> La vue schématique ne prend pas en charge la suspension et la reprise des pipelines. Si vous souhaitez utiliser une interface utilisateur, utilisez l’application de surveillance et gestion. Pour en savoir plus sur l’utilisation de l’application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md). 
 
-Par exemple, dans la capture d’écran suivante, un problème a été identifié au niveau du pipeline **PartitionProductsUsagePipeline** dans la fabrique de données **productrecgamalbox1dev**, et nous souhaitons suspendre l’exécution du pipeline.
-
-![Pipeline à interrompre](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
-
-Pour suspendre un pipeline, exécutez la commande PowerShell suivante :
+Vous pouvez suspendre l’exécution des pipelines à l’aide de l’applet de commande PowerShell **Suspend-AzureRmDataFactoryPipeline**. Cette applet de commande est utile lorsque vous ne voulez pas exécuter vos pipelines jusqu'à ce qu’un problème est résolu. 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -193,7 +182,7 @@ Par exemple :
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
-Une fois le problème résolu au niveau du pipeline **PartitionProductsUsagePipeline**, vous pouvez relancer le pipeline suspendu en exécutant la commande PowerShell suivante :
+Une fois le problème résolu au niveau du pipeline, vous pouvez reprendre le pipeline suspendu en exécutant la commande PowerShell suivante :
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -203,8 +192,11 @@ Par exemple :
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
+
 ## <a name="debug-pipelines"></a>Débogage de pipelines
 Azure Data Factory offre des fonctionnalités exceptionnelles pour déboguer et résoudre les problèmes des pipelines via le portail Azure et Azure PowerShell.
+
+> [!Remarque} Il est beaucoup plus facile de résoudre les erreurs à l’aide de l’application de surveillance et gestion. Pour en savoir plus sur l’utilisation de l’application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md). 
 
 ### <a name="find-errors-in-a-pipeline"></a>Recherche d’erreurs dans un pipeline
 En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de données généré par celui-ci est alors en état d’erreur. Vous pouvez déboguer et corriger les erreurs dans Azure Data Factory à l’aide des méthodes suivantes.
@@ -221,7 +213,7 @@ En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de do
    ![Panneau de détails sur l’exécution d’activité](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Utiliser PowerShell pour déboguer une erreur
-1. Lancez **Azure PowerShell**.
+1. Lancez **PowerShell**.
 2. Exécutez la commande **Get-AzureRmDataFactorySlice** pour voir les tranches et leur état. Une tranche dont l’état est **Échec**devrait apparaître.        
 
     ```powershell   
@@ -233,7 +225,7 @@ En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de do
     Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
-   Remplacez **StartDateTime** par la valeur de StartDateTime spécifiée pour Set-AzureRmDataFactoryPipelineActivePeriod.
+   Remplacez **StartDateTime** par l’heure de début de votre pipeline. 
 3. Exécutez maintenant l’applet de commande **Get-AzureRmDataFactoryRun** pour obtenir des détails sur l’exécution de l’activité de la tranche.
 
     ```powershell   
@@ -279,12 +271,17 @@ En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de do
     ```
 
 ## <a name="rerun-failures-in-a-pipeline"></a>Réexécuter des échecs dans un pipeline
+
+> [!IMPORTANT]
+> Il est plus facile de résoudre les erreurs et de réexécuter les tranches ayant échoué à l’aide de l’application de surveillance et gestion. Pour en savoir plus sur l’utilisation de l’application, consultez [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md). 
+
 ### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 Après avoir débogué et résolu les problèmes dans un pipeline, vous pouvez réexécuter ceux-ci en accédant à la tranche qui pose problème, puis en cliquant sur le bouton **Exécuter** dans la barre de commandes.
 
 ![Réexécuter une tranche de données ayant échoué](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
 En cas d’échec de validation de la tranche à cause d’une erreur de stratégie (p. ex. données indisponibles), vous pouvez résoudre le problème et relancer la validation en cliquant sur le bouton **Valider** de la barre de commandes.
+
 ![Corriger les erreurs et valider](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell

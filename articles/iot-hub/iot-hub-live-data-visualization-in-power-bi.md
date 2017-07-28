@@ -4,7 +4,7 @@ description: "Power BI permet d’afficher des données sur les températures e
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "visualisation de données en temps réel, visualisation de données en direct, visualisation de données de capteurs"
 ms.assetid: e67c9c09-6219-4f0f-ad42-58edaaa74f61
@@ -16,11 +16,10 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: ba25cdee46ce4ceb5acd5ff9da683a057f2bd733
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 404ab1682d9b77f22e60888340ffb70a101ed5d4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/25/2017
-
+ms.lasthandoff: 06/15/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualiser des données de capteur en temps réel depuis Azure IoT Hub, à l’aide de Power BI
@@ -42,7 +41,7 @@ Vous apprenez à visualiser les données de capteur en temps réel que votre ins
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-- Le didacticiel [Configurer votre appareil](iot-hub-raspberry-pi-kit-node-get-started.md) terminé, qui répond aux exigences suivantes :
+- Le didacticiel [Configurer votre appareil](iot-hub-raspberry-pi-kit-node-get-started.md) terminé, qui traite des exigences suivantes :
   - Un abonnement Azure actif.
   - Une instance Azure IoT Hub associée à votre abonnement.
   - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
@@ -121,11 +120,7 @@ Dans le travail Stream Analytics, cliquez sur **Démarrer** > **Maintenant** > 
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Créer et publier un rapport Power BI pour visualiser les données
 
-1. Vérifiez que l’exemple d’application s’exécute correctement. Dans le cas contraire, exécutez la commande suivante pour exécuter l’application sur Pi :
-
-   ```bash
-   gulp run
-   ```
+1. Vérifiez que l’exemple d’application s’exécute correctement sur votre appareil. Si ce n’est pas le cas, vous pouvez consulter les didacticiels sous [Configurer votre appareil](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
 1. Connectez-vous à votre compte [Power BI](https://powerbi.microsoft.com/en-us/).
 1. Accédez à l’espace de travail de groupe que vous définissez lors de la création de la sortie du travail Stream Analytics.
 1. Cliquez sur **Jeux de données de diffusion en continu**.
@@ -165,3 +160,4 @@ Vous avez correctement utilisé Power BI pour visualiser les données de capteu
 Cela dit, il existe un autre moyen de visualiser ces données depuis Azure IoT Hub. Voir [Utiliser Azure Web Apps pour visualiser les données de capteur en temps réel à partir d’Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

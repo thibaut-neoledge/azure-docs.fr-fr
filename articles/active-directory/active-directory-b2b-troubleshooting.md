@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/25/2017
 ms.author: sasubram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4ae08f16db8c0b8cd2e918d25aa546f1da615af1
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 42229b338063634480551f26896963d8add5e071
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -35,12 +35,13 @@ Dans les cas où les utilisateurs externes ne sont pas renseignés dans la liste
 
 ## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Un utilisateur invité B2B ne s’affiche pas dans le sélecteur de personnes SharePoint Online/OneDrive 
  
-La fonctionnalité de recherche d’utilisateurs invités existants dans le sélecteur de personnes SharePoint Online est désactivée par défaut pour correspondre au comportement hérité.
-Vous pouvez l’activer à l’aide du paramètre ShowPeoplePickerSuggestionsForGuestUsers au niveau du client et de la collection du site. Elle peut être définie à l’aide des applets de commande Set-SPOTenant et Set-SPOSite qui permettent aux membres de rechercher tous les utilisateurs invités existants dans le répertoire. Les modifications apportées à la portée du client n’affectent pas les sites SPO déjà configurés.
+La fonctionnalité de recherche d’utilisateurs invités existants dans le sélecteur de personnes SharePoint Online (SPO) est désactivée par défaut pour correspondre au comportement hérité.
+
+Vous pouvez activer cette fonctionnalité à l’aide du paramètre ShowPeoplePickerSuggestionsForGuestUsers au niveau du client et de la collection du site. Vous pouvez définir cette fonctionnalité à l’aide des applets de commande Set-SPOTenant et Set-SPOSite qui permettent aux membres de rechercher tous les utilisateurs invités existants dans le répertoire. Les modifications apportées à la portée du client n’affectent pas les sites SPO déjà configurés.
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>Des invitations ont été désactivées pour le répertoire
 
-Si vous recevez un message d’erreur indiquant que vous n'êtes pas autorisé à inviter des utilisateurs, vérifiez que votre compte d’utilisateur est autorisé à inviter des utilisateurs externes. Pour cela, accédez aux Paramètres utilisateur :
+Si un message vous indique que vous n’êtes pas autorisé à inviter des utilisateurs, vérifiez que votre compte d’utilisateur est autorisé à inviter des utilisateurs externes sous Paramètres utilisateur :
 
 ![](media/active-directory-b2b-troubleshooting/external-user-settings.png)
 
@@ -58,13 +59,13 @@ Si vous invitez des utilisateurs dont l’organisation utilise un Azure Active D
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>L'utilisateur externe n’existe pas déjà dans un domaine fédéré
 
-Dans les cas où l’utilisateur externe utilise une solution de fédération où l’authentification est effectuée localement et l’utilisateur n’existe pas déjà dans Azure Active Directory, l’utilisateur ne peut pas être invité.
+Si vous utilisez l’authentification par fédération et si l’utilisateur n’existe pas déjà dans Azure Active Directory, l’utilisateur ne peut pas être invité.
 
 Pour résoudre ce problème, administrateur de l’utilisateur externe doit synchroniser le compte d’utilisateur sur Azure Active Directory.
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Comment synchroniser « \# », qui n’est normalement pas un caractère valide, avec Azure AD ?
 
-« \# » est un caractère réservé dans les UPN pour Azure AD B2B Collaboration ou des utilisateurs externes (autrement dit, user@contoso.com devient user_contoso.com#EXT@fabrikam.onmicrosoft.com une fois invité), de sorte que les \# dans des UPN locaux ne sont pas autorisés pour la connexion au portail Azure.
+« \# » est un caractère réservé dans les UPN pour les utilisateurs Azure AD B2B Collaboration ou externes, car le compte invité user@contoso.com devient user_contoso.com#EXT@fabrikam.onmicrosoft.com. Par conséquent, il est impossible pour \# dans les UPN en local de se connecter au portail Azure. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Je reçois une erreur lors de l’ajout d'utilisateurs externes à un groupe synchronisé
 
@@ -76,7 +77,12 @@ L’invité doit contacter son fournisseur de services Internet ou contrôler so
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Je remarque que le message personnalisé n’est parfois pas inclus dans les messages d’invitation
 
-Pour respecter les lois relatives à la confidentialité, nos API n’incluent pas de messages personnalisés dans l’invitation électronique quand l’émetteur de l’invitation n’a pas d’adresse e-mail au sein de l’organisation de ressources (également appelée location invitante) ou quand un principal de service d’application envoie l’invitation. Si ce scénario est important pour vous, vous pouvez supprimer l’API qui envoie l’invitation électronique, et envoyer celle-ci via un mécanisme de messagerie de votre choix. N’oubliez pas de consulter un conseiller juridique de votre organisation pour vous assurer que tout courriel que vous envoyez est également conforme aux lois relatives à la vie privée.
+Par respect des lois sur la confidentialité, nos API n’incluent pas de messages personnalisés dans les invitations par e-mail lorsque :
+
+- L’inviteur n’a pas d’adresse e-mail dans le locataire à l’origine de l’invitation
+- Un principal AppService envoie l’invitation
+
+Si ce scénario est important pour vous, vous pouvez supprimer l’API qui envoie l’invitation par e-mail, et envoyer cette dernière au moyen d’un mécanisme de messagerie de votre choix. Consultez un conseiller juridique dans votre organisation pour vous assurer que tout e-mail que vous envoyez est également conforme aux lois relatives à la vie privée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

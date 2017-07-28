@@ -3,7 +3,7 @@ title: "Référence pour Analytics dans Azure Application Insights | Microsoft D
 description: "Référence pour les instructions dans Analytics, le puissant outil de recherche d’Application Insights. "
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 07/05/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3fb2464e3757d316367487506f0aca9f1c2e35cc
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: dd3478966e4e5ccc9f108940401c7ee9454087dd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -35,7 +35,7 @@ Sources d’information supplémentaires :
 ## <a name="index"></a>Index
 **Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Requêtes et opérateurs** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Requêtes et opérateurs** [as](#as-operator) | [autocluster](#evaluate-autocluster_v2) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns_v2) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Agrégations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -44,7 +44,7 @@ Sources d’information supplémentaires :
 **Chiffres** [Opérateurs arithmétiques](#arithmetic-operators) | [Littéraux numériques](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [journal](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Séries numériques** 
-[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) | [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
+[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) |[series_outliers](#seriesoutliers)| [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
 
 **Date et heure** [Expressions de date et heure](#date-and-time-expressions) | [Littéraux Date et d’heure](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [maintenant](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -318,14 +318,16 @@ datatable (Supplier: string, Fruit: string, Price:int)
 
 `evaluate` doit être le dernier opérateur du pipeline de requête (à l’exception d’un éventuel `render`). Il ne doit pas apparaître dans le corps d’une fonction.
 
-[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+[evaluate autocluster](#evaluate-autocluster_v2) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns_v2) | [evaluate extractcolumns](#evaluate-extractcolumns)
 
-#### <a name="evaluate-autocluster"></a>evaluate autocluster
+#### <a name="evaluate-autocluster-deprecated"></a>evaluate autocluster (déconseillée)
      T | evaluate autocluster()
 
-Autocluster est un moyen rapide de rechercher les regroupements naturels dans un jeu de données. Par exemple, à partir d’une masse de données de demande, vous pouvez rapidement identifier que 80 % des échecs 404 étaient des demandes pour une URL particulière, effectuée par un client dans une ville spécifique.
+Autocluster est un moyen rapide de rechercher les regroupements naturels dans un jeu de données. Par exemple, à partir d’une masse de données de requête, vous pouvez rapidement identifier que 80 % des échecs 404 étaient des demandes pour une URL particulière, effectuée par un client dans une ville spécifique.
 
 AutoCluster recherche les modèles courants d’attributs discrets (dimensions) dans les données et réduit les résultats de la requête d’origine (qu’elle fasse 100 ou 100 000 lignes) à un petit nombre de modèles. AutoCluster a été développé pour analyser les échecs (par exemple, les exceptions, les incidents) mais peut éventuellement fonctionner sur n’importe quel jeu de données filtré. 
+
+**Cette version de `autocluster` est déconseillée. Utilisez [autocluster_v2](#evaluate-autocluster_v2).**
 
 **Syntaxe**
 
@@ -374,6 +376,92 @@ Notez que les modèles ne sont pas disjoints : ils peuvent se chevaucher et ne c
   
     Exemple : `T | evaluate autocluster("weight_column=sample_Count")` 
 
+<a name="evaluate-autocluster_v2"></a>
+
+#### <a name="evaluate-autoclusterv2"></a>evaluate autocluster_v2
+
+    T | evaluate autocluster_v2()
+
+AutoCluster recherche les modèles courants d’attributs discrets (dimensions) dans les données et réduit les résultats de la requête d’origine (qu’elle fasse 100 ou 100 000 lignes) à un petit nombre de modèles. AutoCluster a été développé pour analyser les échecs (par exemple, les exceptions, les incidents) mais peut éventuellement fonctionner sur n’importe quel jeu de données filtré. L’algorithme AutoCluster a été développé par l’équipe de recherche de Developer Analytics (KustoML@microsoft.com).
+
+Ce plug-in remplace la syntaxe du plug-in autocluster déconseillé.     
+
+**Syntaxe**
+`T | evaluate autocluster_v2( arguments )`
+
+**Retourne** AutoCluster retourne un jeu de modèles (généralement petit) qui permettent de capturer des parties de données comportant des valeurs courantes partagées par plusieurs attributs discrets. Chaque modèle est représenté par une ligne dans les résultats. La première colonne contient l’ID de segment. Les deux colonnes suivantes contiennent le nombre et le pourcentage de lignes de la requête d’origine qui sont capturés par le modèle. Les colonnes restantes sont issues de la requête d’origine et leur valeur est soit une valeur spécifique de la colonne soit une valeur générique (null par défaut), qui correspond à des valeurs de variables. Notez que les modèles ne sont pas distincts : ils peuvent se chevaucher et ne couvrent généralement pas toutes les lignes d’origine. Certaines lignes peuvent n’appartenir à aucun modèle.
+
+**Conseils** Utilisez `where` et `project` dans le canal d’entrée pour réduire les données uniquement à ce qui vous intéresse..
+Lorsque vous trouvez une ligne intéressante, vous pouvez l’explorer plus en détail en ajoutant ses valeurs spécifiques à votre filtre `where` .
+
+**Arguments (facultatifs)** `T | evaluate autocluster_V2([*SizeWight*,*WeightColumn*,*NumSeeds*,*CustomWildcard*,...])
+
+Tous les arguments sont facultatifs, mais ils doivent alors être ordonnés comme ci-dessus. Pour indiquer que la valeur par défaut doit être utilisée, insérez le signe tilde - ’ ~’ (voir les exemples ci-dessous).
+
+**Arguments disponibles**
+
+- SizeWeight - 0<*double* <1 [default 0.5] Vous permet de contrôler l’équilibre entre le générique (couverture élevée) et l’informatif (nombreuses valeurs partagées). L’augmentation de la valeur réduit généralement le nombre de modèles, et chaque modèle a tendance à couvrir un pourcentage plus élevé. La diminution de la valeur produit généralement des modèles plus spécifiques avec davantage de valeurs partagées et un pourcentage de couverture moins élevé. La formule en arrière-plan est une moyenne géométrique pondérée entre le score générique normalisé et le score informatif, avec *SizeWeight* et *1-SizeWeight* comme pondérations. 
+
+**Exemple**
+`T | evaluate autocluster_v2(0.8)`
+
+- WeightColumn - *nom_colonne*
+
+Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de « 1 »). L’argument doit être un nom de colonne numérique (par exemple, int, long, real). Il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
+
+**Exemple**
+`T | evaluate autocluster_v2('~', sample_Count)`
+
+`- NumSeeds - *int* [par défaut 25]
+
+Le nombre de valeurs initiales détermine le nombre de points de recherche locaux initiaux de l’algorithme. Dans certains cas, selon la structure des données, l’augmentation du nombre de valeurs initiales augmente le nombre (ou la qualité) des résultats par le biais d’un espace de recherche plus important avec un compromis de requête plus lent. La valeur présente une diminution des résultats dans les deux sens. Ainsi, si on baisse sa valeur en-deçà de 5, on obtient des améliorations de performances négligeables et si on l’augmente au-delà de 50, cela génère rarement des modèles supplémentaires.
+
+**Exemple**
+`T | evaluate autocluster_v2('~','~',15)`
+
+- CustomWildcard - *toute_valeur_par_type*
+
+Définit la valeur de caractère générique pour un type spécifique dans la table de résultats qui indique que le modèle actuel ne présente pas de restriction sur cette colonne. La valeur par défaut est null, la chaîne par défaut est une chaîne vide. Si la valeur par défaut est une valeur viable dans les données, une valeur de caractère générique différente doit être utilisée (par exemple, *).
+
+**Exemple**
+
+`T | evaluate autocluster_v2('~','~','~',int (-1), double(-1), long(0), datetime(1900-1-1))`
+
+**Exemple**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State , EventType , Damage
+| evaluate autocluster_v2(0.6)
+```
+**Résultats**
+|ID de segment|Nombre|Pourcentage|État|Type d’événement|Dommage|
+----------|-----|-------|-----|---------|------|
+0|2278|38,7||Grêle|NON
+1|512|8,7||Vent d’orage|OUI
+2|898|15,3|TEXAS|||
+
+**Exemple avec des caractères génériques personnalisés**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State , EventType , Damage 
+| evaluate autocluster_v2(0.2, '~', '~', '*')
+```
+**Résultats**
+|ID de segment|Nombre|Pourcentage|État|Type d’événement|Dommage|
+----------|-----|-------|-----|---------|------|
+0|2278|38,7|\*|Grêle|NON
+1|512|8,7|\*|Vent d’orage|OUI
+2|898|15,3|TEXAS|\*|\*|
+
+**Informations supplémentaires**
+
+-  AutoCluster repose en grande partie sur l’algorithme Seed-Expand décrit dans le document suivant : [Algorithms for Telemetry Data Mining using Discrete Attributes](http://www.scitepress.org/DigitalLibrary/PublicationsDetail.aspx?ID=d5kcrO+cpEU=&t=1), lien de recherche en texte intégral : [pdf](https://kusto.azurewebsites.net/docs/queryLanguage/images/queries/ICPRAM17telemetry.pdf). 
+
+
 #### <a name="evaluate-basket-deprecated"></a>evaluate basket (déconseillé)
 
      T | evaluate basket()
@@ -417,9 +505,13 @@ Remplace la syntaxe `evaluate basket` déconseillée.
 
 **Retourne**
 
-Tous les modèles qui apparaissent dans plus d’une fraction spécifiée (valeur par défaut 0,05) des événements. Pour chaque modèle, les colonnes qui ne sont pas définies dans le modèle (c’est-à-dire sans restriction sur une valeur spécifique) contiennent une valeur générique qui sont des valeurs null par défaut (voir dans la section Arguments ci-dessous comment ils peuvent être modifiés manuellement).
+Basket retourne tous les modèles fréquents figurant au-dessus du seuil de taux (par défaut : 0,05) des lignes. Chaque modèle est représenté par une ligne dans les résultats.
+
+La première colonne contient l’ID de segment. Les deux colonnes suivantes contiennent le nombre et le pourcentage de lignes de la requête d’origine qui sont capturés par le modèle. Les colonnes restantes sont issues de la requête d’origine et leur valeur est soit une valeur spécifique de la colonne soit une valeur générique (null par défaut), qui correspond à des valeurs de variables.
 
 **Arguments (tous facultatifs)**
+
+Exemple : `T | evaluate basket_v2([Threshold, WeightColumn, MaxDimensions, CustomWildcard, CustomWildcard, ...])`
 
 Tous les arguments sont facultatifs, mais doivent apparaître dans l’ordre suivant. Pour indiquer qu’une valeur par défaut doit être utilisée, utilisez le signe tilde ~ (voir les exemples ci-dessous).
 
@@ -427,34 +519,71 @@ Tous les arguments sont facultatifs, mais doivent apparaître dans l’ordre sui
   
     Définit le taux minimal de lignes pouvant être considérées comme fréquentes (les modèles dont le taux est moins élevé ne seront pas retournés).
   
-    Exemple : `T | evaluate basket(0.02)`
-* Colonne de pondération *itemCount*
+    Exemple : `T | evaluate basket_v2(0.02)`
+* Colonne de pondération *-nom_colonne*
   
-    Permet de prendre en compte l’échantillonnage et l’agrégation préliminaire métrique. Chaque ligne se voit attribuer la pondération spécifiée dans cette colonne. Par défaut, chaque ligne a une pondération de '1'. Cela prend en compte la création de compartiments ou l’agrégation des données déjà incorporées dans chaque ligne.
+    Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de « 1 »). L’argument doit être un nom de colonne numérique (par exemple, int, long, real). Il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
   
-    Exemple : `T | evaluate basket('~', itemCount)`
+    Exemple : `T | evaluate basket_v2('~', sample_Count)`
 * Dimensions max. : 1 < *int* (valeur par défaut : 5)
   
     Définit le nombre maximal de dimensions non corrélées par panier, limité par défaut pour réduire le temps d’exécution de la requête.
 
-    Exemple : `T | evaluate basket('~', '~', 3)`
+    Exemple : `T | evaluate basket_v2('~', '~', 3)`
 * Types génériques personnalisés : *n’importe quelle valeur par type*
   
     Définit la valeur de caractère générique pour un type spécifique dans la table de résultats qui indique que le modèle actuel ne présente pas de restriction sur cette colonne. La valeur par défaut est null, la chaîne par défaut est une chaîne vide. Si la valeur par défaut est une valeur viable dans les données, une valeur de caractère générique différente doit être utilisée (par exemple, *).
 
     Exemple : `T | evaluate basket_v2('~', '~', '~', '*', int(-1), double(-1), long(0), datetime(1900-1-1))`
 
-**Exemple**
+**Exemples**
 
-``` AIQL
-requests 
-| evaluate basket_v2(0.7, itemCount)
+``` 
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State, EventType, Damage, DamageCrops
+| evaluate basket_v2(0.2)
 ```
+Résultats
 
-#### <a name="evaluate-diffpatterns"></a>evaluate diffpatterns
-     requests | evaluate diffpatterns("split=success")
+|ID de segment|Nombre|Pourcentage|État|Type d’événement|Dommage|Récoltes
+----------|-----|-------|-----|---------|------|-----------
+0|4574|77,7|||NON|0
+1|2278|38,7||Grêle|NON|0
+2|5675|96,4||||0
+3|2371|40,3||Grêle||0
+4|1279|21,7||Vent d’orage||0
+5|2468|41,9||Grêle|||
+6|1310|22,3|||OUI||
+7|1291|21,9||Vent d’orage||
 
-Diffpatterns identifie les différences entre deux jeux de données de la même structure, par exemple, le journal de la demande au moment d’un incident, et les journaux de demandes normaux. Diffpatterns a été développé pour analyser les échecs (par exemple, en comparant les échecs et l’absence d’échecs sur une période donnée), mais peut éventuellement rechercher les différences entre deux jeux de données quelconques de la même structure. 
+Exemple avec des caractères génériques personnalisés
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State, EventType, Damage, DamageCrops
+| evaluate basket_v2(0.2, '~', '~', '*', int(-1))
+```
+Résultats
+
+|ID de segment|Nombre|Pourcentage|State|EventType|Dommage|Récoltes
+----------|-----|-------|-----|---------|------|-----------
+0|4574|77,7|\*|\*|NON|0
+1|2278|38,7|\*|Grêle|NON|0
+2|5675|96,4|\*|\*|\*|0
+3|2371|40,3|\*|Grêle|\*|0
+4|1279|21,7|\*|Vent d’orage|\*|0
+5|2468|41,9|\*|Grêle|\*|-1|
+6|1310|22,3|\*|\*|OUI|-1|
+7|1291|21,9|\*|Vent d’orage|\*|-1|
+
+#### <a name="evaluate-diffpatterns-deprecated"></a>evaluate diffpatterns (déconseillée)
+**Cette version du plug-in diffpatterns est déconseillée. Utilisez la nouvelle syntaxe du plug-in [diffpatterns](#evaluate-diffpatterns_v2).**
+requests | evaluate diffpatterns("split=success")
+
+Diffpatterns identifie les différences entre deux jeux de données de la même structure, par exemple, le journal des requêtes au moment d’un incident, et les journaux de requêtes normaux. Diffpatterns a été développé pour analyser les échecs (par exemple, en comparant les échecs et l’absence d’échecs sur une période donnée), mais peut éventuellement rechercher les différences entre deux jeux de données quelconques de la même structure. 
 
 **Syntaxe**
 
@@ -502,6 +631,110 @@ Notez que les modèles ne sont pas distincts : ils peuvent se chevaucher et ne c
     Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de « 1 »). Il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
   
     `requests | evaluate autocluster("weight_column=itemCount")`
+
+<a name="evaluate-diffpatterns_v2"></a>
+#### <a name="evaluate-diffpatternsv2"></a>evaluate diffpatterns_v2
+’T | evaluate diffpatterns_v2(splitColumn)`
+
+Diffpatterns compare deux jeux de données de la même structure et recherche les modèles d’attributs discrets (dimensions) qui caractérisent les différences entre les deux jeux de données. Diffpatterns a été développé pour analyser les échecs (par exemple, en comparant les échecs et l’absence d’échecs sur une période donnée), mais peut éventuellement rechercher les différences entre deux jeux de données quelconques de la même structure. L’algorithme Diffpatterns a été développé par l’équipe de recherche de Developer Analytics (KustoML@microsoft.com).
+
+Ce plug-in remplace la syntaxe du plug-in diffpatterns déconseillée.
+
+**Syntaxe**
+
+`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, arguments] )`
+
+**Retourne**
+
+Diffpatterns retourne un jeu de modèles (généralement petit) qui capturent différentes parties des données dans les deux jeux (par exemple, un modèle qui capture un fort pourcentage des lignes dans le premier jeu de données et un faible pourcentage des lignes dans le deuxième jeu). Chaque modèle est représenté par une ligne dans les résultats.
+La première colonne contient l’ID de segment. Les quatre colonnes suivantes correspondent au nombre et au pourcentage de lignes de la requête d’origine qui sont capturées par le modèle dans chaque jeu ; la sixième colonne correspond à la différence (en pourcentage absolu) entre les deux jeux. Les colonnes restantes proviennent de la requête d’origine.
+Pour chaque modèle, les colonnes qui ne sont pas définies dans le modèle (c’est-à-dire sans restriction sur une valeur spécifique) contiennent une valeur générique qui est null par défaut (voir dans la section Arguments ci-dessous comment les valeurs génériques peuvent être modifiées manuellement).
+Notez que les modèles ne sont pas distincts : ils peuvent se chevaucher et ne couvrent généralement pas toutes les lignes d’origine. Certaines lignes peuvent n’appartenir à aucun modèle.
+
+**Conseils**
+
+Utilisez where et project dans le canal d’entrée pour réduire les données uniquement à ce qui vous intéresse.
+Lorsque vous trouvez une ligne intéressante, vous pouvez l’explorer plus en détail en ajoutant ses valeurs spécifiques à votre filtre `where` .
+
+**Arguments requis**
+
+`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, WeightColumn, Threshold, MaxDimensions, CustomWildcard, ...])` 
+
+- SplitColumn - *nom_colonne* 
+
+Indique à l’algorithme comment fractionner la requête en jeux de données. Selon les valeurs spécifiées pour les arguments SplitValueA et SplitValueB (voir ci-dessous), l’algorithme fractionne la requête en deux jeux de données, « A » et « B », et analyse les différences entre ceux-ci. Par conséquent, la colonne fractionnée doit comprendre au moins deux valeurs distinctes.
+
+- SplitValueA - *string*
+
+Représentation sous forme de chaîne de l’une des valeurs dans la SplitColumn spécifiée. Toutes les lignes contenant cette valeur dans leur SplitColumn sont considérées comme constituant un jeu de données « A ».
+
+- SplitValueB - *string*
+
+Représentation sous forme de chaîne de l’une des valeurs dans la SplitColumn spécifiée. Toutes les lignes contenant cette valeur dans leur SplitColumn sont considérées comme constituant un jeu de données « B ».
+
+**Exemple**
+
+```
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure")
+```
+**Arguments facultatifs**
+
+Tous les autres arguments sont facultatifs, mais ils doivent alors être ordonnés comme ci-dessous. Pour indiquer que la valeur par défaut doit être utilisée, insérez le signe tilde - ’ ~’ (voir les exemples ci-dessous).
+
+- WeightColumn - *nom_colonne*
+
+Considère chaque ligne de l’entrée en fonction de la pondération spécifiée (par défaut, chaque ligne a une pondération de « 1 »). L’argument doit être un nom de colonne numérique (par exemple, int, long, real). Il est courant d’utiliser une colonne de pondération en prenant en compte l’échantillonnage ou la création de compartiments/l’agrégation des données déjà incorporées dans chaque ligne.
+
+**Exemple**
+```
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", sample_Count)
+```
+- Threshold - 0.015 < double < 1 [par défaut : 0.05]
+
+Définit la différence minimale de modèle (taux) entre les deux jeux.
+
+**Exemple**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", 0.04)
+```
+- MaxDimensions - 0 < int [par défaut : illimité]
+
+Définit le nombre maximal de dimensions non corrélées par modèle de résultat. La spécification d’une limite réduit l’exécution de la requête.
+
+**Exemple**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", 3)
+```
+- CustomWildcard - *toute_valeur_par_type*
+
+Définit la valeur de caractère générique pour un type spécifique dans la table de résultats qui indique que le modèle actuel ne présente pas de restriction sur cette colonne. La valeur par défaut est null, la chaîne par défaut est une chaîne vide. Si la valeur par défaut est une valeur viable dans les données, une valeur de caractère générique différente doit être utilisée (par exemple, *). Reportez-vous à l’exemple ci-dessous.
+
+**Exemple**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))
+```
+
+**Exemple**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , 1 , 0)
+| project State , EventType , Source , Damage, DamageCrops
+| evaluate diffpatterns_v2(Damage, "0", "1" )
+```
+**Résultats**
+
+|ID de segment|CountA|CountB|PercentA|PercentB|DiffAB|État|Type d’événement|Source|Récoltes
+----------|------|------|--------|--------|------|-----|---------|------|-----------
+0|2278|93|49,8|7,1|42,7||Grêle||0
+1|779|512|17,03|39,08|22,05||Vent d’orage|||
+2|1098|118|24,01|9,01|15|||Observateur chevronné|0|
+3|136|158|2,97|12,06|9,09|||Journal||
+4|359|214|7,85|16,34|8,49||Crue soudaine|||
+5|50|122|1,09|9,31|8,22|IOWA||||
+6|655|279|14,32|21,3|6,98|||Respect des lois||
+7|150|117|3,28|8,93|5,65||Crue|||
+8|362|176|7,91|13,44|5,52|||Gestionnaire des urgences||
 
 #### <a name="evaluate-extractcolumns"></a>evaluate extractcolumns
      exceptions | take 1000 | evaluate extractcolumns("details=json") 
@@ -2162,7 +2395,7 @@ La fonction series_fir() applique un filtre [Finite Impulse Response](https://wi
 
 En spécifiant les coefficients de filtre, il peut être utilisé pour le calcul de moyenne mobile, le lissage, la détection de modifications et de nombreux autres cas d’utilisation.
 
-La fonction accepte comme entrée la colonne qui contient le tableau dynamique et un tableau statique et dynamique des coefficients du filtre, et applique le filtre sur la colonne. Il génère une nouvelle colonne de tableau dynamique, qui contient la sortie filtrée. 
+La fonction accepte comme entrée la colonne qui contient le tableau dynamique et un tableau statique et dynamique des coefficients du filtre, et applique le filtre sur la colonne. Elle génère une nouvelle colonne de tableau dynamique, qui contient la sortie filtrée. 
 
 **Syntaxe**
 
@@ -2173,7 +2406,7 @@ La fonction accepte comme entrée la colonne qui contient le tableau dynamique e
 * *x :* cellule de tableau dynamique qui est un tableau de valeurs numériques, généralement le résultat des opérateurs [make-series](#make-series-operator) ou [makelist](#makelist-operator).
 * *filter :* une valeur booléenne facultative indiquant si les coefficients de filtre doivent être normalisés (c.-à-d. divisés par la somme). Par défaut, normalize a la valeur true. Si le filtre contient des valeurs négatives, la normalisation automatique ne peut pas être effectuée, et normalize doit être explicitement défini sur false.
 * *normalize :* valeur booléenne facultative indiquant si le filtre doit être normalisé. Par défaut, normalize a la valeur true. Si le filtre contient des valeurs négatives, normalize doit être spécifié comme false. 
-* *center :* une valeur booléenne facultative indiquant si le filtre est appliqué symétriquement sur un intervalle de temps avant et après le point actuel, ou sur une fenêtre de temps à partir du point actif vers l’arrière. Par défaut, center est défini sur false, ce qui correspond au scénario de diffusion en continu de données, où nous pouvons uniquement appliquer le filtre sur les points actuels et anciens. Toutefois, pour un traitement ad hoc, vous pouvez le définir sur true, et maintenir la synchronisation avec la série chronologique (voir les exemples ci-dessous). Techniquement parlant, ce paramètre contrôle le retard de groupe du filtre.
+* *center :* une valeur booléenne facultative indiquant si le filtre est appliqué symétriquement sur un intervalle de temps avant et après le point actuel, ou sur une fenêtre de temps à partir du point actif vers l’arrière. Par défaut, center est défini sur false, ce qui correspond au scénario de données de streaming, où nous pouvons uniquement appliquer le filtre sur les points actuels et anciens. Toutefois, pour un traitement ad hoc, vous pouvez le définir sur true, et maintenir la synchronisation avec la série chronologique (voir les exemples ci-dessous). Techniquement parlant, ce paramètre contrôle le retard de groupe du filtre.
 
 **Exemples**
 
@@ -2210,7 +2443,7 @@ range t from bin(now(), 1h)-11h to bin(now(), 1h) step 1h
 
 
 ### <a name="seriesfitline"></a>series\_fit\_line
-La fonction series_fit_line() prend une colonne contenant un tableau numérique dynamique en tant qu’entrée, et effectue la régression linéaire afin de trouver la ligne qui lui convient mieux. Cette fonction doit être utilisée sur des tableaux de séries chronologiques, pour correspondre à la sortie de l’opérateur make-series. Il génère une colonne dynamique contenant les champs suivants :
+La fonction series_fit_line() prend une colonne contenant un tableau numérique dynamique en tant qu’entrée, et effectue la régression linéaire afin de trouver la ligne qui lui convient le mieux. Cette fonction doit être utilisée sur des tableaux de séries chronologiques, pour correspondre à la sortie de l’opérateur make-series. Il génère une colonne dynamique contenant les champs suivants :
 
 * *slope :* pente de la ligne approximative (il s’agit de `a` dans `y=ax+b`).
 * *interception :* interception de la ligne approximative (il s’agit de `b` dans `y=ax+b`).
@@ -2246,7 +2479,7 @@ range x from 1 to 1 step 1
 
 ### <a name="seriesfit2lines"></a>series\_fit\_2lines
 
-La fonction series_fit_2lines() s’applique à la régression linéaire de deux segments d’une série (chronologique) afin d’identifier et de quantifier la modification de tendance dans une série. La fonction effectue une itération sur les index de la série. Dans chaque itération, elle fractionne la série 2 parties, correspond à une ligne distincte (à l’aide de series_fit_line()) de chaque partie et calcule la valeur r-square totale. La meilleure séparation est celle qui optimise la valeur r-square ; la fonction renvoie ses paramètres :
+La fonction series_fit_2lines() s’applique à la régression linéaire de deux segments d’une série (chronologique) afin d’identifier et de quantifier la modification de tendance dans une série. La fonction effectue une itération sur les index de la série. Dans chaque itération, elle fractionne la série en 2 parties, correspond à une ligne distincte (à l’aide de series_fit_line()) de chaque partie et calcule la valeur r-square totale. La meilleure séparation est celle qui optimise la valeur r-square ; la fonction renvoie ses paramètres :
 
 * *rsquare :* r-square est une mesure standard de qualité adaptée. Il s’agit d’un nombre dans la plage [0-1], où 1 est la meilleure correspondance possible, et 0 signifie que les données sont totalement désordonnées et ne correspondent à aucune ligne
 * *split_idx :* l’index du point de rupture de 2 segments (basés sur zéro)
@@ -2264,13 +2497,13 @@ La fonction series_fit_2lines() s’applique à la régression linéaire de deux
 * *left_variance :* variance des données d’entrée sur le côté gauche du fractionnement
 * *left_rvariance :* variance résiduelle des données d’entrée sur le côté gauche du fractionnement
 
-Notez que cette fonction renvoie plusieurs colonnes, elle ne peut donc pas être utilisé en tant qu’argument pour une autre fonction.
+Notez que cette fonction renvoie plusieurs colonnes, elle ne peut donc pas être utilisée en tant qu’argument pour une autre fonction.
 
 **Syntaxe**
 
     project series_fit_2lines(x)
 
-Renverra toutes les colonnes mentionnées avec les noms suivants :`series_fit_2lines_x_rsquare, series_fit_2lines_x_split_idx and etc.`
+Renvoie toutes les colonnes mentionnées avec les noms suivants :`series_fit_2lines_x_rsquare, series_fit_2lines_x_split_idx and etc.`
 
     project (rs, si, v)=series_fit_2lines(x)
 
@@ -2303,9 +2536,9 @@ range x from 1 to 1 step 1
 
 La fonction series_iir() applique un filtre Infinite Impulse Response (filtre à réponse impulsionnelle infinie) sur une série (qui est représentée par une colonne dynamique contenant le tableau numérique).
 
-Si les coefficients de filtre sont spécifiés, il peut être utilisé par exemple pour calculer la somme cumulée de la série, pour appliquer des opérations de lissage, ainsi que diverses filtres passe-haut, passe-bande et passe-bas.
+Si les coefficients de filtre sont spécifiés, elle peut être utilisée par exemple pour calculer la somme cumulée de la série, pour appliquer des opérations de lissage, ainsi que diverses filtres passe-haut, passe-bande et passe-bas.
 
-La fonction accepte comme entrée la colonne qui contient le tableau dynamique et deux tableaux statiques et dynamiques des coefficients a et b du filtre, et applique le filtre sur la colonne. Il génère une nouvelle colonne de tableau dynamique, qui contient la sortie filtrée. 
+La fonction accepte comme entrée la colonne qui contient le tableau dynamique et deux tableaux statiques et dynamiques des coefficients a et b du filtre, et applique le filtre sur la colonne. Elle génère une nouvelle colonne de tableau dynamique, qui contient la sortie filtrée. 
 
 **Syntaxe**
 
@@ -2346,7 +2579,41 @@ range t from 1 to 1 step 1
 |2.0|3.0|
 |3.0|6.0|
 |4.0|10.0|
+### <a name="seriesoutliers"></a>series_outliers 
 
+La fonction series_outliers() prend une colonne contenant un tableau dynamique en tant qu’entrée, et génère un tableau numérique dynamique de la même longueur que l’entrée. Chaque valeur du tableau présente un score indiquant une anomalie possible liée à l’utilisation du test de Tukey. Une valeur supérieure à 1,5 ou inférieure à -1,5 indique respectivement une anomalie de hausse ou de baisse dans le même élément de l’entrée.  
+
+**Syntaxe**  
+
+```
+series_outliers(x,kind,ignore_val,min_percentile,max_percentile)  
+```
+**Arguments** 
+* *x :* cellule de tableau dynamique qui est un tableau de valeurs numériques. Les valeurs sont supposées pour être équidistantes. Autrement, elles peuvent générer des résultats inattendus.  
+* *kind :* algorithme de détection de valeur hors norme. Prend actuellement en charge « tukey » et « ctukey ». La valeur par défaut est « ctukey ».  
+* *ignore_val :* valeur numérique indiquant des valeurs manquantes dans la série. La valeur par défaut est double(null).
+* *min_percentile :* pour le calcul de la plage de inter-quantile normale. La valeur par défaut est 10 (ctukey uniquement).
+* *max_percentile :* pour le calcul de la plage de inter-quantile normale. La valeur par défaut est 90 (ctukey uniquement).
+
+Le tableau suivant décrit les différences entre « tukey » et « ctukey » :
+
+|Algorithme|Plage de quantiles par défaut|Prend en charge de la plage de quantiles personnalisée|
+|---------|----------------------|------------------------------|
+|"tukey"|25% / 75%|Non|
+|"ctukey"|10% / 90%|Oui|
+
+**Remarque importante** La méthode la plus pratique pour utiliser cette fonction consiste à l’appliquer aux résultats de l’opérateur `make-series`.
+
+**Exemples** 
+
+Pour l’entrée suivante   
+```
+[30,28,5,27,31,38,29,80,25,37,30]
+``` 
+series_outliers() retourne  
+[0.0,0.0,-3.206896551724138,-0.1724137931034483,0.0,2.6666666666666667,0.0,16.666666666666669,-0.4482758620689655,2.3333333333333337,0.0]
+
+ce qui signifie que 5 est une anomalie de baisse, et 80 une anomalie de hausse par rapport au reste de la série. 
 
 ### <a name="seriesperiods"></a>series_periods
 
@@ -2363,9 +2630,9 @@ La fonction accepte en entrée une colonne contenant un tableau dynamique de sé
 **Arguments**
 
 * *x :* cellule de tableau dynamique qui est un tableau de valeurs numériques, généralement le résultat des opérateurs make-series ou makelist.
-* *min_period :* un nombre réel spécifiant la période minimale à rechercher.
-* *max_period :* un nombre réel spécifiant la période maximale à rechercher.
-* *num_periods :* un nombre long spécifiant le nombre de périodes maximal requis. Il s’agit de la longueur du tableau dynamique de sortie.
+* *min_period :* nombre réel spécifiant la période minimale à rechercher.
+* *max_period :* nombre réel spécifiant la période maximale à rechercher.
+* *num_periods :* nombre long spécifiant le nombre de périodes maximal requis. Il s’agit de la longueur du tableau dynamique de sortie.
 
 **Remarques importantes**
 
@@ -2374,7 +2641,7 @@ La fonction accepte en entrée une colonne contenant un tableau dynamique de sé
 * Comme mentionné ci-dessus, les périodes qui en résultent sont dans des unités de placement, par exemple, si la série d’origine a une période quotidienne et a été agrégée par emplacements horaires, une période quotidienne de la sortie sera 24. Si les données sont agrégées par minute, la sortie sera de 60 × 24 = 1 440.
 * Vous devez définir min\_period un peu ci-dessous et max\_period un peu au-dessus des périodes que vous vous attendez à trouver dans la série chronologique. Par exemple, si vous disposez d’un signal agrégé horaire, et que vous recherchez des périodes quotidiennes et hebdomadaires (qui seraient 24 et 168 respectivement), vous pouvez définir min\_period=0,824, *max\_period=1,2*168.
 * La longueur du tableau dynamique de sortie est num\_of\_periods ; si la fonction a trouvé moins de num\_of\_periods périodes significatives, le reste des entrées du tableau sera défini sur 0.
-* La série chronologique d’entrée doit être régulière, c’est-à-dire agrégé en emplacements constants (ce qui est toujours le cas si elle a été créée à l’aide de make-series). Dans le cas contraire, le résultat n’est pas significatif.
+* La série chronologique d’entrée doit être régulière, c’est-à-dire agrégée en emplacements constants (ce qui est toujours le cas si elle a été créée à l’aide de make-series). Dans le cas contraire, le résultat n’est pas significatif.
 
 **Exemple**
 
@@ -2414,7 +2681,7 @@ La fonction series_stats() prend une colonne contenant un tableau numérique dyn
 * *variance :* exemple de variance du tableau d’entrée
 * *stdev :* exemple d’écart standard du tableau d’entrée
 
-Notez que cette fonction renvoie plusieurs colonnes, elle ne peut donc pas être utilisé en tant qu’argument pour une autre fonction.
+Notez que cette fonction renvoie plusieurs colonnes, elle ne peut donc pas être utilisée en tant qu’argument pour une autre fonction.
 
 **Syntaxe**
 
@@ -3094,7 +3361,8 @@ Pour créer un littéral dynamique, utilisez `parsejson` (alias `todynamic`) ave
 * `parsejson('21')` : valeur unique de type dynamique qui contient un nombre
 * `parsejson('"21"')` : valeur unique de type dynamique qui contient une chaîne
 
-> ![REMARQUE] Vous devez utiliser des guillemets doubles (`"`) pour encadrer les valeurs d’étiquettes et de chaînes dans JSON. Ainsi, il est généralement plus facile de placer les littéraux de chaîne en langage JSON entre des apostrophes (`'`).
+> [!NOTE]
+> Vous devez utiliser des guillemets doubles (`"`) pour encadrer les valeurs d’étiquettes et de chaînes dans JSON. Ainsi, il est généralement plus facile de placer les littéraux de chaîne en langage JSON entre des apostrophes (`'`).
 > 
 
 Cet exemple crée une valeur dynamique, puis utilise ses champs :
@@ -3278,7 +3546,7 @@ Dans l’exemple suivant, `customDimensions.person` est un `string` qui ressembl
 "\"addresses\":[{\"postcode\":\"C789\",\"street\":\"high st\",\"town\":\"Cardigan\"},{\"postcode\":\"J456\",\"street\":\"low st\",\"town\":\"Jumper\"}],\"name\":\"Ada\""
 ```
 
-Le fragment suivant récupère la valeur de l’emplacement `duration` dans l’objet et, grâce à cette valeur, récupère deux emplacements, `duration.value` et  `duration.min` (`118.0` et `110.0`, respectivement).
+Le fragment suivant récupère la valeur de l’emplacement `duration` dans l’objet et, grâce à cette valeur, récupère deux emplacements, `duration.value` et `duration.min` (`118.0` et `110.0`, respectivement).
 
 ```AIQL
 customEvents
@@ -3287,7 +3555,8 @@ customEvents
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
-> ![REMARQUE] Vous devez utiliser des guillemets doubles pour encadrer les valeurs d’étiquettes et de chaînes dans JSON. 
+> [!NOTE]
+> Vous devez utiliser des guillemets doubles pour encadrer les valeurs d’étiquettes et de chaînes dans JSON. 
 >
 
 

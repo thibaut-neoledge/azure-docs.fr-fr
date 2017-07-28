@@ -1,5 +1,5 @@
 ---
-title: "Azure AD B2C - Intégrer les échanges de revendications de l’API REST comme étape de validation dans les stratégies personnalisées | Microsoft Docs"
+title: "Azure Active Directory B2C : échanges de revendications de l’API REST en tant que validation | Microsoft Docs"
 description: "Une rubrique sur les stratégies personnalisées Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
@@ -15,41 +15,41 @@ ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 46abe48c3c9a7aab3fe013811d088a63957fe500
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: eb44a0d2234c9ee3801d8b3a1655d877aa2f4fef
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/24/2017
 
 ---
 
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journeys-as-validation-on-user-input"></a>Procédure pas à pas : intégration des échanges de revendications de l’API REST dans vos parcours utilisateur Azure Active Directory B2C comme une étape de validation sur saisie de l’utilisateur
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
 
-**L’IEF** (Identity Experience Framework ou « infrastructure d’expérience d’identité ») sur laquelle repose Azure AD B2C permet au développeur d’identité d’intégrer une interaction avec une API RESTful dans un parcours utilisateur.  
+L’infrastructure d’expérience d’identité sur laquelle repose Azure Active Directory B2C (Azure AD B2C) permet au développeur d’identité d’intégrer une interaction avec une API RESTful dans un parcours utilisateur.  
 
-À la fin de cette procédure pas à pas, vous serez en mesure de créer des parcours utilisateur Azure AD B2C qui interagissent avec les services RESTful.
+À la fin de cette procédure pas à pas, vous pourrez créer un parcours utilisateur Azure AD B2C qui interagit avec les services RESTful.
 
-L’IEF envoie des données dans des revendications et reçoit en retour des données via des revendications.  L’interaction avec l’API peut être conçue comme échange de revendications de l’API REST et profil de validation dans le cadre d’une étape d’orchestration.
+L’IEF envoie des données dans des revendications et reçoit en retour des données via des revendications. L’interaction avec l’API :
 
-- Cela valide en général la saisie de l’utilisateur.
-- Si la valeur de l’utilisateur est rejetée, l’utilisateur peut essayer à nouveau de saisir une valeur valide, avec la possibilité de renvoyer un message d’erreur à l’utilisateur.
+- Peut être conçue comme un échange de revendications de l’API REST ou comme un profil de validation, qui s’effectue dans une étape d’orchestration.
+- Valide en général une entrée de l’utilisateur. Si la valeur de l’utilisateur est rejetée, il peut essayer à nouveau d’entrer une valeur valide, avec la possibilité de retourner un message d’erreur.
 
-Cette interaction peut également être conçue comme une étape d’orchestration. Pour en savoir plus, consultez l’article [Procédure pas à pas : intégration des échanges de revendications de l’API REST dans vos parcours utilisateur Azure Active Directory B2C comme une étape d’orchestration](active-directory-b2c-rest-api-step-custom.md).
+Vous pouvez aussi concevoir l’interaction comme une étape d’orchestration. Pour plus d’informations, consultez [Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme étape d’orchestration](active-directory-b2c-rest-api-step-custom.md).
 
 Pour l’exemple de profil de validation, nous allons utiliser le parcours utilisateur de modification de profil dans le fichier ProfileEdit.xml du pack de démarrage.
 
-Nous pouvons vérifier que le prénom fourni par l’utilisateur dans la modification de profil ne figure sur aucune liste d’exclusion.
+Nous pouvons vérifier que le nom fourni par l’utilisateur dans la modification de profil ne figure sur aucune liste d’exclusions.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-- Un client Azure AD B2C configuré pour effectuer une inscription/connexion à un compte local selon les indications de l’article [Getting Started](active-directory-b2c-get-started-custom.md) (Mise en route).
-- Un point de terminaison API REST avec lequel vous allez interargir. Un site de démonstration [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) a été configuré avec un service d’API REST qui sera utilisé pour cette procédure pas à pas.
+- Un locataire Azure AD B2C configuré pour effectuer une inscription/connexion à un compte local, comme décrit dans [Bien démarrer](active-directory-b2c-get-started-custom.md).
+- Un point de terminaison API REST avec lequel vous allez interargir. Pour cette procédure pas à pas, nous avons configuré un site de démonstration appelé [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) avec un service de l’API REST.
 
-## <a name="step-1---prepare-the-rest-api-function"></a>Étape 1 : préparation de la fonction de l’API REST
+## <a name="step-1-prepare-the-rest-api-function"></a>Étape 1 : préparation de la fonction de l’API REST
 
 > [!NOTE]
-> Cet article ne traite pas de la configuration des fonctions de l’API REST. [Azure Function Apps](https://docs.microsoft.com/azure/azure-functions/functions-reference) fournit un excellent kit de ressources pour la création de services RESTful dans le cloud.
+> Cet article ne traite pas de la configuration des fonctions de l’API REST. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) fournit un excellent kit de ressources pour la création de services RESTful dans le cloud.
 
-Nous avons créé une fonction Azure qui reçoit une revendication attendue comme « playerTag » et définit si cette revendication existe ou non. Vous pouvez accéder au code complet de la fonction Azure dans [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+Nous avons créé une fonction Azure qui reçoit une revendication qu’elle attend en tant que `playerTag`. La fonction vérifie si cette revendication existe. Vous pouvez accéder au code complet de la fonction Azure dans [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
 ```csharp
 if (requestContentAsJObject.playerTag == null)
@@ -76,14 +76,14 @@ if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcott
 return request.CreateResponse(HttpStatusCode.OK);
 ```
 
-La revendication `userMessage` retournée par la fonction Azure est attendue par l’infrastructure d’expérience d’identité et sera présentée sous forme de chaîne à l’utilisateur en cas d’échec de la validation, notamment si l’état 409 conflit est retourné dans l’exemple ci-dessus.
+L’infrastructure d’expérience d’identité attend la revendication `userMessage` retournée par la fonction Azure. Cette revendication est présentée sous forme de chaîne à l’utilisateur si la validation échoue, comme quand un état de conflit 409 est retourné dans l’exemple précédent.
 
-## <a name="step-2---configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Étape 2 : configuration de l’échange de revendications de l’API RESTful comme profil technique dans votre fichier TrustFrameworkExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Étape 2 : configuration de l’échange de revendications de l’API RESTful comme profil technique dans votre fichier TrustFrameworkExtensions.xml
 
-Le profil technique est la configuration complète de l’échange souhaité avec le service RESTful. Ouvrez le fichier `TrustFrameworkExtensions.xml` et ajoutez l’extrait de code XML ci-dessous à l’intérieur de l’élément `<ClaimsProviders>`.
+Le profil technique est la configuration complète de l’échange souhaité avec le service RESTful. Ouvrez le fichier TrustFrameworkExtensions.xml et ajoutez l’extrait de code XML suivant à l’intérieur de l’élément `<ClaimsProviders>`.
 
 > [!NOTE]
-> Vous pouvez considérer l’élément « Restful Provider, Version 1.0.0.0 » (décrit ci-dessous comme un protocole) comme étant la fonction qui interagit avec le service externe.  Vous trouverez ici <!-- TODO: Link to RESTful Provider schema definition>--> une définition complète du schéma.
+> Dans le code XML suivant, le fournisseur RESTful `Version=1.0.0.0` est décrit comme étant le protocole. Considérez-le comme étant la fonction qui interagit avec le service externe. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
 
 ```xml
 <ClaimsProvider>
@@ -111,27 +111,27 @@ Le profil technique est la configuration complète de l’échange souhaité ave
 </ClaimsProvider>
 ```
 
-L’élément `InputClaims` définit les revendications qui seront envoyées depuis le moteur d’expérience d’identité (IEE) vers le service REST. Dans l’exemple ci-dessus, le contenu de la revendication `givenName` sera envoyé au service REST sous la forme d’une revendication `playerTag`. Dans cet exemple, l’IEE n’attend pas de revendications en retour. Il attend une réponse du service REST et agit selon les codes d’état reçus.
+L’élément `InputClaims` définit les revendications qui seront envoyées depuis l’IEF vers le service REST. Dans cet exemple, le contenu de la revendication `givenName` sera envoyé au service REST en tant que `playerTag`. Dans cet exemple, l’infrastructure d’expérience d’identité n’attend pas de revendications en retour. Au lieu de cela, elle attend une réponse du service REST et agit en fonction des codes d’état qu’elle reçoit.
 
-## <a name="step-3---include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-wish-to-validate-the-user-input"></a>Étape 3 : intégration de l’échange de revendications du service RESTful dans le profil technique Auto-déclaré dans lequel vous souhaitez valider la saisie de l’utilisateur
+## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Étape 3 : intégration de l’échange de revendications du service RESTful dans le profil technique autodéclaré où vous voulez valider la saisie de l’utilisateur
 
-L’étape de validation est le plus souvent utilisée dans le cadre d’une interaction avec un utilisateur.  Toutes les interactions impliquant une saisie de l’utilisateur sont des **profils techniques Auto-déclaré**. Pour cet exemple, nous allons ajouter cette validation au profil technique **Self-Asserted-ProfileUpdate**.  Il s’agit du profil technique utilisé par le fichier de stratégie de partie de confiance `Profile Edit`.
+L’étape de validation est le plus souvent utilisée dans le cadre d’une interaction avec un utilisateur. Toutes les interactions où une saisie de l’utilisateur est attendue sont des *profils techniques autodéclarés*. Pour cet exemple, nous ajoutons la validation au profil technique Self-Asserted-ProfileUpdate. Il s’agit du profil technique utilisé par le fichier de stratégie de la partie de confiance `Profile Edit`.
 
-Pour ajouter l’échange de revendications au profil technique Auto-déclaré :
+Pour ajouter l’échange de revendications au profil technique autodéclaré :
 
-1. Ouvrez le fichier TrustFrameworkBase et recherchez `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
-2. En analysant la configuration de ce profil technique, nous pouvons voir que l’échange avec l’utilisateur est défini sous la forme de revendications pour l’utilisateur (revendications d’entrée) et de revendications attendues par le fournisseur Auto-déclaré (revendications de sortie).
-3. Recherchez `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`. Notez que ce profil est appelé en tant qu’étape d’orchestration numéro 6 de `<UserJourney Id="ProfileEdit">`.
+1. Ouvrez le fichier TrustFrameworkBase.xml et recherchez `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
+2. Passez en revue la configuration de ce profil technique. Notez comment l’échange avec l’utilisateur est défini sous la forme de revendications demandées à l’utilisateur (revendications d’entrée) et de revendications attendues en retour par le fournisseur autodéclaré (revendications de sortie).
+3. Recherchez `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`. Notez que ce profil est appelé au titre de l’étape d’orchestration 6 de `<UserJourney Id="ProfileEdit">`.
 
-## <a name="step-4---upload-and-test-the-profile-edit-rp-policy-file"></a>Étape 4 : téléchargement et test du fichier de stratégie de partie de confiance Modification de profil
+## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Étape 4 : téléchargement et test du fichier de stratégie de partie de confiance de modification de profil
 
-1. Téléchargez la nouvelle version du fichier `TrustframeworkExtensions`.
+1. Chargez la nouvelle version du fichier TrustFrameworkExtensions.xml.
 2. Sélectionnez **Exécuter maintenant** pour tester le fichier de stratégie de partie de confiance Modification de profil.
-3. Testez la validation en fournissant un des noms existants (par exemple : mcvinny) dans le champ **Prénom**. Si tout est correctement configuré, vous devriez recevoir un message indiquant à l’utilisateur que l’élément `player tag` est déjà utilisé.
+3. Testez la validation en fournissant un des noms existants (par exemple mcvinny) dans le champ **Prénom**. Si tout est correctement configuré, vous devez normalement recevoir un message indiquant à l’utilisateur que l’étiquette player est déjà utilisée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[How to modify profile edit and user registration to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) (Comment modifier la modification de profil et l’inscription des utilisateurs pour collecter des informations supplémentaires à partir de vos utilisateurs)
+[Changer la modification de profil et l’inscription des utilisateurs pour collecter des informations supplémentaires auprès de vos utilisateurs](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
-[Procédure pas à pas : intégration des échanges de revendications de l’API REST dans vos parcours utilisateur Azure AD B2C comme une étape d’orchestration](active-directory-b2c-rest-api-step-custom.md)
+[Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme étape d’orchestration](active-directory-b2c-rest-api-step-custom.md)
 

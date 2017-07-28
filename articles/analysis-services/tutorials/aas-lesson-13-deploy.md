@@ -13,27 +13,31 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 8e3e1be572aa66ab46f894a2e5f395d1e6f2ea23
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="lesson-13-deploy"></a>Leçon 13 : Déployer
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Dans cette leçon, vous allez configurer les propriétés de déploiement en spécifiant un serveur Analysis Services dans Azure ou un serveur SQL Server vNext Analysis Services local, ainsi qu’un nom pour le modèle. Ensuite, vous allez déployer le modèle sur cette instance. Une fois votre modèle déployé, les utilisateurs peuvent s’y connecter à l’aide d’une application cliente de création de rapports. Pour en savoir plus, voir [Déployer sur Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
+Dans cette leçon, vous allez configurer les propriétés de déploiement en spécifiant un serveur Azure Analysis Services sur lequel procéder au déploiement et en indiquant le nom du modèle. Ensuite, vous allez déployer le modèle sur cette instance. Une fois votre modèle déployé, les utilisateurs peuvent s’y connecter à l’aide d’une application cliente de création de rapports. Pour en savoir plus, voir [Déployer sur Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
 Durée estimée pour suivre cette leçon : **5 minutes**  
   
 ## <a name="prerequisites"></a>Composants requis  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 12 : Analyser dans Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
-**Important** : Si vous avez installé l’exemple de base de données AdventureWorksDW2014 sur un serveur local SQL Server, et que vous déployez votre modèle sur un serveur Azure Analysis Services, une [passerelle de données locale](../analysis-services-gateway.md) est nécessaire.
+> [!IMPORTANT]  
+> Vous devez disposer des [autorisations d’administrateur](../analysis-services-server-admins.md) sur le serveur Analysis Services distant afin pouvoir procéder au déploiement.  
+
+> [!IMPORTANT]  
+> Si vous avez installé l’exemple de base de données AdventureWorksDW2014 sur un serveur local SQL Server, et que vous déployez votre modèle sur un serveur Azure Analysis Services, une [passerelle de données locale](../analysis-services-gateway.md) est nécessaire.
   
 ## <a name="deploy-the-model"></a>Déployer le modèle  
   
@@ -42,12 +46,9 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
   
 1.  Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **AW Internet Sales**, puis cliquez sur **Propriétés**.  
   
-2.  Dans la boîte de dialogue **Pages de propriétés de AW Internet Sales**, sous **Serveur de déploiement**, dans la propriété **Serveur**, entrez le nom d’un serveur Analysis Services dans Azure ou en local.  
+2.  Dans la boîte de dialogue **Pages de propriétés de AW Internet Sales**, sous **Serveur de déploiement**, dans la propriété **Serveur**, entrez le nom du serveur complet.  
 
     ![aas-lesson13-deploy-property](../tutorials/media/aas-lesson13-deploy-property.png)
- 
-    > [!IMPORTANT]  
-    > Vous devez disposer des autorisations d’administrateur sur l’instance distante d’Analysis Services afin de pouvoir la déployer.  
   
 3.  Dans la propriété **Base de données**, tapez **Adventure Works Internet Sales**.  
   
@@ -61,7 +62,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 
 2.  Cliquez avec le bouton droit sur le projet **AW Internet Sales** > **Déployer**.
 
-    Lors du déploiement sur Azure Analysis Services, vous pouvez être invité à entrer votre compte. Entrez votre compte professionnel et votre mot de passe, par exemple nancy@adventureworks.com. Ce compte doit faire partie du groupe Administrateurs sur l’instance de serveur.
+    Lors du déploiement sur Azure Analysis Services, vous pouvez être invité à entrer votre compte. Entrez votre compte professionnel et votre mot de passe, par exemple nancy@adventureworks.com. Ce compte doit faire partie du groupe Administrateurs sur le serveur.
   
     La boîte de dialogue Déployer s’affiche et montre l’état du déploiement des métadonnées, ainsi que chaque table incluse dans le modèle.  
     
@@ -77,9 +78,8 @@ Félicitations ! Vous venez de terminer la création et le déploiement de votr
   
   
 ## <a name="whats-next"></a>Et ensuite ?
-*  [Leçon supplémentaire – Sécurité dynamique](../tutorials/aas-supplemental-lesson-dynamic-security.md)
-
-*  [Leçon supplémentaire – Lignes de détails](../tutorials/aas-supplemental-lesson-detail-rows.md)
-
-*  [Leçon supplémentaire – Hiérarchies irrégulières](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
+[Connect with Power BI Desktop (Se connecter avec Power BI Desktop)](../analysis-services-connect-pbi.md)   
+[Leçon supplémentaire – Sécurité dynamique](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Leçon supplémentaire – Lignes de détails](../tutorials/aas-supplemental-lesson-detail-rows.md)   
+[Leçon supplémentaire – Hiérarchies déséquilibrées](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: fef61e6155471a0459957ea0c510698cfa787fdc
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: f40ceb542a0ee51e17ee539db4dbc91c11e056f2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -31,8 +32,10 @@ Une bonne compréhension des abonnements Azure, des régions et des ressources r
 Avant de répondre aux questions de planification ci-dessous, tenez compte des éléments suivants :
 
 * Tout ce que vous créez dans Azure se compose d’une ou de plusieurs ressources. Une machine virtuelle est une ressource, l’interface de carte réseau utilisée par une machine virtuelle est une ressource, l’adresse IP publique utilisée par une interface de carte réseau est une ressource, le réseau virtuel auquel l’interface de carte réseau est connectée est une ressource.
-* Vous créez des ressources au sein d’une [région Azure](https://azure.microsoft.com/regions/#services) et d’un abonnement. En outre, les ressources peuvent uniquement être connectées à un réseau virtuel qui existe dans les mêmes région et abonnement.
-* Vous pouvez connecter des réseaux virtuels entre eux à l’aide d’une [passerelle VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)Azure. Vous pouvez également connecter des réseaux virtuels entre des régions et des abonnements de cette façon.
+* Vous créez des ressources au sein d’une [région Azure](https://azure.microsoft.com/regions/#services) et d’un abonnement. Les ressources peuvent être connectées uniquement à un réseau virtuel qui existe dans les mêmes région et abonnement.
+* Vous pouvez connecter des réseaux virtuels entre eux comme suit :
+    * **[Homologation de réseau virtuel](virtual-network-peering-overview.md)** : les réseaux virtuels doivent se trouver dans la même région Azure. La bande passante entre des ressources figurant dans des réseaux virtuels homologués est la même que si les ressources qui étaient connectées au même réseau virtuel.
+    * **Passerelle [VPN Azure](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)** : les réseaux virtuels peuvent exister dans une même région Azure ou dans des régions différentes. La bande passante entre des ressources figurant dans des réseaux virtuels connectés via une passerelle VPN est limitée par la bande passante de la passerelle VPN.
 * Vous pouvez connecter des réseaux virtuels à votre réseau local à l’aide de l’une des [options de connectivité](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) disponibles dans Azure.
 * Différentes ressources peuvent être regroupées dans des [groupes de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups), ce qui facilite la gestion de la ressource en tant qu’unité. Un groupe de ressources peut contenir des ressources provenant de plusieurs régions, tant que les ressources appartiennent au même abonnement.
 
@@ -174,7 +177,7 @@ Vous devez commencer la planification de votre conception en répondant à la qu
     Oui. Étant donné que les utilisateurs connectés aux centres de données locaux doivent être en mesure d’accéder aux applications via un tunnel chiffré.
 4. Combien de machines virtuelles IaaS sont nécessaires pour votre solution ?
 
-    200 machines virtuelles IaaS. App1, App2 et App3 nécessitent 5 serveurs web chacun, 2 serveurs d’applications chacun et 2 serveurs de base de données chacun. Ce qui fait un total de 9 machines virtuelles IaaS par application ou 36 machines virtuelles IaaS. App5 et App6 nécessitent 5 serveurs web et 2 serveurs de base de données chacun. Ce qui fait un total de 7 machines virtuelles IaaS par application ou 14 machines virtuelles IaaS. Par conséquent, vous avez besoin de 50 machines virtuelles IaaS pour toutes les applications dans chaque région Azure. Étant donné que nous devons utiliser 4 régions, 200 machines virtuelles IaaS sont nécessaires.
+    200 machines virtuelles IaaS. App1, App2, App3 et App4 nécessitent 5 serveurs web chacun, 2 serveurs d’applications chacun et 2 serveurs de base de données chacun. Ce qui fait un total de 9 machines virtuelles IaaS par application ou 36 machines virtuelles IaaS. App5 et App6 nécessitent 5 serveurs web et 2 serveurs de base de données chacun. Ce qui fait un total de 7 machines virtuelles IaaS par application ou 14 machines virtuelles IaaS. Par conséquent, vous avez besoin de 50 machines virtuelles IaaS pour toutes les applications dans chaque région Azure. Étant donné que nous devons utiliser 4 régions, 200 machines virtuelles IaaS sont nécessaires.
 
     Vous devez également fournir des serveurs DNS dans chaque réseau virtuel ou dans vos centres de données locaux pour résoudre le nom entre les machines virtuelles IaaS Azure et le réseau local.
 5. Devez-vous isoler le trafic en fonction des groupes de machines virtuelles (autrement dit, serveurs web frontaux et serveurs de base de données principaux) ?

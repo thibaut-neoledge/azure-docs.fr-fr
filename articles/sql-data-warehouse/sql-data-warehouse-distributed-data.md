@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+ms.date: 06/29/2017
 ms.author: jrj;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: ec9b3cc391a75b4f3a75f95a2ff9613c0317bfa2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -65,12 +65,10 @@ La distribution est l’unité de base qui stocke les données distribuées et t
 ### <a name="can-i-view-the-compute-nodes"></a>Puis-je afficher les nœuds de calcul ?
 Chaque nœud de calcul possède un ID et s’affiche dans les vues système de SQL Data Warehouse et Parallel Data Warehouse.  Vous pouvez visualiser le nœud de calcul en effectuant une recherche dans la colonne node_id des vues système dont le nom commence par sys.pdw_nodes. Pour obtenir la liste des vues système, cliquez [ici](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="Replicated"></a>Tables répliquées pour Parallel Data Warehouse
-S’applique à : Parallel Data Warehouse
+## <a name="Replicated"></a>Tables répliquées
+Une table répliquée possède une copie complète de la table stockée sur chaque nœud de calcul. La réplication d’une table évite le transfert de données entre des nœuds de calcul avant une jointure ou une agrégation. Seules les tables de petite taille sont réplicables, en raison de l’espace de stockage supplémentaire requis pour les stocker intégralement sur chaque nœud de calcul.  
 
-Outre l’utilisation des tables distribuées, Parallel Data Warehouse permet de répliquer des tables. Une *table répliquée* est une table stockée intégralement sur chaque nœud de calcul. La réplication d’une table évite le transfert de ses lignes entre des nœuds de calcul avant de l’utiliser dans une jointure ou une agrégation. Seules les tables de petite taille sont réplicables, en raison de l’espace de stockage supplémentaire requis pour les stocker intégralement sur chaque nœud de calcul.  
-
-Le diagramme suivant illustre une table répliquée stockée sur chaque nœud de calcul. La table répliquée est stockée sur tous les disques alloués au nœud de calcul. Cette stratégie de disque met en œuvre des groupes de fichiers SQL Server.  
+Le diagramme suivant illustre une table répliquée stockée sur chaque nœud de calcul. Pour SQL Data Warehouse, la table répliquée est gérée par une table tourniquet (round robin) et entièrement copiée dans la première base de données de distribution sur chaque nœud de calcul. Pour Parallel Data Warehouse, la table répliquée est stockée sur tous les disques alloués au nœud de calcul.  Cette stratégie de disque met en œuvre des groupes de fichiers SQL Server.  
 
 ![Table répliquée](media/sql-data-warehouse-distributed-data/replicated-table.png "Table répliquée") 
 
