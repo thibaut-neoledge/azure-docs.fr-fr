@@ -104,7 +104,7 @@
     - name: Interface de ligne de commande Azure
       href: /cli/azure/postgres
     - name: API REST
-      href: /rest/api/postgres
+      href: /rest/api/postgresql
 - name: Ressources
   items:
     - name: Feuille de route Azure
