@@ -1,6 +1,6 @@
 ---
-title: "Utiliser des nœuds de périmètre vides dans HDInsight | Microsoft Docs"
-description: "Découvrez comment ajouter un nœud de périmètre vide au cluster HDInsight, qui peut être utilisé en tant que client, et comment tester/héberger vos applications HDInsight."
+title: "Utiliser les nœuds de périphérie vides sur les clusters Hadoop dans HDInsight - Azure | Microsoft Docs"
+description: "Découvrez comment ajouter un nœud de périphérie vide à un cluster HDInsight, qui peut être utilisé en tant que client, et comment tester / héberger vos applications HDInsight."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -9,7 +9,7 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,16 +17,16 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: ab888881a841f5a9bf2d47aea946022e6603c585
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0b5ccfa5da0f6a4aa2ca72eb580e5238f3b262c5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="use-empty-edge-nodes-in-hdinsight"></a>Utiliser des nœuds de périmètre vides dans HDInsight
+# <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Utiliser les nœuds de périphérie vides sur les clusters Hadoop dans HDInsight
 
-Découvrez comment ajouter un nœud de périmètre vide à un cluster HDInsight Linux. Un nœud de périmètre vide est une machine virtuelle Linux avec les mêmes outils clients installés et configurés comme dans les nœuds principaux, mais sans exécution de services Hadoop. Vous pouvez utiliser le nœud de périmètre pour accéder au cluster, tester vos applications clientes et héberger vos applications clientes. 
+Découvrez comment ajouter un nœud de périphérie vide à un cluster HDInsight. Un nœud de périphérie vide est une machine virtuelle Linux dotée des mêmes outils clients installés et configurés dans les nœuds principaux, mais sans exécution de services Hadoop. Vous pouvez utiliser le nœud de périmètre pour accéder au cluster, tester vos applications clientes et héberger vos applications clientes. 
 
 Vous pouvez ajouter un nœud de périmètre vide à un cluster HDInsight existant et à un nouveau cluster, lorsque vous créez le cluster. L’ajout d’un nœud de périmètre vide est effectué à l’aide du modèle Azure Resource Manager.  L’exemple suivant montre comment procéder à l’aide d’un modèle :
 
@@ -65,12 +65,20 @@ La taille de la machine virtuelle de nœud de périmètre doit respecter les exi
 
 Après avoir créé un nœud de périmètre, vous pouvez vous connecter au nœud de périmètre à l’aide de SSH et exécuter les outils clients pour accéder au cluster Hadoop dans HDInsight.
 
+> [!WARNING] 
+> L’utilisation d’un nœud de périphérie vide avec HDInsight n’est actuellement disponible qu’en préversion. Les composants personnalisés qui sont installés sur le nœud de périphérie bénéficient du support commercialement raisonnable de Microsoft. Ainsi, cela peut aider à résoudre les problèmes rencontrés. Vous pouvez également consulter les ressources de la communauté pour obtenir de l’aide. Voici quelques-uns des sites communautaires les plus actifs, sur lesquels vous pouvez obtenir de l’aide :
+>
+> * [Forum MSDN pour HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
+> * [http://stackoverflow.com](http://stackoverflow.com).
+>
+> Si vous utilisez une technologie Apache, vous pouvez obtenir de l’aide par l’intermédiaire des sites de projets Apache sur [http://apache.org](http://apache.org), par exemple sur le site [Hadoop](http://hadoop.apache.org/).
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Ajouter un nœud de périmètre à un cluster existant
 Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter un nœud de périmètre à un cluster HDInsight existant.  Le modèle Resource Manager se trouve dans [GitHub](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode). Le modèle Resource Manager appelle un script d’action de script situé à l’emplacement https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.
 
 **Pour ajouter un nœud de périmètre vide à un cluster existant**
 
-1. Créez un cluster HDInsight si vous n’avez pas encore.  Consultez [Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Créez un cluster HDInsight si vous n’avez pas encore.  Consultez le [Didacticiel Hadoop : prise en main de Hadoop dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 2. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Azure Resource Manager dans le portail Azure. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FEmptyNode%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
@@ -89,7 +97,7 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour créer 
 
 **Pour ajouter un nœud de périmètre vide à un cluster existant**
 
-1. Créez un cluster HDInsight si vous n’avez pas encore.  Consultez [Didacticiel Hadoop : prise en main de Hadoop sous Linux dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Créez un cluster HDInsight si vous n’avez pas encore.  Consultez [Prise en main de Hadoop dans HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 2. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Azure Resource Manager dans le portail Azure. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>

@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: casoper
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 905357b9e2262b86cde31874287cc0b89eef4815
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 9f6e1980bf5ea5b41da98a135d89f1c5159921a7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 ---
 
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Comprendre les adresses IP partagées dans Azure DevTest Labs
 
-Azure DevTest Labs utilise les adresses IP partagées afin de limiter le nombre d’adresses IP publiques requises pour accéder aux machines virtuelles de votre laboratoire individuel.  Cet article décrit le fonctionnement des adresses IP partagées et les options de configuration qui leur sont associées.
+Azure DevTest Labs permet aux machines virtuelles de laboratoire de partager la même adresse IP publique afin de limiter le nombre d’adresses IP publiques requises pour accéder aux machines virtuelles de votre laboratoire individuel.  Cet article décrit le fonctionnement des adresses IP partagées et les options de configuration qui leur sont associées.
 
 ## <a name="shared-ip-setting"></a>Paramètre d’adresse IP partagée
 
@@ -31,17 +32,25 @@ Lorsque vous créez un laboratoire, il se trouve dans un sous-réseau de réseau
 
 ![Nouveau sous-réseau de laboratoire](media/devtest-lab-shared-ip/lab-subnet.png)
 
+Pour les laboratoires existants, vous pouvez activer cette option en sélectionnant **Configuration et stratégies > réseaux virtuels**. Puis, sélectionnez un réseau virtuel dans la liste et choisissez **ACTIVER L’ADRESSE IP PUBLIQUE PARTAGÉE** pour un sous-réseau sélectionné. Vous pouvez également désactiver cette option dans un laboratoire si vous ne souhaitez pas partager une adresse IP publique entre les machines virtuelles du laboratoire.
+
 Les machines virtuelles créées dans ce laboratoire utilisent par défaut une adresse IP partagée.  Lorsque vous créez la machine virtuelle, ce paramètre peut être observé dans le panneau **Paramètres avancés** sous **Configuration de l’adresse IP**.
 
 ![Nouvelle machine virtuelle](media/devtest-lab-shared-ip/new-vm.png)
 
-Chaque fois qu’une machine virtuelle pour laquelle une adresse IP partagée est activée est ajoutée au sous-réseau, un port TCP est affecté à l’adresse IP publique de transfert vers le port RDP sur la machine virtuelle.  
+- **Partagé :** toutes les machines virtuelles créées en mode **Partagé** sont placées dans un groupe de ressources (GR). Une seule adresse IP est affectée à ce GR et toutes les machines virtuelles de ce GR utilisent cette adresse IP.
+- **Public :** chaque machine virtuelle que vous créez possède sa propre adresse IP et est créée dans son propre groupe de ressources.
+- **Privé :** chaque machine virtuelle que vous créez utilise une adresse IP privée. Vous ne pourrez pas vous connecter directement à cette machine virtuelle depuis Internet avec le bureau à distance.
+
+Chaque fois qu’une machine virtuelle dotée une adresse IP partagée activée est ajoutée au sous-réseau, DevTest Labs ajoute automatiquement la machine virtuelle à un équilibreur de charge et attribue un numéro de port TCP à l’adresse IP publique, pour le transfert vers le port RDP sur la machine virtuelle.  
 
 ## <a name="using-the-shared-ip"></a>Utilisation de l’adresse IP partagée
 
-Vous vous connectez à un bureau à distance sur la machine virtuelle dans un client RDP à l’aide de l’adresse IP ou du nom de domaine complet, suivis du signe deux-points et du port.  Par exemple, dans l’image ci-dessous, l’adresse RDP pour se connecter à la machine virtuelle est `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.  Vous pouvez également sélectionner dans le portail Azure le bouton **Se connecter** pour télécharger un fichier RDP préconfiguré.
+- **Utilisateurs Linux :** SSH vers la machine virtuelle à l’aide de l’adresse IP ou du nom de domaine complet, suivis du signe deux-points et du port. Par exemple, dans l’image ci-dessous, l’adresse RDP pour se connecter à la machine virtuelle est `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.
 
-![Exemple de machine virtuelle](media/devtest-lab-shared-ip/vm-info.png)
+  ![Exemple de machine virtuelle](media/devtest-lab-shared-ip/vm-info.png)
+
+- **Utilisateurs Windows :** sélectionnez **Se connecter** sur le portail Azure pour télécharger un fichier RDP préconfiguré et accéder à la machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
