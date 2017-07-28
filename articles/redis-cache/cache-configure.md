@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 05/02/2017
+ms.date: 07/05/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 031fa71b8f5aac558569eea7001e16df4cae917c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: f78735afd8aa8f560455c3fd47e6833c37644583
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -51,6 +52,7 @@ Vous pouvez afficher et configurer les paramètres suivants à l’aide du **Men
     * [Taille du cluster Redis](#cluster-size)
     * [Persistance des données Redis](#redis-data-persistence)
     * [Planification de mises à jour](#schedule-updates)
+    * [Géoréplication](#geo-replication)
     * [Réseau virtuel](#virtual-network)
     * [Pare-feu](#firewall)
     * [Propriétés](#properties)
@@ -145,7 +147,7 @@ Les paramètres **stratégie Maxmemory** et **maxmemory-reserved** dans le panne
 
 Pour plus d’informations sur les stratégies `maxmemory`, voir [Stratégies d’éviction](http://redis.io/topics/lru-cache#eviction-policies).
 
-Le paramètre **maxmemory-reserved** détermine la quantité de mémoire (en mégaoctets) réservée pour les opérations non cache telles que la réplication pendant le basculement. Il peut également être utilisé lorsque le taux de fragmentation est élevé. La définition de ce paramètre vous permet d’avoir une expérience de serveur Redis plus cohérente lorsque votre charge varie. Cette valeur doit être plus élevée pour les charges de travail comportant de nombreuses écritures. Lorsque la mémoire est réservée pour ces opérations, elle n’est pas disponible pour le stockage des données mises en cache.
+Le paramètre **maxmemory-reserved** détermine la quantité de mémoire (en mégaoctets) réservée pour les opérations non cache telles que la réplication pendant le basculement. La définition de ce paramètre vous permet d’avoir une expérience de serveur Redis plus cohérente lorsque votre charge varie. Cette valeur doit être plus élevée pour les charges de travail comportant de nombreuses écritures. Lorsque la mémoire est réservée pour ces opérations, elle n’est pas disponible pour le stockage des données mises en cache.
 
 > [!IMPORTANT]
 > Le paramètre **maxmemory-reserved** est uniquement disponible pour les caches Standard et Premium.
@@ -262,7 +264,14 @@ Pour spécifier une fenêtre de maintenance, vérifiez les jours choisis et spé
 > 
 > 
 
+### <a name="geo-replication"></a>Géoréplication
 
+Le panneau **Géoréplication** fournit un mécanisme de lien de deux instances de cache Redis Azure de niveau Premium. Un cache est désigné comme le cache lié principal et l’autre comme cache lié secondaire. Le cache lié secondaire est en lecture seule et les données écrites dans le cache principal sont répliquées vers le cache lié secondaire. Cette fonctionnalité peut être utilisée pour répliquer un cache entre les régions Azure.
+
+> [!IMPORTANT]
+> La **Géoréplication** est uniquement disponible pour les caches de niveau Premium. Pour plus d’informations et pour obtenir des instructions, consultez [Comment configurer la géoréplication pour le Cache Redis Azure](cache-how-to-geo-replication.md).
+> 
+> 
 
 ### <a name="virtual-network"></a>Réseau virtuel
 La section **Réseau virtuel** permet de configurer les paramètres de réseau virtuel de votre cache. Pour plus d’informations sur la création d’un cache Premium avec la prise en charge de réseau virtuel et sur la mise à jour de ses paramètres, consultez [Comment configurer la prise en charge de réseau virtuel pour un cache Redis Azure Premium](cache-how-to-premium-vnet.md).
@@ -300,7 +309,7 @@ La section **Verrous** permet de verrouiller un abonnement, une ressource ou un 
 Cliquez sur **Script Automation** pour générer et exporter un modèle de vos ressources déployées pour de futurs déploiements. Pour plus d’informations sur le fonctionnement des modèles, consultez [Déployer des ressources à l’aide de modèles Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="administration-settings"></a>Paramètres d’administration
-Les paramètres de la section **Administration** vous permettent d’effectuer les tâches administratives suivantes pour votre cache Premium. 
+Les paramètres de la section **Administration** vous permettent d’effectuer les tâches administratives suivantes pour votre cache. 
 
 ![Administration](./media/cache-configure/redis-cache-administration.png)
 
@@ -308,11 +317,6 @@ Les paramètres de la section **Administration** vous permettent d’effectuer l
 * [Exporter des données](#importexport)
 * [Reboot](#reboot)
 
-
-> [!IMPORTANT]
-> Les paramètres de cette section sont uniquement disponibles pour les caches de niveau Premium.
-> 
-> 
 
 ### <a name="importexport"></a>Importation/Exportation
 L’importation/exportation est une opération de gestion de données de Cache Redis Azure. Elle permet d’importer et d’exporter des données dans le cache en important ou en exportant un instantané de base de données du Cache Redis (RDB) depuis un cache Premium vers un objet blob de pages, dans un compte Azure Storage. L’Importation/Exportation vous permet de migrer entre différentes instances de Cache Redis Azure ou de remplir le cache de données avant utilisation.
@@ -338,7 +342,7 @@ Si vous avez un cache premium avec activation du clustering, vous pouvez sélect
 Pour redémarrer un ou plusieurs nœuds de votre cache, sélectionnez les nœuds souhaités, puis cliquez sur **Reboot**. Si vous avez un cache premium avec activation du clustering, sélectionnez les partitions à redémarrer, puis cliquez sur **Reboot**. Après quelques minutes, les nœuds sélectionnés sont redémarrés et sont de nouveau en ligne.
 
 > [!IMPORTANT]
-> Le redémarrage est uniquement disponible pour les caches de niveau Premium. Pour plus d’informations et pour obtenir des instructions, consultez la page [Administration du cache Redis Azure - Redémarrage](cache-administration.md#reboot).
+> Le redémarrage est désormais disponible pour tous les niveaux de tarification. Pour plus d’informations et pour obtenir des instructions, consultez la page [Administration du cache Redis Azure - Redémarrage](cache-administration.md#reboot).
 > 
 > 
 
@@ -354,17 +358,20 @@ La section **Surveillance** vous permet de configurer les diagnostics et la surv
 * [Diagnostics](#diagnostics)
 
 ### <a name="redis-metrics"></a>Mesures Redis
-Cliquez sur **Mesures Redis** pour [affichage des mesures](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) pour votre cache.
+Cliquez sur **Mesures Redis** pour [affichage des mesures](cache-how-to-monitor.md#view-cache-metrics) pour votre cache.
 
 ### <a name="alert-rules"></a>Règles d'alerte
 
-Cliquez sur **Règles d’alerte** pour configurer des alertes en fonction des métriques du Cache Redis. Pour plus d'informations, consultez [Opérations et alertes](cache-how-to-monitor.md#operations-and-alerts).
+Cliquez sur **Règles d’alerte** pour configurer des alertes en fonction des métriques du Cache Redis. Pour plus d'informations, consultez [Alertes](cache-how-to-monitor.md#alerts).
 
 ### <a name="diagnostics"></a>Diagnostics
 
-Cliquez sur **Diagnostics** pour [configurer le compte de stockage](cache-how-to-monitor.md#enable-cache-diagnostics) utilisé pour stocker les diagnostics de cache.
+Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive), puis supprimées. Pour prolonger vos mesures de cache sur plus de 30 jours, cliquez sur **Diagnostics** pour [configurer le compte de stockage](cache-how-to-monitor.md#export-cache-metrics) utilisé pour stocker les diagnostics de cache.
 
-![Diagnostics de Cache Redis](./media/cache-configure/redis-cache-diagnostics-settings.png)
+>[!NOTE]
+>En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser vers un Hub d’événements ou les envoyer vers Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics).
+>
+>
 
 ## <a name="support--troubleshooting-settings"></a>Paramètres de support et dépannage
 Les paramètres de la section relative à la **prise en charge et à la résolution des problèmes** proposent des options pour la résolution des problèmes liés à votre cache.
@@ -406,7 +413,7 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 | `databases` |16 |Le nombre de bases de données par défaut est 16, mais vous pouvez configurer un nombre différent selon le niveau tarifaire.<sup>1</sup> La base de données par défaut est DB 0. Vous pouvez en sélectionner une autre en fonction de la connexion en utilisant `connection.GetDatabase(dbid)` où `dbid` est un nombre compris entre `0` et `databases - 1`. |
 | `maxclients` |Dépend du niveau tarifaire<sup>2</sup> |Le nombre maximal de clients connectés autorisés en même temps. Une fois la limite atteinte, Redis ferme toutes les nouvelles connexions en envoyant une erreur « nombre maximal de clients atteint ». |
 | `maxmemory-policy` |`volatile-lru` |La stratégie maxmemory est le paramètre définissant la sélection par Redis des éléments à supprimer lorsque `maxmemory` (la taille du cache que vous avez sélectionnée lorsque vous avez créé le cache) est atteinte. Avec Cache Redis Azure, le paramètre par défaut est `volatile-lru`. Ce dernier supprime les clés et l’expiration est définie à l’aide d’un algorithme LRU (dernier récemment utilisé). Ce paramètre peut être configuré dans le portail Azure. Pour plus d’informations, consultez [Maxmemory-policy et maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved). |
-| `maxmemory-sample`s |3 |Pour économiser de la mémoire, les algorithmes LRU et TTL sont des algorithmes approximatifs et non des algorithmes précis. Par défaut, Redis vérifie trois clés et choisit celle qui a été utilisée le moins récemment. |
+| `maxmemory-samples` |3 |Pour économiser de la mémoire, les algorithmes LRU et TTL sont des algorithmes approximatifs et non des algorithmes précis. Par défaut, Redis vérifie trois clés et choisit celle qui a été utilisée le moins récemment. |
 | `lua-time-limit` |5 000 |Temps d’exécution maximal d’un script Lua en millisecondes. Si la durée d’exécution maximale est atteinte, Redis consigne qu’un script est toujours en cours d’exécution après la durée maximale autorisée et commence à répondre aux requêtes avec une erreur. |
 | `lua-event-limit` |500 |Taille maximale de la file d’attente des événements de script. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Les limites de mémoire tampon de sortie client peuvent servir à forcer la déconnexion des clients qui ne lisent pas les données à partir du serveur suffisamment rapidement pour une raison quelconque (une raison courante est qu’un client Pub/Sub ne peut pas consommer les messages aussi rapidement que le serveur de publication les génère). Pour plus d’informations, consultez [http://redis.io/topics/clients](http://redis.io/topics/clients). |
@@ -427,7 +434,7 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
   * P2 (13 à 130 Go) - jusqu’à 32 bases de données
   * P3 (26 à 260 Go) - jusqu’à 48 bases de données
   * P4 (53 à 530 Go) - jusqu’à 64 bases de données
-  * Tous les caches de niveau Premium avec cluster Redis activé : le cluster Redis prend uniquement en charge l’utilisation de la base de données 0 pour que la limite `databases` de chaque cache Premium avec cluster Redis activé soit effectivement 1 et que la commande [Sélectionner](http://redis.io/commands/select) ne soit pas autorisée. Pour en savoir plus, voir, [Dois-je apporter des modifications à mon application cliente pour utiliser le clustering ?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * Tous les caches de niveau Premium avec cluster Redis activé : le cluster Redis prend uniquement en charge l’utilisation de la base de données 0 pour que la limite `databases` de chaque cache Premium avec cluster Redis activé soit effectivement 1 et que la commande [Sélectionner](http://redis.io/commands/select) ne soit pas autorisée. Pour en savoir plus, voir, [Dois-je apporter des modifications à mon application cliente pour utiliser le clustering ?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 Pour plus d’informations sur les bases de données, consultez [Quelles sont les bases de données Redis ?](cache-faq.md#what-are-redis-databases)
 
@@ -479,14 +486,11 @@ Pour plus d’informations sur les bases de données, consultez [Quelles sont le
 Pour plus d’informations sur les commandes Redis, consultez [http://redis.io/commands](http://redis.io/commands).
 
 ## <a name="redis-console"></a>Console Redis
-Vous pouvez adresser en toute sécurité des commandes aux instances de Cache Redis Azure à l’aide de la **console Redis**disponible pour les caches Standard et Premium.
+Vous pouvez émettre en toute sécurité des commandes aux instances de Cache Redis Azure à l’aide de la **Console Redis**disponible dans le portail Azure pour tous les niveaux de caches.
 
 > [!IMPORTANT]
-> La console Redis ne fonctionne pas avec VNET, la mise en cluster et les bases de données autres que 0. 
-> 
-> * [Réseau virtuel](cache-how-to-premium-vnet.md) : quand votre cache fait partie d’un réseau virtuel, seuls les clients de ce réseau virtuel peuvent accéder au cache. Étant donné que la Console Redis utilise le client redis-cli.exe hébergé sur des machines virtuelles qui ne font pas partie de votre réseau virtuel, il ne peut pas se connecter à votre cache.
-> * [Clustering](cache-how-to-premium-clustering.md) : la Console Redis utilise le client redis-cli.exe, qui ne prend pas en charge le clustering à l’heure actuelle. L’utilitaire redis-cli de la branche [unstable](http://redis.io/download) du dépôt Redis sur GitHub implémente la prise en charge de base quand il est démarré avec le commutateur `-c`. Pour plus d’informations, voir [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Manipulation du cluster) sur [http://redis.io](http://redis.io) dans le [didacticiel du cluster Redis](http://redis.io/topics/cluster-tutorial).
-> * la console Redis effectue une nouvelle connexion à la base de données 0 chaque fois que vous envoyez une commande. Vous ne pouvez pas utiliser la commande `SELECT` pour sélectionner une autre base de données, car la base de données est réinitialisée à 0 avec chaque commande. Pour plus d’informations sur l’exécution des commandes Redis, y compris la modification sur une autre base de données, consultez [Comment exécuter des commandes Redis ?](cache-faq.md#how-can-i-run-redis-commands)
+> - La console Redis ne fonctionne pas avec [VNET](cache-how-to-premium-vnet.md). Quand votre cache fait partie d’un réseau virtuel, seuls les clients de ce réseau virtuel peuvent accéder au cache. Console Redis s’exécutant dans votre navigateur local situé à l’extérieur du réseau virtuel, il ne peut pas se connecter à votre cache.
+> - Les commandes Redis ne sont pas toutes prises en charge dans le Cache Redis Azure. Pour obtenir la liste des commandes Redis désactivées pour le Cache Redis Azure, consultez la section précédente intitulée [Commandes Redis non prises en charge dans le Cache Redis Azure](#redis-commands-not-supported-in-azure-redis-cache) . Pour plus d’informations sur les commandes Redis, consultez [http://redis.io/commands](http://redis.io/commands).
 > 
 > 
 
@@ -494,11 +498,26 @@ Pour accéder à la console Redis, cliquez sur **Console** dans le panneau **Cac
 
 ![Console Redis](./media/cache-configure/redis-console-menu.png)
 
-Pour exécuter des commandes sur votre instance de cache, tapez simplement la commande souhaitée dans la console.
+Pour émettre des commandes sur votre instance de cache, tapez simplement la commande souhaitée dans la console.
 
 ![Console Redis](./media/cache-configure/redis-console.png)
 
-Pour obtenir la liste des commandes Redis désactivées pour le cache Redis Azure, consultez la section précédente intitulée [Commandes Redis non prises en charge dans le cache Redis Azure](#redis-commands-not-supported-in-azure-redis-cache) . Pour plus d’informations sur les commandes Redis, consultez [http://redis.io/commands](http://redis.io/commands). 
+
+### <a name="using-the-redis-console-with-a-premium-clustered-cache"></a>Utilisation de la Console Redis avec un cache premium en cluster
+
+Lors de l’utilisation de la Console Redis avec un cache en cluster premium, vous pouvez émettre des commandes vers une partition unique du cache. Pour émettre une commande vers une partition spécifique, connectez-vous d’abord à la partition de votre choix en cliquant dessus dans le sélecteur de partition.
+
+![Console Redis](./media/cache-configure/redis-console-premium-cluster.png)
+
+Si vous tentez d’accéder à une clé stockée dans une autre partition que la partition connectée, un message d’erreur semblable au message suivant s’affiche.
+
+```
+shard1>get myKey
+(error) MOVED 866 13.90.202.154:13000 (shard 0)
+```
+
+Dans l’exemple précédent, la partition 1 est la partition sélectionnée, mais `myKey` se trouve dans la partition 0, comme indiqué par la partie `(shard 0)` du message d’erreur. Dans cet exemple, pour accéder à `myKey`, sélectionnez la partition 0 à l’aide du sélecteur de partition et émettez ensuite la commande souhaitée.
+
 
 ## <a name="move-your-cache-to-a-new-subscription"></a>Déplacement du cache vers un nouvel abonnement
 Pour déplacer votre cache vers un nouvel abonnement, cliquez sur **Déplacer**.

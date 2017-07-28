@@ -13,17 +13,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/26/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: e47fa44d87ad29054b833ee4bf201ac4d72e1e6e
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: f8c9e9ab8b8728202ec3f049b309d96d883022f4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="on-premises-data-gateway"></a>Passerelle de données locale
 La passerelle de données locale agit comme un pont, en fournissant un transfert de données sécurisé entre des sources de données locales et votre serveur Azure Analysis Services dans le cloud.
+
+La dernière version de la passerelle prend en charge les modèles Tabular 1400 connectés aux sources de données locales par le biais de requêtes Get Data et M dans SSDT. 
+
+Pour en savoir plus sur les sources de données prises en charge, consultez [Sources de données prises en charge par Azure Analysis Services](analysis-services-datasource.md).
 
 Une passerelle est installée sur un ordinateur de votre réseau. Une passerelle doit être installée pour chaque serveur Azure Analysis Services inclus dans votre abonnement Azure. Par exemple, si vous disposez de deux serveurs dans votre abonnement Azure qui se connectent à des sources de données locales, une passerelle doit être installée sur deux ordinateurs distincts de votre réseau.
 
@@ -48,14 +53,6 @@ Une passerelle est installée sur un ordinateur de votre réseau. Une passerelle
 * Pour modifier le nom du serveur pour une passerelle qui a déjà été configurée, vous devez réinstaller et configurer une nouvelle passerelle.
 * Dans certains cas, les modèles tabulaires de connexion aux sources de données à l’aide de fournisseurs natifs tels que SQL Server Native Client (SQLNCLI11) peuvent renvoyer une erreur. Pour plus d’informations, consultez les rubriques suivantes : [Connexions de source de données](analysis-services-datasource.md).
 
-## <a name="supported-on-premises-data-sources"></a>Sources de données locales prises en charge
-La passerelle prend en charge les connexions entre votre serveur Azure Analysis Services et les sources de données locales suivantes :
-
-* SQL Server
-* SQL Data Warehouse
-* APS
-* Oracle
-* Teradata
 
 ## <a name="download"></a>Télécharger
  [Télécharger la passerelle](https://aka.ms/azureasgateway)
@@ -128,7 +125,7 @@ En coulisses, la passerelle de données locale utilisée pour connecter Azure An
 
 Si vous rencontrez des difficultés lors de l’installation et la configuration d’une passerelle, veillez à consulter [Dépannage de la passerelle Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/). Si vous pensez que vous rencontrez un problème avec votre pare-feu, consultez les sections de pare-feu ou du proxy.
 
-Si vous pensez que vous rencontrez des problèmes de proxy avec la passerelle, consultez [Configuration des paramètres de proxy pour les passerelles Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
+Si vous pensez que vous rencontrez des problèmes de proxy avec la passerelle, consultez [Configuration des paramètres de proxy pour les passerelles Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy).
 
 ### <a name="telemetry"></a>Télémétrie
 La télémétrie peut être utilisée pour la surveillance et la résolution des problèmes. 

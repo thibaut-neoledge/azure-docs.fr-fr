@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 07/05/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0355c8a943947f5d53d7cd6892db3567c3bf0cce
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Comment administrer le Cache Redis Azure
 Cette rubrique décrit comment effectuer des tâches d’administration telles que le [redémarrage](#reboot) et la [planification des mises à jour](#schedule-updates) de vos instances du Cache Redis Azure.
-
-> [!IMPORTANT]
-> Les paramètres et les fonctionnalités décrites dans cet article sont uniquement disponibles pour les caches de niveau Premium.
-> 
-> 
 
 ## <a name="reboot"></a>Reboot
 Le panneau **Redémarrer** vous permet de redémarrer un ou plusieurs nœuds de votre cache. Cette fonctionnalité de redémarrage vous permet de tester votre application pour garantir la résilience en cas de panne d’un nœud de cache.
@@ -52,7 +48,7 @@ L’impact sur les applications clientes varie selon les nœuds que vous redéma
 * **Nœuds d’un cache Premium avec activation du clustering** : lorsque vous redémarrez le ou les nœuds d’un cache Premium et que le clustering est activé, le comportement des nœuds sélectionnés est le même que lorsque vous redémarrez un ou plusieurs nœuds correspondants d’un cache non cluster.
 
 > [!IMPORTANT]
-> Le redémarrage est uniquement disponible pour les caches de niveau Premium.
+> Le redémarrage est désormais disponible pour tous les niveaux de tarification.
 > 
 > 
 
@@ -83,10 +79,10 @@ Si vous redémarrez simplement l’un des nœuds, les données ne sont général
 Oui, pour les instructions PowerShell, voir [Comment redémarrer un cache Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
 ### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>Quels niveaux tarifaires peuvent utiliser la fonctionnalité de redémarrage ?
-Le redémarrage n’est disponible que dans le niveau tarifaire Premium.
+Le redémarrage est disponible pour tous les niveaux de tarification.
 
-## <a name="schedule-updates"></a>Planification de mises à jour
-Le panneau **Planification de mises à jour** vous permet de désigner une fenêtre de maintenance pour votre cache. Lorsque la fenêtre de maintenance est spécifiée, toute mise à jour du serveur Redis est effectuée pendant cet intervalle. 
+## <a name="schedule-updates"></a>Planifier les mises à jour
+Le panneau **Planification de mises à jour** vous permet de désigner une fenêtre de maintenance pour votre cache de niveau Premium. Lorsque la fenêtre de maintenance est spécifiée, toute mise à jour du serveur Redis est effectuée pendant cet intervalle. 
 
 > [!NOTE] 
 > Notez que la fenêtre de maintenance s’applique uniquement aux mises à jour du serveur Redis et non à toutes les mises à jour d’Azure ou celles du système d’exploitation des machines virtuelles qui hébergent le cache.

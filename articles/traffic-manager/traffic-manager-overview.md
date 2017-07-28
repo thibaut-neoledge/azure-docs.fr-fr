@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
+ms.date: 06/15/2017
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 3f1f19f8d8a4f2e6e892ba3ede67f3749cedb11b
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: a99fd7931d6172046f2b2e91994381ac6ebc66c9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/22/2017
 
 Microsoft Azure Traffic Manager vous permet de contrôler la répartition du trafic utilisateur pour les points de terminaison de service dans différents centres de données. Les points de terminaison de service pris en charge par Traffic Manager incluent des machines virtuelles Azure, des applications web et des services cloud. Vous pouvez également utiliser Traffic Manager avec des points de terminaison externes non-Azure.
 
-Traffic Manager utilise le DNS (Domain Name System) pour diriger les demandes des clients vers le point de terminaison approprié en fonction de la [méthode de routage du trafic](traffic-manager-routing-methods.md) et de l’intégrité des points de terminaison. Traffic Manager fournit un large éventail de méthodes de routage du trafic pour répondre à différents besoins d’application, la [surveillance](traffic-manager-monitoring.md) de l’intégrité des points de terminaison et le basculement automatique. Traffic Manager est résilient aux défaillances, notamment à l’échec d’une région Azure entière.
+Traffic Manager utilise le DNS (Domain Name System) pour diriger les requêtes des clients vers le point de terminaison approprié en fonction de la méthode de routage du trafic et de l’intégrité des points de terminaison. Traffic Manager fournit un large éventail de [méthodes de routage du trafic](traffic-manager-routing-methods.md) et [d’option de surveillance des points de terminaison](traffic-manager-monitoring.md) pour répondre aux besoins variés des applications et aux divers modèles de basculement automatique. Traffic Manager est résilient aux défaillances, notamment à l’échec d’une région Azure entière.
 
 ## <a name="traffic-manager-benefits"></a>Avantages de Traffic Manager
 
@@ -69,11 +69,11 @@ Quand un client tente de se connecter à un service, il doit d’abord résoudre
 
 Contoso Corp a développé un nouveau portail pour ses partenaires. L’URL de ce portail est https://partners.contoso.com/login.aspx. L’application est hébergée dans trois régions Azure. Pour améliorer la disponibilité et optimiser la performance globale, les clients utilisent Traffic Manager pour router le trafic client vers le point de terminaison disponible le plus proche.
 
-Pour obtenir cette configuration :
+Pour obtenir cette configuration, ils procèdent comme suit :
 
-* Ils déploient trois instances de leur service. Les noms DNS de ces déploiements sont « contoso-us.cloudapp.net », « contoso-eu.cloudapp.net » et « contoso-asia.cloudapp.net ».
-* Ils créent ensuite un profil Traffic Manager nommé « contoso.trafficmanager.net », et le configurent pour utiliser la méthode de routage du trafic « Performance » sur les trois points de terminaison.
-* Pour finir, ils configurent leur nom de domaine personnel, « partners.contoso.com » pour pointer vers « contoso.trafficmanager.net », en utilisant un enregistrement CNAME DNS.
+1. Ils déploient trois instances de leur service. Les noms DNS de ces déploiements sont « contoso-us.cloudapp.net », « contoso-eu.cloudapp.net » et « contoso-asia.cloudapp.net ».
+2. Ils créent un profil Traffic Manager nommé « contoso.trafficmanager.net » et le configurent pour utiliser la méthode de routage du trafic « Performance » sur les trois points de terminaison.
+* Ils configurent leur nom de domaine personnel, « partners.contoso.com » pour pointer vers « contoso.trafficmanager.net », en utilisant un enregistrement CNAME DNS.
 
 ![Configuration DNS de Traffic Manager][1]
 
@@ -100,7 +100,7 @@ Dans la continuation de l’exemple précédent, quand un client demande la page
 7. Le service DNS récursif consolide les résultats et renvoie une seule réponse DNS au client.
 8. Le client reçoit les résultats DNS et se connecte à l’adresse IP donnée. Notez qu’il se connecte directement au point de terminaison du service d’application, et non via Traffic Manager. Puisqu’il s’agit d’un point de terminaison HTTPS, le client exécute la négociation SSL/TLS nécessaire, puis soumet une demande HTTP GET pour la page « /login.aspx ».
 
-Le service DNS récursif met en cache les réponses DNS qu’il reçoit. Le programme de résolution DNS sur l’appareil client met également en cache le résultat. La mise en cache permet que les requêtes DNS suivantes reçoivent une réponse plus rapidement, en utilisant les données du cache au lieu d’interroger d’autres serveurs de noms. La durée du cache est déterminée par la propriété « time-to-live » (TTL) de chaque enregistrement DNS. Des valeurs plus courtes entraînent une expiration plus rapide du cache, et donc davantage d’allers-retours avec les serveurs de noms Traffic Manager. Des valeurs plus longues signifient que davantage de temps peut être nécessaire pour diriger le trafic à l’écart d’un point de terminaison défaillant. Traffic Manager vous permet de configurer la durée de vie utilisée dans les réponses DNS de Traffic Manager, ce qui vous permet de choisir la valeur qui réponde au mieux aux besoins de votre application.
+Le service DNS récursif met en cache les réponses DNS qu’il reçoit. Le programme de résolution DNS sur l’appareil client met également en cache le résultat. La mise en cache permet que les requêtes DNS suivantes reçoivent une réponse plus rapidement, en utilisant les données du cache au lieu d’interroger d’autres serveurs de noms. La durée du cache est déterminée par la propriété « time-to-live » (TTL) de chaque enregistrement DNS. Des valeurs plus courtes entraînent une expiration plus rapide du cache, et donc davantage d’allers-retours avec les serveurs de noms Traffic Manager. Des valeurs plus longues signifient que davantage de temps peut être nécessaire pour diriger le trafic à l’écart d’un point de terminaison défaillant. Traffic Manager vous permet de configurer la durée de vie utilisée dans les réponses DNS de Traffic Manager, sur une valeur comprise entre 0 seconde et 2 147 483 647 secondes (la plage maximale, conformément à la norme [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt)). Cela vous permet de choisir la valeur qui répond au mieux aux besoins de votre application.
 
 ## <a name="pricing"></a>Tarification
 

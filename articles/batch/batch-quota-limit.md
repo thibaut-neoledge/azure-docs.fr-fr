@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 56e8f5579da2b5bed7975f25f0779c54d70cb886
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: f3f69ed8d3a985afe07e648e7512a88b25278ced
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -72,8 +72,10 @@ Le quota de cœurs au niveau régional ou par famille de machine virtuelle doit 
 | [Applications](batch-application-packages.md) par compte Batch |20 |
 | Packages d’applications par application |40 |
 | Taille de package d’application (individuel) |Environ 195 Go<sup>1</sup> |
+| Taille maximale de la tâche de début | 32 768 caractères<sup>2</sup> |
 
-<sup>1</sup> Limite Azure Storage pour la taille d’objet blob de blocs maximale
+<sup>1</sup> Limite Azure Storage pour la taille d’objet blob de blocs maximale<br />
+<sup>2</sup> inclut les fichiers de ressources et les variables d’environnement
 
 ## <a name="view-batch-quotas"></a>Afficher les quotas Batch
 Affichez vos quotas de compte Batch dans le [portail Azure][portal].
@@ -118,7 +120,7 @@ Si votre compte Batch a été créé en mode **Service Batch**, suivez ces étap
    
     b. Dans **Détails**, spécifiez chaque quota que vous souhaitez modifier, le nom du compte Batch et la nouvelle limite.
    
-    Cliquez sur **Next**.
+    Cliquez sur **Suivant**.
 5. Sur le panneau **Informations de contact** :
    
     a. Sélectionnez une **méthode de contact préférée**.

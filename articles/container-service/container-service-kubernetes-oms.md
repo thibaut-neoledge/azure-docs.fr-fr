@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
-translationtype: Human Translation
-ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
-ms.openlocfilehash: 46240f3dc99a8c8a103a1e7919ad4f5e7a8ea62a
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 0ada599549d1c94a6be5199111f20f9d3708793f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -37,7 +38,8 @@ Vous pouvez tester si l’outil `az` est installé en exécutant :
 $ az --version
 ```
 
-Si l’outil `az` n’est pas installé, suivez les instructions figurant [ici](https://github.com/azure/azure-cli#installation).
+Si l’outil `az` n’est pas installé, suivez les instructions figurant [ici](https://github.com/azure/azure-cli#installation).  
+Sinon, vous pouvez utiliser [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), avec `az`l’interface de ligne Azure et les `kubectl` outils déjà installés pour vous.  
 
 Vous pouvez tester si l’outil `kubectl` est installé en exécutant :
 
@@ -46,9 +48,20 @@ $ kubectl version
 ```
 
 Si `kubectl` n’est pas installé, vous pouvez exécuter :
-
 ```console
 $ az acs kubernetes install-cli
+```
+
+Pour tester si les clés kubernetes sont installées dans votre outil kubectl vous pouvez exécuter :
+```console
+$ kubectl get nodes
+```
+
+Si les erreurs de commande ci-dessus sortent, vous devez installer les clés de cluster kubernetes dans votre outil kubectl. Ceci peut se faire avec la commande suivante :
+```console
+RESOURCE_GROUP=my-resource-group
+CLUSTER_NAME=my-acs-name
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
 ## <a name="monitoring-containers-with-operations-management-suite-oms"></a>Surveillance de conteneurs avec Operations Management Suite (OMS)
@@ -78,6 +91,43 @@ Une fois vos ID et clé d’espace de travail ajoutés à la configuration de Da
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
+
+### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Installation de l’agent OMS à l’aide d’une clé secrète Kubernetes
+Pour protéger votre ID d’espace de travail OMS et la clé vous pouvez utiliser les clés secrètes Kubernetes dans le cadre du fichier YAML DaemonSet.
+
+ - Copiez le script, le fichier modèle de la clé secrète et le fichier YAML DaemonSet (dans le [référentiel](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) et assurez-vous qu’ils se trouvent dans le même répertoire. 
+      - clé de secret générant le script - secret-gen.sh
+      - modèle de clé de secret - secret-template.yaml
+   - Fichier DaemonSet YAML - omsagent-ds-secrets.yaml
+ - Exécutez le script. Le script demande l’ID d’espace de travail OMS et la clé primaire. Veuillez l’insérer. Le script crée un fichier yaml secret pour que vous puissiez l’exécuter.   
+   ```
+   #> sudo bash ./secret-gen.sh 
+   ```
+
+   - Créez le pod de clés secrètes en exécutant la commande suivante : ``` kubectl create -f omsagentsecret.yaml ```
+ 
+   - Pour vérifier, exécutez la commande suivante : 
+
+   ``` 
+   root@ubuntu16-13db:~# kubectl get secrets
+   NAME                  TYPE                                  DATA      AGE
+   default-token-gvl91   kubernetes.io/service-account-token   3         50d
+   omsagent-secret       Opaque                                2         1d
+   root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+   Name:           omsagent-secret
+   Namespace:      default
+   Labels:         <none>
+   Annotations:    <none>
+
+   Type:   Opaque
+
+   Data
+   ====
+   WSID:   36 bytes
+   KEY:    88 bytes 
+   ```
+ 
+  - Créer votre DaemonsSet omsagent en exécutant ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Conclusion
 Et voilà ! Après quelques minutes, vous devez être en mesure de voir le flux de données vers votre tableau de bord OMS.

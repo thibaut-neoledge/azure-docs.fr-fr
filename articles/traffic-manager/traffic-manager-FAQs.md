@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2017
+ms.date: 06/15/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8c4c8db3cf57537dd77d33b3ded2dc24167f511f
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 44762864e0a5adf568fcd4928b48661196f05b9e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 ---
 
@@ -55,7 +56,7 @@ La méthode de Performance route le trafic vers le point de terminaison disponib
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Quels protocoles d’application puis-je utiliser avec Traffic Manager ?
 
-Comme expliqué dans la section [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager fonctionne au niveau du DNS. Une fois la recherche DNS terminée, les clients se connectent au point de terminaison d’application directement, et non via Traffic Manager. Cette connexion peut par conséquent utiliser tout protocole d’application. Toutefois, les contrôles d’intégrité de point de terminaison de Traffic Manager requièrent un point de terminaison HTTP ou HTTPS. Le point de terminaison pour un contrôle d’intégrité peut être différent du point de terminaison d’application auquel les clients se connectent.
+Comme expliqué dans la section [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager fonctionne au niveau du DNS. Une fois la recherche DNS terminée, les clients se connectent au point de terminaison d’application directement, et non via Traffic Manager. Par conséquent, la connexion peut utiliser n’importe quel protocole d’application. Si vous sélectionnez TCP comme protocole de surveillance, la surveillance de l’intégrité du point de terminaison de Traffic Manager peut s’effectuer sans protocole d’application. Si vous choisissez de vérifier l’intégrité avec un protocole d’application, le point de terminaison doit pouvoir répondre aux requêtes HTTP ou HTTPS GET.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Puis-je utiliser Traffic Manager avec un nom de domaine « nu » ?
 
@@ -68,9 +69,20 @@ Pour contourner ce problème, nous vous recommandons d’utiliser une redirectio
 La prise en charge complète des domaines nus dans Traffic Manager est suivie dans notre backlog de fonctionnalités. Vous pouvez inscrire votre prise en charge pour cette demande de fonctionnalité en [votant pour celle-ci sur le site de commentaires de notre communauté](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Traffic Manager considère-t-il l’adresse de sous-réseau client lors du traitement des requêtes DNS ? 
-Non, pour l’heure Traffic Manager considère uniquement l’adresse IP source de la requête DNS qu’il reçoit, en général l’adresse IP du programme de résolution DNS, lorsque vous effectuez des recherches pour les méthodes de routage géographique et basé sur les performances.  
+Non, à l’heure actuelle, Traffic Manager considère uniquement l’adresse IP source de la requête DNS qu’il reçoit, en général l’adresse IP du programme de résolution DNS, lorsque vous effectuez des recherches pour les méthodes de routage géographique et basé sur les performances.  
 Plus précisément, [RFC 7871 – Sous-réseau client dans les requêtes DNS](https://tools.ietf.org/html/rfc7871) qui fournit un [mécanisme d’extension pour DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) qui peut passer l’adresse du sous-réseau du client à partir de programmes de résolution qui le prennent en charge à des serveurs DNS n’est actuellement pas pris en charge dans Traffic Manager. Vous pouvez inscrire votre prise en charge pour cette demande de fonctionnalité en [sur le site de commentaires de notre communauté](https://feedback.azure.com/forums/217313-networking).
 
+
+### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>Qu’est-ce que le TTL du DNS et comment affecte-t-il mes utilisateurs ?
+
+Lorsqu’une requête DNS arrive sur Traffic Manager, il définit une valeur dans la réponse appelée durée de vie (TTL). Cette valeur, dont l’unité est en secondes, indique aux programmes de résolution DNS en aval la durée de mise en cache de cette réponse. Les programmes de résolution DNS ne mettent pas nécessairement en cache ce résultat. Toutefois, la mise en cache leur permet de répondre aux requêtes suivantes alors que le cache est désactivé, au lieu d’aller aux serveurs DNS de Traffic Manager. Cela affecte les réponses de la manière suivante :
+- une durée de vie plus élevée réduit le nombre de requêtes qui arrivent sur les serveurs DNS Traffic Manager, ce qui peut réduire le coût pour le client, puisque le nombre de requêtes servies est facturé ;
+- une durée de vie plus élevée peut potentiellement réduire le temps nécessaire pour effectuer une recherche DNS ;
+- une durée de vie plus élevée signifie également que vos données ne reflètent pas les dernières informations sur l’intégrité obtenues par Traffic Manager via ses agents de détection.
+
+### <a name="how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses"></a>Quelles sont les limites minimales et maximales de la durée de vie des réponses de Traffic Manager ?
+
+Vous pouvez définir, au niveau du profil, la durée de vie DNS entre 0 et 2 147 483 647 secondes (la plage maximale conformément à la norme [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt )). Une durée de vie de 0 signifie que les programmes de résolution DNS en aval ne mettent pas en cache les réponses aux requêtes et toutes les requêtes doivent alors atteindre les serveurs DNS Traffic Manager pour être résolues.
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Méthode de routage du trafic « Geographic » (Géographique) de Traffic Manager
 
@@ -78,12 +90,12 @@ Plus précisément, [RFC 7871 – Sous-réseau client dans les requêtes DNS](ht
 Le type de routage géographique peut être utilisé dans les scénarios dans lesquels un client Azure doit distinguer ses utilisateurs en fonction de régions géographiques. Par exemple, à l’aide de la méthode de routage de trafic géographique, vous pouvez attribuer une expérience utilisateur différente en fonction de la région. Un autre exemple est le respect des mandats de souveraineté de données locales qui nécessitent que les utilisateurs d’une région spécifique soient servis uniquement par les points de terminaison existant dans cette région.
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quelles sont les régions prises en charge par Traffic Manager pour le routage géographique ? 
-La hiérarchie de pays/régions utilisée par Traffic Manager se trouve [ici](traffic-manager-geographic-regions.md). Si cette page est maintenue à jour avec les éventuelles modifications apportées, vous pouvez également récupérer par programme les mêmes informations à l’aide de [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
+La hiérarchie de pays/régions utilisée par Traffic Manager se trouve [ici](traffic-manager-geographic-regions.md). Lorsque cette page est maintenue à jour avec les éventuelles modifications apportées, vous pouvez également récupérer par programme les mêmes informations à l’aide de [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>Comment Traffic Manager détermine-t-il l’emplacement à partir duquel un utilisateur exécute une requête ? 
 Traffic Manager examine l’adresse IP source de la requête (très probablement un programme de résolution DNS local effectuant la requête pour le compte de l’utilisateur) et utilise une adresse IP interne pour le mappage des régions afin de déterminer l’emplacement. Ce mappage est mis à jour en permanence pour prendre en compte les modifications apportées à Internet. 
 
-### <a name="is-it-guaranteed-that-traffic-manager-will-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>Est-il garanti que Traffic Manager détermine correctement l’emplacement géographique exact de l’utilisateur dans tous les cas ?
+### <a name="is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>Est-il garanti que Traffic Manager détermine correctement l’emplacement géographique exact de l’utilisateur dans tous les cas ?
 Non, Traffic Manager ne peut pas garantir que la région géographique que nous déduisons à partir de l’adresse IP source d’une requête DNS correspond toujours à l’emplacement de l’utilisateur, et ce pour les raisons suivantes : 
 
 - Tout d’abord, comme décrit dans le Forum aux questions précédent, l’adresse IP source que nous voyons est celle d’un programme de résolution DNS qui effectue une recherche pour le compte de l’utilisateur. Bien que l’emplacement géographique du programme de résolution DNS est un bon indicateur de l’emplacement géographique de l’utilisateur, il peut également être différent selon l’encombrement du service de résolution DNS et du service de résolution DNS spécifique qu'un client a choisi d’utiliser. Par exemple, un client en Malaisie peut définir dans les paramètres de son appareil l’utilisation d’un service de résolution DNS dont le serveur DNS à Singapour peut être sélectionné pour gérer les résolutions de requête pour cet utilisateur/appareil. Dans ce cas, Traffic Manager affiche uniquement l’adresse IP du programme de résolution, qui correspond à l’emplacement à Singapour. En outre, consultez le Forum aux questions précédent concernant la prise en charge des adresses de sous-réseau client sur cette page.
@@ -95,15 +107,18 @@ Non, Traffic Manager ne peut pas garantir que la région géographique que nous 
 Non, l’emplacement du point de terminaison n’impose aucune restriction sur les régions qui peuvent lui être mappées. Par exemple, tous les utilisateurs d’Inde peuvent être dirigés vers un point de terminaison situé dans la région Azure Centre des États-Unis.
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>Puis-je affecter des régions géographiques aux points de terminaison dans un profil qui n’est pas configuré pour procéder au routage géographique ? 
-Oui, si la méthode de routage d’un profil n’est pas géographique, vous pouvez utiliser [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) pour affecter des régions géographiques aux points de terminaison de ce profil. Cette configuration est ignorée dans le cas des profils de type de routage non géographique. Si vous modifiez ultérieurement un tel profil en type de routage géographique, Traffic Manager utilise ces mappages.
+
+Oui, si la méthode de routage d’un profil n’est pas géographique, vous pouvez utiliser [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) pour affecter des régions géographiques aux points de terminaison de ce profil. Cette configuration est ignorée dans le cas des profils de type de routage non géographique. Si vous modifiez ultérieurement un tel profil en type de routage géographique, Traffic Manager peut utiliser ces mappages.
 
 
-### <a name="when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic-i-am-getting-an-error"></a>Lorsque j’essaie de modifier la méthode de routage d’un profil existant en méthode de routage géographique, j’obtiens une erreur.
-Au moins une région doit être mappée à tous les points de terminaison sous un profil doté d’une méthode de routage géographique. Pour convertir un profil existant en type de routage géographique, vous devez tout d’abord associer les régions géographiques à tous ses points de terminaison à l’aide de [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). Si vous utilisez le portail, vous devez d’abord supprimer les points de terminaison, modifier la méthode de routage du profil en méthode de routage géographique, puis ajouter les points de terminaison ainsi que le mappage de leurs régions géographiques. 
+### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>Pourquoi une erreur est-elle générée lorsque j’essaie de modifier la méthode de routage d’un profil existant en méthode de routage géographique ?
+
+Au moins une région doit être mappée à tous les points de terminaison sous un profil doté d’une méthode de routage géographique. Pour convertir un profil existant en type de routage géographique, vous devez tout d’abord associer les régions géographiques à tous ses points de terminaison à l’aide de [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). Si vous utilisez le portail, vous devez d’abord supprimer les points de terminaison, remplacer la méthode de routage du profil par la méthode de routage géographique, puis ajouter les points de terminaison ainsi que le mappage de leurs régions géographiques. 
 
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Pourquoi est-il vivement recommandé que les clients créent des profils imbriqués à la place de points de terminaison sous un profil avec le routage géographique activé ? 
-Une région ne peut être affectée qu’à un seul point de terminaison dans un profil s’il utilise le type de routage géographique. Si ce point de terminaison n’est pas un type imbriqué auquel un profil enfant est attaché et s’il devient défectueux, Traffic Manager continue à lui envoyer le trafic puisque l’alternative de ne pas envoyer de trafic ne se révèle pas meilleure. Traffic Manager ne bascule vers aucun autre point de terminaison même si la région affectée est « parente » de la région affectée au point de terminaison qui s’est détérioré (par exemple, si un point de terminaison auquel la région Espagne est affectée devient défectueux, nous ne basculons pas vers un autre point de terminaison auquel la région Europe est affectée). De cette façon, Traffic Manager respecte les limites géographiques qu’un client a configurées dans son profil. Pour profiter du basculement vers un autre point de terminaison lorsqu’un point de terminaison est défectueux, il est recommandé que les régions géographiques soient affectées aux profils imbriqués avec plusieurs points de terminaison et non des points de terminaison individuels. De cette façon, en cas d’échec d’un point de terminaison du profil enfant imbriqué, le trafic peut basculer vers un autre point de terminaison dans le même profil enfant imbriqué.
+
+Une région ne peut être affectée qu’à un seul point de terminaison dans un profil s’il utilise le type de routage géographique. Si ce point de terminaison n’est pas un type imbriqué auquel un profil enfant est attaché et s’il devient défectueux, Traffic Manager continue à lui envoyer le trafic puisque l’alternative de ne pas envoyer de trafic ne se révèle pas meilleure. Traffic Manager ne bascule vers aucun autre point de terminaison même si la région affectée est « parente » de la région affectée au point de terminaison qui s’est détérioré (par exemple, si un point de terminaison auquel la région Espagne est affectée devient défectueux, nous ne basculons pas vers un autre point de terminaison auquel la région Europe est affectée). De cette façon, Traffic Manager respecte les limites géographiques qu’un client a configurées dans son profil. Pour profiter du basculement vers un autre point de terminaison lorsqu’un point de terminaison est défectueux, il est recommandé d’affecter les régions géographiques aux profils imbriqués avec plusieurs points de terminaison et non des points de terminaison individuels. De cette façon, en cas d’échec d’un point de terminaison du profil enfant imbriqué, le trafic peut basculer vers un autre point de terminaison dans le même profil enfant imbriqué.
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Existe-t-il des restrictions quant à la version de l’API qui prend en charge ce type de routage ?
 
@@ -117,10 +132,8 @@ Oui, seules les versions de l’API 2017-03-01 et plus récentes prennent en cha
 
 L’utilisation de points de terminaison à partir de plusieurs abonnements n’est pas possible avec Azure Web Apps. Azure Web Apps requiert que tout nom de domaine personnalisé utilisé avec Web Apps ne soit utilisé que dans un seul abonnement. Il n’est pas possible d’utiliser des applications web à partir de plusieurs abonnements portant le même nom de domaine.
 
-Pour les autres types de point de terminaison, il est possible d’utiliser Traffic Manager avec des points de terminaison provenant de plusieurs abonnements. La procédure à suivre pour configurer Traffic Manager varie selon que vous utilisez le modèle de déploiement Classic ou Resource Manager.
+Pour les autres types de point de terminaison, il est possible d’utiliser Traffic Manager avec des points de terminaison provenant de plusieurs abonnements. Dans Resource Manager, vous pouvez ajouter à Traffic Manager des points de terminaison de n’importe quel abonnement tant que la personne qui configure le profil Traffic Manager dispose d’un accès en lecture au point de terminaison. Ces autorisations peuvent être accordées à l’aide du [contrôle d’accès en fonction du rôle Azure Resource Manager (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-* Dans Resource Manager, vous pouvez ajouter à Traffic Manager des points de terminaison de n’importe quel abonnement tant que la personne qui configure le profil Traffic Manager dispose d’un accès en lecture au point de terminaison. Ces autorisations peuvent être accordées à l’aide du [contrôle d’accès en fonction du rôle Azure Resource Manager (RBAC)](../active-directory/role-based-access-control-configure.md).
-* Dans l’interface modèle de déploiement Classic, Traffic Manager exige que les services cloud ou applications web configurés en tant que points de terminaison Azure résident dans le même abonnement que le profil Traffic Manager. Les points de terminaison de service cloud dans d’autres abonnements peuvent être ajoutés à Traffic Manager en tant que points de terminaison « externes ». Ces derniers sont facturés comme points de terminaison Azure, plutôt qu’au tarif des points de terminaison externes.
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Puis-je utiliser Traffic Manager avec les emplacements intermédiaires de services cloud ?
 
@@ -135,15 +148,6 @@ Traffic Manager répond avec le nom DNS du point de terminaison. Pour prendre en
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Puis-je utiliser Traffic Manager avec plusieurs applications web dans la même région ?
 
 En règle générale, Traffic Manager est utilisé pour diriger le trafic vers des applications déployées dans des régions différentes. Vous pouvez toutefois l’utiliser dans les applications comportant plusieurs déploiements dans la même région. Les points de terminaison Azure Traffic Manager ne permettent pas d’ajouter au même profil Traffic Manager plusieurs points de terminaison d’application web provenant de la même région Azure.
-
-Les étapes suivantes proposent une solution de contournement :
-
-1. Vérifiez que vos points de terminaison sont dans une autre unité d’échelle d’application web. Un nom de domaine doit correspondre à un seul site dans une unité d’échelle donnée. Par conséquent, deux applications web dans la même unité d’échelle ne peuvent pas partager un profil Traffic Manager.
-2. Ajoutez votre nom de domaine personnel en tant que nom d’hôte personnalisé à chaque application web. Chaque application web doit être dans une unité d’échelle différente. Toutes les applications web doivent appartenir au même abonnement.
-3. Ajoutez un (et un seul) point de terminaison d’application web à votre profil Traffic Manager et configurez-le en tant que point de terminaison Azure.
-4. Ajoutez chaque point de terminaison d’application web supplémentaire à votre profil Traffic Manager en tant que point de terminaison externe. Les points de terminaison externes peuvent être ajoutés uniquement avec le modèle de déploiement Resource Manager.
-5. Créez un enregistrement DNS CNAME dans votre domaine personnel qui pointe vers le nom DNS de votre profil Traffic Manager (<...>.trafficmanager.net).
-6. Accédez à votre site via le nom de domaine personnel, et non en utilisant le nom DNS du profil Traffic Manager.
 
 ##  <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 
@@ -178,6 +182,28 @@ Traffic manager ne peut pas fournir de validation de certificat :
 * Les certificats SNI côté serveur ne sont pas pris en charge.
 * Les certificats clients ne sont pas pris en charge.
 
+### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Puis-je utiliser Traffic Manager même si mon application ne prend pas en charge HTTP ou HTTPS ?
+
+Oui. Vous pouvez spécifier TCP comme protocole de surveillance et Traffic Manager peut établir une connexion TCP et attendre une réponse du point de terminaison. Si le point de terminaison répond à la demande de connexion en indiquant d’établir la connexion, dans le délai imparti, ce point de terminaison est marqué comme étant intègre.
+
+### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>Quelles réponses spécifiques du point de terminaison sont requises lorsque la surveillance TCP est utilisée ?
+
+Lorsque la surveillance TCP est utilisée, Traffic Manager démarre une connexion TCP en trois temps en envoyant une requête SYN au point de terminaison au niveau du port spécifié. Puis, il attend pendant un délai défini (spécifié dans les paramètres de délai d’expiration) une réponse du point de terminaison. Si le point de terminaison répond à la requête SYN par une réponse SYN-ACK dans le délai d’expiration spécifié dans les paramètres de surveillance, ce point de terminaison est considéré comme intègre. Si la réponse SYN-ACK est reçue, Traffic Manager réinitialise la connexion en répondant par un RST.
+
+### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>À quelle vitesse Traffic Manager éloigne-t-il mes utilisateurs d’un point de terminaison défectueux ?
+
+Traffic Manager fournit plusieurs paramètres qui peuvent vous aider à contrôler le comportement du basculement de votre profil Traffic Manager comme suit :
+- Vous pouvez spécifier que Traffic Manager tente de détecter les points de terminaison plus fréquemment en définissant l’intervalle de détection sur 10 secondes. Cela garantit que tout point de terminaison qui devient défectueux peut être détecté le plus tôt possible. 
+- Vous pouvez spécifier la durée d’attente avant que l’expiration d’une demande de contrôle de l’intégrité (la valeur minimale du délai d’expiration est de 5 secondes).
+- Vous pouvez spécifier le nombre d’erreurs qui peuvent se produire avant que le point de terminaison soit considéré comme défectueux. Cette valeur peut être définie sur 0, auquel cas le point de terminaison est marqué défectueux dès le premier échec au premier contrôle d’intégrité. Toutefois, l’utilisation de la valeur minimale 0 comme nombre autorisé d’échecs risque d’entraîner l’exclusion des points de terminaison de la rotation en raison de problèmes temporaires qui peuvent survenir au moment de la détection.
+- Vous pouvez définir 0 comme durée de vie (TTL) minimale pour la réponse DNS. Cela signifie que les programmes de résolution DNS ne peuvent pas mettre en cache la réponse et que chaque nouvelle requête obtient une réponse qui intègre les dernières informations de contrôle d’intégrité mises à jour détenues par Traffic Manager.
+
+À l’aide de ces paramètres, Traffic Manager peut fournir des basculements moins de 10 secondes après la défaillance d’un point de terminaison et une requête DNS est effectuée par rapport au profil correspondant.
+
+### <a name="how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile"></a>Comment spécifier différents paramètres de surveillance pour les différents points de terminaison dans un profil ?
+
+Les paramètres de surveillance de Traffic Manager sont définis au niveau du profil. Si vous devez utiliser un autre paramètre de surveillance pour un seul point de terminaison, il convient de définir ce point de terminaison comme [profil imbriqué](traffic-manager-nested-profiles.md) dont les paramètres de surveillance sont différents du profil parent.
+
 ### <a name="what-host-header-do-endpoint-health-checks-use"></a>Quel en-tête hôte est utilisé pour les contrôles d’intégrité des points de terminaison ?
 
 Traffic Manager utilise des en-têtes d’hôte pour les contrôles d’intégrité HTTP et HTTPS. L’en-tête d’hôte utilisé par Traffic Manager est le nom du point de terminaison cible configuré dans le profil. La valeur utilisée dans l’en-tête hôte ne peut pas être spécifiée séparément de la propriété cible.
@@ -210,6 +236,12 @@ La liste suivante contient les adresses IP à partir desquelles peuvent provenir
 * 13.75.152.253
 * 104.41.187.209
 * 104.41.190.203
+
+### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Combien de contrôles d’intégrité de mon point de terminaison Traffic Manager effectue-t-il ?
+
+Le nombre de contrôles d’intégrité de Traffic Manager qui atteignent votre point de terminaison varie selon les éléments suivants :
+- La valeur que vous avez définie pour l’intervalle de surveillance (plus l’intervalle est petit, plus le nombre de requêtes atteignant votre point de terminaison est élevé, dans une période de temps donnée).
+- Le nombre d’emplacements d’où proviennent les contrôles d’intégrité (les adresses IP d’où peuvent provenir ces contrôles sont répertoriées dans la rubrique FAQ précédente).
 
 ## <a name="traffic-manager-nested-profiles"></a>Profils Traffic Manager imbriqués
 
