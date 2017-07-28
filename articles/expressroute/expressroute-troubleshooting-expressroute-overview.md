@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/05/2017
 ms.author: rambala
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 67f9626faadc539f26110e5aa23b3c0a878923b9
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: a13c74b9490811e61328414b6a375bc9c9f7cdb0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
-ExpressRoute, qui étend un réseau local dans le cloud Microsoft par le biais d'une connexion privée dédiée qui est facilitée par un fournisseur de connectivité, implique les trois zones de réseau distinctes suivantes :
+ExpressRoute, qui étend un réseau local dans le cloud Microsoft par le biais d’une connexion privée qui est facilitée par un fournisseur de connectivité, implique les trois zones de réseau distinctes suivantes :
 
--     Réseau de client
--      Réseau de fournisseur
--      Centre de données Microsoft
+-   Réseau de client
+-   Réseau de fournisseur
+-   Centre de données Microsoft
 
 L’objectif de ce document est d’aider l’utilisateur à identifier où (ou même si) un problème de connectivité existe et dans quelle zone, afin de demander l’aide d’une équipe appropriée pour le résoudre. Si le support technique de Microsoft est nécessaire pour résoudre un problème, ouvrez un ticket de support auprès du [support Microsoft][Support].
 
@@ -44,20 +44,20 @@ Dans le diagramme précédent, les nombres indiquent les points clés de réseau
 
 Selon le modèle de connectivité ExpressRoute (colocalisation Cloud Exchange, connexion Ethernet point à point ou universelle (IPVPN)), les points de réseau 3 et 4 peuvent être commutateurs (appareils de couche 2). Les points clés de réseau illustrés sont les suivants :
 
-1.    Appareil de calcul du client (par exemple, un serveur ou un PC)
-2.    CE : routeurs de périphérie du client 
-3.    PE (collaborant avec des CE) : routeurs/commutateurs de périphérie du fournisseur qui collaborent avec des routeurs de périphérie du client
-4.    PE (collaborant avec des MSEE) : routeurs/commutateurs de périphérie du fournisseur qui collaborent avec des MSEE
-5.    MSEE : routeurs ExpressRoute Microsoft Enterprise Edge (MSEE)
-6.    Passerelle de réseau virtuel (VNet)
-7.    Appareil de calcul sur le réseau virtuel Azure
+1.  Appareil de calcul du client (par exemple, un serveur ou un PC)
+2.  CE : routeurs de périphérie du client 
+3.  PE (collaborant avec des CE) : routeurs / commutateurs de périphérie du fournisseur qui collaborent avec des routeurs de périphérie du client. Appelé PE-CE dans ce document.
+4.  PE (collaborant avec des MSEE) : routeurs / commutateurs de périphérie du fournisseur qui collaborent avec des MSEE. Appelé PE-MSEE dans ce document.
+5.  MSEE : routeurs ExpressRoute Microsoft Enterprise Edge (MSEE)
+6.  Passerelle de réseau virtuel (VNet)
+7.  Appareil de calcul sur le réseau virtuel Azure
 
 Si les modèles de connectivité Colocalisation Cloud Exchange ou Connexion Ethernet point à point sont utilisés, le routeur de périphérie du client (2) établit l’homologation BGP avec des MSEE (5). Les points de réseau 3 et 4 existent toujours, mais sont quelque peu transparents en tant qu'appareils de couche 2.
 
 Si le modèle de connectivité universelle (IPVPN) est utilisé, les PE (collaborant avec des MSEE) (4) établissent une homologation BGP avec des MSEE (5). Les itinéraires sont ensuite propagés sur le réseau du client par le biais du réseau de fournisseur de service IPVPN.
 
 >[!NOTE]
->Pour la haute disponibilité ExpressRoute, Microsoft nécessite une paire de sessions BGP redondante entre des MSEE (5) et des MSEE-PR (4). Une paire redondante de chemins d’accès au réseau est également recommandée entre le réseau du client et les MSEE-PR. Cependant, dans le modèle de connexion universelle (IPVPN), un seul appareil CE (2) peut-être connecté à un ou plusieurs PE (3).
+>Pour la haute disponibilité ExpressRoute, Microsoft nécessite une paire de sessions BGP redondante entre des MSEE (5) et des PE-MSEE (4). Une paire redondante de chemins d’accès au réseau est également recommandée entre le réseau du client et les PE-CE. Cependant, dans le modèle de connexion universelle (IPVPN), un seul appareil CE (2) peut-être connecté à un ou plusieurs PE (3).
 >
 >
 
@@ -71,7 +71,7 @@ Les étapes suivantes permettent de valider un circuit ExpressRoute (avec le poi
 Des validations et des vérifications complémentaires seront ajoutées prochainement, vérifiez tous les mois !
 
 ##<a name="validate-circuit-provisioning-and-state"></a>Validation de l'approvisionnement et l’état du circuit
-Quel que soit le modèle de connectivité, un circuit ExpressRoute doit être créé et une clé de service générée pour l’approvisionnement du circuit. L'approvisionnement d’un circuit ExpressRoute établit une connexion de couche 2 redondante entre les MSEE-PR (4) et les MSEE (5). Pour plus d’informations sur la manière de créer, de modifier, d'approvisionner et de vérifier un circuit ExpressRoute, consultez l’article [Création et modification d’un circuit ExpressRoute][CreateCircuit].
+Quel que soit le modèle de connectivité, un circuit ExpressRoute doit être créé et une clé de service générée pour l’approvisionnement du circuit. L’approvisionnement d’un circuit ExpressRoute établit une connexion de couche 2 redondante entre les PE-MSEE (4) et les MSEE (5). Pour plus d’informations sur la manière de créer, de modifier, d'approvisionner et de vérifier un circuit ExpressRoute, consultez l’article [Création et modification d’un circuit ExpressRoute][CreateCircuit].
 
 >[!TIP]
 >Une clé de service identifie un circuit ExpressRoute de façon unique. Cette clé est exigée pour la plupart des commandes powershell mentionnées dans ce document. Si vous avez également besoin d'assistance de la part de Microsoft ou d’un partenaire ExpressRoute pour résoudre un problème lié à ExpressRoute, entrez la clé de service afin d’identifier facilement le circuit.
@@ -115,18 +115,18 @@ Voici un exemple de réponse :
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
     Sku                              : {
-                                         "Name": "Standard_UnlimitedData",
-                                         "Tier": "Standard",
-                                         "Family": "UnlimitedData"
-                                           }
+                                        "Name": "Standard_UnlimitedData",
+                                        "Tier": "Standard",
+                                        "Family": "UnlimitedData"
+                                        }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             : 
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "****",
-                                         "PeeringLocation": "******",
-                                         "BandwidthInMbps": 100
-                                           }
+                                        "ServiceProviderName": "****",
+                                        "PeeringLocation": "******",
+                                        "BandwidthInMbps": 100
+                                        }
     ServiceKey                       : **************************************
     Peerings                         : []
     Authorizations                   : []
@@ -187,10 +187,10 @@ Dans le portail Azure, l’état d’un circuit ExpressRoute peut être vérifi�
 
 ![5][5]
 
-Dans l’exemple précédent, nous avons noté que le contexte de routage Homologation privée Azure est activé, tandis que les contextes de routage Homologation publique Azure et Microsoft ne sont pas activés. Un contexte d’homologation correctement activé doit également répertorier les sous-réseaux de point à point principaux et secondaires (nécessaires pour BGP). Les sous-réseaux /30 sont utilisés pour l’adresse IP d'interface des MSEE et MSEE-PR. 
+Dans l’exemple précédent, nous avons noté que le contexte de routage Homologation privée Azure est activé, tandis que les contextes de routage Homologation publique Azure et Microsoft ne sont pas activés. Un contexte d’homologation correctement activé doit également répertorier les sous-réseaux de point à point principaux et secondaires (nécessaires pour BGP). Les sous-réseaux /30 sont utilisés pour l’adresse IP d’interface des MSEE et PE-MSEE. 
 
 >[!NOTE]
->Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires affectés correspondent à la configuration sur les MSEE-PR. Dans le cas contraire, pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering]
+>Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur les PE-MSEE. Dans le cas contraire, pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering]
 >
 >
 
@@ -217,7 +217,7 @@ Voici un exemple de réponse pour une homologation privée correctement configur
     MicrosoftPeeringConfig     : null
     ProvisioningState          : Succeeded
 
- Un contexte d’homologation correctement activé répertorie les préfixes d’adresses principales et secondaires. Les sous-réseaux /30 sont utilisés pour l’adresse IP d'interface des MSEE et MSEE-PR.
+ Un contexte d’homologation correctement activé répertorie les préfixes d’adresses principales et secondaires. Les sous-réseaux /30 sont utilisés pour l’adresse IP d’interface des MSEE et PE-MSEE.
 
 Pour obtenir les détails sur la configuration de l'homologation publique Azure, utilisez les commandes suivantes :
 
@@ -244,11 +244,11 @@ Si aucune homologation n’est configurée, un message d’erreur est généré.
 >
 
 <p/>
->[!NOTE] Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires affectés correspondent à la configuration sur le MSEE-PR lié. Vérifiez également si les *VlandId*, *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et MSEE-RP. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].  
+>[!NOTE] Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et PE-MSEE. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].  
 >>
 >
 
-###<a name="verification-via-powershell-classic"></a>Vérification par le biais de PowerShell (classique)
+### <a name="verification-via-powershell-classic"></a>Vérification par le biais de PowerShell (classique)
 Pour obtenir les détails sur la configuration de l'homologation privée Azure, utilisez la commande suivante :
 
     Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
@@ -268,7 +268,7 @@ Voici un exemple de réponse pour une homologation privée correctement configur
     State                          : Enabled
     VlanId                         : 100
 
-Un contexte d’homologation correctement activé répertorie les sous-réseaux d'homologation principaux et secondaires. Les sous-réseaux /30 sont utilisés pour l’adresse IP d'interface des MSEE et MSEE-PR.
+Un contexte d’homologation correctement activé répertorie les sous-réseaux d'homologation principaux et secondaires. Les sous-réseaux /30 sont utilisés pour l’adresse IP d’interface des MSEE et PE-MSEE.
 
 Pour obtenir les détails sur la configuration de l'homologation publique Azure, utilisez les commandes suivantes :
 
@@ -284,12 +284,12 @@ Pour obtenir les détails sur la configuration de l'homologation Microsoft, util
 >
 
 <p/>
->[!NOTE] Si une homologation n’est pas activé, vérifiez si les sous-réseaux d'homologation principaux et secondaires affectés correspondent à la configuration sur le MSEE-PR lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le MSEE lié. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
+>[!NOTE] Si une homologation n’est pas activée, vérifiez si les sous-réseaux d’homologation principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
 >>
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Validation de l'ARP entre Microsoft et le fournisseur de service
-Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, assurez-vous que vous avez un accès administrateur/coadministrateur à l’abonnement par le biais du [portail Azure classique][OldPortal]
+Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, assurez-vous d’avoir un accès administrateur / coadministrateur à l’abonnement par le biais du [portail Azure Classic][OldPortal]. Pour le dépannage à l’aide des commandes Azure Resource Manager, veuillez vous reporter au document [Obtention de tables ARP dans le modèle de déploiement Resource Manager][ARP].
 
 >[!NOTE]
 >Vous pouvez utiliser le portail Azure et les commandes Azure Resource Manager PowerShell pour obtenir l’ARP. Si vous rencontrez des erreurs avec les commandes PowerShell Azure Resource Manager, les commandes PowerShell classiques peuvent fonctionner comme commandes PowerShell classiques et avec des circuits ExpressRoute Azure Resource Manager.
@@ -305,7 +305,7 @@ Voici un exemple de réponse pour la commande si le scénario réussit :
     ARP Info:
 
                  Age           Interface           IpAddress          MacAddress
-                 113             On-Prem       10.0.0.1            e8ed.f335.4ca9
+                 113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
 De même, vous pouvez vérifier la table ARP à partir des MSEE dans le chemin d'accès *principal*/*secondaire* pour les homologations *privée*/*publique*/*Microsoft*.
@@ -321,7 +321,7 @@ L’exemple suivant montre la réponse de la commande pour une homologation inex
 >
 >
 
-##<a name="validate-bgp-and-routes-on-the-msee"></a>Validation de BGP et des itinéraires sur les MSEE
+## <a name="validate-bgp-and-routes-on-the-msee"></a>Validation de BGP et des itinéraires sur les MSEE
 Cette section utilise les commandes PowerShell (classiques). Si vous avez utilisé des commandes PowerShell Azure Resource Manager, assurez-vous que vous avez un accès administrateur/coadministrateur à l’abonnement par le biais du [portail Azure classique][OldPortal]
 
 >[!NOTE]
@@ -343,7 +343,7 @@ Voici un exemple de réponse :
 Comme indiqué dans l’exemple précédent, la commande est utile pour déterminer pour la durée de mise en place du contexte de routage. Il indique également le nombre de préfixes d’itinéraire annoncés par le routeur d'homologation.
 
 >[!NOTE]
->Si l'état est Activé ou Inactif, vérifiez si les sous-réseaux d'homologation principaux et secondaires affectés correspondent à la configuration sur le MSEE-PR lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et MSEE-RP. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
+>Si l’état est Activé ou Inactif, vérifiez si les sous-réseaux d’homologation principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et PE-MSEE. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
 >
 >
 
@@ -410,6 +410,7 @@ Pour plus d’informations ou d'aide, consultez les liens suivants :
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
 [OldPortal]: https://manage.windowsazure.com
+[ARP]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
 
 
 
