@@ -1,5 +1,5 @@
 ---
-title: "Publication d’applications HDInsight | Microsoft Docs"
+title: Publier des applications HDInsight - Azure | Microsoft Docs
 description: "Découvrez comment créer et publier des applications HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 1a7dabcbfdc1977e747fd30cfc0383d6c5f7f5a0
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 6aa66cac35bc317fc87003e6c3d824544c53de88
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="publish-hdinsight-applications-into-the-azure-marketplace"></a>Publier des applications HDInsight dans Azure Marketplace
-Une application HDInsight est une application que les utilisateurs peuvent installer sur un cluster HDInsight sous Linux. Ces applications peuvent être développées par Microsoft, par des éditeurs de logiciels indépendants (ISV) ou par vous-même. Dans cet article, vous découvrirez comment publier une application HDInsight dans Azure Marketplace.  Pour obtenir des informations générales sur la publication dans Azure Marketplace, consultez la page [Publier une offre dans Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+Une application HDInsight est une application que les utilisateurs peuvent installer sur un cluster HDInsight sous Linux. Ces applications peuvent être développées par Microsoft, par des éditeurs de logiciels indépendants (ISV) ou par vous-même. Cet article explique comment publier une application HDInsight sur la Place de marché Microsoft Azure.  Pour obtenir des informations générales sur la publication dans Azure Marketplace, consultez la page [Publier une offre dans Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
 
-Les applications HDInsight utilisent le modèle *BYOL (apportez votre propre licence)*, où le fournisseur de l’application doit fournir aux utilisateurs finaux la licence de l’application. Azure facture uniquement les ressources que ces utilisateurs créent, telles que le cluster HDInsight et ses machines virtuelles/nœuds. À ce stade, la facturation de l’application elle-même n’est pas effectuée via Azure.
+Les applications HDInsight utilisent le modèle *BYOL (apportez votre propre licence)*, où le fournisseur de l’application doit fournir aux utilisateurs finaux la licence de l’application. Azure facture uniquement les ressources que ces utilisateurs créent, telles que le cluster HDInsight et ses machines virtuelles/nœuds. À ce stade, la facturation de l’application n’est pas effectuée via Azure.
 
-Autre article concernant les applications HDInsight :
+Autre article concernant les applications HDInsight :
 
-* [Install HDInsight applications](hdinsight-apps-install-applications.md)(Installer des applications HDInsight) : découvrez comment installer une application HDInsight sur vos clusters.
+* [Installer des applications HDInsight](hdinsight-apps-install-applications.md): découvrez comment installer une application HDInsight sur vos clusters.
 * [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md)(Installer des applications HDInsight personnalisées) : découvrez comment installer et tester des applications HDInsight personnalisées.
 
 ## <a name="prerequisites"></a>Composants requis
-Pour envoyer votre application personnalisée au Marketplace, vous devez l’avoir créée et testée. Consultez les articles suivants :
+Pour envoyer votre application personnalisée à la Place de marché, vous devez l’avoir créée et testée. Consultez les articles suivants :
 
 * [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md)(Installer des applications HDInsight personnalisées) : découvrez comment installer et tester des applications HDInsight personnalisées.
 
-Vous devez également avoir enregistré votre compte développeur. Consultez les pages [Publier une offre dans Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) et [Créer un compte de développeur Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Vous devez également avoir inscrit votre compte de développeur. Consultez les pages [Publier une offre dans Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) et [Créer un compte de développeur Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 
 ## <a name="define-application"></a>Définir l’application
-La publication d’applications dans Azure Marketplace se fait en deux étapes.  D’abord, vous définissez un fichier **createUiDef.json** pour indiquer les clusters compatibles avec votre application ; ensuite, vous publiez le modèle à partir du portail Azure. Voici un exemple de fichier createUiDef.json.
+La publication d’applications dans Azure Marketplace se fait en deux étapes.  D’abord, vous définissez un fichier **createUiDef.json** pour indiquer les clusters compatibles avec votre application ; ensuite, vous publiez le modèle à partir du portail Azure. La section suivante présente un exemple de fichier createUiDef.json.
 
     {
         "handler": "Microsoft.HDInsight",
@@ -64,7 +64,7 @@ La publication d’applications dans Azure Marketplace se fait en deux étapes. 
 ## <a name="application-install-script"></a>Script d’installation d’application
 L’installation d’une application sur un cluster (un cluster existant ou un nouveau) crée un nœud de périmètre sur lequel s’exécute le script d’installation.
   > [!IMPORTANT]
-  > L’appellation des noms des scripts d’installation d’application doit être unique pour un cluster particulier, au format suivant.
+  > Les noms des scripts d’installation d’application doivent être uniques pour un cluster particulier, et leur format doit être le suivant.
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -78,13 +78,13 @@ L’installation d’une application sur un cluster (un cluster existant ou un n
   > 
 Le script d’installation doit avoir les caractéristiques suivantes :
 1. Assurez-vous que le script est idempotent. Plusieurs appels au script doivent produire le même résultat.
-2. Le script doit être correctement versionné. Utilisez un autre emplacement pour le script lorsque vous effectuez une mise à niveau ou que vous testez des modifications, afin d’éviter toute incidence sur les clients qui tentent d’installer l’application. 
-3. Ajoutez aux scripts des journaux adéquats en chaque point. Le journaux de script sont généralement la seule façon de déboguer les problème d’installation des applications.
+2. Le script doit être correctement versionné. Utilisez un autre emplacement pour le script lorsque vous effectuez une mise à niveau ou testez des modifications, afin d’éviter toute incidence sur les clients qui tentent d’installer l’application. 
+3. Ajoutez aux scripts une journalisation adéquate à chaque étape. Le journaux de script sont généralement la seule façon de déboguer les problème d’installation des applications.
 4. Assurez-vous que les appels passés à des services ou ressources externes peuvent faire l’objet de nouvelles tentatives afin que l’installation ne soit pas affectée par des problèmes réseau temporaires.
 5. Si votre script démarre des services sur les nœuds, assurez-vous que les services sont analysés et configurés pour démarrer automatiquement en cas de redémarrage du nœud.
 
 ## <a name="package-application"></a>Empaqueter une application
-Créez un fichier zip qui contient tous les fichiers requis pour l’installation de vos applications HDInsight. Vous aurez besoin du fichier zip à l’étape [Publication de l’application](#publish-application).
+Créez un fichier zip qui contient tous les fichiers requis pour l’installation de vos applications HDInsight. Vous aurez besoin du fichier zip à l’étape [Publier une application](#publish-application).
 
 * [createUiDefinition.json](#define-application).
 * mainTemplate.json. Voir un exemple dans l’article [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md)(Installer des applications HDInsight personnalisées).
@@ -108,7 +108,7 @@ Suivez ces étapes pour publier une application HDInsight :
 9. Cliquez sur **Request Certification**(Demander la certification). L’équipe de certification Microsoft examine les fichiers et certifie la topologie.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Install HDInsight applications](hdinsight-apps-install-applications.md)(Installer des applications HDInsight) : découvrez comment installer une application HDInsight sur vos clusters.
+* [Installer des applications HDInsight](hdinsight-apps-install-applications.md): découvrez comment installer une application HDInsight sur vos clusters.
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md): découvrez comment déployer des applications HDInsight inédites vers HDInsight.
 * [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md): apprenez à utiliser l’action de script pour installer des applications supplémentaires.
 * [Créer des clusters Hadoop sous Linux dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): apprenez à appeler des modèles Resource Manager pour la création de clusters HDInsight.

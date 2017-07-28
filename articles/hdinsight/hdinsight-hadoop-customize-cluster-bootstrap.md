@@ -1,5 +1,5 @@
 ---
-title: "Personnalisation de clusters HDInsight à l’aide de Bootstrap | Microsoft Docs"
+title: "Personnaliser des clusters HDInsight à l’aide de Bootstrap - Azure | Microsoft Docs"
 description: "Apprenez à personnaliser des clusters HDInsight à l’aide de Bootstrap."
 services: hdinsight
 documentationcenter: 
@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: c8abf308c20968f184a80b20dc40185b1631105d
-ms.openlocfilehash: 903004ae83d86ddcda13c6f2fce708e71ffa729b
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: c7a6fafa90eac66774d564c82c926c662baf784c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -115,7 +116,7 @@ Pour plus d’informations, consultez le blog d’Azim Uddin, intitulé [Personn
 Consultez [Créer des clusters Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
 ## <a name="use-resource-manager-template"></a>Utilisation d’un modèle Resource Manager
-Vous pouvez utiliser bootstrap dans le modèle Resource Manager :
+Vous pouvez utiliser Bootstrap dans un modèle Resource Manager :
 
     "configurations": {
         …
@@ -127,7 +128,7 @@ Vous pouvez utiliser bootstrap dans le modèle Resource Manager :
     }
 
 
-![HDInsight Hadoop personnaliser cluster bootstrap Azure Resource Manager modèle](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![HDInsight Hadoop personnalise le modèle Azure Resource Manager de Bootstrap de cluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Voir aussi
 * [Créer des clusters Hadoop dans HDInsight][hdinsight-provision-cluster] pour obtenir des instructions sur la création d’un cluster HDInsight à l’aide d’autres options personnalisées.
