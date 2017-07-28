@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c3594b292a5b548bcb1e0df5959775d139576597
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 77f8f10c764013e539480138fb1479d0326b5eef
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/17/2017
-
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -250,7 +249,7 @@ Pour vérifier l’appartenance d’un utilisateur à des groupes, effectuez les
 
 Pour vérifier les licences affectées à un utilisateur, effectuez les étapes suivantes :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
 
 2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
@@ -260,7 +259,7 @@ Pour vérifier les licences affectées à un utilisateur, effectuez les étapes 
 
 5.  Cliquez sur **Tous les utilisateurs**.
 
-6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** à sélectionner.
+6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
 7.  Cliquez sur **Licences** pour voir quelles licences sont actuellement affectées à l’utilisateur.
 
@@ -268,7 +267,7 @@ Pour vérifier les licences affectées à un utilisateur, effectuez les étapes 
 
 Pour affecter une licence à un utilisateur, effectuez les étapes suivantes :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
 
 2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
@@ -278,11 +277,11 @@ Pour affecter une licence à un utilisateur, effectuez les étapes suivantes :
 
 5.  Cliquez sur **Tous les utilisateurs**.
 
-6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** à sélectionner.
+6.  **Recherchez** l’utilisateur qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
 7.  Cliquez sur **Licences** pour voir quelles licences sont actuellement affectées à l’utilisateur.
 
-8.  Cliquez sur le bouton **Affecter**.
+8.  Cliquez sur le bouton **Attribuer**.
 
 9.  Sélectionnez **un ou plusieurs produits** dans la liste des produits disponibles.
 
@@ -308,7 +307,7 @@ L’accès à l’application peut être bloqué en raison d’un problème avec
 
 Pour vérifier l’appartenance d’un utilisateur à un groupe, effectuez les étapes suivantes :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
 
 2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
@@ -356,7 +355,7 @@ Pour vérifier les licences affectées à un groupe, effectuez les étapes suiva
 
 5.  Cliquez sur **Tous les groupes**.
 
-6.  **Recherchez** le groupe qui vous intéresse et **cliquez sur la ligne** à sélectionner.
+6.  **Recherchez** le groupe qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
 7.  Cliquez sur **Licences** pour voir quelles licences sont actuellement affectées au groupe.
 
@@ -374,7 +373,7 @@ Pour retraiter les licences affectées à un groupe, effectuez les étapes suiva
 
 5.  Cliquez sur **Tous les groupes**.
 
-6.  **Recherchez** le groupe qui vous intéresse et **cliquez sur la ligne** à sélectionner.
+6.  **Recherchez** le groupe qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
 7.  Cliquez sur **Licences** pour voir quelles licences sont actuellement affectées au groupe.
 
@@ -389,7 +388,7 @@ Pour retraiter les licences affectées à un groupe, effectuez les étapes suiva
 
 Pour affecter une licence à un groupe, effectuez les étapes suivantes :
 
-1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général.**
 
 2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
@@ -399,11 +398,11 @@ Pour affecter une licence à un groupe, effectuez les étapes suivantes :
 
 5.  Cliquez sur **Tous les groupes**.
 
-6.  **Recherchez** le groupe qui vous intéresse et **cliquez sur la ligne** à sélectionner.
+6.  **Recherchez** le groupe qui vous intéresse et **cliquez sur la ligne** pour le sélectionner.
 
 7.  Cliquez sur **Licences** pour voir quelles licences sont actuellement affectées au groupe.
 
-8.  Cliquez sur le bouton **Affecter**.
+8.  Cliquez sur le bouton **Attribuer**.
 
 9.  Sélectionnez **un ou plusieurs produits** dans la liste des produits disponibles.
 
@@ -505,7 +504,7 @@ L’accès à l’application peut être bloqué, car l’opération de consente
 
 ### <a name="perform-a-user-level-consent-operation"></a>Effectuer une opération de consentement de niveau utilisateur
 
--   Pour n’importe quelle application, le fait d’accéder à l’écran de connexion de l’application constitue un consentement au niveau de l’utilisateur pour l’utilisateur connecté.
+-   Pour toute application Open ID Connect qui demande des autorisations, la navigation vers l’écran de connexion de l’application permet d’exécuter un consentement au niveau de l’utilisateur de l’application pour l’utilisateur connecté.
 
 -   Si vous souhaitez procéder par programmation, consultez [Demande de consentement d’utilisateur individuel](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
 
