@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 7/27/2017
 ms.author: subramar
 ms.translationtype: HT
 ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
@@ -91,8 +91,8 @@ Après avoir mis à jour vos sources, vous pouvez installer le Kit de développe
     >   [!TIP]
     >   Les commandes suivantes automatisent la validation de la licence pour les packages Service Fabric :
     >   ```bash
-    >   echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
-    >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    >   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
+    >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
     >   ```
     
 2. Exécutez le script de configuration du Kit de développement logiciel (SDK).

@@ -20,7 +20,6 @@ ms.openlocfilehash: 90d0b7e3f49daa33ab8c617d07ba9098cdda751f
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/12/2017
 
-
 ---
 
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Afficher des données analytiques pour des métriques sur toutes les ressources de votre application Azure Web
@@ -92,6 +91,8 @@ Lorsque vous ajoutez la solution Azure Web Apps Analytics à votre espace de tra
 ### <a name="view-azure-web-apps-analytics-information"></a>Afficher les informations d’Azure Web Apps Analytics
 
 Cliquez sur la mosaïque **Azure Web Apps Analytics** afin d’ouvrir le tableau de bord **Azure Web Apps Analytics**. Le tableau de bord comprend les panneaux figurant dans le tableau suivant. Chaque panneau répertorie jusqu'à dix éléments répondant à ses critères en ce qui concerne l’étendue et l’intervalle de temps spécifiés. Vous pouvez exécuter une recherche dans les journaux qui renvoie tous les enregistrements. Pour cela, cliquez sur **Afficher tout** en bas du panneau ou cliquez sur l’en-tête de panneau.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Colonne | Description |
 | --- | --- |
