@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 07/18/2017
 ms.author: banders
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
@@ -151,7 +151,10 @@ Si vous souhaitez voir d’autres données de création de machine virtuelle hô
 #### <a name="common-search-queries"></a>Requêtes de recherche courantes
 La solution inclut d’autres requêtes utiles qui peuvent vous aider à gérer vos hôtes ESXi, telles que l’espace de stockage élevé, la latence du stockage et la défaillance de chemin.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![requêtes](./media/log-analytics-vmware/queries.png)
+
 
 #### <a name="save-queries"></a>Enregistrer des requêtes
 L’enregistrement des requêtes de recherche est une fonctionnalité standard dans OMS, qui peut vous aider à conserver toutes les requêtes que vous avez trouvées utiles. Après avoir créé une requête que vous trouvez utile, enregistrez-la en cliquant sur **Favorites**. Vous pouvez réutiliser facilement une requête enregistrée à partir de la page [Mon tableau de bord](log-analytics-dashboards.md) dans laquelle vous pouvez créer vos propres tableaux de bord personnalisés.

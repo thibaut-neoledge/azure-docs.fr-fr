@@ -3,7 +3,7 @@ title: "Azure Cosmos DB comme magasin de valeurs de clés – Synthèse des coû
 description: "Découvrez le faible coût qu’implique l’utilisation d’Azure Cosmos DB comme magasin de valeurs de clés."
 keywords: "magasin de valeurs de clés"
 services: cosmos-db
-author: ArnoMicrosoft
+author: mimig1
 manager: jhubbard
 editor: 
 tags: 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: acomet
+ms.author: mimig
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: c7d01eee1ba10599ca24291bb71cd7fdc6455f0e
@@ -24,17 +24,13 @@ ms.lasthandoff: 06/07/2017
 
 ---
 
-<a id="azure-cosmos-db-as-a-key-value-store--cost-overview" class="xliff"></a>
-
-# Azure Cosmos DB comme magasin de valeurs de clés – Synthèse des coûts
+# <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB comme magasin de valeurs de clés – Synthèse des coûts
 
 Azure Cosmos DB est un service de base de données multi-modèles, distribué dans le monde entier, qui permet de créer facilement des applications à grande échelle et à haute disponibilité. Par défaut, Azure Cosmos DB indexe automatiquement et efficacement toutes les données qu’il reçoit. Vous pouvez ainsi créer des requêtes [SQL](documentdb-sql-query.md) (et [JavaScript](programming.md)) rapides et cohérentes sur n’importe quel type de données. 
 
 Cet article décrit le coût qu’implique l’utilisation d’Azure Cosmos DB pour de simples opérations de lecture et d’écriture lorsqu’il est utilisé comme magasin de valeurs de clés. Les opérations d’écriture incluent des insertions, des remplacements, des suppressions et des upserts de documents. Outre une disponibilité de 99,99 %, Azure Cosmos DB garantit une latence inférieure à 10 ms pour les opérations de lecture, et à 15 ms pour les opérations d’écriture (indexées), au 99e centile. 
 
-<a id="why-we-use-request-units-rus" class="xliff"></a>
-
-## Pourquoi utiliser des unités de requête (RU) ?
+## <a name="why-we-use-request-units-rus"></a>Pourquoi utiliser des unités de requête (RU) ?
 
 Les performances d’Azure Cosmos DB sont basées sur la quantité d’[unités de requête](request-units.md) approvisionnées pour la partition. L’approvisionnement se fait avec une granularité d’une seconde et s’achète par unité de requête par seconde ([à ne pas confondre avec la tarification horaire](https://azure.microsoft.com/pricing/details/cosmos-db/)). Les unités de requête doivent être considérées comme une devise qui simplifie l’approvisionnement du débit dont a besoin l’application. Les utilisateurs n’ont donc plus à différencier les unités de capacité des opérations de lecture et d’écriture. Le modèle de devise unique des unités de requête permet de partager efficacement la capacité approvisionnée entre les opérations de lecture et d’écriture. Ce modèle de capacité approvisionnée permet au service de fournir un débit prévisible et constant, une faible latence garantie et une haute disponibilité. Enfin, les unités de requête sont utilisées pour modéliser le débit. Toutefois, chaque unité de requête approvisionnée a également une quantité définie de ressources (mémoire, cœurs). Les unités de requête par seconde ne correspondent pas uniquement à des opérations d’E/S par seconde.
 
@@ -42,9 +38,7 @@ En tant que système de base de données distribué globalement, Azure Cosmos DB
 
 Cet article décrit le coût qu’implique l’utilisation d’Azure Cosmos DB pour de simples opérations de lecture et d’écriture lorsqu’il est utilisé comme magasin de valeurs de clés. Les opérations d’écriture incluent des insertions, des remplacements, des suppressions et des upserts de documents. Outre une disponibilité de 99,99 %, Azure Cosmos DB garantit une latence inférieure à 10 ms pour les opérations de lecture, et à 15 ms pour les opérations d’écriture (indexées), au 99e centile. 
 
-<a id="why-we-use-request-units-rus" class="xliff"></a>
-
-## Pourquoi utiliser des unités de requête (RU) ?
+## <a name="why-we-use-request-units-rus"></a>Pourquoi utiliser des unités de requête (RU) ?
 
 Les performances d’Azure Cosmos DB sont basées sur la quantité d’[unités de requête](request-units.md) approvisionnées pour la partition. L’approvisionnement se fait avec une granularité d’une seconde et s’achète en unités de requête par seconde ([à ne pas confondre avec la tarification horaire](https://azure.microsoft.com/pricing/details/cosmos-db/)). Les unités de requête doivent être considérées comme une devise qui simplifie l’approvisionnement du débit dont a besoin l’application. Les utilisateurs n’ont donc plus à différencier les unités de capacité des opérations de lecture et d’écriture. Le modèle de devise unique des unités de requête permet de partager efficacement la capacité approvisionnée entre les opérations de lecture et d’écriture. Ce modèle de capacité approvisionnée permet au service de fournir un débit prévisible et constant, une faible latence garantie et une haute disponibilité. Enfin, les unités de requête sont utilisées pour modéliser le débit. Toutefois, chaque unité de requête approvisionnée a également une quantité définie de ressources (mémoire, cœurs). Les unités de requête par seconde ne correspondent pas uniquement à des opérations d’E/S par seconde.
 
@@ -57,9 +51,7 @@ Le tableau suivant indique le nombre d’unités de requête nécessaire pour li
 |1 Ko|1 unité de requête|5 unités de requête|
 |100 Ko|10 unités de requête|50 unités de requête|
 
-<a id="cost-of-reads-and-writes" class="xliff"></a>
-
-## Coût des lectures et écritures
+## <a name="cost-of-reads-and-writes"></a>Coût des lectures et écritures
 
 Si vous approvisionnez 1 000 unités de requête par seconde, vous obtenez un total de 3,6 millions d’unités de requête par heure, à un coût de 0,08 dollar l’heure (aux États-Unis et en Europe). Pour un document d’une taille de 1 Ko, vous pouvez donc consommer 3,6 millions de lectures ou 0,72 million d’écritures (3,6 millions d’unités de requête/5) en utilisant le débit approvisionné. Normalisé au million de lectures et d’écritures, le coût serait de 0,022 $/million de lectures (0,08 $/3,6) et de 0,111 $/million d’écritures (0,08 $/0,72). Le coût par million devient minime, comme le montre le tableau ci-dessous.
 
@@ -71,9 +63,7 @@ Si vous approvisionnez 1 000 unités de requête par seconde, vous obtenez un to
 
 La plupart des magasins d’objets et d’objets Blob de base facturent 0,40 $ le million de transactions de lecture et 5 $ le million de transactions d’écriture. S’il est utilisé de manière optimale, Azure Cosmos DB peut être jusqu’à 98 % moins cher que les autres solutions (pour les transactions de 1 Ko).
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Consultez régulièrement cette rubrique pour obtenir de nouveaux articles sur l’optimisation de l’approvisionnement des ressources Azure Cosmos DB. En attendant, n’hésitez pas à utiliser notre [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner).
 

@@ -4,7 +4,7 @@ description: "Apprenez-en davantage sur les jeux de données publics que vous po
 services: sql-database
 documentationcenter: 
 author: douglaslMS
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.custom: reference
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 53ae23dba61cf835c6a4826b528772b1cd2e1622
 ms.contentlocale: fr-fr
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Jeux de données publics pour la création de prototypes et de tests

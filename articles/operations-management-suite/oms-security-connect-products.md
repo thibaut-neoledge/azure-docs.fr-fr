@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 07/18/2017
 ms.author: yurid
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.contentlocale: fr-fr
 ms.lasthandoff: 12/06/2016
-
 
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Connexion de vos produits de sécurité à la solution de sécurité et d’audit Operations Management Suite (OMS) 
@@ -90,11 +90,13 @@ Sur la machine de l’agent, les événements doivent être envoyés du démon s
     ```
 6. Tapez la commande suivante et examinez le résultat pour confirmer qu’il n’y a pas d’erreurs dans le journal de l’Agent d’OMS :
 
-    ```    
+    ``` 
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
 ## <a name="reviewing-collected-security-events"></a>Examen des événements de sécurité collectés
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Une fois la configuration terminée, l’événement de sécurité commence à être ingéré par OMS Security. Pour visualiser ces événements, ouvrez la recherche de journal, tapez la commande *Type=CommonSecurityLog* dans le champ de recherche et appuyez sur ENTRÉE. L’exemple suivant montre le résultat de cette commande. Notez que dans ce cas OMS Security a déjà ingéré les journaux de sécurité de plusieurs fournisseurs :
    

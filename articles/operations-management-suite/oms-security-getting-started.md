@@ -13,14 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 07/18/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Prise en main de la solution de sécurité et d’audit d’Operations Management Suite
@@ -73,6 +72,8 @@ Les scénarios d’investigation et de réponse aux incidents bénéficient dire
 ![Enregistrements de sécurité au fil du temps](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
 Lorsque vous cliquez sur cette mosaïque, le panneau **Recherche** s’ouvre, affichant les résultats d’une requête pour les **Événements de sécurité** (Type=SecurityEvents) et présentant les données des sept derniers jours, comme indiqué ci-dessous :
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Enregistrements de sécurité au fil du temps](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 
