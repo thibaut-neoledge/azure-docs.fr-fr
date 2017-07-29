@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/14/2017
+ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 46766e29287ca130e68aa0f027cbb1ded2526af3
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analyser l’utilisation des données dans Log Analytics
@@ -110,13 +110,15 @@ Le graphique *Volume de données dans le temps* représente le volume total de d
 
 Le graphique *Volume de données par solution* représente le volume de données envoyé par chaque solution et les solutions envoyant le plus de données. Le graphique en haut montre affiche le volume total des données envoyées par chaque solution au fil du temps. Ces informations vous permettent de déterminer si une solution envoie plus de données, environ la même quantité de données, ou moins de données au fil du temps. La liste des solutions montre les 10 solutions envoyant le plus de données. 
 
+Ces deux graphiques affichent toutes les données. Certaines données sont facturables, et les autres données sont libres. Pour vous concentrer uniquement sur les données facturables, modifiez la requête sur la page de recherche pour inclure `IsBillable=true`.  
+
 ![graphiques de volume de données](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
 
 Examinez le graphique *Volume de données dans le temps*. Pour voir les solutions et les types de données qui envoient le plus de données d’un ordinateur spécifique, cliquez sur le nom de l’ordinateur. Cliquez sur le nom du premier ordinateur dans la liste.
 
 Dans la capture d’écran suivante, le type de données *Gestion des journaux/Performance* envoie le plus de données pour l’ordinateur. 
-![volume de données pour un ordinateur](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
+![volume de données pour un ordinateur](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
 Ensuite, revenez au tableau de bord *Utilisation* et examinez le graphique *Volume de données par solution*. Pour voir les ordinateurs envoyant le plus de données pour une solution, cliquez sur le nom de la solution dans la liste. Cliquez sur le nom de la première solution dans la liste. 
 
@@ -124,16 +126,31 @@ La capture d’écran suivante confirme que l’ordinateur *acmetomcat* envoie l
 
 ![volume de données pour une solution](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
 
+Si nécessaire, effectuez des analyses supplémentaires pour identifier des volumes importants au sein d’une solution ou d’un type de données. Les exemples de requêtes incluent :
+
++ une solution de **sécurité**
+  - `Type=SecurityEvent | measure count() by EventID`
++ une solution de **gestion des journaux**
+  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
++ le type de données **Perf**
+  - `Type=Perf | measure count() by CounterPath`
+  - `Type=Perf | measure count() by CounterName`
++ le type de données **Event**
+  - `Type=Event | measure count() by EventID`
+  - `Type=Event | measure count() by EventLog, EventLevelName`
++ le type de données **Syslog**
+  - `Type=Syslog | measure count() by Facility, SeverityLevel`
+  - `Type=Syslog | measure count() by ProcessName`
 
 Pour réduire le volume de journaux collectés, procédez comme suit :
 
 | Source du volume de données important | Comment réduire le volume de données |
 | -------------------------- | ------------------------- |
-| Événements de sécurité            | Sélectionnez [les événements de sécurité courants ou minimaux](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Modifiez la stratégie d’audit de sécurité. Par exemple, désactivez les événements [d’audit de plateforme de filtrage](https://technet.microsoft.com/library/dd772749(WS.10).aspx). |
+| Événements de sécurité            | Sélectionnez [les événements de sécurité courants ou minimaux](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Modifier la stratégie d’audit de sécurité pour collecter les événements nécessaires uniquement. Plus particulièrement, examinez la nécessité de collecter des événements pour : <br> - [plateforme de filtrage de l’audit](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [registre de l’audit](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [système de fichiers de l’audit](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [objet de noyau d’audit](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [manipulation du descripteur de l’audit](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [stockage amovible de l’audit](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
 | Compteurs de performances       | Modifiez la [configuration du compteur de performances](log-analytics-data-sources-performance-counters.md) de façon à : <br> - Réduire la fréquence de collecte <br> - Réduire le nombre de compteurs de performance |
 | Journaux d’événements                 | Modifiez la [configuration du journal d’événements](log-analytics-data-sources-windows-events.md) de façon à : <br> - Réduire le nombre de journaux des événements collectés <br> - Collecter uniquement les niveaux d’événement requis Par exemple, ne collectez pas les événements de niveau *Informations*. |
 | syslog                     | Modifiez la [configuration du syslog](log-analytics-data-sources-syslog.md) de façon à : <br> - Réduire le nombre d’installations collectées <br> - Collecter uniquement les niveaux d’événement requis Par exemple, ne collectez pas les événements de niveau *Informations* et *Débogage*. |
-| Données de solution d’ordinateurs n’ayant pas besoin de la solution | Utilisez le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement.
+| Données de solution d’ordinateurs n’ayant pas besoin de la solution | Utilisez le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Vérifier s’il y a plus de nœuds que prévu
 Si vous utilisez le niveau tarifaire *Par nœud (OMS)*, vous êtes facturé en fonction du nombre de nœuds et de solutions que vous utilisez. Vous pouvez voir le nombre de nœuds utilisés par offre dans la section *Offres* du tableau de bord d’utilisation.
@@ -148,4 +165,9 @@ Utilisez le [ciblage de solution](../operations-management-suite/operations-mana
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Recherche de données à l’aide de recherches de journal](log-analytics-log-searches.md) pour apprendre à utiliser le langage de recherche. Vous pouvez utiliser des requêtes de recherche pour effectuer des analyses supplémentaires sur les données d’utilisation.
 * Utilisez les étapes décrites dans [Création d’une règle d’alerte](log-analytics-alerts-creating.md#create-an-alert-rule) pour être averti lorsqu’un critère de recherche est rempli.
+* Utiliser le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement
+* Sélectionnez [les événements de sécurité courants ou minimaux](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/).
+* Modifier la [configuration du compteur de performances](log-analytics-data-sources-performance-counters.md)
+* Modifier la [configuration du journal d’événements](log-analytics-data-sources-windows-events.md)
+* Modifier la [configuration du syslog](log-analytics-data-sources-syslog.md)
 

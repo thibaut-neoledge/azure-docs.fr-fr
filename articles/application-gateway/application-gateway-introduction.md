@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 17fc7e6a19b835e08360d1bf638d69aabb14e121
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c9aafa13ebdeeb84a35e55e25650f334ddc71af5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Vue d’ensemble de la passerelle Application Gateway
@@ -103,4 +103,6 @@ Pour les questions fréquemment posées sur Application Gateway, consultez [Foru
 À présent que vous êtes familiarisé avec Application Gateway, vous pouvez [créer une passerelle d’application Application Gateway](application-gateway-create-gateway-portal.md) ou [créer une passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl-arm.md) de manière à équilibrer les charges des connexions HTTPS.
 
 Pour savoir comment créer une passerelle d’application avec le routage de contenu basé sur une URL, consultez [Créer une passerelle d’application à l’aide du routage en fonction de l’URL](application-gateway-create-url-route-arm-ps.md) .
+
+Pour en savoir plus sur les autres fonctionnalités clés de mise en réseau de Azure, consultez la [Mise en réseau Azure]((../networking/networking-overview.md).
 
