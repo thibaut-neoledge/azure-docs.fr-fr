@@ -24,17 +24,13 @@ ms.lasthandoff: 07/01/2017
 
 
 ---
-<a id="azure-availability-sets-guidelines-for-linux-vms" class="xliff"></a>
-
-# Instructions pour les groupes à haute disponibilité Azure pour les machines virtuelles Linux
+# <a name="azure-availability-sets-guidelines-for-linux-vms"></a>Instructions pour les groupes à haute disponibilité Azure pour les machines virtuelles Linux
 
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Cet article se concentre sur la compréhension des étapes de planification requises pour les groupes à haute disponibilité afin d’assurer que vos applications restent accessibles aux cours des événements planifiés et non planifiés.
 
-<a id="implementation-guidelines-for-availability-sets" class="xliff"></a>
-
-## Instructions d’implémentation pour groupes à haute disponibilité
+## <a name="implementation-guidelines-for-availability-sets"></a>Instructions d’implémentation pour groupes à haute disponibilité
 Décisions :
 
 * De combien de groupes à haute disponibilité avez-vous besoin pour les différents rôles et niveaux de votre infrastructure d’application ?
@@ -45,9 +41,7 @@ Tâches :
 * Déterminez si vous devez ajuster le nombre de domaines d’erreur ou de mise à jour à utiliser pour votre application.
 * Définissez les groupes à haute disponibilité requis à l’aide de votre convention de dénomination et des machines virtuelles qui s’y trouvent. Une machine virtuelle ne peut résider que dans un seul groupe à haute disponibilité. 
 
-<a id="availability-sets" class="xliff"></a>
-
-## Groupes à haute disponibilité
+## <a name="availability-sets"></a>Groupes à haute disponibilité
 Dans Azure, les machines virtuelles peuvent être placées dans un groupement logique appelé groupe à haute disponibilité. Lorsque vous créez des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure répartit le placement de ces machines virtuelles sur l’infrastructure sous-jacente. En cas d’événement de maintenance planifiée pour la plateforme Azure ou de panne de l’infrastructure ou du matériel sous-jacent, l’utilisation des groupes à haute disponibilité assure qu’au moins une machine virtuelle est en cours d’exécution.
 
 En tant que meilleure pratique, les applications ne doivent pas résider sur une seule machine virtuelle. Un groupe à haute disponibilité qui contient une seule machine virtuelle ne gagne aucune protection contre les événements planifiés ou non planifiés dans la plateforme Azure. Le [Contrat de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) nécessite deux machines virtuelles ou plus au sein d’un groupe à haute disponibilité défini afin de permettre la distribution des machines virtuelles sur l’infrastructure sous-jacente. Si vous utilisez [Stockage Premium Azure](../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), le contrat SLA Azure s’applique à une seule machine virtuelle.
@@ -62,9 +56,7 @@ Les équilibreurs de charge peuvent être utilisés devant chaque couche d’app
 
 Concevez votre application à des fins de haute disponibilité au niveau de la couche de stockage. La meilleure pratique en vigueur consiste à [utiliser des disques managés pour les machines virtuelles dans un groupe à haute disponibilité](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set). Si vous utilisez actuellement des disques non managés, nous vous recommandons fortement de [convertir les machines virtuelles du groupe à haute disponibilité pour utiliser les disques managés](convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set).
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
 
