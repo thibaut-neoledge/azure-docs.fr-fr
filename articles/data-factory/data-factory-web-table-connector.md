@@ -21,9 +21,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 03/29/2017
 
 ---
-<a id="move-data-from-a-web-table-source-using-azure-data-factory" class="xliff"></a>
-
-# Déplacer des données depuis une source de table web à l’aide d’Azure Data Factory
+# <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Déplacer des données depuis une source de table web à l’aide d’Azure Data Factory
 Cet article explique comment utiliser l’activité de copie d’Azure Data Factory afin de déplacer les données d’une table dans une page web vers un magasin de données récepteur pris en charge. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et la liste de magasins de données pris en charge comme sources/récepteurs.
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données depuis une table web vers d’autres magasins de données, mais pas l’inverse.
@@ -31,9 +29,7 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 > [!IMPORTANT]
 > Pour l’instant, ce connecteur web prend uniquement en charge l’extraction du contenu d’une table à partir d’une page HTML. Pour récupérer des données à partir d’un point de terminaison HTTP/S, utilisez plutôt le [Connecteur HTTP](data-factory-http-connector.md).
 
-<a id="getting-started" class="xliff"></a>
-
-## Prise en main
+## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données Cassandra local à l’aide de différents outils/API. 
 
 - Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant de copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données. 
@@ -49,9 +45,7 @@ Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data
 
 Les sections suivantes fournissent des informations sur les propriétés JSON utilisées pour définir les entités Data Factory spécifiques d’une table web :
 
-<a id="linked-service-properties" class="xliff"></a>
-
-## Propriétés du service lié
+## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit la description des éléments JSON spécifiques du service lié Web.
 
 | Propriété | Description | Requis |
@@ -60,9 +54,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques du se
 | Url |URL de la source web |Oui |
 | authenticationType |Anonyme |Oui |
 
-<a id="using-anonymous-authentication" class="xliff"></a>
-
-### Utilisation de l’authentification anonyme
+### <a name="using-anonymous-authentication"></a>Utilisation de l’authentification anonyme
 
 ```json
 {
@@ -79,9 +71,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques du se
 }
 ```
 
-<a id="dataset-properties" class="xliff"></a>
-
-## Propriétés du jeu de données
+## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type **WebTable** a les propriétés suivantes
@@ -113,9 +103,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 }
 ```
 
-<a id="copy-activity-properties" class="xliff"></a>
-
-## Propriétés de l’activité de copie
+## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d’entrée et de sortie et la stratégie sont disponibles pour tous les types d’activités.
 
 En revanche, les propriétés disponibles dans la section typeProperties de l’activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
@@ -123,9 +111,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l’
 Actuellement, lorsque la source de l’activité de copie est de type **WebSource**, aucune propriété supplémentaire n’est prise en charge.
 
 
-<a id="json-example-copy-data-from-web-table-to-azure-blob" class="xliff"></a>
-
-## Exemple JSON : copier des données d’une table web vers Blob Azure
+## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>Exemple JSON : copier des données d’une table web vers Blob Azure
 L’exemple suivant montre :
 
 1. Un service lié de type [Web](#linked-service-properties).
@@ -274,9 +260,7 @@ Pour obtenir la liste des propriétés prises en charge par WebSource, consultez
 }
 ```
 
-<a id="get-index-of-a-table-in-an-html-page" class="xliff"></a>
-
-## Obtenir l’index d’une table dans une page HTML
+## <a name="get-index-of-a-table-in-an-html-page"></a>Obtenir l’index d’une table dans une page HTML
 1. Lancez **Excel 2016** et basculez vers l’onglet **Données**.  
 2. Cliquez sur **Nouvelle requête** dans la barre d’outils, pointez sur **À partir d’autres sources** et cliquez sur **À partir du web**.
 
@@ -304,8 +288,6 @@ Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https:/
 > [!NOTE]
 > Pour savoir comment mapper des colonnes d’un jeu de données source à des colonnes d’un jeu de données récepteur, voir [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).
 
-<a id="performance-and-tuning" class="xliff"></a>
-
-## Performances et réglage
+## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 

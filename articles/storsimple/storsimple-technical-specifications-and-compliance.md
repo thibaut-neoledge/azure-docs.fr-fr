@@ -22,14 +22,11 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-# Caractéristiques techniques et conformité de l’appareil StorSimple
-<a id="technical-specifications-and-compliance-for-the-storsimple-device" class="xliff"></a>
-## Vue d'ensemble
-<a id="overview" class="xliff"></a>
+# <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Caractéristiques techniques et conformité de l’appareil StorSimple
+## <a name="overview"></a>Vue d'ensemble
 Les composants matériels de l’appareil Microsoft Azure StorSimple sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les caractéristiques techniques décrivent les modules d’alimentation et de refroidissement (PCM), les lecteurs de disque, la capacité de stockage et les boîtiers. Les informations de conformité couvrent les éléments tels que les normes internationales, la sécurité et les émissions et le câblage.
 
-## Caractéristiques du module d’alimentation et de refroidissement
-<a id="power-and-cooling-module-specifications" class="xliff"></a>
+## <a name="power-and-cooling-module-specifications"></a>Caractéristiques du module d’alimentation et de refroidissement
 L’appareil StorSimple intègre deux modules d’alimentation et de refroidissement (PCM) conformes SBB à double ventilateur de 100-240 V. Cette configuration fournit une alimentation redondante. Si un PCM échoue, l’appareil continue à fonctionner normalement sur l’autre PCM jusqu’au remplacement du module défaillant.  
 
 Le boîtier EBOD utilise un PCM de 580 W et le boîtier principal un PCM de 764 W. Les tableaux suivants répertorient les caractéristiques techniques des PCM.
@@ -49,8 +46,7 @@ Le boîtier EBOD utilise un PCM de 580 W et le boîtier principal un PCM de 764
 | Commutateurs et voyants LED |Interrupteur marche/arrêt et quatre voyants LED d’état |Interrupteur marche/arrêt et six voyants LED d’état |
 | Refroidissement du boîtier |Ventilateurs axiaux avec vitesse variable réglable |Ventilateurs axiaux avec vitesse variable réglable |
 
-## Statistiques sur la consommation énergétique
-<a id="power-consumption-statistics" class="xliff"></a>
+## <a name="power-consumption-statistics"></a>Statistiques sur la consommation énergétique
 Le tableau suivant répertorie les données de consommation énergétique standard (les valeurs réelles peuvent différer des valeurs publiées) des différents modèles d’appareil StorSimple. 
 
 | Conditions | 240 V CA | 240 V CA | 240 V CA | 110 V CA | 110 V CA | 110 V CA |
@@ -62,12 +58,10 @@ Le tableau suivant répertorie les données de consommation énergétique standa
 |  Ventilateurs rapides, lecteurs en cours d’accès, deux blocs d’alimentation sous tension |2,26 A |0,51 kW |1 740,19 BTU/heure |4,95 A |0,54 kW |1 842,56 BTU/heure |
 |  Ventilateurs rapides, lecteurs en cours d’accès, un bloc d’alimentation sous tension, un inactif |2,14 A |0,49 kW |1 671,95 BTU/heure |4,81 A |0,53 kW |1 808,44 BTU/heure |
 
-## Caractéristiques des lecteurs de disque
-<a id="disk-drive-specifications" class="xliff"></a>
+## <a name="disk-drive-specifications"></a>Caractéristiques des lecteurs de disque
 L’appareil StorSimple prend en charge jusqu’à 12 disques SAS (Serial Attached SCIS) de 3,5 pouces. Les lecteurs réels peuvent être une combinaison de disques SSD ou de lecteurs de disque dur (HDD), selon la configuration du produit. Les 12 emplacements de disque se trouvent dans une configuration de 3 par 4 à l’avant du boîtier. Le boîtier EBOD permet le stockage de 12 autres lecteurs de disque. Il s’agit toujours de disques durs.  
 
-## Spécifications de stockage
-<a id="storage-specifications" class="xliff"></a>
+## <a name="storage-specifications"></a>Spécifications de stockage
 Les appareils StorSimple disposent d’une combinaison de disques durs et de disques SSD pour les modèles 8100 et 8600. La capacité de stockage totale utilisable pour les modèles 8100 et 8600 est d’environ 15 et 38 To respectivement. Le tableau suivant décrit les capacités de stockage du disque SSD, du disque dur ainsi que du cloud dans le cadre de la solution StorSimple.
 
 | Modèle d’appareil/capacité | 8100 | 8600 |
@@ -84,12 +78,10 @@ Les appareils StorSimple disposent d’une combinaison de disques durs et de dis
 
 <sup>* </sup>- *La capacité totale utile inclut la capacité disponible pour les données, les métadonnées et les mémoires tampons.*
 
-## Dimensions et poids des boîtiers
-<a id="enclosure-dimensions-and-weight-specifications" class="xliff"></a>
+## <a name="enclosure-dimensions-and-weight-specifications"></a>Dimensions et poids des boîtiers
 Les tableaux suivants répertorient les dimensions et les caractéristiques de poids des différents boîtiers.  
 
-### Dimensions de boîtier
-<a id="enclosure-dimensions" class="xliff"></a>
+### <a name="enclosure-dimensions"></a>Dimensions de boîtier
 Le tableau suivant répertorie les dimensions du boîtier en millimètres et en pouces.
 
 | Boîtier | Millimètres | Pouces |
@@ -101,8 +93,7 @@ Le tableau suivant répertorie les dimensions du boîtier en millimètres et en 
 | Profondeur, du panneau de commande à l’extrémité la plus lointaine du boîtier |630,5 |24,82 |
 | Profondeur, de la bride de montage à l’extrémité la plus lointaine du boîtier |603 |23,74 |
 
-### Poids du boîtier
-<a id="enclosure-weight" class="xliff"></a>
+### <a name="enclosure-weight"></a>Poids du boîtier
 Selon la configuration, un boîtier principal entièrement chargé peut peser de 21 à 33 kg et doit donc être manipulé par deux personnes. 
 
 | Boîtier | Poids |
@@ -110,19 +101,16 @@ Selon la configuration, un boîtier principal entièrement chargé peut peser de
 | Poids maximal (dépend de la configuration) |30 à 33 kg |
 | Vide (aucun disque monté) |21 à 23 kg |
 
-## Caractéristiques ambiantes pour le boîtier
-<a id="enclosure-environment-specifications" class="xliff"></a>
+## <a name="enclosure-environment-specifications"></a>Caractéristiques ambiantes pour le boîtier
 Cette section répertorie les caractéristiques liées à l’environnement du boîtier. La température, l’humidité, l’altitude, les chocs, les vibrations, l’orientation, la sécurité et la compatibilité électromagnétique (CEM) sont inclus dans cette catégorie.  
 
-### Température et humidité
-<a id="temperature-and-humidity" class="xliff"></a>
+### <a name="temperature-and-humidity"></a>Température et humidité
 | Boîtier | Plage de températures ambiantes | Taux d’humidité ambiante | Température maximale du thermomètre mouillé |
 | --- | --- | --- | --- |
 | En fonctionnement |5 °C à 35 °C (41 °F à 95 °F) |20 à 80 % sans condensation |28 °C (82 °F) |
 | Hors fonctionnement |-40 °C à 70 °C (40 °F à 158 °F) |5 à 100 % sans condensation |29 °C (84 °F) |
 
-### Ventilation, altitude, chocs, vibrations, orientation, sécurité et CEM
-<a id="airflow-altitude-shock-vibration-orientation-safety-and-emc" class="xliff"></a>
+### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Ventilation, altitude, chocs, vibrations, orientation, sécurité et CEM
 | Boîtier | Caractéristiques en fonctionnement |
 | --- | --- |
 | Ventilation |La ventilation du système s’effectue de l’avant vers l’arrière. Le système doit être utilisé avec une installation basse pression à échappement vers l’arrière. La contre-pression créée par les portes de rack et les obstacles ne doit pas dépasser 5 pascals (0,5 mm de colonne d’eau). |
@@ -138,65 +126,54 @@ Cette section répertorie les caractéristiques liées à l’environnement du b
 | Sécurité et homologations |CE et UL EN 61000-3, CEI 61000-3, UL 61000-3 |
 | CEM |EN55022 (CISPR - A), FCC A |
 
-## Conformité aux normes internationales
-<a id="international-standards-compliance" class="xliff"></a>
+## <a name="international-standards-compliance"></a>Conformité aux normes internationales
 L’appareil Microsoft Azure StorSimple est conforme aux normes internationales suivantes :  
 
 * CE - EN 60950-1  
 * Rapport CB sur CEI 60950-1  
 * UL et cUL sur UL 60950-1  
 
-## Conformité aux normes de sécurité
-<a id="safety-compliance" class="xliff"></a>
+## <a name="safety-compliance"></a>Conformité aux normes de sécurité
 L’appareil Microsoft Azure StorSimple est conforme aux normes de sécurité suivantes :  
 
 * Homologation du type de produit du système : UL, cUL, CE  
 * Conformité aux normes de sécurité : UL 60950, CEI 60950, EN 60950  
 
-## Conformité électromagnétique
-<a id="emc-compliance" class="xliff"></a>
+## <a name="emc-compliance"></a>Conformité électromagnétique
 L’appareil Microsoft Azure StorSimple est conforme aux niveaux de sécurité suivants :  
 
-### Émissions
-<a id="emissions" class="xliff"></a>
+### <a name="emissions"></a>Émissions
 L’appareil est conforme aux normes CEM pour les niveaux d’émissions par conduction et par rayonnement.  
 
 * Niveaux maximums d’émissions par conduction : CFR 47 partie 15 classe A, EN55022 classe A, CISPR classe A  
 * Niveaux maximums d’émissions par rayonnement : CFR 47 partie 15B classe A, EN55022 classe A, CISPR classe A   
 
-### Harmonique et papillotement
-<a id="harmonics-and-flicker" class="xliff"></a>
+### <a name="harmonics-and-flicker"></a>Harmonique et papillotement
 L’appareil est conforme à la norme EN61000-3-2/3.  
 
-### Niveaux maximums d’immunité
-<a id="immunity-limit-levels" class="xliff"></a>
+### <a name="immunity-limit-levels"></a>Niveaux maximums d’immunité
 L’appareil est conforme à la norme EN55024.  
 
-## Conformité du cordon d’alimentation secteur
-<a id="ac-power-cord-compliance" class="xliff"></a>
+## <a name="ac-power-cord-compliance"></a>Conformité du cordon d’alimentation secteur
 L’ensemble fiche-cordon d’alimentation doit être conforme aux normes applicables dans le pays où l’appareil est utilisé et bénéficier de certifications de sécurité acceptables dans ce pays. Les tableaux suivants répertorient les normes applicables aux États-Unis et en Europe.  
 
-### Cordons d’alimentation secteur - États-Unis (doivent être répertoriés par un laboratoire d’essai reconnu nationalement)
-<a id="ac-power-cords---usa-must-be-nrtl-listed" class="xliff"></a>
+### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cordons d’alimentation secteur - États-Unis (doivent être répertoriés par un laboratoire d’essai reconnu nationalement)
 | Composant | Caractéristique |
 | --- | --- |
 | Type de cordon |SV ou SVT, 18 AWG minimum, 3 conducteurs, longueur maximale 2 mètres |
 | Fiche |Fiche avec mise à la terre NEMA 5-15P, avec une tension nominale de  120 V, 10 A ; ou CEI 320 C14, 250 V, 10 A |
 | Prise |CEI 320 C-13, 250 V, 10 A |
 
-### Cordons d’alimentation secteur - Europe
-<a id="ac-power-cords---europe" class="xliff"></a>
+### <a name="ac-power-cords---europe"></a>Cordons d’alimentation secteur - Europe
 | Composant | Caractéristique |
 | --- | --- |
 | Type de cordon |Harmonisé, H05-VVF-3G1.0 |
 | Prise |CEI 320 C-13, 250 V, 10 A |
 
-## Câbles réseau pris en charge
-<a id="supported-network-cables" class="xliff"></a>
+## <a name="supported-network-cables"></a>Câbles réseau pris en charge
 Pour les interfaces réseau 10 GbE, DATA 2 et DATA 3, consultez la [liste des modules et des câbles réseau pris en charge](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 Vous êtes désormais prêt à déployer un appareil StorSimple dans votre centre de données. Pour plus d’informations, consultez [Déploiement de votre appareil local](storsimple-deployment-walkthrough-u2.md).  
 
 

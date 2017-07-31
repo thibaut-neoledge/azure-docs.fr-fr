@@ -23,8 +23,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 05/26/2017
 
 ---
-# Lancer la réinitialisation du mot de passe des utilisateurs
-<a id="roll-out-password-reset-for-users" class="xliff"></a>
+# <a name="roll-out-password-reset-for-users"></a>Lancer la réinitialisation du mot de passe des utilisateurs
 
 De nombreux clients exécutent les étapes qui suivent pour garantir un lancement sans problèmes de la fonctionnalité de réinitialisation du mot de passe libre-service.
 
@@ -41,8 +40,7 @@ De nombreux clients exécutent les étapes qui suivent pour garantir un lancemen
 8. Vous pouvez choisir d’appliquer l’inscription à tout moment et demander aux utilisateurs de reconfirmer leurs informations d’authentification après un certain laps de temps. Si vous ne souhaitez pas que les utilisateurs s’inscrivent, vous pouvez [déployer une réinitialisation du mot de passe sans nécessiter d’inscription de l’utilisateur final](active-directory-passwords-data.md).
 9. Au fil du temps, passez en revue l’inscription et l’utilisation des utilisateurs en affichant les [rapports fournis par Azure AD](active-directory-passwords-reporting.md).
 
-## Déploiement par courrier électronique
-<a id="email-based-rollout" class="xliff"></a>
+## <a name="email-based-rollout"></a>Déploiement par courrier électronique
 
 De nombreux clients estiment qu’une campagne par courrier électronique, accompagnée d’instructions simples d’utilisation, constitue le moyen le plus simple pour que les utilisateurs aient recours à la réinitialisation du mot de passe libre-service. [Nous avons créé trois courriers électroniques simples que vous pouvez utiliser comme modèles pour vous aider dans votre lancement.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
@@ -50,8 +48,7 @@ De nombreux clients estiment qu’une campagne par courrier électronique, accom
 * **Disponible dès maintenant** : modèle de courrier électronique à utiliser le jour du lancement pour inciter les utilisateurs à s’inscrire et à confirmer leurs données d’authentification afin de pouvoir utiliser la réinitialisation du mot de passe libre-service lorsqu’ils en auront besoin.
 * **Rappel d’inscription** : modèle de courrier électronique à utiliser dans les jours ou les semaines qui suivent le déploiement pour rappeler aux utilisateurs de s’inscrire et de confirmer leurs données d’authentification.
 
-## Création de votre propre portail de mot de passe
-<a id="creating-your-own-password-portal" class="xliff"></a>
+## <a name="creating-your-own-password-portal"></a>Création de votre propre portail de mot de passe
 
 Nombre de nos clients plus importants choisissent d’héberger une page web et de créer une entrée DNS racine, comme https://passwords.contoso.com. Ils renseignent cette page avec des liens vers les portails de réinitialisation de mot de passe Azure AD, d’inscription à la réinitialisation de mot de passe et de modification de mot de passe, et y indiquent d’autres informations propres à leur organisation. Dans toutes vos communications par courrier électronique ou prospectus, vous pouvez inclure une URL de marque, facile à retenir que les utilisateurs peuvent suivre quand ils doivent utiliser les services.
 
@@ -59,8 +56,7 @@ Nombre de nos clients plus importants choisissent d’héberger une page web et 
 * Portail d’inscription à la réinitialisation de mot de passe : http://aka.ms/ssprsetup
 * Portail de modification de mot de passe : https://account.activedirectory.windowsazure.com/ChangePassword.aspx
 
-## Utilisation de l’inscription forcée
-<a id="using-enforced-registration" class="xliff"></a>
+## <a name="using-enforced-registration"></a>Utilisation de l’inscription forcée
 
 Si vous souhaitez que vos utilisateurs s’inscrivent pour la réinitialisation du mot de passe, vous pouvez les forcer à s’inscrire lorsqu’ils se connectent à l’aide d’Azure AD. Vous pouvez activer cette option dans le panneau **Réinitialisation de mot de passe** de votre répertoire en activant l’option **Demander aux utilisateurs de s’inscrire lorsqu’ils se connectent** dans l’onglet **Inscription**.
 
@@ -68,18 +64,15 @@ Les administrateurs peuvent demander aux utilisateurs de se réinscrire après u
 
 Une fois que vous avez activé cette option, lorsque les utilisateurs se connectent, un message les informe que leur administrateur leur a demandé de vérifier leurs informations d’authentification.
 
-## Renseigner les données d’authentification
-<a id="populate-authentication-data" class="xliff"></a>
+## <a name="populate-authentication-data"></a>Renseigner les données d’authentification
 
 Si vous [renseignez les données d’authentification pour vos utilisateurs](active-directory-passwords-data.md), ceux-ci n’ont alors pas besoin de s’inscrire pour la réinitialisation de mot de passe pour pouvoir utiliser la réinitialisation du mot de passe libre-service. Tant que leurs données d’authentification définies sont conformes à la stratégie de réinitialisation de mot de passe que vous avez définie, les utilisateurs sont en mesure de réinitialiser leurs mots de passe.
 
-## Désactivation de la réinitialisation de mot de passe en libre-service
-<a id="disabling-self-service-password-reset" class="xliff"></a>
+## <a name="disabling-self-service-password-reset"></a>Désactivation de la réinitialisation de mot de passe en libre-service
 
 Pour désactiver la réinitialisation de mot de passe en libre-service, il vous suffit d’ouvrir votre locataire Azure AD, d’accéder à **Réinitialisation de mot de passe**, **Propriétés**, et de sélectionner **Personne** sous **Réinitialisation de mot de passe en libre-service activée**
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
