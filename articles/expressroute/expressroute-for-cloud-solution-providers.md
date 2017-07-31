@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -137,10 +139,5 @@ Vous trouverez des informations supplémentaires en cliquant sur les liens suiva
 [Programme des fournisseurs de solutions Cloud Microsoft](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview).  
 [Préparez-vous à opérer en tant que fournisseur de solutions cloud](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Ressources des fournisseurs de solutions cloud Microsoft](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

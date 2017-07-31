@@ -22,10 +22,8 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-# Gestion de vos contrôleurs d’appareil StorSimple
-<a id="manage-your-storsimple-device-controllers" class="xliff"></a>
-## Vue d'ensemble
-<a id="overview" class="xliff"></a>
+# <a name="manage-your-storsimple-device-controllers"></a>Gestion de vos contrôleurs d’appareil StorSimple
+## <a name="overview"></a>Vue d'ensemble
 Ce didacticiel décrit les différentes opérations qui peuvent être effectuées sur vos contrôleurs d’appareil StorSimple. Les contrôleurs de votre appareil StorSimple sont des contrôleurs redondants (homologues) en mode actif/passif. À un moment donné, un seul contrôleur est actif et procède au traitement de toutes les opérations de disque et du réseau. L’autre contrôleur est en mode passif. Si le contrôleur actif est défaillant, le contrôleur passif devient automatiquement actif.
 
 Ce didacticiel inclut des instructions détaillées pour gérer les contrôleurs d’appareil à l’aide de :
@@ -41,8 +39,7 @@ Après avoir lu ce didacticiel, vous pourrez :
 * arrêter un appareil StorSimple
 * rétablir les paramètres d’usine de votre appareil StorSimple
 
-## Redémarrage ou arrêt d’un contrôleur unique
-<a id="restart-or-shut-down-a-single-controller" class="xliff"></a>
+## <a name="restart-or-shut-down-a-single-controller"></a>Redémarrage ou arrêt d’un contrôleur unique
 Le redémarrage ou l’arrêt d’un contrôleur n’est pas nécessaire si le système fonctionne normalement. Les opérations d’arrêt d’un contrôleur d’appareil unique ne sont courantes que lorsqu’un composant matériel de l’appareil est défaillant et qu’il doit être remplacé. Le redémarrage d’un contrôleur peut également être nécessaire lorsque les performances sont affectées par une utilisation excessive de la mémoire ou un dysfonctionnement du contrôleur. Vous devrez peut-être également redémarrer un contrôleur qui a été remplacé, si vous souhaitez l’activer et le tester.
 
 Le redémarrage d’un appareil n’est pas sans interruption pour les initiateurs connectés, en supposant que le contrôleur passif est disponible. Si un contrôleur passif est indisponible ou bien désactivé, son redémarrage peut entraîner l’interruption du service.
@@ -57,8 +54,7 @@ Vous pouvez redémarrer ou arrêter un contrôleur d’appareil donné à l’ai
 
 Pour gérer vos contrôleurs d’appareil à partir du portail Azure Classic, procédez comme suit.
 
-#### Pour redémarrer ou arrêter un contrôleur dans le portail Azure Classic
-<a id="to-restart-or-shut-down-a-controller-in-classic-portal" class="xliff"></a>
+#### <a name="to-restart-or-shut-down-a-controller-in-classic-portal"></a>Pour redémarrer ou arrêter un contrôleur dans le portail Azure Classic
 1. Accédez à **Appareils > Maintenance**.
 2. Accédez à **Statut matériel**, puis vérifiez que le statut des deux contrôleurs de votre appareil est **Sain**.
    
@@ -93,8 +89,7 @@ Ceci redémarrera ou arrêtera le contrôleur. Le tableau ci-dessous récapitule
 | 3. |Arrêter le contrôleur passif. |Le message suivant s’affiche: « Une fois arrêté, vous devrez appuyer sur le bouton d’alimentation de votre contrôleur pour l’activer. Voulez-vous vraiment arrêter ce contrôleur ? </br>Si vous choisissez d’effectuer cette opération, la suite de la procédure est identique à celle utilisée pour redémarrer le contrôleur passif (voir sélection 1). |
 | 4. |Arrêter le contrôleur actif. |Le message suivant s’affiche: « Une fois arrêté, vous devrez appuyer sur le bouton d’alimentation de votre contrôleur pour l’activer. Voulez-vous vraiment arrêter ce contrôleur ? </br>Si vous choisissez d’effectuer cette opération, la suite de la procédure est identique à celle utilisée pour redémarrer le contrôleur passif (voir sélection 1). |
 
-#### Pour redémarrer ou arrêter un contrôleur dans Windows PowerShell pour StorSimple
-<a id="to-restart-or-shut-down-a-controller-in-windows-powershell-for-storsimple" class="xliff"></a>
+#### <a name="to-restart-or-shut-down-a-controller-in-windows-powershell-for-storsimple"></a>Pour redémarrer ou arrêter un contrôleur dans Windows PowerShell pour StorSimple
 Pour arrêter ou redémarrer un contrôleur sur votre appareil StorSimple à partir du portail Azure Classic, procédez comme suit.
 
 1. Accédez à l’appareil à l’aide de la console série ou d’une session telnet à partir d’un ordinateur distant. Connectez-vous au Contrôleur 0 ou au Contrôleur 1 en suivant la procédure décrite dans [Utilisation de PuTTY pour se connecter à la console série de l’appareil](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
@@ -112,8 +107,7 @@ Pour arrêter ou redémarrer un contrôleur sur votre appareil StorSimple à par
      
        Ceci redémarrera le contrôleur auquel vous êtes connecté. Si vous redémarrez le contrôleur actif, l’appareil basculera vers le contrôleur passif avant de redémarrer.
 
-## arrêter un appareil StorSimple
-<a id="shut-down-a-storsimple-device" class="xliff"></a>
+## <a name="shut-down-a-storsimple-device"></a>arrêter un appareil StorSimple
 Cette section vous explique comment arrêter un appareil StorSimple en cours d’exécution ou défaillant à partir d’un ordinateur distant. Un appareil est désactivé dès lors que les contrôleurs d’appareil sont arrêtés. L’arrêt d’un appareil est exécuté lorsque l’appareil a été physiquement déplacé ou mis hors service.
 
 > [!IMPORTANT]
@@ -121,8 +115,7 @@ Cette section vous explique comment arrêter un appareil StorSimple en cours d�
 > 
 > 
 
-#### Pour arrêter un appareil StorSimple
-<a id="to-shut-down-a-storsimple-device" class="xliff"></a>
+#### <a name="to-shut-down-a-storsimple-device"></a>Pour arrêter un appareil StorSimple
 1. Utilisez la procédure [Redémarrage ou d’arrêt d’un contrôleur](#restart-or-shut-down-a-single-controller) pour identifier et arrêter le contrôleur passif sur votre appareil. Vous pouvez effectuer cette opération dans le portail Azure Classic ou dans Windows PowerShell pour StorSimple.
 2. Répétez l’étape précédente pour arrêter le contrôleur actif.
 3. Vous devez maintenant examiner le panneau arrière de l’appareil. Une fois les deux contrôleurs arrêtés, l’état des LED des deux contrôleurs doit être rouge clignotant. Si vous souhaitez désactiver complètement l’appareil à ce stade, assurez-vous que les commutateurs d’alimentation sont en position d’arrêt sur tous les PCM. Ceci désactivera l’appareil.
@@ -145,8 +138,7 @@ Cette section vous explique comment arrêter un appareil StorSimple en cours d�
 
 1. After both the controllers are completely shut down, the status LEDs on both should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.-->
 
-## Rétablissement des paramètres d’usine de l’appareil
-<a id="reset-the-device-to-factory-default-settings" class="xliff"></a>
+## <a name="reset-the-device-to-factory-default-settings"></a>Rétablissement des paramètres d’usine de l’appareil
 > [!IMPORTANT]
 > Si vous devez rétablir les paramètres d’usine de l’appareil, contactez le Support Microsoft. La procédure décrite ci-dessous ne doit être effectuée qu’en coordination avec le Support Microsoft.
 > 
@@ -157,8 +149,7 @@ La réinitialisation d’un appareil supprime toutes les données et tous les pa
 
 Pour rétablir les paramètres d’usine de votre appareil Microsoft Azure StorSimple, procédez comme suit :
 
-### Pour rétablir les paramètres d’usine de l’appareil dans Windows PowerShell pour StorSimple
-<a id="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple" class="xliff"></a>
+### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>Pour rétablir les paramètres d’usine de l’appareil dans Windows PowerShell pour StorSimple
 1. Accédez à l’appareil via sa console série. Vérifiez le message de bannière pour vous assurer que vous êtes connecté au contrôleur actif.
 2. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**.
 3. À l’invite, tapez la commande suivante pour réinitialiser l’ensemble du cluster et ainsi supprimer toutes les données, toutes les métadonnées et tous les paramètres du contrôleur :
@@ -175,8 +166,7 @@ Pour rétablir les paramètres d’usine de votre appareil Microsoft Azure Sto
    > 
    > 
 
-## Questions et réponses sur la gestion des contrôleurs d’appareil
-<a id="questions-and-answers-about-managing-device-controllers" class="xliff"></a>
+## <a name="questions-and-answers-about-managing-device-controllers"></a>Questions et réponses sur la gestion des contrôleurs d’appareil
 Dans cette section, vous trouverez des réponses à certaines questions fréquemment posées, relatives à la gestion des contrôleurs d’appareil StorSimple.
 
 **Q.** Que se passe-t-il si les deux contrôleurs de mon appareil sont activés et en bon état de fonctionnement, et que je redémarre ou arrête le contrôleur actif ?
@@ -213,8 +203,7 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 **A.** Pour remettre en service un contrôleur, vous devez l’insérer dans le châssis, comme décrit dans [Remplacement d’un module de contrôleur sur votre appareil StorSimple](storsimple-controller-replacement.md).
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 * Si vous rencontrez des problèmes avec vos contrôleurs d’appareil StorSimple, que vous ne pouvez pas résoudre en suivant les procédures décrites dans ce didacticiel, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 * Pour en savoir plus sur l’utilisation du service StorSimple Manager, consultez [Utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 

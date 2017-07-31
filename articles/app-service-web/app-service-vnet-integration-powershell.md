@@ -21,10 +21,8 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 12/08/2016
 
 ---
-# Connecter votre application à votre réseau virtuel à l’aide de PowerShell
-<a id="connect-your-app-to-your-virtual-network-by-using-powershell" class="xliff"></a>
-## Vue d'ensemble
-<a id="overview" class="xliff"></a>
+# <a name="connect-your-app-to-your-virtual-network-by-using-powershell"></a>Connecter votre application à votre réseau virtuel à l’aide de PowerShell
+## <a name="overview"></a>Vue d'ensemble
 Dans Azure App Service, vous pouvez connecter votre application (web, mobile ou API) à un réseau virtuel dans votre abonnement. Cette fonctionnalité est appelée « intégration au réseau virtuel ». Celle-ci ne doit pas être confondue avec la fonctionnalité App Service Environment, qui permet d’exécuter une instance d’Azure App Service dans votre réseau virtuel.
 
 La fonctionnalité d’intégration de réseau virtuel a une interface utilisateur (IU) dans le nouveau portail que vous pouvez utiliser pour intégrer les réseaux virtuels déployés à l’aide du modèle de déploiement classique ou d’Azure Resource Manager. Pour en savoir plus sur la fonctionnalité, consultez l’article suivant : [Intégrer une application à un réseau Azure Virtual Network](web-sites-integrate-with-vnet.md).
@@ -36,16 +34,14 @@ Avant de poursuivre la lecture de cet article, vérifiez ce qui suit :
 * La version la plus récente du Kit de développement logiciel (SDK) Azure PowerShell est installée. L’installation peut se faire au moyen de Web Platform Installer.
 * Une application dans Azure App Service est en cours d’exécution dans le niveau Standard ou Premium.
 
-## Réseaux virtuels classiques
-<a id="classic-virtual-networks" class="xliff"></a>
+## <a name="classic-virtual-networks"></a>Réseaux virtuels classiques
 Cette section décrit trois tâches pour les réseaux virtuels qui utilisent le modèle de déploiement classique :
 
 1. Connecter votre application à un réseau virtuel préexistant qui dispose d’une passerelle et est configuré pour la connectivité de point à site.
 2. Mettre à jour des informations relatives à l’intégration au réseau virtuel pour votre application.
 3. Déconnecter votre application du réseau virtuel.
 
-### Connecter une application à un réseau virtuel classique
-<a id="connect-an-app-to-a-classic-vnet" class="xliff"></a>
+### <a name="connect-an-app-to-a-classic-vnet"></a>Connecter une application à un réseau virtuel classique
 Pour connecter une application à un réseau virtuel, suivez ces trois étapes :
 
 1. Déclarez à l’application web qu’elle doit joindre un réseau virtuel particulier. L’application génère un certificat transmis au réseau virtuel pour la connectivité de point à site.
@@ -56,8 +52,7 @@ Les première et troisième étapes peuvent être exécutées entièrement à l�
 
 Le réseau virtuel classique doit se trouver dans le même abonnement que le plan App Service qui contient l’application faisant l’objet de l’intégration.
 
-##### Configurer le Kit de développement logiciel (SDK)
-<a id="set-up-azure-powershell-sdk" class="xliff"></a>
+##### <a name="set-up-azure-powershell-sdk"></a>Configurer le Kit de développement logiciel (SDK)
 Ouvrez une fenêtre PowerShell et configurez votre abonnement et votre compte Azure comme suit :
 
     Login-AzureRmAccount
@@ -70,8 +65,7 @@ ou
 
     Select-AzureRmSubscription –SubscriptionId [WebAppSubscriptionId]
 
-##### Variables utilisées dans cet article
-<a id="variables-used-in-this-article" class="xliff"></a>
+##### <a name="variables-used-in-this-article"></a>Variables utilisées dans cet article
 Pour simplifier les commandes ci-dessous, nous allons définir une variable PowerShell **$Configuration** avec la configuration spécifique.
 
 Définissez une variable comme suit dans PowerShell avec les paramètres suivants :
@@ -107,16 +101,14 @@ Pour voir ce que vous définissez, tapez **$Configuration**.
 
 Le reste de cette section suppose que vous disposez d’une variable créée comme indiqué ci-dessus.
 
-##### Déclarer le réseau virtuel à l’application
-<a id="declare-the-virtual-network-to-the-app" class="xliff"></a>
+##### <a name="declare-the-virtual-network-to-the-app"></a>Déclarer le réseau virtuel à l’application
 Utilisez la commande suivante pour indiquer à l’application qu’elle doit utiliser ce réseau virtuel particulier. L’application génère ensuite les certificats nécessaires :
 
     $vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -PropertyObject @{"VnetResourceId" = "/subscriptions/$($Configuration.VnetSubscriptionId)/resourceGroups/$($Configuration.VnetResourceGroup)/providers/Microsoft.ClassicNetwork/virtualNetworks/$($Configuration.VnetName)"} -Location $Configuration.WebAppLocation -ApiVersion 2015-07-01
 
 Si cette commande réussit, **$vnet** doit inclure une variable **Properties**. La variable **Properties** doit contenir l’empreinte numérique et les données du certificat.
 
-##### Télécharger le certificat de l’application web dans le réseau virtuel
-<a id="upload-the-web-app-certificate-to-the-virtual-network" class="xliff"></a>
+##### <a name="upload-the-web-app-certificate-to-the-virtual-network"></a>Télécharger le certificat de l’application web dans le réseau virtuel
 Une étape unique manuelle est requise pour chaque combinaison réseau virtuel/abonnement. Autrement dit, si vous connectez les applications de l’abonnement A au réseau virtuel A, vous ne devez effectuer cette opération qu’une seule fois, quel que soit le nombre d’applications que vous configurez. Si vous ajoutez une nouvelle application à un autre réseau virtuel, vous devez effectuer de nouveau cette opération. Cela est dû au fait qu’un ensemble de certificats est généré au niveau de l’abonnement dans Azure App Service, une fois pour chaque réseau virtuel auquel les applications se connectent.
 
 Les certificats doivent déjà être définis si vous avez suivi ces étapes ou si vous avez effectué une intégration avec le même réseau virtuel à l’aide du portail.
@@ -130,8 +122,7 @@ Le certificat se trouve dans l’emplacement spécifié avec **$Configuration.Ge
 
 Pour télécharger le certificat manuellement, utilisez le [portail Azure][azureportal] et accédez à **Réseau virtuel (classique)** > **Connexions VPN** > **Point à site** > **Gérer les certificats**. À partir de là, téléchargez votre certificat.
 
-##### Obtenir le package de point à site
-<a id="get-the-point-to-site-package" class="xliff"></a>
+##### <a name="get-the-point-to-site-package"></a>Obtenir le package de point à site
 L’étape suivante de la configuration d’une connexion de réseau virtuel sur une application web consiste à obtenir le package de point à site et à le fournir à votre application web.
 
 Enregistrez le modèle suivant dans un fichier appelé GetNetworkPackageUri.json situé sur votre ordinateur, par exemple dans C:\Azure\Templates\GetNetworkPackageUri.json.
@@ -177,8 +168,7 @@ Appelez le script :
 
 La variable **$output.Outputs.packageUri** contient maintenant l’URI de package à donner à votre application web.
 
-##### Téléchargement du package de point à site dans votre application
-<a id="upload-the-point-to-site-package-to-your-app" class="xliff"></a>
+##### <a name="upload-the-point-to-site-package-to-your-app"></a>Téléchargement du package de point à site dans votre application
 La dernière étape consiste à fournir ce package à l’application. Exécutez tout simplement la commande suivante :
 
     $vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)/primary" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections/gateways" -ApiVersion 2015-07-01 -PropertyObject @{"VnetName" = $Configuration.VnetName ; "VpnPackageUri" = $($output.Outputs.packageUri).Value } -Location $Configuration.WebAppLocation
@@ -191,8 +181,7 @@ Une fois cette commande réussie, votre application doit maintenant être connec
 
 S’il existe une variable d’environnement appelée WEBSITE_VNETNAME ayant une valeur correspondant au nom du réseau virtuel cible, toutes les configurations ont réussi.
 
-### Mettre à jour des informations relatives à l’intégration au réseau virtuel classique
-<a id="update-classic-vnet-integration-information" class="xliff"></a>
+### <a name="update-classic-vnet-integration-information"></a>Mettre à jour des informations relatives à l’intégration au réseau virtuel classique
 Pour mettre à jour ou resynchroniser vos informations, répétez simplement les étapes suivies lorsque vous avez créé l’intégration en premier lieu. à savoir :
 
 1. Définir vos informations de configuration.
@@ -200,14 +189,12 @@ Pour mettre à jour ou resynchroniser vos informations, répétez simplement les
 3. Obtenir le package de point à site.
 4. Télécharger le package de point à site dans votre application.
 
-### Déconnecter votre application d’un réseau virtuel classique
-<a id="disconnect-your-app-from-a-classic-vnet" class="xliff"></a>
+### <a name="disconnect-your-app-from-a-classic-vnet"></a>Déconnecter votre application d’un réseau virtuel classique
 Pour déconnecter l’application, vous avez besoin des informations de configuration définies lors de l’intégration au réseau virtuel. Ces informations et une commande unique sont nécessaires pour déconnecter votre application de votre réseau virtuel.
 
     $vnet = Remove-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-07-01
 
-## Réseaux virtuels Resource Manager
-<a id="resource-manager-virtual-networks" class="xliff"></a>
+## <a name="resource-manager-virtual-networks"></a>Réseaux virtuels Resource Manager
 Les réseaux virtuels Resource Manager disposent d’API Azure Resource Manager, qui simplifient certains processus si on les compare aux réseaux virtuels classiques. Nous avons un script qui vous permet d’effectuer les tâches suivantes :
 
 * Créer un réseau virtuel Resource Manager et y intégrer votre application
@@ -215,8 +202,7 @@ Les réseaux virtuels Resource Manager disposent d’API Azure Resource Manager,
 * Intégrer votre application à un réseau virtuel Resource Manager préexistant disposant d’une passerelle et sur lequel la connectivité de point à site est activée.
 * Déconnecter votre application du réseau virtuel.
 
-### Script d’intégration App Service pour les réseaux virtuels Resource Manager
-<a id="resource-manager-vnet-app-service-integration-script" class="xliff"></a>
+### <a name="resource-manager-vnet-app-service-integration-script"></a>Script d’intégration App Service pour les réseaux virtuels Resource Manager
 Copiez le script suivant et enregistrez-le dans un fichier. Si vous ne souhaitez pas utiliser le script, étudiez-le pour savoir comment configurer un réseau virtuel Resource Manager.
 
     function ReadHostWithDefault($message, $default)
@@ -654,8 +640,7 @@ Enregistrez une copie du script. Dans cet article, il est appelé V2VnetAllinOne
 
 Le reste de cette section décrit chacune de ces trois options.
 
-### Créer et intégrer un réseau virtuel Resource Manager
-<a id="create-a-resource-manager-vnet-and-integrate-with-it" class="xliff"></a>
+### <a name="create-a-resource-manager-vnet-and-integrate-with-it"></a>Créer et intégrer un réseau virtuel Resource Manager
 Pour créer un nouveau réseau virtuel qui utilise le modèle de déploiement Resource Manager et l’intégrer à votre application, sélectionnez **1) Ajouter un NOUVEAU réseau virtuel à une application**. Vous êtes invité à entrer le nom du réseau virtuel. Dans mon cas, comme vous pouvez le voir dans les paramètres suivants, j’ai utilisé le nom v2pshell.
 
 Le script fournit les détails concernant le réseau virtuel est en cours de création. Si je le souhaite, je peux modifier les valeurs. Dans cet exemple d’exécution, j’ai créé un réseau virtuel ayant les paramètres suivants :
@@ -676,8 +661,7 @@ Si vous souhaitez modifier une des valeurs, tapez **Y** et apportez les modifica
 
 Lorsque le script est terminé, il affiche **Terminé**. À ce stade, vous disposez d’un réseau virtuel Resource Manager qui a le nom et les paramètres que vous avez sélectionnés. Ce nouveau réseau virtuel sera également intégré à votre application.
 
-### Intégrer votre application à un réseau virtuel Resource Manager préexistant
-<a id="integrate-your-app-with-a-preexisting-resource-manager-vnet" class="xliff"></a>
+### <a name="integrate-your-app-with-a-preexisting-resource-manager-vnet"></a>Intégrer votre application à un réseau virtuel Resource Manager préexistant
 Lorsque vous intégrez un réseau virtuel préexistant, si vous fournissez un réseau virtuel Resource Manager ne disposant pas de passerelle ou de connectivité de point à site, le script configurera ces éléments. Si le réseau virtuel possède déjà ces éléments, l’intégration de l’application commence directement. Pour démarrer ce processus, sélectionnez l’option **2) Ajouter un réseau virtuel EXISTANT à une application**.
 
 Cette option fonctionne uniquement si vous disposez d’un réseau virtuel Resource Manager se trouvant dans le même abonnement que votre application. Après avoir sélectionné l’option, une liste de vos réseaux virtuels Resource Manager s’affiche.   
@@ -716,8 +700,7 @@ Dans cet exemple, j’ai créé une passerelle de réseau virtuel ayant les para
 
 Si vous le souhaitez, vous pouvez modifier ces paramètres. Dans le cas contraire, appuyez sur Entrée pour que le script crée votre passerelle et attache votre application au réseau virtuel. Gardez à l’esprit que la création de la passerelle peut prendre jusqu’à une heure. Lorsque toutes les opérations sont terminées, le script indique **Terminé**.
 
-### Se déconnecter de votre application à partir d’un réseau virtuel Resource Manager
-<a id="disconnect-your-app-from-a-resource-manager-vnet" class="xliff"></a>
+### <a name="disconnect-your-app-from-a-resource-manager-vnet"></a>Se déconnecter de votre application à partir d’un réseau virtuel Resource Manager
 La déconnexion de votre application de votre réseau virtuel ne désactive ni la passerelle ni la connectivité de point à site. Vous pouvez donc utiliser ces dernières à d’autres fins. Seule l’application indiquée est déconnectée. Pour effectuer cette action, sélectionnez **3) Supprimer un réseau virtuel d’une application**. Vous obtenez ceci :
 
     Currently connected to VNET v2pshell

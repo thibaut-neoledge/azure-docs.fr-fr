@@ -23,8 +23,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 05/31/2017
 
 ---
-# Vue d’ensemble des machines virtuelles Windows dans Azure
-<a id="overview-of-windows-virtual-machines-in-azure" class="xliff"></a>
+# <a name="overview-of-windows-virtual-machines-in-azure"></a>Vue d’ensemble des machines virtuelles Windows dans Azure
 
 Les Machines Virtuelles Azure sont l’un des nombreux types de [ressources informatiques évolutives et à la demande](../../app-service-web/choose-web-site-cloud-service-vm.md) proposés par Azure. En règle générale, une machine virtuelle est mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique. Cet article vous informe sur les points à prendre en compte avant de créer une machine virtuelle, sur sa création et sur sa gestion.
 
@@ -38,8 +37,7 @@ Les Machines Virtuelles Azure peuvent être utilisées de différentes manières
 
 Le nombre de machines virtuelles utilisées par votre application peut varier (montée en puissance et augmentation de la charge) pour répondre à vos besoins.
 
-## À quoi dois-je penser avant de créer une machine virtuelle ?
-<a id="what-do-i-need-to-think-about-before-creating-a-vm" class="xliff"></a>
+## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>À quoi dois-je penser avant de créer une machine virtuelle ?
 Il existe toujours une multitude de [considérations liées à la conception](infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) lorsque vous générez une infrastructure d’application dans Azure. Il est important de réfléchir à ces aspects des machines virtuelles avant de commencer :
 
 * le nom de vos ressources d’application,
@@ -50,14 +48,12 @@ Il existe toujours une multitude de [considérations liées à la conception](in
 * la configuration de la machine virtuelle après son démarrage
 * et les ressources liées dont a besoin la machine virtuelle.
 
-### Dénomination
-<a id="naming" class="xliff"></a>
+### <a name="naming"></a>Dénomination
 Une machine virtuelle se voit affecter un [nom](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et possède un nom d’ordinateur configuré au sein du système d’exploitation. Le nom d’une machine virtuelle peut comprendre jusqu’à 15 caractères.
 
 Si vous utilisez Azure pour créer le disque du système d’exploitation, le nom de l’ordinateur et celui de la machine virtuelle sont identiques. Si vous [chargez et utilisez votre propre image](upload-generalized-managed.md) qui contient un système d’exploitation précédemment configuré et que vous l’utilisez pour créer une machine virtuelle, les noms peuvent être différents. Nous vous recommandons de faire en sorte que le nom d’ordinateur dans le système d’exploitation et celui de la machine virtuelle soient identiques lorsque vous chargez votre propre fichier d’image.
 
-### Emplacements
-<a id="locations" class="xliff"></a>
+### <a name="locations"></a>Emplacements
 Toutes les ressources créées dans Azure sont réparties sur plusieurs [régions géographiques](https://azure.microsoft.com/regions/) dans le monde. En règle générale, la région est appelée **emplacement** lorsque vous créez une machine virtuelle. Pour une machine virtuelle, l’emplacement spécifie l’endroit où les disques durs virtuels sont stockés.
 
 Ce tableau présente quelques moyens d’obtenir la liste des emplacements disponibles.
@@ -68,18 +64,15 @@ Ce tableau présente quelques moyens d’obtenir la liste des emplacements dispo
 | Azure PowerShell |Utilisez la commande [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
 | API REST |Utilisez l’opération [Lister les emplacements](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
 
-### Taille de la machine virtuelle
-<a id="vm-size" class="xliff"></a>
+### <a name="vm-size"></a>Taille de la machine virtuelle
 La [taille](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de la machine virtuelle que vous utilisez est déterminée par la charge de travail que vous souhaitez exécuter. La taille que vous choisissez détermine ensuite des facteurs comme la puissance de traitement, la mémoire et la capacité de stockage. Azure propose différentes tailles vous permettant de prendre en charge de nombreux types d'utilisation.
 
 Azure facture un [prix horaire](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en fonction de la taille et du système d’exploitation de la machine virtuelle. Pour les heures partielles, Azure facture uniquement les minutes utilisées. Le stockage est facturé séparément.
 
-### Limites des machines virtuelles
-<a id="vm-limits" class="xliff"></a>
+### <a name="vm-limits"></a>Limites des machines virtuelles
 Votre abonnement comporte des [limites de quota](../../azure-subscription-service-limits.md) par défaut qui peuvent avoir un impact négatif sur le déploiement d’un grand nombre de machines virtuelles pour votre projet. La limite est de 20 machines virtuelles par région et par abonnement. Les limites peuvent être augmentées en soumettant un ticket de support demandant leur hausse.
 
-### Images et disques du système d’exploitation
-<a id="operating-system-disks-and-images" class="xliff"></a>
+### <a name="operating-system-disks-and-images"></a>Images et disques du système d’exploitation
 Les machines virtuelles utilisent des [disques durs virtuels](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour stocker leurs données et leur système d’exploitation (SE). Les disques durs virtuels sont également utilisés pour les images à partir desquelles vous pouvez choisir d'installer un système d'exploitation. 
 
 Azure fournit de nombreuses [images Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) à utiliser avec différentes versions et différents types de systèmes d’exploitation Windows Server. Les images Marketplace sont identifiées par l’éditeur d’images, l’offre, la référence (SKU) et la version (la version est généralement spécifiée en dernier). 
@@ -94,8 +87,7 @@ Ce tableau présente différents moyens de trouver les informations d’une imag
 
 Vous pouvez choisir de [charger et utiliser votre propre image](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) ; lorsque vous procédez ainsi, le nom de l’éditeur, l’offre et la référence ne sont pas utilisés.
 
-### Extensions
-<a id="extensions" class="xliff"></a>
+### <a name="extensions"></a>Extensions
 Les [extensions](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de machines virtuelles étendent les fonctionnalités de votre machine virtuelle par le biais de la configuration post-déploiement et de tâches automatisées.
 
 Ces tâches courantes peuvent être accomplies à l’aide des extensions :
@@ -104,8 +96,7 @@ Ces tâches courantes peuvent être accomplies à l’aide des extensions :
 * **Déployer et gérer des configurations** : [l’extension de configuration d’état souhaité (DSC) PowerShell](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) vous permet de configurer DSC sur une machine virtuelle pour gérer les environnements et les configurations.
 * **Collecter les données de diagnostic** : [l’extension des diagnostics Azure](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) vous permet de configurer la machine virtuelle de sorte qu’elle collecte des données de diagnostics utilisées pour surveiller l’intégrité de votre application.
 
-### Ressources associées
-<a id="related-resources" class="xliff"></a>
+### <a name="related-resources"></a>Ressources associées
 Les ressources de cette table sont utilisées par la machine virtuelle et doivent exister ou être créées lors de sa création.
 
 | Ressource | Requis | Description |
@@ -117,8 +108,7 @@ Les ressources de cette table sont utilisées par la machine virtuelle et doiven
 | [Interface réseau](../../virtual-network/virtual-network-network-interface.md) |Oui |La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau. |
 | [Disques de données](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Non |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage. |
 
-## Comment créer sa première machine virtuelle ?
-<a id="how-do-i-create-my-first-vm" class="xliff"></a>
+## <a name="how-do-i-create-my-first-vm"></a>Comment créer sa première machine virtuelle ?
 Vous avez plusieurs possibilités pour la création de votre machine virtuelle. Votre choix dépend de votre environnement. 
 
 Ce tableau fournit des informations pour vous aider à créer votre machine virtuelle.
@@ -133,12 +123,10 @@ Ce tableau fournit des informations pour vous aider à créer votre machine virt
 
 Même si l’on souhaite que cela ne se produise jamais, des problèmes peuvent survenir. Si vous rencontrez cette situation, consultez les informations dans [Résolution des problèmes de déploiement Resource Manager lors de la création d’une machine virtuelle Windows dans Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## Comment gérer la machine virtuelle créée ?
-<a id="how-do-i-manage-the-vm-that-i-created" class="xliff"></a>
+## <a name="how-do-i-manage-the-vm-that-i-created"></a>Comment gérer la machine virtuelle créée ?
 Les machines virtuelles peuvent être gérées à l’aide d’un portail sur navigateur, d’outils de ligne de commande avec prise en charge des scripts ou directement au moyen des API. Certaines tâches de gestion courantes que vous êtes susceptible d’effectuer récupèrent des informations sur une machine virtuelle, s’y connectent, gèrent la disponibilité et effectuent des sauvegardes.
 
-### Obtenir des informations sur une machine virtuelle
-<a id="get-information-about-a-vm" class="xliff"></a>
+### <a name="get-information-about-a-vm"></a>Obtenir des informations sur une machine virtuelle
 Ce tableau montre différents moyens d’obtenir des informations sur une machine virtuelle.
 
 | Méthode | Description |
@@ -148,22 +136,18 @@ Ce tableau montre différents moyens d’obtenir des informations sur une machin
 | API REST |Utilisez l’opération [Récupérer des informations sur la machine virtuelle](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) pour obtenir des informations sur une machine virtuelle. |
 | Kits de développement logiciel (SDK) client |Pour plus d’informations sur l’utilisation de C# pour gérer des machines virtuelles, consultez [Gérer des Machines Virtuelles Azure à l’aide d’Azure Ressources Manager et de C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
-### Se connecter à la machine virtuelle
-<a id="log-on-to-the-vm" class="xliff"></a>
+### <a name="log-on-to-the-vm"></a>Se connecter à la machine virtuelle
 Vous utilisez le bouton [Connecter](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) dans le Portail Azure pour démarrer une session Bureau à distance (RDP). Des problèmes peuvent survenir lorsque vous tentez d’utiliser une connexion à distance. Si vous en rencontrez, consultez les informations d’aide dans [Résoudre les problèmes de connexions bureau à distance à une machine virtuelle Azure sous Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-### Gérer la disponibilité
-<a id="manage-availability" class="xliff"></a>
+### <a name="manage-availability"></a>Gérer la disponibilité
 Il est important de comprendre comment [garantir la haute disponibilité](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de votre application. Cette configuration implique la création de plusieurs machines virtuelles afin qu’il y en ait au moins une en cours d’exécution.
 
 Afin que votre déploiement puisse bénéficier de notre contrat de niveau de service de 99,95 % pour les machines virtuelles, vous devez déployer au moins deux machines virtuelles exécutant votre charge de travail à l’intérieur d’un [groupe à haute disponibilité](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Grâce à cette configuration, vos machines virtuelles sont réparties sur plusieurs domaines d’erreur et déployées sur des hôtes ayant des fenêtres de maintenance distinctes. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explique la disponibilité garantie d’Azure dans son ensemble.
 
-### Sauvegarder la machine virtuelle
-<a id="back-up-the-vm" class="xliff"></a>
+### <a name="back-up-the-vm"></a>Sauvegarder la machine virtuelle
 Un [coffre Recovery Services](../../backup/backup-introduction-to-azure-backup.md) est utilisé pour protéger les données et les actifs dans la Sauvegarde Azure et Azure Site Recovery Services. Vous pouvez utiliser un coffre Recovery Services pour [déployer et gérer les sauvegardes des machines virtuelles déployées avec le modèle Resource Manager à l’aide de PowerShell](../../backup/backup-azure-vms-automation.md). 
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 * Si votre objectif est d’utiliser des machines virtuelles Linux, consultez [Azure et Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Pour en savoir plus sur les instructions de configuration de votre infrastructure, consultez [Exploration d’un exemple d’infrastructure Azure](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Veillez à suivre les [meilleures pratiques d’exécution d’une machine virtuelle Windows sur Azure](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

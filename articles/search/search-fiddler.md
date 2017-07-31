@@ -14,9 +14,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: heidist
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -223,9 +225,4 @@ Consultez [Gérer votre service Search sur Azure](search-manage.md) pour une app
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

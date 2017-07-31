@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
 ms.author: yochaykk
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75d42f41e6218d83cda00f2ef8926d6ca1f0aacd
 ms.openlocfilehash: 8f458884d0ea649dffa5f92fd459bbaaa9f5e4cf
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -91,10 +93,5 @@ Le tableau suivant montre la correspondance entre les services Azure existants e
 </table>
 
 Pour plus d’informations, consultez la [documentation App Service](https://azure.microsoft.com/documentation/services/app-service/).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
