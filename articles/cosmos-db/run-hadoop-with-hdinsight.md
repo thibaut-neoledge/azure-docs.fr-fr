@@ -91,7 +91,7 @@ Le champ doit être une chaîne comportant entre 3 et 63 caractères.</td></tr>
         <tr><td>Nom d'abonnement</td>
             <td>Si vous avez plusieurs abonnements Azure, sélectionnez celui qui hébergera votre cluster HDInsight. </td></tr>
     </table>
-5.Cliquez sur **Sélectionner un type de cluster** et définissez les propriétés suivantes avec les valeurs spécifiées.
+5. Cliquez sur **Sélectionner un type de cluster** et définissez les propriétés suivantes avec les valeurs spécifiées.
 
     <table border='1'>
         <tr><td>Type de cluster</td><td><strong>Hadoop</strong></td></tr>
