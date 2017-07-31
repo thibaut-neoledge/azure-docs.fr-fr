@@ -22,9 +22,7 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="use-desired-properties-to-configure-devices-node" class="xliff"></a>
-
-# Utilisation des propriétés souhaitées pour configurer des appareils (Node)
+# <a name="use-desired-properties-to-configure-devices-node"></a>Utilisation des propriétés souhaitées pour configurer des appareils (Node)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 À la fin de ce didacticiel, vous disposerez de deux applications console Node.js :
@@ -48,9 +46,7 @@ Si vous avez suivi le didacticiel [Prise en main des représentations d’appare
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-<a id="create-the-simulated-device-app" class="xliff"></a>
-
-## Créer l’application d’appareil simulée
+## <a name="create-the-simulated-device-app"></a>Créer l’application d’appareil simulée
 Dans cette section, vous créez une application console Node.js qui se connecte à votre hub en tant que **myDeviceId**, attend une mise à jour de la configuration souhaitée, puis signale des mises à jour sur le processus de mise à jour de configuration simulée.
 
 1. Créez un dossier vide nommé **simulatedeviceconfiguration**. Dans le dossier **simulatedeviceconfiguration**, créez un fichier package.json en utilisant la commande suivante à l’invite de commandes. Acceptez toutes les valeurs par défaut :
@@ -161,9 +157,7 @@ Dans cette section, vous créez une application console Node.js qui se connecte 
    
     Vous devriez voir le message `retrieved device twin`. Gardez l’application active.
 
-<a id="create-the-service-app" class="xliff"></a>
-
-## Créer l’application de service
+## <a name="create-the-service-app"></a>Créer l’application de service
 Dans cette section, vous allez créer une application console Node.js qui met à jour les *propriétés souhaitées* sur la représentation d’appareil associée à **myDeviceId** avec un nouvel objet de configuration de télémétrie. Elle interroge ensuite les représentations d’appareil stockées dans l’IoT Hub, puis affiche la différence entre les configurations souhaitées et signalées de l’appareil.
 
 1. Créez un dossier vide nommé **setdesiredandqueryapp**. Dans le dossier **setdesiredandqueryapp**, créez un fichier package.json à l’aide de la commande ci-dessous à l’invite de commandes. Acceptez toutes les valeurs par défaut :
@@ -253,9 +247,7 @@ Dans cette section, vous allez créer une application console Node.js qui met à
    > 
    > 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez défini une configuration souhaitée en tant que *propriétés souhaitées* à partir d’une application principale, et écrit une application pour appareil simulée afin de détecter cette modification et de simuler un processus de mise à jour en plusieurs étapes signalant son état en tant que *propriétés signalées* à la représentation d’appareil.
 
 Utilisez les ressources suivantes :

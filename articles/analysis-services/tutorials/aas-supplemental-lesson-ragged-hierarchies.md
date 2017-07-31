@@ -22,8 +22,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 05/05/2017
 
 ---
-<a id="supplemental-lesson---ragged-hierarchies" class="xliff"></a>
-# Leçon supplémentaire – Hiérarchies déséquilibrées
+# <a name="supplemental-lesson---ragged-hierarchies"></a>Leçon supplémentaire – Hiérarchies déséquilibrées
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -35,17 +34,14 @@ Les modèles tabulaires de niveau de compatibilité 1400 disposent d’une prop
   
 Durée estimée pour suivre cette leçon : **20 minutes**  
   
-<a id="prerequisites" class="xliff"></a>
-## Prérequis  
+## <a name="prerequisites"></a>Prérequis  
 Cette rubrique de leçon supplémentaire fait partie d’un didacticiel de modélisation tabulaire. Avant d’effectuer les tâches de cette leçon supplémentaire, vous devez avoir effectué toutes les leçons précédentes ou disposer d’un exemple de projet de modèle de ventes sur Internet Adventure Works. 
 
 Si vous avez créé le projet de ventes sur Internet AW dans le cadre du didacticiel, votre modèle ne contient encore aucune donnée ou hiérarchie déséquilibrée. Pour suivre cette leçon supplémentaire, vous devez d’abord créer le problème en ajoutant des tables supplémentaires, puis créer des relations, des colonnes calculées, une mesure et une hiérarchie d’organisation. Cette partie prend environ 15 minutes. Ensuite, vous allez résoudre le problème en quelques minutes.  
 
-<a id="add-tables-and-objects" class="xliff"></a>
-## Ajouter des tables et des objets
+## <a name="add-tables-and-objects"></a>Ajouter des tables et des objets
   
-<a id="to-add-new-tables-to-your-model" class="xliff"></a>
-### Pour ajouter de nouvelles tables à votre modèle
+### <a name="to-add-new-tables-to-your-model"></a>Pour ajouter de nouvelles tables à votre modèle
   
 1.  Dans l’Explorateur de modèles tabulaires, développez **Sources de données**, puis cliquez avec le bouton droit sur votre connexion > **Importer de nouvelles tables**.
   
@@ -116,8 +112,7 @@ Si vous avez créé le projet de ventes sur Internet AW dans le cadre du didacti
 
     Comme vous pouvez le voir dans le tableau croisé dynamique, la hiérarchie affiche les lignes qui sont déséquilibrées. Il y a de nombreuses lignes où des membres vides sont affichés.
 
-<a id="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property" class="xliff"></a>
-## Pour corriger la hiérarchie déséquilibrée en définissant la propriété Masquer les membres
+## <a name="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property"></a>Pour corriger la hiérarchie déséquilibrée en définissant la propriété Masquer les membres
 
 1.  Dans l’**Explorateur de modèles tabulaires**, développez **Tables** > **DimEmployee** > **Hiérarchies** > **Organization**.
 
@@ -131,8 +126,7 @@ Si vous avez créé le projet de ventes sur Internet AW dans le cadre du didacti
 
     Voilà qui est beaucoup mieux !
 
-<a id="see-also" class="xliff"></a>
-## Voir aussi   
+## <a name="see-also"></a>Voir aussi   
 [Leçon 9 : Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Leçon supplémentaire – Sécurité dynamique](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Leçon supplémentaire – Lignes de détails](../tutorials/aas-supplemental-lesson-detail-rows.md)  

@@ -20,8 +20,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 05/08/2017
 
 ---
-# Rapport de connexions à risque dans le portail Azure Active Directory
-<a id="risky-sign-ins-report-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapport de connexions à risque dans le portail Azure Active Directory
 
 Grâce aux rapports sur la sécurité dans Azure Active Directory (Azure AD), vous pouvez obtenir des informations sur les risques de compromission des comptes d’utilisateur au sein de votre environnement. 
 
@@ -38,8 +37,7 @@ Dans le [portail Azure](https://portal.azure.com), vous trouverez les rapports d
 ![les connexions risquées.](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
-## Édition Azure Active Directory gratuite et de base
-<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
+## <a name="azure-active-directory-free-and-basic-edition"></a>Édition Azure Active Directory gratuite et de base
 
 La version gratuite et la version de base d’Azure Active Directory proposent une fonction de création de listes des connexions risquées qui ont été détectées pour les utilisateurs. Un rapport sur les événements à risque fournit les informations suivantes :
 
@@ -64,8 +62,7 @@ Selon votre analyse de la connexion à risque, vous pouvez envoyer des commentai
 
 Pour en savoir plus, voir [Fermeture manuelle des événements à risque](active-directory-identityprotection.md#closing-risk-events-manually).
 
-## Éditions Premium d’Azure Active Directory
-<a id="azure-active-directory-premium-editions" class="xliff"></a>
+## <a name="azure-active-directory-premium-editions"></a>Éditions Premium d’Azure Active Directory
 
 Le rapport des connexions risquées dans les éditions Premium d’Azure Active Directory vous fournit les informations suivantes :
 
@@ -114,8 +111,7 @@ Cette opération ouvre le panneau **Détails** pour cet événement à risque. D
 
 
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur Azure Active Directory Identity Protection, voir [Protection de l’identité Azure Active Directory](active-directory-identityprotection.md).
 

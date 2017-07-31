@@ -22,17 +22,13 @@ ms.lasthandoff: 05/08/2017
 
 ---
 
-<a id="receive-events-from-event-hubs-using-apache-storm" class="xliff"></a>
-
-# Recevoir des événements d’Event Hubs avec Apache Storm
+# <a name="receive-events-from-event-hubs-using-apache-storm"></a>Recevoir des événements d’Event Hubs avec Apache Storm
 
 [Apache Storm](https://storm.incubator.apache.org) est un système de calcul distribué en temps réel qui simplifie de façon fiable le traitement de vastes flux de données. Cette section illustre comment utiliser une commande « spout » Storm Azure Event Hubs pour recevoir des événements provenant d'Event Hubs. À l'aide d'Apache Storm, vous pouvez fractionner des événements entre plusieurs processus hébergés dans des nœuds différents. L'intégration d'Event Hubs à Storm simplifie la consommation d'événements grâce au contrôle transparent de sa progression via l'installation de Storm Zookeeper et à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs.
 
 Pour plus d’informations sur les modèles de réception Event Hubs, consultez la page [Vue d’ensemble d’Event Hubs][Event Hubs overview].
 
-<a id="create-project-and-add-code" class="xliff"></a>
-
-## Créer le projet et ajouter du code
+## <a name="create-project-and-add-code"></a>Créer le projet et ajouter du code
 
 Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], fournie avec la commande « spout » Event Hubs déjà disponible.
 
@@ -243,9 +239,7 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
 
     Cette classe crée une commande « spout » Event Hubs en utilisant les propriétés du fichier de configuration pour l’instancier. Il est important de noter que cet exemple crée autant de tâches « spout » que le nombre de partitions dans le concentrateur d'événements, afin d'utiliser le parallélisme maximal autorisé par ce concentrateur d'événements.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements][Event Hubs overview]

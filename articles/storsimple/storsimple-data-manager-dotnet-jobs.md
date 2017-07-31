@@ -22,19 +22,13 @@ ms.lasthandoff: 05/08/2017
 
 ---
 
-<a id="use-the-net-sdk-to-initiate-data-transformation-private-preview" class="xliff"></a>
+# <a name="use-the-net-sdk-to-initiate-data-transformation-private-preview"></a>Utiliser le Kit SDK .NET pour initier la transformation des données (version préliminaire privée)
 
-# Utiliser le Kit SDK .NET pour initier la transformation des données (version préliminaire privée)
-
-<a id="overview" class="xliff"></a>
-
-## Vue d'ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Cet article vous explique comment utiliser la fonctionnalité de transformation des données au sein du service StorSimple Data Manager afin de transformer les données de l’appareil StorSimple. Les données transformées sont ensuite utilisées par d’autres services Azure dans le cloud. L’article comporte également une procédure pas à pas pour créer un exemple d’application console .NET pour initier un travail de transformation de données et effectuer son suivi.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 *    Un système avec Visual Studio 2012, 2013 ou 2015 installé.
@@ -44,9 +38,7 @@ Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 *    Toutes les DLL requises. Téléchargez ces DLL à partir du [référentiel GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
 *    `Get-ConfigurationParams.ps1` Le [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) du référentiel GitHub.
 
-<a id="step-by-step" class="xliff"></a>
-
-## Procédure pas à pas
+## <a name="step-by-step"></a>Procédure pas à pas
 
 Procédez comme suit pour utiliser .NET pour lancer un travail de transformation de données.
 
@@ -188,9 +180,7 @@ Procédez comme suit pour utiliser .NET pour lancer un travail de transformation
     ```
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Utilisez l’interface utilisateur de StorSimple Data Manager pour transformer vos données](storsimple-data-manager-ui.md).
 

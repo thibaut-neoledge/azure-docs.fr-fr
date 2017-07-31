@@ -22,9 +22,7 @@ ms.lasthandoff: 05/05/2017
 
 
 ---
-<a id="configure-one-or-more-always-on-availability-group-listeners---resource-manager" class="xliff"></a>
-
-# Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
+# <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
 Cette rubrique explique comment effectuer les opérations suivantes :
 
 * créer un équilibreur de charge interne pour les groupes de disponibilité SQL Server à l’aide d’applets de commande PowerShell ;
@@ -43,14 +41,10 @@ Rubriques connexes :
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
-<a id="configure-the-windows-firewall" class="xliff"></a>
-
-## Configurer le Pare-feu Windows
+## <a name="configure-the-windows-firewall"></a>Configurer le Pare-feu Windows
 Configurez le Pare-feu Windows pour autoriser l’accès à SQL Server. Les règles de pare-feu autorisent les connexions TCP aux ports utilisés par l’instance de SQL Server et à la sonde de l’écouteur. Pour obtenir des instructions détaillées, consultez [Configurer un pare-feu Windows pour accéder au moteur de base de données](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Créez une règle entrante pour le port SQL Server et pour le port de la sonde.
 
-<a id="example-script-create-an-internal-load-balancer-with-powershell" class="xliff"></a>
-
-## Exemple de script : Créer un équilibreur de charge interne à l’aide de PowerShell
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Exemple de script : Créer un équilibreur de charge interne à l’aide de PowerShell
 > [!NOTE]
 > Si vous avez créé un groupe de disponibilité à l’aide du [modèle Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), l’équilibreur de charge interne a déjà été créé. 
 > 
@@ -158,15 +152,11 @@ $BEConfig = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAd
 $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzureRmLoadBalancer   
 ```
 
-<a id="configure-the-listener" class="xliff"></a>
-
-## Configurer l’écouteur
+## <a name="configure-the-listener"></a>Configurer l’écouteur
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-<a id="set-the-listener-port-in-sql-server-management-studio" class="xliff"></a>
-
-## Définissez le port d’écoute dans SQL Server Management Studio
+## <a name="set-the-listener-port-in-sql-server-management-studio"></a>Définissez le port d’écoute dans SQL Server Management Studio
 
 1. Lancez SQL Server Management Studio et connectez-vous au réplica principal.
 
@@ -176,9 +166,7 @@ $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConf
 
 1. Dans le champ **Port**, indiquez le numéro de port de l’écouteur de groupe de disponibilité à l’aide du paramètre $EndpointPort utilisé précédemment (valeur par défaut : 1433), puis cliquez sur **OK**.
 
-<a id="test-the-connection-to-the-listener" class="xliff"></a>
-
-## Tester la connexion à l’écouteur
+## <a name="test-the-connection-to-the-listener"></a>Tester la connexion à l’écouteur
 
 Pour tester la connexion :
 
@@ -203,22 +191,16 @@ La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébe
 > 
 > 
 
-<a id="guidelines-and-limitations" class="xliff"></a>
-
-## Instructions et limitations
+## <a name="guidelines-and-limitations"></a>Instructions et limitations
 Notez les instructions suivantes concernant l’écouteur de groupe de disponibilité dans Azure utilisant l’équilibrage de charge interne :
 
 * Avec un équilibreur de charge interne, vous n’accédez à l’écouteur qu’à partir du même réseau virtuel.
 
 
-<a id="for-more-information" class="xliff"></a>
-
-## Pour plus d’informations
+## <a name="for-more-information"></a>Pour plus d’informations
 Pour plus d’informations, consultez [Configure Always On availability group in Azure VM manually (Configuration manuelle d’un groupe de disponibilité Always On dans une machine virtuelle Azure)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
-<a id="powershell-cmdlets" class="xliff"></a>
-
-## Applets de commande PowerShell
+## <a name="powershell-cmdlets"></a>Applets de commande PowerShell
 Utilisez les applets de commande PowerShell suivantes pour créer un équilibreur de charge interne pour les machines virtuelles Azure.
 
 * [New-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx) permet de créer un équilibreur de charge. 
