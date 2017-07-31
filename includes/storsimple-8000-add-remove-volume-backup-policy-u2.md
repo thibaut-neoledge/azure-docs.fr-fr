@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 01/02/17-->
 
 
-#### Pour ajouter ou supprimer un volume
-<a id="to-add-or-remove-a-volume" class="xliff"></a>
+#### <a name="to-add-or-remove-a-volume"></a>Pour ajouter ou supprimer un volume
 
 1. Accédez à votre appareil StorSimple et cliquez sur **Stratégie de sauvegarde**.
 

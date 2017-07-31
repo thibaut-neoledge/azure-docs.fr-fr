@@ -21,8 +21,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 07/12/2017
 
 ---
-# Prise en main d’Azure Multi-Factor Authentication et des services de fédération Active Directory (AD FS)
-<a id="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services" class="xliff"></a>
+# <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Prise en main d’Azure Multi-Factor Authentication et des services de fédération Active Directory (AD FS)
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Si votre organisation a fédéré votre Active Directory local avec Azure Active Directory à l’aide d’AD FS, vous disposez de deux options pour l’utilisation d’Azure Multi-Factor Authentication.
@@ -44,8 +43,7 @@ Mises en garde relatives aux mots de passe d'application pour les utilisateurs f
 * Vous perdez la fonctionnalité de journalisation-authentification locale pour les mots de passe d’application.
 * La désactivation/suppression de compte peut mettre jusqu’à 3 heures pour synchroniser les répertoires, ce qui peut retarder la désactivation/suppression des mots de passe d’application dans l’identité de cloud.
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la configuration d’Azure Multi-Factor Authentication ou du serveur Azure Multi-Factor Authentication avec AD FS, consultez les articles suivants :
 
 * [Sécuriser les ressources cloud à l’aide d’Azure Multi-Factor Authentication et AD FS](multi-factor-authentication-get-started-adfs-cloud.md)

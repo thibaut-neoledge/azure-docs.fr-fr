@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### Pour ajouter ou modifier une planification de sauvegarde StorSimple
-<a id="to-add-or-modify-a-storsimple-backup-schedule" class="xliff"></a>
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Pour ajouter ou modifier une planification de sauvegarde StorSimple
 
 1. Accédez à votre appareil StorSimple et cliquez sur **Stratégie de sauvegarde**.
 

@@ -21,19 +21,16 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 07/12/2017
 
 ---
-# Utiliser le panneau de synthèse du service pour un appareil de la gamme StorSimple 8000
-<a id="use-the-service-summary-blade-for-storsimple-8000-series-device" class="xliff"></a>
+# <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Utiliser le panneau de synthèse du service pour un appareil de la gamme StorSimple 8000
 
-## Vue d'ensemble
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Vue d'ensemble
 
 Le panneau de synthèse du service de StorSimple Device Manager fournit un aperçu de tous les appareils connectés au service StorSimple Device Manager, en mettant en surbrillance ceux qui requièrent une attention particulière d’un administrateur système. Ce didacticiel présente le panneau de synthèse du service, explique le contenu et la fonction du tableau de bord, et décrit les tâches que vous pouvez effectuer à partir de cette page.
 
 ![Récapitulatif du service](./media/storsimple-8000-service-dashboard/service-summary1.png)
 
 
-## Commandes de gestion
-<a id="management-commands" class="xliff"></a>
+## <a name="management-commands"></a>Commandes de gestion
 
 Le panneau de synthèse du service StorSimple présente les options de gestion de votre service StorSimple Device Manager, ainsi que les appareils de la gamme StorSimple 8000 inscrits auprès de ce service. Les commandes de gestion se trouvent dans la partie supérieure et sur le côté gauche du panneau.
 
@@ -42,15 +39,13 @@ Le panneau de synthèse du service StorSimple présente les options de gestion d
 Utilisez ces options pour effectuer diverses opérations, telles qu’ajouter des partages ou des volumes, ou surveiller les différents travaux en cours d’exécution sur les appareils StorSimple.
 
 
-## Essentials
-<a id="essentials" class="xliff"></a>
+## <a name="essentials"></a>Essentials
 
 La zone des éléments principaux comporte quelques-unes des propriétés importantes comme le groupe de ressources, l’emplacement et l’abonnement dans lequel a été créée votre instance StorSimple Device Manager.
 
 ![Essentials](./media/storsimple-8000-service-dashboard/service-summary3.png)
 
-## Synthèse des services StorSimple Device Manager
-<a id="storsimple-device-manager-service-summary" class="xliff"></a>
+## <a name="storsimple-device-manager-service-summary"></a>Synthèse des services StorSimple Device Manager
 
 * La vignette **Alertes** fournit un instantané de toutes les alertes actives sur tous les appareils, groupées par gravité.
 
@@ -85,14 +80,12 @@ La zone des éléments principaux comporte quelques-unes des propriétés import
 
     ![Cliquer sur la vignette Appareils](./media/storsimple-8000-service-dashboard/service-summary9.png)
 
-## Afficher les journaux d’activité
-<a id="view-the-activity-logs" class="xliff"></a>
+## <a name="view-the-activity-logs"></a>Afficher les journaux d’activité
 
 Pour afficher les opérations effectuées au sein de votre instance StorSimple Device Manager, cliquez sur le lien **Journaux d’activité** situé sur le côté gauche du panneau de synthèse des services StorSimple. Vous accédez au panneau **Journaux d’activité**, où vous avez accès à une synthèse des opérations récentes effectuées.
 
 ![Journaux d’activité](./media/storsimple-8000-service-dashboard/activity-logs1.png)
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur [l’utilisation du service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
 
