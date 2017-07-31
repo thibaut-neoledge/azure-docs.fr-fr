@@ -23,9 +23,7 @@ ms.lasthandoff: 05/08/2017
 
 
 ---
-<a id="create-and-modify-peering-for-an-expressroute-circuit-using-powershell" class="xliff"></a>
-
-# Créer et modifier l’homologation d’un circuit ExpressRoute à l’aide de PowerShell
+# <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Créer et modifier l’homologation d’un circuit ExpressRoute à l’aide de PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
@@ -38,9 +36,7 @@ ms.lasthandoff: 05/08/2017
 
 Cet article vous guide tout au long des étapes de création et de gestion d'une configuration de routage d'un circuit ExpressRoute à l'aide de PowerShell et du modèle de déploiement Azure Resource Manager.  Les étapes ci-dessous vous montrent également comment vérifier l’état, mettre à jour ou supprimer et annuler l’approvisionnement des homologations d’un circuit ExpressRoute. 
 
-<a id="configuration-prerequisites" class="xliff"></a>
-
-## Conditions préalables à la configuration
+## <a name="configuration-prerequisites"></a>Conditions préalables à la configuration
 
 * Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). 
 * Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
@@ -55,15 +51,11 @@ Ces instructions s'appliquent uniquement aux circuits créés avec des fournisse
 
 Vous pouvez configurer une, deux ou les trois homologations (privée Azure, publique Azure et Microsoft) pour un circuit ExpressRoute. Vous pouvez configurer les homologations dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque homologation. 
 
-<a id="azure-private-peering" class="xliff"></a>
-
-## Homologation privée Azure
+## <a name="azure-private-peering"></a>Homologation privée Azure
 
 Cette section fournit des instructions sur la façon de créer, obtenir, mettre à jour et supprimer la configuration d'homologation privée Azure pour un circuit ExpressRoute. 
 
-<a id="to-create-azure-private-peering" class="xliff"></a>
-
-### Pour créer une homologation privée Azure
+### <a name="to-create-azure-private-peering"></a>Pour créer une homologation privée Azure
 
 1. Importez le module PowerShell pour ExpressRoute.
 
@@ -164,9 +156,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
   > 
   >
 
-<a id="to-view-azure-private-peering-details" class="xliff"></a>
-
-### Pour afficher les détails d’une homologation privée Azure
+### <a name="to-view-azure-private-peering-details"></a>Pour afficher les détails d’une homologation privée Azure
 
 Vous pouvez obtenir des détails sur la configuration à l’aide de l’applet de commande suivante :
 
@@ -176,9 +166,7 @@ $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGr
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 ```
 
-<a id="to-update-azure-private-peering-configuration" class="xliff"></a>
-
-### Pour mettre à jour la configuration d'homologation privée Azure
+### <a name="to-update-azure-private-peering-configuration"></a>Pour mettre à jour la configuration d'homologation privée Azure
 
 Vous pouvez mettre à jour toute partie de la configuration à l'aide de l’applet de commande suivante. Dans l'exemple ci-dessous, l'ID VLAN du circuit est mis à jour de 100 à 500 :
 
@@ -188,9 +176,7 @@ Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Express
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-<a id="to-delete-azure-private-peering" class="xliff"></a>
-
-### Pour supprimer une homologation privée Azure
+### <a name="to-delete-azure-private-peering"></a>Pour supprimer une homologation privée Azure
 
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’applet de commande suivante :
 
@@ -205,15 +191,11 @@ Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Expr
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-<a id="azure-public-peering" class="xliff"></a>
-
-## Homologation publique Azure
+## <a name="azure-public-peering"></a>Homologation publique Azure
 
 Cette section fournit des instructions sur la façon de créer, d’obtenir, de mettre à jour et de supprimer la configuration d'homologation publique Azure pour un circuit ExpressRoute.
 
-<a id="to-create-azure-public-peering" class="xliff"></a>
-
-### Pour créer une homologation publique Azure
+### <a name="to-create-azure-public-peering"></a>Pour créer une homologation publique Azure
 
 1. Importez le module PowerShell pour ExpressRoute.
 
@@ -317,9 +299,7 @@ Vous pouvez exécuter l’applet de commande suivante pour configurer l’homolo
   > 
   >
 
-<a id="to-view-azure-public-peering-details" class="xliff"></a>
-
-### Pour afficher les détails d’une homologation publique Azure
+### <a name="to-view-azure-public-peering-details"></a>Pour afficher les détails d’une homologation publique Azure
 
 Vous pouvez obtenir des détails sur la configuration à l’aide de l’applet de commande suivante :
 
@@ -329,9 +309,7 @@ Vous pouvez obtenir des détails sur la configuration à l’aide de l’applet 
   Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
-<a id="to-update-azure-public-peering-configuration" class="xliff"></a>
-
-### Pour mettre à jour la configuration d'homologation publique Azure
+### <a name="to-update-azure-public-peering-configuration"></a>Pour mettre à jour la configuration d'homologation publique Azure
 
 Vous pouvez mettre à jour n’importe quelle partie de la configuration à l’aide de l’applet de commande suivante :
 
@@ -343,9 +321,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 L'ID VLAN du circuit est mis à jour de 200 à 600 dans l’exemple ci-dessus.
 
-<a id="to-delete-azure-public-peering" class="xliff"></a>
-
-### Pour supprimer une homologation publique Azure
+### <a name="to-delete-azure-public-peering"></a>Pour supprimer une homologation publique Azure
 
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’applet de commande suivante :
 
@@ -354,15 +330,11 @@ Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Expre
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-<a id="microsoft-peering" class="xliff"></a>
-
-## Homologation Microsoft
+## <a name="microsoft-peering"></a>Homologation Microsoft
 
 Cette section fournit des instructions sur la façon de créer, d’obtenir, de mettre à jour et de supprimer la configuration d'homologation Microsoft pour un circuit ExpressRoute. 
 
-<a id="to-create-microsoft-peering" class="xliff"></a>
-
-### Pour créer une homologation Microsoft
+### <a name="to-create-microsoft-peering"></a>Pour créer une homologation Microsoft
 1. Importez le module PowerShell pour ExpressRoute.
 
   Vous devez installer la dernière version du programme d'installation PowerShell à partir de [PowerShell Gallery](http://www.powershellgallery.com/) et importer les modules Azure Resource Manager dans la session PowerShell pour utiliser les applets de commande ExpressRoute. Vous devrez exécuter PowerShell en tant qu'administrateur.
@@ -455,9 +427,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
-<a id="to-get-microsoft-peering-details" class="xliff"></a>
-
-### Pour obtenir des détails sur l’homologation Microsoft
+### <a name="to-get-microsoft-peering-details"></a>Pour obtenir des détails sur l’homologation Microsoft
 
 Vous pouvez obtenir des détails sur la configuration à l’aide de l’applet de commande suivante :
 
@@ -467,9 +437,7 @@ $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGr
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
-<a id="to-update-microsoft-peering-configuration" class="xliff"></a>
-
-### Pour mettre à jour la configuration d’homologation Microsoft
+### <a name="to-update-microsoft-peering-configuration"></a>Pour mettre à jour la configuration d’homologation Microsoft
 
 Vous pouvez mettre à jour n’importe quelle partie de la configuration à l’aide de l’applet de commande suivante :
 
@@ -479,9 +447,7 @@ Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRo
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-<a id="to-delete-microsoft-peering" class="xliff"></a>
-
-### Pour supprimer une homologation Microsoft
+### <a name="to-delete-microsoft-peering"></a>Pour supprimer une homologation Microsoft
 
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’applet de commande suivante :
 
@@ -491,9 +457,7 @@ Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Express
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md).
 

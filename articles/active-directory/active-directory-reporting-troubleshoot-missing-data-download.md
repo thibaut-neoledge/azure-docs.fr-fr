@@ -23,30 +23,25 @@ ms.lasthandoff: 05/08/2017
 
 ---
 
-# Aucune donnée n’apparaît dans les journaux d’activité Azure Active Directory que j’ai téléchargés
-<a id="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded" class="xliff"></a>
+# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>Aucune donnée n’apparaît dans les journaux d’activité Azure Active Directory que j’ai téléchargés
 
 
-## Symptômes
-<a id="symptoms" class="xliff"></a>
+## <a name="symptoms"></a>Symptômes
 
 J’ai téléchargé les journaux d’activité (d’audit ou de connexion) et tous les enregistrements correspondant à la période choisie n’apparaissent pas. Pourquoi ? 
 
  ![Reporting](./media/active-directory-reporting-troubleshoot-missing-data-download/01.png)
  
 
-## Cause :
-<a id="cause" class="xliff"></a>
+## <a name="cause"></a>Cause :
 
 Lorsque vous téléchargez des journaux d’activité dans le portail Azure, nous limitons l’échelle à des enregistrements de 120 Ko, triés du plus récent au moins récent. 
 
-## Résolution :
-<a id="resolution" class="xliff"></a>
+## <a name="resolution"></a>Résolution :
 
 Vous pouvez tirer parti des [API de création de rapports Azure AD](active-directory-reporting-api-getting-started.md) pour extraire jusqu’à un million d’enregistrements pour un point donné. Nous vous recommandons d’exécuter un script de façon planifiée qui appelle les API de création de rapports pour extraire des enregistrements de manière incrémentielle sur une période donnée (par exemple, quotidienne ou hebdomadaire).
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 Consultez le [FAQ sur les rapports Azure Active Directory](active-directory-reporting-faq.md).
 
 

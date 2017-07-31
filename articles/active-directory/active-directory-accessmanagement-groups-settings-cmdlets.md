@@ -21,8 +21,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 05/05/2017
 
 ---
-# Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
-<a id="azure-active-directory-cmdlets-for-configuring-group-settings" class="xliff"></a>
+# <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
 > [!IMPORTANT]
 > Ce contenu s’applique uniquement aux groupes unifiés, également appelés groupes Office 365. 
@@ -31,16 +30,14 @@ Les paramètres des groupes Office 365 sont configurés à l’aide d’un objet
 
 Les applets de commande font partie du module Azure Active Directory PowerShell V2. Pour plus d’informations sur ce module et pour savoir comment télécharger et installer le module sur votre ordinateur, reportez-vous à [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). Vous pouvez installer la version 2 du module à partir d’[ici](https://www.powershellgallery.com/packages/AzureAD/).
 
-## Récupérer une valeur de paramètres spécifique
-<a id="retrieve-a-specific-settings-value" class="xliff"></a>
+## <a name="retrieve-a-specific-settings-value"></a>Récupérer une valeur de paramètres spécifique
 Si vous connaissez le nom du paramètre à récupérer, vous pouvez utiliser la cmdlet ci-dessous pour récupérer la valeur de paramètre actuelle. Dans cet exemple, nous récupérons la valeur d’un paramètre nommé « UsageGuidelinesUrl ». Vous trouverez plus d’informations sur les paramètres de répertoire et leurs noms plus loin dans cet article.
 
 ```powershell
 (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
 ```
 
-## Créer des paramètres au niveau du répertoire
-<a id="create-settings-at-the-directory-level" class="xliff"></a>
+## <a name="create-settings-at-the-directory-level"></a>Créer des paramètres au niveau du répertoire
 Les étapes suivantes permettent de créer des paramètres au niveau du répertoire qui s’appliquent à tous les groupes unifiés du répertoire.
 
 1. Dans les applets de commande DirectorySettings, vous devez spécifier l’ID du modèle SettingsTemplate que vous voulez utiliser. Si vous ne connaissez pas cet ID, cette applet de commande renvoie la liste de tous les modèles de paramètres :
@@ -105,8 +102,7 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified.
 |  <ul><li>EnableGroupCreation<li>Type : booléen<li>Par défaut : True | Valeur booléenne indiquant si les utilisateurs non-administrateurs peuvent ou non créer des groupes unifiés. |
 
 
-## Lire les paramètres au niveau du répertoire
-<a id="read-settings-at-the-directory-level" class="xliff"></a>
+## <a name="read-settings-at-the-directory-level"></a>Lire les paramètres au niveau du répertoire
 Les étapes suivantes permettent de lire les paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office du répertoire.
 
 1. Lisez tous les paramètres du répertoire existant :
@@ -146,8 +142,7 @@ Les étapes suivantes permettent de lire les paramètres au niveau du répertoir
   EnableGroupCreation           True
   ```
 
-## Mettre à jour les paramètres d’un groupe spécifique
-<a id="update-settings-for-a-specific-group" class="xliff"></a>
+## <a name="update-settings-for-a-specific-group"></a>Mettre à jour les paramètres d’un groupe spécifique
 
 1. Recherchez le modèle de paramètres nommé « Groups.Unified.Guest »
   ```
@@ -183,8 +178,7 @@ Les étapes suivantes permettent de lire les paramètres au niveau du répertoir
   25651479-a26e-4181-afce-ce24111b2cb5             08d542b9-071f-4e16-94b0-74abb372e3d9 {class SettingValue {...
   ```
 
-## Mettre à jour des paramètres au niveau du répertoire
-<a id="update-settings-at-the-directory-level" class="xliff"></a>
+## <a name="update-settings-at-the-directory-level"></a>Mettre à jour des paramètres au niveau du répertoire
 
 Les étapes suivantes mettent à jour les paramètres au niveau du répertoire qui s’appliquent à tous les groupes unifiés du répertoire. Ces exemples supposent qu’un objet Settings existe déjà dans votre répertoire.
 
@@ -209,19 +203,16 @@ Les étapes suivantes mettent à jour les paramètres au niveau du répertoire q
   Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting
   ```
 
-## Supprimer des paramètres au niveau du répertoire
-<a id="remove-settings-at-the-directory-level" class="xliff"></a>
+## <a name="remove-settings-at-the-directory-level"></a>Supprimer des paramètres au niveau du répertoire
 Les étapes suivantes permettent de supprimer les paramètres au niveau du répertoire qui s’appliquent à tous les groupes Office du répertoire.
   ```
   Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
   ```
 
-## Informations de référence sur la syntaxe des applets de commande
-<a id="cmdlet-syntax-reference" class="xliff"></a>
+## <a name="cmdlet-syntax-reference"></a>Informations de référence sur la syntaxe des applets de commande
 Vous trouverez plus d’informations sur Azure Active Directory PowerShell dans la page dédiée aux [applets de commande Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-## Documentation supplémentaire
-<a id="additional-reading" class="xliff"></a>
+## <a name="additional-reading"></a>Documentation supplémentaire
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)

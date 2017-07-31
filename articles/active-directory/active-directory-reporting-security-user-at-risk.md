@@ -20,8 +20,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 05/08/2017
 
 ---
-# Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory
-<a id="users-at-risk-security-report-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory
 
 Grâce aux rapports sur la sécurité dans Azure Active Directory (Azure AD), vous pouvez obtenir des informations sur les risques de compromission des comptes d’utilisateur au sein de votre environnement. 
 
@@ -37,8 +36,7 @@ Dans le portail Azure, vous trouverez les rapports de sécurité dans le panneau
 
 ![Connexions risquées](./media/active-directory-reporting-security-user-at-risk/10.png)
 
-## Édition Azure Active Directory gratuite et de base
-<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
+## <a name="azure-active-directory-free-and-basic-edition"></a>Édition Azure Active Directory gratuite et de base
 
 Le rapport sur les utilisateurs courant un risque dans les éditions gratuite et de base d’Azure Active Directory vous fournit une liste de comptes d’utilisateurs qui ont peut-être été compromis. 
 
@@ -50,8 +48,7 @@ Vous pouvez vérifier l’historique des connexions d’un utilisateur à risque
 
 ![Connexions risquées](./media/active-directory-reporting-security-user-at-risk/46.png)
 
-## Éditions Premium d’Azure Active Directory
-<a id="azure-active-directory-premium-editions" class="xliff"></a>
+## <a name="azure-active-directory-premium-editions"></a>Éditions Premium d’Azure Active Directory
 
 Le rapport des utilisateurs courant un risque dans les éditions Premium d’Azure Active Directory vous fournit les informations suivantes :
 
@@ -88,8 +85,7 @@ Cette opération ouvre le panneau **Détails** pour cet événement à risque. D
 
 
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur Azure Active Directory Identity Protection, voir [Protection de l’identité Azure Active Directory](active-directory-identityprotection.md).
 

@@ -24,14 +24,10 @@ ms.lasthandoff: 05/08/2017
 
 
 ---
-<a id="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant" class="xliff"></a>
-
-# Gérer les groupes auxquels un groupe appartient dans votre client Azure Active Directory
+# <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Gérer les groupes auxquels un groupe appartient dans votre client Azure Active Directory
 Les groupes peuvent contenir d’autres groupes dans Azure Active Directory. Voici comment gérer ces adhésions.
 
-<a id="how-do-i-find-the-groups-my-group-is-a-member-of" class="xliff"></a>
-
-## Comment trouver les groupes dont mon groupe est membre ?
+## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>Comment trouver les groupes dont mon groupe est membre ?
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
@@ -53,9 +49,7 @@ Les groupes peuvent contenir d’autres groupes dans Azure Active Directory. Voi
    ![Commande Supprimer des appartenances](./media/active-directory-groups-membership-azure-portal/remove-group-membership.png)
 10. Lorsque vous avez terminé de modifier les appartenances aux groupes de votre groupe, sélectionnez **Enregistrer**.
 
-<a id="additional-information" class="xliff"></a>
-
-## Informations supplémentaires
+## <a name="additional-information"></a>Informations supplémentaires
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)
