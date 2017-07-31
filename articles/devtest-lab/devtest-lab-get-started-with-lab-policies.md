@@ -23,15 +23,11 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="manage-basic-policies-for-a-lab-in-azure-devtest-labs" class="xliff"></a>
-
-# Gérer les stratégies de laboratoire de base dans Azure DevTest Labs
+# <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Gérer les stratégies de laboratoire de base dans Azure DevTest Labs
 
 Azure DevTest Labs vous permet de contrôler les coûts et de réduire le gaspillage dans vos laboratoires en gérant les stratégies (paramètres) de chacun d’entre eux. Dans cet article, vous allez découvrir les stratégies en apprenant à définir deux d’entre elles parmi les plus critiques : la limitation du nombre de machines virtuelles pouvant être créées ou revendiquées par un seul utilisateur et la configuration de l’arrêt automatique. Pour savoir comment définir chaque stratégie de laboratoire, consultez l’article [Définir des stratégies de laboratoire dans Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
-<a id="accessing-a-labs-policies-in-azure-devtest-labs" class="xliff"></a>
-
-## Accès aux stratégies d’un laboratoire dans Azure DevTest Labs
+## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Accès aux stratégies d’un laboratoire dans Azure DevTest Labs
 Les étapes suivantes vous guident lors de la configuration des stratégies pour un laboratoire dans Azure DevTest Labs :
 
 Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme suit :
@@ -48,9 +44,7 @@ Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme 
 
 1. Le panneau **Configuration et stratégies** contient un menu de paramètres que vous pouvez spécifier. Cet article traite uniquement des paramètres concernant les **machines virtuelles par utilisateur** et **l’arrêt automatique**. Pour en savoir plus sur les autres paramètres, consultez [Gérer toutes les stratégies de laboratoire dans Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
    
-<a id="set-virtual-machines-per-user" class="xliff"></a>
-
-## Définir les machines virtuelles par utilisateur
+## <a name="set-virtual-machines-per-user"></a>Définir les machines virtuelles par utilisateur
 La stratégie **Machines virtuelles par utilisateur** vous permet de spécifier le nombre maximal de machines virtuelles pouvant être créées par un utilisateur individuel. Si un utilisateur tente de créer ou de revendiquer une machine virtuelle alors que le nombre limite par utilisateur est atteint, un message d’erreur indique que la machine virtuelle ne peut pas être créée/revendiquée. 
 
 1. Dans le menu **Configuration et stratégies** du laboratoire, sélectionnez **Machines virtuelles par utilisateur**.
@@ -63,9 +57,7 @@ La stratégie **Machines virtuelles par utilisateur** vous permet de spécifier 
 
 1. Sélectionnez **Enregistrer**.
 
-<a id="set-auto-shutdown" class="xliff"></a>
-
-## Définir l’arrêt automatique
+## <a name="set-auto-shutdown"></a>Définir l’arrêt automatique
 La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laquelle les machines virtuelles du laboratoire doivent s’arrêter et contribue ainsi à réduire les pertes de laboratoire.
 
 1. Dans le panneau **Configuration et stratégies**, sélectionnez **Arrêt automatique**.
@@ -82,9 +74,7 @@ La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laque
 
     Par défaut, une fois activée, cette stratégie s’applique à toutes les machines virtuelles dans le laboratoire en cours. Pour supprimer ce paramètre sur une machine virtuelle spécifique, ouvrez le panneau de la machine virtuelle et modifiez son paramètre **Arrêt automatique** . 
 
-<a id="set-auto-start" class="xliff"></a>
-
-## Définir le démarrage automatique
+## <a name="set-auto-start"></a>Définir le démarrage automatique
 La stratégie de démarrage automatique vous permet de spécifier quand les machines virtuelles du laboratoire doivent être démarrées.  
 
 1. Dans le panneau **Configuration et stratégies**, sélectionnez **Démarrage automatique**.
@@ -99,9 +89,7 @@ La stratégie de démarrage automatique vous permet de spécifier quand les mach
 
     Une fois activée, cette stratégie n’est pas automatiquement appliquée à toutes les machines virtuelles dans le laboratoire en cours. Pour appliquer ce paramètre à une machine virtuelle spécifique, ouvrez le panneau de la machine virtuelle et modifiez son paramètre **Démarrage automatique** . 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Définir des stratégies de laboratoire dans Azure DevTest Labs](devtest-lab-set-lab-policy.md) - Apprenez à modifier les autres stratégies de laboratoire 
 

@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 01/20/17-->
 
 
-#### Pour ajouter une information d’identification de compte de stockage dans le même abonnement Azure que le service StorSimple Device Manager
-<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
+#### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>Pour ajouter une information d’identification de compte de stockage dans le même abonnement Azure que le service StorSimple Device Manager
 
 1. Accédez à votre service StorSimple Device Manager. Dans la section **Configuration**, cliquez sur **Informations d’identification du compte de stockage**.
 

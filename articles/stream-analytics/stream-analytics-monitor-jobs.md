@@ -22,15 +22,11 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 07/04/2017
 
 ---
-<a id="programmatically-create-a-stream-analytics-job-monitor" class="xliff"></a>
-
-# Créer la surveillance des tâches Stream Analytics par programmation
+# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Créer la surveillance des tâches Stream Analytics par programmation
 
 Cet article explique comment activer la surveillance d'une tâche Stream Analytics. Par défaut, la surveillance n'est pas activée pour les travaux Stream Analytics créés par le biais des API REST, du kit de développement logiciel (SDK) Azure ou de PowerShell. Vous pouvez l’activer manuellement sur le portail Azure. Pour cela, accédez à la page Surveiller du travail et cliquez sur le bouton Activer. Vous pouvez également automatiser ce processus en suivant les étapes décrites dans cet article. Les données de surveillance sont affichées dans la zone Métriques du portail Azure pour le travail Stream Analytics.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 
 Avant de commencer ce processus, vous devez disposer des éléments suivants :
 
@@ -38,9 +34,7 @@ Avant de commencer ce processus, vous devez disposer des éléments suivants :
 * [kit de développement logiciel (SDK) Azure .NET](https://azure.microsoft.com/downloads/) téléchargé et installé
 * Un travail Stream Analytics existant pour lequel la surveillance doit être activée
 
-<a id="create-a-project" class="xliff"></a>
-
-## Création d’un projet
+## <a name="create-a-project"></a>Création d’un projet
 
 1. Créez une application console Visual Studio .NET C#.
 2. Dans la console du Gestionnaire de package, exécutez les commandes suivantes pour installer les packages NuGet. Le premier est le Kit de développement logiciel (SDK) .NET de gestion Azure Stream Analytics. Le second est le SDK Azure Monitor qui sera utilisé pour activer la surveillance. Le dernier est le client Azure Active Directory utilisé pour l'authentification.
@@ -124,9 +118,7 @@ Avant de commencer ce processus, vous devez disposer des éléments suivants :
              throw new InvalidOperationException("Failed to acquire token");
      }
 
-<a id="create-management-clients" class="xliff"></a>
-
-## Création de clients de gestion
+## <a name="create-management-clients"></a>Création de clients de gestion
 
 Le code suivant définit les variables nécessaires et les clients de gestion.
 
@@ -148,9 +140,7 @@ Le code suivant définit les variables nécessaires et les clients de gestion.
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
 
-<a id="enable-monitoring-for-an-existing-stream-analytics-job" class="xliff"></a>
-
-## Activation de la surveillance pour un travail Stream Analytics existant
+## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Activation de la surveillance pour un travail Stream Analytics existant
 
 Le code suivant permet d'activer la surveillance pour un travail Stream Analytics **existant**. La première partie du code exécute une requête GET sur le service Stream Analytics pour récupérer des informations sur le travail Stream Analytics spécifique. Elle utilise la propriété *Id* (récupérée à partir de la requête GET) en tant que paramètre pour la méthode Put dans la seconde moitié du code qui envoie une requête PUT au service Insights afin d'activer la surveillance du travail Stream Analytics.
 
@@ -184,15 +174,11 @@ Le code suivant permet d'activer la surveillance pour un travail Stream Analytic
 
 
 
-<a id="get-support" class="xliff"></a>
-
-## Obtenir de l'aide
+## <a name="get-support"></a>Obtenir de l'aide
 
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

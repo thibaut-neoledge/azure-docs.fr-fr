@@ -1,5 +1,4 @@
-#### Pour créer des points de terminaison publics sur l’appliance cloud
-<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
+#### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Pour créer des points de terminaison publics sur l’appliance cloud
 
 1. Connectez-vous au portail Azure.
 2. Accédez à **Machines virtuelles**, puis sélectionnez la machine virtuelle utilisée comme appliance cloud et cliquez dessus.

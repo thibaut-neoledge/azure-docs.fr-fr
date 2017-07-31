@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="microsoft-azure-new-support-request-file-upload-utility-guidelines" class="xliff"></a>
-
-# Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
 Lorsque vous [créez une demande de support](https://portal.azure.com/#create/Microsoft.Support), l’utilitaire de téléchargement de fichiers peut vous aider à charger facilement des fichiers de diagnostic ou tout autre fichier qui vous semble s’appliquer à l’incident.  
 
 > [!NOTE]
@@ -40,9 +38,7 @@ Suivez ces instructions lorsque vous utilisez l’utilitaire de téléchargement
 * Vous ne pouvez pas télécharger plusieurs fichiers.
 * Les fichiers ne peuvent pas être supérieurs à 4 Mo.
 
-<a id="table-of-the-allowed-file-name-extensions" class="xliff"></a>
-
-## Tableau des extensions de nom de fichier autorisées
+## <a name="table-of-the-allowed-file-name-extensions"></a>Tableau des extensions de nom de fichier autorisées
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7Z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |

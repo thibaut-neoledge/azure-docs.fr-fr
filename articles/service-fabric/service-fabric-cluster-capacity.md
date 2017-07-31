@@ -21,8 +21,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 07/12/2017
 
 ---
-# Considérations en matière de planification de la capacité du cluster Service Fabric
-<a id="service-fabric-cluster-capacity-planning-considerations" class="xliff"></a>
+# <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
 
 * Nombre de types de nœuds avec lesquels votre cluster doit démarrer
@@ -31,8 +30,7 @@ Pour un déploiement de production, la planification de la capacité est une ét
 
 Nous allons présenter brièvement chacun de ces éléments.
 
-## Nombre de types de nœuds avec lesquels votre cluster doit démarrer
-<a id="the-number-of-node-types-your-cluster-needs-to-start-out-with" class="xliff"></a>
+## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>Nombre de types de nœuds avec lesquels votre cluster doit démarrer
 Tout d’abord, vous devez savoir à quoi va servir le cluster que vous créez et quels sont les types d’applications que vous voulez déployer dans ce cluster. Si vous n’êtes pas sûr de ce à quoi va servir le cluster, vous n’êtes probablement pas encore prêt pour le processus de planification de capacité.
 
 Établissez le nombre de types de nœuds avec lesquels votre cluster doit démarrer.  Chaque type de nœud est mappé à un groupe de machines virtuelles identiques. Chaque type de nœud peut ensuite faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. Par conséquent, pour savoir combien de types de nœud vous avez besoin, vous devez vous poser les questions suivantes :
@@ -43,16 +41,14 @@ Tout d’abord, vous devez savoir à quoi va servir le cluster que vous créez e
   Dans cet exemple, même si vous pouvez décider de placer tous les services sur un seul type de nœud, nous vous recommandons de les placer dans un cluster avec deux types de nœuds.  Ainsi, chaque type de nœud a des propriétés distinctes telles que la connectivité Internet ou la taille de machine virtuelle. Le nombre de machines virtuelles peut être mis à l’échelle indépendamment, également.  
 * Étant donné que vous ne pouvez pas prédire l’avenir, prenez les informations que vous connaissez et choisissez le nombre de types de nœuds dont vos applications ont besoin pour démarrer. Vous pourrez toujours ajouter ou supprimer des types de nœuds ultérieurement. Un cluster Service Fabric doit comprendre au moins un type de nœud.
 
-## Propriétés de chaque type de nœud
-<a id="the-properties-of-each-node-type" class="xliff"></a>
+## <a name="the-properties-of-each-node-type"></a>Propriétés de chaque type de nœud
 Le **type de nœud** peut être considéré comme l’équivalent des rôles dans Cloud Services. Les types de nœuds définissent les tailles de machine virtuelle, le nombre de machines virtuelles et leurs propriétés. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que groupe de machines virtuelles identiques distinct. Les groupes de machines virtuelles identiques sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud est défini comme un groupe de machines virtuelles identiques distinct et peut faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité.
 
 Lisez [ce document](service-fabric-cluster-nodetypes.md) pour plus d’informations sur la relation entre les types de nœuds et les groupes de machines virtuelles identiques, et pour découvrir comment ouvrir une session RDP sur l’une des instances, ouvrir de nouveaux ports, etc.
 
 Votre cluster peut avoir plusieurs types de nœuds, mais le type de nœud principal (le premier que vous définissez dans le portail) doit avoir au moins cinq machines virtuelles pour les clusters utilisés pour les charges de travail de production (ou au moins trois machines virtuelles pour les clusters de test). Si vous créez le cluster à l’aide d’un modèle Resource Manager, recherchez un attribut **is Primary** sous la définition du type de nœud. Le type de nœud principal est le type de nœud où sont placés les services système de Service Fabric.  
 
-### Type de nœud principal
-<a id="primary-node-type" class="xliff"></a>
+### <a name="primary-node-type"></a>Type de nœud principal
 Pour un cluster avec plusieurs types de nœuds, vous devez définir l’un d’eux comme nœud principal. Voici les caractéristiques d’un type de nœud principal :
 
 * La **taille minimale des machines virtuelles** pour le type de nœud principal est déterminée par le **niveau de durabilité** que vous choisissez. La valeur par défaut du niveau de durabilité est Bronze. Faites défiler vers le bas pour plus d’informations sur le niveau de durabilité et sur les valeurs qu’il peut prendre.  
@@ -64,15 +60,13 @@ Pour un cluster avec plusieurs types de nœuds, vous devez définir l’un d’e
 
 ![Capture d’écran d’un cluster qui a deux types de nœuds ][SystemServices]
 
-### Type de nœud non principal
-<a id="non-primary-node-type" class="xliff"></a>
+### <a name="non-primary-node-type"></a>Type de nœud non principal
 Un cluster avec plusieurs types de nœud comprend un type de nœud principal et les autres types de nœud. Voici les caractéristiques d’un type de nœud non principal :
 
 * La taille minimale des machines virtuelles pour ce type de nœud est déterminée par le niveau de durabilité que vous choisissez. La valeur par défaut du niveau de durabilité est Bronze. Faites défiler vers le bas pour plus d’informations sur le niveau de durabilité et sur les valeurs qu’il peut prendre.  
 * Le nombre minimal de machines virtuelles pour ce type de nœud peut être un seul. Toutefois, vous devez choisir ce nombre en fonction du nombre de réplicas des applications/services que vous voulez exécuter dans ce type de nœud. Le nombre de machines virtuelles dans un type de nœud peut être augmenté une fois le cluster déployé.
 
-## Caractéristiques de durabilité du cluster
-<a id="the-durability-characteristics-of-the-cluster" class="xliff"></a>
+## <a name="the-durability-characteristics-of-the-cluster"></a>Caractéristiques de durabilité du cluster
 Le niveau de durabilité est utilisé pour indiquer au système les privilèges dont disposent vos machines virtuelles avec l’infrastructure Azure sous-jacente. Dans le type de nœud principal, ce privilège permet à Service Fabric de suspendre toute demande de l’infrastructure au niveau de la machine virtuelle (par exemple, un redémarrage de la machine virtuelle, une réinitialisation de la machine virtuelle ou une migration de machine virtuelle) qui influe sur la configuration requise du quorum pour les services système et vos services avec état. Dans les types de nœuds non principaux, ce privilège permet à Service Fabric de suspendre toute demande de l’infrastructure au niveau de la machine virtuelle (par exemple, le redémarrage de la machine virtuelle, la réinitialisation de la machine virtuelle, la migration de machine virtuelle, etc.) qui influe sur la configuration requise du quorum pour vos services avec état qui s’y exécutent.
 
 Ce privilège est exprimé dans les valeurs suivantes :
@@ -95,13 +89,11 @@ Vous devez choisir un niveau de durabilité pour chacun de vos types de nœuds. 
 
 
 
-### Recommandations relatives au moment opportun pour utiliser les niveaux de durabilité Silver ou Gold
-<a id="recommendations-on-when-to-use-silver-or-gold-durability-levels" class="xliff"></a>
+### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recommandations relatives au moment opportun pour utiliser les niveaux de durabilité Silver ou Gold
 
 Utilisez les niveaux de durabilité Silver ou Gold pour tous les types de nœuds qui hébergent des services avec état dont vous prévoyez une diminution fréquente de la taille des instances (réduction du nombre d’instances de machine virtuelle), si vous préférez que les opérations de déploiement soient retardées au profit d’une simplification de ces opérations de diminution de la taille des instances. Les scénarios d’augmentation de la taille des instances (ajout d’instances de machine virtuelle) n’ayant aucune incidence sur le choix du niveau de durabilité, seuls les scénarios de diminution de la taille des instances doivent être pris en considération.
 
-### Recommandations opérationnelles concernant le type de nœud que vous avez défini sur le niveau de durabilité Silver ou Gold
-<a id="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level" class="xliff"></a>
+### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recommandations opérationnelles concernant le type de nœud que vous avez défini sur le niveau de durabilité Silver ou Gold
 
 1. Veillez à la permanence de l’intégrité de votre cluster et de vos applications, et assurez-vous que les applications répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (par exemple, le blocage de la création d’un réplica) en temps opportun.
 2. Adoptez des méthodes plus sûres pour la modification des références (SKU) de machine virtuelle (augmentation ou réduction d’échelle) :
@@ -114,8 +106,7 @@ Vous ne devriez pas effectuer de telles opérations souvent, car elles présente
 6. Si vous utilisez la fonctionnalité Mise à l’échelle automatique, définissez les règles de façon à ce que la diminution de la taille des instances (suppression d’instances de machine virtuelle) soit effectuée nœud après nœud. 
 
 
-## Caractéristiques de fiabilité du cluster
-<a id="the-reliability-characteristics-of-the-cluster" class="xliff"></a>
+## <a name="the-reliability-characteristics-of-the-cluster"></a>Caractéristiques de fiabilité du cluster
 Le niveau de fiabilité est utilisé pour définir le nombre de réplicas des services système que vous voulez exécuter dans ce cluster sur le type de nœud principal. Plus le nombre de réplicas est important, plus les services système sont fiables dans votre cluster.  
 
 Le niveau de fiabilité peut avoir les valeurs suivantes :
@@ -133,8 +124,7 @@ Le niveau de fiabilité peut avoir les valeurs suivantes :
  Vous pouvez choisir de mettre à jour la fiabilité de votre cluster d’un niveau à l’autre. Cette opération déclenche les mises à niveau de cluster nécessaires pour modifier le nombre de jeux de réplicas des services système. Attendez que la mise à niveau en cours se termine avant d’apporter d’autres modifications au cluster, comme l’ajout de nœuds.  Vous pouvez surveiller la progression de la mise à niveau avec Service Fabric Explorer ou en exécutant [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 
-## Type de nœud principal - Recommandations en matière de capacité
-<a id="primary-node-type---capacity-guidance" class="xliff"></a>
+## <a name="primary-node-type---capacity-guidance"></a>Type de nœud principal - Recommandations en matière de capacité
 
 Voici nos recommandations pour planifier la capacité du type de nœud principal :
 
@@ -153,8 +143,7 @@ Pour les charges de travail de production
 - La référence Standard A1 n’est pas prise en charge pour les charges de production pour des raisons de performances.
 
 
-## Type de nœud non principal - Recommandations en matière de capacité pour les charges de travail avec état
-<a id="non-primary-node-type---capacity-guidance-for-stateful-workloads" class="xliff"></a>
+## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Type de nœud non principal - Recommandations en matière de capacité pour les charges de travail avec état
 
 Lisez les informations suivantes pour les charges de travail qui utilisent les collections fiables ou les Reliable Actors Service Fabric. Pour en savoir plus sur les modèles de programmation, consultez [cet article](service-fabric-choose-framework.md).
 
@@ -172,8 +161,7 @@ Pour les charges de travail de production
 - La référence Standard A1 n’est pas non plus prise en charge pour les charges de production pour des raisons de performances.
 
 
-## Type de nœud non principal - Recommandations en matière de capacité pour les charges de travail sans état
-<a id="non-primary-node-type---capacity-guidance-for-stateless-workloads" class="xliff"></a>
+## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>Type de nœud non principal - Recommandations en matière de capacité pour les charges de travail sans état
 
 Lisez les informations suivantes pour les charges de travail sans état.
 
@@ -196,8 +184,7 @@ Pour les charges de travail de production
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez terminé la planification de votre capacité et que vous avez configuré un cluster, lisez ce qui suit :
 
 * [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md)
