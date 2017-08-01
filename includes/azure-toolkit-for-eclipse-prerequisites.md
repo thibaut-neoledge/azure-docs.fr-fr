@@ -1,14 +1,14 @@
 ## <a name="prerequisites"></a>Composants requis
 Le Kit de ressources Azure pour Eclipse requiert les composants logiciels suivants :
 
-* IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Mars ou version ultérieure. Vous pouvez le télécharger à l’adresse <http://www.eclipse.org/downloads/>.
+* IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Mars ou version ultérieure. Vous pouvez le télécharger à partir du [site web Eclipse](http://www.eclipse.org/downloads/).
 
 * Kit de développeur Java (JDK) version 1.8 ou ultérieure.
 
 * Système d’exploitation. Le Kit de ressources Azure pour Eclipse a été testé sur les systèmes d’exploitation suivants :
   
-  * Windows 10, Windows 8 et 8.1, Windows 7
-  * Windows Server 2012 et 2012 R2, Windows Server 2008 et 2008 R2
+  * Windows 10, Windows 8.1, Windows 8 et Windows 7
+  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
   * [Mac OS X](http://www.apple.com/osx) versions « Yosemite » et ultérieures
   * [Ubuntu Linux](http://www.ubuntu.com) versions 14, 15 et 16
 

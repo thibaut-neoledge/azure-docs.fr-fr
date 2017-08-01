@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 4393a9a71dcbdc709845eb4cd3078b4497b8b9a3
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 16fdd3aafef1a50554932a0e7843d347182c9b6a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 
 # <a name="introduction-to-azure-file-storage"></a>Présentation du Stockage Fichier Azure
-Le Stockage Fichier Azure propose le partage de fichiers réseau sur cloud grâce au [protocole Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx), norme industrielle, et au protocole [Samba/Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Les partages de fichiers Azure peuvent être montés simultanément par les clients, par exemple via les déploiements locaux de Windows, macOS et Linux ou via des machines virtuelles Azure. 
+Le Stockage Fichier Azure propose le partage de fichiers réseau sur cloud grâce au [protocole Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx), norme industrielle, et au protocole [Samba/Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Les partages de fichiers Azure peuvent être montés simultanément par les clients, par exemple via les déploiements locaux de Windows, macOS et Linux ou via des machines virtuelles Azure. Un compte de stockage à usage général vous donne accès aux services Azure File Storage et à d’autres services tels que les objets blob, les disques de machine virtuelle Azure et les files d’attente au sein d’un compte unique.
 
 
 

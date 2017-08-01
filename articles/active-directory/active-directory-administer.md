@@ -4,7 +4,6 @@ description: "Explique ce qu’est un client Azure AD et comment gérer Azure de
 services: active-directory
 documentationcenter: 
 author: curtand
-writer: markvi
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -12,13 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 07/20/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
-ms.lasthandoff: 12/08/2016
-
+ms.reviewer: jeffsta
+ms.custom: it-pro;oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 07b9f4626e9129c7eeb94d43883417f324da5292
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Administration de votre annuaire Azure AD
@@ -55,9 +56,9 @@ Par exemple, si vous avez initialement souscrit un abonnement Microsoft Intune e
 Pour plus d’informations sur l’intégration de votre annuaire local à Azure AD, consultez la rubrique [Intégration d’annuaire](active-directory-aadconnect.md).
 
 ### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>Association d’un annuaire Azure AD à un abonnement Azure
-Vous pouvez associer un nouvel abonnement Azure au même annuaire qui authentifie les connexions pour un abonnement Office 365 ou Microsoft Intune existant. Connectez-vous au portail de gestion Azure à l’aide de votre compte professionnel ou scolaire. Le portail de gestion Azure vous renvoie un message pour indiquer qu’il n’a trouvé aucun abonnement pour ce compte. Sélectionnez **S’inscrire à Azure**, pour permettre l’administration de votre annuaire dans le portail de gestion. Pour plus d’informations, consultez la rubrique [Gestion de l’annuaire associé à votre abonnement Office 365 dans Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
+Vous pouvez associer un nouvel abonnement Azure au même annuaire qui authentifie les connexions pour un abonnement Office 365 ou Microsoft Intune existant. Connectez-vous au portail Azure à l’aide de votre compte professionnel ou scolaire. Le portail Azure vous renvoie un message pour indiquer qu’il n’a trouvé aucun abonnement pour ce compte. Sélectionnez **S’inscrire à Azure**, pour permettre l’administration de votre annuaire dans le portail de gestion. Pour plus d’informations, consultez la rubrique [Gestion de l’annuaire associé à votre abonnement Office 365 dans Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
 
-Pour visualiser une vidéo qui traite de questions courantes sur l’utilisation d’Azure AD, consultez la rubrique [Azure Active Directory - Questions courantes sur l’inscription, la connexion et l’utilisation.](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
+Pour visualiser une vidéo qui traite de questions courantes sur l’utilisation d’Azure AD, consultez la rubrique [Azure Active Directory - Questions courantes sur l’inscription, la connexion et l’utilisation](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
 
 ### <a name="create-an-azure-ad-directory-by-signing-up-for-a-microsoft-cloud-service-as-an-organization"></a>Création d’un annuaire Azure AD en vous inscrivant à un service cloud Microsoft en tant qu’organisation
 Si vous n’êtes pas encore abonné à un service cloud Microsoft, cliquez sur l’un des liens ci-dessous pour vous inscrire. Un annuaire Azure AD est créé automatiquement dès votre inscription à un premier service.
@@ -76,7 +77,7 @@ L’utilisation d’Azure AD est gratuite. L’annuaire est une ressource gratui
 Pour modifier le nom complet de votre annuaire, cliquez sur celui-ci dans le portail de gestion, puis cliquez sur **Configurer**. Comme expliqué plus loin dans cette rubrique, vous pouvez ajouter ou supprimer un annuaire. Pour associer votre abonnement à un autre répertoire, cliquez sur l’extension **Paramètres** figurant dans le volet de navigation gauche ; en bas de la page **Abonnements**, cliquez sur **Modifier l’annuaire**. Vous pouvez également créer un domaine personnalisé à l’aide d’un nom DNS que vous avez enregistré à la place du domaine par défaut *.onmicrosoft.com, ce qui peut être préférable avec un service tel que SharePoint Online.
 
 ## <a name="how-can-i-manage-directory-data"></a>Comment puis-je gérer les données d’un annuaire ?
-En tant qu’administrateur d’un ou de plusieurs abonnements de service cloud Microsoft, vous pouvez utiliser le portail de gestion Azure, le portail de compte Microsoft Intune ou le centre d’administration Office 365 pour gérer les données d’annuaire de votre entreprise. Vous pouvez également télécharger et exécuter les applets de commande du [Module Microsoft Azure Active Directory pour Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) pour vous aider à gérer les données stockées dans Azure AD.
+En tant qu’administrateur d’un ou de plusieurs abonnements de service cloud Microsoft, vous pouvez utiliser le [Centre d’administration Azure AD](https://aad.portal.azure.com), le portail de compte Microsoft Intune ou le centre d’administration Office 365 pour gérer les données d’annuaire de votre entreprise. Vous pouvez également télécharger et exécuter les applets de commande du [Module Microsoft Azure Active Directory pour Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) pour vous aider à gérer les données stockées dans Azure AD.
 
 À partir de ces portails (ou applets de commande), vous pouvez :
 
@@ -84,7 +85,7 @@ En tant qu’administrateur d’un ou de plusieurs abonnements de service cloud 
 * gérer le ou les services cloud apparentés auxquels votre organisation s’est abonnée ;
 * configurer une intégration locale à votre service d’annuaire.
 
-Le portail de gestion Azure, le Centre d’administration Office 365, le portail de compte Microsoft Intune et les applets de commande Azure AD peuvent tous lire et écrire dans une instance partagée unique d’Azure AD associée à l’annuaire de votre organisation, comme le montre l’illustration suivante. Les portails (ou applets de commande) agissent ainsi comme une interface frontale qui extrait et/ou modifie vos données d’annuaire.
+Le [Centre d’administration Azure](https://aad.portal.azure.com), le Centre d’administration Office 365, le portail de compte Microsoft Intune et les applets de commande Azure AD peuvent tous lire et écrire dans une instance partagée unique d’Azure AD associée à l’annuaire de votre organisation, comme le montre l’illustration suivante. Les portails (ou applets de commande) agissent ainsi comme une interface frontale qui extrait ou modifie vos données d’annuaire.
 
 ![][2]
 
@@ -94,7 +95,7 @@ Quand vous modifiez les données de votre organisation via l’un de ces portail
 Par exemple, si vous avez utilisé le Centre d’administration Office 365 pour bloquer un utilisateur, cette action l’empêche de se connecter aux autres services auxquels votre organisation est actuellement abonnée. Si vous consultez ensuite le compte de cet utilisateur dans le contexte du portail de compte Microsoft Intune, vous verrez qu’il est bloqué.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>Comment puis-je ajouter et gérer plusieurs annuaires ?
-Vous pouvez ajouter un annuaire Azure AD dans le portail de gestion Azure. Sélectionnez l’extension **Active Directory** située à gauche et cliquez sur **Ajouter**.
+Vous pouvez ajouter un annuaire Azure AD dans le [portail AD classique](https://manage.windowsazure.com). Dans le volet **Vue d’ensemble**, sélectionnez l’extension **Active Directory** sur la gauche, puis cliquez sur **Nouveau**.
 
 Vous pouvez gérer chaque annuaire comme une ressource entièrement indépendante : chaque annuaire est un homologue complet et logiquement indépendant des autres annuaires que vous gérez ; il n’existe aucune relation parent-enfant entre les annuaires. Cette indépendance entre les annuaires vaut pour les ressources, l’administration et la synchronisation.
 
@@ -116,7 +117,7 @@ De même, sachez qu’à la différence des autres ressources Azure, vos annuair
 Un administrateur général peut supprimer un annuaire Azure AD à partir du portail. Quand un annuaire est supprimé, toutes les ressources qu’il contient sont également supprimées ; vous devez donc vous assurer que vous n’avez pas besoin de l’annuaire avant de le supprimer.
 
 > [!NOTE]
-> Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son annuaire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com,, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
+> Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son annuaire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
 > 
 > 
 
@@ -130,7 +131,7 @@ Les conditions à remplir sont les suivantes :
 * L’annuaire ne doit être associé à aucun abonnement Microsoft Online Services, tel que Microsoft Azure, Office 365 ou Azure AD. Par exemple, si un annuaire par défaut a été créé pour vous dans Azure, vous ne pouvez pas le supprimer si votre abonnement Azure utilise toujours cet annuaire à des fins d’authentification. De même, vous ne pouvez pas supprimer un annuaire auquel un autre utilisateur a associé un abonnement. Pour associer votre abonnement à un autre annuaire, connectez-vous au portail de gestion Azure et cliquez sur **Paramètres** dans le volet de navigation gauche. Ensuite, au bas de la page **Abonnements**, cliquez sur **Modifier l’annuaire**. Pour plus d’informations sur les abonnements Azure, consultez la page [Comment sont associés les abonnements Azure et Azure AD ?](active-directory-how-subscriptions-associated-directory.md).
 
 > [!NOTE]
-> Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son annuaire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com,, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
+> Si l’utilisateur s’est connecté avec un compte professionnel ou scolaire, il ne doit pas essayer de supprimer son annuaire de base. Par exemple, si l’utilisateur s’est connecté avec le compte joe@contoso.onmicrosoft.com, il ne peut pas supprimer l’annuaire dont le domaine par défaut est contoso.onmicrosoft.com.
 > 
 > 
 
