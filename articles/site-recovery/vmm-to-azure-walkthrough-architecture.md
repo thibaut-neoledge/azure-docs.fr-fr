@@ -1,6 +1,6 @@
 ---
 title: "Passer en revue l’architecture pour la réplication Hyper-V (sans System Center VMM) sur Azure avec Azure Site Recovery | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de machines virtuelles Hyper-V locales (sans VMM) sur Azure avec le service Azure Site Recovery."
+description: "Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de machines virtuelles Hyper-V locales dans des clouds VMM vers Azure avec le service Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,21 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
 ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
+ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/26/2017
 
 ---
 
 
-# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>Étape 1 : examen de l’architecture pour la réplication de Hyper-V sur Azure
+# <a name="step-1-review-the-architecture"></a>Étape 1 : examen de l’architecture
 
 
-Cet article décrit les composants et les processus impliqués dans la réplication des machines virtuelles Hyper-V locales (qui ne sont pas gérées par System Center VMM) sur Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
+Cet article décrit les composants et les processus impliqués dans la réplication des machines virtuelles Hyper-V locales dans des clouds System Center Virtual machine Manager (VMM) vers Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
 
 Publiez des commentaires au bas de cet article, ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -34,26 +34,29 @@ Publiez des commentaires au bas de cet article, ou sur le [Forum Azure Recovery 
 
 ## <a name="architectural-components"></a>Composants architecturaux
 
-Un certain nombre de composants sont impliqués dans la réplication des machines virtuelles Hyper-V sur Azure sans VMM.
+Un certain nombre de composants sont impliqués dans la réplication des machines virtuelles Hyper-V dans des clouds VMM vers Azure.
 
-**Composant** | **Emplacement** | **Détails**
+**Composant** | **Prérequis** | **Détails**
 --- | --- | ---
 **Microsoft Azure** | Dans Azure, vous avez besoin d’un compte Microsoft Azure, d’un compte de stockage Azure et d’un réseau Azure. | Les données répliquées sont stockées dans le compte de stockage, et les machines virtuelles Azure sont créées avec les données répliquées lors du basculement à partir de votre site local.<br/><br/> Les machines virtuelles Azure se connectent au réseau virtuel Azure lors de leur création.
-**Hyper-V** | Les hôtes et les clusters et Hyper-V sont rassemblés dans les sites Hyper-V. Le fournisseur et l’agent Azure Site Recovery sont installés sur chaque hôte Hyper-V. | Le fournisseur orchestre la réplication avec Site Recovery via Internet. L’agent Recovery Services gère la réplication des données.<br/><br/> Les communications en provenance du fournisseur et de l’agent sont sécurisées et chiffrées. Les données répliquées dans le stockage Azure sont également chiffrées.
-**Machines virtuelles Hyper-V** | Vous devez exécuter une ou plusieurs machines virtuelles sur le serveur hôte Hyper-V. | Rien ne doit explicitement être installé sur les machines virtuelles.
+**Serveur VMM** | Le serveur VMM a un ou plusieurs clouds contenant des hôtes Hyper-V. | Sur le serveur VMM, installez Site Recovery Provider pour organiser la réplication avec Site Recovery, et enregistrez le serveur dans le coffre Recovery Services.
+**Hôte Hyper-V** | Un ou plusieurs clusters ou hôtes Hyper-V gérés par VMM. |  Installez l’agent Recovery Services sur chaque hôte ou membre de cluster.
+**Machines virtuelles Hyper-V** | Une ou plusieurs machines virtuelles s’exécutant sur le serveur hôte Hyper-V. | Rien ne doit explicitement être installé sur les machines virtuelles.
+**Mise en réseau** |Installation des réseaux logiques et des réseaux de machines virtuelles sur le serveur VMM. Un réseau de machines virtuelles doit être lié à un réseau logique lui-même associé au cloud. | Les réseaux de machines virtuelles sont mappés à des réseaux virtuels Azure, pour que les machines virtuelles Azure soient situées dans un réseau si elles sont créées après basculement.
 
 En savoir plus sur les conditions préalables au déploiement et la configuration requise pour chacun de ces composants dans la [matrice de prise en charge](site-recovery-support-matrix-to-azure.md).
 
-**Figure 1 : réplication de site Hyper-V vers Azure**
 
-![Composants](./media/hyper-v-site-walkthrough-architecture/arch-onprem-azure-hypervsite.png)
+**Figure 1 : répliquer les machines virtuelles sur des hôtes Hyper-V dans des clouds VMM vers Azure**
+
+![Composants](./media/vmm-to-azure-walkthrough-architecture/arch-onprem-onprem-azure-vmm.png)
 
 
 ## <a name="replication-process"></a>Processus de réplication
 
 **Figure 2 : processus de réplication et de récupération pour la réplication de Hyper-V vers Azure**
 
-![flux de travail](./media/hyper-v-site-walkthrough-architecture/arch-hyperv-azure-workflow.png)
+![flux de travail](./media/vmm-to-azure-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
 ### <a name="enable-protection"></a>Activer la protection
 
@@ -61,7 +64,8 @@ En savoir plus sur les conditions préalables au déploiement et la configuratio
 2. Le travail vérifie que la machine est conforme à la configuration requise, puis appelle la méthode [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), laquelle configure la réplication avec les paramètres que vous avez configurés.
 3. Le travail démarre la réplication initiale en appelant la méthode [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) pour initialiser une réplication complète de la machine virtuelle et envoyer les disques virtuels de la machine virtuelle sur Azure.
 4. Vous pouvez surveiller le travail dans l'onglet **Travaux**.
- 
+        ![Liste des travaux](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Activer l’exploration de la protection](media/vmm-to-azure-walkthrough-architecture/image2.png)
+
 ### <a name="replicate-the-initial-data"></a>Répliquer les données initiales
 
 1. Un [instantané des machines virtuelles Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) a lieu au moment où la réplication initiale est déclenchée.
@@ -74,6 +78,7 @@ En savoir plus sur les conditions préalables au déploiement et la configuratio
 ### <a name="finalize-protection"></a>Finalisation de la protection
 
 1. Une fois la réplication initiale terminée, le travail **Finaliser la protection sur l’ordinateur virtuel** configure les paramètres réseau et d’autres paramètres de post-réplication pour protéger la machine virtuelle.
+    ![Finaliser le travail de protection](media/vmm-to-azure-walkthrough-architecture/image3.png)
 2. Si vous répliquez dans Azure, vous devrez peut-être modifier les paramètres de la machine virtuelle pour la préparer au basculement. À ce stade, vous pouvez exécuter un basculement de test pour vérifier que tout fonctionne comme prévu.
 
 ### <a name="replicate-the-delta"></a>Répliquer le delta
@@ -88,7 +93,7 @@ En savoir plus sur les conditions préalables au déploiement et la configuratio
 2.  La resynchronisation limite la quantité de données envoyées en calculant les sommes de contrôle des machines virtuelles sources et cibles et en envoyant les données différentielles uniquement. La resynchronisation utilise un algorithme de segmentation de bloc fixe, dans lequel les fichiers source et cible sont divisés en segments fixes. Le système génère les sommes de contrôle de chaque segment, puis les compare, afin de savoir quels blocs de la source doivent être appliqués à la cible.
 3. Une fois la resynchronisation terminée, la réplication différentielle normale doit reprendre. Par défaut, la resynchronisation est planifiée pour s’exécuter automatiquement en dehors des heures de bureau, mais vous pouvez resynchroniser une machine virtuelle manuellement. Par exemple, la resynchronisation peut reprendre en cas d’interruption du réseau ou autre panne. Pour ce faire, sélectionnez la machine virtuelle dans le portail > **Resynchroniser**.
 
-    ![Resynchronisation manuelle](./media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![Resynchronisation manuelle](media/vmm-to-azure-walkthrough-architecture/image4.png)
 
 
 ### <a name="retry-logic"></a>Logique de nouvelle tentative
@@ -115,5 +120,5 @@ Si une erreur de réplication se produit, une nouvelle tentative intégrée est 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Accédez à l’[Étape 2 : passer en revue les conditions préalables au déploiement](hyper-v-site-walkthrough-prerequisites.md)
+Accédez à l’[Étape 2 : passer en revue les conditions préalables au déploiement](vmm-to-azure-walkthrough-prerequisites.md)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: cd74b0cb0d58036cc7b1198a58649ba38e386322
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 4e97a558ae1a2601b5275a73164b483351f03857
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Leçon supplémentaire – Sécurité dynamique
@@ -106,7 +106,7 @@ Les tables FactInternetSales, DimGeography et DimSalesTerritory contiennent tout
     Notez que la propriété Active de cette relation présente la valeur False, ce qui signifie qu’elle est inactive. En effet, la table FactInternetSales a déjà une autre relation active.  
   
 ## <a name="hide-the-employeesecurity-table-from-client-applications"></a>Masquer la table EmployeeSecurity pour les applications clientes  
-Dans cette tâche, vous allez masquer la table EmployeeSecurity en l’empêchant de s’afficher dans la liste des champs d’une application cliente. N’oubliez pas que masquer une table ne garantit pas sa sécurité. Les utilisateurs peuvent toujours interroger les données de la table EmployeeSecurity s’ils savent comment procéder. Pour sécuriser les données de la table EmployeeSecurity en empêchant les utilisateurs d’en interroger les données, vous appliquez un filtre lors d’une tâche ultérieure.  
+Dans cette tâche, vous allez masquer la table EmployeeSecurity en l’empêchant de s’afficher dans la liste des champs d’une application cliente. N’oubliez pas que le fait de masquer une table ne garantit pas sa sécurité. Les utilisateurs peuvent toujours interroger les données de la table EmployeeSecurity s’ils savent comment procéder. Pour sécuriser les données de la table EmployeeSecurity en empêchant les utilisateurs d’en interroger les données, vous appliquez un filtre lors d’une tâche ultérieure.  
   
 #### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>Pour masquer la table EmployeeSecurity pour les applications clientes  
   

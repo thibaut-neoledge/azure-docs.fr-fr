@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Créer, démarrer ou supprimer une passerelle Application Gateway à l’aide d’Azure Resource Manager
@@ -169,12 +168,12 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPA
 
 Dans cet exemple, il existe deux pools principaux pour acheminer le trafic réseau selon le chemin d’URL. Un pool reçoit le trafic du chemin d’URL « /video » et l’autre pool reçoit le trafic du chemin « /image ». Remplacez les adresses IP précédentes pour ajouter vos propres points de terminaison d’adresse IP d’application.
 
-### <a name="step-3"></a>Étape 3 :
+### <a name="step-3"></a>Étape 3
 
-Configurez les paramètres de passerelle Application Gateway **poolsetting01** pour le trafic réseau à charge équilibrée dans le pool principal. Chaque pool principal peut avoir son propre paramètre de pool principal.  Les paramètres HTTP du serveur principal sont utilisés par des règles pour acheminer le trafic vers les membres du pool principal appropriés. Les paramètres HTTP du serveur principal déterminent le protocole et le port utilisés lors de l’envoi du trafic vers les membres du pool principal. Les sessions basées sur les cookies sont également déterminées par les paramètres HTTP du serveur principal.  Si elle est activée, l’affinité de session basée sur les cookies envoie le trafic vers le même serveur principal que les requêtes précédentes pour chaque paquet.
+Configurez le paramètre de passerelle d’application **poolsetting** pour le trafic à charge équilibrée dans le pool principal. Chaque pool principal peut avoir son propre paramètre de pool principal.  Les paramètres HTTP du serveur principal sont utilisés par des règles pour acheminer le trafic vers les membres du pool principal appropriés. Les paramètres HTTP du serveur principal déterminent le protocole et le port utilisés lors de l’envoi du trafic vers les membres du pool principal. Les sessions basées sur les cookies sont également déterminées par les paramètres HTTP du serveur principal.  Si elle est activée, l’affinité de session basée sur les cookies envoie le trafic vers le même serveur principal que les requêtes précédentes pour chaque paquet.
 
 ```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 ```
 
 ### <a name="step-4"></a>Étape 4
@@ -206,7 +205,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 Créez la règle d’acheminement d’équilibrage de charge nommée **rule01** qui configure le comportement d’équilibrage de charge. Les paramètres de pool principal, d’écouteur et de pool principal créés dans les étapes précédentes composent la règle. Selon les critères définis, le trafic est acheminé vers le serveur principal approprié.
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 ### <a name="step-8"></a>Étape 8

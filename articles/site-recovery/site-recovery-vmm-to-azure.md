@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Répliquer vers Azure des machines virtuelles Hyper-V hébergées dans des clouds VMM à l’aide de Site Recovery sur le Portail Azure
@@ -164,6 +164,11 @@ Installez le fournisseur Azure Site Recovery sur le serveur VMM et enregistrez c
 
      ![Internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Vous pouvez accepter ou modifier l’emplacement d’un certificat SSL généré automatiquement pour le chiffrement de données. Ce certificat est utilisé si vous activez le chiffrement de données pour un cloud protégé par Azure dans le portail Azure Site Recovery. Conservez ce certificat en sécurité. Lorsque vous exécuterez un basculement vers Azure, vous en aurez besoin pour le déchiffrement (si le chiffrement des données est activé).
+
+    > [!NOTE]
+    > Nous recommandons l’utilisation de la fonctionnalité de chiffrement fournie par Azure pour chiffrer des données au repos, et non l’option de chiffrement de données fournie par Azure Site Recovery. La fonctionnalité de chiffrement fournie par Azure peut être activée pour un compte de stockage et offre de meilleures performances, car le chiffrement et le déchiffrement sont gérés par le stockage Azure.
+    > [En savoir plus sur le chiffrement du service de stockage depuis Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 8. Dans **Server name**, entrez un nom convivial pour identifier le serveur VMM dans le coffre. Dans une configuration de cluster, spécifiez le nom de rôle de cluster VMM.
 9. Si vous souhaitez synchroniser les métadonnées de l’ensemble des clouds sur le serveur VMM avec le coffre, activez l’option **Synchroniser les métadonnées du cloud**. Cette action se produit une seule fois sur chaque serveur. Si vous ne souhaitez pas synchroniser tous les clouds, vous pouvez désactiver ce paramètre et synchroniser individuellement chaque cloud via les propriétés du cloud de la console VMM. Cliquez sur **Register** pour terminer le processus.
 
@@ -425,6 +430,12 @@ Où :
 * **/Credentials**: paramètre obligatoire qui spécifie l’emplacement du fichier de clé d’inscription.  
 * **/FriendlyName**: paramètre obligatoire qui correspond au nom du serveur hôte Hyper-V qui s’affiche dans le portail Azure Site Recovery.
 * * **/EncryptionEnabled**: paramètre facultatif utilisé lorsque vous répliquez des machines virtuelles Hyper-V dans des clouds VMM sur Azure. Spécifiez si vous souhaitez chiffrer les machines virtuelles dans Azure (chiffrement au repos). Vérifiez que le nom du fichier porte l’extension **.pfx** . Par défaut, le chiffrement est désactivé
+
+    > [!NOTE]
+    > Nous recommandons l’utilisation de la fonctionnalité de chiffrement fournie par Azure pour chiffrer des données au repos, et non l’option de chiffrement (option EncryptionEnabled) fournie par Azure Site Recovery. La fonctionnalité de chiffrement fournie par Azure peut être activée pour un compte de stockage et offre de meilleures performances, car le chiffrement et le déchiffrement sont réalisés par le stockage  
+    > Azure.
+    > [En savoir plus sur le chiffrement du service de stockage dans Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 * **/proxyAddress**: paramètre facultatif qui spécifie l’adresse du serveur proxy.
 * **/proxyport**: paramètre facultatif qui spécifie le port du serveur proxy.
 * **/proxyUsername**: paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification).

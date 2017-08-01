@@ -16,4 +16,4 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 Le `<username>` représente [l’utilisateur du déploiement](#configure-a-deployment-user) que vous avez créé lors d’une précédente étape.
 
-Enregistrez l’URI affiché. Vous l’utiliserez à l’étape suivante. 
+Copiez l’URI affichée, vous allez l’utiliser à l’étape suivante.
