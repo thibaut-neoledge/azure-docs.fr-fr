@@ -22,9 +22,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 03/18/2017
 
 ---
-<a id="java-web-app-sign-in-and-sign-out-with-azure-ad" class="xliff"></a>
-
-# Connexion aux applications web Java et déconnexion de ces dernières avec Azure AD
+# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Connexion aux applications web Java et déconnexion de ces dernières avec Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 En assurant une connexion et une déconnexion uniques par le seul biais de quelques lignes de code, Azure Active Directory (Azure AD) simplifie l’externalisation de la gestion des identités des applications web. Vous pouvez connecter des utilisateurs à des applications web Java et les déconnecter de ces applications en utilisant l’implémentation Microsoft de la bibliothèque ADAL4J (Azure Active Directory Authentication Library for Java) gérée par la communauté.
@@ -35,18 +33,14 @@ Cet article explique comment utiliser la bibliothèque ADAL4J pour :
 * afficher certaines informations utilisateur ;
 * déconnecter des utilisateurs des applications.
 
-<a id="before-you-get-started" class="xliff"></a>
-
-## Avant de commencer
+## <a name="before-you-get-started"></a>Avant de commencer
 
 * Téléchargez [la structure de l’application](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).
 * Vous avez également besoin d’un client Azure AD dans lequel inscrire l’application. Si vous ne disposez pas encore d’un client Azure AD, [découvrez comment en obtenir un](active-directory-howto-tenant.md).
 
 Lorsque vous êtes prêt, suivez les procédures des neuf sections qui suivent.
 
-<a id="step-1-register-the-new-app-with-azure-ad" class="xliff"></a>
-
-## Étape 1 : Inscrire la nouvelle application auprès d’Azure AD
+## <a name="step-1-register-the-new-app-with-azure-ad"></a>Étape 1 : Inscrire la nouvelle application auprès d’Azure AD
 Pour configurer l’application pour l’authentification des utilisateurs, commencez par l’inscrire dans votre client en procédant de la façon suivante :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
@@ -61,9 +55,7 @@ Pour configurer l’application pour l’authentification des utilisateurs, comm
 
 Lorsque vous vous trouvez dans le portail de l’application, créez et copiez une clé pour l’application sur la page **Paramètres**. Vous aurez besoin de cette clé sous peu.
 
-<a id="step-2-set-up-the-app-to-use-the-adal4j-and-prerequisites-by-using-maven" class="xliff"></a>
-
-## Étape 2 : Configurer l’application pour l’utilisation de la bibliothèque ADAL4J et définir les conditions préalables à l’aide de Maven
+## <a name="step-2-set-up-the-app-to-use-the-adal4j-and-prerequisites-by-using-maven"></a>Étape 2 : Configurer l’application pour l’utilisation de la bibliothèque ADAL4J et définir les conditions préalables à l’aide de Maven
 Dans le cadre de cette étape, vous allez configurer la bibliothèque ADAL4J pour l’utilisation du protocole d’authentification OpenID Connect. Vous utilisez ADAL4J pour émettre des demandes de connexion et de déconnexion, gérer les sessions utilisateur, obtenir des informations utilisateur, et ainsi de suite.
 
 Dans le répertoire racine de votre projet, ouvrez/créez le fichier `pom.xml`, recherchez la section `// TODO: provide dependencies for Maven` et remplacez-la par le contenu suivant :
@@ -178,9 +170,7 @@ Dans le répertoire racine de votre projet, ouvrez/créez le fichier `pom.xml`, 
     </project>
 ```
 
-<a id="step-3-create-the-java-web-app-files-web-inf" class="xliff"></a>
-
-## Étape 3 : Créer les fichiers d’application web Java (WEB-INF)
+## <a name="step-3-create-the-java-web-app-files-web-inf"></a>Étape 3 : Créer les fichiers d’application web Java (WEB-INF)
 Au cours de cette étape, vous allez configurer l’application web Java pour l’utilisation du protocole d’authentification OpenID Connect. Utilisez ADAL4J pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur, obtenir des informations concernant l’utilisateur, etc.
 
 1. Ouvrez le fichier web.xml situé sous \webapp\WEB-INF\, et entrez les valeurs de configuration d’application dans le fichier XML. Le fichier XML doit contenir le code suivant :
@@ -269,9 +259,7 @@ Au cours de cette étape, vous allez configurer l’application web Java pour l�
 
  Ce code indique à l’application web d’utiliser Spring et spécifie où trouver le fichier JSP, que vous allez écrire dans la section suivante.
 
-<a id="step-4-create-the-jsp-view-files-for-basicfilter-mvc" class="xliff"></a>
-
-## Étape 4 : Créer les fichiers JSP View (pour le MVC BasicFilter)
+## <a name="step-4-create-the-jsp-view-files-for-basicfilter-mvc"></a>Étape 4 : Créer les fichiers JSP View (pour le MVC BasicFilter)
 À ce stade, vous avez effectué la moitié de la procédure de configuration de votre application web dans WEB-INF. À présent, vous allez créer les fichiers JSP pour le contrôleur d’affichage des modèles (MVC) BasicFilter que l’application web exécute. Nous avons suggéré de créer ces fichiers lors de la configuration.
 
 Précédemment, vous avez indiqué à Java dans les fichiers de configuration XML que vous disposez d’une ressource `/` qui charge les fichiers JSP, et d’une ressource `/secure` qui passe à travers un filtre, que vous avez appelé BasicFilter.
@@ -341,9 +329,7 @@ Pour créer les fichiers JSP, procédez comme suit :
 
 Vous devez désormais configurer les fichiers Java afin que le servlet puisse faire son travail.
 
-<a id="step-5-create-some-java-helper-files-for-basicfilter-mvc" class="xliff"></a>
-
-## Étape 5 : Créer des fichiers d’assistance Java (pour le MVC BasicFilter)
+## <a name="step-5-create-some-java-helper-files-for-basicfilter-mvc"></a>Étape 5 : Créer des fichiers d’assistance Java (pour le MVC BasicFilter)
 L’objectif de cette étape consiste à créer des fichiers Java qui permettront d’effectuer les opérations suivantes :
 
 * Autoriser la connexion et la déconnexion de l’utilisateur
@@ -738,9 +724,7 @@ Pour écrire certains fichiers Java pour cette tâche :
 
     ```
 
-<a id="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc" class="xliff"></a>
-
-## Étape 6 : Créer les fichiers de modèle de l’API Graph Java (pour le MVC BasicFilter)
+## <a name="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc"></a>Étape 6 : Créer les fichiers de modèle de l’API Graph Java (pour le MVC BasicFilter)
 Comme indiqué précédemment, vous utilisez l’API Graph pour obtenir des données relatives à l’utilisateur connecté. Pour vous faciliter la tâche, créez un fichier destiné à représenter un objet d’annuaire et un fichier devant représenter l’utilisateur afin que le modèle OO de Java soit utilisable.
 
 1. Créez un fichier appelé DirectoryObject.java, que vous utiliserez pour stocker des données de base sur tout objet d’annuaire. Vous pourrez utiliser ce fichier par la suite pour toutes les autres requêtes Graph que vous pourriez avoir à exécuter. Pour créer ce fichier, collez-y le code suivant :
@@ -1311,9 +1295,7 @@ Comme indiqué précédemment, vous utilisez l’API Graph pour obtenir des donn
 
     ```
 
-<a id="step-7-create-the-authentication-model-and-controller-files-for-basicfilter" class="xliff"></a>
-
-## Étape 7 : Créer les fichiers de modèle d’authentification et de contrôleur (pour BasicFilter)
+## <a name="step-7-create-the-authentication-model-and-controller-files-for-basicfilter"></a>Étape 7 : Créer les fichiers de modèle d’authentification et de contrôleur (pour BasicFilter)
 Nous avons bien conscience que Java peut être particulièrement prolixe, mais vous avez quasiment terminé. Avant d’écrire le servlet BasicFilter pour gérer les demandes, vous devez écrire quelques fichiers d’assistance supplémentaires dont la bibliothèque ADAL4J a besoin.
 
 1. Créez un fichier appelé AuthHelper.java qui vous donnera les méthodes à utiliser pour déterminer l’état de l’utilisateur connecté. Ces méthodes sont les suivantes :
@@ -1465,9 +1447,7 @@ Nous avons bien conscience que Java peut être particulièrement prolixe, mais v
 
     ```
 
-<a id="step-8-create-the-basicfilter-file-for-basicfilter-mvc" class="xliff"></a>
-
-## Étape 8 : Créer le fichier BasicFilter (pour le MVC BasicFilter)
+## <a name="step-8-create-the-basicfilter-file-for-basicfilter-mvc"></a>Étape 8 : Créer le fichier BasicFilter (pour le MVC BasicFilter)
 Vous pouvez désormais créer le fichier BasicFilter.java, qui gère les demandes émanant des fichiers JSP View. Pour créer ce fichier, collez-y le code suivant :
 
 ```Java
@@ -1719,9 +1699,7 @@ Ce servlet expose toutes les méthodes dont la bibliothèque ADAL4J attendra l�
 * **createSessionPrincipal()** : crée un principal de session à utiliser pour l’accès à l’API Graph.
 * **getRedirectUrl()** : obtient l’URL de redirection à comparer avec la valeur que vous avez entrée dans le portail.
 
-<a id="step-9-compile-and-run-the-sample-in-tomcat" class="xliff"></a>
-
-## Étape 9 : Compiler et exécuter l’exemple dans Tomcat
+## <a name="step-9-compile-and-run-the-sample-in-tomcat"></a>Étape 9 : Compiler et exécuter l’exemple dans Tomcat
 
 1. Accédez à votre répertoire racine.
 2. Pour générer l’exemple que vous venez de créer en utilisant `maven`, exécutez la commande suivante :
@@ -1736,9 +1714,7 @@ Vous disposez à présent d’un fichier adal4jsample.war dans votre répertoire
 > Vous pouvez aisément déployer un fichier .war avec les derniers serveurs Tomcat. Accédez à http://localhost:8080/manager/, puis suivez les instructions de chargement du fichier adal4jsample.war. Il se déploiera automatiquement pour vous avec le point de terminaison correct.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous disposez désormais d’une application Java fonctionnelle qui peut authentifier les utilisateurs, appeler en toute sécurité les API web à l’aide d’OAuth 2.0 et obtenir des informations de base concernant les utilisateurs. Si vous n’avez pas encore rempli votre client avec des utilisateurs, il est judicieux de le faire à ce stade.
 
 À titre de référence supplémentaire, vous pouvez obtenir l’exemple terminé (sans vos valeurs de configuration) de deux manières :

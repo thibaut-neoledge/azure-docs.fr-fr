@@ -21,15 +21,11 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="how-to-fill-out-specific-fields-for-a-custom-developed-application" class="xliff"></a>
-
-# Comment remplir les champs spécifiques d’une application personnalisée
+# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Comment remplir les champs spécifiques d’une application personnalisée
 
 Cet article décrit brièvement tous les champs disponibles dans le formulaire d’inscription d’application du [portail Azure](https://portal.azure.com).
 
-<a id="register-a-new-application" class="xliff"></a>
-
-## Inscrire une nouvelle application
+## <a name="register-a-new-application"></a>Inscrire une nouvelle application
 
 -   Pour inscrire une nouvelle application, accédez au [portail Azure](https://portal.azure.com).
 
@@ -39,9 +35,7 @@ Cet article décrit brièvement tous les champs disponibles dans le formulaire d
 
 -   Le formulaire d’inscription d’application s’affiche ensuite.
 
-<a id="fields-in-the-application-registration-form" class="xliff"></a>
-
-## Champs du formulaire d’inscription d’application
+## <a name="fields-in-the-application-registration-form"></a>Champs du formulaire d’inscription d’application
 
 
 | Champ            | Description                                                                              |
@@ -65,8 +59,6 @@ Après avoir rempli les champs ci-dessus, l’application est inscrite dans le p
 | URI de redirection   | Pour les applications natives, c’est l’emplacement vers lequel l’utilisateur est dirigé après avoir été authentifié. Azure AD vérifie que l’URI de redirection que votre application fournit dans la demande OAuth 2.0 correspond à l’une des valeurs inscrites dans le portail.                                                            |
 | de clés symétriques            | Vous pouvez créer des clés pour accéder par programme aux API web sécurisées par Azure AD sans aucune interaction de l’utilisateur. Depuis la page \*\*Clés\*\*, saisissez une description de clé et la date d’expiration,puis enregistrez pour générer la clé. Veillez à l’enregistrer dans un endroit sûr, car vous ne pourrez pas y accéder ultérieurement.             |
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)
 

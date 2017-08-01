@@ -21,15 +21,11 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problems-signing-in-to-an-custom-developed-application" class="xliff"></a>
-
-# Problèmes de connexion à une application personnalisée
+# <a name="problems-signing-in-to-an-custom-developed-application"></a>Problèmes de connexion à une application personnalisée
 
 Plusieurs erreurs peuvent vous empêcher de vous connecter à une application. La raison principale vient du fait que les applications sont mal configurées.
 
-<a id="errors-related-to--misconfigured-apps" class="xliff"></a>
-
-## Erreurs liées à des applications mal configurées
+## <a name="errors-related-to--misconfigured-apps"></a>Erreurs liées à des applications mal configurées
 
 * Vérifiez que les deux configurations dans le portail correspondent à ce que vous avez dans votre application. Plus précisément, comparez l’ID de client/d’application, les URL de réponse, les clés secrètes client/clés et l’URI ID d’application.
 
@@ -37,9 +33,7 @@ Plusieurs erreurs peuvent vous empêcher de vous connecter à une application. L
 
 * Pour obtenir des informations sur des erreurs ou des problèmes similaires, consultez [Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory).
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Guide de développement Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 

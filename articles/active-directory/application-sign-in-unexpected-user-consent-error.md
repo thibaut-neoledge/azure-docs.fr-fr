@@ -21,9 +21,7 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="unexpected-error-when-performing-consent-to-an-application" class="xliff"></a>
-
-# Erreur inattendue lors du consentement à une application
+# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erreur inattendue lors du consentement à une application
 
 Cet article traite des erreurs qui peuvent se produire durant le processus de consentement à une application. Si vous rencontrez des invites de consentement inattendues qui ne contiennent aucun message d’erreur, consultez [Scénarios d’authentification pour Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
 
@@ -33,44 +31,32 @@ Une invite de consentement est alors affichée à la première utilisation d’u
 
 Certaines conditions doivent être réunies pour qu’un utilisateur consente aux autorisations exigées par une application. Si ces conditions ne sont pas remplies, différentes erreurs peuvent se produire. Vous avez notamment vu les points suivants :
 
-<a id="requesting-not-authorized-permissions-error" class="xliff"></a>
-
-## Erreur : demande d’autorisations dont l’octroi n’est pas autorisé
+## <a name="requesting-not-authorized-permissions-error"></a>Erreur : demande d’autorisations dont l’octroi n’est pas autorisé
 * **AADSTS90093 :** &lt;clientAppDisplayName&gt; demande une ou plusieurs autorisations que vous ne pouvez pas accorder. Contactez un administrateur qui peut donner son consentement à cette application en votre nom.
 
 Cette erreur se produit quand un utilisateur, qui n’est pas un administrateur d’entreprise, tente d’utiliser une application qui demande des autorisations pouvant uniquement être accordées par un administrateur. Pour résoudre cette erreur, un administrateur peut accorder l’accès à l’application au nom de son organisation.
 
-<a id="policy-prevents-granting-permissions-error" class="xliff"></a>
-
-## Erreur : stratégie empêchant l’octroi d’autorisations
+## <a name="policy-prevents-granting-permissions-error"></a>Erreur : stratégie empêchant l’octroi d’autorisations
 * **AADSTS90093 :** Un administrateur de &lt;tenantDisplayName&gt; a défini une stratégie qui vous empêche d’octroyer à &lt;nom_application&gt; les autorisations qu’elle demande. Contactez un administrateur de &lt;tenantDisplayName&gt;, qui peut accorder des autorisations à cette application en votre nom.
 
 Cette erreur se produit quand un utilisateur non-administrateur tente d’utiliser une application qui nécessite son consentement et que l’administrateur d’entreprise l’en empêche. Pour résoudre cette erreur, un administrateur peut accorder l’accès à l’application au nom de son organisation.
 
-<a id="intermittent-problem-error" class="xliff"></a>
-
-## Erreur : problème intermittent
+## <a name="intermittent-problem-error"></a>Erreur : problème intermittent
 * **AADSTS90090 :** Un problème intermittent s’est apparemment produit lors de l’enregistrement des autorisations que vous avez tenté d’octroyer à &lt;clientAppDisplayName&gt;. Réessayez plus tard.
 
 Cette erreur indique qu’un problème intermittent côté service s’est produit. Vous pouvez le résoudre en essayant de donner à nouveau votre consentement à l’application.
 
-<a id="resource-not-available-error" class="xliff"></a>
-
-## Erreur : ressource non disponible
+## <a name="resource-not-available-error"></a>Erreur : ressource non disponible
 * **AADSTS65005 :** L’application &lt;clientAppDisplayName&gt; a demandé des autorisations pour accéder à une ressource &lt;resourceAppDisplayName&gt; qui n’est pas disponible. 
 
 Contactez le développeur de l’application.
 
-<a id="resource-not-available-in-tenant-error" class="xliff"></a>
-
-##  Erreur : ressource non disponible dans le locataire
+##  <a name="resource-not-available-in-tenant-error"></a>Erreur : ressource non disponible dans le locataire
 * **AADSTS65005:** &lt;clientAppDisplayName&gt; demande l’accès à une ressource &lt;resourceAppDisplayName&gt; qui n’est pas disponible dans votre organisation &lt;tenantDisplayName&gt;. 
 
 Vérifiez que cette ressource est disponible ou contactez un administrateur de &lt;tenantDisplayName&gt;.
 
-<a id="permissions-mismatch-error" class="xliff"></a>
-
-## Erreur : incompatibilité des autorisations
+## <a name="permissions-mismatch-error"></a>Erreur : incompatibilité des autorisations
 * **AADSTS65005 :** L’application a fait une demande de consentement pour accéder à la ressource &lt;resourceAppDisplayName&gt;. Cette demande a échoué car elle ne correspond pas à la façon dont l’application a été préconfigurée pendant son inscription. Contactez le fournisseur de l’application.**
 
 Ces erreurs se produisent quand l’application à laquelle un utilisateur tente de donner son consentement demande des autorisations pour accéder à une application de ressources introuvable dans l’annuaire (locataire) de l’organisation. Cela peut se produire pour plusieurs raisons :
@@ -87,9 +73,7 @@ Ces erreurs se produisent quand l’application à laquelle un utilisateur tente
 
     -   Ajout de l’application à partir de la galerie d’applications Azure AD
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 
 [Applications, autorisations et consentement dans Azure Active Directory (point de terminaison v1)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 

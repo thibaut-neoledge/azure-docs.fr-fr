@@ -21,9 +21,7 @@ ms.lasthandoff: 04/14/2017
 
 ---
 
-<a id="how-to-select-permissions-for-a-given-api" class="xliff"></a>
-
-# Guide pratique pour sélectionner les autorisations pour une API donnée
+# <a name="how-to-select-permissions-for-a-given-api"></a>Guide pratique pour sélectionner les autorisations pour une API donnée
 
 Vous pouvez trouver les points de terminaison d’authentification pour votre application dans le [portail Azure](https://portal.azure.com).
 
@@ -37,8 +35,6 @@ Vous pouvez trouver les points de terminaison d’authentification pour votre ap
 
 -   Utilisez le point de terminaison spécifique au protocole d’authentification que vous utilisez, en combinaison avec l’ID d’application pour créer la demande d’authentification spécifique à votre application.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Guide du développeur Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
 

@@ -21,14 +21,10 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="find-out-when-a-specific-user-will-be-able-to-access-an-application" class="xliff"></a>
-
-# Déterminer à quel moment un utilisateur spécifique pourra accéder à une application
+# <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Déterminer à quel moment un utilisateur spécifique pourra accéder à une application
 Lorsque vous utilisez l’approvisionnement automatique des utilisateurs avec une application, Azure AD approvisionne et met à jour automatiquement les comptes d’utilisateur dans une application selon différents éléments comme [l’affectation d’utilisateurs et de groupes](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) et selon un intervalle régulier planifié (généralement toutes les 10 minutes).
 
-<a id="how-long-does-it-take" class="xliff"></a>
-
-## Combien de temps cela prend-il ?
+## <a name="how-long-does-it-take"></a>Combien de temps cela prend-il ?
 
 Le temps nécessaire à l’approvisionnement d’un utilisateur donné sera différent selon qu’une synchronisation initiale « complète » a déjà eu lieu ou non.
 
@@ -36,9 +32,7 @@ La première synchronisation entre Azure AD et une application peut prendre de 
 
 Les synchronisations qui suivent la synchronisation initiale sont plus rapides (10 minutes, par exemple) car le service d’approvisionnement stocke les filigranes qui représentent l’état des deux systèmes après la synchronisation initiale, ce qui améliore les performances des synchronisations suivantes.
 
-<a id="how-to-check-the-status-of-a-user" class="xliff"></a>
-
-## Vérification de l’état d’un utilisateur
+## <a name="how-to-check-the-status-of-a-user"></a>Vérification de l’état d’un utilisateur
 
 Pour consulter l’état de l’approvisionnement d’un utilisateur spécifique, consultez les journaux d’audit dans Azure AD.
 
@@ -53,8 +47,6 @@ Les journaux d’audit d’approvisionnement enregistrent toutes les opérations
 * Comparaison des objets utilisateur du système
 * Ajout, mise à jour ou désactivation du compte d’utilisateur dans le système cible en fonction de la comparaison
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)
 

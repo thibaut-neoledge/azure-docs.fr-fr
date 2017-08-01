@@ -22,15 +22,13 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 03/04/2017
 
 ---
-# Concepteur de métaverse de Sync Service Manager
-<a id="sync-service-manager-metaverse-designer" class="xliff"></a>
+# <a name="sync-service-manager-metaverse-designer"></a>Concepteur de métaverse de Sync Service Manager
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvdesigner.png)
 
 Pour la plupart des clients, il n’y a rien à configurer ici.
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
