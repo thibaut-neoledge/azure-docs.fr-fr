@@ -21,9 +21,7 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="error-on-an-applications-page-after-signing-in" class="xliff"></a>
-
-# Erreur dans la page d’une application après la connexion
+# <a name="error-on-an-applications-page-after-signing-in"></a>Erreur dans la page d’une application après la connexion
 
 Dans ce scénario, Azure AD connecte l’utilisateur, mais l’application affiche une erreur qui empêche l’utilisateur de terminer le flux de connexion. Dans ce scénario, l’application n’accepte pas la réponse émise par Azure AD.
 
@@ -35,9 +33,7 @@ Plusieurs raisons peuvent expliquer pourquoi l’application n’a pas accepté 
 
 -   Partagez la réponse SAML avec le fournisseur de l’application pour savoir ce qui manque.
 
-<a id="missing-attributes-in-the-saml-response" class="xliff"></a>
-
-## Attributs manquants dans la réponse SAML
+## <a name="missing-attributes-in-the-saml-response"></a>Attributs manquants dans la réponse SAML
 
 Pour ajouter un attribut dans la configuration Azure AD à envoyer dans la réponse Azure AD, procédez comme suit :
 
@@ -69,15 +65,11 @@ Pour ajouter un attribut dans la configuration Azure AD à envoyer dans la répo
 
 La prochaine fois que l’utilisateur se connectera à l’application, Azure AD enverra le nouvel attribut dans la réponse SAML.
 
-<a id="the-application-expects-a-different-user-identifier-value-or-format" class="xliff"></a>
-
-## L’application attend une valeur ou un format d’identificateur d’utilisateur différent
+## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>L’application attend une valeur ou un format d’identificateur d’utilisateur différent
 
 La connexion à l’application échoue parce que la réponse SAML ne comprend pas certains attributs tels que des rôles ou parce que l’application attend un format différent pour l’attribut EntityID.
 
-<a id="add-an-attribute-in-the-azure-ad-application-configuration" class="xliff"></a>
-
-## Ajoutez un attribut dans la configuration de l’application Azure AD :
+## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Ajoutez un attribut dans la configuration de l’application Azure AD :
 
 Pour changer la valeur de l’identificateur d’utilisateur, procédez comme suit :
 
@@ -99,17 +91,13 @@ Pour changer la valeur de l’identificateur d’utilisateur, procédez comme su
 
 8.  Sous **Attributs d’utilisateur**, sélectionnez l’identificateur unique de vos utilisateurs dans la liste déroulante **Identificateur de l’utilisateur**.
 
-<a id="change-entityid-user-identifier-format" class="xliff"></a>
-
-## Changer le format d’EntityID (identificateur d’utilisateur)
+## <a name="change-entityid-user-identifier-format"></a>Changer le format d’EntityID (identificateur d’utilisateur)
 
 Si l’application attend un autre format pour l’attribut EntityID, vous ne pouvez pas sélectionner le format d’EntityID (identificateur d’utilisateur) qu’Azure AD envoie à l’application dans la réponse après l’authentification de l’utilisateur.
 
 Azure AD sélectionne le format de l’attribut NameID (identificateur d’utilisateur) en fonction de la valeur sélectionnée ou du format demandé par l’application dans la demande d’authentification SAML. Pour plus d’informations, consultez l’article [Protocole SAML d’authentification unique](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) dans la section NameIDPolicy.
 
-<a id="the-application-expects-a-different-signature-method-for-the-saml-response" class="xliff"></a>
-
-## L’application attend une méthode de signature différente pour la réponse SAML
+## <a name="the-application-expects-a-different-signature-method-for-the-saml-response"></a>L’application attend une méthode de signature différente pour la réponse SAML
 
 Pour modifier les parties du jeton SAML qui sont signées numériquement par Azure Active Directory. Pour ce faire, procédez comme suit :
 
@@ -141,9 +129,7 @@ Pour modifier les parties du jeton SAML qui sont signées numériquement par Azu
 
 La prochaine fois que l’utilisateur se connectera à l’application, Azure AD signera la partie de la réponse SAML sélectionnée.
 
-<a id="the-application-expects-the-signing-algorithm-to-be-sha-1" class="xliff"></a>
-
-## L’application attend l’algorithme de signature SHA-1
+## <a name="the-application-expects-the-signing-algorithm-to-be-sha-1"></a>L’application attend l’algorithme de signature SHA-1
 
 Par défaut, Azure AD signe le jeton SAML à l’aide de l’algorithme le plus sécurisé. Il n’est pas recommandé de remplacer l’algorithme de connexion par SHA-1, sauf si l’application l’exige.
 
@@ -171,8 +157,6 @@ Pour changer l’algorithme de signature, procédez comme suit :
 
 La prochaine fois que l’utilisateur se connectera à l’application, Azure AD signera le jeton SAML à l’aide de l’algorithme SHA-1.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Débogage d’une authentification unique basée sur SAML aux applications dans Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
 

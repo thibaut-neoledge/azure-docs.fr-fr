@@ -21,17 +21,13 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application" class="xliff"></a>
-
-# Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
+# <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD
 
 La configuration de [l’approvisionnement automatique des utilisateurs](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) pour une application (lorsqu’il est pris en charge) implique de respecter des instructions spécifiques pour la préparation de l’application. Vous pouvez ensuite utiliser le Portail Azure afin de configurer le service d’approvisionnement pour synchroniser les comptes d’utilisateur avec l’application.
 
 Vous devez toujours commencer par rechercher le didacticiel spécifique à la configuration de l’approvisionnement pour votre application. Suivez ensuite ces étapes afin de configurer l’application et Azure AD pour créer la connexion d’approvisionnement. Vous trouverez une liste de didacticiels pour les applications à la page [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
-<a id="how-to-see-if-provisioning-is-working" class="xliff"></a>
-
-## Comment savoir si l’approvisionnement fonctionne 
+## <a name="how-to-see-if-provisioning-is-working"></a>Comment savoir si l’approvisionnement fonctionne 
 
 Une fois que le service est configuré, la plupart des informations sur son fonctionnement peuvent être obtenues à deux emplacements :
 
@@ -39,9 +35,7 @@ Une fois que le service est configuré, la plupart des informations sur son fonc
 
 -   **État de l’approvisionnement :** un résumé de la dernière exécution de l’approvisionnement pour une application donnée est disponible sous **Azure Active Directory &gt; Applications d’entreprise &gt; \[Nom de l’application\] &gt;Approvisionnement**, en bas de l’écran, sous les paramètres du service. Cette section affiche le nombre d’utilisateurs (et/ou groupes) en cours de synchronisation entre les deux systèmes et indique les erreurs éventuelles. Les erreurs sont détaillées dans les journaux d’audit. Notez que l’état de l’approvisionnement n’est renseigné que lorsqu’une synchronisation initiale complète a été effectuée entre Azure AD et l’application.
 
-<a id="general-problem-areas-with-provisioning-to-consider" class="xliff"></a>
-
-## Problèmes d’approvisionnement généraux à prendre en compte
+## <a name="general-problem-areas-with-provisioning-to-consider"></a>Problèmes d’approvisionnement généraux à prendre en compte
 
 Voici une liste des problèmes généraux que vous pouvez explorer si vous savez par où commencer.
 
@@ -49,9 +43,7 @@ Voici une liste des problèmes généraux que vous pouvez explorer si vous savez
 * [Impossible d’enregistrer la configuration car les informations d’identification de l’application ne fonctionnent pas](#can’t-save-configuration-due-to-app-credentials-not-working)
 * [Les journaux d’audit indiquent que les utilisateurs sont ignorés et non approvisionnés, alors qu’ils sont affectés](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
-<a id="provisioning-service-does-not-appear-to-start" class="xliff"></a>
-
-## Le service d’approvisionnement ne semble pas démarrer
+## <a name="provisioning-service-does-not-appear-to-start"></a>Le service d’approvisionnement ne semble pas démarrer
 
 Si vous définissez le paramètre **État de l’approvisionnement** sur **Activé** dans la section **Azure Active Directory &gt; Applications d’entreprise &gt; \[Nom de l’application\] &gt;Approvisionnement** du Portail Azure. Cependant aucune autre information d’état n’apparaît sur cette page après de nouveaux chargements. Le service est probablement en cours d’exécution mais n’a pas encore terminé la synchronisation initiale. Vérifiez les **journaux d’audit** décrits ci-dessus pour déterminer les opérations effectuées par le service et la présence éventuelle d’erreurs.
 
@@ -60,15 +52,11 @@ Si vous définissez le paramètre **État de l’approvisionnement** sur **Activ
 >
 >
 
-<a id="cant-save-configuration-due-to-app-credentials-not-working" class="xliff"></a>
-
-## Impossible d’enregistrer la configuration car les informations d’identification de l’application ne fonctionnent pas
+## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>Impossible d’enregistrer la configuration car les informations d’identification de l’application ne fonctionnent pas
 
 Pour un fonctionnement correct de l’approvisionnement, Azure AD nécessite des informations d’identification valides qui lui permettent de se connecter à une API de gestion des utilisateurs fournie par cette application. Si ces informations d’identification ne fonctionnent pas ou si vous ne les connaissez pas, consultez le didacticiel dédié à la configuration de cette application (décrit précédemment).
 
-<a id="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned" class="xliff"></a>
-
-## Les journaux d’audit indiquent que les utilisateurs sont ignorés et non approvisionnés, alors qu’ils sont affectés
+## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Les journaux d’audit indiquent que les utilisateurs sont ignorés et non approvisionnés, alors qu’ils sont affectés
 
 Lorsqu’un utilisateur apparaît comme « ignoré » dans les journaux d’audit, il est essentiel de consulter les détails du message du journal pour en déterminer la raison. Voici les raisons les plus courantes et les solutions correspondantes :
 
@@ -80,8 +68,6 @@ Lorsqu’un utilisateur apparaît comme « ignoré » dans les journaux d’au
 
    * **Mappages d’attributs pour les groupes :** approvisionnement du nom du groupe et des détails du groupe, en plus des membres, si la prise en charge est effective pour certaines applications. Vous pouvez activer ou désactiver cette fonctionnalité en activant ou désactivant le **mappage** pour les objets de groupe affichés dans l’onglet **Approvisionnement**. Si les groupes d’approvisionnement sont activés, veillez à passer en revue les mappages d’attributs afin de vous assurer qu’un champ approprié est utilisé pour l’« ID correspondant ». Il peut s’agir du nom d’affichage ou de l’alias de courrier électronique dans la mesure où le groupe et ses membres ne sont pas approvisionnés si la propriété correspondante est vide ou n’est pas remplie pour un groupe dans Azure AD.
 
-<a id="next-steps" class="xliff"></a>
-
-#Étapes suivantes
+#<a name="next-steps"></a>Étapes suivantes
 [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](active-directory-saas-app-provisioning.md)
 
