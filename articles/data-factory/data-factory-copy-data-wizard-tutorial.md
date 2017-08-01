@@ -22,8 +22,7 @@ ms.lasthandoff: 05/17/2017
 
 
 ---
-<a id="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard" class="xliff"></a>
-# Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
@@ -40,12 +39,10 @@ Ce didacticiel vous montre comment utiliser **l’Assistant de copie** pour copi
 
 Ce didacticiel vous montre comment créer une fabrique de données Azure, lancer l’Assistant Copie et suivre une série d’étapes pour fournir des informations sur votre scénario d’ingestion/déplacement de données. Une fois les étapes de l’Assistant terminées, celui-ci crée automatiquement un pipeline avec une activité de copie pour copier des données d’un stockage d’objets blob Azure à une base de données SQL Azure. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
-<a id="prerequisites" class="xliff"></a>
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 Assurez-vous que vous respectez la configuration requise décrite dans l’article [Vue d’ensemble du didacticiel](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) avant de suivre ce didacticiel.
 
-<a id="create-data-factory" class="xliff"></a>
-## Créer une fabrique de données
+## <a name="create-data-factory"></a>Créer une fabrique de données
 Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
@@ -74,8 +71,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
    
    ![Page d'accueil Data Factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-<a id="launch-copy-wizard" class="xliff"></a>
-## Lancer l’Assistant Copie
+## <a name="launch-copy-wizard"></a>Lancer l’Assistant Copie
 1. Dans le panneau Fabrique de données, cliquez sur **Copier les données [VERSION PRÉLIMINAIRE]** pour lancer **l’Assistant de copie**. 
    
    > [!NOTE]
@@ -137,8 +133,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
     
     ![Outil de copie - Paramètres de performances](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-<a id="launch-monitor-and-manage-application" class="xliff"></a>
-## Lancer l’application Surveiller et gérer
+## <a name="launch-monitor-and-manage-application"></a>Lancer l’application Surveiller et gérer
 1. Dans la page **Déploiement**, cliquez sur le lien : `Click here to monitor copy pipeline`.
    
    ![Outil de copie - Déploiement réussi](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
@@ -154,8 +149,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
 
     Pour plus d’informations sur l’utilisation de cette application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de la nouvelle application de surveillance et de gestion](data-factory-monitor-manage-app.md).
 
-<a id="next-steps" class="xliff"></a>
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez utilisé le stockage Blob Azure comme magasin de données source et une base de données SQL Azure comme banque de données de destination dans une opération de copie. Le tableau ci-dessous contient la liste des magasins de données pris en charge en tant que sources et destinations par l’activité de copie : 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]

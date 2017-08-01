@@ -22,16 +22,14 @@ ms.lasthandoff: 04/27/2017
 
 
 ---
-<a id="data-factory-scheduling-and-execution" class="xliff"></a>
-# Planification et exécution avec Data Factory
+# <a name="data-factory-scheduling-and-execution"></a>Planification et exécution avec Data Factory
 Cet article explique les aspects de la planification et de l’exécution du modèle d’application Azure Data Factory. Cet article suppose que vous avez des notions de base sur les concepts de modèle de données Data Factory, dont l’activité, les pipelines, les services connexes et les groupes de données. Pour les concepts de base d’Azure Data Factory, consultez les articles suivants :
 
 * [Présentation de Data Factory](data-factory-introduction.md)
 * [Pipelines](data-factory-create-pipelines.md)
 * [Groupes de données](data-factory-create-datasets.md) 
 
-<a id="start-and-end-times-of-pipeline" class="xliff"></a>
-## Heures de début et de fin de pipeline
+## <a name="start-and-end-times-of-pipeline"></a>Heures de début et de fin de pipeline
 Un pipeline est actif uniquement entre son heure de **début** et son heure de **fin**. Il n'est pas exécuté avant l'heure de début, ni après l'heure de fin. Lorsque le pipeline est suspendu, il n’est pas exécuté, quelle que soit son heure de début et de fin. Pour qu'un pipeline soit exécuté, il ne doit pas être suspendu. Vous trouvez ces paramètres (début, fin, suspendu) dans la définition du pipeline : 
 
 ```json
@@ -43,8 +41,7 @@ Un pipeline est actif uniquement entre son heure de **début** et son heure de *
 Pour plus d’informations sur ces propriétés, consultez l’article [Créer des pipelines](data-factory-create-pipelines.md). 
 
 
-<a id="specify-schedule-for-an-activity" class="xliff"></a>
-## Spécifier la planification d’une activité
+## <a name="specify-schedule-for-an-activity"></a>Spécifier la planification d’une activité
 Ce n’est pas le pipeline qui est exécuté. Ce sont les activités dans le pipeline qui sont exécutées dans le contexte global du pipeline. Vous pouvez planifier l’activité pour qu’elle s’exécute de façon récurrente grâce à la section **scheduler** (planificateur) de l’activité JSON. Par exemple, vous pouvez planifier l’exécution d’une activité toutes les heures comme suit :  
 
 ```json
@@ -60,8 +57,7 @@ Comme illustré dans le diagramme suivant, la définition d’une planification 
 
 La propriété **scheduler** (planificateur) d’une activité est facultative. Si vous définissez cette propriété, elle doit correspondre à la cadence que vous spécifiez dans la définition du jeu de données de sortie pour l’activité. Le jeu de données de sortie pilote actuellement la planification. Vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. 
 
-<a id="specify-schedule-for-a-dataset" class="xliff"></a>
-## Spécifier la planification d’un jeu de données
+## <a name="specify-schedule-for-a-dataset"></a>Spécifier la planification d’un jeu de données
 Une activité dans un pipeline Data Factory peut inclure zéro ou plusieurs **jeux de données** d’entrée et produire un ou plusieurs jeux de données de sortie. Pour une activité, vous pouvez spécifier la cadence à laquelle les données d’entrée sont disponibles ou les données de sortie sont produites à l’aide de la section **availability** (disponibilité) dans les définitions de jeu de données. 
 
 La **Fréquence** dans la section **availability** (disponibilité) spécifie l’unité de temps. Les valeurs autorisées pour la fréquence sont : minute, heure, jour, semaine et mois. La propriété **interval** (intervalle) dans la section availability (disponibilité) spécifie un multiplicateur de fréquence. Par exemple : si la fréquence est définie sur Jour et l’intervalle sur 1 pour un jeu de données de sortie, les données de sortie sont produites chaque jour. Si vous définissez la fréquence en minutes, nous vous recommandons de définir l’intervalle sur une valeur au moins égale à 15. 
@@ -181,12 +177,10 @@ Vous pouvez utiliser ces variables à différentes fins dans votre activité JSO
 
 Dans l’exemple précédent, la planification spécifiée pour les jeux de données d’entrée et de sortie est la même (toutes les heures). Si le jeu de données d’entrée de l’activité est disponible à une fréquence différente, par exemple toutes les 15 minutes, l’activité qui produit ce jeu de données de sortie est toujours exécutée une fois par heure car le jeu de données de sortie pilote la planification de l’activité. Pour plus d’informations, consultez [Modélisation des jeux de données avec des fréquences différentes](#model-datasets-with-different-frequencies).
 
-<a id="dataset-availability-and-policies" class="xliff"></a>
-## Disponibilité et stratégies du jeu de données
+## <a name="dataset-availability-and-policies"></a>Disponibilité et stratégies du jeu de données
 Vous avez vu l’utilisation des propriétés de fréquence et d’intervalle de la section availability (disponibilité) de la définition du jeu de données. D’autres propriétés affectent la planification et l’exécution d’une activité. 
 
-<a id="dataset-availability" class="xliff"></a>
-### Disponibilité du jeu de données 
+### <a name="dataset-availability"></a>Disponibilité du jeu de données 
 Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la section **availability** :
 
 | Propriété | Description | Requis | Default |
@@ -197,8 +191,7 @@ Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la sec
 | anchorDateTime |Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/><b>Remarque :</b> si AnchorDateTime contient des éléments de date plus précis que la fréquence, ces éléments plus précis sont ignorés. <br/><br/>Par exemple, si <b>interval</b> est défini sur <b>hourly</b> (frequency : hour et interval : 1) et si <b>AnchorDateTime</b> contient <b>minutes et seconds</b>, les parties <b>minutes et seconds</b> de la valeur AnchorDateTime sont ignorées. |Non |01/01/0001 |
 | Offset |Intervalle de temps marquant le déplacement du début et de la fin de toutes les tranches du jeu de données. <br/><br/><b>Remarque :</b> si anchorDateTime et offset sont spécifiés, un décalage combiné est obtenu. |Non |N/D |
 
-<a id="offset-example" class="xliff"></a>
-### exemple offset
+### <a name="offset-example"></a>exemple offset
 Par défaut, les tranches quotidiennes (`"frequency": "Day", "interval": 1`) commencent à 0 h UTC (minuit). Si vous souhaitez que l’heure de début soit 6 h UTC, définissez le décalage comme indiqué dans l’extrait suivant : 
 
 ```json
@@ -209,8 +202,7 @@ Par défaut, les tranches quotidiennes (`"frequency": "Day", "interval": 1`) com
     "offset": "06:00:00"
 }
 ```
-<a id="anchordatetime-example" class="xliff"></a>
-### Exemple anchorDateTime
+### <a name="anchordatetime-example"></a>Exemple anchorDateTime
 Dans l’exemple suivant, le jeu de données est généré toutes les 23 heures. La première tranche commence à l’heure spécifiée par anchorDateTime, qui est défini sur `2017-04-19T08:00:00` (heure UTC).
 
 ```json
@@ -222,8 +214,7 @@ Dans l’exemple suivant, le jeu de données est généré toutes les 23 heures.
 }
 ```
 
-<a id="offsetstyle-example" class="xliff"></a>
-### Exemple de décalage/style
+### <a name="offsetstyle-example"></a>Exemple de décalage/style
 Le jeu de données suivant est un jeu de données mensuel et est généré le 3 de chaque mois à 8h00 (`3.08:00:00`) :
 
 ```json
@@ -235,8 +226,7 @@ Le jeu de données suivant est un jeu de données mensuel et est généré le 3 
 }
 ```
 
-<a id="dataset-policy" class="xliff"></a>
-### Stratégie du jeu de données
+### <a name="dataset-policy"></a>Stratégie du jeu de données
 Un jeu de données peut avoir une stratégie de validation définie qui spécifie comment les données générées par l’exécution d’une tranche peuvent être validées avant qu’il soit prêt à la consommation. Dans ce cas, une fois que la tranche a terminé l’exécution, l’état de la tranche de sortie devient **En attente** avec un sous-état **Validation**. Une fois les tranches validées, l’état de la tranche passe à **prêt**. Si une tranche de données a été générée mais n’a pas réussi la validation, l’activité s’exécute pour les tranches en aval dépendant de cette tranche qui ne sont pas traitées. [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md) .
 
 La section **policy** de la définition du jeu de données définit les critères ou la condition que les segments du jeu de données doivent remplir. Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la section **policy** (stratégie) :
@@ -246,8 +236,7 @@ La section **policy** de la définition du jeu de données définit les critère
 | minimumSizeMB | Valide le fait que les données dans un **objet blob Azure** répondent aux exigences de taille minimale (en mégaoctets). |objet blob Azure |Non |N/D |
 | minimumRows | Valide le fait que les données dans une **base de données SQL Azure** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Base de données SQL Azure</li><li>table Azure</li></ul> |Non |N/D |
 
-<a id="examples" class="xliff"></a>
-#### Exemples
+#### <a name="examples"></a>Exemples
 **minimumSizeMB :**
 
 ```json
@@ -275,8 +264,7 @@ La section **policy** de la définition du jeu de données définit les critère
 
 Pour plus d’informations sur ces propriétés et exemples, consultez l’article [Créer des jeux de données](data-factory-create-datasets.md). 
 
-<a id="activity-policies" class="xliff"></a>
-## Stratégies d’activité
+## <a name="activity-policies"></a>Stratégies d’activité
 Les stratégies affectent le comportement d'exécution d'une activité, en particulier lors du traitement du segment d'une table. Le tableau suivant fournit les détails.
 
 | Propriété | Valeurs autorisées | Valeur par défaut | Description |
@@ -291,14 +279,12 @@ Les stratégies affectent le comportement d'exécution d'une activité, en parti
 
 Pour plus d’informations, consultez l’article [Pipelines](data-factory-create-pipelines.md). 
 
-<a id="parallel-processing-of-data-slices" class="xliff"></a>
-## Traitement en parallèle des tranches de données
+## <a name="parallel-processing-of-data-slices"></a>Traitement en parallèle des tranches de données
 Vous pouvez définir la date de début du pipeline dans le passé. Lorsque vous procédez ainsi, Data Factory calcule (remplit postérieurement) automatiquement toutes les tranches de données dans le passé automatiquement et commence à les traiter. Par exemple : si vous créez un pipeline avec la date de début 2017-04-01 et que la date actuelle est 2017-04-10. Si la cadence du jeu de données de sortie est tous les jours, Data Factory commence immédiatement le traitement de toutes les tranches entre le 2017-04-01 et le 2017-04-09, car la date de début se situe dans le passé. La tranche du 2017-04-10 n’est pas encore traitée, car la valeur de la propriété style dans la section availability (disponibilité) est EndOfInterval par défaut. La tranche la plus ancienne est traitée en premier, car la valeur par défaut de executionPriorityOrder est OldestFirst. Pour obtenir une description de la propriété style, consultez la section [Disponibilité du jeu de données](#dataset-availability). Pour obtenir une description de la section executionPriorityOrder, consultez la section [Stratégies d’activité](#activity-policies). 
 
 Vous pouvez configurer des tranches de données pour qu’elles soient traitées en parallèle en définissant la propriété **concurrency** (concurrence) dans la section **policy** (stratégie) de l’activité JSON. Cette propriété détermine le nombre d’exécutions en parallèle de l’activité qui peuvent se produire sur différents segments. La valeur par défaut de la propriété de concurrence est 1. Une tranche est donc traitée à la fois par défaut. La valeur maximale est 10. Lorsqu’un pipeline doit passer par un grand ensemble de données disponibles, une valeur de concurrence plus élevée accélère le traitement des données. 
 
-<a id="rerun-a-failed-data-slice" class="xliff"></a>
-## Réexécuter une tranche de données ayant échoué
+## <a name="rerun-a-failed-data-slice"></a>Réexécuter une tranche de données ayant échoué
 Lorsqu’une erreur se produit pendant le traitement d’une tranche de données, vous pouvez savoir pourquoi le traitement d’une tranche a échoué à l’aide de panneaux du portail Azure ou de l’application Surveiller et gérer. Pour plus d’informations, consultez [Surveillance et gestion des pipelines à l’aide des panneaux du portail Azure](data-factory-monitor-manage-pipelines.md) ou de [l’application Surveillance et gestion](data-factory-monitor-manage-app.md).
 
 Prenons l’exemple suivant, il montre les deux activités. Activity1 et Activity2. Activity1 utilise une tranche de Dataset1 et génère une tranche de Dataset2, qui est utilisé en entrée par Activity2 pour produire une tranche du jeu de données final.
@@ -313,8 +299,7 @@ Une fois que vous avez relancé l’exécution de la tranche de 9-10 h pour **D
 
 ![Réexécuter une tranche de données ayant échoué](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
-<a id="multiple-activities-in-a-pipeline" class="xliff"></a>
-## Plusieurs activités à l’intérieur d’un pipeline
+## <a name="multiple-activities-in-a-pipeline"></a>Plusieurs activités à l’intérieur d’un pipeline
 Un pipeline peut toutefois contenir plusieurs activités. Si vous avez plusieurs activités dans un pipeline et que la sortie d’une activité n’est pas une entrée dans une autre activité, les activités peuvent s’exécuter en parallèle si les tranches de données d’entrée pour les activités sont prêtes.
 
 Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Les activités peuvent être dans le même pipeline ou dans des pipelines différents. La seconde activité s’exécute uniquement quand la première se termine correctement.
@@ -336,12 +321,10 @@ Comme mentionné plus tôt, les activités peuvent être dans des pipelines diff
 
 Consultez la section [Copier de manière séquentielle](#copy-sequentially) de l’annexe pour obtenir un exemple.
 
-<a id="model-datasets-with-different-frequencies" class="xliff"></a>
-## Modélisation des jeux de données avec des fréquences différentes
+## <a name="model-datasets-with-different-frequencies"></a>Modélisation des jeux de données avec des fréquences différentes
 Dans les exemples, les fréquences de planification des jeux de données d’entrée et de sortie et l’intervalle d’activité sont les mêmes. Certains scénarios exigent que la fréquence de génération d’une sortie à soit différente de celles d’une ou de plusieurs entrées. Data factory prend en charge la modélisation de ces scénarios.
 
-<a id="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour" class="xliff"></a>
-### Exemple 1 : production d’un rapport de sortie quotidien pour les données d’entrée est disponible toutes les heures
+### <a name="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Exemple 1 : production d’un rapport de sortie quotidien pour les données d’entrée est disponible toutes les heures
 Imaginez un scénario dans lequel nous avons entré des données de mesure à partir de capteurs disponibles toutes les heures dans un stockage Azure Blob. Vous voulez générer un rapport d’agrégation quotidien avec des statistiques, comme les valeurs moyenne, maximum et minimum pour la journée avec une [Activité Hive Data Factory](data-factory-hive-activity.md).
 
 Voici ce que vous pouvez modéliser ce scénario avec data factory :
@@ -461,8 +444,7 @@ Le diagramme suivant illustre le scénario du point de vue de la dépendance des
 
 La tranche de sortie dépend des 24 tranches horaires depuis l’ensemble de données en entrée. Data Factory calcule automatiquement ces dépendances en déterminant les tranches de données d’entrée qui tombent dans la même période que la tranche de données à générer. Si une des 24 tranches d’entrée n’est pas disponible, Data Factory attend que la tranche d’entrée soit prête avant de lancer l’exécution d’activité quotidienne.
 
-<a id="sample-2-specify-dependency-with-expressions-and-data-factory-functions" class="xliff"></a>
-### Exemple 2 : spécifier les dépendances avec des expressions et des fonctions Data Factory
+### <a name="sample-2-specify-dependency-with-expressions-and-data-factory-functions"></a>Exemple 2 : spécifier les dépendances avec des expressions et des fonctions Data Factory
 Prenons en compte un autre scénario. Supposez que vous avez une activité Hive qui traite deux jeux de données d’entrée. Un d’eux a de nouvelles données tous les jours, mais l’autre obtient de nouvelles données toutes les semaines. Supposons que vous vouliez faire la jonction entre les deux entrées et générer une sortie quotidiennement.
 
 L’approche simple consistant pour Data Factory à déterminer des tranches d’entrée appropriées à traiter en alignant la période de temps de la tranche de données en sortie ne fonctionne plus.
@@ -616,11 +598,9 @@ L’activité Hive accepte les deux entrées et génère une tranche de sortie t
 
 Pour obtenir la liste des fonctions et variables système prises en charge par Azure Data Factory, consultez [Variables système et fonctions Data Factory](data-factory-functions-variables.md) .
 
-<a id="appendix" class="xliff"></a>
-## Annexe
+## <a name="appendix"></a>Annexe
 
-<a id="example-copy-sequentially" class="xliff"></a>
-### Exemple : Copier de manière séquentielle
+### <a name="example-copy-sequentially"></a>Exemple : Copier de manière séquentielle
 Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Si, par exemple, vous avez deux activités de copie dans un pipeline : (ActivitédeCopie1 et ActivitédeCopie2) avec les jeux de données de sortie de données d’entrée suivants :   
 
 Activitédecopie1
