@@ -22,9 +22,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 02/14/2017
 
 ---
-<a id="integrate-azure-ad-with-an-apache-cordova-app" class="xliff"></a>
-
-# Intégration d’Azure AD avec une application Apache Cordova
+# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Intégration d’Azure AD avec une application Apache Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,9 +44,7 @@ Pour apporter ces améliorations, vous devez :
 3. ajouter du code pour utiliser le jeton pour l’interrogation de l’API Graph et afficher les résultats ;
 4. créer le projet de déploiement Cordova avec toutes les plateformes à cibler, ajouter le plug-in Cordova ADAL, puis tester la solution dans des émulateurs.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un client Azure AD où vous avez un compte disposant de droits de développement d’application.
@@ -86,9 +82,7 @@ Chaque plateforme cible présente une configuration requise différente :
 
   Le Kit de développement logiciel (SDK) Android ne fournit pas d’instance d’émulateur par défaut. Si vous souhaitez exécuter l’application Android sur un émulateur, créez une instance en exécutant `android avd` à partir du terminal, puis en sélectionnant **Create** (Créer). Nous recommandons un niveau d’API de 19 ou plus. Pour plus d’informations sur les options de création et l’émulateur Android, consultez [AVD Manager](http://developer.android.com/tools/help/avd-manager.html) sur le site Android.
 
-<a id="step-1-register-an-application-with-azure-ad" class="xliff"></a>
-
-## Étape 1 : Inscrire une application auprès d’Azure AD
+## <a name="step-1-register-an-application-with-azure-ad"></a>Étape 1 : Inscrire une application auprès d’Azure AD
 Cette étape est facultative. Ce didacticiel fournit des valeurs préconfigurées que vous pouvez utiliser pour voir l’exemple à l’œuvre sans effectuer d’approvisionnement dans votre propre client. Toutefois, nous vous recommandons d’effectuer cette étape et de vous familiariser avec le processus, car vous devrez y faire appel lorsque vous créerez vos propres applications.
 
 Azure AD émet uniquement des jetons pour les applications connues. Avant de pouvoir utiliser Azure AD à partir de votre application, vous devez créer une entrée pour elle dans votre client. Pour inscrire une nouvelle application dans votre client :
@@ -108,16 +102,12 @@ Pour exécuter `DirSearchClient Sample`, autorisez la nouvelle application à in
 1. Dans la page **Paramètres**, sélectionnez **Autorisations requises**, puis **Ajouter**.  
 2. Pour l’application Azure Active Directory, sélectionnez l’API **Microsoft Graph**, puis ajoutez l’autorisation **Access the directory as the signed-in user** (Accéder au répertoire en tant qu’utilisateur connecté) sous **Autorisations déléguées**.  Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
 
-<a id="step-2-clone-the-sample-app-repository" class="xliff"></a>
-
-## Étape 2 : Cloner l’exemple de référentiel d’application
+## <a name="step-2-clone-the-sample-app-repository"></a>Étape 2 : Cloner l’exemple de référentiel d’application
 À partir de votre environnement ou de la ligne de commande, tapez la commande suivante :
 
     git clone -b skeleton https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova.git
 
-<a id="step-3-create-the-cordova-app" class="xliff"></a>
-
-## Étape 3 : Créer l’application Cordova
+## <a name="step-3-create-the-cordova-app"></a>Étape 3 : Créer l’application Cordova
 Il existe plusieurs moyens de créer des applications Cordova. Dans ce didacticiel, nous allons utiliser l’interface de ligne de commande (CLI) Cordova.
 
 1. À partir de votre environnement ou de la ligne de commande, tapez la commande suivante :
@@ -149,9 +139,7 @@ Il existe plusieurs moyens de créer des applications Cordova. Dans ce didactici
 
         cordova plugin add cordova-plugin-ms-adal
 
-<a id="step-4-add-code-to-authenticate-users-and-obtain-tokens-from-azure-ad" class="xliff"></a>
-
-## Étape 4 : Ajouter le code pour authentifier les utilisateurs et obtenir des jetons d’Azure AD
+## <a name="step-4-add-code-to-authenticate-users-and-obtain-tokens-from-azure-ad"></a>Étape 4 : Ajouter le code pour authentifier les utilisateurs et obtenir des jetons d’Azure AD
 L’application que vous développez dans ce didacticiel fournira une fonctionnalité simple de recherche dans l’annuaire. L’utilisateur pourra taper l’alias de n’importe quel utilisateur de l’annuaire pour visualiser certains attributs de base. Le projet de démarrage contient la définition de l’interface utilisateur de base de l’application (dans www/index.html) et la génération de modèles automatique qui associe les cycles d’événements des applications, les liaisons d’interface utilisateur et la logique d’affichage des résultats (dans www/js/index.js). Vous n’avez plus qu’à ajouter la logique d’implémentation des tâches d’identité.
 
 La première chose à faire dans votre code est d’introduire les valeurs de protocole utilisées par Azure AD pour identifier votre application et les ressources que vous ciblez. Ces valeurs sont ensuite utilisées pour créer les demandes de jeton. Insérez l’extrait de code suivant en haut du fichier index.js :
@@ -249,18 +237,14 @@ Maintenant que nous avons le jeton, nous pouvons enfin appeler l’API Graph et 
 ```
 Les fichiers de départ fournissaient une expérience utilisateur simple pour la saisie de l’alias d’un utilisateur dans une zone de texte. Cette méthode utilise cette valeur pour construire une requête, l’associer au jeton d’accès, l’envoyer à Microsoft Graph et analyser les résultats. La méthode `renderData`, déjà présente dans le fichier de départ, s’occupe de visualiser les résultats.
 
-<a id="step-5-run-the-app" class="xliff"></a>
-
-## Étape 5 : Exécuter l’application
+## <a name="step-5-run-the-app"></a>Étape 5 : Exécuter l’application
 Votre application est maintenant prête à être exécutée. Son fonctionnement est simple : lorsque l’application démarre, entrez l’alias de l’utilisateur que vous souhaitez rechercher, puis cliquez sur le bouton. Vous êtes invité à vous authentifier. Une fois l’authentification et la recherche réussies, les attributs de l’utilisateur recherché s’affichent.
 
 Les exécutions suivantes effectuent la recherche sans afficher d’invite, grâce à la présence dans le cache du jeton obtenu précédemment.
 
 Les étapes concrètes pour l’exécution de l’application varient selon la plateforme.
 
-<a id="windows-10" class="xliff"></a>
-
-### Windows 10
+### <a name="windows-10"></a>Windows 10
    Tablette/PC : `cordova run windows --archs=x64 -- --appx=uap`
 
    Mobile (nécessite un appareil Windows 10 Mobile connecté à un PC) : `cordova run windows --archs=arm -- --appx=uap --phone`
@@ -268,26 +252,20 @@ Les étapes concrètes pour l’exécution de l’application varient selon la p
    > [!NOTE]
    > Lors de la première exécution, vous pouvez être invité à vous connecter pour obtenir une licence de développeur. Pour plus d’informations, consultez [Obtenir une licence de développeur](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
-<a id="windows-81-tabletpc" class="xliff"></a>
-
-### Tablette/PC Windows 8.1
+### <a name="windows-81-tabletpc"></a>Tablette/PC Windows 8.1
    `cordova run windows`
 
    > [!NOTE]
    > Lors de la première exécution, vous pouvez être invité à vous connecter pour obtenir une licence de développeur. Pour plus d’informations, consultez [Obtenir une licence de développeur](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
-<a id="windows-phone-81" class="xliff"></a>
-
-### Windows Phone 8.1
+### <a name="windows-phone-81"></a>Windows Phone 8.1
    Pour une exécution sur un appareil connecté : `cordova run windows --device -- --phone`
 
    Pour une exécution sur l’émulateur par défaut : `cordova emulate windows -- --phone`
 
    Utilisez `cordova run windows --list -- --phone` pour voir toutes les cibles disponibles et `cordova run windows --target=<target_name> -- --phone` pour exécuter l’application sur un appareil ou un émulateur spécifique (par exemple, `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
 
-<a id="android" class="xliff"></a>
-
-### Android
+### <a name="android"></a>Android
    Pour une exécution sur un appareil connecté : `cordova run android --device`
 
    Pour une exécution sur l’émulateur par défaut : `cordova emulate android`
@@ -296,9 +274,7 @@ Les étapes concrètes pour l’exécution de l’application varient selon la p
 
    Utilisez `cordova run android --list` pour voir toutes les cibles disponibles et `cordova run android --target=<target_name>` pour exécuter l’application sur un appareil ou un émulateur spécifique (par exemple, `cordova run android --target="Nexus4_emulator"`).
 
-<a id="ios" class="xliff"></a>
-
-### iOS
+### <a name="ios"></a>iOS
    Pour une exécution sur un appareil connecté : `cordova run ios --device`
 
    Pour une exécution sur l’émulateur par défaut : `cordova emulate ios`
@@ -310,9 +286,7 @@ Les étapes concrètes pour l’exécution de l’application varient selon la p
 
     Use `cordova run --help` to see additional build and run options.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est disponible dans [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).
 
 Vous pouvez maintenant passer à des scénarios plus avancés (et plus intéressants). Par exemple : [Sécurisation d’une API web Node.js avec Azure AD](active-directory-devquickstarts-webapi-nodejs.md).

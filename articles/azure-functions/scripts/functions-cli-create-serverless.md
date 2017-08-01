@@ -24,9 +24,7 @@ ms.lasthandoff: 06/20/2017
 
 ---
 
-<a id="create-a-function-app-for-serverless-execution" class="xliff"></a>
-
-# Créer une Function App pour une exécution sans serveur
+# <a name="create-a-function-app-for-serverless-execution"></a>Créer une Function App pour une exécution sans serveur
 
 Cet exemple de script crée une Function App Azure, qui constitue un conteneur pour vos fonctions. La Function App est créée à l’aide du [plan de consommation](../functions-scale.md#consumption-plan), ce qui est idéal pour les charges de travail sans serveur, pilotées par les événements.
 
@@ -36,9 +34,7 @@ Cet exemple de script crée une Function App Azure, qui constitue un conteneur p
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="sample-script" class="xliff"></a>
-
-## Exemple de script
+## <a name="sample-script"></a>Exemple de script
 
 Ce script crée une Function App Azure à l’aide du [plan de consommation](../functions-scale.md#consumption-plan).
 
@@ -46,9 +42,7 @@ Ce script crée une Function App Azure à l’aide du [plan de consommation](../
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-<a id="script-explanation" class="xliff"></a>
-
-## Explication du script
+## <a name="script-explanation"></a>Explication du script
 
 Chaque commande du tableau renvoie à une documentation spécifique. Ce script utilise les commandes suivantes :
 
@@ -58,9 +52,7 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 | [az storage account create](/cli/azure/storage/account#create) | Crée un compte de stockage Azure. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Crée une fonction Azure Functions. |
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

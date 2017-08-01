@@ -22,15 +22,11 @@ ms.lasthandoff: 06/09/2017
 
 ---
 
-<a id="configure-the-geographic-traffic-routing-method-using-traffic-manager" class="xliff"></a>
-
-# Configurer la méthode de routage du trafic géographique à l’aide de Traffic Manager
+# <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurer la méthode de routage du trafic géographique à l’aide de Traffic Manager
 
 La méthode de routage du trafic géographique vous permet de diriger le trafic vers des points de terminaison spécifiques en fonction de l’emplacement géographique d’où proviennent les demandes. Ce didacticiel vous montre comment créer un profil Traffic Manager avec cette méthode de routage et configurer les points de terminaison pour recevoir le trafic à partir de zones géographiques spécifiques.
 
-<a id="create-a-traffic-manager-profile" class="xliff"></a>
-
-## Créer un profil Traffic Manager
+## <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager
 
 1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free/).
 2. Dans le menu Hub, cliquez sur **Nouveau** > **Mise en réseau** > **Afficher tout**, puis cliquez sur **Profil Traffic Manager** pour ouvrir le panneau **Créer un profil Traffic Manager**.
@@ -43,9 +39,7 @@ La méthode de routage du trafic géographique vous permet de diriger le trafic 
 
 ![Créer un profil Traffic Manager](./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png)
 
-<a id="add-endpoints" class="xliff"></a>
-
-## Ajouter des points de terminaison
+## <a name="add-endpoints"></a>Ajouter des points de terminaison
 
 1. Recherchez le nom du profil Traffic Manager que vous venez de créer dans la barre de recherche du portail et cliquez sur le résultat lorsqu’il s’affiche.
 2. Accédez à **Paramètres** -> **Points de terminaison** dans le panneau Traffic Manager.
@@ -62,16 +56,12 @@ La méthode de routage du trafic géographique vous permet de diriger le trafic 
 
 ![Ajouter un point de terminaison Traffic Manager](./media/traffic-manager-geographic-routing-method/add-traffic-manager-endpoint.png)
 
-<a id="use-the-traffic-manager-profile" class="xliff"></a>
-
-## Utiliser le profil Traffic Manager
+## <a name="use-the-traffic-manager-profile"></a>Utiliser le profil Traffic Manager
 1.  Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous avez créé dans la section précédente et cliquez sur le profil Traffic Manager dans les résultats affichés.
 2. Dans le panneau **Profil Traffic Manager**, cliquez sur **Vue d’ensemble**.
 3. Le panneau **Profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être acheminés vers le point de terminaison correct, comme déterminé par le type de routage.  Dans le cas du routage géographique, Traffic Manager examine l’adresse IP source de la demande entrante et détermine la région d’où elle provient. Si cette région est mappée à un point de terminaison, le trafic est acheminé vers cet emplacement. Si cette région n’est pas mappée à un point de terminaison, Traffic Manager renvoie une réponse NODATA.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez-en davantage sur la [méthode de routage du trafic géographique](traffic-manager-routing-methods.md#a-name--geographicageographic-traffic-routing-method).
 - Découvrez comment [tester les paramètres Traffic Manager](traffic-manager-testing-settings.md).

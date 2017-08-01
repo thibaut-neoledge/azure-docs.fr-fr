@@ -19,7 +19,6 @@ ms.openlocfilehash: c8ac99f63bd6700349bb352b2c880a2ffedf7457
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/05/2017
 
-
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Déplacer des données depuis un serveur SFTP à l’aide d’Azure Data Factory
 Cet article explique comment utiliser l'activité de copie d’Azure Data Factory pour déplacer des données d’un serveur SFTP local/cloud vers un magasin de données récepteur pris en charge. Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et la liste de magasins de données pris en charge comme sources/récepteurs.
@@ -219,7 +218,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l’
 ## <a name="supported-file-and-compression-formats"></a>Formats de fichier et de compression pris en charge
 Pour plus d’informations, consultez l’article [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
-### <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Exemple JSON : copie de données depuis un serveur SFTP à un objet Blob Azure
+## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Exemple JSON : copie de données depuis un serveur SFTP à un objet Blob Azure
 L’exemple suivant présente des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis la source SFTP vers Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie de Microsoft Azure Data Factory.
 
 > [!IMPORTANT]

@@ -24,14 +24,10 @@ ms.lasthandoff: 06/13/2017
 
 
 ---
-<a id="monitoring-database-performance-in-azure-sql-database" class="xliff"></a>
-
-# Analyse des performances d’une base de données dans une base de données SQL Azure
+# <a name="monitoring-database-performance-in-azure-sql-database"></a>Analyse des performances d’une base de données dans une base de données SQL Azure
 L’analyse des performances d’une base de données SQL dans Azure démarre par l’analyse de l’utilisation des ressources par rapport au niveau de performances que vous avez choisi pour votre base de données. La surveillance permet de déterminer si votre base de données a une capacité excédentaire ou rencontre des problèmes parce que les ressources ont atteint leur maximum, et ensuite de décider s’il est temps d’ajuster le niveau de performances et le [niveau de service](sql-database-service-tiers.md) de votre base de données. Vous pouvez surveiller votre base de données à l’aide d’outils graphiques dans le [portail Azure](https://portal.azure.com) ou à l’aide de [vues de gestion dynamique](https://msdn.microsoft.com/library/ms188754.aspx) SQL.
 
-<a id="monitor-databases-using-the-azure-portal" class="xliff"></a>
-
-## Analyser des bases de données au moyen du portail Azure
+## <a name="monitor-databases-using-the-azure-portal"></a>Analyser des bases de données au moyen du portail Azure
 Dans le [portail Azure](https://portal.azure.com/), vous pouvez surveiller l’utilisation d’une base de données unique en sélectionnant votre base de données et en cliquant sur le graphique **Surveillance**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
 
 * Pourcentage UC
@@ -49,9 +45,7 @@ Par exemple, si vous pensez que la charge de travail dans votre base de données
 
 Les mesures de performance peuvent également vous aider à déterminer si vous pouvez passer à un niveau inférieur. Supposons que vous utilisez une base de données standard S2 et que toutes les mesures de performance indiquent que la base de données n'utilise pas plus de 10 % des performances en moyenne. Cette base de données fonctionnerait très bien en version S1 standard. Toutefois, prenez en considération les éventuels pics ou baisses de charges de travail avant de décider de passer à un niveau de performances inférieur.
 
-<a id="monitor-databases-using-dmvs" class="xliff"></a>
-
-## Analyser des bases de données à l’aide des vues de gestion dynamique
+## <a name="monitor-databases-using-dmvs"></a>Analyser des bases de données à l’aide des vues de gestion dynamique
 Les métriques exposées dans le portail sont également disponibles dans des vues système : [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) dans la base de données **master** logique de votre serveur et [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) dans la base de données utilisateur. Utilisez **sys.resource_stats** si vous devez surveiller des données moins granulaires sur une longue période de temps. Utilisez **sys.dm_db_resource_stats** si vous devez surveiller des données plus granulaires dans un laps de temps plus court. Pour en savoir plus, consultez [Guide des performances de base de données SQL Azure](sql-database-single-database-monitor.md#monitor-resource-use).
 
 > [!NOTE]
@@ -59,9 +53,7 @@ Les métriques exposées dans le portail sont également disponibles dans des vu
 >
 >
 
-<a id="monitor-resource-use" class="xliff"></a>
-
-### Surveiller l’utilisation des ressources
+### <a name="monitor-resource-use"></a>Surveiller l’utilisation des ressources
 
 Vous pouvez surveiller l’utilisation des ressources à l’aide de [SQL Database Query Performance Insight](sql-database-query-performance.md) et du [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx).
 
@@ -70,9 +62,7 @@ Vous pouvez également surveiller l’utilisation à l’aide de ces deux vues 
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-<a id="sysdmdbresourcestats" class="xliff"></a>
-
-#### sys.dm_db_resource_stats
+#### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
 Vous pouvez utiliser la vue [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) dans chaque SQL Database. La vue **sys.dm_db_resource_stats** représente les données d’utilisation récente des ressources par rapport au niveau de service. Les pourcentages moyens d’UC, d’E/S des données, d’écritures du journal et de mémoire sont enregistrés toutes les 15 secondes et conservés pendant une heure.
 
 Étant donné que cette vue fournit un aperçu plus granulaire de l’utilisation des ressources, utilisez d’abord **sys.dm_db_resource_stats** pour n’importe quelle analyse d’état actuel ou pour la résolution des problèmes. Par exemple, cette requête affiche l’utilisation moyenne et maximale des ressources pour la base de données actuelle sur la dernière heure :
@@ -90,9 +80,7 @@ Vous pouvez utiliser la vue [sys.dm_db_resource_stats](https://msdn.microsoft.co
 
 Pour les autres requêtes, consultez les exemples dans [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-<a id="sysresourcestats" class="xliff"></a>
-
-#### sys.resource_stats
+#### <a name="sysresourcestats"></a>sys.resource_stats
 La vue [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) de la base de données **master** fournit des informations supplémentaires vous permettant d’analyser les performances de votre SQL Database à ses niveaux de service et de performances spécifiques. Les données, qui sont collectées toutes les 5 minutes, sont conservées pendant environ 35 jours. Cette vue est utile pour une analyse historique de plus long terme sur l’utilisation des ressources par votre base de données SQL.
 
 Le graphique suivant illustre l’utilisation des ressources d’UC pour une base de données Premium avec le niveau de performances P2 pour chaque heure de la semaine. Ce graphique spécifique commence un lundi, affiche 5 journées de travail, puis un week-end où l’application connaît une activité réduite.
@@ -179,9 +167,7 @@ L’exemple suivant vous montre différentes manières d’utiliser la vue du ca
 Pour les pools élastiques, vous pouvez surveiller des bases de données individuelles dans le pool avec les techniques décrites dans cette section. Mais vous pouvez également surveiller le pool dans son ensemble. Pour plus d’informations, consultez l’article [Surveiller et gérer un pool élastique](sql-database-elastic-pool-manage-portal.md).
 
 
-<a id="maximum-concurrent-requests" class="xliff"></a>
-
-### Nombre maximal de requêtes simultanées
+### <a name="maximum-concurrent-requests"></a>Nombre maximal de requêtes simultanées
 Pour afficher le nombre de requêtes simultanées, exécutez cette requête Transact-SQL sur votre base de données SQL :
 
     SELECT COUNT(*) AS [Concurrent_Requests]
@@ -196,9 +182,7 @@ Pour analyser la charge de travail d’une base de données SQL Server locale, m
 
 Il s’agit simplement d’un instantané à un point unique dans le temps. Pour obtenir une meilleure compréhension de votre charge de travail et des exigences liées aux demandes simultanées, il vous faut collecter plusieurs échantillons au fil du temps.
 
-<a id="maximum-concurrent-logins" class="xliff"></a>
-
-### Nombre maximal de connexions simultanées
+### <a name="maximum-concurrent-logins"></a>Nombre maximal de connexions simultanées
 Vous pouvez analyser vos modèles d'utilisateur et d'application pour avoir une idée de la fréquence des connexions. Vous pouvez également exécuter des charges réelles dans un environnement de test pour vous assurer que vous n’atteignez pas cette limite ou d’autres limites décrites dans cet article. Il n’existe aucune requête ou vue de gestion dynamique qui peut vous indiquer le nombre de connexions simultanées ou un historique dédié.
 
 Si plusieurs clients utilisent la même chaîne de connexion, le service authentifie chaque connexion. Si 10 utilisateurs se connectent simultanément à une base de données avec les mêmes nom d’utilisateur et mot de passe, dix connexions simultanées seront établies. Cette limite s’applique uniquement à la durée de la connexion et de l’authentification. Si ces mêmes 10 utilisateurs se connectent séquentiellement à la base de données, le nombre de connexions simultanées ne sera jamais supérieur à 1.
@@ -208,9 +192,7 @@ Si plusieurs clients utilisent la même chaîne de connexion, le service authent
 > 
 > 
 
-<a id="maximum-sessions" class="xliff"></a>
-
-### Nombre maximal de sessions
+### <a name="maximum-sessions"></a>Nombre maximal de sessions
 Pour afficher le nombre de sessions simultanément actives, exécutez cette requête Transact-SQL sur votre base de données SQL :
 
     SELECT COUNT(*) AS [Sessions]

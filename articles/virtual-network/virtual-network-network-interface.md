@@ -24,9 +24,7 @@ ms.lasthandoff: 06/01/2017
 
 ---
 
-<a id="create-change-or-delete-network-interfaces" class="xliff"></a>
-
-# Créer, modifier ou supprimer des cartes réseau
+# <a name="create-change-or-delete-network-interfaces"></a>Créer, modifier ou supprimer des cartes réseau
 
 Découvrez comment créer, paramétrer et supprimer des cartes réseau (NIC). Une carte réseau permet à une machine virtuelle Azure de communiquer avec des ressources sur Internet, sur Azure et locales. Lorsque vous créez une machine virtuelle via le portail Azure, celui-ci crée pour vous une carte réseau avec des paramètres par défaut. À la place, vous pouvez créer des cartes réseau avec des paramètres personnalisés, et en ajouter une ou plusieurs à des machines virtuelles lors de la création de celles-ci. Vous pouvez également modifier les paramètres par défaut de cartes réseau existantes. Cet article explique comment créer des cartes réseau avec des paramètres personnalisés, modifier les paramètres d’une carte réseau (par exemple, l’affectation de filtre réseau pour les groupes de sécurité réseau, l’attribution de sous-réseau, les paramètres de serveur DNS et le transfert IP) ainsi que supprimer des cartes réseau.
 

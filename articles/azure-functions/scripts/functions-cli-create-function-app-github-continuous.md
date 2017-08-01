@@ -15,9 +15,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="create-an-app-service" class="xliff"></a>
-
-# Créer un App Service
+# <a name="create-an-app-service"></a>Créer un App Service
 
 Cet exemple de script crée une Function App à l’aide du [plan de consommation](../functions-scale.md#consumption-plan) avec les ressources associées et déploie en continu votre code de fonction à partir d’un référentiel GitHub. Dans cet exemple, vous aurez besoin des éléments suivants :
 
@@ -30,9 +28,7 @@ Cet exemple de script crée une Function App à l’aide du [plan de consommatio
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="sample-script" class="xliff"></a>
-
-## Exemple de script
+## <a name="sample-script"></a>Exemple de script
 
 Cet exemple crée une Function App Azure et déploie le code de fonction à partir de GitHub.
 
@@ -40,9 +36,7 @@ Cet exemple crée une Function App Azure et déploie le code de fonction à part
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-<a id="script-explanation" class="xliff"></a>
-
-## Explication du script
+## <a name="script-explanation"></a>Explication du script
 
 Chaque commande du tableau renvoie à une documentation spécifique. Ce script utilise les commandes suivantes :
 
@@ -53,9 +47,7 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 | [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#delete) |
 | [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Associe une Function App à un référentiel Git ou Mercurial. |
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
