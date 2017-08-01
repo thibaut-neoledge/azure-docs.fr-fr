@@ -21,15 +21,11 @@ ms.lasthandoff: 04/27/2017
 
 ---
 
-<a id="unexpected-application-in-my-applications-list" class="xliff"></a>
-
-# Application inattendue dans ma liste d’applications
+# <a name="unexpected-application-in-my-applications-list"></a>Application inattendue dans ma liste d’applications
 
 Cet article vous aide à comprendre comment les applications apparaissent dans votre liste **Toutes les applications** sous **Applications d’entreprise**. 
 
-<a id="how-to-see-all-applications-in-your-tenant" class="xliff"></a>
-
-## Guide pratique pour afficher toutes les applications dans votre client
+## <a name="how-to-see-all-applications-in-your-tenant"></a>Guide pratique pour afficher toutes les applications dans votre client
 
 Pour afficher toutes les applications dans votre client, vous devez utiliser le contrôle **Filtrer** pour afficher **Toutes les applications** sous la liste **Toutes les applications**. Pour ce faire, procédez comme suit :
 
@@ -47,9 +43,7 @@ Pour afficher toutes les applications dans votre client, vous devez utiliser le 
 
 7.  Sur le panneau **Filtrer**, définissez l’option **Afficher** sur **Toutes les applications.**
 
-<a id="why-does-a-specific-application-appear-in-my-all-applications-list" class="xliff"></a>
-
-## Pourquoi une application spécifique apparaît-elle dans ma liste de toutes les applications ?
+## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>Pourquoi une application spécifique apparaît-elle dans ma liste de toutes les applications ?
 
 Lors du filtrage avec **Toutes les applications**, la **liste** **Toutes les applications** affiche chaque objet Principal de service dans votre client. Les objets Principal de service peuvent apparaître dans cette liste de différentes façons :
 
@@ -83,21 +77,15 @@ Lors du filtrage avec **Toutes les applications**, la **liste** **Toutes les app
 
 Pour plus d’informations sur la façon dont les applications sont ajoutées à votre annuaire, lisez [Comment et pourquoi les applications sont ajoutées à Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added).
 
-<a id="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application" class="xliff"></a>
-
-## Je souhaite supprimer l’attribution d’une application à un utilisateur ou groupe spécifique
+## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Je souhaite supprimer l’attribution d’une application à un utilisateur ou groupe spécifique
 
 Pour supprimer l’attribution d’une application à un utilisateur ou groupe, suivez les étapes répertoriées dans l’article [Supprimer l’attribution d’une application à un utilisateur ou groupe à partir d’une application d’entreprise dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal).
 
-<a id="i-want-to-disable-all-access-to-an-application-for-every-user" class="xliff"></a>
-
-## Je souhaite désactiver tous les accès à une application pour chaque utilisateur
+## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Je souhaite désactiver tous les accès à une application pour chaque utilisateur
 
 Pour désactiver toutes les connexions des utilisateurs à une application, suivez les étapes répertoriées dans l’article [Désactiver les connexions des utilisateurs à une application d’entreprise dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
 
-<a id="i-want-to-delete-an-application-entirely" class="xliff"></a>
-
-## Je veux complètement supprimer une passerelle d’application
+## <a name="i-want-to-delete-an-application-entirely"></a>Je veux complètement supprimer une passerelle d’application
 
 Pour **supprimer une application**, suivez les instructions ci-dessous :
 
@@ -117,9 +105,7 @@ Pour **supprimer une application**, suivez les instructions ci-dessous :
 
 7.  Une l’application chargée, cliquez sur l’icône **Supprimer** dans le panneau supérieur **Vue d’ensemble** de l’application.
 
-<a id="i-want-to-disable-all-future-user-consent-operations-to-any-application" class="xliff"></a>
-
-## Je veux désactiver toutes les futures opérations de consentement de l’utilisateur pour n’importe quelle application
+## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Je veux désactiver toutes les futures opérations de consentement de l’utilisateur pour n’importe quelle application
 
 La désactivation du consentement de l’utilisateur pour votre annuaire entier empêche les utilisateurs finaux de donner leur consentement pour n’importe quelle application. Les administrateurs peuvent toujours donner leur consentement au nom de l’utilisateur. Pour en savoir plus sur le consentement de l’application et les conditions pour donner ou refuser ce consentement, lisez la rubrique [Comprendre le consentement de l’utilisateur et de l’administrateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
@@ -137,8 +123,6 @@ Pour **désactiver toutes les futures opérations de consentement de l’utilisa
 
 6.  Désactivez toutes les futures opérations de consentement de l’utilisateur en définissant l’option **Les utilisateurs peuvent autoriser les applications à accéder à leurs données** sur **Non**, puis cliquez sur le bouton **Enregistrer**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)
 

@@ -21,12 +21,8 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 02/17/2017
 
 ---
-<a id="support-additional-protocols-for-iot-hub" class="xliff"></a>
-
 # Prise en charge de protocoles supplémentaires pour IoT Hub
 Azure IoT Hub en mode natif prend en charge la communication par le biais des protocoles AMQP, MQTT et HTTP. Dans certains cas, il est possible que des appareils ou des passerelles ne soient pas en mesure d’utiliser l’un des protocoles standard et nécessitent une adaptation de protocole. Dans ce cas, vous pouvez utiliser une passerelle personnalisée. Une passerelle personnalisée peut activer l’adaptation de protocole pour les points de terminaison IoT Hub en effectuant le pontage du trafic vers et depuis IoT Hub. Vous pouvez utiliser la [passerelle de protocole Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) comme passerelle personnalisée pour permettre l’adaptation de protocole pour IoT Hub.
-
-<a id="azure-iot-protocol-gateway" class="xliff"></a>
 
 ## passerelle de protocole Azure IoT
 La passerelle de protocole Azure IoT est une infrastructure pour l’adaptation du protocole, conçue pour la communication bidirectionnelle à grande échelle entre les appareils, avec IoT Hub. La passerelle de protocole est un composant direct qui accepte les connexions des appareils via un protocole spécifique. Elle réduit le trafic vers IoT Hub via AMQP 1.0. La passerelle de protocole Azure IoT est disponible en tant que projet de logiciel open source pour apporter de la flexibilité et une aide supplémentaire pour un grand nombre de protocoles et de versions de protocoles.
@@ -38,8 +34,6 @@ La passerelle de protocole Azure IoT inclut un adaptateur de protocole MQTT grâ
 L’adaptateur MQTT illustre également le modèle de programmation pour la création d’adaptateurs de protocole pour d’autres protocoles. En outre, le modèle de programmation de passerelle de protocole Azure IoT vous permet de connecter des composants personnalisés pour les traitements spécialisés, comme l’authentification personnalisée, les transformations de messages, la compression / décompression ou le chiffrement / déchiffrement du trafic entre les appareils et IoT Hub.
 
 Pour plus de flexibilité, la passerelle de protocole et l’implémentation de MQTT sont fournies dans un projet logiciel open source. Cela vous permet de personnaliser l’implémentation en fonction des besoins.
-
-<a id="next-steps" class="xliff"></a>
 
 ## Étapes suivantes
 Pour en savoir plus sur la passerelle de protocole Azure IoT, son utilisation et son déploiement dans le cadre de votre solution IoT, consultez :

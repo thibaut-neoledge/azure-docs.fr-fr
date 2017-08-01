@@ -22,9 +22,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 04/27/2017
 
 ---
-<a id="how-to-use-ssh-keys-with-windows-on-azure" class="xliff"></a>
-
-# Utilisation de clés SSH avec Windows sur Azure
+# <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Utilisation de clés SSH avec Windows sur Azure
 > [!div class="op_single_selector"]
 > * [Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > * [Linux/Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -33,9 +31,7 @@ ms.lasthandoff: 04/27/2017
 
 Lorsque vous vous connectez à des machines virtuelles Linux dans Azure, vous devez utiliser un [chiffrement à clé publique](https://wikipedia.org/wiki/Public-key_cryptography) pour garantir une connexion plus sûre à votre machine virtuelle Linux. Ce processus implique un échange de clés publiques et privées à l’aide de la commande SSH (secure shell) pour vous authentifier vous-même plutôt qu’un nom d’utilisateur et un mot de passe. Les mots de passe sont vulnérables aux attaques en force brute, en particulier sur les machines virtuelles connectées à Internet comme les serveurs web. Cet article fournit une vue d’ensemble des clés SSH et explique comment générer les clés appropriées sur un ordinateur Windows.
 
-<a id="overview-of-ssh-and-keys" class="xliff"></a>
-
-## Vue d’ensemble de SSH et des clés
+## <a name="overview-of-ssh-and-keys"></a>Vue d’ensemble de SSH et des clés
 Vous pouvez vous connecter en toute sécurité à votre machine virtuelle Linux à l’aide de clés publiques et privées :
 
 * La **clé publique** est placée sur votre machine virtuelle Linux, ou tout autre service que vous souhaitez utiliser avec le chiffrement à clé publique.
@@ -47,9 +43,7 @@ SSH est un protocole de connexion chiffré qui permet d'ouvrir des sessions en t
 
 Si vous ne souhaitez pas utiliser de clés SSH, vous pouvez toujours vous connecter à vos machines virtuelles Linux à l’aide d’un mot de passe. Si votre machine virtuelle n’est pas exposée à Internet, l’utilisation de mots de passe peut être suffisante. Toutefois, vous devez toujours gérer vos mots de passe pour chaque machine virtuelle Linux et maintenir des stratégies de mot de passe efficaces, par exemple en spécifiant une longueur minimale de mot de passe et une mise à jour régulière. L’utilisation de clés SSH simplifie la gestion des informations d’identification individuelles sur plusieurs machines virtuelles.
 
-<a id="windows-packages-and-ssh-clients" class="xliff"></a>
-
-## Packages Windows et clients SSH
+## <a name="windows-packages-and-ssh-clients"></a>Packages Windows et clients SSH
 Vous vous connectez à des machines virtuelles Linux et gérez ces machines dans Azure à l’aide d’un **client SSH**. Aucun client SSH n’est généralement installé sur les ordinateurs Windows. La mise à jour anniversaire Windows 10 a ajouté Bash pour Windows et la dernière mise à jour Windows 10 Creators Update fournit des mises à jour supplémentaires. Windows Subsystem pour Linux vous permet d’exécuter à des utilitaires et d’y accéder, comme un client SSH de façon native dans un interpréteur de commandes Bash. Vous pouvez ensuite consulter un des documents Linux, tel que [Générer des paires de clés SSH pour Linux](mac-create-ssh-keys.md). Bash pour Windows est toujours en cours de développement et est considéré comme une version bêta. Pour plus d’informations sur Bash pour Windows, consultez la page [Bash sur Ubuntu sur Windows](https://msdn.microsoft.com/commandline/wsl/about).
 
 Si vous souhaitez utiliser un autre outil que Bash pour Windows, voici une liste des packages de clients SSH Windows que vous pouvez installer :
@@ -60,9 +54,7 @@ Si vous souhaitez utiliser un autre outil que Bash pour Windows, voici une liste
 * [Cygwin](https://cygwin.com/)
 
 
-<a id="which-key-files-do-you-need-to-create" class="xliff"></a>
-
-## Quels fichiers de clés devez-vous créer ?
+## <a name="which-key-files-do-you-need-to-create"></a>Quels fichiers de clés devez-vous créer ?
 Azure requiert des clés publiques et privées d’au moins 2048 bits au format **ssh-rsa**. Si vous gérez des ressources Azure à l’aide du modèle de déploiement classique, vous devez également générer une clé PEM (fichier `.pem`).
 
 Voici les scénarios de déploiement et les types de fichiers que vous utilisez dans chacun d'eux 
@@ -72,9 +64,7 @@ Voici les scénarios de déploiement et les types de fichiers que vous utilisez 
 2. Un fichier `.pem` est nécessaire pour créer des machines virtuelles à l'aide du déploiement classique. Ces clés sont prises en charge dans les déploiements standard lorsque vous utilisez le [portail Azure](https://portal.azure.com) ou [l’interface de ligne de commande Azure](../../cli-install-nodejs.md).
    * Vous devez uniquement créer ces clés et certificats supplémentaires si vous gérez des ressources créées à l’aide du modèle de déploiement classique.
 
-<a id="install-git-for-windows" class="xliff"></a>
-
-## Installation de Git pour Windows
+## <a name="install-git-for-windows"></a>Installation de Git pour Windows
 La section précédente répertoriait plusieurs packages incluant l’outil `openssl` pour Windows. Cet outil est nécessaire pour créer des clés publiques et privées. Les exemples suivants expliquent comment installer et utiliser **Git pour Windows**, bien que vous pouvez choisir le package que vous préférez. **GIT pour Windows** vous donne accès à d’autres logiciels et utilitaires open source ([OSS](https://en.wikipedia.org/wiki/Open-source_software)) qui peuvent être utiles lorsque vous travaillez avec des machines virtuelles Linux.
 
 1. Téléchargez et installez **Git pour Windows** à partir de l’emplacement suivant : [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
@@ -83,9 +73,7 @@ La section précédente répertoriait plusieurs packages incluant l’outil `ope
 
     ![Interpréteur de commandes Git pour Windows Bash](./media/ssh-from-windows/git-bash-window.png)
 
-<a id="create-a-private-key" class="xliff"></a>
-
-## Création d’une clé privée
+## <a name="create-a-private-key"></a>Création d’une clé privée
 1. Dans votre fenêtre **Git Bash**, utilisez `openssl.exe` pour créer une clé privée. L’exemple suivant crée une clé nommée `myPrivateKey` et un certificat nommé `myCert.pem` :
 
     ```bash
@@ -134,9 +122,7 @@ La section précédente répertoriait plusieurs packages incluant l’outil `ope
     openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
     ```
 
-<a id="create-a-private-key-for-putty" class="xliff"></a>
-
-## Créer une clé privée pour PuTTY
+## <a name="create-a-private-key-for-putty"></a>Créer une clé privée pour PuTTY
 PuTTY est un client SSH courant pour Windows. Vous pouvez utiliser le client SSH de votre choix. Pour utiliser PuTTY, vous devez créer un autre type de clé : une clé privée PuTTY (PPK). Si vous ne souhaitez pas utiliser PuTTY, ignorez cette section.
 
 L’exemple suivant crée cette clé privée supplémentaire spécifiquement pour une utilisation avec PuTTY :
@@ -180,9 +166,7 @@ L’exemple suivant crée cette clé privée supplémentaire spécifiquement pou
     Si vous souhaitez saisir une phrase secrète, cliquez sur **Non**, entrez une phrase secrète dans la fenêtre principale de PuTTYgen, puis cliquez à nouveau sur **Enregistrer une clé privée**. Sinon, cliquez sur **Oui** pour continuer sans fournir la phrase secrète facultative.
 9. Entrez un nom et un emplacement pour enregistrer votre fichier PPK.
 
-<a id="use-putty-to-ssh-to-a-linux-machine" class="xliff"></a>
-
-## Utiliser Putty pour se connecter via SSH à une machine Linux
+## <a name="use-putty-to-ssh-to-a-linux-machine"></a>Utiliser Putty pour se connecter via SSH à une machine Linux
 Là encore, PuTTY est un client SSH courant pour Windows. Vous pouvez utiliser le client SSH de votre choix. Les étapes suivantes expliquent comment utiliser votre clé privée pour vous authentifier auprès de votre machine virtuelle Azure à l’aide de SSH. Les étapes sont similaires à celles d’autres clients de clés SSH puisque vous devez toujours charger votre clé privée pour authentifier la connexion SSH.
 
 1. Téléchargez et exécutez putty à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
@@ -194,9 +178,7 @@ Là encore, PuTTY est un client SSH courant pour Windows. Vous pouvez utiliser l
     ![Sélectionner votre clé privée PuTTY à des fins d’authentification](./media/ssh-from-windows/putty-auth-dialog.png)
 4. Cliquez sur **Ouvrir** pour vous connecter à la machine virtuelle.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez également générer les clés publiques et privées [en utilisant OS X et Linux](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Pour plus d’informations sur Bash pour Windows et les avantages de disposer d’outils OSS sur votre ordinateur Windows, consultez la page [Bash sur Ubuntu sur Windows](https://msdn.microsoft.com/commandline/wsl/about).
