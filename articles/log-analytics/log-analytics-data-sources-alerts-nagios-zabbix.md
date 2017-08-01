@@ -22,18 +22,12 @@ ms.lasthandoff: 06/10/2017
 
 
 ---
-<a id="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux" class="xliff"></a>
-
-# Collecte d’alertes à partir de Nagios et Zabbix dans Log Analytics à partir de l’agent OMS pour Linux 
+# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Collecte d’alertes à partir de Nagios et Zabbix dans Log Analytics à partir de l’agent OMS pour Linux 
 [Nagios](https://www.nagios.org/) et [Zabbix](http://www.zabbix.com/) sont des outils de surveillance open source.  Vous pouvez collecter des alertes à partir de ces outils dans Log Analytics afin de les analyser avec des [alertes provenant d’autres sources](log-analytics-alerts.md).  Cet article décrit comment configurer l’agent OMS pour Linux pour la collecte d’alertes à partir de ces systèmes.
  
-<a id="configure-alert-collection" class="xliff"></a>
+## <a name="configure-alert-collection"></a>Configuration de la collecte d’alertes
 
-## Configuration de la collecte d’alertes
-
-<a id="configuring-nagios-alert-collection" class="xliff"></a>
-
-### Configuration de la collecte d’alertes Nagios
+### <a name="configuring-nagios-alert-collection"></a>Configuration de la collecte d’alertes Nagios
 Procédez comme suit sur le serveur Nagios pour collecter les alertes.
 
 1. Octroyez à l’utilisateur **omsagent** l’accès en lecture au fichier journal Nagios (par exemple, `/var/log/nagios/nagios.log`). Si le fichier nagios.log appartient au groupe `nagios`, vous pouvez ajouter l’utilisateur **omsagent** au groupe **nagios**. 
@@ -60,9 +54,7 @@ Procédez comme suit sur le serveur Nagios pour collecter les alertes.
     sudo sh /opt/microsoft/omsagent/bin/service_control restart
     ```
 
-<a id="configuring-zabbix-alert-collection" class="xliff"></a>
-
-### Configuration de la collecte d’alertes Zabbix
+### <a name="configuring-zabbix-alert-collection"></a>Configuration de la collecte d’alertes Zabbix
 Pour collecter les alertes à partir d’un serveur Zabbix, vous devez indiquer un utilisateur et un mot de passe en *texte clair*. Ce n’est pas l’idéal, mais nous vous recommandons de créer l’utilisateur et d’accorder des autorisations pour surveiller onlu.
 
 Procédez comme suit sur le serveur Nagios pour collecter les alertes.
@@ -83,14 +75,10 @@ Procédez comme suit sur le serveur Nagios pour collecter les alertes.
     sudo sh /opt/microsoft/omsagent/bin/service_control restart
 
 
-<a id="alert-records" class="xliff"></a>
-
-## Enregistrements d’alerte
+## <a name="alert-records"></a>Enregistrements d’alerte
 Vous pouvez récupérer les enregistrements d’alerte de Nagios et Zabbix à l’aide des [recherches dans les journaux](log-analytics-log-searches.md) dans Log Analytics.
 
-<a id="nagios-alert-records" class="xliff"></a>
-
-### Enregistrements d’alerte Nagios
+### <a name="nagios-alert-records"></a>Enregistrements d’alerte Nagios
 
 Pour les enregistrements d’alerte collectés par Nagios, le **type** est **Alerte** et la valeur **SourceSystem** est **Nagios**.  Les propriétés des enregistrements sont décrites dans le tableau suivant.
 
@@ -107,9 +95,7 @@ Pour les enregistrements d’alerte collectés par Nagios, le **type** est **Ale
 | TimeGenerated |Date et heure de la création de l’alerte. |
 
 
-<a id="zabbix-alert-records" class="xliff"></a>
-
-### Enregistrements d’alerte Zabbix
+### <a name="zabbix-alert-records"></a>Enregistrements d’alerte Zabbix
 Pour les enregistrements d’alerte collectés par Zabbix, le **type** est **Alerte** et la valeur **SourceSystem** est **Zabbix**.  Les propriétés des enregistrements sont décrites dans le tableau suivant.
 
 | Propriété | Description |
@@ -127,9 +113,7 @@ Pour les enregistrements d’alerte collectés par Zabbix, le **type** est **Ale
 | TimeLastModified |Date et heure de la dernière modification de l’état de l’alerte. |
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les [alertes](log-analytics-alerts.md) dans Log Analytics.
 * En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions. 
 

@@ -22,9 +22,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="securing-access-to-azure-cosmos-db-data" class="xliff"></a>
-
-# Sécurisation de l’accès aux données d’Azure Cosmos DB
+# <a name="securing-access-to-azure-cosmos-db-data"></a>Sécurisation de l’accès aux données d’Azure Cosmos DB
 Cet article fournit une vue d’ensemble de la sécurisation de l’accès aux données stockées dans [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Azure Cosmos DB utilise deux types de clés pour authentifier les utilisateurs et permettre d’accéder à ses données et à ses ressources. 
@@ -36,9 +34,7 @@ Azure Cosmos DB utilise deux types de clés pour authentifier les utilisateurs e
 
 <a id="master-keys"></a>
 
-<a id="master-keys" class="xliff"></a>
-
-## Clés principales 
+## <a name="master-keys"></a>Clés principales 
 
 Les clés principales fournissent un accès à toutes les ressources d’administration du compte de base de données. Clés principales :  
 - Fournissent un accès aux comptes, aux bases de données, aux utilisateurs et aux autorisations. 
@@ -58,9 +54,7 @@ Le processus de rotation de votre clé principale est simple. Accédez au portai
 
 ![Rotation de clé principale dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
-<a id="code-sample-to-use-a-master-key" class="xliff"></a>
-
-### Exemple de code pour utiliser une clé principale
+### <a name="code-sample-to-use-a-master-key"></a>Exemple de code pour utiliser une clé principale
 
 L’exemple de code suivant montre comment utiliser une clé principale et un point de terminaison de compte Azure Cosmos DB pour instancier un DocumentClient et créer une base de données. 
 
@@ -84,9 +78,7 @@ Database database = await client.CreateDatabaseAsync(
 
 <a id="resource-tokens"></a>
 
-<a id="resource-tokens" class="xliff"></a>
-
-## Jetons de ressource
+## <a name="resource-tokens"></a>Jetons de ressource
 
 Les jetons de ressource fournissent un accès aux ressources d’application au sein d’une base de données. Jetons de ressource :
 - Fournissent un accès à des collections, clés de partition, documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l’utilisateur spécifiques.
@@ -120,9 +112,7 @@ Pour obtenir un exemple de service de niveau intermédiaire utilisé pour géné
 
 <a id="users"></a>
 
-<a id="users" class="xliff"></a>
-
-## Utilisateurs
+## <a name="users"></a>Utilisateurs
 Les utilisateurs d’Azure Cosmos DB sont associés à une base de données Cosmos DB.  Chaque base de données peut contenir zéro, un ou plusieurs utilisateurs Azure Cosmos DB.  L’exemple de code suivant indique comment créer une ressource utilisateur DocumentDB.
 
 ```csharp
@@ -142,9 +132,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 
 <a id="permissions"></a>
 
-<a id="permissions" class="xliff"></a>
-
-## Autorisations
+## <a name="permissions"></a>Autorisations
 Une ressource d’autorisation Azure Cosmos DB est associée à un utilisateur Azure Cosmos DB.  Chaque utilisateur peut contenir zéro, une ou plusieurs autorisations Azure Cosmos DB.  Une ressource d'autorisation donne accès à un jeton de sécurité dont l'utilisateur a besoin lorsqu'il tente d'accéder à une ressource d'application spécifique.
 Il existe deux niveaux d’accès disponibles qui peuvent être fournis par une ressource d’autorisation :
 
@@ -156,9 +144,7 @@ Il existe deux niveaux d’accès disponibles qui peuvent être fournis par une 
 > 
 > 
 
-<a id="code-sample-to-create-permission" class="xliff"></a>
-
-### Exemple de code pour créer une autorisation
+### <a name="code-sample-to-create-permission"></a>Exemple de code pour créer une autorisation
 
 L’exemple de code suivant indique comment créer une ressource d’autorisation, lire le jeton de ressource de la ressource d’autorisation et associer les autorisations à [l’utilisateur](#users) créé ci-dessus.
 
@@ -177,9 +163,7 @@ Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 
 Si vous avez spécifié une clé de partition pour votre collection, l’autorisation pour les ressources de collection, de document et de pièce jointe doit inclure l’élément ResourcePartitionKey en plus de l’élément ResourceLink.
 
-<a id="code-sample-to-read-permissions-for-user" class="xliff"></a>
-
-### Exemple de code pour les autorisations de lecture de l’utilisateur
+### <a name="code-sample-to-read-permissions-for-user"></a>Exemple de code pour les autorisations de lecture de l’utilisateur
 
 Pour obtenir facilement toutes les ressources d’autorisation associées à un utilisateur, Azure Cosmos DB met à disposition un flux d’autorisations pour chaque objet utilisateur.  L'extrait de code suivant indique comment récupérer l'autorisation associée à l'utilisateur créé ci-dessus, créer une liste d'autorisations et instancier un nouveau DocumentClient pour l'utilisateur.
 
@@ -197,9 +181,7 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur la sécurité de la base de données Azure Cosmos DB, consultez [Sécurité de la base de données Azure Cosmos DB](database-security.md).
 * Pour en savoir plus sur la gestion des clés principales et en lecture seule, consultez [Gestion d’un compte Azure Cosmos DB](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 * Pour savoir comment créer des jetons d’autorisation Azure Cosmos DB, consultez [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) (Contrôle d’accès aux ressources Azure Cosmos DB).

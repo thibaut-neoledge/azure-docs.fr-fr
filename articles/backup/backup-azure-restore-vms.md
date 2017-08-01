@@ -23,9 +23,7 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="restore-virtual-machines-in-azure" class="xliff"></a>
-
-# Restauration de machines virtuelles dans Azure
+# <a name="restore-virtual-machines-in-azure"></a>Restauration de machines virtuelles dans Azure
 > [!div class="op_single_selector"]
 > * [Restaurer des machines virtuelles dans le portail Azure](backup-azure-arm-restore-vms.md)
 > * [Restaurer des machines virtuelles dans le portail classique](backup-azure-restore-vms.md)
@@ -40,12 +38,8 @@ Pour restaurer une machine virtuelle sur une nouvelle machine virtuelle à parti
 >- Vous ne pourrez plus accéder à vos données de sauvegarde depuis le portail Classic. Au lieu de cela, vous devrez utiliser le portail Azure pour accéder à ces données au sein de coffres Recovery Services.
 >
 
-<a id="restore-workflow" class="xliff"></a>
-
-## Flux de travail de restauration
-<a id="step-1-choose-an-item-to-restore" class="xliff"></a>
-
-### Étape 1 : Choix d’un élément à restaurer
+## <a name="restore-workflow"></a>Flux de travail de restauration
+### <a name="step-1-choose-an-item-to-restore"></a>Étape 1 : Choix d’un élément à restaurer
 1. Accédez à l’onglet **Éléments protégés** et sélectionnez la machine virtuelle que vous voulez restaurer sur une nouvelle machine virtuelle.
 
     ![Éléments protégés](./media/backup-azure-restore-vms/protected-items.png)
@@ -55,9 +49,7 @@ Pour restaurer une machine virtuelle sur une nouvelle machine virtuelle à parti
 
     ![Restaurer un élément](./media/backup-azure-restore-vms/restore-item.png)
 
-<a id="step-2-pick-a-recovery-point" class="xliff"></a>
-
-### Étape 2 : Choix d’un point de récupération
+### <a name="step-2-pick-a-recovery-point"></a>Étape 2 : Choix d’un point de récupération
 1. Dans l’écran **Sélectionner un point de récupération** , vous pouvez effectuer une restauration à partir du point de récupération le plus récent ou d’un point antérieur dans le temps. L’option par défaut sélectionnée à l’ouverture de l’Assistant est *Point de récupération le plus récent*.
 
     ![Sélectionner un point de récupération](./media/backup-azure-restore-vms/select-recovery-point.png)
@@ -70,9 +62,7 @@ Pour restaurer une machine virtuelle sur une nouvelle machine virtuelle à parti
     ![Points de récupération](./media/backup-azure-restore-vms/recovery-points.png)
 3. Sélectionnez le point de récupération dans le tableau **Points de récupération** , puis cliquez sur la flèche Suivant pour accéder à l’écran suivant.
 
-<a id="step-3-specify-a-destination-location" class="xliff"></a>
-
-### Étape 3 : Spécification d’un emplacement de destination
+### <a name="step-3-specify-a-destination-location"></a>Étape 3 : Spécification d’un emplacement de destination
 1. Dans l’écran **Sélectionner l’instance à restaurer** , spécifiez les détails de l’emplacement où restaurer la machine virtuelle.
 
    * Spécifiez le nom de la machine virtuelle : dans un service cloud donné, le nom de la machine virtuelle doit être unique. Nous ne prenons pas en charge l’écrasement d’une machine virtuelle existante.
@@ -96,9 +86,7 @@ Pour restaurer une machine virtuelle sur une nouvelle machine virtuelle à parti
     ![Sélectionner un sous-réseau](./media/backup-azure-restore-vms/select-subnet.png)
 5. Cliquez sur l’icône **Envoyer** de l’Assistant pour envoyer les détails et créer un travail de restauration.
 
-<a id="track-the-restore-operation" class="xliff"></a>
-
-## Suivi de l’opération de restauration
+## <a name="track-the-restore-operation"></a>Suivi de l’opération de restauration
 Une fois que vous avez entré toutes les informations dans l’Assistant Restauration et que vous les avez envoyées, Azure Backup essaie de créer un travail pour effectuer le suivi de l’opération de restauration.
 
 ![Création d’un travail de restauration](./media/backup-azure-restore-vms/create-restore-job.png)
@@ -113,41 +101,27 @@ Une fois l’opération de restauration terminée, elle est marquée comme termi
 
 Après la restauration de la machine virtuelle, vous devrez peut-être réinstaller les extensions de la machine virtuelle d’origine et [modifier les points de terminaison](../virtual-machines/windows/classic/setup-endpoints.md) de la machine virtuelle dans le portail Azure.
 
-<a id="post-restore-steps" class="xliff"></a>
-
-## Étapes post-restauration
+## <a name="post-restore-steps"></a>Étapes post-restauration
 Si vous utilisez une distribution Linux basée sur cloud-init telle qu’Ubuntu, le mot de passe sera bloqué après la restauration pour des raisons de sécurité. Pour [réinitialiser le mot de passe](../virtual-machines/linux/classic/reset-access.md), utilisez l’extension VMAccess sur la machine virtuelle restaurée. Nous vous recommandons d’utiliser des clés SSH sur ces distributions pour éviter de réinitialiser le mot de passe après la restauration.
 
-<a id="backup-for-restored-vms" class="xliff"></a>
-
-## Sauvegarde de machines virtuelles restaurées
+## <a name="backup-for-restored-vms"></a>Sauvegarde de machines virtuelles restaurées
 Si vous avez restauré une machine virtuelle sur le même service cloud avec le même nom que la machine virtuelle sauvegardée d’origine, la sauvegarde se poursuit sur la machine virtuelle après la restauration. Si vous avez restauré une machine virtuelle sur un autre service cloud ou si vous avez spécifié un autre nom pour la machine virtuelle restaurée, celle-ci sera traitée comme une machine virtuelle nouvelle et vous devrez configurer la sauvegarde pour la machine virtuelle restaurée.
 
-<a id="restoring-a-vm-during-azure-datacenter-disaster" class="xliff"></a>
-
-## Restauration d’une machine virtuelle en cas de défaillance du centre de données Azure
+## <a name="restoring-a-vm-during-azure-datacenter-disaster"></a>Restauration d’une machine virtuelle en cas de défaillance du centre de données Azure
 Azure Backup permet de restaurer des machines virtuelles sauvegardées sur le centre de données associé en cas de défaillance du centre de données principal sur lequel s’exécutent les machines virtuelles et si vous avez configuré le coffre de sauvegarde pour qu’il soit géo-redondant. Le cas échéant, vous devez sélectionner un compte de stockage qui est présent dans le centre de données associé et le reste du processus de restauration reste le même. Azure Backup utilise le service de calcul du centre de données géo-redondant associé pour créer la machine virtuelle restaurée. En savoir plus sur la [résilience des centres de données Azure](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
-<a id="restoring-domain-controller-vms" class="xliff"></a>
-
-## Restauration de machines virtuelles d’un contrôleur de domaine
+## <a name="restoring-domain-controller-vms"></a>Restauration de machines virtuelles d’un contrôleur de domaine
 Azure Backup prend en charge la sauvegarde de machines virtuelles d’un contrôleur de domaine. Vous devez toutefois faire preuve de prudence au cours du processus de restauration. Le processus de restauration correct dépend de la structure du domaine. Dans le cas le plus simple, vous disposez d’un seul contrôleur de domaine dans un domaine unique. Plus communément pour les charges de production, vous disposez d’un domaine unique avec plusieurs contrôleurs de domaine, dont certains sont peut-être locaux. Enfin, vous disposez peut-être d’une forêt avec plusieurs domaines.
 
 Du point de vue d’Active Directory, la machine virtuelle Azure est semblable à toute autre machine virtuelle sur un hyperviseur moderne pris en charge. La principale différence avec les hyperviseurs locaux est qu’aucune console de machine virtuelle n’est disponible dans Azure. Une console est nécessaire pour certains scénarios tels que la récupération à l’aide d’une sauvegarde de type Récupération complète (BMR, Bare Metal Recovery). Toutefois, la restauration d’une machine virtuelle à partir du coffre de sauvegarde consiste en un remplacement total de la récupération complète. Le mode DSRM (Active Directory Restore Mode) étant également disponible, tous les scénarios de récupération Active Directory sont viables. Pour plus d’informations, voir les [considérations en matière de sauvegarde et de restauration pour les contrôleurs de domaine virtualisés](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) et la [planification de la récupération de forêt Active Directory](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
 
-<a id="single-dc-in-a-single-domain" class="xliff"></a>
-
-### Contrôleur de domaine unique dans un seul domaine
+### <a name="single-dc-in-a-single-domain"></a>Contrôleur de domaine unique dans un seul domaine
 La machine virtuelle peut être restaurée (comme toute autre machine virtuelle) depuis le portail Azure ou à l’aide de PowerShell.
 
-<a id="multiple-dcs-in-a-single-domain" class="xliff"></a>
-
-### Contrôleurs de domaine multiples dans un seul domaine
+### <a name="multiple-dcs-in-a-single-domain"></a>Contrôleurs de domaine multiples dans un seul domaine
 Lorsque d’autres contrôleurs de domaine du même domaine sont accessibles sur le réseau, le contrôleur de domaine peut être restauré comme n’importe quelle machine virtuelle. S’il s’agit du dernier contrôleur de domaine dans le domaine, ou si une récupération dans un réseau isolé est effectuée, il convient de suivre une procédure de récupération de forêt.
 
-<a id="multiple-domains-in-one-forest" class="xliff"></a>
-
-### Domaines multiples dans une seule forêt
+### <a name="multiple-domains-in-one-forest"></a>Domaines multiples dans une seule forêt
 Lorsque d’autres contrôleurs de domaine du même domaine sont accessibles sur le réseau, le contrôleur de domaine peut être restauré comme n’importe quelle machine virtuelle. Toutefois, dans tous les autres cas, une récupération de forêt est recommandée.
 
 <!--- WK: this following original supportability statement is incorrect, taking it out.
@@ -161,9 +135,7 @@ The challenge arises because DSRM mode is not present in Azure. So to restore su
 Read more about the [USN rollback problem](https://technet.microsoft.com/library/dd363553) and the strategies suggested to fix it.
 --->
 
-<a id="restoring-vms-with-special-network-configurations" class="xliff"></a>
-
-## Restauration de machines virtuelles avec des configurations de réseau spéciales
+## <a name="restoring-vms-with-special-network-configurations"></a>Restauration de machines virtuelles avec des configurations de réseau spéciales
 Azure Backup prend en charge la sauvegarde pour les configurations de réseau spéciales de machines virtuelles.
 
 * Machines virtuelles sous un équilibreur de charge (interne et externe)
@@ -177,14 +149,10 @@ Les considérations suivantes doivent être prises en compte lors de la restaura
 >
 >
 
-<a id="restoring-from-the-ui" class="xliff"></a>
-
-### Restauration à partir de l'interface utilisateur :
+### <a name="restoring-from-the-ui"></a>Restauration à partir de l'interface utilisateur :
 Lors de la restauration à partir de l'interface utilisateur, **choisissez toujours un service cloud**. Veuillez noter que, le portail n'utilisant que des paramètres obligatoires pendant le processus de restauration, les machines virtuelles restaurées à l'aide de l'interface utilisateur perdent la configuration de réseau spéciale dont ils disposent. En d'autres termes, les machines virtuelles restaurées seront normales sans configuration d'un équilibreur de charge ou de plusieurs cartes réseau ou plusieurs adresses IP réservées.
 
-<a id="restoring-from-powershell" class="xliff"></a>
-
-### Restauration de PowerShell :
+### <a name="restoring-from-powershell"></a>Restauration de PowerShell :
 PowerShell ne peut restaurer que des disques de machine virtuelle à partir d'une sauvegarde et non créer la machine virtuelle. Cela est utile lors de la restauration de machines virtuelles qui nécessitent les configurations de réseau spéciales mentionnées ci-dessus.
 
 Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, procédez comme suit :
@@ -197,9 +165,7 @@ Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, 
    * Créer une machine virtuelle avec [plusieurs cartes d’interface réseau](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
    * Créer des machines virtuelles avec [plusieurs adresses IP réservées](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Résolution des erreurs](backup-azure-vms-troubleshoot.md#restore)
 * [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 

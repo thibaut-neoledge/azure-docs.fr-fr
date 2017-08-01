@@ -22,17 +22,13 @@ ms.lasthandoff: 06/03/2017
 
 
 ---
-<a id="create-and-manage-hybrid-connections" class="xliff"></a>
-
-# Création et gestion des connexions hybrides
+# <a name="create-and-manage-hybrid-connections"></a>Création et gestion des connexions hybrides
 
 > [!IMPORTANT]
 > Les connexions hybrides BizTalk ont été supprimées et remplacées par les connexions hybrides App Service. Pour plus d’informations, notamment sur la procédure à suivre pour gérer vos connexions hybrides BizTalk existantes, consultez l’article [Connexions hybrides d’Azure App Service](../app-service/app-service-hybrid-connections.md).
 
 
-<a id="overview-of-the-steps" class="xliff"></a>
-
-## Vue d’ensemble des étapes
+## <a name="overview-of-the-steps"></a>Vue d’ensemble des étapes
 1. Créez une connexion hybride en spécifiant le **host name** ou **nom de domaine complet** of the on-premises resource in your private netwouk.
 2. Liez vos applications web Azure ou vos applications mobiles Azure à la connexion hybride.
 3. Installez le Gestionnaire de connexion hybride sur votre ressource locale et établissez une connexion à la connexion hybride spécifique. Le portail Azure offre des possibilités d’installation et de connexion en un seul clic.
@@ -75,9 +71,7 @@ Vous pouvez créer une connexion hybride dans le portail Azure avec Web Apps **o
    | Port |Entrez le numéro de port de la ressource locale. Par exemple, si vous utilisez des applications web, entrez le port 80 ou 443. Si vous utilisez SQL Server, entrez le port 1433. |
 5. Cliquez sur la coche pour terminer la configuration. 
 
-<a id="additional" class="xliff"></a>
-
-#### Informations complémentaires
+#### <a name="additional"></a>Informations complémentaires
 * Il est possible de créer plusieurs connexions hybrides. Consultez la page [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md) pour connaître le nombre de connexions autorisées. 
 * Chaque connexion hybride est créée avec une paire de chaînes de connexion : des clés Application qui envoient (SEND) et des clés locales qui écoutent (LISTEN). Chaque paire possède une clé primaire et une clé secondaire. 
 
@@ -106,9 +100,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 > Add-HybridConnection -ConnectionString “*Your On-Premises Connection String that you copied*” 
 --> 
 
-<a id="additional" class="xliff"></a>
-
-#### Informations complémentaires
+#### <a name="additional"></a>Informations complémentaires
 * Le Gestionnaire de connexions hybrides peut être installé sur les systèmes d’exploitation suivants :
   
   * Windows Server 2008 R2 (.NET Framework 4.5 et version ultérieures et Windows Management Framework 4.0 et version ultérieures requis)
@@ -127,9 +119,7 @@ Pour gérer vos connexions hybrides, vous pouvez :
 * utiliser le portail Azure et accéder à votre service BizTalk ; 
 * utiliser les [API REST](http://msdn.microsoft.com/library/azure/dn232347.aspx).
 
-<a id="copyregenerate-the-hybrid-connection-strings" class="xliff"></a>
-
-#### Copie/régénération des chaînes de connexion hybride
+#### <a name="copyregenerate-the-hybrid-connection-strings"></a>Copie/régénération des chaînes de connexion hybride
 1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Dans le volet de navigation sur la gauche, sélectionnez **BizTalk Services** , puis sélectionnez votre service BizTalk. 
 3. Sélectionnez l’onglet **Connexions hybrides** :  
@@ -144,9 +134,7 @@ Pour gérer vos connexions hybrides, vous pouvez :
    * Dans le portail Azure Classic, sélectionnez **Clés de synchronisation** dans l’application Azure.
    * Réexécutez l’ **Installation locale**. Lorsque vous réexécutez l'installation locale, la ressource locale est automatiquement configurée pour utiliser la chaîne de connexion principale mise à jour.
 
-<a id="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection" class="xliff"></a>
-
-#### Utilisation d’une stratégie de groupe pour contrôler les ressources locales utilisées par une connexion hybride
+#### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Utilisation d’une stratégie de groupe pour contrôler les ressources locales utilisées par une connexion hybride
 1. Téléchargez les [modèles d’administration du Gestionnaire de connexion hybride](http://www.microsoft.com/download/details.aspx?id=42963).
 2. Procédez à l’extraction des fichiers.
 3. Sur l'ordinateur qui modifie la stratégie de groupe, procédez comme suit :  
@@ -156,16 +144,12 @@ Pour gérer vos connexions hybrides, vous pouvez :
 
 Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de groupe pour modifier la stratégie.
 
-<a id="next" class="xliff"></a>
-
-## Suivant
+## <a name="next"></a>Suivant
 [Connexion d’Azure Web Apps à une ressource locale](../app-service-web/web-sites-hybrid-connection-get-started.md)  
 [Connexion à un serveur SQL Server local à partir d’Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)   
 [Aperçu des connexions hybrides](integration-hybrid-connection-overview.md)
 
-<a id="see-also" class="xliff"></a>
-
-## Voir aussi
+## <a name="see-also"></a>Voir aussi
 [API REST pour gérer BizTalk Services sur Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md)  
 [Créer un BizTalk Service à l'aide du portail Azure Classic](biztalk-provision-services.md)  

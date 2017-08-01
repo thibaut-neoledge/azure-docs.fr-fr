@@ -24,9 +24,7 @@ ms.lasthandoff: 06/20/2017
 
 ---
 
-<a id="create-a-failover-policy-for-high-availability-using-the-azure-cli" class="xliff"></a>
-
-# Créer une stratégie de basculement pour une haute disponibilité à l’aide d’Azure CLI
+# <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Créer une stratégie de basculement pour une haute disponibilité à l’aide d’Azure CLI
 
 Cet exemple de script CLI crée un compte Azure Cosmos DB, puis le configure pour la haute disponibilité.
 
@@ -34,15 +32,11 @@ Cet exemple de script CLI crée un compte Azure Cosmos DB, puis le configure pou
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="sample-script" class="xliff"></a>
-
-## Exemple de script
+## <a name="sample-script"></a>Exemple de script
 
 [!code-azurecli-interactive[principal](../../../cli_scripts/cosmosdb/high-availability-cosmosdb-configure-failover/high-availability-cosmosdb-configure-failover.sh?highlight=23-27 "Créer une stratégie de basculement Azure Cosmos DB")]
 
-<a id="clean-up-deployment" class="xliff"></a>
-
-## Nettoyer le déploiement
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
 
@@ -50,9 +44,7 @@ Une fois l’exemple de script exécuté, la commande suivante permet de supprim
 az group delete --name myResourceGroup
 ```
 
-<a id="script-explanation" class="xliff"></a>
-
-## Explication du script
+## <a name="script-explanation"></a>Explication du script
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
@@ -63,9 +55,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az cosmosdb update](/cli/azure/cosmosdb#update) | Met à jour un compte Azure Cosmos DB. |
 | [az group delete](/cli/azure/resource#delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

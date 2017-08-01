@@ -23,9 +23,7 @@ ms.contentlocale: fr-fr
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="map-a-custom-domain-to-a-function-app" class="xliff"></a>
-
-# Mapper un domaine personnalisé à une Function App
+# <a name="map-a-custom-domain-to-a-function-app"></a>Mapper un domaine personnalisé à une Function App
 
 Cet exemple de script crée une Function App avec les ressources associées, puis la mappe à `www.<yourdomain>`. Pour mapper un domaine personnalisé, votre Function App doit être créée dans un plan App Service et non dans un plan de consommation. Azure Functions ne prend en charge le mappage d’un domaine personnalisé qu’avec un enregistrement A.
 
@@ -36,17 +34,13 @@ Cet exemple de script crée une Function App avec les ressources associées, pui
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
-<a id="sample-script" class="xliff"></a>
-
-## Exemple de script
+## <a name="sample-script"></a>Exemple de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Mapper un domaine personnalisé à une Function App")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-<a id="script-explanation" class="xliff"></a>
-
-## Explication du script
+## <a name="script-explanation"></a>Explication du script
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
@@ -58,9 +52,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az functionapp create]() | Crée une Function App. |
 | [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Mappe un domaine personnalisé à une Function App. |
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

@@ -23,12 +23,8 @@ ms.lasthandoff: 06/07/2017
 
 ---
 
-<a id="machine-learning-anomaly-detection-api" class="xliff"></a>
-
-# API de détection des anomalies Machine Learning
-<a id="overview" class="xliff"></a>
-
-## Vue d'ensemble
+# <a name="machine-learning-anomaly-detection-api"></a>API de détection des anomalies Machine Learning
+## <a name="overview"></a>Vue d'ensemble
 L’[API de détection des anomalies](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps.
 
 Cette API peut détecter les types suivants de schémas anormaux dans les données de séries chronologiques :
@@ -50,34 +46,22 @@ L’offre de détection des anomalies inclut des outils utiles pour bien commenc
 > 
 >
 
-<a id="api-deployment" class="xliff"></a>
-
-## Déploiement de l’API
+## <a name="api-deployment"></a>Déploiement de l’API
 Pour pouvoir utiliser l’API, vous devez la déployer dans votre abonnement Azure où elle sera hébergée comme un service web Azure Machine Learning.  Vous pouvez le faire depuis la [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Cette action déploie deux services Web AzureML (et leurs ressources associées) dans votre abonnement Azure : un pour la détection d’anomalies avec détection de saisonnalité et un autre sans détection de saisonnalité.  Une fois le déploiement terminé, vous serez en mesure de gérer vos API à partir de la page [services web AzureML](https://services.azureml.net/webservices/).  Sur cette page, vous pourrez trouver l’emplacement de vos points de terminaison, de vos clés API, ainsi que les exemples de code pour appeler l’API.  Des instructions plus détaillées sont disponibles [ici](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice).
 
-<a id="scaling-the-api" class="xliff"></a>
-
-## Mise à l’échelle de l’API
+## <a name="scaling-the-api"></a>Mise à l’échelle de l’API
 Par défaut, votre déploiement dispose d’un plan de facturation gratuit de développement/test qui comprend 1 000 transactions par mois et 2 heures de calcul par mois.  Vous pouvez mettre à niveau votre plan en fonction de vos besoins.  Vous pouvez retrouver des informations sur la tarification des différents plans [ici](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) sous « Tarification des API web de production ».
 
-<a id="managing-aml-plans" class="xliff"></a>
-
-## Gestion des plans AML 
+## <a name="managing-aml-plans"></a>Gestion des plans AML 
 Vous pouvez gérer votre plan de facturation [ici](https://services.azureml.net/plans/).  Le nom du plan doit être basé sur le nom du groupe de ressources que vous avez choisi lors du déploiement de l’API, plus une chaîne unique à votre abonnement.  Vous pouvez retrouver des instructions sur la mise à niveau de votre plan [ici](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice) dans la section « Gestion des plans de facturation ».
 
-<a id="api-definition" class="xliff"></a>
-
-## Définition de l’API
+## <a name="api-definition"></a>Définition de l’API
 Le service web fournit des API REST sur HTTPS qui peuvent être utilisées de différentes façons, notamment une application web ou mobile, R, Python, Excel, etc.  L’envoi des données de séries chronologiques à ce service se fait via un appel d’API REST ; celui-ci exécute une combinaison des trois types de détection d’anomalie décrits ci-dessous.
 
-<a id="calling-the-api" class="xliff"></a>
-
-## Appel de l’API
+## <a name="calling-the-api"></a>Appel de l’API
 Pour appeler l’API, vous devez connaître l’emplacement du point de terminaison et la clé d’API.  Ces deux éléments, ainsi que l’exemple de code d’appel de l’API, sont disponibles sur la page [services web AzureML](https://services.azureml.net/webservices/).  Accédez à l’API souhaitée, puis cliquez sur l’onglet « Utiliser » pour les trouver.  Notez que vous pouvez appeler l’API comme API Swagger (par exemple, avec le paramètre d’URL `format=swagger`) ou comme API non-Swagger (c’est-à-dire sans le paramètre d’URL `format`).  L’exemple de code utilise le format Swagger.  Voici un exemple de demande et de réponse au format non-Swagger.  Ces exemples sont relatifs au point de terminaison de saisonnalité.  Le point de terminaison sans saisonnalité est similaire.
 
-<a id="sample-request-body" class="xliff"></a>
-
-### Exemple de corps de la demande
+### <a name="sample-request-body"></a>Exemple de corps de la demande
 La demande contient deux objets : `Inputs` et `GlobalParameters`.  Dans l’exemple de demande ci-dessous, certains paramètres sont envoyés de façon explicite tandis que d’autres ne le sont pas (faites défiler pour voir la liste complète des paramètres de chaque point de terminaison).  Les paramètres qui ne sont pas envoyés de façon explicite dans la demande utilisent les valeurs par défaut indiquées ci-dessous.
 
     {
@@ -99,9 +83,7 @@ La demande contient deux objets : `Inputs` et `GlobalParameters`.  Dans l’exe
         }
     }
 
-<a id="sample-response" class="xliff"></a>
-
-### Exemple de réponse
+### <a name="sample-response"></a>Exemple de réponse
 Notez que, pour pouvoir voir le champ `ColumnNames`, vous devez inclure `details=true` comme paramètre d’URL dans votre demande.  Consultez les tableaux ci-dessous pour connaître la signification de chacun de ces champs.
 
     {
@@ -122,15 +104,11 @@ Notez que, pour pouvoir voir le champ `ColumnNames`, vous devez inclure `details
     }
 
 
-<a id="score-api" class="xliff"></a>
-
-## API Score
+## <a name="score-api"></a>API Score
 L’API Score est utilisée pour la détection des anomalies dans les données de séries chronologiques non saisonnières. L’API exécute un certain nombre de détecteurs d’anomalies sur les données et renvoie leurs résultats d’anomalies. La figure ci-dessous illustre un exemple d’anomalies détectables par l’API Score. Cette série chronologique inclut 2 changements de niveau distincts, ainsi que 3 pics. Les points rouges indiquent l’heure à laquelle le changement de niveau a été détecté, tandis que les points noirs signalent les pics détectés.
 ![API Score][1]
 
-<a id="detectors" class="xliff"></a>
-
-### Détecteurs
+### <a name="detectors"></a>Détecteurs
 L’API de détection des anomalies prend en charge les détecteurs de 3 grandes catégories. Le tableau suivant contient des informations détaillées sur les paramètres d’entrée spécifiques et les sorties de chaque détecteur.
 
 | Catégorie de détecteurs | Détecteur | Description | Paramètres d’entrée | Sorties |
@@ -140,9 +118,7 @@ L’API de détection des anomalies prend en charge les détecteurs de 3 grandes
 | Détecteur de tendances lentes |Détecteur de tendances lentes |Détecter les tendances positives lentes suivant la sensibilité définie |*trenddetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |tscore : nombre flottant représentant le résultat d’anomalies pour une tendance |
 | Détecteurs de changements de niveau | Détecteur de changements de niveau bidirectionnels |Détecter les changements de niveau vers le haut et vers le bas suivant la sensibilité définie |*bileveldetector.sensitivity :* seuil pour le résultat du détecteur (par défaut : 3.25, une valeur comprise entre 3.25 et 5 est raisonnable ; plus la valeur est élevée, moins la sensibilité est importante) |rscore : nombre flottant représentant le résultat d’anomalies pour un changement de niveau vers le haut et vers le bas | |
 
-<a id="parameters" class="xliff"></a>
-
-### Paramètres
+### <a name="parameters"></a>Paramètres
 Le tableau ci-dessous contient des informations plus détaillées sur ces paramètres d’entrée :
 
 | Paramètres d’entrée | Description | Paramètre par défaut | Type | Plage valide | Plage suggérée |
@@ -155,9 +131,7 @@ Le tableau ci-dessous contient des informations plus détaillées sur ces param�
 | zspikedetector.sensitivity |Sensibilité du détecteur ZSpike |3 |integer |1-10 |3-5 (plus la valeur est basse, plus la sensibilité est importante) |
 | postprocess.tailRows |Nombre de points de données récents à conserver dans les résultats de sortie |0 |integer |0 (conserver tous les points de données) ou spécifier le nombre de points à conserver dans les résultats |N/A |
 
-<a id="output" class="xliff"></a>
-
-### Sortie
+### <a name="output"></a>Sortie
 L’API exécute tous les détecteurs sur vos données de séries chronologiques et renvoie les résultats d’anomalies et les indicateurs de pics binaires pour chaque point dans le temps. Le tableau ci-dessous répertorie les sorties de l’API. 
 
 | Sorties | Description |
@@ -171,21 +145,15 @@ L’API exécute tous les détecteurs sur vos données de séries chronologiques
 | tscore |Nombre flottant représentant le résultat d’anomalies pour une tendance positive |
 | talert |Valeur de 1/0 indiquant s’il y a une anomalie de tendance positive en fonction de la sensibilité d’entrée |
 
-<a id="scorewithseasonality-api" class="xliff"></a>
-
-## API ScoreWithSeasonality
+## <a name="scorewithseasonality-api"></a>API ScoreWithSeasonality
 L’API ScoreWithSeasonality est utilisée pour la détection des anomalies dans les séries chronologiques qui présentent des schémas saisonniers. Cette API est utile pour détecter les écarts dans les schémas saisonniers.  
 La figure suivante illustre un exemple d’anomalies détectées dans une série chronologique saisonnière. Cette série chronologique présente 1 pic (le 1er point noir), 2 creux (le 2e point noir et celui à la fin) et 1 changement de niveau (le point rouge). Notez que le creux au milieu de la série chronologique et le changement de niveau ne sont visibles qu’une fois les composantes saisonnières supprimées de la série.
 ![API Saisonnalité][2]
 
-<a id="detectors" class="xliff"></a>
-
-### Détecteurs
+### <a name="detectors"></a>Détecteurs
 Les détecteurs du point de terminaison du caractère saisonnier sont similaires à ceux du point de terminaison sans saisonnalité, mais avec des noms de paramètres légèrement différents (répertoriés ci-après).
 
-<a id="parameters" class="xliff"></a>
-
-### Paramètres
+### <a name="parameters"></a>Paramètres
 
 Le tableau ci-dessous contient des informations plus détaillées sur ces paramètres d’entrée :
 
@@ -206,9 +174,7 @@ Le tableau ci-dessous contient des informations plus détaillées sur ces param�
 | seasonality.transform |Suppression des composantes de tendances (et) saisonnières avant l’exécution de la détection des anomalies |deseason |enumerated |none, deseason, deseasontrend |N/A |
 | postprocess.tailRows |Nombre de points de données récents à conserver dans les résultats de sortie |0 |integer |0 (conserver tous les points de données) ou spécifier le nombre de points à conserver dans les résultats |N/A |
 
-<a id="output" class="xliff"></a>
-
-### Sortie
+### <a name="output"></a>Sortie
 L’API exécute tous les détecteurs sur vos données de séries chronologiques et renvoie les résultats d’anomalies et les indicateurs de pics binaires pour chaque point dans le temps. Le tableau ci-dessous répertorie les sorties de l’API. 
 
 | Sorties | Description |

@@ -23,9 +23,7 @@ ms.lasthandoff: 06/15/2017
 
 
 ---
-<a id="troubleshoot-performance-issues-and-optimize-your-database" class="xliff"></a>
-
-# Résoudre les problèmes de performances et optimiser votre base de données
+# <a name="troubleshoot-performance-issues-and-optimize-your-database"></a>Résoudre les problèmes de performances et optimiser votre base de données
 
 Des index manquants et des requêtes incorrectement optimisées sont souvent à l’origine de performances de base de données limitées. Ce didacticiel vous apprend à effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -36,15 +34,11 @@ Des index manquants et des requêtes incorrectement optimisées sont souvent à 
 > Vous avez besoin d’une charge de travail continue sur une base de données rencontrant des problèmes de performances (p. ex. index manquant) pour obtenir une recommandation.
 >
 
-<a id="log-in-to-the-azure-portal" class="xliff"></a>
-
-## Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-<a id="review-and-apply-a-recommendation" class="xliff"></a>
-
-## Examiner et appliquer une recommandation
+## <a name="review-and-apply-a-recommendation"></a>Examiner et appliquer une recommandation
 
 Suivez les étapes ci-dessous pour appliquer une recommandation du système à votre base de données :
 
@@ -64,9 +58,7 @@ Suivez les étapes ci-dessous pour appliquer une recommandation du système à v
 
     ![réglage automatique](./media/sql-database-performance-tutorial/auto_tuning.png)
 
-<a id="revert-a-recommendation" class="xliff"></a>
-
-## Annuler une recommandation
+## <a name="revert-a-recommendation"></a>Annuler une recommandation
 
 Database Advisor surveille chaque recommandation implémentée. Si une recommandation n’améliore pas la charge de travail, elle est automatiquement annulée. Vous avez la possibilité d’annuler manuellement une recommandation, mais cela n’est pas nécessaire la plupart du temps. Pour annuler une recommandation :
 
@@ -78,9 +70,7 @@ Database Advisor surveille chaque recommandation implémentée. Si une recommand
 
     ![annuler une recommandation](./media/sql-database-performance-tutorial/revert.png)
 
-<a id="find-the-query-that-consumes-the-most-resources" class="xliff"></a>
-
-## Rechercher la requête qui consomme le plus de ressources
+## <a name="find-the-query-that-consumes-the-most-resources"></a>Rechercher la requête qui consomme le plus de ressources
 
 Suivez les étapes ci-dessous pour rechercher la requête qui consomme le plus de ressources :
 
@@ -100,9 +90,7 @@ Suivez les étapes ci-dessous pour rechercher la requête qui consomme le plus d
 
     ![analyse des requêtes](./media/sql-database-performance-tutorial/query_details.png)
 
-<a id="find-the-longest-running-query" class="xliff"></a>
-
-## Rechercher la requête dont l’exécution est la plus longue
+## <a name="find-the-longest-running-query"></a>Rechercher la requête dont l’exécution est la plus longue
 
 1. Accédez à Query Performance Insight et sélectionnez l’onglet **Requêtes longues**.
 
@@ -118,9 +106,7 @@ Suivez les étapes ci-dessous pour rechercher la requête qui consomme le plus d
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes 
 Des index manquants et des requêtes incorrectement optimisées sont souvent à l’origine de performances de base de données limitées. Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Examiner, appliquer et annuler des recommandations en matière d’amélioration des performances
