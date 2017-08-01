@@ -1,6 +1,6 @@
 ---
 title: "Prise en main d’Azure Active Directory Premium"
-description: "Une rubrique qui explique comment s’inscrire à l’édition Azure Active Directory Premium par le biais du site web du plan de licences en volume."
+description: "Cette rubrique explique comment s’inscrire à l’édition Azure Active Directory Premium par le biais du site web du plan de licences en volume."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,17 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73cbbce9ae3d727632b8cac2a29c2b1b92332ae7
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="getting-started-with-azure-active-directory-premium"></a>Prise en main d’Azure Active Directory Premium
+Cet article vous explique comment utiliser Azure Active Directory Premium pour la première fois, que vous avez acheté via le programme de licences en volume. Si vous ne connaissez pas encore les différentes éditions d’Azure Active Directory, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).  
+
+> [!IMPORTANT]
+> Microsoft recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure au lieu d’utiliser le portail Azure classique référencé dans cet article. 
+
 Vous disposez de plusieurs options pour vous inscrire à Active Directory Premium : 
 
 **Azure ou Office 365** : en tant qu’abonné Azure ou Office 365, vous pouvez acheter Active Directory Premium en ligne. Pour obtenir des instructions détaillées, consultez [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Comment acheter Azure Active Directory Premium - clients existants) ou [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Comment acheter Azure Active Directory Premium - nouveaux clients).  
@@ -30,10 +35,8 @@ Vous disposez de plusieurs options pour vous inscrire à Active Directory Premiu
 
 **Programme de licences en volume Microsoft** : Azure Active Directory Premium est disponible par le biais d’un [Contrat Entreprise Microsoft](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (au moins 250 licences) ou le [programme de licences en volume ouvert](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5 à 250 licences).
 
-Cette rubrique présente la prise en main d’Azure Active Directory Premium, que vous avez achetée via le programme de licences en volume. Si vous ne connaissez pas encore les différentes éditions d’Azure Active Directory, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).  
-
 > [!NOTE]
-> Les clients vivant en Chine peuvent accéder aux éditions de base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 > 
 > 
 

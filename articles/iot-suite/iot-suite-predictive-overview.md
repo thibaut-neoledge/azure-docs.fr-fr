@@ -13,36 +13,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: e0e658fc392bf6a53f777f22a2e0b6e7bd742f97
-ms.lasthandoff: 04/26/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 8bad198488c4940a83eb32ec02122a91d47ca86c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Présentation de la solution préconfigurée de maintenance prédictive
 
 La *solution préconfigurée* de [maintenance prédictive][lnk_preconfigured_solutions] est l’une des solutions préconfigurées incluses dans [Microsoft Azure IoT Suite][lnk_iot_suite]. Cette solution intègre la collecte de données télémétriques en temps réel avec un modèle prédictif créé avec [Azure Machine Learning][lnk-machine-learning].
 
-Avec Azure IoT Suite, une entreprise peut rapidement et facilement accéder aux ressources, les surveiller et analyser les données en temps réel. La solution préconfigurée de maintenance prédictive exploite ces données et utilise des tableaux de bord complets ainsi que des visualisations pour vous fournir de nouvelles informations pertinentes vous permettant d’accroître votre efficacité et vos flux de revenus.
+Avec Azure IoT Suite, vous pouvez rapidement et facilement accéder aux ressources, les surveiller et analyser des données de télémétrie en temps réels dans des tableaux de bords et des visualisations. Dans cette solution de maintenance prédictive, les tableaux de bord ainsi que les visualisations vous fournissent de nouvelles informations pertinentes vous permettant d’accroître votre efficacité et vos flux de revenus.
 
 ## <a name="the-scenario"></a>Le scénario
-Fabrikam est une compagnie aérienne régionale qui s’efforce d’offrir à ses clients une expérience optimale et à des prix compétitifs. Une des causes de retard des vols est liée à des problèmes de gestion, et la maintenance des moteurs d'avion est particulièrement complexe. Une panne de moteur en plein vol devant être évitée à tout prix, Fabrikam inspecte ses moteurs régulièrement et suit un programme de maintenance planifiée. Mais les moteurs d’avion ne vieillissent pas tous de la même manière. Et certaines opérations de maintenance inutiles sont effectuées sur les moteurs. Plus important encore, les problèmes clouent les appareils au sol jusqu'à ce que l'opération de maintenance soit terminée. Ces problèmes entraînent des retards coûteux, en particulier si un appareil est immobilisé sur un site qui ne dispose pas des techniciens qualifiés ou des pièces de rechange nécessaires.
 
-Les appareils de Fabrikam sont équipés de capteurs qui analysent les paramètres du moteur pendant le vol. Fabrikam utilise la solution préconfigurée de maintenance prédictive pour récupérer les données des capteurs collectées pendant le vol. Après de longues années passées à analyser les données liées au fonctionnement et aux pannes des moteurs, les spécialistes de Fabrikam ont modélisé une solution capable de prédire la durée de vie restante ou RUL (Remaining Useful Life) d’un moteur d'avion. Ils ont identifié une corrélation entre les données de quatre des capteurs moteur et l'usure du moteur conduisant à une panne. Tandis que Fabrikam continue à effectuer des inspections régulières pour garantir la sécurité, l’entreprise peut maintenant utiliser les modèles pour calculer la durée de vie utile restante de chaque moteur après chaque vol. Le modèle utilise les données télémétriques collectées par les moteurs pendant le vol. Fabrikam peut désormais anticiper les futurs points de défaillance, la planification de la maintenance et les réparations nécessaires.
+Fabrikam est une compagnie aérienne régionale qui s’efforce d’offrir à ses clients une expérience optimale et à des prix compétitifs. Une des causes de retard des vols est liée à des problèmes de gestion, et la maintenance des moteurs d'avion est particulièrement complexe. Une panne de moteur en plein vol devant être évitée à tout prix, Fabrikam inspecte ses moteurs régulièrement et suit un programme de maintenance planifiée. Mais les moteurs d’avion ne vieillissent pas tous de la même manière. Et certaines opérations de maintenance inutiles sont effectuées sur les moteurs. Plus important encore, les problèmes clouent les appareils au sol jusqu'à ce que l'opération de maintenance soit terminée. Si un appareil est immobilisé sur un site qui ne dispose pas des techniciens qualifiés ni des pièces de rechange nécessaires, ces problèmes peuvent s’avérer particulièrement coûteux.
+
+Les appareils de Fabrikam sont équipés de capteurs qui analysent les paramètres du moteur pendant le vol. Fabrikam utilise la solution de maintenance prédictive pour récupérer les données des capteurs collectées pendant le vol. Après de longues années passées à analyser les données liées au fonctionnement et aux pannes des moteurs, les spécialistes de Fabrikam ont modélisé une solution capable de prédire la durée de vie restante ou RUL (Remaining Useful Life) d’un moteur d'avion. Le modèle se sert d’une corrélation entre les données de quatre des capteurs moteur et l'usure du moteur conduisant à une panne. Tandis que Fabrikam continue à effectuer des inspections régulières pour garantir la sécurité, l’entreprise peut maintenant utiliser les modèles pour calculer la durée de vie utile restante de chaque moteur après chaque vol. Le modèle utilise les données télémétriques collectées par les moteurs pendant le vol. Fabrikam peut désormais anticiper les futurs points de défaillance, la planification de la maintenance et les réparations nécessaires.
 
 > [!NOTE]
 > Le modèle de solution utilise les données réelles d’usure du moteur.
 
-En prédisant le moment où une maintenance est requise, Fabrikam peut optimiser ses opérations et réduire ainsi ses coûts. Les coordinateurs de maintenance collaborent avec les planificateurs :
+En prédisant le moment où une maintenance est requise, Fabrikam peut optimiser ses opérations et réduire ainsi ses coûts.
 
-- pour prévoir une maintenance lorsqu’un appareil est au sol sur un site donné.
-- pour garantir un délai suffisant pour que la mise hors service de l’avion ne perturbe pas la planification.
+Les coordinateurs de maintenance collaborent avec les planificateurs pour :
+
+- Prévoir une maintenance lorsqu’un appareil est au sol sur un site donné.
+- Garantir un délai suffisant pour que la mise hors service de l’avion ne perturbe pas la planification.
 - pour planifier le travail des techniciens en veillant à ce que les appareils sont inspectés et réparés sans délai.
 
-Les responsables du contrôle des stocks reçoivent des plans de maintenance qui les aident à optimiser le processus de commande et le stock de pièces de rechange. Tous ces facteurs permettent à Fabrikam de minimiser le temps d’immobilisation des appareils et de réduire les coûts d’exploitation tout en garantissant la sécurité des passagers et de l’équipage.
+Les responsables du contrôle des stocks reçoivent des plans de maintenance qui les aident à optimiser le processus de commande et le stock de pièces de rechange.
+
+Ces activités permettent à Fabrikam de minimiser le temps d’immobilisation des appareils et de réduire les coûts d’exploitation tout en garantissant la sécurité des passagers et de l’équipage.
 
 Pour comprendre comment les fonctionnalités [d’Azure IoT Suite][lnk_iot_suite] permettent aux clients d’exploiter tout le potentiel de la maintenance prédictive, reportez-vous à cette [infographie][lnk_infographic].
 
@@ -50,7 +55,7 @@ Pour comprendre comment les fonctionnalités [d’Azure IoT Suite][lnk_iot_sui
 
 La solution utilise un modèle Microsoft Azure Machine Learning existant pour afficher ces fonctionnalités en s’appuyant sur les données télémétriques de l’appareil recueillies via les services IoT Suite. Microsoft a créé un [modèle de régression][lnk_regression_model] d’un moteur d’avion basé sur un modèle complet disponible publiquement<sup>\[1\]</sup> et des instructions d’utilisation détaillées.
 
-La solution préconfigurée de maintenance prédictive Azure IoT utilise le modèle de régression créé à partir de ce modèle. Le modèle est déployé dans votre abonnement Azure et exposé via une API générée automatiquement. La solution inclut un sous-ensemble des données de tests représentant 4 (sur un total 100) moteurs et 4 (sur un total 21) flux de données de capteurs. Ces données sont suffisantes pour fournir un résultat exact du modèle formé.
+La solution de maintenance prédictive Azure IoT utilise le modèle de régression créé à partir de ce modèle. Le modèle est déployé dans votre abonnement Azure et exposé via une API générée automatiquement. La solution inclut un sous-ensemble des données de tests représentant 4 (sur un total 100) moteurs et 4 (sur un total 21) flux de données de capteurs. Ces données sont suffisantes pour fournir un résultat exact du modèle formé.
 
 *\[1\] A. Saxena and K. Goebel (2008). « Turbofan Engine Degradation Simulation Data Set », NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
@@ -86,17 +91,19 @@ Certains détails de votre solution semblent-ils faire défaut ? Faites-nous pa
 Cette section vous guide à travers l’utilisation de l’interface utilisateur de la solution.
 
 ### <a name="predictive-maintenance-dashboard"></a>Tableau de bord de maintenance prédictive
+
 Cette page de l’application web utilise des contrôles Power BI JavaScript (consultez [Référentiel d’éléments visuels Power BI][lnk-powerbi]) pour visualiser :
 
 * Les données de sortie des tâches Stream Analytics dans le Blob Storage.
 * La durée de vie utile restante et le nombre de cycles d’un moteur d’avion.
 
 ### <a name="observing-the-behavior-of-the-cloud-solution"></a>Observer le comportement de la solution cloud
+
 Dans le portail Azure, accédez au groupe de ressources portant le nom de solution que vous avez choisi, pour afficher vos ressources configurées.
 
 ![][img-resource-group]
 
-Lorsque vous approvisionnez la solution préconfigurée, vous recevez un e-mail contenant un lien vers l’espace de travail Machine Learning. Vous pouvez également accéder à l’espace de travail Machine Learning via la vignette sur la page [azureiotsuite.com][lnk-azureiotsuite] de votre solution provisionnée, lorsque son état est **Prêt**.
+Lorsque vous approvisionnez la solution préconfigurée, vous recevez un e-mail contenant un lien vers l’espace de travail Machine Learning. Vous pouvez également accéder à l’espace de travail Machine Learning à partir de la page [azureiotsuite.com][lnk-azureiotsuite] de votre solution configurée. Une vignette est disponible sur cette page lorsque le statut de la solution est **Prêt**.
 
 ![][img-machine-learning]
 
@@ -104,11 +111,11 @@ Dans le portail de la solution, vous pouvez voir que l’exemple est configuré 
 
 ![][img-simulation-stopped]
 
-Cliquez sur **Démarrer la simulation** pour commencer la simulation dans laquelle vous verrez l’historique des capteurs, la durée de vie utile restante, les cycles et l’historique de durée de vie utile restante s’afficher dans le tableau de bord.
+Cliquez sur **Démarrer la simulation** pour commencer la simulation. L’historique, les cycles et la durée de vie utile restante du capteur, ainsi que l’historique de durée de vie restante sont renseignés dans le tableau de bord.
 
 ![][img-simulation-running]
 
-Lorsque la durée de vie utile restante est inférieure à 160 (seuil arbitraire choisi pour les besoins de la démonstration), le portail de la solution affiche un symbole d’avertissement en regard de la valeur correspondante et colore le moteur d’avion en jaune. Vous remarquerez que les valeurs de durée de vie utile restante tendent globalement à diminuer, mais avec des rebonds à la hausse ou à la baisse. Ce phénomène provient de la variabilité de la durée des cycles et de la précision du modèle.
+Lorsque la durée de vie utile restante est inférieure à 160 (seuil arbitraire choisi pour les besoins de la démonstration), le portail de la solution affiche un symbole d’avertissement en regard de la valeur correspondante. Le portail de la solution colore également le moteur d’avion en jaune. Vous remarquerez que les valeurs de durée de vie utile restante tendent globalement à diminuer, mais avec des rebonds à la hausse ou à la baisse. Ce phénomène provient de la variabilité de la durée des cycles et de la précision du modèle.
 
 ![][img-simulation-warning]
 
@@ -122,7 +129,7 @@ Vous pouvez arrêter la simulation à tout moment. L’option **Démarrer la sim
 
 Pour en savoir plus sur la gestion de scénarios de gestion prédictive avec Azure IoT, consultez [Saisir la valeur de l'Internet des objets][lnk_capture_value].
 
-[Examinez pas à pas][lnk-predictive-walkthrough] la solution préconfigurée de maintenance prédictive.
+[Examinez pas à pas][lnk-predictive-walkthrough] la solution de maintenance prédictive.
 
 Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
 

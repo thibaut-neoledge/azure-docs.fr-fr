@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/13/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Gestion du répertoire de l’abonnement Office 365 dans Azure
 Cet article décrit comment gérer un répertoire créé pour un abonnement Office 365 dans le portail Azure Classic. Vous devez être l’administrateur du service ou un co-administrateur d’un abonnement Azure pour vous connecter au portail Azure Classic. Si vous n’avez pas d’abonnement Azure, vous pouvez vous inscrire pour une [période d’essai gratuite de 30 jours](https://azure.microsoft.com/trial/get-started-active-directory/) , puis déployer votre première solution cloud en moins de 5 minutes à l’aide de ce lien. Veillez à utiliser le compte professionnel ou scolaire que vous utilisez pour vous connecter à Office 365.
+
+> [!IMPORTANT]
+> Microsoft recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure au lieu d’utiliser le portail Azure classique référencé dans cet article.
 
 Une fois que vous êtes abonné à Azure, vous pouvez vous connecter au portail Azure Classic et accéder aux services Azure. Cliquez sur l’extension Active Directory pour gérer l’annuaire qui authentifie les utilisateurs Office 365.
 
@@ -41,7 +44,7 @@ Il souhaite gérer les identités des utilisateurs dans le répertoire Contoso l
 Dans ce cas, les deux annuaires sont indépendants l’un de l’autre.
 
 ## <a name="to-manage-two-independent-directories"></a>Pour gérer deux annuaires indépendants
-Pour que Michael Smith puisse gérer les deux répertoires alors qu’il est connecté à Azure en tant que msmith@hotmail.com,, il doit effectuer les opérations suivantes :
+Pour que Michael Smith puisse gérer les deux répertoires alors qu’il est connecté à Azure en tant que msmith@hotmail.com, il doit effectuer les opérations suivantes :
 
 > [!NOTE]
 > Ces étapes ne peuvent être effectuées que lorsqu'un utilisateur est connecté via un compte Microsoft. Si l’utilisateur est connecté avec un compte professionnel ou scolaire, l’option **Utiliser un annuaire existant** n’est pas disponible. Un compte professionnel ou scolaire peut être authentifié uniquement par son répertoire de base (autrement dit, le répertoire où se trouve le compte professionnel ou scolaire et appartenant à l’entreprise ou à l’école).
@@ -51,7 +54,7 @@ Pour que Michael Smith puisse gérer les deux répertoires alors qu’il est con
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com) en tant que msmith@hotmail.com.
 2. Cliquez sur **Nouveau** > **App Services** > **Active Directory** > **Répertoire** > **Création personnalisée**.
 3. Cliquez sur Utiliser un annuaire existant et sélectionnez la case **Je suis prêt à me déconnecter** .
-4. Connectez-vous au portail Azure Classic en tant qu’administrateur global de Contoso.onmicrosoft.com (par exemple, msmith@contoso.com)).
+4. Connectez-vous au portail Azure classique en tant qu’administrateur global de Contoso.onmicrosoft.com (par exemple, msmith@contoso.com).
 5. Lorsque l’invite **Utiliser l’annuaire Contoso avec Azure ?** s’affiche, cliquez sur **Continuer**.
 6. Cliquez sur **Se déconnecter maintenant**.
 7. Connectez-vous au portail Azure Classic en tant que msmith@hotmail.com. L’annuaire Contoso et l’annuaire par défaut apparaissent dans l'extension Active Directory.
@@ -61,7 +64,7 @@ Après avoir effectué ces étapes, msmith@hotmail.com est un administrateur glo
 ## <a name="to-administer-resources-as-the-global-admin"></a>Pour gérer les ressources en tant qu’administrateur global
 Supposons maintenant que Jane Doe doive administrer les sites web et les ressources de base de données associés à l’abonnement Azure de msmith@hotmail.com. Pour cela, Michael Smith a besoin d’effectuer ces étapes supplémentaires :
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com) en utilisant le compte d’administrateur de service de l’abonnement Azure (dans cet exemple, msmith@hotmail.com).
+1. Connectez-vous au [portail Azure classique](https://manage.windowsazure.com) en utilisant le compte d’administrateur de service de l’abonnement Azure (dans cet exemple, msmith@hotmail.com.
 2. Transférez l’abonnement au répertoire Contoso : cliquez sur **Paramètres** > **Abonnements** > sélectionnez l’abonnement > **Modifier l’annuaire** > sélectionnez **Contoso (Contoso.com)**. Dans le cadre du transfert, les comptes professionnels ou scolaires qui sont co-administrateurs de l’abonnement sont supprimés.
 3. Ajoutez Jane Doe comme co-administrateur de l’abonnement : cliquez sur **Paramètres** > **Administrateurs** > sélectionnez l’abonnement > **Ajouter** > tapez **JohnDoe@Contoso.com**.
 
