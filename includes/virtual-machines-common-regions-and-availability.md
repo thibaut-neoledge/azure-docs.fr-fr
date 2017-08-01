@@ -77,11 +77,11 @@ Consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/detai
 ## <a name="availability-sets"></a>Groupes à haute disponibilité
 Un groupe à haute disponibilité est un regroupement logique de machines virtuelles qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Lorsqu’une seule machine virtuelle utilise le [stockage Azure Premium](../articles/storage/storage-premium-storage.md), le SLA Azure s’applique pour les événements de maintenance non planifiés. 
 
-Un groupe à haute disponibilité représente le compromis entre deux regroupements supplémentaires qui vous protègent contre les défaillances matérielles et autorisent l’application des mises à jour en toute sécurité dans des domaines d’erreur (FD) et des domaines de mise à jour (UD).
+Un groupe à haute disponibilité est composé de deux regroupements supplémentaires qui vous protègent contre les défaillances matérielles et autorisent l’application des mises à jour en toute sécurité dans des domaines d’erreur (FD) et des domaines de mise à jour (UD).
 
 ![Schéma conceptuel de la configuration du domaine de mise à jour et du domaine d’erreur](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-Vous pouvez en savoir plus sur la gestion de la disponibilité des [machines virtuelles Linux](../articles/virtual-machines/linux/manage-availability.md) ou des [machines virtuelles Windows](../articles/virtual-machines/linux/manage-availability.md).
+Vous pouvez en savoir plus sur la gestion de la disponibilité des [machines virtuelles Linux](../articles/virtual-machines/linux/manage-availability.md) ou des [machines virtuelles Windows](../articles/virtual-machines/windows/manage-availability.md).
 
 ### <a name="fault-domains"></a>Domaines d'erreur
 Un domaine d’erreur est un groupe logique de matériels sous-jacents qui partagent la même source d’alimentation et le même commutateur réseau, par exemple un rack dans un centre de données local. Lorsque vous créez des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure distribue automatiquement vos machines virtuelles dans ces domaines d’erreur. Cette approche limite l’impact des défaillances du matériel physique, des pannes de réseau ou des coupures de courant susceptibles de survenir.

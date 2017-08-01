@@ -15,33 +15,31 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: a6d3a6f6e3457c84c5a7dc7d3601ef9495c060fe
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e911e787cd1e29b2bbeaa648869c50245f2dd9ba
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montage d’un partage de fichiers Azure et accès au partage dans Windows
 Le [Stockage Fichier Azure](storage-dotnet-how-to-use-files.md) est le système de fichiers dans le cloud, facile à utiliser, de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows et Windows Server. Cet article présente trois méthodes différentes de montage d’un partage de fichiers Azure sur Windows : avec l’interface utilisateur de l’Explorateur de fichiers, via PowerShell ou via l’invite de commandes. 
 
-Pour monter un partage de fichiers Azure en dehors de la région Azure sur laquelle il est hébergé, par exemple localement ou dans une région Azure différente, le système d’exploitation doit prendre en charge SMB 3.x. Le tableau ci-après montre que la version SMB des dernières versions de Windows :
+Pour monter un partage de fichiers Azure en dehors de la région Azure sur laquelle il est hébergé, par exemple localement ou dans une région Azure différente, le système d’exploitation doit prendre en charge SMB 3.0. 
 
-| Version de Windows | Version SMB | Prend en charge le montage à partir de la machine virtuelle Azure | Prend en charge le montage en local | Base de connaissance minimale recommandée |
-|----|----|----|----|----|
-| Windows 10 version 1703 | SMB 3.1.1 | Oui | Oui | |
-| Windows Server 2016 | SMB 3.1.1 | Oui | Oui | [KB4015438](https://support.microsoft.com/help/4015438) |
-| Windows 10 version 1607 | SMB 3.1.1 | Oui | Oui | [KB4015438](https://support.microsoft.com/help/4015438) | 
-| Windows 10 version 1511 | SMB 3.1.1 | Oui | Oui | [KB4013198](https://support.microsoft.com/help/4013198) |
-| Windows 10 version 1507 | SMB 3.1.1 | Oui | Oui | [KB4012606](https://support.microsoft.com/help/4012606) | 
-| Windows 8.1 | SMB 3.0.2 | Oui | Oui | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 R2 | SMB 3.0.2 | Oui | Oui | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 | SMB 3.0 | Oui | Oui | [KB4012214](https://support.microsoft.com/help/4012214) |
-| Windows 7 | SMB 2.1 | Oui | Non | [KB4012215](https://support.microsoft.com/help/4012215) |
-| Windows Server 2008 R2 | SMB 2.1 | Oui | Non | [KB4012215](https://support.microsoft.com/help/4012215) |
+Le partage de fichier Azure peut être monté sur une machine Azure. Le montage est réalisé en local ou sur une machine virtuelle Azure en fonction de la version du système d’exploitation. Le tableau ci-dessous illustre la : 
+
+| Version de Windows        | Version SMB |Version montable sur une machine virtuelle Azure|Version montable en local|
+|------------------------|-------------|---------------------|---------------------|
+| Windows 7              | SMB 2.1     | Oui                 | Non                  |
+| Windows Server 2008 R2 | SMB 2.1     | Oui                 | Non                  |
+| Windows 8              | SMB 3.0     | Oui                 | Oui                 |
+| Windows Server 2012    | SMB 3.0     | Oui                 | Oui                 |
+| Windows Server 2012 R2 | SMB 3.0     | Oui                 | Oui                 |
+| Windows 10             | SMB 3.0     | Oui                 | Oui                 |
 
 > [!Note]  
-> Nous vous conseillons de prendre la base de connaissances la plus récente pour votre version de Windows. La base de connaissances minimale recommandée permet de fournir le package le plus récent, comportant les correctifs SMB pour les administrateurs informatiques peu adeptes des mises à jour.
+> Nous vous conseillons de prendre la base de connaissances la plus récente pour votre version de Windows.
 
 ## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Conditions préalables pour le montage d’un partage de fichiers Azure avec Windows 
 * **Nom de compte de stockage** : pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
@@ -144,3 +142,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 ### <a name="reference"></a>Référence
 * [Référence de la bibliothèque cliente de stockage pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Référence de l’API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+

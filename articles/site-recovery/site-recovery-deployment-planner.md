@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/29/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a6fdab66a6a41e352d07e3b6f3c58eb331c0d93f
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery deployment planner
@@ -456,7 +455,9 @@ La feuille de calcul Input fournit une vue d’ensemble de l’environnement VMw
 **VM Compatibility** : les valeurs sont **Oui** et **Oui**\*. **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée pour [le stockage Premium Azure](https://aka.ms/premium-storage-workload). Ici l’activité élevée profilée ou le disque d’E/S par seconde se classe dans la catégorie P20 ou P30, mais la taille du disque entraîne classification inférieure à P10 ou P20. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille. Par exemple :
 * < 128 Go : disque P10.
 * 128 Go à 512 Go : disque P20.
-* 512 Go à 1 023 Go : disque P30.
+* 512 Go à 1024 Go : disque P30.
+* 1025 Go à 2048 Go : disque P40.
+* 2049 Go à 4095 Go : disque P50.
 
 Si les caractéristiques de charge de travail d’un disque le placent dans la catégorie P20 ou P30, mais que la taille le mappe à un niveau ou à un type de disque de stockage premium inférieur, l’outil marque cette machine virtuelle comme **Oui**\*. L’outil recommande également que vous modifiiez la taille du disque source pour que celui s’adapte au type de disque de stockage premium recommandé, ou que vous modifiiez le type de disque cible après le basculement.
 
@@ -494,7 +495,8 @@ Si les caractéristiques de charge de travail d’un disque le placent dans la c
 
 **VM Compatibility** : indique pourquoi la machine virtuelle spécifiée est incompatible avec une utilisation avec Site Recovery. Les raisons sont décrites pour chaque disque incompatible de la machine virtuelle et, en fonction des [limites de stockage](https://aka.ms/azure-storage-scalbility-performance), peuvent figurer parmi les suivantes :
 
-* Taille du disque > 1 023 Go. Actuellement, le stockage Azure ne prend pas en charge les tailles de supérieures à 1 To.
+* La taille du disque est > 4095 Go. Actuellement, le stockage Azure ne prend pas en charge les tailles de disques de données supérieures à 4095 Go.
+* Le disque du système d’exploitation est  > 2048 Go. Actuellement, le stockage Azure ne prend pas en charge les tailles de disques de systèmes d’exploitation supérieures à 2048 Go.
 * Le type de démarrage est EFI. Pour l’instant, Azure Site Recovery ne prend en charge que les machines virtuelles qui présentent le type de démarrage BIOS.
 
 * La taille totale de machine virtuelle (réplication + TFO) dépasse la limite de taille du compte de stockage prise en charge (35 To). Cette incompatibilité se produit généralement lorsqu’un seul disque de la machine virtuelle présente une caractéristique de performances dépassant les limites maximales prises en charge Azure ou Site Recovery pour le stockage standard. Une telle instance envoie la machine virtuelle dans la zone de stockage premium en mode Push. Néanmoins, la taille maximale prise en charge d’un compte de stockage premium est de 35 To, et une seule et même machine virtuelle protégée ne peut pas être protégée sur plusieurs comptes de stockage. Notez également que, lorsqu’un test de basculement est exécuté sur une machine virtuelle protégée, elle s’exécute dans le compte de stockage où la réplication est en cours. Dans ce cas, configurez 2 fois la taille du disque pour que la progression de la réplication et le test de basculement réussissent en parallèle.
@@ -560,6 +562,15 @@ Pour mettre à jour Deployment planner, procédez comme suit :
 
 
 ## <a name="version-history"></a>Historique des versions
+
+### <a name="131"></a>1.3.1
+Dernière mise à jour : 19 juillet, 2017
+
+La nouvelle fonctionnalité suivante est ajoutée :
+
+* La prise en charge des disques volumineux (> 1To) a été ajoutée à la génération de rapport. Maintenant, vous pouvez utiliser le planificateur de déploiement pour planifier la réplication pour les ordinateurs virtuels dont les tailles de disque sont supérieures à 1 To (jusqu'à 4095 Go).
+En savoir plus sur la [Prise en charge des disques volumineux sur Azure Site Recovery](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/)
+
 
 ### <a name="13"></a>1.3
 Mise à jour : 9 mai 2017
