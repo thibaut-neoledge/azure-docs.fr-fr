@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 99c8067cf08b8ae7650c240c9d69d2fe1c18f9c8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 50c463588356cc4725b038cbf89a49b6ce2bdc3b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>Utilisation du Bureau à distance avec des rôles Azure
-En utilisant le kit de développement logiciel (SDK) Azure et les Services Bureau à distance, vous pouvez accéder aux rôles Azure et aux machines virtuelles hébergées par Azure. Dans Visual Studio, vous pouvez configurer les Services Bureau à distance à partir d'un projet Azure. Pour activer les Services Bureau à distance, vous devez créer un projet de travail qui contient un ou plusieurs rôles, puis le publier sur Azure.
+En utilisant le kit de développement logiciel (SDK) Azure et les Services Bureau à distance, vous pouvez accéder aux rôles Azure et aux machines virtuelles hébergées par Azure. Dans Visual Studio, vous pouvez configurer les Services Bureau à distance à partir d’un projet de service cloud Azure. Pour activer les Services Bureau à distance, vous devez créer un projet de travail qui contient un ou plusieurs rôles, puis le publier sur Azure.
 
 > [!IMPORTANT]
 > L’accès aux rôles Azure est réservé au dépannage et au développement. L'objectif de chaque machine virtuelle consiste à exécuter un rôle spécifique dans votre application Azure, et non à exécuter d'autres applications clientes. Si vous souhaitez utiliser Azure pour héberger une machine virtuelle que vous pourrez utiliser à d’autres fins, consultez Accès aux machines virtuelles Azure à partir de l'Explorateur de serveurs.
@@ -29,7 +31,7 @@ En utilisant le kit de développement logiciel (SDK) Azure et les Services Burea
 > 
 
 ## <a name="to-enable-and-use-remote-desktop-for-an-azure-role"></a>Pour activer et utiliser le Bureau à distance pour un rôle Azure
-1. Dans l’Explorateur de solutions, ouvrez le menu contextuel de votre projet, puis sélectionnez **Publier**.
+1. Dans l’Explorateur de solutions, ouvrez le menu contextuel de votre projet de service cloud, puis choisissez **Publier**.
    
     L’Assistant **Publication d’application Azure** s’affiche.
    
@@ -76,10 +78,5 @@ Après avoir publié votre service cloud sur Azure, vous pouvez utiliser l'Explo
    
     ![Connexion Bureau à distance](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 3. Entrez le nom d'utilisateur et le mot de passe que vous avez créés précédemment. Vous êtes maintenant connecté à votre session à distance.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

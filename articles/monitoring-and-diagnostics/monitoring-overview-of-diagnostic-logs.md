@@ -2,7 +2,7 @@
 title: "Présentation des journaux de diagnostic Azure | Microsoft Docs"
 description: "Découvrez les journaux de diagnostic Azure et comment les utiliser pour comprendre les événements qui se produisent au sein d’une ressource Azure."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: johnkem; magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: d144dd60192a4b62db393db08b82efeaa8d45447
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 2517972b63bbd1a552fe591e937c9e34db580865
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="collect-and-consume-diagnostic-data-from-your-azure-resources"></a>Collecte et utilisation des données de diagnostic à partir de vos ressources Azure
@@ -45,7 +44,7 @@ Voici ce que vous pouvez faire avec les journaux de diagnostic :
 * [Diffusez-les en streaming sur **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (comme PowerBI) les ingère.
 * Analysez-les avec [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hub qui n’est pas dans le même abonnement que celui générant des journaux. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements.
+Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hubs qui n’est pas dans le même abonnement que celui générant des journaux. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements.
 
 ## <a name="diagnostic-settings"></a>Paramètres de diagnostic
 Les journaux de diagnostic pour les ressources non liées au calcul sont configurés à l’aide des paramètres de diagnostic. **Paramètres de diagnostic** pour un contrôle de ressource :
@@ -86,7 +85,7 @@ Vous pouvez activer les journaux de diagnostic dans le portail Azure lorsque vou
 Pour les ressources non calculées, vous pouvez activer les journaux de diagnostic dans le portail Azure après la création d’une ressource, en procédant comme suit :
 
 1. Accédez au panneau de la ressource et ouvrez le panneau **Diagnostics** .
-2. Cliquez sur **On** (Activé) et choisissez un compte de stockage et/ou un Event Hub.
+2. Cliquez sur **Activé** et choisissez un compte de stockage et/ou un hub d’événements.
 
    ![Activer les journaux de diagnostic après la création de ressources](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3. Sous **Journaux**, sélectionnez les **catégories de journaux** que vous souhaitez collecter ou diffuser en streaming.
@@ -98,23 +97,23 @@ Pour activer les journaux de diagnostic via les applets de commande Azure PowerS
 Pour activer le stockage des journaux de diagnostic dans un compte de stockage, utilisez cette commande :
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 L’ID de compte de stockage est l’ID de ressource pour le compte de stockage auquel vous souhaitez envoyer les journaux.
 
-Pour activer la diffusion en continu des journaux de diagnostic vers un Event Hub, utilisez cette commande :
+Pour activer la diffusion en continu des journaux de diagnostic vers un hub d’événements, utilisez cette commande :
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
-L’ID de règle Service Bus est une chaîne au format : `{service bus resource ID}/authorizationrules/{key name}`.
+L’ID de règle Service Bus est une chaîne au format : `{Service Bus resource ID}/authorizationrules/{key name}`.
 
 Pour activer l’envoi des journaux de diagnostic à un espace de travail Log Analytics, utilisez cette commande :
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 Vous pouvez obtenir l’ID de ressource de votre espace de travail Log Analytics à l’aide de la commande suivante :
@@ -131,23 +130,23 @@ Pour activer les journaux de diagnostic via l’interface de ligne de commande A
 Pour activer le stockage des journaux de diagnostic dans un compte de stockage, utilisez cette commande :
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
 ```
 
 L’ID de compte de stockage est l’ID de ressource pour le compte de stockage auquel vous souhaitez envoyer les journaux.
 
-Pour activer la diffusion en continu des journaux de diagnostic vers un Event Hub, utilisez cette commande :
+Pour activer la diffusion en continu des journaux de diagnostic vers un hub d’événements, utilisez cette commande :
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 ```
 
-L’ID de règle Service Bus est une chaîne au format : `{service bus resource ID}/authorizationrules/{key name}`.
+L’ID de règle Service Bus est une chaîne au format : `{Service Bus resource ID}/authorizationrules/{key name}`.
 
 Pour activer l’envoi des journaux de diagnostic à un espace de travail Log Analytics, utilisez cette commande :
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
 ```
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.

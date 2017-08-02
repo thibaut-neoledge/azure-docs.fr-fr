@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 07/17/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 3a8f878502f6a7237212b467b2259fcbb48000ff
-ms.openlocfilehash: d0775971c76c5745f90cb6c5268fda5a2c905093
-
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: e3de7c26af5cbc930defe542727a1250825fb1f8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestion des éléments multimédias et des entités connexes avec le Kit de développement logiciel (SDK) Media Services .NET
@@ -33,7 +34,8 @@ Cette rubrique montre comment gérer les entités Azure Media Services avec .NET
 > À compter du 1er avril 2017, les enregistrements de travaux dans votre compte de plus de 90 jours seront automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximum. Par exemple, le 1er avril 2017, tout enregistrement de travail dans votre compte antérieur au 31 décembre 2016 sera automatiquement supprimé. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit dans cette rubrique.
 
 ## <a name="prerequisites"></a>Composants requis
-Consultez [Configuration de votre environnement](media-services-set-up-computer.md)
+
+Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Obtenir une référence pointant vers un élément multimédia
 L’obtention d’une référence pointant vers un élément multimédia existant dans Media Services est une tâche fréquente. L’exemple de code suivant montre comment vous pouvez obtenir une référence pointant vers un élément multimédia à partir de la collection Assets sur l’objet de contexte du serveur, en fonction d’un ID d’élément multimédia.
@@ -403,10 +405,5 @@ L’exemple de code suivant montre comment obtenir une référence pointant vers
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

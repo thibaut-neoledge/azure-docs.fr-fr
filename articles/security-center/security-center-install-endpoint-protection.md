@@ -12,41 +12,48 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 06/16/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: b8a69d89f335c00c5ddc3c201e33a66e1dea1da5
-ms.openlocfilehash: 6ccb5367b1c7c6cae7b9d35b6a5471c8edfe6f85
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: efb86a0ae362c30a6772c391a499154b7ae2a697
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="install-endpoint-protection-in-azure-security-center"></a>Installer Endpoint Protection dans Azure Security Center
-Azure Security Center vous recommande de configurer un logiciel anti-programme malveillant sur vos machines virtuelles Azure, s’il n’est pas encore activé. Cette recommandation s'applique uniquement aux machines virtuelles Windows. Actuellement, cette recommandation permet de vérifier la présence de Windows Defender ou de TrendMicro Deep Security. Des solutions de protection de point de terminaison supplémentaires sont planifiées pour les versions à venir.
+Azure Security Center recommande d’installer Endpoint Protection sur vos machines virtuelles Azure si cette dernière n’est pas déjà activée. Cette recommandation s'applique uniquement aux machines virtuelles Windows.
 
 > [!NOTE]
-> Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
+> Cet exemple de déploiement utilise Microsoft Antimalware. Consultez [Intégration des partenaires dans Azure Security Center](security-center-partner-integration.md#partners-that-integrate-with-security-center) pour obtenir la liste des partenaires intégrés dans Security Center.  
 >
 >
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
+
+> [!NOTE]
+> Ce document présente le service à l’aide d’un exemple de déploiement.  Ce document n’est pas un guide pas à pas.
+>
+>
+
 1. Dans le panneau **Recommandations**, sélectionnez **Installer Endpoint Protection**.
    ![Sélectionner Installer Endpoint Protection][1]
-2. Le panneau **Installer Endpoint Protection** s’ouvre en affichant une liste de machines virtuelles sans logiciel anti-programme malveillant activé. Dans cette liste, sélectionnez les machines virtuelles sur lesquelles vous souhaitez installer un logiciel anti-programme malveillant et cliquez sur **Installer sur les machines virtuelles**.
-   ![Sélectionner les machines virtuelles sur lesquelles installer le logiciel anti-programme malveillant][2]
-3. Le panneau **Sélectionner Endpoint Protection** s’ouvre et vous permet de sélectionner la solution anti-programme malveillant à utiliser. Dans cet exemple, nous allons sélectionner **Microsoft Antimalware**.
+2. Le panneau **Installer Endpoint Protection** s’ouvre en affichant une liste de machines virtuelles dépourvues de protection des points de terminaison. Dans cette liste, sélectionnez les machines virtuelles sur lesquelles vous souhaitez installer Endpoint Protection et cliquez sur **Installer sur les machines virtuelles**.
+   ![Sélectionner les machines virtuelles sur lesquelles installer Endpoint Protection][2]
+3. Le panneau **Sélectionner Endpoint Protection** s’ouvre et vous permet de sélectionner la solution Endpoint Protection de votre choix. Dans cet exemple, nous allons sélectionner **Microsoft Antimalware**.
    ![Sélectionner Endpoint Protection][3]
-4. Des informations supplémentaires sur la solution anti-programme malveillant s’affichent. Sélectionnez **Créer**.
+4. Des informations supplémentaires sur la solution Endpoint Protection s’affichent. Sélectionnez **Créer**.
    ![Créer une solution anti-programme malveillant][4]
 5. Entrez les paramètres de configuration nécessaires dans le panneau **Ajouter une extension**, puis sélectionnez **OK**. Pour en savoir plus sur les paramètres de configuration, consultez [Configuration d’un logiciel anti-programme malveillant par défaut et personnalisée](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration).
 
 [Microsoft Antimalware](../security/azure-security-antimalware.md) est maintenant activé sur les machines virtuelles sélectionnées.
 
 ## <a name="see-also"></a>Voir aussi
-Cet article vous a montré comment implémenter la recommandation de Security Center « Installer Endpoint Protection ». Pour en savoir plus sur l'activation d'un logiciel anti-programme malveillant dans Azure, consultez les sections suivantes :
+Cet article vous a montré comment implémenter la recommandation de Security Center « Installer Endpoint Protection ». Pour en savoir plus sur l’activation de Microsoft Antimalware dans Azure, consultez le document suivant :
 
-* [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/azure-security-antimalware.md) : découvrez comment déployer Microsoft Antimalware.
+* [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/azure-security-antimalware.md) : découvrez comment déployer Microsoft Antimalware.
 
-Pour plus d’informations sur Security Center, consultez :
+Pour plus d’informations sur Security Center, consultez les documents suivants :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité.
 * [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
@@ -61,9 +68,4 @@ Pour plus d’informations sur Security Center, consultez :
 [2]:./media/security-center-install-endpoint-protection/install-endpoint-protection-blade.png
 [3]:./media/security-center-install-endpoint-protection/select-endpoint-protection.png
 [4]:./media/security-center-install-endpoint-protection/create-antimalware-solution.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

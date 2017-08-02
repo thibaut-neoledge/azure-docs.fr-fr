@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 07/10/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 65966f3adf8abee6d1476e9241b35247599ab1af
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: d2dc4ae7af95a93d3c4031c7d3e11f617a5666c8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -153,6 +153,17 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 ```
 
 Vous pouvez également approvisionner un administrateur Azure Active Directory à l’aide de l’API REST. Pour plus d’informations, consultez [Référence de l’API REST de gestion des services et Opérations sur les bases de données SQL Azure](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+
+### <a name="cli"></a>Interface de ligne de commande  
+Vous pouvez également configurer un administrateur Azure AD en appelant les commandes CLI suivantes :
+| Commande | Description |
+| --- | --- |
+|az sql server ad-admin create |Approvisionne un administrateur Azure Active Directory pour le serveur Azure SQL Server ou Azure SQL Data Warehouse. (À partir de l’abonnement actuel) |
+|az sql server ad-admin delete |Supprime un administrateur Azure Active Directory pour le serveur Azure SQL Server ou Azure SQL Data Warehouse. |
+|az sql server ad-admin list |Renvoie les informations sur un administrateur Azure Active Directory actuellement configuré pour le serveur Azure SQL Server ou Azure SQL Data Warehouse. |
+
+Pour plus d’informations sur les commandes CLI, consultez [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).  
+
 
 ## <a name="configure-your-client-computers"></a>Configurer vos ordinateurs clients
 Sur toutes les machines clientes à partir desquelles vos applications ou les utilisateurs se connectent au service Base de données SQL Azure ou Azure SQL Data Warehouse à l’aide d’identités Azure AD, vous devez installer les logiciels suivants :

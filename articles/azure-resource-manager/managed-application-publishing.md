@@ -8,17 +8,16 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/08/2017
+ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 56dd68e328abd6c1dacdf7a8e051ca6b3cd07083
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 623d728cf70a5aa0b91b6acd9e314ca5c009c0aa
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# <a name="create-and-publish-an-azure-managed-application"></a>Créer et publier une application gérée Azure 
+# <a name="create-and-publish-service-catalog-managed-application"></a>Créer et publier une application gérée de catalogue de services
 
 Comme décrit dans l’article [Managed Application overview](managed-application-overview.md) (Vue d’ensemble de l’application gérée), il existe deux scénarios dans l’expérience de bout en bout. D’un côté, il y a l’éditeur ou l’éditeur de logiciels indépendant désireux de créer une application gérée destinée à être utilisée par les clients. De l’autre, le client ou l’utilisateur de l’application gérée. Cet article se concentre sur le premier scénario et explique comment un éditeur de logiciels indépendant peut créer et publier une application gérée. 
 
@@ -32,7 +31,7 @@ Consultez les [exemples d’application gérée](https://github.com/Azure/azure-
 
 ## <a name="create-managed-application-package"></a>Créer un package d’application gérée
 
-La première étape consiste à créer le package d’application gérée qui contient les principaux fichiers de modèle. L’éditeur ou l’ISV crée trois fichiers. 
+La première étape consiste à créer le package d’application gérée qui contient les principaux fichiers de modèle. L’éditeur ou l’ISV crée trois fichiers. Vous devez compresser les trois fichiers dans un fichier .zip et charger ce package à un emplacement accessible.
 
 * Le premier fichier est appelé **applianceMainTemplate.json**. Ce fichier modèle définit les ressources réelles configurées dans le cadre de l’application gérée. Par exemple, pour créer un compte de stockage à l’aide d’une application gérée, le fichier applianceMainTemplate.json contient ce qui suit : 
 
@@ -208,6 +207,8 @@ Les paramètres utilisés dans cet exemple sont les suivants :
 
 * Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées Azure](managed-application-overview.md).
 * Consultez les [exemples d’application gérée](https://github.com/Azure/azure-managedapp-samples/tree/master/samples) pour voir des exemples de fichiers.
-* Pour comprendre l’expérience client, consultez [Utiliser une application gérée Azure](managed-application-consumption.md).
+* Pour plus d’informations sur l’utilisation d’une application gérée de catalogue de services, consultez l’article [Utiliser une application gérée du catalogue de services](managed-application-consumption.md).
+* Pour plus d’informations sur la publication d’applications gérées sur la Place de marché, consultez l’article [Applications gérées sur la Place de marché Azure](managed-application-author-marketplace.md).
+* Pour plus d’informations sur l’utilisation d’applications gérées de la Place de marché, consultez l’article [Utilisation des applications gérées de la Place de marché Azure](managed-application-consume-marketplace.md).
 * Pour en savoir plus sur la création d’un fichier de définition de l’interface utilisateur pour une application gérée, consultez [Prise en main de CreateUiDefinition](managed-application-createuidefinition-overview.md).
 

@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 07/17/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
-ms.openlocfilehash: 2f56314769d90a1f0f9ebb5ece9c8e54b23b8936
-ms.lasthandoff: 02/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 9345971b8dff683c7d079c29168437f601633eb1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Organisation des ressources Azure à l’aide de balises
@@ -33,52 +33,37 @@ ms.lasthandoff: 02/21/2017
 
 Les stratégies de ressources vous permettent de créer des règles standard pour votre organisation. Vous pouvez créer des stratégies qui garantissent que les ressources sont balisées avec les valeurs appropriées. Pour plus d’informations, consultez [Appliquer des stratégies de ressources pour les balises](resource-manager-policy-tags.md).
 
-## <a name="templates"></a>Modèles
-
-[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
-
-## <a name="portal"></a>Portail
-[!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
-
 ## <a name="powershell"></a>PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## <a name="azure-cli-20"></a>Azure CLI 2.0
+## <a name="azure-cli"></a>Interface de ligne de commande Azure
 
-Azure CLI 2.0 vous permet d’ajouter des balises à des ressources et groupes de ressources, ainsi que d’interroger des ressources à l’aide de valeurs de balise.
-
-Chaque fois que vous appliquez des balises à une ressource ou un groupe de ressources, vous remplacez les balises existantes de cette ressource ou de ce groupe de ressources. Par conséquent, vous devez utiliser une approche différente selon que la ressource ou le groupe de ressources a des balises existantes que vous souhaitez conserver. Pour ajouter des balises à :
-
-* un groupe de ressources sans les balises existantes.
-
-  ```azurecli
-  az group update -n TagTestGroup --set tags.Environment=Test tags.Dept=IT
-  ```
-
-* une ressource sans les balises existantes.
-
-  ```azurecli
-  az resource tag --tags Dept=IT Environment=Test -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
-  ``` 
-
-Pour ajouter des balises à une ressource qui possède déjà des balises, commencez par récupérer les balises existantes : 
+Pour afficher les balises existantes pour un **groupe de ressources**, utilisez :
 
 ```azurecli
-az resource show --query tags --output list -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+az group show -n examplegroup --query tags
 ```
 
 Elle retourne les informations au format suivant :
 
-```
-Dept        : Finance
-Environment : Test
+```json
+{
+  "Dept"        : "IT",
+  "Environment" : "Test"
+}
 ```
 
-Réappliquez les balises existantes à la ressource et ajoutez les nouvelles balises.
+Pour afficher les balises existantes pour une **ressource avec un ID de ressource spécifié**, utilisez :
 
 ```azurecli
-az resource tag --tags Dept=Finance Environment=Test CostCenter=IT -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
-``` 
+az resource show --id {resource-id} --query tags
+```
+
+Alternativement, pour afficher les balises existantes pour une **ressource avec un nom, un type et un groupe de ressources spécifiés**, utilisez :
+
+```azurecli
+az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+```
 
 Pour obtenir les groupes de ressources contenant une balise spécifique, utilisez `az group list`.
 
@@ -92,8 +77,70 @@ Pour obtenir toutes les ressources contenant une balise et une valeur spécifiqu
 az resource list --tag Dept=Finance
 ```
 
-## <a name="azure-cli-10"></a>Azure CLI 1.0
-[!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
+Chaque fois que vous appliquez des balises à une ressource ou un groupe de ressources, vous remplacez les balises existantes de cette ressource ou de ce groupe de ressources. Par conséquent, vous devez utiliser une approche différente selon que la ressource ou le groupe de ressources a des balises existantes. 
+
+Pour ajouter des balises à un **groupe de ressources ne contenant pas de balises existantes**, utilisez :
+
+```azurecli
+az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
+```
+
+Pour ajouter des balises à une **ressource ne contenant pas de balises existantes**, utilisez :
+
+```azurecli
+az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+``` 
+
+Pour ajouter des balises à une ressource qui comporte déjà les balises, récupérez les balises existantes et reformatez cette valeur, puis réappliquez ces balises avec les nouvelles : 
+
+```azurecli
+jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
+rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
+az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+```
+
+Pour appliquer toutes les balises d’un groupe de ressources à ses ressources **sans conserver les balises existantes**, utilisez le script suivant :
+
+```azurecli
+groups=$(az group list --query [].name --output tsv)
+for rg in $groups 
+do 
+  jsontag=$(az group show -n $rg --query tags)
+  t=$(echo $jsontag | tr -d '"{},' | sed 's/: /=/g')
+  r=$(az resource list -g $rg --query [].id --output tsv) 
+  for resid in $r 
+  do 
+    az resource tag --tags $t --id $resid
+  done 
+done
+```
+
+Pour appliquer toutes les balises d’un groupe de ressources à ses ressources **en conservant les balises existantes**, utilisez le script suivant :
+
+```azurecli
+groups=$(az group list --query [].name --output tsv)
+for rg in $groups 
+do 
+  jsontag=$(az group show -n $rg --query tags)
+  t=$(echo $jsontag | tr -d '"{},' | sed 's/: /=/g')
+  r=$(az resource list -g $rg --query [].id --output tsv) 
+  for resid in $r 
+  do 
+    jsonrtag=$(az resource show --id $resid --query tags)
+    rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
+    az resource tag --tags $t$rt --id $resid
+  done 
+done
+```
+
+
+## <a name="templates"></a>Modèles
+
+[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
+
+## <a name="portal"></a>Portail
+[!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
+
 
 ## <a name="rest-api"></a>API REST
 Le portail et PowerShell utilisent tous deux l' [API REST du Gestionnaire de ressources](https://docs.microsoft.com/rest/api/resources/) en arrière-plan. Si vous avez besoin intégrer le balisage dans un autre environnement, vous pouvez récupérer des balises avec une commande GET sur l'ID de ressource et mettre à jour l'ensemble des balises avec un appel PATCH.

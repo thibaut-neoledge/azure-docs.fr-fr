@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 06/29/2017
+ms.date: 07/12/2017
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ec9b3cc391a75b4f3a75f95a2ff9613c0317bfa2
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 3c166acb17193caae32d7bad133ec510ff679353
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Données et tables distribuées pour le traitement massivement parallèle (MPP)
@@ -68,7 +67,7 @@ Chaque nœud de calcul possède un ID et s’affiche dans les vues système de S
 ## <a name="Replicated"></a>Tables répliquées
 Une table répliquée possède une copie complète de la table stockée sur chaque nœud de calcul. La réplication d’une table évite le transfert de données entre des nœuds de calcul avant une jointure ou une agrégation. Seules les tables de petite taille sont réplicables, en raison de l’espace de stockage supplémentaire requis pour les stocker intégralement sur chaque nœud de calcul.  
 
-Le diagramme suivant illustre une table répliquée stockée sur chaque nœud de calcul. Pour SQL Data Warehouse, la table répliquée est gérée par une table tourniquet (round robin) et entièrement copiée dans la première base de données de distribution sur chaque nœud de calcul. Pour Parallel Data Warehouse, la table répliquée est stockée sur tous les disques alloués au nœud de calcul.  Cette stratégie de disque met en œuvre des groupes de fichiers SQL Server.  
+Le diagramme suivant illustre une table répliquée stockée sur chaque nœud de calcul. Pour SQL Data Warehouse, la table répliquée est entièrement copiée dans une base de données de distribution sur chaque nœud de calcul. Pour Parallel Data Warehouse, la table répliquée est stockée sur tous les disques alloués au nœud de calcul.  Cette stratégie de disque met en œuvre des groupes de fichiers SQL Server.  
 
 ![Table répliquée](media/sql-data-warehouse-distributed-data/replicated-table.png "Table répliquée") 
 

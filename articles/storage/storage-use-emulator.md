@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 9820cef564e291d1c8aee7c360198de1dc05379e
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 5b9e497078fe0b276ec8a717b43a0080e1667592
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
@@ -209,6 +208,10 @@ Les différences suivantes s’appliquent au stockage de tables dans l’émulat
 Le stockage de files d’attente dans l’émulateur ne présente aucune différence spécifique.
 
 ## <a name="storage-emulator-release-notes"></a>Notes de publication de l’émulateur de stockage
+### <a name="version-52"></a>Version 5.2
+* L’émulateur de stockage prend maintenant en charge la version 2017-04-17 des services de stockage sur les points de terminaison des services Blob, File d’attente et Table.
+* Correction d’un bogue impliquant le mauvais encodage des valeurs de propriété de table.
+
 ### <a name="version-51"></a>Version 5.1
 * Correction d’un bogue dans lequel l’émulateur de stockage retournait l’en-tête `DataServiceVersion` dans certaines réponses où le service ne se trouvait pas.
 

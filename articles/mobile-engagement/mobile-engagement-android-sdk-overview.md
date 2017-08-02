@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 1438b9479b3bbb8b7599d7d05b48e4cd6d981e0c
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Intégration du SDK Android pour Azure Mobile Engagement
@@ -53,8 +53,16 @@ Vous pouvez ajouter les fonctionnalités suivantes :
 [comment utiliser l'API de balisage avancée de Mobile Engagement dans votre application Android](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notes de publication
-### <a name="424-03302017"></a>4.2.4 (03/30/2017)
-* Résolution du problème des couleurs du texte de notification dans l’application sur Android 7, qui deviennent identiques à celles des versions antérieures d’Android.
+
+### <a name="431-07172017"></a>4.3.1 (07/17/2017)
+* Résolution d’un incident rare lors de l’appel de `EngagementAgentUtils.isInDedicatedEngagementProcess`, également utilisée par la classe `EngagementApplication`.
+
+### <a name="430-06272017"></a>4.3.0 (06/27/2017)
+* Prise en charge Android 8 (les versions précédentes du Kit de développement logiciel ne fonctionnent pas sur Android 8).
+* Aucune autre dépendance sur la bibliothèque de prise en charge.
+* Supprimez la classe `EngagementFragmentActivity`.
+* En raison des [limites d’exécution en arrière-plan](https://developer.android.com/preview/features/background.html) sur Android 8, les journaux en arrière-plan peuvent être retardés jusqu’à ce que l’utilisateur interagisse avec l’appareil. Cela entraîne un retard des statistiques **Remis** et **Notification système (affichée dans la barre de notification)** de la campagne push si l’appareil est en veille (la notification sera toujours affichée, sonnera et vibrera en temps réel sans problème).
+* En raison des [limites d’exécution en arrière-plan](https://developer.android.com/preview/features/background-location-limits.html), l’emplacement en arrière-plan en temps réel ne sera pas fréquemment mis à jour sur Android 8.
 
 Pour toutes les versions, consultez les [notes de publication complètes](mobile-engagement-android-release-notes.md).
 

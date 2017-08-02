@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 11ffd3df669c805297eee5085145f4ce27a09e15
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 5c971ed2e09bd275dc34da3ea94b3ff4a6338c9a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="technical-articles-for-windows-vms-in-the-classic-deployment-model"></a>Articles techniques concernant les machines virtuelles Windows dans le modèle de déploiement Classic
@@ -57,7 +56,7 @@ Recherchez tous les documents dont vous avez besoin pour créer et gérer des ma
 
 [Tailles de machines virtuelles](windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[À propos des machines virtuelles de série H ou de calcul intensif de série A](windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Tailles de machines virtuelles de calcul haute performance](windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Maintenance planifiée des machines virtuelles Azure](windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

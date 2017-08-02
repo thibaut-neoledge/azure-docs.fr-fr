@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 05/10/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 89ffa95a5889e4ebdf26f4b001edce3c5ce81ce2
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 7a97bc7043d90fb799929ae5ed696d3731bfa3eb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database ou de SQL Data Warehouse
@@ -103,6 +102,7 @@ L’authentification Azure Active Directory prend en charge les méthodes suivan
 * Le [pilote Microsoft JDBC 6.0 pour SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) prend en charge l’authentification Azure AD. Consultez également [Définition des propriétés de connexion](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase ne peut pas s’authentifier avec l’authentification Azure AD.   
 * L’authentification Azure AD est prise en charge pour SQL Database dans les panneaux **Importer la base de données** et **Exporter la base de données** du portail Azure. L’importation et l’exportation à l’aide de l’authentification Azure AD sont également prises en charge depuis l’invite de commandes PowerShell.   
+* L’authentification Azure AD est prise en charge pour SQL Database et SQL Data Warehouse via l’interface de ligne de commande (CLI). Pour plus d’informations, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md) et [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour apprendre à créer et à remplir Azure AD, puis à configurer Azure AD avec Azure SQL Database, consultez [Configurer Azure AD avec Azure SQL Database](sql-database-aad-authentication-configure.md).

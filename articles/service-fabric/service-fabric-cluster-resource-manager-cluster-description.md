@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 ms.author: masnider
-translationtype: Human Translation
-ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
-ms.openlocfilehash: a595a2e24b4c2582998d88f74ca13daba5fe618d
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: cfc38cecfaf0a0bdaae043fc35dcfed743459823
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 ---
 
@@ -52,7 +54,7 @@ Si « l’arborescence » des domaines d’erreur est déséquilibrée dans vo
 ![Deux dispositions de cluster différentes][Image2]
 </center>
 
-Le diagramme ci-dessus illustre deux exemples de dispositions de cluster. Dans le premier exemple, les nœuds sont répartis uniformément entre les domaines d’erreur. Dans l’autre exemple, un domaine d’erreur a beaucoup plus de nœuds. Si vous créez votre propre cluster sur site ou dans un autre environnement, c’est une chose à laquelle vous devez penser.
+Le diagramme ci-dessus illustre deux exemples de dispositions de cluster. Dans le premier exemple, les nœuds sont répartis uniformément entre les domaines d’erreur. Dans l’autre exemple, un domaine d’erreur a beaucoup plus de nœuds. Si vous créez votre propre cluster en local ou dans un autre environnement, c’est une chose à laquelle vous devez penser.
 
 Dans Azure, le fait de choisir quel domaine d’erreur contient un nœud est géré pour vous. Toutefois, en fonction du nombre de nœuds que vous configurez, vous pouvez malgré tout vous retrouver avec des domaines d’erreur contenant plus de nœuds que d’autres. Supposons, par exemple, que vous avez cinq domaines d’erreur, mais que vous configurez sept nœuds pour un type NodeType donné. Dans ce cas, davantage de nœuds sont alloués aux deux premiers domaines d’erreur. Si vous continuez à déployer plus de NodeTypes avec seulement deux instances, le problème s’aggrave.
 
@@ -512,9 +514,4 @@ LoadMetricInformation     :
 [Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
 [Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

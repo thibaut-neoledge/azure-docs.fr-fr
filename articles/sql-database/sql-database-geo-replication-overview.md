@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 07/05/2017
+ms.date: 07/10/2017
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 7166c4428398015c0570b048dff0005b5061eadb
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: c1e8fd914d83cd3900181c5235455851d7d57485
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -53,7 +53,6 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 ## <a name="active-geo-replication-capabilities"></a>Fonctionnalités de la géo-réplication active
 La fonction de géo-réplication active fournit les capacités essentielles suivantes :
-
 * **Réplication asynchrone automatique**: vous pouvez créer une base de données secondaire uniquement par un ajout à une base de données existante. La base de données secondaire peut être créée sur n’importe quel serveur Azure SQL Database. Une fois créée, la base de données secondaire est remplie avec les données copiées à partir de la base de données primaire. Ce processus est appelé amorçage. Une fois la base de données secondaire créée et amorcée, les mises à jour de la base de données primaire sont automatiquement répliquées de manière asynchrone sur la base de données secondaire. La réplication asynchrone signifie que les transactions sont validées sur la base de données primaire avant leur réplication sur la base de données secondaire. 
 * **Bases de données secondaires accessibles en lecture**: une application peut accéder à une base de données secondaire pour des opérations en lecture seule avec des entités de sécurité qui peuvent différer de celles utilisées pour accéder à la base de données primaire. Les bases de données secondaires fonctionnent en mode d’isolement d’instantané pour garantir que la réplication des mises à jour de la base de données primaire n’est pas retardée par des requêtes exécutées sur la base de données secondaire.
 
@@ -116,10 +115,10 @@ Vous pouvez mettre à niveau ou rétrograder une base de données primaire à un
 >
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Prévention de la perte de données critiques
-En raison de la latence élevée des réseaux étendus, la copie continue utilise un mécanisme de réplication asynchrone. La perte de certaines données reste donc inévitable en cas de défaillance. Or, pour certaines applications, une perte de données est inacceptable. Pour protéger ces mises à jour critiques, un développeur d’applications peut appeler la procédure système [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx) immédiatement après la validation de la transaction. L’appel de **sp_wait_for_database_copy_sync** bloque le thread appelant jusqu’à ce que la dernière transaction validée ait été répliquée sur la base de données secondaire. La procédure attend que toutes les transactions en file d’attente aient été acceptées par la base de données secondaire. **sp_wait_for_database_copy_sync** est limité à une relation de copie continue spécifique. Tout utilisateur disposant de droits de connexion à la base de données primaire peut appeler cette procédure.
+En raison de la latence élevée des réseaux étendus, la copie continue utilise un mécanisme de réplication asynchrone. La perte de certaines données reste donc inévitable en cas de défaillance. Or, pour certaines applications, une perte de données est inacceptable. Pour protéger ces mises à jour critiques, un développeur d’applications peut appeler la procédure système [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx) immédiatement après la validation de la transaction. L’appel de **sp_wait_for_database_copy_sync** bloque le thread appelant jusqu’à ce que la dernière transaction validée ait été transmise à la base de données secondaire. Toutefois, il n’attend pas que les transactions transmises soient relues et validées sur la base de données secondaire. **sp_wait_for_database_copy_sync** est limité à une relation de copie continue spécifique. Tout utilisateur disposant de droits de connexion à la base de données primaire peut appeler cette procédure.
 
 > [!NOTE]
-> Le délai provoqué par un appel de procédure **sp_wait_for_database_copy_sync** peut être significatif. Le délai dépend de la longueur du journal des transactions à ce moment, et cet appel n’est pas retourné tant que la totalité du journal n’est pas répliquée. Évitez d’appeler cette procédure, sauf si cela est absolument nécessaire.
+> **sp_wait_for_database_copy_sync** empêchera la perte de données après un basculement, mais il ne garantira pas la synchronisation complète pour l’accès en lecture. Le délai causé par un appel de procédure **sp_wait_for_database_copy_sync** peut être significatif et dépend de la taille du journal des transactions au moment de l’appel. 
 > 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestion de la géo-réplication active par programmation

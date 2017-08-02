@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/18/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 69019f41bcc72b71bcc7d0bf8a66fe37d5243b7b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilisation d’Azure Media Services pour fournir des licences DRM ou des clés AES
@@ -35,31 +36,34 @@ Le diagramme suivant montre les principales étapes à suivre pour utiliser AMS 
 ## <a name="download-sample"></a>Charger l’exemple
 Vous pouvez télécharger l’exemple décrit dans cet article à partir d’ [ici](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
+## <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
+
+1. Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
+2. Ajoutez les éléments suivants aux **appSettings** définis dans votre fichier app.config :
+
+    <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
+
 ## <a name="net-code-example"></a>Exemple de code .NET
-L’exemple de code dans cette rubrique montre comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Vous devez obtenir les informations suivantes à partir d’AMS et configurer votre serveur local : **clé de contenu**, **ID de clé**, **URL d’acquisition de licence**. Une fois votre serveur local configuré, vous pouvez diffuser à partir de votre propre serveur de diffusion en continu. Étant donné que le flux chiffré pointe vers le serveur de licences AMS, votre lecteur demande une licence à AMS. Si vous choisissez l’authentification par jeton, le serveur de licences AMS validera le jeton que vous avez envoyé via HTTPS et (s’il est valide) fournira la licence à votre lecteur. (L’exemple de code montre seulement comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Si vous souhaitez fournir des clés AES-128, vous devez créer une clé de contenu d’enveloppe et obtenir une URL d’acquisition de clé ; [cet](media-services-protect-with-aes128.md) vous explique comment procéder).
+
+L’exemple de code suivant montre comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Vous devez obtenir les informations suivantes à partir d’AMS et configurer votre serveur local : **clé de contenu**, **ID de clé**, **URL d’acquisition de licence**. Une fois votre serveur local configuré, vous pouvez diffuser à partir de votre propre serveur de diffusion en continu. Étant donné que le flux chiffré pointe vers le serveur de licences AMS, votre lecteur demande une licence à AMS. Si vous choisissez l’authentification par jeton, le serveur de licences AMS validera le jeton que vous avez envoyé via HTTPS et (s’il est valide) fournira la licence à votre lecteur. (L’exemple de code montre seulement comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Si vous souhaitez fournir des clés AES-128, vous devez créer une clé de contenu d’enveloppe et obtenir une URL d’acquisition de clé ; [cet](media-services-protect-with-aes128.md) vous explique comment procéder).
 
     using System;
     using System.Collections.Generic;
     using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
     using Microsoft.WindowsAzure.MediaServices.Client;
     using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
     using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
     using Newtonsoft.Json;
-
 
     namespace DeliverDRMLicenses
     {
         class Program
         {
             // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
             private static readonly Uri _sampleIssuer =
                 new Uri(ConfigurationManager.AppSettings["Issuer"]);
@@ -68,16 +72,13 @@ L’exemple de code dans cette rubrique montre comment créer une clé de conten
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
                 bool tokenRestriction = true;
                 string tokenTemplateString = null;
@@ -86,10 +87,10 @@ L’exemple de code dans cette rubrique montre comment créer une clé de conten
                 IContentKey key = CreateCommonTypeContentKey();
 
                 // Print out the key ID and Key in base64 string format
-                Console.WriteLine("Created key {0} with key value {1} ", 
+                Console.WriteLine("Created key {0} with key value {1} ",
                     key.Id, System.Convert.ToBase64String(key.GetClearKeyValue()));
 
-                Console.WriteLine("PlayReady License Key delivery URL: {0}", 
+                Console.WriteLine("PlayReady License Key delivery URL: {0}",
                     key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
 
                 Console.WriteLine("Widevine License Key delivery URL: {0}",
@@ -100,7 +101,7 @@ L’exemple de code dans cette rubrique montre comment créer une clé de conten
                 else
                     AddOpenAuthorizationPolicy(key);
 
-                Console.WriteLine("Added authorization policy: {0}", 
+                Console.WriteLine("Added authorization policy: {0}",
                     key.AuthorizationPolicyId);
                 Console.WriteLine();
                 Console.ReadLine();
@@ -112,15 +113,15 @@ L’exemple de code dans cette rubrique montre comment créer une clé de conten
                 // Create ContentKeyAuthorizationPolicy with Open restrictions 
                 // and create authorization policy          
 
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
                     new List<ContentKeyAuthorizationPolicyRestriction>
                 {
-                    new ContentKeyAuthorizationPolicyRestriction
-                    {
-                        Name = "Open",
-                        KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-                        Requirements = null
-                    }
+                        new ContentKeyAuthorizationPolicyRestriction
+                        {
+                            Name = "Open",
+                            KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+                            Requirements = null
+                        }
                 };
 
                 // Configure PlayReady and Widevine license templates.
@@ -155,15 +156,15 @@ L’exemple de code dans cette rubrique montre comment créer une clé de conten
             {
                 string tokenTemplateString = GenerateTokenRequirements();
 
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
                     new List<ContentKeyAuthorizationPolicyRestriction>
                 {
-                    new ContentKeyAuthorizationPolicyRestriction
-                    {
-                        Name = "Token Authorization Policy",
-                        KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
-                        Requirements = tokenTemplateString,
-                    }
+                        new ContentKeyAuthorizationPolicyRestriction
+                        {
+                            Name = "Token Authorization Policy",
+                            KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
+                            Requirements = tokenTemplateString,
+                        }
                 };
 
                 // Configure PlayReady and Widevine license templates.
@@ -220,7 +221,7 @@ L’exemple de code dans cette rubrique montre comment créer une clé de conten
                 //and the application (may be useful for custom app logic) 
                 //as well as a list of one or more license templates.
 
-                PlayReadyLicenseResponseTemplate responseTemplate = 
+                PlayReadyLicenseResponseTemplate responseTemplate =
                     new PlayReadyLicenseResponseTemplate();
 
                 // The PlayReadyLicenseTemplate class represents a license template 
@@ -274,14 +275,14 @@ L’exemple de code dans cette rubrique montre comment créer une clé de conten
                     allowed_track_types = AllowedTrackTypes.SD_HD,
                     content_key_specs = new[]
                     {
-                        new ContentKeySpecs
-                        {
-                            required_output_protection = 
-                                new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-                            security_level = 1,
-                            track_type = "SD"
-                        }
-                    },
+                            new ContentKeySpecs
+                            {
+                                required_output_protection =
+                                    new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+                                security_level = 1,
+                                track_type = "SD"
+                            }
+                        },
                     policy_overrides = new
                     {
                         can_play = true,
@@ -310,8 +311,6 @@ L’exemple de code dans cette rubrique montre comment créer une clé de conten
                 return key;
             }
 
-
-
             static private byte[] GetRandomBuffer(int length)
             {
                 var returnValue = new byte[length];
@@ -324,11 +323,8 @@ L’exemple de code dans cette rubrique montre comment créer une clé de conten
 
                 return returnValue;
             }
-
-
         }
     }
-
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -342,10 +338,5 @@ L’exemple de code dans cette rubrique montre comment créer une clé de conten
 [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](media-services-protect-with-aes128.md)
 
 [Utilisation de partenaires pour fournir des licences Widevine à Azure Media Services](media-services-licenses-partner-integration.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

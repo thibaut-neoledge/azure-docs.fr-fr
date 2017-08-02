@@ -1,5 +1,5 @@
 ---
-title: "Copie d’exemples de science des données externe - Machine Learning - Azure | Microsoft Docs"
+title: "Copie d’exemples de science des données externe - Azure Machine Learning | Microsoft Docs"
 description: "Une pierre d’angle de la science des données : amener d’autres personnes à faire votre travail. Obtenez des exemples Machine Learning à partir de la galerie Cortana Analytics."
 keywords: "exemples de science des données, exemple de machine learning, algorithme de clustering, exemple d’algorithme de clustering"
 services: machine-learning
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
-ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
-ms.lasthandoff: 02/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 440a1ded1f1dc1b8fbe73e3bbcbbd68ec9422bf8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copier le travail d’autres personnes pour des projets de science des données
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/10/2017
 L’une des pierres d’angle de la science des données est d’amener d’autres personnes à faire votre travail. Par exemple, trouver un exemple d’algorithme de clustering dans la galerie Cortana Analytics à utiliser pour votre propre expérience avec Machine Learning.
 
 Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [Accéder à la liste des vidéos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
 >
@@ -51,7 +52,7 @@ L’une des pierres d’angle de la science des données est d’amener d’autr
 ## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>Trouver des exemples dans la galerie Cortana Intelligence
 Microsoft propose un service cloud appelé [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) que vous êtes invité à essayer gratuitement. Il fournit un espace de travail dans lequel essayer différents algorithmes d’apprentissage automatique et, lorsque votre solution est en place, vous permet de la lancer en tant que service web.
 
-Une partie de ce service s’appelle la **[galerie Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery)**. Il contient toute une gamme de ressources, parmi lesquelles une collection d’expériences Azure Machine Learning ou encore des modèles créés et fournis par les utilisateurs. Ces expériences sont un excellent moyen d’exploiter la réflexion et les efforts d’autres personnes pour vous aider dans vos propres solutions.
+Une partie de ce service s’appelle la **[galerie Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery)**. Elle contient des ressources, notamment une collection d’expériences Azure Machine Learning ou encore des modèles créés et fournis par les utilisateurs. Ces expériences sont un excellent moyen d’exploiter la réflexion et les efforts d’autres personnes pour vous aider dans vos propres solutions.
 
 Vous trouverez la galerie à l’adresse [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). N’hésitez pas à aller la découvrir.
 
@@ -60,7 +61,7 @@ Vous trouverez la galerie à l’adresse [aka.ms/CortanaIntelligenceGallery](htt
 Si vous cliquez sur **Expériences** en haut de la page, vous découvrirez les expériences les plus récentes et les plus populaires de la galerie. Vous pouvez parcourir le reste des expériences en cliquant sur **Parcourir tout** en haut de l’écran, puis entrer des termes de recherche et sélectionner des filtres de recherche.
 
 ## <a name="find-and-use-a-clustering-algorithm-example"></a>Rechercher et utiliser un exemple d’algorithme de clustering
-Par exemple, si vous souhaitez voir un exemple de fonctionnement du clustering, recherchez des expériences de **« clustering »** .
+Par exemple, si vous souhaitez voir un exemple de fonctionnement du clustering, recherchez des expériences de **« clustering sweep »**.
 
 ![Rechercher des expériences de clustering](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 

@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: babanisa;sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 775900fcae1b2832a5d0951e2a4053562c21455e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 72e18444c83b84c5191a0aab3dc6983517167dd1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,11 +33,11 @@ Vous pouvez afficher deux types de journaux pour Azure Service Bus :
 
 Les journaux de diagnostic sont désactivés par défaut. Pour activer les journaux de diagnostic, suivez les étapes ci-dessous :
 
-1.  Dans le [portail Azure](https://portal.azure.com), accédez au panneau de diffusion en continu du travail.
+1.  Dans le [portail Azure](https://portal.azure.com), sous **Surveillance + gestion**, cliquez sur **Journaux de diagnostic**.
 
-2.  Sous **Analyse**, accédez au panneau **Journaux de diagnostic**.
+    ![navigation dans le panneau jusqu’aux journaux de diagnostic](./media/service-bus-diagnostic-logs/image1.png)
 
-    ![navigation dans le panneau jusqu’aux journaux de diagnostic](./media/service-bus-diagnostic-logs/image1.png)  
+2. Cliquez sur la ressource que vous souhaitez surveiller.  
 
 3.  Cliquez sur **Activer les diagnostics**.
 
@@ -47,11 +47,9 @@ Les journaux de diagnostic sont désactivés par défaut. Pour activer les journ
 
     ![modifier l’état des journaux de diagnostic](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  Définissez la cible d’archivage de votre choix, par exemple un compte de stockage, un concentrateur d’événements ou Azure Log Analytics.
+5.  Définissez la cible d’archivage de votre choix, par exemple un compte de stockage, un Event Hub ou Azure Log Analytics.
 
-6.  Sélectionnez les catégories de journaux à collecter, par exemple **Exécution** ou **Création**.
-
-7.  Enregistrez les nouveaux paramètres de diagnostic.
+6.  Enregistrez les nouveaux paramètres de diagnostic.
 
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux apparaissent dans la cible d’archivage configurée, dans le panneau **Journaux de diagnostic**.
 
@@ -61,11 +59,11 @@ Pour plus d’informations sur la configuration des diagnostics, consultez la [v
 
 Tous les journaux sont stockés au format JSON (JavaScript Object Notation). Chaque entrée comporte des champs de type chaîne au format décrit dans la section suivante.
 
-## <a name="operation-logs-example"></a>Exemple de journal des opérations
+## <a name="operational-logs-schema"></a>Schéma des journaux des opérations
 
 Les journaux de la catégorie **OperationalLogs** capturent ce qui se passe durant l’opération Service Bus. Plus précisément, ces journaux capturent le type d’opération, notamment la création de la file d’attente, les ressources utilisées et l’état de l’opération.
 
-Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
+Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
 
 Nom | Description
 ------- | -------
@@ -79,7 +77,7 @@ EventProperties | Propriétés de l’opération
 Appelant | Appelant de l’opération (portail Azure ou client de gestion)
 category | OperationalLogs
 
-Voici un exemple de chaîne JSON du journal des opérations :
+Voici un exemple de chaîne JSON du journal des opérations :
 
 ```json
 {

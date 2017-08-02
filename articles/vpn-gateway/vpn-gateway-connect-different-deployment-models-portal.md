@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9e0dbb028c668aad182e2c1c54fb397ffe99a0a0
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 1b7b67ec28986b7c20b3e990e3565265f74c28e6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
@@ -84,7 +84,16 @@ Le tableau suivant montre comment les réseaux virtuels et les sites locaux sont
 
 ## <a name="classicvnet"></a>1. Configurer les paramètres de réseau virtuel classique
 
-Dans cette section, vous créez le réseau local (site local) et la passerelle de réseau virtuel pour votre réseau virtuel classique. Si vous n’avez pas de réseau virtuel classique et que vous exécutez ces étapes en guise d’exercice, vous pouvez créer un réseau virtuel à l’aide de [cet article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) et les valeurs de paramètres [d’exemple](#values) ci-dessus. Si vous disposez déjà d’un réseau virtuel avec une passerelle VPN, vérifiez que la passerelle est dynamique. Si elle est statique, vous devez tout d’abord supprimer la passerelle VPN avant de poursuivre.
+Dans cette section, vous créez le réseau local (site local) et la passerelle de réseau virtuel pour votre réseau virtuel classique. Si vous n’avez pas de réseau virtuel classique et que vous exécutez ces étapes en guise d’exercice, vous pouvez créer un réseau virtuel à l’aide de [cet article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) et les valeurs de paramètres [d’exemple](#values) ci-dessus.
+
+Lorsque vous utilisez le portail pour créer un réseau virtuel classique, vous devez accéder au panneau de réseau virtuel à l’aide de la procédure suivante, sinon l’option de création d’un réseau virtuel classique n’apparaît pas :
+
+1. Cliquez sur « + » pour ouvrir le panneau « Nouveau ».
+2. Dans le champ « Rechercher dans le marketplace », saisissez « réseau virtuel ». Si vous sélectionnez Mise en réseau -> Réseau virtuel à la place, l’option de création d’un réseau virtuel classique ne s’affiche pas.
+3. Localisez « Réseau virtuel » dans la liste renvoyée et cliquez dessus pour ouvrir le panneau correspondant. 
+4. Dans le panneau Réseau virtuel, sélectionnez « Classique » pour créer un réseau virtuel classique. 
+
+Si vous disposez déjà d’un réseau virtuel avec une passerelle VPN, vérifiez que la passerelle est dynamique. Si elle est statique, vous devez tout d’abord supprimer la passerelle VPN avant de poursuivre.
 
 Les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres,ou utilisez les valeurs [d’exemple](#values).
 

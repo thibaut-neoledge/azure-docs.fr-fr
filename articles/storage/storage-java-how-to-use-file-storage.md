@@ -1,6 +1,6 @@
 ---
-title: "Utilisation du stockage de fichiers à partir de Java | Microsoft Docs"
-description: "Découvrez comment utiliser le service de fichiers Azure pour charger, télécharger, répertorier et supprimer des fichiers. Les exemples sont écrits en Java."
+title: "Développer pour le stockage de fichiers Azure avec Java | Microsoft Docs"
+description: "Apprenez à développer des services et applications Java qui utilisent le stockage de fichiers Azure pour stocker les données de fichiers."
 services: storage
 documentationcenter: java
 author: robinsh
@@ -12,32 +12,36 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 05/27/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 33630644e2b3b6565d009276145ecf220802cc63
-ms.openlocfilehash: 49b35ff1b82f5384b105d99ce95773648a11f6f4
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 16924599e49990265e07f7a58613756d93c46942
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="how-to-use-file-storage-from-java"></a>Utilisation du stockage de fichiers à partir de Java
+
+# <a name="develop-for-azure-file-storage-with-java"></a>Développer pour le stockage de fichiers Azure avec Java
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
-## <a name="overview"></a>Vue d'ensemble
-Ce guide explique comment effectuer des opérations de base sur le service de stockage de fichiers Microsoft Azure. Au moyen d’exemples écrits en Java, vous allez apprendre à créer des partages et des répertoires, ainsi qu’à télécharger, répertorier et supprimer des fichiers. Si vous ne connaissez pas le service de stockage de fichiers Microsoft Azure, l’étude des concepts abordés dans les sections suivantes vous sera très utile pour comprendre les exemples.
+## <a name="about-this-tutorial"></a>À propos de ce didacticiel
+Ce didacticiel vous montre les principes fondamentaux de l’utilisation de Java pour développer des applications ou services qui utilisent le stockage de fichiers Azure pour stocker les données de fichiers. Dans ce didacticiel, nous allons créer une application de console simple et effectuer des actions de base avec Java et le stockage de fichiers Azure :
 
-[!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
+* Créer et supprimer des partages de fichiers Azure
+* Créer et supprimer des répertoires
+* Énumérer des fichiers et répertoires dans un partage de fichiers Azure
+* Charger, télécharger et supprimer un fichier
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+> [!Note]  
+> Étant donné que le stockage de fichiers Azure est accessible sur SMB, il est possible d’écrire de simples applications qui accèdent au partage de fichiers Azure à l’aide des classes d’E/S Java standard. Cet article indique comment écrire des applications qui utilisent le kit de développement logiciel (SDK) Java de stockage Azure, lequel utilise [l’API REST de stockage de fichiers Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) pour communiquer avec le stockage de fichiers Azure.
 
 ## <a name="create-a-java-application"></a>Création d’une application Java
 Pour générer les exemples, vous avez besoin du Kit de développement Java (JDK) et du [Kit de développement Azure Storage (SDK) pour Java][]. Vous devez également avoir préalablement créé un compte de stockage Azure.
 
-## <a name="setup-your-application-to-use-file-storage"></a>Configuration de votre application pour l’utilisation du stockage de fichiers
+## <a name="setup-your-application-to-use-azure-file-storage"></a>Configuration de votre application pour l’utilisation du stockage de fichiers Azure
 Pour utiliser les API de stockage Azure, ajoutez l’instruction suivante au début du fichier Java depuis lequel vous voulez accéder au service de stockage.
 
 ```java
@@ -47,7 +51,7 @@ import com.microsoft.azure.storage.file.*;
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configuration d’une chaîne de connexion de stockage Azure
-Pour pouvoir utiliser le stockage de fichiers, vous devez vous connecter à votre compte de stockage Azure. La première étape consiste à configurer une chaîne de connexion, que nous allons utiliser pour nous connecter à votre compte de stockage. Pour cela, nous allons définir une variable statique.
+Pour utiliser le stockage de fichiers Azure, vous devez vous connecter à votre compte de stockage Azure. La première étape consiste à configurer une chaîne de connexion, que nous allons utiliser pour nous connecter à votre compte de stockage. Pour cela, nous allons définir une variable statique.
 
 ```java
 // Configure the connection-string with your values
@@ -76,11 +80,11 @@ try {
 
 **CloudStorageAccount.parse** lève une exception InvalidKeyException. Vous devrez donc le placer dans un bloc try/catch.
 
-## <a name="how-to-create-a-share"></a>Création d’un partage
-Tous les fichiers et répertoires d’un stockage de fichiers se trouvent dans un conteneur appelé **partage**. Votre compte de stockage peut avoir autant de partages que le permet la capacité de votre compte. Pour pouvoir accéder à un partage et à son contenu, vous devez utiliser un client de stockage de fichiers.
+## <a name="create-an-azure-file-share"></a>Création d’un partage de fichiers Azure
+Tous les fichiers et répertoires d’un stockage de fichiers Azure se trouvent dans un conteneur appelé **Partage**. Votre compte de stockage peut avoir autant de partages que le permet la capacité de votre compte. Pour pouvoir accéder à un partage et à son contenu, vous devez utiliser un client de stockage de fichiers Azure.
 
 ```java
-// Create the file storage client.
+// Create the Azure File storage client.
 CloudFileClient fileClient = storageAccount.createCloudFileClient();
 ```
 
@@ -101,108 +105,7 @@ if (share.createIfNotExists()) {
 
 À ce stade, le **partage** contient une référence à un partage nommé **sampleshare**.
 
-## <a name="how-to-upload-a-file"></a>Chargement d’un fichier
-Un partage de fichiers de stockage Azure contient au minimum un répertoire racine dans lequel les fichiers peuvent résider. Cette section décrit comment télécharger un fichier du stockage local vers le répertoire racine d’un partage.
-
-La première étape du téléchargement d’un fichier consiste à obtenir une référence au répertoire dans lequel ce fichier doit résider. Pour cela, vous devez appeler la méthode **getRootDirectoryReference** de l’objet de partage.
-
-```java
-//Get a reference to the root directory for the share.
-CloudFileDirectory rootDir = share.getRootDirectoryReference();
-```
-
-Maintenant que vous avez une référence au répertoire racine du partage, vous pouvez télécharger un fichier vers ce répertoire à l’aide du code ci-après.
-
-```java
-        // Define the path to a local file.
-        final String filePath = "C:\\temp\\Readme.txt";
-    
-        CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
-        cloudFile.uploadFromFile(filePath);
-```
-
-## <a name="how-to-create-a-directory"></a>Création d’un répertoire
-Vous pouvez également organiser le stockage en plaçant des fichiers dans des sous-répertoires, plutôt que de tous les mettre dans le répertoire racine. Le service de stockage de fichiers Azure permet de créer autant de répertoires que le permet votre compte. Le code ci-dessous crée un sous-répertoire nommé **sampledir** sous le répertoire racine.
-
-```java
-//Get a reference to the root directory for the share.
-CloudFileDirectory rootDir = share.getRootDirectoryReference();
-
-//Get a reference to the sampledir directory
-CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
-
-if (sampleDir.createIfNotExists()) {
-    System.out.println("sampledir created");
-} else {
-    System.out.println("sampledir already exists");
-}
-```
-
-## <a name="how-to-list-files-and-directories-in-a-share"></a>Obtention d’une liste des fichiers et répertoires d’un partage
-Il est facile d’obtenir la liste de fichiers et de répertoires d’un partage en appelant **listFilesAndDirectories** sur une référence CloudFileDirectory. La méthode renvoie une liste d’objets ListFileItem sur laquelle vous pouvez effectuer une itération. Par exemple, le code suivant répertorie les fichiers et répertoires du répertoire racine.
-
-```java
-//Get a reference to the root directory for the share.
-CloudFileDirectory rootDir = share.getRootDirectoryReference();
-
-for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
-    System.out.println(fileItem.getUri());
-}
-```
-
-## <a name="how-to-download-a-file"></a>Téléchargement d’un fichier
-Le téléchargement de fichier est l’une des opérations les plus fréquentes que vous effectuerez sur le stockage de fichiers. Dans l’exemple suivant, le code télécharge SampleFile.txt et affiche son contenu.
-
-```java
-//Get a reference to the root directory for the share.
-CloudFileDirectory rootDir = share.getRootDirectoryReference();
-
-//Get a reference to the directory that contains the file
-CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
-
-//Get a reference to the file you want to download
-CloudFile file = sampleDir.getFileReference("SampleFile.txt");
-
-//Write the contents of the file to the console.
-System.out.println(file.downloadText());
-```
-
-## <a name="how-to-delete-a-file"></a>Suppression d’un fichier
-La suppression de fichier est également une opération de stockage de fichier courante. Le code suivant supprime un fichier nommé SampleFile.txt et stocké dans un répertoire nommé **sampledir**.
-
-```java
-// Get a reference to the root directory for the share.
-CloudFileDirectory rootDir = share.getRootDirectoryReference();
-
-// Get a reference to the directory where the file to be deleted is in
-CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
-
-String filename = "SampleFile.txt"
-CloudFile file;
-
-file = containerDir.getFileReference(filename)
-if ( file.deleteIfExists() ) {
-    System.out.println(filename + " was deleted");
-}
-```
-
-## <a name="how-to-delete-a-directory"></a>Suppression d’un répertoire
-La suppression d’un répertoire est une tâche relativement simple, mais il convient de noter que vous ne pouvez pas supprimer de répertoire contenant des fichiers ou d’autres répertoires.
-
-```java
-// Get a reference to the root directory for the share.
-CloudFileDirectory rootDir = share.getRootDirectoryReference();
-
-// Get a reference to the directory you want to delete
-CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
-
-// Delete the directory
-if ( containerDir.deleteIfExists() ) {
-    System.out.println("Directory deleted");
-}
-```
-
-## <a name="how-to-delete-a-share"></a>Suppression d’un partage
+## <a name="delete-an-azure-file-share"></a>Suppression d’un partage de fichiers Azure
 La suppression d’un partage s’effectue en appelant la méthode **deleteIfExists** sur un objet CloudFileShare. Voici un exemple de code permettant d’effectuer cette opération.
 
 ```java
@@ -225,6 +128,107 @@ try
 }
 ```
 
+## <a name="create-a-directory"></a>Créer un répertoire
+Vous pouvez également organiser le stockage en plaçant des fichiers dans des sous-répertoires, plutôt que de tous les mettre dans le répertoire racine. Le stockage de fichiers Azure vous permet de créer autant de répertoires que le permet votre compte. Le code ci-dessous crée un sous-répertoire nommé **sampledir** sous le répertoire racine.
+
+```java
+//Get a reference to the root directory for the share.
+CloudFileDirectory rootDir = share.getRootDirectoryReference();
+
+//Get a reference to the sampledir directory
+CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
+
+if (sampleDir.createIfNotExists()) {
+    System.out.println("sampledir created");
+} else {
+    System.out.println("sampledir already exists");
+}
+```
+
+## <a name="delete-a-directory"></a>Supprimer un répertoire
+La suppression d’un répertoire est une tâche relativement simple, mais il convient de noter que vous ne pouvez pas supprimer de répertoire contenant des fichiers ou d’autres répertoires.
+
+```java
+// Get a reference to the root directory for the share.
+CloudFileDirectory rootDir = share.getRootDirectoryReference();
+
+// Get a reference to the directory you want to delete
+CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
+
+// Delete the directory
+if ( containerDir.deleteIfExists() ) {
+    System.out.println("Directory deleted");
+}
+```
+
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Énumérer des fichiers et répertoires dans un partage de fichiers Azure
+Il est facile d’obtenir la liste de fichiers et de répertoires d’un partage en appelant **listFilesAndDirectories** sur une référence CloudFileDirectory. La méthode renvoie une liste d’objets ListFileItem sur laquelle vous pouvez effectuer une itération. Par exemple, le code suivant répertorie les fichiers et répertoires du répertoire racine.
+
+```java
+//Get a reference to the root directory for the share.
+CloudFileDirectory rootDir = share.getRootDirectoryReference();
+
+for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
+    System.out.println(fileItem.getUri());
+}
+```
+
+## <a name="upload-a-file"></a>Charger un fichier
+Un partage de fichiers Azure contient au minimum un répertoire racine dans lequel les fichiers peuvent résider. Cette section décrit comment télécharger un fichier du stockage local vers le répertoire racine d’un partage.
+
+La première étape du téléchargement d’un fichier consiste à obtenir une référence au répertoire dans lequel ce fichier doit résider. Pour cela, vous devez appeler la méthode **getRootDirectoryReference** de l’objet de partage.
+
+```java
+//Get a reference to the root directory for the share.
+CloudFileDirectory rootDir = share.getRootDirectoryReference();
+```
+
+Maintenant que vous avez une référence au répertoire racine du partage, vous pouvez télécharger un fichier vers ce répertoire à l’aide du code ci-après.
+
+```java
+        // Define the path to a local file.
+        final String filePath = "C:\\temp\\Readme.txt";
+    
+        CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
+        cloudFile.uploadFromFile(filePath);
+```
+
+## <a name="download-a-file"></a>Téléchargement d’un fichier
+Le téléchargement de fichiers est l’une des opérations les plus fréquentes que vous effectuerez sur le stockage de fichiers Azure. Dans l’exemple suivant, le code télécharge SampleFile.txt et affiche son contenu.
+
+```java
+//Get a reference to the root directory for the share.
+CloudFileDirectory rootDir = share.getRootDirectoryReference();
+
+//Get a reference to the directory that contains the file
+CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
+
+//Get a reference to the file you want to download
+CloudFile file = sampleDir.getFileReference("SampleFile.txt");
+
+//Write the contents of the file to the console.
+System.out.println(file.downloadText());
+```
+
+## <a name="delete-a-file"></a>Supprimer un fichier
+La suppression de fichiers est également une opération courante liée au stockage des fichiers Azure. Le code suivant supprime un fichier nommé SampleFile.txt et stocké dans un répertoire nommé **sampledir**.
+
+```java
+// Get a reference to the root directory for the share.
+CloudFileDirectory rootDir = share.getRootDirectoryReference();
+
+// Get a reference to the directory where the file to be deleted is in
+CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
+
+String filename = "SampleFile.txt"
+CloudFile file;
+
+file = containerDir.getFileReference(filename)
+if ( file.deleteIfExists() ) {
+    System.out.println(filename + " was deleted");
+}
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 
@@ -235,5 +239,3 @@ Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
-
-

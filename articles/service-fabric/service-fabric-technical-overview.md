@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/02/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 74b60c0c4c0941a053bd124281772502d0136f23
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 42e5e651d5a3c08e829b48bb47e14458a5c65900
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -72,7 +72,7 @@ Pour plus d’informations, consultez l’article [Partitionnement des services 
 ## <a name="system-services"></a>Services système
 Il existe des services système qui sont créés dans chaque cluster et qui fournissent les capacités de plateforme de Service Fabric.
 
-**Service d’affectation de noms**: chaque cluster Service Fabric a un service d’affectation de noms qui résout le nom des services vers un emplacement du cluster. Vous gérez le nom et les propriétés des services, comme un Domain Name Service (DNS) internet du cluster. Les clients communiquent en toute sécurité avec n’importe quel nœud du cluster grâce au service d’affectation de noms pour résoudre un nom de service et son emplacement.  Les applications se déplacent au sein du cluster suite par exemple à des échecs, à un équilibrage des ressources ou au redimensionnement du cluster. Vous pouvez développer des services et des clients capables de résoudre l’emplacement réseau actuel. Les clients obtiennent l’adresse IP actuelle de l’ordinateur et le port qu’elle utilise.
+**Service d’affectation de noms**: chaque cluster Service Fabric a un service d’affectation de noms qui résout le nom des services vers un emplacement du cluster. Vous gérez le nom et les propriétés des services, comme un Domain Name Service (DNS) internet du cluster. Les clients communiquent en toute sécurité avec n’importe quel nœud du cluster grâce au service d’affectation de noms pour résoudre un nom de service et son emplacement.  Les applications se déplacent au sein du cluster suite, par exemple, à des échecs, à un équilibrage des ressources ou au redimensionnement du cluster. Vous pouvez développer des services et des clients capables de résoudre l’emplacement réseau actuel. Les clients obtiennent l’adresse IP actuelle de l’ordinateur et le port qu’elle utilise.
 
 Pour plus d’informations sur les API de communication de client et de service qui fonctionnent avec le service d’affectation de noms, consultez [Communication avec les services](service-fabric-connect-and-communicate-with-services.md) .
 

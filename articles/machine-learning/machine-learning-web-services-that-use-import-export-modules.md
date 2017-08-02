@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 20e2c9edc4729015f65fbe72649e32effe7f8a3a
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 123c8c2b1c5bae268b2a61c185743f2c3920175e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Déploiement de services web Azure ML utilisant les modules d’importation et d’exportation des données
@@ -102,14 +102,14 @@ Pour déployer comme un service web classique et créer une application afin de 
 2. Une fois l’exécution terminée, cliquez sur **Déployer le service web** puis sélectionnez **Déployer le service web [classique]**.
 3. Sur le tableau de bord du service web, recherchez votre clé API. Copiez et enregistrez cette clé pour une utilisation ultérieure.
 4. Dans la table **Point de terminaison par défaut**, cliquez sur le **Exécution de lot** pour ouvrir la page d’aide de l’API.
-5. Dans Visual Studio, créez une application console C#.
+5. Créez une application console en C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#** > **Bureau classique Windows** > **Application console (.NET Framework)**.
 6. Sur la page d’aide de l’API, recherchez la section **Exemple de code** en bas de la page.
 7. Copiez et collez l’exemple de code C# dans votre fichier Program.cs et supprimez toutes les références au stockage d’objets blob.
 8. Mettez à jour la valeur de la variable *apiKey* avec la clé API enregistrée précédemment.
 9. Recherchez la déclaration de requête et mettez à jour les valeurs des paramètres du service web passés aux modules *Importer des données* et *Exporter des données*. Dans le cas présent, vous utilisez la requête d’origine, mais définissez un nouveau nom de table.
    
         var request = new BatchExecutionRequest() 
-        {            
+        {           
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
@@ -131,13 +131,13 @@ Pour déployer comme un nouveau service web et créer une application afin de l�
 3. Sur la page de l’expérience de déploiement, nommez votre service web, sélectionnez un plan de tarification, puis cliquez sur **Déployer**.
 4. Sur la page **Quickstart**, cliquez sur **Consommer**.
 5. Dans la section **Exemple de code**, cliquez sur **Lot**.
-6. Dans Visual Studio, créez une application console C#.
+6. Créez une application console en C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#** > **Bureau classique Windows** > **Application console (.NET Framework)**.
 7. Copiez et collez l’exemple de code C# dans votre fichier Program.cs.
 8. Mettez à jour la valeur de la variable *apiKey* variable avec la **clé primaire** située dans la section des **informations de base sur la consommation**.
 9. Recherchez la déclaration *scoreRequest* et mettez à jour les valeurs des paramètres du service Web passés aux modules *Importer des données* et *Exporter des données*. Dans le cas présent, vous utilisez la requête d’origine, mais définissez un nouveau nom de table.
    
         var scoreRequest = new
-        {        
+        {       
             Inputs = new Dictionary<string, StringTable>()
             {
             },

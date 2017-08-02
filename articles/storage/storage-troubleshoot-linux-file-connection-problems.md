@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 5c22c2d8c00882c45ecc2991916e389b2a00586d
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 62cd62ec3a2900f06acacc0852a48b5e3ff1c8cd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="troubleshoot-azure-file-storage-problems-in-linux"></a>Résoudre les problèmes liés au stockage Azure File dans Linux
@@ -84,11 +83,11 @@ Si vous ne pouvez pas effectuer de mise à niveau vers les dernières versions d
 
 ### <a name="cause"></a>Cause :
 
-Les distributions Linux ne prennent pas encore en charge les fonctionnalités de chiffrement dans SMB 3.0. Dans certaines distributions, les utilisateurs peuvent recevoir un message d’erreur « 115 » s’ils essaient de monter le stockage Azure File en utilisant SMB 3.0 en raison d’une fonctionnalité manquante.
+Certaines distributions Linux ne prennent pas encore en charge les fonctionnalités de chiffrement dans SMB 3.0 et les utilisateurs peuvent recevoir un message d’erreur « 115 » s’ils essaient de monter le stockage de fichiers Azure en utilisant SMB 3.0, en raison d’une fonctionnalité manquante.
 
 ### <a name="solution"></a>Solution
 
-Si le client SMB Linux ne prend pas en charge le chiffrement, montez le stockage Azure File à l’aide de SMB 2.1 à partir d’une machine virtuelle Linux Azure dans le même centre de données que le compte de stockage File.
+La fonctionnalité de chiffrement pour SMB 3.0 pour Linux a été introduite dans le noyau 4.11. Cette fonctionnalité permet le montage du partage de fichiers Azure en local ou à partir d’une autre région Azure. Quand nous avons publié cet article, cette fonctionnalité a été rétroportée dans Ubuntu 17.04 et Ubuntu 16.10. Si le client SMB Linux ne prend pas en charge le chiffrement, montez le stockage de fichiers Azure à l’aide de SMB 2.1 à partir d’une machine virtuelle Linux Azure dans le même centre de données que le compte de stockage de fichiers.
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Ralentissement des performances dans un partage de fichiers Azure monté sur une machine virtuelle
@@ -111,18 +110,7 @@ Vous pouvez également vérifier si les options correctes sont utilisées en ex�
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Si les options **cache=strict** ou **serverino** ne sont pas présentes, démontez, puis remontez le stockage Azure File en exécutant la commande de montage à partir de la [documentation](storage-how-to-use-files-linux.md#mount-the-file-share). Revérifiez ensuite que les options sont correctes pour l’entrée **/etc/fstab**.
-
-<a id="error11"></a>
-## <a name="mount-error11-resource-temporarily-unavailable-when-youre-mounting-to-an-ubuntu-48-kernel"></a>« Erreur de montage (11) : ressource temporairement indisponible » lors du montage sur un noyau Ubuntu 4.8
-
-### <a name="cause"></a>Cause :
-
-Dans le noyau Ubuntu 16.10 (version 4.8), le client est documenté pour prendre en charge le chiffrement alors qu’il ne le fait pas.
-
-### <a name="solution"></a>Solution
-
-Avant que Ubuntu 16.10 ne soit corrigé, spécifiez l’option de montage `vers=2.1` ou utilisez Ubuntu 16.04.
+Si les options **cache=strict** ou **serverino** ne sont pas présentes, démontez, puis remontez le stockage Azure File en exécutant la commande de montage à partir de la [documentation](storage-how-to-use-files-linux.md). Revérifiez ensuite que les options sont correctes pour l’entrée **/etc/fstab**.
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>Les horodatages ont été perdus lors de la copie des fichiers de Windows vers Linux

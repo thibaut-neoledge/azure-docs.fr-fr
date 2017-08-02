@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+ms.date: 06/29/2016
 ms.author: shigu;jrj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 914d85267e82ce6a2e60f3841889935046f17c87
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: c16fef2f302dbc56f257eaf2f0d2b68b6a3c1852
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>Vue d’ensemble des tables dans SQL Data Warehouse
@@ -50,7 +49,7 @@ RENAME OBJECT Customer TO CustomerOrig;
  ```
 
 ## <a name="distributed-tables"></a>Tables distribuées
-Un nouvel attribut fondamental introduit par les systèmes distribués comme SQL Data Warehouse est la **colonne de distribution**.  La colonne de distribution porte bien son nom.  C’est la colonne qui détermine comment distribuer ou diviser vos données en arrière-plan.  Lorsque vous créez une table sans spécifier la colonne de distribution, la table est automatiquement distribuée à l’aide d’un **tourniquet (round robin)**.  Bien que les tables de tourniquet (round robin) puissent être suffisantes dans certains scénarios, la définition des colonnes de distribution peut considérablement réduire le déplacement des données pendant les requêtes, optimisant ainsi les performances.  Consultez [Distributing a Table][Distribute] (Distribution d’une table) pour en savoir plus sur la sélection d’une colonne de distribution.
+Un nouvel attribut fondamental introduit par les systèmes distribués comme SQL Data Warehouse est la **colonne de distribution**.  La colonne de distribution porte bien son nom.  C’est la colonne qui détermine comment distribuer ou diviser vos données en arrière-plan.  Lorsque vous créez une table sans spécifier la colonne de distribution, la table est automatiquement distribuée à l’aide d’un **tourniquet (round robin)**.  Bien que les tables de tourniquet (round robin) puissent être suffisantes dans certains scénarios, la définition des colonnes de distribution peut considérablement réduire le déplacement des données pendant les requêtes, optimisant ainsi les performances.  Dans les situations où il existe une petite quantité de données dans une table, choisir de créer la table avec le type de distribution **répliquer** copie les données sur chaque nœud de calcul et enregistre le déplacement des données au moment de l’exécution de la requête. Consultez [Distributing a Table][Distribute] (Distribution d’une table) pour en savoir plus sur la sélection d’une colonne de distribution.
 
 ## <a name="indexing-and-partitioning-tables"></a>Indexation et partitionnement des tables
 Tandis que vous progressez dans votre utilisation de SQL Data Warehouse et que vous souhaitez optimiser les performances, vous souhaiterez en savoir plus sur la conception de tables.  Pour plus d’informations, consultez les articles [Types de données de table][Data Types], [Distribution d’une table][Distribute], [Indexation d’une table][Index], [Partitionnement d’une table][Partition].
@@ -69,7 +68,6 @@ Bien que SQL Data Warehouse contienne un grand nombre des fonctionnalités table
 
 | Fonctionnalités non prises en charge |
 | --- |
-| [Propriété d’identité][Identity Property] (voir [Affectation des clés de substitution][Assigning Surrogate Key Workaround]) |
 | Clé primaire, clés étrangères, [contraintes de table][Table Constraints] |
 | [Index uniques][Unique Indexes] |
 | [Colonnes calculées][Computed Columns] |
@@ -202,7 +200,7 @@ FROM size
 ```
 
 ### <a name="table-space-summary"></a>Résumé de l’espace de table
-Cette requête renvoie les lignes et l’espace par table.  C’est une requête intéressante pour voir quelles sont vos tables les plus volumineuses et si elles sont en tourniquet (round robin) ou à distribution par hachage.  Pour les tables à distribution par hachage, elle montre également la colonne de distribution.  Dans la plupart des cas, les plus grandes tables doivent être à distribution par hachage avec un index columnstore en cluster.
+Cette requête renvoie les lignes et l’espace par table.  C’est une requête intéressante pour voir quelles sont vos tables les plus volumineuses et si elles sont en tourniquet (round robin), répliquées ou distribuées par hachage.  Pour les tables à distribution par hachage, elle montre également la colonne de distribution.  Dans la plupart des cas, les plus grandes tables doivent être à distribution par hachage avec un index columnstore en cluster.
 
 ```sql
 SELECT 
@@ -295,8 +293,6 @@ Pour plus d’informations, consultez les articles [Types de données de table][
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Identity Property]: https://msdn.microsoft.com/library/ms186775.aspx
-[Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
 [Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
 [Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
 [Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx

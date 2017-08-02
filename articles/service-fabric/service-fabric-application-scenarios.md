@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
 ms.author: mfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 69c517da6c23df1708f94ef7486b8c3b5b4edcaa
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 471ec6f45f4152fbac56242ef3ce906f8af00b54
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="service-fabric-application-scenarios"></a>Scénarios d'applications Service Fabric
@@ -36,7 +35,7 @@ La plateforme Service Fabric dans Azure est idéale pour les catégories d’app
 Plusieurs clients ont établi des systèmes IoT avec Service Fabric notamment [BMW](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/24/service-fabric-customer-profile-bmw-technology-corporation/), [Schneider Electric](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/05/service-fabric-customer-profile-schneider-electric/) et [Mesh Systems](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/20/service-fabric-customer-profile-mesh-systems/).
 
 ## <a name="application-design-case-studies"></a>Études de cas de conception d’applications
-Plusieurs études de cas illustrant la façon dont Service Fabric permet de concevoir des applications sont publiées sur le [blog de l’équipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/) et le [site des solutions microservices](https://azure.microsoft.com/solutions/microservice-applications/)
+Plusieurs études de cas illustrant la façon dont Service Fabric permet de concevoir des applications sont publiées sur le [blog de l’équipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/) et le [site des solutions microservices](https://azure.microsoft.com/solutions/microservice-applications/).
 
 ## <a name="design-applications-composed-of-stateless-and-stateful-microservices"></a>Conception d’applications composées de microservices avec et sans état
 La création d’applications avec des rôles de travail Azure Cloud Service est un exemple de service sans état. À l’opposé, les microservices avec état maintiennent leur état faisant autorité au-delà de la demande et de la réponse correspondante. Ceci garantit une haute disponibilité et une cohérence de l’état grâce à des API simples qui fournissent des garanties transactionnelles soutenues par la réplication. Les services avec état de Service Fabric démocratisent la haute disponibilité sur tous les types d’applications, sans se limiter aux bases de données et autres banques de données. Il s’agit d’une évolution naturelle. Les applications sont déjà passées d’une simple utilisation de bases de données purement relationnelles pour la haute disponibilité à l’emploi de bases de données NoSQL. Les applications elles-mêmes peuvent maintenant avoir un état « actif » et bénéficier d’une gestion des données en interne pour optimiser leurs performances, sans pour autant sacrifier la fiabilité, la cohérence ou la disponibilité des données.

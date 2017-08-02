@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: f5db73d93276f8da223f03fa672af02a3bc9b54d
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: a95283a5c52a2860a4c4ac9e47938fe7c6b1be84
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurer une connexion de réseau virtuel à réseau virtuel (classique)
@@ -86,7 +85,16 @@ Le tableau suivant présente un exemple de la définition de vos réseaux virtu
 
 ## <a name="vnetvalues"></a>Étape 2 : créer les réseaux virtuels
 
-Créez deux réseaux virtuels dans le [portail Azure](https://portal.azure.com). Pour découvrir comment créer des réseaux virtuels classiques, consultez [Créer un réseau virtuel (classique)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Si vous utilisez cet article dans le cadre d’un exercice, vous pouvez vous servir des valeurs d’exemple suivantes :
+Créez deux réseaux virtuels dans le [portail Azure](https://portal.azure.com). Pour découvrir comment créer des réseaux virtuels classiques, consultez [Créer un réseau virtuel (classique)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
+
+Lorsque vous utilisez le portail pour créer un réseau virtuel classique, vous devez accéder au panneau de réseau virtuel à l’aide de la procédure suivante, sinon l’option de création d’un réseau virtuel classique n’apparaît pas :
+
+1. Cliquez sur « + » pour ouvrir le panneau « Nouveau ».
+2. Dans le champ « Rechercher dans le marketplace », saisissez « réseau virtuel ». Si vous sélectionnez Mise en réseau -> Réseau virtuel à la place, l’option de création d’un réseau virtuel classique ne s’affiche pas.
+3. Localisez « Réseau virtuel » dans la liste renvoyée et cliquez dessus pour ouvrir le panneau correspondant. 
+4. Dans le panneau Réseau virtuel, sélectionnez « Classique » pour créer un réseau virtuel classique. 
+
+Si vous utilisez cet article dans le cadre d’un exercice, vous pouvez vous servir des valeurs d’exemple suivantes :
 
 **Valeurs pour TestVNet1**
 

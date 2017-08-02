@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2017
+ms.date: 07/17/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 1e524f13a70b1d08b064d9ff70db66b2b509abe3
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 57ab8c0504ed8f7071a949e941f749025f9042e4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer une homologation de réseau virtuel
@@ -37,24 +36,23 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 - Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, vous devez [Installer et configurer Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Assurez-vous que les applets de commande Azure PowerShell de la version la plus récente sont installées. Pour obtenir de l’aide sur les commandes PowerShell ainsi que des exemples, entrez `get-help <command> -full`.
 - Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, vous devez [Installer et configurer Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Assurez-vous que la version la plus récente d’Azure CLI est installée. Pour obtenir de l’aide sur les commandes CLI, entrez `az <command> --help`.
 
-## <a name="about-peering"></a>À propos de l’homologation 
+## <a name="about-peering"></a>Exigences et contraintes 
 
-Avant d’homologuer des réseaux virtuels, prenez en compte les contraintes suivantes :
-- Les réseaux virtuels que vous homologuez doivent avoir des espaces d’adressage IP qui ne se chevauchent pas. 
+- Les réseaux virtuels que vous homologuez doivent avoir des espaces d’adressage IP qui ne se chevauchent pas.
 - Il n’est pas possible d’ajouter ou de supprimer des espaces d’adressage dans un réseau virtuel après que celui-ci est homologué avec un autre réseau virtuel. Pour ajouter ou supprimer des espaces d’adressage, supprimez l’homologation, ajoutez ou supprimez les espaces d’adressage, puis recréez l’homologation. Pour savoir comment ajouter ou supprimer des espaces d’adressage dans des réseaux virtuels, voir [Créer, modifier ou supprimer des réseaux virtuels](virtual-network-manage-network.md#add-address-spaces). 
-- Vous pouvez homologuer deux réseaux virtuels déployés via le Gestionnaire de ressources, ou homologuer un réseau virtuel déployé via le Gestionnaire de ressources avec un réseau virtuel déployé via le modèle de déploiement classique. Vous ne pouvez pas homologuer deux réseaux virtuels créés via le modèle de déploiement classique. Si vous n’êtes pas familiarisé avec les modèles de déploiement Azure, lisez l’article [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Vous pouvez homologuer deux réseaux virtuels déployés via le Gestionnaire de ressources, ou homologuer un réseau virtuel déployé via le Gestionnaire de ressources avec un réseau virtuel déployé via le modèle de déploiement classique. Vous ne pouvez pas homologuer deux réseaux virtuels créés via le modèle de déploiement classique. Si vous n’êtes pas familiarisé avec les modèles de déploiement Azure, lisez l’article [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) pour connecter deux réseaux virtuels créés via le modèle de déploiement classique.
 - Lors de l’homologation de deux réseaux virtuels créés via le Gestionnaire de ressources, une homologation doit être configurée pour chaque réseau virtuel dans l’homologation. Lorsque vous créez l’homologation au deuxième réseau virtuel à partir du premier réseau virtuel, l’état d’homologation est *Initiée*.  Lorsque vous créez l’homologation à partir du deuxième réseau virtuel au premier réseau virtuel, l’état d’homologation est *Connectée*. Si vous affichez l’état d’homologation pour le premier réseau virtuel, vous voyez que son état est passé de *Initiée* à *Connectée*. L’homologation n’est pas correctement établie tant que l’état d’homologation pour les deux homologations de réseau virtuel est *Connectée*. 
 - Lors de l’homologation d’un réseau virtuel créé via le Gestionnaire de ressources avec un réseau virtuel créé via le modèle de déploiement classique, vous configurez une homologation uniquement pour le réseau virtuel est déployé via le Gestionnaire de ressources. Vous ne pouvez pas configurer d’homologation pour un réseau virtuel (classique), ou entre deux réseaux virtuels déployés via le modèle de déploiement classique. Lorsque vous créez l’homologation à partir du réseau virtuel (Gestionnaire des ressources) au réseau virtuel (classique), l’état d’homologation est *Mise à jour*, puis passe rapidement à *Connectée*.   
 - Une homologation est établie entre deux réseaux virtuels. Les homologations ne sont pas transitives. Imaginons que vous créez des homologations entre :
-    - Réseau virtuel 1 et réseau virtuel 2
-    - Réseau virtuel 2 et réseau virtuel 3
+    - VirtualNetwork1 et VirtualNetwork2
+    - VirtualNetwork2 et VirtualNetwork3
 
-  Il n’existe aucune homologation entre le réseau virtuel 1 et le réseau virtuel 3 via le réseau virtuel 2. Si vous souhaitez configurer une homologation entre le réseau virtuel 1 et le réseau virtuel 3, vous devez créer une homologation entre ceux-ci.
+  Il n’existe aucune homologation entre VirtualNetwork1 et VirtualNetwork3 via VirtualNetwork2. Si vous souhaitez créer une homologation de réseaux virtuels entre VirtualNetwork1 et VirtualNetwork3, vous devez créer une homologation entre VirtualNetwork1 et VirtualNetwork3.
 - Vous ne pouvez pas résoudre des noms dans des réseaux virtuels homologués en utilisant une résolution de noms Azure par défaut. Pour résoudre des noms dans d’autres réseaux virtuels, vous devez utiliser un serveur DNS personnalisé. Pour savoir comment configurer votre propre serveur DNS, lisez l’article [Résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 - Les ressources des deux réseaux virtuels dans l’homologation peuvent communiquer entre elles avec les mêmes bande passante et latence que si elles étaient dans le même réseau virtuel. Toutefois, chaque taille de machine virtuelle a sa propre bande passante réseau maximale. Pour en savoir plus sur la bande passante réseau maximale pour différentes tailles de machine virtuelle, lisez les articles [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sur les tailles de machine virtuelle.
 - Vous pouvez homologuer des réseaux virtuels déployés via le Gestionnaire de ressources, qu’ils figurent dans un même abonnement ou dans des abonnements différents.
-- Vous pouvez homologuer des réseaux virtuels déployés via des modèles de déploiement différents, et figurant dans un même abonnement. La possibilité d’homologuer des réseaux virtuels créés via des modèles de déploiement différents et figurant dans des abonnements différents est disponible en préversion.
-- Les abonnements dans lesquels figurent les deux réseaux virtuels doivent être associés au même client Azure Active Directory. Si vous n’avez pas encore de client Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). 
+- Vous pouvez homologuer des réseaux virtuels déployés via des modèles de déploiement différents, et figurant dans un même abonnement ou non (version préliminaire). 
+- Les abonnements dans lesquels figurent les deux réseaux virtuels doivent être associés au même client Azure Active Directory. Si vous n’avez pas encore de client Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). Vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) pour vous connecter à deux réseaux virtuels d’abonnements différents associés à différents clients Active Directory.
 - <a name="roles-permissions"></a>Pour que vous puissiez créer une homologation, votre compte doit avoir le rôle ou les autorisations nécessaires. Par exemple, si vous homologuez deux réseaux virtuels nommés *VNet1* et *VNet2*, votre compte doit avoir le rôle ou les autorisations minimaux suivants pour chaque réseau virtuel :
     
     |Réseau virtuel|Modèle de déploiement|Rôle|Autorisations|
@@ -83,7 +81,7 @@ Avant d’homologuer des réseaux virtuels, prenez en compte les contraintes sui
     - **Nom :** le nom doit être unique au sein du réseau virtuel.
     - **Modèle de déploiement de réseau virtuel :** sélectionnez le modèle de déploiement via lequel le réseau virtuel avec lequel vous souhaitez opérer l’homologation a été déployé.
     - **Je connais mon ID de ressource :** si vous avez accès en lecture au réseau virtuel avec lequel vous souhaitez opérer l’homologation, laissez cette case à cocher désactivée. Si vous n’avez pas accès en lecture au réseau virtuel ou à l’abonnement avec lequel vous souhaitez opérer l’homologation, activez cette case à cocher. Dans la zone **ID de ressource** qui s’affiche lorsque vous cochez la case, entrez l’ID de ressource complet du réseau virtuel avec lequel vous souhaitez opérer l’homologation. L’ID de ressource que vous entrez doit être celui d’un réseau virtuel existant dans le même [emplacement](https://azure.microsoft.com/regions) Azure que ce réseau virtuel. L’ID de ressource complet ressemble à /subscriptions/<Id>/resourceGroups/<nom-du-groupe-de-ressources>/providers/Microsoft.Network/virtualNetworks/<nom-du-réseau-virtuel>. Vous pouvez obtenir l’ID de ressource d’un réseau virtuel en affichant les propriétés de celui-ci. Pour savoir comment afficher les propriétés d’un réseau virtuel, lisez l’article [Créer, modifier ou supprimer des réseaux virtuels](virtual-network-manage-network.md#view-vnet).
-    - **Abonnement :** sélectionnez l’[abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) du réseau virtuel avec lequel vous souhaitez opérer l’homologation. Un ou plusieurs abonnements sont répertoriés, selon le nombre d’abonnements auxquels votre compte a accès en lecture. Si vous avez activé la case à cocher **ID de ressource**, ce paramètre n’est pas disponible. Vous pouvez homologuer des réseaux virtuels dans des abonnements différents pour autant que les deux réseaux virtuels aient été créés via le Gestionnaire de ressources. La possibilité d’homologuer entre des abonnements créés via des modèles de déploiement différents est disponible en préversion. Avant de créer une homologation entre des réseaux virtuels déployés via des modèles des modèles de déploiement différents figurant dans des abonnements différents, inscrivez-vous à la préversion. Apprenez-en davantage sur l’inscription à la préversion et l’[homologation de réseaux virtuels créés via des modèles de déploiement différents dans des abonnements différents](virtual-network-create-peering.md#different-subscriptions-different-deployment-models).
+    - **Abonnement :** sélectionnez l’[abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) du réseau virtuel avec lequel vous souhaitez opérer l’homologation. Un ou plusieurs abonnements sont répertoriés, selon le nombre d’abonnements auxquels votre compte a accès en lecture. Si vous avez activé la case à cocher **ID de ressource**, ce paramètre n’est pas disponible. Vous pouvez homologuer des réseaux virtuels dans des abonnements différents pour autant que les deux réseaux virtuels aient été créés via le Gestionnaire de ressources. La possibilité d’homologuer entre des abonnements créés via des modèles de déploiement différents est disponible en préversion. Avant de créer une homologation entre des réseaux virtuels déployés via des modèles des modèles de déploiement différents figurant dans des abonnements différents, inscrivez-vous à la préversion. Apprenez-en davantage sur l’inscription à la préversion et l’[homologation de réseaux virtuels créés via des modèles de déploiement différents dans des abonnements différents](create-peering-different-deployment-models-subscriptions.md).
     - **Réseau virtuel :** sélectionnez le réseau virtuel avec lequel vous voulez opérer l’homologation. Vous pouvez sélectionner un réseau virtuel créé via un modèle de déploiement Azure, mais ce réseau doit figurer dans le même emplacement que le réseau virtuel à partir duquel vous initiez l’homologation. Pour que le réseau virtuel apparaisse dans la liste, vous devez disposer de l’accès en lecture à celui-ci. Si un réseau virtuel est répertorié, mais grisé, ce peut être parce que l’espace d’adressage du réseau virtuel chevauche l’espace d’adressage de ce réseau. Si les espaces d’adressage de réseaux virtuels se chevauchent, il n’est pas possible d’homologuer ces réseaux. Si vous avez activé la case à cocher **ID de ressource**, ce paramètre n’est pas disponible.
     - **Autoriser l’accès au réseau virtuel :** sélectionnez **Activé** (par défaut) si vous souhaitez activer la communication entre les deux réseaux virtuels. L’activation de la communication entre les réseaux virtuels permet aux ressources connectées à ceux-ci de communiquer entre elles avec les mêmes bande passante et latence que si elles étaient connectées au même réseau virtuel. Toute communication entre les ressources des deux réseaux virtuels passe par le réseau privé Azure. La balise par défaut **VirtualNetwork** pour les groupes de sécurité réseau englobe le réseau virtuel et le réseau virtuel homologué. Pour en savoir plus sur les groupes de sécurité réseau, lisez l’article présentant les [Groupes de sécurité réseau](virtual-networks-nsg.md#default-tags).  Si vous ne souhaitez pas que le trafic soit dirigé vers le réseau virtuel homologué, sélectionnez **Désactivé**. Vous pouvez sélectionner **Désactivé** si vous avez homologué un réseau virtuel avec un autre réseau virtuel, mais souhaitez occasionnellement désactiver le flux de trafic entre les deux réseaux virtuels. Il se peut que vous trouviez plus pratique d’activer ou de désactiver les homologations que de les supprimer et recréer. Lorsque ce paramètre est désactivé, le trafic ne passe plus entre les réseaux virtuels homologues.
     - **Autoriser le trafic transféré :** cochez cette case pour autoriser que le trafic transféré au réseau virtuel homologué (trafic ne provenant ne pas du réseau virtuel homologué) soit dirigé vers ce réseau virtuel. Un transfert de trafic est chose courante lorsque vous avez déployé une appliance virtuelle dans le réseau virtuel avec lequel vous opérez l’homologation, et avez créé des itinéraires définis par l’utilisateur pour transférer le trafic via l’appliance virtuelle. Si vous laissez cette case désactivée (par défaut), le trafic transféré en provenance du réseau virtuel homologué ne peut pas être acheminé vers ce réseau virtuel. Si l’activation de cette fonctionnalité autorise le transfert du trafic via l’homologation, elle n’a pas pour effet de créer des itinéraires définis par l’utilisateur ou des appliances virtuelles. Les itinéraires définis par l’utilisateur et les appliances virtuelles sont créés séparément. Pour en savoir plus, voir [Itinéraires définis par l’utilisateur](virtual-networks-udr-overview.md).
@@ -112,10 +110,10 @@ Avant d’homologuer des réseaux virtuels, prenez en compte les contraintes sui
 6. Modifiez le paramètre approprié. Lisez les options de chaque paramètre à l’[étape 6](#add-peering) de la section Créer une homologation dans cet article. 
 
     >[!NOTE]
-    >La réussite de la création d’une homologation est sujette à plusieurs conditions, contraintes et considérations. Avant de créer une homologation, familiarisez-vous avec la liste de ces considérations figurant dans la section [À propos de l’homologation](#about-peering) de cet article.
+    >La réussite de la création d’une homologation est sujette à plusieurs conditions, contraintes et considérations. Avant de créer une homologation, familiarisez-vous avec la liste de ces considérations figurant dans la section [Exigences et contraintes](#about-peering) de cet article.
     >
 
-7. Cliquez sur **Save**.
+7. Cliquez sur **Enregistrer**.
 
 **Commandes**
 
@@ -145,9 +143,14 @@ Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Suivre le [didacticiel d’homologation de réseaux virtuels](virtual-network-create-peering.md)
-- Créer une topologie de réseau Hub and Spoke | [Multiples](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)|
+* Suivez un didacticiel d’homologation de réseaux virtuels. Une homologation est générée entre des réseaux virtuels créés via des modèles de déploiement identiques ou différents qui existent dans des abonnements identiques ou différents. Suivez un didacticiel pour l’un des scénarios suivants :
+ 
+    |Modèle de déploiement Azure  | Abonnement  |
+    |---------|---------|
+    |Les deux modèles Resource Manager |[Identique](virtual-network-create-peering.md)|
+    | |[Différent](create-peering-different-subscriptions.md)|
+    |Un modèle Resource Manager, un modèle classique     |[Identique](create-peering-different-deployment-models.md)|
+    | |[Différent](create-peering-different-deployment-models-subscriptions.md)|
 
-
-
-
+* Découvrez comment créer une [topologie de réseau Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering). 
+* En savoir plus sur tous les [paramètres d’homologation de réseaux virtuels et sur la façon de les modifier](virtual-network-manage-peering.md).

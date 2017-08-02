@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/02/2017
+ms.date: 07/12/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5de7b134d99a0b7887acb9d7f87991056e4d608a
-ms.lasthandoff: 04/27/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: e7323325c303c26e2ea4d9f2a8ac5178fa33b875
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Gestion du Contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell
@@ -128,7 +128,7 @@ Pour supprimer l'accès pour des utilisateurs, des groupes et des applications, 
 ## <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 Pour créer un rôle personnalisé, utilisez la commande ```New-AzureRmRoleDefinition``` . Il existe deux méthodes pour structurer le rôle, avec PSRoleDefinitionObject ou avec un modèle JSON. 
 
-## <a name="get-actions-from-particular-resource-provider"></a>Récupérer des Actions auprès d’un fournisseur de ressources donné
+## <a name="get-actions-for-a-resource-provider"></a>Actions Get pour un fournisseur de ressources
 Si vous créez des rôles personnalisés de A à Z, il est important de connaître toutes les opérations possibles auprès des fournisseurs de ressources.
 Utilisez la commande ```Get-AzureRMProviderOperation``` pour obtenir ces informations.
 Par exemple, si vous souhaitez vérifier toutes les opérations disponibles pour la machine virtuelle, utilisez cette commande :
@@ -166,7 +166,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - capture d’écran](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>Création d’un rôle avec le modèle JSON
-Un modèle JSON peut servir de définition source pour le rôle personnalisé. L’exemple suivant crée un rôle personnalisé qui autorise l’accès en lecture au stockage et aux ressources de calcul, ainsi que l’accès au support, et ajoute ce rôle à deux abonnements. Créez un fichier `C:\CustomRoles\customrole1.json` avec le contenu suivant. L’ID doit être défini sur `null` lors de la création du rôle, étant donné qu’un nouvel ID est automatiquement généré. 
+Un modèle JSON peut servir de définition source pour le rôle personnalisé. L’exemple suivant crée un rôle personnalisé qui autorise l’accès en lecture au stockage et aux ressources de calcul, ainsi que l’accès au support, et ajoute ce rôle à deux abonnements. Créez un fichier `C:\CustomRoles\customrole1.json` avec l’exemple de contenu suivant. L’ID doit être défini sur `null` lors de la création du rôle, étant donné qu’un nouvel ID est automatiquement généré. 
 
 ```
 {

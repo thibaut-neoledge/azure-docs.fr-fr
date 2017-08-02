@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 104986e88ededf2137725fe258b6ce51f608b37d
-ms.lasthandoff: 01/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: ea42b7135d0695b66d569095e70bb3d9f8b9594b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="sql-data-warehouse-restore"></a>Restauration SQL Data Warehouse
@@ -58,7 +58,12 @@ Yes, you can restore the last available restore point.
 Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
 
 ## <a name="geo-redundant-restore"></a>Restauration géoredondante
-Si vous utilisez le stockage géoredondant, vous pouvez restaurer l’entrepôt de données sur votre [centre de données couplé](../best-practices-availability-paired-regions.md) dans une autre région géographique. L’entrepôt de données est restauré à partir de la dernière sauvegarde quotidienne. 
+Vous pouvez restaurer votre entrepôt de données vers n’importe quelle région prenant en charge Azure SQL Data Warehouse au niveau de performances que vous avez choisi. Veuillez noter que 9 000 et 18 000 DWU ne sont pas prises en charge dans toutes les régions pour la préversion.
+
+> [!NOTE]
+> Pour effectuer une restauration géoredondante, vous devez avoir activé cette fonctionnalité.
+> 
+> 
 
 ## <a name="restore-timeline"></a>Chronologie de la restauration
 Vous pouvez restaurer une base de données à un point de restauration disponible des sept derniers jours. Les captures instantanées démarrent toutes les quatre à huit heures et sont disponibles pendant sept jours. Quand une capture instantanée a une ancienneté supérieure à sept jours, elle expire et son point de restauration n’est plus disponible.

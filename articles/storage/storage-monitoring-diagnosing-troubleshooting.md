@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8598e18aeb0552455a6e5344f10eb48382e8c2f4
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: c6bf7cd3bd16d8af30fed09f7878a0e68748a971
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
@@ -31,7 +30,7 @@ Le diagnostic et la résolution des problèmes dans une application distribuée 
 Pour gérer avec succès de telles applications, vous devez les analyser de façon proactive et savoir comment diagnostiquer et résoudre n'importe quel problème associé à leur fonctionnement et leurs technologies associées. En tant qu'utilisateur des services Azure Storage, vous devez surveiller en permanence les services de stockage utilisés par votre application afin de détecter tout comportement imprévu (par ex., des temps de réponse plus lents que d'habitude), et utiliser la journalisation afin de collecter davantage de données détaillées et analyser chaque problème en profondeur. Les informations de diagnostic obtenues via l'analyse et la journalisation vous aideront à déterminer la cause première du problème rencontré par votre application. Vous pouvez alors résoudre le problème et déterminer la procédure appropriée pour y remédier. Azure Storage est l'un des principaux services de Azure et un élément essentiel de la plupart des solutions que les clients déploient dans l'infrastructure Azure. Azure Storage inclut des fonctionnalités qui permettent de simplifier l'analyse, le diagnostic et la résolution des problèmes de stockage rencontrés par vos applications sur le cloud.
 
 > [!NOTE]
-> Le service Azure Files ne gère pas la journalisation pour l’instant.
+> Actuellement, le stockage de fichiers Azure ne prend pas en charge la journalisation.
 > 
 
 Pour obtenir un guide pratique de bout en bout pour la résolution des problèmes dans les applications Azure Storage, consultez [Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer](storage-e2e-troubleshooting.md).
@@ -72,7 +71,7 @@ Pour obtenir un guide pratique de bout en bout pour la résolution des problème
   * [Votre problème provient de l’utilisation de l’émulateur de stockage pour le développement ou les tests]
   * [Vous rencontrez des problèmes pendant l’installation du Kit de développement logiciel (SDK) Azure pour .NET]
   * [Vous rencontrez un autre problème avec un service de stockage]
-  * [Résolution des problèmes de fichiers Azure avec Windows et Linux](storage-troubleshoot-file-connection-problems.md)
+  * [Résoudre les problèmes liés au stockage de fichiers Azure dans Windows](storage-troubleshoot-file-connection-problems.md)
 * [Annexes]
   * [Annexe 1 : utilisation de Fiddler pour capturer le trafic HTTP et HTTPS]
   * [Annexe 2 : utilisation de Wireshark pour capturer le trafic réseau]
@@ -570,11 +569,11 @@ Le tableau suivant donne un exemple de message de journal côté serveur à part
 | Heure de début de la demande | 2014-05-30T06:17:48.4473697Z |
 | Type d'opération     | GetBlobProperties            |
 | État de la demande     | SASAuthorizationError        |
-| Code d'état HTTP   | 404                            |
+| Code d'état HTTP   | 404                          |
 | Type d'authentification| Sas                          |
 | Type de service       | Blob                         |
-| URL de la demande         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| URL de la demande        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Request ID header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID de la demande client  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 

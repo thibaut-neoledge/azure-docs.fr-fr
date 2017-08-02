@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 810b4c236975a25d12b2e350d0a6cd5a39eb30aa
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 71a8f4edf7776556b383f446e5aad007748ef090
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="troubleshoot-azure-file-storage-problems-in-windows"></a>Résoudre les problèmes liés au stockage Azure File dans Windows
 
-Cet article répertorie les problèmes courants liés au stockage Microsoft Azure File lorsque vous vous connectez à partir des clients Windows et Linux. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolutions présentées dans cet article, vous pouvez aussi utiliser [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) pour être sûr que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales.
+Cet article répertorie les problèmes courants liés au stockage Microsoft Azure File lorsque vous vous connectez à partir des clients Windows et Linux. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolutions présentées dans cet article, vous pouvez aussi utiliser [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) pour être sûr que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales. Vous pouvez également trouver ces informations dans [l’utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), qui indique la procédure à suivre pour vous aider en cas de problèmes de connexion/mappage/montage de partages Azure Files.
 
 
 <a id="error53-67-87"></a>
@@ -102,7 +101,7 @@ Les performances peuvent être ralenties lorsque vous essayez de transférer des
 - Si vous n’avez pas d’exigence de taille d’E/S minimum spécifique, nous vous recommandons d’utiliser une taille d’E/S de 1 Mo pour des performances optimales.
 -   Si vous connaissez la taille finale d’un fichier que vous étendez avec des écritures, et si votre logiciel ne présente aucun problème de compatibilité lorsque la fin non écrite du fichier contient des zéros, définissez la taille du fichier à l’avance au lieu que chaque écriture soit une écriture d’extension.
 -   Utilisez la méthode de copie appropriée :
-    -   Utilisez [AZCopy](storage-use-azcopy.md#file-copy) pour les transferts entre deux partages de fichiers.
+    -   Utilisez [AZCopy](storage-use-azcopy.md#file-copy) pour les transferts entre deux partages de fichiers.
     -   Utilisez [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre des partages de fichiers sur un ordinateur local.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Informations pour Windows 8.1 ou Windows Server 2012 R2
@@ -190,5 +189,5 @@ Pour copier un fichier sur le réseau, vous devez d’abord le déchiffrer. Util
 Notez bien que la définition de la clé de Registre affecte toutes les opérations de copie sur les partages réseau.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
-Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.
 
