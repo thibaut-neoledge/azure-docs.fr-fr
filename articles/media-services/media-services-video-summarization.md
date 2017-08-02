@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 07/18/2017
 ms.author: milanga;juliako;
-translationtype: Human Translation
-ms.sourcegitcommit: 343658944394e7b620bc70aa0d92affada07e91d
-ms.openlocfilehash: 7510c8ab4adadbd7d738ba0b8e2bbdddba8d1048
-ms.lasthandoff: 02/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: c8e760460668aca89a754e2d8536282160de0e0a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo
@@ -73,7 +73,8 @@ Le code JSON suivant définit les paramètres disponibles.
         }
     }
 
-## <a name="sample-code"></a>Exemple de code
+## <a name="net-sample-code"></a>Exemple de code .NET
+
 Le programme suivant montre comment effectuer les tâches suivantes :
 
 1. Créer un élément multimédia et charger un fichier multimédia dans l’élément multimédia.
@@ -87,9 +88,14 @@ Le programme suivant montre comment effectuer les tâches suivantes :
                 "fadeInFadeOut": "false"
             }
         }
-3. Télécharge les fichiers de sortie. 
+3. Télécharger les fichiers de sortie. 
 
-### <a name="net-code"></a>Code .NET
+#### <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
+
+Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
+
+#### <a name="example"></a>Exemple
+
     using System;
     using System.Configuration;
     using System.IO;
@@ -103,24 +109,20 @@ Le programme suivant montre comment effectuer les tâches suivantes :
         class Program
         {
             // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
 
                 // Run the thumbnail job.

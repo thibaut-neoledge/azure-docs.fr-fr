@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: bee96774abacebe36e61a1f4d051f65dd20342f6
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 428dcaa8e842077936b7d9b9cb6ac639844c3961
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
@@ -108,7 +107,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
   Ce lien donne accès à une vidéo sur Channel 9 enregistrée à l’occasion de la conférence MS Ignite en 2015. Cette session traite des fonctionnalités de gestion d’accès et de création de rapports d’Azure et explore les bonnes pratiques en ce qui concerne la sécurisation de l’accès aux abonnements Azure à l’aide d’Azure Active Directory.
 
 ### <a name="managing-your-storage-account-keys"></a>Gestion des clés de compte de stockage
-Les clés de compte de stockage sont des chaînes de 512 bits créés par Azure qui, combinées avec le nom de compte, permettent d’accéder aux objets de données stockés dans le compte de stockage, notamment les objets blob, les entités d’une table, les messages de file d’attente et les fichiers se trouvant sur un partage Azure Files. Le contrôle d’accès aux clés de compte de stockage permet de contrôler l’accès au plan de données de ce compte de stockage.
+Les clés de compte de stockage sont des chaînes de 512 bits créés par Azure qui, combinées avec le nom de compte de stockage, permettent d’accéder aux objets de données présents dans le compte de stockage, notamment les blobs, les entités d’une table, les messages de file d’attente et les fichiers se trouvant sur un partage de fichiers Azure. Le contrôle d’accès aux clés de compte de stockage permet de contrôler l’accès au plan de données de ce compte de stockage.
 
 Chaque compte de stockage a deux clés appelées « Clé 1 » et « Clé 2 » dans le [portail Azure](http://portal.azure.com/) et dans les applets de commande PowerShell. Il est possible de les régénérer manuellement au moyen de diverses méthodes, notamment avec le [Portail Azure](https://portal.azure.com/), PowerShell, l’interface de ligne de commande Azure ou par programmation en utilisant la bibliothèque cliente de stockage .NET ou l’API REST des services de Stockage Azure.
 
@@ -269,22 +268,22 @@ Pour disposer d’un canal de communication sécurisé, vous devez toujours util
 Vous pouvez appliquer l’utilisation du protocole HTTPS lorsque vous appelez les API REST pour accéder aux objets dans les comptes de stockage en activant l’option [Transfert sécurisé requis](storage-require-secure-transfer.md) pour le compte de stockage. Les connexions utilisant le protocole HTTP seront refusées une fois cette option activée.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Utilisation du chiffrement pendant le transit avec des partages de fichiers Azure
-Azure File Storage prend en charge le protocole HTTPS avec l’API REST, mais il est plus couramment utilisé comme partage de fichiers SMB attaché à une machine virtuelle. SMB 2.1 ne prend pas en charge le chiffrement. Les connexions sont donc autorisées uniquement dans la même région Azure. Toutefois, SMB 3.0 prend en charge le chiffrement et est disponible dans Windows Server 2012 R2, Windows 8, Windows 8.1 et Windows 10, ce qui rend possibles l’accès entre les régions et même l’accès sur le bureau.
+Le stockage de fichiers Azure prend en charge le protocole HTTPS avec l’API REST, mais il est plus couramment utilisé comme partage de fichiers SMB attaché à une machine virtuelle. SMB 2.1 ne prend pas en charge le chiffrement. Les connexions sont donc autorisées uniquement dans la même région Azure. Toutefois, SMB 3.0 prend en charge le chiffrement et est disponible dans Windows Server 2012 R2, Windows 8, Windows 8.1 et Windows 10, ce qui rend possibles l’accès entre les régions et même l’accès sur le bureau.
 
-Notez que les partages de fichiers Azure peuvent être utilisés avec Unix, mais comme le client SMB de Linux ne prend pas encore en charge le chiffrement, l’accès est autorisé uniquement dans la même région Azure. La prise en charge du chiffrement pour Linux est prévue par les développeurs Linux responsables de la fonctionnalité SMB. Quand ce chiffrement sera pris en charge, vous pourrez accéder à un partage de fichiers Azure sur Linux de la même manière que sur Windows.
+Notez que les partages de fichiers Azure peuvent être utilisés avec Unix, mais comme le client SMB de Linux ne prend pas encore en charge le chiffrement, l’accès est autorisé uniquement dans une région Azure. La prise en charge du chiffrement pour Linux est prévue par les développeurs Linux responsables de la fonctionnalité SMB. Quand ce chiffrement sera pris en charge, vous pourrez accéder à un partage de fichiers Azure sur Linux de la même manière que sur Windows.
 
 Vous pouvez appliquer l’utilisation du chiffrement avec le service Azure Files en activant l’option [Transfert sécurisé requis](storage-require-secure-transfer.md) pour le compte de stockage. Si vous utilisez les API REST, le protocole HTTPS est requis. Pour SMB, seules les connexions SMB qui prennent en charge le chiffrement seront établies avec succès.
 
 #### <a name="resources"></a>Ressources
-* [Utilisation du stockage de fichiers Azure avec Linux](storage-how-to-use-files-linux.md)
+* [Utilisation de Stockage Fichier Azure avec Linux](storage-how-to-use-files-linux.md)
 
   Cet article montre comment monter un partage de fichiers Azure sur un système Linux et comment charger/télécharger des fichiers.
 * [Prise en main d’Azure File Storage sur Windows](storage-dotnet-how-to-use-files.md)
 
   Cet article présente une vue d’ensemble des partages de fichiers Azure. Il explique aussi comment monter et utiliser ces partages avec PowerShell et .NET.
-* [Stockage de fichiers dans Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Dans Stockage Fichier Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 
-  Cet article annonce la disponibilité générale d’Azure File Storage et fournit des informations techniques sur le chiffrement SMB 3.0.
+  Cet article annonce la disponibilité générale du stockage de fichiers Azure et fournit des informations techniques sur le chiffrement SMB 3.0.
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Utilisation du chiffrement côté client pour sécuriser les données envoyées dans le stockage
 Le chiffrement côté client est une autre méthode possible pour garantir la sécurité de vos données pendant leur transfert entre une application cliente et Azure Storage. Les données sont chiffrées avant d’être transférées vers Azure Storage. Quand vous récupérez les données d’Azure Storage, les données sont déchiffrées seulement après leur réception côté client. Même si les données sont chiffrées quand elles sont en transit sur le réseau, nous vous recommandons d’utiliser également le protocole HTTPS. En effet, HTTPS inclut des vérifications de l’intégrité des données qui contribuent à réduire les erreurs réseau ayant un impact sur l’intégrité des données.
@@ -351,7 +350,7 @@ La solution ne prend pas en charge les scénarios, fonctionnalités et technolog
 * Désactivation du chiffrement sur un lecteur de système d’exploitation pour les machines virtuelles IaaS Linux
 * Machines virtuelles IaaS créées à l’aide de la méthode classique de création de machines virtuelles
 * Intégration à votre service de gestion de clés local
-* Azure Files (système de partage de fichiers), NFS (Network File System), volumes dynamiques et machines virtuelles Windows configurées avec des systèmes RAID logiciels
+* Le stockage de fichiers Azure (système de partage de fichiers), NFS (Network File System), les volumes dynamiques et les machines virtuelles Windows configurées avec des systèmes RAID logiciels
 
 
 > [!NOTE]

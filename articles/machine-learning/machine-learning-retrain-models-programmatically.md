@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: raymondl;garye;v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 0dc0f84ed65e76a95dcac523e42268039212773c
-ms.openlocfilehash: 5032e66556622e44e5f5bba84c4ddf5318b1e194
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: cf7a39e14a935d0d0e0df07e66a8f37480ec9687
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Reformation des modèles Machine Learning par programme
@@ -91,7 +91,7 @@ Pour cet exemple, vous utilisez le langage C# pour créer l’application de ref
 
 Pour appeler les API Retraining :
 
-1. Créez une application console C# dans Visual Studio (Nouveau -> projet -> Bureau Windows -> Application console).
+1. Créez une application console en C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#** > **Bureau classique Windows** > **Application console (.NET Framework)**.
 2. Connectez-vous au portail de services web Azure Machine Learning.
 3. Si vous utilisez un service web classique, cliquez sur **Services web classiques**.
    1. Cliquez sur le service web utilisé.

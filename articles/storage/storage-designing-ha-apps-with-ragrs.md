@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 3b7eca721181155cd2bcc619d517c9b5a6a89a0d
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d’applications hautement disponibles à l’aide du stockage RA-GRS
@@ -37,7 +37,7 @@ Avant d’aborder l’utilisation du stockage RA-GRS, nous allons parler de ses 
 
 * La copie en lecture seule est [cohérente](https://en.wikipedia.org/wiki/Eventual_consistency) avec les données de la région primaire.
 
-* Pour les blobs, tables et files d’attente, vous pouvez interroger la région secondaire pour obtenir la *dernière heure de synchronisation*. Cette valeur vous indique à quel moment la dernière réplication de la région primaire sur la région secondaire s’est produite. (Cette fonctionnalité n’est pas prise en charge pour Azure Files, qui n’a pas la redondance RA-GRS pour l’instant.)
+* Pour les blobs, tables et files d’attente, vous pouvez interroger la région secondaire pour obtenir la *dernière heure de synchronisation*. Cette valeur vous indique à quel moment la dernière réplication de la région primaire sur la région secondaire s’est produite. (Cette fonctionnalité n’est pas prise en charge pour le stockage de fichiers Azure, qui n’a pas la redondance RA-GRS pour l’instant.)
 
 * Vous pouvez utiliser la bibliothèque cliente de stockage pour interagir avec les données de la région primaire ou secondaire. Vous pouvez également rediriger les demandes de lecture automatiquement vers la région secondaire si une demande de lecture adressée à la région primaire arrive à expiration.
 

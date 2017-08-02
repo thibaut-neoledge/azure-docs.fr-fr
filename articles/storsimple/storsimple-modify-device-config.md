@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/29/2016
+ms.date: 07/19/2017
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0894908fc4d050e7890dd21e698bf3981a7413f7
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 5bfbeb038dbedae2bf77016abbc19458c3dc22c9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="use-the-storsimple-manager-service-to-modify-your-storsimple-device-configuration"></a>Utilisation du service StorSimple Manager pour modifier la configuration de votre appareil StorSimple
@@ -35,6 +34,9 @@ La page **Configurer** du portail Azure Classic contient tous les paramètres re
 ## <a name="modify-device-settings"></a>Modification des paramètres de l’appareil
 Les paramètres de l’appareil incluent le nom convivial de l’appareil et sa description.
 
+> [!NOTE] 
+> Vous ne pouvez pas modifier le nom de l’appareil dans le portail Azure Classic. La modification du nom de l’appareil n’est pas prise en charge.
+
 Un appareil StorSimple qui est connecté au service StorSimple Manager se voit attribuer un nom par défaut. Celui-ci reflète généralement le numéro de série de l’appareil. Par exemple, voici comment interpréter un nom d’appareil par défaut constitué de 15 caractères, tel que 8600-SHX0991003G44HT :
 
 * **8600** : indique le modèle de l’appareil.
@@ -42,9 +44,7 @@ Un appareil StorSimple qui est connecté au service StorSimple Manager se voit a
 * **0991003** : indique un produit spécifique.
 * **G44HT**: les 5 derniers chiffres sont incrémentés pour créer des numéros de série uniques. Il ne s’agit pas nécessairement d’une suite.
 
-Vous pouvez utiliser le portail Azure Classic pour modifier le nom de l’appareil et lui attribuer le nom convivial unique de votre choix. Ce nom peut contenir tout type de caractère et ne doit pas dépasser 64 caractères.
-
-Vous pouvez aussi définir une description de l’appareil. Cette description vise généralement à identifier le propriétaire et l’emplacement physique de l’appareil. Le champ de description doit contenir moins de 256 caractères.
+Vous pouvez définir une description de l’appareil. Cette description vise généralement à identifier le propriétaire et l’emplacement physique de l’appareil. Le champ de description doit contenir moins de 256 caractères.
 
 ## <a name="modify-time-settings"></a>Modification des paramètres d’heure
 Votre appareil doit synchroniser l’heure pour s’authentifier auprès du fournisseur de services de stockage cloud. Sélectionnez votre fuseau horaire dans la liste déroulante et spécifiez au maximum deux serveurs NTP (Network Time Protocol). Le serveur NTP principal est obligatoire. Il est spécifié durant la configuration de l’appareil dans Windows PowerShell pour StorSimple. Vous pouvez choisir le serveur NTP par défaut de Windows Server, **time.windows.com**. Vous pouvez consulter la configuration du serveur NTP principal dans le portail Azure Classic, mais vous devez utiliser l’interface Windows PowerShell pour la modifier.

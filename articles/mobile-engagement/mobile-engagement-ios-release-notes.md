@@ -12,16 +12,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: da3ef06433d2336159d0ae96f12019fd80dc5d07
-ms.openlocfilehash: 6b32e81bb6a714bd0c479c48d6982af4bcc0683d
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 9bdaa57f9902373ccf796ff109332b64c66bf9e7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Azure Mobile Engagement pour iOS
-## <a name="401-12132016"></a>4.0.1 (12/13/2016)
+
+## <a name="410-07172017"></a>4.1.0 (07/17/2017)
+* Correction des badges effacés en arrière-plan.
+* Correction des avertissements sur XCode 9 à propos des API qui ne sont pas appelées dans la file d’attente principale.
+* Correction d’une fuite de mémoire dans les sondages Reach.
+* Fin de la prise en charge d’iOS 6.X. À partir de cette version, la cible de déploiement de votre application doit être au moins iOS 7.
+
+## <a name="401-12132016"></a>4.0.1 (13/12/2016)
 * Amélioration de la remise de journaux en arrière-plan.
 
 ## <a name="400-09122016"></a>4.0.0 (09/12/2016)
@@ -70,10 +78,4 @@ ms.openlocfilehash: 6b32e81bb6a714bd0c479c48d6982af4bcc0683d
 * Suppression de l'API pour envoyer et recevoir des messages entre appareils.
 * Améliorations de sécurité.
 * Suppression du suivi SmartAd.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

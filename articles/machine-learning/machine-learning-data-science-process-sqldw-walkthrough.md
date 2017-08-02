@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;hangzh;weig
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 55e3f99cd3202abc012d310b43358d3795c8531e
-ms.lasthandoff: 03/29/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 244684bc875e3917b8fd0d1a6bc1464a7c36a938
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 
 ---

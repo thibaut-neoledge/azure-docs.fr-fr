@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 06/05/2017
 ms.author: v-sharos
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7651a2ba6c206bb39d7cf8839f6f0f828fb3bc16
-ms.openlocfilehash: 25265349cb8cb47e93b7bea7103f1d06878a6158
-ms.lasthandoff: 02/28/2017
+ms.custom: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -126,7 +127,7 @@ Le tableau suivant contient une liste alphabétique des actions du Gestionnaire 
 | Relancer l’analyse des volumes |Cliquez avec le bouton droit sur le nœud **Volumes** . |Cliquez sur **Relancer l’analyse des volumes** pour mettre à jour la liste des volumes qui s’affiche dans le volet **Résultats**. |
 | Restore  |Développez **Catalogue de sauvegarde**, développez un groupe de volumes, développez **Instantanés locaux** ou **Instantanés Cloud**, puis cliquez avec le bouton droit sur une sauvegarde. |Cliquez sur **Restaurer** pour remplacer les données du groupe de volumes actuel par les données de la sauvegarde sélectionnée. |
 | Effectuer la sauvegarde |Effectuez l’une des actions suivantes :<ul><li>Développez **Groupes de volumes**, puis cliquez avec le bouton droit sur un groupe de volumes.</li><li>Développez **Catalogue de sauvegarde**, puis cliquez avec le bouton droit sur un groupe de volumes.</li></ul> |Cliquez sur **Créer une sauvegarde** pour démarrer immédiatement une opération de sauvegarde. |
-| Activer/désactiver l’affichage des importations |Cliquez avec le bouton droit sur le nœud supérieur dans le volet **Étendue** (nœud **Gestionnaire d’instantanés StorSimple** dans les exemples). |Cliquez sur **Activer/Désactiver l’affichage des importations** pour afficher ou masquer les groupes de volumes et les sauvegardes associées importés depuis le tableau de bord du service StorSimple Manager. |
+| Activer/désactiver l’affichage des importations |Cliquez avec le bouton droit sur le nœud supérieur dans le volet **Étendue** (nœud **Gestionnaire d’instantanés StorSimple** dans les exemples). |Cliquez sur **Activer/Désactiver l’affichage des importations** pour afficher ou masquer les groupes de volumes et les sauvegardes associées importés depuis le tableau de bord du service StorSimple Device Manager. |
 
 ### <a name="view-menu"></a>Menu Affichage
 Utilisez le menu **Affichage** pour créer une vue personnalisée du contenu du volet **Résultats**. Le menu **Affichage** contient les options **Ajout/Suppression de colonnes** et **Personnaliser**.
@@ -273,8 +274,7 @@ Les stratégies de sauvegarde sont des planifications de tâches liées à des i
 
 > [!NOTE]
 > Vous pouvez conserver un maximum de 64 sauvegardes.
-> 
-> 
+
 
 ### <a name="backup-catalog-node"></a>Nœud Catalogue de sauvegarde
 Le nœud **Catalogue de sauvegarde** contient des listes de sauvegardes sur site et hors site des volumes Azure StorSimple. Ce nœud est organisé par groupes de volumes et chaque conteneur de groupe de volumes contient des structures séparées pour les instantanés locaux (nœud **Instantanés locaux**) et les instantanés cloud (nœud **Instantanés Cloud**). Une fois développé, chaque conteneur de groupe de volumes répertorie toutes les sauvegardes réussies effectuées de façon interactive ou via une politique configurée.
@@ -429,7 +429,7 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 | V |Ouvre le menu **Affichage** . |
 | W |Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes** . |
 | F |Met à jour la console du Gestionnaire d’instantanés StorSimple. |
-| L |Ouvre la page **Exporter la liste **. |
+| L |Ouvre la page **Exporter la liste**. |
 | H |Ouvre l’aide en ligne. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>Touches de raccourci du nœud Catalogue de sauvegarde

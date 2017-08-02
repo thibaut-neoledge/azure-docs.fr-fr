@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: f2c0355068bc6dfd9a4e1aab52e4f4f9f23a9512
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f7ca0c1aa67b8a5f5487dd93a142ac9da094f945
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -75,7 +75,7 @@ Dans l’objet de machine virtuelle, nous avons besoin d’une dépendance sur l
             "dataDisks": [
                 {
                     "name": "datadisk1",
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "vhd": {
                         "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob, 'vhds/datadisk1.vhd')]"
@@ -96,7 +96,7 @@ Avec Azure Managed Disks, le disque devient une ressource de niveau supérieur e
 
 ### <a name="default-managed-disk-settings"></a>Paramètres de disque géré par défaut
 
-Pour créer une machine virtuelle avec des disques gérés, vous n’avez plus besoin créer la ressource de compte de stockage et vous pouvez mettre à jour votre ressource de machine virtuelle comme suit. Notez en particulier que `apiVersion` reflète `2016-04-30-preview`, et que `osDisk` et `dataDisks` ne font plus référence à un URI spécifique pour le disque dur virtuel. Lors du déploiement sans spécification de propriétés supplémentaires, le disque utilisera [le stockage LRS standard]((storage-redundancy.md). Si aucun nom n’est spécifié, il prend le format `<VMName>_OsDisk_1_<randomstring>` pour le disque de système d’exploitation et `<VMName>_disk<#>_<randomstring>` pour chaque disque de données. Par défaut, le chiffrement de disque Azure est désactivé ; la mise en cache est Lecture/Écriture pour le disque de système d’exploitation et Aucune pour les disques de données. Vous avez pu remarquer dans l’exemple ci-dessous qu’il existe toujours une dépendance de compte de stockage, bien que cela concerne uniquement le stockage de diagnostics et n’est pas nécessaire pour le stockage de disques.
+Pour créer une machine virtuelle avec des disques gérés, vous n’avez plus besoin créer la ressource de compte de stockage et vous pouvez mettre à jour votre ressource de machine virtuelle comme suit. Notez en particulier que `apiVersion` reflète `2016-04-30-preview`, et que `osDisk` et `dataDisks` ne font plus référence à un URI spécifique pour le disque dur virtuel. Lors du déploiement sans spécification de propriétés supplémentaires, le disque utilisera le [stockage LRS standard](storage-redundancy.md). Si aucun nom n’est spécifié, il prend le format `<VMName>_OsDisk_1_<randomstring>` pour le disque de système d’exploitation et `<VMName>_disk<#>_<randomstring>` pour chaque disque de données. Par défaut, le chiffrement de disque Azure est désactivé ; la mise en cache est Lecture/Écriture pour le disque de système d’exploitation et Aucune pour les disques de données. Vous avez pu remarquer dans l’exemple ci-dessous qu’il existe toujours une dépendance de compte de stockage, bien que cela concerne uniquement le stockage de diagnostics et n’est pas nécessaire pour le stockage de disques.
 
 ```
 {
@@ -123,7 +123,7 @@ Pour créer une machine virtuelle avec des disques gérés, vous n’avez plus b
             },
             "dataDisks": [
                 {
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "createOption": "Empty"
                 }
@@ -209,8 +209,8 @@ Pour créer des groupes à haute disponibilité gérés avec des machines virtue
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",
     "properties": {
-        "PlatformUpdateDomainCount": "3",
-        "PlatformFaultDomainCount": "2"
+        "PlatformUpdateDomainCount": 3,
+        "PlatformFaultDomainCount": 2
     },
     "sku": {
         "name": "Aligned"

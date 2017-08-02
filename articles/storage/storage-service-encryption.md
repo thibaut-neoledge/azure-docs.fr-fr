@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7b91be16b5820f379f7408b477311ea86b213ccd
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: dcd843ae1ba768ce02256dcc91c61693730c60e4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption pour les données au repos
@@ -40,7 +39,7 @@ SSE fonctionne en chiffrant les données lors leur écriture dans le Stockage Az
 
 Pour plus d’informations, consultez la FAQ.
 
-Pour activer ou désactiver le chiffrement du service de stockage pour un compte de stockage, connectez-vous au [portail Azure](https://azure.portal.com) , puis sélectionnez un compte de stockage. Dans le panneau Paramètres, recherchez la section Service BLOB, comme illustré dans cette capture d’écran, puis cliquez sur Chiffrement.
+Pour activer ou désactiver le chiffrement du service de stockage pour un compte de stockage, connectez-vous au [portail Azure](https://portal.azure.com) , puis sélectionnez un compte de stockage. Dans le panneau Paramètres, recherchez la section Service BLOB, comme illustré dans cette capture d’écran, puis cliquez sur Chiffrement.
 
 ![Capture d’écran du portail affichant l’option de chiffrement](./media/storage-service-encryption/image1.png)
 <br/>*Figure 1 : Activer SSE pour le service BLOB (étape 1)*
@@ -85,7 +84,7 @@ AzCopy est un utilitaire de ligne de commande Windows conçu pour copier des don
 Pour plus d’informations, voir [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
 #### <a name="using-smb"></a>Utilisation de SMB
-Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Vous pouvez monter un partage de fichiers à partir d’un client local ou dans Azure. Une fois le partage monté, des outils tels que Robocopy peuvent être utilisés pour copier les fichiers sur des partages de fichiers Azure. Pour plus d’informations, consultez la page [Guide pratique de montage d’un partage de fichiers Azure sous Windows](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-files#mount-the-file-share) et [Guide pratique de montage d’un partage de fichiers Azure sous Linux](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share).
+Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Vous pouvez monter un partage de fichiers à partir d’un client local ou dans Azure. Une fois le partage monté, des outils tels que Robocopy peuvent être utilisés pour copier les fichiers sur des partages de fichiers Azure. Pour plus d’informations, consultez [Montage d’un partage de fichiers Azure et accès au partage dans Windows](storage-file-how-to-use-files-windows.md) et [Utilisation du stockage de fichiers Azure avec Linux](storage-how-to-use-files-linux.md).
 
 
 #### <a name="using-the-storage-client-libraries"></a>Utilisation des bibliothèques clientes de stockage

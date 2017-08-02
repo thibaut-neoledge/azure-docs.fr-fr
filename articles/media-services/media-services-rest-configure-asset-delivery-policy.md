@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/13/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 255cc9f08862ff7babf8d8847c88a72a4c88582c
-ms.lasthandoff: 01/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 4bae6dabe5700c487cb3f98498729c9a27de8a44
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configuration des stratégies de remise de ressources
@@ -72,7 +72,7 @@ Pour savoir comment publier une ressource et générer une URL de diffusion en c
 > 
 
 ## <a name="clear-asset-delivery-policy"></a>Stratégie de remise de ressources
-### <a name="a-idcreateassetdeliverypolicyacreate-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>Création d’une stratégie de remise d’éléments multimédias
+### <a id="create_asset_delivery_policy"></a>Création d’une stratégie de remise d’éléments multimédias
 La requête HTTP suivante permet de créer une stratégie de remise d’éléments multimédias qui précise de ne pas appliquer de chiffrement dynamique et de fournir le flux avec l’un des protocoles suivants : MPEG DASH, HLS et Smooth Streaming. 
 
 Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de la création d'une AssetDeliveryPolicy, consultez la section [Types utilisés au moment de la définition d'AssetDeliveryPolicy](#types) .   
@@ -121,7 +121,7 @@ Réponse :
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a name="a-idlinkassetwithassetdeliverypolicyalink-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>Liaison d’un élément multimédia à la stratégie de remise d’élément multimédia
+### <a id="link_asset_with_asset_delivery_policy"></a>Liaison d’un élément multimédia à la stratégie de remise d’élément multimédia
 La demande HTTP suivante lie la ressource spécifiée à la stratégie de remise de ressources.
 
 Demande :
@@ -148,7 +148,7 @@ Réponse :
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Création de la clé de contenu de type EnvelopeEncryption et liaison à la ressource
 Lorsque vous spécifiez la stratégie de remise DynamicEnvelopeEncryption, vous devez veiller à lier votre ressource à une clé de contenu de type EnvelopeEncryption. Pour plus d’informations, consultez la page [Création d’une clé de contenu](media-services-rest-create-contentkey.md)).
 
-### <a name="a-idgetdeliveryurlaget-delivery-url"></a><a id="get_delivery_url"></a>Obtention de l’URL de remise
+### <a id="get_delivery_url"></a>Obtention de l’URL de remise
 Obtenez l’URL de remise pour la méthode de remise spécifiée de la clé de contenu créée à l’étape précédente. Un client utilise l’URL retournée pour demander une clé AES ou une licence PlayReady afin de lire le contenu protégé.
 
 Spécifiez le type d’URL à obtenir dans le corps de la demande HTTP. Si vous protégez votre contenu avec PlayReady, demandez une URL d’acquisition de licence PlayReady Media Services, en utilisant 1 pour keyDeliveryType : {"keyDeliveryType":1}. Si vous protégez votre contenu avec le chiffrement d’enveloppe, demandez une URL d’acquisition de clé en spécifiant 2 pour keyDeliveryType :{"keyDeliveryType":2}.
@@ -273,11 +273,12 @@ Par exemple :
 ### <a name="link-asset-with-asset-delivery-policy"></a>Liaison d’un élément multimédia à la stratégie de remise d’élément multimédia
 Consultez la rubrique [Liaison d’un élément multimédia à la stratégie de remise d’élément multimédia](#link_asset_with_asset_delivery_policy)
 
-## <a name="a-idtypesatypes-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>Types utilisés durant la définition de AssetDeliveryPolicy
+## <a id="types"></a>Types utilisés durant la définition de AssetDeliveryPolicy
+
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
-    /// <summary>
-    /// Delivery protocol for an asset delivery policy.
-    /// </summary>
+
+La valeur d’énumération suivante décrit les valeurs que vous pouvez définir pour le protocole de remise de ressources.
+
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -301,6 +302,8 @@ Consultez la rubrique [Liaison d’un élément multimédia à la stratégie de 
         /// </summary>
         HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+ 
         /// <summary>
         /// Include all protocols.
         /// </summary>
@@ -308,9 +311,9 @@ Consultez la rubrique [Liaison d’un élément multimédia à la stratégie de 
     }
 
 ### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
-    /// <summary>
-    /// Policy type for dynamic encryption of assets.
-    /// </summary>
+
+La valeur d’énumération suivante décrit les valeurs que vous pouvez définir pour le type de protocole de remise de ressources.  
+
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -341,10 +344,9 @@ Consultez la rubrique [Liaison d’un élément multimédia à la stratégie de 
         }
 
 ### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
-    /// <summary>
-    /// Delivery method of the content key to the client.
-    ///
-    </summary>
+
+La valeur d’énumération suivante décrit les valeurs que vous pouvez utiliser pour configurer la méthode de remise de la clé de contenu au client.
+    
     public enum ContentKeyDeliveryType
     {
         /// <summary>
@@ -375,9 +377,8 @@ Consultez la rubrique [Liaison d’un élément multimédia à la stratégie de 
 
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
-    /// <summary>
-    /// Keys used to get specific configuration for an asset delivery policy.
-    /// </summary>
+
+La valeur d’énumération suivante décrit les valeurs que vous pouvez définir pour configurer les clés utilisées pour obtenir une configuration spécifique pour une stratégie de remise de ressources.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -421,7 +422,6 @@ Consultez la rubrique [Liaison d’un élément multimédia à la stratégie de 
         /// </summary>
         WidevineLicenseAcquisitionUrl
     }
-
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

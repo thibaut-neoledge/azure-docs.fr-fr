@@ -1,6 +1,6 @@
 ---
 title: "Fonctionnalités de sécurité utilisables avec le service Stockage Azure | Microsoft Docs"
-description: " Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec le service Stockage Azure.. "
+description: " Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec Azure Storage. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 2db6effdaf2e23d00eefdde82d074dd5d47857d7
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 1386d16cf0e7f6fd324d0779e9ad54ecd88b3166
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Vue d’ensemble des fonctionnalités de sécurité d’Azure Storage
@@ -62,7 +63,7 @@ En savoir plus :
 Le chiffrement en transit est un mécanisme de protection des données transmises sur des réseaux. Azure Storage vous permet de sécuriser les données à l’aide de diverses fonctionnalités :
 
 * Le [chiffrement au niveau du transport](../storage/storage-security-guide.md#encryption-in-transit) (HTTPS, par exemple) lorsque vous transférez des données vers ou à partir d’Azure Storage.
-* Le [chiffrement câblé](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), par exemple le chiffrement SMB 3.0 pour les partages de fichiers Azure.
+* Le [chiffrement câblé](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), par exemple le chiffrement SMB 3.0 pour les partages de fichiers Azure.
 * Le [chiffrement côté client](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), pour chiffrer les données avant leur transfert vers Storage et les déchiffrer après leur transfert à partir de Storage.
 
 En savoir plus sur le chiffrement côté client :
@@ -98,9 +99,4 @@ En savoir plus :
 
 * [Qu’est-ce qu’Azure Key Vault ?](../key-vault/key-vault-whatis.md)
 * [Prise en main du coffre de clés Azure](../key-vault/key-vault-get-started.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

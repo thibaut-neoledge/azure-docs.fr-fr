@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/14/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a4bc09d4b8b9f3bd207ffca977e9098d562bb9fd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a5ccfa671e6780a3d4305d4e3238c55de8e577c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -102,14 +102,14 @@ Un [exécutable d’invité](service-fabric-deploy-existing-app.md) est un exéc
 ## <a name="application-lifecycle"></a>Cycle de vie des applications
 Comme pour les autres plateformes, une application sur Service Fabric passe généralement par les phases suivantes : conception, développement, test, déploiement, mise à niveau, maintenance et suppression. Service Fabric offre une excellente prise en charge du cycle de vie complet des applications cloud : du développement au retrait éventuel, en passant par le déploiement, la gestion quotidienne et la maintenance. Le modèle de service permet à différents rôles de participer indépendamment au cycle de vie des applications. L’article [Cycle de vie des applications Service Fabric](service-fabric-application-lifecycle.md) fournit une vue d'ensemble des API et de la façon dont elles sont utilisées par les différents rôles pendant les phases du cycle de vie des applications Service Fabric. 
 
-L’intégralité du cycle de vie des applications peut être gérée avec des [applets de commande PowerShell](/powershell/module/ServiceFabric/), des [API C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [des API Java](/java/api/system.fabric._application_management_client) et des [API REST](/rest/api/servicefabric/). Vous pouvez également configurer des pipelines d’intégration continue ou de développement continu à l’aide d’outils tels que [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) ou [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+L’intégralité du cycle de vie des applications peut être gérée avec des [applets de commande PowerShell](/powershell/module/ServiceFabric/), des [API C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [des API Java](/java/api/system.fabric._application_management_client) et des [API REST](/rest/api/servicefabric/). Vous pouvez également configurer des pipelines d’intégration continue ou de développement continu à l’aide d’outils tels que [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) ou [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
 
 La vidéo suivante de la Microsoft Virtual Academy décrit comment gérer le cycle de vie de votre application :<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
 ## <a name="test-applications-and-services"></a>Tester des applications et services
-Pour créer des services véritablement cloud, il est primordial de vérifier que vos applications et services peuvent résister à des défaillances réalistes. Le service d’analyse des erreurs est conçu pour tester les services qui s’appuient sur Service Fabric. Avec le service d’analyse des erreurs](service-fabric-testability-overview.md), vous pouvez provoquer des erreurs significatives et exécuter des scénarios de test complets sur vos applications. Ces erreurs et scénarios exercent et valident les nombreux états et transitions qu’un service connaît tout au long de sa durée de vie, le tout de manière contrôlée, sécurisée et cohérente.
+Pour créer des services véritablement cloud, il est primordial de vérifier que vos applications et services peuvent résister à des défaillances réalistes. Le service d’analyse des erreurs est conçu pour tester les services qui s’appuient sur Service Fabric. Avec le [service d’analyse des erreurs](service-fabric-testability-overview.md), vous pouvez provoquer des erreurs significatives et exécuter des scénarios de test complets sur vos applications. Ces erreurs et scénarios exercent et valident les nombreux états et transitions qu’un service connaît tout au long de sa durée de vie, le tout de manière contrôlée, sécurisée et cohérente.
 
 Les [actions](service-fabric-testability-actions.md) ciblent un service à tester à l’aide d’erreurs isolées. Un développeur de services peut les utiliser en tant blocs de constructions afin d’écrire des scénarios compliqués. Exemples d’erreurs simulées :
 
@@ -175,14 +175,14 @@ Les rapporteurs Service Fabric surveillent les conditions identifiées qui pré
 
 La création de rapports peut être effectuée à partir des éléments suivants :
 * L’instance ou le réplica de service Service Fabric surveillé.
-* Les agents de surveillance internes déployés en tant que services Service Fabric (par exemple, un service Service Fabric sans état, qui surveille des conditions et émet des rapports). Les agents de surveillance peuvent être déployés sur tous les nœuds ou ils peuvent être apparentés au service surveillé.
+* Les agents de surveillance internes déployés en tant que services Service Fabric (par exemple, un service Service Fabric sans état, qui surveille des conditions et émet des rapports). Les agents de surveillance peuvent être déployés sur tous les nœuds ou apparentés au service surveillé.
 * Les agents de surveillance internes qui s’exécutent sur les nœuds Service Fabric, mais qui ne sont pas implémentés en tant que services de Service Fabric.
 * Les agents de surveillance externes qui sondent la ressource à partir de l’extérieur du cluster Service Fabric (par exemple, un service de surveillance de type Gomez).
 
 Sans configuration préalable, les composants Service Fabric signalent l'intégrité de toutes les entités du cluster. Les [rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) procurent une visibilité sur les fonctionnalités du cluster et des applications, et signalent les problèmes d’intégrité. Pour les applications et services, les rapports d’intégrité du système vérifient que les entités sont implémentées et qu’elles se comportent correctement du point de vue du runtime Service Fabric. Les rapports ne fournissent aucune information sur l’intégrité de la logique métier du service ni sur la détection des processus bloqués. Pour ajouter des informations de contrôle d’intégrité spécifiques à la logique de votre service, [mettez en œuvre la création de rapports d’intégrité personnalisée](service-fabric-report-health.md) dans vos services.
 
 Service Fabric offre plusieurs façons d’[afficher des rapports d’intégrité](service-fabric-view-entities-aggregated-health.md) qui sont regroupées dans le magasin d’intégrité :
-* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou d’autres outils de visualisation/
+* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou autres outils de visualisation.
 * Requêtes d’intégrité (via [PowerShell](/powershell/module/ServiceFabric/), les [API FabricClient C#](/api/system.fabric.fabricclient.healthclient) et [API FabricClient Java](/java/api/system.fabric._health_client) ou les [API REST](/rest/api/servicefabric)).
 * Requêtes générales renvoyant une liste d’entités qui présentent l’intégrité comme l’une de leurs propriétés (via PowerShell, l’API ou REST).
 

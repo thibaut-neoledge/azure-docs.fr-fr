@@ -5,20 +5,20 @@ services: azure-portal
 documentationcenter: na
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/12/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32b335d8a1f84348ab28bcc081cc42fd79fb08fc
-ms.lasthandoff: 03/04/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 9ad194308d30ca652b32ec3b76750b0e838472f4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Résolution des problèmes de contrôle d’accès en fonction du rôle
@@ -46,14 +46,14 @@ Si vous accordez un accès utilisateur en lecture seule à une seule application
 * Tests web
 * Réseau virtuel (accessible à un lecteur uniquement si un réseau virtuel a été précédemment configuré par un utilisateur avec accès en écriture).
 
-Si vous n’accédez à aucune de ces vignettes, vous devez obtenir l’accès Collaborateur à l’application web auprès de votre administrateur.
+Si vous ne pouvez accéder à aucune de ces vignettes, vous devez obtenir l’accès Collaborateur à l’application web auprès de votre administrateur.
 
 ### <a name="dealing-with-related-resources"></a>Gestion des ressources connexes
 Les applications web sont compliqués par la présence de quelques ressources différentes qui interagissent. Voici un groupe de ressources classique avec deux sites web :
 
 ![Groupe de ressources d'application web](./media/role-based-access-control-troubleshooting/website-resource-model.png)
 
-En conséquence, si vous accordez à un utilisateur le seul accès à l'application web, la plupart des fonctionnalités du volet Site web dans le portail Azure seront désactivées.
+En conséquence, si vous accordez à un utilisateur le seul accès à l’application web, la plupart des fonctionnalités du volet Site web dans le portail Azure sont désactivées.
 
 Les éléments suivants requièrent l’accès **en écriture** au **plan App Service** qui correspond à votre site web :  
 
@@ -63,7 +63,7 @@ Les éléments suivants requièrent l’accès **en écriture** au **plan App Se
 
 Les éléments suivants requièrent l’accès **en écriture** à l’ensemble du **Groupe de ressources** qui contient le site web :  
 
-* Certificats et liaisons SSL (car les certificats SSL peuvent être partagés entre différents sites dans le même groupe de ressources et emplacement)  
+* Certificats et liaisons SSL (les certificats SSL peuvent être partagés entre différents sites dans le même groupe de ressources et emplacement)  
 * Règles d'alerte  
 * Paramètres de mise à l'échelle automatique  
 * Composants Application Insights  
@@ -87,7 +87,7 @@ Les éléments suivants requièrent l’accès **en écriture** à la **machine 
 * Jeu d'équilibrage de la charge  
 * Règles d'alerte  
 
-Si vous n’accédez à aucune de ces vignettes, vous devez obtenir auprès de votre administrateur l’accès Collaborateur au groupe de ressources.
+Si vous ne pouvez accéder à aucune de ces vignettes, demandez l’accès Collaborateur au groupe de ressources à votre administrateur.
 
 ## <a name="see-more"></a>En savoir plus
 * [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md): découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.

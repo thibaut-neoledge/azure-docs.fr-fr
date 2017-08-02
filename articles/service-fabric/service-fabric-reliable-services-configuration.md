@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/29/2017
 ms.author: sumukhs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e90efe810084939280b392c470e14e76d35aff01
-ms.openlocfilehash: 101b4e6a7bd5ded44334a4c3c9efee69669d9bcf
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: fa77eaf44f4d90d1a78f5de69e36432a53d80ecd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/21/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -37,7 +37,7 @@ La configuration de service fiable globale est spécifiée dans le manifeste de 
 | SharedLogPath |Nom de chemin complet |"" |Spécifie le chemin d’accès complet du fichier journal partagé utilisé par tous les services fiables sur tous les nœuds du cluster qui ne spécifient pas l’élément SharedLogPath dans leur configuration de service spécifique. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi. |
 | SharedLogSizeInMB |Mo |8 192 |Spécifie le nombre de Mo d’espace disque à allouer de manière statique pour le journal partagé. La valeur doit être supérieure ou égale à 2 048. |
 
-Dans Azure ARM ou un modèle JSON local, l’exemple ci-dessous montre comment modifier le journal des transactions partagé qui est créé pour sauvegarder toutes les Reliable Collections pour les services avec état.
+Dans Azure ARM ou un modèle JSON local, l’exemple ci-dessous montre comment modifier le journal des transactions partagé qui est créé pour sauvegarder toutes les collections fiables pour les services avec état.
 
     "fabricSettings": [{
         "name": "KtlLogger",

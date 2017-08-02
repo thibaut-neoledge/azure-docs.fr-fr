@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 138598ce20459b7d4975c6640b28e9a999de30cd
-ms.lasthandoff: 03/06/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 2f052ea5ff50cf584f9116f2802eca1fd077dcbb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -37,7 +38,7 @@ Dans Azure Media Services (AMS), un **canal** représente un pipeline de traitem
 À compter de la version de Media Services 2.10, lorsque vous créez un canal, vous pouvez spécifier la façon dont vous souhaitez qu’il reçoive le flux d’entrée. Vous pouvez également indiquer si vous souhaitez ou non que le canal effectue un encodage en temps réel de votre flux. Deux options s'offrent à vous :
 
 * **Aucun** : indiquez cette valeur si vous envisagez d’utiliser un encodeur live local qui produira des flux multidébits (un flux pass-through). Le cas échéant, le flux entrant est transmis à la sortie sans encodage. Il s’agit du comportement d’un canal avant la version 2.10.  Pour plus d’informations sur l’utilisation des canaux de ce type, consultez [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md).
-* **Standard** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux dynamique à débit binaire unique en flux à débit binaire multiple. N'oubliez pas qu'il existe un impact sur la facturation pour le codage en direct et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation.  Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
+* **Standard** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux live à débit binaire unique en flux à débit binaire multiple. N'oubliez pas qu'il existe un impact sur la facturation pour le codage en direct et que laisser un canal d'encodage en temps réel dans l'état « Actif » occasionne des frais de facturation.  Il est recommandé d'arrêter immédiatement vos canaux en cours d'exécution une fois votre événement de diffusion en continu en temps réel terminé pour éviter des frais horaires supplémentaires.
 
 > [!NOTE]
 > Cette rubrique décrit les attributs des canaux qui sont activés pour effectuer un encodage en temps réel (type d’encodage**standard** ). Pour obtenir des informations sur l’utilisation des canaux qui ne sont pas activés pour effectuer l’encodage live, consultez [Vidéo en flux continu avec des encodeurs locaux qui créent des flux à vitesses de transmission multiples](media-services-live-streaming-with-onprem-encoders.md).
@@ -53,7 +54,7 @@ Le tableau suivant montre comment les états du canal sont mappés aux états de
 Pour arrêter la facturation, vous devez arrêter le canal via l’API ou dans le portail Azure.
 Vous êtes responsable de l'arrêt de vos canaux lorsque vous avez terminé d'utiliser le canal d'encodage en temps réel.  Ne pas arrêter un canal d'encodage provoque la facturation continue.
 
-### <a name="a-idstatesachannel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>États du canal et mappage au mode de facturation
+### <a id="states"></a>États du canal et mappage au mode de facturation
 État actuel d’un canal. Les valeurs possibles incluent :
 
 * **Arrêté**. Ceci est l'état initial du canal après sa création (sauf si le démarrage automatique a été sélectionné dans le portail). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés du canal peuvent être mises à jour, mais la diffusion en continu n’est pas autorisée.
@@ -81,7 +82,7 @@ Le diagramme suivant représente un flux de travail de diffusion en continu dyna
 
 ![Flux de travail live][live-overview]
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Scénario courant de diffusion dynamique en continu
+## <a id="scenario"></a>Scénario courant de diffusion dynamique en continu
 Ci-après figurent les étapes générales impliquées dans la création d’applications courantes de diffusion en continu dynamique.
 
 > [!NOTE]
@@ -119,8 +120,8 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 > 
 > 
 
-## <a name="a-idchannelachannels-input-ingest-configurations"></a><a id="channel"></a>Configurations de l’entrée (réception) du canal
-### <a name="a-idingestprotocolsaingest-streaming-protocol"></a><a id="Ingest_Protocols"></a>Protocole de diffusion en continu de réception
+## <a id="channel"></a>Configurations de l’entrée (réception) du canal
+### <a id="Ingest_Protocols"></a>Protocole de diffusion en continu de réception
 Si le **Type d’encodeur** est défini sur **Standard**, les options valides sont les suivantes :
 
 * **RTP** (MPEG-TS) : flux de transport MPEG-2 via RTP.  
@@ -166,7 +167,7 @@ Considérations :
   * Imagine Communications Selenio ENC 2
   * Elemental Live
 
-#### <a name="a-idsinglebitratertmpasingle-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>RTMP à débit binaire unique
+#### <a id="single_bitrate_RTMP"></a>RTMP à débit binaire unique
 Considérations :
 
 * Le flux entrant ne peut pas contenir de vidéo à débit binaire multiple
@@ -179,7 +180,7 @@ Considérations :
 * Profil High 422 (10 bits 4:2:2)
 * Audio MPEG-2 AAC-LC
 * Mono, stéréo, Surround (5.1, 7.1)
-* Fréquence d'échantillonnage&44;,1 kHz
+* Fréquence d'échantillonnage 44,1 kHz
 * Format ADTS style MPEG-2
 * Les encodeurs recommandés sont les suivants :
 * Telestream Wirecast
@@ -206,7 +207,7 @@ Vous pouvez obtenir les URL de réception dès que vous avez créé un canal. P
 Vous avez la possibilité de recevoir un flux dynamique au format MP4 fragmenté (Smooth Streaming) via une connexion SSL. Pour assurer la réception via SSL, veillez à mettre à jour l’URL de réception pour HTTPS. Notez que, actuellement, AMS ne prend pas en charge SSL avec les domaines personnalisés.  
 
 ### <a name="allowed-ip-addresses"></a>Adresses IP autorisées
-Vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, '10.0.0.1'), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple,&10;.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, '10.0.0.1(255.255.252.0)').
+Vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, '10.0.0.1'), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple, 10.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, '10.0.0.1(255.255.252.0)').
 
 Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP n’est autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.
 
@@ -224,7 +225,7 @@ Une fois que le canal commence à recevoir les données, vous pouvez prévisuali
 > 
 
 ### <a name="allowed-ip-addresses"></a>Adresses IP autorisées
-Vous pouvez définir les adresses IP autorisées à se connecter au point de terminaison d’aperçu. Si aucune adresse IP n’est spécifiée, alors toutes les adresses IP seront autorisées. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple,&10;.0.0.1), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple,&10;.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple,&10;.0.0.1[255.255.252.0]).
+Vous pouvez définir les adresses IP autorisées à se connecter au point de terminaison d’aperçu. Si aucune adresse IP n’est spécifiée, alors toutes les adresses IP seront autorisées. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, 10.0.0.1), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple, 10.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, 10.0.0.1[255.255.252.0]).
 
 ## <a name="live-encoding-settings"></a>Paramètres d’encodage en temps réel
 Cette section décrit comment les paramètres de l’encodeur dynamique dans le canal peuvent être ajustés, lorsque le paramètre **Type d’encodage** d’un canal est défini sur **Standard**.
@@ -261,7 +262,7 @@ Identificateur de langue du flux audio, conformément à la norme ISO 639-2, p
 
 Jusqu’à 8 jeux de flux audio peuvent être spécifiés si l’entrée du canal est définie sur MPEG-2 TS via RTP. Toutefois, deux entrées ne peuvent pas posséder la même valeur d’index.
 
-### <a name="a-idpresetasystem-preset"></a><a id="preset"></a>Présélection du système
+### <a id="preset"></a>Présélection du système
 Spécifie la présélection à utiliser par l’encodeur dynamique dans ce canal. Actuellement, la seule valeur autorisée est **Default720p** (par défaut).
 
 Notez que si vous avez besoin de paramètres prédéfinis personnalisés, contactez amslived à l’adresse Microsoft.com.
@@ -314,7 +315,7 @@ Durée (en secondes) de l’affichage de l’ardoise. Pour que l’affichage de 
 ### <a name="insert-slate-on-ad-marker"></a>Insérer une ardoise dans le marqueur de publicité
 S’il est défini sur true, ce paramètre configure l’encodeur dynamique pour insérer une image d’ardoise pendant une pause publicitaire. La valeur par défaut est true. 
 
-### <a name="a-iddefaultslateadefault-slate-asset-id"></a><a id="default_slate"></a>ID de ressource d'ardoise par défaut
+### <a id="default_slate"></a>ID de ressource d'ardoise par défaut
 
 facultatif. Spécifie l’ID de la ressource Media Services qui contient l’image d’ardoise. La valeur par défaut est Null. 
 
@@ -352,7 +353,7 @@ Si vous souhaitez conserver le contenu archivé sans qu’il soit disponible pou
 ## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Obtention d’une image miniature d’un flux en direct
 Si le paramètre Encodage en temps réel est activé, vous pouvez désormais obtenir un aperçu du flux en direct lorsqu’il atteint le canal. Ce peut être un outil intéressant lorsqu’il s’agit de vérifier si votre flux en direct atteint réellement le canal. 
 
-## <a name="a-idstatesachannel-states-and-how-states-map-to-the-billing-mode"></a><a id="states"></a>États du canal et mappage des états au mode de facturation
+## <a id="states"></a>États du canal et mappage des états au mode de facturation
 État actuel d’un canal. Les valeurs possibles incluent :
 
 * **Arrêté**. C’est l’état initial du canal après sa création. Dans cet état, les propriétés du canal peuvent être mises à jour, mais le streaming n’est pas autorisé.
@@ -375,7 +376,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 > 
 > 
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="Considerations"></a>Considérations
+## <a id="Considerations"></a>Considérations
 * Quand un canal de type de codage **Standard** subit une perte de flux de source d'entrée/contribution, il compense cette perte en remplaçant l'audio ou la vidéo source par une ardoise d'erreur et un silence. Le canal continue d’émettre une ardoise jusqu’à la reprise du flux d’entrée/de contribution. Nous vous recommandons de ne pas laisser un canal direct dans cet état pendant plus de 2 heures. Au-delà de ce point, ni le comportement du canal au moment de la reconnexion de l’entrée ni son comportement en réponse à une commande de réinitialisation ne sont garantis. Vous devez alors arrêter le canal, le supprimer et en créer un autre.
 * Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée.
 * Chaque fois que vous reconfigurez l’encodeur dynamique, appelez la méthode de réinitialisation **Reset** sur le canal. Avant de réinitialiser le canal, vous devez arrêter le programme. Une fois le canal réinitialisé, redémarrez le programme.

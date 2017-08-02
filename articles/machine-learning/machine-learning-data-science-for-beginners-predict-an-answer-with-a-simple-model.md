@@ -1,5 +1,5 @@
 ---
-title: "Prédire une réponse à l’aide d’un modèle simple de régression - Azure | Microsoft Docs"
+title: "Prédire une réponse à l’aide d’un modèle simple de régression - Azure Machine Learning | Microsoft Docs"
 description: "Comment créer un modèle de régression simple pour prédire un prix dans la quatrième vidéo de la série Science des données pour les débutants 4. Comprend une régression linéaire avec des données cibles."
 keywords: "créer un modèle,modèle simple,prédiction de prix,modèle de régression simple"
 services: machine-learning
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: ef651e3faa2abd7c1becb5dc2888d465330d4d73
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prédire une réponse à l’aide d’un modèle simple
@@ -26,6 +27,7 @@ ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
 Découvrez comment créer un modèle de régression simple pour prédire le prix d’un diamant dans la quatrième vidéo de la série Science des données pour les débutants 4. Nous allons dessiner un modèle de régression avec des données cibles.
 
 Pour tirer le meilleur parti de la série, regardez l’ensemble des vidéos. [Accéder à la liste des vidéos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 >
@@ -75,7 +77,7 @@ Nous dessinons ensuite un axe vertical pour représenter le prix et le connecter
 
 Maintenant , nous allons utiliser ces données et les transformer en un *nuage de points*. Il s’agit d’un excellent moyen de visualiser des jeux de données numériques.
 
-Pour le premier point de données, nous visualisons une ligne verticale à 1,01 carat. Puis nous visualisons une ligne horizontale à&7;&366; $. Nous dessinons un point à l’endroit où elles se rencontrent. Il représente le premier diamant.
+Pour le premier point de données, nous visualisons une ligne verticale à 1,01 carat. Puis nous visualisons une ligne horizontale à 7 366 $. Nous dessinons un point à l’endroit où elles se rencontrent. Il représente le premier diamant.
 
 Ensuite, nous procédons de la même manière avec chaque diamant de la liste. Lorsque nous en avons terminé, voici ce que nous obtenons : un ensemble de points représentant chacun un diamant.
 
@@ -132,9 +134,4 @@ Nous vous invitons à consulter les autres vidéos de la série « Science des 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Menez une première expérience de science des données avec Machine Learning Studio](machine-learning-create-experiment.md)
 * [Consultez la présentation de Machine Learning sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

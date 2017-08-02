@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 01597767a03a5959c4c0cde994b6a7b8a34bfb7e
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: cdcc06844dce5df09b50a9a5f6a97a7a96a9ef48
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Stockage Standard économique et disques de machine virtuelle Azure gérés et non gérés
@@ -49,7 +48,7 @@ Pour plus d’informations sur la création d’une machine virtuelle avec disqu
 
 Examinons certaines des fonctionnalités du stockage Standard. Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](storage-introduction.md).
 
-**Stockage Standard** : le stockage Standard Azure prend en charge les disques Azure, les objets blob Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Pour utiliser les services de stockage Standard, commencez par [Créer un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account).
+**Stockage Standard** : le stockage Standard Azure prend en charge les disques Azure, les blobs Azure, le stockage de fichiers Azure, les tables Azure et les files d’attente Azure. Pour utiliser les services de stockage Standard, commencez par [Créer un compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account).
 
 **Disques de stockage Standard :** les disques de stockage Standard peuvent être associés à toutes les machines virtuelles Azure, y compris les machines virtuelles de tailles utilisées avec le stockage Premium, comme les séries DSv2 et GS. Un disque de stockage Standard ne peut être associé qu’à une seule machine virtuelle. Toutefois, vous pouvez associer un ou plusieurs de ces disques à une machine virtuelle, jusqu’au nombre maximal de disques défini pour cette taille de machine virtuelle. La section suivante sur les objectifs de performance et d’extensibilité du stockage Standard décrit ces spécifications plus en détail. 
 

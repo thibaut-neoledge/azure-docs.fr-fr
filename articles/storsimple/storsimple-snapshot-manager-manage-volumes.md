@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c0b211bced99d272a73a7b018a22f99d8d58aa9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -94,7 +96,7 @@ Appliquez la procédure suivante pour afficher des informations sur les volumes 
    |:--- |:--- |
    |  Nom |La colonne **Nom** contient la lettre de lecteur attribuée à chaque volume découvert. |
    |  Appareil |La colonne **Appareil** comporte l’adresse IP de l’appareil connecté à l’ordinateur hôte. |
-   |  Nom de volume d’appareil |La colonne **Nom de volume d’appareil** comporte le nom du volume d’appareil auquel appartient le volume sélectionné. Il s’agit du nom de volume défini dans le portail Azure Classic pour ce volume spécifique. |
+   |  Nom de volume d’appareil |La colonne **Nom de volume d’appareil** comporte le nom du volume d’appareil auquel appartient le volume sélectionné. Il s’agit du nom de volume défini dans le portail Azure pour ce volume spécifique. |
    |  Chemins d’accès |La colonne **Chemins d’accès** affiche le chemin d’accès au volume. Il s’agit de la lettre de lecteur ou du point de montage à partir de laquelle/duquel le volume est accessible sur l’ordinateur hôte. |
 
 ## <a name="delete-a-volume"></a>Suppression d’un volume
@@ -102,8 +104,6 @@ Appliquez la procédure suivante pour supprimer un volume du Gestionnaire d’in
 
 > [!NOTE]
 > Vous ne pouvez pas supprimer un volume qui fait partie d’un groupe de volumes. (L’option de suppression n’est pas disponible pour les volumes membres d’un groupe de volumes.) Pour supprimer le volume, vous devez supprimer l’intégralité du groupe de volumes.
-> 
-> 
 
 #### <a name="to-delete-a-volume"></a>Pour supprimer un volume
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
@@ -162,7 +162,7 @@ Procédez comme suit pour configurer la sauvegarde d’un volume dynamique mis e
 ### <a name="prerequisites"></a>Composants requis
 Avant de commencer :
 
-* Assurez-vous que l’appareil StorSimple et l’ordinateur hôte sont correctement configurés. Pour plus d’informations, accédez à la page [Déployer votre appareil local StorSimple](storsimple-deployment-walkthrough-u2.md).
+* Assurez-vous que l’appareil StorSimple et l’ordinateur hôte sont correctement configurés. Pour plus d’informations, accédez à la page [Déployer votre appareil local StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * Installez et configurez le Gestionnaire d’instantanés StorSimple. Pour plus d’informations, accédez à la section [Déployer le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md).
 * Configurez deux volumes sur l’appareil StorSimple. (Dans les exemples, les volumes disponibles sont **Disque 1** et **Disque 2**.) 
 
@@ -212,9 +212,4 @@ Appliquez la procédure suivante pour configurer un volume dynamique mis en miro
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

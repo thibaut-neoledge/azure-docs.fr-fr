@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 6baf1a642778bdd281ae641611bc09ee26aaec70
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/24/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -32,7 +32,7 @@ Vous pouvez créer et configurer un réseau virtuel (Classic) avec un fichier co
 
 La création et la configuration d’un réseau virtuel (Classic) avec un fichier config réseau requièrent l’exportation, la modification et l’importation du fichier.
 
-## <a name="export-a-network-configuration-file"></a>Exporter un fichier config réseau
+## <a name="export"></a>Exporter un fichier config réseau
 
 Vous pouvez utiliser PowerShell ou l’interface CLI Azure pour exporter un fichier config réseau. PowerShell exporte un fichier XML tandis que l’interface Azure CLI exporte un fichier JSON.
 
@@ -120,7 +120,7 @@ L’exemple de fichier config réseau suivant crée un réseau virtuel nommé *m
 
 Si le fichier config réseau que vous avez exporté ne comporte aucun contenu, vous pouvez copier le code JSON de l’exemple précédent et le coller dans un nouveau fichier.
 
-## <a name="import-a-network-configuration-file"></a>Importer un fichier config réseau
+## <a name="import"></a>Importer un fichier config réseau
 
 Vous pouvez utiliser PowerShell ou l’interface CLI Azure pour importer un fichier config réseau. PowerShell importe un fichier XML tandis qu’Azure CLI importe un fichier JSON. Si l’importation échoue, vérifiez que le fichier est compatible avec le [schéma de configuration réseau](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
@@ -143,3 +143,4 @@ Vous pouvez utiliser PowerShell ou l’interface CLI Azure pour importer un fic
     ```azurecli
     azure network import c:\azure\networkconfig.json
     ```
+

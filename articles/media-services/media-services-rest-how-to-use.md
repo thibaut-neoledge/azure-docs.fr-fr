@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 07/12/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: f4d2fe502e6b6a93c0e455a5369b63deb9074c82
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations
@@ -27,6 +28,7 @@ L’API **REST de Media Services Operations** est utilisée pour créer des tâc
 
 Microsoft Azure Media Services est un service qui accepte les demandes HTTP OData et peut répondre dans les formats JSON ou atom+pub détaillés. Étant donné que Media Services est conforme aux règles de conception Azure, il existe un ensemble d’en-têtes HTTP obligatoires que chaque client doit utiliser lors de la connexion à Media Services, ainsi qu’un jeu d’en-têtes facultatifs pouvant être utilisé. Les sections suivantes décrivent les en-têtes et verbes HTTP que vous pouvez utiliser lors de la création de requêtes et de la réception des réponses à partir de Media Services.
 
+Cette rubrique donne une vue d’ensemble de l’utilisation de REST v2 avec Media Services.
 
 ## <a name="considerations"></a>Considérations
 
@@ -109,15 +111,14 @@ Pour rendre les entités Media Services plus détectables, l’opération $metad
 
 Vous devez ajouter « ?api-version=2.x » à la fin de l’URI si vous souhaitez afficher les métadonnées dans un navigateur ou n’incluez pas l’en-tête x-ms-version dans votre requête.
 
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour savoir comment accéder aux API AMS avec REST, consultez [Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET](media-services-rest-connect-with-aad.md).
+
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 2e7c1ddedaa11fb614f2e8cf6d1644ae2a2beae3
-ms.lasthandoff: 04/28/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 92e4c7d5a873cd75cdc32e1feeede71bd5e37f40
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -236,11 +237,11 @@ Azure AD prend en charge la fédération (authentification unique) avec les serv
 * Pour les utilisateurs fédérés (SSO), nous n’accédons jamais au fournisseur d’identité (IdP), contrairement au flux passif. Les mots de passe sont stockés dans l’ID d’organisation. Si l'utilisateur quitte l'entreprise, ces informations doivent être stockées en temps réel dans l'id d'organisation à l'aide de DirSync. La désactivation/suppression de compte peut mettre jusqu’à trois heures à se synchroniser, ce qui peut retarder la désactivation/suppression du mot de passe dans Azure AD.
 * Les paramètres de contrôle d'accès client locaux ne sont pas honorés par Mot de passe d’application
 * Aucune authentification locale de journalisation/fonctionnalité d’audit n’est disponible pour les mots de passe d’application.
-* Certaines conceptions architecturales avancées peuvent nécessiter une combinaison de noms d’utilisateur, de mots de passe et de mots de passe d’application durant l’utilisation de la vérification en deux étapes avec les clients, selon l’emplacement où ils s’authentifient. Pour les clients qui s'authentifient auprès d'une infrastructure locale, vous utiliseriez le nom d'utilisateur et le mot de passe d’une organisation. Pour les clients qui s'authentifient auprès d'Azure AD, vous utiliseriez le mot de passe d’application.
+* Certaines conceptions architecturales avancées peuvent nécessiter une combinaison de noms d’utilisateur, de mots de passe et de mots de passe d’application durant l’utilisation de la vérification en deux étapes avec les clients, selon l’emplacement où ils s’authentifient. Pour les clients qui s’authentifient auprès d’une infrastructure locale, vous devez utiliser le nom d’utilisateur et le mot de passe d’une organisation. Pour les clients qui s'authentifient auprès d'Azure AD, vous utiliseriez le mot de passe d’application.
 
   Supposons, par exemple, que vous disposez d'une architecture qui se compose des éléments suivants :
 
-  * Vous fédérez votre instance locale d'Active Directory avec Azure AD
+  * Vous fédérez votre instance locale d’Active Directory avec Azure AD
   * Vous utilisez Exchange Online
   * Vous utilisez Lync qui est spécifiquement local
   * Vous utilisez Azure Multi-Factor Authentication

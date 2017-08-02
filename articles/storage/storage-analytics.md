@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: da581b2e22f85152ae7bc5f0d403b2fc0aaf0e54
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: a477c1eaf2388f31d4fd36b90f9a830c782873d3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="storage-analytics"></a>Storage Analytics
@@ -38,7 +38,7 @@ Storage Analytics enregistre des informations détaillées sur les demandes ayan
 
 Les entrées de journal sont créées uniquement s'il existe une activité du service de stockage. Par exemple, si un compte de stockage a une activité dans son service BLOB, mais pas dans ses services de Table ou de File d'attente, seuls des journaux relatifs au service BLOB sont créés.
 
-La journalisation Storage Analytics n’est pas disponible pour Azure File Service.
+La journalisation Storage Analytics n’est pas disponible pour le stockage de fichiers Azure.
 
 ### <a name="logging-authenticated-requests"></a>Enregistrement des demandes authentifiées
 Les types de demandes authentifiées suivants sont enregistrés :

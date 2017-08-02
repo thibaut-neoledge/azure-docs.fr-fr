@@ -1,6 +1,6 @@
 ---
-title: "Montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB | Microsoft Docs"
-description: "Monter le stockage de fichiers Azure sur les machines virtuelles Azure à l’aide de SMB avec Azure CLI 2.0"
+title: "Montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB | Microsoft Docs"
+description: "Procédure de montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB avec Azure CLI 2.0"
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 279b165cbdb924dcae0cb95ad9f9d187aed1a1b3
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 
-# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montage du stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB
+# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Monter le stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB
 
-Cet article vous montre comment utiliser le service de stockage de fichiers Azure sur une machine virtuelle Linux à l’aide d’un montage SMB avec l’interface Azure CLI 2.0. Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Vous pouvez également effectuer ces étapes à l’aide [d’Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les conditions requises sont :
+Cet article vous montre comment utiliser le service de stockage de fichiers Azure sur une machine virtuelle Linux à l’aide d’un montage SMB avec Azure CLI 2.0. Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Vous pouvez également effectuer ces étapes à l’aide [d’Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les conditions requises sont :
 
 - [un compte Azure](https://azure.microsoft.com/pricing/free-trial/)
 - [des fichiers de clés SSH publiques et privées](mac-create-ssh-keys.md)

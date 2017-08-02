@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 82485e569d91a082f72725ecfb04e75f0820cf02
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 373dde7b751156490fafd3e052b32310c497b43b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -238,7 +238,7 @@ Si vous migrez un disque dur virtuel d’un stockage cloud non Azure vers Azure,
 ##### <a name="copy-a-vhd-from-other-non-azure-cloud"></a>Copie d’un disque dur virtuel à partir d’autres cloud hors Azure
 Si vous migrez un disque dur virtuel d’un stockage cloud non Azure vers Azure, vous devez d’abord exporter le disque dur virtuel vers un répertoire local. Copiez le chemin source complet du répertoire local où le disque dur virtuel est stocké.
 
-##### <a name="copy-a-vhd-from-on-premise"></a>Copie d’un disque dur virtuel en local
+##### <a name="copy-a-vhd-from-on-premises"></a>Copie d’un disque dur virtuel en local
 Si vous migrez un disque dur virtuel à partir d’un environnement local, vous avez besoin du chemin source complet où le disque dur virtuel est stocké. Le chemin d’accès source peut être un partage de fichiers ou un emplacement de serveur.
 
 #### <a name="step-2-create-the-destination-for-your-vhd"></a>Étape 2. Création de la destination de votre disque dur virtuel

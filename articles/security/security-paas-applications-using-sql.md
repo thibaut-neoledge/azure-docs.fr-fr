@@ -1,5 +1,5 @@
 ---
-title: "Sécurisation des applications mobiles et web PaaS à l’aide d’Azure SQL Database et de SQL Data Warehouse | Microsoft Docs"
+title: "Sécurisation des bases de données PaaS dans Azure | Microsoft Docs"
 description: " Découvrez les bonnes pratiques de sécurité Azure SQL Database et SQL Data Warehouse pour protéger vos applications mobiles et web PaaS. "
 services: security
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/11/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: be00c1427d57b96506ec8b0ac881b7c1bd09e4de
-ms.lasthandoff: 03/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 18509b3fc3a73118f67583a0b087c58f0e51993c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/18/2017
 
 ---
-# <a name="securing-paas-web-and-mobile-applications-using-sql-database-and-sql-data-warehouse"></a>Sécurisation des applications mobiles et web PaaS à l’aide de SQL Database et de SQL Data Warehouse
+# <a name="securing-paas-databases-in-azure"></a>Sécurisation des bases de données PaaS dans Azure
 
 Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) et [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) pour protéger vos applications mobiles et web PaaS. Ces bonnes pratiques sont issues de notre expérience avec Azure, mais également de celle de nos clients, comme vous.
 
@@ -77,15 +77,15 @@ Pour en savoir plus sur le pare-feu SQL Azure et les restrictions d'adresse IP, 
 - [Configurer une règle de pare-feu au niveau du serveur sur une base de données SQL Azure à l’aide du portail Azure](../sql-database/sql-database-configure-firewall-settings.md)
 
 ### <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
-[Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/azure/bb934049), également appelé chiffrement des données au repos, chiffre les fichiers de données SQL Server, Azure SQL Database et Azure SQL Data Warehouse. Vous pouvez prendre plusieurs précautions pour sécuriser la base de données telles que la conception d’un système sécurisé, le chiffrement de ressources confidentielles et la création d'un pare-feu autour des serveurs de base de données. Toutefois, dans un scénario où le support physique (par exemple, les lecteurs ou les bandes de sauvegarde) est volé, une personne malveillante peut restaurer ou attacher la base de données et consulter les données. Une solution consiste à chiffrer les données sensibles dans la base de données et à protéger les clés qui sont utilisées pour chiffrer les données avec un certificat. Cela empêche toute personne sans les clés d'utiliser les données, mais ce type de protection doit être planifié à l’avance.
+L’option [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/azure/bb934049) est activée par défaut. TDE chiffre de manière transparente les fichiers journaux et les données SQL Server, Azure SQL Database et Azure SQL Data Warehouse. L’option TDE empêche la compromission d’un accès direct aux fichiers ou leur sauvegarde. Cela vous permet de chiffrer les données au repos sans modifier les applications existantes. L’option TDE doit toujours être activée. Cependant, cela n’empêchera pas un pirate informatique d’utiliser le chemin d’accès normal. TDE permet de se conformer aux multiples lois, réglementations et directives établies dans de nombreux secteurs.
 
-TDE protège les données au repos, ce qui signifie les données et les fichiers journaux. Cette fonctionnalité permet de se conformer aux nombreuses lois, réglementations et directives établies dans de nombreux secteurs. Cela permet aux développeurs de logiciels de chiffrer les données à l’aide d’algorithmes de chiffrement standard dans l'industrie sans modifier les applications existantes.
+Azure SQL gère les problèmes clés liés à TDE. Comme avec TDE, une attention particulière doit être portée au niveau local pour assurer la capacité de restauration et lors du déplacement des bases de données. Dans des scénarios plus complexes, les clés peuvent être explicitement gérées dans Azure Key Vault au travers de la gestion de clés extensible (consultez [Enable TDE on SQL Server Using EKM](/security/encryption/enable-tde-on-sql-server-using-ekm) (Activer TDE sur SQL Server à l’aide d’EKM). Cela permet également d’utiliser la méthode BYOK (Bring Your Own Key) au moyen de la fonctionnalité Azure Key Vault BYOK.
 
-TDE doit être utilisée si des réglementations spécifient explicitement ce type de chiffrement. N’oubliez pas, cependant, que cela n’arrêtera pas un pirate informatique d’utiliser le chemin d’accès normal. Vous pouvez éventuellement utiliser TDE dans le cas peu probable où vous devez éventuellement utiliser un chiffrement supplémentaire au niveau de l'application, par le chiffrement des lignes et des colonnes Azure SQL ou par le chiffrement au niveau de l'application.
+Azure SQL fournit un chiffrement pour les colonnes par le biais d’[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Cela permet de restreindre l’accès des colonnes sensibles aux applications autorisées. Ce chiffrement limite les requêtes SQL pour les colonnes chiffrées aux valeurs basées sur l’égalité.
 
-Le chiffrement au niveau de l’application doit également être utilisé pour des données sélectionnées. Les problèmes de souveraineté de données peuvent être limités par le chiffrement des données avec une clé conservée dans le pays correct. Cela empêche même un transfert de données accidentel de causer un problème, car il est impossible de déchiffrer les données sans la clé, en supposant qu'un algorithme fort est utilisé (par exemple, AES 256).
+Le chiffrement au niveau de l’application doit également être utilisé pour des données sélectionnées. Les problèmes de souveraineté de données peuvent être atténués par le chiffrement des données avec une clé conservée dans le pays qui convient. Cela empêche même tout problème dû à un transfert de données accidentel, car il est impossible de déchiffrer les données sans la clé, en supposant qu’un algorithme fort soit utilisé (par exemple, AES 256).
 
-Le chiffrement des lignes et colonnes fourni par Azure SQL peut être utilisé pour permettre un accès uniquement aux utilisateurs autorisés ([RBAC](../active-directory/role-based-access-built-in-roles.md)) et empêcher les utilisateurs disposant de privilèges inférieurs d'afficher des colonnes ou des lignes.
+Vous pouvez prendre des précautions supplémentaires pour sécuriser la base de données, comme la conception d’un système sécurisé, le chiffrement de ressources confidentielles et la création d’un pare-feu autour des serveurs de base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, nous avons abordé un ensemble de bonnes pratiques de sécurité SQL Database et SQL Data Warehouse pour protéger vos applications PaaS mobiles et web. Pour en savoir plus sur la sécurisation de vos déploiements PaaS, consultez :

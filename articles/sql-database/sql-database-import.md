@@ -10,16 +10,16 @@ ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 04/07/2017
+ms.date: 06/26/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 4ddbeb78208d8e32fe5e505f396fbfec4e5d6c0a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d42df0cbfa20741d4848dbefabb9028128b42ae1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -48,8 +48,7 @@ Pour surveiller la progression de l’opération d’importation, ouvrez la page
 
 Pour surveiller la progression de l’opération d’importation, ouvrez la page du serveur logique dans laquelle la base de données est en cours d’importation. Faites défiler jusqu'à **Operations**, puis cliquez sur l’historique **Import/Export**.
    
-   ![importer](./media/sql-database-import/import-history.png)
-   ![état de l’importation](./media/sql-database-import/import-status.png)
+   ![importer](./media/sql-database-import/import-history.png) ![état d’importation](./media/sql-database-import/import-status.png)
 
 Pour vérifier que la base de données est en ligne sur le serveur, cliquez sur **Bases de données SQL** et assurez-vous que la nouvelle base de données est définie sur **En ligne**.
 

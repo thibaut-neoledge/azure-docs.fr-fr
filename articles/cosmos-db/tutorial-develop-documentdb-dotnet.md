@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 485fb2e8ac96e2cdb8e4293b63971af1c1b9baf4
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 2eed74ae9bd173b0944ec190dfe5d9a4bdc54c37
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -108,7 +108,7 @@ Dans le portail Azure, accédez à votre compte Azure Cosmos DB, cliquez sur **C
 
 Copiez l’URI à partir du portail et collez-le dans `<your endpoint URL>`, dans le fichier program.cs. Copiez ensuite la CLÉ PRIMAIRE à partir du portail et collez-la dans `<your primary key>`. Veillez à supprimer `<` et `>` des valeurs.
 
-![Capture d’écran du portail Azure utilisée par le didacticiel NoSQL pour créer une application de console C#. Indique un compte Azure Cosmos DB dont les CLÉS sont mises en surbrillance dans le panneau du compte Azure Cosmos DB et dont les valeurs d’URI et de CLÉ PRIMAIRE sont mises en surbrillance dans le volet Clés] [clés]
+![Capture d’écran du portail Azure utilisée par le didacticiel NoSQL pour créer une application de console C#. Indique un compte Azure Cosmos DB dont les CLÉS sont mises en surbrillance dans le panneau du compte Azure Cosmos DB et dont les valeurs d’URI et de CLÉ PRIMAIRE sont mises en surbrillance dans le volet Clés](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png)
 
 ## <a id="instantiate"></a>Instancier le DocumentClient
 

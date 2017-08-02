@@ -1,5 +1,5 @@
 ---
-title: "Créer une infrastructure de base dans Azure à l’aide de Terraform | Microsoft Docs"
+title: "Créer une infrastructure de base dans Azure à l’aide de Terraform | Microsoft Docs"
 description: "Découvrez comment créer des ressources Azure à l’aide de Terraform"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: echuvyrov
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 8b8b3b0b46f79058ee69b9a2014581df433f8d3f
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 3787151651767e594dae21f3cfbf79023fc6db40
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 
-# <a name="create-basic-infrastructure-in-azure-using-terraform"></a>Créer une infrastructure de base dans Azure à l’aide de Terraform
-Cet article décrit les étapes nécessaires pour configurer une machine virtuelle, ainsi que l’infrastructure sous-jacente, dans Azure. Vous allez apprendre à créer des scripts Terraform et à visualiser les modifications avant de les ajouter à votre infrastructure cloud. Vous allez également apprendre à créer une infrastructure dans Azure à l’aide de Terraform.
+# <a name="create-basic-infrastructure-in-azure-by-using-terraform"></a>Créer une infrastructure de base dans Azure à l’aide de Terraform
+Cet article décrit les étapes nécessaires pour configurer une machine virtuelle, ainsi que l’infrastructure sous-jacente, dans Azure. Vous allez apprendre à rédiger des scripts Terraform et à visualiser les modifications avant de les ajouter à votre infrastructure cloud. Vous allez également apprendre à créer une infrastructure dans Azure à l’aide de Terraform.
 
-Pour commencer, dans l’éditeur de texte de votre choix (Visual Studio Code/Sublime/Vim/etc.), créez un fichier appelé _terraform_azure101.tf_. Le nom exact du fichier n’est pas important, étant donné que terraform accepte le nom du dossier en tant que paramètre : tous les scripts contenus dans le dossier sont exécutés. Collez le code suivant dans ce nouveau fichier :
+Pour commencer, créez un fichier appelé \_terraform_azure101.tf_ dans l’éditeur de texte de votre choix (Visual Studio Code/Sublime/Vim/etc.). Le nom exact du fichier n’est pas important, étant donné que Terraform accepte le nom du dossier en tant que paramètre : tous les scripts contenus dans le dossier sont exécutés. Collez le code suivant dans le nouveau fichier :
 
 ~~~~
 # Configure the Microsoft Azure Provider
@@ -44,34 +44,42 @@ resource "azurerm_resource_group" "helloterraform" {
     location = "West US"
 }
 ~~~~
-Dans la section provider du script, vous devez demander à Terraform d’utiliser un fournisseur Azure pour approvisionner les ressources dans le script. Reportez-vous au guide d’[installation et de configuration de Terraform](terraform-install-configure.md) pour obtenir les valeurs de subscription_id, client_id, client_secret et tenant_id. Si vous avez créé des variables d’environnement pour les valeurs de ce bloc, vous n’avez pas besoin de l’inclure. 
+Dans la section `provider` du script, vous devez demander à Terraform d’utiliser un fournisseur Azure pour approvisionner les ressources dans le script. Pour obtenir les valeurs de subscription_id, client_id, client_secret et tenant_id, reportez-vous au guide d’[installation et de configuration de Terraform](terraform-install-configure.md). Si vous avez créé des variables d’environnement pour les valeurs de ce bloc, vous n’avez pas besoin de l’inclure. 
 
-La ressource azure_rm_resource_group demande à Terraform de créer un groupe de ressources. Vous trouverez d’autres types de ressources disponibles dans Terraform ci-dessous.
+La ressource `azurerm_resource_group` demande à Terraform de créer un groupe de ressources. Vous trouverez d’autres types de ressources disponibles dans Terraform plus loin dans cet article.
 
-## <a name="executing-the-script"></a>Exécution du script
-Une fois le script enregistré, quittez l’écran pour revenir à la console/ligne de commande et tapez
+## <a name="execute-the-script"></a>Exécuter le script
+Une fois le script enregistré, quittez l’écran pour revenir à la console/ligne de commande et saisissez ce qui suit :
 ```
 terraform plan terraformscripts
 ```
-Dans l’exemple ci-dessus, nous supposons que « terraformscripts » désigne le dossier dans lequel le script a été enregistré. Nous avons utilisé la commande Terraform « plan », qui examine les ressources définies dans les scripts, les compare aux informations d’état enregistrées par Terraform et génère ensuite l’exécution planifiée _sans_ créer réellement de ressources dans Azure. 
+Nous supposons que `terraformscripts` est le dossier dans lequel le script a été enregistré. Nous avons utilisé la commande Terraform `plan`, qui examine les ressources définies dans les scripts. Elle les compare aux informations d’état enregistrées par Terraform et génère ensuite l’exécution planifiée _sans_ créer réellement de ressources dans Azure. 
 
-Vous devez voir un écran du type suivant après avoir exécuté la commande ci-dessus
+Après l’exécution de la commande précédente, vous devriez voir un écran similaire au suivant :
 
-![Image de Terraform Plan](linux/media/terraform/tf_plan2.png)
+![plan Terraform](linux/media/terraform/tf_plan2.png)
 
-Tout semble correct. Poursuivez et approvisionnez ce nouveau groupe de ressources dans Azure en exécutant 
+Si tout semble correct, approvisionnez ce nouveau groupe de ressources dans Azure en exécutant la commande suivante : 
 ```
 terraform apply terraformscripts
 ```
-Si vous accédez maintenant au portail Azure, vous devez voir le nouveau groupe de ressources vide appelé « terraformtest ». Dans la section ci-dessous, vous allez ajouter une machine virtuelle et toute l’infrastructure de prise en charge pour cette machine virtuelle dans ce groupe de ressources.
+Dans le portail Azure, vous devez voir le nouveau groupe de ressources vide appelé `terraformtest`. Dans la section suivante, vous allez ajouter une machine virtuelle et toute l’infrastructure de prise en charge pour cette dernière dans ce groupe de ressources.
 
-## <a name="provisioning-ubuntu-vm-with-terraform"></a>Approvisionnement de la machine virtuelle Ubuntu avec Terraform
-Nous allons étendre le script Terraform créé ci-dessus avec les détails nécessaires à l’approvisionnement d’une machine virtuelle exécutant Ubuntu. Voici les ressources que vous allez approvisionner dans les sections ci-dessous : réseau avec sous-réseau unique, carte d’interface réseau, compte de stockage avec conteneur de stockage, adresse IP publique, et machine virtuelle utilisant toutes les ressources ci-dessus. Pour obtenir une documentation complète de chacune des ressources Azure Terraform, consultez la [documentation Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).
+## <a name="provision-an-ubuntu-vm-with-terraform"></a>Approvisionner une machine virtuelle Ubuntu avec Terraform
+Nous allons étendre le script Terraform créé avec les détails nécessaires à l’approvisionnement d’une machine virtuelle exécutant Ubuntu. Voici les ressources approvisionnées dans les sections suivantes :
+
+* Un réseau avec un sous-réseau unique
+* Une carte d’interface réseau 
+* Un compte de stockage avec un conteneur de stockage
+* Une adresse IP publique
+* Une machine virtuelle qui utilise toutes les ressources précédentes 
+
+Pour obtenir une documentation complète de chacune des ressources Azure Terraform, consultez la [documentation Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).
 
 La version complète du [script d’approvisionnement](#complete-terraform-script) est également fournie pour des raisons de commodité.
 
-### <a name="extending-the-terraform-script"></a>Extension du script Terraform
-Étendez le script créé ci-dessus avec les ressources suivantes : 
+### <a name="extend-the-terraform-script"></a>Étendre le script Terraform
+Étendez le script créé avec les ressources suivantes : 
 ~~~~
 # create a virtual network
 resource "azurerm_virtual_network" "helloterraformnetwork" {
@@ -89,7 +97,7 @@ resource "azurerm_subnet" "helloterraformsubnet" {
     address_prefix = "10.0.2.0/24"
 }
 ~~~~
-Le script ci-dessus crée un réseau virtuel et un sous-réseau au sein de ce réseau virtuel. Prenez note de la référence au groupe de ressources que vous avez déjà créé par le biais de « ${azurerm_resource_group.helloterraform.name} » dans le réseau virtuel et la définition de sous-réseau.
+Le script précédent crée un réseau virtuel et un sous-réseau au sein de ce réseau virtuel. Prenez note de la référence au groupe de ressources que vous avez déjà créé par le biais de « ${azurerm_resource_group.helloterraform.name} » dans le réseau virtuel et la définition de sous-réseau.
 
 ~~~~
 # create public IP
@@ -119,12 +127,17 @@ resource "azurerm_network_interface" "helloterraformnic" {
     }
 }
 ~~~~
-Les extraits de code de script ci-dessus permettent de créer une adresse IP publique et une interface réseau qui utilise l’adresse IP publique créée. Prenez note des références à subnet_id et public_ip_address_id. Terraform dispose d’une intelligence intégrée et comprend ainsi que cette interface réseau a une dépendance vis-à-vis des ressources qui doivent être créées avant l’interface réseau.
+Les extraits de code de script précédents permettent de créer une adresse IP publique et une interface réseau qui utilise l’adresse IP publique créée. Prenez note des références à subnet_id et public_ip_address_id. Terraform dispose d’une intelligence intégrée et comprend ainsi que cette interface réseau a une dépendance vis-à-vis des ressources qui doivent être créées avant l’interface réseau.
 
 ~~~~
+# create a random id
+resource "random_id" "randomId" {
+  byte_length = 4
+}
+
 # create storage account
 resource "azurerm_storage_account" "helloterraformstorage" {
-    name = "helloterraformstorage"
+    name                = "tfstorage${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
     location = "westus"
     account_type = "Standard_LRS"
@@ -143,7 +156,7 @@ resource "azurerm_storage_container" "helloterraformstoragestoragecontainer" {
     depends_on = ["azurerm_storage_account.helloterraformstorage"]
 }
 ~~~~
-Vous venez de créer un compte de stockage et de définir un conteneur de stockage au sein de ce compte de stockage, là où vous stockez des VHD pour la machine virtuelle qui est sur le point d’être créée.
+Ici, vous avez créé un compte de stockage et y avez défini un conteneur de stockage. C’est dans ce compte de stockage que sont stockés les disques durs virtuels (VHD) de la machine virtuelle que vous êtes sur le point de créer.
 
 ~~~~
 # create virtual machine
@@ -183,16 +196,16 @@ resource "azurerm_virtual_machine" "helloterraformvm" {
     }
 }
 ~~~~
-Enfin, l’extrait de code ci-dessus crée une machine virtuelle qui utilise toutes les ressources que nous avons déjà approvisionnées : compte de stockage et conteneur pour un disque dur virtuel (VHD), interface réseau avec adresse publique IP et sous-réseau spécifié, ainsi que le groupe de ressources que vous avez déjà créé. Prenez note de la propriété vm_size, où le script spécifie une référence SKU Azure A0.
+Enfin, l’extrait de code précédent crée une machine virtuelle qui utilise toutes les ressources déjà approvisionnées. Il s’agit du compte et du conteneur de stockage pour disque dur virtuel, de l’interface réseau avec adresse IP publique et du sous-réseau spécifié, et du groupe de ressources déjà créé. Prenez note de la propriété vm_size, où le script spécifie une référence SKU Azure A0.
 
-### <a name="executing-the-script"></a>Exécution du script
-Une fois le script complet enregistré, quittez l’écran pour revenir à la console/ligne de commande et tapez
+### <a name="execute-the-script"></a>Exécuter le script
+Une fois le script complet enregistré, quittez la console/ligne de commande et saisissez ce qui suit :
 ```
 terraform apply terraformscripts
 ```
-Patientez quelques instants pour voir les ressources, y compris une machine virtuelle, qui apparaissent dans le groupe de ressources « terraformtest » sur le portail Azure.
+Après quelques instants, les ressources (y compris une machine virtuelle) s’affichent dans le groupe de ressources `terraformtest` sur le portail Azure.
 
-## <a name="complete-terraform-script"></a>Script Terraform complet
+## <a name="complete-the-terraform-script"></a>Compléter le script Terraform
 
 ```
 variable "resourcesname" {
@@ -317,4 +330,5 @@ resource "azurerm_virtual_machine" "helloterraformvm" {
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous avez créé une infrastructure de base dans Azure à l’aide de Terraform. Pour des scénarios plus complexes, y compris des exemples d’utilisation des équilibreurs de charge et des groupes de machines virtuelles identiques, consultez les nombreux [exemples Terraform pour Azure](https://github.com/hashicorp/terraform/tree/master/examples). Les [documents Terraform](https://www.terraform.io/docs/providers/azurerm/index.html) contiennent une liste actualisée et complète des fournisseurs Azure pris en charge.
+Vous avez créé une infrastructure de base dans Azure à l’aide de Terraform. Pour des scénarios plus complexes, y compris des exemples utilisant des équilibreurs de charge et des groupes de machines virtuelles identiques, consultez les nombreux [exemples Terraform pour Azure](https://github.com/hashicorp/terraform/tree/master/examples). Pour obtenir une liste actualisée et complète des fournisseurs Azure pris en charge, consultez la [documentation Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).
+

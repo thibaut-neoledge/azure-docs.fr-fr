@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 3bad3219b087523125047f24d643ffdc5e24caa0
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 286ba47b801d4f21add1a8429035729be6ff7e00
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Utilisation d’Azure Media Encoder Standard pour générer automatiquement une échelle des vitesses de transmission
@@ -44,123 +43,124 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 - Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
 - Envoyez le travail.
 
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
+#### <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 
-        namespace AdaptiveStreamingMESPresest
+Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
+
+#### <a name="example"></a>Exemple
+
+    using System;
+    using System.Configuration;
+    using System.Linq;
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using System.Threading;
+
+    namespace AdaptiveStreamingMESPresest
+    {
+        class Program
         {
-            class Program
-            {
-            // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-            // Field for service context.
-            private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
-            static void Main(string[] args)
-            {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                        _mediaServicesAccountName,
-                        _mediaServicesAccountKey);
-                // Used the chached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+        // Field for service context.
+        private static CloudMediaContext _context = null;
 
-                // Get an uploaded asset.
-                var asset = _context.Assets.FirstOrDefault();
+        static void Main(string[] args)
+        {
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                // Encode and generate the output using the "Adaptive Streaming" preset.
-                EncodeToAdaptiveBitrateMP4Set(asset);
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                Console.ReadLine();
-            }
+            // Get an uploaded asset.
+            var asset = _context.Assets.FirstOrDefault();
 
-            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-            {
-                // Declare a new job.
-                IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+            // Encode and generate the output using the "Adaptive Streaming" preset.
+            EncodeToAdaptiveBitrateMP4Set(asset);
 
-                // Get a media processor reference, and pass to it the name of the 
-                // processor to use for the specific task.
-                IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-                // Create a task
-                ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
-                processor,
-                "Adaptive Streaming",
-                TaskOptions.None);
-
-                // Specify the input asset to be encoded.
-                task.InputAssets.Add(asset);
-                // Add an output asset to contain the results of the job. 
-                // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
-                task.OutputAssets.AddNew("Output asset",
-                AssetCreationOptions.None);
-
-                job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-                job.Submit();
-                job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-                return job.OutputMediaAssets[0];
-            }
-            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-            {
-                Console.WriteLine("Job state changed event:");
-                Console.WriteLine("  Previous state: " + e.PreviousState);
-                Console.WriteLine("  Current state: " + e.CurrentState);
-                switch (e.CurrentState)
-                {
-                case JobState.Finished:
-                    Console.WriteLine();
-                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                    break;
-                case JobState.Canceling:
-                case JobState.Queued:
-                case JobState.Scheduled:
-                case JobState.Processing:
-                    Console.WriteLine("Please wait...\n");
-                    break;
-                case JobState.Canceled:
-                case JobState.Error:
-
-                    // Cast sender as a job.
-                    IJob job = (IJob)sender;
-
-                    // Display or log error details as needed.
-                    break;
-                default:
-                    break;
-                }
-            }
-            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
-                var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-                ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-                if (processor == null)
-                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-                return processor;
-            }
-
-            }
-
+            Console.ReadLine();
         }
+
+        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+        {
+            // Declare a new job.
+            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+
+            // Get a media processor reference, and pass to it the name of the 
+            // processor to use for the specific task.
+            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+            // Create a task
+            ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+            processor,
+            "Adaptive Streaming",
+            TaskOptions.None);
+
+            // Specify the input asset to be encoded.
+            task.InputAssets.Add(asset);
+            // Add an output asset to contain the results of the job. 
+            // This output is specified as AssetCreationOptions.None, which 
+            // means the output asset is not encrypted. 
+            task.OutputAssets.AddNew("Output asset",
+            AssetCreationOptions.None);
+
+            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+            job.Submit();
+            job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+            return job.OutputMediaAssets[0];
+        }
+        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+        {
+            Console.WriteLine("Job state changed event:");
+            Console.WriteLine("  Previous state: " + e.PreviousState);
+            Console.WriteLine("  Current state: " + e.CurrentState);
+            switch (e.CurrentState)
+            {
+            case JobState.Finished:
+                Console.WriteLine();
+                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                break;
+            case JobState.Canceling:
+            case JobState.Queued:
+            case JobState.Scheduled:
+            case JobState.Processing:
+                Console.WriteLine("Please wait...\n");
+                break;
+            case JobState.Canceled:
+            case JobState.Error:
+
+                // Cast sender as a job.
+                IJob job = (IJob)sender;
+
+                // Display or log error details as needed.
+                break;
+            default:
+                break;
+            }
+        }
+        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
+            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+
+            if (processor == null)
+            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+
+            return processor;
+        }
+        }
+    }
 
 ## <a id="output"></a>Sortie
 
 Cette section présente trois exemples de couches de sortie produits par MES suite à un encodage avec la présélection **Diffusion adaptative**. 
 
 ### <a name="example-1"></a>Exemple 1
-Une source avec une hauteur de « 1080 » et une fréquence d’images de « 29.970 » crée 6 couches vidéo :
+Une source avec une hauteur de « 1080 » et une fréquence d’images de « 29.970 » crée 6 couches vidéo :
 
 |Couche|Hauteur|Largeur|Vitesse de transmission (Kbits/s)|
 |---|---|---|---|
@@ -172,7 +172,7 @@ Une source avec une hauteur de « 1080 » et une fréquence d’images de « 
 |6|180|320|380|
 
 ### <a name="example-2"></a>Exemple 2
-Une source avec une hauteur de « 720 » et une fréquence d’images de « 23.970 » crée 5 couches vidéo :
+Une source avec une hauteur de « 720 » et une fréquence d’images de « 23.970 » crée 5 couches vidéo :
 
 |Couche|Hauteur|Largeur|Vitesse de transmission (Kbits/s)|
 |---|---|---|---|
@@ -183,7 +183,7 @@ Une source avec une hauteur de « 720 » et une fréquence d’images de « 2
 |5|180|320|320|
 
 ### <a name="example-3"></a>Exemple 3
-Une source avec une hauteur de « 360 » et une fréquence d’images de « 29.970 » crée 3 couches vidéo :
+Une source avec une hauteur de « 360 » et une fréquence d’images de « 29.970 » crée 3 couches vidéo :
 
 |Couche|Hauteur|Largeur|Vitesse de transmission (Kbits/s)|
 |---|---|---|---|

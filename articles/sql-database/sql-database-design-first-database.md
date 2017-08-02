@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/20/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8af9ea0a76b9a0606284505195ee3f52b1964604
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: d5e63e7079b652e69a089aef495952d29cae67a2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -42,7 +41,9 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Composants requis
 
-Pour effectuer ce didacticiel, assurez-vous que vous avez installé la dernière version de [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
+Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
+- La dernière version de [SSMS](https://msdn.microsoft.com/library/ms174173.aspx) (SQL Server Management Studio).
+- La version la plus récente de [BCP et SQLCMD] [https://www.microsoft.com/download/details.aspx?id=36433].
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -110,7 +111,7 @@ Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les 
    > Vous avez besoin du nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants.
    > 
 
-   ![nom du serveur](./media/sql-database-get-started-portal/server-name.png) 
+   ![nom du serveur](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils, comme illustré sur l’image précédente. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre. 
 
@@ -130,7 +131,7 @@ Vous pouvez maintenant vous connecter au serveur SQL Database et à ses bases de
 > [!IMPORTANT]
 > Par défaut, l’accès via le pare-feu SQL Database est activé pour tous les services Azure. Cliquez sur **ÉTEINT** sur cette page pour le désactiver pour tous les services Azure.
 
-## <a name="get-connection-information-in-the-azure-portal"></a>Obtenir des informations de connexion dans le portail Azure
+## <a name="sql-server-connection-information-in-the-azure-portal"></a>Informations de connexion du serveur SQL dans le portail Azure
 
 Obtenez le nom de serveur complet de votre serveur Azure SQL Database dans le portail Azure. Utilisez le nom de serveur complet pour vous connecter à votre serveur avec SQL Server Management Studio.
 
@@ -138,7 +139,7 @@ Obtenez le nom de serveur complet de votre serveur Azure SQL Database dans le po
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
 3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**.
 
-   ![informations de connexion](./media/sql-database-get-started-portal/server-name.png)
+   ![informations de connexion](./media/sql-database-connect-query-dotnet/server-name.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Connexion à la base de données avec SSMS
 

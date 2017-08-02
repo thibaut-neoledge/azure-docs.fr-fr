@@ -1,6 +1,6 @@
 ---
 title: "Utilisation de Stockage Premium Azure avec SQL Server | Microsoft Docs"
-description: "Cet article utilise des ressources créées avec le modèle de déploiement classique et fournit des conseils sur l&quot;utilisation du stockage d’Azure Premium Storage avec SQL Server s&quot;exécutant sur des machines virtuelles Azure."
+description: "Cet article utilise des ressources créées avec le modèle de déploiement classique et fournit des conseils sur l'utilisation du stockage d’Azure Premium Storage avec SQL Server s'exécutant sur des machines virtuelles Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: danielsollondon
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: aba69b95db8313dd9ce711ddc6c26e5df55d79a4
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: e8f191e7bc0ce49abc3f1b4b2329a0ee3b38cd4e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/04/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -253,7 +253,7 @@ L'exemple suivant montre comment placer le disque dur virtuel du système d'expl
 
 
 ### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Création d’une machine virtuelle pour utiliser Premium Storage avec une image personnalisée
-Ce scénario vous montre où sont placées les images personnalisées existantes qui résident sur un compte de stockage Standard. Comme mentionné, si vous souhaitez placer le disque dur virtuel du système d'exploitation sur un stockage Premium, vous devez copier l'image existante sur le compte de stockage Standard et la transférer vers un stockage Premium pour pouvoir l'utiliser. Si vous disposez d'une image locale, vous pouvez également utiliser cette méthode pour la copier directement sur le compte de stockage Premium.
+Ce scénario vous montre où sont placées les images personnalisées existantes qui résident sur un compte de stockage Standard. Comme mentionné, si vous souhaitez placer le disque dur virtuel du système d'exploitation sur un stockage Premium, vous devez copier l'image existante sur le compte de stockage Standard et la transférer vers un stockage Premium pour pouvoir l'utiliser. Si vous disposez d’une image locale, vous pouvez également utiliser cette méthode pour la copier directement sur le compte de stockage Premium.
 
 #### <a name="step-1-create-storage-account"></a>Étape 1 : création d'un compte de stockage
     $mysubscription = "DansSubscription"
@@ -681,7 +681,7 @@ Pour plus d'informations sur la gestion et la configuration du quorum de cluster
 Enregistrez ces éléments dans un fichier texte.
 
 #### <a name="step-7-change-failover-partners-and-replication-modes"></a>Étape 7 : modification les partenaires de basculement et des modes de réplication
-Si vous avez plus de 2 serveurs SQL, vous devez définir sur 'Synchrone' le basculement d'un autre serveur secondaire d'un centre de données ou en local et le configurer comme partenaire de basculement automatique (AFP) ; cela garantit une haute disponibilité lorsque vous apportez des modifications. Vous pouvez le faire via TSQL ou via SSMS :
+Si vous avez plus de 2 serveurs SQL, vous devez définir sur 'Synchrone' le basculement d’un autre serveur secondaire d’un centre de données ou en local et le configurer comme partenaire de basculement automatique (AFP) ; cela garantit une haute disponibilité lorsque vous apportez des modifications. Vous pouvez le faire via TSQL ou via SSMS :
 
 ![Appendix6][16]
 
@@ -1075,7 +1075,7 @@ Pour plus d'informations pour les objets BLOB individuels :
     #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### <a name="step-23-test-failover"></a>Étape 23 : test du basculement
-Vous devriez maintenant laisser le nœud migré se synchroniser avec le nœud Always On local, le placer en mode de réplication synchrone et attendre qu’il soit synchronisé. Effectuez ensuite un basculement du nœud local vers le premier nœud migré, c'est-à-dire l'AFP. Une fois l'opération réussie, changez le dernier nœud migré en AFP.
+Vous devriez maintenant laisser le nœud migré se synchroniser avec le nœud Always On local, le placer en mode de réplication synchrone et attendre qu’il soit synchronisé. Effectuez ensuite un basculement du nœud local vers le premier nœud migré, c'est-à-dire l'AFP. Une fois l'opération réussie, changez le dernier nœud migré en AFP.
 
 Vous devez tester les basculements entre tous les nœuds de test et effectuer des tests CHAOS pour vous assurer que les basculements se sont déroulés comme prévu et en temps opportun.
 

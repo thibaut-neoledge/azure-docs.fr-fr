@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1d35dc01aba57dcf8a37db757138abbd7b22c8c5
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -225,7 +225,7 @@ Si vous souhaitez vous connecter au portail web ou au Gestionnaire de rapports p
 
 1. Créez un point de terminaison pour la machine virtuelle avec le port TCP 80. Pour plus d’informations, consultez la section [Points de terminaison de la machine virtuelle et ports de pare-feu](#virtual-machine-endpoints-and-firewall-ports) dans ce document.
 2. Ouvrez le port 80 dans le pare-feu de la machine virtuelle.
-3. Accédez au portail web ou au Gestionnaire de rapports en utilisant le **nom DNS** de la machine virtuelle Azure comme nom de serveur dans l’URL. Par exemple : 
+3. Accédez au portail web ou au Gestionnaire de rapports en utilisant le **nom DNS** de la machine virtuelle Azure comme nom de serveur dans l’URL. Par exemple :
    
     **Serveur de rapports** : http://uebi.cloudapp.net/reportserver  **Portail web** : http://uebi.cloudapp.net/reports
    

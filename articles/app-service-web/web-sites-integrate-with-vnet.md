@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5c8268a90c5e14839ed97daa6a186d170f5a4cc3
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 31b4f69a2870e619255feac6bed3679efb03f568
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
@@ -95,7 +95,7 @@ Si votre réseau virtuel ne dispose pas d’une passerelle ni de connexion de po
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Activation de la connexion point à site dans un réseau virtuel Resource Manager
-Pour configurer un réseau virtuel Resource Manager avec une passerelle et une connexion de point à site, vous pouvez utiliser PowerShell comme le décrit la page [Configurer une connexion de point à site à un réseau virtuel avec PowerShell][V2VNETP2S] ou le Portail Azure comme le décrit la page [Configurer une connexion de point à site sur un réseau virtuel avec le Portail Azure][V2VNETPortal].  L’interface utilisateur permettant d’effectuer cette opération n’est pas encore disponible. 
+Pour configurer un réseau virtuel Resource Manager avec une passerelle et une connexion de point à site, vous pouvez utiliser PowerShell comme le décrit la page [Configurer une connexion de point à site à un réseau virtuel avec PowerShell][V2VNETP2S] ou le Portail Azure comme le décrit la page [Configurer une connexion de point à site sur un réseau virtuel avec le Portail Azure][V2VNETPortal].  L’interface utilisateur permettant d’effectuer cette opération n’est pas encore disponible. Notez que vous n’aurez pas à créer de certificats pour la configuration point à site. Cela est configuré automatiquement lorsque vous connectez votre application web au réseau virtuel. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Création d’un réseau virtuel préconfiguré
 Si vous souhaitez créer un réseau virtuel configuré avec une passerelle et connexion point à site, l’interface réseau App Service a la possibilité de le faire, mais uniquement pour un réseau virtuel Resource Manager.  Si vous souhaitez créer un réseau virtuel Classic avec une passerelle et une connexion point à site, vous devez le faire manuellement via l’interface utilisateur de réseau. 
@@ -177,11 +177,11 @@ Deux actions clés sont possibles.  D’une part, vous avez la possibilité d’
 **Certificats** L’état des certificats reflète la vérification effectuée par App Service pour garantir que les certificats que nous utilisons pour la connexion VPN sont toujours valables.  Lorsque l’intégration au réseau virtuel est activée, s’il s’agit de la première intégration à ce réseau virtuel à partir d’une application quelconque de cet ASP, un échange de certificats est nécessaire pour garantir la sécurité de la connexion.  Avec les certificats, nous obtenons la configuration DNS, les itinéraires et d’autres éléments similaires qui décrivent le réseau.
 Si ces certificats ou informations réseau sont modifiés, vous devez cliquer sur « Synchronisation réseau ».  **Remarque**: lorsque vous cliquez sur « Synchronisation réseau », la connectivité entre votre application et votre réseau virtuel est brièvement interrompue.  Votre application ne sera pas redémarrée, et la perte de connectivité peut altérer le fonctionnement de votre site.  
 
-## <a name="accessing-on-premise-resources"></a>Accès aux ressources sur site
+## <a name="accessing-on-premises-resources"></a>Accès aux ressources sur site
 La fonctionnalité d’intégration au réseau virtuel offre notamment l’avantage suivant : si votre réseau virtuel est connecté à votre réseau local avec une connexion VPN de site à site, vos applications peuvent accéder à vos ressources locales à partir de votre application.  Pour que cela fonctionne, vous devrez peut-être mettre à jour votre passerelle VPN locale avec les itinéraires relatifs à votre plage IP de point à site.  Lorsque vous configurez le réseau VPN de site à site pour la première fois, les scripts utilisés pour le configurer doivent définir les itinéraires, y compris votre réseau VPN de point à site.  Si vous ajoutez le réseau VPN de point à site après avoir créé votre réseau VPN de site à site, vous devrez mettre à jour les itinéraires manuellement.  La procédure détaillée dépend de la passerelle et n’est pas décrite ici.  
 
 > [!NOTE]
-> La fonctionnalité d’intégration au réseau virtuel fonctionne avec un réseau VPN de site à site pour l’accès aux ressources locales. Cependant, actuellement, elle ne fonctionne pas avec un réseau VPN ExpressRoute à cette fin.  Cela vaut pour l’intégration avec un réseau virtuel Classic ou Resource Manager.  Si vous avez besoin d’accéder aux ressources via un VPN ExpressRoute, vous pouvez utiliser un ASE pouvant s’exécuter dans votre réseau virtuel. 
+> La fonctionnalité d’intégration au réseau virtuel n’intègre pas d’application à un réseau virtuel doté d’une passerelle ExpressRoute. Même si la passerelle ExpressRoute est configurée en [mode de coexistence][VPNERCoex] cela ne fonctionnera pas. Si vous avez besoin d’accéder aux ressources via une connexion ExpressRoute, vous pouvez utiliser un [App Service Environment][ASE] s’exécutant dans votre réseau virtuel.
 > 
 > 
 
@@ -249,15 +249,15 @@ N’oubliez pas que vous ne connaissez pas l’adresse IP de la plage d’adress
 
 * Connectez-vous à une autre machine virtuelle de votre réseau virtuel et essayez d’atteindre la combinaison hôte:port de vos ressources.  Vous pouvez utiliser pour cela certains utilitaires ping TCP ou Telnet.  L’objectif ici consiste simplement à déterminer si la connectivité est établie à partir de cette autre machine virtuelle. 
 * Démarrez une application sur une autre machine virtuelle et testez l’accès à cet hôte et au port à partir de la console dans votre application.  
-  ####<a name="on-premise-resources"></a>Ressources locales####
+  ####<a name="on-premises-resources"></a>ressources locales####
   Si vous ne pouvez pas accéder aux ressources locales, commencez par vérifier si vous pouvez accéder à une ressource de votre réseau virtuel.  Si cela fonctionne, les étapes suivantes sont assez faciles.  À partir d’une machine virtuelle de votre réseau virtuel, vous devez tenter d’accéder à l’application locale.  Vous pouvez utiliser Telnet ou un utilitaire ping TCP.  Si votre machine virtuelle ne peut pas accéder à votre ressource locale, commencez par vérifier que votre connexion VPN de site à site fonctionne.  Si c’est le cas, vérifiez les éléments indiqués précédemment, ainsi que la configuration et l’état de la passerelle locale.  
 
-Maintenant, si votre machine virtuelle hébergée sur réseau virtuel peut atteindre votre système local, mais que votre application ne le peut pas, la raison est probablement l'une des suivantes :
+Maintenant, si votre machine virtuelle hébergée sur réseau virtuel peut atteindre votre système local, mais que votre application ne le peut pas, la raison est probablement l’une des suivantes :
 
 * vos itinéraires ne sont pas configurés avec vos plages IP de point à site dans votre passerelle locale
 * vos groupes de sécurité réseau bloquent l'accès de votre plage IP de point à site
 * vos pare-feu local locaux bloquent le trafic à partir de votre plage IP de point à site
-* vous avez un itinéraire défini par l’utilisateur (UDR) dans votre réseau virtuel qui empêche votre trafic de point à site d'atteindre votre réseau local
+* vous avez un itinéraire défini par l’utilisateur (UDR) dans votre réseau virtuel qui empêche votre trafic de point à site d’atteindre votre réseau local
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>Connexions hybrides et environnements App Service
 Trois fonctionnalités permettent d’accéder aux ressources hébergées sur le réseau virtuel.  Les voici :
@@ -301,4 +301,6 @@ Outre les différences fonctionnelles, il existe également des différences de 
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
 [V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
+[VPNERCoex]: http://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager
+[ASE]: http://docs.microsoft.com/azure/app-service/app-service-environment/intro
 

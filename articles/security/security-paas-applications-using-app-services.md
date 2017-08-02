@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/11/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 41528ad70598907759cdf149777195007296fe98
-ms.lasthandoff: 03/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 0738522250f1863c9584936a2d2b2c7a0a823c8c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-app-services"></a>Sécurisation des applications mobiles et web PaaS à l’aide d’Azure App Services
@@ -35,9 +35,9 @@ Pour en savoir plus, consultez les vues d’ensemble de [Mobile Apps](../app-ser
 Quand vous utilisez App Services, appliquez les bonnes pratiques suivantes :
 
 - [S’authentifier par le biais d’Azure Active Directory (AD)](../app-service-web/web-sites-authentication-authorization.md#authenticate-through-azure-active-directory). App Services fournit un service OAuth 2.0 pour votre fournisseur d’identité. OAuth 2.0 privilégie la simplicité du développement client tout en fournissant des flux d’autorisation spécifiques pour les applications web, les applications de bureau et les téléphones mobiles. Azure AD utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications mobiles et web.
-- Restreindre l’accès en fonction des principes du besoin de connaître et du privilège minimum. La restriction de l’accès est indispensable pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données. La fonction de contrôle d’accès en fonction du rôle (RBAC) peut être utilisée pour affecter des autorisations aux utilisateurs, groupes et applications à une certaine étendue. Consultez [Bien démarrer avec la gestion de l’accès](../active-directory/role-based-access-control-what-is.md) pour en savoir plus sur l’octroi aux utilisateurs du droit d’accès aux applications.
+- Restreindre l’accès en fonction des principes du besoin de connaître et du privilège minimum. La restriction de l’accès est indispensable pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données. La fonction de contrôle d’accès en fonction du rôle (RBAC) peut être utilisée pour affecter des autorisations aux utilisateurs, groupes et applications à une certaine étendue. Pour en savoir plus sur l’octroi aux utilisateurs du droit d’accès aux applications, consultez [Prise en main de la gestion des accès dans le portail Azure](../active-directory/role-based-access-control-what-is.md).
 - Protégez vos clés. Si vous perdez vos clés d’abonnement, qu’importe la qualité de votre stratégie de sécurité ! Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Key Vault, vous pouvez chiffrer les clés et les secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour une meilleure garantie, vous pouvez importer ou générer des clés HSM. Pour en savoir plus, consultez [Azure Key Vault](../key-vault/key-vault-whatis.md). Vous pouvez également utiliser Key Vault pour gérer vos certificats TLS avec renouvellement automatique.
-- Limitez les adresses IP source entrantes. App Services propose une fonctionnalité d’intégration de réseau virtuel qui vous permet de limiter les adresses IP source entrantes par le biais de groupes de sécurité réseau (NSG). Si vous n’êtes pas familiarisé avec les réseaux Azure Virtual Network, cette fonctionnalité vous permet de placer la plupart de vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Pour en savoir plus, consultez [Intégrer une application à un réseau virtuel Azure](../app-service-web/web-sites-integrate-with-vnet.md).
+- Limitez les adresses IP source entrantes. L’[environnement App Services](../app-service-web/app-service-app-service-environment-intro.md) propose une fonctionnalité d’intégration de réseau virtuel qui vous permet de limiter les adresses IP sources entrantes par le biais de groupes de sécurité réseau (NSG). Si vous n’êtes pas familiarisé avec les réseaux Azure Virtual Network, cette fonctionnalité vous permet de placer la plupart de vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Pour en savoir plus, consultez [Intégrer une application à un réseau Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a présenté un ensemble de bonnes pratiques de sécurité App Services pour protéger vos applications mobiles et web PaaS. Pour en savoir plus sur la sécurisation de vos déploiements PaaS, consultez :

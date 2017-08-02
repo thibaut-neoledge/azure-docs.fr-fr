@@ -10,15 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/17/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 041254b07584a52ae92e603f60a439050b747af1
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 8745db3abe6ddec6da1f92da6b7cf8bf82b96d79
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# <a name="consume-an-azure-managed-application"></a>Utiliser une application gérée Azure
+# <a name="consume-a-service-catalog-managed-application"></a>Utiliser une application gérée du catalogue de services
 
 Comme décrit dans l’article [Managed Application overview](managed-application-overview.md) (Vue d’ensemble de l’application gérée), il existe deux scénarios dans l’expérience de bout en bout. D’un côté, il y a l’éditeur ou l’éditeur de logiciels indépendant désireux de créer une application gérée destinée à être utilisée par les clients. De l’autre, le client final ou l’utilisateur de l’application gérée. Cet article décrit le deuxième scénario et explique comment un client final peut utiliser une application gérée fournie par un éditeur de logiciels indépendants.
 
@@ -69,10 +68,10 @@ Vous pouvez utiliser la commande `az managedapp create` pour créer une applicat
 ```azurecli
 az managedapp create --name ravtestappliance401 --location "westcentralus" 
     --kind "Servicecatalog" --resource-group "ravApplianceCustRG401" 
-       --managedapp-definition-id "/subscriptions/{guid}/resourceGroups/ravApplianceDefRG401/providers/Microsoft.Solutions/applianceDefinitions/ravtestAppDef401" 
-       --managed-rg-id "/subscriptions/{guid}/resourceGroups/ravApplianceCustManagedRG401" 
-       --parameters "{\"storageAccountName\": {\"value\": \"ravappliancedemostore1\"}}" 
-       --debug
+    --managedapp-definition-id "/subscriptions/{guid}/resourceGroups/ravApplianceDefRG401/providers/Microsoft.Solutions/applianceDefinitions/ravtestAppDef401" 
+    --managed-rg-id "/subscriptions/{guid}/resourceGroups/ravApplianceCustManagedRG401" 
+    --parameters "{\"storageAccountName\": {\"value\": \"ravappliancedemostore1\"}}" 
+    --debug
 ```
 
 **appliance-definition-Id** : ID de ressource de la définition d’applicance créée à l’étape précédente. Pour obtenir cet ID, exécutez la commande suivante :
@@ -118,4 +117,6 @@ Cette version préliminaire comprend les problèmes suivants :
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées Azure](managed-application-overview.md).
-* Pour comprendre l’expérience client, consultez [Créer et publier une application gérée Azure](managed-application-publishing.md).
+* Pour plus d’informations sur la publication d’une application gérée de catalogue de services, consultez l’article [Créer et publier une application gérée de catalogue de services](managed-application-publishing.md).
+* Pour plus d’informations sur la publication d’applications gérées sur la Place de marché, consultez l’article [Applications gérées sur la Place de marché Azure](managed-application-author-marketplace.md).
+* Pour plus d’informations sur l’utilisation d’applications gérées de la Place de marché, consultez l’article [Utilisation des applications gérées de la Place de marché Azure](managed-application-consume-marketplace.md).
