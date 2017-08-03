@@ -1,10 +1,10 @@
 ---
 title: "Ajout de authentification à votre plateforme Windows universelle (UWP) | Microsoft Docs"
-description: "Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application de plateforme Windows universelle à l’aide de divers fournisseurs d&quot;identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
+description: "Découvrez comment utiliser Azure App Service Mobile Apps pour authentifier les utilisateurs de votre application de plateforme Windows universelle à l’aide de divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
 services: app-service\mobile
 documentationcenter: windows
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: panarasi
 editor: 
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
 ms.service: app-service-mobile
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 96b87d4d6cc1adbc9700102ffd4a989451676d81
-ms.lasthandoff: 03/09/2017
-
+ms.date: 07/05/2017
+ms.author: panarasi
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6f6b09f8135c03febe50ab734adf326a7b4ae19a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Ajout de l'authentification à votre application Windows
@@ -31,6 +31,20 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Apps. Vous devez com
 ## <a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+## <a name="redirecturl"></a>Ajouter votre application aux URL de redirection externes autorisées
+
+L’authentification sécurisée nécessite de définir un nouveau schéma d’URL pour votre application. Cela permet au système d’authentification de vous rediriger vers votre application une fois le processus d’authentification terminé. Dans ce didacticiel, nous utilisons le schéma d’URL _appname_. Toutefois, vous pouvez utiliser le schéma d’URL de votre choix. Il doit être propre à votre application mobile. Pour activer la redirection côté serveur, procédez comme suit :
+
+1. Dans le [portail Azure], sélectionnez votre instance App Service.
+
+2. Cliquez sur l’option de menu **Authentication/Authorisation**.
+
+3. Dans **URL de redirection externes autorisées**, saisissez `url_scheme_of_your_app://easyauth.callback`.  La chaîne **url_scheme_of_your_app** de cette chaîne est le schéma d’URL de votre application mobile.  Elle doit être conforme à la spécification d’URL normale pour un protocole (utiliser des lettres et des chiffres uniquement et commencer par une lettre).  Vous devez noter la chaîne que vous choisissez, dans la mesure où vous devez ajuster votre code d’application mobile avec le schéma d’URL à plusieurs endroits.
+
+4. Cliquez sur **OK**.
+
+5. Cliquez sur **Enregistrer**.
+
 ## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
@@ -39,7 +53,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Apps. Vous devez com
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir de votre service App Service.
 
 ## <a name="add-authentication"></a>Ajout de l’authentification à l’application
-1. Dans le fichier de projet d’application UWP MainPage.cs et ajoutez l'extrait de code suivant à la classe MainPage :
+1. Dans le fichier de projet d’application UWP MainPage.xaml.cs, ajoutez l’extrait de code suivant :
    
         // Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -55,7 +69,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
                 // Change 'MobileService' to the name of your MobileServiceClient instance.
                 // Sign-in using Facebook authentication.
                 user = await App.MobileService
-                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                 message =
                     string.Format("You are now signed in - {0}", user.UserId);
    
@@ -73,8 +87,17 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
         }
    
     Ce code authentifie l’utilisateur à l’aide d’une connexion Facebook. Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur de **MobileServiceAuthenticationProvider** ci-dessus par la valeur de votre fournisseur.
-2. Commentez ou supprimez l’appel de la méthode **ButtonRefresh_Click** (ou **InitLocalStoreAsync**) dans la méthode à substituer **OnNavigatedTo** existante. Cela empêche les données d'être chargées avant que l'utilisateur ne soit authentifié. Ensuite, vous allez ajouter à l’application un bouton **Connexion** qui déclenche l’authentification.
-3. Ajoutez l'extrait de code suivant à la classe MainPage :
+2. Remplacez la méthode **OnNavigatedTo()** dans MainPage.xaml.cs. Ensuite, vous allez ajouter à l’application un bouton **Connexion** qui déclenche l’authentification.
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is Uri)
+            {
+                App.MobileService.ResumeWithURL(e.Parameter as Uri);
+            }
+        }
+
+3. Ajoutez l’extrait de code suivant dans MainPage.xaml.cs :
    
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -104,7 +127,24 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
                 <TextBlock Margin="5">Sign in</TextBlock> 
             </StackPanel>
         </Button>
-5. Appuyez sur la touche F5 pour exécuter l'application, puis cliquez sur le bouton **Se connecter** pour vous connecter à l'application avec le fournisseur d'identité choisi. Lorsque vous êtes connecté, l'application s'exécute sans erreur, et vous pouvez exécuter des requêtes sur votre backend et mettre à jour les données.
+5. Ajoutez l’extrait de code suivant dans App.xaml.cs :
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
+                Frame content = Window.Current.Content as Frame;
+                if (content.Content.GetType() == typeof(MainPage))
+                {
+                    content.Navigate(typeof(MainPage), protocolArgs.Uri);
+                }
+            }
+            Window.Current.Activate();
+            base.OnActivated(args);
+        }
+6. Ouvrez le fichier Package.appxmanifest, accédez à **Déclarations**, dans la liste déroulante **Déclarations disponibles**, sélectionnez **Protocole** et cliquez sur le bouton **Ajouter**. À présent, configurez les **propriétés** de la déclaration **Protocole**. Dans **Nom d’affichage**, ajoutez le nom que vous souhaitez montrer aux utilisateurs de votre application. Dans **Nom**, ajoutez votre {url_scheme_of_your_app}.
+7. Appuyez sur la touche F5 pour exécuter l'application, puis cliquez sur le bouton **Se connecter** pour vous connecter à l'application avec le fournisseur d'identité choisi. Lorsque vous êtes connecté, l'application s'exécute sans erreur, et vous pouvez exécuter des requêtes sur votre backend et mettre à jour les données.
 
 ## <a name="tokens"></a>Stockage du jeton d’authentification sur le client
 L’exemple précédent montrait une connexion standard, qui nécessite que le client contacte le fournisseur d’identité et le service d’application à chaque démarrage de l’application. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d'utilisation si de nombreux clients tentent de lancer votre application en même temps. Une meilleure approche consiste à mettre en cache le jeton d’autorisation renvoyé par votre service d’application et à l’utiliser en premier avant de faire appel à la connexion via un fournisseur.
@@ -126,5 +166,4 @@ Maintenant que vous avez terminé ce didacticiel sur l'authentification de base,
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
-
 

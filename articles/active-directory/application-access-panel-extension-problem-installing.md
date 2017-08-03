@@ -13,25 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 759631bca9b29134098dba55ef07513d0ee42549
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 8b7327508633e33917d1fa9c1f35ed1bde5a26e1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-<a id="problem-installing-the-application-access-panel-browser-extension" class="xliff"></a>
-
-# Problèmes lors de l’installation de l’extension de navigateur du volet d’accès aux applications
+# <a name="problem-installing-the-application-access-panel-browser-extension"></a>Problèmes lors de l’installation de l’extension de navigateur du volet d’accès aux applications
 
 Le volet d’accès est un portail web qui permet à un utilisateur disposant d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD) d’afficher et de lancer des applications basées sur le cloud auxquelles l’administrateur Azure AD lui a accordé un accès. Un utilisateur disposant d’éditions Azure AD peut également utiliser des fonctionnalités de gestion de groupes et d’applications en libre-service par le biais du volet d’accès. Le volet d’accès est distinct du portail Azure et n’exige pas des utilisateurs qu’ils aient un abonnement Azure.
 
 Pour utiliser l’authentification unique (SSO) par mot de passe dans le volet d’accès, l’extension du volet d’accès doit être installée dans le navigateur de l’utilisateur. Cette extension est téléchargée automatiquement lorsqu’un utilisateur sélectionne une application configurée pour l’authentification unique (SSO) avec mot de passe.
 
-<a id="meeting-browser-requirements-for-the-access-panel" class="xliff"></a>
-
-## Configuration requise du navigateur pour le volet d’accès
+## <a name="meeting-browser-requirements-for-the-access-panel"></a>Configuration requise du navigateur pour le volet d’accès
 
 Le volet d’accès nécessite un navigateur qui prend en charge JavaScript et dans lequel le CSS est activé. Pour utiliser l’authentification unique (SSO) par mot de passe dans le volet d’accès, l’extension du volet d’accès doit être installée dans le navigateur de l’utilisateur. Cette extension est téléchargée automatiquement lorsqu’un utilisateur sélectionne une application configurée pour l’authentification unique (SSO) avec mot de passe.
 
@@ -39,15 +36,13 @@ Pour l’authentification unique par mot de passe, les navigateurs de l’utilis
 
 -   Internet Explorer 8, 9, 10, 11 -- sur Windows 7 ou version ultérieure
 
+-   Edge sur Windows 10 Édition anniversaire ou version ultérieure 
+
 -   Chrome -- sur Windows 7 ou ultérieur, et sur Mac OS X ou ultérieur
 
 -   Firefox 26.0 ou ultérieur -- sur Windows XP SP2 ou ultérieur, et sur Mac OS X 10.6 ou ultérieur
 
-**Remarque** : l’extension de l’authentification unique par mot de passe sera disponible pour Edge dans Windows 10 quand les extensions de navigateur seront prises en charge pour Edge.
-
-<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
-
-## Comment installer l’extension de navigateur du volet d’accès
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Comment installer l’extension de navigateur du volet d’accès
 
 Pour installer l’extension de navigateur du volet d’accès, effectuez les étapes suivantes :
 
@@ -65,15 +60,13 @@ Pour installer l’extension de navigateur du volet d’accès, effectuez les é
 
 7.  Connectez-vous au volet d’accès et essayez de **lancer** vos applications à authentification unique par mot de passe.
 
-Vous pouvez également télécharger l’extension pour Chrome et Firefox à partir des liens directs ci-dessous :
+Vous pouvez également télécharger l’extension pour Chrome et Edge à partir des liens directs ci-dessous :
 
 -   [Extension du volet d’accès pour Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extension du volet d’accès pour Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Extension du volet d’accès pour Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
-<a id="setting-up-a-group-policy-for-internet-explorer" class="xliff"></a>
-
-## Configuration d’une stratégie de groupe pour Internet Explorer
+## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Configuration d’une stratégie de groupe pour Internet Explorer
 
 Vous pouvez configurer une stratégie de groupe pour installer à distance l’extension du volet d’accès pour Internet Explorer sur les ordinateurs de vos utilisateurs.
 
@@ -85,15 +78,11 @@ Vous devez respecter certaines conditions préalables, notamment les suivantes 
 
 Suivez le didacticiel [Déploiement de l’extension du volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe](active-directory-saas-ie-group-policy.md) pour obtenir des instructions pas à pas sur la configuration et le déploiement d’une stratégie de groupe.
 
-<a id="troubleshoot-the-access-panel-in-internet-explorer" class="xliff"></a>
-
-## Résolution des problèmes liés au volet d’accès dans Internet Explorer
+## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Résolution des problèmes liés au volet d’accès dans Internet Explorer
 
 Consultez le guide [Troubleshoot the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) (Résolution des problèmes liés à l’extension du volet d’accès pour Internet Explorer) pour accéder à un outil de diagnostic et pour obtenir des instructions pas à pas sur la configuration de l’extension pour Internet Explorer.
 
-<a id="if-these-troubleshooting-steps-do-not-resolve-the-issue" class="xliff"></a>
-
-## Si ces étapes de dépannage ne résolvent pas le problème
+## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Si ces étapes de dépannage ne résolvent pas le problème
 
 Ouvrez un ticket de support en fournissant les informations suivantes, dans la mesure du possible :
 
@@ -109,8 +98,6 @@ Ouvrez un ticket de support en fournissant les informations suivantes, dans la m
 
 -   Traces Fiddler
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 

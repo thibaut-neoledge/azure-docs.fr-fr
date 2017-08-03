@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 0c07495a932c8bfdabb97e8eebe8d99de19fbd15
-ms.lasthandoff: 01/30/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -161,7 +162,7 @@ Cortana Intelligence et Machine Learning peuvent être très efficaces pour rés
 La qualification d’une étude de cas basée sur les critères qui précèdent peut contribuer de façon significative à améliorer le taux de réussite d’un cas d’utilisation et établir une bonne tête de pont pour l’implémentation ultérieure d’études de cas.
 
 ### <a name="cloud-based-solutions"></a>Solutions cloud
-Cortana Intelligence Suite sur Azure est un environnement intégré hébergé dans le cloud. Le déploiement d’une solution d’analyse avancée dans un environnement cloud présente des avantages substantiels pour les entreprises et, dans le même temps, peut représenter un changement important pour les entreprises qui utilisent toujours des solutions informatiques sur site. Dans le secteur de l’énergie, il existe une tendance claire à la migration progressive des opérations vers le cloud. Cette tendance accompagne le développement d’un réseau intelligent, comme indiqué ci-dessus, à la section **Tendances du secteur**. Comme ce manuel se concentre sur une solution cloud dans le domaine de l’énergie, il est important d’expliquer les avantages et d’autres considérations sur le déploiement d’une solution basée sur le cloud.
+Cortana Intelligence Suite sur Azure est un environnement intégré hébergé dans le cloud. Le déploiement d’une solution d’analyse avancée dans un environnement cloud présente des avantages substantiels pour les entreprises et, dans le même temps, peut représenter un changement important pour les entreprises qui utilisent toujours des solutions informatiques locales. Dans le secteur de l’énergie, il existe une tendance claire à la migration progressive des opérations vers le cloud. Cette tendance accompagne le développement d’un réseau intelligent, comme indiqué ci-dessus, à la section **Tendances du secteur**. Comme ce manuel se concentre sur une solution cloud dans le domaine de l’énergie, il est important d’expliquer les avantages et d’autres considérations sur le déploiement d’une solution basée sur le cloud.
 
 Le principal avantage d’une solution du cloud est peut-être le coût. Lorsqu’une solution utilise des composants déployés dans le cloud, il n’y a pas de frais initiaux ou de frais liés au coût des marchandises vendues. Cela signifie qu’il est inutile d’investir dans du matériel, des logiciels et la maintenance informatique, et par conséquent, les risques pour l’entreprise sont sensiblement réduits.
 
@@ -172,7 +173,7 @@ Enfin, il est inutile d’investir dans la maintenance informatique ou le dével
 Pour une société qui commence à peine sa transition vers le cloud, nous recommandons d’adopter une approche progressive, en mettant en œuvre une feuille de route pour la migration vers le cloud. Nous pensons que pour les services publics et les sociétés intervenant dans le domaine de l’énergie, les études de cas évoquées dans ce manuel représentent une excellente opportunité de pilotage des solutions d’analyse prédictive dans le cloud.
 
 #### <a name="business-case-justification-considerations"></a>Considérations relatives à la justification des études de cas
-Dans de nombreux cas, le client peut être intéressé par la justification professionnelle d’une étude de cas dans laquelle une solution cloud et Machine Learning sont des composants importants. Contrairement à une solution sur site, dans le cas d’une solution basée sur le cloud, le coût initial est minime, et la plupart des éléments de coûts est associée à l’utilisation réelle. Lorsqu’il s’agit de déployer une solution de prévision de demande énergétique sur Cortana Intelligence Suite, plusieurs services peuvent être intégrés à une structure de coûts commune unique. Les bases de données (*par exemple*, SQL Azure) peuvent être utilisées pour stocker les données brutes, puis les prévisions réelles, et Azure ML peut servir à héberger les services de prévisions. Dans cet exemple, la structure des coûts peut inclure des composants de stockage et transactionnels.
+Dans de nombreux cas, le client peut être intéressé par la justification professionnelle d’une étude de cas dans laquelle une solution cloud et Machine Learning sont des composants importants. Contrairement à une solution locale, dans le cas d’une solution basée sur le cloud, le coût initial est minime, et la plupart des éléments de coûts est associée à l’utilisation réelle. Lorsqu’il s’agit de déployer une solution de prévision de demande énergétique sur Cortana Intelligence Suite, plusieurs services peuvent être intégrés à une structure de coûts commune unique. Les bases de données (*par exemple*, SQL Azure) peuvent être utilisées pour stocker les données brutes, puis les prévisions réelles, et Azure ML peut servir à héberger les services de prévisions. Dans cet exemple, la structure des coûts peut inclure des composants de stockage et transactionnels.
 
 D’autre part, une personne doit avoir une bonne connaissance de la valeur pour l’entreprise de l’utilisation de la prévision de la demande d’énergie (à court ou à long terme). En fait, il est important de comprendre la valeur commerciale de chaque opération de prévision. Par exemple, une prévision de charge électrique précise pour les 24 heures à venir peut éviter la surproduction ou peut aider à empêcher les surcharges du réseau, ce qui peut se traduire par des économies au quotidien.
 

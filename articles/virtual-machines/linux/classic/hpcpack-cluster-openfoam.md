@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 2f92ebd82e5ac64f921e236a77657a1abc478a7c
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Exécuter OpenFoam avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure
@@ -41,7 +41,7 @@ Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éve
   
   **Autres informations à connaître**
   
-  * Pour connaître les conditions préalables à la mise en réseau RDMA Linux dans Azure, voir [À propos des machines virtuelles de série H ou de série A nécessitant beaucoup de ressources système](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Pour connaître les conditions préalables à la mise en réseau RDMA Linux dans Azure, consultez [Tailles de machines virtuelles de calcul haute performance](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   * Si vous utilisez l’option de déploiement de script Powershell, déployez tous les nœuds de calcul Linux au sein d’un service cloud pour utiliser la connexion réseau RDMA.
   * Après avoir déployé les nœuds Linux, connectez-vous à SSH pour effectuer toutes tâches administratives supplémentaires. Recherchez les détails de connexion SSH pour chaque machine virtuelle Linux dans le portail Azure.  
 * **Intel MPI** : pour exécuter OpenFOAM sur des nœuds de calcul SLES 12 HPC dans Azure, vous devez installer le runtime Intel MPI Library 5 que vous trouverez sur le [site Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 est préinstallé sur des images HPC basées sur CentOS.)  Si nécessaire, vous devez ensuite installer Intel MPI sur vos nœuds de calcul Linux. Pour préparer cette étape, après votre inscription auprès d’Intel, suivez le lien vers la page web associée, figurant dans le message de confirmation. Ensuite, copiez le lien de téléchargement du fichier .tgz pour la version appropriée d’Intel MPI. Cet article est basé sur Intel MPI version 5.0.3.048.

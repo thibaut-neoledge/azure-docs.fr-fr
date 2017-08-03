@@ -1,5 +1,5 @@
 ---
-title: "Tâches courantes du Panneau d’accès | Microsoft Docs"
+title: "Page « Besoin d’aide avec le portail Mes applications ? » dans Azure Active Directory | Microsoft Docs"
 description: "Obtenez des instructions pour effectuer des tâches courantes lors de l’utilisation du Panneau d’accès."
 services: active-directory
 documentationcenter: 
@@ -12,83 +12,102 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/15/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 53ec54def52a6d0659dc12286148213d88e9ae24
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
-# <a name="do-you-need-help-with-myapps"></a>Avez-vous besoin d’aide avec MyApps ?
+# <a name="do-you-need-help-with-the-my-apps-portal"></a>Besoin d’aide avec le portail Mes applications ?
 
-Si vous vous trouvez dans cette page, c’est probablement parce que vous avez malheureusement rencontré un problème alors que vous utilisez le portail MyApps. S’il existe des cas qui vous obligent à contacter le support technique ou votre administrateur pour résoudre un problème, nous vous proposons dans cette rubrique des réponses aux questions courantes que vous pouvez essayer vous-même en premier lieu.
+Si cette page s’affiche, c’est que vous avez dû rencontrer un problème avec le portail Mes applications. Avant de contacter le support technique ou votre administrateur pour résoudre votre problème, lisez d’abord les sections de dépannage ci-dessous.
 
-Si vous recherchez de l’aide portant sur la gestion des mots de passe, essayez [ceci](active-directory-passwords-update-your-own-password.md).
+## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Je n’arrive pas à me connecter au portail Mes applications
 
+Problèmes d’ordre général à vérifier en premier :
 
-## <a name="what-is-the-myapps-portal"></a>Qu’est-ce que le portail MyApps ?
+- Vérifiez que l’URL est correcte : [https://myapps.microsoft.com](https://myapps.microsoft.com)
 
+- Essayez d’ajouter l’URL aux sites de confiance de votre navigateur.
 
-MyApps est un portail web qui vous permet d’effectuer les tâches suivantes :
+- Assurez-vous que votre mot de passe n’a pas expiré ou que vous ne l’avez pas oublié. Pour plus d’informations sur la modification des mots de passe, [cliquez ici](active-directory-passwords-update-your-own-password.md).
 
-- Gérer et lancer des applications basées sur le cloud
-- Gérer vos appartenances à des groupes
-- Gérer vos paramètres de profil
+- Vérifiez que vos informations d’authentification sont à jour. Pour plus d’informations sur la configuration de vos informations d’authentification, [cliquez ici](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
 
-![Volet d'accès][1]
+- Essayez d’effacer les cookies de votre navigateur, puis réessayez de vous connecter.
 
-
-
-
-## <a name="how-can-i-change-my-password"></a>Comment modifier mon mot de passe ?
-
-1.    Dans **MyApps**, cliquez sur le contrôle utilisateur en haut à droite, puis sur **Profil**.
-2.    Sous **Gérer le compte**, cliquez sur **Modifier le mot de passe**.
-3.    Tapez votre ancien mot de passe, puis tapez un nouveau mot de passe et confirmez-le.
-4.    Cliquez sur **Envoyer**.
-
-Pour plus d’informations, consultez [Comment mettre à jour votre propre mot de passe](active-directory-passwords-update-your-own-password.md).
+Si vous ne parvenez toujours pas à vous connecter, contactez votre administrateur.
 
 
-## <a name="how-do-i-setup-password-reset"></a>Comment configurer la réinitialisation du mot de passe ?
+## <a name="how-do-i-update-my-password"></a>Comment modifier mon mot de passe ?
 
-1.    Dans **MyApps**, cliquez sur le contrôle utilisateur en haut à droite, puis sur **Profil**.
-2.    Sous **Gérer le compte**, cliquez sur **Configurer la réinitialisation du mot de passe libre-service**.
-3.    Suivez les étapes de la boîte de dialogue, puis soumettez.
+Si vous avez oublié votre mot de passe, si le service informatique ne vous en a jamais fourni, si l’accès à votre compte a été bloqué, ou si vous souhaitez le modifier, consultez [J’ai oublié mon mot de passe Azure AD](active-directory-passwords-update-your-own-password.md).
 
-Pour plus d’informations, consultez [Comment réinitialiser votre propre mot de passe](active-directory-passwords-update-your-own-password.md).
+## <a name="how-do-i-register-for-password-reset"></a>Comment m’inscrire pour réinitialiser mon mot de passe ?
+
+En tant qu’utilisateur final, vous pouvez réinitialiser votre mot de passe ou déverrouiller votre compte, sans avoir à contacter qui que ce soit au moyen de la réinitialisation de mot de passe en libre-service (SSPR). Pour pouvoir utiliser cette fonctionnalité, il vous faut inscrire les méthodes d’authentification ou confirmer les méthodes d’authentification prédéfinies et remplies par votre administrateur. Pour plus d’informations, consultez [S’inscrire à la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md).
 
 
-## <a name="how-can-i-add-a-new-app"></a>Comment ajouter une nouvelle application ?
+## <a name="i-am-having-trouble-installing-the-my-apps-portal-browser-extension"></a>Je n’arrive pas à installer l’extension de navigateur du portail Mes applications
 
-1.    Dans **MyApps**, cliquez sur **Ajouter une application**.
-2.    Recherchez une application que vous souhaitez ajouter, puis cliquez sur **Ajouter**.
+Vérifiez que la configuration requise du navigateur est respectée :
+
+- Le portail nécessite un navigateur qui prend en charge JavaScript et dans lequel le CSS est activé. Si vous utilisez des applications à authentification unique par mot de passe, l’extension doit également être installée. Cette extension est téléchargée automatiquement lorsque vous lancez une application configurée pour l’authentification unique par mot de passe.
+
+- La configuration requise du navigateur pour l’extension est la suivante :
+    - Internet Explorer 8, 9, 10, 11 sur Windows 7 ou version ultérieure
+    - Edge sur Windows 10 Édition anniversaire ou version ultérieure
+    - Chrome sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure
+    - Firefox 26.0 ou version ultérieure sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure
+
+Vous pouvez également télécharger l’extension pour Chrome et Edge à partir des liens directs ci-dessous :
+
+- [Extension Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+
+- [Extension Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+
+Si vous rencontrez des problèmes après l’installation, effectuez les étapes suivantes :
+
+- Vérifiez dans les paramètres d’extension de navigateur que l’extension est activée.
+
+- Redémarrez votre navigateur et connectez-vous au portail Mes applications.
+
+- Effacez les cookies de votre navigateur et connectez-vous au portail Mes applications.
+
+## <a name="how-do-i-add-a-new-app"></a>Comment ajouter une nouvelle application ?
+
+1.  Dans la page **Applications**, cliquez sur **Ajouter une application**.
+
+2.  Recherchez l’application que vous souhaitez ajouter, puis cliquez sur **Ajouter**.
 
 **Remarques :**
 
 - Vous n’avez accès à cette option que si votre administrateur l’a activée pour votre compte.
-- Si l’application requiert une autorisation, vous devrez peut-être attendre l’approbation de l’administrateur.
+
+- Si l’application nécessite une autorisation, vous devrez peut-être attendre l’approbation de l’administrateur.
 
 
+## <a name="how-do-i-manage-my-group-memberships"></a>Comment gérer l’appartenance aux groupes ?
 
-## <a name="how-can-i-manage-group-memberships"></a>Comment gérer l’appartenance aux groupes ?
-
-1.    Dans **MyApps**, cliquez sur la vignette de l’application **Groupes**.
-2.    Pour créer un groupe, sous **Groupes dont je suis propriétaire**, cliquez sur **Créer un groupe**, puis suivez les instructions.
-3.    Pour joindre un groupe, sous **Groupes auxquels j’appartiens**, cliquez sur **Rejoindre le groupe**, puis suivez les instructions.
+1. Cliquez sur la vignette de l’application Groupes. 
+2. Pour créer un groupe, sous Groupes dont je suis propriétaire, cliquez sur Créer un groupe, puis suivez les instructions.
+3. Pour rejoindre un groupe, sous Groupes auxquels j’appartiens, cliquez sur Rejoindre le groupe, puis suivez les instructions.
 
 **Remarques :**
 
-- Cliquer sur un groupe dont vous êtes membre vous permet d’afficher les détails et de quitter le groupe.
-- Cliquer sur un groupe qui vous appartient vous permet d’afficher les détails, d’ajouter ou de supprimer des membres et de quitter le groupe.
+- Vous n’avez accès à cette option que si votre administrateur l’a activée pour votre compte.
+
+- Vous pouvez afficher des informations détaillées sur les groupes auxquels vous appartenez, et vous pouvez aussi quitter ces groupes.
+
+- Vous pouvez afficher des informations détaillées sur les groupes dont vous êtes propriétaire, ainsi que quitter ces groupes. Vous pouvez également y ajouter des membres ou en supprimer.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir des informations relatives à la résolution des problèmes, consultez [Problems using the application access panel website or mobile application](active-directory-application-access-panel-content-map.md) (Problèmes lors de l’utilisation du site web ou de l’application mobile du volet d’accès aux applications).
 
-<!--Image references-->
-[1]: ./media/active-directory-saas-access-panel-user-help/01.png
 

@@ -16,29 +16,26 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 9071ab19844898abf7feb7fc0d84120298bb5eaf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a43d7e30a6f4176afba27f0de2c2c116df741080
 ms.contentlocale: fr-fr
 
 
 ---
 
-## Configuration de votre projet
-<a id="set-up-your-project" class="xliff"></a>
+## <a name="set-up-your-project"></a>Configuration de votre projet
 
-> Vous préférez télécharger le projet Android Studio de cet exemple ? [Téléchargez un projet](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) et passez à l’étape [Configuration](#create-an-application-express "Étape de configuration") pour configurer l’exemple de code avant l’exécution.
+> Vous préférez télécharger le projet Android Studio de cet exemple ? [Téléchargez un projet](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) et passez à l’[étape Configuration](#create-an-application-express) pour configurer l’exemple de code avant l’exécution.
 
 
-### Création d'un projet
-<a id="create-a-new-project" class="xliff"></a> 
+### <a name="create-a-new-project"></a>Création d'un projet 
 1.  Ouvrez Android Studio, puis accédez à : `File` > `New` > `New Project`
 2.  Donnez un nom à votre application et cliquez sur `Next`
 3.  Veillez à sélectionner *API 21 or newer (Android 5.0) (API 21 ou plus récente (Android 5.0))* et cliquez sur `Next`
 4.  Conservez `Empty Activity`, cliquez sur `Next`, puis sur `Finish`
 
 
-### Ajoutez Microsoft Authentication Library (MSAL) à votre projet
-<a id="add-the-microsoft-authentication-library-msal-to-your-project" class="xliff"></a>
+### <a name="add-the-microsoft-authentication-library-msal-to-your-project"></a>Ajoutez Microsoft Authentication Library (MSAL) à votre projet
 1.  Dans Android Studio, accédez à : `Gradle Scripts` > `build.gradle (Module: app)`
 2.  Copiez et collez le code suivant sous `Dependencies` :
 
@@ -50,14 +47,12 @@ compile 'com.android.volley:volley:1.0.0'
 ```
 
 <!--start-collapse-->
-### À propos de ce package
-<a id="about-this-package" class="xliff"></a>
+### <a name="about-this-package"></a>À propos de ce package
 
 Le package ci-dessus installe Microsoft Authentication Library (MSAL). MSAL gère l’acquisition, la mise en cache et l’actualisation des jetons d’utilisateur permettant d’accéder aux API protégées par le point de terminaison Azure Active Directory v2.
 <!--end-collapse-->
 
-## Créer l’interface utilisateur de votre application
-<a id="create-your-applications-ui" class="xliff"></a>
+## <a name="create-your-applications-ui"></a>Créer l’interface utilisateur de votre application
 
 1.  Ouvrez : `activity_main.xml` sous `res` > `layout`
 2.  Modifiez la disposition de l’activité `android.support.constraint.ConstraintLayout` ou autre pour `LinearLayout`

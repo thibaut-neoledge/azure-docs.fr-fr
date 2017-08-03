@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/02/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 16a000074ae742cc6bc1b25bf359990fe73608f7
-ms.lasthandoff: 04/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 0c9adf369dfecc25d1bf3dc8a77cb3778e867af5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -25,14 +26,14 @@ ms.lasthandoff: 04/21/2017
 
 Les connecteurs rendent possible le proxy d’application Azure AD. Ils sont très puissants, simples et faciles à déployer et maintenir. Cet article présente les connecteurs, leur fonctionnement et fournissent quelques meilleures pratiques pour tirer le meilleur parti de votre déploiement. 
 
-## <a name="connector-deployment"></a>Déploiement du connecteur
+## <a name="deployment"></a>Déploiement
 
 Le Proxy d’application fonctionne après l’installation d’un service Windows Server léger appelé connecteur sur votre réseau. Vous pouvez installer plusieurs connecteurs en fonction de vos besoins en évolutivité et en haute disponibilité. Commencez avec un connecteur et en ajoutez-en d’autres en fonction de vos besoins. Chaque fois qu’un connecteur est installé, il est ajouté au pool de connecteurs qui sert votre client.
 
 Nous vous recommandons de ne pas installer les connecteurs sur les mêmes serveurs qui hébergent vos applications. Vous devez toutefois être en mesure d’accéder à l’application à partir du serveur sur lequel vous installez le connecteur.
 
 
-## <a name="connector-maintenance"></a>Maintenance du connecteur
+## <a name="maintenance"></a>Maintenance 
 Les connecteurs et le service se chargent de toutes les tâches de haut niveau de disponibilité. Vous pouvez les ajouter ou supprimer de manière dynamique. Chaque fois qu’une nouvelle requête arrive, elle est acheminée vers un des connecteurs actuellement disponibles. Si un connecteur est temporairement indisponible, il ne répondra pas à ce trafic.
 
 Les connecteurs sont sans état et n’ont aucune donnée de configuration sur l’ordinateur, autre que la connectivité avec les paramètres de service et le certificat qui authentifie ce connecteur. Lorsqu’ils se connectent au service, ils extraient toutes les données de configuration requises et les actualisent toutes les deux minutes.
@@ -44,19 +45,17 @@ Vous pouvez surveiller vos connecteurs à partir de l’ordinateur sur lequel il
 
 Vous n’êtes pas obligé de supprimer manuellement les connecteurs qui ne sont pas utilisés. Lorsqu’un connecteur est en cours d’exécution, il reste actif car il se connecte au service. Les connecteurs inutilisés sont marqués comme _inactifs_ et sont supprimés après 10 jours d’inactivité. 
 
-## <a name="automatic-updates-to-the-connector"></a>Mises à jour automatiques sur le connecteur
+## <a name="automatic-updates"></a>Mises à jour automatiques
 
-Avec le service de mise à jour du connecteur, nous proposons une solution automatisée pour rester à jour. Ainsi, vous avez l’avantage continu de nouvelles fonctionnalités et d’améliorations de sécurité et de performances.
+Azure AD prend en charge les mises à jour automatiques pour tous les connecteurs que vous déployez. Tant que le service de mise à jour du connecteur de proxy d’application est en cours d’exécution, vos connecteurs se mettent automatiquement à jour. Si vous ne voyez pas le service de mise à jour du connecteur sur votre serveur, vous devez [réinstaller votre connecteur](active-directory-application-proxy-enable.md) afin d’obtenir les mises à jour. Pour les abonnés avec plusieurs connecteurs, les mises à jour automatiques ciblent un seul connecteur à la fois dans chaque groupe afin d’éviter les temps d’arrêt dans votre environnement. 
 
-Azure AD prend en charge les mises à jour automatiques pour tous les connecteurs que vous déployez. Tant que le service de mise à jour du connecteur de proxy d’application est en cours d’exécution, vos connecteurs se mettent automatiquement à jour. Si vous ne voyez pas le service de mise à jour du connecteur sur votre serveur, vous devez [réinstaller votre connecteur](active-directory-application-proxy-enable.md) afin d’obtenir les mises à jour.
+Si vous ne souhaitez pas attendre le chargement d’une mise à jour automatique sur votre connecteur, vous pouvez effectuer une mise à niveau manuelle. Accédez à la [page de téléchargement du connecteur](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) sur le serveur où votre connecteur se trouve et sélectionnez **Télécharger**. Ceci lance une mise à niveau du connecteur local. 
 
-Vous pouvez rencontrer des temps d’arrêt lors de la mise à jour de votre connecteur si :
-
-- Vous n’avez qu’un seul connecteur. Pour éviter ce temps d’arrêt et optimiser la disponibilité, nous vous recommandons d’installer un second connecteur et de [créer un groupe de connecteurs](active-directory-application-proxy-connectors-azure-portal.md).
-
+Vous pouvez rencontrer des temps d’arrêt lors de la mise à jour de votre connecteur si :  
+- Vous n’avez qu’un seul connecteur. Pour éviter ce temps d’arrêt et optimiser la disponibilité, nous vous recommandons d’installer un second connecteur et de [créer un groupe de connecteurs](active-directory-application-proxy-connectors-azure-portal.md).  
 - Un connecteur se trouvait au milieu d’une transaction lorsque la mise à jour a commencé. Votre navigateur devrait automatiquement relancer l’opération, ou vous pouvez actualiser votre page. Lorsque la demande est renvoyée, le trafic est acheminé vers un connecteur de secours.
 
-## <a name="all-networking-is-outbound"></a>Tous les réseaux sont sortants
+## <a name="outbound-only-networking"></a>Mise en réseau sortante uniquement
 Les connecteurs envoient uniquement des demandes sortantes, afin que la connexion soit toujours initiée par le connecteur. Il n’est pas nécessaire pour ouvrir des ports d’entrée car le trafic passe dans les deux sens une fois qu’une session a été établie.
 
 Le trafic sortant est envoyé au service de proxy d’application et aux applications publiées. Le trafic vers le service est envoyé aux centres de données Azure sur plusieurs ports différents. Pour plus d’informations sur les ports utilisés, consultez [ Activer le proxy d’application dans portail Azure](active-directory-application-proxy-enable.md).

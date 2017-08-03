@@ -1,10 +1,10 @@
 ---
 title: "ESP8266 vers cloud - Connecter la carte Feather HUZZAH ESP8266 à Azure IoT Hub | Microsoft Docs"
-description: "Explique comment connecter un appareil Arduino, nommé Adafruit Feather HUZZAH ESP8266, à Azure IoT Hub, service cloud Microsoft qui vous aide à gérer vos ressources IoT."
+description: "Ce didacticiel explique comment configurer la carte Adafruit Feather HUZZAH ESP8266 et la connecter à Azure IoT Hub pour envoyer des données à la plateforme cloud Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
@@ -15,25 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 0969e78a69c73c29ecfddcf0de0ebeeeed8acd60
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 6a450579c848fe6030a328ddf410f139baae2324
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-<a id="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud" class="xliff"></a>
-
-# Connecter l’Adafruit Feather HUZZAH ESP8266 à Azure IoT Hub dans le cloud
+# <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Connecter l’Adafruit Feather HUZZAH ESP8266 à Azure IoT Hub dans le cloud
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ![Connexion entre un capteur DHT22, une carte Feather HUZZAH ESP8266 et IoT Hub](media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
 
-<a id="what-you-do" class="xliff"></a>
-
-## Procédure
+## <a name="what-you-do"></a>Procédure
 
 
 En premier lieu, vous connecterez l’Adafruit Feather HUZZAH ESP8266 à un IoT Hub créé à cette fin. Ensuite, vous exécutez un exemple d’application sur l’ESP8266 pour collecter des données de température et d’humidité provenant d’un capteur DHT22. Enfin, vous enverrez les données du capteur à votre IoT Hub.
@@ -44,18 +39,14 @@ En premier lieu, vous connecterez l’Adafruit Feather HUZZAH ESP8266 à un IoT 
 
 
 
-<a id="what-you-learn" class="xliff"></a>
-
-## Contenu
+## <a name="what-you-learn"></a>Contenu
 
 * Création d’un IoT Hub et enregistrement d’un appareil pour la carte Feather HUZZAH ESP8266
 * Connexion du Feather HUZZAH ESP8266 au capteur et à votre ordinateur
 * Collecte des données du capteur en exécutant un exemple d’application sur la carte Feather HUZZAH ESP8266
 * Envoi des données du capteur à votre IoT Hub
 
-<a id="what-you-need" class="xliff"></a>
-
-## Ce dont vous avez besoin
+## <a name="what-you-need"></a>Ce dont vous avez besoin
 
 ![Composants requis pour le didacticiel](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
 
@@ -81,13 +72,9 @@ Les éléments suivants sont facultatifs si vous n’avez pas de capteur. Vous a
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-<a id="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer" class="xliff"></a>
-
-## Connecter la carte Feather HUZZAH ESP8266 au capteur et à votre ordinateur
+## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Connecter la carte Feather HUZZAH ESP8266 au capteur et à votre ordinateur
 Dans cette section, vous connectez les capteurs à votre tableau. Puis vous connectez votre appareil à votre ordinateur pour une utilisation ultérieure.
-<a id="connect-a-dht22-temperature-and-humidity-sensor-to-feather-huzzah-esp8266" class="xliff"></a>
-
-### Connecter un capteur de température et d’humidité DHT22 à la carte Feather HUZZAH ESP8266
+### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-huzzah-esp8266"></a>Connecter un capteur de température et d’humidité DHT22 à la carte Feather HUZZAH ESP8266
 
 Utilisez la platine d’expérimentation et les câbles de liaison pour effectuer la connexion comme suit. Si vous n’avez pas de capteur, ignorez cette section. Vous pourrez utiliser des données de capteur simulées à la place.
 
@@ -111,17 +98,13 @@ Votre carte Feather HUZZAH ESP8266 devrait à présent être connectée à un ca
 
 ![Connexion du capteur DHT22 à la carte Feather Huzzah](media/iot-hub-arduino-huzzah-esp8266-get-started/8_connect-dht22-feather-huzzah.png)
 
-<a id="connect-feather-huzzah-esp8266-to-your-computer" class="xliff"></a>
-
-### Connexion de la carte Feather HUZZAH ESP8266 à votre ordinateur
+### <a name="connect-feather-huzzah-esp8266-to-your-computer"></a>Connexion de la carte Feather HUZZAH ESP8266 à votre ordinateur
 
 Comme présenté ensuite, à l’aide du câble Micro USB vers USB Type A, connectez la carte Feather HUZZAH ESP8266 à votre ordinateur.
 
 ![Connexion de la carte Feather Huzzah à votre ordinateur](media/iot-hub-arduino-huzzah-esp8266-get-started/9_connect-feather-huzzah-computer.png)
 
-<a id="add-serial-port-permissions-ubuntu-only" class="xliff"></a>
-
-### Ajouter des autorisations de port série (Ubuntu uniquement)
+### <a name="add-serial-port-permissions-ubuntu-only"></a>Ajouter des autorisations de port série (Ubuntu uniquement)
 
 
 Si vous utilisez Ubuntu, assurez-vous que vous disposez des autorisations nécessaires pour utiliser le port USB de la carte Feather HUZZAH ESP8266. Pour ajouter des autorisations de port série, procédez comme suit :
@@ -151,15 +134,11 @@ Si vous utilisez Ubuntu, assurez-vous que vous disposez des autorisations néces
 
 1. Déconnectez-vous d’Ubuntu, puis reconnectez-vous pour que la modification prenne effet.
 
-<a id="collect-sensor-data-and-send-it-to-your-iot-hub" class="xliff"></a>
-
-## Collecter les données du capteur et les envoyer à votre IoT Hub
+## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>Collecter les données du capteur et les envoyer à votre IoT Hub
 
 Dans cette section, vous allez déployer et exécuter un exemple d’application sur la carte Feather HUZZAH ESP8266. L’exemple d’application fait clignoter la LED de la carte Feather HUZZAH ESP8266 et envoie les données de température et d’humidité collectées à partir du capteur DHT22 à votre IoT Hub.
 
-<a id="get-the-sample-application-from-github" class="xliff"></a>
-
-### Obtenir l’exemple d’application à partir de GitHub
+### <a name="get-the-sample-application-from-github"></a>Obtenir l’exemple d’application à partir de GitHub
 
 L’exemple d’application est hébergé sur GitHub. Clonez l’exemple de référentiel contenant l’exemple d’application à partir de GitHub. Pour cloner l’exemple de référentiel, procédez comme suit :
 
@@ -195,9 +174,7 @@ Installez le package pour la carte Feather HUZZAH ESP8266 dans l’IDE Arduino 
 
 1. Cliquez sur **Outils** > **Type de carte** > **Adafruit HUZZAH ESP8266**.
 
-<a id="install-necessary-libraries" class="xliff"></a>
-
-### Installer les bibliothèques nécessaires
+### <a name="install-necessary-libraries"></a>Installer les bibliothèques nécessaires
 
 1. Dans l’IDE Arduino, cliquez sur **Croquis** > **Inclure une bibliothèque** > **Gérer les bibliothèques**.
 1. Recherchez les noms de bibliothèque suivants un par un. Pour chacune des bibliothèques trouvées, cliquez sur **Installer**.
@@ -208,9 +185,7 @@ Installez le package pour la carte Feather HUZZAH ESP8266 dans l’IDE Arduino 
    * `DHT sensor library`
    * `Adafruit Unified Sensor`
 
-<a id="dont-have-a-real-dht22-sensor" class="xliff"></a>
-
-### Vous n’avez pas de capteur DHT22 ?
+### <a name="dont-have-a-real-dht22-sensor"></a>Vous n’avez pas de capteur DHT22 ?
 
 L’exemple d’application permet de simuler des données de température et d’humidité si vous n’avez pas de capteur DHT22. Pour configurer l’utilisation de données simulées par l’exemple d’application, procédez comme suit :
 
@@ -223,16 +198,12 @@ L’exemple d’application permet de simuler des données de température et d�
 
 1. Enregistrez le fichier avec `Control-s`.
 
-<a id="deploy-the-sample-application-to-feather-huzzah-esp8266" class="xliff"></a>
-
-### Déployer l’exemple d’application sur la carte Feather HUZZAH ESP8266
+### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Déployer l’exemple d’application sur la carte Feather HUZZAH ESP8266
 
 1. Dans l’IDE Arduino, cliquez sur **outil** > **Port**, puis cliquez sur le port série pour la carte Feather HUZZAH ESP8266.
 1. Cliquez sur **Croquis** > **Téléverser** pour générer et déployer l’exemple d’application sur la carte Feather HUZZAH ESP8266.
 
-<a id="enter-your-credentials" class="xliff"></a>
-
-### Entrer vos informations d’identification
+### <a name="enter-your-credentials"></a>Entrer vos informations d’identification
 
 Une fois le chargement terminé, suivez cette procédure pour entrer vos informations d’identification :
 
@@ -248,17 +219,13 @@ Une fois le chargement terminé, suivez cette procédure pour entrer vos informa
 > [!Note]
 > Les informations d’identification sont stockées dans la mémoire EEPROM de la carte Feather HUZZAH ESP8266. Si vous cliquez sur le bouton de réinitialisation de la carte Feather HUZZAH ESP8266, l’exemple d’application vous demande si vous souhaitez effacer ces informations. Entrez `Y` pour effacer les informations. Vous êtes invité à fournir les informations une deuxième fois.
 
-<a id="verify-the-sample-application-is-running-successfully" class="xliff"></a>
-
-### Vérifier que l’exemple d’application s’exécute correctement
+### <a name="verify-the-sample-application-is-running-successfully"></a>Vérifier que l’exemple d’application s’exécute correctement
 
 Si vous voyez la sortie suivante dans la fenêtre Moniteur série et la LED clignoter sur la carte Feather HUZZAH ESP8266, l’exemple d’application s’exécute correctement.
 
 ![Sortie finale dans Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez correctement connecté une carte Feather HUZZAH ESP8266 à votre IoT Hub et envoyé les données de capteur collectées à votre IoT Hub. 
 

@@ -14,15 +14,14 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
 published: true
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: c7753ab9db74d32aef35aca6a26cced24782fb6b
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: c052d7e9f757164429ce867201b96305e405dce9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/11/2017
 
 ---
-# Notes de version pour la passerelle de gestion des données
-<a id="release-notes-for-data-management-gateway" class="xliff"></a>
+# <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
 Un des défis de l’intégration de données modernes consiste à déplacer des données vers et depuis un site local et le cloud. Azure Data Factory effectue cette intégration avec la passerelle de gestion des données Microsoft, qui est un agent pouvant être installé en local pour activer le déplacement de données hybrides.
 
 Consultez les articles suivants pour des informations détaillées sur la passerelle de gestion des données et son utilisation :
@@ -31,24 +30,19 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 *  [Déplacement de données entre des emplacements locaux et le cloud à l'aide d’Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## VERSION ACTUELLE (2.10.6347.7)
-<a id="current-version-21063477" class="xliff"></a>
+## <a name="current-version-21063477"></a>VERSION ACTUELLE (2.10.6347.7)
 
-### Améliorations
-<a id="enhancements-" class="xliff"></a>
+### <a name="enhancements-"></a>Améliorations
 - Vous pouvez ajouter des entrées DNS à la liste blanche Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Vous pouvez trouver l’entrée DNS concernée sur le portail Azure (Data Factory -> Créer et déployer > Passerelles > ServiceUrls (dans JSON))
 - Le connecteur HDFS prend désormais en charge le certificat public auto-signé en vous permettant d’ignorer la validation SSL.
 - Résolu : problème lié à la passerelle en mode hors connexion pendant la mise à jour (en raison d’une différence d’heure)
 
 
 
-## Versions antérieures
-<a id="earlier-versions" class="xliff"></a>
+## <a name="earlier-versions"></a>Versions antérieures
 
-## 2.9.6313.2
-<a id="2963132" class="xliff"></a>
-### Améliorations
-<a id="enhancements-" class="xliff"></a>
+## <a name="2963132"></a>2.9.6313.2
+### <a name="enhancements-"></a>Améliorations
 -   Vous pouvez ajouter des entrées DNS à la liste blanche Service Bus au lieu d’autoriser toutes les adresses IP Azure dans votre pare-feu (si nécessaire). Plus de détails ici.
 -   Vous pouvez maintenant copier les données vers ou à partir d’un seul objet blob de blocs jusqu’à 4,75 To. Il s’agit de la taille maximale prise en charge pour ces objets (la limite antérieure était de 195 Go).
 -   Résolu : problème de mémoire insuffisante lors de la décompression de plusieurs petits fichiers pendant l’activité de copie.
@@ -56,65 +50,51 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 -   Résolu : le script de nettoyage SQL ne fonctionne pas avec la version locale de SQL Server à partir de l’Assistant de copie.
 -   Résolu : le nom de colonne avec un espace à la fin ne fonctionne pas dans l’activité de copie.
 
-## 2.8.66283.3
-<a id="28662833" class="xliff"></a>
-### Améliorations
-<a id="enhancements-" class="xliff"></a>
+## <a name="28662833"></a>2.8.66283.3
+### <a name="enhancements-"></a>Améliorations
 - Résolu : problème d’informations d’identification manquantes au redémarrage de l’ordinateur de la passerelle.
 - Résolu : problème lié à l’inscription lors de la restauration de la passerelle à l’aide d’un fichier de sauvegarde.
 
 
-## 2.7.6240.1
-<a id="2762401" class="xliff"></a>
-### Améliorations
-<a id="enhancements-" class="xliff"></a>
+## <a name="2762401"></a>2.7.6240.1
+### <a name="enhancements-"></a>Améliorations
 - Résolu : lecture incorrecte d’une valeur null décimale à partir d’Oracle comme source.
 
-## 2.6.6192.2
-<a id="2661922" class="xliff"></a>
-### Nouveautés
-<a id="whats-new" class="xliff"></a>
+## <a name="2661922"></a>2.6.6192.2
+### <a name="whats-new"></a>Nouveautés
 - Les clients peuvent faire part de leurs commentaires sur l’expérience d’inscription à la passerelle.
 - Prise en charge d’un nouveau format de compression : ZIP (Deflate)
 
-### Améliorations
-<a id="enhancements-" class="xliff"></a>
+### <a name="enhancements-"></a>Améliorations
 - Amélioration des performances pour le récepteur d’Oracle, source HDFS.
 - Correctif de bogue pour la mise à jour automatique de la passerelle, capacité de traitement parallèle de la passerelle.
 
 
-## 2.5.6164.1
-<a id="2561641" class="xliff"></a>
-### Améliorations
-<a id="enhancements" class="xliff"></a>
+## <a name="2561641"></a>2.5.6164.1
+### <a name="enhancements"></a>Améliorations
 - Expérience d’inscription de la passerelle améliorée et plus robuste. Vous pouvez maintenant suivre l’état d’avancement lors du processus d’inscription de la passerelle, ce qui rend l’expérience d’inscription plus réactive.
 - Amélioration du processus de restauration de la passerelle. Vous pouvez toujours récupérer la passerelle même si vous n’avez pas le fichier de sauvegarde de passerelle avec cette mise à jour. Cela vous oblige à réinitialiser les informations d’identification du Service lié dans le portail.
 - Résolution de bogue.
 
-## 2.4.6151.1
-<a id="2461511" class="xliff"></a>
+## <a name="2461511"></a>2.4.6151.1
 
-### Nouveautés
-<a id="whats-new" class="xliff"></a>
+### <a name="whats-new"></a>Nouveautés
 
-- Vous pouvez désormais stocker localement les informations d’identification de la source de données. Les informations d’identification sont chiffrées. Les informations d’identification de la source de données peuvent être récupérées et restaurées à l’aide du fichier de sauvegarde qui peut être exporté à partir de la passerelle existante, le tout sur site.
+- Vous pouvez désormais stocker localement les informations d’identification de la source de données. Les informations d’identification sont chiffrées. Les informations d’identification de la source de données peuvent être récupérées et restaurées à l’aide du fichier de sauvegarde qui peut être exporté à partir de la passerelle existante, le tout localement.
 
-### Améliorations
-<a id="enhancements-" class="xliff"></a>
+### <a name="enhancements-"></a>Améliorations
 
 - Expérience d’inscription de la passerelle améliorée et plus robuste.
 - Prise en charge la détection automatique de la configuration de la propriété QuoteChar pour le format Texte dans l’Assistant de copie et amélioration la précision globale de la détection de format.
 
-## 2.3.6100.2
-<a id="2361002" class="xliff"></a>
+## <a name="2361002"></a>2.3.6100.2
 
 - Prise en charge de la détection automatique firstRowAsHeader et SkipLineCount dans l’Assistant de copie pour les fichiers texte dans le système de fichiers local et HDFS.
 - Amélioration de la stabilité de la connexion réseau entre la passerelle et Service Bus
 - Résolution de quelques bogues
 
 
-## 2.2.6072.1
-<a id="2260721" class="xliff"></a>
+## <a name="2260721"></a>2.2.6072.1
 
 *  Permet de paramétrer le proxy HTTP pour la passerelle à l’aide du Gestionnaire de configuration de passerelle. Si configurés, Azure Blob, Azure Table, Azure Data Lake et Document DB sont accessibles via le proxy HTTP.
 *  Prend en charge la gestion des en-têtes pour TextFormat lors de la copie des données depuis/vers un objet Blob Azure, Azure Data Lake Store, le système de fichiers local ou un système de fichiers HDFS local.
@@ -122,8 +102,7 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 *  Introduit le nouvel état de passerelle **En ligne (limité)**, qui indique que la fonctionnalité principale de la passerelle fonctionne, à l’exception de la prise en charge de l’opération interactive pour l’assistant de copie.
 *  Améliore la robustesse de l’inscription de la passerelle avec la clé d’inscription.
 
-## 2.1.6040.
-<a id="216040" class="xliff"></a>
+## <a name="216040"></a>2.1.6040.
 
 *  Le pilote DB2 est désormais inclus dans le package d’installation de la passerelle. Il est inutile de l’installer séparément.
 *  Le pilote DB2 prend désormais en charge z/OS et DB2 pour i (AS/400), ainsi que les plateformes déjà prises en charge (Windows, Unix et Linux).
@@ -131,8 +110,7 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 *  Prend en charge la copie de données depuis/vers un stockage d’objet blob à chaud ou à froid, ainsi que le compte de stockage à usage général déjà pris en charge.
 *  Permet de vous connecter l’instance SQL Server locale via la passerelle avec des droits de connexion à distance.  
 
-## 2.0.6013.1
-<a id="2060131" class="xliff"></a>
+## <a name="2060131"></a>2.0.6013.1
 
 *  Vous pouvez sélectionner la langue/culture utilisée par une passerelle lors de l’installation manuelle.
 
@@ -151,13 +129,11 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 
     * Amélioration des performances d’affichage du schéma/de l’aperçu par rapport à SQL Server dans l’outil de prévisualisation de copie sans code.
 
-## 1.12.5953.1
-<a id="11259531" class="xliff"></a>
+## <a name="11259531"></a>1.12.5953.1
 
 *  Résolution des bogues
 
-## 1.11.5918.1
-<a id="11159181" class="xliff"></a>
+## <a name="11159181"></a>1.11.5918.1
 
 *  La taille maximale du journal des événements de la passerelle a été augmentée de 1 Mo à 40 Mo.
 
@@ -171,15 +147,13 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 
 *  Résolution des bogues
 
-## 1.10.5892.1
-<a id="11058921" class="xliff"></a>
+## <a name="11058921"></a>1.10.5892.1
 
 *  Amélioration des performances
 
 *  Résolution des bogues
 
-## 1.9.5865.2
-<a id="1958652" class="xliff"></a>
+## <a name="1958652"></a>1.9.5865.2
 
 *  Capacité de mise à jour automatique Zero Touch
 *  Nouvelle icône de barre d’état système avec des indicateurs d’état de la passerelle
@@ -190,40 +164,34 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 *  Amélioration des performances
 *  Résolution des bogues
 
-## 1.8.5822.1
-<a id="1858221" class="xliff"></a>
+## <a name="1858221"></a>1.8.5822.1
 
 *  Amélioration de l’expérience de résolution des problèmes
 *  Amélioration des performances
 *  Résolution des bogues
 
-### 1.7.5795.1
-<a id="1757951" class="xliff"></a>
+### <a name="1757951"></a>1.7.5795.1
 
 *  Amélioration des performances
 *  Résolution des bogues
 
-### 1.7.5764.1
-<a id="1757641" class="xliff"></a>
+### <a name="1757641"></a>1.7.5764.1
 
 *  Amélioration des performances
 *  Résolution des bogues
 
-### 1.6.5735.1
-<a id="1657351" class="xliff"></a>
+### <a name="1657351"></a>1.6.5735.1
 
 *  Prise en charge de la source/du récepteur HDFS en local
 *  Amélioration des performances
 *  Résolution des bogues
 
-### 1.6.5696.1
-<a id="1656961" class="xliff"></a>
+### <a name="1656961"></a>1.6.5696.1
 
 *  Amélioration des performances
 *  Résolution des bogues
 
-### 1.6.5676.1
-<a id="1656761" class="xliff"></a>
+### <a name="1656761"></a>1.6.5676.1
 
 *  Prise en charge des outils de diagnostic dans le Gestionnaire de configuration
 *  Prise en charge des colonnes de table pour les sources de données tabulaires pour Microsoft Azure Data Factory
@@ -234,63 +202,54 @@ Consultez les articles suivants pour des informations détaillées sur la passer
 *  Prise en charge de la validation de connectivité des sources de données pour Microsoft Azure Data Factory
 *  Résolution des bogues
 
-### 1.6.5672.1
-<a id="1656721" class="xliff"></a>
+### <a name="1656721"></a>1.6.5672.1
 
 *  Prise en charge des noms de tables pour la source de données ODBC pour Microsoft Azure Data Factory
 *  Amélioration des performances
 *  Résolution des bogues
 
-### 1.6.5658.1
-<a id="1656581" class="xliff"></a>
+### <a name="1656581"></a>1.6.5658.1
 
 *  Prise en charge du récepteur de fichier pour Microsoft Azure Data Factory
 *  Prise en charge de la conservation de la hiérarchie dans une copie binaire pour Microsoft Azure Data Factory
 *  Prise en charge de l’idempotence de l’activité de copie pour Microsoft Azure Data Factory
 *  Résolution des bogues
 
-### 1.6.5640.1
-<a id="1656401" class="xliff"></a>
+### <a name="1656401"></a>1.6.5640.1
 
 *  Prise en charge de 3 sources de données supplémentaires pour Microsoft Azure Data Factory (ODBC, OData, HDFS)
 *  Prise en charge du caractère guillemet dans l’analyseur CSV pour Microsoft Azure Data Factory
 *  Prise en charge de la compression (BZip2)
 *  Résolution des bogues
 
-### 1.5.5612.1
-<a id="1556121" class="xliff"></a>
+### <a name="1556121"></a>1.5.5612.1
 
 *  Prise en charge de cinq bases de données relationnelles pour Microsoft Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata et Sybase)
 *  Prise en charge de la compression (Gzip et Deflate)
 *  Amélioration des performances
 *  Résolution des bogues
 
-### 1.4.5549.1
-<a id="1455491" class="xliff"></a>
+### <a name="1455491"></a>1.4.5549.1
 
 *  Ajout de la prise en charge de source de données Oracle pour Microsoft Azure Data Factory
 *  Amélioration des performances
 *  Résolution des bogues
 
-### 1.4.5492.1
-<a id="1454921" class="xliff"></a>
+### <a name="1454921"></a>1.4.5492.1
 
 *  Binaire unifié qui prend en charge à la fois des services Microsoft Azure Data Factory et Office 365 Power BI
 *  Affinage du processus d’inscription et de l’interface utilisateur de configuration
 *  Microsoft Azure Data Factory : prise en charge des entrées et sorties Azure pour la source de données SQL Server
 
-### 1.2.5303.1
-<a id="1253031" class="xliff"></a>
+### <a name="1253031"></a>1.2.5303.1
 
 *  Correction du problème de délai d’expiration pour la prise en charge de connexions de source de données chronophages supplémentaires.
 
-### 1.1.5526.8
-<a id="1155268" class="xliff"></a>
+### <a name="1155268"></a>1.1.5526.8
 
 *  .NET Framework 4.5.1 est requis pour l’installation.
 
-### 1.0.5144.2
-<a id="1051442" class="xliff"></a>
+### <a name="1051442"></a>1.0.5144.2
 
 *  Aucune modification affectant les scénarios Microsoft Azure Data Factory.
 

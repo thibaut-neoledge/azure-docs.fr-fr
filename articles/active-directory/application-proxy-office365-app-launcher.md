@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 07/06/2017
 ms.author: kgremban
+ms.reviewer: harshja
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 31e8e39580ed83f13fd3ffb9981221765063a0b7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 194367028c3c2c571dd8645a794f67a0c3a21d4c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -35,8 +36,6 @@ Avec le module Azure AD Powershell, vous pouvez définir des URL de page d’acc
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-### <a name="determine-the-home-page-url"></a>Déterminer l’URL de la page d’accueil
-
 Avant de définir l’URL de page d’accueil, n’oubliez pas les éléments suivants :
 
 * Vérifiez que le chemin d’accès que vous spécifiez est un chemin d’accès de sous-domaine de l’URL du domaine racine.
@@ -44,6 +43,16 @@ Avant de définir l’URL de page d’accueil, n’oubliez pas les éléments su
   Si l’URL de domaine racine est https://apps.contoso.com/app1/ par exemple, l’URL de page d’accueil que vous configurez doit commencer par https://apps.contoso.com/app1/.
 
 * Si vous apportez une modification à l’application publiée, ce changement peut réinitialiser la valeur de l’URL de page d’accueil. Ultérieurement, lorsque vous mettez à jour l’application, vous devez revérifier et, si nécessaire, mettre à jour l’URL de page d’accueil.
+
+## <a name="change-the-home-page-in-the-azure-portal"></a>Changer la page d’accueil du portail Azure
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
+2. Accédez à **Azure Active Directory** > **Inscriptions des applications** et choisissez votre application dans la liste. 
+3. Dans les paramètres, sélectionnez **Propriétés**.
+4. Mettez à jour le champ **URL de la page d’accueil** avec votre nouveau chemin d’accès. 
+5. Sélectionnez **Enregistrer**.
+
+## <a name="change-the-home-page-with-powershell"></a>Changer la page d’accueil à l’aide de PowerShell
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Installer le module Azure AD PowerShell
 
@@ -59,7 +68,7 @@ Pour installer le package, procédez comme suit :
     Si vous l’exécutez en tant que non-administrateur, utilisez l’option `-scope currentuser`.
 2. Pendant l’installation, sélectionnez **Y** pour installer deux packages depuis Nuget.org. Les deux packages sont requis. 
 
-## <a name="step-1-find-the-objectid-of-the-app"></a>Étape 1 : rechercher l’ObjectID de l’application
+### <a name="find-the-objectid-of-the-app"></a>Rechercher l’ObjectID de l’application
 
 Obtenez l’ObjectID de l’application, puis recherchez l’application en fonction de sa page d’accueil.
 
@@ -87,7 +96,7 @@ Obtenez l’ObjectID de l’application, puis recherchez l’application en fonc
     ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
-## <a name="step-2-update-the-home-page-url"></a>Étape 2 : mise à jour de l’URL de page d’accueil
+### <a name="update-the-home-page-url"></a>Mettre à jour l’URL de la page d’accueil
 
 Dans le même module PowerShell que celui utilisé à l’étape 1, procédez comme suit :
 

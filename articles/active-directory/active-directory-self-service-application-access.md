@@ -3,7 +3,7 @@ title: "Accès à l’application en libre-service et gestion déléguée avec A
 description: "Cet article explique comment octroyer l’accès en libre-service à l’application et la gestion déléguée avec Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 448a7fe8-a162-475e-9ba2-2e3ab59302bc
@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 57093159c0b9c63b6e2dc0971e3aea645a33aa55
+ms.date: 07/13/2017
+ms.author: curtand
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 1724376c55d196f1b2b0b82180e4f59432e506ed
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Accès à l’application en libre-service et gestion déléguée avec Azure Active Directory
 L’activation des fonctionnalités de libre-service pour les utilisateurs finaux est un scénario courant pour l’informatique d’entreprise. Un grand nombre d’utilisateurs, d’applications, et la personne la mieux informée pour prendre des décisions d’autorisation d’accès n’est pas nécessairement l’administrateur de l’annuaire. Souvent, la personne la mieux à même de décider de qui peut accéder à une application est le responsable d’équipe ou un autre administrateur délégué. Mais à la fin de la journée, c’est l’utilisateur qui se sert de l’application et qui sait ce dont il a besoin pour faire le travail.
 
-L’accès à l’application en libre-service est une fonctionnalité d’ [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) qui permet aux administrateurs d’annuaire de :
+L’accès à l’application en libre-service est une fonctionnalité [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/), disponible avec les licences P1 et P2, qui permet aux administrateurs d’annuaire d’effectuer ce qui suit :
 
-* Donner aux utilisateurs la possibilité de demander l’accès aux applications à l’aide d’une vignette « Obtenir davantage d’applications » du [Panneau d’accès Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* Donner aux utilisateurs la possibilité de demander l’accès aux applications à l’aide d’une vignette « Obtenir d’autres applications » dans le [Panneau d’accès Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Déterminer quels utilisateurs peuvent demander l’accès
 * Définir si une approbation est obligatoire ou non pour que les utilisateurs puissent s’accorder à eux-mêmes l’accès à une application
 * Définir qui doit approuver les requêtes et gérer l’accès à chaque application

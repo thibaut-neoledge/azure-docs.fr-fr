@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fe513adfe40b675b1154e24388316eb7ee09a37d
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 9ac6ed0d6171b572e0d5729a4fe7c8bd7869525d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -123,7 +123,6 @@ En savoir plus sur les [événements personnalisés](app-insights-api-custom-eve
 ### <a name="slice-and-dice-events"></a>Segmenter et traiter les événements
 
 Dans les outils Utilisateurs, Sessions et Événements, vous pouvez segmenter et traiter des événements personnalisés par utilisateur, nom d’événement et propriétés.
-
 ![Utilisateurs](./media/app-insights-usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>Concevoir la télémétrie avec l’application

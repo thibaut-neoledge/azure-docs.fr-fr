@@ -3,7 +3,7 @@ title: "Référence d’API d’audit Azure Active Directory | Microsoft Do
 description: "Prise en main de l’API d’audit Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: markusvi
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 87c7990834eaf2aa6c4aff0c341150ba9bd9eed4
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 573e940c5390e7b990d889681eb37b73c5b253d9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/10/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Référence d’API d’audit Azure Active Directory
@@ -29,10 +29,17 @@ Cette rubrique a pour but de vous fournir des informations de référence sur **
 
 Consultez l'article :
 
-* [Journaux d’audit](active-directory-reporting-azure-portal.md#audit-logs) pour plus d’informations conceptuelles
+* [Journaux d’audit](active-directory-reporting-azure-portal.md#activity-reports) pour plus d’informations conceptuelles
+
 * [Prise en main de l’API de création de rapports Azure Active Directory](active-directory-reporting-api-getting-started.md) pour plus d’informations sur l’API de création de rapports.
 
-Si vous avez des questions, des problèmes ou des commentaires, veuillez contacter [Aide à la création de rapports AAD](mailto:aadreportinghelp@microsoft.com).
+
+Pour :
+
+- Consulter les questions les plus fréquentes, lisez notre [FAQ](active-directory-reporting-faq.md). 
+
+- En savoir plus les problèmes, consultez [Envoyer un ticket de support](active-directory-troubleshooting-support-howto.md). 
+
 
 ## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 * Utilisateurs ayant le rôle d’administrateur de sécurité ou de lecteur de la sécurité
