@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: f0609465edde67a9e11af86c3265ea29a737fc85
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 792712e3e529d77ff20a7603b5fbf028ca60f8c8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -51,7 +51,7 @@ Lorsque vous utilisez des points de terminaison Azure, Traffic Manager détecte 
 Les points de terminaison externes sont utilisés pour les services hébergés en dehors d’Azure. Par exemple, un service hébergé en local ou avec un autre fournisseur. Les points de terminaison externes peuvent être utilisés individuellement ou être combinés avec des points de terminaison Azure dans le même profil Traffic Manager. La combinaison de points de terminaison Azure avec des points de terminaison externes permet la prise en charge de divers scénarios :
 
 * Dans un modèle de basculement actif-actif ou actif-passif, utilisez Azure pour renforcer la redondance d’une application locale existante.
-* Pour réduire la latence des applications pour les utilisateurs dans le monde entier, étendez une application locale vers des emplacements géographiques supplémentaires dans Azure. Pour plus d’informations, consultez [Routage du trafic Traffic Manager basé sur les performances](traffic-manager-routing-methods.md#a-name--performanceaperformance-traffic-routing-method).
+* Pour réduire la latence des applications pour les utilisateurs dans le monde entier, étendez une application locale vers des emplacements géographiques supplémentaires dans Azure. Pour plus d’informations, consultez [Routage du trafic Traffic Manager basé sur les performances](traffic-manager-routing-methods.md#performance).
 * Utilisez Azure afin de fournir une capacité supplémentaire pour une application locale existante, soit en continu, soit en mode « croissance dans le cloud » pour gérer un pic de la demande.
 
 Dans certains cas, il est utile d’utiliser des points de terminaison externes pour référencer des services Azure (pour obtenir des exemples, consultez la [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints)). Dans ce cas, la facturation des contrôles d’intégrité dépend de la vitesse des points de terminaison Azure, et non de la vitesse des points de terminaison externes. Contrairement aux points de terminaison Azure, si vous arrêtez ou supprimez le service sous-jacent, les contrôles d’intégrité continuent à vous être facturés jusqu’à ce que vous désactiviez ou supprimiez le point de terminaison dans Traffic Manager.

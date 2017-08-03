@@ -1,5 +1,5 @@
 ---
-title: "Ajouter les bibliothèques Hive lors de la création de cluster HDInsight | Microsoft Docs"
+title: "Ajouter les bibliothèques Hive lors de la création de cluster HDInsight - Azure | Microsoft Docs"
 description: "Découvrez comment ajouter des bibliothèques Hive (fichiers jar) à un cluster HDInsight pendant la création du cluster."
 services: hdinsight
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 6f6d7bf50878cc6938f19ba7f79f968f44f82ed6
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 3412864384961e8820d6700c1bf22a4cae64ba4b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Ajouter des bibliothèques Hive personnalisées lors de la création de votre cluster HDInsight
@@ -47,7 +47,7 @@ Pour les **clusters basés sur Linux**: [https://hdiconfigactions.blob.core.wind
 Pour les **clusters basés sur Windows**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 **Configuration requise**
 
@@ -57,7 +57,7 @@ Pour les **clusters basés sur Windows**: [https://hdiconfigactions.blob.core.wi
 
 * Le compte de stockage contenant la bibliothèque de fichiers jar **doit** être lié au cluster HDInsight lors de la création. Il doit s’agir du compte de stockage par défaut ou d’un compte ajouté via la __configuration facultative__.
 
-* Le chemin WASB vers le conteneur doit être spécifié en tant que paramètre à l'action de script. Par exemple, si les fichiers jar sont stockés dans un conteneur nommé **libs** sur un compte de stockage nommé **mystorage**, le paramètre serait **wasbs://libs@mystorage.blob.core.windows.net/**.
+* Le chemin WASB vers le conteneur doit être spécifié en tant que paramètre à l'action de script. Par exemple, si les fichiers jar sont stockés dans un conteneur nommé **libs** sur un compte de stockage nommé **mystorage**, le paramètre serait **wasb://libs@mystorage.blob.core.windows.net/**.
 
   > [!NOTE]
   > Ce document suppose que vous avez déjà créé un compte de stockage, un conteneur d'objets blob et que vous avez déjà téléchargé les fichiers vers ceux-ci.
@@ -85,7 +85,7 @@ Pour les **clusters basés sur Windows**: [https://hdiconfigactions.blob.core.wi
 
    * **ZOOKEEPER** : laissez ce champ vide.
 
-   * **PARAMETERS** : entrez l'adresse WASB du compte de stockage et du conteneur qui contiennent les fichiers jar. Par exemple : **wasbs://libs@mystorage.blob.core.windows.net/**.
+   * **PARAMETERS** : entrez l'adresse WASB du compte de stockage et du conteneur qui contiennent les fichiers jar. Par exemple : **wasb://libs@mystorage.blob.core.windows.net/**.
 
 3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration.
 

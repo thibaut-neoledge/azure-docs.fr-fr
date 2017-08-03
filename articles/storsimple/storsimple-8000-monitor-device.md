@@ -12,19 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/15/2017
+ms.date: 08/02/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 337da13d4448090f320fa53a789d97f9843804d3
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: ac11c6c8532007ee40db128dd9933c99a32a9420
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Utilisation du service StorSimple Device Manager pour surveiller votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble
-Vous pouvez utiliser le service StorSimple Device Manager pour surveiller des appareils spécifiques dans votre solution StorSimple. Vous pouvez créer des graphiques personnalisés basés sur les performances E/S, l’utilisation de la capacité, le débit du réseau et les mesures de performances de l’appareil, et les épingler au tableau de bord. Pour plus d’informations, consultez la section décrivant comment [personnaliser votre tableau de bord sur le portail](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).
+Vous pouvez utiliser le service StorSimple Device Manager pour surveiller des appareils spécifiques dans votre solution StorSimple. Vous pouvez créer des graphiques personnalisés basés sur les performances E/S, l’utilisation de la capacité, le débit du réseau et les mesures de performances de l’appareil, et les épingler au tableau de bord. Pour plus d’informations, consultez la section décrivant comment [personnaliser votre tableau de bord sur le portail](/articles/azure-portal/azure-portal-dashboards.md).
 
 Pour afficher les informations de surveillance d’un appareil donné, sélectionnez le service StorSimple Device Manager dans le portail Azure. Sélectionnez votre appareil dans la listes des appareils et accédez à la zone **Moniteur**. Vous pouvez alors voir les graphiques de **capacité**, d’**utilisation** et de **performances** de l’appareil sélectionné.
 

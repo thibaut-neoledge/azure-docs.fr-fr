@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 3dd84ade3d3ad5f6982f8ab34dd72c2937d21410
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 8ac757a84a932c434b508aa33c343c866a40bf02
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 
@@ -34,7 +34,7 @@ Une [Machine virtuelle Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwind
 > * Créer des ressources
 > * Effectuer les tâches de gestion
 > * Supprimer des ressources
-> * Exécuter l'application
+> * Exécution de l'application
 
 Ces étapes prennent environ 20 minutes.
 
@@ -533,9 +533,9 @@ Des machines virtuelles peuvent disposer d’un ou plusieurs [disques de donnée
             vm)
 
         return add_result.result()
-        ```
+    ```
 
-2. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
+2. Pour appeler la fonction que vous avez ajoutée précédemment, ajoutez le code suivant sous l’instruction **if** à la fin du fichier .py :
 
     ```python
     add_result = add_datadisk(compute_client)
@@ -567,7 +567,7 @@ Des machines virtuelles peuvent disposer d’un ou plusieurs [disques de donnée
 
 1. Pour exécuter l’application console, cliquez sur **Démarrer** dans Visual Studio.
 
-2. Appuyez sur **Entrée** après que l’état de chaque ressource a été retourné. Dans les informations d’état, vous devriez voir l’état d’approvisionnement **Réussi**. Une fois la machine virtuelle créée, vous avez la possibilité de supprimer toutes les ressources que vous créez. Avant d’appuyer sur **Entrée** pour démarrer la suppression des ressources, prenez quelques minutes pour vérifier leur création dans le portail Azure. Si le portail Azure est ouvert, il se peut que vous deviez actualiser le panneau pour afficher de nouvelles ressources.  
+2. Appuyez sur **Entrée** après que l’état de chaque ressource a été retourné. Dans les informations d’état, vous devriez voir l’état d’approvisionnement **Réussi**. Une fois la machine virtuelle créée, vous pouvez supprimer toutes les ressources que vous avez créées. Avant d’appuyer sur **Entrée** pour démarrer la suppression des ressources, prenez quelques minutes pour vérifier leur création dans le portail Azure. Si le portail Azure est ouvert, il se peut que vous deviez actualiser le panneau pour afficher de nouvelles ressources.  
 
     L’exécution complète de cette application console devrait durer cinq minutes environ. Quelques minutes peuvent s’écouler après la fin de l’exécution de l’application avant que toutes les ressources et le groupe de ressources soient supprimés.
 

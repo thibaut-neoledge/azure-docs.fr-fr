@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 32cbfbc78fbb808ed59142b80602a751f607706d
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: a0e93881e0d75541fc04d7bc736459f8109d1c9f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -33,13 +33,13 @@ Le tableau suivant compare les fonctionnalités de Media Encoder Standard (MES) 
 |Fonctionnalité|Media Encoder Standard|Media Encoder Premium Workflow|
 |---|---|---|
 |Appliquer une logique conditionnelle lors de l’encodage<br/>(par exemple, si l’entrée est en HD, encodez le type audio 5.1)|Non|Oui|
-|Sous-titres|Non|[Oui](media-services-premium-workflow-encoder-formats.md#a-idclosedcaptioningasupport-for-closed-captioning)|
+|Sous-titres|Non|[Oui](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
 |[Correction professionnelle du niveau sonore Dolby®](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> avec Dialogue Intelligence™|Non|Oui|
 |Désentrelacement, inverse telecine|De base|Qualité de diffusion|
 |Détection et suppression des bordures noires <br/>(pillar box, cadres)|Non|Oui|
-|Génération de miniatures|[Oui](media-services-dotnet-generate-thumbnail-with-mes.md)|[Oui](media-services-media-encoder-premium-workflow-tutorials.md#a-idthumbnailstomultibitratemp4aadding-thumbnails-to-multibitrate-mp4-output)|
-|Détourage/rognage et panorama de vidéos|[Oui](media-services-advanced-encoding-with-mes.md#a-idtrimvideoatrim-a-video-clipping)|Oui|
-|Superpositions d’audio ou de vidéo|[Oui](media-services-advanced-encoding-with-mes.md#a-idoverlayacreate-an-overlay)|[Oui](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
+|Génération de miniatures|[Oui](media-services-dotnet-generate-thumbnail-with-mes.md)|[Oui](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
+|Détourage/rognage et panorama de vidéos|[Oui](media-services-advanced-encoding-with-mes.md#trim_video)|Oui|
+|Superpositions d’audio ou de vidéo|[Oui](media-services-advanced-encoding-with-mes.md#overlay)|[Oui](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
 |Superpositions d’images|À partir d’images sources|À partir d’images et de textes sources|
 |Plusieurs pistes de langue audio|Limité|[Oui](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
 
