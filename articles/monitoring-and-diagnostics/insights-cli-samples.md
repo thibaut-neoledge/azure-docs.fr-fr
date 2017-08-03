@@ -1,8 +1,8 @@
 ---
-title: "Exemples pour le démarrage rapide de l’interface de ligne de commande Azure Monitor. | Microsoft Docs"
-description: "Exemples de commandes de l’interface de ligne de commande pour les fonctionnalités d’Azure Monitor. Azure Monitor est un service Microsoft Azure qui vous permet d’envoyer des notifications d’alerte, ou d’appeler des URL web en fonction des valeurs des données de télémétrie configurées ainsi que de mettre à l’échelle automatiquement des services cloud, des machines virtuelles et des applications web."
+title: "Exemples de démarrage rapide de l’interface CLI 1.0 pour Azure Monitor | Microsoft Docs"
+description: "Exemples de commandes de l’interface CLI 1.0 pour accéder aux fonctionnalités d’Azure Monitor. Azure Monitor est un service Microsoft Azure qui vous permet d’envoyer des notifications d’alerte, ou d’appeler des URL web en fonction des valeurs des données de télémétrie configurées ainsi que de mettre à l’échelle automatiquement des services cloud, des machines virtuelles et des applications web."
 author: kamathashwin
-manager: carolz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0e629dac553f576f2dd3059453b00d6b10e48fd7
-ms.lasthandoff: 03/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 5a8362b52c06b1b41f8108926ba07bbe5901125a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/18/2017
 
 ---
-# <a name="azure-monitor--cross-platform-cli-quick-start-samples"></a>Exemple de démarrage rapide de l’interface de ligne de commande (CLI) multiplateforme Azure Monitor
+# <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Exemple de démarrage rapide de l’interface CLI 1.0 multiplateforme pour Azure Monitor
 Cet article vous montre des exemples de commandes d’interface de ligne de commande (CLI) qui vous permettent d’accéder aux fonctionnalités de surveillance d’Azure Monitor. Azure Monitor permet une mise à l'échelle automatique des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d'alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
 
 > [!NOTE]

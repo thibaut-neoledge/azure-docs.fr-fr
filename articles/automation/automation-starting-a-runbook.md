@@ -1,6 +1,6 @@
 ---
 title: "Démarrage d’un Runbook dans Azure Automation | Microsoft Docs"
-description: "Résume les différentes méthodes qui peuvent être utilisées pour démarrer un Runbook dans Azure Automation et fournit des détails sur l&quot;utilisation du portail Azure et de Windows PowerShell."
+description: "Résume les différentes méthodes qui peuvent être utilisées pour démarrer un Runbook dans Azure Automation et fournit des détails sur l'utilisation du portail Azure et de Windows PowerShell."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/08/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0bacd2ccb08d20c4e0457d9fc83468e747cde870
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: a0cc641d5c2667b22ded2da8f803199cc959dc58
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -188,12 +190,7 @@ jsmith
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* L’architecture du Runbook dans l’article fournit une vue d’ensemble globale des ressources de gestion des Runbooks dans Azure et sur site avec Runbook Worker hybride.  Pour en savoir plus sur l’exécution des Runbooks Automation dans votre centre de données, consultez l’article [Runbooks Workers hybrides](automation-hybrid-runbook-worker.md).
+* L’architecture des Runbooks dans cet article fournit une vue d’ensemble globale des ressources de gestion des Runbooks dans Azure et localement avec Runbook Worker hybride.  Pour en savoir plus sur l’exécution des Runbooks Automation dans votre centre de données, consultez l’article [Runbooks Workers hybrides](automation-hybrid-runbook-worker.md).
 * Pour en savoir plus sur la création de Runbooks modulaires à utiliser par d’autres Runbooks pour des fonctions spécifiques ou communes, consultez [Runbooks enfants](automation-child-runbooks.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

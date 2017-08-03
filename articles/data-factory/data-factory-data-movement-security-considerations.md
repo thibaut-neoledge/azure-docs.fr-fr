@@ -3,7 +3,7 @@ title: "Considérations de sécurité relatives au déplacement des données dan
 description: "Découvrez comment sécuriser les déplacements de données dans Azure Data Factory."
 services: data-factory
 documentationcenter: 
-author: abnarain
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
-ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: de9453e6764279c481e569542433d095772f304d
+ms.date: 07/27/2017
+ms.author: abnarain
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 33ccb820b786b9aa28f9e10c35ef1d2c00eaf7f1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/11/2017
 
 ---
 
@@ -38,7 +37,7 @@ Le déplacement des données à l’aide d’Azure Data Factory a obtenu les **c
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
 -   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
-Si la conformité Azure vous intéresse et que vous désirez savoir comment Azure protège sa propre infrastructure, consultez le [Centre de gestion de la confidentialité Microsoft](https://www.microsoft.com/TrustCenter/default.aspx). 
+Si la conformité Azure vous intéresse et que vous désirez savoir comment Azure protège sa propre infrastructure, consultez le [Centre de confidentialité Microsoft](https://www.microsoft.com/TrustCenter/default.aspx). 
 
 Cet article présente les principes de sécurité à prendre en compte dans les deux scénarios de déplacement de données suivants : 
 
@@ -142,7 +141,7 @@ Les illustrations suivantes décrivent l’utilisation de la passerelle de gesti
 
 ### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Configurations de pare-feu et autorisation des adresses IP de la passerelle
 
-#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>Configuration requise du pare-feu pour un réseau local/privé   
+#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Configuration requise du pare-feu pour un réseau local/privé  
 Dans une entreprise, le **pare-feu d’entreprise** s’exécute sur le routeur central. Le **pare-feu Windows** s’exécute quant à lui en tant que démon sur l’ordinateur local sur lequel est installée la passerelle. 
 
 Le tableau suivant indique les paramètres de **port sortant** et de domaine requis pour le **pare-feu d’entreprise**.

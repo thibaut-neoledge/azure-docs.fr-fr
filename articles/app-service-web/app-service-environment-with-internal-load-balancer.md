@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21223eb0cfbff607e15713e4726761c1bdb01774
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: cfc9fb3ca26819999e10eff8df55d48468c7edef
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilisation d’un équilibreur de charge interne avec un environnement App Service
-La fonctionnalité ASE (App Service Environment) est une option de service Premium d’Azure App Service offrant une fonction de configuration améliorée qui n’est pas disponible dans les clusters mutualisés.  La fonctionnalité ASE déploie essentiellement Azure App Service sur votre réseau virtuel (VNet) Azure.  Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Présentation d’un environnement App Service Environment][WhatisASE].  Si vous ne connaissez pas les avantages de l’utilisation d’un réseau virtuel, consultez la [FAQ sur le réseau virtuel Azure][virtualnetwork].  
+La fonctionnalité ASE (App Service Environment) est une option de service Premium d’Azure App Service offrant une fonction de configuration améliorée qui n’est pas disponible dans les clusters mutualisés.  La fonctionnalité ASE déploie essentiellement Azure App Service sur votre réseau virtuel (VNet) Azure.  Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Qu'est-ce qu'un environnement App Service ?][WhatisASE].  Si vous ne connaissez pas les avantages de l’utilisation d’un réseau virtuel, consultez la [FAQ sur le réseau virtuel Azure][virtualnetwork].  
 
 ## <a name="overview"></a>Vue d'ensemble
 Un environnement App Service peut être déployé avec un point de terminaison accessible via Internet ou avec une adresse IP sur votre réseau virtuel.  Pour définir l’adresse IP sur une adresse de réseau virtuel, vous devez déployer votre ASE avec un équilibreur de charge interne (ILB).  Lorsque votre ASE est configuré avec un équilibrage de charge interne, vous fournissez :
@@ -107,9 +108,9 @@ L’adresse IP de votre ILB est répertoriée dans vos propriétés comme l’ad
 #### <a name="network-security-groups"></a>Groupes de sécurité réseau
 Un ILB ASE permet l’isolement réseau de vos applications car les applications ne sont pas accessibles ni même reconnues par Internet.  Cette méthode est excellente pour l’hébergement de sites intranet comme les applications métier.  Si vous avez besoin de restreindre davantage l’accès, vous pouvez toujours utiliser des groupes de sécurité réseau (NSG) pour contrôler l’accès au niveau du réseau. 
 
-Si vous souhaitez utiliser des NSG pour restreindre davantage l’accès, vous devez vous assurer de ne pas interrompre la communication nécessaire au fonctionnement de l’ASE.  Bien que l’accès HTTP/HTTPS s’effectue uniquement par le biais de l’ILB utilisé par l’ASE, cet ASE dépend toujours de ressources situées en dehors du réseau virtuel.  Pour savoir quel accès réseau est toujours requis, consultez les informations du document [Contrôle du trafic entrant vers un environnement App Service][ControlInbound] et du document [Détails de la configuration réseau pour les environnements App Service avec ExpressRoute][ExpressRoute].  
+Si vous souhaitez utiliser des NSG pour restreindre davantage l’accès, vous devez vous assurer de ne pas interrompre la communication nécessaire au fonctionnement de l’ASE.  Bien que l’accès HTTP/HTTPS s’effectue uniquement par le biais de l’ILB utilisé par l’ASE, cet ASE dépend toujours de ressources situées en dehors du réseau virtuel.  Pour savoir quel accès réseau est toujours requis, consultez les informations du document [Contrôle du trafic entrant vers un environnement App Service][ControlInbound] et du document [Détails de la configuration réseau pour les environnements App Service avec ExpressRoute][ExpressRoute].  
 
-Pour configurer vos NSG, vous devez connaître l’adresse IP utilisée par Azure pour gérer votre ASE.  Cette adresse IP est également l’adresse IP sortante de votre ASE s’il effectue des demandes Internet.  Pour trouver cette adresse IP, sélectionnez **Paramètres -> Propriétés** puis **Adresse IP sortante**.  
+Pour configurer vos NSG, vous devez connaître l’adresse IP utilisée par Azure pour gérer votre ASE.  Cette adresse IP est également l’adresse IP sortante de votre ASE s’il effectue des demandes Internet.  L’adresse IP sortante pour votre ASE reste statique pendant toute la durée de vie de votre ASE.  Si vous supprimez et recréez votre ASE, vous obtenez une nouvelle adresse IP.  Pour trouver cette adresse IP, sélectionnez **Paramètres -> Propriétés** puis **Adresse IP sortante**.  
 
 ![][5]
 
@@ -128,7 +129,7 @@ Lorsque vous utilisez une adresse IP virtuelle externe, le DNS est géré par Az
 ## <a name="getting-started"></a>Prise en main
 Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service](../app-service/app-service-app-service-environments-readme.md).
 
-Pour prendre en main les environnements App Service, consultez [Présentation de l’environnement App Service][WhatisASE]
+Pour prendre en main les environnements App Service, consultez [la présentation des environnements App Service][WhatisASE].
 
 Pour plus d’informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service][AzureAppService].
 
@@ -155,9 +156,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 [vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

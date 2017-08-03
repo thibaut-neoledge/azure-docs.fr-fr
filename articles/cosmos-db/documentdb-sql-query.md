@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/08/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 1241b6d97447fe6ee2a8abfb425b8b5f7d0f8a9c
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 71878a5a8807b025f418b978990cb0c502e4eca7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Requêtes SQL pour l’API DocumentDB Azure Cosmos DB
@@ -921,9 +920,7 @@ Vous pouvez également effectuer des agrégations en appliquant des filtres simu
 
 **Résultats**
 
-    [{
-        "$1": 1
-    }]
+    [ 1 ]
 
 Le tableau suivant présente la liste des fonctions d’agrégation prises en charge dans l’API DocumentDB. `SUM` et `AVG` s’appliquent à des valeurs numériques, tandis que `COUNT`, `MIN`, et `MAX` peuvent être effectuées sur des nombres, des chaînes, des booléens et des valeurs Null. 
 
@@ -1206,7 +1203,7 @@ Cet exemple est une extension naturelle du précédent, et effectue une double j
         }
     }
 
-`AndersenFamily` a un enfant qui a un animal. Le produit croisé renvoie une ligne (1*1*1) à partir de cette famille. Cependant, WakefieldFamily a deux enfants, mais seul l'un d'eux, « Jesse », a des animaux. Jesse a 2 animaux. Le produit croisé renvoie donc 1*1*2 = 2 lignes à partir de cette famille.
+`AndersenFamily` a un enfant qui a un animal. Le produit croisé renvoie une ligne (1\*1\*1) à partir de cette famille. Cependant, WakefieldFamily a deux enfants, mais seul l'un d'eux, « Jesse », a des animaux. Jesse a 2 animaux. Le produit croisé renvoie donc 1\*1\*2 = 2 lignes à partir de cette famille.
 
 L’exemple suivant ajoute un filtre supplémentaire sur `pet`. Ceci exclut tous les tuples où le nom de l'animal n'est pas « Shadow ». Notez que nous pouvons développer des tuples à partir de tableaux, filtrer n'importe quel élément du tuple et projeter n'importe quelle combinaison d'éléments. 
 
@@ -1515,7 +1512,7 @@ Les fonctions scalaires suivantes effectuent une opération sur une valeur d’e
 | [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Retourne une expression de chaîne après la conversion des caractères majuscules en caractères minuscules. |
 | [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Retourne une expression de chaîne après la conversion des caractères minuscules en caractères majuscules. |
 | [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Remplace toutes les occurrences d’une valeur de chaîne spécifiée par une autre valeur de chaîne. |
-| [REPLICATE (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate) |Répète une valeur de chaîne un nombre de fois spécifié. |
+| [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-reference#bk_replicate) |Répète une valeur de chaîne un nombre de fois spécifié. |
 | [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Retourne l’ordre inverse d’une valeur de chaîne. |
 
 Avec ces fonctions, vous pouvez désormais exécuter des requêtes similaires aux suivantes. Par exemple, vous pouvez retourner le nom de famille en majuscules comme suit :

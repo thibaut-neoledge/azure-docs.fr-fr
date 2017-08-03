@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c65a932d0bf9bfb00f138997babc1bd642bcf879
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 048854b440f939077a7a95fa1db9ba42daf55ede
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure
@@ -52,7 +52,7 @@ Pour plus d’informations sur les options de déploiement d’un cluster HPC Pa
   * **Ubuntu Server** : 14.04 LTS, 16.04 LTS
     
     > [!TIP]
-    > Pour utiliser le réseau Azure RDMA avec l’une des tailles de machines virtuelles prenant en charge RDMA, spécifiez une image HPC SUSE Linux Enterprise Server 12 HPC ou une image HPC basé sur CentOS de la Place de marché Azure. Pour plus d’informations, voir [À propos des machines virtuelles de série H et de série A nécessitant beaucoup de ressources système](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Pour utiliser le réseau Azure RDMA avec l’une des tailles de machines virtuelles prenant en charge RDMA, spécifiez une image HPC SUSE Linux Enterprise Server 12 HPC ou une image HPC basé sur CentOS de la Place de marché Azure. Pour plus d’informations, consultez [Tailles de machine virtuelle de calcul haute performance](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
@@ -186,7 +186,7 @@ Vous avez plusieurs possibilités pour déplacer des données entre des nœuds d
 ### <a name="azure-file-storage"></a>Présentation du stockage de fichiers
 Le service [Azure File](https://azure.microsoft.com/services/storage/files/) expose les partages de fichiers en utilisant le protocole SMB 2.1 standard. Les machines virtuelles et les services cloud Azure peuvent partager les données des fichiers entre plusieurs composants d’application grâce à des partages montés. Les applications locales peuvent accéder aux données des fichiers d’un partage via l’API de stockage de fichiers. 
 
-Pour obtenir des instructions détaillées sur la création d’un partage de fichiers Azure et sur son montage sur le nœud principal, consultez [Prise en main du stockage de fichiers Azure sur Windows](../../../storage/storage-dotnet-how-to-use-files.md). Pour monter le partage de fichiers Azure sur les nœuds Linux, consultez [Utilisation du stockage de fichiers Azure avec Linux](../../../storage/storage-how-to-use-files-linux.md). Pour configurer des connexions persistantes, consultez [Connexions persistantes à Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Pour obtenir des instructions détaillées sur la création d’un partage de fichiers Azure et sur son montage sur le nœud principal, consultez [Prise en main du stockage de fichiers Azure sur Windows](../../../storage/storage-file-how-to-use-files-windows.md). Pour monter le partage de fichiers Azure sur les nœuds Linux, consultez [Utilisation du stockage de fichiers Azure avec Linux](../../../storage/storage-how-to-use-files-linux.md). Pour configurer des connexions persistantes, consultez [Connexions persistantes à Microsoft Azure File](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 Dans l’exemple suivant, créez un partage de fichiers Azure sur un compte de stockage. Pour monter le partage sur le nœud principal, ouvrez une invite de commandes et entrez les commandes suivantes :
 
@@ -299,7 +299,7 @@ L’outil [clusrun](https://technet.microsoft.com/library/cc947685.aspx) de HPC
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Essayez de mettre à l’échelle du cluster à un plus grand nombre de nœuds, ou exécutez une charge de travail Linux en sur le cluster. Pour trouver un exemple, consultez [Exécuter NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](hpcpack-cluster-namd.md).
-* Essayez un cluster avec [des machines virtuelles gourmandes en ressources de calcul et prenant en charge RDMA](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour exécuter des charges de travail MPI. Pour trouver un exemple, consultez [Exécuter OpenFOAM avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](hpcpack-cluster-openfoam.md).
+* Essayez un cluster avec [des machines virtuelles gourmandes en ressources de calcul et prenant en charge RDMA](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour exécuter des charges de travail MPI. Pour trouver un exemple, consultez [Exécuter OpenFOAM avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](hpcpack-cluster-openfoam.md).
 * Si vous êtes intéressé par l’utilisation de nœuds Linux dans un cluster HPC Pack local, consultez les [conseils TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->

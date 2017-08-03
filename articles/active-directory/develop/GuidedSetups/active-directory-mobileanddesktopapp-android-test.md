@@ -16,10 +16,10 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 8523f46d6a352c9a6625ddeacc5abe2b4bbf977e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6df64f4820f8409bd8897d5ac24f81bffeeef102
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -42,9 +42,9 @@ La première fois qu’un utilisateur se connecte à votre application, un écra
 Vous devez voir les résultats d’un appel au point de terminaison me de l’API Microsoft Graph pour obtenir le profil utilisateur : https://graph.microsoft.com/v1.0/me. Pour obtenir la liste des points de terminaison Microsoft Graph les plus courants, consultez cet [article](https://developer.microsoft.com/graph/docs#common-microsoft-graph-queries).
 
 <!--start-collapse-->
-### <a name="more-information-about-scopes-and-delegated-permissions"></a>En savoir plus sur les étendues et les autorisations déléguées
-L’API Graph nécessite que l’étendue `user.read` lise le profil utilisateur. Cette étendue est ajoutée par défaut à chaque application enregistrée sur notre portail d’enregistrement. D’autres API Graph ainsi que des API personnalisées pour votre serveur principal nécessitent des étendues supplémentaires. Par exemple, pour Graph, `Calendars.Read` est requis afin de répertorier les calendriers de l’utilisateur. Pour accéder au calendrier de l’utilisateur dans le contexte d’une application, vous devez ajouter les informations d’inscription de cette application déléguée, puis ajouter `Calendars.Read` à l’appel `AcquireTokenAsync`. L’utilisateur peut être invité à redonner son consentement lorsque vous augmentez le nombre d’étendues.
+### <a name="more-information-about-scopes-and-delegated-permissions"></a>Informations supplémentaires sur les étendues et les autorisations déléguées
 
-Si une API principale ne nécessite pas d’étendue (non recommandé), vous pouvez utiliser `ClientId` en tant qu’étendue dans l’appel `AcquireTokenAsync`.
+L’API Microsoft Graph requiert l’étendue `user.read` pour lire le profil utilisateur. Par défaut, cette étendue est automatiquement ajoutée à toutes les applications inscrites dans notre portail d’inscription. D’autres API Microsoft Graph ainsi que des API personnalisées pour votre serveur principal peuvent nécessiter des étendues supplémentaires. Par exemple, pour Microsoft Graph, l’étendue `Calendars.Read` est requise pour dresser la liste des calendriers de l’utilisateur. Pour accéder au calendrier de l’utilisateur dans le contexte d’une application, vous devez ajouter l’autorisation déléguée `Calendars.Read` aux informations d’inscription de l’application, puis ajouter l’étendue `Calendars.Read` à l’appel `acquireTokenSilentAsync`. L’utilisateur peut être invité à donner des consentements supplémentaires lorsque vous augmentez le nombre d’étendues.
+
 <!--end-collapse-->
 

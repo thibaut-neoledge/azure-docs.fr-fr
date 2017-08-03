@@ -1,159 +1,226 @@
 ---
-title: "Tutorial: Intégration d&quot;Azure Active Directory à Box | Microsoft Docs"
-description: "Apprenez à utiliser Box avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore."
+title: "Tutorial: Intégration d'Azure Active Directory à Box | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Box."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 5f3517f8-30f2-4be7-9e47-43d702701797
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 05/19/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
-ms.openlocfilehash: 6e6dad2dba03bd3339d841c885ab4e60b2dafbd3
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2cc2afe8ff3f0063224c94eb0b8135347051b0aa
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Didacticiel : Intégration d'Azure Active Directory à Box
-L'objectif de ce didacticiel est de montrer comment intégrer Azure et Box.  
 
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+Dans ce didacticiel, vous allez apprendre à intégrer Box dans Azure Active Directory (Azure AD).
 
-* Un abonnement Azure valide
-* Un locataire de test dans Box
+L’intégration de Box dans Azure AD vous offre les avantages suivants :
 
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Box pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Box (connexion initiée par le prestataire de service) ou à l’aide de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+- Dans Azure AD, vous pouvez contrôler qui a accès à Box
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Box (par authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-* Activation de l'intégration d'application pour Box
-* Configuration de l’authentification unique (SSO)
-* Configuration de l'approvisionnement des utilisateurs et des groupes
-* Affectation d’utilisateurs
+## <a name="prerequisites"></a>Composants requis
 
-![Scénario](./media/active-directory-saas-box-tutorial/IC769537.png "Scénario")
+Pour configurer l’intégration d’Azure AD à Box, vous avez besoin des éléments suivants :
 
-## <a name="enable-the-application-integration-for-box"></a>Activer l’intégration d’applications pour Box
-Cette section décrit l'activation de l'intégration d'application pour Box.
+- Un abonnement Azure AD
+- Un abonnement Box pour lequel l’authentification unique est activée
 
-**Pour activer l’intégration d’applications pour Box, suivez les étapes ci-dessous :**
+> [!NOTE]
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
-1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-box-tutorial/IC700993.png "Active Directory")
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
-   
-   ![Applications](./media/active-directory-saas-box-tutorial/IC700994.png "Applications")
-4. Cliquez sur **Ajouter** en bas de la page.
-   
-   ![Ajouter une application](./media/active-directory-saas-box-tutorial/IC749321.png "Ajouter une application")
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-   
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-box-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
-6. Dans la **zone de recherche**, tapez **Box**.
-   
-   ![Galerie d’applications](./media/active-directory-saas-box-tutorial/IC701023.png "Galerie d’applications")
-7. Dans le volet de résultats, sélectionnez **Box**, puis cliquez sur **Terminer** pour ajouter l’application.
-   
-   ![Box](./media/active-directory-saas-box-tutorial/IC701024.png "Box")
+Vous devez en outre suivre les recommandations ci-dessous :
 
-## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
-Cette section explique comment permettre aux utilisateurs de s'authentifier sur Box avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. 
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
-Dans le cadre de cette procédure, vous devez charger un certificat vers Box.com.
+## <a name="scenario-description"></a>Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-**Pour configurer l’authentification unique, procédez comme suit :**
+1. Ajout de Box à partir de la galerie
+2. Configuration et test de l’authentification unique Azure AD
 
-1. Sur la page d’intégration d’application **Box** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/IC769538.png "Configurer l’authentification unique")
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à Box ?**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/IC769539.png "Configurer l’authentification unique")
-3. Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de locataire Box**, tapez l’URL de votre locataire Box (par exemple : https://<mydomainname>.box.com), puis cliquez sur **Suivant**.
-   
-  ![Configurer l’URL de l’application](./media/active-directory-saas-box-tutorial/IC669826.png "Configurer l’URL de l’application")
-4. Dans la page **Configurer l’authentification unique sur Box**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de données localement sur votre ordinateur.
-   
-  ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/IC669824.png "Configurer l’authentification unique")
-5. Transférez ce fichier de métadonnées à l'équipe de support Box. L’équipe de support en a besoin pour configurer l’authentification unique pour vous.
-6. Sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
-   
-  ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/IC769540.png "Configurer l’authentification unique")
-   
-## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
+## <a name="adding-box-from-the-gallery"></a>Ajout de Box à partir de la galerie
+Pour configurer l’intégration de Box à Azure AD, vous devez ajouter Box, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-Cette section décrit comment activer l'approvisionnement des comptes d'utilisateurs Active Directory sur Box.
+**Pour ajouter Box à partir de la galerie, effectuez les étapes suivantes :**
 
-**Pour configurer l’authentification unique, procédez comme suit :**
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’application **Box**, cliquez sur **Configurer l’approvisionnement des utilisateurs** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement des utilisateurs**. 
-   
-    ![Activer l’approvisionnement automatique des utilisateurs](./media/active-directory-saas-box-tutorial/IC769541.png "Activer l’approvisionnement automatique des utilisateurs")
-2. Dans la boîte de dialogue **Activer l’approvisionnement d’utilisateurs sur Box**, cliquez sur **Activer l’approvisionnement d’utilisateurs**. 
-   
-    ![Activer l’approvisionnement automatique des utilisateurs](./media/active-directory-saas-box-tutorial/IC769544.png "Activer l’approvisionnement automatique des utilisateurs")
-3. Sur la page **Se connecter pour autoriser l’accès à Box**, saisissez les informations d’identification requises, puis cliquez sur **Autoriser**. 
-   
-    ![Activer l’approvisionnement automatique des utilisateurs](./media/active-directory-saas-box-tutorial/IC769546.png "Activer l’approvisionnement automatique des utilisateurs")
-4. Cliquez sur **Accorder l’accès à Box** pour autoriser cette opération et retourner au portail Azure Classic. 
-   
-    ![Activer l’approvisionnement automatique des utilisateurs](./media/active-directory-saas-box-tutorial/IC769549.png "Activer l’approvisionnement automatique des utilisateurs")
-5. Sur la page **Options d'approvisionnement**, les cases à cocher **Types d'objet à approvisionner** permettent de choisir ou non les objets de groupe approvisionnés dans Box en plus des objets utilisateur.  Pour plus d'informations, voir "Affectation d'utilisateurs et de groupes" ci-dessous.
-6. Pour terminer la configuration, cliquez sur le bouton Terminé. 
-   
-    ![Activer l’approvisionnement automatique des utilisateurs](./media/active-directory-saas-box-tutorial/IC769551.png "Activer l’approvisionnement automatique des utilisateurs")
+    ![Active Directory][1]
 
-## <a name="assign-a-test-user"></a>Affecter un utilisateur de test
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-**Pour affecter des utilisateurs à Box, suivez les étapes ci-dessous :**
+    ![Applications][2]
+    
+3. Cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-1. Dans le portail Azure Classic, créez un compte de test.
-2. Dans la page d’intégration d’applications **Box**, cliquez sur **Affecter des utilisateurs**. 
-   
-    ![Affecter des utilisateurs](./media/active-directory-saas-box-tutorial/IC769552.png "Affecter des utilisateurs")
-3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation. 
-   
-   ![Oui](./media/active-directory-saas-box-tutorial/IC767830.png "Oui")
+    ![Applications][3]
 
-À présent, patientez 10 minutes et vérifiez que le compte est bien synchronisé avec Box.
+4. Dans la zone de recherche, tapez **Box**.
 
-Une première étape de vérification consiste à contrôler l’état de l’approvisionnement en cliquant sur le tableau de bord sur le D de la page d’intégration d’application Box sur le Portail Azure Classic.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-box-tutorial/tutorial_box_search.png)
 
-![Tableau de bord](./media/active-directory-saas-box-tutorial/IC769553.png "Tableau de bord")
+5. Dans le volet de résultats, sélectionnez **Box**, puis cliquez sur **Ajouter** pour ajouter l’application.
 
-Si le cycle d’approvisionnement d’utilisateur a abouti, l’état associé suivant est indiqué :
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-box-tutorial/tutorial_box_addfromgallery.png)
 
-![Statut d’intégration](./media/active-directory-saas-box-tutorial/IC769555.png "Statut d’intégration")
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Box, avec un utilisateur de test appelé « Britta Simon ».
 
-Dans votre locataire Box, les utilisateurs synchronisés sont répertoriés sous **Utilisateurs gérés** dans la **Console d’administration**.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Box correspondant dans Azure AD. En d’autres termes, une relation doit être établie entre l’utilisateur Azure AD et l’utilisateur Box associé.
 
-![Statut d’intégration](./media/active-directory-saas-box-tutorial/IC769556.png "Statut d’intégration")
+Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Box.
 
-## <a name="assign-users-and-groups"></a>Affecter des utilisateurs et des groupes
-L'onglet **Box > Utilisateurs et groupes** du portail Azure Classic vous permet de spécifier quels utilisateurs et groupes doivent avoir accès à Box. L'affectation d'un utilisateur ou groupe entraîne les événements suivants :
+Pour configurer et tester l’authentification unique Azure AD avec Box, vous devez suivre les indications des sections suivantes :
 
-* Azure AD permet à l'utilisateur affecté (par affectation directe ou appartenance au groupe) de s'identifier auprès de Box. Si un utilisateur n'est pas affecté, Azure AD ne lui permettra pas de se connecter à Box et renverra une erreur sur la page de connexion Azure AD.
-* Une mosaïque d'application pour Box est ajoutée au [lanceur d'applications](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)de cet utilisateur.
-* Si la configuration automatique est activée, les utilisateurs et/ou groupes affectés sont ajoutés à la file d'attente d'approvisionnement automatique.
-  
-  * Si seuls des objets utilisateur ont été configurés pour être approvisionnés, tous les utilisateurs directement affectées sont placés dans la file d'attente d'approvisionnement et tous les utilisateurs membres des groupes affectés seront placés dans la file d'attente d'approvisionnement. 
-  * Si des objets de groupe ont été configurés pour être approvisionnés, tous les objets du groupe affectés sont approvisionnés dans Box, tout comme l'ensemble des utilisateurs membres de ces groupes. Les appartenances des groupes et des utilisateurs sont conservées lors de l'écriture dans Box.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test Box](#creating-a-box-test-user)** pour avoir un équivalent de Britta Simon dans Box lié à la représentation Azure AD de l’utilisateur.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-Vous pouvez utiliser l'onglet **Attributs > Authentification unique** pour configurer les attributs (ou revendications) de l'utilisateur présentés dans Box pendant l'authentification SAML, et l'onglet **Attributs > Approvisionnement** pour configurer le transfert des attributs utilisateur et groupe d'Azure AD vers Box lors des opérations d'approvisionnement. Consultez les ressources ci-après pour plus d'informations.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Box.
+
+**Pour configurer l’authentification unique Azure AD avec Box, effectuez les étapes suivantes :**
+
+1. Dans le portail Azure, dans la page d’intégration de l’application **Box**, cliquez sur **Authentification unique**.
+
+    ![Configurer l’authentification unique][4]
+
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/tutorial_box_samlbase.png)
+
+3. Dans la section **Domaine et URL Box**, effectuez les étapes suivantes :
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/tutorial_box_url.png)
+
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.box.com`
+
+    > [!NOTE] 
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe du support Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
+ 
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
+
+5. Cliquez sur le bouton **Enregistrer** .
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
+
+6. Pour configurer l’authentification unique dans votre application, contactez [l’équipe du support Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) en lui fournissant le fichier XML téléchargé.
+
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+
+![Créer un utilisateur Azure AD][100]
+
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-box-tutorial/create_aaduser_01.png) 
+
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-box-tutorial/create_aaduser_02.png) 
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-box-tutorial/create_aaduser_03.png) 
+
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-box-tutorial/create_aaduser_04.png) 
+
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
+
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
+
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+
+    d. Cliquez sur **Create**.
+ 
+### <a name="creating-a-box-test-user"></a>Création d’un utilisateur de test Box
+
+Dans cette section, un utilisateur appelé Britta Simon est créé dans Box. Box prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
+Vous n’avez aucune opération à effectuer dans cette section. S’il n’y a pas déjà un utilisateur dans Box, un nouvel utilisateur est créé lorsque vous tentez d’y accéder.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Box.
+
+![Affecter des utilisateurs][200] 
+
+**Pour attribuer Britta Simon à Box, effectuez les étapes suivantes :**
+
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+
+    ![Affecter des utilisateurs][201] 
+
+2. Dans la liste des applications, sélectionnez **Box**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-box-tutorial/tutorial_box_app.png) 
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Affecter des utilisateurs][202] 
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
+    ![Affecter des utilisateurs][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Le fait de cliquer sur la vignette Box dans le volet d’accès vous connecte automatiquement à votre application Box.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Personnalisation des revendications émises dans le jeton SAML](active-directory-saml-claims-customization.md)
-* [Approvisionnement : personnaliser les mappages d'attributs](active-directory-saas-customizing-attribute-mappings.md)
+
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+* [Configurer l’attribution d’utilisateurs](active-directory-saas-box-userprovisioning-tutorial.md)
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-box-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-box-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-box-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-box-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-box-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-box-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-box-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-box-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-box-tutorial/tutorial_general_203.png
 
 

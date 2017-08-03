@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 06/14/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 19cf0a68a8cd05d94badee2efc6c8b023fee7461
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 8a399ca2f529568dbe5ffd4b58c3f0f69248b71d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migration de votre base de données PostgreSQL par vidage et restauration
@@ -27,7 +27,7 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 Suivez les étapes ci-dessous pour vider et restaurer votre base de données PostgreSQL :
 
 ## <a name="create-a-dump-file-using-pgdump-that-contains-the-data-to-be-loaded"></a>Création d’un fichier de vidage à l’aide de pg_dump qui contient les données à charger
-Pour sauvegarder une base de données PostgreSQL existante en local ou dans une machine virtuelle, exécutez la commande suivante :
+Pour sauvegarder une base de données PostgreSQL existante en local ou sur une machine virtuelle, exécutez la commande suivante :
 ```bash
 pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <database>.dump
 ```

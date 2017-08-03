@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: f989c2c9369e8c5cd4b4255005bb7b7821079d7c
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: ec9e0fc7d67537a47d5c0d3bb376b60dc6ccffcd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -92,7 +91,7 @@ Le service Log Analytics gère vos données basées sur le cloud en toute sécur
 -   conformité
 -   certifications relatives aux normes de sécurité
 
-### <a name="azure-backup"></a>Azure Backup
+### <a name="azure-backup"></a>Sauvegarde Azure
 
 Le composant [Sauvegarde Azure](http://azure.microsoft.com/documentation/services/backup) fournit des services de sauvegarde et de restauration des données et fait partie de la suite OMS de produits et services.
 Il protège les données de vos applications et les conserve des années durant, sans nécessiter aucun investissement en capital et moyennant des frais d’exploitation minimes. Cette solution permet de sauvegarder des données à partir de serveurs Windows physiques et virtuels, en plus des charges de travail des applications telles que SQL Server et SharePoint. Elle peut également être utilisée par [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) afin de répliquer les données protégées vers Azure pour la redondance et le stockage à long terme.

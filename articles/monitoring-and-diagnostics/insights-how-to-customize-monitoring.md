@@ -1,8 +1,8 @@
 ---
 title: "Vue d’ensemble des mesures dans Microsoft Azure | Microsoft Docs"
-description: "Découvrez comment personnaliser les graphiques d&quot;analyse dans Azure."
+description: "Découvrez comment personnaliser les graphiques d'analyse dans Azure."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,28 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 5ccb5c0b3c2ffaf8aba855a9dbe3da9691ab149b
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
-<a id="overview-of-metrics-in-microsoft-azure" class="xliff"></a>
-
-# Vue d’ensemble des mesures dans Microsoft Azure
+# <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Tous les services Azure assurent le suivi des mesures clés qui vous permettent de surveiller l’intégrité, les performances, la disponibilité et l'utilisation de vos services. Vous pouvez afficher ces mesures dans le portail Azure, et utiliser [l’API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) ou le [Kit de développement logiciel (SDK) .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) pour accéder à l'ensemble des mesures par programmation.
 
 Pour certains services, vous devrez peut-être activer les diagnostics pour afficher les mesures. Pour d'autres, tels que des machines virtuelles, un ensemble de mesures de base vous sera proposé, mais vous devrez activer l’ensemble des mesures à fréquence élevée. Consultez la rubrique [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour en savoir plus.
 
-<a id="using-monitoring-charts" class="xliff"></a>
-
-## Utilisation des graphiques de surveillance
+## <a name="using-monitoring-charts"></a>Utilisation des graphiques de surveillance
 Vous pouvez représenter l’une des mesures sur une période que vous choisissez.
 
 1. Dans le [Portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur une ressource que vous voulez surveiller.
-2. La rubrique **Surveillance** contient les mesures les plus importantes pour chaque ressource Azure. Une application Web dispose, par exemple, de l’option **Demandes et erreurs**, alors qu’une machine virtuelle posséderait **Pourcentage UC** et **Lecture et écriture sur le disque :**  ![Filtre Monitoring](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
+2. La rubrique **Surveillance** contient les mesures les plus importantes pour chaque ressource Azure. Une application Web dispose, par exemple, de l’option **Demandes et erreurs**, alors qu’une machine virtuelle posséderait **Pourcentage UC** et **Lecture et écriture sur le disque :** ![Filtre Monitoring](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 3. Cliquez sur n'importe quel graphique pour afficher le panneau des **mesures** . Sur le panneau se trouve, en plus du graphique, un tableau qui affiche l'agrégation de ces mesures (comme la moyenne, le minimum et le maximum, la période que vous avez choisie). Retrouvez ci-dessous les règles d'alerte de la ressource.
     ![Volet Metric](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 4. Pour personnaliser les lignes qui s'affichent, cliquez sur le bouton **Modifier** du graphique, ou la commande **Modifier le graphique** du panneau des mesures.
@@ -49,19 +44,15 @@ Vous pouvez représenter l’une des mesures sur une période que vous choisisse
 7. Sous l'intervalle de temps, vous pouvez choisir le nombre de mesures à afficher sur le graphique.
 8. Dès lors que vous cliquerez sur Enregistrer, vos modifications seront enregistrées pour cette ressource. Si vous possédez, par exemple, deux machines virtuelles et que vous modifiez un graphique sur l’une d’entre elles, cette opération n’aura aucune incidence sur l'autre.
 
-<a id="creating-side-by-side-charts" class="xliff"></a>
-
-## Création de graphiques côte à côte
+## <a name="creating-side-by-side-charts"></a>Création de graphiques côte à côte
 Grâce au niveau élevé de personnalisation du portail, vous pouvez ajouter autant de graphiques que vous le souhaitez.
 
 1. Dans le menu **...**, situé en haut du panneau, cliquez sur **Ajouter des vignettes** :  
     ![Ajouter un menu](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. Vous pouvez ensuite sélectionner un graphique à partir de la **Galerie**, située sur le côté droit de l'écran :  ![Galerie](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+2. Vous pouvez ensuite sélectionner un graphique à partir de la **Galerie**, située sur le côté droit de l’écran : ![Galerie](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. Si vous ne voyez pas les mesures souhaitées, vous pouvez toujours ajouter une des mesures prédéfinies et **Modifier** le graphique pour afficher les mesures dont vous avez besoin.
 
-<a id="monitoring-usage-quotas" class="xliff"></a>
-
-## Surveillance des quotas d'utilisation
+## <a name="monitoring-usage-quotas"></a>Surveillance des quotas d'utilisation
 La plupart des mesures vous indiquent les tendances au fil du temps, mais certaines données, telles que les quotas d'utilisation, sont des informations limitées dans le temps et disposant d’un seuil.
 
 Vous pouvez également découvrir les quotas d'utilisation sur le panneau des ressources qui disposent de quotas :
@@ -70,9 +61,7 @@ Vous pouvez également découvrir les quotas d'utilisation sur le panneau des re
 
 Comme avec les mesures, vous pouvez utiliser [l’API REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) ou le [Kit de développement logiciel (SDK) .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) pour accéder à l'ensemble des quotas d'utilisation par programmation.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Réception de notifications d'alerte](insights-receive-alert-notifications.md) lorsqu'une mesure dépasse un seuil.
 * [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service.
 * [Mise à l’échelle automatique du nombre d’instances](insights-how-to-scale.md) pour vous assurer que votre service est disponible et réactif.

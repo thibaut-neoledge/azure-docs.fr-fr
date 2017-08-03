@@ -13,14 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
+ms.date: 07/13/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: ec20115e8316b96d740e1966494096964ec884b1
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 2e8ebbdab2be7bed224a67facec798820615bb22
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)
@@ -31,10 +30,10 @@ Azure Event Hubs permet de traiter d’énormes quantités de données provenant
 
 ## <a name="prerequisites"></a>Composants requis
 
-* Un cluster Apache Storm sur HDInsight version 3.5. Pour plus d’informations, voir [Prise en main de Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
+* Un cluster Apache Storm sur HDInsight version 3.6. Pour plus d’informations, voir [Prise en main de Storm sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
     > [!IMPORTANT]
-    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un [hub d’événements Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
@@ -49,15 +48,15 @@ Azure Event Hubs permet de traiter d’énormes quantités de données provenant
 
     * Un client SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Un client SCP. La commande `scp` est fournie avec tous les systèmes Linux, Unix et OS X (y compris Bash sur Windows 10.) Concernant les systèmes Windows non équipés de la commande `scp`, nous recommandons d’utiliser PSCP. PSCP est disponible à partir de la [page de téléchargement de PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* Les commandes `ssh` et `scp`. Elles servent à copier des fichiers vers le cluster HDInsight. Sous Windows, vous pouvez les obtenir via Bash dans Windows 10.
 
 ## <a name="understanding-the-example"></a>Vue d’ensemble de l’exemple
 
 L’exemple [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) contient deux topologies :
 
-**com.microsoft.example.EventHubWriter** écrit des données aléatoires dans un Azure Event Hub. Les données sont générées par un spout et comprennent un ID d’appareil aléatoire et une valeur d’appareil. Ainsi, elles simulent certains matériels qui émettent un ID de chaîne et une valeur numérique.
+La topologie `resources/writer.yaml` écrit des données aléatoires dans Azure Event Hub. Les données sont générées par le composant `DeviceSpout` et comprennent un ID d’appareil aléatoire et une valeur d’appareil. Ainsi, elles simulent certains matériels qui émettent un ID de chaîne et une valeur numérique.
 
-**com.microsoft.example.EventHubReader** lit les données à partir de l’Event Hub et les stocke dans le stockage par défaut des clusters, dans le répertoire /devicedata.
+La topologie `resources/reader.yaml` lit les données Event Hub (les données écrites par EventHubWriter), analyse les données JSON, puis enregistre les données `deviceId` et `deviceValue`.
 
 Les données sont formatées sous forme de document JSON avant d’être écrites dans l’Event Hub ; lors de la lecture par le lecteur, elles sont analysées depuis JSON vers des tuples. Le format JSON est le suivant :
 
@@ -67,43 +66,15 @@ Les données sont formatées sous forme de document JSON avant d’être écrite
 
 Le fichier `POM.xml` contient des informations de configuration pour ce projet Maven. Éléments intéressants :
 
-#### <a name="hortonworks-repository"></a>Référentiel Hortonworks
+#### <a name="event-hub-components"></a>Composants Event Hub
 
-HDInsight est basée sur Hortonworks Data Platform. Pour que votre projet soit compatible avec les versions de Storm et d’Hadoop utilisées avec HDInsight 3.5, la section suivante configure le projet pour utiliser des exécutables d’Hortonworks :
+Le composant qui lit et écrit dans Azure Event Hubs se trouve dans le [référentiel HDInsight](https://github.com/hdinsight/mvn-rep). Les sections suivantes du fichier `POM.xml` chargent les composants à partir de ce référentiel.
 
 ```xml
 <repositories>
     <repository>
-        <releases>
-            <enabled>true</enabled>
-            <updatePolicy>always</updatePolicy>
-            <checksumPolicy>warn</checksumPolicy>
-        </releases>
-        <snapshots>
-            <enabled>false</enabled>
-            <updatePolicy>never</updatePolicy>
-            <checksumPolicy>fail</checksumPolicy>
-        </snapshots>
-        <id>HDPReleases</id>
-        <name>HDP Releases</name>
-        <url>http://repo.hortonworks.com/content/repositories/releases/</url>
-        <layout>default</layout>
-    </repository>
-    <repository>
-        <releases>
-            <enabled>true</enabled>
-            <updatePolicy>always</updatePolicy>
-            <checksumPolicy>warn</checksumPolicy>
-        </releases>
-        <snapshots>
-            <enabled>false</enabled>
-            <updatePolicy>never</updatePolicy>
-            <checksumPolicy>fail</checksumPolicy>
-        </snapshots>
-        <id>HDPJetty</id>
-        <name>Hadoop Jetty</name>
-        <url>http://repo.hortonworks.com/content/repositories/jetty-hadoop/</url>
-        <layout>default</layout>
+        <id>hdinsight-examples</id>
+        <url>http://raw.github.com/hdinsight/mvn-repo/master</url>
     </repository>
 </repositories>
 ```
@@ -114,68 +85,20 @@ HDInsight est basée sur Hortonworks Data Platform. Pour que votre projet soit c
 <dependency>
     <groupId>com.microsoft</groupId>
     <artifactId>eventhubs</artifactId>
-    <version>1.0.2</version>
+    <version>${storm.eventhub.version}</version>
 </dependency>
 ```
 
 Ce fichier XML définit une dépendance pour le package eventhubs. Il contient à la fois un spout pour la lecture à partir d’Event Hubs et un bolt pour l’écriture dans Event Hubs.
 
-> [!NOTE]
-> Nous abordons l’installation de ce package ultérieurement dans ce document.
-
-#### <a name="the-hdfsbolt-and-wasb-components"></a>Composants HdfsBolt et WASB
-
-HdfsBolt est normalement utilisé pour stocker des données dans HDFS (Hadoop Distributed File System, système de fichiers DFS Hadoop). Toutefois, les clusters HDInsight utilisent le stockage Azure (WASB) comme magasin de données par défaut. Nous devons donc charger plusieurs composants qui permettent à HdfsBolt de comprendre le système de fichiers WASB.
-
 ```xml
-<!--HdfsBolt stuff -->
-<dependency>
-    <groupId>org.apache.storm</groupId>
-    <artifactId>storm-hdfs</artifactId>
-    <!-- exclude these storm-hdfs dependencies since they are on the server -->
-    <exclusions>
-        <exclusion>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-client</artifactId>
-        </exclusion>
-        <exclusion>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-hdfs</artifactId>
-        </exclusion>
-    </exclusions>
-    <version>${storm.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-common</artifactId>
-    <version>${hadoop.version}</version>
-    <exclusions>
-    <exclusion>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-    </exclusion>
-    </exclusions>
-</dependency>
-```
-
-> [!NOTE]
-> Lorsque vous travaillez avec une version antérieure de HDInsight, telles que la version 3.2, vous devez enregistrer manuellement ces composants. Pour un exemple, voir la branche [Storm v0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) du référentiel fourni à titre d’exemple.
-
-#### <a name="the-maven-compiler-plugin"></a>maven-compiler-plugin
-
-```xml
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>2.3.2</version>
-    <configuration>
-    <source>1.8</source>
+</source>
     <target>1.8</target>
     </configuration>
 </plugin>
 ```
 
-Ce paramètre configure le projet de sorte à générer un résultat pour Java 8, résultat qui est ensuite utilisé par HDInsight 3.5.
+Ce fichier XML configure le projet de sorte à générer un résultat pour Java 8, résultat qui est ensuite utilisé par HDInsight 3.5 ou une version ultérieure.
 
 #### <a name="the-maven-shade-plugin"></a>maven-shade-plugin
 
@@ -189,7 +112,6 @@ Ce paramètre configure le projet de sorte à générer un résultat pour Java 
     <transformers>
     <!-- Keep us from getting a can't overwrite file error -->
     <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer"/>
-    <!-- Keep us from getting errors when trying to use WASB from the storm-hdfs bolt -->
     <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
     </transformers>
     <!-- Keep us from getting a bad signature error -->
@@ -215,7 +137,7 @@ Ce paramètre configure le projet de sorte à générer un résultat pour Java 
 </plugin>
 ```
 
-Ce paramètre configure la solution pour empaqueter la sortie dans une sorte de super fichier jar. Ce fichier jar contient le code de projet et les dépendances requises. Il est également utilisé pour :
+Ce fichier XML configure la solution pour empaqueter la sortie dans une sorte de super fichier jar. Ce fichier jar contient le code de projet et les dépendances requises. Il est également utilisé pour :
 
 * Renommer les fichiers de licence pour les dépendances.
 * Exclure les sécurités/signatures.
@@ -223,52 +145,128 @@ Ce paramètre configure la solution pour empaqueter la sortie dans une sorte de 
 
 Ces paramètres de configuration évitent les erreurs au moment de l’exécution.
 
-#### <a name="the-exec-maven-plugin"></a>exec-maven-plugin
+#### <a name="topology-definitions"></a>Définitions de topologie
 
-```xml
-<plugin>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>exec-maven-plugin</artifactId>
-    <version>1.2.1</version>
-    <executions>
-    <execution>
-    <goals>
-        <goal>exec</goal>
-    </goals>
-    </execution>
-    </executions>
-    <configuration>
-    <executable>java</executable>
-    <includeProjectDependencies>true</includeProjectDependencies>
-    <includePluginDependencies>false</includePluginDependencies>
-    <classpathScope>compile</classpathScope>
-    <mainClass>${storm.topology}</mainClass>
-    <cleanupDaemonThreads>false</cleanupDaemonThreads>
-    </configuration>
-</plugin>
+Cet exemple utilise le framework [Flux](https://storm.apache.org/releases/1.1.0/flux.html). Ce framework utilise le langage YAML pour définir les topologies. Le principal avantage, c’est que vous ne codez pas la topologie en dur dans le code Java. Étant donné que la définition est rédigée en YAML, vous pouvez la modifier avant de soumettre la topologie, sans devoir tout recompiler.
+
+__writer.yaml__ :
+
+```yaml
+---
+# Topology that reads from Event Hubs
+name: "eventhubwriter"
+
+components:
+  # Configure the Event Hub spout
+  - id: "eventhubbolt-config"
+    className: "org.apache.storm.eventhubs.bolt.EventHubBoltConfig"
+    constructorArgs:
+      # These are populated from the .properties file when the topology is started
+      - "${eventhub.write.policy.name}"
+      - "${eventhub.write.policy.key}"
+      - "${eventhub.namespace}"
+      - "servicebus.windows.net"
+      - "${eventhub.name}"
+
+spouts:
+  - id: "device-emulator-spout"
+    className: "com.microsoft.example.DeviceSpout"
+    parallelism: ${eventhub.partitions}
+
+bolts:
+  - id: "eventhub-bolt"
+    className: "org.apache.storm.eventhubs.bolt.EventHubBolt"
+    constructorArgs:
+      - ref: "eventhubbolt-config" # config declared in components section
+    # parallelism hint. This should be the same as the number of partitions for your Event Hub, so we read it from the dev.properties file passed at run time.
+    parallelism: ${eventhub.partitions}
+
+  # Log information
+  - id: "log-bolt"
+    className: "org.apache.storm.flux.wrappers.bolts.LogInfoBolt"
+    parallelism: 1
+
+# How data flows through the components
+streams:
+  - name: "spout -> eventhub" # just a string used for logging
+    from: "device-emulator-spout"
+    to: "eventhub-bolt"
+    grouping:
+        type: SHUFFLE
+
+  - name: "spout -> logger"
+    from: "device-emulator-spout"
+    to: "log-bolt"
+    grouping:
+        type: SHUFFLE
 ```
 
-Cette configuration se révèle utile, car elle permet d’exécuter plus facilement la topologie en local, dans votre environnement de développement. Exécutez la topologie en local en utilisant la syntaxe suivante :
+__reader.yaml__ :
 
-    mvn compile exec:java -Dstorm.topology=<CLASSNAME>
+```yaml
+---
+# Topology that reads from Event Hubs
+name: "eventhubreader"
 
-Par exemple, `mvn compile exec:java -Dstorm.topology=com.microsoft.example.EventHubWriter`.
+components:
+  # Configure the Event Hub spout
+  - id: "eventhubspout-config"
+    className: "org.apache.storm.eventhubs.spout.EventHubSpoutConfig"
+    constructorArgs:
+      # These are populated from the .properties file when the topology is started
+      - "${eventhub.read.policy.name}"
+      - "${eventhub.read.policy.key}"
+      - "${eventhub.namespace}"
+      - "${eventhub.name}"
+      - ${eventhub.partitions}
 
-#### <a name="the-resources-section"></a>Section Ressources
+spouts:
+  - id: "eventhub-spout"
+    className: "org.apache.storm.eventhubs.spout.EventHubSpout"
+    constructorArgs:
+      - ref: "eventhubspout-config" # config declared in components section
+    # parallelism hint. This should be the same as the number of partitions for your Event Hub, so we read it from the dev.properties file passed at run time.
+    parallelism: ${eventhub.partitions}
 
-```xml
-<resources>
-    <resource>
-    <directory>${basedir}/conf</directory>
-    <filtering>false</filtering>
-    <includes>
-        <include>EventHubs.properties</include>
-    </includes>
-    </resource>
-</resources>
+bolts:
+  # Log information
+  - id: "log-bolt"
+    className: "org.apache.storm.flux.wrappers.bolts.LogInfoBolt"
+    parallelism: 1
+
+  # Parses from JSON into tuples
+  - id: "parser-bolt"
+    className: "com.microsoft.example.ParserBolt"
+    parallelism: ${eventhub.partitions}
+
+# How data flows through the components
+streams:
+  - name: "spout -> parser" # just a string used for logging
+    from: "eventhub-spout"
+    to: "parser-bolt"
+    grouping:
+        type: SHUFFLE
+
+  - name: "parser -> log-bolt"
+    from: "parser-bolt"
+    to: "log-bolt"
+    grouping:
+        type: SHUFFLE
 ```
 
-Cette configuration définit les ressources non Java qui figurent dans le projet. Par exemple, le fichier **EventHubs.properties** contient des informations utilisées pour se connecter à Azure Event Hub.
+#### <a name="tell-the-topology-about-event-hub"></a>Transmettre les informations Event Hub à la topologie
+
+Au moment de l’exécution, le fichier `dev.properties` est utilisé pour transmettre la configuration Event Hub à la topologie. L’exemple suivant montre le contenu par défaut du fichier :
+
+```yaml
+eventhub.write.policy.name: writer
+eventhub.write.policy.key: your_key_here
+eventhub.read.policy.name: reader
+eventhub.read.policy.key: your_key_here
+eventhub.namespace: your_namespace_here
+eventhub.name: storm
+eventhub.partitions: 2
+```
 
 ## <a name="configure-environment-variables"></a>Configuration des variables d’environnement
 
@@ -280,18 +278,6 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
   * **JAVA_HOME** (ou le chemin d’accès équivalent)
   * **JAVA_HOME\bin** (ou le chemin d’accès équivalent)
   * Le répertoire d’installation de Maven
-
-## <a name="download-and-register-the-eventhub-components"></a>Téléchargement et inscription des composants Event Hub
-
-1. Téléchargez `storm-eventhubs-1.0.2-jar-with-dependencies.jar` depuis [https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar](https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar). Ce fichier contient un composant spout et bolt pour lire et écrire à partir de Event Hubs.
-
-2. Utilisez la commande suivante pour inscrire les composants dans votre référentiel maven local :
-
-        mvn install:install-file -Dfile=storm-eventhubs-1.0.2-jar-with-dependencies.jar -DgroupId=com.microsoft -DartifactId=eventhubs -Dversion=1.0.2 -Dpackaging=jar
-
-    Modifiez le paramètre `-Dfile=` pour pointer vers l’emplacement du fichier téléchargé.
-
-    Cette commande installe le fichier dans le référentiel Maven local, où il est accessible au moment de la compilation par Maven.
 
 ## <a name="configure-event-hub"></a>Configuration du hub d'événements
 
@@ -329,21 +315,40 @@ Event Hubs est la source de données pour cet exemple. Procédez comme suit pour
 
 1. Téléchargez le projet à partir de GitHub : [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub). Vous pouvez télécharger le package dans une archive .zip ou utiliser [git](https://git-scm.com/) pour cloner le projet localement.
 
-2. Pour générer le projet et créer un package, utilisez la commande suivante :
+2. Modifiez le fichier `dev.properties` et intégrez-y la configuration de votre Event Hub.
+
+3. Pour générer le projet et créer un package, utilisez la commande suivante :
 
         mvn package
 
     Cette commande télécharge les dépendances requises, génère le projet, puis crée le package. Le résultat est stocké dans le répertoire **/target** dans un fichier **EventHubExample-1.0-SNAPSHOT.jar**.
 
-## <a name="deploy-the-topologies"></a>Déploiement des topologies
+## <a name="test-locally"></a>Tester les topologies localement
 
-Le fichier jar créé par ce projet contient deux topologies : **com.microsoft.example.EventHubWriter** et **com.microsoft.example.EventHubReader**. La topologie EventHubWriter doit être démarrée en premier, car elle écrit des événements dans l’Event Hub qui sont ensuite lus par EventHubReader.
+Ces topologies lisent et écrivent uniquement dans Event Hubs, vous pouvez les tester localement si vous utilisez un [environnement de développement Storm](http://storm.apache.org/releases/current/Setting-up-development-environment.html). Effectuez les étapes suivantes pour exécuter les topologies localement dans l’environnement de développement :
+
+1. Exécutez le writer :
+
+        storm jar EventHubExample-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /writer.yaml --filter dev.properties
+
+2. Exécutez le reader :
+
+        storm jar EventHubExample-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /reader.yaml --filter dev.properties
+
+> [!TIP]
+> * `--local` : exécuter la topologie en mode local (non distribué).
+> * `-R /writer.yaml` : charger la définition de la topologie à partir de l’élément `resources` empaqueté dans le fichier jar. Si la topologie est un fichier sur le système de fichiers local, spécifiez-en alors le chemin d’accès (dernier paramètre).
+> * `--filter dev.properties` : utiliser le contenu de `dev.properties` pour renseigner les valeurs dans les définitions de topologie. Par exemple, `${eventhub.read.policy.name}`.
+
+La sortie est enregistrée dans la console en cas d’exécution locale. Utilisez la combinaison de touches __Ctrl+C__ pour arrêter la topologie.
+
+## <a name="deploy-the-topologies"></a>Déploiement des topologies
 
 1. Utilisez SCP pour copier le package jar dans votre cluster HDInsight. Remplacez USERNAME par l’utilisateur SSH de votre cluster. Remplacez CLUSTERNAME par le nom de votre cluster HDInsight :
 
         scp ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.
 
-    Si vous avez utilisé un mot de passe pour votre compte SSH, vous êtes invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. Par exemple, `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`.
+    Si vous avez utilisé un mot de passe pour votre compte SSH, vous êtes invité à le saisir. Si vous avez utilisé une clé SSH avec le compte, vous devrez peut-être utiliser le paramètre `-i` pour spécifier le chemin d’accès au fichier de clé. Par exemple, `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`
 
     Cette commande copie le fichier sur le répertoire de base de votre utilisateur SSH sur le cluster.
 
@@ -358,41 +363,13 @@ Le fichier jar créé par ce projet contient deux topologies : **com.microsoft.
 
 3. Utilisez la commande suivante pour démarrer les topologies :
 
-        storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubWriter writer
-        storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubReader reader
+        storm jar EventHubExample-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writer.yaml --filter dev.properties
+        storm jar EventHubExample-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
 
-    Ces commandes démarrent les topologies en utilisant les noms conviviaux de « reader » et « writer ».
+    > [!TIP]
+    > * `--remote` : envoie la topologie au service Nimbus, qui la démarre sur les nœuds de travail du cluster.
 
-4. Patientez une minute le temps que les topologies génèrent les données. Utilisez la commande suivante pour vérifier que les données sont écrites dans le stockage HDInsight :
-
-        hdfs dfs fs -ls /devicedata
-
-    Cette commande renvoie une liste de fichiers qui ressemble à celle décrite ici :
-
-        -rw-r--r--   1 storm supergroup      10283 2015-08-11 19:35 /devicedata/wasbbolt-14-0-1439321744110.txt
-        -rw-r--r--   1 storm supergroup      10277 2015-08-11 19:35 /devicedata/wasbbolt-14-1-1439321748237.txt
-        -rw-r--r--   1 storm supergroup      10280 2015-08-11 19:36 /devicedata/wasbbolt-14-10-1439321760398.txt
-        -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
-        -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
-
-   > [!NOTE]
-   > Certains fichiers peuvent indiquer une taille de 0, étant donné qu’ils ont été créés par EventHubReader mais qu’ils ne stockent pas encore de données.
-
-    Vous pouvez afficher le contenu de ces fichiers à l’aide de la commande suivante :
-
-        hdfs dfs -text /devicedata/*.txt
-
-    Cette commande renvoie des données semblables à ce qui suit :
-
-        3409e622-c85d-4d64-8622-af45e30bf774,848981614
-        c3305f7e-6948-4cce-89b0-d9fbc2330c36,-1638780537
-        788b9796-e2ab-49c4-91e3-bc5b6af1f07e,-1662107246
-        6403df8a-6495-402f-bca0-3244be67f225,275738503
-        d7c7f96c-581a-45b1-b66c-e32de6d47fce,543829859
-        9a692795-e6aa-4946-98c1-2de381b37593,1857409996
-        3c8d199b-0003-4a79-8d03-24e13bde7086,-1271260574
-
-    La première colonne contient la valeur de l’ID d’appareil et la deuxième colonne, la valeur de l’appareil.
+4. Pour afficher les données enregistrées, accédez à l’adresse https://CLUSTERNAME.azurehdinsight.net/stormui, où __CLUSTERNAME__ est le nom de votre cluster HDInsight. Sélectionnez les topologies et explorez-en les composants. Sélectionnez l’entrée de __port__ d’une instance de composant pour afficher les informations enregistrées.
 
 5. Utilisez les commandes suivantes pour arrêter les topologies :
 
@@ -402,16 +379,6 @@ Le fichier jar créé par ce projet contient deux topologies : **com.microsoft.
 ## <a name="delete-your-cluster"></a>Supprimer votre cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
-## <a name="troubleshooting"></a>Résolution des problèmes
-
-Si vous ne voyez pas les fichiers dans le répertoire /devicedata, utilisez l’interface utilisateur Storm pour rechercher les éventuelles erreurs renvoyées par les topologies.
-
-Pour plus d’informations sur l’utilisation de l’interface utilisateur de Storm, consultez les rubriques suivantes :
-
-* Si vous utilisez un cluster HDInsight Storm **Linux** , consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
-
-* Si vous utilisez un cluster HDInsight Storm **Windows** , consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Windows](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 40164cfba8b54634278194c599a4493a5b7910b2
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 4153056bd21006061c6ad8ff9cf3c17de9248628
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Didacticiel : Intégration d’Azure Active Directory à FilesAnywhere
@@ -117,6 +117,8 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url.png)
     
     a. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
+> [!NOTE]
+> Notez que la valeur **215** est un paramètre **clientid** et n’est qu’un exemple. Vous devez la remplacer par la valeur clientid réelle.
 
 4. Dans la section **Domaine et URL FilesAnywhere**, si vous souhaitez configurer l’application en **Mode initié par SP**, procédez comme suit :
     
@@ -170,7 +172,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
 
-10.    Pour obtenir la configuration d’authentification unique complète pour votre application du côté FilesAnywhere, contactez [l’équipe de support technique de FilesAnywhere](mailto:support@FilesAnywhere.com) et fournissez-lui le certificat de signature de jetons SAML et l’URL d’authentification unique.
+10. Pour obtenir la configuration d’authentification unique complète pour votre application du côté FilesAnywhere, contactez [l’équipe de support technique de FilesAnywhere](mailto:support@FilesAnywhere.com) et fournissez-lui le certificat de signature de jetons SAML et l’URL d’authentification unique.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le Portail de gestion Azure.
