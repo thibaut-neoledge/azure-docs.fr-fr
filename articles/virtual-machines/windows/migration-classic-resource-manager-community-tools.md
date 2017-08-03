@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 22bf0402c16745dac1c8287b0ceb3598ea41305b
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: d3fc0246088eddeb345bea0ffbd2c5247b218006
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="community-tools-to-migrate-iaas-resources-from-classic-to-azure-resource-manager"></a>Outils de la communauté permettant de faire migrer des ressources IaaS à partir de déploiements classiques vers Azure Resource Manager
@@ -44,7 +44,7 @@ Il s’agit d’un ensemble d’outils d’assistance créé dans le cadre de mi
 ## <a name="migaz"></a>migAz
 migAz est une option supplémentaire pour migrer un ensemble complet de ressources IaaS classiques vers des ressources Azure Resource Manager IaaS. La migration peut être exécutée dans le même abonnement ou entre différents abonnements et types d’abonnements (par ex. : les abonnements CSP).
 
-[Lien vers la documentation des outils](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/migaz)
+[Lien vers la documentation des outils](https://github.com/Azure/migAz)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

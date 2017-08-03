@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/01/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: a6c33f11dfcbb02689956269ce5a37408534b6cd
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3e5c9ca546629f782a3d722b49f5fbaf5147e823
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
@@ -28,7 +28,6 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
-* [bool](#bool)
 * [concat](#concat)
 * [contains](#contains)
 * [dataUri](#datauri)
@@ -254,60 +253,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
-<a id="bool" />
 
-## <a name="bool"></a>valeur booléenne
-`bool(arg1)`
-
-Convertit le paramètre en valeur booléenne.
-
-### <a name="parameters"></a>Paramètres
-
-| Paramètre | Requis | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Oui |chaîne ou entier |La valeur à convertir en booléen. |
-
-### <a name="return-value"></a>Valeur de retour
-Valeur booléenne de la valeur convertie.
-
-### <a name="examples"></a>Exemples
-
-L’exemple suivant montre comment utiliser le booléen avec une chaîne ou un entier.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueString": {
-            "value": "[bool('true')]",
-            "type" : "bool"
-        },
-        "falseString": {
-            "value": "[bool('false')]",
-            "type" : "bool"
-        },
-        "trueInt": {
-            "value": "[bool(1)]",
-            "type" : "bool"
-        },
-        "falseInt": {
-            "value": "[bool(0)]",
-            "type" : "bool"
-        }
-    }
-}
-```
-
-La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
-
-| Nom | Type | Valeur |
-| ---- | ---- | ----- |
-| trueString | Bool | true |
-| falseString | Bool | False |
-| trueInt | Bool | true |
-| falseInt | Bool | False |
 
 <a id="concat" />
 

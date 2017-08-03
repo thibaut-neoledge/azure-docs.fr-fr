@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/06/2017
 ms.author: luywang
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 8cd91893003e3c24f7e3be99d457c0cb98775e89
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: e3869df76a13d5945d237987dc597fffb302a77d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="migrating-to-premium-storage-using-azure-site-recovery"></a>Migration vers le stockage Premium à l'aide d'Azure Site Recovery
@@ -151,7 +151,7 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 ## <a name="post-migration-steps"></a>Étapes de post-migration
 
 1. **Configurer des machines virtuelles répliquées dans le groupe à haute disponibilité, le cas échéant**. Site Recovery ne prend pas en charge la migration de machines virtuelles avec le groupe à haute disponibilité. En fonction du déploiement de votre machine virtuelle répliquée, effectuez l’une des opérations suivantes :
-  * Pour une machine virtuelle créée à l’aide du modèle de déploiement classique : ajoutez la machine virtuelle au groupe à haute disponibilité dans le portail Azure. Pour connaître les détails des étapes, accédez à [Ajout d’une machine virtuelle existante à un groupe à haute disponibilité](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+  * Pour une machine virtuelle créée à l’aide du modèle de déploiement classique : ajoutez la machine virtuelle au groupe à haute disponibilité dans le portail Azure. Pour connaître les détails des étapes, accédez à [Ajout d’une machine virtuelle existante à un groupe à haute disponibilité](../virtual-machines/windows/classic/configure-availability.md#addmachine).
   * Pour le modèle de déploiement Resource Manager : enregistrez votre configuration de machine virtuelle, puis supprimez et recréez les machines virtuelles dans le groupe à haute disponibilité. Pour ce faire, utilisez le script figurant dans [Définir le groupe à haute disponibilité de machine virtuelle Azure Resource Manager](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Vérifiez la limite de ce script et planifiez un temps d’arrêt avant d’exécuter le script.
 
 2. **Supprimer les anciennes machines virtuelles et les anciens disques**. Avant de les supprimer, assurez-vous que les disques Premium sont cohérents avec les disques sources et que les nouvelles machines virtuelles exécutent la même fonction que les machines virtuelles source. Dans le modèle de déploiement Resource Manager (RM), supprimez la machine virtuelle et les disques de vos comptes de stockage source dans le portail Azure. Dans le modèle de déploiement classique, vous pouvez supprimer la machine virtuelle et les disques dans le portail classique ou dans le portail Azure. Si un problème survient et que le disque n’est pas supprimé même après la suppression de la machine virtuelle, consultez la rubrique [Résoudre les erreurs lorsque vous supprimez des comptes de stockage Azure, des conteneurs ou des disques durs virtuels dans un déploiement Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md).

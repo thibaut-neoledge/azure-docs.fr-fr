@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: ramankum
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c905bfe672d1027916d7f273ab5ac79ceec9a4d9
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 94ae2fa4600c007725ae2615554144d12306e833
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Stockage Premium hautes performances et disques gérés pour machines virtuelles
@@ -59,7 +58,7 @@ Voici certaines des fonctionnalités du stockage Premium :
 
 * **Disques de stockage Premium**
 
-    Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique. Le stockage Premium prend en charge les machines virtuelles des séries DS, DSv2, GS et Fs. Sept tailles de disque différentes vous sont proposées : P4 (32 Go), P6 (64 Go), P10 (128 Go), P20 (512 Go), P30 (1024 Go), P40 (2048 Go), P50 (4095 Go). Les tailles de disque P4 et P6 ne sont actuellement prises en charge que par Managed Disks. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle. Nous donnons plus de détails sur ces spécifications dans [Objectifs de performance et d’extensibilité du stockage Premium](#premium-storage-scalability-and-performance-targets).
+    Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique. Le stockage Premium prend en charge les machines virtuelles des séries DS, DSv2, GS, Ls et Fs. Sept tailles de disque différentes vous sont proposées : P4 (32 Go), P6 (64 Go), P10 (128 Go), P20 (512 Go), P30 (1024 Go), P40 (2048 Go), P50 (4095 Go). Les tailles de disque P4 et P6 ne sont actuellement prises en charge que par Managed Disks. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle. Nous donnons plus de détails sur ces spécifications dans [Objectifs de performance et d’extensibilité du stockage Premium](#scalability-and-performance-targets).
 
 * **Objets blob de pages Premium**
 

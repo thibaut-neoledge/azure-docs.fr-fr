@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 4870d2a0bbe35f3980864d8b4f3d011a189b650e
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 3cc1bd293868b0bb093f617ac12e16c26780fc89
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/10/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Déplacer des données à partir d’une source HTTP à l’aide d’Azure Data Factory
@@ -208,7 +207,7 @@ Actuellement, quand la source de l’activité de copie est de type **HttpSource
 | httpRequestTimeout | Délai d’expiration (TimeSpan) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse. | Non. Valeur par défaut : 00:01:40 |
 
 ## <a name="supported-file-and-compression-formats"></a>Formats de fichier et de compression pris en charge
-Pour plus d’informations, consultez l’article [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
+Pour plus d’informations, voir [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="json-examples"></a>Exemples JSON
 Les exemples suivants offrent des exemples de définitions JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils montrent comment copier des données d’une source HTTP vers le service Stockage Blob Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie de Microsoft Azure Data Factory.
@@ -307,7 +306,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 
 Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition JSON du pipeline, le type **source** est défini sur **ttpSource** et le type **sink** sur **BlobSink**.
 
-Pour obtenir la liste des propriétés prises en charge par le type HttpSource, consultez [HttpSource](#httpsource-in-copy-activity).
+Pour obtenir la liste des propriétés prises en charge par le type HttpSource, consultez [HttpSource](#copy-activity-properties).
 
 ```JSON
 {  

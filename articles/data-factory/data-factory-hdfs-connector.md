@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: dc501a1c7c0d6a1d70ce368f86a967f889394dc7
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 9a8f3156a62a1a7aa49377349e8a85454efeda50
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Transfert de données à partir d’un HDFS local à l’aide d’Azure Data Factory
@@ -184,7 +183,7 @@ L’exemple copie toutes les heures les données d’un système HDFS en local v
 
 Dans un premier temps, configurez la passerelle de gestion des données. Les instructions se trouvent dans l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md) .
 
-**Service lié de HDFS :** cet exemple utilise l’authentification Windows. Consultez la section [Service lié HDFS](#linked-service) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié de HDFS :** cet exemple utilise l’authentification Windows. Consultez la section [Service lié HDFS](#linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
 ```JSON
 {
@@ -480,7 +479,7 @@ Il existe deux options de configuration de l’environnement local afin d’util
 
 **Dans Azure Data Factory :**
 
-* Configurez le connecteur HDFS à l’aide de l’**authentification Windows** avec votre compte de domaine ou le principal Kerberos pour vous connecter à la source de données HDFS. Vérifiez les détails de configuration dans la section sur les [propriétés du service lié HDFS](#linked-service).
+* Configurez le connecteur HDFS à l’aide de l’**authentification Windows** avec votre compte de domaine ou le principal Kerberos pour vous connecter à la source de données HDFS. Vérifiez les détails de configuration dans la section sur les [propriétés du service lié HDFS](#linked-service-properties).
 
 > [!NOTE]
 > Pour savoir comment mapper des colonnes d’un jeu de données source à des colonnes d’un jeu de données récepteur, consultez [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mappage des colonnes des jeux de données dans Azure Data Factory).

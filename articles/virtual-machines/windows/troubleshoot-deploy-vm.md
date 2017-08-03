@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ad0e96a91d6d502897953a4c841cbfa40a4852a3
-ms.openlocfilehash: 20b5144cafebc83eb00d191292b34ea550273914
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: e5f3fc57292102afb8f0ffb1f851953e97d7478a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Résolution des problèmes de déploiement de la machine virtuelle Windows dans Azure
@@ -119,9 +118,9 @@ Cet [article](client-images.md) décrit les conditions d’éligibilité pour le
 
 Lorsqu’un ordinateur virtuel est en cours d’exécution, il est déployé sur un serveur physique. Les serveurs physiques dans les régions Azure sont regroupés dans des clusters de matériel physique commun. La méthode pour redimensionner une machine virtuelle qui doit être transférée vers différents clusters de matériel physique peut varier en fonction du modèle de déploiement utilisé pour déployer la machine virtuelle.
 
-- Si les machines virtuelles sont déployées à partir d’un modèle de déploiement Classic, le déploiement du service cloud doit être supprimé et redéployé afin de changer la taille de la machine virtuelle pour une autre famille de taille.
+- Si les machines virtuelles sont déployées à partir d’un modèle de déploiement classique, le déploiement du service cloud doit être supprimé et redéployé afin de changer la taille de la machine virtuelle pour une autre famille de taille.
 
-- Si les machines virtuelles sont déployées à partir du modèle de déploiement Resource Manager, vous devez arrêter toutes les machines virtuelles dans le groupe à haute disponibilité avant de changer la taille des machines dans le groupe à haute disponibilité.
+- Si les machines virtuelles sont déployées à partir du modèle de déploiement Resource Manager, vous devez arrêter toutes les machines virtuelles dans le groupe à haute disponibilité avant de changer la taille d’une machine dans le groupe à haute disponibilité.
 
 ## <a name="the-listed-vm-size-is-not-supported-while-deploying-in-availability-set"></a>La taille de machine virtuelle répertoriée n’est pas prise en charge lors du déploiement dans le groupe à haute disponibilité.
 
@@ -129,7 +128,7 @@ Choisissez une taille prise en charge par le cluster du groupe à haute disponib
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Est-il possible d’ajouter une machine virtuelle classique à un groupe à haute disponibilité ?
 
-Oui. Vous pouvez ajouter une machine virtuelle classique existante à un nouveau groupe ou à un groupe à haute disponibilité déjà existant. Pour plus d’informations, consultez [Ajouter une machine virtuelle existante à un groupe à haute disponibilité](classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+Oui. Vous pouvez ajouter une machine virtuelle classique existante à un nouveau groupe ou à un groupe à haute disponibilité déjà existant. Pour plus d’informations, consultez [Ajouter une machine virtuelle existante à un groupe à haute disponibilité](classic/configure-availability.md#addmachine).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
