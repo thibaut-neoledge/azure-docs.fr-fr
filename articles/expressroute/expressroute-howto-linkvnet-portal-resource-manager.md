@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 4d86910acca16299627c4202ef073c526bd4fc26
-ms.lasthandoff: 04/14/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 595c30ab5d9adc6061ad753d952adf894ba80b2f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connecter un réseau virtuel à un circuit ExpressRoute
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Classic - PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Interface de ligne de commande Azure](howto-linkvnet-cli.md)
 > * [Vidéo - portail Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [PowerShell (classique)](expressroute-howto-linkvnet-classic.md)
 > 
->  
 
 Cet article vous aide à lier des réseaux virtuels à des circuits Azure ExpressRoute en utilisant le modèle de déploiement Resource Manager et le portail Azure. Les réseaux virtuels peuvent appartenir au même abonnement ou faire partie d’un autre abonnement.
 
@@ -113,24 +113,24 @@ L’utilisateur du circuit a besoin de l’ID de ressource et d’une clé d’a
 
 **Réclamation d’une autorisation de connexion**
 
-1.    Cliquez sur le bouton **+Nouveau**.
+1.  Cliquez sur le bouton **+Nouveau**.
 
     ![Click New](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 
-2.    Recherchez l’option **Connexion** dans la Place de marché. Sélectionnez-la, puis cliquez sur **Créer**.
+2.  Recherchez l’option **Connexion** dans la Place de marché. Sélectionnez-la, puis cliquez sur **Créer**.
 
     ![Rechercher une connexion](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 
-3.    Vérifiez que l’option **Type de connexion** est définie sur « ExpressRoute ».
+3.  Vérifiez que l’option **Type de connexion** est définie sur « ExpressRoute ».
 
 
-4.    Renseignez les détails, puis cliquez sur **OK** dans le panneau De base.
+4.  Renseignez les détails, puis cliquez sur **OK** dans le panneau De base.
 
     ![Panneau Informations de base](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 
-5.    Dans le panneau **Paramètres**, sélectionnez **Passerelle de réseau virtuel**, puis cochez la case **Redeem authorization** (Réclamer l’autorisation).
+5.  Dans le panneau **Paramètres**, sélectionnez **Passerelle de réseau virtuel**, puis cochez la case **Redeem authorization** (Réclamer l’autorisation).
 
-6.    Entrez la **clé d’autorisation** et **l’URI du circuit appairé**, puis donnez un nom à la connexion. Cliquez sur **OK**.
+6.  Entrez la **clé d’autorisation** et **l’URI du circuit appairé**, puis donnez un nom à la connexion. Cliquez sur **OK**.
 
     ![Panneau Paramètres](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 

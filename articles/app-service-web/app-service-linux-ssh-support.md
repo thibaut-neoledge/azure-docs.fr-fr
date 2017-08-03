@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 6da663ea282e09b01ce380827fa7e31505712516
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: bfa902aae0b1ab4ca6a93387106b40a16c7288cd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Prise en charge SSH pour Azure Web App sur Linux
@@ -90,7 +89,7 @@ Cette procédure est affichée dans le référentiel Azure App Service en tant q
     EXPOSE 2222 80
     ```
 
-4. Veillez à démarrer le service ssh. L’exemple [ici](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/init_container.sh) utilise un script shell dans le répertoire */bin*.
+4. Veillez à démarrer le service ssh. L’exemple [ici](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) utilise un script shell dans le répertoire */bin*.
 
     ```bash
     #!/bin/bash

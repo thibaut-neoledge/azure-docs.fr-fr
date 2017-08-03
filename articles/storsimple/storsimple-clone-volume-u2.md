@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/27/2016
+ms.date: 07/26/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
-ms.openlocfilehash: 0db0af490f03525f4c23c4e9a23e62a1ef9f1c7f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 2b627250df62bbe3299869ef3812947afbb8f29f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="use-the-storsimple-manager-service-to-clone-a-volume-update-2"></a>Utiliser le service StorSimple Manager pour cloner un volume (Mise à jour 2)
@@ -86,7 +87,7 @@ Vous pouvez créer un clone sur le même appareil, sur un autre ou même une mac
 > 
 > 
 
-Un clone créé de cette manière est un clone temporaire. Pour plus d’informations sur les types de clone, consultez la page [Clones temporaires et permanents](#transient-vs.-permanent-clones).
+Un clone créé de cette manière est un clone temporaire. Pour plus d’informations sur les types de clone, consultez la page [Clones temporaires et permanents](#transient-vs-permanent-clones).
 
 Ce clone est désormais un volume normal et toute opération possible sur un volume sera disponible pour le clone. Vous devez configurer ce volume pour toutes les sauvegardes.
 
@@ -111,10 +112,5 @@ Vous devez vérifier un bogue de test dans l’environnement de production. Vous
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set-u2.md).
 * Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

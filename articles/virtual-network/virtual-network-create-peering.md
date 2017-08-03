@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: jdial;narayan;annahar
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: dada2cd0d55cffc3c550177aa3d8a8bb366db765
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: a32a6b33e04c603325ab3612f61e5852682eac7d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>Créer une homologation de réseaux virtuels - Resource Manager - Même abonnement
@@ -68,7 +68,7 @@ Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de com
      - **Abonnement** : sélectionnez votre abonnement
      - **Réseau virtuel** : cliquez sur **Choisir un réseau virtuel**, puis sur **myVnet2**.
      - **Autoriser l’accès au réseau virtuel :** vérifiez que l’option **Activé** est sélectionnée.
-    Il n’y aucun autre paramètre utilisé dans ce didacticiel. Pour en savoir plus sur tous les paramètres d’homologation, consultez [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md#create-peering) (Créer, modifier ou supprimer une homologation de réseaux virtuels).
+    Il n’y aucun autre paramètre utilisé dans ce didacticiel. Pour en savoir plus sur tous les paramètres d’homologation, consultez [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md#create-a-peering) (Créer, modifier ou supprimer une homologation de réseaux virtuels).
 10. Après avoir cliqué sur **OK** à l’étape précédente, le panneau **Ajouter l’homologation** se ferme et vous pouvez à nouveau voir le panneau **myVnet1 - Homologations**. Après quelques secondes, l’homologation que vous avez créée apparaît dans le panneau. **Lancé** est indiqué dans la colonne **ÉTAT D’APPAIRAGE** pour l’homologation **myVnet1ToMyVnet2** que vous avez créée. Vous avez effectué une homologation de Vnet1 à Vnet2, mais vous devez maintenant effectuer une homologation de myVnet2 à myVnet1. L’homologation doit être créée dans les deux directions pour permettre aux ressources des réseaux virtuels de communiquer entre elles.
 11. Répétez les étapes 5 à 10 pour myVnet2.  Nommez l’homologation *myVnet2ToMyVnet1*.
 12. Quelques secondes après avoir cliqué sur **OK** pour créer l’homologation pour MyVnet2, l’homologation **myVnet2ToMyVnet1** que vous venez de créer est répertoriée avec **Connecté** dans la colonne **ÉTAT D’APPAIRAGE**.
@@ -271,7 +271,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Familiarisez-vous bien avec les [comportements et contraintes importants de l’homologation de réseaux virtuels](virtual-network-manage-peering.md#about-peering) avant d’en créer une pour une utilisation en production.
-- Apprenez-en davantage sur tous les [paramètres d’homologation de réseaux virtuels](virtual-network-manage-peering.md#create-peering).
+- Familiarisez-vous bien avec les [comportements et contraintes importants de l’homologation de réseaux virtuels](virtual-network-manage-peering.md#requirements-and-constraints) avant d’en créer une pour une utilisation en production.
+- Apprenez-en davantage sur tous les [paramètres d’homologation de réseaux virtuels](virtual-network-manage-peering.md#create-a-peering).
 - Découvrez comment [créer une topologie de réseau de type hub et spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec l’homologation de réseaux virtuels.
 
