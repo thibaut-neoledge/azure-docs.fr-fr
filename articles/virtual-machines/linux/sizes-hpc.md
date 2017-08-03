@@ -3,7 +3,7 @@ title: Tailles des machines virtuelles Linux Azure - Calcul haute performance | 
 description: "Répertorie les différentes tailles disponibles pour les machines virtuelles de calcul haute performance Linux dans Azure."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
-ms.author: cynthn
+ms.date: 07/28/2017
+ms.author: jonbeck
 ms.translationtype: HT
 ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: 4962c26e6bf2ed36ce670cc78f4ecfcab871a8bf

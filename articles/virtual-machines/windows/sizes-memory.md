@@ -3,7 +3,7 @@ title: "Tailles des machines virtuelles Azure Windows - Mémoire | Microsoft Doc
 description: "Répertorie les différentes tailles de mémoire optimisées pour les machines virtuelles Windows dans Azure."
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: cynthn
+ms.date: 07/28/2017
+ms.author: jonbeck
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 68e4afcedffbb6c70eae83eae18b242b408a15a4
