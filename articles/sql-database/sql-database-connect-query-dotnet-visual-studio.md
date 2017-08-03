@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c7d54f8355803933e0d581470804ee98a0172937
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 105dab17823a7e7f6957a604833f4ecad35c14bd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Utilisation de NET (C#) avec Visual Studio pour se connecter à une base de données SQL Azure et l’interroger
@@ -74,7 +74,6 @@ Obtenez les informations de connexion requises pour la connexion à la base de d
 8. Si une fenêtre **Acceptation de la licence**, cliquez sur **J’accepte**.
 
 ## <a name="insert-code-to-query-sql-database"></a>Insertion du code pour interroger la base de données SQL
-
 1. Basculez vers (ou ouvrez le cas échéant) **Program.cs**
 
 2. Remplacez le contenu de **Program.cs** par le code suivant et ajoutez les valeurs appropriées pour votre serveur, base de données, utilisateur et mot de passe.
@@ -141,7 +140,7 @@ namespace sqltest
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [connecter et interroger une base de données SQL Azure à l’aide de .NET Core](sql-database-connect-query-dotnet-core.md) sur Windows/Linux/macOS.  
-- En savoir plus sur la [prise en main de .NET Core sur Windows/Linux/macOS à l’aide de la ligne de commande](/dotnet/core/tutorials/using-with-xplat-cli.md).
+- En savoir plus sur la [prise en main de .NET Core sur Windows/Linux/macOS à l’aide de la ligne de commande](/dotnet/core/tutorials/using-with-xplat-cli).
 - Découvrez comment [concevoir votre première base de données SQL Azure à l’aide de SSMS](sql-database-design-first-database.md) ou [concevoir votre première base de données SQL Azure à l’aide de .NET](sql-database-design-first-database-csharp.md).
 - Pour plus d’informations sur .NET, consultez la [documentation .NET](https://docs.microsoft.com/dotnet/).
 

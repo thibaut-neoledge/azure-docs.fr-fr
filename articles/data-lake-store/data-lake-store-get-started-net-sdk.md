@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/09/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: f637b8617c4a9ed3be1eb0932a94b0ffcc7c8f7e
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 70f94a07b0102e3135eaf85e5877e3502762d7e3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-store-using-net-sdk"></a>Prise en main d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET
@@ -35,7 +34,7 @@ ms.lasthandoff: 06/07/2017
 >
 >
 
-Découvrez comment utiliser le [Kit de développement logiciel (SDK) .NET Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) pour effectuer des opérations de base comme créer des dossiers ou charger et télécharger des fichiers de données. Pour plus d’informations sur Data Lake, consultez [Azure Data Lake Store](data-lake-store-overview.md).
+Découvrez comment utiliser le [Kit de développement logiciel (SDK) .NET Azure Data Lake Store](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet) pour effectuer des opérations de base comme créer des dossiers ou charger et télécharger des fichiers de données. Pour plus d’informations sur Data Lake, consultez [Azure Data Lake Store](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Composants requis
 * **Visual Studio 2013, 2015 ou 2017**. Les instructions ci-dessous utilisent Visual Studio 2015 Update 2.
