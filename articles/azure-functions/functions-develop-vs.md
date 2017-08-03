@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 07/13/2017
 ms.author: glenga, donnam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8b569727c51589bd622d41465bb3565220c19fca
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: fab2b3042faf870fe4b9d09d5e96dadb7155c450
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools pour Visual Studio  
@@ -56,7 +56,7 @@ Vous pouvez [télécharger et installer le package d’extension](https://market
 
 ## <a name="create-an-azure-functions-project"></a>Créer un projet Azure Functions 
 
-[!INCLUDE [Create a project using the Azure Functions ](../../includes/functions-vstools-create.md)]
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
 
 ## <a name="configure-the-project-for-local-development"></a>Configurer le projet pour un développement local
@@ -65,13 +65,17 @@ Lorsque vous créez un projet à l’aide du modèle Azure Functions, vous obten
 
 * **host.json** : vous permet de configurer l’hôte Functions. Ces paramètres s’appliquent lors de l’exécution en local et dans Azure. Pour plus d’informations, consultez l’article de référence sur [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
     
-* **local.settings.json** : maintient les paramètres utilisés lors de l’exécution des fonction en local. Ces paramètres ne sont pas utilisés par Azure, ils sont utilisés par Azure Functions Core Tools. Utilisez ce fichier pour spécifier des paramètres, tels que des chaînes de connexion vers d’autres services Azure. Ajoutez une clé au tableau **Valeurs** pour chaque connexion requise par les fonctions dans votre projet. Pour plus d’informations, consultez [Local settings file](functions-run-local.md#local-settings-file) (Fichier de paramètres local) dans la rubrique Procédure locale de codage et de test d’Azure Functions.
+* **local.settings.json** : maintient les paramètres utilisés lors de l’exécution des fonction en local. Ces paramètres ne sont pas utilisés par Azure, ils sont utilisés par [Azure Functions Core Tools](functions-run-local.md). Utilisez ce fichier pour spécifier des paramètres, tels que des chaînes de connexion vers d’autres services Azure. Ajoutez une clé au tableau **Valeurs** pour chaque connexion requise par les fonctions dans votre projet. Pour plus d’informations, consultez [Local settings file](functions-run-local.md#local-settings-file) (Fichier de paramètres local) dans la rubrique Procédure locale de codage et de test d’Azure Functions.
 
-Le runtime de Functions utilise un compte de stockage Azure en interne. Pour tous les types de déclencheur autres que HTTP et webhooks, vous devez définir la clé **Values.AzureWebJobsStorage** sur une chaîne de connexion de compte de stockage Azure valide. Pour définir la chaîne de connexion de compte de stockage :
+Le runtime de Functions utilise un compte de stockage Azure en interne. Pour tous les types de déclencheur autres que HTTP et webhooks, vous devez définir la clé **Values.AzureWebJobsStorage** sur une chaîne de connexion de compte de stockage Azure valide.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte de stockage, cliquez sur **Tous les paramètres** > **Clés d’accès**, puis copiez la **chaîne de connexion** pour l’une de vos clés. 
+[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-2. Dans votre projet dans Visual Studio, ouvrez le fichier de projet local.settings.json et définissez la valeur de la clé **AzureWebJobsStorage** sur la chaîne de connexion que vous avez copiée.
+ Pour définir la chaîne de connexion de compte de stockage :
+
+1. Dans Visual Studio, ouvrez **Cloud Explorer**, développez **Compte de stockage** > **Votre compte de stockage**, puis sélectionnez **Propriétés** et copiez la valeur **Chaîne de connexion principale**.   
+
+2. Dans votre projet, ouvrez le fichier de projet local.settings.json et définissez la valeur de la clé **AzureWebJobsStorage** sur la chaîne de connexion que vous avez copiée.
 
 3. Répétez l’étape précédente pour ajouter des clés uniques au tableau **Valeurs** pour les autres connexions requises par vos fonctions.  
 
@@ -85,7 +89,7 @@ Dans les fonctions précompilées, les liaisons utilisées par la fonction sont 
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    Une clé de chaîne de connexion nommée **QueueStorage** est fournie, qui est définie dans le fichier local.settings.json. Le nom de la classe 
+    Une clé de chaîne de connexion nommée **QueueStorage** est fournie, qui est définie dans le fichier local.settings.json. 
  
 3. Examinez la classe qui vient d’être ajoutée. Vous voyez une méthode statique **Run**, qui est attribuée avec l’attribut **FunctionName**. Cet attribut indique que la méthode est le point d’entrée de la fonction. 
 
@@ -113,7 +117,9 @@ Dans les fonctions précompilées, les liaisons utilisées par la fonction sont 
 
 ## <a name="testing-functions"></a>Tester les fonctions
 
-[!INCLUDE [Test the function locally](../../includes/functions-vstools-test.md)]
+Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions sur votre ordinateur de développement local. Vous êtes invité à installer ces outils la première fois que vous démarrez une fonction dans Visual Studio.  
+
+Pour tester votre fonction, appuyez sur F5. Si vous y êtes invité, acceptez la requête dans Visual Studio pour télécharger et installer Azure Functions Core (CLI) Tools.  Vous devrez peut-être activer une exception de pare-feu afin de permettre aux outils de prendre en charge les requêtes HTTP.
 
 Avec le projet en cours d’exécution, vous pouvez tester votre code comme vous testeriez la fonction déployée. Pour plus d’informations, consultez [Stratégies permettant de tester votre code dans Azure Functions](functions-test-a-function.md). Lors de l’exécution en mode débogage, les points d’arrêt sont atteints dans Visual Studio comme prévu. 
 
@@ -125,8 +131,17 @@ Pour en savoir plus sur l’utilisation d’Azure Functions Core Tools, consulte
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
+>[!NOTE]  
+>Les paramètres que vous avez ajoutés au fichier local.settings.json doivent être également ajoutés à l’application de fonction dans Azure. Ces paramètres ne sont pas ajoutés automatiquement. Vous pouvez ajouter les paramètres requis à votre application de fonction de l’une des manières suivantes :
+>
+>* [Utilisation du portail Azure](functions-how-to-use-azure-function-app-settings.md#settings).
+>* [Utilisation de l’option de publication `--publish-local-settings` dans Azure Functions Core Tools](functions-run-local.md#publish).
+>* [Utilisation de l’interface CLI Azure](/cli/azure/functionapp/config/appsettings#set). 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Azure Functions Tools, consultez la section Common Questions (Questions courantes) de l’article de blog [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) (Visual Studio 2017 Tools pour Azure Functions).
 
-Pour en savoir plus sur Azure Functions Core Tools, consultez [Procédure locale de codage et de test d’Azure Functions](functions-run-local.md).
+Pour en savoir plus sur Azure Functions Core Tools, consultez [Procédure locale de codage et de test d’Azure Functions](functions-run-local.md).  
+Pour en savoir plus sur le développement de fonctions en tant que bibliothèques de classes .NET, consultez [Utilisation de bibliothèques de classes .NET avec Azure Functions](functions-dotnet-class-library.md). Cette rubrique fournit également des exemples d’utilisation d’attributs pour déclarer les différents types de liaisons pris en charge par Azure Functions.    
+
