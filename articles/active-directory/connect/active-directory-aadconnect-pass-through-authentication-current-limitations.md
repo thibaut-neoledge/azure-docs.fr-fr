@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/25/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 3ed2ee8c996628caabefd60b5ecff7528402eb52
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 40d07ce6e480924c7c1af601cc25e4a74280141f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -33,6 +33,7 @@ Les scénarios suivants sont entièrement pris en charge dans la version prélim
 
 - L’utilisateur se connecte dans toutes les applications basées sur un navigateur web.
 - L’utilisateur se connecte dans les applications clientes Office 365 prenant en charge [l’authentification moderne](https://aka.ms/modernauthga).
+- Azure AD Join pour les appareils Windows 10.
 
 ## <a name="unsupported-scenarios"></a>Scénarios non pris en charge
 
@@ -41,7 +42,6 @@ Les scénarios suivants ne sont _pas_ pris en charge dans la version préliminai
 - L’utilisateur se connecte dans des applications clientes Office héritées et à Exchange ActiveSync (c’est-à-dire les applications de messagerie natives sur des appareils mobiles). Nous recommandons aux entreprises de basculer si possible vers l’authentification moderne. L’authentification moderne permet non seulement de prendre en charge l’authentification directe, mais également de sécuriser les identités à l’aide des fonctionnalités [d’accès conditionnel](../active-directory-conditional-access.md), comme l’authentification multifacteur.
 - L’utilisateur se connecte dans les applications clientes de Skype Entreprise.
 - L’utilisateur se connecte dans PowerShell v1.0. Il est recommandé d’utiliser à la place PowerShell v2.0.
-- Azure AD Join pour les appareils Windows 10.
 
 >[!IMPORTANT]
 >Comme solution de contournement pour les scénarios non pris en charge, activez la synchronisation du hachage de mot de passe sur la page [Fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features) dans l’Assistant Azure AD Connect. La synchronisation du hachage de mot de passe agit comme solution de secours _uniquement_ pour les scénarios précédents (et _non pas_ comme solution de secours générique pour l’authentification directe). Si vous n’avez pas besoin de ces scénarios, désactivez la synchronisation du hachage de mot de passe.
@@ -49,8 +49,8 @@ Les scénarios suivants ne sont _pas_ pris en charge dans la version préliminai
 ## <a name="next-steps"></a>Étapes suivantes
 - [**Démarrage rapide**](active-directory-aadconnect-pass-through-authentication-quick-start.md) : Mise en route de l’authentification directe Azure AD.
 - [**Immersion technique**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
-- [**Forum aux Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.
-- [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants rencontrés avec cette fonctionnalité.
-- [**Authentification unique transparente Azure AD**](active-directory-aadconnect-sso.md) : découvrez plus d’informations sur cette fonctionnalité complémentaire.
+- [**Forum aux questions**](active-directory-aadconnect-pass-through-authentication-faq.md) : réponses aux questions fréquentes.
+- [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
+- [**Authentification unique transparente Azure AD**](active-directory-aadconnect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour formuler des demandes de nouvelles fonctionnalités.
 
