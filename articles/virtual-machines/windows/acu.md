@@ -3,7 +3,7 @@ title: "Vue d’ensemble de l’unité de calcul Azure | Microsoft Docs"
 description: "Vue d’ensemble du concept d’unités de calcul Azure pour Windows. L’unité de calcul Azure offre un moyen de comparer les performances d’UC entre des références Azure."
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: cynthn
+ms.date: 07/28/2017
+ms.author: jonbeck
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 8be8d538b192a55d5c1ecc8cb5839f9079317d50

@@ -3,7 +3,7 @@ title: Tailles des machines virtuelles Linux Azure - GPU | Microsoft Docs
 description: "Répertorie les différentes tailles de GPU optimisées disponibles pour les machines virtuelles Linux dans Azure."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
-ms.author: cynthn
+ms.date: 07/28/2017
+ms.author: jonbeck
 ms.translationtype: HT
 ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: ec289cf53f2cfecd2744b739667ef831dafd59a4
