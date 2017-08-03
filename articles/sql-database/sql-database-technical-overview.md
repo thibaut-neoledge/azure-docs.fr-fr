@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.date: 06/30/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 17b51afc0c67377dccdef63deacdcc67af8df576
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 54aa8c2f738ef92c211462498103d368e4cb4c5c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ? 
@@ -98,7 +98,7 @@ Deux aspects de réglage automatique sont disponibles dans SQL Database :
 
 ### <a name="adaptive-query-processing"></a>Traitement adaptatif des requêtes
 
-Nous ajoutons également à SQL Database la famille des fonctionnalités de [traitement adaptatif des requêtes](/sql/relational-databases/performance/adaptive-query-processing.md), y compris l’exécution entrelacée pour les fonctions TVF à instructions multiples, les commentaires d’allocation de mémoire en mode traitement par lots et les jointures adaptatives en mode de traitement par lots. Chacune de ces fonctionnalités de traitement adaptatif des requêtes applique des techniques similaires d’apprentissage et d’adaptation, ce qui contribue à résoudre les problèmes de performances liés aux soucis d’optimisation de requête historiquement intraitables.
+Nous ajoutons également à SQL Database la famille des fonctionnalités de [traitement adaptatif des requêtes](/sql/relational-databases/performance/adaptive-query-processing), y compris l’exécution entrelacée pour les fonctions TVF à instructions multiples, les commentaires d’allocation de mémoire en mode traitement par lots et les jointures adaptatives en mode de traitement par lots. Chacune de ces fonctionnalités de traitement adaptatif des requêtes applique des techniques similaires d’apprentissage et d’adaptation, ce qui contribue à résoudre les problèmes de performances liés aux soucis d’optimisation de requête historiquement intraitables.
 
 ### <a name="intelligent-threat-detection"></a>Détection intelligente des menaces
 
@@ -160,3 +160,4 @@ SQL Database prend en charge la génération d’applications avec Python, Java,
 - Pour accéder à des exemples Azure CLI et PowerShell, consultez :
   - [Exemples d’interface de ligne de commande Azure pour SQL Database](sql-database-cli-samples.md)
   - [Exemples Azure PowerShell pour SQL Database](sql-database-powershell-samples.md)
+

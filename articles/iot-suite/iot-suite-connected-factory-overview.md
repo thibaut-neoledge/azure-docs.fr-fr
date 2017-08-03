@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: d9d4dcf16954b0cd831e017ecb305d30e3b36dc7
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: a7d31be48ef06064b01cdb2dfd0331b34adbec4d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Prise en main de la solution préconfigurée d’usine connectée
-
-## <a name="introduction"></a>Introduction
 
 Les [solutions préconfigurées][lnk-preconfigured-solutions] d’Azure IoT Suite regroupent plusieurs services Azure IoT pour offrir des solutions de bout en bout permettant d’implémenter des scénarios IoT d’entreprise. La solution préconfigurée d’*usine connectée* se connecte et surveille vos appareils industriels. Vous pouvez utiliser la solution pour analyser le flux de données à partir de vos appareils et pour encourager la productivité et la rentabilité opérationnelle.
 
