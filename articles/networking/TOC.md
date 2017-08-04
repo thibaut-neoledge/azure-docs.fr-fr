@@ -64,6 +64,7 @@
 ## [Modèles fournis par la communauté](https://azure.microsoft.com/resources/templates/)
 ## [Blog sur la mise en réseau](http://azure.microsoft.com/blog/topics/networking)
 ## [Tarification](https://azure.microsoft.com/pricing)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilité régionale](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)

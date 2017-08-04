@@ -3,8 +3,8 @@
 ## [Qu’est-ce qu’Azure Backup ?](backup-introduction-to-azure-backup.md)
 
 # Prise en main
-## [Sauvegarde des machines virtuelles Azure](backup-azure-vms-first-look-arm.md)
-## [Sauvegarder des fichiers et dossiers](backup-try-azure-backup-in-10-mins.md)
+## [Sauvegarder des machines virtuelles Azure](backup-azure-vms-first-look-arm.md)
+## [Sauvegarder les ordinateurs Windows ou les serveurs Windows Server](backup-try-azure-backup-in-10-mins.md)
 ## [Sauvegarder des serveurs VMware](backup-azure-backup-server-vmware.md)
 
 # Procédures
@@ -27,16 +27,19 @@
 #### [Restaurer des machines virtuelles déployées à l’aide de Resource Manager dans le portail Azure](backup-azure-arm-restore-vms.md)
 #### [Restaurer des machines virtuelles chiffrées](backup-azure-vms-encryption.md)
 #### [Restaurer des machines virtuelles dans Azure](backup-azure-restore-vms.md)
-#### [Restaurer la clé et le secret du Key Vault pour les machines virtuelles chiffrées à l’aide d’Azure Backup](backup-azure-restore-key-secret.md)
+#### [Restaurer la clé et le secret du Key Vault pour les machines virtuelles chiffrées](backup-azure-restore-key-secret.md)
 
 
-## Fichiers et dossiers Windows
-### [Windows Server avec le modèle de déploiement Resource Manager](backup-configure-vault.md)
-### [Windows Server avec le modèle de déploiement classique](backup-configure-vault-classic.md)
+## Windows Server
+### [Sauvegarder les fichiers et dossiers de Windows Server](backup-configure-vault.md)
+### [Sauvegarder l’état du système Windows Server](backup-azure-system-state.md)
+### [Récupérer des fichiers à partir d’Azure vers Windows Server](backup-azure-restore-windows-server.md)
+### [Restaurer l’état du système Windows Server](backup-azure-restore-system-state.md)
 ### [Surveiller et gérer les coffres Recovery Services n](backup-azure-manage-windows-server.md)
-### [Gérer les coffres Sauvegarde à l’aide du modèle de déploiement classique](backup-azure-manage-windows-server-classic.md)
-### [Récupérer des fichiers sur un serveur Windows à l’aide du modèle de déploiement Resource Manager](backup-azure-restore-windows-server.md)
-### [Récupérer des fichiers sur un client Windows à l’aide du modèle de déploiement classique](backup-azure-restore-windows-server-classic.md)
+### Sauvegarder et restaurer à l’aide du portail classique
+#### [Windows Server avec le modèle de déploiement classique](backup-configure-vault-classic.md)
+#### [Gérer les coffres Sauvegarde à l’aide du modèle de déploiement classique](backup-azure-manage-windows-server-classic.md)
+#### [Récupérer des fichiers sur un client Windows à l’aide du modèle de déploiement classique](backup-azure-restore-windows-server-classic.md)
 
 ## Azure Backup Server
 ### [Matrice de protection du serveur de sauvegarde Azure](backup-mabs-protection-matrix.md)
@@ -108,5 +111,6 @@
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [Tarification](https://azure.microsoft.com/pricing/details/backup/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=backup)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=backup)

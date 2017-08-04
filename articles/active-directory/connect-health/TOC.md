@@ -12,6 +12,7 @@
 ## [Résolution des erreurs lors de la synchronisation](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
 # Référence
+## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Historique de publication des versions d’Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 # Rubriques connexes
@@ -22,4 +23,4 @@
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
-
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)

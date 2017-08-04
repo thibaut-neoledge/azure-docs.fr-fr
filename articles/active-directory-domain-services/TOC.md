@@ -47,6 +47,9 @@
 ### [Activer la préversion de l’expérience du portail Azure](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Résoudre les erreurs relatives à des locataires qui ne correspondent pas](active-directory-ds-mismatched-tenant-error.md)
 
+# Référence
+## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Rubriques connexes
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -57,4 +60,5 @@
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Nous contacter](active-directory-ds-contact-us.md)
 ## [Tarification](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=active-directory-ds)

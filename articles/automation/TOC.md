@@ -28,7 +28,6 @@
 ## Automatisation
 ### [Démarrer un runbook](automation-starting-a-runbook.md)
 ### [Démarrer un runbook depuis un webhook](automation-webhooks.md)
-### [Démarrer des runbooks sur Runbook Worker hybride](automation-hybrid-runbook-worker.md)
 ### [Paramètres d'entrée de Runbook](automation-runbook-input-parameters.md)
 ### [Gestion des erreurs dans les runbooks graphiques](automation-runbook-graphical-error-handling.md)
 ### [Suivre une tâche de Runbook](automation-runbook-execution.md)
@@ -36,6 +35,9 @@
 ### [Gestion des données Azure Automation](automation-managing-data.md)
 ### [Appeler un runbook Azure Automation à partir d’une alerte Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ### [Valider un objet JSON dans un runbook Azure Automation](automation-pass-json-string.md)
+## Runbook Worker hybride
+### [Déployer Runbook Worker hybride](automation-hybrid-runbook-worker.md)
+### [Exécuter des runbooks sur Worker](automation-hrw-run-runbooks.md)
 ## Gestion des configurations (configuration d’état souhaité)
 ### [Présentation de la configuration de l’état souhaité](automation-dsc-overview.md)
 ### [Prise en main](automation-dsc-getting-started.md)
@@ -87,6 +89,7 @@
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Tarification](https://azure.microsoft.com/pricing/details/automation/)  
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Notes de publication](https://azure.microsoft.com/updates/?product=automation)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)

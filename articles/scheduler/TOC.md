@@ -28,6 +28,7 @@
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
 ## [Tarification](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)

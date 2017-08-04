@@ -16,6 +16,7 @@
 ### [2- Déployer une application .NET à l’aide de Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Exemples
+## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Interface de ligne de commande Azure](samples-cli.md)
 # Concepts
@@ -131,7 +132,6 @@
 ### Générer un service de conteneur
 #### [Créer une application de conteneur Windows](service-fabric-get-started-containers.md)
 #### [Créer une application de conteneur Linux](service-fabric-get-started-containers-linux.md)
-#### [Déployer un conteneur de Windows](service-fabric-deploy-container.md)
 #### [Déployer un conteneur Linux](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (version préliminaire)](service-fabric-docker-compose.md)
 #### [Gestion des ressources pour les conteneurs et les services](service-fabric-resource-governance.md)
@@ -328,6 +328,7 @@
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Tarification](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Exemple de code](http://aka.ms/servicefabricsamples)
 ## [Options de support](service-fabric-support.md)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=service-fabric)

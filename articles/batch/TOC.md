@@ -8,6 +8,7 @@
 ## [Didacticiel sur Batch pour .NET](batch-dotnet-get-started.md)
 ## [Didacticiel Python Batch](batch-python-tutorial.md)
 ## [Didacticiel Batch Node.js](batch-nodejs-get-started.md)
+## [Service de rendu Batch](batch-rendering-service.md)
 # Procédure
 ## Développement
 ### [Packages d’applications](batch-application-packages.md)
@@ -15,6 +16,7 @@
 ### Authentification Azure AD
 #### [Azure AD avec service Batch](batch-aad-auth.md)
 #### [Azure AD avec gestion de lots](batch-aad-auth-management.md)
+### [Machines virtuelles nécessitant beaucoup de ressources système](batch-pool-compute-intensive-sizes.md)
 ### [Tâches de nœud simultanées](batch-parallel-node-tasks.md)
 ### [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 ### [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md)
@@ -36,8 +38,8 @@
 #### [Ajouter une application](./scripts/batch-cli-sample-add-application.md)
 #### [Gérer les pools](./scripts/batch-cli-sample-manage-pool.md)
 #### [Exécuter un travail et des tâches](./scripts/batch-cli-sample-run-job.md)
-
 # Référence
+## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)
 ## [Interface de ligne de commande Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
@@ -69,6 +71,7 @@
 ## [Exemples de code C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Tarification](https://azure.microsoft.com/pricing/details/batch/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Exemples de code Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)

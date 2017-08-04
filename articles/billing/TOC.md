@@ -44,3 +44,4 @@
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Contacter le support technique](../azure-supportability/how-to-create-azure-support-request.md)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
