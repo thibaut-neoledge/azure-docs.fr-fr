@@ -126,7 +126,7 @@ Pour les événements étendus, il existe des vues de gestion dynamique supplém
 
 Vous pouvez exécuter une simple instruction SQL **SELECT** pour obtenir une liste des événements, actions et cibles disponibles.
 
-```tsql
+```sql
 SELECT
         o.object_type,
         p.name         AS [package_name],

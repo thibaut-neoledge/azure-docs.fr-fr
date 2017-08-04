@@ -32,7 +32,7 @@ Pour modifier le nombre de nœuds de l’agent, exécutez la commande `az acs sc
 Par exemple, pour modifier le nombre d’agents dans le précédent cluster en 10, tapez la commande suivante :
 
 ```azurecli
-azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
 L’interface Azure CLI 2.0 renvoie une chaîne JSON représentant la nouvelle configuration du service de conteneur, avec notamment le nouveau nombre d’agents.
