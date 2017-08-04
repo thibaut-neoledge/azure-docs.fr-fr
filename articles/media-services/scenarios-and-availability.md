@@ -108,7 +108,7 @@ Pour plus d’informations sur la disponibilité dans les centres de données, c
 3. Afficher un aperçu de votre flux en direct
 4. Fournir le contenu par le biais des protocoles de streaming courants (par exemple, MPEG DASH, Smooth, HLS) directement à vos clients ou à un réseau de distribution de contenu (CDN) pour une distribution supplémentaire.
 
-    - ou -
+    -ou-
 
     Enregistrer et stocker le contenu ingéré pour le diffuser ultérieurement (vidéo à la demande)
 
