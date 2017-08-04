@@ -12,14 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
 ms.contentlocale: fr-fr
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Comprendre l’architecture Azure Active Directory
@@ -31,10 +30,10 @@ Azure AD permet de créer et de gérer des utilisateurs et des groupes, et d’a
 L’architecture distribuée géographiquement d’Azure AD combine une surveillance complète, une redirection automatique, un basculement et des capacités de récupération permettant d’offrir à nos clients des performances et une disponibilité au niveau de l’entreprise .
 
 Les éléments d’architecture suivants sont traités dans cet article :
- *    Conception de l’architecture de service
- *    Extensibilité 
- *    Disponibilité continue
- *    Centres de données
+ *  Conception de l’architecture de service
+ *  Extensibilité 
+ *  Disponibilité continue
+ *  Centres de données
 
 ### <a name="service-architecture-design"></a>Conception de l’architecture de service
 La méthode la plus courante pour créer un système évolutif, hautement disponible et riche en données consiste à s’appuyer sur des unités d’échelle ou des blocs de construction indépendants pour le niveau de données Azure AD. Les unités d’échelle sont appelées *partitions*. 
@@ -87,7 +86,7 @@ Azure AD fonctionne dans les centres de données avec les caractéristiques suiv
 
  * Les services AD Authentication, Graph et autres se trouvent derrière le service de passerelle. La passerelle gère l’équilibrage de charge de ces services. Elle basculera automatiquement si des serveurs défaillants sont détectés par les sondes d’intégrité transactionnelles. En fonction de ces sondes d’intégrité, la passerelle achemine dynamiquement le trafic vers les centres de données intègres.
  * Pour les *lectures*, le répertoire possède des réplicas secondaires et des services frontaux correspondants dans une configuration en mode actif/actif opérant dans plusieurs centres de données. En cas de défaillance complète d’un centre de données, le trafic sera automatiquement redirigé vers un autre centre de données.
- *    Pour les *écritures*, le répertoire bascule le réplica principal (maître) dans les centres de données via des procédures de basculement planifié (le nouveau réplica principal est synchronisé avec l’ancien) ou d’urgence. La durabilité des données est obtenue en répliquant toute validation vers au moins deux centres de données.
+ *  Pour les *écritures*, le répertoire bascule le réplica principal (maître) dans les centres de données via des procédures de basculement planifié (le nouveau réplica principal est synchronisé avec l’ancien) ou d’urgence. La durabilité des données est obtenue en répliquant toute validation vers au moins deux centres de données.
 
 **Cohérence des données**
 
