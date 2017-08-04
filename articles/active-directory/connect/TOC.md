@@ -38,6 +38,7 @@
 ##### [Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Limitations actuelles](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Comment cela fonctionne-t-il ?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Mise à niveau des agents d’évaluation](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
 ##### [Verrouillage intelligent](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Forum Aux Questions (FAQ)](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Résolution des problèmes](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
@@ -82,6 +83,7 @@
 ### [Comment récupérer depuis la limite de 10 Go de base de données locale](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Référence
+## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Synchronisation des identités et résilience d’attribut en double](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Ports et protocoles nécessaires à l’identité hybride](active-directory-aadconnect-ports.md)
 ## [Fonctionnalités de la version préliminaire](active-directory-aadconnect-feature-preview.md)
@@ -109,3 +111,5 @@
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[FAQ Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[Abandon de la synchronisation de répertoires](active-directory-aadconnect-dirsync-deprecated.md)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+

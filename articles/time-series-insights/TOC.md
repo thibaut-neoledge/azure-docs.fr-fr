@@ -30,3 +30,4 @@
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Tarification](https://azure.microsoft.com/pricing/details/time-series-insights/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)

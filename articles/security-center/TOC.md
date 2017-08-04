@@ -75,6 +75,7 @@
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog Azure sur la sécurité, la confidentialité et la conformité](http://blogs.msdn.com/b/azuresecurity/)
 ## [Tarification](security-center-pricing.md)
-## [Vue d’ensemble du service](https://azure.microsoft.com/services/security-center/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
+## [Présentation du service](https://azure.microsoft.com/services/security-center/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=security-center)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)

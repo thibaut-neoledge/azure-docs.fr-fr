@@ -31,12 +31,22 @@
 #### [Journaux IIS](log-analytics-data-sources-iis-logs.md)
 #### [Journaux personnalisés](log-analytics-data-sources-custom-logs.md)
 #### [Champs personnalisés](log-analytics-custom-fields.md)
+
 ## Données de requête
 ### [Présentation de la recherche dans les journaux](log-analytics-log-searches.md)
 ### [Référence sur la recherche](log-analytics-search-reference.md)
 #### [Expressions régulières](log-analytics-log-searches-regex.md)
 ### [Agir à partir des résultats de recherche](log-analytics-log-search-takeaction.md)
 ### [Groupes d’ordinateurs](log-analytics-computer-groups.md)
+
+## Nouvelle recherche dans les journaux
+### [Mettre à jour votre espace de travail](log-analytics-log-search-upgrade.md)
+### [FAQ](log-analytics-log-search-faq.md)
+### [Présentation de la recherche dans les journaux](log-analytics-log-search-new.md)
+### [Portails de recherche dans les journaux](log-analytics-log-search-portals.md)
+#### [Utiliser le portail de recherche dans les journaux](log-analytics-log-search-log-search-portal.md)
+### [Transition à partir du langage hérité](log-analytics-log-search-transition.md)
+
 ## Analyser des données
 ### [Tableaux de bord](log-analytics-dashboards.md)
 ### [Concepteur de vues](log-analytics-view-designer.md)
@@ -101,5 +111,6 @@
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Tarification](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

@@ -42,6 +42,7 @@
 ### [Créer et déployer un concentrateur d’événements à l’aide d’un modèle Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Référence
+## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
@@ -60,6 +61,7 @@
 ## [Exemples de code](event-hubs-samples.md)
 ## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Tarification](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)

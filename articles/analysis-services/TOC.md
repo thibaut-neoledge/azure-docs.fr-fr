@@ -57,6 +57,7 @@
 ## [Statut Azure](https://azure.microsoft.com/status/)
 ## [Commentaires](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Tarification](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

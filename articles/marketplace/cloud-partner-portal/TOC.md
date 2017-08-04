@@ -34,3 +34,4 @@
 ## [Obtenir de l'aide](./cloud-partner-portal-support-for-cloud-partner-portal.md)
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
+## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
