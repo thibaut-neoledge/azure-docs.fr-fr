@@ -197,8 +197,8 @@ Le résultat ressemble à ceci :
   - Domaine de déploiement racine que vous avez mappé sur l’adresse IP externe d’entrée de Kubernetes (ici, `squillace.io`)
 
   Appelez `draft init`. Le processus de configuration vous invite à saisir les valeurs ci-dessus. La première fois que vous l’exécutez, le processus se présente comme suit.
-    ```
-    draft init
+ ```bash
+    $ draft init
     Creating pack ruby...
     Creating pack node...
     Creating pack gradle...
