@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 9636d26ec62bb83b30fdc4ae8b1701da8ab532e8
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/08/2017
-
 
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Créer un groupe et ajouter des membres dans Azure Active Directory
@@ -52,6 +51,7 @@ Cet article explique comment créer et remplir un nouveau groupe dans Azure Acti
 8. Lorsque vous avez terminé l’ajout de membres au groupe, sélectionnez **Créer** dans le panneau **Groupe**.    
 
    ![Confirmation de création du groupe](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
