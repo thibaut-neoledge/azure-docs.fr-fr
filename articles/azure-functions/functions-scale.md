@@ -108,5 +108,5 @@ La facturation du plan de consommation est décrite en détail dans la page [Tar
 * **Consommation des ressources en gigaoctet/seconde (Go/s)**. Calcul effectué d’après une combinaison de la taille de la mémoire et de la durée d’exécution pour toutes les fonctions d’une application de fonction. 
 * **Exécutions**. Comptées chaque fois qu’une fonction est exécutée en réponse à un événement déclenché par une liaison.
 
-Page [Tarification d’Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[Tarification d’Azure Functions]: https://azure.microsoft.com/pricing/details/functions
 
