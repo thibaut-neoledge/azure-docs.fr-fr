@@ -1,0 +1,2 @@
+>[!NOTE]
+> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](../articles/log-analytics/log-analytics-log-search-upgrade.md), les requêtes ci-dessous doivent être converties. Pour ce faire, vous pouvez utiliser le [convertisseur de langage](../articles/log-analytics/log-analytics-log-search-transition.md#language-converter).

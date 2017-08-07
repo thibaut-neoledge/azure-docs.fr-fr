@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Surveillance des performances d'application web Azure
@@ -31,7 +30,7 @@ Vous pouvez configurer la surveillance par l’instrumentation de l’applicatio
 * **En cours de création** : vous pouvez installer un package dans votre application en cours de développement. Cette option est plus souple. Outre les mêmes packages standard, vous pouvez écrire du code pour personnaliser les données de télémétrie ou pour envoyer vos propres données de télémétrie. Vous pouvez consigner des activités spécifiques ou enregistrer les événements en fonction de la sémantique de votre domaine d’application. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Instrumentation d’exécution avec Application Insights
-Si vous exécutez déjà une application web dans Azure, vous obtenez déjà certains éléments de surveillance, tels que le taux de demande et d’erreur. Ajoutez Application Insights pour bénéficier d’un plus grand nombre de fonctionnalités, telles que les temps de réponse, la surveillance des appels vers les dépendances, la détection intelligente et le puissant langage de requête Analytics. 
+Si vous exécutez déjà une application web dans Azure, vous obtenez déjà certains éléments de surveillance, tels que le taux de demande et d’erreur. Ajoutez Application Insights pour bénéficier d’un plus grand nombre de fonctionnalités, telles que les temps de réponse, la surveillance des appels vers les dépendances, la détection intelligente et le puissant langage de requête Log Analytics. 
 
 1. **Sélectionnez Application Insights** dans le panneau de configuration Azure pour votre application web.
    
@@ -102,7 +101,7 @@ Application Insights peut fournir des données de télémétrie détaillée par 
    
     Vous pouvez [personnaliser les recherches](app-insights-diagnostic-search.md).
 
-Pour des recherches plus abouties sur vos données de télémétrie, utilisez le [langage de requête Analytics](app-insights-analytics-tour.md).
+Pour des recherches plus abouties sur vos données de télémétrie, utilisez le [langage de requête Log Analytics](app-insights-analytics-tour.md).
 
 ## <a name="more-telemetry"></a>Données de télémétrie supplémentaires
 

@@ -1,6 +1,6 @@
 ---
-title: "Créer un groupe de conteneurs multiples avec Azure Container Instances | Azure Docs"
-description: "Créer et déployer un groupe de conteneurs multiples dans Azure Container Instances à partir d’Azure Container Registry"
+title: "Didacticiel Azure Container Instances - Préparer votre application | Azure Docs"
+description: "Préparer une application pour le déploiement vers Azure Container Instances"
 services: container-instances
 documentationcenter: 
 author: seanmck
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/20/2017
+ms.date: 08/01/2017
 ms.author: seanmck
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: b5f16f0c4b15c02bbc0ee8a9fb9424467a39ee4d
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 07ad1a6edbcb4d6160b37b4923586e23058f3c04
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -31,16 +31,16 @@ Azure Container Instances permet de déployer des conteneurs Docker sur l’infr
 
 > [!div class="checklist"]
 > * Le clonage de la source de l’application à partir de GitHub  
-> * La création des images de conteneur à partir de la source de l’application
+> * la création des images de conteneur à partir de la source de l’application
 > * Le test des images dans un environnement Docker local
 
 Dans les didacticiels suivants, vous aller voir comment charger votre image dans un registre Azure Container Registry, et comment la déployer dans Azure Container Instances.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce didacticiel suppose une compréhension élémentaire des concepts Docker principaux tels que les conteneurs, les images de conteneur et les commandes Docker de base. Si besoin, consultez [Prise en main de Docker]( https://docs.docker.com/get-started/) pour apprendre les principes de base des conteneurs. 
+Ce didacticiel suppose une compréhension élémentaire des concepts Docker principaux tels que les conteneurs, les images de conteneur et les commandes Docker de base. Si besoin, consultez [Bien démarrer avec Docker]( https://docs.docker.com/get-started/) pour apprendre les principes de base des conteneurs. 
 
-Pour effectuer ce didacticiel, il vous faut un environnement de développement Docker. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Pour terminer ce didacticiel, il vous faut un environnement de développement Docker. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
 ## <a name="get-application-code"></a>Obtenir le code de l’application
 
@@ -103,14 +103,14 @@ Allez à l’adresse http://localhost:8080 dans votre navigateur pour confirmer 
 Dans ce didacticiel, vous avez créé une image de conteneur qui peut être déployée dans Azure Container Instances. Les étapes suivantes ont été effectuées :
 
 > [!div class="checklist"]
-> * Le clonage de la source de l’application à partir de GitHub  
+> * le clonage de la source de l’application à partir de GitHub  
 > * La création des images de conteneur à partir de la source de l’application
 > * Le test de l’exécution locale du conteneur
 
 Passez au didacticiel suivant pour en savoir plus sur le stockage d’images de conteneur dans un registre Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Extraire des images dans Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
+> [Envoyer des images à Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
 
 <!-- LINKS -->
 [dockerhub-nodeimage]: https://hub.docker.com/r/library/node/tags/8.2.0-alpine/

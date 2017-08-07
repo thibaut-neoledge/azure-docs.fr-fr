@@ -1,8 +1,9 @@
 > [!NOTE]
-> L’adresse IP publique de la passerelle VPN change lors du passage de l’ancienne référence SKU à la nouvelle.
+> * L’adresse IP publique de la passerelle VPN change lors du passage de l’ancienne référence SKU à la nouvelle.
+> * Vous ne pouvez pas migrer les passerelles VPN classiques vers les nouvelles références SKU. Les passerelles VPN classiques peuvent uniquement utiliser les anciennes références SKU.
 > 
 
-Vous ne pouvez pas redimensionner vos passerelles VPN Azure directement entre les anciennes références SKU et les nouvelles. Si vous disposez de passerelles VPN dans le modèle de déploiement du Gestionnaire des ressources qui utilisent d’anciennes références SKU, vous pouvez effectuer une migration vers les nouvelles références SKU. Pour ce faire, supprimez la passerelle VPN existante pour votre réseau virtuel, puis créez-en une nouvelle.
+Vous ne pouvez pas redimensionner vos passerelles VPN Azure entre les anciennes références SKU et les nouvelles familles de références SKU. Si vous disposez de passerelles VPN dans le modèle de déploiement du Gestionnaire des ressources qui utilisent d’anciennes références SKU, vous pouvez effectuer une migration vers les nouvelles références SKU. Pour ce faire, supprimez la passerelle VPN existante pour votre réseau virtuel, puis créez-en une nouvelle.
 
 Workflow de migration :
 

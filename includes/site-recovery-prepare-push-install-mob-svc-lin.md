@@ -12,6 +12,7 @@
   4.  Recherchez la ligne commençant par **Subsystem** et supprimez la mise en commentaire de la ligne.
 
      ![Linux](./media/site-recovery-prepare-push-install-mob-svc-lin/mobility2.png)
+  5. Redémarrez le service **sshd**.
 
 7. Ajoutez le compte créé dans l’outil CSPSConfigtool.
     1.  Connectez-vous à votre serveur de configuration.

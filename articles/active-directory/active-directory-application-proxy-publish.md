@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -63,9 +63,9 @@ Le service Proxy d’application Azure AD vous aide à prendre en charge les per
 6. Pour terminer l’Assistant, cliquez sur la coche en bas de l’écran. L’application est maintenant définie dans Azure AD.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>Affecter des utilisateurs et des groupes à l’application
-Pour que vos utilisateurs puissent accéder à votre application publiée, vous devez les affecter individuellement ou en groupes. (N’oubliez pas de vous affecter également un accès.) Cette opération nécessite que chaque utilisateur dispose d’une licence pour la version Azure de base ou pour une version ultérieure. Vous pouvez affecter des licences à des utilisateurs individuels ou à des groupes. Pour plus d’informations, voir [Affectation d’utilisateurs à une application](active-directory-applications-guiding-developers-assigning-users.md). 
+Pour que vos utilisateurs puissent accéder à votre application publiée, vous devez les affecter individuellement ou en groupes. (N’oubliez pas de vous affecter également un accès.) Chaque utilisateur assigné doit posséder une licence pour la version De base d’Azure ou versions ultérieures. Vous pouvez affecter des licences à des utilisateurs individuels ou à des groupes. Pour plus d’informations, consultez [Azure AD et applications : affectation d’utilisateurs à une application](active-directory-applications-guiding-developers-assigning-users.md). 
 
-Pour les applications qui requièrent une préauthentification, ceci accorde des autorisations pour utiliser l’application. Pour les applications qui ne nécessitent pas de préauthentification, les utilisateurs peuvent toujours être affectés à l’application afin que cette dernière s’affiche dans leur liste d’applications, telle que MyApps.
+Pour les applications qui requièrent une préauthentification, le fait d’assigner un utilisateur permet d’accorder des autorisations pour utiliser l’application. Pour les applications qui ne nécessitent pas de préauthentification, l’assignation d’un utilisateur signifie que celui-ci peut accéder à l’application via le panneau d’accès.
 
 1. Lorsque vous terminez l’Assistant Ajout d’application, la page Démarrage rapide pour votre application s’affiche. Pour gérer les utilisateurs ayant accès à l’application, sélectionnez **Utilisateurs et groupes**.
    
@@ -90,7 +90,7 @@ Vous pouvez modifier les applications publiées ou configurer les options avanc�
 
 Une fois que vous avez publié des applications qui utilisent le Proxy d’application Azure Active Directory, elles apparaissent dans la liste des applications dans Azure AD et vous pouvez les gérer à partir de cet emplacement.
 
-Si vous désactivez les services de Proxy d’application après avoir publié des applications, celles-ci ne sont pas supprimées, mais elles ne sont plus accessibles hors de votre réseau privé. Cette opération ne supprime pas les applications.
+Si vous désactivez les services de proxy d’application après avoir publié des applications, celles-ci ne sont plus accessibles hors de votre réseau privé. Vos utilisateurs peuvent toujours accéder aux applications locales comme d’habitude.
 
 Pour afficher une application et vous assurer qu’elle est accessible, double-cliquez sur son nom. Si le service Proxy d’application est désactivé et que l’application n’est pas disponible, un message d’avertissement s’affiche en haut de l’écran.
 

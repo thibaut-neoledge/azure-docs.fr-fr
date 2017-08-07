@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installation personnalisée d’Azure AD Connect
@@ -317,6 +317,15 @@ Pour en savoir plus, voir [Mode intermédiaire](active-directory-aadconnectsync-
 
 ### <a name="verify-your-federation-configuration"></a>Vérification de votre configuration de fédération
 Lorsque vous cliquez sur le bouton Vérifier, Azure AD Connect vérifie la configuration DNS pour vous.
+
+**Vérifications de la connectivité intranet**
+
+* Résoudre le nom de domaine complet de fédération : Azure AD Connect vérifie si le nom de domaine complet de fédération peut être résolu par DNS pour garantir la connectivité. Si Azure AD Connect ne peut pas résoudre le nom de domaine complet, la vérification échoue. Vérifiez qu’un enregistrement DNS est présent pour le nom de domaine complet du service de fédération, afin que la vérification puisse être menée à bien.
+* Enregistrement A DNS : Azure AD Connect vérifie s’il existe un enregistrement A pour votre service de fédération. En l’absence d’enregistrement A, la vérification échoue. Créez un enregistrement A plutôt qu’un enregistrement CNAME pour votre nom de domaine complet de fédération afin de mener à bien la vérification.
+
+**Vérifications de la connectivité extranet**
+
+* Résoudre le nom de domaine complet de fédération : Azure AD Connect vérifie si le nom de domaine complet de fédération peut être résolu par DNS pour garantir la connectivité.
 
 ![Complete](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

@@ -14,7 +14,7 @@ En raison de différences des contrats de niveau de service et des ensembles de 
 | **Développement-Test ou preuve de concept**   | De base                  |
 |                                    |                        |
 
-Si vous utilisez les anciennes références SKU, les recommandations en termes de références SKU de production sont Standard et HighPerformance. Pour plus d’informations sur les anciennes références SKU, consultez [Références SKU de passerelle (anciennes)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+Si vous utilisez les anciennes références SKU, les recommandations en termes de références SKU de production sont Standard et HighPerformance. Pour plus d’informations sur les anciennes références SKU, consultez [Utilisation des références SKU de passerelle de réseau virtuel (anciennes références SKU)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
 
 ###  <a name="feature"></a>Ensembles de fonctionnalités de référence SKU de passerelle
 

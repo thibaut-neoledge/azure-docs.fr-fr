@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 6eb5cb47962fa2b0155acb93a5c3b3e24e5285b1
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: e3fa1705e1f4e0805409eee83d5797bee7f6603d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Création d’une connexion de site à site à l’aide du portail Azure (Classic)
@@ -33,10 +33,8 @@ Cet article vous explique comment utiliser le portail Azure pour créer une conn
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portail Azure (classique)](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Portail Classic (classique)](vpn-gateway-site-to-site-create.md)
 > 
 >
-
 
 Une connexion de passerelle VPN de site à site permet de connecter votre réseau local à un réseau virtuel Azure via un tunnel VPN IPsec/IKE (IKEv1 ou IKEv2). Ce type de connexion requiert un périphérique VPN local disposant d’une adresse IP publique exposée en externe. Pour plus d’informations sur les passerelles VPN, consultez l’article [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
 
@@ -58,8 +56,8 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 
 * **Nom du réseau virtuel :** TestVNet1
 * **Espace d’adressage :** 
-    * 10.11.0.0/16
-    * 10.12.0.0/16 (facultatif pour cet exercice)
+  * 10.11.0.0/16
+  * 10.12.0.0/16 (facultatif pour cet exercice)
 * **Sous-réseaux :**
   * FrontEnd : 10.11.0.0/24
   * BackEnd : 10.12.0.0/24 (facultatif pour cet exercice)
@@ -68,6 +66,7 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 * **Emplacement :** États-Unis de l’Est
 * **Serveur DNS :** 8.8.8.8 (facultatif pour cet exercice)
 * **Nom du site local :** Site2
+* **Espace d’adressage du client :** il s’agit de l’espace d’adressage situé sur votre site local.
 
 ## <a name="CreatVNet"></a>1. Créez un réseau virtuel
 
@@ -80,24 +79,24 @@ Lorsque vous créez un réseau virtuel qui sera utilisé pour une connexion de s
 ### <a name="to-create-a-virtual-network"></a>Pour créer un réseau virtuel
 
 1. Dans un navigateur, accédez au [portail Azure](http://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure.
-2. Cliquez sur **Nouveau**. Dans le champ **Rechercher dans le marketplace**, tapez « réseau virtuel ». Localisez **Réseau virtuel** dans la liste renvoyée et cliquez pour ouvrir le panneau **Réseau virtuel**.
+2. Cliquez sur **+** Dans le champ **Rechercher dans le marketplace**, tapez « réseau virtuel ». Localisez **Réseau virtuel** dans la liste renvoyée et cliquez pour ouvrir le panneau **Réseau virtuel**.
 
-    ![Rechercher le panneau Réseau virtuel](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
-3. En bas du panneau Réseau virtuel, à partir de la liste **Sélectionner un modèle de déploiement**, choisissez **Classique** puis cliquez sur **Créer**.
+  ![Rechercher le panneau Réseau virtuel](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
+3. En bas du panneau Réseau virtuel, à partir de la liste déroulante **Sélectionner un modèle de déploiement**, choisissez **Classique** puis cliquez sur **Créer**.
 
-    ![Sélectionner le modèle de déploiement](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. Dans le panneau **Créer un réseau virtuel** , configurez les paramètres du réseau virtuel. Dans ce panneau, vous ajoutez votre premier espace d’adressage et une plage d’adresses de sous-réseau unique. Après avoir créé le réseau virtuel, vous pouvez revenir en arrière et ajouter des espaces d’adressage et des sous-réseaux supplémentaires.
+  ![Sélectionner le modèle de déploiement](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
+4. Dans le panneau **Créer un réseau virtuel (classique)**, configurez les paramètres du réseau virtuel. Dans ce panneau, vous ajoutez votre premier espace d’adressage et une plage d’adresses de sous-réseau unique. Après avoir créé le réseau virtuel, vous pouvez revenir en arrière et ajouter des espaces d’adressage et des sous-réseaux supplémentaires.
 
-    ![Panneau Créer un réseau virtuel](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Panneau Créer un réseau virtuel")
+  ![Panneau Créer un réseau virtuel](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Panneau Créer un réseau virtuel")
 5. Vérifiez qu’il s’agit de l’ **abonnement** approprié. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
 6. Cliquez sur **Groupe de ressources** et sélectionnez un groupe de ressources existant, ou créez un groupe de ressources en tapant un nom pour ce dernier. Pour plus d’informations sur les groupes de ressources, consultez [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Ensuite, sélectionnez les paramètres d’ **emplacement** pour votre réseau virtuel. L’emplacement détermine où se trouveront les ressources que vous déployez sur ce réseau virtuel.
 8. Sélectionnez **Épingler au tableau de bord** si vous souhaitez être en mesure de trouver votre réseau virtuel facilement sur le tableau de bord, puis cliquez sur **Créer**.
 
-    ![Épingler au tableau de bord](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Épingler au tableau de bord")
+  ![Épingler au tableau de bord](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Épingler au tableau de bord")
 9. Une fois que vous avez cliqué sur Créer, une vignette apparaît sur le tableau de bord pour indiquer la progression de votre réseau virtuel. La vignette change lorsque le réseau virtuel est créé.
 
-    ![Vignette de création du réseau virtuel](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Création du réseau virtuel")
+  ![Vignette de création du réseau virtuel](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Création du réseau virtuel")
 
 Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** sur la page Réseaux du portail Azure Classic.
 
@@ -108,7 +107,7 @@ Après avoir créé votre réseau virtuel, vous pouvez ajouter un espace d’adr
 1. Recherchez les réseaux virtuels dans le portail.
 2. Dans le panneau de votre réseau virtuel, dans la section **Paramètres**, cliquez sur **Espace d’adressage**.
 3. Dans le panneau Espace d’adressage, cliquez sur **+Ajouter** et indiquez un espace d’adressage supplémentaire.
- 
+
 ## <a name="dns"></a>3. Spécifier un serveur DNS
 
 Les paramètres DNS ne sont pas indispensables à une configuration de site à site. Toutefois, vous devrez les configurer pour bénéficier de la résolution de noms.
@@ -119,7 +118,7 @@ Après avoir créé votre réseau virtuel, vous pouvez ajouter l’adresse IP d�
 2. Dans le panneau de votre réseau virtuel, dans la section **Paramètres**, cliquez sur **Serveurs DNS**.
 3. Ajoutez un serveur DNS.
 4. Pour enregistrer vos paramètres, cliquez sur **Enregistrer** en haut de la page.
- 
+
 ## <a name="localsite"></a>4. Configurer le site local
 
 Le site local fait généralement référence à votre emplacement local. Il contient l’adresse IP du périphérique VPN avec lequel vous allez créer une connexion et les plages d’adresses IP qui seront acheminées via la passerelle VPN vers le périphérique VPN.
@@ -127,16 +126,14 @@ Le site local fait généralement référence à votre emplacement local. Il con
 1. Dans le portail, accédez au réseau virtuel pour lequel vous souhaitez créer une passerelle.
 2. Dans le panneau de votre réseau virtuel, dans le panneau **Vue d’ensemble**, puis dans la section Connexions VPN, cliquez sur **Passerelle** pour ouvrir le panneau **Nouvelle connexion VPN**.
 
-    ![Cliquez ici pour configurer les paramètres de la passerelle](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Cliquez ici pour configurer les paramètres de la passerelle")
+  ![Cliquez ici pour configurer les paramètres de la passerelle](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Cliquez ici pour configurer les paramètres de la passerelle")
 3. Dans le panneau **Nouvelle connexion VPN**, sélectionnez **De site à site**.
-
-    ![Cliquez sur De site à site](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site.png "De site à site")
 4. Cliquez sur **Site local- Configurer les paramètres requis** pour ouvrir le panneau **Site local**. Configurez les paramètres, puis cliquez sur **OK** pour les enregistrer.
-    - **Nom :** créez un nom pour votre site local afin de l’identifier plus facilement.
-    - **Adresse IP de la passerelle VPN :** il s’agit de l’adresse IP publique du périphérique VPN pour votre réseau local. Le périphérique VPN requiert une adresse IP IPv4 publique. Spécifiez une adresse IP publique valide pour le périphérique VPN auquel vous souhaitez vous connecter. Il ne peut pas se trouver derrière NAT et doit être accessible par Azure.
-    - **Espace d’adressage du client :** spécifiez les plages d’adresses IP qui devront être acheminées vers le réseau local via cette passerelle. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne se chevauchent pas avec des plages d’adresses d’autres réseaux auxquels votre réseau virtuel se connecte, ou avec les propres plages d’adresses du réseau virtuel.
+  - **Nom :** créez un nom pour votre site local afin de l’identifier plus facilement.
+  - **Adresse IP de la passerelle VPN :** il s’agit de l’adresse IP publique du périphérique VPN pour votre réseau local. Le périphérique VPN requiert une adresse IP IPv4 publique. Spécifiez une adresse IP publique valide pour le périphérique VPN auquel vous souhaitez vous connecter. Il ne peut pas se trouver derrière NAT et doit être accessible par Azure. Si vous ne connaissez pas l’adresse IP de votre périphérique VPN, vous pouvez toujours placer une valeur d’espace réservé (à condition qu’elle soit au format d’une adresse IP publique valide) et la modifier ultérieurement.
+  - **Espace d’adressage du client :** spécifiez les plages d’adresses IP qui devront être acheminées vers le réseau local via cette passerelle. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne se chevauchent pas avec des plages d’adresses d’autres réseaux auxquels votre réseau virtuel se connecte, ou avec les propres plages d’adresses du réseau virtuel.
 
-    ![Site local](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configurez le site local")
+  ![Site local](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configurez le site local")
 
 ## <a name="gatewaysubnet"></a>5. Configurer le sous-réseau de passerelle
 
@@ -144,20 +141,20 @@ Vous devez créer un sous-réseau de passerelle pour votre passerelle VPN. Le so
 
 1. Dans le panneau **Nouvelle connexion VPN**, cochez la case **Créer une passerelle immédiatement**. Le volet « Configuration de passerelle facultative » s’affiche. Si vous ne cochez pas cette case, le panneau de configuration du sous-réseau de passerelle ne s’affichera pas.
 
-    ![Configuration de la passerelle - Sous-réseau, taille, type de routage](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Configuration de la passerelle - Sous-réseau, taille, type de routage")
+  ![Configuration de la passerelle - Sous-réseau, taille, type de routage](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Configuration de la passerelle - Sous-réseau, taille, type de routage")
 2. Cliquez sur **Configuration de passerelle facultative - Sous-réseau, taille et type de routage** pour ouvrir le panneau **Configuration de la passerelle**.
 3. Dans le panneau **Configuration de la passerelle**, cliquez sur **Sous-réseau - Configurer les paramètres requis** pour ouvrir le panneau **Ajouter un sous-réseau**.
 
-    ![Configuration de la passerelle - sous-réseau de passerelle](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "Configuration de la passerelle - sous-réseau de passerelle")
+  ![Configuration de la passerelle - sous-réseau de passerelle](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "Configuration de la passerelle - sous-réseau de passerelle")
 4. Dans le panneau **Ajouter un sous-réseau**, ajoutez le sous-réseau de passerelle. La taille du sous-réseau de passerelle que vous spécifiez dépend de la configuration de la passerelle VPN que vous souhaitez créer. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau plus vaste qui inclut un plus grand nombre d’adresses en sélectionnant /27 ou /28. En choisissant un sous-réseau de passerelle plus vaste, vous disposez de suffisamment d’adresses IP pour prendre en charge d’éventuelles configurations futures.
 
-    ![Ajoutez un sous-réseau de passerelle](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Ajoutez un sous-réseau de passerelle")
+  ![Ajoutez un sous-réseau de passerelle](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Ajoutez un sous-réseau de passerelle")
 
 ## <a name="sku"></a>6. Spécifier la référence et le type de VPN
 
-1. Sélectionnez la **taille** de la passerelle. Il s’agit de la référence de passerelle que vous utilisez pour créer votre passerelle de réseau virtuel. Dans le portail, la référence par défaut est **De base**. Pour plus d’informations sur les références de passerelle, consultez [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+1. Sélectionnez la **taille** de la passerelle. Il s’agit de la référence de passerelle que vous utilisez pour créer votre passerelle de réseau virtuel. Dans le portail, la référence par défaut est **De base**. Les passerelles VPN classiques utilisent les anciennes références SKU de passerelles. Pour en savoir plus sur les anciennes références SKU de passerelle, consultez la section [Utilisation des références SKU de passerelle de réseau virtuel (anciennes références SKU)](vpn-gateway-about-skus-legacy.md).
 
-    ![Sélectionnez la référence et le type de VPN](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "Sélectionnez la référence et le type de VPN")
+  ![Sélectionnez la référence et le type de VPN](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "Sélectionnez la référence et le type de VPN")
 2. Sélectionnez le **type de routage** pour votre passerelle. Cela correspond également au type de VPN. Il est important de sélectionner le type de passerelle approprié, car vous ne pourrez plus le modifier par la suite. Votre périphérique VPN doit être compatible avec le type de routage que vous sélectionnez. Pour plus d’informations sur le type de VPN, consultez la rubrique [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype). Certains articles font référence aux types de VPN « RouteBased » et « PolicyBased ». « RouteBased » correspond à un routage dynamique, et « PolicyBased » à un routage statique.
 3. Cliquez sur **OK** pour enregistrer les paramètres.
 4. Dans le panneau **Nouvelle connexion VPN**, cliquez sur **OK** en bas du panneau pour commencer à créer votre passerelle de réseau virtuel. Cette opération peut prendre jusqu’à 45 minutes.
@@ -170,7 +167,6 @@ Les connexions site à site vers un réseau local nécessitent un périphérique
 - L’adresse IP publique de votre passerelle de réseau virtuel. Vous pouvez afficher l’adresse IP publique à l’aide du portail Azure, de PowerShell ou de l’interface de ligne de commande.
 
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
-
 
 ## <a name="CreateConnection"></a>8. Créer la connexion
 Désormais, vous allez définir la clé partagée et créer la connexion. La clé que vous définissez doit être la même que celle qui a été utilisée lors la configuration de votre périphérique VPN.
@@ -220,7 +216,17 @@ Lorsque la connexion est créée, le message **État : réussi** s’affiche.
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
+Si vous rencontrez des problèmes de connexion, consultez la section **Dépanner** dans la table des matières du volet gauche.
+
+## <a name="how-to-reset-a-vpn-gateway"></a>Réinitialisation d’une passerelle VPN
+
+La réinitialisation d’une passerelle VPN Azure est utile si vous perdez la connectivité VPN entre différents locaux sur un ou plusieurs tunnels VPN de site à site. Dans ce cas, vos périphériques VPN sur site fonctionnent tous correctement, mais ils ne sont pas en mesure d’établir des tunnels IPsec avec les passerelles VPN Azure. Pour obtenir la procédure, consultez [Réinitialiser une passerelle VPN](vpn-gateway-resetgw-classic.md).
+
+## <a name="how-to-change-a-gateway-sku"></a>Modification d’une référence SKU de passerelle
+
+Pour obtenir la procédure permettant de modifier une référence SKU de passerelle, consultez [Utilisation des références SKU de passerelle de réseau virtuel (anciennes références SKU)](vpn-gateway-about-SKUS-legacy.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
-
+* Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez [Machines virtuelles](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* Pour plus d’informations sur le tunneling forcé, consultez [Configuration du tunneling forcé à l’aide du modèle de déploiement classique](vpn-gateway-about-forced-tunneling.md).
