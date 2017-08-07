@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 346e7abf862330afe64dc5685737a9301d7d861a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
@@ -177,10 +177,14 @@ Consultez la section relative au [compte](#account) pour en savoir plus sur la d
 
 Pour pouvoir utiliser des images personnalisées pour vos pools de machines virtuelles, créez votre compte Batch avec le mode d’allocation de pool Abonnement utilisateur. Grâce à ce mode, les pools Batch sont alloués au sein de l’abonnement où se trouve le compte. Consultez la section relative au [compte](#account) pour en savoir plus sur la définition du mode d’allocation de pool lorsque vous créez un compte Batch.
 
-Pour utiliser une image personnalisée, vous devez préparer l’image en la généralisant. Pour en savoir plus sur la préparation d’images Linux personnalisées à partir de machines virtuelles Azure, consultez la section [Capturer une machine virtuelle Linux exécutée sur Azure](../virtual-machines/linux/capture-image-nodejs.md). Pour plus d’informations sur la préparation d’images Windows personnalisées à partir de machines virtuelles Azure, consultez la section [Créer une image personnalisée d’une machine virtuelle Azure à l’aide de PowerShell](../virtual-machines/windows/tutorial-custom-images.md). Lors de la préparation de votre image, gardez à l’esprit les points suivants :
+Pour utiliser une image personnalisée, vous devez préparer l’image en la généralisant. Pour en savoir plus sur la préparation d’images Linux personnalisées à partir de machines virtuelles Azure, consultez la section [Capturer une machine virtuelle Linux exécutée sur Azure](../virtual-machines/linux/capture-image-nodejs.md). Pour plus d’informations sur la préparation d’images Windows personnalisées à partir de machines virtuelles Azure, consultez la section [Créer une image personnalisée d’une machine virtuelle Azure à l’aide de PowerShell](../virtual-machines/windows/tutorial-custom-images.md). 
 
-- Vérifiez que l’image de base du système d’exploitation utilisée pour approvisionner les pools Batch ne comporte pas d’extensions Azure préinstallées, telle que l’extension Script personnalisé. Si l’image contient une extension préinstallée, Azure peut rencontrer des problèmes de déploiement de la machine virtuelle.
-- Assurez-vous que l’image de base du système d’exploitation utilise le lecteur temporaire par défaut, puisque l’agent de nœud Batch attend actuellement ce lecteur.
+> [!IMPORTANT]
+> Lors de la préparation de votre image personnalisée, gardez à l’esprit les points suivants :
+> - Vérifiez que l’image de base du système d’exploitation utilisée pour approvisionner les pools Batch ne comporte pas d’extensions Azure préinstallées, telle que l’extension Script personnalisé. Si l’image contient une extension préinstallée, Azure peut rencontrer des problèmes de déploiement de la machine virtuelle.
+> - Assurez-vous que l’image de base du système d’exploitation utilise le lecteur temporaire par défaut, puisque l’agent de nœud Batch attend actuellement ce lecteur.
+>
+>
 
 Pour créer un pool de configuration de machines virtuelles à l’aide d’une image personnalisée, vous devez disposer au minimum d’un compte de stockage Microsoft Azure standard, dans lequel stocker vos images VHD personnalisées. Les images personnalisées sont stockées en tant que blobs. Pour faire référence à vos images personnalisées lorsque vous créez un pool, spécifiez les URI des blobs VHD d’images personnalisées pour la propriété [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) de la propriété [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
 

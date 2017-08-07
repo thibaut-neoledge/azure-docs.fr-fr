@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/09/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 8f83f5d13cb61709653f255c756dc78453073626
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="update-management-solution-in-oms"></a>Solution de gestion des mises à jour dans OMS
@@ -65,10 +64,10 @@ Vous pouvez déployer et installer des mises à jour logicielles sur des ordinat
     > [!NOTE]
     > L’agent Windows ne peut pas être géré simultanément par System Center Configuration Manager.  
     >
-* CentOS 6 (x86/x64) et 7 (x 64)
-* Red Hat Enterprise 6 (x86/x64) et 7 (x 64)
-* SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)
-* Ubuntu 12.04 LTS et x86/x64 plus récente  
+* CentOS 6 (x86/x64) et 7 (x 64)  
+* Red Hat Enterprise 6 (x86/x64) et 7 (x 64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)  
+* Ubuntu 12.04 LTS et x86/x64 plus récente   
     > [!NOTE]  
     > Pour éviter que les mises à jour soient appliquées en dehors d’une fenêtre de maintenance sur Ubuntu, reconfigurez le package Unattended-Upgrade pour désactiver les mises à jour automatiques. Pour plus d’informations sur cette configuration, consultez la [rubrique Mises à jour automatiques du Guide du serveur Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
@@ -79,6 +78,9 @@ Vous pouvez déployer et installer des mises à jour logicielles sur des ordinat
     >
 
 Pour plus d’informations sur l’installation de l’agent OMS pour Linux et le téléchargement de la dernière version, consultez [Operations Management Suite Agent pour Linux](https://github.com/microsoft/oms-agent-for-linux).  Pour plus d’informations sur l’installation de l’agent OMS pour Windows, consultez [Operations Management Suite Agent pour Windows](../log-analytics/log-analytics-windows-agents.md).  
+
+### <a name="permissions"></a>Autorisations
+Pour créer des déploiements de mise à jour, vous devez disposer du rôle de contributeur dans votre compte Automation et votre espace de travail Log Analytics.  
 
 ## <a name="solution-components"></a>Composants de la solution
 Cette solution se compose des ressources suivantes qui sont ajoutées à votre compte Automation et d’agents directement connectés ou d’un groupe d’administration Operations Manager connecté.
@@ -156,7 +158,7 @@ Lorsque vous ajoutez la solution de gestion des mises à jour à votre espace de
 ## <a name="viewing-update-assessments"></a>Affichage des évaluations de mises à jour
 Cliquez sur la mosaïque **Gestion des mises à jour** pour ouvrir le tableau de bord **Gestion des mises à jour**.<br><br> ![Tableau de bord résumant la gestion des mises à jour](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
-Ce tableau de bord fournit une description détaillée de l’état de mise à jour classé par type de système d’exploitation et classification de mise à jour : critique, sécurité ou autres (par exemple, une mise à jour de définition). La mosaïque **Déploiements de mises à jour**, lorsqu’elle est sélectionnée, vous redirige vers la page Déploiements de mises à jour dans laquelle vous pouvez consulter les planifications, les déploiements en cours d’exécution, les déploiements terminés ou planifier un nouveau déploiement.  
+Ce tableau de bord fournit une description détaillée de l’état de mise à jour classé par type de système d’exploitation et classification de mise à jour : critique, sécurité ou autres (par exemple, une mise à jour de définition). Les résultats de chaque vignette du tableau de bord reflètent uniquement les mises à jour approuvées pour le déploiement, qui est basé sur la source de synchronisation des ordinateurs.   La mosaïque **Déploiements de mises à jour**, lorsqu’elle est sélectionnée, vous redirige vers la page Déploiements de mises à jour dans laquelle vous pouvez consulter les planifications, les déploiements en cours d’exécution, les déploiements terminés ou planifier un nouveau déploiement.  
 
 Vous pouvez exécuter une recherche de journal qui renvoie tous les enregistrements en cliquant sur la mosaïque appropriée ou pour exécuter une requête d’une catégorie et de critères prédéfinis spécifiques, en sélectionner un dans la liste de la colonne **Requêtes de mise à jour courantes**.    
 
@@ -310,6 +312,17 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
 Cette section fournit des informations pour vous aider à résoudre les problèmes liés à la solution de gestion de mises à jour.  
+
+### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Comment puis-je résoudre les problèmes d’intégration ?
+Si vous rencontrez des problèmes lorsque vous essayez d’intégrer la solution ou une machine virtuelle, recherchez dans le journal d’évènements **Journaux des applications et des services\Operations Manager** les événements avec l’ID d’événement 4502 et le message d’événement contenant **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  Le tableau suivant met en évidence des messages d’erreur spécifiques et une résolution possible pour chacun d’entre eux.  
+
+| Message | Motif | Solution |   
+|----------|----------|----------|  
+| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.InvalidOperationException: {"Message":"Machine is already<br>registered to a different account. "} (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception System.InvalidOperationException : {"Message" :"La machine est déjà inscrite sur un autre compte."} | La machine est déjà intégrée à un autre espace de travail pour Update Management | Éliminez les anciens artefacts en [supprimant le groupe de Runbooks hybrides](../automation/automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
+| Unable to  Register Machine for Patch Management,<br>Registration Failed with Exception<br>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br>System.Net.WebException: The underlying connection<br>was closed: An unexpected error<br>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br>The client and server cannot communicate,<br>because they do not possess a common algorithm (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception System.Net.Http.HttpRequestException : une erreur s’est produite lors de l’envoi de la requête. --->System.Net.WebException : la connexion sous-jacente était fermée : une erreur inattendue s’est produite à la réception. ---> System.ComponentModel.Win32Exception : le client et le serveur ne peuvent pas communiquer car ils n’ont pas d’algorithme en commun) | Proxy/passerelle/pare-feu bloquant la communication | [Passez en revue la configuration requise pour le réseau](../automation/automation-offering-get-started.md#network-planning)|  
+| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception Newtonsoft.Json.JsonReaderException : erreur d’analyse de valeur infinie positive.) | Proxy/passerelle/pare-feu bloquant la communication | [Passez en revue la configuration requise pour le réseau](../automation/automation-offering-get-started.md#network-planning)| 
+| The certificate presented by the service <wsid>.oms.opinsights.azure.com<br>was not issued by a certificate authority<br>used for Microsoft services. Please contact<br>your network administrator to see if they are running a proxy that intercepts<br>TLS/SSL communication. (Le certificat présenté par le service .oms.opinsights.azure.com n’a pas été émis par une autorité de certification utilisée par les services Microsoft. Veuillez contacter votre administrateur réseau pour déterminer si un proxy en cours d’exécution intercepte la communication TLS/SSL.) |Proxy/passerelle/pare-feu bloquant la communication | [Passez en revue la configuration requise pour le réseau](../automation/automation-offering-get-started.md#network-planning)|  
+| Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException : échec de la création d’un certificat auto-signé. --->System.UnauthorizedAccessException : accès refusé.) | Échec de génération du certificat auto-signé | Vérifiez que le compte système a<br>un accès en lecture au dossier :<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>Comment résoudre les déploiements de mises à jour ?
 Vous pouvez afficher les résultats du runbook chargé du déploiement des mises à jour incluses dans le déploiement de mises à jour planifié dans le panneau Tâches de votre compte Automation lié à l’espace de travail OMS prenant en charge cette solution.  Le runbook **Patch-MicrosoftOMSComputer** est un runbook enfant qui cible un ordinateur géré spécifique. Le flux détaillé présente des informations détaillées sur ce déploiement.  La sortie indique les mises à jour obligatoires applicables, l’état du téléchargement, l’état de l’installation et des détails supplémentaires.<br><br> ![Statut de tâche du déploiement de mises à jour](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>

@@ -12,10 +12,10 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 9f393e9ab1b3b6ab7f1ff085d625362d50adc97c
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b9382de2b8c672670213d9f5d0daf1eb0bff8c78
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -28,42 +28,9 @@ Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’u
 - [Créer une base de données - CLI](quickstart-create-server-database-azure-cli.md)
 
 Il vous faudra également :
-- Installer [.NET Framework](https://www.microsoft.com/net/download)
-- Installez [Visual Studio](https://www.visualstudio.com/downloads/)
-- Installer [Npgsql](http://www.npgsql.org/doc/index.html) 
-
-## <a name="install-visual-studio-and-net"></a>Installer Visual Studio et .NET
-Les étapes de cette section supposent que vous êtes familiarisé avec l’utilisation de .NET.
-
-### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework et .NET Core**
-Visual Studio 2017 Community est un IDE complet, extensible et gratuit qui permet de créer des applications modernes pour Android, iOS et Windows, ainsi que des applications web et de base de données et des services cloud. Vous pouvez soit installer le composant .NET Framework complet, soit installer uniquement .NET Core. Les extraits de code du guide de démarrage rapide fonctionnent dans les deux cas. Si vous disposez déjà de Visual Studio sur votre ordinateur, ignorez les étapes suivantes.
-
-1. Téléchargez le [programme d’installation de Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
-2. Exécutez le programme d’installation et suivez que les invites.
-
-### <a name="mac-os"></a>**Mac OS**
-Ouvrez votre terminal et accédez au répertoire dans lequel vous envisagez de créer votre projet .NET Core. Entrez les commandes suivantes pour installer **brew**, **OpenSSL** et **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-Installez .NET Core sur macOS. Téléchargez le [programme d’installation officiel](https://go.microsoft.com/fwlink/?linkid=843444). Ce programme d’installation installe les outils et les place dans votre chemin d’accès afin que vous puissiez exécuter dotnet à partir de la Console
-
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Ouvrez votre terminal et accédez au répertoire dans lequel vous envisagez de créer votre projet .NET Core. Entrez les commandes suivantes pour installer **.NET Core**.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
+- Installer [.NET Framework](https://www.microsoft.com/net/download). Suivez les étapes de l’article associé pour installer .NET spécifiquement pour votre plateforme (Windows, Ubuntu Linux ou macOS). 
+- Installer [Visual Studio](https://www.visualstudio.com/downloads/) ou Visual Studio Code pour saisir et modifier du code.
+- Installer la bibliothèque [Npgsql](http://www.npgsql.org/doc/index.html) comme décrit ci-dessous.
 
 ## <a name="install-npgsql-references-into-your-visual-studio-solution"></a>Installer les références Npgsql dans votre solution Visual Studio
 Pour vous connecter à PostgreSQL à partir de l’application C#, utilisez la bibliothèque ADO.Net open source appelée Npgsql. NuGet vous aide à télécharger et gérer facilement les références.

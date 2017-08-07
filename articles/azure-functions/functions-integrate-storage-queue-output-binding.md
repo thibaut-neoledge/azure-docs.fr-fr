@@ -16,30 +16,24 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
-<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
-
-# Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
+# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 
 Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une méthode déclarative pour se connecter à des données de service externe à partir de votre fonction. Dans cette rubrique, apprenez à mettre à jour une fonction existante en ajoutant une liaison de sortie qui envoie des messages au service Stockage File d’attente d’Azure.  
 
 ![Affichage du message dans les journaux.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Composants requis 
+## <a name="prerequisites"></a>Composants requis 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
 * Installez [l’Explorateur de Stockage Microsoft Azure](http://storageexplorer.com/).
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
 ## <a name="add-binding"></a>Ajoutez une liaison de sortie
  
@@ -49,7 +43,7 @@ Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une mé
     
     ![Ajoutez une liaison de sortie de stockage de files d’attente à une fonction dans le Portail Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Utilisez les paramètres comme indiqué dans la table, puis sélectionnez **Enregistrer** : 
+3. Utilisez les paramètres spécifiés dans le tableau : 
 
     ![Ajoutez une liaison de sortie de stockage de files d’attente à une fonction dans le Portail Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -59,11 +53,11 @@ Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une mé
     | **Connexion au compte de stockage** | AzureWebJobStorage | Vous pouvez utiliser la connexion de compte de stockage qui est déjà utilisée par votre application de fonction, ou créez-en une.  |
     | **Nom de message de paramètre** | outQueueItem | Le nom du paramètre de liaison de sortie. | 
 
+4. Cliquez sur **Enregistrer** pour ajouter la liaison.
+ 
 Maintenant que vous avez défini une liaison de sortie, vous devez mettre à jour le code afin d’utiliser la liaison pour ajouter des messages à une file d’attente.  
 
-<a id="update-the-function-code" class="xliff"></a>
-
-## Mettre à jour le code de fonction
+## <a name="update-the-function-code"></a>Mettre à jour le code de fonction
 
 1. Sélectionnez la fonction pour afficher le code de fonction dans l’éditeur. 
 
@@ -92,9 +86,7 @@ Maintenant que vous avez défini une liaison de sortie, vous devez mettre à jou
 
 La valeur passée au déclencheur HTTP est comprise dans un message ajouté à la file d’attente.
  
-<a id="test-the-function" class="xliff"></a>
-
-## Tester la fonction 
+## <a name="test-the-function"></a>Tester la fonction 
 
 1. Après avoir enregistré les modifications de code, sélectionnez **Exécuter**. 
 
@@ -104,9 +96,7 @@ La valeur passée au déclencheur HTTP est comprise dans un message ajouté à l
 
 Par la suite, vous pouvez vous connecter à votre compte de stockage afin de vérifier la nouvelle file d’attente et le nouveau message que vous avez ajouté au compte. 
 
-<a id="connect-to-the-queue" class="xliff"></a>
-
-## Connexion à la file d’attente
+## <a name="connect-to-the-queue"></a>Connexion à la file d’attente
 
 Ignorez les trois premières étapes si vous avez déjà installé l’Explorateur de stockage et si vous l’avez connecté à votre compte de stockage.    
 
@@ -127,15 +117,11 @@ Ignorez les trois premières étapes si vous avez déjà installé l’Explorate
     ![Créez une file d’attente de stockage.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez ajouté une liaison de sortie à une fonction existante. 
 

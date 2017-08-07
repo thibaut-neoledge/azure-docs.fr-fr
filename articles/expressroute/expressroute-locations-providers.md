@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
+ms.date: 08/01/2017
 ms.author: kaanan
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 2e35237b0ccc201cb797c4e65e963e42f7a07c4b
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 1dcfcde43bf2a41cf5ac3651a23c097a30a84dd3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
@@ -79,7 +79,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Denver** |CoreSite |
 | **Dublin** |Colt, Interxion, Telecity Group |
 | **Hong Kong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **Las Vegas** |Level 3 Communications+, Megaport |
+| **Las Vegas** |Level 3 Communications, Megaport |
 | **Londres** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
@@ -92,7 +92,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Paris** |Colt, Interxion, Equinix, Orange |
 | **Québec** | Megaport |
 | **San Antonio** |Megaport |
-| **São Paulo** |Ascenty Data Centers+, Equinix, Level 3 Communications, Telefonica, UOLDIVEO+ |
+| **São Paulo** |Ascenty Data Centers+, Equinix, Level 3 Communications, Telefonica, UOLDIVEO |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
 | **Séoul** |KINX, Sejong Telecom |
 | **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
@@ -127,7 +127,7 @@ Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windows
 ### <a name="germany"></a>Allemagne
 | **Emplacement** | **Fournisseurs de services** |
 | --- | --- |
-| **Berlin** |Colt+, e-shelter, Megaport+ |
+| **Berlin** |Colt+, e-shelter, Megaport+, T-Systems |
 | **Francfort** |Colt, Equinix, Interxion |
 
 ## <a name="c1partners"></a>Connectivité via des fournisseurs Exchange

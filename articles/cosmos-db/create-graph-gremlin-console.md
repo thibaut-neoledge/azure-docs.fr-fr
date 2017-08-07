@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 07/27/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 82ddc351359318dab82c95d3e3b9b97ba3e3b4a8
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 1749c4233e2b90f0a207033276b31093f7bf667f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB : Créer, interroger et parcourir la console Gremlin
@@ -66,6 +66,9 @@ Vous devez également installer la [console Gremlin](http://tinkerpop.apache.org
 
 3. Dans votre terminal, exécutez `bin/gremlin.bat` ou `bin/gremlin.sh` pour démarrer la [console Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
 4. Dans votre terminal, exécutez `:remote connect tinkerpop.server conf/remote-secure.yaml` pour vous connecter à votre service d’application.
+
+    > [!TIP]
+    > Si vous recevez l’erreur `No appenders could be found for logger`, vérifiez que vous avez mis à jour la valeur de sérialiseur dans le fichier remote-secure.yaml comme décrit à l’étape 2. 
 
 Parfait ! L’installation étant terminée, exécutons quelques commandes de console.
 

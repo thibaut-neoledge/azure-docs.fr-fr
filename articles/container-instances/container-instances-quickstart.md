@@ -18,10 +18,10 @@ ms.date: 07/26/2017
 ms.author: seanmck
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
-ms.openlocfilehash: 933299ce5a5d6f5b2262d40ae768019ccaf8796a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ad053391e6b3927ab11faaf4d9e70b610e86f3c3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -35,7 +35,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Les commandes CLI d’Azure Container Instances ne sont actuellement disponibles que dans Azure Cloud Shell.
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.12 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -52,8 +52,6 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-container"></a>Créer un conteneur
 
 Vous pouvez créer un conteneur en attribuant un nom, une image Docker ainsi qu’un groupe de ressources Azure. Si vous le souhaitez, vous pouvez exposer le conteneur sur internet avec une adresse IP publique. Dans ce cas, nous utilisons un conteneur qui héberge une application web basique écrite dans [Node.js](http://nodejs.org).
-
-Les commandes CLI d’Azure Container Instances ne sont actuellement disponibles que dans Azure Cloud Shell.
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 

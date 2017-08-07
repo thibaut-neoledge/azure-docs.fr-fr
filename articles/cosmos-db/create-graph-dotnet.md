@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 07/28/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 1794341ed0d4519eef7f065d04ccf86a7e48a4a4
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a973b81ea5b06c5826cc31c399aae9dec43f5b72
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB : Créer une application .NET à l’aide de l’API Graph
@@ -54,7 +54,7 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
     ```
 
-3. Ouvrez le fichier de solution dans Visual Studio. 
+3. Ouvrez ensuite Visual Studio et le fichier de solution. 
 
 ## <a name="review-the-code"></a>Examiner le code
 
@@ -103,23 +103,19 @@ Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fich
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. Dans le portail Azure, dans votre compte Azure Cosmos DB, cliquez sur **Vue d’ensemble** dans le volet de navigation gauche. Vous allez copier la valeur **URI Gremlin** dans le fichier App.config à l’étape suivante. 
+1. Dans Visual Studio 2017, ouvrez le fichier App.config. 
 
-    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-graph-dotnet/gremlin-uri.png)
-
-    Si la valeur **URI Gremlin** est vide, vous pouvez générer la valeur à partir de la page **Clés** dans le portail, à l’aide de la valeur **URI**, en supprimant https:// et en changeant les documents en graphiques. 
-
-2. Dans Visual Studio 2017, ouvrez le fichier App.config. 
-
-3. Copiez la valeur **URI Gremlin** du portail et définissez-la comme valeur de la clé du point de terminaison dans le fichier App.config. 
-
-    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
-
-4. De nouveau dans le portail Azure, cliquez sur **Clés** dans le menu de navigation gauche, copiez la valeur **CLÉ PRIMAIRE** à partir du portail, et définissez-la comme valeur de la clé AuthKey dans App.config, puis enregistrez vos modifications. 
-
-    `<add key="AuthKey" value="FILLME" />`
+2. Dans le portail Azure, dans votre compte Azure Cosmos DB, cliquez sur **Clés** dans le volet de navigation gauche. 
 
     ![Afficher et copier une clé primaire dans le portail Azure, dans la page Clés](./media/create-graph-dotnet/keys.png)
+
+3. Copiez la valeur **URI** du portail et définissez-la comme valeur de la clé du point de terminaison dans le fichier App.config. Vous pouvez utiliser le bouton de copie comme indiqué dans la capture d’écran précédente pour copier la valeur.
+
+    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+
+4. Copiez votre valeur **CLÉ PRIMAIRE** à partir du portail et définissez-la comme la valeur de la clé AuthKey dans le fichier App.config., puis enregistrez vos changements. 
+
+    `<add key="AuthKey" value="FILLME" />`
 
 Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
@@ -131,6 +127,8 @@ Vous venez de mettre à jour votre application avec toutes les informations néc
 
 3. À partir des résultats, installez la bibliothèque **Microsoft.Azure.Graphs**. Cette opération installe le package de bibliothèque d’extension graphique Azure Cosmos DB et toutes les dépendances.
 
+    Si vous obtenez un message concernant la vérification des modifications apportées à la solution, cliquez sur **OK**. Si vous obtenez un message concernant l’acceptation de la licence, cliquez sur **J’accepte**.
+
 4. Appuyez sur Ctrl + F5 pour exécuter l’application.
 
    La fenêtre de console affiche les sommets et les bords ajoutés au graphique. Lorsque le script se termine, appuyez deux fois sur ENTRÉE pour fermer la fenêtre de console. 
@@ -139,9 +137,13 @@ Vous venez de mettre à jour votre application avec toutes les informations néc
 
 Vous pouvez maintenant retourner à l’Explorateur de données dans le Portail Azure pour parcourir et interroger vos nouvelles données graphiques.
 
-* Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet Collections. Développez **graphdb**, **graphcoll**, puis cliquez sur **Graph**.
+1. Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet Graphique. Développez **graphdb**, **graphcollz**, puis cliquez sur **Graphique**.
 
-    Les données générées par l’exemple d’application s’affichent dans le volet Graphiques.
+2. Cliquez sur le bouton **Appliquer un filtre** pour utiliser la requête par défaut et afficher tous les vertex dans le graphique. Les données générées par l’exemple d’application s’affichent dans le volet Graphiques.
+
+    Vous pouvez agrandir et réduire le graphique, développer l’espace d’affichage du graphique, ajouter des vertex et déplacer des vertex sur la surface d’affichage.
+
+    ![Afficher le graphique dans l’Explorateur de données dans le portail Azure](./media/create-graph-dotnet/graph-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examiner les SLA dans le Portail Azure
 

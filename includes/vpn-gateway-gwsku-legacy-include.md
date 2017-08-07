@@ -12,4 +12,3 @@ Lorsque vous travaillez avec les anciennes références SKU, tenez compte des po
 * Le protocole BGP n’est pas pris en charge pour la référence SKU De base.
 * Les configurations de passerelle VPN et ExpressRoute coexistants ne sont pas prises en charge par la référence SKU De base.
 * Les connexions VPN S2S en mode actif-actif avec des passerelles peuvent uniquement être configurées sur la référence SKU HighPerformance.
-

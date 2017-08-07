@@ -29,6 +29,9 @@
 
 5. Dans le volet **Stratégies d’accès partagé**, cliquez sur la stratégie **iothubowner**, puis copiez et notez la **chaîne de connexion** de votre IoT Hub. Pour plus d’informations, consultez [Contrôler l’accès à IoT Hub](../articles/iot-hub/iot-hub-devguide-security.md).
 
+> [!NOTE] 
+Vous n’aurez pas besoin de cette chaîne de connexion iothubowner pour ce didacticiel d’installation. Toutefois, elle vous sera peut-être nécessaire pour certains didacticiels présentant différents scénarios IoT une fois cette installation terminée.
+
    ![Obtention de la chaîne de connexion de votre IoT Hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
 
 ## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>Inscrire un appareil dans l’IoT Hub pour votre appareil

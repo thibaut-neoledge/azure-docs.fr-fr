@@ -1,6 +1,6 @@
 ---
 title: "Se connecter à la base de données Azure pour MySQL avec C# | Microsoft Docs"
-description: "Ce guide de démarrage rapide fournit un exemple de code C# (.Net) que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour MySQL."
+description: "Ce guide de démarrage rapide fournit un exemple de code C# (.NET) que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour MySQL."
 services: MySQL
 author: seanli1988
 ms.author: seal
@@ -12,10 +12,10 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: ffe3ae320a61031cf314cc1d70e0c093b033f85c
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: e0db2d0a59d62eebbb624a3ad32f19fa634ad5db
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -28,43 +28,9 @@ Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un
 - [Création d’un serveur de base de données Azure pour MySQL à l’aide d’Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Il vous faudra également :
-- Installer [.NET Framework](https://www.microsoft.com/net/download)
-- Installez [Visual Studio](https://www.visualstudio.com/downloads/)
-- Installer [le pilote ODBC pour MySQL](https://dev.mysql.com/downloads/connector/odbc/) 
-
-## <a name="install-visual-studio-and-net"></a>Installer Visual Studio et .NET
-Les étapes de cette section supposent que vous êtes familiarisé avec l’utilisation de .NET.
-
-### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework et .NET Core**
-Visual Studio 2017 Community est un IDE complet, extensible et gratuit qui permet de créer des applications modernes pour Android, iOS et Windows, ainsi que des applications web et de base de données et des services cloud. Vous pouvez soit installer le composant .NET Framework complet, soit installer uniquement .NET Core. Les extraits de code du guide de démarrage rapide fonctionnent dans les deux cas. Si vous disposez déjà de Visual Studio sur votre ordinateur, ignorez les étapes suivantes.
-
-1. Téléchargez le [programme d’installation de Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
-2. Exécutez le programme d’installation et suivez que les invites.
-
-### <a name="mac-os"></a>**Mac OS**
-Ouvrez votre terminal et accédez au répertoire dans lequel vous envisagez de créer votre projet .NET Core. Entrez les commandes suivantes pour installer **brew**, **OpenSSL** et **.NET Core**. 
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install openssl
-mkdir -p /usr/local/lib
-ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-```
-
-Installez .NET Core sur macOS. Téléchargez le [programme d’installation officiel](https://go.microsoft.com/fwlink/?linkid=843444). Ce programme d’installation installe les outils et les place dans votre CHEMIN D’ACCÈS, afin que vous puissiez exécuter .net à partir de la console.
-
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Ouvrez votre terminal et accédez au répertoire dans lequel vous envisagez de créer votre projet .NET Core. Entrez les commandes suivantes pour installer **.NET Core**.
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.1
-```
-
+- Installer [.NET](https://www.microsoft.com/net/download). Suivez les étapes de l’article associé pour installer .NET spécifiquement pour votre plateforme (Windows, Ubuntu Linux ou macOS). 
+- Installer [Visual Studio](https://www.visualstudio.com/downloads/).
+- Installer [le pilote ODBC pour MySQL](https://dev.mysql.com/downloads/connector/odbc/).
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
 Obtenez les informations requises pour vous connecter à la base de données Azure pour MySQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
