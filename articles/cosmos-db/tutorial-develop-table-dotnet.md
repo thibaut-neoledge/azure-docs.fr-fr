@@ -77,7 +77,8 @@ Commençons par créer un compte Azure Cosmos DB dans le portail Azure.
 > [!TIP]
 > * Vous possédez déjà un compte Azure Cosmos DB ? Si c’est le cas, passez directement à l’étape [Configurer votre solution Visual Studio](#SetupVS).
 > * Vous possédiez un compte Azure DocumentDB ? Si c’est le cas, votre compte a été converti en compte Azure Cosmos DB et vous pouvez passer directement à l’étape [Configurer votre solution Visual Studio](#SetupVS).  
-> * Si vous utilisez l’émulateur Azure Cosmos DB, suivez les étapes de la section [Émulateur Azure Cosmos DB](local-emulator.md) pour le configurer, puis passez directement à l’étape [Configurer votre solution Visual Studio](#SetupVS). 
+> * Si vous utilisez l’émulateur Azure Cosmos DB, suivez les étapes de la section [Émulateur Azure Cosmos DB](local-emulator.md) pour le configurer, puis passez directement à l’étape [Configurer votre solution Visual Studio](#SetupVS).
+<!---Loc Comment: Please, check link [Set up your Visual Studio solution] since it's not redirecting to any location.---> 
 >
 >
 
