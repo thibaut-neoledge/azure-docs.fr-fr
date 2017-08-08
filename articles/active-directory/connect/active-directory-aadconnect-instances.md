@@ -29,8 +29,8 @@ Azure AD Connect est couramment utilisé avec l’instance mondiale d’Azure AD
 
 | URL à ouvrir dans le serveur proxy |
 | --- |
-| \**.microsoftonline.de |
-| \**.windows.net |
+| \*.microsoftonline.de |
+| \*.windows.net |
 | + Listes de révocation de certificat |
 
 Quand vous vous connectez à votre locataire Azure AD, vous devez utiliser un compte du domaine onmicrosoft.de.
@@ -49,9 +49,9 @@ Ce cloud a été pris en charge par des versions antérieures de DirSync. À par
 
 | URL à ouvrir dans le serveur proxy |
 | --- |
-| \**.microsoftonline.com |
+| \*.microsoftonline.com |
 | \*.microsoftonline.us |
-| \**.gov.us.microsoftonline.com |
+| \*.gov.us.microsoftonline.com |
 | + Listes de révocation de certificat |
 
 Azure AD Connect ne peut pas détecter automatiquement que votre locataire Azure AD se trouve dans le cloud Government. Au lieu de cela, vous devez effectuer les actions suivantes lorsque vous installez Azure AD Connect.
