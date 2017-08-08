@@ -1552,7 +1552,7 @@ Pour ajouter un port de sondage :
   }
   ```
 
-  Après avoir mis en ligne le rôle de cluster **SAP <*SID*, vérifiez que **ProbePort** est défini sur la nouvelle valeur.
+  Après avoir mis en ligne le rôle de cluster **SAP <*SID*>** vérifiez que **ProbePort** est défini sur la nouvelle valeur.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
