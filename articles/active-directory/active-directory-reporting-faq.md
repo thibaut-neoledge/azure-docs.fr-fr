@@ -87,8 +87,8 @@ Pour plus d’informations, consultez la page [Rapports Azure Active Directory](
 
 ---
 
-**Q : ldentity Protection m’informe d’un événement à risque, mais je ne vois pas à quelle connexion il correspond parmi toutes les connexions répertoriées. Est-ce normal ? **
-**R :**: Oui, Identity Protection évalue les risques pour tous les flux d’authentification, qu’ils soient interactifs ou non. Toutefois, seules les connexions interactives sont répertoriées.
+**Q : ldentity Protection m’informe d’un événement à risque, mais je ne vois pas à quelle connexion il correspond parmi toutes les connexions répertoriées. Est-ce normal?**
+**R:**: Oui, Identity Protection évalue les risques pour tous les flux d’authentification, qu’ils soient interactifs ou non. Toutefois, seules les connexions interactives sont répertoriées.
 
 ---
 

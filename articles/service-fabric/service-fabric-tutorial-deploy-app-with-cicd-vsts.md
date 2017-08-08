@@ -56,7 +56,7 @@ Partagez les fichiers source de votre application dans un projet d’équipe Tea
 
 Créez un dépôt Git local pour votre projet en sélectionnant **Ajouter au contrôle de code source** -> **Git** dans la barre d’état située dans le coin inférieur droit de Visual Studio. 
 
-Dans la vue **Push** (Envoi [push]) de **Team Explorer**, sélectionnez le bouton **Publier le dépôt Git** sous **Push sur Visual Studio Team Services**.
+Dans la vue **Envoi** de **Team Explorer**, sélectionnez le bouton **Publier le dépôt Git** sous **Push sur Visual Studio Team Services**.
 
 ![Envoi (push) du dépôt Git][push-git-repo]
 
@@ -118,7 +118,7 @@ Dans la vue **Modifications** de Team Explorer, ajoutez un message décrivant vo
 
 ![Valider tout][changes]
 
-Sélectionnez l’icône de modifications non publiées (![Modifications non publiées][unpublished-changes]) dans la barre d’état ou la vue Synchronisation de Team Explorer. Sélectionnez **Push** (Envoi [push]) pour mettre à jour votre code dans Team Services/TFS.
+Sélectionnez l’icône de modifications non publiées (![Modifications non publiées][unpublished-changes]) dans la barre d’état ou la vue Synchronisation de Team Explorer. Sélectionnez **Envoi** pour mettre à jour votre code dans Team Services/TFS.
 
 ![Envoi (push) des modifications][push]
 
