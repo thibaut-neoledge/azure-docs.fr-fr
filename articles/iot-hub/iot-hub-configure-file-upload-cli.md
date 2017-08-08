@@ -32,14 +32,14 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
 * [Azure CLI 2.0][lnk-CLI-install].
-* Un IoT Hub Azure. Si vous n’avez pas de IoT Hub, vous pouvez utiliser la commande `az iot hub create` [][lnk-cli-create-iothub] afin d’en créer un ou utiliser le portail pour [Créer un IoT Hub][lnk-portal-hub].
+* Un IoT Hub Azure. Si vous n’avez pas de IoT Hub, vous pouvez utiliser la `az iot hub create` [commande][lnk-cli-create-iothub] afin d’en créer un ou utiliser le portail pour [Créer un IoT Hub][lnk-portal-hub].
 * Un compte de stockage Azure. Si vous n’avez pas de compte de Stockage Azure, vous pouvez utiliser [Azure CLI 2.0 - Gérer les comptes de stockage][lnk-manage-storage] afin d’en créer un ou utiliser le portail pour [créer un compte de stockage][lnk-portal-storage].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Se connecter à votre compte Azure et le définir
 
 Connectez-vous à votre compte Azure et sélectionnez votre abonnement.
 
-1. Dans l’invite de commande, exécutez la [commande login][lnk-login-command] :
+1. Dans l’invite de commande, exécutez la [commande login][lnk-login-command]:
 
     ```azurecli
     az login

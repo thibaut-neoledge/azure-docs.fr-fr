@@ -27,16 +27,20 @@
 ## Configurer le pare-feu d’application web
 ### [Portail](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Azure CLI 2.0](application-gateway-web-application-firewall-cli.md)
 ## Personnaliser les règles du pare-feu des applications web
 ### [Portail](application-gateway-customize-waf-rules-portal.md)
+### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
 ## Configurer le déchargement SSL
 ### [Portail](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (classique)](application-gateway-ssl.md)
+### [Azure CLI 2.0](application-gateway-ssl.md)
 ### [Stratégie et bout en bout](application-gateway-end-to-end-ssl-powershell.md)
 ## Configurer le routage basé sur le chemin d’accès de l’URL
 ### [Portail](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 ## Configurer l’hébergement de plusieurs sites
 ### [Portail](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
