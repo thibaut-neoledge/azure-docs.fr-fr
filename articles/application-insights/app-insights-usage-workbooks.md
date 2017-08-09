@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 44ea03d30c1f2eabc92af63b549823c03a6901e2
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: ecd3d86db1d6b3b65015d1d560027cedb4f2df58
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -26,7 +26,7 @@ Les classeurs associent des visualisations de données [Azure Application Insigh
 
 Les classeurs sont utiles pour :
 
-* Explorer l’utilisation de votre application lorsque vous ne connaissez pas les mesures d’intérêt à l’avance : nombre d’utilisateurs, taux de rétention, taux de conversion, etc.. Contrairement à d’autres outils d’analyse d’utilisation d’Application Insights, les classeurs vous permettent de combiner plusieurs types de visualisations et d’analyses, ce qui les rend très utile pour ce type d’exploration sous forme libre.
+* Explorer l’utilisation de votre application lorsque vous ne connaissez pas les mesures d’intérêt à l’avance : nombre d’utilisateurs, taux de rétention, taux de conversion, etc. Contrairement à d’autres outils d’analyse d’utilisation d’Application Insights, les classeurs vous permettent de combiner plusieurs types de visualisations et d’analyses, ce qui les rend très utile pour ce type d’exploration sous forme libre.
 * Expliquer à votre équipe le fonctionnement d’une toute nouvelle fonctionnalité, en montrant le nombre d’interactions clés et d’autres mesures de l’utilisateur.
 * Partager les résultats d’une expérimentation A/B dans votre application avec d’autres membres de votre équipe. Vous pouvez expliquer les objectifs de l’expérimentation avec le texte, puis montrer chaque mesure d’utilisation et requête Analytics utilisée pour évaluer l’expérimentation, en vous aidant de légendes claires indiquant si chaque mesure se situe au-dessus ou en dessous de la cible.
 * Créer des rapports relatifs à l’impact d’une panne sur l’utilisation de votre application, en combinant des données, une explication du texte et une présentation des étapes suivantes pour éviter à l’avenir d’éventuelles interruptions.
@@ -88,9 +88,9 @@ Les sections de requête Analytics vous permettent d’ajouter des requêtes arb
 
 * Combien d’exceptions votre site a levé au cours de la même période en tant que refus d’utilisation ?
 * Quelle était la répartition des temps de chargement de page pour les utilisateurs affichant une page ?
-* Combien d’utilisateurs ont affiché certaines pages de votre site en particulier ? Il peut être utile de comprendre si des groupes d’utilisateurs utilisent différents sous-ensembles de fonctionnalités de votre site (utilisez l’opérateur `join` avec le modificateur `kind=leftanti` dans le langage de requête Analytics).
+* Combien d’utilisateurs ont affiché certaines pages de votre site en particulier ? Il peut être utile de savoir si des groupes d’utilisateurs utilisent différents sous-ensembles de fonctionnalités de votre site (utilisez l’opérateur `join` avec le modificateur `kind=leftanti` dans le langage de requête Log Analytics).
 
-Utilisez le [document de référence du langage de requête Analytics](app-insights-analytics-reference.md) pour en savoir plus sur l’écriture des requêtes.
+Utilisez le [document de référence du langage de requête Log Analytics](https://docs.loganalytics.io/) pour en savoir plus sur l’écriture des requêtes.
 
 ## <a name="adding-text-and-markdown-sections"></a>Ajout de texte et de sections Markdown
 

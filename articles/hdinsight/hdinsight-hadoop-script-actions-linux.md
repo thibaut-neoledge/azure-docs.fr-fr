@@ -1,6 +1,6 @@
 ---
-title: "Développement d’une action de script avec HDInsight basé sur Linux | Microsoft Docs"
-description: "Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script. Les actions de script sont un moyen de personnaliser les clusters Azure HDInsight en spécifiant les paramètres de configuration de cluster ou en installant des services, outils ou autres logiciels supplémentaires sur le cluster. "
+title: "Développement d’une action de script avec HDInsight basé sur Linux - Azure | Documents Microsoft"
+description: "Découvrez comment utiliser des scripts Bash pour personnaliser des clusters HDInsight basés sur Linux. La fonctionnalité d’action de script de HDInsights vous permet d’exécuter des scripts pendant ou après la création de cluster. Vous pouvez utiliser des scripts pour modifier les paramètres de configuration d’un cluster ou installer un logiciel supplémentaire."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,14 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: aaa5134fafea387e63fc9c9819422d24de6baed0
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
@@ -28,7 +27,7 @@ ms.lasthandoff: 05/18/2017
 Découvrez comment personnaliser votre cluster HDInsight à l’aide de scripts bash. Les actions de script sont un moyen de personnaliser HDInsight pendant ou après la création du cluster.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Définition des actions de script
 
@@ -62,7 +61,7 @@ Quand vous développez un script personnalisé pour un cluster HDInsight, tenez 
 * [Utilisation de la logique de nouvelle tentative pour récupérer après une erreur temporaire](#bps9)
 
 > [!IMPORTANT]
-> Les actions de script doivent se terminer dans les 60 minutes. Dans le cas contraire, le script échoue. Lors de l’approvisionnement du nœud, le script s’exécute en même temps que les autres processus d'installation et de configuration. En raison de cette concurrence pour les ressources, par exemple au niveau du temps processeur ou de la bande passante, l’exécution du script risque de prendre plus de temps que dans votre environnement de développement.
+> Les actions de script doivent se terminer dans les 60 minutes, ou le processus échoue. Lors de l’approvisionnement du nœud, le script s’exécute en même temps que les autres processus d'installation et de configuration. En raison de cette concurrence pour les ressources, par exemple au niveau du temps processeur ou de la bande passante, l’exécution du script risque de prendre plus de temps que dans votre environnement de développement.
 
 ### <a name="bPS1"></a>Rechercher la version Hadoop
 
@@ -120,11 +119,11 @@ La meilleure pratique consiste à tout télécharger et à tout archiver dans un
 > [!IMPORTANT]
 > Le compte de stockage utilisé doit être le compte de stockage par défaut du cluster ou un conteneur public en lecture seule d’un autre compte de stockage.
 
-Par exemple, les exemples fournis par Microsoft sont stockés dans le compte de stockage [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) , qui est un conteneur public en lecture seule géré par l’équipe de HDInsight.
+Par exemple, les exemples fournis par Microsoft sont stockés dans le compte de stockage [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). Il s’agit d’un conteneur public en lecture seule géré par l’équipe de HDInsight.
 
 ### <a name="bPS4"></a>Utiliser des ressources précompilées
 
-Pour réduire le temps nécessaire à l’exécution du script, évitez les opérations qui compilent des ressources depuis le code source. Précompilez les ressources et stockez-les dans Stockage Blob Azure pour pouvoir les télécharger rapidement.
+Pour réduire le temps nécessaire à l’exécution du script, évitez les opérations qui compilent des ressources depuis le code source. Par exemple, précompilez les ressources et stockez-les dans un compte de stockage de blobs Azure dans le même centre de données que HDInsight.
 
 ### <a name="bPS3"></a>S’assurer que le script de personnalisation du cluster est idempotent
 
@@ -134,7 +133,7 @@ Par exemple, un script qui modifie les fichiers de configuration ne doit pas ajo
 
 ### <a name="bPS5"></a>Garantir la haute disponibilité de l’architecture du cluster
 
-Les clusters HDInsight basés sur Linux proposent deux fichiers principaux actifs au sein du cluster, et les actions de script sont exécutées depuis les deux nœuds. Si les composants que vous installez n'attendent qu’un seul nœud principal, n’installez pas les composants sur les deux nœuds principaux.
+Les clusters HDInsight basés sur Linux proposent deux nœuds principaux actifs au sein du cluster, et les actions de script sont exécutées sur les deux nœuds. Si les composants que vous installez n'attendent qu’un seul nœud principal, n’installez pas les composants sur les deux nœuds principaux.
 
 > [!IMPORTANT]
 > Les services fournis dans le cadre de HDInsight sont conçus pour basculer entre les deux nœuds principaux si nécessaire. Cette fonctionnalité n’est pas étendue aux composants personnalisés installés à l’aide d’actions de script. Si vous avez besoin que les composants personnalisés soient très disponibles, vous devez implémenter votre propre mécanisme de basculement.

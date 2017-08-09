@@ -11,64 +11,85 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/28/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 52704b3259ddad85db12b8bb81c4992ece2f37a4
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: f1ef6c3cc3ad2eda9fbcf79bf729918a847d27d7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
-Cet article explique comment le proxy d’application Azure Active Directory (Azure AD) fournit un service sécurisé pour la publication et l’accès à distance de vos applications.
+Cet article explique comment le proxy d’application Azure Active Directory fournit un service sécurisé pour la publication et l’accès à distance de vos applications.
 
 Le diagramme ci-dessous illustre la façon dont Azure AD permet un accès à distance sécurisé à vos applications locales.
 
  ![Diagramme illustrant l’accès sécurisé à distance via le proxy d’application Azure AD](./media/application-proxy-security-considerations/secure-remote-access.png)
 
+## <a name="security-benefits"></a>Avantages en matière de sécurité
+
 Le proxy d’application Azure AD offre les avantages de sécurité suivants :
 
-**Accès authentifié :** seules les connexions authentifiées peuvent accéder à votre réseau.
+### <a name="authenticated-access"></a>Accès authentifié 
 
-* Le proxy d’application Azure AD s’appuie sur le service d’émission de jeton de sécurité (STS) Azure AD pour toutes les authentifications.  L’authentification préalable, par sa nature, bloque un nombre conséquent d’attaques anonymes, car seules les identités authentifiées sont autorisées à accéder à l’application principale.
+Si vous choisissez d’utiliser la préauthentification Azure Active Directory, seules les connexions authentifiées peuvent accéder à votre réseau.
 
-**Accès conditionnel :** appliquez des contrôles de stratégie plus riches avant que les connexions à votre réseau soient établies.
+Le proxy d’application Azure AD s’appuie sur le service d’émission de jeton de sécurité (STS) Azure AD pour toutes les authentifications.  L’authentification préalable, par sa nature, bloque un nombre conséquent d’attaques anonymes, car seules les identités authentifiées sont autorisées à accéder à l’application principale.
 
-* Avec [l’accès conditionnel](active-directory-conditional-access-azuread-connected-apps.md), vous pouvez définir des restrictions concernant le trafic autorisé à accéder à vos applications back-end, en fonction de l’emplacement, de la force de l’authentification et du profil de risque de l’utilisateur.
+Si vous choisissez Passthrough comme méthode de préauthentification, vous ne bénéficiez pas de cet avantage. 
 
-**Arrêt du trafic :** tout le trafic est arrêté dans le cloud.
+### <a name="conditional-access"></a>Accès conditionnel
 
-* Étant donné que le proxy d’application Azure AD est un proxy inversé, tout le trafic vers les applications principales est arrêté au niveau du service. La session peut être réétablie uniquement avec le serveur principal, ce qui signifie que vos serveurs principaux ne sont pas exposés au trafic HTTP direct. Par exemple, vous pouvez arrêter plus facilement les attaques ciblées.
+Appliquez des contrôles de stratégie plus riches avant que les connexions à votre réseau soient établies.
 
-**Tous les accès sont sortants :** vous n’avez pas besoin de connexion ouverte sur le réseau d’entreprise.
+Avec [l’accès conditionnel](active-directory-conditional-access-azuread-connected-apps.md), vous pouvez définir les restrictions sur le trafic qui est autorisé à accéder à vos applications principales. Vous pouvez créer des stratégies qui limitent les connexions en fonction de l’emplacement, de la force de l’authentification et du profil de risque de l’utilisateur.
 
-* Les connecteurs Azure AD conservent les connexions sortantes vers le service de proxy d’application Azure AD, ce qui signifie qu’il n’est pas nécessaire d’ouvrir des ports de pare-feu pour les connexions entrantes. Les proxys traditionnels exigeaient un réseau de périmètre (également appelé *DMZ*, *zone démilitarisée* et *sous-réseau filtré*) et autorisaient l’accès à des connexions non authentifiées sur le périmètre du réseau. Il était ainsi nécessaire d’investir davantage dans des produits de pare-feu d’application web pour analyser le trafic et offrir des protections supplémentaires à l’environnement. Avec le proxy d’application, vous pouvez même vous passer de réseau de périmètre, car toutes les connexions sont sortantes et sur un canal sécurisé.
+Vous pouvez également utiliser l’accès conditionnel pour configurer des stratégies Multi-Factor Authentication, qui ajoutent une couche de sécurité supplémentaire aux authentifications des utilisateurs. 
 
-**Analyse de sécurité et mécanisme intelligent basé sur le langage machine :** bénéficiez d’une protection de pointe.
+### <a name="traffic-termination"></a>Arrêt du trafic
 
-* [Azure AD Identity Protection](active-directory-identityprotection.md) avec un mécanisme intelligent basé sur l’apprentissage de flux de données de notre département Digital Crimes Unit et du Centre de réponse aux problèmes de sécurité Microsoft. Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection en temps réel contre les connexions à haut risque. Nous prenons en compte divers facteurs, dont l’accès à partir d’appareils infectés et à travers des réseaux anonymes, ainsi qu’à partir d’emplacements atypiques et peu probables.
-* Nombre de ces rapports et événements sont déjà disponibles via une API pour l’intégration avec vos systèmes de gestion des événements et des informations de sécurité.
+Tout le trafic est arrêté dans le cloud.
 
-**Accès à distance en tant que service :** vous n’avez pas à vous soucier de la maintenance et de l’application de correctifs sur vos serveurs locaux.
+Étant donné que le proxy d’application Azure AD est un proxy inversé, tout le trafic vers les applications principales est arrêté au niveau du service. La session peut être réétablie uniquement avec le serveur principal, ce qui signifie que vos serveurs principaux ne sont pas exposés au trafic HTTP direct. Cette configuration signifie que vous êtes mieux protégé contre les attaques ciblées.
 
-* Les logiciels sans correctifs sont toujours responsables d’un grand nombre d’attaques. Le proxy d’application Azure AD est un service Internet contrôlé par Microsoft ; vous êtes donc assuré d’obtenir les derniers correctifs de sécurité et mises à niveau.
-* Pour améliorer la sécurité des applications publiées par le proxy d’application Azure AD, nous empêchons les robots web d’indexer et d’archiver vos applications. Chaque fois qu’un robot web tente de récupérer les paramètres de robots d’une application publiée, le proxy d’application répond avec un fichier robots.txt qui inclut `User-agent: * Disallow: /`.
+### <a name="all-access-is-outbound"></a>Tous les accès sont sortants 
+
+Vous n’avez pas besoin d’ouvrir de connexion sortante sur le réseau d’entreprise.
+
+Les connecteurs Azure AD utilisent uniquement des connexions sortantes vers le service de proxy d’application Azure AD, ce qui signifie qu’il n’est pas nécessaire d’ouvrir des ports de pare-feu pour les connexions entrantes. Les proxys traditionnels exigeaient un réseau de périmètre (également appelé *DMZ*, *zone démilitarisée* et *sous-réseau filtré*) et autorisaient l’accès à des connexions non authentifiées sur le périmètre du réseau. Ce scénario nécessitait d’investir davantage dans des produits de pare-feu d’application web pour analyser le trafic et offrir des protections supplémentaires à l’environnement. Avec le proxy d’application, vous pouvez même vous passer de réseau de périmètre, car toutes les connexions sont sortantes et sur un canal sécurisé.
+
+### <a name="cloud-scale-analytics-and-machine-learning"></a>Analyse à l’échelle du cloud et apprentissage automatique 
+
+Bénéficiez d’une protection de sécurité de pointe.
+
+[Azure AD Identity Protection](active-directory-identityprotection.md) avec un mécanisme intelligent basé sur l’apprentissage de flux de données de notre département Digital Crimes Unit et du Centre de réponse aux problèmes de sécurité Microsoft. Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection en temps réel contre les connexions à haut risque. Nous prenons en compte divers facteurs, dont l’accès à partir d’appareils infectés et à travers des réseaux anonymes, ainsi qu’à partir d’emplacements atypiques et peu probables.
+
+Nombre de ces rapports et événements sont déjà disponibles via une API pour l’intégration avec vos systèmes de gestion des événements et des informations de sécurité.
+
+### <a name="remote-access-as-a-service"></a>Accès à distance en tant que service
+
+Vous n’avez pas à vous soucier de la maintenance et de l’application de correctifs sur vos serveurs locaux.
+
+Les logiciels sans correctifs sont toujours responsables d’un grand nombre d’attaques. Le proxy d’application Azure AD est un service Internet contrôlé par Microsoft ; vous obtenez donc toujours les derniers correctifs de sécurité et mises à niveau.
+
+Pour améliorer la sécurité des applications publiées par le proxy d’application Azure AD, nous empêchons les robots web d’indexer et d’archiver vos applications. Chaque fois qu’un robot web tente de récupérer les paramètres de robots d’une application publiée, le proxy d’application répond avec un fichier robots.txt qui inclut `User-agent: * Disallow: /`.
 
 ## <a name="under-the-hood"></a>Sous le capot
 
 Le proxy d’application Azure Active Directory se compose de deux parties :
 
-* Le service basé sur le cloud : c’est là que sont effectuées les connexions client/utilisateur externes.
-* Le connecteur de proxy d’application Azure AD : un composant local, le connecteur écoute les demandes du service de proxy d’application Azure AD et gère les connexions vers les applications internes. 
+* Le service basé sur le cloud : ce service s’exécute dans Azure, et c’est là que sont effectuées les connexions client/utilisateur externes.
+* [Le connecteur local](application-proxy-understand-connectors.md) : un composant local, le connecteur écoute les demandes du service de proxy d’application Azure AD et gère les connexions vers les applications internes. 
 
 Un flux entre le connecteur et le service de proxy d’application est établi lorsque :
 
 * Le connecteur est configuré pour la première fois.
-* Le connecteur extrait les informations de configuration à partir du service de proxy d’application, y compris le groupe auquel chaque connecteur appartient.
+* Le connecteur extrait les informations de configuration du service de proxy d’application.
 * Un utilisateur accède à une application publiée.
 
 >[!NOTE]
@@ -80,9 +101,9 @@ Le connecteur utilise un certificat client pour authentifier le service de proxy
 
 Le flux suivant se déroule lorsque le connecteur est configuré pour la première fois :
 
-1. L’inscription du connecteur sur le service se produit dans le cadre de l’installation du connecteur. À ce stade, les utilisateurs sont invités à saisir leurs informations d’identification administrateur Azure AD. Le jeton obtenu est ensuite présenté au service de proxy d’application Azure AD.
-2. Le proxy d’application évalue le jeton pour garantir que l’utilisateur est membre du rôle d’administrateur d’entreprise au sein du client pour lequel le jeton a été émis. Si l’utilisateur n’est pas membre du rôle d’administrateur, le processus est arrêté.
-3. Le connecteur génère une demande de certificat client et la transmet avec le jeton au service de proxy d’application, qui à son tour vérifie le jeton et signe la demande de certificat client.
+1. L’inscription du connecteur sur le service se produit dans le cadre de l’installation du connecteur. Les utilisateurs sont invités à saisir leurs informations d’identification administrateur Azure AD. Le jeton obtenu à partir de cette authentification est ensuite présenté au service de proxy d’application Azure AD.
+2. Le service de proxy d’Application évalue le jeton. Il garantit que l’utilisateur est un administrateur d’entreprise au sein du locataire pour lequel le jeton a été émis. Si l’utilisateur n’est pas un administrateur, le processus se termine.
+3. Le connecteur génère une demande de certificat client et la transmet, ainsi que le jeton, au service de proxy d’application. À son tour, le service vérifie le jeton et signe la demande de certificat client.
 4. Le connecteur utilise le certificat client pour les communications ultérieures avec le service de proxy d’application.
 5. Le connecteur effectue une extraction initiale des données de configuration système à partir du service à l’aide de son certificat client et est désormais prêt à recevoir des demandes.
 
@@ -92,15 +113,26 @@ Chaque fois que le service de proxy d’application met à jour les paramètres 
 
 1. Le connecteur se connecte au point de terminaison de configuration dans le service de proxy d’application à l’aide de son certificat client.
 2. Une fois que le certificat client a été validé, le service de proxy d’application renvoie les données de configuration au connecteur (par exemple, le groupe auquel le connecteur appartient).
-3. Le connecteur génère une nouvelle demande de certificat si le certificat actuel date de plus de 30 jours. Ainsi, dans les faits, le certificat client est mis à jour tous les 30 jours.
+3. Le connecteur génère une nouvelle demande de certificat si le certificat actuel date de plus de 180 jours. Ainsi, dans les faits, le certificat client est mis à jour tous les 180 jours.
 
 ### <a name="accessing-published-applications"></a>Accès aux applications publiées
 
-Le flux d’événements suivant se déroule lorsque des utilisateurs accèdent à une application publiée :
+Lorsque les utilisateurs accèdent à une application publiée, les événements suivants se produisent entre le service de proxy d’application et le connecteur de proxy d’application :
 
-#### <a name="the-application-proxy-service-checks-the-configuration-settings-for-the-app"></a>Le service de proxy d’application vérifie les paramètres de configuration de l’application. 
+1. [Le service vérifie les paramètres de configuration de l’application.](#the-service-checks-the-configuration-settings-for-the-app)
+2. [Le service place une demande dans la file d’attente du connecteur.](#The-service-places-a-request-in-the-connector-queue)
+3. [Un connecteur traite la demande provenant de la file d’attente.](#the-connector-receives-the-request-from-the-queue)
+4. [Le connecteur attend une réponse.](#the-connector-waits-for-a-response)
+5. [Le service diffuse les données à l’utilisateur.](#the-service-streams-data-to-the-user)
 
-Si l’application est configurée pour utiliser l’authentification préalable avec Azure AD, les utilisateurs sont redirigés vers Azure AD STS pour s’authentifier. Cette étape est ignorée si vous configurez l’application pour utiliser l’accès direct.
+Pour plus d’informations sur ce qui se passe dans chacune de ces étapes, poursuivez votre lecture.
+
+
+#### <a name="1-the-service-checks-the-configuration-settings-for-the-app"></a>1. Le service vérifie les paramètres de configuration de l’application.
+
+Si vous avez configuré l’application pour utiliser Passthrough comme méthode de préauthentification, les étapes décrites dans cette section sont ignorées.
+
+Si vous avez configuré l’application pour une préauthentification avec Azure AD, les utilisateurs sont redirigés vers Azure AD STS pour s’authentifier et les étapes suivantes se produisent :
 
 1. Le proxy d’application vérifie les éventuelles exigences de stratégie d’accès conditionnel pour l’application spécifique. Cette étape permet de vérifier que l’utilisateur a été attribué à l’application. Si une vérification en deux étapes est requise, la séquence d’authentification invite l’utilisateur à s’authentifier avec un second facteur.
 
@@ -115,29 +147,29 @@ Si l’application est configurée pour utiliser l’authentification préalable
 Si une partie de la procédure d’authentification préalable échoue, la demande de l’utilisateur est refusée et l’utilisateur voit un message indiquant la source du problème.
 
 
-#### <a name="application-proxy-places-a-request-in-the-appropriate-queue-for-an-on-premises-connector-to-handle"></a>Le proxy d’application place une demande dans la file d’attente appropriée pour que la gestion soit effectuée par un connecteur local. 
+#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. Le service place une demande dans la file d’attente du connecteur.
 
-Toutes les demandes du connecteur sont émises vers le service du proxy d’application. Les connecteurs gardent une connexion sortante ouverte vers le proxy d’application. Lorsqu’une demande arrive, le proxy d’application met en file d’attente la demande sur une des connexions ouvertes pour récupération par le connecteur.
+Les connecteurs gardent une connexion sortante ouverte vers le service de proxy d’application. Lorsqu’une demande arrive, le service met en file d’attente la demande sur une des connexions ouvertes pour récupération par le connecteur.
 
-La demande comprend des éléments de l’application, comme les en-têtes de la demande et des données du cookie chiffré, l’utilisateur qui effectue la demande et l’ID de la demande. Cependant, le cookie d’authentification chiffré n’est pas envoyé au connecteur.
+La demande comprend des éléments de l’application, comme les en-têtes de la demande et des données du cookie chiffré, l’utilisateur qui effectue la demande et l’ID de la demande. Bien que les données du cookie chiffré soient envoyées avec la demande, le cookie d’authentification en lui-même ne l’est pas.
 
-#### <a name="the-connector-receives-the-request-from-the-queue"></a>Le connecteur reçoit la demande provenant de la file d’attente. 
+#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. Le connecteur traite la demande provenant de la file d’attente. 
 
 En fonction de la demande, le proxy d’application effectue l’une des actions suivantes :
-
-* Le connecteur confirme s’il peut identifier l’application. S’il ne parvient pas à identifier l’application, le connecteur établit une connexion au service de proxy d’application pour collecter des informations détaillées sur l’application et la met en cache localement.
 
 * Si la demande est une opération simple (par exemple s’il n’y a aucune donnée dans le corps comme pour une requête RESTful *GET*), le connecteur établit une connexion à la ressource interne cible et attend une réponse.
 
 * Si la demande possède des données associées dans le corps (par exemple une opération RESTful *POST*), le connecteur établit une connexion sortante à l’aide du certificat client vers l’instance du proxy d’application. Il établit cette connexion pour demander les données et ouvrir une connexion vers la ressource interne. Après réception de la demande à partir du connecteur, le service de proxy d’application commence à accepter le contenu de l’utilisateur et transfère les données au connecteur. Le connecteur transfère à son tour les données vers la ressource interne.
 
-#### <a name="after-the-request-and-transmission-of-all-content-to-the-back-end-is-complete-the-connector-waits-for-a-response"></a>Une fois la demande et la transmission de tout le contenu vers le serveur principal terminées, le connecteur attend une réponse.
+#### <a name="4-the-connector-waits-for-a-response"></a>4. Le connecteur attend une réponse.
+
+Une fois la demande et la transmission de tout le contenu vers le serveur principal terminées, le connecteur attend une réponse.
 
 Après obtention d’une réponse, le connecteur établit une connexion sortante vers le service de proxy d’application, afin de renvoyer les détails de l’en-tête et commencer la diffusion des données renvoyées.
 
-#### <a name="application-proxy-streams-the-data-to-the-user"></a>Le proxy d’application « diffuse » les données vers l’utilisateur. 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. Le service diffuse les données à l’utilisateur. 
 
-Un traitement des en-têtes peut se produire ici, en fonction des besoins et comme défini par l’application.
+Une partie du traitement de l’application peut se produire ici. Si vous avez configuré le proxy d’application pour traduire les en-têtes ou les URL de votre application, cette opération se produit si nécessaire au cours de cette étape.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

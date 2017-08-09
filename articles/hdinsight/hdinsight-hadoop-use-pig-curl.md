@@ -1,5 +1,5 @@
 ---
-title: Utilisation de Hadoop Pig avec REST dans HDInsight | Microsoft Docs
+title: Utiliser Hadoop Pig avec REST dans HDInsight - Azure | Documents Microsoft
 description: "Découvrez comment utiliser REST pour exécuter des tâches Pig Latin sur un cluster Hadoop dans HDInsight Azure."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 1c719a33001654755ec8d83f4bf43ca1fc52954e
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: a86864a779b0de1c6d5669cfbba0f3e1a27f1ff1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Exécution de tâches Pig avec Hadoop sur HDInsight à l’aide de REST
@@ -38,7 +37,7 @@ Découvrez comment exécuter des tâches Pig Latin en effectuant des demandes RE
 * Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Curl](http://curl.haxx.se/)
 
@@ -106,7 +105,7 @@ Découvrez comment exécuter des tâches Pig Latin en effectuant des demandes RE
 
 ## <a id="results"></a>Affichage des résultats
 
-Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage par défaut utilisé par le cluster. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie. Dans notre cas `/example/pigcurl`.
+Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie. Dans notre cas `/example/pigcurl`.
 
 HDInsight peut utiliser le stockage Azure ou Azure Data Lake Store comme magasin de données par défaut. Il existe différentes façons d’obtenir les données en fonction de celles que vous souhaitez utiliser. Pour plus d’informations, consultez la section relative au stockage, dans le document [Informations sur HDInsight sous Linux](hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store).
 

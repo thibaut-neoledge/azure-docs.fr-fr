@@ -3,9 +3,9 @@ title: "Ajouter des notifications Push à l’application Apache Cordova à l’
 description: "Découvrez comment utiliser Azure Mobile Apps pour envoyer des notifications Push à votre application Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-manager: adrianha
+manager: syntaxc4
 editor: 
-author: ysxu
+author: ggailey777
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 47063276d7bb6bb3b3aac0cca4290dfbea5488f7
-ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
-ms.lasthandoff: 12/01/2016
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Ajout de notifications Push à votre application Apache Cordova.
@@ -74,7 +74,7 @@ Exécutez la commande suivante :
 
 **À partir de Visual Studio :**
 
-1. Dans l’Explorateur de solutions, ouvrez le fichier `config.xml` et cliquez sur **Plug-ins** > **Personnalisé**, sélectionnez **Git** comme source d’installation, puis entrez `https://github.com/phonegap/phonegap-plugin-push` comme source.
+1. Dans l’Explorateur de solutions, ouvrez le fichier `config.xml`, cliquez sur **Plug-ins** > **Personnalisé**, sélectionnez **Git** comme source d’installation, puis entrez `https://github.com/phonegap/phonegap-plugin-push` en tant que source.
 
    ![][img1]
 
@@ -156,7 +156,7 @@ Initialement, nous proposons un code minimal pour Android. Plus tard, modifiez l
 
         pushRegistration.on('error', handleError);
         }
-3. (Android) Dans le code précédent, remplacez `Your_Project_ID` par l’ID de projet numérique associé à votre application dans la  [Console de développement Google][18].
+3. (Android) Dans le code précédent, remplacez `Your_Project_ID` par l’ID de projet numérique associé à votre application dans la [Console de développement Google][18].
 
 ## <a name="optional-configure-and-run-the-app-on-android"></a>(Facultatif) Configurer et exécuter l’application sur Android
 Terminez cette section pour activer les notifications Push pour Android.
@@ -187,8 +187,8 @@ Ouvrez le fichier index.js et mettez à jour le code pour utiliser votre ID de p
 #### <a name="configure-device"></a>Configuration de votre appareil Android pour le débogage USB
 Pour pouvoir déployer votre application sur votre appareil Android, vous devez activer le débogage USB.  Sur votre téléphone Android, procédez comme suit :
 
-1. Accédez à **Paramètres** > **À propos du téléphone**, puis cliquez sur **Numéro de build** jusqu’à ce que le mode développeur soit activé (environ sept fois).
-2. De retour dans **Paramètres** > **Options développeurs**, activez **Débogage USB**, puis connectez votre téléphone Android sur votre PC de développement à l’aide d’un câble USB.
+1. Accédez à **Paramètres** >**À propos du téléphone**, puis cliquez sur **Numéro de build** jusqu’à ce que le mode développeur soit activé (environ sept fois).
+2. De retour dans **Paramètres** > **Options développeurs**, activez **Débogage USB**, puis connectez votre téléphone Android à votre PC de développement à l’aide d’un câble USB.
 
 Nous avons testé cette procédure à l’aide d’un appareil Google Nexus 5 X exécutant Android 6.0 (Marshmallow).  Toutefois, les techniques sont communes à l’ensemble des versions Android modernes.
 
@@ -266,8 +266,7 @@ Si l’ID d’application que vous avez créé dans votre compte de développeur
 5. Régénérez votre projet.
 
 ##### <a name="test-push-notifications-in-your-ios-app"></a>Tester les notifications Push dans votre application iOS
-1. Dans Visual Studio, assurez-vous que **iOS** est sélectionné comme cible de déploiement, puis choisissez **Appareil**
-    pour exécuter votre appareil iOS connecté.
+1. Dans Visual Studio, assurez-vous que **iOS** est sélectionné comme cible de déploiement, puis choisissez **Appareil** pour exécuter votre appareil iOS connecté.
 
     Vous pouvez exécuter un appareil iOS connecté à votre PC à l’aide d’iTunes. Les notifications Push ne sont pas prises en charge par le simulateur iOS.
 

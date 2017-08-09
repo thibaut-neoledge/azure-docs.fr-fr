@@ -1,6 +1,6 @@
 ---
-title: "Utiliser le serveur de sauvegarde Azure pour protéger une charge de travail de serveur VMware | Microsoft Docs"
-description: "Sauvegardez un serveur VMware dans Azure ou sur un disque à l’aide du serveur de sauvegarde Azure. La lecture de cet article vous aide à protéger votre charge de travail VMware."
+title: Sauvegarder des serveurs VMware avec le serveur de sauvegarde Azure | Microsoft Docs
+description: "Utilisez le serveur de sauvegarde Azure pour sauvegarder des serveurs VMware vCenter et VMware ESXi dans Azure ou sur un disque. Cet article fournit des instructions étape par étape pour sauvegarder (ou protéger) vos charges de travail VMware."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -11,21 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 04/20/2017
+ms.date: 07/24/2017
 ms.author: markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 47728711930703121626c3ed0b654a0f74603ca4
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Sauvegarder un serveur VMware dans Azure
 
 Cet article explique comment configurer un serveur de sauvegarde Azure pour contribuer à la protection des charges de travail de serveur VMware. Cet article suppose que vous avez déjà installé le serveur de sauvegarde Azure. Si vous n’avez pas installé de serveur de sauvegarde Azure, voir [Préparer la sauvegarde des charges de travail à l’aide du serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md).
 
-Un serveur de sauvegarde Azure peut sauvegarder ou aider à protéger les versions 6.0 et 5.5 du serveur VMware vCenter.
+Un serveur de sauvegarde Azure peut sauvegarder ou aider à protéger les versions 6.5, 6.0 et 5.5 de VMware vCenter Server.
 
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Créer une connexion sécurisée au serveur vCenter
@@ -98,7 +97,7 @@ Pour résoudre ce problème, et créer une connexion sécurisée, téléchargez 
 
     ![Dossier de magasin de certificats](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
-10. Dans la page **Fin de l’Assistant Importation du certificat**, vérifiez que le certificat se trouve dans la dossier souhaité, puis cliquez sur **Terminer** pour terminer la procédure.
+10. Dans la page **Fin de l’Assistant Importation du certificat**, vérifiez que le certificat se trouve dans le dossier souhaité, puis cliquez sur **Terminer**.
 
     ![Vérifier que le certificat se trouve dans le dossier approprié](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
@@ -255,6 +254,7 @@ Avant d’ajouter le serveur VMware au serveur de sauvegarde Azure, installez la
     ![Boîte de dialogue Ajouter des informations d’identification du serveur de sauvegarde Azure](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
     Cliquez sur **Ajouter** pour ajouter les nouvelles informations d’identification au serveur de sauvegarde Azure. Les nouvelles informations d’identification s’affichent dans la liste de la boîte de dialogue **Gérer les informations d’identification**.
+    
     ![Boîte de dialogue Gérer les informations d’identification du serveur de sauvegarde Azure](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 5. Pour fermer la boîte de dialogue **Gérer les informations d’identification**, cliquez sur le symbole **X** dans l’angle supérieur droit.

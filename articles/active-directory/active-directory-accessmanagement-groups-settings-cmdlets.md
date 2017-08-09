@@ -1,6 +1,6 @@
 ---
 title: "Configurer des paramètres de groupe avec les applets de commande Azure Active Directory | Microsoft Docs"
-description: "Comment gérer les paramètres des groupes à l’aide des applets de commande Azure Active Directory."
+description: "Comment gérer les paramètres des groupes à l’aide des applets de commande Azure Active Directory ?"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/26/2017
 ms.author: rodejo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 81fdae033afd90b77d3725f8c39b8a6c6bbc3812
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7dd4833000e8550b172e0451c48788b1e627a1fb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
 > [!IMPORTANT]
-> Ce contenu s’applique uniquement aux groupes unifiés, également appelés groupes Office 365. 
+> Ce contenu s’applique uniquement aux groupes Office 365. 
 
 Les paramètres des groupes Office 365 sont configurés à l’aide d’un objet Settings et d’un objet SettingsTemplate. Initialement, vous ne verrez aucun objet Settings dans votre répertoire. Cela signifie que votre répertoire est configuré avec les paramètres par défaut. Pour changer les paramètres par défaut, vous devez créer un objet de paramètres en utilisant un modèle de paramètres. Les modèles de paramètres sont définis par Microsoft. Il existe différents modèles de paramètres. Pour configurer les paramètres de groupe pour votre annuaire, vous utiliserez le modèle nommé « Group.Unified ». Pour configurer les paramètres de groupe d’un seul groupe, utilisez le modèle nommé « Group.Unified.Guest ». Ce modèle est utilisé pour gérer l’accès invité à un groupe. 
 

@@ -1,6 +1,6 @@
 ---
-title: "Surveillance au niveau de l’infrastructure Azure Service Fabric | Microsoft Docs"
-description: "Découvrez les événements et journaux de niveau infrastructure utilisés pour surveiller et diagnostiquer les clusters Azure Service Fabric."
+title: "Surveillance au niveau de plateforme d’Azure Service Fabric | Microsoft Docs"
+description: "Découvrez les événements et journaux au niveau de la plateforme utilisés pour surveiller et diagnostiquer les clusters Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,22 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: bae1917e7c0f0b247be473f78fedd7753aef6d23
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 2e320339f60b593c1cff68ca047c95f9cb7b33e2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
-# <a name="infrastructure-level-event-and-log-generation"></a>Génération de journaux et d’événements de niveau infrastructure
+# <a name="platform-level-event-and-log-generation"></a>Événement au niveau de la plateforme et génération de journal
 
 ## <a name="monitoring-the-cluster"></a>Surveillance du cluster
 
-Il est important d’effectuer une surveillance au niveau de l’infrastructure pour déterminer si votre matériel et votre cluster se comportent comme prévu. Même si Service Fabric peut garantir l’exécution continue d’une application pendant les pannes de matériel, vous devez toujours déterminer si une erreur se produit dans l’application ou dans l’infrastructure sous-jacente. Vous devez surveiller également vos clusters pour mieux planifier la capacité et aider à prendre les décisions concernant l’ajout ou la suppression d’éléments de l’infrastructure.
+Il est important d’effectuer une surveillance au niveau de la plateforme pour déterminer si votre matériel et votre cluster se comportent comme prévu. Même si Service Fabric peut garantir l’exécution continue d’une application pendant les pannes de matériel, vous devez toujours déterminer si une erreur se produit dans l’application ou dans l’infrastructure sous-jacente. Vous devez surveiller également vos clusters pour mieux planifier la capacité et aider à prendre les décisions concernant l’ajout ou la suppression de matériel.
 
 Service Fabric fournit cinq canaux de journaux différents prêts à l’emploi, qui génèrent les événements suivants :
 
@@ -37,7 +36,7 @@ Service Fabric fournit cinq canaux de journaux différents prêts à l’emploi,
 * [Événements Reliable Actors](service-fabric-reliable-actors-diagnostics.md) : compteurs de performances et événements spécifiques au modèle de programmation
 * Journaux de support : journaux générés par Service Fabric uniquement pour être utilisés de notre côté lorsque nous vous fournissons le support technique
 
-Ces différents canaux couvrent la majeure partie de la journalisation recommandée au niveau de l’infrastructure. Pour améliorer la journalisation au niveau de l’infrastructure, essayez de mieux comprendre le modèle d’intégrité et d’ajouter des rapports d’intégrités personnalisés, et ajoutez des **compteurs de performances** pour pouvoir comprendre en temps réel l’impact de vos services et applications sur le cluster.
+Ces différents canaux couvrent la majeure partie de la journalisation recommandée au niveau de la plateforme. Pour améliorer la journalisation au niveau de la plateforme, essayez de mieux comprendre le modèle d’intégrité et d’ajouter des rapports d’intégrités personnalisés, ainsi que d’ajouter des **compteurs de performances** pour pouvoir comprendre en temps réel l’impact de vos services et applications sur le cluster.
 
 ### <a name="azure-service-fabric-health-and-load-reporting"></a>Rapports d’intégrité et de charge Azure Service Fabric
 
@@ -99,7 +98,7 @@ Si vous souhaitez déployer des conteneurs dans votre cluster, autorisez WAD à 
 
 ## <a name="measuring-performance"></a>Mesure des performances
 
-Mesurer les performances de votre cluster vous permet de comprendre comment il parvient à gérer la charge et à motiver les décisions concernant la mise à l’échelle de votre cluster (en savoir plus sur la mise à l’échelle d’un cluster [sur Azure](service-fabric-cluster-scale-up-down.md) ou [sur site](service-fabric-cluster-windows-server-add-remove-nodes.md)). Les données de performances sont également utiles quand elles sont comparées aux actions que vous-même, ou vos applications et services, avez prises, lorsque vous analysez plus tard des journaux. 
+Mesurer les performances de votre cluster vous permet de comprendre comment il parvient à gérer la charge et à orienter les décisions concernant la mise à l’échelle de votre cluster (en savoir plus sur la mise à l’échelle d’un cluster [sur Azure](service-fabric-cluster-scale-up-down.md) ou [local](service-fabric-cluster-windows-server-add-remove-nodes.md)). Les données de performances sont également utiles quand elles sont comparées aux actions que vous-même, ou vos applications et services, avez prises, lorsque vous analysez plus tard des journaux. 
 
 Pour obtenir la liste des compteurs de performances à collecter lors de l’utilisation de Service Fabric, consultez l’article [Compteurs de performances dans Service Fabric](service-fabric-diagnostics-event-generation-perf.md)
 

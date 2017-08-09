@@ -1,6 +1,6 @@
 ---
 title: Gestion du Cache Redis Azure avec Azure PowerShell | Microsoft Docs
-description: "Découvrez comment effectuer des tâches administratives pour le Cache Redis Azure à l&quot;aide d&quot;Azure PowerShell."
+description: "Découvrez comment effectuer des tâches administratives pour le Cache Redis Azure à l'aide d'Azure PowerShell."
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 07/13/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 715f76377947baaf1a72871cfe291f17e1cc0baf
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 0a5c95eab3fd01f611fc049e80c5c506857e0b81
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gestion du Cache Redis Azure avec Azure PowerShell
@@ -249,7 +249,7 @@ Pour créer un cache premium, spécifiez la taille de P1 (de 6 Go à 60 Go), P
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-Pour spécifier des valeurs pour le paramètre `RedisConfiguration`, entourez les valeurs dans `{}` en tant que paire clé/valeur telle que `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. L'exemple suivant permet de créer un cache standard de 1 Go avec la stratégie maxmemory `allkeys-random` et les notifications de keyspace configurées avec `KEA`. Pour plus d’informations, voir [Notifications de keyspace (paramètres avancés)](cache-configure.md#keyspace-notifications-advanced-settings) et [Maxmemory-policy et maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
+Pour spécifier des valeurs pour le paramètre `RedisConfiguration`, entourez les valeurs dans `{}` en tant que paire clé/valeur telle que `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. L'exemple suivant permet de créer un cache standard de 1 Go avec la stratégie maxmemory `allkeys-random` et les notifications de keyspace configurées avec `KEA`. Pour plus d’informations, voir [Notifications de keyspace (paramètres avancés)](cache-configure.md#keyspace-notifications-advanced-settings) et [Stratégies de mémoire](cache-configure.md#memory-policies).
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 

@@ -1,10 +1,10 @@
 ---
 title: "Ajout de l’authentification sur iOS avec Azure Mobile Apps"
-description: "Découvrez comment utiliser Azure Mobile Apps pour authentifier les utilisateurs de votre application iOS via divers fournisseurs d&quot;identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
+description: "Découvrez comment utiliser Azure Mobile Apps pour authentifier les utilisateurs de votre application iOS via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
 services: app-service\mobile
 documentationcenter: ios
-author: ysxu
-manager: yochayk
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.service: app-service-mobile
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 604c1f84365954ddd3ba2de21fffa90ba5cc274b
-ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 21a2cc6c1eaf4b34cbe8c2d7c4dbb69c8730cf32
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Ajout de l'authentification à votre application iOS
@@ -25,10 +26,10 @@ ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
 
 Dans ce didacticiel, vous allez ajouter l’authentification au projet de [Démarrage rapide iOS] en faisant appel à un fournisseur d’identité pris en charge. Ce didacticiel est basé sur le didacticiel [Démarrage rapide iOS] , que vous devez effectuer en premier.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
+## <a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="a-nameredirecturlaadd-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Ajouter votre application aux URL de redirection externes autorisées
+## <a name="redirecturl"></a>Ajouter votre application aux URL de redirection externes autorisées
 
 L’authentification sécurisée nécessite de définir un nouveau schéma d’URL pour votre application.  Cela permet au système d’authentification de vous rediriger vers votre application une fois le processus d’authentification terminé.  Dans ce didacticiel, nous utilisons le schéma d’URL _appname_.  Toutefois, vous pouvez utiliser le schéma d’URL de votre choix.  Il doit être propre à votre application mobile.  Pour activer la redirection côté serveur :
 
@@ -40,18 +41,18 @@ L’authentification sécurisée nécessite de définir un nouveau schéma d’U
 
 4. Définissez le **mode de gestion** sur **Avancé**.
 
-5. Dans **URL de redirection externes autorisées**, saisissez `appname://easyauth.callback`.  La chaîne _appname_ de cette chaîne est le schéma d’URL de votre application mobile.  Elle doit être conforme à la spécification d’URL normale pour un protocole (utiliser des lettres et des chiffres uniquement et commencer par une lettre).  Vous devez notez la chaîne que vous choisissez, dans la mesure où vous devez ajuster votre code d’application mobile avec le schéma d’URL à plusieurs endroits.
+5. Dans **URL de redirection externes autorisées**, saisissez `appname://easyauth.callback`.  La chaîne _appname_ de cette chaîne est le schéma d’URL de votre application mobile.  Elle doit être conforme à la spécification d’URL normale pour un protocole (utiliser des lettres et des chiffres uniquement et commencer par une lettre).  Vous devez noter la chaîne que vous choisissez, dans la mesure où vous devez ajuster votre code d’application mobile avec le schéma d’URL à plusieurs endroits.
 
 6. Cliquez sur **OK**.
 
 7. Cliquez sur **Enregistrer**.
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
+## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Dans Xcode, appuyez sur **Exécuter** pour démarrer l’application. Une exception se déclenche, car l’application essaye d’accéder au serveur principal en tant qu’utilisateur non authentifié alors que la table *TodoItem* requiert désormais l’authentification.
 
-## <a name="a-nameadd-authenticationaadd-authentication-to-app"></a><a name="add-authentication"></a>Ajout de l'authentification à l'application
+## <a name="add-authentication"></a>Ajout de l'authentification à l'application
 **Objective-C**:
 
 1. Sur votre Mac, ouvrez *QSTodoListViewController.m* dans Xcode et ajoutez la méthode suivante :
@@ -76,8 +77,7 @@ Dans Xcode, appuyez sur **Exécuter** pour démarrer l’application. Une except
     }
     ```
 
-    Remplacez *google* par *microsoftaccount*, *twitter*, *facebook* ou *windowsazureactivedirectory* si vous n’utilisez pas Google comme fournisseur d’identité. Si vous utilisez Facebook, vous devrez [autoriser les domaines Facebook][1]
-    dans votre application.
+    Remplacez *google* par *microsoftaccount*, *twitter*, *facebook* ou *windowsazureactivedirectory* si vous n’utilisez pas Google comme fournisseur d’identité. Si vous utilisez Facebook, vous devrez [autoriser les domaines Facebook][1] dans votre application.
 
     Remplacez **urlScheme** par un nom unique pour votre application.  La chaîne urlScheme doit être identique au protocole de schéma d’URL spécifié dans le champ **URL de redirection externes autorisés** dans le portail Azure. La chaîne urlScheme est utilisée par le rappel d’authentification pour revenir à votre application une fois la demande d’authentification terminée.
 
@@ -163,8 +163,7 @@ Dans Xcode, appuyez sur **Exécuter** pour démarrer l’application. Une except
     }
     ```
 
-    Remplacez *google* par *microsoftaccount*, *twitter*, *facebook* ou *windowsazureactivedirectory* si vous n’utilisez pas Google comme fournisseur d’identité. Si vous utilisez Facebook, vous devrez [autoriser les domaines Facebook][1]
-    dans votre application.
+    Remplacez *google* par *microsoftaccount*, *twitter*, *facebook* ou *windowsazureactivedirectory* si vous n’utilisez pas Google comme fournisseur d’identité. Si vous utilisez Facebook, vous devrez [autoriser les domaines Facebook][1] dans votre application.
 
     Remplacez **urlScheme** par un nom unique pour votre application.  La chaîne urlScheme doit être identique au protocole de schéma d’URL spécifié dans le champ **URL de redirection externes autorisés** dans le portail Azure. La chaîne urlScheme est utilisée par le rappel d’authentification pour revenir à votre application une fois la demande d’authentification terminée.
 
@@ -221,10 +220,5 @@ L’authentification App Service utilise la communication inter-application d’
 [ portail Azure]: https://portal.azure.com
 
 [Démarrage rapide iOS]: app-service-mobile-ios-get-started.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

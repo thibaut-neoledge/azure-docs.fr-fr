@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 07/24/2017
 ms.author: steveesp
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a7c32f07516ca83bc2fb5ad5a9a526631932ad4a
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -78,10 +77,27 @@ apt-get -y upgrade
 Commande facultative :
 
 `apt-get -y dist-upgrade`
+#### <a name="ubuntu-azure-preview-kernel"></a>Noyau de la préversion Ubuntu Azure
+> [!WARNING]
+> Ce noyau de la préversion Azure Linux peut ne pas offrir les mêmes niveaux de disponibilité et de fiabilité que les noyaux et images de la Place de marché qui se trouvent dans la version mise à la disposition générale. La fonctionnalité n’est pas prise en charge, est susceptible de disposer de possibilités limitées et peut ne pas être aussi fiable que le noyau par défaut. N’utilisez pas ce noyau pour les charges de travail de production.
+
+Des performances significatives en termes de débit peuvent être atteintes en installant le noyau Azure Linux proposé. Pour tester ce noyau, ajoutez cette ligne à /etc/apt/sources.list.
+
+```bash
+#add this to the end of /etc/apt/sources.list (requires elevation)
+deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+```
+
+Exécutez ensuite ces commandes en tant qu’utilisateur racine.
+```bash
+apt-get update
+apt-get install "linux-azure"
+reboot
+```
 
 ### <a name="centos"></a>CentOS
 
-Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de mai 2017, qui est :
+Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de juillet 2017, qui est :
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
@@ -89,7 +105,7 @@ Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la ver
 "Version": "latest"
 ```
 Une fois la mise à jour terminée, installez les Services d’intégration Linux (LIS) les plus récents.
-L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2. Entrez les commandes suivantes pour installer LIS :
+L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2.2-2. Entrez les commandes suivantes pour installer LIS :
 
 ```bash
 sudo yum update
@@ -99,21 +115,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de janvier 2017, qui est :
+Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de juillet 2017, qui est :
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7.3"
-"Version": "7.3.2017062722"
+"Version": "7.3.2017071923"
 ```
 Une fois la mise à jour terminée, installez les Services d’intégration Linux (LIS) les plus récents.
 L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2. Entrez les commandes suivantes pour télécharger et installer les LIS :
 
 ```bash
-mkdir lis4.2.1
-cd lis4.2.1
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
-tar xvzf lis-rpms-4.2.1-1.tar.gz
+mkdir lis4.2.2-2
+cd lis4.2.2-2
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
+tar xvzf lis-rpms-4.2.2-2.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

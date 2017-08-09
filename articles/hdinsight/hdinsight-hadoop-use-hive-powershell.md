@@ -1,5 +1,5 @@
 ---
-title: "Utilisation de Hadoop Hive avec PowerShell dans HDInsight | Microsoft Docs"
+title: "Utiliser Hadoop Hive avec PowerShell dans HDInsight - Azure | Documents Microsoft"
 description: "Utilisez PowerShell pour exécuter des requêtes Hive dans Hadoop sur HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 897358e87937f9094d312cc88f630c81e7d46f4f
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: e1cb2e4a1fc82fb43082e79a5feba71b81b3eaa8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="run-hive-queries-using-powershell"></a>Exécution de requêtes Hive avec PowerShell
@@ -37,7 +36,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell dans le mod
 * **Un cluster Azure HDInsight** : peu importe si le cluster est basé sur Windows ou Linux.
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Un poste de travail sur lequel est installé Azure PowerShell**.
 
@@ -87,9 +86,9 @@ Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une t
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
    > [!NOTE]
-   > Pour les requêtes HiveQL plus longues, vous pouvez utiliser les fichiers de script HiveQL de PowerShell ou la cmdlet **Here-Strings** Azure PowerShell. L'extrait suivant montre comment utiliser la cmdlet **Invoke-Hive** pour exécuter un fichier de script HiveQL. Ce dernier doit être téléchargé vers wasbs://.
+   > Pour les requêtes HiveQL plus longues, vous pouvez utiliser les fichiers de script HiveQL de PowerShell ou la cmdlet **Here-Strings** Azure PowerShell. L'extrait suivant montre comment utiliser la cmdlet **Invoke-Hive** pour exécuter un fichier de script HiveQL. Ce dernier doit être chargé dans wasb://.
    >
-   > `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
    > Pour plus d'informations sur **Here-Strings**, consultez la page <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Utilisation du fichier de script Here-Strings de PowerShell</a>.
 

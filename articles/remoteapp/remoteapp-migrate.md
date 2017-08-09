@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 39dd726078c4dcc55063300bdca998ad822feadd
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: ba3cf4c6834279bbd7f94d666fd8abbb7ac05bf0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="how-to-migrate-data-into-and-out-of-azure-remoteapp"></a>Migration de données dans et hors d’Azure RemoteApp
@@ -61,5 +61,11 @@ Bien que vous ne puissiez pas activer l’agent de synchronisation OneDrive Entr
 
 ## <a name="copy-files-by-using-drive-redirection"></a>Copier des fichiers à l’aide de la redirection de lecteur
 Si vous avez activé [la redirection de lecteur](remoteapp-redirection.md), vous avez déjà créé un lecteur mappé pour vos utilisateurs. Dans ce cas, ils peuvent créer un fichier .zip contenant leurs fichiers sur le lecteur redirigé, puis les enregistrer sur leur ordinateur local.
+
+## <a name="how-administrators-can-export-data"></a>Comment les administrateurs peuvent exporter des données
+
+Les administrateurs d’Azure RemoteApp peuvent exporter tous les disques de profil utilisateur (UPD) pour toutes les collections au sein d’un abonnement à Stockage Azure à l’aide de l’applet de commande Azure PowerShell Export-AzureRemoteAppUserDisk.  Il n’existe aucune possibilité de sélectionner des UPD individuels.  Lors de l’exécution de la commande PowerShell, chaque disque utilisateur a une taille de disque fixe de 50 Go et est exporté vers le stockage Azure.  Les coûts de stockage Azure sont immédiatement exposés pour ce stockage.  Lors de l’exécution de cette commande, assurez-vous qu’il n’existe aucune session, sans quoi l’exportation échoue.
+
+Les disques de profil utilisateur pour les déploiements Azure RemoteApp joints à un domaine peuvent être réutilisés uniquement dans un déploiement de services Bureau à distance, et les déploiements non-joints à un domaine ne peuvent pas être utilisés.  Si ces disques doivent être utilisés dans un déploiement de services Bureau à distance, nous vous recommandons d’utiliser nos [scripts automatisés](https://github.com/arcadiahlyy/aramigration) qui exportent, convertissent et importent les disques de profil utilisateur dans un déploiement de services Bureau à distance.
 
 

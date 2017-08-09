@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: d7857821524de3d1dbdac9e8c8d0da89678670db
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 78778e2601ca91c1921a5d987ec7845332c8e27a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -37,7 +36,7 @@ Après réception des données par Log Analytics, OMS dispose de plusieurs *solu
 
 ## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>Configuration d’un espace de travail OMS avec la solution Service Fabric
 
-Il est recommandé d’inclure la solution Service Fabric dans votre espace de travail OMS, car elle fournit un tableau de bord utile qui montre les différents canaux de journaux entrants du niveau infrastructure et application, ainsi que la possibilité d’interroger des journaux Service Fabric spécifiques. Voici à quoi ressemble une solution Service Fabric relativement simple, avec une seule application déployée sur le cluster :
+Il est recommandé d’inclure la solution Service Fabric dans votre espace de travail OMS, car elle fournit un tableau de bord utile qui montre les différents canaux de journaux entrants du niveau plateforme et application, ainsi que la possibilité d’interroger des journaux Service Fabric spécifiques. Voici à quoi ressemble une solution Service Fabric relativement simple, avec une seule application déployée sur le cluster :
 
 ![Solution SF OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 

@@ -1,5 +1,4 @@
 ---
-
 title: "Gérer des propriétés de groupe dans Azure Active Directory | Microsoft Docs"
 description: "Comment modifier les propriétés et les autres paramètres de configuration d’un groupe dans Azure Active Directory"
 services: active-directory
@@ -13,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ad714d4543f2c1990a2262de456f607c876f738d
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 24f5da884a7d9f1d07c32419316d2c046d54d739
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Gérer les paramètres des groupes dans Azure Active Directory
@@ -31,10 +29,10 @@ Cet article explique comment modifier les paramètres d’un groupe dans Azure A
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Plus de services**, saisissez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
 
-   ![Ouvrir la gestion des utilisateurs](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
+   ![Ouverture du panneau Utilisateurs et groupes](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Tous les groupes**.
 
-   ![Ouvrir le panneau de groupes](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
+   ![Ouverture de tous les panneaux de groupes](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. Dans le panneau **Utilisateurs et groupes - Tous les groupes** , sélectionnez un groupe.
 5. Dans le panneau **Groupe - *NomGroupe*** sélectionnez **Propriétés**.
 

@@ -5,20 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: a9a7ff71-c389-4169-aafd-d7a505244797
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2017
+ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: bba76b87a61baae16503039b31da97eb3b1df680
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 45130162271b20860607497ff93c6a668c415233
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Didacticiel : Intégration d’Azure Active Directory à Autotask Workplace
@@ -39,6 +39,9 @@ Pour configurer l’intégration d’Azure AD à Autotask Workplace, vous avez b
 
 - Un abonnement Azure AD
 - Un abonnement Autotask Workplace pour lequel l’authentification unique est activée
+- Vous devez être un administrateur ou un super administrateur dans Workplace.
+- Vous devez disposer d’un compte d’administrateur dans Azure AD.
+- Les utilisateurs qui font appel à cette fonctionnalité doivent disposer de comptes dans Workplace et Azure AD, et l’adresse de messagerie associée à ces deux comptes doit être la même.
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -46,7 +49,7 @@ Pour configurer l’intégration d’Azure AD à Autotask Workplace, vous avez b
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -61,25 +64,22 @@ Pour configurer l’intégration d’Autotask Workplace à Azure AD, vous devez 
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Bouton Azure Active Directory][1]
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![Panneau Applications d’entreprise][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Autotask Workplace**.
+4. Dans la zone de recherche, tapez **Autotask Workplace**, sélectionnez **Autotask Workplace** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_search.png)
+    ![Autotask Workplace dans la liste des résultats](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
 
-5. Dans le volet de résultats, sélectionnez **Autotask Workplace**, puis cliquez sur **Ajouter** pour ajouter l’application.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Autotask Workplace, avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit connaître l’utilisateur Autotask Workplace correspondant à l’utilisateur Azure AD. En d’autres termes, une relation doit être établie entre l’utilisateur Azure AD et l’utilisateur Autotask Workplace associé.
@@ -88,13 +88,13 @@ Dans Autotask Workplace, affectez la valeur du **nom d’utilisateur** dans Azur
 
 Pour configurer et tester l’authentification unique Azure AD avec Autotask Workplace, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Autotask Workplace](#creating-an-autotask-workplace-test-user)** pour avoir un équivalent de Britta Simon dans Autotask Workplace, associé à sa représentation dans Azure AD.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Créer un utilisateur de test Autotask Workplace](#create-an-autotask-workplace-test-user)** pour avoir un équivalent de Britta Simon dans Autotask Workplace, associé à sa représentation dans Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Autotask Workplace.
 
@@ -102,15 +102,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Autotask Workplace**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_samlbase.png)
+    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_samlbase.png)
 
 3. Dans la section **Domaines et URL Autotask Workplace**, si vous voulez configurer l’application en mode démarré par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
+    ![Informations d’authentification unique dans Domaine et URL Autotask Workplace pour IDP](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
 
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 4. Si vous souhaitez configurer l’application en mode démarré par le **fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
+    ![Informations d’authentification unique dans Domaine et URL Autotask Workplace pour SP](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.awp.autotask.net/loginsso`
      
@@ -127,57 +127,79 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_400.png)
+    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_400.png)
 
-7. Pour configurer l’authentification unique côté **Autotask Workplace**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe du support Autotask Workplace](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm). Celle-ci configure ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+7. Dans une autre fenêtre de navigateur web, connectez-vous à Workplace Online à l’aide des informations d’identification administrateur.
+
+    >[!Note]
+    >Lorsque vous configurez le fournisseur d’identité, vous devez indiquer un sous-domaine. Pour confirmer le sous-domaine, connectez-vous à Workplace Online. Une fois connecté, notez le sous-domaine dans l’URL.
+    >Le sous-domaine est la partie entre le « https:// » et «.awp.autotask.net/ » et doit être us, eu, ca ou au.
+
+8. Accédez à **Configuration** > **Authentification unique** et procédez comme suit :
+
+    ![Configuration de l’authentification unique Autotask](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
+ 
+    a. Sélectionnez l’option **Fichier XML de métadonnées** et chargez le fichier **XML de métadonnées** téléchargé à partir du portail Azure.
+
+    b. Cliquez sur **Activer l’authentification unique**.
+    
+    ![Configuration de l’approbation d’authentification unique Autotask](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
+
+    c. Cochez la case **I confirm this information is correct and I trust this IdP** (Je confirme l’exactitude de ces informations et je fais confiance à ce fournisseur d’identité).
+
+    d. Cliquez sur **Approuver**.
+     
+>[!Note]
+>Si vous avez besoin d’aide lors de la configuration d’Autotask Workplace, consultez [cette page](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) pour obtenir de l’aide avec votre compte Workplace.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-![Créer un utilisateur Azure AD][100]
+   ![Créer un utilisateur de test Azure AD][100]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_01.png) 
+    ![Bouton Azure Active Directory](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_01.png)
 
 2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
-    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_02.png) 
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
- 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_03.png) 
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_02.png)
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+
+    ![Bouton Ajouter](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_03.png)
 
 4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
- 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_04.png) 
 
-    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
+    ![Boîte de dialogue Utilisateur](./media/active-directory-saas-autotaskworkplace-tutorial/create_aaduser_04.png)
 
-    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
+    a. Dans la zone **Nom**, tapez **BrittaSimon**.
 
-    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
+
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
     d. Cliquez sur **Create**.
- 
-### <a name="creating-an-autotask-workplace-test-user"></a>Création d’un utilisateur de test Autotask Workplace
+
+### <a name="create-an-autotask-workplace-test-user"></a>Créer un utilisateur de test Autotask Workplace
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Autotask. Pour ajouter des utilisateurs dans la plateforme Autotask Workplace, contactez [l’équipe du support Autotask Workplace](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Autotask Workplace.
 
-![Affecter des utilisateurs][200] 
+![Attribuer le rôle d’utilisateur][200] 
 
 **Pour attribuer Britta Simon à Autotask Workplace, effectuez les étapes suivantes :**
 
@@ -187,15 +209,15 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Autotask Workplace**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_app.png) 
+    ![Lien Autotask Workplace dans la liste des applications](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Affecter des utilisateurs][202] 
+    ![Lien « Utilisateurs et groupes »][202]
 
 4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
-    ![Affecter des utilisateurs][203]
+    ![Volet Ajouter une attribution][203]
 
 5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
@@ -203,7 +225,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 

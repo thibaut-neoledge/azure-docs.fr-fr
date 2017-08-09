@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: fc0fd0188261263aac550b0f0784076efc807215
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0e3998f806aae71002e65ad79079a1bef448cfe6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export
@@ -232,7 +231,7 @@ Le tableau suivant décrit les états associés aux défaillances de disque et l
 | N/A | Un disque qui n’est associé à aucune tâche arrive au centre de données dans le cadre d’une autre tâche. | Le disque est marqué en tant que disque supplémentaire et est retourné au client une fois la tâche associée au colis d’origine terminée. |
 
 ### <a name="time-to-process-job"></a>Temps de traitement du travail 
-Le temps de traitement d’un travail d’importation/exportation varie en fonction de différents facteurs, tels que le délai de livraison, le type de travail, le type et la taille des données copiées, ou encore la taille des disques fournis. Le service Import/Export n’est adossé à aucun contrat de niveau de service. Vous pouvez utiliser l’API REST pour assurer le suivi détaillé de la progression du travail. Dans l’option d’affichage des travaux, un pourcentage d’achèvement terminé indique l’état d’avancement de la copie. Contactez-nous si vous avez besoin d’estimer la durée nécessaire à un travail d’importation/exportation.
+Le temps de traitement d’un travail d’importation/exportation varie en fonction de différents facteurs, tels que le délai de livraison, le type de travail, le type et la taille des données copiées, ou encore la taille des disques fournis. Le service Import/Export n’a pas de contrat de niveau de service mais, après réception des disques le service, il s’efforce d’effectuer la copie en 7 à 10 jours. Vous pouvez utiliser l’API REST pour assurer le suivi détaillé de la progression du travail. Dans l’option d’affichage des travaux, un pourcentage d’achèvement terminé indique l’état d’avancement de la copie. Contactez-nous si vous avez besoin d’estimer la durée nécessaire à un travail d’importation/exportation.
 
 ### <a name="pricing"></a>Tarification
 **Frais de manipulation de disque**
@@ -250,13 +249,12 @@ Aucun frais de transaction ne s’applique pour l’importation de données dans
 ## <a name="quick-start"></a>Quick Start
 Cette section vous explique en détail comment créer un travail d’importation et d’exportation. Vérifiez que vous remplissez toutes les [conditions préalables](#pre-requisites) avant de poursuivre.
 
+> [!IMPORTANT]
+> Le service prend en charge un seul compte de stockage standard par travail d’importation ou d’exportation, et ne prend pas en charge les comptes de stockage Premium. 
+> 
+> 
 ## <a name="create-an-import-job"></a>Créer une tâche d’importation
 Créez un travail d’importation pour copier les données de vos disques durs dans votre compte de stockage Azure en envoyant un ou plusieurs disques au centre de données spécifié. Ce travail d’importation transmet des informations sur les disques durs, les données à copier, le compte de stockage cible et l’adresse d’expédition au service Azure Import/Export. La création d’un travail d’importation comprend trois étapes. Tout d’abord, préparez vos disques à l’aide de l’outil WAImportExport. Ensuite, envoyez une tâche d’importation à l’aide du portail Azure. Enfin, envoyez les disques à l’adresse d’expédition fournie lors de la création du travail et mettez à jour les informations d’expédition dans les détails de votre travail.   
-
-> [!IMPORTANT]
-> Vous ne pouvez envoyer qu’un seul travail par compte de stockage. Chaque disque que vous expédiez peut être importé dans un compte de stockage. Par exemple, supposons que vous souhaitiez importer les données dans deux comptes de stockage. Vous devez utiliser un disque dur pour chaque compte de stockage et créer un travail distinct par compte de stockage.
-> 
-> 
 
 ### <a name="prepare-your-drives"></a>Préparation des lecteurs
 Lors de l’importation des données à l’aide du service Azure Import/Export, la première étape consiste à préparer vos disques à l’aide de l’outil WAImportExport. Suivez la procédure ci-dessous pour préparer vos disques :
@@ -431,9 +429,9 @@ Accédez à la section FAQ ci-dessous, car elle aborde les questions les plus co
 
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions
 
-**Puis-je copier des fichiers Azure à l’aide du service Azure Import/Export ?**
+**Puis-je copier à partir de Stockage Fichier Azure à l’aide du service Azure Import/Export ?**
 
-Non, le service Azure Import/Export ne prend en charge que les objets blob de bloc et de page. Les autres types de stockage, y compris les fichiers Azure, les tables et les files d’attente, ne sont pas pris en charge.
+Non, le service Azure Import/Export ne prend en charge que les objets blob de bloc et de page. Aucun autre type de stockage, y compris Stockage Fichier Azure, Stockage Table et Stockage File d’attente n’est pris en charge.
 
 **Le service Azure Import/Export est-il disponible pour les abonnements de fournisseur de services de chiffrement ?**
 
@@ -471,7 +469,9 @@ Non. Tous les disques sont chiffrés avec BitLocker.
 
 Non. Vous devez expédier vos propres lecteurs, aussi bien pour les tâches d'importation que pour les tâches d'exportation.
 
-** Comment puis-je accéder aux données importées par ce service ** Les données de votre compte Azure Storage sont accessibles via le portail Azure ou à l’aide d’un outil autonome appelé Explorateur de stockage. https://docs.Microsoft.com/fr-fr/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+** Comment accéder aux données importées par ce service**
+
+Les données de votre compte Stockage Azure sont accessibles via le portail Azure ou à l’aide d’un outil autonome nommé Explorateur de stockage. https://docs.Microsoft.com/fr-fr/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **Une fois la tâche d’importation terminée, à quoi mes données ressembleront-elles dans le compte de stockage ? Mon arborescence sera-t-elle préservée ?**
 
@@ -520,6 +520,20 @@ Une livraison peut contenir n’importe quel nombre de disques durs et, si les d
 
 La taille maximale des objets blob de blocs est d’environ 4,768 To ou 5 000 000 Mo.
 La taille maximale des objets blob de pages est de 1 To.
+
+**L’importation/exportation de disque prennent-elles en charge le chiffrement AES 256 ?**
+
+Par défaut, le service Azure Import/Export chiffre avec le chiffrement BitLocker AES 128, mais vous pouvez aller jusqu’à un chiffrement à AES 256 en chiffrant manuellement avec bitlocker avant la copie des données. 
+
+Si vous utilisez [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), voici un exemple de commande.
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
+```
+Si vous utilisez [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip), spécifiez « AlreadyEncrypted », puis fournissez la clé dans le volume partagé de cluster driveset.
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+```
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Configuration de l’outil WAImportExport](storage-import-export-tool-how-to.md)

@@ -1,6 +1,6 @@
 ---
 title: "Gestion des entités Media Services avec REST | Microsoft Docs"
-description: "Découvrez comment gérer des entités Media Services avec l&quot;API REST"
+description: "Découvrez comment gérer des entités Media Services avec l'API REST"
 author: juliako
 manager: erikre
 editor: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
-ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
-ms.lasthandoff: 02/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 68391677b1724f23d52086be0c810385e93c7196
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gestion des entités Media Services avec REST 
@@ -32,7 +32,6 @@ Microsoft Azure Media Services est un service basé sur REST conçu autour d’O
 
 Cette rubrique vous montre comment gérer les entités Azure Media Services avec REST.
 
-
 >[!NOTE]
 > À compter du 1er avril 2017, les enregistrements de travaux dans votre compte de plus de 90 jours seront automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximum. Par exemple, le 1er avril 2017, tout enregistrement de travail dans votre compte antérieur au 31 décembre 2016 sera automatiquement supprimé. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit dans cette rubrique.
 
@@ -43,8 +42,7 @@ Lorsque vous utilisez l’API REST de Media Services, les considérations suivan
 > [!NOTE]
 > Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 > 
-> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect-programmatically.md). 
-> 
+> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI. Pour savoir comment vous connecter à l’API Azure Media Services, voir [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 
 ## <a name="adding-entities"></a>Ajout d’entités
@@ -64,7 +62,6 @@ L’exemple suivant montre comment créer une stratégie AccessPolicy :
     Expect: 100-continue
 
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
-
 
 ## <a name="querying-entities"></a>Exécution d’une requête sur les entités
 La procédure d’interrogation et d’énumération des entités est simple et ne nécessite qu’une requête HTTP GET et les opérations OData facultatives.
@@ -172,8 +169,6 @@ L’exemple suivant montre comment supprimer un localisateur qui était utilisé
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
     Host: media.windows.net
     Content-Length: 0
-
-
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

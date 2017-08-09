@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 07/25/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: f27bc3689f228809e9db8f61485ea0c8b4b302d1
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: ce19c24905c9ea93a7a35134fe6035b788d8af22
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="resource-policy-overview"></a>Vue d’ensemble des stratégies de ressources
@@ -195,7 +194,7 @@ La condition évalue si un **champ** répond à certains critères. Les conditio
 
 Lorsque vous utilisez la condition **like**, vous pouvez utiliser un caractère générique (*) dans la valeur.
 
-Lorsque vous utilisez la condition de **correspondance**, indiquez `#` pour représenter un chiffre, `?` pour une lettre et tout autre caractère pour représenter ce caractère réel. Consultez [Définir une convention d’affectation de noms](#set-naming-convention) pour obtenir des exemples.
+Lorsque vous utilisez la condition de **correspondance**, indiquez `#` pour représenter un chiffre, `?` pour une lettre et tout autre caractère pour représenter ce caractère réel. Pour obtenir des exemples, consultez [Appliquer des stratégies de ressources pour les noms et le texte](resource-manager-policy-naming-convention.md).
 
 ### <a name="fields"></a>Champs
 Les conditions sont formées à partir de champs. Un champ représente des propriétés dans la charge utile de la requête de ressource qui est utilisée pour décrire l'état de la ressource.  

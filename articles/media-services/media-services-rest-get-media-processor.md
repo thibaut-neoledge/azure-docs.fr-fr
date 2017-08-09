@@ -1,5 +1,5 @@
 ---
-title: "Création d&quot;un processeur multimédia | Microsoft Docs"
+title: "Création d’un processeur multimédia à l’aide de REST | Microsoft Docs"
 description: "Apprenez à créer un composant processeur multimédia pour encoder, chiffrer ou déchiffrer un contenu multimédia, ou convertir son format pour Azure Media Services."
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: d1d05b46591fe4b72c92c59d357681c8e1cdb336
-ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 4983069924f0edaeee7ffc91131bb83d9f9f4508
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Obtention d’une instance de processeur multimédia
@@ -30,18 +31,12 @@ ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
 ## <a name="overview"></a>Vue d'ensemble
 Dans Media Services, un processeur multimédia est un composant qui gère une tâche de traitement spécifique, telle que l’encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Le plus souvent, vous devez créer un processeur multimédia lorsque vous créez une tâche visant à encoder, à chiffrer ou à convertir le format du contenu multimédia.
 
-Le tableau suivant vous indique le nom et la description de chaque processeur multimédia disponible.
+## <a name="azure-media-processors"></a>Processeurs multimédias Azure 
 
-| Nom du processeur multimédia | Description | Informations complémentaires |
-| --- | --- | --- |
-| Media Encoder Standard |Fournit des fonctionnalités standard pour l’encodage à la demande. |[Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure](media-services-encode-asset.md) |
-| Media Encoder Premium Workflow |Permet d’exécuter des tâches d’encodage à l’aide de Media Encoder Premium Workflow. |[Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure](media-services-encode-asset.md) |
-| Azure Media Indexer |Vous permet de faire en sorte que les fichiers et le contenu multimédias puissent faire l'objet d'une recherche, et de générer des pistes de sous-titrage et des mots clés. |[Azure Media Indexer](media-services-index-content.md) |
-| Azure Media Hyperlapse (version préliminaire) |Permet de lisser les « dégradations » dans votre vidéo avec une stabilisation vidéo. Permet également d’accélérer votre contenu dans un clip consommable. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Encodeur multimédia Azure |Déconseillé | |
-| Storage Decryption |Déconseillé | |
-| Azure Media Packager |Déconseillé | |
-| Azure Media Encryptor |Déconseillé | |
+La rubrique suivante fournit une liste de processeurs multimédias :
+
+* [Processeurs multimédias d’encodage](scenarios-and-availability.md#encoding-media-processors)
+* [Processeurs multimédias Analytics](scenarios-and-availability.md#analytics-media-processors)
 
 ## <a name="get-mediaprocessor"></a>Obtention de MediaProcessor
 > [!NOTE]
@@ -49,8 +44,7 @@ Le tableau suivant vous indique le nom et la description de chaque processeur mu
 > 
 > Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 > 
-> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect-programmatically.md). 
-> 
+> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI. Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 
 L’appel REST suivant montre comment obtenir une instance de processeur multimédia par nom (dans ce cas, **Media Encoder Standard**). 
@@ -94,10 +88,5 @@ Réponse :
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous savez comment obtenir une instance de processeur multimédia, consultez la rubrique [Encodage d’un élément multimédia](media-services-rest-get-started.md) pour savoir comment utiliser Media Encoder Standard afin d’encoder un élément multimédia.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

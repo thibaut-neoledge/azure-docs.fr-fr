@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/26/2017
 ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 118b77064a96585b0d5b951ca56313776021624e
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: c975428550690254ba989935fe5110c5903e7102
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gestion de l’authentification unique pour les applications d’entreprise
@@ -28,15 +27,14 @@ ms.lasthandoff: 05/08/2017
 > * [portail Azure Classic](active-directory-sso-integrate-saas-apps.md)
 > 
 
-Cet article explique comment utiliser le [portail Azure](https://portal.azure.com) pour gérer les paramètres d’authentification unique pour des applications, en particulier celles qui ont été ajoutées à partir de la [galerie d’applications Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+Cet article explique comment utiliser le [portail Azure](https://portal.azure.com) pour gérer les paramètres d’authentification uniques pour les applications d’entreprise. Les applications d’entreprise sont des applications qui sont déployées et utilisées au sein de votre organisation. Cet article s’applique particulièrement aux applications qui ont été ajoutées à partir de la [Galerie d’applications Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
-## <a name="finding-your-apps"></a>Recherche de vos applications
 ## <a name="finding-your-apps-in-the-portal"></a>Recherche de vos applications dans le portail
-Toutes les applications configurées pour une l’authentification unique dans un répertoire par un administrateur d’annuaire à l’aide de la [Galerie d’applications Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) peuvent être affichées et gérées dans le [portail Azure](https://portal.azure.com). Les applications se trouvent dans la section **Plus de services** &gt; **Applications d’entreprise** du portail. Les applications d’entreprise sont des applications qui sont déployées et utilisées au sein de votre organisation.
+Vous pouvez afficher et gérer toutes les applications d’entreprise qui sont configurées pour l’authentification unique dans le portail Azure. Les applications se trouvent dans la section **Plus de services** &gt; **Applications d’entreprise** du portail. 
 
 ![Panneau Applications d’entreprise][1]
 
-Sélectionnez **Toutes les applications** à gauche pour afficher une liste de toutes les applications qui ont été configurées, y compris les applications ajoutées depuis la galerie. La sélection d’une application charge le panneau de ressources de cette application, où vous pouvez consulter des rapports pour cette application et gérer un large éventail de paramètres.
+Sélectionnez **toutes les applications** pour afficher une liste de toutes les applications qui ont été configurées. La sélection d’une application charge le panneau de ressources de cette application, où vous pouvez consulter des rapports pour cette application et gérer un large éventail de paramètres.
 
 Pour gérer les paramètres d’authentification unique, sélectionnez **Authentification unique**.
 
@@ -51,7 +49,7 @@ Le panneau **Authentification unique** commence par un menu **Mode**, qui permet
 
 Pour plus d’informations sur ces modes, voir [Fonctionnement de l’authentification unique avec Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-## <a name="saml-based-sign-on"></a>SAML-based sign on
+## <a name="saml-based-sign-on"></a>Authentification basée sur SAML
 L’option **Authentification basée sur SAML** affiche un panneau divisé en quatre sections :
 
 ### <a name="domains-and-urls"></a>Domains and URLs (Domaines et URL)

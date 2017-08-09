@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 72b5217bd8de29fdad753d89f34934f64c551ff2
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: c4cd80c50dca5b97c36f1c9785d8ea347b35285c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -35,14 +35,14 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 >[!NOTE]
 >Cette fonctionnalité _n’est pas_ applicable à Active Directory Federation Services (ADFS), qui fournit déjà cette possibilité.
 
-## <a name="key-benefits-of-using-azure-ad-seamless-sso"></a>Principaux avantages de l’authentification unique transparente Azure AD
+## <a name="key-benefits"></a>Principaux avantages
 
 - *Une meilleure expérience utilisateur*
   - Les utilisateurs sont automatiquement connectés aux applications cloud et locales.
   - Les utilisateurs n’ont pas à saisir leur mot de passe plusieurs fois.
 - *Facile à déployer et à gérer*
   - Aucun composant local supplémentaire n’est nécessaire pour que cela fonctionne.
-  - Fonctionne avec n’importe quelle méthode d’authentification gérée : [Synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) ou [Authentification directe](active-directory-aadconnect-pass-through-authentication.md).
+  - Fonctionne avec n’importe quelle méthode d’authentification cloud - [Synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) ou [Authentification directe](active-directory-aadconnect-pass-through-authentication.md).
   - Peut être déployée pour certains utilisateurs ou pour l’ensemble de vos utilisateurs à l’aide d’une stratégie de groupe.
   - Permet d’inscrire les appareils non Windows 10 dans Azure AD. Le [client Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554) version 2.1 ou ultérieure est nécessaire.
 
@@ -57,11 +57,11 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 
 | Système d’exploitation\Navigateur |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Oui|Non pris en charge|Oui|Oui\*|N/A
-|Windows 8.1|Oui|Non pris en charge|Oui|Oui\*|N/A
-|Windows 8|Oui|Non pris en charge|Oui|Oui\*|N/A 
-|Windows 7|Oui|Non pris en charge|Oui|Oui\*|N/A
-|Mac OS X|N/A|N/A|Oui\*|Oui\*|Non pris en charge
+|Windows 10|Oui|Oui|Oui|Oui\*|N/A
+|Windows 8.1|Oui|N/A|Oui|Oui\*|N/A
+|Windows 8|Oui|N/A|Oui|Oui\*|N/A 
+|Windows 7|Oui|N/A|Oui|Oui\*|N/A
+|Mac OS X|N/A|N/A|Oui\*|Oui\*|Oui\*
 
 \*Nécessite une [configuration supplémentaire](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
@@ -72,7 +72,7 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 
 - [**Démarrage rapide**](active-directory-aadconnect-sso-quick-start.md) : découvrez l’authentification unique transparente Azure AD.
 - [**Immersion technique**](active-directory-aadconnect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
-- [**Questions fréquentes (FAQ)**](active-directory-aadconnect-sso-faq.md) : réponses aux questions fréquentes.
-- [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
+- [**Forum aux questions**](active-directory-aadconnect-sso-faq.md) : réponses aux questions fréquentes.
+- [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.
 

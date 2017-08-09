@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8bea98274f94853cb52fe8b51fdaa4f224c649e4
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e6338dc283b5a26f20a467df9582181381967931
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="use-windows-powershell-cmdlets-with-azure-remoteapp"></a>Utiliser les applets de commande Windows PowerShell avec Azure RemoteApp
@@ -46,9 +45,20 @@ Vous pouvez utiliser ces étapes pour démarrer rapidement :
 2. Lancez Microsoft Azure PowerShell.
 3. Exécutez **Add-AzureAccount** pour vous authentifier auprès de votre abonnement Azure. À l’invite, entrez le nom d’utilisateur et le mot de passe que vous utilisez pour vous connecter au portail Azure.  
 4. Exécutez **Get-AzureSubscription** pour répertorier les abonnements associés à votre compte utilisateur. 
-5. Exécutez **Select-AzureSubscription** et spécifiez le nom ou l’ID d’abonnement à utiliser dans la console PowerShell.
+5. Exécutez **Select-AzureSubscription - SubscriptionName &lt;Nom de l’abonnement&gt;** ou **Select-AzureSubscription - SubscriptionId &lt;ID de l’abonnement&gt;** pour spécifier l’abonnement à utiliser.
 
 Félicitations, votre console Azure PowerShell est configurée et opérationnelle. N'oubliez pas que vous devez répéter les étapes 2 à 5 chaque fois que vous démarrez la console Azure PowerShell.  
+
+
+## <a name="list-all-collections"></a>Afficher la liste de toutes les collections
+- - -
+     Get-AzureRemoteAppCollection
+
+## <a name="delete-a-collection"></a>Supprimer une collection
+- - -
+    Remove-AzureRemoteAppCollection <enter collection name>
+
+Exemple : `Remove-AzureRemoteAppCollection ContosoProduction`.
 
 ## <a name="create-a-cloud-collection"></a>Création d'une collection cloud
 - - -

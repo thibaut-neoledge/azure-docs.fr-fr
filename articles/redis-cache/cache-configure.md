@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: f78735afd8aa8f560455c3fd47e6833c37644583
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: c1de192c405f2e93483527569c65d368cac40a9b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Configuration de Cache Redis Azure
@@ -97,8 +96,6 @@ Cliquez sur **Diagnostiquer et résoudre les problèmes** pour afficher les prob
 ## <a name="settings"></a>Paramètres
 La section **Paramètres** vous permet d’accéder aux paramètres suivants et de les configurer pour votre cache.
 
-![Paramètres](./media/cache-configure/redis-cache-general-settings.png)
-
 * [Clés d’accès](#access-keys)
 * [Paramètres avancés](#advanced-settings)
 * [Redis Cache Advisor](#redis-cache-advisor)
@@ -106,6 +103,7 @@ La section **Paramètres** vous permet d’accéder aux paramètres suivants et 
 * [Taille du cluster Redis](#cluster-size)
 * [Persistance des données Redis](#redis-data-persistence)
 * [Planification de mises à jour](#schedule-updates)
+* [Géoréplication](#geo-replication)
 * [Réseau virtuel](#virtual-network)
 * [Pare-feu](#firewall)
 * [Propriétés](#properties)
@@ -123,7 +121,7 @@ Cliquez sur **Clés d’accès** pour afficher ou régénérer les clés d’acc
 Vous pouvez configurer les paramètres suivants dans le panneau **Paramètres avancés**.
 
 * [Ports d’accès](#access-ports)
-* [Maxmemory-policy et maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
+* [Stratégies de mémoire](#memory-policies)
 * [Notifications de Keyspace (paramètres avancés)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>Ports d’accès
@@ -131,12 +129,13 @@ Par défaut, l’accès non SSL est désactivé pour les nouveaux caches. Pour a
 
 ![Ports d’accès de Cache Redis](./media/cache-configure/redis-cache-access-ports.png)
 
-#### <a name="maxmemory-policy-and-maxmemory-reserved"></a>Maxmemory-policy et maxmemory-reserved
-Les paramètres **stratégie Maxmemory** et **maxmemory-reserved** dans le panneau **Paramètres avancés** configurent les stratégies de mémoire du cache. Le paramètre **maxmemory-policy** configure la stratégie d’éviction du cache et le paramètre **maxmemory-reserved** configure la mémoire réservée pour les processus non cache.
+<a name="maxmemory-policy-and-maxmemory-reserved"></a>
+#### <a name="memory-policies"></a>Stratégies de mémoire
+Les paramètres **Stratégie Maxmemory**, **maxmemory-reserved** et **maxfragmentationmemory-reserved** dans le panneau **Paramètres avancés** configurent les stratégies de mémoire du cache.
 
 ![Stratégie Maxmemory de Cache Redis](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
-**Maxmemory policy** vous permet de choisir parmi les stratégies d’éviction suivantes :
+La **stratégie MaxMemory** configure la stratégie d’éviction pour le cache, et vous permet de choisir parmi les stratégies d’éviction suivantes :
 
 * `volatile-lru` : il s’agit de la valeur par défaut.
 * `allkeys-lru`
@@ -149,8 +148,12 @@ Pour plus d’informations sur les stratégies `maxmemory`, voir [Stratégies d�
 
 Le paramètre **maxmemory-reserved** détermine la quantité de mémoire (en mégaoctets) réservée pour les opérations non cache telles que la réplication pendant le basculement. La définition de ce paramètre vous permet d’avoir une expérience de serveur Redis plus cohérente lorsque votre charge varie. Cette valeur doit être plus élevée pour les charges de travail comportant de nombreuses écritures. Lorsque la mémoire est réservée pour ces opérations, elle n’est pas disponible pour le stockage des données mises en cache.
 
+Le paramètre **maxfragmentationmemory réservés** détermine la quantité de mémoire en Mo réservée pour la fragmentation de la mémoire. La définition de ce paramètre vous permet d’avoir un serveur Redis plus cohérent lorsque le cache est plein ou presque, et que le taux de fragmentation est également élevé. Lorsque la mémoire est réservée pour ces opérations, elle n’est pas disponible pour le stockage des données mises en cache.
+
+Un aspect à prendre en compte lors du choix d’une nouvelle valeur de réservation de mémoire (**maxmemory-reserved** ou **maxfragmentationmemory-reserved**) est la manière dont cette modification peut affecter un cache déjà en cours d’exécution, qui contient de grandes quantités de données. Par exemple, si vous disposez d’un cache de 53 Go avec 49 Go de données, modifiez la valeur de réservation en la définissant sur 8 Go. Cela a pour effet d’abaisser la mémoire maximale disponible pour le système à 45 Go. Si vos valeurs `used_memory` ou `used_memory_rss` actuelles sont supérieures à la nouvelle limite de 45 Go, le système doit supprimer des données jusqu’à ce que les valeurs `used_memory` et `used_memory_rss` soient toutes deux inférieures à 45 Go. La suppression de données peut augmenter la fragmentation de la charge et de la mémoire du serveur. Pour plus d’informations sur les métriques de cache, telles que `used_memory` et `used_memory_rss`, voir [Mesures disponibles et intervalles de création des rapports](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+
 > [!IMPORTANT]
-> Le paramètre **maxmemory-reserved** est uniquement disponible pour les caches Standard et Premium.
+> Les paramètres **maxmemory-reserved** and **maxfragmentationmemory-reserved** sont uniquement disponibles pour les caches Standard et Premium.
 > 
 > 
 
@@ -412,7 +415,7 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 | --- | --- | --- |
 | `databases` |16 |Le nombre de bases de données par défaut est 16, mais vous pouvez configurer un nombre différent selon le niveau tarifaire.<sup>1</sup> La base de données par défaut est DB 0. Vous pouvez en sélectionner une autre en fonction de la connexion en utilisant `connection.GetDatabase(dbid)` où `dbid` est un nombre compris entre `0` et `databases - 1`. |
 | `maxclients` |Dépend du niveau tarifaire<sup>2</sup> |Le nombre maximal de clients connectés autorisés en même temps. Une fois la limite atteinte, Redis ferme toutes les nouvelles connexions en envoyant une erreur « nombre maximal de clients atteint ». |
-| `maxmemory-policy` |`volatile-lru` |La stratégie maxmemory est le paramètre définissant la sélection par Redis des éléments à supprimer lorsque `maxmemory` (la taille du cache que vous avez sélectionnée lorsque vous avez créé le cache) est atteinte. Avec Cache Redis Azure, le paramètre par défaut est `volatile-lru`. Ce dernier supprime les clés et l’expiration est définie à l’aide d’un algorithme LRU (dernier récemment utilisé). Ce paramètre peut être configuré dans le portail Azure. Pour plus d’informations, consultez [Maxmemory-policy et maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved). |
+| `maxmemory-policy` |`volatile-lru` |La stratégie maxmemory est le paramètre définissant la sélection par Redis des éléments à supprimer lorsque `maxmemory` (la taille du cache que vous avez sélectionnée lorsque vous avez créé le cache) est atteinte. Avec Cache Redis Azure, le paramètre par défaut est `volatile-lru`. Ce dernier supprime les clés et l’expiration est définie à l’aide d’un algorithme LRU (dernier récemment utilisé). Ce paramètre peut être configuré dans le portail Azure. Pour plus d’informations, voir [Stratégies de mémoire](#memory-policies). |
 | `maxmemory-samples` |3 |Pour économiser de la mémoire, les algorithmes LRU et TTL sont des algorithmes approximatifs et non des algorithmes précis. Par défaut, Redis vérifie trois clés et choisit celle qui a été utilisée le moins récemment. |
 | `lua-time-limit` |5 000 |Temps d’exécution maximal d’un script Lua en millisecondes. Si la durée d’exécution maximale est atteinte, Redis consigne qu’un script est toujours en cours d’exécution après la durée maximale autorisée et commence à répondre aux requêtes avec une erreur. |
 | `lua-event-limit` |500 |Taille maximale de la file d’attente des événements de script. |

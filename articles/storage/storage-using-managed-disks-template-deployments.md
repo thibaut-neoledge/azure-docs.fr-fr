@@ -13,10 +13,10 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: f7ca0c1aa67b8a5f5487dd93a142ac9da094f945
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 4c502784a57850d6f11200e95f7432d2206e920a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -92,15 +92,20 @@ Dans l’objet de machine virtuelle, nous avons besoin d’une dépendance sur l
 
 ## <a name="managed-disks-template-formatting"></a>Mise en forme de modèle de disques gérés
 
-Avec Azure Managed Disks, le disque devient une ressource de niveau supérieur et ne requiert plus qu’un compte de stockage soit créé par l’utilisateur. Les disques gérés sont exposés dans la version `2016-04-30-preview` de l’API et sont maintenant le type de disque par défaut. Les sections suivantes abordent les paramètres par défaut et décrivent en détail comment personnaliser davantage vos disques.
+Avec Azure Managed Disks, le disque devient une ressource de niveau supérieur et ne requiert plus qu’un compte de stockage soit créé par l’utilisateur. Les disques gérés ont d’abord été exposés dans la version de l’API `2016-04-30-preview`. Ils sont disponibles dans toutes les versions ultérieures de l’API et correspondent désormais au type de disque par défaut. Les sections suivantes abordent les paramètres par défaut et décrivent en détail comment personnaliser davantage vos disques.
+
+> [!NOTE]
+> Il est recommandé d’utiliser une version d’API plus récente que `2016-04-30-preview` en raison de modifications intervenues entre les versions `2016-04-30-preview` et `2017-03-30`.
+>
+>
 
 ### <a name="default-managed-disk-settings"></a>Paramètres de disque géré par défaut
 
-Pour créer une machine virtuelle avec des disques gérés, vous n’avez plus besoin créer la ressource de compte de stockage et vous pouvez mettre à jour votre ressource de machine virtuelle comme suit. Notez en particulier que `apiVersion` reflète `2016-04-30-preview`, et que `osDisk` et `dataDisks` ne font plus référence à un URI spécifique pour le disque dur virtuel. Lors du déploiement sans spécification de propriétés supplémentaires, le disque utilisera le [stockage LRS standard](storage-redundancy.md). Si aucun nom n’est spécifié, il prend le format `<VMName>_OsDisk_1_<randomstring>` pour le disque de système d’exploitation et `<VMName>_disk<#>_<randomstring>` pour chaque disque de données. Par défaut, le chiffrement de disque Azure est désactivé ; la mise en cache est Lecture/Écriture pour le disque de système d’exploitation et Aucune pour les disques de données. Vous avez pu remarquer dans l’exemple ci-dessous qu’il existe toujours une dépendance de compte de stockage, bien que cela concerne uniquement le stockage de diagnostics et n’est pas nécessaire pour le stockage de disques.
+Pour créer une machine virtuelle avec des disques gérés, vous n’avez plus besoin créer la ressource de compte de stockage et vous pouvez mettre à jour votre ressource de machine virtuelle comme suit. Notez en particulier que `apiVersion` reflète `2017-03-30`, et que `osDisk` et `dataDisks` ne font plus référence à un URI spécifique pour le disque dur virtuel. Lors du déploiement sans spécification de propriétés supplémentaires, le disque utilisera le [stockage LRS standard](storage-redundancy.md). Si aucun nom n’est spécifié, il prend le format `<VMName>_OsDisk_1_<randomstring>` pour le disque de système d’exploitation et `<VMName>_disk<#>_<randomstring>` pour chaque disque de données. Par défaut, le chiffrement de disque Azure est désactivé ; la mise en cache est Lecture/Écriture pour le disque de système d’exploitation et Aucune pour les disques de données. Vous avez pu remarquer dans l’exemple ci-dessous qu’il existe toujours une dépendance de compte de stockage, bien que cela concerne uniquement le stockage de diagnostics et n’est pas nécessaire pour le stockage de disques.
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
@@ -143,23 +148,25 @@ Au lieu de spécifier la configuration du disque dans l’objet de machine virtu
 {
     "type": "Microsoft.Compute/disks",
     "name": "[concat(variables('vmName'),'-datadisk1')]",
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "Standard_LRS"
+    },
     "properties": {
         "creationData": {
             "createOption": "Empty"
         },
-        "accountType": "Standard_LRS",
         "diskSizeGB": 1023
     }
 }
 ```
 
-Dans l’objet de machine virtuelle, nous pouvons ensuite faire référence à cet objet de disque devant être attaché. Spécifier l’ID de ressource du disque géré que nous avons créé dans la propriété `managedDisk` permet d’attacher le disque lors de la création de la machine virtuelle. `apiVersion` pour la ressource de machine virtuelle doit être `2016-04-30-preview` pour utiliser cette fonctionnalité. Notez également que nous avons créé une dépendance sur la ressource de disque pour nous assurer qu’elle est correctement créée avant la création de la machine virtuelle. 
+Dans l’objet de machine virtuelle, nous pouvons ensuite faire référence à cet objet de disque devant être attaché. Spécifier l’ID de ressource du disque géré que nous avons créé dans la propriété `managedDisk` permet d’attacher le disque lors de la création de la machine virtuelle. Vous pouvez constater que la propriété `apiVersion` de la ressource de la machine virtuelle est définie sur `2017-03-30`. Notez également que nous avons créé une dépendance sur la ressource de disque pour nous assurer qu’elle est correctement créée avant la création de la machine virtuelle. 
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
@@ -200,11 +207,11 @@ Dans l’objet de machine virtuelle, nous pouvons ensuite faire référence à c
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Créer des groupes à haute disponibilité gérés avec des machines virtuelles à l’aide de disques gérés
 
-Pour créer des groupes à haute disponibilité gérés avec des machines virtuelles à l’aide de disques gérés, ajoutez l’objet `sku` à la ressource de groupe à haute disponibilité et définissez la propriété `name` sur `Aligned`. Cela garantit que les disques de chaque machine virtuelle sont suffisamment isolés les uns des autres pour éviter les points uniques de défaillance. `apiVersion` pour la disponibilité du groupe à haute disponibilité doit également être `2016-04-30-preview` pour utiliser cette fonctionnalité.
+Pour créer des groupes à haute disponibilité gérés avec des machines virtuelles à l’aide de disques gérés, ajoutez l’objet `sku` à la ressource de groupe à haute disponibilité et définissez la propriété `name` sur `Aligned`. Cela garantit que les disques de chaque machine virtuelle sont suffisamment isolés les uns des autres pour éviter les points uniques de défaillance. Vous pouvez aussi remarquer que la propriété `apiVersion` de la ressource de groupe à haute disponibilité est définie sur `2017-03-30`.
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/availabilitySets",
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",

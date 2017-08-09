@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 05/24/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 684cb55c0bf2abfa1fc1410d7fc1224a220c2713
+ms.custom: oldportal;it-pro;H1Hack27Feb2017
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 9da5bb6987a9eb3398abe0d6066f1945620df9a4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="what-is-microsoft-azure-active-directory-licensing-in-the-azure-classic-portal"></a>Qu’est-ce que la gestion des licences Microsoft Azure Active Directory dans le portail Azure Classic ?
@@ -33,6 +32,9 @@ ms.lasthandoff: 06/30/2017
 >
 
 Azure Active Directory (Azure AD) est une plateforme et une solution Microsoft de type IDaaS (Identity as a Service). Azure AD est proposé en différentes versions fonctionnelles et techniques, depuis la version Azure AD gratuite, disponible avec n’importe quel service Microsoft tel qu’Office 365, Dynamics, Microsoft Intune et Azure (Azure AD ne génère aucun frais de consommation dans ce mode), jusqu’aux versions Azure AD payantes comme Enterprise Mobility Suite (EMS), Azure AD Premium et Standard, ainsi qu’Azure Multi-Factor Authentication (MFA). À l’instar de nombreux services en ligne Microsoft, la plupart des versions Azure AD payantes sont fournies par le biais de droits par utilisateur, comme dans Office 365, Microsoft Intune et Azure AD. Dans ces cas-là, l’achat de services est représenté par un ou plusieurs abonnements incluant chacun un certain nombre de licences prépayées dans votre client. Les droits par utilisateur sont obtenus par l’attribution de licences, entraînant ainsi la création d’un lien entre l’utilisateur et le produit, l’activation des composants de service pour l’utilisateur et la consommation de l’une des licences prépayées.
+
+> [!IMPORTANT]
+> Microsoft recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure au lieu d’utiliser le portail Azure classique référencé dans cet article. Pour savoir comment affecter des rôles d’administrateur dans le centre d’administration Azure AD, consultez la section [Procurez-vous une licence et octroyez-en à vos utilisateurs dans Azure AD](active-directory-licensing-get-started-azure-portal.md).
 
 [Essayez Azure AD Premium maintenant.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 

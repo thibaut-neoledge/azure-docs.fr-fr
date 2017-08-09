@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: eae360dd3e627a82986cef32ef39860f60ffe51f
-ms.lasthandoff: 02/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 668ba10474fc1b01d5ebccbff1f50fe09ade5f30
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-media-services-error-codes"></a>Codes d’erreur d’Azure Media Services
@@ -28,7 +28,7 @@ lors de l’utilisation de Microsoft Azure Media Services, il se peut que vous r
 La demande contient des informations non valides et est rejetée pour l’une des raisons suivantes :
 
 * La version spécifiée de l’API n’est pas prise en charge. Pour la version la plus récente, voir [Configuration pour le développement de l’API REST Media Services](media-services-rest-how-to-use.md).
-* La version de l’API de Media Services n’est pas spécifiée. Pour plus d’informations sur la façon de spécifier la version de l’API, voir [Connexion à Media Services avec l’API REST de Media Services](media-services-rest-connect-programmatically.md).
+* La version de l’API de Media Services n’est pas spécifiée. Pour en savoir plus sur la façon de spécifier la version de l’API, voir [Référence de l’API REST de Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
   > Si vous utilisez les Kits de développement logiciel (SDK) .NET ou Java pour vous connecter à Media Services, la version de l’API est automatiquement spécifiée chaque fois que vous tentez d’effectuer une action sur Media Services.
@@ -48,8 +48,8 @@ La demande n’a pas pu être authentifiée (avant d’être autorisée) pour l�
 
 * En-tête d’authentification absent.
 * Valeur d’en-tête d’authentification incorrecte.
-  * Le jeton a expiré. Si vous utilisez directement des API REST directement, pour savoir comment générer un jeton d’authentification, voir [Connexion à un compte Media Services à l’aide de l’API REST](media-services-rest-connect-programmatically.md). Si vous utilisez les Kits de développement logiciel (SDK) .NET ou Java, créez un objet CloudMediaContext ou MediaContract pour générer le jeton. Pour plus d’informations, voir [Connexion à un compte Media Services à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET](media-services-dotnet-connect-programmatically.md).
-  * Le jeton contient une signature non valide.</li></ul></li></ul>
+  * Le jeton a expiré. 
+  * Le jeton contient une signature non valide.
 
 ## <a name="403-forbidden"></a>403 Interdit
 La demande n’est pas autorisée pour l’une des raisons suivantes :

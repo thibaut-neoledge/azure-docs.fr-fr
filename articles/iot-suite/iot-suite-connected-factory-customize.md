@@ -13,14 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: ec4b2808e6984821200be182183e53b69887b912
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 86a4d6d3ab4d29fba8f554265958ffa079b69ec2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personnaliser le mode d’affichage des données de vos serveurs OPC UA par la solution d’usine connectée
@@ -69,7 +68,7 @@ Vous pouvez parcourir les éléments de données qu’un serveur OPC UA peut env
 
 ## <a name="map-the-data"></a>Mapper les données
 
-La solution d’usine connectée mappe et agrège les éléments de données publiés à partir du serveur OPC UA dans les différentes vues de la solution. La solution d’usine connectée se déploie sur votre compte Azure lorsque vous la configurez. Un fichier JSON de la solution Visual Studio d’usine connectée stocke ces informations de mappage. Vous pouvez afficher et modifier ce fichier de configuration JSON dans la solution Visual Studio d’usine connectée et redéployer cette dernière.
+La solution d’usine connectée mappe et agrège les éléments de données publiés à partir du serveur OPC UA dans les différentes vues de la solution. La solution d’usine connectée se déploie sur votre compte Azure lorsque vous la configurez. Un fichier JSON de la solution Visual Studio d’usine connectée stocke ces informations de mappage. Vous pouvez afficher et modifier ce fichier de configuration JSON dans la solution Visual Studio d’usine connectée. Vous pouvez redéployer la solution une fois que vous apportez une modification.
 
 Vous pouvez utiliser le fichier de configuration pour :
 

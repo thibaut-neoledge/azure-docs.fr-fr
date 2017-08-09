@@ -1,5 +1,4 @@
 ---
-
 title: Utiliser un serveur de sauvegarde pour sauvegarder des charges de travail sur Azure | Microsoft Docs
 description: "Utilisez un serveur de sauvegarde Azure pour protéger ou sauvegarder des charges de travail sur le portail Azure."
 services: backup
@@ -14,29 +13,26 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
+ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: e8838095d621957fe6b4ee50464154617e1c4740
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 366de49b1cb1d21aca4ef4de1c413a33ac4ae7b0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Préparation de la sauvegarde des charges de travail à l’aide d’Azure Backup Server
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
-Cet article décrit la préparation de votre environnement à la sauvegarde des charges de travail à l’aide d’Azure Backup Server. Avec Azure Backup Server, vous pouvez protéger des charges de travail d’application telles que les machines virtuelles Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange et les clients Windows à partir d’une console unique :
+Cet article décrit la préparation de votre environnement à la sauvegarde des charges de travail à l’aide d’Azure Backup Server. Le serveur de sauvegarde Azure vous permet de protéger des charges de travail d’application telles que des machines virtuelles Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange et des clients Windows à partir d’une console unique.
 
 > [!NOTE]
-> Serveur de sauvegarde Azure peut désormais protéger les machines virtuelles VMware et fournit des fonctionnalités de sécurité améliorées. Vous devez installer le produit, comme expliqué dans les sections suivantes, et appliquer la mise à jour 1 et le dernier Agent de sauvegarde Azure. Pour en savoir plus sur la sauvegarde de VMware à l’aide du serveur de sauvegarde Azure, consultez le [blog sur les procédures](https://azure.microsoft.com/blog/four-simple-steps-to-backup-vmware-vms-using-azure-backup-server/). Pour en savoir plus sur les fonctionnalités de sécurité, reportez-vous à la [documentation sur les fonctionnalités de sécurité de sauvegarde Azure](backup-azure-security-feature.md).
+> Serveur de sauvegarde Azure peut désormais protéger les machines virtuelles VMware et fournit des fonctionnalités de sécurité améliorées. Installez le produit comme expliqué dans les sections ci-dessous, puis appliquez la mise à jour 1 et le dernier Agent de sauvegarde Azure. Pour plus d’informations sur la sauvegarde de serveurs VMware avec le serveur de sauvegarde Azure, voir [Utiliser le serveur de sauvegarde Azure pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md). Pour découvrir les fonctionnalités de sécurité, voir la [documentation sur les fonctionnalités de sécurité de sauvegarde Azure](backup-azure-security-feature.md).
 >
 >
 
@@ -53,14 +49,14 @@ Azure Backup Server hérite d’une grand partie des fonctionnalités de sauvega
 La première étape de la mise en service d’Azure Backup Server consiste à configurer un serveur Windows Server. Il peut s’agir d’un serveur local ou d’un serveur dans Azure.
 
 ### <a name="using-a-server-in-azure"></a>Utilisation d’un serveur dans Azure
-Lors du choix d’un serveur pour l’exécution d’Azure Backup Server, il est recommandé de commencer par une image de la galerie de Windows Server 2012 R2 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)propose un didacticiel de prise en main de la machine virtuelle recommandée dans Azure, même si vous n’avez jamais utilisé Azure. Configuration minimale recommandée pour la machine virtuelle serveur : A2 Standard avec 2 cœurs et 3,5 Go de RAM.
+Lors du choix d’un serveur pour l’exécution d’Azure Backup Server, il est recommandé de commencer par une image de la galerie de Windows Server 2012 R2 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)propose un didacticiel de prise en main de la machine virtuelle recommandée dans Azure, même si vous n’avez jamais utilisé Azure. Configuration minimale recommandée pour la machine virtuelle serveur : A2 Standard avec deux cœurs et 3,5 Go de RAM.
 
-La protection des charges de travail à l’aide d’Azure Backup Server peut prendre plusieurs formes. L’article [Installation de DPM en tant que machine virtuelle Azure](https://technet.microsoft.com/library/jj852163.aspx), permet d’expliquer ces différentes formes. Merci de lire cet article dans son intégralité avant de déployer la machine.
+La protection des charges de travail à l’aide d’Azure Backup Server peut prendre plusieurs formes. L’article [Installation de DPM en tant que machine virtuelle Azure](https://technet.microsoft.com/library/jj852163.aspx), permet d’expliquer ces différentes formes. Avant de déployer la machine, lisez cet entièrement cet article.
 
 ### <a name="using-an-on-premises-server"></a>Utilisation d’un serveur local
-Si vous ne souhaitez pas exécuter le serveur de base dans Azure, vous pouvez l’exécuter sur un ordinateur virtuel Hyper-V, un ordinateur virtuel VMware ou un hôte physique. Configuration minimale recommandée pour le matériel de serveur : 2 cœurs et 4 Go de RAM. Les systèmes d’exploitation pris en charge sont répertoriés dans le tableau ci-après.
+Si vous ne souhaitez pas exécuter le serveur de base dans Azure, vous pouvez l’exécuter sur un ordinateur virtuel Hyper-V, un ordinateur virtuel VMware ou un hôte physique. Configuration minimale recommandée pour le matériel de serveur : 2 cœurs et 4 Go de RAM. Les systèmes d’exploitation pris en charge sont répertoriés dans le tableau ci-après :
 
-| Système d'exploitation | Plateforme | SKU |
+| Système d’exploitation | Plateforme | SKU |
 |:--- | --- |:--- |
 | Windows Server 2012 R2 et derniers Service Packs |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 et derniers Service Packs |64 bits |Datacenter, Foundation, Standard |
@@ -77,7 +73,7 @@ Vous pouvez dédupliquer le stockage DPM en vous servant de la fonction de dédu
 > - Un ordinateur sur lequel Exchange Server s’exécute
 > - Un ordinateur qui est un nœud d’un cluster
 
-Vous devez joindre le serveur de sauvegarde Azure à un domaine. Si vous envisagez de déplacer le serveur vers un autre domaine, il est recommandé de le faire avant d’installer le serveur de sauvegarde Azure. Le déplacement d’une machine Azure Backup Server vers un nouveau domaine après le déploiement *n’est pas pris en charge*.
+Joignez toujours le serveur de sauvegarde Azure à un domaine. Si vous envisagez de déplacer le serveur vers un autre domaine, il est recommandé de le faire avant d’installer le serveur de sauvegarde Azure. Le déplacement d’une machine Azure Backup Server vers un nouveau domaine après le déploiement *n’est pas pris en charge*.
 
 ## <a name="2-recovery-services-vault"></a>2. Coffre Recovery Services
 Que vous envoyiez des données de sauvegarde à Azure, ou que vous les conserviez en local, le logiciel doit être connecté à Azure. Pour être plus précis, l’ordinateur Azure Backup Server doit être enregistré dans un coffre Recovery Services.
@@ -85,7 +81,7 @@ Que vous envoyiez des données de sauvegarde à Azure, ou que vous les conservie
 Pour créer un coffre Recovery Services :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu Hub, cliquez sur **Parcourir** et, dans la liste des ressources, tapez **Recovery Services**. Au fur et à mesure des caractères saisis, la liste est filtrée. Cliquez sur **Coffre Recovery Services**.
+2. Dans le menu Hub, cliquez sur **Parcourir** et, dans la liste des ressources, tapez **Recovery Services**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Coffre Recovery Services**.
 
     ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
 
@@ -105,7 +101,7 @@ Pour créer un coffre Recovery Services :
    Une fois votre archivage créé, il s'ouvre dans le portail.
 
 ### <a name="set-storage-replication"></a>Définir la réplication du stockage
-L’option de réplication du stockage vous permet de choisir entre stockage géo-redondant et stockage localement redondant. Par défaut, votre archivage utilise un stockage géo-redondant. Si vous utilisez Azure comme sauvegarde principale, laissez cette option inchangée. Choisissez Stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/storage-redundancy.md#geo-redundant-storage) et [localement redondant](../storage/storage-redundancy.md#locally-redundant-storage), consultez l’article [Réplication Stockage Azure](../storage/storage-redundancy.md).
+L’option de réplication du stockage vous permet de choisir entre stockage géo-redondant et stockage localement redondant. Par défaut, votre archivage utilise un stockage géo-redondant. Si cet archivage est votre archivage principal, laissez l’option de stockage définie sur un stockage géoredondant. Choisissez Stockage localement redondant si vous souhaitez une option plus économique, mais moins durable. Pour en savoir plus sur les options de stockage [géo-redondant](../storage/storage-redundancy.md#geo-redundant-storage) et [localement redondant](../storage/storage-redundancy.md#locally-redundant-storage), consultez l’article [Réplication Stockage Azure](../storage/storage-redundancy.md).
 
 Pour modifier le paramètre de réplication du stockage :
 
@@ -152,7 +148,7 @@ Pour modifier le paramètre de réplication du stockage :
     L’Assistant **Mise en route de la sauvegarde** modifie l’option de **préparation de l’infrastructure** pour sauvegarder les charges de travail sur Azure.
 
    > [!NOTE]
-   > Si vous souhaitez sauvegarder uniquement des fichiers et dossiers, nous recommandons d’utiliser l’agent Azure Backup et de suivre les instructions de l’article, [Premier aperçu : sauvegarder des fichiers et dossiers](backup-try-azure-backup-in-10-mins.md) . Si vous envisagez de protéger davantage de fichiers et de dossiers, ou si à l’avenir vous envisagez d’étendre les besoins de protection, sélectionnez ces charges de travail.
+   > Si vous souhaitez sauvegarder uniquement des fichiers et dossiers, nous vous recommandons d’utiliser l’agent Azure Backup et de suivre les instructions de l’article [Premier aperçu : sauvegarder des fichiers et des dossiers dans un déploiement de Resource Manager](backup-try-azure-backup-in-10-mins.md). Si vous envisagez de protéger davantage de fichiers et de dossiers, ou si à l’avenir vous envisagez d’étendre les besoins de protection, sélectionnez ces charges de travail.
    >
    >
 
@@ -184,7 +180,7 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 1. Cliquez sur **Microsoft Azure Backup** pour lancer l’Assistant d’installation.
 
     ![L’Assistant Installation de Microsoft Azure Backup](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. Dans l’écran d’accueil, cliquez sur le bouton **Suivant** . Vous êtes redirigé vers la section *Vérification des conditions préalables* . Dans cet écran, cliquez sur le bouton **Vérifier** afin de déterminer si les configurations matérielle et logicielle requises pour Azure Backup Server sont respectées. Si c’est le cas, un message indiquant que la machine respecte les conditions préalables requises s’affiche. Cliquez sur le bouton **Suivant** .
+2. Dans l’écran d’accueil, cliquez sur le bouton **Suivant** . Vous êtes redirigé vers la section *Vérification des conditions préalables* . Dans cet écran, cliquez sur **Vérifier** afin de déterminer si les configurations matérielle et logicielle requises pour serveur de sauvegarde Azure sont respectées. Si toutes les conditions préalables sont réunies, un message indiquant que la machine présente la configuration requise s’affiche. Cliquez sur le bouton **Suivant** .
 
     ![Azure Backup Server - Accueil et contrôle des conditions préalables requises](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 3. Microsoft Azure Backup Server requiert SQL Server Standard, et le package d’installation d’Azure Backup Server est fourni avec les fichiers binaires SQL Server appropriés. Lorsque vous démarrez avec une nouvelle installation du serveur de sauvegarde Azure, vous devez sélectionner l’option **Installer une nouvelle instance de SQL Server avec ce programme d’installation** et cliquer sur le bouton **Vérifier et installer**. Une fois les composants requis installés, cliquez sur **Suivant**.

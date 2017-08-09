@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/7/2017
+ms.date: 7/10/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: c1185358cc10e450c0c67baab407c49de56ad767
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: eb6a7069da36a462f8dd27454bc1834d2e3844f0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
@@ -57,10 +56,10 @@ Si vous savez que ces conditions existent déjà dans votre environnement, passe
 Avant de préparer votre environnement, notez les limitations.
 
 * La sauvegarde de machines virtuelles ayant plus de 16 disques de données n’est pas prise en charge.
-* La sauvegarde des machines virtuelles ayant des disques de 4 To n’est pas prise en charge. 
+* La sauvegarde de machines virtuelles avec des tailles de disque de données supérieures à 1 023 Go n’est pas prise en charge.
 * La sauvegarde de machines virtuelles avec une adresse IP réservée et sans point de terminaison n’est pas prise en charge.
 * La sauvegarde des machines virtuelles chiffrées BEK seulement n’est pas prise en charge. La sauvegarde des machines virtuelles Linux chiffrées LUKS n’est pas prise en charge.
-* La sauvegarde d’ordinateurs virtuels Linux avec l’extension Docker n’est pas pris en charge.
+* La sauvegarde de machines virtuelles sur une configuration Serveur de fichiers avec montée en puissance parallèle n’est pas recommandée.
 * Les données de sauvegarde n’incluent pas les lecteurs réseau montés attachés à la machine virtuelle.
 * Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Si vous tentez de restaurer la machine virtuelle alors que celle-ci existe, l’opération de restauration échoue.
 * La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.

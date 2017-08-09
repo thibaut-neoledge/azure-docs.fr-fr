@@ -1,6 +1,6 @@
 ---
-title: Comment configurer un environnement App Service | Microsoft Docs
-description: "Configuration, gestion et surveillance d’environnements App Service"
+title: "Comment configurer un environnement App Service Environment v1"
+description: "Configuration, gestion et surveillance d’environnements App Service Environment v1"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -12,17 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 07/11/2017
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85a4c87447681bd21698143b4228d94c0877d1b9
+ms.translationtype: HT
+ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
+ms.openlocfilehash: ae99f5a412f73cddc28543ba12c66c82f1a7835a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="configuring-an-app-service-environment"></a>Configuration d'un environnement App Service
+# <a name="configuring-an-app-service-environment-v1"></a>Configuration d’un environnement App Service Environment v1
+
+> [!NOTE]
+> Cet article traite de l’environnement App Service Environment v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la section [Présentation de l’environnement App Service Environment](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Vue d'ensemble
 Globalement, un environnement Azure App Service se compose de plusieurs composants principaux :
 
@@ -44,25 +48,25 @@ La modification de la quantité ou de la taille est une opération appelée « m
 
 * Un environnement App Service commence avec deux P2, ce qui est suffisant pour les charges de travail de développement et de test et les charges de travail de production de bas niveau. Nous vous recommandons vivement d’utiliser des P3 pour des charges de travail de production moyennes et lourdes.
 * Il est recommandé d’avoir au moins quatre P3 pour les charges de travail moyennes et lourdes, afin de garantir l’exécution d’un nombre suffisant de serveurs frontaux pendant la maintenance planifiée. Les activités de maintenance planifiées interrompront un seul serveur frontal à la fois. Cela réduit la capacité globale disponible des serveurs frontaux pendant les activités de maintenance.
-* L’ajout instantané d’une nouvelle instance de serveur frontal n’est pas possible. L’approvisionnement de cette dernière peut prendre entre 2 à 3 heures.
+* L’approvisionnement des serveurs frontaux peut prendre jusqu’à une heure. 
 * Pour un ajustement optimal de la mise à l’échelle, vous devez analyser le pourcentage UC, le pourcentage de mémoire ainsi que les mesures des demandes actives pour le pool frontal. Si le pourcentage UC ou de mémoire est supérieur à 70 % lorsque vous exécutez des P3, ajoutez davantage de serveurs frontaux. Si la valeur moyenne des demandes actives oscille entre 15 000 et 20 000 demandes par serveur frontal, vous devez également ajouter davantage de serveurs frontaux. L’objectif est de maintenir le pourcentage UC et de mémoire en dessous de 70 % et le nombre moyen des demandes actives en dessous de 15 000 par serveur frontal lorsque vous exécutez des P3.  
 
 **Workers**: les Workers sont le lieu d’exécution de vos applications. Lorsque vous faites monter en puissance vos plans App Service, cette opération utilise des Workers dans le pool de travail associé.
 
-* L’ajout instantané de Workers n’est pas possible. L’approvisionnement de ces derniers peut prendre entre 2 à 3 heures, quel que soit le nombre de Workers ajoutés.
-* La mise à l’échelle d’une ressource de calcul pour un pool quelconque prendra 2 à 3 heures par domaine de mise à jour. Un environnement App Service contient 20 domaines de mise à jour. Si vous mettez à l’échelle la taille de calcul d’un pool de travail contenant 10 instances, cette opération peut prendre entre 20 et 30 heures.
+* L’ajout instantané de Workers n’est pas possible. Leur approvisionnement peut prendre jusqu’à une heure.
+* La mise à l’échelle d’une ressource de calcul pour un pool quelconque prendra moins de 1 heure par domaine de mise à jour. Un environnement App Service contient 20 domaines de mise à jour. Si vous mettez à l’échelle la taille de calcul d’un pool de travail contenant 10 instances, cette opération peut prendre jusqu’à 10 heures.
 * Si vous modifiez la taille des ressources de calcul utilisées dans un pool de travail, vous pouvez provoquer des démarrages à froid des applications en cours d’exécution dans ce pool de travail.
 
 La façon la plus rapide de modifier la taille des ressources de calcul d’un pool de travail qui n’exécute pas d’applications est de :
 
-* Descendre en puissance le nombre d’instances à 0. La libération de vos instances prendra environ 30 minutes.
-* Sélectionner la nouvelle taille de calcul et le nombre d’instances. À partir de là, l’opération prendra entre 2 à 3 heures.
+* Réduire la quantité d’employés à 2.  L’échelle minimale de diminution dans le portail est de 2. La libération de vos instances prendra quelques minutes. 
+* Sélectionner la nouvelle taille de calcul et le nombre d’instances. À partir de là, l’opération prendra jusqu’à 2 heures.
 
 Si vos applications nécessitent une plus grande taille de ressources de calcul, les étapes précédentes ne vous concernent pas. Au lieu de modifier la taille du pool de travail qui héberge ces applications, vous pouvez remplir un autre pool de travail avec des Workers de la taille souhaitée, puis déplacer vos applications vers ce pool.
 
-* Créez les instances supplémentaires de la taille de calcul nécessaire dans un autre pool de travail. Cette opération prendra entre 2 à 3 heures.
+* Créez les instances supplémentaires de la taille de calcul nécessaire dans un autre pool de travail. L’opération prendra jusqu’à 1 heure.
 * Réaffectez vos plans App Service hébergeant les applications qui nécessitent une plus grande taille au pool de travail nouvellement configuré. Il s’agit d’une opération rapide qui devrait prendre moins d’une minute.  
-* Descendez en puissance le premier pool de travail si ces instances inutilisées ne vous servent plus. Cette opération prend environ 30 minutes.
+* Descendez en puissance le premier pool de travail si ces instances inutilisées ne vous servent plus. Cette opération prend quelques minutes.
 
 **Mise à l’échelle automatique**: la mise à l’échelle automatique constitue l’un des outils pouvant vous aider à gérer la consommation des ressources de calcul. Vous pouvez utiliser la mise à l’échelle pour les serveurs frontaux ou les pools de travail. Vous pouvez effectuer des opérations comme augmenter vos instances de n’importe quel type de pool le matin et les réduire le soir. Vous pouvez également par exemple ajouter des instances lorsque le nombre de Workers disponibles dans un pool de travail passe en dessous d’un certain seuil.
 

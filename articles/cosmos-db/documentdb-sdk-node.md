@@ -1,6 +1,6 @@
 ---
-title: "API Node.js, Kit de développement logiciel (SDK) et ressources Azure DocumentDB | Microsoft Docs"
-description: "Découvrez l'API et le Kit de développement logiciel (SDK) Node.js, y compris les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Node.js DocumentDB."
+title: "API Azure Cosmos DB Node.js, kit de développement logiciel (SDK) et Ressources | Microsoft Docs"
+description: "Tout savoir sur l’API Node.js et le kit de développement logiciel (SDK), y compris les dates de sortie, les dates de déclassement et les modifications effectuées entre chaque version du kit de développement logiciel (SDK) Azure Cosmos DB Node.js."
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: fd221f624e64e6b1ffcc4d28608b8fa2936400ae
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 297fe8850499212ca41b0b5ca132b7de8c761297
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="documentdb-nodejs-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Node.js DocumentDB : notes de publication et ressources
+# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Azure Cosmos DB Node.js : notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Flux de modification .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.JS](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -50,7 +50,7 @@ ms.lasthandoff: 06/20/2017
 
 <tr><td>**Didacticiel de prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Node.js](documentdb-nodejs-get-started.md)</td></tr>
 
-<tr><td>**Didacticiel d’application web**</td><td>[Création d’une application web Node.js avec DocumentDB](documentdb-nodejs-application.md)</td></tr>
+<tr><td>**Didacticiel d’application web**</td><td>[Générer une application web Node.js à l’aide d’Azure Cosmos DB](documentdb-nodejs-application.md)</td></tr>
 
 <tr><td>**Plateforme actuellement prise en charge**</td><td> 
 [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
@@ -71,7 +71,7 @@ ms.lasthandoff: 06/20/2017
 ### <a name="1.11.0"/>1.11.0</a>
 * Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG).
 * Ajout de l’option permettant de contrôler le degré de parallélisme des requêtes entre les partitions.
-* Ajout de la possibilité de désactiver la vérification SSL lors de l’exécution sur l’émulateur DocumentDB.
+* Ajout de l’option permettant de désactiver la vérification SSL en cas d’exécution sur l’émulateur Azure Cosmos DB.
 * Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
 * Correction du bogue de jeton de continuation pour la collection à partition unique (github #107).
 * Correction du bogue executeStoredProcedure lors de la gestion du 0 comme paramètre unique (github #155).
@@ -89,7 +89,7 @@ ms.lasthandoff: 06/20/2017
 * Ajout de la prise en charge des requêtes TOP/ORDER BY pour les collections partitionnées.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Ajout de la prise en charge d’une stratégie de nouvelle tentative pour les requêtes limitées. (Les requêtes limitées reçoivent une exception de taux de requête excessif, code d’erreur 429.) Par défaut, DocumentDB accepte neuf nouvelles tentatives pour chaque requête lorsque le code d’erreur 429 est retourné, conformément au temps retryAfter spécifié dans l’en-tête de réponse. Il est désormais possible de définir un intervalle fixe de nouvelle tentative dans la propriété RetryOptions sur l’objet ConnectionPolicy, si vous souhaitez ignorer le temps retryAfter retourné par le serveur entre chaque nouvelle tentative. DocumentDB attend maintenant au maximum 30 secondes pour chaque requête limitée (quel que soit le nombre de nouvelles tentatives) et renvoie la réponse avec un code d’erreur 429. Cette durée peut également être remplacée dans la propriété RetryOptions sur l’objet ConnectionPolicy.
+* Ajout de la prise en charge d’une stratégie de nouvelle tentative pour les requêtes limitées. (Les requêtes limitées reçoivent une exception de taux de requête excessif, code d’erreur 429.) Par défaut, Azure Cosmos DB accepte neuf nouvelles tentatives pour chaque requête lorsque le code d’erreur 429 est retourné, conformément au temps retryAfter spécifié dans l’en-tête de réponse. Il est désormais possible de définir un intervalle fixe de nouvelle tentative dans la propriété RetryOptions sur l’objet ConnectionPolicy, si vous souhaitez ignorer le temps retryAfter retourné par le serveur entre chaque nouvelle tentative. Azure Cosmos DB attend maintenant au maximum 30 secondes pour chaque requête limitée (quel que soit le nombre de nouvelles tentatives) et renvoie la réponse avec un code d’erreur 429. Cette durée peut également être remplacée dans la propriété RetryOptions sur l’objet ConnectionPolicy.
 * Cosmos DB renvoie maintenant x-ms-throttle-retry-count et x-ms-throttle-retry-wait-time-ms comme en-têtes de réponse dans chaque requête pour signaler le nombre limite de nouvelles tentatives et le cumul de temps d’attente observé par la requête entre les nouvelles tentatives.
 * La classe RetryOptions a été ajoutée pour exposer la propriété RetryOptions sur la classe ConnectionPolicy, qui peut être utilisée pour substituer certaines des options de nouvelle tentative par défaut.
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 06/20/2017
 * Résout hashParitionResolver resolveForRead() : levait une exception si aucune clé de partition n’était fournie, au lieu de renvoyer une liste de tous les liens enregistrés.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Résolution du problème [n° 100](https://github.com/Azure/azure-documentdb-node/issues/100) : Agent HTTPS dédié : éviter de modifier l’agent global pour DocumentDB. Utilisez un agent dédié pour toutes les demandes de la bibliothèque.
+* Résolution du problème [n° 100](https://github.com/Azure/azure-documentdb-node/issues/100) : Agent HTTPS dédié : éviter de modifier l’agent global pour les besoins d’Azure Cosmos DB. Utilisez un agent dédié pour toutes les demandes de la bibliothèque.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Résolution du problème [n° 81](https://github.com/Azure/azure-documentdb-node/issues/81) : gestion correcte des tirets dans les ID de média.

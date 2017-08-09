@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6db2fa2f568c3cf8296bd91214b380a01b85c134
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 1f12a8e3e11bc7eee1fc536e231f71c1d17c3fe4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 06/16/2017
 
 Cet article vous fournit des détails techniques sur le fonctionnement de la fonctionnalité d’authentification unique (SSO) transparente d’Azure Active Directory.
 
-## <a name="how-does-azure-ad-seamless-sso-work"></a>Comment l’authentification unique transparente Azure AD fonctionne-t-elle ?
+## <a name="how-does-seamless-sso-work"></a>Fonctionnement de l’authentification unique transparente (SSO)
 
 Cette section se compose de deux parties :
 1. Configuration de la fonctionnalité d’authentification unique transparente.
@@ -41,6 +41,9 @@ L’authentification unique transparente s’active via Azure AD Connect comme i
 
 >[!NOTE]
 > Le compte d’ordinateur et les SPN Kerberos sont créés dans chaque forêt AD que vous synchronisez avec Azure AD (via Azure AD Connect) et pour les utilisateurs qui doivent bénéficier de l’authentification unique transparente. Déplacez le compte d’ordinateur `AZUREADSSOACCT` vers une unité d’organisation (UO) où d’autres comptes d’ordinateurs sont stockés. Vous serez ainsi assuré qu’il sera géré de la même façon et qu’il ne sera pas supprimé.
+
+>[!IMPORTANT]
+>Il est fortement recommandé que vous [substituiez la clé de déchiffrement Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) du `AZUREADSSOACCT` compte d’ordinateur au moins tous les 30 jours.
 
 ### <a name="how-does-sign-in-with-seamless-sso-work"></a>Comment s’opère une connexion avec l’authentification unique transparente ?
 
@@ -71,6 +74,6 @@ L’authentification unique transparente est opportuniste, ce qui signifie que s
 
 - [**Démarrage rapide**](active-directory-aadconnect-sso-quick-start.md) : mettez en service l’authentification unique transparente Azure AD.
 - [**Questions fréquentes (FAQ)**](active-directory-aadconnect-sso-faq.md) : réponses aux questions fréquentes.
-- [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-sso.md) : découvrez comment résoudre les problèmes courants rencontrés avec cette fonctionnalité.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour formuler des demandes de nouvelles fonctionnalités.
+- [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
+- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.
 

@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: d9143c1ec2075f71659e8deaadc93d1972ea9a85
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: f1fda3c4192d0dae4fa60788f4d88fb72ddba4ad
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="understanding-resource-access-in-azure"></a>Présentation de l'accès aux ressources dans Azure
-> [!NOTE]
-> Cette rubrique explique les concepts relatifs à l'utilisation des administrateurs des abonnements pour contrôler l'accès aux ressources dans l’ensemble du portail Azure. Le portail Azure en version préliminaire fournit également un [contrôle des accès par rôle](role-based-access-control-configure.md) afin de permettre une gestion plus précise des ressources Microsoft Azure.
+> [!IMPORTANT]
+> Microsoft recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure au lieu d’utiliser le portail Azure classique référencé dans cet article. Le portail Azure fournit également un [contrôle des accès par rôle](role-based-access-control-configure.md) afin de permettre une gestion plus précise des ressources Azure.
 > 
 > 
 

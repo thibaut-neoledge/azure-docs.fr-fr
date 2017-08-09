@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e1d44f85b36d08944351a79d7a4b39cc8de61201
-ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ca8c94cfe6a76ba169b2ec1f7ab3f49caf562289
 ms.contentlocale: fr-fr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
@@ -36,6 +36,14 @@ Vous devez installer la passerelle de gestion des données sur votre ordinateur 
 La procédure pas à pas suivante explique comment créer une fabrique de données avec un pipeline qui déplace les données d’une base de données **SQL Server** locale vers un Stockage Blob Azure. Dans le cadre de la procédure pas à pas, vous installez et configurez la passerelle de gestion des données sur votre ordinateur.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Procédure pas à pas : copier des données locales vers le cloud
+
+## <a name="prerequisites-for-the-tutorial"></a>Configuration requise pour le didacticiel
+Avant de commencer ce guide, vous devez disposer des éléments suivants :
+
+* **Abonnement Azure**.  Si vous n'êtes pas abonné, vous pouvez créer un compte d'essai gratuit en quelques minutes. Consultez l'article [Essai gratuit](http://azure.microsoft.com/pricing/free-trial/) pour plus d'informations.
+* **Compte Azure Storage**. Dans le cadre de ce didacticiel, le stockage d’objets blob est utilisé comme magasin de données **destination/réception**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
+* **SQL Server**. Dans le cadre de ce didacticiel, vous utilisez une base de données SQL Server locale comme magasin de données **source**. 
+
 ## <a name="create-data-factory"></a>Créer une fabrique de données
 Dans cette étape, vous allez utiliser le portail Azure pour créer une instance Azure Data Factory nommée **ADFTutorialOnPremDF**.
 
@@ -263,7 +271,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
    * Le paramètre **folderPath** est défini sur **adftutorial/outfromonpremdf**, où « outfromonpremdf » est le dossier dans le conteneur adftutorial. S’il n’existe pas déjà, créez le conteneur **adftutorial** .
    * **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
 
-   Si vous ne spécifiez pas de **fileName** pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
+   Si vous ne spécifiez pas de **fileName** pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
    Pour affecter une valeur à **folderPath** et **fileName** de manière dynamique en fonction de l’heure de **SliceStart**, utilisez la propriété partitionedBy. Dans l’exemple suivant, folderPath utilise les valeurs Year, Month et Day à partir de SliceStart (heure de début de la partie en cours de traitement), alors que fileName utilise la valeur Hour à partir de SliceStart. Par exemple, si une partie est produite pour 2014-10-20T08:00:00, la valeur folderName est wikidatagateway/wikisampledataout/2014/10/20, alors que la valeur de fileName est 08.csv.
 
@@ -342,7 +350,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 
    * Dans la section des activités, toutes les activités ont le **type** **Copy**.
    * **L’entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
-   * Dans la section **typeProperties**, **SqlSource** est spécifié en tant que **Type de source**, et **BlobSink** en tant que **Type de récepteur**.
+   * Dans la section **typeProperties**, **SqlSource** est spécifié en tant que **Type de source** et **BlobSink **, en tant que **Type de récepteur**.
    * La requête SQL `select * from emp` est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
    Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 451d4fd24dc506fb4a659edb710ab67a66cbbde7
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 05fb966e3e18b8d5242a2795248b9b72352d894d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -33,6 +33,7 @@ Pour déployer l’authentification unique transparente, vous devez procéder co
 2. *Activer la fonctionnalité* : activez l’authentification unique transparente sur votre locataire au moyen d’Azure AD Connect.
 3. *Déployer la fonctionnalité*: utilisez la stratégie de groupe afin d’étendre la fonctionnalité à une partie ou à la totalité de vos utilisateurs.
 4. *Tester la fonctionnalité*: testez l’authentification de l’utilisateur à l’aide de l’authentification unique transparente.
+5. *{0}{0}{0}{0}{0}{0}{0}{0}{0} clés* : substituer fréquemment les clés de déchiffrement de comptes d’ordinateur Kerberos.
 
 ## <a name="step-1-check-prerequisites"></a>Étape 1 : Vérifier les prérequis
 
@@ -104,14 +105,19 @@ Mozilla Firefox ne procède pas automatiquement à l’authentification Kerberos
 4. Entrez https://autologon.microsoftazuread-sso.com et https://aadg.windows.net.nsatc.net dans le champ.
 5. Cliquez sur OK, puis rouvrez le navigateur.
 
->[!NOTE]
->L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox.
+#### <a name="safari-on-mac-os"></a>Safari sur Mac OS
 
-#### <a name="google-chrome-on-mac"></a>Google Chrome sur Mac
+Assurez-vous que l’ordinateur utilisant Mac OS est connecté à AD. Retrouvez des instructions sur la procédure [ici](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
 
-Pour ce qui est de Google Chrome sur Mac et sur les autres plateformes non-Windows, reportez-vous à [cet article](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) pour obtenir plus d’informations sur l’ajout des URL Azure AD à la liste approuvée pour l’authentification intégrée.
+#### <a name="google-chrome-on-mac-os"></a>Google Chrome sur Mac
+
+Pour ce qui est de Google Chrome sur Mac OS et sur les autres plateformes autres que Windows, reportez-vous à [cet article](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) pour obtenir plus d’informations sur l’ajout des URL Azure AD à la liste approuvée pour l’authentification intégrée.
 
 L’utilisation des extensions de stratégie de groupe Active Directory tierces permettant de déployer les URL Azure AD pour les utilisateurs de Firefox et de Google Chrome sur Mac dépasse la portée de cet article.
+
+#### <a name="known-limitations"></a>Limites connues
+
+L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée.
 
 ## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
 
@@ -128,10 +134,17 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
 - Connectez-vous à *https://myapps.microsoft.com/contoso.onmicrosoft.com* dans une nouvelle session de navigation privée. Remplacez « *contoso* » par le nom de votre locataire.
 - Ou connectez-vous à *https://myapps.microsoft.com/contoso.com* dans une nouvelle session de navigation privée. Remplacez « *contoso.com* » par un domaine vérifié (pas un domaine fédéré) dans votre locataire.
 
+## <a name="step-5-roll-over-keys"></a>Étape 5 : substituer les clés
+
+À l’étape 2, Azure AD Connect crée des comptes d’ordinateurs (représentant Azure AD) dans toutes les forêts AD sur lesquelles vous avez activé l’authentification unique transparente. Obtenez plus de détails [ici](active-directory-aadconnect-sso-how-it-works.md). Pour améliorer la sécurité, il vous est recommandé de fréquemment substituer les clés de déchiffrement Kerberos de ces comptes d’ordinateur.
+
+>[!IMPORTANT]
+>Vous n’avez pas besoin d’effectuer cette étape _immédiatement_ après avoir activé la fonctionnalité. Substituez les clés de déchiffrement Kerberos au moins tous les 30 jours.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [**Immersion technique**](active-directory-aadconnect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
-- [**Questions fréquentes (FAQ)**](active-directory-aadconnect-sso-faq.md) : réponses aux questions couramment posées.
+- [**Forum aux questions**](active-directory-aadconnect-sso-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.
 

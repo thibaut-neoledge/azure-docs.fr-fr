@@ -1,5 +1,5 @@
 ---
-title: Installation et utilisation de Giraph sur des clusters Hadoop dans HDInsight | Microsoft Docs
+title: Installer et utiliser Giraph sur des clusters Hadoop dans HDInsight - Azure | Documents Microsoft
 description: "Découvrez comment personnaliser un cluster HDInsight avec Giraph et comment utiliser Giraph."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 1eda530368170be7cd99c5860e72f5700c015248
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f0eb5c1f457380600463a370043f03e6d655a02c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Installer et utiliser Giraph sur les clusters HDInsight Windows
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/18/2017
 Découvrez comment personnaliser un cluster HDInsight basé sur Windows avec Giraph à l’aide d’une action de script, et comment utiliser Giraph pour traiter des graphiques à grande échelle. Pour plus d’informations sur l’utilisation de Giraph avec un cluster Linux, consultez [Installation de Giraph sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). Pour plus d’informations sur l’installation de Giraph sur un cluster HDInsight Linux, consultez [Installer Giraph sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md).
+> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d’informations sur l’installation de Giraph sur un cluster HDInsight Linux, consultez [Installer Giraph sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 
 Vous pouvez installer Giraph sur n’importe quel type de cluster (Hadoop, Storm, HBase, Spark) sur Azure HDInsight à l’aide d’une *action de script*. Pour obtenir un exemple de script pour installer Giraph sur un cluster HDInsight, téléchargez l’objet blob de stockage Azure en lecture seule à l’adresse [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). L'exemple de script fonctionne uniquement avec un cluster HDInsight version 3.1. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](hdinsight-component-versioning.md).
@@ -96,14 +95,14 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
     ```powershell
     $clusterName = "clustername"
     # Giraph examples jar
-    $jarFile = "wasbs:///example/jars/giraph-examples.jar"
+    $jarFile = "wasb:///example/jars/giraph-examples.jar"
     # Arguments for this job
     $jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
                     "-ca", "mapred.job.tracker=headnodehost:9010",
                     "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-                    "-vip", "wasbs:///example/data/tiny_graph.txt",
+                    "-vip", "wasb:///example/data/tiny_graph.txt",
                     "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-                    "-op",  "wasbs:///example/output/shortestpaths",
+                    "-op",  "wasb:///example/output/shortestpaths",
                     "-w", "2"
     # Create the definition
     $jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -122,7 +121,7 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
     ```
 
     Dans l’exemple ci-dessus, remplacez **clustername** par le nom de votre cluster HDInsight sur lequel Giraph est installé.
-3. Affichez les résultats. Une fois la tâche terminée, les résultats sont stockés dans deux fichiers de sortie dans le dossier **wasbs:///example/out/shotestpaths**. Les fichiers se nomment **part-m-00001** et **part-m-00002**. Procédez comme suit pour télécharger et afficher le résultat :
+3. Affichez les résultats. Une fois la tâche terminée, les résultats sont stockés dans deux fichiers de sortie, dans le dossier **wasb:///example/out/shotestpaths**. Les fichiers se nomment **part-m-00001** et **part-m-00002**. Procédez comme suit pour télécharger et afficher le résultat :
 
     ```powershell
     $subscriptionName = "<SubscriptionName>"       # Azure subscription name

@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 07/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>Déplacer des données à l’aide de l’activité de copie
@@ -116,7 +115,7 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 | &nbsp; | Inde occidentale | Inde centrale |
 | &nbsp; | Inde du Sud | Inde centrale |
 
-Vous pouvez également indiquer explicitement la région du service Data Factory à utiliser pour effectuer la copie en spécifiant la propriété `executionLocation` sous l’activité de copie `typeProperties`. Les valeurs prises en charge pour cette propriété sont énumérées dans la colonne **Région utilisée pour le déplacement des données** ci-dessus. Notez que vos données passent à travers cette région sur le câble pendant la copie. Par exemple, pour effectuer une copie entre des magasins Azure en Corée, vous pouvez spécifier pour `"executionLocation": "Japan East"` un routage via le Japon (voir [exemple JSON](#by-using-json-scripts) comme référence).
+Vous pouvez également indiquer explicitement la région du service Data Factory à utiliser pour effectuer la copie en spécifiant la propriété `executionLocation` sous l’activité de copie `typeProperties`. Les valeurs prises en charge pour cette propriété sont énumérées dans la colonne **Région utilisée pour le déplacement des données** ci-dessus. Notez que, dans cette région, vos données transitent par le câble pendant la copie. Par exemple, pour effectuer une copie entre des magasins Azure en Corée, vous pouvez spécifier pour `"executionLocation": "Japan East"` un routage via le Japon (voir [exemple JSON](#by-using-json-scripts) comme référence).
 
 > [!NOTE]
 > Si la région de la banque de données de destination ne figure pas dans la liste précédente ou n’est pas détectable, par défaut, l’activité de copie échoue au lieu de passer par une autre région, sauf si `executionLocation` est spécifié. La liste des régions prises en charge sera développée au fil du temps.
@@ -187,6 +186,12 @@ Vous pouvez spécifier plus d’un jeu de données d’entrée pour l’activit�
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez [Guide des performances et de l’optimisation de l’activité de copie](data-factory-copy-activity-performance.md), qui décrit les facteurs clés affectant les performances du déplacement de données dans Azure Data Factory (activité de copie). Il répertorie également les performances observées lors des tests internes, et présente les différentes manières d’optimiser les performances de l’activité de copie.
+
+## <a name="fault-tolerance"></a>Tolérance de panne
+Par défaut, l’activité de copie arrête de copier des données et signale un échec quand elle rencontre des données incompatibles entre la source et le récepteur. Vous pouvez configurer explicitement pour ignorer et consigner les lignes incompatibles, et ne copier que les données compatibles afin que la copie réussisse. Pour plus de détails, voir [Tolérance de panne de l’activité de copie](data-factory-copy-activity-fault-tolerance.md).
+
+## <a name="security-considerations"></a>Considérations relatives à la sécurité
+Lisez les [considérations relatives à la sécurité](data-factory-data-movement-security-considerations.md) qui décrivent l’infrastructure de sécurité de base que les services de migration des données d’Azure Data Factory utilisent pour sécuriser vos données.
 
 ## <a name="scheduling-and-sequential-copy"></a>Planification et copie séquentielle
 Consultez [Planification et exécution](data-factory-scheduling-and-execution.md) pour plus d’informations sur le fonctionnement de la planification et de l’exécution dans Data Factory. Il est possible d’exécuter plusieurs opérations de copie l’une après l’autre, de manière séquentielle/ordonnée. Consultez la section [Copier de manière séquentielle](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
