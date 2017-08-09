@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/20/2017
+ms.date: 07/26/2017
 ms.author: TomSh
 ms.custom: azlog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 02b3095bb77a122fddd74e636395628333a13936
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: a5c51817688140cc2778602b4c1d5184ae4729a0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Intégration des journaux Azure avec Azure Diagnostics Logging et Windows Event Forwarding
@@ -136,7 +135,7 @@ Procédez comme suit pour obtenir la clé de stockage :
  ![Plus de services](./media/security-azure-log-integration-get-started/more-services.png)
  3. Entrez **Stockage** dans la zone de texte **Filtre**. Cliquez sur **Comptes de stockage** (option qui apparaît une fois que vous entrez **Stockage**)
 
-  ![zone filtre](./media/security-azure-log-integration-get-started/filter.png)
+   ![zone filtre](./media/security-azure-log-integration-get-started/filter.png)
  4. Une fois que la liste des comptes de stockage s’affiche, double-cliquez sur le compte que vous avez affecté au stockage des journaux.
 
    ![liste des comptes de stockage](./media/security-azure-log-integration-get-started/storage-accounts.png)
@@ -182,8 +181,8 @@ Pour en savoir plus sur l’intégration des journaux Azure, consultez les docum
 
 * [Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) : Centre de téléchargement pour plus d’informations, la configuration système requise et les instructions d’installation sur l’intégration des journaux Azure.
 * [Introduction à l’intégration de journaux Azure](security-azure-log-integration-overview.md) : ce document présente l’intégration des journaux Azure, ses principales fonctionnalités et son fonctionnement.
-* [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : ce billet de blog vous montre comment configurer l’intégration des journaux Azure pour travailler avec des solutions de partenaires Splunk, HP ArcSight et IBM QRadar.
+* [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : ce billet de blog vous montre comment configurer l’intégration des journaux Azure pour travailler avec des solutions de partenaires Splunk, HP ArcSight et IBM QRadar. Voici nos recommandations sur la configuration des composants SIEM. Pour plus d’informations, contactez d’abord votre fournisseur SIEM.
 * [FAQ de l’intégration des journaux Azure](security-azure-log-integration-faq.md) : ce forum aux questions répond aux questions sur l’intégration des journaux Azure.
-* [Intégration des alertes du Security Center avec les journaux Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) : ce document montre comment synchroniser les alertes du Security Center, ainsi que les événements de sécurité des machines virtuelles collectés par Azure Diagnostics et les journaux d’audit Azure dans leur solution SIEM ou Log Analytics.
+* [Intégration des alertes du Security Center avec les journaux Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) : ce document montre comment synchroniser les alertes du Security Center, ainsi que les événements de sécurité des machines virtuelles collectés par Azure Diagnostics et les journaux d’activité Azure dans leur solution SIEM ou Log Analytics.
 * [Nouvelles fonctionnalités des diagnostics Azure et des journaux d’Audit Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) : ce billet de blog présente les journaux d’Audit Azure et autres fonctionnalités pour vous permettre de mieux connaître les opérations de vos ressources Azure.
 

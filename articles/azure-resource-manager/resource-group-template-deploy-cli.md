@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2017
+ms.date: 07/31/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 9c9eff8c828329b9d8358f88b90c174c64f5c29f
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 4f1d5f4cc48470f8906edb28628006dd1996bd3a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles Resource Manager et dAzure CLI
@@ -29,9 +29,9 @@ Le modèle Resource Manager que vous déployez peut être un fichier local sur v
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
-<a id="deploy-local-template" />
+Si Azure CLI n’est pas installé, vous pouvez utiliser le [Cloud Shell](#deploy-template-from-cloud-shell).
 
-## <a name="deploy-a-template-from-your-local-machine"></a>Déployer un modèle à partir de votre ordinateur local
+## <a name="deploy-local-template"></a>Déployer un modèle local
 
 Au moment de déployer des ressources dans Azure, vous effectuez les opérations suivantes :
 
@@ -60,13 +60,16 @@ Le déploiement peut prendre plusieurs minutes. Au terme, vous voyez un message 
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-a-template-from-an-external-source"></a>Déployer un modèle à partir d’une source externe
+## <a name="deploy-external-template"></a>Déployer un modèle externe
 
 Au lieu de stocker les modèles Resource Manager sur votre ordinateur local, vous pouvez les stocker dans un emplacement externe. Vous pouvez stocker des modèles dans un dépôt de contrôle de code source (par exemple, GitHub). Vous pouvez aussi les stocker dans un compte de stockage Azure pour mettre en place un accès partagé dans votre organisation.
 
 Pour déployer un modèle externe, utilisez le paramètre **template-uri**. Pour déployer l’exemple de modèle à partir de GitHub, utilisez l’URI figurant dans l’exemple.
    
 ```azurecli
+az login
+
+az group create --name ExampleGroup --location "Central US"
 az group deployment create \
     --name ExampleDeployment \
     --resource-group ExampleGroup \
@@ -75,6 +78,59 @@ az group deployment create \
 ```
 
 L’exemple précédent nécessite un URI accessible publiquement pour le modèle, ce qui convient pour la plupart des scénarios, sachant que votre modèle ne doit pas inclure de données sensibles. Si vous avez besoin de spécifier des données sensibles (par exemple, un mot de passe d’administrateur), passez cette valeur en tant que paramètre sécurisé. Toutefois, si vous ne souhaitez pas que votre modèle soit accessible au public, vous pouvez le protéger en le stockant dans un conteneur de stockage privé. Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton de signature d’accès partagé (SAS), consultez [Déployer un modèle privé avec un jeton SAS](resource-manager-cli-sas-token.md).
+
+## <a name="deploy-template-from-cloud-shell"></a>Déployer le modèle à partir de Cloud Shell
+
+Vous pouvez utiliser [Cloud Shell](../cloud-shell/overview.md) pour exécuter les commandes Azure CLI pour le déploiement de votre modèle. Toutefois, vous devez d’abord charger votre modèle dans le partage de fichiers de votre Cloud Shell. Si vous n’avez pas utilisé Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../cloud-shell/overview.md) pour obtenir plus d’informations sur sa configuration.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).   
+
+2. Sélectionnez votre groupe de ressources Cloud Shell. Le modèle de nom est `cloud-shell-storage-<region>`.
+
+   ![Sélection du groupe de ressources](./media/resource-group-template-deploy-cli/select-cs-resource-group.png)
+
+3. Sélectionnez le compte de stockage de votre Cloud Shell.
+
+   ![Sélectionner le compte de stockage](./media/resource-group-template-deploy-cli/select-storage.png)
+
+4. Sélectionnez **Fichiers**.
+
+   ![Sélectionner des fichiers](./media/resource-group-template-deploy-cli/select-files.png)
+
+5. Sélectionnez le partage de fichiers pour Cloud Shell. Le modèle de nom est `cs-<user>-<domain>-com-<uniqueGuid>`.
+
+   ![Sélectionner le partage de fichiers](./media/resource-group-template-deploy-cli/select-file-share.png)
+
+6. Sélectionnez **Ajouter un répertoire**.
+
+   ![Ajouter un répertoire](./media/resource-group-template-deploy-cli/select-add-directory.png)
+
+7. Nommez-le **modèles** puis sélectionnez **Ok**.
+
+   ![Nommer le répertoire](./media/resource-group-template-deploy-cli/name-templates.png)
+
+8. Sélectionnez votre nouveau répertoire.
+
+   ![Sélectionner le répertoire](./media/resource-group-template-deploy-cli/select-templates.png)
+
+9. Sélectionnez **Télécharger**.
+
+   ![Sélectionner Télécharger](./media/resource-group-template-deploy-cli/select-upload.png)
+
+10. Recherchez et chargez votre modèle.
+
+   ![Charger le fichier](./media/resource-group-template-deploy-cli/upload-files.png)
+
+11. Ouvrez l’invite de commandes.
+
+   ![Ouvrir Cloud Shell](./media/resource-group-template-deploy-cli/start-cloud-shell.png)
+
+12. Entrez les commandes suivantes dans Cloud Shell :
+
+   ```azurecli
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
+   ```
 
 ## <a name="parameter-files"></a>Fichiers de paramètres
 

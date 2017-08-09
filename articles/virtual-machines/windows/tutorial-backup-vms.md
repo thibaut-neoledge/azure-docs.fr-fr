@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/05/2017
+ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c97ac8f6df1e0fd669b3789d402e1e60f2154205
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Sauvegarde de machines virtuelles Windows dans Azure
@@ -81,7 +81,7 @@ Dans cet exemple, vous découvrirez comment récupérer le fichier image qui est
 5. Sur votre ordinateur local, ouvrez un nouvel onglet et accédez au [portail Azure](https://portal.azure.com).
 6. Dans le menu de gauche, sélectionnez **machines virtuelles** et sélectionnez la machine virtuelle dans la liste.
 8. Dans le panneau de la machine virtuelle, au niveau de la section **Paramètres**, cliquez sur **Sauvegarde**. Le panneau **Sauvegarde** s’ouvre. 
-9. Dans le menu en haut du panneau, sélectionnez **Récupération de fichier (préversion)**. Le panneau **Récupération de fichier (préversion) s’affiche.
+9. Dans le menu en haut du panneau, sélectionnez **Récupération de fichier**. Le panneau **Récupération de fichier** s’affiche.
 10. Dans **Étape 1 : Sélectionner un point de récupération**, sélectionnez un point de récupération dans la liste déroulante.
 11. Dans **Étape 2 : Télécharger le script pour parcourir et restaurer des fichiers**, cliquez sur le bouton **Télécharger le fichier exécutable**. Enregistrez le fichier dans votre dossier **Téléchargements**.
 12. Sur votre ordinateur local, ouvrez **Explorateur de fichiers** et accédez à votre dossier**Téléchargements**, puis copiez le fichier .exe téléchargé. Le nom de fichier est prédéfini en fonction du nom de votre machine virtuelle. 

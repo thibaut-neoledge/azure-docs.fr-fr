@@ -14,28 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/20/2017
-ms.author: genemi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 069656b495929d66f6a47b38141f56b6bf0ac92f
+ms.date: 07/31/2017
+ms.author: genemi;carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: d9731cf5399cce6f103129ccda521f2867bd8da6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Concevoir une base de données SQL Azure et se connecter avec C&#x23; et ADO.NET
 
-Azure SQL Database est une solution DBaaS et relationnelle du cloud Microsoft (« Azure »). Ce didacticiel vous montre comment utiliser le portail Azure et ADO.NET pour : 
+Azure SQL Database est une solution DBaaS relationnelle gérée dans Microsoft Cloud (« Azure »). Ce didacticiel vous montre comment utiliser le portail Azure et ADO.NET avec Visual Studio pour : 
 
 > [!div class="checklist"]
 > * Créer une base de données dans le portail Azure
 > * Configurer une règle de pare-feu au niveau du serveur dans le portail Azure
-> * Se connecter à la base de données avec ADO.NET
+> * Se connecter à la base de données avec ADO.NET et Visual Studio
 > * Créer des tables avec ADO.NET
-> * Insérer des données avec ADO.NET 
-> * Interroger ces données à l’aide d’ADO.NET
+> * Insérer, mettre à jour et supprimer des données avec ADO.NET 
+> * Interroger les données avec ADO.NET
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+## <a name="prerequisites"></a>Composants requis
+
+Une installation de [Visual Studio Community 2017, Visual Studio Professional 2017 ou Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -53,8 +57,18 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les étapes suivantes sont disponibles :
+Dans ce didacticiel, vous avez appris à exécuter des tâches de base de données classiques telles que la création d’une base de données et de tables, le chargement et l’interrogation de données, ainsi que la restauration de la base de données à un point antérieur dans le temps. Vous avez appris à effectuer les actions suivantes :
+> [!div class="checklist"]
+> * Créer une base de données
+> * Configurer une règle de pare-feu
+> * Se connecter à la base de données avec [Visual Studio et C#](sql-database-connect-query-dotnet-visual-studio.md)
+> * créez des tables
+> * Insérer, mettre à jour et supprimer des données
+> * Données de requête
 
-- [Utiliser LINQ dans votre programme C# pour les requêtes SQL](https://msdn.microsoft.com/library/bb425822.aspx)
-- [Migrer votre base de données SQL Server vers Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+Passez au didacticiel suivant pour en savoir plus sur la migration de vos données.
+
+> [!div class="nextstepaction"]
+>[Migrer votre base de données SQL Server vers Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+
 

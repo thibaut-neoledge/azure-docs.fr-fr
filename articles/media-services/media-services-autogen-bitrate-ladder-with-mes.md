@@ -12,25 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 07/20/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 286ba47b801d4f21add1a8429035729be6ff7e00
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: e4bc03c624c9930d7a9b0bef22d3179633de3365
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Utilisation d’Azure Media Encoder Standard pour générer automatiquement une échelle des vitesses de transmission
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Cette rubrique explique comment utiliser Media Encoder Standard (MES) pour générer automatiquement une échelle des vitesses de transmission (paires vitesse-résolution) basée sur la résolution d’entrée et la vitesse de transmission. La présélection générée automatiquement ne dépassera jamais la résolution d’entrée et la vitesse de transmission. Par exemple, si l’entrée est 720p à 3 Mbit/s, la sortie restera à 720p au mieux et démarrera à des vitesses inférieures à 3 Mbit/s.
+Cette rubrique explique comment utiliser Media Encoder Standard (MES) pour générer automatiquement une échelle des vitesses de transmission (paires vitesse-résolution) basée sur la résolution d’entrée et la vitesse de transmission. La présélection générée automatiquement ne dépassera jamais la résolution d’entrée et la vitesse de transmission. Par exemple, si l’entrée est 720p à 3 Mbits/s, la sortie restera à 720p maximum démarrera à des vitesses inférieures à 3 Mbits/s.
 
-Pour utiliser cette fonctionnalité, vous devez spécifier la présélection **Diffusion adaptative** lors de la création d’une tâche d’encodage. Lorsque vous utilisez la présélection **Diffusion adaptative**, l’encodeur MES limitera intelligemment l’échelle de vitesse de transmission. Mais vous ne pourrez pas contrôler les frais d’encodage car le service détermine le nombre de couches à utiliser et à quelle résolution. Vous pouvez consulter des exemples de couches de sortie produits par MES suite à un encodage avec la présélection **Diffusion adaptative** à la [fin](#output) de cette rubrique.
+### <a name="encoding-for-streaming-only"></a>Encodage pour la diffusion en continu uniquement
 
->[!NOTE]
-> Cette présélection doit être utilisée uniquement lorsque l’objectif est de produire un élément multimédia de sortie diffusable en continu. Par ailleurs, l’élément multimédia de sortie contiendra des fichiers MP4 où les flux audio et vidéo ne sont pas entrelacés. Si vous avez besoin que la sortie contiennent des fichiers MP4 dont les flux audio et vidéo sont entrelacés (par exemple, pour une utilisation en tant que fichier à téléchargement progressif), utilisez l’une des présélections répertoriées dans [cette section](media-services-mes-presets-overview.md).
+Si votre objectif est d’encoder votre vidéo source uniquement pour la diffusion en continu, il vous faut alors utiliser la présélection « Diffusion adaptative en continu » lors de la création d’une tâche d’encodage. Lorsque vous utilisez la présélection **Diffusion adaptative**, l’encodeur MES limitera intelligemment l’échelle de vitesse de transmission. Mais vous ne pourrez pas contrôler les frais d’encodage car le service détermine le nombre de couches à utiliser et à quelle résolution. Vous pouvez consulter des exemples de couches de sortie produites par MES suite à un encodage avec la présélection **Diffusion adaptative** à la fin de cette rubrique. L’élément multimédia de sortie contiendra des fichiers MP4 où les flux audio et vidéo ne sont pas entrelacés.
+
+### <a name="encoding-for-streaming-and-progressive-download"></a>Encodage pour le téléchargement progressif et la diffusion en continu
+
+Si votre objectif est d’encoder votre vidéo source pour la diffusion en continu ainsi que pour produire des fichiers MP4 pour le téléchargement progressif, il vous faut utiliser la présélection « Contenu adaptatif MP4 à plusieurs débits » lors de la création d’une tâche d’encodage. Lorsque vous utilisez la présélection **Contenu adaptative MP4 à plusieurs débits**, l’encodeur MES s’applique la même logique de codage que celle indiquée ci-dessus, mais maintenant la ressource en sortie contient des fichiers MP4 avec les flux audio et vidéo entrelacés. Vous pouvez utiliser un de ces fichiers MP4 (par exemple, la version la plus élevée à débit binaire) en tant que fichier de téléchargement progressif.
 
 ## <a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
 

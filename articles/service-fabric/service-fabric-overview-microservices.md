@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c90079542a91720cb60010dfd5be2cf76802cc70
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 53c142217c67465d29fa413f4edb4f96fcb4c6cc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Pourquoi une approche de microservices pour la conception d’applications ?
@@ -46,7 +45,7 @@ Une telle approche de conception monolithique présente des avantages. La concep
 
 Les microservices gèrent ces inconvénients et s’alignent plus étroitement sur les exigences métier précédentes, mais ils présentent eux aussi des avantages et des inconvénients. Avantages des microservices : en général, chacun encapsule des fonctionnalités métier plus simples, que vous pouvez mettre à l’échelle (monter en puissance ou descendre en puissance), tester, déployer et gérer indépendamment. L’un des avantages importants d’une approche de microservices est que les équipes sont davantage orientées par les scénarios métier que par la technologie, ce qui est encouragé par l’approche hiérarchisée. Dans la pratique, de plus petites équipes développent un microservice en s’appuyant sur un scénario client et utilisent les technologies de leur choix. 
 
-En d’autres termes, l’organisation n’a pas besoin de standardiser la technologie pour maintenir les applications monolithiques. Les équipes individuelles qui possèdent des services peuvent effectuer les actions les plus pertinentes pour elles en fonction de leur expertise ou de ce qui est le plus approprié pour le problème à résoudre. Dans la pratique, il est préférable de disposer d’un ensemble de technologies recommandées, par exemple d’un magasin NoSQL particulier ou d’une infrastructure d’application web.
+En d’autres termes, l’organisation n’a pas besoin de standardiser la technologie pour maintenir les applications de microservices. Les équipes individuelles qui possèdent des services peuvent effectuer les actions les plus pertinentes pour elles en fonction de leur expertise ou de ce qui est le plus approprié pour le problème à résoudre. Dans la pratique, il est préférable de disposer d’un ensemble de technologies recommandées, par exemple d’un magasin NoSQL particulier ou d’une infrastructure d’application web.
 
 L’inconvénient des microservices concerne la gestion du nombre accru d’entités distinctes et celle du contrôle des versions et des déploiements plus complexes. Le trafic réseau entre les microservices augmente, ainsi que les latences réseau correspondantes. Disposer d’un grand nombre de services granulaires et bavards est la recette idéale pour des performances cauchemardesques. Sans les outils permettant d’afficher ces dépendances, il est difficile de « voir » le système dans son ensemble. 
 

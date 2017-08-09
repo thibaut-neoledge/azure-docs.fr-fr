@@ -15,11 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 89b12ce7af1e810f72e14f67ec5b11390ac3e72f
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: e8ff96587a840236adfb277b3a33b11db71f7d8e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication Azure vers Azure
@@ -107,7 +106,7 @@ Vous pouvez répliquer et restaurer des machines virtuelles entre deux régions 
 -- | --
 Amérique | Canada de l’Est, Canada du Centre, Sud du Centre des États-Unis, Ouest du Centre des États-Unis, États-Unis de l’Est, États-Unis de l’Est 2, États-Unis de l’Ouest, États-Unis de l’Ouest 2, États-Unis du Centre, Nord du Centre des États-Unis
 Europe | Ouest du Royaume-Uni, Sud du Royaume-Uni, Europe du Nord, Europe de l’Ouest
-Asie | Inde du Sud, Centre de l’Inde, Asie du Sud-Est, Asie de l’Est, Japon de l’Est, Japon de l’Ouest
+Asie | Inde du Sud, Centre de l’Inde, Asie du Sud-Est, Asie de l’Est, Japon de l’Est, Japon de l’Ouest, Centre de la Corée, Corée du Sud
 Australie   | Est de l’Australie, Sud-Est de l’Australie
 
 >[!NOTE]
@@ -149,7 +148,7 @@ Exclure le disque | Non pris en charge|   Le disque temporaire est exclu par dé
 LRS | Pris en charge |
 GRS | Pris en charge |
 RA-GRS | Pris en charge |
-ZRS | Pris en charge |  
+ZRS | Non pris en charge |  
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud.
 
 >[!IMPORTANT]

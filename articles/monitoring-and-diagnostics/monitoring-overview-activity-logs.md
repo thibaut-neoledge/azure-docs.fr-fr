@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/20/2017
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: d0e436e2392a532cec813e0a8c5ab15c9ca35cf1
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 522960b63048d02140ca9c8eca1f30e6217ec888
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Présentation du journal d’activité Azure
-Le **journal d’activité Azure** est un journal qui fournit des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement. Le journal d’activité était précédemment appelé « journal d’audit » ou « journal des opérations », car il indique les événements de plan de contrôle pour vos abonnements. Avec le journal d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état de l’opération et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations pour les ressources qui utilisent le modèle Classic/« RDFE ».
+Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cela inclut une plage de données, à partir de données opérationnelles d’Azure Resource Manager pour les mises à jour des événements de l’état d’intégrité du service. Le journal d’activité était précédemment appelé « journaux d’audit » ou « journaux des opérations », car la catégorie administrative indique les événements de plan de contrôle pour vos abonnements. Avec le journal d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état de l’opération et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations pour les ressources qui utilisent le modèle Classic/« RDFE ».
 
 ![Journaux d’activité et autres types de journaux ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
 Figure 1 : Journaux d’activité et autres types de journaux
 
-Le journal d’activité est différent des [journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md). Les journaux d’activité fournissent des données sur les opérations effectuées sur une ressource à partir de l’extérieur. Les journaux de diagnostic sont émis par une ressource et fournissent des informations sur le fonctionnement de cette ressource.
+Le journal d’activité est différent des [journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md). Les journaux d’activité fournissent des données sur les opérations effectuées sur une ressource à partir de l’extérieur (le « plan de contrôle »). Les journaux de diagnostic sont émis par une ressource et fournissent des informations sur le fonctionnement de cette ressource (le « plan de données »).
 
 Vous pouvez extraire des événements de votre journal d’activité à l’aide du portail Azure, de l’interface de ligne de commande, des applets de commande PowerShell et de l’API REST Azure Monitor.
 
@@ -42,6 +42,15 @@ Regardez la vidéo suivante de présentation du journal d’activité.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 > 
 >
+
+## <a name="categories-in-the-activity-log"></a>Catégories dans le journal d’activité
+Le journal d’activité contient plusieurs catégories de données. Pour plus d’informations sur les schémas de ces catégories, [consultez cet article](monitoring-activity-log-schema.md). Vous avez notamment vu les points suivants :
+* **Administrative** : cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès basé sur un rôle dans un abonnement.
+* **État d’intégrité du service** : cette catégorie contient l’enregistrement de tout incident de l’état d’intégrité du service qui se sont produits dans Azure. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « SQL Azure dans l’est des États-Unis rencontre des temps d’arrêt. » Les événements de l’état d’intégrité du service se présentent sous cinq variétés : action requise, récupération assistée, incident, maintenance, informations ou sécurité et n’apparaissent que si une ressource de votre abonnement est affectée par l’événement.
+* **Alerte** : cette catégorie contient l’enregistrement de toutes les activations des alertes Azure. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « % du processeur sur myVM a été supérieur à 80 pour les 5 dernières minutes. » Une variété de systèmes Azure possèdent un concept d’alertes : vous pouvez définir une règle quelconque et recevoir une notification lorsque les conditions correspondent à cette règle. Chaque fois qu’un type d’alerte Azure pris en charge « s’active » ou si les conditions sont remplies pour générer une notification, un enregistrement de l’activation est également envoyé à cette catégorie du journal d’activité.
+* **Mise à l’échelle automatique** : cette catégorie contient l’enregistrement de tous les événements liés au fonctionnement du moteur de mise à l’échelle selon les paramètres d’échelle automatique définis dans votre abonnement. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « Échec de l’action de monter en puissance de la mise à l’échelle automatique. » À l’aide de la mise à l’échelle automatique, vous pouvez automatiquement augmenter ou diminuer la taille des instances dans un type de ressource pris en charge basé sur l’heure du jour et/ou les données de charge (métriques) à l’aide d’un paramètre de mise à l’échelle automatique. Lorsque les conditions sont remplies pour monter ou descendre en puissance, les événements de démarrage réussis ou échoués sont enregistrés dans cette catégorie.
+* **Recommandation** : cette catégorie contient les événements de recommandation de certains types de ressources, telles que les sites Web et les serveurs SQL. Ces événements proposent des recommandations sur la manière de mieux utiliser vos ressources. Vous ne recevez que les événements de ce type si vous disposez de ressources qui émettent des recommandations.
+* **Stratégie, sécurité et état d’intégrité du service** : ces catégories ne contiennent pas d’événements ; elles sont réservées à un usage ultérieur.
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Ce que vous pouvez faire avec le journal d’activité
 Voici ce que vous pouvez faire avec le journal d’activité :
@@ -144,113 +153,8 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 azure insights logprofile delete --name my_log_profile
 ```
 
-## <a name="event-schema"></a>Schéma d’événement
-Chaque événement dans le journal d’activité a un objet blob JSON similaire à celui de cet exemple :
-
-```
-{
-  "value": [ {
-    "authorization": {
-      "action": "microsoft.support/supporttickets/write",
-      "role": "Subscription Admin",
-      "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841"
-    },
-    "caller": "admin@contoso.com",
-    "channels": "Operation",
-    "claims": {
-      "aud": "https://management.core.windows.net/",
-      "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-      "iat": "1421876371",
-      "nbf": "1421876371",
-      "exp": "1421880271",
-      "ver": "1.0",
-      "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-      "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-      "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-      "puid": "20030000801A118C",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-      "name": "John Smith",
-      "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-      "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-      "appidacr": "2",
-      "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-      "http://schemas.microsoft.com/claims/authnclassreference": "1"
-    },
-    "correlationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-    "description": "",
-    "eventDataId": "44ade6b4-3813-45e6-ae27-7420a95fa2f8",
-    "eventName": {
-      "value": "EndRequest",
-      "localizedValue": "End request"
-    },
-    "eventSource": {
-      "value": "Microsoft.Resources",
-      "localizedValue": "Microsoft Resources"
-    },
-    "httpRequest": {
-      "clientRequestId": "27003b25-91d3-418f-8eb1-29e537dcb249",
-      "clientIpAddress": "192.168.35.115",
-      "method": "PUT"
-    },
-    "id": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841/events/44ade6b4-3813-45e6-ae27-7420a95fa2f8/ticks/635574752669792776",
-    "level": "Informational",
-    "resourceGroupName": "MSSupportGroup",
-    "resourceProviderName": {
-      "value": "microsoft.support",
-      "localizedValue": "microsoft.support"
-    },
-    "resourceUri": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-    "operationId": "1e121103-0ba6-4300-ac9d-952bb5d0c80f",
-    "operationName": {
-      "value": "microsoft.support/supporttickets/write",
-      "localizedValue": "microsoft.support/supporttickets/write"
-    },
-    "properties": {
-      "statusCode": "Created"
-    },
-    "status": {
-      "value": "Succeeded",
-      "localizedValue": "Succeeded"
-    },
-    "subStatus": {
-      "value": "Created",
-      "localizedValue": "Created (HTTP Status Code: 201)"
-    },
-    "eventTimestamp": "2015-01-21T22:14:26.9792776Z",
-    "submissionTimestamp": "2015-01-21T22:14:39.9936304Z",
-    "subscriptionId": "s1"
-  } ],
-"nextLink": "https://management.azure.com/########-####-####-####-############$skiptoken=######"
-}
-```
-
-| Nom de l’élément | Description |
-| --- | --- |
-| autorisation |Objet blob des propriétés RBAC de l’événement. Inclut généralement les propriétés « action », « role » et « scope ». |
-| caller |Adresse e-mail de l’utilisateur qui a effectué l’opération, la revendication UPN ou la revendication SPN basée sur la disponibilité. |
-| channels |L’une des valeurs suivantes : « Admin », « Operation ». |
-| correlationId |Généralement un GUID au format chaîne. Les événements qui partagent un correlationId appartiennent à la même action uber. |
-| description |Description textuelle statique d’un événement. |
-| eventDataId |Identificateur unique d’un événement. |
-| eventSource |Nom de l’infrastructure ou du service Azure qui a généré cet événement. |
-| httpRequest |Objet blob décrivant la requête Http. Inclut généralement clientRequestId, clientIpAddress et la méthode (méthode HTTP. Par exemple, PUT). |
-| minimal |Niveau de l’événement. Une des valeurs suivantes : Critical, Error, Warning, Informational et Verbose |
-| resourceGroupName |Nom du groupe de ressources de la ressource affectée. |
-| resourceProviderName |Nom du fournisseur de ressources de la ressource affectée. |
-| resourceUri |ID de ressource de la ressource affectée. |
-| operationId |Un GUID partagé par les événements correspondant à une opération unique. |
-| operationName |Nom de l’opération. |
-| properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. |
-| status |Chaîne décrivant l’état de l’opération. Certaines valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active, Resolved. |
-| subStatus |Il s’agit généralement du code d’état HHTP de l’appel REST correspondant, mais également d’autres chaînes décrivant un sous-état, comme ces valeurs courantes : OK (Code d’état HTTP : 200), Created (Code d’état HTTP : 201), Accepted (Code d’état HTTP : 202), No content (Code d’état HTTP : 204), Bad Request (Code d’état HTTP : 400), Not found (Code d’état HTTP : 404), Conflict (Code d’état HTTP : 409), Internal Server Error (Code d’état HTTP : 500), Service Unavailable (Code d’état HTTP : 503), Gateway Timeout (Code d’état HTTP : 504). |
-| eventTimestamp |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
-| submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
-| subscriptionId |ID d’abonnement Azure. |
-| nextLink |Jeton de continuation pour extraire le jeu de résultats suivant lorsqu’ils sont divisés en plusieurs réponses. Généralement nécessaire lorsqu’il y a plus de 200 enregistrements. |
+## <a name="event-schema-per-category"></a>Schéma d’événements par catégorie
+[Consultez cet article pour comprendre le schéma d’événements de journal d’activité par catégorie.](monitoring-activity-log-schema.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../azure-resource-manager/resource-group-audit.md)

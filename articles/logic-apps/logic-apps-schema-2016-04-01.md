@@ -1,5 +1,5 @@
 ---
-title: "Mises à jour de schéma du&1;er juin&2016; - Azure Logic Apps | Microsoft Docs"
+title: "Mises à jour de schéma du 1er juin 2016 - Azure Logic Apps | Microsoft Docs"
 description: "Créer des définitions JSON pour Azure Logic Apps avec la version de schéma 2016-06-01"
 author: jeffhollan
 manager: anneta
@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab219386a32f519e50f76e18013f8f94a2266ff
-ms.openlocfilehash: 9d8f0be3d5c8e2c2e5f169dc1d0851c95a641d0c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Mises à jour de schéma pour Azure Logic Apps - 1er juin 2016
@@ -31,7 +30,7 @@ Cette nouvelle version de schéma et d’API intègre différentes amélioration
 * Les [conditions et les boucles](#conditions-loops) sont désormais des actions de première classe.
 * La précision de l’ordre d’exécution des actions a été améliorée grâce au remplacement de la propriété `dependsOn` par la propriété `runAfter`.
 
-Pour mettre à niveau vos applications logiques à partir du schéma en version préliminaire du 1er août 2015 vers le schéma du 1er juin 2016, [consultez la section relative à la mise à niveau](#upgrading-to-2016-06-01-schema).
+Pour mettre à niveau vos applications logiques à partir du schéma en version préliminaire du 1er août 2015 vers le schéma du 1er juin 2016, [consultez la section relative à la mise à niveau](##upgrade-your-schema).
 
 <a name="scopes"></a>
 ## <a name="scopes"></a>Étendues
@@ -115,8 +114,7 @@ La mise à niveau vers le nouveau schéma se déroule en quelques étapes seulem
     ![Choisir l’option Mettre à jour le schéma][1]
    
     Le portail vous renvoie la définition mise à niveau, que vous pouvez copier et coller dans une définition de ressource si nécessaire. 
-    Toutefois, nous vous **recommandons vivement** de choisir l’option **Enregistrer sous** 
-    pour vérifier que toutes les références de connexion sont valides dans l’application logique mise à niveau.
+    Toutefois, nous vous **recommandons vivement** de choisir l’option **Enregistrer sous** pour vérifier que toutes les références de connexion sont valides dans l’application logique mise à niveau.
 
 3. Dans la barre d’outils du panneau de mise à niveau, choisissez **Enregistrer sous**.
 

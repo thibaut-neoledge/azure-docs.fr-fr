@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a3f2e8634981ac158312e6b9700db92415e9e6c5
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: b5a1edd08819e82437c5b22d8eb131665d7c9645
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
@@ -50,7 +49,7 @@ La manière la plus rapide de commencer consiste à compiler et exécuter l’ex
 **Étape 2 :** modifiez les paramètres pour EndpointUrl, AuthorizationKey, CollectionThroughput et DocumentTemplate (facultatif) dans App.config.
 
 > [!NOTE]
-> Avant l’approvisionnement des collections à débit élevé, reportez-vous à la [Page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) pour estimer les coûts par collection. Cosmos DB facture indépendamment le stockage et le débit à l’heure pour vous permettre de réduire les coûts en supprimant ou en diminuant le débit de vos collections DocumentDB après le test.
+> Avant l’approvisionnement des collections à débit élevé, reportez-vous à la [Page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) pour estimer les coûts par collection. Azure Cosmos DB facture indépendamment le stockage et le débit à l’heure pour vous permettre de réduire les coûts en supprimant ou en diminuant le débit de vos collections Azure Cosmos DB après le test.
 > 
 > 
 

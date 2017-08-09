@@ -1,6 +1,6 @@
 ---
 title: "Événements planifiés avec Azure Metadata Service | Microsoft Docs"
-description: "Réagissez aux événements qui risquent d&quot;affecter votre machine virtuelle avant même qu’ils se produisent."
+description: "Réagissez aux événements qui risquent d'affecter votre machine virtuelle avant même qu’ils se produisent."
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: 
 author: zivraf
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 062ab97d00622419e2bca1fcd0a17f6b6b4f6f81
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 793803bfc12059a68ec881da9de37116f7a0eb8c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-metadata-service---scheduled-events-preview"></a>Service de métadonnées Azure - Événements planifiés (préversion)
@@ -42,8 +41,8 @@ Dans de nombreux autres cas, la disponibilité globale du service peut être am�
 Dans certains cas, le fait d’avertir un administrateur d’un événement à venir ou de consigner un tel événement facilite la gestion des applications hébergées dans le cloud.
 
 Le service de métadonnées Azure s’appuie sur les événements planifiés dans les cas d’utilisation suivants :
--    La plateforme a lancé une maintenance (par exemple, le déploiement du système d’exploitation hôte)
--    L’utilisateur a lancé des appels (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle)
+-   La plateforme a lancé une maintenance (par exemple, le déploiement du système d’exploitation hôte)
+-   L’utilisateur a lancé des appels (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle)
 
 
 ## <a name="scheduled-events---the-basics"></a>Événements planifiés - Concepts de base  
@@ -69,9 +68,16 @@ Quand vous interrogez le service de métadonnées, vous devez fournir l’en-tê
 ### <a name="enabling-scheduled-events"></a>Activation des événements planifiés
 La première fois que vous faites une demande d’événements planifiés, Azure active implicitement la fonctionnalité sur votre machine virtuelle. Par conséquent, attendez-vous à un retard pouvant atteindre deux minutes dans la réponse à votre premier appel.
 
-### <a name="testing-your-logic-with-user-initiated-operations"></a>Test de votre logique avec des opérations lancées par l’utilisateur
-Pour tester votre logique, vous pouvez utiliser le Portail Azure, l’API, l’interface CLI ou PowerShell pour lancer des opérations aboutissant à des événements planifiés. Le redémarrage d’une machine virtuelle génère un événement planifié de type `Reboot`. Le redéploiement d’une machine virtuelle génère un événement planifié de type `Redeploy`.
-Dans les deux cas, l’opération lancée par l’utilisateur prend plus longtemps, car les événements planifiés laissent plus de temps à une application s’arrêter correctement. 
+### <a name="user-initiated-maintenance"></a>Maintenance initiée par l’utilisateur
+La maintenance de machine virtuelle initiée par l’utilisateur via le portail Azure, l’API, l’interface CLI ou PowerShell entraîne des événements planifiés. Cela vous permet de tester la logique de préparation de la maintenance dans votre application et permet à votre application de se préparer à la maintenance initiée par l’utilisateur.
+
+Le redémarrage d’une machine virtuelle planifie un événement de type `Reboot`. Le redéploiement d’une machine virtuelle planifie un événement de type `Redeploy`.
+
+> [!NOTE] 
+> Actuellement, 10 opérations maximum de maintenance initiée par l’utilisateur peuvent être planifiées simultanément. Cette limite sera assouplie avant la disponibilité générale des Événements planifiés.
+
+> [!NOTE] 
+> Actuellement, la maintenance initiée par l’utilisateur qui résulte dans des Événements planifiés n’est pas configurable. La possibilité de configuration est prévue pour une version ultérieure.
 
 ## <a name="using-the-api"></a>Utilisation de l’API
 
@@ -373,3 +379,4 @@ if __name__ == '__main__':
 - Découvrez plus d’informations sur les API disponibles dans le [service de métadonnées d’instance](virtual-machines-instancemetadataservice-overview.md).
 - Découvrez plus d’informations sur la [maintenance planifiée pour les machines virtuelles Windows dans Azure](windows/planned-maintenance.md).
 - Découvrez plus d’informations sur la [maintenance planifiée pour les machines virtuelles Linux dans Azure](linux/planned-maintenance.md).
+

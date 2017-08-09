@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
-ms.openlocfilehash: 171a971411546d1421a48f3dceab98fb2b54b25f
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 3f457b1b82d1f75ec8796152b5c93f852175e1a5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Chiffrement dynamique : configurer la stratégie d’autorisation de clé de contenu
@@ -30,7 +31,7 @@ Si vous souhaitez que Media Services chiffre une ressource, vous devez associer 
 
 Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement AES ou PlayReady. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
-Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d’autorisation des clés de contenu peut comporter une ou plusieurs restrictions d’autorisation : **ouverte** ou **à jeton**. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (**Simple Web Tokens**) et JWT (**JSON Web Token**).
+Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d’autorisation des clés de contenu peut comporter une ou plusieurs restrictions d’autorisation : **ouverte** ou **à jeton**. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats **SWT** ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) et **JWT **(JSON Web Token).
 
 Media Services ne fournit pas de services de jeton sécurisé. Vous pouvez créer un STS personnalisé ou utiliser l’ACS Microsoft Azure pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton (comme le décrit cet article). Le service de remise de clé Media Services retourne la clé de chiffrement pour le client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé de contenu.
 
@@ -57,7 +58,7 @@ Pour plus d'informations, consultez la rubrique
 > 
 > Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 > 
-> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect-programmatically.md).
+> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI. Pour savoir comment se connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 > 
 
@@ -66,7 +67,7 @@ La restriction ouverte signifie que le système fournira la clé à toute person
 
 L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute à la clé de contenu.
 
-#### <a name="a-idcontentkeyauthorizationpoliciesacreate-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies"></a>Création de ContentKeyAuthorizationPolicies
+#### <a id="ContentKeyAuthorizationPolicies"></a>Création de ContentKeyAuthorizationPolicies
 Demande :
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -102,7 +103,7 @@ Réponse :
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:db4593da-f4d1-4cc5-a92a-d20eacbabee4","Name":"Open Authorization Policy"}
 
-#### <a name="a-idcontentkeyauthorizationpolicyoptionsacreate-contentkeyauthorizationpolicyoptions"></a><a id="ContentKeyAuthorizationPolicyOptions"></a>Création de ContentKeyAuthorizationPolicyOptions
+#### <a id="ContentKeyAuthorizationPolicyOptions"></a>Création de ContentKeyAuthorizationPolicyOptions
 Demande :
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -138,7 +139,7 @@ Réponse :
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:57829b17-1101-4797-919b-f816f4a007b7","Name":"policy","KeyDeliveryType":2,"KeyDeliveryConfiguration":"","Restrictions":[{"Name":"HLS Open Authorization Policy","KeyRestrictionType":0,"Requirements":null}]}
 
-#### <a name="a-idlinkcontentkeyauthorizationpolicieswithoptionsalink-contentkeyauthorizationpolicies-with-options"></a><a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Lien de ContentKeyAuthorizationPolicies avec les options
+#### <a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Lien de ContentKeyAuthorizationPolicies avec les options
 Demande :
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies('nb%3Ackpid%3AUUID%3A0baa438b-8ac2-4c40-a53c-4d4722b78715')/$links/Options HTTP/1.1
@@ -159,7 +160,7 @@ Réponse :
 
     HTTP/1.1 204 No Content
 
-#### <a name="a-idaddauthorizationpolicytokeyaadd-authorization-policy-to-the-content-key"></a><a id="AddAuthorizationPolicyToKey"></a>Ajout de la stratégie d’autorisation à la clé de contenu
+#### <a id="AddAuthorizationPolicyToKey"></a>Ajout de la stratégie d’autorisation à la clé de contenu
 Demande :
 
     PUT https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A2e6d36a7-a17c-4e9a-830d-eca23ad1a6f9') HTTP/1.1
@@ -185,7 +186,7 @@ Cette section décrit comment créer une stratégie d’autorisation de clé de 
 
 Pour configurer l’option de restriction par jeton, vous devez utiliser un document XML pour décrire les exigences du jeton d’autorisation. Le XML de configuration de la restriction par jeton doit être conforme au schéma XML suivant.
 
-#### <a name="a-idschemaatoken-restriction-schema"></a><a id="schema"></a>Schéma de restriction par jeton
+#### <a id="schema"></a>Schéma de restriction par jeton
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -233,7 +234,7 @@ Pour configurer l’option de restriction par jeton, vous devez utiliser un docu
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Lorsque vous configurez la stratégie de restriction par **jeton**, vous devez définir les paramètres principaux de **clé de vérification**, **émetteur** et **public**. La **clé de vérification principale** contient la clé utilisée pour signer le jeton, **l’émetteur** est le service de jeton sécurisé qui émet le jeton. Le **public** (parfois appelé **l’étendue**) décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle. 
+Lorsque vous configurez la stratégie de restriction par **jeton**, vous devez définir les paramètres de la **clé de vérification** principale, **d’émetteur** et **d’audience**. La **clé de vérification principale** contient la clé utilisée pour signer le jeton, **l’émetteur** est le service de jeton sécurisé qui émet le jeton. Le **public** (parfois appelé **l’étendue**) décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle. 
 
 L’exemple suivant crée une stratégie d’autorisation avec une restriction par jeton. Dans cet exemple, le client devra présenter un jeton contenant : une clé de signature (VerificationKey), un émetteur de jeton et les revendications requises.
 
@@ -292,7 +293,7 @@ La restriction ouverte signifie que le système fournira la clé à toute person
 
 L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute à la clé de contenu.
 
-#### <a name="a-idcontentkeyauthorizationpolicies2acreate-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies2"></a>Création de ContentKeyAuthorizationPolicies
+#### <a id="ContentKeyAuthorizationPolicies2"></a>Création de ContentKeyAuthorizationPolicies
 Demande :
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -419,8 +420,8 @@ Liez ContentKeyAuthorizationPolicies avec les options comme illustré [ici](#Con
 #### <a name="add-authorization-policy-to-the-content-key"></a>Ajout de la stratégie d’autorisation à la clé de contenu
 Ajoutez AuthorizationPolicy à la ContentKey comme illustré [ici](#AddAuthorizationPolicyToKey).
 
-## <a name="a-idtypesatypes-used-when-defining-contentkeyauthorizationpolicy"></a><a id="types"></a>Types utilisés durant la définition de ContentKeyAuthorizationPolicy
-### <a name="a-idcontentkeyrestrictiontypeacontentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a id="types"></a>Types utilisés durant la définition de ContentKeyAuthorizationPolicy
+### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -428,7 +429,7 @@ Ajoutez AuthorizationPolicy à la ContentKey comme illustré [ici](#AddAuthoriza
         IPRestricted = 2,
     }
 
-### <a name="a-idcontentkeydeliverytypeacontentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
     {
         None = 0,
@@ -446,10 +447,5 @@ Ajoutez AuthorizationPolicy à la ContentKey comme illustré [ici](#AddAuthoriza
 
 ## <a name="next-steps"></a>Étapes suivantes
 La stratégie d'autorisation de la clé de contenu étant configurée, consultez la rubrique [Comment configurer une stratégie de remise de ressources](media-services-rest-configure-asset-delivery-policy.md) .
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

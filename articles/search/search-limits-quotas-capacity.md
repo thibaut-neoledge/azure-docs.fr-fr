@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/07/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: d41a02b837d2cd0c478abdcf3068a5ccf7ed1b6f
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
@@ -49,13 +48,15 @@ Il existe une correspondance biunivoque entre les limites sur les index et les l
 | Index : nombre maximal de profils de score par index |100 |100 |100 |100 |100 |100 |
 | Index : nombre maximal de fonctions par profil |8 |8 |8 |8 |8 |8 |
 | Indexeurs : quantité maximale de charge d’indexation par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |N/A <sup>2</sup> |
-| Indexeurs : durée maximale d’exécution |3 minutes |24 heures |24 heures |24 heures |24 heures |N/A <sup>2</sup> |
+| Indexeurs : durée maximale d’exécution | 1-3 minutes <sup>3</sup> |24 heures |24 heures |24 heures |24 heures |N/A <sup>2</sup> |
 | Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |N/A <sup>2</sup> |
 | Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4 millions |4 millions |4 millions |N/A <sup>2</sup> |
 
 <sup>1</sup> Le niveau de base est la seule référence soumise à une limite inférieure de 100 champs par index.
 
 <sup>2</sup> S3 HD ne prend actuellement pas en charge les indexeurs. Contactez le support Azure si vous avez un besoin urgent de cette fonctionnalité.
+
+<sup>3</sup> La durée d’exécution maximale de l’indexeur pour le niveau Gratuit est de 3 minutes pour les sources d’objets blob, et de 1 minute pour toutes les autres sources de données.
 
 ## <a name="document-size-limits"></a>Limites de taille des documents
 | Ressource | Gratuit | De base | S1 | S2 | S3 | S3 HD |

@@ -17,10 +17,10 @@ ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 9cb7aa1e0b4e96a6f40620685b5505587b94ec66
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bdeb4d5ca1d9ff4d7dfd0961690412dd7530572a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -81,12 +81,18 @@ Pour installer les pilotes GRID NVIDIA sur des machines virtuelles NV, établiss
 
 6. Lorsque vous êtes invité à indiquer si vous souhaitez exécuter l’utilitaire nvidia-xconfig pour mettre à jour votre fichier de configuration X, sélectionnez **Oui**.
 
-7. Une fois l’installation terminée, ajoutez les informations suivantes à `/etc/nvidia/gridd.conf.template` :
+7. Une fois l’installation terminée, copiez /etc/nvidia/gridd.conf.template sur un nouveau fichier gridd.conf dà l’emplacement etc/nvidia /
+
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+
+8. Ajoutez la ligne suivante à `/etc/nvidia/gridd.conf` :
  
   ```
   IgnoreSP=TRUE
   ```
-8. Redémarrez la machine virtuelle et vérifiez l’installation.
+9. Redémarrez la machine virtuelle et vérifiez l’installation.
 
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Basé sur CentOS 7.3 ou Red Hat Enterprise Linux 7.3
@@ -139,12 +145,18 @@ Pour installer les pilotes GRID NVIDIA sur des machines virtuelles NV, établiss
   ``` 
 6. Lorsque vous êtes invité à indiquer si vous souhaitez exécuter l’utilitaire nvidia-xconfig pour mettre à jour votre fichier de configuration X, sélectionnez **Oui**.
 
-7. Une fois l’installation terminée, ajoutez les informations suivantes à `/etc/nvidia/gridd.conf.template` :
+7. Une fois l’installation terminée, copiez /etc/nvidia/gridd.conf.template sur un nouveau fichier gridd.conf dà l’emplacement etc/nvidia /
+  
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+  
+8. Ajoutez la ligne suivante à `/etc/nvidia/gridd.conf` :
  
   ```
   IgnoreSP=TRUE
   ```
-8. Redémarrez la machine virtuelle et vérifiez l’installation.
+9. Redémarrez la machine virtuelle et vérifiez l’installation.
 
 ### <a name="verify-driver-installation"></a>Vérification de l’installation du pilote
 
@@ -349,3 +361,4 @@ sudo reboot
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (pour les machines virtuelles NV Azure)
 
 * Pour capturer une image Linux VM avec vos pilotes NVIDIA installés, consultez [Généraliser et capturer une machine virtuelle Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
