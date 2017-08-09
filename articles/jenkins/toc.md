@@ -4,8 +4,9 @@
 # Didacticiels
 ## [CI/CD avec VSTS](https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins)
 ## [Intégrer Jenkins et Kubernetes](/azure/container-service/container-service-kubernetes-jenkins)
-## [Déployer dans App Service](/azure/jenkins/execute-cli-jenkins-pipeline)
+## [Jenkins et Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)
 ## [Docker, GitHub et Jenkins](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
+## [Déployer dans App Service](/azure/jenkins/deploy-Jenkins-app-service-plugin)
 # Procédures
 ## [Jenkins sécurisé sur Azure](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
 # Ressources

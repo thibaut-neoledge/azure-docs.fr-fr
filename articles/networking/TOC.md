@@ -11,7 +11,9 @@
 ## Planifier et concevoir
 ### [Réseaux virtuels](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Filtrage du trafic](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Connectivité locale](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Connectivité intersite - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Options de connectivité intersite - connexion privée dédiée](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ##  Concepts
 ### [Réseaux virtuels](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Équilibrage de charge réseau](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -35,21 +37,24 @@
 ### [Serveurs d’application charge solde privés](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connecter des réseaux virtuels (même emplacement)](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connecter des réseaux virtuels (emplacements)](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## Connectivité locale
-### [Se connecter à un réseau local (dédié)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Se connecter à un réseau local (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## Connectivité intersite
+### [Créer une connexion VPN S2S (IPsec/IKE)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Créer une connexion VPN P2S (SSTP avec certificats)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Créer une connexion privée dédiée (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ## Gestion
 ### [Topologie du réseau](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Gérer la capture des paquets](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Déterminer le saut suivant routage](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Vérifier le flux IP pour une machine virtuelle](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ## Exemples de scripts
 ### [Interface de ligne de commande Azure](cli-samples.md)
 ### [PowerShell](powershell-samples.md)
+
 ## Didacticiels
 ### [Équilibrer la charge des machines virtuelles](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connecter un ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-
 
 # Référence
 ## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/network)

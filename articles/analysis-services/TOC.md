@@ -1,10 +1,10 @@
 # Vue d'ensemble
 ## [Qu’est-ce qu’Azure Analysis Services ?](analysis-services-overview.md)
-## [Sources de données prises en charge](analysis-services-datasource.md)
 
 # Démarrages rapides
 ## [Créer un serveur – Portail](analysis-services-create-server.md)
-## [Déployer un modèle – SSDT](analysis-services-deploy.md)
+## [Créer un serveur – PowerShell](analysis-services-create-powershell.md)
+## [Déployer un modèle - Visual Studio](analysis-services-deploy.md)
 
 # Didacticiels
 ## Créer et déployer un modèle
@@ -27,6 +27,7 @@
 ### [Leçon supplémentaire – Hiérarchies irrégulières](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
 # Concepts
+## [Sources de données prises en charge](analysis-services-datasource.md)
 ## [Authentification et autorisations utilisateur](analysis-services-manage-users.md)
 ## [Haute disponibilité](analysis-services-bcdr.md)
 

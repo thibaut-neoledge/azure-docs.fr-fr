@@ -11,11 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/20/2017
 ms.author: mlearned
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: c7f000cad1062eb9b139d7c0f2731a6ee35f8b91
+ms.custom: Jenkins
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: aad1e4839154b552b39258f65e6ed97bf1de90fb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 <div class="content">
@@ -33,8 +34,9 @@ ms.lasthandoff: 06/21/2017
 <ol>
     <li><a href="https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins">CI/CD avec Jenkins et Visual Studio Team Services</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Intégrer Jenkins avec GitHub, Docker et Kubernetes</a></li>
-    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Déployer dans Azure App Service</a></li>
+    <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Exécuter Azure CLI avec Jenkins</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Intégrer Docker, GitHub et Jenkins</a></li>
+    <li><a href="/azure/jenkins/deploy-Jenkins-app-service-plugin">Déployer vers App Service avec Jenkins</a></li>
 </ol>
 <h2 style="margin-top: 36px">Outils et ressources</h2>
 <p>Consultez les liens suivants concernant d’autres supports et outils de référence à utiliser avec Jenkins sur Azure.</p>
@@ -42,3 +44,4 @@ ms.lasthandoff: 06/21/2017
 <a href="https://plugins.jenkins.io/windows-azure-storage">Plug-in Stockage Azure</a><br/>
 <a href="https://jenkins.io">En savoir plus sur Jenkins</a><br/>
 </div>
+

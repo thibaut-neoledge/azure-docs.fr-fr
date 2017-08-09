@@ -18,6 +18,7 @@
 #### [Azure AD avec gestion de lots](batch-aad-auth-management.md)
 ### [Machines virtuelles nécessitant beaucoup de ressources système](batch-pool-compute-intensive-sizes.md)
 ### [Tâches de nœud simultanées](batch-parallel-node-tasks.md)
+### [Nombre des tâches par état](batch-get-task-counts.md)
 ### [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 ### [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md)
 ### [Nœuds de calcul Linux](batch-linux-nodes.md)
