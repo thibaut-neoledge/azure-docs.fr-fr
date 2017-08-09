@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 1615f1ebbc4ade9dddbab3bd964bc27e6150a4c5
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: f9058ca12cb52c1a9d4a3d05f4ccb3e2c030873e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
@@ -107,7 +107,7 @@ Si vous avez besoin de lancer un nouveau cycle de synchronisations, suivez les i
 Il existe deux facteurs qui affectent les méthodes d’authentification disponibles avec un déploiement d’extension NPS :
 
 1. L’algorithme de chiffrement de mot de passe utilisé entre le client RADIUS (VPN, Netscaler server ou autre) et les serveurs NPS.
-   - **PAP** prend en charge toutes les méthodes d’authentification de Microsoft Azure Multi-Factor Authentication dans le cloud : appel téléphonique, message texte, notification d’application mobile et code de vérification d’application mobile.
+   - **PAP** prend en charge toutes les méthodes d’authentification de l’authentification multifacteur Azure dans le cloud : appel téléphonique, message texte à sens unique, notification de l’application mobile et code de vérification de l’application mobile.
    - **CHAPv2** et **EAP** prennent en charge l’appel téléphonique et la notification d’application mobile.
 2. Les méthodes d’entrée que l’application cliente (VPN, Netscaler server ou autre) peut gérer. Par exemple, le client VPN dispose-t-il de moyens permettant d’autoriser l’utilisateur à taper un code de vérification à partir d’un texte ou d’une application mobile ?
 
@@ -173,7 +173,7 @@ Cette section comprend des considérations relatives à la conception ainsi que 
 - L’extension NPS pour Azure MFA n’inclut pas les outils permettant de migrer les utilisateurs et les paramètres du serveur MFA vers le cloud. De ce fait, nous vous conseillons d’utiliser l’extension pour les nouveaux déploiements, plutôt que pour les déploiements existants. Si vous utilisez l’extension sur un déploiement existant, vos utilisateurs devront suivre de nouveau la procédure de vérification pour remplir leurs détails MFA dans le cloud.  
 - L’extension NPS utilise l’UPN de l’annuaire Active Directory local pour identifier l’utilisateur sur Azure MFA afin de procéder à l’authentification secondaire. L’extension ne peut pas être configurée pour utiliser un identificateur autre que l’UPN (un ID de connexion alternatif ou un champ AD personnalisé, par exemple).  
 - Tous les protocoles de chiffrement ne prennent pas en charge toutes les méthodes de vérification.
-   - **PAP** prend en charge les méthodes suivantes : appel téléphonique, message texte, notification d’application mobile et code de vérification de l’application mobile
+   - **PAP** prend en charge l’appel téléphonique, le message texte à sens unique, la notification de l’application mobile et le code de vérification de l’application mobile
    - **CHAPv2** et **EAP** prennent en charge l’appel téléphonique et la notification d’application mobile
 
 ### <a name="control-radius-clients-that-require-mfa"></a>Contrôler les clients RADIUS nécessitant l’authentification MFA

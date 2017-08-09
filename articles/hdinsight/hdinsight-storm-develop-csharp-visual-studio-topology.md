@@ -14,14 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/23/2017
+ms.date: 08/02/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 9447cf1919cacee5319afe559e7745e5d218fb0d
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 3ee89b6644ba395e0a6c28ecc2c082c2f7393ac8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Développer des topologies C# pour Apache Storm à l’aide de Data Lake Tools pour Visual Studio
@@ -121,6 +120,9 @@ Data Lake Tools pour Visual Studio fournit les modèles suivants :
 | Exemple d’enregistreur HBase Storm |Écriture dans HBase sur des clusters HDInsight |
 | Exemple Storm hybride |Utilisation d’un composant Java |
 | Exemple Storm |Topologie de comptage de mots de base |
+
+> [!WARNING]
+> Tous les modèles ne fonctionnent pas avec HDInsight basé sur Linux. Les packages NuGet utilisés par les modèles ne sont peut-être pas compatibles avec Mono. Consultez le document sur la [compatibilité Mono](http://www.mono-project.com/docs/about-mono/compatibility/) et utilisez [l’Analyseur de portabilité .NET](hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) pour identifier les problèmes potentiels.
 
 Dans les étapes de ce document, vous allez utiliser le type de projet Application Storm de base pour créer une topologie.
 

@@ -1,5 +1,5 @@
 ---
-title: Utiliser Hadoop Sqoop avec Curl dans HDInsight | Microsoft Docs
+title: Utiliser Hadoop Sqoop avec Curl dans HDInsight - Azure | Microsoft Docs
 description: "Découvrez comment transmettre à distance des travaux Sqoop vers HDInsight à l’aide de Curl."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: eabcd8b70411a915722a2f1b8e8b70271cd8c7c2
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 0975aedf58c6e110726dd3308eae5f9ad3907cc7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/21/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Exécution de travaux Sqoop avec Hadoop dans HDInsight via Curl
@@ -69,7 +68,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
      Le début de l’URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes. Le chemin d’accès, **/status**, indique que la demande doit renvoyer le statut de WebHCat (également appelé Templeton) au serveur. 
 2. Pour envoyer un travail Sqoop, utilisez la commande suivante :
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasbs:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
 
     Les paramètres utilisés dans cette commande sont les suivants :
 

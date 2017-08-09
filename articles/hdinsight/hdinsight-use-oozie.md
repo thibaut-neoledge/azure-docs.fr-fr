@@ -17,12 +17,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 10726bdaf1aa0a98276747868771999625ccf5e5
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 220f2806849e59e8799017a2d7558f1ae622a755
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Utilisation d'Oozie avec Hadoop pour définir et exécuter un workflow dans HDInsight
@@ -134,7 +133,7 @@ RunHiveScript a plusieurs variables. Vous transmettez ces valeurs lors de l’en
 <table border = "1">
 <tr><th>Variable de workflow</th><th>Description</th></tr>
 <tr><td>${jobTracker}</td><td>Spécifie l'URL du suivi des tâches Hadoop. Utilisez <strong>jobtrackerhost:9010</strong> dans les versions 3.0 et 2.1 de HDInsight.</td></tr>
-<tr><td>${nameNode}</td><td>Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse du système de fichiers par défaut, par exemple, <i>wasbs://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
+<tr><td>${nameNode}</td><td>Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse du système de fichiers par défaut, par exemple, <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
 <tr><td>${queueName}</td><td>Spécifie le nom de la file d’attente auquel est envoyée la tâche. Utilisez la <strong>valeur par défaut</strong>.</td></tr>
 </table>
 
@@ -191,9 +190,9 @@ Le script PowerShell de cette section effectue les étapes suivantes :
    
     Les deux fichiers sont stockés dans un conteneur d’objets blob public.
    
-   * Copie du script HiveQL (useoozie.hql) dans le stockage Azure (wasbs:///tutorials/useoozie/useoozie.hql).
-   * Copie de workflow.xml dans wasbs:///tutorials/useoozie/workflow.xml.
-   * Copie du fichier de données (/example/data/sample.log) dans wasbs:///tutorials/useoozie/data/sample.log.
+   * Copie du script HiveQL (useoozie.hql) dans le stockage Azure (wasb:///tutorials/useoozie/useoozie.hql).
+   * Copie de workflow.xml dans wasb:///tutorials/useoozie/workflow.xml.
+   * Copie du fichier de données (/example/data/sample.log) dans wasb:///tutorials/useoozie/data/sample.log.
 6. Soumettez une tâche Oozie.
    
     Pour examiner les résultats de la tâche OOzie, utilisez Visual Studio ou d’autres outils pour vous connecter à la base de données SQL Azure.
@@ -448,7 +447,7 @@ Voici le script.  Vous pouvez exécuter le script à partir de Windows PowerShel
 
     #region - submit Oozie job
 
-    $storageUri="wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
+    $storageUri="wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
 
     $oozieJobName = $namePrefix + "OozieJob"
 

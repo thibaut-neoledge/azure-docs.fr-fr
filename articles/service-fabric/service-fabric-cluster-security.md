@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 628df1df8f5de99a5c18d0df5b7ee41e2fb747df
-ms.openlocfilehash: c3ff370b105a1f9bdacd1bdb4b32d6209e150be2
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 5afbe575a8affc37b8f902c0988585a83921e3d2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
@@ -57,7 +57,7 @@ Authentifie les clients et sécurise la communication entre un client et des nœ
 Les clusters qui s’exécutent sur Azure ou les clusters autonomes qui s’exécutent sur Windows peuvent utiliser la [Sécurité par certificat](https://msdn.microsoft.com/library/ff649801.aspx) ou la [Sécurité Windows](https://msdn.microsoft.com/library/ff649396.aspx).
 
 ### <a name="client-to-node-certificate-security"></a>Sécurité par certificat de client à nœud
- La configuration de la sécurité par certificat de client à nœud s’effectue lors de la création du cluster (par le biais du Portail Azure, des modèles Resource Manager ou d’un modèle JSON autonome) en spécifiant un certificat client d’administration et/ou un certificat de client utilisateur.  Les certificats client d’administration et client en lecture seule que vous spécifiez doivent être différents des certificats primaires et secondaires que vous spécifiez pour la [Sécurité de nœud à nœud](#node-to-node-security).
+ La configuration de la sécurité par certificat de client à nœud s’effectue lors de la création du cluster (par le biais du Portail Azure, des modèles Resource Manager ou d’un modèle JSON autonome) en spécifiant un certificat client d’administration et/ou un certificat de client utilisateur.  Les certificats client d’administration et client utilisateur que vous spécifiez doivent être différents des certificats primaires et secondaires que vous spécifiez pour la [sécurité de nœud à nœud](#node-to-node-security). Par défaut, les certificats de cluster pour la sécurité de nœud à nœud sont ajoutés à la liste de certificats client d’administration autorisés.
 
 Les clients se connectant au cluster avec le certificat d’administration ont un accès complet aux fonctions de gestion.  Les clients se connectant au cluster avec le certificat client en lecture seule ont uniquement un accès en lecture aux fonctions de gestion. En d’autres termes, ces certificats sont utilisés pour le contrôle d’accès en fonction du rôle (RBAC) décrit plus loin dans cet article.
 

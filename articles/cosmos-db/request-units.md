@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 95adddc01ee2814515c20f36e8503de30454a8f4
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 88edb489d967a5bc5cc1c4aa1aeb5abcd6539d12
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
@@ -191,7 +191,7 @@ L’utilisation de l’outil est simple :
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Utiliser l’en-tête de réponse de frais de requête Azure Cosmos DB
-Chaque réponse du service Azure Cosmos DB inclut un en-tête personnalisé (`x-ms-request-charge`) qui contient le nombre d’unités de requête consommées pour la requête. Cet en-tête est également accessible par le biais des Kits de développement logiciel (SDK) DocumentDB. Dans le Kit de développement logiciel (SDK) .NET, RequestCharge est une propriété de l’objet ResourceResponse.  Pour les requêtes, l’Explorateur de requêtes Azure Cosmos DB dans le portail Azure fournit des informations sur les frais de requête pour les requêtes exécutées.
+Chaque réponse du service Azure Cosmos DB inclut un en-tête personnalisé (`x-ms-request-charge`) qui contient le nombre d’unités de requête consommées pour la requête. L’en-tête est également accessible via les kits SDK Azure Cosmos DB. Dans le Kit de développement logiciel (SDK) .NET, RequestCharge est une propriété de l’objet ResourceResponse.  Pour les requêtes, l’Explorateur de requêtes Azure Cosmos DB dans le portail Azure fournit des informations sur les frais de requête pour les requêtes exécutées.
 
 ![Examen des frais d’unités de requête dans l’Explorateur de requête][1]
 

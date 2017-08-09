@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 7fa853983119ef4e570b768ca177d169c6e17153
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Haute disponibilité de SAP HANA sur des machines virtuelles Azure
@@ -27,10 +26,19 @@ ms.lasthandoff: 05/31/2017
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
-[hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+
+[hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
+[hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
+
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
@@ -44,10 +52,25 @@ Les exemples de configuration et les commandes d’installation utilisent le num
 
 Commencez par lire les notes et publications SAP suivantes
 
-* Note SAP [2205917] Recommended OS settings for SUSE Linux Enterprise Server for SAP Applications (Paramètres de système d’exploitation recommandés pour SUSE Linux Enterprise Server for SAP Applications)
-* Note SAP [1944799] SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications (Guide SAP HANA pour SUSE Linux Enterprise Server for SAP Applications)
+* Note SAP [1928533], qui contient :
+  * une liste des tailles de machines virtuelles Azure prises en charge pour le déploiement de logiciels SAP
+  * des informations importantes sur la capacité en fonction de la taille des machines virtuelles Azure
+  * les logiciels SAP pris en charge et les combinaisons entre système d’exploitation et base de données
+  * la version du noyau SAP requise pour Windows et Linux sur Microsoft Azure
+* La note SAP [2015553] répertorie les conditions préalables au déploiement de logiciels SAP pris en charge par SAP sur Azure.
+* La note SAP [2205917] contient des paramètres de système d’exploitation recommandés pour SUSE Linux Enterprise Server pour les applications SAP
+* La note SAP [1944799] contient des instructions SAP HANA pour SUSE Linux Enterprise Server pour les applications SAP
+* La note SAP [2178632] contient des informations détaillées sur toutes les métriques de surveillance rapportées pour SAP sur Azure.
+* La note SAP [2191498] contient la version requise de l’agent hôte SAP pour Linux sur Azure.
+* La note SAP [2243692] contient des informations sur les licences SAP sur Linux dans Azure.
+* La note SAP [1984787] contient des informations sur SUSE Linux Enterprise Server 12.
+* La note SAP [1999351] contient des informations de dépannage supplémentaires pour l’extension d’analyse Azure améliorée pour SAP.
+* Le [WIKI de la communauté SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contient toutes les notes SAP requises pour Linux.
+* [Planification et implémentation de Machines virtuelles Azure pour SAP sur Linux][planning-guide]
+* [Déploiement de Machines virtuelles Azure pour SAP sur Linux (cet article)][deployment-guide]
+* [Déploiement SGBD de Machines virtuelles Azure pour SAP sur Linux][dbms-guide]
 * [Scénario d’optimisation des performances de réplication système de SAP HANA][suse-hana-ha-guide] Le guide contient toutes les informations nécessaires pour configurer la réplication système SAP HANA locale. Utilisez ce guide comme référence.
-  
+
 ## <a name="deploying-linux"></a>Déploiement de Linux
 
 L’agent de ressource pour SAP HANA est inclus dans SUSE Linux Enterprise Server for SAP Applications.
@@ -179,7 +202,7 @@ Les éléments suivants sont précédés de [A] \(applicable à tous les nœuds)
 
 1. [A] Configurer la disposition du disque
     1. LVM  
-    En général, nous recommandons d’utiliser LVM pour les volumes qui stockent des données et des fichiers journaux. L’exemple ci-dessous suppose que les machines virtuelles disposent de quatre disques de données qui doivent être utilisés pour créer deux volumes.
+    En général, nous recommandons d’utiliser LVM pour les volumes qui stockent des données et des fichiers journaux. L’exemple ci-dessous part du principe que les machines virtuelles disposent de quatre disques de données joints qui doivent être utilisés pour créer deux volumes.
         * Créez des volumes physiques pour tous les disques que vous souhaitez utiliser.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -305,10 +328,10 @@ Les éléments suivants sont précédés de [A] \(applicable à tous les nœuds)
     } 
     <b>nodelist {
       node {
-        ring0_addr:     < ip address of note 1 >
+        ring0_addr:     < ip address of node 1 >
       }
       node {
-        ring0_addr:     < ip address of note 2 > 
+        ring0_addr:     < ip address of node 2 > 
       } 
     }</b>
     logging {
@@ -404,7 +427,7 @@ Modifier les paramètres par défaut
 
 <pre>
 sudo vi crm-defaults.txt
-# enter the following to crm-saphana.txt
+# enter the following to crm-defaults.txt
 <code>
 property $id="cib-bootstrap-options" \
   no-quorum-policy="ignore" \

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: d66489b43e983f313028a846d2b7da1534c86b53
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 1032c4e7d378016e36c92efa9478be72e9a557c4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
@@ -59,7 +58,7 @@ Vous pouvez utiliser les outils suivants pour créer ou configurer un réseau vi
 * Interface de ligne de commande Azure (pour les réseaux virtuels classiques et Resource Manager).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quelles plages d’adresses puis-je utiliser dans mes réseaux virtuels ?
-Vous pouvez utiliser des plages d’adresses IP publiques et toute plage d’adresses IP définies dans [RFC 1918](http://tools.ietf.org/html/rfc1918).
+Toute plage d’adresses IP définie dans [RFC 1918](http://tools.ietf.org/html/rfc1918). Par exemple, 10.0.0.0/16.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Puis-je avoir des adresses IP publiques dans mes réseaux virtuels ?
 Oui. Pour plus d’informations sur les plages d’adresses IP publiques, consultez l’article [Espace d’adressage IP public dans un réseau virtuel](virtual-networks-public-ip-within-vnet.md). Vos adresses IP publiques ne seront pas directement accessibles à partir d’Internet.

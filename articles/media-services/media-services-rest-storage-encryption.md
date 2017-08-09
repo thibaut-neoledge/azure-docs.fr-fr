@@ -1,6 +1,6 @@
 ---
-title: "Chiffrer votre contenu avec le chiffrement de stockage à l&quot;aide de l&quot;API REST AMS"
-description: "Découvrez comment chiffrer votre contenu avec le chiffrement de stockage à l&quot;aide des API REST AMS."
+title: "Chiffrer votre contenu avec le chiffrement de stockage à l'aide de l'API REST AMS"
+description: "Découvrez comment chiffrer votre contenu avec le chiffrement de stockage à l'aide des API REST AMS."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: d649ce6bcb5629cb820befd3478afa3f70293ccb
-ms.lasthandoff: 02/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: bc7e49c49e9b1b3cd919e665cd0f012c33f312f6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Chiffrer votre contenu avec le chiffrement de stockage à l'aide de l'API REST AMS
@@ -41,7 +41,7 @@ Cet article donne une vue d'ensemble du chiffrement de stockage AMS et vous mont
 > 
 > Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 > 
-> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect-programmatically.md). 
+> Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI. Pour savoir comment se connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 > 
 
@@ -92,7 +92,6 @@ Voici les étapes générales pour la génération de clés de contenu que vous 
             return Convert.ToBase64String(retVal);
         }
 
-
 1. Créez la clé de contenu avec les valeurs **EncryptedContentKey** (convertie en chaîne codée en Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** et **Checksum** que vous avez obtenues lors des étapes précédentes.
 
     Pour le chiffrement du stockage, les propriétés suivantes doivent être incluses dans le corps de la demande.
@@ -120,7 +119,6 @@ Demande :
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
     x-ms-version: 2.11
     Host: media.windows.net
-
 
 Réponse :
 
@@ -153,8 +151,6 @@ Demande :
     x-ms-version: 2.11
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
-
-
 
 Réponse :
 
@@ -203,7 +199,6 @@ Demande
     "Checksum":"calculated checksum"
     }
 
-
 Réponse :
 
     HTTP/1.1 201 Created
@@ -246,7 +241,6 @@ L’exemple suivant montre comment créer une ressource.
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
-
 
 **Réponse HTTP**
 
@@ -292,7 +286,6 @@ Demande :
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
     x-ms-version: 2.11
     Host: media.windows.net
-
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
 

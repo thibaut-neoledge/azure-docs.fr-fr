@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: c3e9ee66974f8b7077a0436b3686fb0515ea5e22
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 34947c6dfd86ddd421f6d8045ed9c5fbf0049e11
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Exécution des exemples Hadoop MapReduce dans HDInsight basé sur Windows
@@ -60,7 +59,7 @@ Aujourd'hui, de nombreuses personnes choisissent Hive et Pig par l’intermédia
     > Suivez les étapes indiquées dans [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs) pour installer la dernière version d’Azure PowerShell. Si vous devez modifier certains scripts pour utiliser les nouvelles applets de commande fonctionnant avec Azure Resource Manager, consultez [Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="hdinsight-sample-wordcount"></a>Nombre de mots - Java
-Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l’emplacement du fichier jar, qui est **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments.  Le programme Wordcount MapReduce accepte deux arguments : le fichier source utilisé pour compter des mots et l’emplacement de sortie.
+Pour soumettre un projet MapReduce, vous créez tout d'abord une définition de tâche MapReduce. Dans la définition de la tâche, vous spécifiez le fichier jar du programme MapReduce et l’emplacement du fichier jar, qui est **wasb:///example/jars/hadoop-mapreduce-examples.jar**, le nom de classe et les arguments.  Le programme Wordcount MapReduce accepte deux arguments : le fichier source utilisé pour compter des mots et l’emplacement de sortie.
 
 Vous trouverez le code source dans [l'annexe A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -80,9 +79,9 @@ Pour connaître la procédure de développement d'un programme Java MapReduce, c
 
     # Define the MapReduce job
     $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
-                                -Arguments "wasbs:///example/data/gutenberg/davinci.txt", "wasbs:///example/data/WordCountOutput"
+                                -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     # Submit the job and wait for job completion
     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
@@ -169,7 +168,7 @@ Le script fourni pour cet exemple envoie une tâche Hadoop Java Archive (JAR) et
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "pi" `
                                 -Arguments "16", "10000000"
     ```

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql-database
 ms.topic: overview
-ms.date: 07/05/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 30ab79ed40381aaa7a8cf88193fac8d59ecbbced
+ms.date: 08/01/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 322560aece243e150606e722d467b843bc9580b7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Qu’est-ce qu’Azure Database pour PostgreSQL ?
@@ -49,7 +49,7 @@ Avec un temps de disponibilité de 99,99 % (non disponible dans la version pré
 ## <a name="secure-your-data"></a>Sécurisez vos données
 Les services de base de données Azure ont une tradition de sécurité des données qu’Azure Database pour PostgreSQL respecte avec des fonctionnalités qui limitent l’accès, protègent les données au repos et en mouvement, et vous aident à surveiller l’activité. Visitez le [Centre de gestion de la confidentialité Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx) pour plus d’informations sur la sécurité de la plateforme Azure.
 
-Le service Base de données Azure pour PostgreSQL utilise le chiffrement de stockage pour les données au repos. Toutes les données, y compris les sauvegardes, sont chiffrées sur le disque. Le service utilise le chiffrement AES 256 bits qui est inclus dans le chiffrement de stockage Azure, et les clés sont gérées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
+Le service Base de données Azure pour PostgreSQL utilise le chiffrement de stockage pour les données au repos. Les données incluant des sauvegardes sont chiffrées sur le disque (à l’exception des fichiers temporaires créés par le moteur lors de l’exécution des requêtes). Le service utilise le chiffrement AES 256 bits qui est inclus dans le chiffrement de stockage Azure, et les clés sont gérées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
 
 Par défaut, le service Base de données Azure pour PostgreSQL est configuré afin de requérir la [sécurité de connexion SSL](./concepts-ssl-connection-security.md) pour les données en mouvement sur le réseau. L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.  Vous avez la possibilité de désactiver le recours obligatoire au protocole SSL pour la connexion à votre service de base de données si votre application cliente ne prend pas en charge la connectivité SSL.
 

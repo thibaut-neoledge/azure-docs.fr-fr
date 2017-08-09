@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f40289f9b5c693557cc8fa0f411c58ede1aa1d48
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 50c47061eaacbe7f7463c4d0bcc82869e31d26e6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Créer des applications mobiles avec Xamarin et Azure Cosmos DB
@@ -37,7 +36,7 @@ Azure Cosmos DB fournit les fonctionnalités clés suivantes aux développeurs d
 * Mise à l’échelle illimitée. Vos collections Azure Cosmos DB [augmentent à mesure que votre application grandit](partition-data.md). Vous pouvez commencer par des données de petite taille et un débit réduit, soit quelques centaines de requêtes par seconde. Vos collections peuvent inclure jusqu’à plusieurs pétaoctets de données et un débit arbitrairement élevé, soit des centaines de millions de requêtes par seconde.
 * Distribution globale. Les utilisateurs d’applications mobiles sont en déplacement, souvent aux quatre coins du monde. Azure Cosmos DB est une [base de données mondialement distribuée](distribute-data-globally.md). Cliquez sur la carte pour rendre les données accessibles à vos utilisateurs.
 * Autorisation riche intégrée. Avec Azure Cosmos DB, vous implémentez facilement des modèles très répandus, comme les [données par utilisateur](https://aka.ms/documentdb-xamarin-todouser) ou les données partagées par plusieurs utilisateurs, sans recourir à un code d’autorisation complexe personnalisé.
-* Requêtes géospatiales. Beaucoup d’applications mobiles proposent aujourd’hui des expériences géocontextuelles. Grâce à la prise en charge de première classe des [types géospatiaux](geospatial.md), DocumentDB rend ces expériences faciles à accomplir.
+* Requêtes géospatiales. Beaucoup d’applications mobiles proposent aujourd’hui des expériences géocontextuelles. Grâce à la prise en charge de première classe des [types géospatiaux](geospatial.md), Azure Cosmos DB rend la création de ces expériences facile à accomplir.
 * Pièces jointes binaires. Vos données d’application comprennent souvent des blobs binaires. La prise en charge native des pièces jointes simplifie l’utilisation d’Azure Cosmos DB comme guichet unique pour les données de votre application.
 
 ## <a name="azure-cosmos-db-and-xamarin-tutorial"></a>Didacticiel Azure Cosmos DB et Xamarin

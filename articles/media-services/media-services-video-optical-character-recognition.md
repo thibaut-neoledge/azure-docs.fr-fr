@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 960ff46ba287fb404239ca8e9d283f86f6b92c20
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: feb4d85270d3c2bee90280459ca2b8383aeca107
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique
@@ -178,7 +178,7 @@ L’exemple de sortie suivant contient des informations générales sur la vidé
 Le programme suivant montre comment effectuer les tâches suivantes :
 
 1. Créer un élément multimédia et charger un fichier multimédia dans l’élément multimédia.
-2. Crée un travail avec un fichier de configuration/présélection OCR.
+2. Créer un travail avec un fichier de configuration OCR/prédéfini.
 3. Télécharger les fichiers JSON de sortie. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
@@ -207,7 +207,6 @@ Configurez votre environnement de développement et ajoutez des informations de 
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {

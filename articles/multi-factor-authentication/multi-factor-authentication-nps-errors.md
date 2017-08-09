@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 4da95dc4bfc99be3f128dfaa53ba4dd9dc713d9d
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 173353d67772c2549aa1b8ec9f2a471bd1c65677
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -38,8 +38,11 @@ Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-F
 | **HTTP_CONNECT_ERROR** | Sur le serveur qui exécute l’extension NPS, vérifiez que vous pouvez accéder à https://adnotifications.windowsazure.com et https://login.microsoftonline.com/. Si ces sites ne se chargent pas, résolvez les problèmes de connectivité sur ce serveur. |
 | **REGISTRY_CONFIG_ERROR** | Une clé est manquante dans le registre de l’application. Un [script PowerShell](multi-factor-authentication-nps-extension.md#install-the-nps-extension) n’a peut-être pas été exécuté après l’installation. Ce message d’erreur doit inclure la clé manquante. Assurez-vous que la clé se trouve dans HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Attribut userName\Identifier Radius obligatoire manquant dans la demande Radius. Vérifiez que le serveur NPS reçoit les demandes RADIUS. | Cette erreur indique généralement un problème d’installation. L’extension NPS doit être installée sur des serveurs NPS pouvant recevoir des demandes RADIUS. Les serveurs NPS installés en tant que dépendances de services comme RDG et RRAS ne reçoivent pas les demandes RADIUS. L’extension NPS ne fonctionne pas dans le cadre d’une telle installation et renvoie une erreur, car elle ne peut pas lire les détails de la demande d’authentification. |
-| **REQUEST_MISSING_CODE** | En cas d’utilisation de SMS ou de jetons OATH comme méthode d’authentification secondaire, le protocole PAP de chiffrement de mot de passe entre les serveurs NPS et NAS doit être utilisé. L’extension NPS ne prend pas en charge les autres méthodes de chiffrement de mot de passe à ce stade.|
+| **REQUEST_MISSING_CODE** | Assurez-vous que le protocole de chiffrement du mot de passe entre les serveurs NPS et NAS prend en charge la méthode d’authentification secondaire que vous utilisez. **PAP** prend en charge toutes les méthodes d’authentification de l’authentification multifacteur Azure dans le cloud : appel téléphonique, message texte à sens unique, notification de l’application mobile et code de vérification de l’application mobile. **CHAPv2** et **EAP** prennent en charge l’appel téléphonique et la notification d’application mobile. |
 | **USERNAME_CANONICALIZATION_ERROR** | Vérifiez que l’utilisateur se trouve dans votre instance locale d’Active Directory et que le service NPS dispose des autorisations pour accéder au répertoire. Si vous utilisez des approbations inter-forêts, [contactez le support technique](#contact-microsoft-support) pour plus d’informations. |
+
+
+   
 
 ### <a name="alternate-login-id-errors"></a>Erreurs d’ID de connexion de substitution
 
