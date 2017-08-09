@@ -12,15 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 07/26/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6c0affd0f5ea600f979cfcc87e2435658c8dab14
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a2ddc932343d54963a378ee27dc962a790326b2a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Groupes d’ordinateurs dans les recherches de journal Log Analytics
+
+>[!NOTE]
+> Cet article décrit l’utilisation des groupes d’ordinateurs dotés du langage de requête Log Analytics actuel.    Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), les groupes d’ordinateurs fonctionnent différemment.  Cet article contient des remarques dont la syntaxe et le comportement diffèrent pour le nouveau langage de requête.  
+
+
 Les groupes d’ordinateurs dans Log Analytics vous permettent d’étendre des [recherches de journal](log-analytics-log-searches.md) à un ensemble spécifique d’ordinateurs.  Vous peuplez chaque groupe d’ordinateurs soit à l’aide d’une requête que vous définissez, soit en important des groupes à partir de différentes sources.  Quand un groupe est inclus dans une recherche de journal, les résultats sont limités aux enregistrements correspondant aux ordinateurs du groupe.
 
 ## <a name="creating-a-computer-group"></a>Création d’un groupe d’ordinateurs
@@ -48,6 +54,12 @@ Voici des exemples de recherches que vous pouvez enregistrer en tant que groupe 
     Computer="Computer1" OR Computer="Computer2" | distinct Computer 
     Computer=*srv* | measure count() by Computer
 
+>[!NOTE]
+> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les modifications suivantes sont apportées à la procédure de création d’un groupe d’ordinateurs.
+>  
+> - La requête pour la création d’un groupe d’ordinateurs doit inclure `distinct Computer`.  Voici un exemple de requête pour la création d’un groupe d’ordinateurs.<br>`Heartbeat | where Computer contains "srv" `
+> - Lorsque vous créez un groupe d’ordinateurs, vous devez spécifier un alias en plus du nom.  Utilisez l’alias lorsque vous utilisez le groupe d’ordinateurs dans une requête, comme décrit ci-dessous.  
+
 ### <a name="log-search-api"></a>API Recherche de journal
 Les groupes d’ordinateurs créés avec l’API Recherche de journal sont les mêmes que les recherches créées avec une Recherche de journal.
 
@@ -63,7 +75,7 @@ Vous configurez Log Analytics pour importer les groupes de sécurité Active Dir
 Une fois des groupes importés, le menu répertorie le nombre d’ordinateurs détectés avec une appartenance à un groupe et le nombre de groupes importés.  Vous pouvez cliquer sur l’un de ces liens pour retourner les enregistrements **ComputerGroup**avec ces informations.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-Lorsque vous configurez Log Analytics pour importer les appartenances aux groupes WSUS, Log Analytics analyse les appartenances aux groupes de ciblage de tous les ordinateurs avec l’Agent OMS.  Si vous utilisez un ciblage côté client, l’appartenance à un groupe de tout ordinateur connecté à OMS et faisant partie d’un groupe de ciblage WSUS est importée dans Log Analytics. Si vous utilisez un ciblage côté client, l’Agent OMS doit être installé sur le serveur WSUS afin que les informations d’appartenance au groupe soient importées dans OMS.  Cet appartenance est mise à jour toutes les 4 heures. 
+Lorsque vous configurez Log Analytics pour importer les appartenances aux groupes WSUS, le service analyse les appartenances aux groupes de ciblage de tous les ordinateurs avec l’Agent OMS.  Si vous utilisez un ciblage côté client, l’appartenance à un groupe de tout ordinateur connecté à OMS et faisant partie d’un groupe de ciblage WSUS est importée dans Log Analytics. Si vous utilisez un ciblage côté client, l’Agent OMS doit être installé sur le serveur WSUS afin que les informations d’appartenance au groupe soient importées dans OMS.  Cet appartenance est mise à jour toutes les 4 heures. 
 
 Vous configurez Log Analytics pour importer les groupes de sécurité Active Directory à partir du menu **Groupes d’ordinateurs** dans les **Paramètres** de Log Analytics.  Sélectionnez **Active Directory** puis **Importer les appartenances à des groupes Active Directory depuis les ordinateurs**.  Aucune configuration supplémentaire n’est requise.
 
@@ -83,11 +95,16 @@ Vous utilisez la syntaxe suivante pour faire référence à un groupe d’ordina
 
     $ComputerGroups[Category: Name]
 
-Lors de l’exécution d’une recherche, les membres de tous les groupes d’ordinateurs inclus dans la recherche sont résolus en premier.  Si le groupe est basé sur une recherche de journal, celle-ci est exécutée pour retourner les membres du groupe avant d’effectuer la recherche de journal de niveau supérieur.
+Lors de l’exécution d’une recherche, les membres de tous les groupes d’ordinateurs inclus dans la recherche sont résolus en premier.  Si le groupe est basé sur une recherche dans les journaux, celle-ci est exécutée pour retourner les membres du groupe avant d’effectuer la recherche dans les journaux de niveau supérieur.
 
-Les groupes d’ordinateurs sont généralement utilisés avec la clause **IN**dans la recherche de journal, comme dans l’exemple suivant.
+Les groupes d’ordinateurs sont généralement utilisés avec la clause **IN**dans la recherche de journal, comme dans l’exemple suivant :
 
     Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]
+
+>[!NOTE]
+> Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), utilisez un groupe d’ordinateurs dans une requête en traitant son alias comme une fonction tel qu’indiqué dans l’exemple suivant :
+> 
+>  `UpdateSummary | where Computer IN (MyComputerGroup)`
 
 ## <a name="computer-group-records"></a>Enregistrements de groupe d’ordinateurs
 Un enregistrement est créé dans le référentiel OMS pour chaque appartenance à un groupe d’ordinateur créée à partir d’Active Directory ou de WSUS.  Ces enregistrements sont de type **ComputerGroup** et ont les propriétés décrites dans le tableau suivant.  Des enregistrements ne sont pas créés pour des groupes d’ordinateurs basés sur des recherches de journal.
@@ -100,16 +117,11 @@ Un enregistrement est créé dans le référentiel OMS pour chaque appartenance 
 | Groupe |Nom du groupe. |
 | GroupFullName |Chemin d’accès complet au groupe, incluant la source et le nom de la source. |
 | GroupSource |Source à partir de laquelle ce groupe a été collecté. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Nom de la source à partir de laquelle les groupes ont été collectées.  Pour Active Directory, il s’agit du nom de domaine. |
+| GroupSourceName |Nom de la source à partir de laquelle le groupe a été collecté.  Pour Active Directory, il s’agit du nom de domaine. |
 | ManagementGroupName |Nom du groupe d'administration pour les agents SCOM.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
 | TimeGenerated |Date et heure de création ou de mise à jour du groupe d’ordinateurs. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions.  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

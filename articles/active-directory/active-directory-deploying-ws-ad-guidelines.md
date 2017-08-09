@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/26/2017
 ms.author: femila
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4e76a20c7c7eef9a51c6c0373785fd810c09e34a
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure
@@ -109,7 +108,7 @@ Pour plus d’informations sur la manière dont les contrôleurs de domaine peuv
 Depuis Windows Server 2012, [des dispositifs de protection supplémentaires sont intégrés aux services AD DS](https://technet.microsoft.com/library/hh831734.aspx). Ces dispositifs protègent les contrôleurs de domaine virtualisés contre les problèmes susmentionnés, à condition que la plateforme de l’hyperviseur sous-jacent prenne en charge VM-GenerationID. Azure prend en charge VM-GenerationID, ce qui signifie que les contrôleurs de domaine qui exécutent Windows Server 2012 ou version ultérieure sur des machines virtuelles Azure disposent de dispositifs de protection supplémentaires.
 
 > [!NOTE]
-> Il est recommandé d’éteindre et de redémarrer une machine virtuelle exécutant le rôle de contrôleur de domaine dans Azure à partir du système d’exploitation invité plutôt que d’utiliser l’option **Arrêter** du portail Azure ou du portail Classic. Aujourd’hui, l’utilisation du portail pour arrêter une machine virtuelle a pour effet d’annuler l’allocation de cette dernière. Une machine virtuelle qui n’est plus allouée présente l’avantage de ne pas entraîner de frais ; pour autant, elle a pour effet de réinitialiser le VM-GenerationID, ce qui n’est pas souhaitable pour un contrôleur de domaine. Lorsque le VM-GenerationID est réinitialisé, l’invocationID de la base de données AD DS est également réinitialisé, le pool RID est supprimé et SYSVOL est marqué comme ne faisant pas autorité. Pour plus d’informations, consultez l’article [Présentation de la virtualisation des services de domaine Active Directory (AD DS)](https://technet.microsoft.com/library/hh831734.aspx) et la rubrique [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx) (Virtualisation DFSR sécurisée).
+> Il est recommandé d’éteindre et redémarrer une machine virtuelle exécutant le rôle de contrôleur de domaine dans Azure depuis le système d’exploitation invité plutôt que d’utiliser l’option **Arrêter** du portail Azure. Aujourd’hui, l’utilisation du portail pour arrêter une machine virtuelle a pour effet d’annuler l’allocation de cette dernière. Une machine virtuelle qui n’est plus allouée présente l’avantage de ne pas entraîner de frais ; pour autant, elle a pour effet de réinitialiser le VM-GenerationID, ce qui n’est pas souhaitable pour un contrôleur de domaine. Lorsque le VM-GenerationID est réinitialisé, l’invocationID de la base de données AD DS est également réinitialisé, le pool RID est supprimé et SYSVOL est marqué comme ne faisant pas autorité. Pour plus d’informations, consultez l’article [Présentation de la virtualisation des services de domaine Active Directory (AD DS)](https://technet.microsoft.com/library/hh831734.aspx) et la rubrique [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx) (Virtualisation DFSR sécurisée).
 > 
 > 
 
@@ -127,7 +126,7 @@ Pour finir, vous pouvez déployer une application réseau sur Azure, telle que S
 
 ## <a name="contrasts-between-deploying-windows-server-active-directory-domain-controllers-on-azure-virtual-machines-versus-on-premises"></a>Différences entre le déploiement de contrôleurs de domaine Windows Server Active Directory sur des machines virtuelles Azure et leur déploiement en local
 * Pour tout scénario de déploiement de Windows Server Active Directory comprenant une seule machine virtuelle, il est nécessaire d’utiliser un réseau virtuel Azure pour garantir la cohérence des adresses IP. Notez que ce guide suppose que les contrôleurs de domaine s’exécutent sur un réseau virtuel Azure.
-* Comme pour les contrôleurs de domaine locaux, l’utilisation d’adresses IP statiques est recommandée. Une adresse IP statique peut uniquement être configurée à l’aide d’Azure PowerShell. Pour plus d’informations, consultez [Static internal IP address for VMs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) (Adresse IP interne statique pour les machines virtuelles). Si vous disposez de systèmes de surveillance ou d’autres solutions permettant de vérifier la configuration des adresses IP statiques dans le système d’exploitation invité, vous pouvez affecter la même adresse IP statique aux propriétés de carte réseau de la machine virtuelle. Sachez toutefois que la carte réseau sera ignorée si la machine virtuelle subit une réparation de service ou si elle est arrêtée dans le portail Azure Classic et que son adresse est désallouée. Dans ce cas, l’adresse IP statique dans l’invité devra être réinitialisée.
+* Comme pour les contrôleurs de domaine locaux, l’utilisation d’adresses IP statiques est recommandée. Une adresse IP statique peut uniquement être configurée à l’aide d’Azure PowerShell. Pour plus d’informations, consultez [Static internal IP address for VMs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) (Adresse IP interne statique pour les machines virtuelles). Si vous disposez de systèmes de surveillance ou d’autres solutions permettant de vérifier la configuration des adresses IP statiques dans le système d’exploitation invité, vous pouvez affecter la même adresse IP statique aux propriétés de carte réseau de la machine virtuelle. Sachez toutefois que la carte réseau sera ignorée si la machine virtuelle subit une réparation de service ou si elle est arrêtée dans le portail Azure et que son adresse est désallouée. Dans ce cas, l’adresse IP statique dans l’invité devra être réinitialisée.
 * Le déploiement de machines virtuelles sur un réseau virtuel n’implique (ni ne nécessite) de connectivité à un réseau local ; le réseau virtuel le permet simplement. Vous devez créer un réseau virtuel pour établir la communication privée entre Azure et votre réseau local. Vous devez déployer un point de terminaison VPN sur le réseau local. Le VPN est ouvert entre Azure et le réseau local. Pour plus d’informations, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md) et l’article dédié à la [configuration d’un VPN de site à site dans le portail Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 > [!NOTE]

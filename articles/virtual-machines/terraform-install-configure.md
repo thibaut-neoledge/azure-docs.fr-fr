@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: echuvyrov
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 9718ae5167e9d6cfb044737e12246549440d7808
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1f26bccf279ebb61fbf77767186d0435e4f4ba40
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -72,12 +72,12 @@ Créez ensuite des informations d’identification distinctes pour Terraform.
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-Cette opération renvoie les valeurs client_id, client_secret (mot de passe), sp_name et tenant. Prenez note des valeurs client\_id et client\_secret.
+Les valeurs appId, password, sp_name et tenant sont renvoyées. Prenez note des valeurs appId et password.
 
-Pour confirmer vos informations d’identification (principal du service), ouvrez un nouveau shell et exécutez les commandes suivantes. Remplacez les valeurs renvoyées pour sp_name, client\_secret et tenant :
+Pour confirmer vos informations d’identification (principal du service), ouvrez un nouveau shell et exécutez les commandes suivantes. Remplacez les valeurs renvoyées pour sp_name, password et tenant :
 
 ```
-az login --service-principal -u SP_NAME -p CLIENT_SECRET --tenant TENANT
+az login --service-principal -u SP_NAME -p PASSWORD --tenant TENANT
 az vm list-sizes --location westus
 ```
 
@@ -85,20 +85,27 @@ az vm list-sizes --location westus
 Pour utiliser un ordinateur Windows pour écrire et exécuter vos scripts Terraform et effectuer les tâches de configuration dans PowerShell, configurez votre machine avec les outils PowerShell appropriés. 
 
 1. Installez les outils PowerShell en suivant les étapes décrites dans l’article [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps) (Installer et configurer Azure PowerShell). 
-2. Téléchargez et exécutez le script [azure-setup.ps1 script](https://github.com/echuvyrov/terraform101/blob/master/azureSetup.ps1) à partir de la console PowerShell. 
-3. Pour exécuter le script azure-setup.ps1, téléchargez-le et exécutez la commande `./azure-setup.ps1 setup` à partir de la console PowerShell. Connectez-vous ensuite à votre abonnement Azure avec des privilèges Administrateur. 
+
+2. Téléchargez et exécutez le script [azure-setup.ps1 script](https://github.com/echuvyrov/terraform101/blob/master/azureSetup.ps1) à partir de la console PowerShell.
+
+3. Pour exécuter le script azure-setup.ps1, téléchargez-le et exécutez la commande `./azure-setup.ps1 setup` à partir de la console PowerShell. Connectez-vous ensuite à votre abonnement Azure avec des privilèges Administrateur.
+
 4. Indiquez un nom d’application (chaîne arbitraire, requis) lorsque vous y êtes invité. À l’invite, vous pouvez également indiquer un mot de passe sécurisé. Si vous ne fournissez pas de mot de passe, le mot de passe sécurisé est automatiquement généré à l’aide des bibliothèques de sécurité .NET.
 
 ### <a name="use-azure-cli-10-for-linux-or-mac-users"></a>Utiliser Azure CLI 1.0 (pour les utilisateurs Linux ou Mac)
 Pour commencer à utiliser Terraform sur les machines Linux ou Mac avec Azure CLI 1.0, installez les bibliothèques appropriées sur votre machine.  
 
 1. Installez les outils d’interface de ligne de commande interplateforme Azure en suivant les étapes décrites dans l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+
 2. Téléchargez et installez un processeur JSON en suivant les instructions de la page [Download jq](https://stedolan.github.io/jq/download/) (Télécharger jq).
-3. Téléchargez et exécutez le script bash [azure-setup.sh script](https://github.com/mitchellh/packer/blob/master/contrib/azure-setup.sh) à partir de la console. 
-4. Pour exécuter le script azure-setup.sh, téléchargez-le et exécutez la commande `./azure-setup setup` à partir de la console. Connectez-vous ensuite à votre abonnement Azure avec des privilèges Administrateur. 
+
+3. Téléchargez et exécutez le script bash [azure-setup.sh script](https://github.com/mitchellh/packer/blob/master/contrib/azure-setup.sh) à partir de la console.
+
+4. Pour exécuter le script azure-setup.sh, téléchargez-le et exécutez la commande `./azure-setup setup` à partir de la console. Connectez-vous ensuite à votre abonnement Azure avec des privilèges Administrateur.
+ 
 5. Indiquez un nom d’application (chaîne arbitraire, requis) lorsque vous y êtes invité. À l’invite, vous pouvez également indiquer un mot de passe sécurisé. Si vous ne fournissez pas de mot de passe, le mot de passe sécurisé est automatiquement généré à l’aide des bibliothèques de sécurité .NET.
 
-Tous les scripts précédents créent une application Azure AD et le principal du service. Le principal du service obtient un accès contributeur ou propriétaire à l’abonnement. En raison du niveau élevé d’accès octroyé, vous devez toujours protéger les informations de sécurité générées par ces scripts. Prenez note des quatre éléments d’informations de sécurité fournis par ces scripts : client_id, client_secret, subscription_id et tenant_id.
+Tous les scripts précédents créent une application Azure AD et le principal du service. Le principal du service obtient un accès contributeur ou propriétaire à l’abonnement. En raison du niveau élevé d’accès octroyé, vous devez toujours protéger les informations de sécurité générées par ces scripts. Prenez note des quatre éléments d’informations de sécurité fournis par ces scripts : appId, password, subscription_id et tenant_id.
 
 ## <a name="set-environment-variables"></a>Définition des variables d'environnement
 Après avoir créé et configuré le principal de service Azure AD, vous devez communiquer à Terraform l’ID locataire, l’ID d’abonnement, l’ID client et la clé secrète client à utiliser. Vous pouvez le faire en incorporant ces valeurs dans vos scripts Terraform (comme décrit dans l’article [Créer une infrastructure de base dans Azure à l’aide de Terraform](terraform-create-complete-vm.md). Vous pouvez également définir les variables d’environnement suivantes (et ainsi éviter d’archiver ou de partager accidentellement vos informations d’identification) :
@@ -114,8 +121,8 @@ Vous pouvez utiliser cet exemple de script shell pour définir ces variables :
 #!/bin/sh
 echo "Setting environment variables for Terraform"
 export ARM_SUBSCRIPTION_ID=your_subscription_id
-export ARM_CLIENT_ID=your_client_id
-export ARM_CLIENT_SECRET=your_client_secret
+export ARM_CLIENT_ID=your_appId
+export ARM_CLIENT_SECRET=your_password
 export ARM_TENANT_ID=your_tenant_id
 ```
 

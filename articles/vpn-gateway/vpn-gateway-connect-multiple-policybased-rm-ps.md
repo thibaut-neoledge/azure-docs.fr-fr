@@ -15,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/27/2017
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 1a2e9af88c63d00cf6d08f5b1df24e2edcce9232
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 17211379ec61891982a02efca6730ca0da87c1ef
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Connecter des passerelles VPN à plusieurs périphériques VPN basés sur des stratégies via PowerShell
 
-Cet article vous guidera tout au long de la configuration d’une passerelle VPN Azure basée sur le routage pour connecter plusieurs périphériques VPN basés sur des stratégies locales tirant parti des stratégies IPsec/IKE personnalisées sur les connexions VPN S2S.
+Cet article vous aidera à configurer une passerelle VPN Azure basée sur le routage pour connecter plusieurs périphériques VPN basés sur des stratégies locales tirant parti des stratégies IPsec/IKE personnalisées sur les connexions VPN S2S.
 
 ## <a name="about-policy-based-and-route-based-vpn-gateways"></a>À propos des passerelles VPN basées sur le routage et les stratégies
 
@@ -37,13 +36,13 @@ Les périphériques VPN basés sur des stratégies *et* ceux basés sur le routa
 Les diagrammes suivants illustrent les deux modèles :
 
 ### <a name="policy-based-vpn-example"></a>Exemple de VPN basé sur des stratégies
-![policybased](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedmultisite.png)
+![basé sur des stratégies](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedmultisite.png)
 
 ### <a name="route-based-vpn-example"></a>Exemple de VPN basé sur le routage
-![routebased](./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png)
+![basé sur le routage](./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png)
 
 ### <a name="azure-support-for-policy-based-vpn"></a>Prise en charge par Azure des VPN basés sur des stratégies
-Actuellement, Azure prend en charge les deux modes de passerelles VPN : les passerelles VPN basées sur le routage et les passerelles VPN basées sur des stratégies. Les deux modèles sont construits sur différentes plateformes internes aux caractéristiques différentes :
+Actuellement, Azure prend en charge les deux modes de passerelles VPN : les passerelles VPN basées sur le routage et les passerelles VPN basées sur des stratégies. Les deux modes sont construits sur différentes plateformes internes aux caractéristiques différentes :
 
 |                          | **Passerelle VPN basée sur des stratégies** | **Passerelle VPN basée sur le routage**               |
 | ---                      | ---                         | ---                                      |
@@ -55,23 +54,23 @@ Actuellement, Azure prend en charge les deux modes de passerelles VPN : les pas
 Avec une stratégie IPsec/IKE personnalisée, vous pouvez désormais configurer les passerelles VPN Azure basées sur le routage pour utiliser des sélecteurs de trafic basés sur les préfixes avec l’option «**PolicyBasedTrafficSelectors**», afin de vous connecter à des périphériques VPN basés sur des stratégies locales. Cette fonctionnalité vous permet de vous connecter à partir d’un réseau virtuel Azure et d’une passerelle VPN à plusieurs périphériques VPN/pare-feu basés sur des stratégies locales, en supprimant ainsi la limite d’une connexion unique à partir des passerelles VPN Azure basées sur des stratégies locales.
 
 > [!IMPORTANT]
-> 1. Pour activer cette connectivité, vos périphériques VPN basés sur des stratégies locales doivent prendre en charge **IKEv2** pour la connexion aux passerelles VPN Azure basées sur le routage. Veuillez vérifier les caractéristiques de votre périphérique VPN.
-> 2. Les réseaux locaux qui utilisent ce mécanisme pour se connecter via des périphériques VPN basés sur des stratégies ne peuvent se connecter qu’au réseau virtuel Azure ; c’est-à-dire qu’**ils ne peuvent pas transiter vers d’autres réseaux locaux ou réseaux virtuels via la même passerelle VPN Azure**.
+> 1. Pour activer cette connectivité, vos périphériques VPN basés sur des stratégies locales doivent prendre en charge **IKEv2** pour la connexion aux passerelles VPN Azure basées sur le routage. Vérifiez les caractéristiques de votre périphérique VPN.
+> 2. Les réseaux locaux qui utilisent ce mécanisme pour se connecter via des périphériques VPN basés sur des stratégies ne peuvent se connecter qu’au réseau virtuel Azure ; c’est-à-dire qu’**ils ne peuvent pas transiter vers d’autres réseaux locaux ou virtuels via la même passerelle VPN Azure**.
 > 3. L’option de configuration fait partie de la stratégie de connexion personnalisée IPsec/IKE. Vous devez spécifier la stratégie complète (algorithmes de chiffrement et d’intégrité IPsec/IKE, puissance des clés et durée de vie des associations de sécurité) si vous activez l’option Sélecteur de trafic basé sur des stratégies.
 
-Le diagramme suivant montre pourquoi le routage de transit via la passerelle VPN Azure ne fonctionne pas avec l’option basée sur des stratégies.
+Le diagramme suivant montre pourquoi le routage de transit via la passerelle VPN Azure ne fonctionne pas avec l’option basée sur des stratégies :
 
-![policybasedtransit](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedtransit.png)
+![transit basé sur des stratégies](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedtransit.png)
 
-Comme illustré dans le diagramme, les sélecteurs de trafic de la passerelle VPN Azure vont du réseau virtuel vers chaque préfixe de réseau local, mais les connexions croisées ne sont pas possibles. Par exemple, les sites locaux 2, 3 et 4 peuvent tous communiquer avec VNet1, mais ils ne peuvent pas se connecter entre eux via la passerelle VPN Azure. Le diagramme montre les sélecteurs de trafic croisés qui ne sont pas disponibles dans cette configuration de la passerelle VPN Azure.
+Comme illustré dans le diagramme, les sélecteurs de trafic de la passerelle VPN Azure vont du réseau virtuel vers chaque préfixe de réseau local, mais les connexions croisées ne sont pas possibles. Par exemple, les sites locaux 2, 3 et 4 peuvent tous communiquer avec VNet1, mais ils ne peuvent pas se connecter entre eux via la passerelle VPN Azure. Le diagramme montre les sélecteurs de trafic croisés qui ne sont pas disponibles dans cette configuration de la passerelle VPN Azure.
 
 ## <a name="configure-policy-based-traffic-selectors-on-a-connection"></a>Configurer des sélecteurs de trafic basés sur des stratégies sur une connexion
 
-Les instructions fournies dans cet article suivent le même exemple que celui décrit dans l’article [Configure IPsec/IKE policy for S2S or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Configuration d’une stratégie IPsec/IKE pour les connexions S2S ou entre deux réseaux virtuels), pour établir une connexion VPN S2S telle qu’illustrée dans le diagramme ci-dessous :
+Les instructions fournies dans cet article suivent le même exemple que l’article [Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel](vpn-gateway-ipsecikepolicy-rm-powershell.md) pour établir une connexion VPN S2S. Cette situation est présentée dans le diagramme suivant :
 
-![s2s-policy](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
+![stratégie S2S](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
 
-Le flux de travail pour activer cette connectivité :
+Le flux de travail pour activer cette connectivité est le suivant :
 1. Créez le réseau virtuel, la passerelle VPN et la passerelle de réseau local pour votre connexion entre sites.
 2. Créez une stratégie IPsec/IKE.
 3. Appliquez la stratégie lorsque vous créez une connexion S2S ou entre deux réseaux virtuels, et **activez les sélecteurs de trafic basés sur des stratégies** sur la connexion
@@ -79,9 +78,9 @@ Le flux de travail pour activer cette connectivité :
 
 ## <a name="enable-policy-based-traffic-selectors-on-a-connection"></a>Activer des sélecteurs de trafic basés sur des stratégies sur une connexion
 
-Assurez-vous d’avoir terminé la [partie 3 de l’article sur la configuration d’une stratégie IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) avant d’aborder cette section. L’exemple ci-dessous utilise les mêmes paramètres et étapes.
+Assurez-vous d’avoir terminé la [partie 3 de l’article sur la configuration d’une stratégie IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) avant d’aborder cette section. L’exemple suivant utilise les mêmes paramètres et étapes :
 
-### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Étape 1 : créez le réseau virtuel, la passerelle VPN et la passerelle de réseau local
+### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Étape 1 : création du réseau virtuel, de la passerelle VPN et de la passerelle de réseau local
 
 #### <a name="1-declare-your-variables--connect-to-your-subscription"></a>1. Déclarez vos variables et connectez-vous à votre abonnement.
 Dans cet exercice, nous allons commencer par déclarer les variables. Veillez à les remplacer par vos valeurs lors de la configuration dans un contexte de production.
@@ -110,7 +109,7 @@ $LNGPrefix61   = "10.61.0.0/16"
 $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
-Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d’informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
+Pour utiliser les cmdlets Resource Manager, passez au mode PowerShell. Pour plus d’informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
 
 Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
@@ -120,8 +119,8 @@ Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="2-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>2. Créez le réseau virtuel, la passerelle VPN et la passerelle de réseau local.
-L’exemple ci-dessous crée le réseau virtuel, TestVNet1, avec trois sous-réseaux et la passerelle VPN. Lorsque vous remplacez les valeurs, pensez à toujours nommer votre sous-réseau de passerelle « GatewaySubnet ». Si vous le nommez autrement, la création de votre passerelle échoue.
+#### <a name="2-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>2. Créer le réseau virtuel, la passerelle VPN et la passerelle de réseau local
+L’exemple suivant crée le réseau virtuel, TestVNet1, avec trois sous-réseaux et la passerelle VPN. Lorsque vous remplacez les valeurs, pensez à toujours nommer votre sous-réseau de passerelle « GatewaySubnet ». Si vous le nommez autrement, la création de votre passerelle échoue.
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -140,15 +139,15 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
 
-### <a name="step-2---creat-a-s2s-vpn-connection-with-an-ipsecike-policy"></a>Étape 2 : créer un réseau VPN S2S avec une stratégie IPsec/IKE
+### <a name="step-2---create-a-s2s-vpn-connection-with-an-ipsecike-policy"></a>Étape 2 : création d’une connexion VPN S2S avec une stratégie IPsec/IKE
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Créez une stratégie IPsec/IKE.
 
 > [!IMPORTANT]
 > Vous devez créer une stratégie IPsec/IKE afin d’activer l’option « UsePolicyBasedTrafficSelectors » sur la connexion.
 
-L’exemple de script ci-dessous crée une stratégie IPsec/IKE avec les paramètres et les algorithmes suivants :
-* IKEv2 : AES256, SHA384, DHGroup24
+L’exemple de script suivant crée une stratégie IPsec/IKE avec les paramètres et les algorithmes suivants :
+* IKEv2: AES256, SHA384, DHGroup24
 * IPsec : AES256, SHA256, PFS24, SA Lifetime 3600 seconds & 2048KB
 
 ```powershell
@@ -156,7 +155,7 @@ $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA38
 ```
 
 #### <a name="2-create-the-s2s-vpn-connection-with-policy-based-traffic-selectors-and-ipsecike-policy"></a>2. Créez la connexion VPN S2S avec les sélecteurs de trafic basés sur des stratégies et la stratégie IPsec/IKE.
-Créez une connexion VPN S2S et appliquez la stratégie IPsec/IKE créée ci-dessus. Notez l’utilisation du paramètre supplémentaire « -UsePolicyBasedTrafficSelectors $True » pour activer les sélecteurs de trafic basés sur des stratégies sur la connexion.
+Créez une connexion VPN S2S et appliquez la stratégie IPsec/IKE créée dans l’étape précédente. Prenez connaissance de l’utilisation du paramètre supplémentaire « -UsePolicyBasedTrafficSelectors $True ». Il permet d’activer les sélecteurs de trafic basés sur des stratégies sur la connexion.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
@@ -165,7 +164,7 @@ $lng6 = Get-AzureRmLocalNetworkGateway  -Name $LNGName6 -ResourceGroupName $RG1
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -UsePolicyBasedTrafficSelectors $True -IpsecPolicies $ipsecpolicy6 -SharedKey 'AzureA1b2C3'
 ```
 
-Une fois que vous aurez terminé ces étapes, la connexion VPN S2S utilisera la stratégie IPsec/IKE définie ci-dessus et activera sur la connexion les sélecteurs de trafic basés sur des stratégies. Vous pouvez répéter les mêmes étapes pour ajouter davantage de connexions à des périphériques VPN supplémentaires basés sur des stratégies locales à partir de la même passerelle VPN Azure.
+Une fois que vous aurez terminé ces étapes, la connexion VPN S2S utilisera la stratégie IPsec/IKE définie et activera sur la connexion les sélecteurs de trafic basés sur des stratégies. Vous pouvez répéter les mêmes étapes pour ajouter davantage de connexions à des périphériques VPN supplémentaires basés sur des stratégies locales à partir de la même passerelle VPN Azure.
 
 ## <a name="update-policy-based-traffic-selectors-for-a-connection"></a>Mettre à jour des sélecteurs de trafic basés sur des stratégies pour une connexion
 La dernière section indique comment mettre à jour l’option des sélecteurs de trafic basés sur des stratégies pour une connexion VPN S2S existante.
@@ -192,7 +191,7 @@ Si la ligne renvoie « **True** », alors les sélecteurs de trafic basés sur
 Une fois que vous avez obtenu la ressource de connexion, vous pouvez activer ou désactiver l’option.
 
 #### <a name="disable-usepolicybasedtrafficselectors"></a>Désactiver UsePolicyBasedTrafficSelectors
-Dans l’exemple ci-dessous l’option des sélecteurs du trafic basés sur des stratégies est désactivée, mais ne modifie pas la stratégie IPsec/IKE :
+Dans l’exemple suivant, l’option des sélecteurs du trafic basés sur des stratégies est désactivée, mais ne modifie pas la stratégie IPsec/IKE :
 
 ```powershell
 $RG1          = "TestPolicyRG1"
@@ -203,7 +202,7 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 ```
 
 #### <a name="enable-usepolicybasedtrafficselectors"></a>Activer UsePolicyBasedTrafficSelectors
-Dans l’exemple ci-dessous l’option des sélecteurs du trafic basés sur des stratégies est activée, mais ne modifie pas la stratégie IPsec/IKE :
+Dans l’exemple suivant, l’option des sélecteurs du trafic basés sur des stratégies est désactivée, mais ne modifie pas la stratégie IPsec/IKE :
 
 ```powershell
 $RG1          = "TestPolicyRG1"

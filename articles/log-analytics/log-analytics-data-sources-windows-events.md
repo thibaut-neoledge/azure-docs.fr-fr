@@ -1,6 +1,6 @@
 ---
 title: "Collecter et analyser les journaux des événements Windows dans OMS Log Analytics | Microsoft Docs"
-description: "Les journaux d’événements Windows sont une des sources de données les plus couramment utilisées par Log Analytics.  Cet article décrit comment configurer la collecte des journaux d’événements Windows et des détails des enregistrements qu&quot;ils créent dans le référentiel OMS."
+description: "Les journaux d’événements Windows sont une des sources de données les plus couramment utilisées par Log Analytics.  Cet article décrit comment configurer la collecte des journaux d’événements Windows et des détails des enregistrements qu'ils créent dans le référentiel OMS."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 07/12/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: b6627ed7e3b08e0a94dec229d735114b3ed1b9df
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 1cdaa8c4bf511a07383023f1baf79449ef7fdd35
 ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Sources de données de journal d’événements Windows dans Log Analytics
@@ -71,10 +70,21 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 | Type=Event &#124; Measure count() by Source |Nombre d’événements Windows par source. |
 | Type=Event EventLevelName=error &#124; Measure count() by Source |Nombre d’événements d’erreur Windows par source. |
 
+
+>[!NOTE]
+> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus sont remplacées par les requêtes ci-dessous.
+>
+>| Interroger | Description |
+|:---|:---|
+| Événement |Tous les événements Windows. |
+| Événement &#124 ; où valeur EventLevelName == « erreur » |Tous les événements Windows avec la gravité de l'erreur. |
+| Événement &#124; résumer count() par source |Nombre d’événements Windows par source. |
+| Événement &#124; où valeur EventLevelName == « erreur » &#124; résumer count() par source |Nombre d’événements d’erreur Windows par source. |
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 * Configurez Log Analytics pour collecter d’autres [sources de données](log-analytics-data-sources.md) à analyser.
 * En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
 * Utilisez [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les enregistrements d'événements dans des champs individuels.
 * Configurez la [collecte des compteurs de performances](log-analytics-data-sources-performance-counters.md) à partir de vos agents Windows.
-
 

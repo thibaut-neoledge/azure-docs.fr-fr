@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/31/2017
+ms.date: 07/25/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: bd832efd3902dd61be1a8b64396eaadf1cd76e24
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7a9d994e10ec79437d6ccf60531cb12b86f34151
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Étapes de dépannage détaillées pour les problèmes de connexion du Bureau à distance aux machines virtuelles Windows dans Azure
@@ -110,16 +109,9 @@ Si vous pouvez vous connecter à une machine virtuelle via le Bureau à distance
 Pour vérifier si le point de terminaison est la source du problème, supprimez le point de terminaison actuel et créez un autre point en choisissant un port aléatoire dont le numéro externe se situe entre 49152 et 65535. Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle](classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="source-4-network-security-groups"></a>Source 4 : groupes de sécurité réseau
-Les groupes de sécurité réseau vous permettent de contrôler plus précisément le trafic entrant et sortant autorisé. Vous pouvez créer des règles qui s’étendent aux sous-réseaux et aux services cloud d’un réseau virtuel Azure. Examinez les règles de votre groupe de sécurité réseau pour vous assurer que le trafic de Bureau à distance provenant d’Internet est autorisé :
+Les groupes de sécurité réseau vous permettent de contrôler plus précisément le trafic entrant et sortant autorisé. Vous pouvez créer des règles qui s’étendent aux sous-réseaux et aux services cloud d’un réseau virtuel Azure.
 
-* Dans le portail Azure, sélectionnez votre machine virtuelle.
-* Cliquez sur **Tous les paramètres** | **Interfaces réseau** et sélectionnez votre interface réseau.
-* Cliquez sur **Tous les paramètres** | **Groupe de sécurité réseau** et sélectionnez votre groupe de sécurité réseau.
-* Cliquez sur **Tous les paramètres** | **Règles de sécurité de trafic entrant** et vérifiez que vous avez une règle autorisant le Bureau à distance sur le port TCP 3389.
-  * Si vous n’avez pas de règle, cliquez sur **Ajouter** pour en créer une. Entrez **TCP** comme protocole, puis **3389** comme plage de ports de destination.
-  * Vérifiez que l’action est définie sur **Autoriser** et cliquez sur OK pour enregistrer votre nouvelle règle de trafic entrant.
-
-Pour plus d’informations, voir [Présentation du groupe de sécurité réseau](../../virtual-network/virtual-networks-nsg.md)
+Utilisez la [vérification des flux IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) pour savoir si une règle d’un groupe de sécurité réseau bloque le trafic depuis ou vers une machine virtuelle. Vous pouvez également vérifier les règles de groupe de sécurité effectives pour vous assurer que la règle « Allow » entrante du groupe de sécurité réseau existe pour le port RDP (par défaut, 3389). Pour en savoir plus, voir [Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Source 5 : Machine virtuelle Azure Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

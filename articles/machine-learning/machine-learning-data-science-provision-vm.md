@@ -11,18 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1469e7a2f5f41ef52c0ff77e6e70378951594135
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: b1b29ba11bc489a6ad67c2d9043cdb8a2dca7ef8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="provision-the-microsoft-data-science-virtual-machine"></a>Approvisionnement d’une machine virtuelle pour la science des données
-La machine virtuelle pour la science des données Microsoft est une image de machine virtuelle Azure préalablement installée et configurée avec plusieurs outils populaires couramment utilisés dans le cadre de l’analyse de données et de l’apprentissage automatique. Elle intègre les outils suivants :
+La machine virtuelle pour la science des données Microsoft est une image de machine virtuelle Windows Azure préalablement installée et configurée avec plusieurs outils populaires couramment utilisés dans le cadre de l’analyse de données et de l’apprentissage automatique. Elle intègre les outils suivants :
 
 * Microsoft R Server Developer Edition
 * Distribution Anaconda Python
@@ -42,7 +41,13 @@ La machine virtuelle pour la science des données Microsoft est une image de mac
 * Git incluant Git Bash pour travailler avec les référentiels de code source, notamment GitHub, Visual Studio Team Services
 * Ports Windows de plusieurs utilitaires de ligne de commande Linux populaires (notamment awk, sed, perl, grep, find, wget, curl, etc.) accessibles via l’invite de commandes. 
 
-La science des données implique une itération sur une séquence de tâches : recherche, chargement et prétraitement des données, création et test de modèles, et déploiement des modèles en vue d’une utilisation dans des applications intelligentes. Les scientifiques de données utilisent différents outils pour effectuer ces tâches. La recherche des versions adéquates des logiciels, puis leur téléchargement et leur installation peuvent prendre un certain temps. La machine virtuelle pour la science des données Microsoft peut faciliter cette tâche en fournissant une image prête à l’emploi qui peut être approvisionnée sur Azure avec tous les outils populaires préalablement installés et configurés. 
+La science des données consiste à itérer sur une séquence de tâches :
+
+1. Recherche, chargement et traitement des données
+2. Création et test des modèles
+3. Déploiement des modèles à des fins d’utilisation dans des applications intelligentes
+
+Les scientifiques de données utilisent différents outils pour effectuer ces tâches. La recherche des versions adéquates des logiciels, puis leur téléchargement et leur installation peuvent prendre un certain temps. La machine virtuelle pour la science des données Microsoft peut faciliter cette tâche en fournissant une image prête à l’emploi qui peut être approvisionnée sur Azure avec tous les outils populaires préalablement installés et configurés. 
 
 Le renvoi de la machine virtuelle pour la science des données démarre votre projet d’analyse. Elle vous permet de travailler sur des tâches basées sur différents langages, notamment R, Python, SQL et C#. Visual Studio propose un IDE qui vous permet de développer et tester très simplement votre code. Le SDK Azure inclus dans la machine virtuelle vous permet de créer des applications à l’aide de divers services disponibles sur la plateforme cloud de Microsoft. 
 
@@ -98,12 +103,13 @@ Par défaut, le serveur Jupyter Notebook est préconfiguré mais désactivé sur
 
 Suivez les messages et à l’invite, choisissez un mot de passe fort.
 
-Le script ci-dessus crée un hachage de mot de passe et le stocke dans le fichier de configuration Jupyter situé dans : **C:\ProgramData\jupyter\jupyter_notebook_config.py** sous le nom de paramètre ***c.NotebookApp.password***.
+Le script qui précède crée un hachage de mot de passe et le stocke dans le fichier de configuration Jupyter situé dans : **C:\ProgramData\jupyter\jupyter_notebook_config.py** sous le nom de paramètre ***c.NotebookApp.password***.
 
 En outre, le script active et exécute le serveur Jupyter en arrière-plan. Le serveur Jupyter est créé en tant que tâche Windows dans le Planificateur de tâches Windows appelé **Start_IPython_Notebook**.  Après la définition du mot de passe, vous devrez peut-être attendre quelques secondes avant d’ouvrir le notebook dans votre navigateur. Consultez la section ci-dessous intitulée **Jupyter Notebook** sur la façon d’accéder au serveur Jupyter Notebook. 
 
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Outils installés sur la machine virtuelle de science des données
+
 ### <a name="microsoft-r-server-developer-edition"></a>Microsoft R Server Developer Edition
 Si vous souhaitez utiliser R pour votre analyse, Microsoft R Server Developer Edition est installé sur la machine virtuelle. Microsoft R Server est une plateforme d’analyse d’entreprise basée sur R, prise en charge, extensible et sécurisée, que vous pouvez largement déployer. Prenant en charge les statistiques Big Data, la modélisation prédictive et des fonctionnalités Machine Learning, R Server prend en charge la totalité de l’analyse : exploration, analyse, visualisation et modélisation. En utilisant et en étendant R Open Source, Microsoft R Server est entièrement compatible avec les scripts, les fonctions et les packages CRAN R pour analyser les données à l'échelle de l'entreprise. Il traite également les limitations en mémoire de R Open Source en ajoutant le traitement des données en parallèle et mémorisé en bloc. Cela vous permet d’exécuter des analyses de données plus volumineuses que ce que peut contenir la mémoire principale.  Visual Studio Community Edition inclus sur la machine virtuelle contient les outils R pour l’extension Visual Studio qui fournit un IDE complet pour travailler avec R. Vous pouvez également télécharger et utiliser d’autres IDE, comme par exemple [RStudio](http://www.rstudio.com). 
 

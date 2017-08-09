@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/6/2017
+ms.date: 07/20/2017
 ms.author: pullabhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c65976c7394c7f9691526c0914854ef09184ab07
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: ae7c345c11a7db25413d60ad822f16f84ca37362
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="recover-files-from-azure-virtual-machine-backup-preview"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure (Aperçu)
+# <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
 La sauvegarde Azure offre la possibilité de restaurer des [machines virtuelles et des disques Azure](./backup-azure-arm-restore-vms.md) à partir de sauvegardes de machines virtuelles Azure. Cet article explique comment récupérer des éléments tels que des fichiers et des dossiers à partir d’une sauvegarde de machine virtuelle Azure.
 
@@ -35,7 +34,7 @@ La sauvegarde Azure offre la possibilité de restaurer des [machines virtuelles 
 
 1. Connectez-vous au [portail Azure](http://portal.Azure.com). Recherchez le coffre Recovery Services approprié et l’élément de sauvegarde requis.
 
-2. Dans le panneau Élément de sauvegarde, cliquez sur **Récupération de fichier (aperçu)**.
+2. Dans le panneau Élément de sauvegarde, cliquez sur **Récupération de fichier**.
 
     ![Ouvrir l’élément de sauvegarde du coffre Recovery Services.](./media/backup-azure-restore-files-from-vm/open-vault-item.png)
 
@@ -49,13 +48,19 @@ La sauvegarde Azure offre la possibilité de restaurer des [machines virtuelles 
 
   Le fichier exécutable/script crée une connexion entre l’ordinateur local et le point de récupération spécifié.
 
-5. Sur l’ordinateur sur lequel vous souhaitez récupérer les fichiers, exécutez le fichier exécutable/de script. Vous devez l’exécuter en tant qu’administrateur. Si vous exécutez le script sur un ordinateur avec un accès restreint, vérifiez l’accès aux éléments suivants :
+5. Pour exécuter le script/fichier exécutable téléchargé, vous avez besoin d’un mot de passe. Vous pouvez copier le mot de passe à partir du portail à l’aide du bouton Copier en regard du mot de passe généré.
 
-    - go.microsoft.com
+    ![Mot de passe généré](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
+
+6. Sur l’ordinateur sur lequel vous souhaitez récupérer les fichiers, exécutez le fichier exécutable/de script. Vous devez l’exécuter en tant qu’administrateur. Si vous exécutez le script sur un ordinateur avec un accès restreint, vérifiez l’accès aux éléments suivants :
+
+    - download.microsoft.com
     - points de terminaison Azure utilisés pour les sauvegardes de machines virtuelles Azure
     - port sortant 3260
 
    Pour Linux, le script requiert les composants « open-iscsi » et « lshw » pour vous connecter au point de récupération. S’ils n’existent pas sur la machine utilisée pour l’exécution, il demande l’autorisation d’installer les composants concernés et les installe avec votre accord.
+   
+   Lorsque vous y êtes invité, entrez le mot de passe copié à partir du portail. Une fois le mot de passe valide entré, le script se connecte au point de récupération.
       
     ![Panneau Récupération de fichier](./media/backup-azure-restore-files-from-vm/executable-output.png)
     

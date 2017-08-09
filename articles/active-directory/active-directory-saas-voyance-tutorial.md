@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 539dc1f9-64c9-4dce-b259-2b0b49dcf857
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/09/2017
+ms.date: 07/16/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 0746f010e8d001a66f8de0a32ea0147774da657b
-ms.lasthandoff: 03/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: e860b810904fb7972d75d55d913d5622ff9a406a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Didacticiel : Intégration d’Azure Active Directory à Voyance
@@ -28,7 +29,7 @@ L’intégration de Voyance à Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Voyance
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Voyance (via l’authentification unique) avec leur compte Azure AD
-- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -39,15 +40,13 @@ Pour configurer l’intégration d’Azure AD à Voyance, vous avez besoin des �
 - Un abonnement Azure AD
 - Un abonnement Voyance pour lequel l’authentification unique est activée
 
->[!NOTE]
->Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
->
+> [!NOTE]
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
-- Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
-
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -55,221 +54,199 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 1. Ajout de Voyance à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="add-voyance-from-the-gallery"></a>Ajouter Voyance à partir de la galerie
+## <a name="adding-voyance-from-the-gallery"></a>Ajout de Voyance à partir de la galerie
 Pour configurer l’intégration de Voyance à Azure AD, vous devez ajouter Voyance à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Voyance à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Bouton Azure Active Directory][1]
 
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+    ![Panneau Applications d’entreprise][2]
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][2]
+    ![Bouton Nouvelle application][3]
 
-4. Cliquez sur **Ajouter** en bas de la page.
+4. Dans la zone de recherche, tapez **Voyance**, sélectionnez **Voyance** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Applications][3]
-
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-
-    ![Applications][4]
-
-6. Dans la zone de recherche, tapez **Voyance**.
-
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_01.png)
-
-7. Dans le volet des résultats, sélectionnez **Voyance**, puis cliquez sur **Terminer** pour ajouter l’application.
-
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_0001.png)
-
+    ![Voyance dans la liste des résultats](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Voyance avec un utilisateur de test nommé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Voyance équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Voyance associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Voyance avec un utilisateur de test appelé « Britta Simon ».
 
-Pour ce faire, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur de **Username** dans Voyance.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Voyance équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Voyance associé doit être établie.
+
+Dans Voyance, assignez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
 
 Pour configurer et tester l’authentification unique Azure AD avec Voyance, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Voyance](#creating-a-voyance-test-user)** pour avoir un équivalent de Britta Simon dans Voyance lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Créer un utilisateur de test Voyance](#create-a-voyance-test-user)** pour avoir un équivalent de Britta Simon dans Voyance lié à la représentation Azure AD associée.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail classique et configurer l’authentification unique dans votre application Voyance.
-
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Voyance.
 
 **Pour configurer l’authentification unique Azure AD avec Voyance, procédez comme suit :**
 
-1. Dans le portail Azure Classic, dans la page d’intégration d’applications **Voyance**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1. Dans le portail Azure, sur la page d’intégration de l’application **Voyance**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][6]
+    ![Lien Configurer l’authentification unique][4]
 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Voyance**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_02.png)
+    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_samlbase.png)
 
-3. Dans la page de boîte de dialogue **Configurer les paramètres d’application**, si vous souhaitez configurer l’application en **mode lancé par le fournisseur d’identité**, procédez comme suit et cliquez sur **Suivant** :
+3. Dans la section **Domaines et URL Voyance**, suivez les étapes ci-dessous pour configurer l’application en mode initié par **IDP** :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_03.png)
-  1. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<company name>.nyansa.com`.
-  2. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company name>.nyansa.com/saml/create/`.
-  3. Cliquez sur **Next**.
+    ![Informations d’authentification unique dans Domaine et URL Voyance pour IDP](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_url1.png)
 
-4. Si vous souhaitez configurer l’application en **mode lancé par le fournisseur de service** dans la page de boîte de dialogue **Configurer les paramètres d’application**, cliquez sur **Affichez les paramètres avancés (facultatif)**, saisissez **l’URL de connexion** et cliquez sur **Suivant**.
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<companyname>.nyansa.com`
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_04.png)
-  1. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.nyansa.com/`.
-  2. Cliquez sur **Suivant**.
+    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<companyname>.nyansa.com/saml/create/`
 
-      >[!NOTE]
-      >Vous devez mettre à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Voyance](emaiLto:support@nyansa.com).
-      >
+4. Si vous souhaitez configurer l’application en mode démarré par le **fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
 
-5. Dans la page **Configurer l’authentification unique sur Voyance**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier sur votre ordinateur :
+    ![Informations d’authentification unique dans Domaine et URL Voyance pour SP](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_url2.png)
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_05.png) 
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.nyansa.com/`
+     
+    > [!NOTE] 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Voyance](mailto:support@nyansa.com). 
 
-6. Dans une autre fenêtre de navigateur web, connectez-vous à votre client Voyance en tant qu’administrateur.
+5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-7. Accédez au coin supérieur droit de la barre de navigation et cliquez sur la liste déroulante indiquant « **Acme University** ».
+    ![Lien de téléchargement du certificat](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_certificate.png) 
+
+6. Cliquez sur le bouton **Enregistrer** .
+
+    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-voyance-tutorial/tutorial_general_400.png)
     
-    ![Configurer l’authentification unique côté application](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_001.png) 
+7. Dans la section **Configuration de Voyance**, cliquez sur **Configurer Voyance** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-8. Cliquez sur **Paramètres d’administration**.
+    ![Configuration de Voyance](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_configure.png) 
 
-    ![Configurer l’authentification unique côté application](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_002.png)
+8. Dans une autre fenêtre de navigateur web, connectez-vous à votre client Voyance en tant qu’administrateur.
 
-9. Cliquez sur l’onglet **Accès utilisateur**.
+9. Accédez au coin supérieur droit de la barre de navigation et cliquez sur la liste déroulante indiquant « **Acme University** ».
+    
+    ![Configurer l’authentification unique côté application - Acme University](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_001.png) 
 
-    ![Configurer l’authentification unique côté application](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_003.png)
+10. Cliquez sur **Paramètres d’administration**.
 
-10. Cliquez sur le bouton **SSO is disabled** (L’authentification unique est désactivée) pour configurer Azure AD en tant que fournisseur d’identité à l’aide de SAML 2.0.
+    ![Configurer l’authentification unique côté application - Paramètres d’administration](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_002.png)
 
-    ![Configurer l’authentification unique côté application](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_004.png)
+11. Cliquez sur l’onglet **Accès utilisateur**.
 
-11. Accédez à la section **SAML v2** et suivez les étapes ci-dessous :
+    ![Configurer l’authentification unique côté application - Accès utilisateur](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_003.png)
 
-    ![Configurer l’authentification unique côté application](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_005.png)
- 1. Sélectionnez **Enabled**.
- 2. Dans la zone de texte **IdP Login URL** (URL de connexion IdP), copiez la valeur de **l’URL d’authentification unique SAML** indiquée dans l’Assistant Configuration de l’application Azure AD.
- 3. Ouvrez votre certificat codé en base64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **IdP Cert** (Certificat IdP).
- 4. Cliquez sur **Save**.
+12. Cliquez sur le bouton **SSO is disabled** (L’authentification unique est désactivée) pour configurer Azure AD en tant que fournisseur d’identité à l’aide de SAML 2.0.
 
-12. Dans le portail classique, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
+    ![Configurer l’authentification unique côté application - Bouton SSO désactivée](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_004.png)
 
-    ![Authentification unique Azure AD][10]
+13. Accédez à la section **SAML v2** et suivez les étapes ci-dessous :
 
-13. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
-  
-    ![Authentification unique Azure AD][11]
+    ![Configurer l’authentification unique côté application - SAML v2](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_005.png)
+    
+    a. Sélectionnez **Enabled**.
+    
+    b. Collez l’**URL du service d’authentification unique SAML**, copiée à partir du portail Azure, dans la zone de texte **IdP Login URL** (URL de connexion IdP).
+
+    c. Ouvrez le certificat codé en base64 que vous avez téléchargé dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **IdP Cert** (Certificat IdP).
+    
+    d. Cliquez sur **Save**.
+
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail classique.
 
-![Créer un utilisateur Azure AD][20]
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+
+![Créer un utilisateur de test Azure AD][100]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-voyance-tutorial/create_aaduser_09.png) 
+    ![Bouton Azure Active Directory](./media/active-directory-saas-voyance-tutorial/create_aaduser_01.png) 
 
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/active-directory-saas-voyance-tutorial/create_aaduser_02.png) 
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
-
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-voyance-tutorial/create_aaduser_03.png) 
-
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-voyance-tutorial/create_aaduser_04.png) 
+    ![Bouton Ajouter](./media/active-directory-saas-voyance-tutorial/create_aaduser_03.png) 
 
-5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur** , procédez comme suit :
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-voyance-tutorial/create_aaduser_05.png) 
- 1. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
- 2. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
- 3. Cliquez sur **Suivant**.
+    ![Boîte de dialogue Utilisateur](./media/active-directory-saas-voyance-tutorial/create_aaduser_04.png) 
 
-6.  Sur la page de boîte de dialogue **Profil utilisateur** , procédez comme suit :
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-voyance-tutorial/create_aaduser_06.png) 
- 1. Dans la zone de texte **First Name**, tapez **Britta**.  
- 2. Dans la zone de texte **Last Name**, tapez **Simon**.
- 3. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
- 4. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
- 5. Cliquez sur **Next**.
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
 
-7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-voyance-tutorial/create_aaduser_07.png) 
-
-8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
-
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-voyance-tutorial/create_aaduser_08.png) 
- 1. Notez la valeur du **Nouveau mot de passe**.
- 2. Cliquez sur **Terminé**.   
-
+    d. Cliquez sur **Create**.
+ 
 ### <a name="create-a-voyance-test-user"></a>Créer un utilisateur de test Voyance
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Voyance. Voyance prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
-
-Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Voyance s’il n’existe pas déjà.
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Voyance. Voyance prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Voyance s’il n’existe pas déjà.
 
 >[!NOTE]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe du support technique Voyance](emaiLto:support@nyansa.com).
->
+>Si vous devez créer un utilisateur manuellement, contactez [l’équipe du support technique Voyance](maiLto:support@nyansa.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Voyance.
 
-![Affecter des utilisateurs][200] 
+![Attribuer le rôle d’utilisateur][200]
 
 **Pour affecter Britta Simon à Voyance, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue d’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
 2. Dans la liste des applications, sélectionnez **Voyance**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_50.png) 
+    ![Lien Voyance dans la liste des applications](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_app.png) 
 
-3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Affecter des utilisateurs][203] 
+    ![Lien « Utilisateurs et groupes »][202]
 
-4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
-5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
+    ![Volet Ajouter une attribution][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
-    ![Affecter des utilisateurs][205]
-
-
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Si vous cliquez sur la mosaïque Voyance dans le volet d’accès, vous devez vous connecter automatiquement à votre application Voyance.
 
-
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
@@ -278,14 +255,11 @@ Si vous cliquez sur la mosaïque Voyance dans le volet d’accès, vous devez vo
 [3]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-voyance-tutorial/tutorial_general_205.png
+
 

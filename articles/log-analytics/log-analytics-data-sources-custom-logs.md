@@ -12,27 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 07/13/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: a9c70810c4f731b2d8b395873fa6b94db78306aa
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 8105cd6ef87a592a0a84ff44a2ce94efcd874a2c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Journaux personnalisés dans Log Analytics
-La source de données Journaux personnalisés de Log Analytics vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog.  Une fois collecté, vous pouvez analyser chaque enregistrement du journal dans des champs individuels à l’aide de la fonction [Champs personnalisés](log-analytics-custom-fields.md) de Log Analytics.
+La source de données Journaux personnalisés de Log Analytics vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog.  Une fois collectés, vous pouvez analyser chaque enregistrement du journal dans des champs individuels à l’aide de la fonctionnalité [Champs Personnalisés](log-analytics-custom-fields.md) de Log Analytics.
 
 ![Collecte de journaux personnalisés](media/log-analytics-data-sources-custom-logs/overview.png)
 
 Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 
-* Le journal doit comporter une seule entrée par ligne ou utiliser un horodatage correspondant à l’un des formats suivants au début de chaque entrée.
-  
-    AAAA-MM-JJ HH:MM:SS  <br>
-    M/J/AAAA HH:MM:SS AM/PM <br>
-    Moi JJ,AAAA HH:MM:SS
-* Le fichier journal ne doit pas autoriser les mises à jour circulaires, où de nouvelles entrées sont consignées. 
+- Le journal doit comporter une seule entrée par ligne ou utiliser un horodatage correspondant à l’un des formats suivants au début de chaque entrée.
+
+    AAAA-MM-JJ HH:MM:SS <br>M/J/AAAA HH:MM:SS AM/PM <br>Mois JJ,AAAA HH:MM:SS
+
+- Le fichier journal ne doit pas autoriser les mises à jour circulaires, où de nouvelles entrées sont consignées.
+- Le fichier journal doit utiliser l’encodage ASCII ou UTF-8.  Les autres formats, par exemple UTF-16, ne sont pas pris en charge.
 
 ## <a name="defining-a-custom-log"></a>Définition d’un journal personnalisé
 Utilisez la procédure suivante pour définir un fichier journal personnalisé.  Rendez-vous à la fin de cet article pour une procédure détaillée d’ajout d’un journal personnalisé.
@@ -48,27 +49,27 @@ L’Assistant Journal personnalisé s’exécute dans le portail OMS et vous per
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Étape 2. Télécharger et analyser un exemple de journal
 Commencez par télécharger un exemple du journal personnalisé.  L’assistant analyse et affiche les entrées de ce fichier afin que vous les validiez.  Log Analytics utilise le délimiteur que vous spécifiez pour identifier chaque enregistrement.
 
-**Nouvelle ligne** .  Si la ligne commence par un horodatage dans un des formats disponibles, vous pouvez spécifier un délimiteur **Horodatage** prenant en charge les entrées qui s’étendent sur plusieurs lignes. 
+**Nouvelle ligne** .  Si la ligne commence par un horodatage dans un des formats disponibles, vous pouvez spécifier un délimiteur **Horodatage** prenant en charge les entrées qui s’étendent sur plusieurs lignes.
 
-Si un délimiteur Horodatage est utilisé, la propriété TimeGenerated de chaque enregistrement stocké dans OMS contiendra la date et l’heure spécifiées pour cette entrée dans le fichier journal.  Si un délimiteur Nouvelle ligne est utilisé, la propriété TimeGenerated est renseignée avec la date et l’heure auxquelles Log Analytics a collecté l’entrée. 
+Si un délimiteur Horodatage est utilisé, la propriété TimeGenerated de chaque enregistrement stocké dans OMS contiendra la date et l’heure spécifiées pour cette entrée dans le fichier journal.  Si un délimiteur Nouvelle ligne est utilisé, la propriété TimeGenerated est renseignée avec la date et l’heure auxquelles Log Analytics a collecté l’entrée.
 
 > [!NOTE]
-> Pour l’instant, Log Analytics traite la date et l’heure collectées dans un journal à l’aide d’un délimiteur Horodatage UTC.  Très bientôt, c’est le fuseau horaire qui sera utilisé sur l’agent. 
-> 
-> 
+> Pour l’instant, Log Analytics traite la date et l’heure collectées dans un journal à l’aide d’un délimiteur Horodatage UTC.  Très bientôt, c’est le fuseau horaire qui sera utilisé sur l’agent.
+>
+>
 
 1. Cliquez sur **Parcourir** et accédez à un exemple de fichier.  Notez que ce bouton peut s’appeler **Choisir un fichier** dans certains navigateurs.
-2. Cliquez sur **Next**. 
+2. Cliquez sur **Suivant**.
 3. L’Assistant Journal personnalisé télécharge le fichier et répertorie les enregistrements qu’il identifie.
 4. Remplacez le délimiteur utilisé pour identifier un nouvel enregistrement par celui qui identifie au mieux les enregistrements de votre fichier journal.
-5. Cliquez sur **Next**.
+5. Cliquez sur **Suivant**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Étape 3. Ajouter des chemins de collecte de journaux
 Vous devez définir un ou plusieurs chemins indiquant à l’agent où trouver le journal personnalisé.  Vous pouvez soit fournir le chemin d’accès et le nom du fichier journal, soit indiquer un chemin d’accès avec un caractère générique pour le nom.  Ce mécanisme prend en charge les applications qui créent un fichier par jour ou lorsqu’un fichier atteint une certaine taille.  Vous pouvez également fournir plusieurs chemins d’accès pour un fichier journal.
 
 Par exemple, une application peut créer un fichier journal chaque jour avec la date dans le nom, comme dans log20100316.txt. Par exemple, ce modèle peut être *log\*.txt* et s’appliquer à un fichier journal conforme à la convention de dénomination de l’application.
 
-Le tableau suivant fournit des exemples de modèles valides pour différents fichiers journaux. 
+Le tableau suivant fournit des exemples de modèles valides pour différents fichiers journaux.
 
 | Description | Chemin |
 |:--- |:--- |
@@ -95,8 +96,8 @@ Lorsque Log Analytics commence la collecte du journal personnalisé, ses enregis
 
 > [!NOTE]
 > Si la propriété RawData est manquante dans la recherche, vous devrez peut-être fermer et rouvrir votre navigateur.
-> 
-> 
+>
+>
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Étape 6. Analyser les entrées du journal personnalisé
 L’entrée de journal est stockée dans une propriété unique appelée **RawData**.  Vous souhaiterez certainement séparer les différents éléments d’information de chaque entrée dans des propriétés séparées dans l’enregistrement.  Pour ce faire, utilisez la fonction [Champs personnalisés](log-analytics-custom-fields.md) de Log Analytics.
@@ -121,10 +122,10 @@ Les enregistrements de journal personnalisé sont caractérisés par le nom du j
 
 | Propriété | Description |
 |:--- |:--- |
-| TimeGenerated |Date et heure auxquelles l’enregistrement a été collecté par Log Analytics.  Si le journal utilise un délimiteur horaire, il s’agit de l’heure collectée dans l’entrée. |
-| SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager – Agent Windows, connexion directe ou SCOM <br> Linux – Tous les agents Linux |
+| TimeGenerated |Date et heure auxquelles l’enregistrement a été collecté par Log Analytics.  Si le journal utilise un délimiteur basé sur l’heure, il s’agit de l’heure collectée à partir de l’entrée. |
+| SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager : Agent Windows. Connexion directe ou System Center Operations Manager <br> Linux – Tous les agents Linux |
 | RawData |Texte complet de l’entrée collectée. |
-| ManagementGroupName |Nom du groupe d'administration pour les agents SCOM.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
+| ManagementGroupName |Nom du groupe d’administration pour les agents System Center Operations Manage  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Recherches de journal avec des enregistrements de journal personnalisé
 Les enregistrements de journaux personnalisés sont stockés dans le référentiel OMS, comme les enregistrements d’autres sources de données.  Leur type correspond au nom que vous fournissez lorsque vous définissez le journal. Vous pouvez donc utiliser la propriété Type dans votre recherche pour récupérer les enregistrements collectés dans un journal spécifique.
@@ -136,8 +137,17 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 | Type=MyApp_CL |Tous les événements du fichier journal nommé MyApp_CL. |
 | Type=MyApp_CL Severity_CF=error |Tous les événements d’un journal personnalisé nommé MyApp_CL avec la valeur *error* dans le champ personnalisé nommé *Severity_CF*. |
 
+>[!NOTE]
+> Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus seront remplacées par les suivantes.
+
+> | Interroger | Description |
+|:--- |:--- |
+| MyApp_CL |Tous les événements du fichier journal nommé MyApp_CL. |
+| MyApp_CL &#124; where Severity_CF=="error" |Tous les événements d’un journal personnalisé nommé MyApp_CL avec la valeur *error* dans le champ personnalisé nommé *Severity_CF*. |
+
+
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exemple de procédure d’ajout d’un journal personnalisé
-La section suivante décrit la procédure complète de création d’un champ personnalisé.  L’exemple de journal collecté comporte une seule entrée par ligne, commençant par une date et une heure, suivie de plusieurs champs (code, état et message) séparés par des virgules.  Plusieurs exemples d’entrée sont présentés ci-dessous.
+La section suivante décrit la procédure complète de création d’un champ personnalisé.  L’exemple de journal collecté comporte une seule entrée sur chaque ligne commençant par une date et une heure, suivie de plusieurs champs (code, état et message) séparés par des virgules.  Plusieurs exemples d’entrée sont présentés ci-dessous.
 
     2016-03-10 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
     2016-03-10 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
@@ -172,11 +182,5 @@ Nous utilisons Champs personnalisés pour définir les champs *EventTime*, *Code
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les entrées du journal personnalisé dans des champs individuels.
-* En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions.
 

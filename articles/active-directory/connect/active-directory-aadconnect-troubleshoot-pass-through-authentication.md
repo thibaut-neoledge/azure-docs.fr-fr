@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/28/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 05d7c50aaa1209220b6cff3305fdb05dd2c421f8
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 4a687e1edbb2c9b3db3079a70162886092ede521
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -30,6 +30,14 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 >Si vous êtes confronté à des problèmes de connexion utilisateur avec l’authentification directe, ne désactivez pas la fonctionnalité. En outre, ne désinstallez pas les agents d’authentification directe si vous ne disposez pas d’un compte d’administrateur général cloud comme solution de secours. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../active-directory-users-create-azure-portal.md). Cette étape est essentielle pour éviter que votre locataire ne soit verrouillé.
 
 ## <a name="general-issues"></a>Problèmes d’ordre général
+
+### <a name="check-status-of-the-feature-and-authentication-agents"></a>Vérifiez l’état de la fonctionnalité et des agents d’authentification
+
+Assurez-vous que la fonctionnalité d’authentification directe est toujours **activée** sur votre locataire et l’état de l’agent d’authentification indique **actif**et non **inactif**. Vous pouvez avoir ces informations en accédant au panneau **Azure AD Connect** sur le [portail Azure](https://portal.azure.com/).
+
+![Portail Azure - panneau Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+
+![Portail Azure - panneau d’authentification directe](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### <a name="user-facing-sign-in-error-messages"></a>Message d’erreur lors de la connexion utilisateur
 
@@ -43,13 +51,13 @@ Si l’utilisateur ne peut pas se connecter avec l’authentification directe, l
 |AADSTS80005|La validation a rencontré une WebException imprévisible|Erreur temporaire. relancez la requête. Si l’erreur se reproduit, contactez le Support Microsoft.
 |AADSTS80007|Une erreur s’est produite lors de la communication avec Active Directory|Consultez les journaux de l’agent pour plus d’informations, et vérifiez qu’Active Directory fonctionne comme prévu.
 
-### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory
+### <a name="sign-in-failure-reasons-on-the-azure-portal"></a>Raisons de l’échec de connexion sur le portail Azure
 
-Pour résoudre les problèmes de connexion utilisateur avec authentification directe, commencez par examiner le [rapport des activités de connexion](../active-directory-reporting-activity-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
+Commencez le dépannage des problèmes de connexion de l’utilisateur en examinant le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) sur le [portail Azure](https://portal.azure.com/).
 
-![Rapports sur les connexions](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
+![Rapport de connexions](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/), puis cliquez sur une activité de connexion. Recherchez le champ **Code d’erreur de connexion**. Notez la valeur de ce champ et cherchez dans le tableau suivant la raison de l’échec et la solution à appliquer :
+Accédez à **Azure Active Directory** -> **Connexions** dans le [portail Azure](https://portal.azure.com/), puis cliquez sur une activité spécifique de connexion de l’utilisateur. Recherchez le champ **Code d’erreur de connexion**. Notez la valeur de ce champ et cherchez dans le tableau suivant la raison de l’échec et la solution à appliquer :
 
 |Code d’erreur de connexion|Raison de l’échec de connexion|Résolution :
 | --- | --- | ---
@@ -64,10 +72,6 @@ Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’adm
 | 80011 | L’Agent d’authentification n’a pas pu récupérer la clé de déchiffrement. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel.
 
 ## <a name="authentication-agent-installation-issues"></a>Problèmes d’installation de l’agent d’authentification
-
-### <a name="an-azure-ad-application-proxy-connector-already-exists"></a>Un connecteur de proxy d’application Azure AD existe déjà.
-
-Un agent d’authentification directe ne peut pas être installé sur le même serveur qu’un connecteur de [proxy d’application Azure AD](../../active-directory/active-directory-application-proxy-get-started.md). Vous devez installer l’agent d’authentification directe sur un autre serveur.
 
 ### <a name="an-unexpected-error-occurred"></a>Une erreur inattendue s’est produite
 
@@ -115,16 +119,16 @@ Selon le type de problème rencontré, vous devez regarder à différents emplac
 
 ### <a name="authentication-agent-event-logs"></a>Journaux des événements des agents d’authentification
 
-Pour les erreurs relatives à l’agent d’authentification, ouvrez l’application Observateur d’événements sur le serveur et cherchez dans **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**.
+Pour les erreurs relatives à l’agent d’authentification, ouvrez l’application Observateur d’événements sur le serveur et cherchez dans **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
 Pour une analytique détaillée, activez le journal de la session. N’exécutez pas l’agent d’authentification lorsque ce journal est activé pendant le fonctionnement normal. Utilisez-le uniquement pour la résolution des problèmes. Le contenu du journal n’est visible qu’une fois celui-ci désactivé.
 
 ### <a name="detailed-trace-logs"></a>Journaux de suivi détaillés
 
-Pour résoudre les problèmes d’échec de connexion utilisateur, recherchez les journaux de suivi dans **C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. Ces journaux incluent les raisons de l’échec de connexion utilisateur à l’aide de la fonctionnalité d’authentification directe. Le [tableau](#sign-in-failure-reasons-on-the-Azure-portal) précédent établit une correspondance entre ces erreurs et les raisons des échecs de connexion. Vous trouverez ci-dessous un exemple d’entrée de journal :
+Pour résoudre les problèmes d’échec de connexion de l’utilisateur, recherchez les journaux de suivi dans **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Ces journaux incluent les raisons de l’échec de connexion utilisateur à l’aide de la fonctionnalité d’authentification directe. Le [tableau](#sign-in-failure-reasons-on-the-Azure-portal) précédent établit une correspondance entre ces erreurs et les raisons des échecs de connexion. Vous trouverez ci-dessous un exemple d’entrée de journal :
 
 ```
-    ApplicationProxyConnectorService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
+    AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
         ThreadId=5
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
@@ -142,7 +146,7 @@ Si la journalisation d’audit est activée, des informations complémentaires s
 ```
     <QueryList>
     <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe')]]</Select>
+    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft Azure AD Connect Authentication Agent\AzureADConnectAuthenticationAgentService.exe')]]</Select>
     </Query>
     </QueryList>
 ```

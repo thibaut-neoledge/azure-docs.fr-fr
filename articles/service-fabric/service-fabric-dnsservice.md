@@ -12,29 +12,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 7/27/2017
 ms.author: msfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e0f6a3a91207b73320d60a498d635262ef730d89
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 691325bdc34f960aed0c65797abc1edd2a76efd2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Service DNS dans Azure Service Fabric
 Le service DNS est un service système facultatif que vous pouvez activer dans votre cluster pour détecter d’autres services utilisant le protocole DNS.
 
-De nombreux services, en particulier les services en conteneur, peuvent avoir un nom d’URL existant, et il est très pratique de pouvoir utiliser le protocole DNS standard (plutôt que le protocole d’affectation de noms), notamment dans les scénarios impliquant le développement et le transfert d’applications. Le service DNS vous permet de mapper les noms DNS à un nom de service et, par conséquent, de résoudre les adresses IP des points de terminaison. 
+De nombreux services, en particulier les services en conteneur, peuvent avoir un nom d’URL existant, et il est utile de pouvoir utiliser le protocole DNS standard (plutôt que le protocole d’affectation de noms), notamment dans les scénarios de développement et de transfert. Le service DNS vous permet de mapper les noms DNS à un nom de service et, par conséquent, de résoudre les adresses IP des points de terminaison. 
 
-Comme le montre l’illustration suivante, le service DNS (exécuté dans le cluster Service Fabric), mappe les noms DNS aux noms de service qui sont ensuite résolus par le service d’affectation de noms pour renvoyer les adresses de point de terminaison auxquelles se connecter. Le nom DNS du service est fourni au moment de la création. 
+Le service DNS mappe les noms DNS aux noms de service, qui sont à leur tour résolus par le service de nommage pour retourner le point de terminaison de service. Le nom DNS du service est fourni au moment de la création. 
 
 ![points de terminaison de service][0]
 
 ## <a name="enabling-the-dns-service"></a>Activation du service DNS
 Vous devez d’abord activer le service DNS dans votre cluster. Récupérez le modèle approprié pour le cluster que vous souhaitez déployer. Vous pouvez soit utiliser les [exemples de modèles](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype), soit créer un modèle Resource Manager. Vous pouvez activer le service DNS en procédant comme suit :
 
-1. Tout d’abord, vérifiez que `apiversion` est défini sur `2017-07-01-preview` pour la ressource `Microsoft.ServiceFabric/clusters`, comme indiqué dans l’extrait de code suivant. Si ce n’est pas le cas, vous devez mettre à jour `apiVersion` en définissant la valeur `2017-07-01-preview`
+1. Vérifiez que `apiversion` est défini sur `2017-07-01-preview` pour la ressource `Microsoft.ServiceFabric/clusters`, et si ce n’est pas le cas, procédez à une mise à jour, comme dans l’extrait de code suivant :
 
     ```json
     {
@@ -46,7 +45,7 @@ Vous devez d’abord activer le service DNS dans votre cluster. Récupérez le 
     }
     ```
 
-2. À présent, activez le service DNS en ajoutant la section `addonFeatures` suivante après la section `fabricSettings`, comme indiqué ci-dessous
+2. À présent, activez le service DNS en ajoutant la section `addonFeatures` suivante après la section `fabricSettings`, comme indiqué dans l’extrait de code suivant : 
 
     ```json
         "fabricSettings": [
@@ -57,10 +56,15 @@ Vous devez d’abord activer le service DNS dans votre cluster. Récupérez le 
         ],
     ```
 
-3. Après avoir mis à jour votre modèle de cluster avec ces modifications, appliquez-les et laissez la mise à niveau s’accomplir. Une fois celle-ci terminée, vous pouvez voir, sous la section des services système du Service Fabric Explorer, que le service système DNS appelé `fabric:/System/DnsService` s’exécute dans votre cluster. 
+3. Après avoir mis à jour votre modèle de cluster avec les modifications précédentes, appliquez-les et laissez la mise à niveau s’accomplir. Une fois celle-ci terminée, le service système DNS démarre dans votre cluster appelé `fabric:/System/DnsService` sous la section des services système du Service Fabric Explorer. 
+
+Vous pouvez également activer le service DNS via le portail au moment de la création du cluster. Le service DNS peut être activé en cochant la case `Include DNS service` dans le menu `Cluster configuration`, comme indiqué dans la capture d’écran suivante :
+
+![Activation du service DNS via le portail][2]
+
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Configuration du nom DNS de votre service
-Maintenant que le service DNS est en cours d’exécution dans votre cluster, vous pouvez définir un nom DNS pour vos services, soit de manière déclarative pour les services par défaut dans le fichier `ApplicationManifest.xml`, soit à l’aide de Powershell.
+Une fois que le service DNS est en cours d’exécution dans votre cluster, vous pouvez définir un nom DNS pour vos services, soit de manière déclarative pour les services par défaut dans le fichier `ApplicationManifest.xml`, soit à l’aide des commandes Powershell.
 
 ### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Définition du nom DNS pour un service par défaut du paramètre dans le fichier ApplicationManifest.xml
 Ouvrez votre projet dans Visual Studio ou dans votre éditeur favori, puis ouvrez le fichier `ApplicationManifest.xml`. Accédez à la section des services par défaut puis, pour chaque service, ajoutez l’attribut `ServiceDnsName`. L’exemple suivant montre comment définir le nom DNS du service sur `service1.application1`
@@ -72,7 +76,7 @@ Ouvrez votre projet dans Visual Studio ou dans votre éditeur favori, puis ouvre
     </StatelessService>
     </Service>
 ```
-Déployez maintenant votre application. Une fois l’application déployée, accédez à l’instance de service dans Service Fabric Explorer pour voir le nom DNS de cette instance, comme illustré ci-dessous. 
+Une fois l’application déployée, l’instance de service dans Service Fabric Explorer indique le nom DNS de cette instance, comme illustré dans la figure suivante : 
 
 ![points de terminaison de service][1]
 
@@ -91,9 +95,9 @@ Vous pouvez définir le nom DNS d’un service lors de sa création à l’aide 
 ```
 
 ## <a name="using-dns-in-your-services"></a>Utilisation de DNS dans vos services
-Si vous déployez plusieurs services, vous pouvez utiliser un nom DNS pour trouver les points de terminaison d’autres services avec lesquels communiquer. Cela s’applique uniquement aux services sans état, puisque le protocole DNS ne sait pas comment communiquer avec les services avec état. Pour les services avec état, vous pouvez utiliser le proxy inverse intégré pour les appels http afin d’appeler une partition de service particulière.
+Si vous déployez plusieurs services, vous pouvez utiliser un nom DNS pour trouver les points de terminaison d’autres services avec lesquels communiquer. Le service DNS s’applique uniquement aux services sans état, puisque le protocole DNS ne peut pas communiquer avec les services avec état. Pour les services avec état, vous pouvez utiliser le proxy inverse intégré pour les appels http afin d’appeler une partition de service particulière.
 
-Le code suivant montre comment appeler un autre service, sous la forme d’un simple appel http standard. Notez que vous devez spécifier le port et un chemin d’accès facultatif dans l’URL.
+Le code suivant montre comment appeler un autre service, grâce à un simple appel http standard dans lequel vous fournissez le port et un chemin d’accès facultatif dans le cadre de l’URL.
 
 ```csharp
 public class ValuesController : Controller
@@ -126,4 +130,5 @@ Pour en savoir plus sur la communication de service au sein du cluster, consulte
 
 [0]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
 [1]: ./media/service-fabric-dnsservice/servicefabric-explorer-dns.PNG
+[2]: ./media/service-fabric-dnsservice/DNSService.PNG
 

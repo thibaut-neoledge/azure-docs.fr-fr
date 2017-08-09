@@ -1,6 +1,6 @@
 ---
-title: "Migrer un domaine personnalisé actif vers Azure App Service | Microsoft Docs"
-description: "Découvrez comment migrer un domaine personnalisé déjà affecté à un site de production à votre application dans Azure App Service sans interruption de service."
+title: Migrer un Nom DNS actif vers Azure App Service | Microsoft Docs
+description: "Découvrez comment migrer sans temps d’arrêt vers Azure App Service un nom de domaine personnalisé déjà affecté à un site actif."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -13,25 +13,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 06/28/2017
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 5f6537a45bcb092b5ef463e8069b9fc5582c14c2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 89308c1c684a639950467b72d26703cc07c50c14
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="migrate-an-active-custom-domain-to-azure-app-service"></a>Migrer un domaine personnalisé actif vers Azure App Service
+# <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrer un nom DNS actif vers Azure App Service
 
-Cet article vous montre comment migrer un domaine personnalisé actif vers [Azure App Service](../app-service/app-service-value-prop-what-is.md) sans interruption de service.
+Cet article montre comment migrer un nom DNS actif vers [Azure App Service](../app-service/app-service-value-prop-what-is.md) sans temps d’arrêt.
 
-Lorsque vous migrez un site de production et son nom de domaine vers App Service, ce nom de domaine s’occupe déjà du trafic de production, et vous ne souhaitez pas d’interruption de service pour la résolution DNS lors du processus de migration. Dans ce cas, vous devez lier le nom de domaine à votre application Azure de façon préventive pour la vérification du domaine.
+Lorsque vous migrez un site actif et son nom de domaine DNS vers App Service, ce nom DNS sert déjà un trafic actif. Vous pouvez éviter tout temps d’arrêt dans la résolution DNS lors de la migration en liant à l’avance le nom DNS actif à votre application App Service.
+
+Si vous ne vous inquiétez pas des temps d’arrêt durant la résolution DNS, voir [Mapper un nom DNS personnalisé existant vers Azure Web Apps](app-service-web-tutorial-custom-domain.md).
 
 ## <a name="prerequisites"></a>Composants requis
 
-Cet article suppose que vous savez déjà comment [mapper manuellement un domaine personnalisé à App Service](app-service-web-tutorial-custom-domain.md).
+Pour suivre cette procédure :
+
+- [Vérifiez que votre application App Service n’est pas au niveau Gratuit](app-service-web-tutorial-custom-domain.md#checkpricing).
 
 ## <a name="bind-the-domain-name-preemptively"></a>Lier le nom de domaine de manière préemptive
 
@@ -40,54 +43,90 @@ Lorsque vous liez un domaine personnalisé de manière préemptive, vous effectu
 - Vérifier la propriété du domaine
 - Activer le nom de domaine de votre application
 
-Lorsque vous modifiez enfin l’enregistrement DNS pour pointer vers votre application App Service, les clients sont redirigés de votre ancien site vers votre application App Service sans interruption de service dans la résolution DNS.
+Lorsque vous migrez finalement votre nom DNS personnalisé de l’ancien site à l’application App Service, il n’y a aucun temps d’arrêt durant la résolution DNS.
 
-Pour ce faire, procédez comme suit :
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-1. Commencez par créer un enregistrement TXT de vérification avec votre registre DNS en suivant les étapes de la section [Créer les enregistrements DNS](app-service-web-tutorial-custom-domain.md).
-L’enregistrement TXT supplémentaire adopte la convention qui mappe de &lt;*sous-domaine*>.&lt;*domaine_racine*> à &lt;*nom_application*>.azurewebsites.net.
-Pour des exemples, consultez le tableau suivant :  
+### <a name="create-domain-verification-record"></a>Créer un enregistrement de vérification de domaine
 
-    <table cellspacing="0" border="1">
-    <tr>
-    <th>Exemple de nom de domaine complet</th>
-    <th>Hôte TXT</th>
-    <th>Valeur TXT</th>
-    </tr>
-    <tr>
-    <td>contoso.com (racine)</td>
-    <td>awverify.contoso.com</td>
-    <td>&lt;<i>nom_application</i>>.azurewebsites.net</td>
-    </tr>
-    <tr>
-    <td>www.contoso.com (sous-domaine)</td>
-    <td>awverify.www.contoso.com</td>
-    <td>&lt;<i>nom_application</i>>.azurewebsites.net</td>
-    </tr>
-    <tr>
-    <td>\*.contoso.com (caractère générique)</td>
-    <td>awverify\*.contoso.com</td>
-    <td>&lt;<i>nom_application</i>>.azurewebsites.net</td>
-    </tr>
-    </table>
+Pour vérifier la propriété du domaine, ajoutez un enregistrement TXT. L’enregistrement TXT mappe de _awverify.&lt;sousdomaine>_ à _&lt;nomapplication>.azurewebsites.net_. 
 
-2. Puis, ajoutez votre nom de domaine personnalisé à votre application Azure en suivant les étapes de la section [Activer le nom de domaine personnalisé de votre application](app-service-web-tutorial-custom-domain.md#enable-a).
+L’enregistrement TXT dont vous avez besoin dépend de l’enregistrement DNS que vous souhaitez migrer. Pour des exemples, consultez le tableau suivant (`@` représente généralement le domaine racine) :  
 
-    Votre domaine personnalisé est maintenant activé dans votre application Azure. La seule chose qui vous reste à faire est de mettre à jour l’enregistrement DNS avec votre bureau d’enregistrement de domaine.
+| Exemple d’enregistrement DNS | Hôte TXT | Valeur TXT |
+| - | - | - |
+| @ (racine) | _awverify_ | _&lt;nomapplication>.azurewebsites.net_ |
+| www (sous-domaine) | _awverify.www_ | _&lt;nomapplication>.azurewebsites.net_ |
+| \* (caractère générique) | _awverify.\*_ | _&lt;nomapplication>.azurewebsites.net_ |
 
-3. Enfin, mettez à jour l’enregistrement DNS de votre domaine pour pointer vers votre application Azure, comme indiqué dans la section [Créer les enregistrements DNS](app-service-web-tutorial-custom-domain.md).
+Dans la page des enregistrements DNS, notez le type d’enregistrement du nom DNS que vous souhaitez migrer. App Service prend en charge les mappages d’enregistrements CNAME et A.
 
-    Le trafic utilisateur devrait être redirigé vers votre application Azure immédiatement après la propagation DNS.
+### <a name="enable-the-domain-for-your-app"></a>Activer le domaine pour votre application
+
+Dans le [portail Azure](https://portal.azure.com), dans le volet de navigation gauche de la page de l’application, sélectionnez **Domaines personnalisés**. 
+
+![Menu Domaines personnalisés](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+
+Dans la page **Domaines personnalisés**, sélectionnez l’icône **+** en regard de **Ajouter un nom d’hôte**.
+
+![Ajouter un nom d’hôte](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+
+Tapez le nom de domaine complet (FQDN) pour lequel vous avez ajouté l’enregistrement TXT, tel que `www.contoso.com`. Pour un domaine contenant un caractère générique (tel que \*. contoso.com), vous pouvez utiliser n’importe quel nom DNS correspondant à ce domaine contenant un caractère générique. 
+
+Sélectionnez **Valider**.
+
+Le bouton **Ajouter un nom d’hôte** est activé. 
+
+Assurez-vous que l’option **Type d’enregistrement du nom d’hôte** est bien définie sur le type d’enregistrement DNS que vous voulez migrer.
+
+Sélectionnez **Ajouter un nom d’hôte**.
+
+![Ajouter un nom DNS à l’application](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+
+Un certain temps peut être nécessaire pour que le nouveau nom d’hôte soit reflété sur la page **Domaines personnalisés** de votre application. Essayez d’actualiser le navigateur pour mettre à jour les données.
+
+![Enregistrement CNAME ajouté](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
+
+Votre nom DNS personnalisé est à présent activé dans votre application Azure. 
+
+## <a name="remap-the-active-dns-name"></a>Remapper le nom DNS actif
+
+Il ne vous reste plus qu’à remapper votre enregistrement DNS actif pour qu’il pointe vers App Service. En ce moment précis, il pointe encore sur votre ancien site.
+
+<a name="info"></a>
+
+### <a name="copy-the-apps-ip-address-a-record-only"></a>Copier l’adresse IP de l’application (un enregistrement uniquement)
+
+Si vous remappez un enregistrement CNAME, ignorez cette section. 
+
+Pour remapper un enregistrement A, vous avez besoin de l’adresse IP externe de l’application App Service. Celle-ci est affichée dans la page **Domaines personnalisés**.
+
+Fermez la page **Ajouter un nom d’hôte** en sélectionnant **X** dans l’angle supérieur droit. 
+
+Dans la page **Domaines personnalisés**, copiez l’adresse IP de l’application.
+
+![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+
+### <a name="update-the-dns-record"></a>Mettre à jour l’enregistrement DNS
+
+Dans la page des enregistrements DNS de votre fournisseur de domaine, sélectionnez l’enregistrement DNS à remapper.
+
+Pour l’exemple de domaine racine `contoso.com`, remappez l’enregistrement A ou CNAME, comme dans les exemples fournis dans le tableau suivant : 
+
+| Exemple de nom de domaine complet | Type d’enregistrement | Host | Valeur |
+| - | - | - | - |
+| contoso.com (racine) | A | `@` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
+| www.contoso.com (sous-domaine) | CNAME | `www` | _&lt;nomapplication>.azurewebsites.net_ |
+| \*.contoso.com (caractère générique) | CNAME | _\*_ | _&lt;nomapplication>.azurewebsites.net_ |
+
+Enregistrez vos paramètres.
+
+Les requêtes DNS doivent commencer à trouver votre application App Service immédiatement après la propagation DNS.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Apprenez à sécuriser votre nom de domaine personnalisé avec HTTPS en [achetant un certificat SSL dans Azure](web-sites-purchase-ssl-web-site.md) ou [à l’aide d’un certificat SSL depuis un autre emplacement](app-service-web-tutorial-custom-ssl.md).
 
-> [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
->
->
+Découvrez comment lier un certificat SSL personnalisé à App Service.
 
-[Prise en main d’Azure DNS](../dns/dns-getstarted-create-dnszone.md)  
-[Créer des enregistrements DNS pour une application web dans un domaine personnalisé](../dns/dns-web-sites-custom-domain.md)  
-[Délégation de domaine à Azure DNS](../dns/dns-domain-delegation.md)
+> [!div class="nextstepaction"]
+> [Lier un certificat SSL existant à des applications web Azure](app-service-web-tutorial-custom-ssl.md)
 

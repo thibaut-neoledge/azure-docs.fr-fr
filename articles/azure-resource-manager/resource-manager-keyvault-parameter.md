@@ -12,137 +12,188 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 07/25/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 0bf872a44b8ed7cae53d2659aa7be878902130e9
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 1ca72599e67e79d42a3d430dbb13e89ea7265334
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="use-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utiliser Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement
 
 Lorsque vous avez besoin de passer une valeur sécurisée (par exemple, un mot de passe) comme paramètre au cours du déploiement, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../key-vault/key-vault-whatis.md). Vous récupérez la valeur en référençant le coffre de clés et la clé secrète dans votre fichier de paramètres. La valeur n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés. Il est inutile d’entrer manuellement la valeur de la clé secrète chaque fois que vous déployez les ressources. Le coffre de clés peut exister dans un autre abonnement que le groupe de ressources sur lequel vous effectuez le déploiement. Lorsque vous référencez le coffre de clés, incluez l’ID d’abonnement.
 
-Cette rubrique vous montre comment créer un coffre de clés et une clé secrète, configurer l’accès à la clé secrète pour un modèle Resource Manager et la passer en paramètre. Si vous disposez déjà d’un coffre de clés et d’une clé secrète, mais que vous devez vérifier le modèle et l’accès utilisateur, allez à la section [Activer l’accès à la clé secrète](#enable-access-to-the-secret). Si vous avez déjà le coffre de clés et la clé secrète et que vous êtes sûr qu’ils sont configurés pour l’accès utilisateur et le modèle, accédez à la section [Référencer une clé secrète avec un ID statique](#reference-a-secret-with-static-id). 
+Lorsque vous créez le coffre de clés, définissez la propriété *enabledForTemplateDeployment* sur *true*. En définissant cette valeur sur true, vous autorisez l’accès depuis des modèles Resource Manager pendant le déploiement.  
 
 ## <a name="deploy-a-key-vault-and-secret"></a>Déploiement d'un coffre de clés et d’une clé secrète
 
-Vous pouvez déployer un coffre de clés et une clé secrète par le biais d’un modèle Resource Manager. Pour voir un exemple, consultez les pages [Modèle de coffre de clé](resource-manager-template-keyvault.md) et [Modèle de clé secrète de coffre de clé](resource-manager-template-keyvault-secret.md). Lorsque vous créez le coffre de clés, définissez la propriété **enabledForTemplateDeployment** sur **true** afin qu’elle puisse être référencée à partir d’autres modèles Resource Manager. 
+Pour créer un coffre de clés et une clé secrète, utilisez l’interface de ligne de commande Azure CLI ou PowerShell. Remarque : le coffre de clés est activé pour le déploiement du modèle. 
 
-Vous pouvez également créer le coffre de clés et la clé secrète par le biais du Portail Azure. 
+Pour l’interface de ligne de commande Azure, consultez :
 
-1. Sélectionnez **Nouveau** -> **Sécurité + identité** -> **Key Vault**.
+```azurecli
+vaultname={your-unique-vault-name}
+password={password-value}
 
-   ![créer un coffre de clés](./media/resource-manager-keyvault-parameter/new-key-vault.png)
+az group create --name examplegroup --location 'South Central US'
+az keyvault create --name $vaultname --resource-group examplegroup --location 'South Central US' --enabled-for-template-deployment true
+az keyvault secret set --vault-name $vaultname --name examplesecret --value $password
+```
 
-2. Donnez des valeurs au coffre de clés. Vous pouvez ignorer les paramètres **Stratégies d’accès** et **Stratégie d’accès avancé** pour l’instant. Ces paramètres sont détaillés dans la section. Sélectionnez **Créer**.
+Pour PowerShell, utilisez la commande suivante :
 
-   ![définir un coffre de clés](./media/resource-manager-keyvault-parameter/create-key-vault.png)
+```powershell
+$vaultname = "{your-unique-vault-name}"
+$password = "{password-value}"
 
-3. Vous disposez maintenant d’un coffre de clés. Sélectionnez-le.
-
-4. Dans le panneau du coffre de clés, sélectionnez **Clés secrètes**.
-
-   ![sélectionner Clés secrètes](./media/resource-manager-keyvault-parameter/select-secret.png)
-
-5. Sélectionnez **Ajouter**.
-
-   ![sélectionner ajouter](./media/resource-manager-keyvault-parameter/add-secret.png)
-
-6. Sélectionnez **Manuel** pour voir les options de chargement. Donnez un nom et une valeur à la clé secrète. Sélectionnez **Créer**.
-
-   ![fournir la clé secrète](./media/resource-manager-keyvault-parameter/provide-secret.png)
-
-Vous avez créé votre coffre de clés et votre clé secrète.
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmKeyVault -VaultName $vaultname -ResourceGroupName examplegroup -Location "South Central US" -EnabledForTemplateDeployment
+$secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
+Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
+```
 
 ## <a name="enable-access-to-the-secret"></a>Autoriser l’accès à la clé secrète
 
-Que vous utilisiez un coffre de clés nouveau ou existant, vérifiez que l’utilisateur qui déploie le modèle peut accéder à la clé secrète. L’utilisateur déployant un modèle qui fait référence à une clé secrète doit avoir l’autorisation `Microsoft.KeyVault/vaults/deploy/action` pour le coffre de clés. Les rôles [propriétaire](../active-directory/role-based-access-built-in-roles.md#owner) et [contributeur](../active-directory/role-based-access-built-in-roles.md#contributor) accordent cet accès. Vous pouvez également créer un [rôle personnalisé](../active-directory/role-based-access-control-custom-roles.md) qui accorde cette autorisation et ajouter l’utilisateur à ce rôle. En outre, vous devez accorder à Resource Manager la possibilité d’accéder au coffre de clés lors du déploiement.
+Que vous utilisiez un coffre de clés nouveau ou existant, vérifiez que l’utilisateur qui déploie le modèle peut accéder à la clé secrète. L’utilisateur déployant un modèle qui fait référence à une clé secrète doit avoir l’autorisation `Microsoft.KeyVault/vaults/deploy/action` pour le coffre de clés. Les rôles [propriétaire](../active-directory/role-based-access-built-in-roles.md#owner) et [contributeur](../active-directory/role-based-access-built-in-roles.md#contributor) accordent cet accès. Vous pouvez également créer un [rôle personnalisé](../active-directory/role-based-access-control-custom-roles.md) qui accorde cette autorisation et ajouter l’utilisateur à ce rôle. Pour en savoir plus sur l’ajout d’un utilisateur à un rôle, voir [Affecter des rôles d’administrateur à un utilisateur dans Azure Active Directory](../active-directory/active-directory-users-assign-role-azure-portal.md).
 
-Vous pouvez vérifier ou effectuer ces opérations par le biais du portail.
 
-1. Sélectionnez **Contrôle d’accès (IAM)**.
+## <a name="reference-a-secret-with-static-id"></a>Référencement d’un secret avec un ID statique
 
-   ![sélectionner Contrôle d’accès](./media/resource-manager-keyvault-parameter/select-access-control.png)
-
-2. Si le compte que vous souhaitez utiliser pour déployer des modèles n’est pas déjà Propriétaire ou Collaborateur (ou ajouté à un rôle personnalisé qui accorde l’autorisation `Microsoft.KeyVault/vaults/deploy/action`), sélectionnez **Ajouter**.
-
-   ![ajouter un utilisateur](./media/resource-manager-keyvault-parameter/add-user.png)
-
-3. Sélectionnez le rôle Collaborateur ou Propriétaire, et recherchez l’identité à affecter à ce rôle. Sélectionnez **OK** pour terminer l’ajout de l’identité au rôle.
-
-   ![ajouter un utilisateur](./media/resource-manager-keyvault-parameter/search-user.png)
-
-4. Pour activer l’accès à partir d’un modèle pendant le déploiement, sélectionnez **Contrôle d’accès avancé**. Sélectionnez l’option **Autoriser l’accès à Azure Resource Manager pour le déploiement de modèles**.
-
-   ![autoriser l’accès aux modèles](./media/resource-manager-keyvault-parameter/select-template-access.png)
-
-## <a name="reference-a-secret-with-static-id"></a>Référencement d’une clé secrète avec un ID statique
-
-Vous référencez la clé secrète au sein d’un **fichier de paramètres (et non du modèle)** qui transmet les valeurs à votre modèle. Vous référencez la clé secrète en passant l'identificateur de ressource du coffre de clés et le nom de la clé secrète. Dans l’exemple suivant, la clé secrète du coffre de clés doit déjà exister, et vous définissez une valeur statique pour son ID de ressource.
+Le modèle qui reçoit un secret de coffre de clés est similaire à n’importe quel modèle. Ceci s’explique par le fait que **vous référencez le coffre de clés dans le fichier de paramètres, et non dans le modèle.** Par exemple, le modèle suivant déploie une base de données SQL qui inclut un mot de passe administrateur. Le paramètre du mot de passe est défini sur une chaîne sécurisée. Toutefois, le modèle ne spécifie pas d’où vient cette valeur.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "sqlsvrAdminLoginPassword": {
-        "reference": {
-          "keyVault": {
-            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-          },
-          "secretName": "adminPassword"
+        "administratorLogin": {
+            "type": "string"
+        },
+        "administratorLoginPassword": {
+            "type": "securestring"
+        },
+        "collation": {
+            "type": "string"
+        },
+        "databaseName": {
+            "type": "string"
+        },
+        "edition": {
+            "type": "string"
+        },
+        "requestedServiceObjectiveId": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "maxSizeBytes": {
+            "type": "string"
+        },
+        "serverName": {
+            "type": "string"
+        },
+        "sampleName": {
+            "type": "string",
+            "defaultValue": ""
         }
-      },
-      "sqlsvrAdminLogin": {
-        "value": "exampleadmin"
-      }
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-05-01-preview",
+            "location": "[parameters('location')]",
+            "name": "[parameters('serverName')]",
+            "properties": {
+                "administratorLogin": "[parameters('administratorLogin')]",
+                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                "version": "12.0"
+            },
+            "resources": [
+                {
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                    ],
+                    "location": "[parameters('location')]",
+                    "name": "[parameters('databaseName')]",
+                    "properties": {
+                        "collation": "[parameters('collation')]",
+                        "edition": "[parameters('edition')]",
+                        "maxSizeBytes": "[parameters('maxSizeBytes')]",
+                        "requestedServiceObjectiveId": "[parameters('requestedServiceObjectiveId')]",
+                        "sampleName": "[parameters('sampleName')]"
+                    },
+                    "type": "databases"
+                },
+                {
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                    ],
+                    "location": "[parameters('location')]",
+                    "name": "AllowAllWindowsAzureIps",
+                    "properties": {
+                        "endIpAddress": "0.0.0.0",
+                        "startIpAddress": "0.0.0.0"
+                    },
+                    "type": "firewallrules"
+                }
+            ],
+            "type": "Microsoft.Sql/servers"
+        }
+    ]
+}
+```
+
+À présent, créez un fichier de paramètres pour le modèle précédent. Dans le fichier de paramètres, spécifiez un paramètre qui correspond au nom du paramètre dans le modèle. Pour la valeur du paramètre, référencez le secret du coffre de clés. Vous référencez la clé secrète en passant l'identificateur de ressource du coffre de clés et le nom de la clé secrète. Dans l’exemple suivant, la clé secrète du coffre de clés doit déjà exister, et vous définissez une valeur statique pour son ID de ressource.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "administratorLogin": {
+            "value": "exampleadmin"
+        },
+        "administratorLoginPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/{guid}/resourceGroups/examplegroup/providers/Microsoft.KeyVault/vaults/{vault-name}"
+              },
+              "secretName": "examplesecret"
+            }
+        },
+        "collation": {
+            "value": "SQL_Latin1_General_CP1_CI_AS"
+        },
+        "databaseName": {
+            "value": "exampledb"
+        },
+        "edition": {
+            "value": "Standard"
+        },
+        "location": {
+            "value": "southcentralus"
+        },
+        "maxSizeBytes": {
+            "value": "268435456000"
+        },
+        "requestedServiceObjectiveId": {
+            "value": "455330e1-00cd-488b-b5fa-177c226f28b7"
+        },
+        "sampleName": {
+            "value": ""
+        },
+        "serverName": {
+            "value": "exampleserver"
+        }
     }
 }
 ```
 
-Dans le modèle, le paramètre qui accepte la clé secrète doit être de type **securestring**. L'exemple suivant montre les sections correspondantes d'un modèle qui déploie un serveur SQL nécessitant un mot de passe administrateur.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sqlsvrAdminLogin": {
-            "type": "string",
-            "minLength": 4
-        },
-        "sqlsvrAdminLoginPassword": {
-            "type": "securestring"
-        },
-        ...
-    },
-    "resources": [
-        {
-          "name": "[variables('sqlsvrName')]",
-          "type": "Microsoft.Sql/servers",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2014-04-01-preview",
-          "properties": {
-              "administratorLogin": "[parameters('sqlsvrAdminLogin')]",
-              "administratorLoginPassword": "[parameters('sqlsvrAdminLoginPassword')]"
-          },
-          ...
-        }
-    ],
-    "variables": {
-        "sqlsvrName": "[concat('sqlsvr', uniqueString(resourceGroup().id))]"
-    },
-    "outputs": { }
-}
-```
-
-
-
-## <a name="reference-a-secret-with-dynamic-id"></a>Référencement d’une clé secrète avec un ID dynamique
+## <a name="reference-a-secret-with-dynamic-id"></a>Référencement d’un secret avec un ID dynamique
 
 La section précédente expliquait comment transmettre un ID de ressource statique pour la clé secrète du coffre de clés. Toutefois, dans certains scénarios, vous devez référencer une clé secrète de coffre de clés qui varie selon le déploiement actuel. Dans ce cas, vous ne pouvez pas coder en dur l’ID de ressource dans le fichier de paramètres. Malheureusement, vous ne pouvez pas générer dynamiquement l’ID de ressource dans le fichier de paramètres, car les expressions de modèle ne sont pas autorisées dans ce dernier.
 

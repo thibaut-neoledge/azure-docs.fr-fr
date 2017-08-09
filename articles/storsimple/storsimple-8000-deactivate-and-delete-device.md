@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5128f90ac477b67317bb30e0bc614ce35e9b3d46
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 3c00867a29cf8343a57e74e2aabe3971ae6837af
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Désactiver et supprimer un appareil StorSimple
@@ -53,6 +52,10 @@ Si vous êtes intéressé par la suppression complète de l’appareil et que vo
 #### <a name="to-deactivate-the-device-and-delete-the-data"></a>Pour désactiver l’appareil et supprimer ses données
 
 1. Avant de désactiver un appareil, vous devez supprimer tous les conteneurs de volumes (et les volumes) qui lui sont associés. Vous ne pouvez supprimer les conteneurs de volumes qu’après avoir supprimé les sauvegardes associées.
+
+    > [!NOTE]
+    > Avant de désactiver un appareil physique StorSimple ou une appliance cloud, veillez à ce que les données du conteneur de volume supprimé soient bien supprimées de l’appareil. Surveillez les graphiques de consommation du cloud, et lorsque vous constatez une baisse d’utilisation du cloud due aux sauvegardes supprimées, désactivez l’appareil. Si vous désactivez l’appareil avant de constater la baisse, les données sont bloquées dans le compte de stockage et occasionnent des frais.
+
 2. Désactivez l’appareil de la manière suivante :
    
    1. Accédez à votre service StorSimple Device Manager et cliquez sur **Appareils**. Dans le panneau **Appareils**, sélectionnez l’appareil à désactiver, cliquez avec le bouton droit, puis cliquez sur **Désactiver**.
@@ -70,7 +73,7 @@ Si vous êtes intéressé par la suppression complète de l’appareil et que vo
    2. Dans le panneau **Supprimer**, saisissez le nom de l’appareil pour confirmer l’opération, puis cliquez sur **Supprimer**. Le processus de suppression prend quelques minutes.
 
         ![Désactiver l’appareil StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
-   3. Vous êtes averti lorsque la suppression a été effectuée avec succès. La liste des appareils est également actualisée afin de refléter la suppression.
+   3. Vous êtes averti une fois la suppression terminée. La liste des appareils est également actualisée afin de refléter la suppression.
 
 ## <a name="deactivate-and-retain-data"></a>Désactiver et conserver des données
 

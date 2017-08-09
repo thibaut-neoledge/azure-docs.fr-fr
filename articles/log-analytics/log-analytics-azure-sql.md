@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f5f9aa186480926df1110928983566e05f79efb8
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: cab45cc6dd621eb4a95ef5f1842ec38c25e980b6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -104,19 +103,31 @@ Cliquez sur la vignette **Azure SQL Analytics** afin d’ouvrir le tableau de bo
 
 ### <a name="analyze-data-and-create-alerts"></a>Analyser les données et créer des alertes
 
-La solution prend en charge des requêtes pertinentes que vous mettez à profit pour analyser vos données. Si vous faites défiler l’écran vers la droite, le tableau de bord répertorie plusieurs requêtes courantes sur lesquelles vous pouvez cliquer pour effectuer une [recherche dans les journaux](log-analytics-log-searches.md) afin d’obtenir les données Azure SQL.
+Vous pouvez facilement créer des alertes avec les données provenant de ressources Azure SQL Database. Voici quelques requêtes utiles de [Recherche dans les journaux](log-analytics-log-searches.md) que vous pouvez utiliser pour créer des alertes :
 
-![requêtes](./media/log-analytics-azure-sql/azure-sql-queries.png)
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-La solution comprend quelques *requêtes basées sur une alerte*, tel qu’illustré ci-dessus. Vous pouvez utiliser ces dernières pour signaler l’atteinte de seuils spécifiques pour les instances Azure SQL Database et les pools élastiques.
+
+*DTU élevé sur Azure SQL Database*
+
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+```
+
+*DTU élevé sur un pool élastique Azure SQL Database*
+
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+```
+
+Vous pouvez utiliser ces requêtes de type alertes pour signaler que certains seuils sont atteints pour Azure SQL Database comme pour les pools élastiques. Pour configurer une alerte pour votre espace de travail OMS :
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>Pour configurer une alerte pour votre espace de travail
 
 1. Accédez au [portail OMS](http://mms.microsoft.com/), puis connectez-vous.
 2. Ouvrez l’espace de travail configuré pour la solution.
 3. Sur la page Vue d’ensemble, cliquez sur la vignette **Azure SQL Analytics (version préliminaire)**.
-4. Faites défiler vers la droite, puis cliquez sur une requête pour amorcer la création d’une alerte.  
-![requête d’alerte](./media/log-analytics-azure-sql/alert-query.png)
+4. Exécutez l’un des exemples de requêtes.
 5. Dans la recherche dans les journaux, cliquez sur **Alerte**.  
 ![création d’une alerte dans la recherche](./media/log-analytics-azure-sql/create-alert01.png)
 6. Sur la page **Ajouter une règle d’alerte**, configurez les propriétés appropriées et les seuils spécifiques, puis cliquez sur **Enregistrer**.  
@@ -131,6 +142,11 @@ En exécutant la requête suivante dans la recherche des journaux, vous pouvez f
 ```
 Type=AzureMetrics ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource | display LineChart
 ```
+
+>[!NOTE]
+> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), remplacez la requête ci-dessus par la requête ci-dessous.
+>
+>`search in (AzureMetrics) isnotempty(ResourceId) and "/ELASTICPOOLS/" and MetricName == "dtu_consumption_percent" | summarize AggregatedValue = avg(Average) by bin(TimeGenerated, 1h), Resource | render timechart`
 
 Dans l’exemple suivant, vous pouvez constater qu’un pool élastique présente un taux élevé d’utilisation avoisinant les 100 % de valeur DTU, tandis que les autres affichent un taux très faible. Vous pouvez effectuer d’autres recherches pour résoudre les problèmes associés aux potentielles modifications récentes apportées dans votre environnement, à l’aide des journaux d’activité Azure.
 

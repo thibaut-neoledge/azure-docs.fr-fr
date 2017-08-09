@@ -12,25 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 07/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 6d54203797ad970d590b853b171b383708dbcb5d
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: ee4ea351866b23b10cb8b6ebd7f5a674e5aea158
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 07/20/2017
 
 ---
-<a id="move-data-from-db2-using-azure-data-factory" class="xliff"></a>
-
-# Déplacer des données depuis DB2 à l’aide d’Azure Data Factory
+# <a name="move-data-from-db2-using-azure-data-factory"></a>Déplacer des données depuis DB2 à l’aide d’Azure Data Factory
 Cet article décrit la façon dont vous pouvez utiliser l’activité de copie dans une Azure Data Factory pour copier des données depuis une base de données DB2 locale vers n’importe quel magasin de données de la colonne du récepteur dans la section [Sources et récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Cet article s’appuie sur l’article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d’ensemble du déplacement des données avec l’activité de copie et les combinaisons de magasins de données prises en charge.
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données depuis une base de données DB2 vers les [magasins récepteurs pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), et non le déplacement de données depuis d’autres magasins de données vers une base de données DB2.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Conditions préalables
+## <a name="prerequisites"></a>Conditions préalables
 Data Factory prend en charge la connexion à une base de données DB2 locale à l’aide de la passerelle de gestion des données. Consultez l’article [Passerelle de gestion de données](data-factory-data-management-gateway.md) pour en savoir plus sur la passerelle de gestion des données et l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour obtenir des instructions détaillées sur la configuration de la passerelle pour un pipeline de données afin de déplacer des données.
 
 Une passerelle est requise même si la base de données DB2 est hébergée sur une machine virtuelle Azure IaaS. Vous pouvez installer la passerelle sur la même machine virtuelle IaaS que le magasin de données, ou sur une autre machine virtuelle pourvu que la passerelle puisse se connecter à la base de données.
@@ -40,9 +36,7 @@ La passerelle de gestion des données fournit un pilote DB2 intégré. Par cons�
 > [!NOTE]
 > Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
-<a id="supported-versions" class="xliff"></a>
-
-## Versions prises en charge
+## <a name="supported-versions"></a>Versions prises en charge
 Ce connecteur DB2 prend en charge les plateformes et versions IBM DB2 suivantes avec les versions 9, 10 et 11 de SQL Access Manager (SQLAM) DRDA (Distributed Relational Database Architecture) :
 
 * IBM DB2 pour z/OS 11.1
@@ -54,11 +48,11 @@ Ce connecteur DB2 prend en charge les plateformes et versions IBM DB2 suivantes 
 * IBM DB2 pour LUW 10.1
 
 > [!TIP]
-> Si vous rencontrez l’erreur « Le package correspondant à une requête d’exécution d’instruction SQL est introuvable. SQLSTATE=51002 SQLCODE=-805 », cela signifie que l’utilisateur dispose d’un compte doté de privilèges élevés (d’utilisateur avancé ou d’administrateur) pour exécuter l’activité de copie une fois, puis que le package nécessaire sera automatiquement créé pendant la copie. Ensuite, vous pouvez revenir au mode utilisateur normal pour vos séries de copie suivantes.
+> Si vous recevez le message d’erreur « Le package correspondant à une requête d’exécution d’instruction SQL est introuvable. SQLSTATE = 51002 SQLCODE =-805 », la raison en est qu’un package nécessaire n’est pas créé pour un utilisateur normal sur un tel système d’exploitation. Suivez les instructions appropriées pour votre type de serveur DB2 :
+> - DB2 pour i (AS400) : demandez à un utilisateur chevronné de créer une collection pour l’utilisateur de connexion avant d’utiliser une activité de copie. Commande : `create collection <username>`
+> - DB2 pour z/OS ou LUW : utilisez un compte doté de privilèges élevés (utilisateur chevronné ou administrateur disposant d’autorités de package et d’autorisations BIND, BINDADD, GRANT EXECUTE TO PUBLIC) pour exécuter une fois l’activité de copie. Le package nécessaire est ensuite créé automatiquement au cours de la copie. Ensuite, vous pouvez revenir au mode utilisateur normal pour vos séries de copie suivantes.
 
-<a id="getting-started" class="xliff"></a>
-
-## Prise en main
+## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données DB2 local à l’aide de différents outils/API. 
 
 - Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant de copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données. 
@@ -74,9 +68,7 @@ Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data
 
 Les sections suivantes contiennent des informations détaillées sur les propriétés JSON utilisées pour définir les entités Data Factory propres à un magasin de données DB2 :
 
-<a id="linked-service-properties" class="xliff"></a>
-
-## Propriétés du service lié
+## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit la description des éléments JSON spécifiques au service lié DB2.
 
 | Propriété | Description | Requis |
@@ -91,9 +83,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données DB2 locale. |Oui |
 
 
-<a id="dataset-properties" class="xliff"></a>
-
-## Propriétés du jeu de données
+## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
 La section typeProperties est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans le magasin de données. La section typeProperties pour le jeu de données de type RelationalTable (qui inclut le jeu de données DB2) a les propriétés suivantes.
@@ -102,9 +92,7 @@ La section typeProperties est différente pour chaque type de jeu de données et
 | --- | --- | --- |
 | TableName |Nom de la table dans l'instance de base de données DB2 à laquelle le service lié fait référence. Le nom de la table respecte la casse. |Non (si la **requête** de **RelationalSource** est spécifiée) |
 
-<a id="copy-activity-properties" class="xliff"></a>
-
-## Propriétés de l’activité de copie
+## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d'entrée et de sortie et les différentes stratégies sont disponibles pour tous les types d'activités.
 
 En revanche, les propriétés disponibles dans la section typeProperties de l’activité varient pour chaque type d'activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
@@ -125,9 +113,7 @@ Pour une activité de copie, quand la source est de type **RelationalSource** (q
 ```
 
 
-<a id="json-example-copy-data-from-db2-to-azure-blob" class="xliff"></a>
-
-## Exemple JSON : copie de données de DB2 vers Azure Blob
+## <a name="json-example-copy-data-from-db2-to-azure-blob"></a>Exemple JSON : copie de données de DB2 vers Azure Blob
 Cet exemple présente des exemples de définition JSON, que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Il indique comment copier des données depuis une base de données DB2 et un Stockage Blob Azure. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.
 
 L’exemple contient les entités de fabrique de données suivantes :
@@ -314,9 +300,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 ```
 
 
-<a id="type-mapping-for-db2" class="xliff"></a>
-
-## Mappage de type pour DB2
+## <a name="type-mapping-for-db2"></a>Mappage de type pour DB2
 Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md) , l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
 
 1. Conversion de types natifs source en types .NET
@@ -367,18 +351,12 @@ Lors du déplacement de données vers DB2, les mappages suivants sont utilisés 
 | xml |Byte[] |
 | Char |String |
 
-<a id="map-source-to-sink-columns" class="xliff"></a>
-
-## Mapper les colonnes source aux colonnes du récepteur
+## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour en savoir plus sur le mappage de colonnes du jeu de données source à des colonnes du jeu de données récepteur, voir [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).
 
-<a id="repeatable-read-from-relational-sources" class="xliff"></a>
-
-## Lecture renouvelée de sources relationnelles
+## <a name="repeatable-read-from-relational-sources"></a>Lecture renouvelée de sources relationnelles
 Lorsque vous copiez des données à partir de magasins de données relationnels, gardez à l’esprit la répétabilité de l’opération, afin d’éviter des résultats imprévus. Dans Azure Data Factory, vous pouvez réexécuter une tranche manuellement. Vous pouvez également configurer une stratégie de nouvelles tentatives pour un jeu de données, afin qu’une tranche soit réexécutée en cas de défaillance. Lorsqu’une tranche est réexécutée d’une manière ou d’une autre, vous devez vous assurer que les mêmes données sont lues et ce, quel que soit le nombre d’exécutions de la tranche. Voir [Lecture renouvelée de sources relationnelles](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-<a id="performance-and-tuning" class="xliff"></a>
-
-## Performances et réglage
+## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 

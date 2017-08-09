@@ -1,7 +1,7 @@
 ---
 title: "Importation de données dans Machine Learning Studio à partir de sources de données en ligne | Microsoft Docs"
 description: "Comment importer vos données d’apprentissage Azure Machine Learning Studio depuis différentes sources en ligne"
-keywords: "importer des données, format de données, types de données, sources de données, données d&quot;apprentissage"
+keywords: "importer des données, format de données, types de données, sources de données, données d'apprentissage"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
-translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: afecdde0cbc0bcbe0932b23dc1a8e067d02ded12
-ms.lasthandoff: 12/20/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: a102b5f5ea04169d1992cad6d53c0a45de69b645
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importation de vos données Azure Machine Learning Studio à partir de différentes sources de données en ligne avec le module Importer les données
@@ -44,6 +44,7 @@ Vous pouvez accéder aux données à partir d’une des nombreuses sources de do
 * Base de données Azure SQL ou SQL Server sur les machines virtuelles Azure
 * Base de données SQL Server locale
 * Un fournisseur de flux de données, actuellement, OData
+* Azure Cosmos DB (anciennement DocumentDB)
 
 Pour accéder aux sources de données en ligne lors de votre expérience Studio, ajoutez le module [Importer les données][import-data] à votre expérience, sélectionnez la **source de données**, puis indiquez les paramètres nécessaires pour accéder aux données. Les sources de données en ligne prises en charge sont détaillées dans le tableau ci-dessous. Ce tableau récapitule également les formats de fichier pris en charge et les paramètres qui sont utilisés pour accéder aux données.
 

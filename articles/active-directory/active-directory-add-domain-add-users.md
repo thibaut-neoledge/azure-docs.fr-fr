@@ -14,23 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ccfa8d72b51c43e04d924d2b096e3cbc407af043
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 39cb54a6637088c35c6aef864a804c24803f48ba
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/28/2016
+ms.lasthandoff: 07/26/2017
 
 ---
-# Affecter des utilisateurs à un domaine personnalisé
-<a id="assign-users-to-a-custom-domain" class="xliff"></a>
+# <a name="assign-users-to-a-custom-domain"></a>Affecter des utilisateurs à un domaine personnalisé
 Après avoir ajouté votre domaine personnalisé à Azure Active Directory, vous devez ajouter les comptes d'utilisateur pour ce domaine afin de pouvoir les authentifier.
 
-## Utilisateurs synchronisés à partir d’un répertoire de votre réseau d'entreprise
-<a id="users-synced-in-from-a-directory-on-your-corporate-network" class="xliff"></a>
+> [!IMPORTANT]
+> Microsoft recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure au lieu d’utiliser le portail Azure classique référencé dans cet article. Pour savoir comment gérer vos noms de domaine dans le centre d’administration Azure AD, consultez la section [Gestion des noms de domaines personnalisés dans Azure Active Directory](active-directory-domains-manage-azure-portal.md).
+
+## <a name="users-synced-from-a-on-premises-directory"></a>Utilisateurs synchronisés à partir d’un répertoire local
 Si vous avez déjà configuré une connexion entre un domaine Active Directory local et Azure Active Directory, la synchronisation peut remplir les comptes. Pour plus d'informations sur la synchronisation d’Azure Active Directory avec votre domaine Active Directory local, consultez [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-## Utilisateurs ajoutés et gérés dans le cloud
-<a id="users-added-and-managed-in-the-cloud" class="xliff"></a>
+## <a name="users-added-and-managed-in-the-cloud"></a>Utilisateurs ajoutés et gérés dans le cloud
 Pour modifier le domaine d'un compte d'utilisateur existant :
 
 1. Ouvrez le portail Azure Classic à l'aide d'un compte administrateur global ou administrateur d'utilisateurs.
@@ -41,8 +43,7 @@ Pour modifier le domaine d'un compte d'utilisateur existant :
 
 Vous pouvez également utiliser [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) ou [l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 
-## Sélectionner un domaine personnalisé lors de la création d'un nouvel utilisateur
-<a id="select-a-custom-domain-when-creating-a-new-user" class="xliff"></a>
+## <a name="select-a-custom-domain-when-creating-a-new-user"></a>Sélectionner un domaine personnalisé lors de la création d'un nouvel utilisateur
 1. Ouvrez le portail Azure Classic à l'aide d'un compte administrateur global ou administrateur d'utilisateurs.
 2. Ouvrez votre annuaire.
 3. Cliquez sur l’onglet **Utilisateurs** .
@@ -50,8 +51,7 @@ Vous pouvez également utiliser [Microsoft PowerShell](https://msdn.microsoft.co
 5. Lorsque vous ajoutez le nom d'utilisateur, choisissez le domaine personnalisé dans la liste des domaines.
 6. Sélectionnez **Enregistrer**.
 
-## Étapes suivantes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 * [Utilisation de noms de domaine personnalisés pour simplifier l’expérience de connexion pour vos utilisateurs](active-directory-add-domain.md)
 * [Gérer les noms de domaine personnalisés](active-directory-add-manage-domain-names.md)
 * [En savoir plus sur les concepts de gestion de domaine dans Azure AD](active-directory-add-domain-concepts.md)

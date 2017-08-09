@@ -1,37 +1,37 @@
 ---
-title: "Interroger des données à partir de l’environnement Azure Time Series Insights en utilisant C# | Microsoft Docs"
-description: "Ce didacticiel explique comment interroger des données à partir de l’environnement Time Series Insights en utilisant C#."
+title: "Interroger des données à partir de l’environnement Azure Time Series Insights en utilisant C# | Microsoft Docs"
+description: "Ce didacticiel explique comment interroger des données à partir de l’environnement Time Series Insights en utilisant C#, avec un exemple de code."
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: ankryach
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 07/20/2017
 ms.author: ankryach
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 81d16b4093a4eef77e5a9c88cb39f2dd36bcba4e
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 99507a7bf9ca332f0b7adc56c2d8df0240f29b06
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/24/2017
 
 ---
-# <a name="query-data-from-the-azure-time-series-insights-environment-by-using-c"></a>Interroger des données à partir de l’environnement Azure Time Series Insights en utilisant C#
+# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Interroger des données à partir de l’environnement Azure Time Series Insights en utilisant C#
 
-Cet exemple de code C# montre comment interroger des données à partir de l’environnement Azure Time Series Insights.
+Cet exemple de code C# montre comment interroger des données à partir de l’environnement Azure Time Series Insights.
 L’exemple montre plusieurs exemples de base de l’utilisation de l’API de requête :
-1. En guise de préparation, le jeton d’accès est acquis à l’aide de l’API Azure Active Directory. Ce jeton doit être transmis dans l’en-tête `Authorization` de chaque demande de l’API de requête. Pour configurer les applications non interactives, consultez l’article [Authentification et autorisation](time-series-insights-authentication-and-authorization.md).
+1. En guise de préparation, obtenez le jeton d’accès via l’API Azure Active Directory. Transmettez le jeton dans l’en-tête `Authorization` de chaque demande de l’API de requête. Pour configurer les applications non interactives, voir [Authentification et autorisation](time-series-insights-authentication-and-authorization.md).
 2. La liste des environnements auxquels l’utilisateur a accès est obtenue. L’un des environnements est récupéré en tant qu’environnement d’intérêt, et les autres données sont interrogées pour cet environnement.
 3. Exemple de demande HTTPS : les données de disponibilité sont demandées pour l’environnement d’intérêt.
 4. Exemple de demande de socket web : les données d’agrégats d’évènement sont demandées pour l’environnement d’intérêt. Des données sont demandées pour l’intégralité de la période de disponibilité.
 
-## <a name="c-sample"></a>Exemple de code C#
+## <a name="c-example"></a>Exemple en code C#
 
 ```csharp
 using System;

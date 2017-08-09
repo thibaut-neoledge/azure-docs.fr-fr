@@ -5,22 +5,22 @@ services: active-tenant
 documentationcenter: 
 author: curtand
 manager: femila
-editor: piotrci
+editor: 
 ms.assetid: 2b862b75-14df-45f2-a8ab-2a3ff1e2eb08
 ms.service: active-tenant
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2017
+ms.date: 07/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 142bd7fea8d1a409662282b9b23a2e1598c9e86e
+ms.reviewer: piotrci
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: d25d2c731034d0785bbd404ec693c4c41d913d01
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -46,7 +46,7 @@ Vous pouvez configurer chaque locataire Azure AD de manière indépendante de s
 * Azure Active Directory Connector pour Forefront Identity Manager, pour synchroniser les données avec une ou plusieurs forêts locales et/ou des sources de données non Azure AD.
 
 ## <a name="add-an-azure-ad-tenant"></a>Ajouter un locataire Azure AD
-Pour ajouter un locataire Azure AD dans le portail Azure Classic, sélectionnez l’extension Azure Active Directory à gauche, puis appuyez sur **Ajouter**.
+Pour ajouter un locataire Azure AD dans le portail Azure, connectez-vous au [portail Azure](https://portal.azure.com) avec un compte qui est un administrateur général Azure AD et, sur la gauche, sélectionnez **Nouveau**.
 
 > [!NOTE]
 > Contrairement aux autres ressources Azure, vos locataires ne sont pas des ressources enfants d’un abonnement Azure. Si votre abonnement Azure est annulé ou qu’il est arrivé à expiration, vous pouvez toujours accéder aux données de votre locataire via Azure PowerShell, l’API Azure Graph ou le centre d’administration Office 365. Vous pouvez aussi associer un autre abonnement au locataire.

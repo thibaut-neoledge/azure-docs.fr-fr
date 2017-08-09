@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: e85242e251b53cd45b583429bd25c9ef08d2b101
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 62221d7d174de128bf0089fb79a143d73fbe550a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -31,15 +31,15 @@ Cet article explique les considérations de topologie réseau lors de l’utilis
 
 Lorsqu’une application est publiée via le proxy d’application Azure AD, le trafic des utilisateurs vers les applications circule via trois connexions :
 
-1. L’utilisateur se connecte au point de terminaison public du proxy d’application Azure AD sur Azure
-2. Le proxy d’application se connecte au connecteur
-3. Le connecteur se connecte à l’application cible
+1. L’utilisateur se connecte au point de terminaison public du service de proxy d’application Azure AD sur Azure
+2. Le service de proxy d’application se connecte au connecteur de proxy d’application
+3. Le connecteur de proxy d’application se connecte à l’application cible
 
- ![Diagramme illustrant le flux de trafic de l’utilisateur vers l’application cible](./media/application-proxy-network-topologies/application-proxy-three-hops.png)
+![Diagramme illustrant le flux de trafic de l’utilisateur vers l’application cible](./media/application-proxy-network-topologies/application-proxy-three-hops.png)
 
 ## <a name="tenant-location-and-application-proxy-service"></a>Emplacement du locataire et service de proxy d’application
 
-Lorsque vous vous inscrivez pour un locataire Azure AD, la région de votre locataire est déterminée par le pays que vous spécifiez. Lorsque vous activez le proxy d’application, les instances du service de proxy d’application de votre locataire sont affichées dans la même région que votre locataire Azure AD, ou la région la plus proche de celui-ci.
+Lorsque vous vous inscrivez pour un locataire Azure AD, la région de votre locataire est déterminée par le pays que vous spécifiez. Lorsque vous activez le service de proxy d’application, les instances du service de proxy d’application de votre locataire sont sélectionnées ou créées dans la même région que votre locataire Azure AD, ou la région la plus proche de ce dernier.
 
 Par exemple, si la région de votre locataire Azure AD est l’Union européenne (UE), tous vos connecteurs de proxy d’application utilisent des instances de service dans des centres de données Azure dans l’Union européenne. Lorsque vos utilisateurs accèdent à des applications publiées, leur trafic passe par les instances du service de proxy d’application à cet emplacement.
 
@@ -49,9 +49,11 @@ Toutes les solutions de proxy ajoutent de la latence à votre connexion réseau.
 
 Les organisations comptent généralement des points de terminaison de serveur dans leur réseau de périmètre. Avec le proxy d’application Azure AD, le trafic passe toutefois par le service de proxy dans le cloud tandis que les connecteurs se trouvent sur votre réseau d’entreprise. Aucun réseau de périmètre n’est requis.
 
+Les sections suivantes contiennent des suggestions supplémentaires pour vous aider à réduire encore davantage la latence. 
+
 ### <a name="connector-placement"></a>Placement d’un connecteur
 
-Le proxy d’application choisit l’emplacement des instances pour vous, en fonction de l’emplacement de votre locataire. Vous pouvez décider de l’emplacement auquel installer le connecteur, ce qui vous donne la possibilité de définir les caractéristiques de latence de votre trafic réseau.
+Le proxy d’application choisit l’emplacement des instances pour vous, en fonction de l’emplacement de votre locataire. Cependant, vous pouvez décider de l’emplacement auquel installer le connecteur, ce qui vous donne la possibilité de définir les caractéristiques de latence de votre trafic réseau.
 
 Lorsque vous configurez le service de proxy d’application, posez-vous les questions suivantes :
 
@@ -60,27 +62,29 @@ Lorsque vous configurez le service de proxy d’application, posez-vous les ques
 * Où se trouve l’instance de proxy d’application ?
 * Disposez-vous déjà d’une connexion réseau dédiée vers les centres de données Azure comme Azure ExpressRoute ou un VPN similaire ?
 
-Le connecteur doit communiquer avec Azure et vos applications. Le placement du connecteur affecte donc la latence de ces deux connexions. Lorsque vous évaluez le placement du connecteur, tenez compte des facteurs suivants :
+Le connecteur doit communiquer avec Azure et vos applications (étapes 2 et 3 du schéma Flux de trafic). Le placement du connecteur affecte donc la latence de ces deux connexions. Lorsque vous évaluez le placement du connecteur, tenez compte des facteurs suivants :
 
-* Si vous souhaitez utiliser la délégation Kerberos contrainte (KCD) pour l’authentification unique, le connecteur a besoin d’une ligne de vue sur un centre de données. 
+* Si vous souhaitez utiliser la délégation Kerberos contrainte (KCD) pour l’authentification unique, le connecteur a besoin d’une ligne de vue sur un centre de données. En outre, le serveur de connecteur doit être joint à un domaine.  
 * En cas de doute, rapprochez le connecteur de l’application.
 
 ### <a name="general-approach-to-minimize-latency"></a>Approche générale pour la réduction de la latence
 
-Vous pouvez essayer de réduire la latence du trafic de bout en bout en optimisant chaque connexion réseau. Chaque connexion peut être optimisée en :
+Vous pouvez réduire la latence du trafic de bout en bout en optimisant chaque connexion réseau. Chaque connexion peut être optimisée en :
 
 * Réduisant la distance entre les deux extrémités du tronçon.
 * Choisissant le réseau approprié à parcourir. Par exemple, parcourir un réseau privé au lieu de l’Internet public peut être plus rapide en raison des liaisons dédiées.
 
 Si vous disposez d’une liaison VPN ou ExpressRoute dédiée entre Azure et votre réseau d’entreprise, vous souhaiterez peut-être l’utiliser.
 
-## <a name="focus-your-optimizing-strategy"></a>Concentrer votre stratégie d’optimisation
+## <a name="focus-your-optimization-strategy"></a>Concentrer votre stratégie d’optimisation
 
-Vous ne pouvez contrôler que très peu la connexion entre vos utilisateurs et le proxy d’application Azure AD. Ils peuvent accéder à vos applications à partir d’un réseau domestique, d’un cybercafé ou d’un autre pays. Au lieu de cela, vous pouvez optimiser les connexions entre le proxy d’application et les connecteurs vers les applications. Envisagez d’intégrer les modèles suivants dans votre environnement.
+Vous avez peu de latitude pour contrôler la connexion entre vos utilisateurs et le service du proxy d’application. Les utilisateurs peuvent accéder à vos applications à partir d’un réseau domestique, d’un café ou d’un autre pays. Au lieu de cela, vous pouvez optimiser les connexions entre le service de proxy d’application et les connecteurs de proxy d’application vers les applications. Envisagez d’intégrer les modèles suivants dans votre environnement.
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Modèle 1 : Placer le connecteur à proximité de l’application
 
-Placez le connecteur près de l’application cible dans le réseau du client. L’avantage de ce modèle est que le connecteur est susceptible d’avoir besoin d’une ligne de vue vers le contrôleur de domaine. Cette approche est suffisante pour la plupart des scénarios, c’est pourquoi la plupart de nos clients suivent ce modèle. Ce modèle peut également être associé au modèle 2 pour optimiser le trafic entre le proxy d’application et le connecteur.
+Placez le connecteur près de l’application cible dans le réseau du client. Cette configuration minimise l’étape 3 dans le schéma de topographie, car le connecteur et l’application sont proches. 
+
+Si votre connecteur a besoin d’une ligne de vue sur le contrôleur de domaine, ce modèle est avantageux. La plupart de nos clients utilisent ce modèle, car il fonctionne bien pour la majorité des scénarios. Ce modèle peut également être associé au modèle 2 pour optimiser le trafic entre le service et le connecteur.
 
 ### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>Modèle 2 : Tirer parti d’ExpressRoute avec l’homologation publique
 
@@ -98,9 +102,9 @@ La latence n’est pas compromise, car le trafic circule sur une connexion dédi
 
 Bien que cet article ait pour objectif le placement du connecteur, vous pouvez également modifier le placement de l’application pour obtenir de meilleures caractéristiques de latence.
 
-De plus en plus d’organisations déplacent leurs réseaux dans des environnements hébergés. Cela leur permet de placer leurs applications dans un environnement hébergé qui fait également partie de leur réseau d’entreprise tout en restant au sein du domaine. Dans ce cas, les modèles décrits dans les sections précédentes peuvent être appliqués au nouvel emplacement de l’application.
+De plus en plus d’organisations déplacent leurs réseaux dans des environnements hébergés. Cela leur permet de placer leurs applications dans un environnement hébergé qui fait également partie de leur réseau d’entreprise tout en restant au sein du domaine. Dans ce cas, les modèles décrits dans les sections précédentes peuvent être appliqués au nouvel emplacement de l’application. Si vous envisagez cette option, consultez la page [Services de domaine Azure AD](../active-directory-domain-services/active-directory-ds-overview.md).
 
-Envisagez d’utiliser des [groupes de connecteurs](active-directory-application-proxy-connectors.md) pour les applications cibles qui se trouvent dans des réseaux et des emplacements différents. Si vous envisagez cette option, consultez la page [Services de domaine Azure AD](../active-directory-domain-services/active-directory-ds-overview.md).
+Envisagez également d’organiser vos connecteurs à l’aide de [groupes de connecteurs](active-directory-application-proxy-connectors.md) pour les applications cibles qui se trouvent dans des réseaux et des emplacements différents. 
 
 ## <a name="common-use-cases"></a>Cas d’utilisation courants
 
@@ -108,9 +112,9 @@ Dans cette section, nous allons étudier quelques scénarios courants. Supposons
 
 Dans ces scénarios, nous appelons chaque connexion un « tronçon » et nous les numérotons dans un souci de simplification :
 
-- **Tronçon 1** : Utilisateur vers proxy d’application Azure AD
-- **Tronçon 2** : Proxy d’application Azure AD vers le connecteur
-- **Tronçon 3** : Connecteur vers application cible 
+- **Tronçon 1** : utilisateur vers le service de proxy d’application
+- **Tronçon 2** : service de proxy d’application vers le connecteur de proxy d’application
+- **Tronçon 3** : connecteur de proxy d’application vers l’application cible 
 
 ### <a name="use-case-1"></a>Cas d’utilisation 1
 
@@ -136,7 +140,9 @@ Là encore, le modèle courant consiste à optimiser le tronçon 3, où vous pla
 
 **Scénario :** l’application se trouve dans un réseau d’entreprise aux États-Unis. ExpressRoute avec l’homologation publique existe entre Azure et le réseau d’entreprise.
 
-**Recommandation :** placez le connecteur aussi près que possible de l’application. Le système utilise automatiquement ExpressRoute pour le tronçon 2. Cela correspond au modèle 2, expliqué dans la section précédente.
+**Recommandation :** suivez les modèles 1 et 2, comme expliqué dans la section précédente.
+
+Tout d’abord, placez le connecteur aussi près que possible de l’application. Le système utilise automatiquement ExpressRoute pour le tronçon 2. 
 
 Si la liaison ExpressRoute utilise l’homologation publique, le trafic entre le proxy et le connecteur suit ce lien. Le tronçon 2 a une latence optimisée.
 
@@ -146,7 +152,9 @@ Si la liaison ExpressRoute utilise l’homologation publique, le trafic entre le
 
 **Scénario :** l’application se trouve dans un réseau d’entreprise aux États-Unis. ExpressRoute avec l’homologation privée existe entre Azure et le réseau d’entreprise.
 
-**Recommandation :** placez le connecteur dans le centre de données Azure qui est connecté au réseau d’entreprise via l’homologation privée ExpressRoute. Cela correspond au modèle 3, expliqué dans la section précédente.
+**Recommandation :** suivez le modèle 3, expliqué dans la section précédente.
+
+Placez le connecteur dans le centre de données Azure qui est connecté au réseau d’entreprise par le biais de l’homologation privée ExpressRoute. 
 
 Le connecteur peut être placé dans le centre de données Azure. Dans la mesure où le connecteur a toujours une ligne de vue à l’application et le centre de données via le réseau privé, le tronçon 3 reste optimisé. En outre, le tronçon 2 est davantage optimisé.
 
@@ -160,7 +168,7 @@ Le connecteur peut être placé dans le centre de données Azure. Dans la mesure
 
 ![Diagramme montrant les utilisateurs et proxy aux États-Unis, avec le connecteur et l’application dans l’Union européenne](./media/application-proxy-network-topologies/application-proxy-pattern5b.png)
 
-Vous pouvez également envisager d’utiliser une autre variante dans cette situation. Si la plupart des utilisateurs de l’organisation sont aux États-Unis, il est probable que votre réseau « s’étende » aussi vers les États-Unis. Si tel est le cas, le connecteur peut être placé aux États-Unis et peut utiliser la ligne de réseau d’entreprise interne dédiée vers l’application dans l’Union européenne. Les tronçons 2 et 3 sont ainsi optimisés.
+Vous pouvez également envisager d’utiliser une autre variante dans cette situation. Si la plupart des utilisateurs de l’organisation sont aux États-Unis, il est probable que votre réseau « s’étende » aussi vers les États-Unis. Placez le connecteur aux États-Unis et utilisez la ligne de réseau d’entreprise interne dédiée vers l’application dans l’Union européenne. Les tronçons 2 et 3 sont ainsi optimisés.
 
 ![Diagramme montrant les utilisateurs, le proxy et le connecteur aux États-Unis, et l’application dans l’Union européenne](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 

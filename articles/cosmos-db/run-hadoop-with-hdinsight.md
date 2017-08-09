@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: dc947bb132b14278f38b378bc80ca232c94fcdb7
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 427864fc4e494c19fcda4cfd454a9923499f6337
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Exécuter un travail Apache Hive, Pig ou Hadoop avec Azure Cosmos DB et HDInsight
@@ -57,7 +56,7 @@ Vous n'avez pas le temps de suivre le didacticiel et vous souhaitez seulement ob
     <tr><th>Versions de HDInsight prises en charge</th>
         <td>3.1, 3.2.</td></tr>
     <tr><th>Journal des modifications</th>
-        <td>Kit de développement logiciel (SDK) Java de DocumentDB mis à jour vers la version 1.6.0</br>
+        <td>Mise à jour du Kit de développement logiciel (SDK) Azure Cosmos DB vers la version 1.6.0</br>
             Prise en charge ajoutée pour les collections partitionnées en tant que source et récepteur</br>
         </td></tr>
 </table>
@@ -178,9 +177,9 @@ Entrez : </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/
 
         # Provide the HDInsight cluster name where you want to run the Hive job.
         $clusterName = "<HDInsightClusterName>"
-2. <p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Hive qui prend les horodatages générés par le système (_ts) et les ID uniques (_rid) de tous les documents d'une collection DocumentDB, comptabilise tous les documents à la minute et stocke les résultats dans une nouvelle collection DocumentDB.</p>
+2. <p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Hive qui prend les horodatages générés par le système de tous les documents (_ts) et les ID uniques (_rid) de tous les documents d’une collection Azure Cosmos DB, comptabilise tous les documents à la minute et stocke les résultats dans une nouvelle collection Azure Cosmos DB.</p>
 
-    <p>Commençons par créer une table Hive à partir de notre collection DocumentDB. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code 1. Veillez à inclure le paramètre DocumentDB.query facultatif pour réduire vos documents à _ts et _rid.</p>
+    <p>Commençons par créer une table Hive à partir de notre collection Azure Cosmos DB. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code 1. Veillez à inclure le paramètre DocumentDB.query facultatif pour réduire vos documents à _ts et _rid.</p>
 
    > [!NOTE]
    > **L’attribution du nom DocumentDB.inputCollections n’était pas une erreur.** Oui, nous autorisons l'ajout de plusieurs collections en tant qu'entrée : </br>
@@ -256,8 +255,8 @@ Entrez : </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/
 
    1. Cliquez sur <strong>Parcourir</strong> dans le panneau gauche. </br>
    2. Cliquez sur <strong>Tout</strong> en haut à droite du volet de navigation. </br>
-   3. Recherchez les <strong>comptes DocumentDB</strong> et cliquez dessus. </br>
-   4. Recherchez ensuite votre <strong>compte DocumentDB</strong>, puis votre <strong>base de données DocumentDB</strong> et votre <strong>collection DocumentDB</strong> associés à la collection de sortie spécifiée dans votre requête Hive.</br>
+   3. Recherchez les <strong>comptes Azure Cosmos DB</strong>, puis cliquez dessus. </br>
+   4. Recherchez ensuite votre <strong>compte Azure Cosmos DB</strong>, puis votre <strong>base de données Azure Cosmos DB</strong> et votre <strong>collection Azure Cosmos DB</strong> associées à la collection de sortie spécifiée dans votre requête Hive.</br>
    5. Pour finir, cliquez sur <strong>Explorateur de documents</strong> sous <strong>Outils de développement</strong>.</br></p>
 
    Vous verrez les résultats de votre requête Hive.
@@ -277,7 +276,7 @@ Entrez : </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/
 
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
-2. <p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Pig qui accepte les horodatages générés par le système de tous les documents (DTS) et des identificateurs uniques (_rid) à partir d'une collection DocumentDB, comptabilise tous les documents à la minute, puis stocke les résultats de la sauvegarde dans une nouvelle collection DocumentDB.</p>
+2. <p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Pig qui accepte les horodatages générés par le système de tous les documents (_ts) et des ID uniques (_rid) à partir d’une collection Azure Cosmos DB, comptabilise tous les documents à la minute, puis stocke les résultats dans une nouvelle collection Azure Cosmos DB.</p>
     <p>Chargez d’abord des documents Cosmos DB dans HDInsight. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code 1 . Veillez à ajouter une requête DocumentDB au paramètre de requête DocumentDB facultatif pour réduire vos documents à _ts et _rid.</p>
 
    > [!NOTE]
@@ -343,20 +342,20 @@ Entrez : </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/
 
     1. Cliquez sur <strong>Parcourir</strong> dans le panneau gauche. </br>
     2. Cliquez sur <strong>Tout</strong> en haut à droite du volet de navigation. </br>
-    3. Recherchez les <strong>comptes DocumentDB</strong> et cliquez dessus. </br>
-    4. Recherchez ensuite votre <strong>compte DocumentDB</strong>, puis votre <strong>base de données DocumentDB</strong> et votre <strong>collection DocumentDB</strong> associés à la collection de sortie spécifiée dans votre requête Pig.</br>
+    3. Recherchez les <strong>comptes Azure Cosmos DB</strong>, puis cliquez sur ces derniers. </br>
+    4. Recherchez ensuite votre <strong>compte Azure Cosmos DB</strong>, puis votre <strong>base de données Azure Cosmos DB</strong> et votre <strong>collection Azure Cosmos DB</strong> associées à la collection de sortie spécifiée dans votre requête Pig.</br>
     5. Pour finir, cliquez sur <strong>Explorateur de documents</strong> sous <strong>Outils de développement</strong>.</br></p>
 
     Vous verrez les résultats de votre requête Pig.
 
     ![Résultats de la requête Pig][image-pig-query-results]
 
-## <a name="RunMapReduce"></a>Étape 5 : exécuter une tâche MapReduce à l’aide de DocumentDB et HDInsight
+## <a name="RunMapReduce"></a>Étape 5 : exécuter une tâche MapReduce à l’aide d’Azure Cosmos DB et HDInsight
 1. Définissez les variables suivantes dans le volet Script PowerShell.
 
         $subscriptionName = "<SubscriptionName>"   # Azure subscription name
         $clusterName = "<ClusterName>"             # HDInsight cluster name
-2. Nous allons exécuter une tâche MapReduce qui compte le nombre d'occurrences de chaque propriété de document de votre collection DocumentDB. Ajoutez cet extrait de script **après** l’extrait ci-dessus.
+2. Nous allons exécuter une tâche MapReduce qui compte le nombre d’occurrences de chaque propriété de document de votre collection Azure Cosmos DB. Ajoutez cet extrait de script **après** l’extrait ci-dessus.
 
         # Define the MapReduce job.
         $TallyPropertiesJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/TallyProperties-v01.jar" -ClassName "TallyProperties" -Arguments "<DocumentDB Endpoint>","<DocumentDB Primary Key>", "<DocumentDB Database Name>","<DocumentDB Input Collection Name>","<DocumentDB Output Collection Name>","<[Optional] DocumentDB Query>"
@@ -384,8 +383,8 @@ Entrez : </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/
 
    1. Cliquez sur <strong>Parcourir</strong> dans le panneau gauche.
    2. Cliquez sur <strong>Tout</strong> en haut à droite du volet de navigation.
-   3. Recherchez <strong>Cosmos DB Accounts (Comptes Cosmos DB)</strong>, puis cliquez dessus.
-   4. Recherchez ensuite votre <strong>compte Cosmos DB</strong>, puis votre <strong>base de données Cosmos DB</strong> et votre <strong>collection DocumentDB</strong> associés à la collection de sortie spécifiée dans votre travail MapReduce.
+   3. Recherchez les <strong>comptes Azure Cosmos DB</strong>, puis cliquez sur ces derniers.
+   4. Recherchez ensuite votre <strong>compte Azure Cosmos DB</strong>, puis votre <strong>base de données Azure Cosmos DB</strong> et votre <strong>collection Azure Cosmos DB</strong> associés à la collection de sortie spécifiée dans votre tâche MapReduce.
    5. Pour finir, cliquez sur <strong>Explorateur de documents</strong> sous <strong>Outils de développement</strong>.
 
       Vous verrez les résultats de votre tâche MapReduce.

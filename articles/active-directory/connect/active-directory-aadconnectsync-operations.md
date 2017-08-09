@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 0288d70bb5c0094b5c738b2d0c597e4c6d38a5aa
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure Connect AD sync : tâches opérationnelles et examen
@@ -109,7 +109,9 @@ Pour en savoir plus, voir [Mode intermédiaire](#staging-mode).
 Une méthode courante et prise en charge consiste à exécuter le moteur de synchronisation sur une machine virtuelle. Si l’hôte rencontre un problème, l’image contenant le serveur de moteur de synchronisation peut être migrée vers un autre serveur.
 
 ### <a name="sql-high-availability"></a>Haute disponibilité SQL
-Si vous n’utilisez pas SQL Server Express livré avec Azure AD Connect, la haute disponibilité pour SQL Server doit alors être prise en compte. La seule solution haute disponibilité prise en charge est SQL clustering. Les solutions non prises en charge incluent la mise en miroir et Always On.
+Si vous n’utilisez pas SQL Server Express livré avec Azure AD Connect, la haute disponibilité pour SQL Server doit alors être prise en compte. Les solutions de haute disponibilité prises en charge incluent la mise en clusters SQL et AOA (Groupes de disponibilité AlwaysOn). Les solutions non prises en charge incluent la mise en miroir.
+
+La prise en charge de SQL AOA a été ajoutée à Azure AD Connect version 1.1.524.0. Vous devez activer SQL AOA avant d’installer Azure AD Connect. Pendant l’installation, Azure AD Connect détecte si l’instance SQL spécifiée est activée ou non pour SQL AOA. Si SQL AOA est activé, Azure AD Connect détermine si SQL AOA est configuré pour utiliser une réplication synchrone ou asynchrone. Lorsque vous configurez l’écouteur de groupe de disponibilité, il est recommandé de définir la propriété RegisterAllProvidersIP sur 0. En effet, Azure AD Connect utilise actuellement SQL Native Client pour se connecter à SQL, et SQL Native Client ne prend pas en charge l’utilisation de la propriété MultiSubNetFailover.
 
 ## <a name="appendix-csanalyzer"></a>Annexe CSAnalyzer
 Consultez la section [vérifier](#verify) pour découvrir comment utiliser ce script.

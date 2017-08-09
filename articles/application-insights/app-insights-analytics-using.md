@@ -13,16 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6c8df6b9804d082c8044cdb2420cc5ea42b9774f
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 28d32d1e2d82519fc7b2ad4edca8435c3759594f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="using-analytics-in-application-insights"></a>Utilisation d’Analytics dans Application Insights
-[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Analytics.
+[Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
 
 * **[Regardez la vidéo d’introduction](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Testez la version d’évaluation d’Analytics sur nos données simulées](https://analytics.applicationinsights.io/demo)** si votre application n’envoie pas encore de données à Application Insights.
@@ -40,7 +39,7 @@ Vous pouvez cependant consulter [ici une présentation approfondie](app-insights
 ### <a name="write-a-query"></a>Écrivez votre requête.
 ![Affichage du schéma](./media/app-insights-analytics-using/150.png)
 
-Commencez par les noms des tables répertoriées sur la gauche (ou les opérateurs [range](app-insights-analytics-reference.md#range-operator) ou [union](app-insights-analytics-reference.md#union-operator)). Utilisez `|` pour créer un pipeline [d’opérateurs](app-insights-analytics-reference.md#queries-and-operators). 
+Commencez par les noms des tables répertoriées sur la gauche (ou les opérateurs [range](https://docs.loganalytics.io/queryLanguage/query_language_rangeoperator.html) ou [union](https://docs.loganalytics.io/queryLanguage/query_language_unionoperator.html)). Utilisez `|` pour créer un pipeline [d’opérateurs](https://docs.loganalytics.io/learn/cheatsheets/useful_operators.html). 
 
 IntelliSense vous indique les opérateurs et les éléments d’expression que vous pouvez utiliser. Cliquez sur l’icône d’informations (ou appuyez sur CTRL + espace) pour obtenir une description plus détaillée et des exemples d’utilisation de chaque élément.
 
@@ -51,7 +50,7 @@ Consultez la [visite guidée du langage d’Analytics](app-insights-analytics-to
 
 1. Vous pouvez utiliser des sauts de ligne uniques dans une requête.
 2. Placez le curseur à l’intérieur ou à la fin de la requête à exécuter.
-3. Vérifiez l'intervalle de temps de votre requête. (Vous pouvez le modifier ou le remplacer en incluant votre propre clause [`where...timestamp...`](app-insights-analytics-tour.md#time-range) dans la requête.)
+3. Vérifiez l'intervalle de temps de votre requête. (Vous pouvez le modifier ou le remplacer en incluant votre propre clause [`where...timestamp...`](https://docs.loganalytics.io/concepts/concepts_datatypes_timespan.html) dans la requête.)
 3. Cliquez sur Accéder pour exécuter la requête.
 4. N’insérez pas de lignes vides dans votre requête. Vous pouvez conserver plusieurs requêtes séparées dans un onglet de requête en les séparant par des lignes vides. Seule la requête sur laquelle le curseur est placé s’exécute.
 
@@ -73,7 +72,7 @@ Vous pouvez trier, filtrer, paginer et regrouper les résultats retournés par v
 > [!NOTE]
 > Le tri, le regroupement et le filtrage dans le navigateur ne réexécutent pas votre requête. Ils réorganisent uniquement les résultats retournés par votre dernière requête. 
 > 
-> Pour exécuter ces tâches sur le serveur avant que les résultats ne soient retournés, écrivez votre requête avec les opérateurs [sort](app-insights-analytics-reference.md#sort-operator), [summarize](app-insights-analytics-reference.md#summarize-operator) et [where](app-insights-analytics-reference.md#where-operator).
+> Pour exécuter ces tâches sur le serveur avant que les résultats ne soient retournés, écrivez votre requête avec les opérateurs [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html), [summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) et [where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html).
 > 
 > 
 
@@ -101,7 +100,7 @@ Si vous pensez que vous ne voyez pas tous les résultats escomptés, il existe d
 
     Toutefois, vous pouvez modifier ce filtre d'intervalle à l’aide du menu déroulant.
 
-    Ou vous pouvez remplacer l'intervalle automatique en incluant votre propre [clause `where  ... timestamp ...`](app-insights-analytics-reference.md#where-operator) dans la requête. Par exemple :
+    Ou vous pouvez remplacer l'intervalle automatique en incluant votre propre [clause `where  ... timestamp ...`](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) dans la requête. Par exemple :
 
     `requests | where timestamp > ago('2d')`
 
@@ -109,10 +108,10 @@ Si vous pensez que vous ne voyez pas tous les résultats escomptés, il existe d
 
     Il est recommandé d’éviter d’atteindre la limite. Utilisez le filtre d'intervalle de temps, ou utiliser des opérateurs tels que :
 
-  * [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
-  * [take 100](app-insights-analytics-reference.md#take-operator)
-  * [summarize ](app-insights-analytics-reference.md#summarize-operator) 
-  * [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
+  * [top 100 by timestamp](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
+  * [take 100](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
+  * [summarize ](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
+  * [where timestamp > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
 
 (Vous voulez plus de 10 000 lignes ? Utilisez plutôt l'[exportation continue](app-insights-export-telemetry.md). Analytics est conçu pour l'analyse plutôt que pour la récupération de données brutes.)
 
@@ -123,7 +122,7 @@ Sélectionnez le type de diagramme de votre choix :
 
 Si vous disposez de plusieurs colonnes de types appropriés, vous pouvez choisir les axes x et y et spécifier une colonne de dimensions avec laquelle fractionner les résultats.
 
-Par défaut, les résultats sont initialement affichés sous forme de table. Vous pouvez ensuite sélectionner le diagramme manuellement. Mais vous pouvez également utiliser la [directive render](app-insights-analytics-reference.md#render-directive) à la fin d’une requête pour sélectionner un diagramme.
+Par défaut, les résultats sont initialement affichés sous forme de table. Vous pouvez ensuite sélectionner le diagramme manuellement. Mais vous pouvez également utiliser la [directive render](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html) à la fin d’une requête pour sélectionner un diagramme.
 
 ### <a name="analytics-diagnostics"></a>Diagnostic analytique
 

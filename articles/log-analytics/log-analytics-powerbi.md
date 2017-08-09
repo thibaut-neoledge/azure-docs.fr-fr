@@ -12,15 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 07/24/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7870e2aebf6c142b0f3103a500ca73d691e6d3e6
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 98befb16d27387e8f65a27771a2a32c264119d74
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>Exportation de données Log Analytics vers Power BI
+
+>[!NOTE]
+> Une fois votre espace de travail mis à niveau vers le [nouveau langage de requête de Log Analytics](log-analytics-log-search-upgrade.md), le processus d’exportation des données de Log Analytics à Power BI ne fonctionne plus.  Toutes les planifications existantes que vous avez créées avant la mise à niveau sont alors désactivées. 
+>
+> Après la mise à niveau, Azure Log Analytics utilise la même plateforme qu’Application Insights et vous devez utiliser le même processus vous permettant d’exporter des requêtes de Log Analytics vers Power BI comme [processus d’exportation des requêtes d’Application Insights vers Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  Vous pouvez soit exporter la requête à l’aide de la console Analytics comme décrit dans cet article, soit sélectionner le bouton **Power BI** situé dans le coin supérieur de l’écran du portail de recherche dans les journaux.
+
+
+
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) est un service Microsoft d’analyse commerciale basé sur le cloud qui fournit de riches fonctions de visualisation et de rapport afin de faciliter l’analyse de différents jeux de données.  Log Analytics peut exporter automatiquement les données entre le référentiel OMS et Power BI afin de vous permettre de tirer parti de ses visualisations et de ses outils d’analyse.
 
 Lorsque vous configurez Power BI avec Log Analytics, vous créez des requêtes de journal qui exportent les résultats vers les jeux de données correspondants dans Power BI.  La requête et l’exportation poursuivent automatiquement leur exécution selon une planification que vous avez définie afin de maintenir à jour le jeu de données avec les dernières données collectées par Log Analytics.
@@ -34,8 +43,8 @@ Les champs du jeu de données correspondent aux propriétés des enregistrements
 
 > [!NOTE]
 > Il est recommandé d’utiliser une requête de recherche de journal qui retourne des données brutes, plutôt que d’effectuer une consolidation à l’aide de commandes de type [Mesure](log-analytics-search-reference.md#measure).  Vous pouvez effectuer des agrégations et des calculs dans Power BI à partir des données brutes.
-> 
-> 
+>
+>
 
 ## <a name="connecting-oms-workspace-to-power-bi"></a>Connexion de l’espace de travail OMS à Power BI
 Avant de pouvoir exporter des données de Log Analytics vers Power BI, vous devez connecter à votre espace de travail OMS à votre compte Power BI. Pour cela, procédez comme suit :  
@@ -117,10 +126,4 @@ Pour enregistrer le rapport, cliquez sur le bouton Enregistrer en haut de l’é
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment les [recherches de journaux](log-analytics-log-searches.md) peuvent vous aider à générer des requêtes pouvant être exportées vers Power BI.
 * Découvrez comment utiliser [Power BI](http://powerbi.microsoft.com) pour créer des visualisations basées sur des exportations Log Analytics.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

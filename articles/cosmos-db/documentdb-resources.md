@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 18a2f6fba707ad920df96117f1c5fb4c8cf9142a
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 8051742c7c368d1ed84bcd90ab75b20f62105e2f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Concepts clés et modèle de ressource hiérarchiques Azure Cosmos DB
@@ -39,7 +38,7 @@ En lisant cet article, vous serez en mesure de répondre aux questions suivantes
 Comme l’illustre le schéma suivant, le **modèle de ressource** hiérarchique de Cosmos DB regroupe des ensembles de ressources dans un compte de base de données, chacun d’eux étant adressable par le biais d’un URI stable et logique. Les ensembles de ressources sont désignés sous le nom de **flux** dans cet article. 
 
 > [!NOTE]
-> Cosmos DB fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible par le biais de [l’API client DocumentDB .NET](documentdb-sdk-dotnet.md).
+> Azure Cosmos DB fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible par le biais de [l’API client DocumentDB .NET](documentdb-sdk-dotnet.md).
 > 
 > 
 
@@ -194,7 +193,7 @@ La stratégie d'indexation de chaque collection vous permet d'établir des compr
 La stratégie d'indexation peut être modifiée en exécutant une commande PUT dans la collection. Pour cela, vous pouvez utiliser le [kit SDK client](documentdb-sdk-dotnet.md), le [portail Azure](https://portal.azure.com) ou les [API REST](/rest/api/documentdb/).
 
 ### <a name="querying-a-collection"></a>Interrogation d'une collection
-Les documents d'une collection peuvent suivre des schémas arbitraires et vous pouvez les interroger sans fournir de schéma ou d'index secondaires à l'avance. Vous pouvez interroger la collection en utilisant la [syntaxe SQL de l’API DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), qui fournit des opérateurs hiérarchiques, relationnels et spatiaux enrichis ainsi qu’une extensibilité à l’aide des fonctions JavaScript définies par l’utilisateur. La syntaxe JSON permet la modélisation de documents JSON en tant qu'arborescences avec des étiquettes, comme les nœuds d'arborescence. Cette capacité est exploitée par les techniques d’indexation automatique de l’API DocumentDB et par le dialecte SQL de l’API DocumentDB. Le langage de requête de l’API DocumentDB est caractérisé par trois aspects principaux :   
+Les documents d'une collection peuvent suivre des schémas arbitraires et vous pouvez les interroger sans fournir de schéma ou d'index secondaires à l'avance. Vous pouvez interroger la collection en utilisant la [référence de syntaxe SQL de l’API DocumentDB Azure Cosmos DB](https://msdn.microsoft.com/library/azure/dn782250.aspx), qui fournit des opérateurs hiérarchiques, relationnels et spatiaux enrichis ainsi qu’une extensibilité à l’aide des fonctions JavaScript définies par l’utilisateur. La syntaxe JSON permet la modélisation de documents JSON en tant qu'arborescences avec des étiquettes, comme les nœuds d'arborescence. Cette capacité est exploitée par les techniques d’indexation automatique de l’API DocumentDB et par le dialecte SQL de l’API DocumentDB. Le langage de requête de l’API DocumentDB est caractérisé par trois aspects principaux :   
 
 1. Un ensemble réduit d'opérations de requête mappant naturellement vers l'arborescence incluant des requêtes hiérarchiques et des projections. 
 2. Un sous-ensemble d'opérations relationnelles incluant la composition, le filtrage, les projections, les agrégations et les jointures réflexives. 

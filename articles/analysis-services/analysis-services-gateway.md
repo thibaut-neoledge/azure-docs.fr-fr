@@ -13,17 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/25/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: f8c9e9ab8b8728202ec3f049b309d96d883022f4
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: f07d72a18221e7a2838cec3982990dca21c00153
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="on-premises-data-gateway"></a>Passerelle de données locale
+# <a name="install-on-premises-data-gateway"></a>Installer la passerelle de données locale
 La passerelle de données locale agit comme un pont, en fournissant un transfert de données sécurisé entre des sources de données locales et votre serveur Azure Analysis Services dans le cloud.
 
 La dernière version de la passerelle prend en charge les modèles Tabular 1400 connectés aux sources de données locales par le biais de requêtes Get Data et M dans SSDT. 
@@ -32,7 +31,7 @@ Pour en savoir plus sur les sources de données prises en charge, consultez [Sou
 
 Une passerelle est installée sur un ordinateur de votre réseau. Une passerelle doit être installée pour chaque serveur Azure Analysis Services inclus dans votre abonnement Azure. Par exemple, si vous disposez de deux serveurs dans votre abonnement Azure qui se connectent à des sources de données locales, une passerelle doit être installée sur deux ordinateurs distincts de votre réseau.
 
-## <a name="requirements"></a>Configuration requise
+## <a name="prerequisites"></a>Composants requis
 **Configuration minimale requise :**
 
 * .NET Framework 4.5
@@ -61,7 +60,7 @@ Une passerelle est installée sur un ordinateur de votre réseau. Une passerelle
 1. Exécutez le programme d’installation.
 2. Choisissez un emplacement d’installation et acceptez les termes du contrat de licence.
 3. Connectez-vous à Azure.
-4. Spécifiez le nom de votre serveur Azure Analysis Server. Vous ne pouvez spécifier qu’un seul serveur par passerelle. Cliquez sur **Configurer**. Vous pouvez continuer.
+4. Spécifiez le nom de votre serveur Azure Analysis Services, puis cliquez sur **Configurer**. Vous ne pouvez spécifier qu’un seul serveur par passerelle.
 
     ![se connecter à azure](./media/analysis-services-gateway/aas-gateway-configure-server.png)
 
@@ -70,7 +69,7 @@ La passerelle s’exécute comme un service Windows, **Passerelle de données lo
 
 ![Fonctionnement](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
-Les requêtes et les flux de données fonctionnent comme suit :
+Requêtes et flux de données :
 
 1. Une requête est créée par le service cloud avec les informations d’identification chiffrées de la source de données locale. Elle est ensuite envoyée dans une file d’attente pour être traitée par la passerelle.
 2. Le service cloud de la passerelle analyse la requête et envoie la requête vers [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
@@ -111,7 +110,7 @@ Voici les noms de domaine complets utilisés par la passerelle.
 | *.microsoftonline-p.com |443 |Utilisé pour l’authentification en fonction de la configuration. |
 
 ### <a name="forcing-https-communication-with-azure-service-bus"></a>Forcer les communications HTTPS avec Azure Service Bus
-Vous pouvez forcer la passerelle à communiquer avec Azure Service Bus à l’aide de HTTPS au lieu de TCP direct ; toutefois, cela peut affecter considérablement les performances. Vous devez modifier le fichier *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config*. Modifiez la valeur de `AutoDetect` à `Https`. Ce fichier se trouve par défaut dans *C:\Program Files\On-premises data gateway*.
+Vous pouvez forcer la passerelle à communiquer avec Azure Service Bus à l’aide de HTTPS au lieu de TCP direct ; toutefois, cela peut affecter considérablement les performances. Vous pouvez modifier le fichier *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* en remplaçant la valeur `AutoDetect` par `Https`. Ce fichier se trouve par défaut dans *C:\Program Files\On-premises data gateway*.
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
@@ -132,8 +131,8 @@ La télémétrie peut être utilisée pour la surveillance et la résolution des
 
 **Pour activer la télémétrie**
 
-1.    Vérifiez le répertoire client de la passerelle de données sur site sur l’ordinateur. En règle générale, il s’agit de la passerelle de données %systemdrive%\Program Files\On-premises. Vous pouvez également ouvrir une console de services et vérifiez le chemin d’accès au fichier exécutable : une propriété du service de passerelle de données sur site.
-2.    Dans le fichier Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config du répertoire client. Modifiez le paramètre SendTelemetry sur true.
+1.  Vérifiez le répertoire client de la passerelle de données sur site sur l’ordinateur. En règle générale, il s’agit de la **passerelle de données %systemdrive%\Program Files\On-premises**. Vous pouvez également ouvrir une console de services et vérifiez le chemin d’accès au fichier exécutable : une propriété du service de passerelle de données sur site.
+2.  Dans le fichier Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config du répertoire client. Modifiez le paramètre SendTelemetry sur true.
         
     ```
         <setting name="SendTelemetry" serializeAs="String">
@@ -141,7 +140,7 @@ La télémétrie peut être utilisée pour la surveillance et la résolution des
         </setting>
     ```
 
-3.    Enregistrez vos modifications et redémarrez le service Windows : service de passerelle de données sur site.
+3.  Enregistrez vos modifications et redémarrez le service Windows : service de passerelle de données sur site.
 
 
 
