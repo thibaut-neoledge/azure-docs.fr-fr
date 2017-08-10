@@ -19,6 +19,7 @@
 ### [Machines virtuelles nécessitant beaucoup de ressources système](batch-pool-compute-intensive-sizes.md)
 ### [Tâches de nœud simultanées](batch-parallel-node-tasks.md)
 ### [Nombre des tâches par état](batch-get-task-counts.md)
+### [Créer un pool avec une image personnalisée](batch-custom-images.md)
 ### [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 ### [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md)
 ### [Nœuds de calcul Linux](batch-linux-nodes.md)

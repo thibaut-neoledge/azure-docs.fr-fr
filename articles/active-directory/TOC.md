@@ -9,6 +9,7 @@
 ## [Obtention d’un locataire Azure AD](active-directory-howto-tenant.md)
 ## [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md)
 ## [Associer les abonnements Azure](active-directory-how-subscriptions-associated-directory.md)
+## [Démarrage rapide : réinitialisation du mot de passe libre-service](active-directory-passwords-getting-started.md)
 ## Gérer les licences Azure AD
 ### [Portail Azure](active-directory-licensing-get-started-azure-portal.md)
 ### [Portail classique](active-directory-licensing-what-is.md)
@@ -78,6 +79,7 @@
 #### [Migrer des utilisateurs individuels titulaires d’une licence aux licences par groupe](active-directory-licensing-group-migration-azure-portal.md)
 #### [Scénarios supplémentaires pour la gestion des licences par groupe](active-directory-licensing-group-advanced.md)
 #### [Exemples PowerShell pour les licences basées sur les groupes](active-directory-licensing-ps-examples.md)
+### [Configurer l’expiration des groupes Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Afficher tous les groupes](active-directory-groups-view-azure-portal.md)
 ### [Activer les groupes dédiés](active-directory-accessmanagement-dedicated-groups.md)
 ### [Ajouter l’accès de groupe aux applications SaaS](active-directory-accessmanagement-group-saasapps.md)
@@ -124,7 +126,6 @@
 #### [Réinitialiser ou modifier votre mot de passe](active-directory-passwords-update-your-own-password.md)
 #### [Meilleures pratiques relatives aux mots de passe](active-directory-secure-passwords.md)
 #### [S’inscrire pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)
-### [Démarrage rapide : réinitialisation du mot de passe libre-service](active-directory-passwords-getting-started.md)
 ### [Licence SSPR](active-directory-passwords-licensing.md)
 ### [Déployer SSPR](active-directory-passwords-best-practices.md)
 ### Administrateurs informatiques : réinitialiser les mots de passe
