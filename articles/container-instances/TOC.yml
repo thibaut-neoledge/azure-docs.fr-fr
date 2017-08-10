@@ -23,6 +23,8 @@
   items:
     - name: Relation aux utilisateurs d’Orchestrator
       href: container-instances-orchestrator-relationship.md
+    - name: Groupes de conteneur
+      href: container-instances-container-groups.md
 - name: Procédures
   items:
     - name: Déployer des groupes de plusieurs conteneurs
