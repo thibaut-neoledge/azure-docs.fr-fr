@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: adsolank;juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: db5aa78749b53a2b853840b53dca0f5cf7ff6d18
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: daf86fa55ec402d55763bfbb616e17ce7619a8a0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Tâches prédéfinies pour Azure Media Indexer
@@ -36,7 +36,7 @@ Le tableau suivant décrit les éléments et les attributs du fichier de configu
 |métadonnées|false|Métadonnées des fichiers d’élément multimédia spécifiés.<br/>```<metadata key="..." value="..." />```<br/><br/>Vous pouvez fournir des valeurs de clés prédéfinies. <br/><br/>À l’heure actuelle, les clés suivantes sont prises en charge :<br/><br/>**title** et **description** : permettent de mettre à jour le modèle linguistique pour améliorer la précision de la reconnaissance vocale.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**username** et **password** : utilisées à des fins d’authentification lors du téléchargement de fichiers Internet via HTTP ou HTTPS.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Les valeurs username et password s’appliquent à toutes les URL de média du manifeste d’entrée.|
 |features<br/><br/>ajoutées dans la version 1.2. Actuellement, la seule fonctionnalité prise en charge est la reconnaissance vocale (« ASR »).|false|La fonctionnalité de reconnaissance vocale a les clés de paramètres suivantes :<br/><br/>Language :<br/>- Langue naturelle à reconnaître dans le fichier multimédia.<br/>- English, Spanish<br/><br/>CaptionFormats :<br/>- Liste délimitée par des points-virgules des formats de sous-titre souhaités (le cas échéant).<br/>- ttml;sami;webvtt<br/><br/><br/>GenerateAIB :<br/>- Indicateur booléen spécifiant si un fichier AIB est requis ou non (pour une utilisation avec SQL Server et l’indexeur IFilter client). Pour plus d’informations, consultez Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server.<br/>- true, false<br/><br/>GenerateKeywords :<br/>- Indicateur booléen spécifiant si un fichier XML de mot-clé est requis ou non.<br/>- true, false|
 
-## <a name="the-following-example-shows-the-azure-media-indexer-configuration-xml"></a>L’exemple suivant illustre un fichier de configuration XML d’Azure Media Indexer :
+## <a name="azure-media-indexer-configuration-xml-example"></a>Exemple de fichier de configuration XML d’Azure Media Indexer
 
 ``` 
 <?xml version="1.0" encoding="utf-8"?>  

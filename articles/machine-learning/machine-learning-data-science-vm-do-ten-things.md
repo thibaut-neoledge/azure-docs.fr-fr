@@ -1,6 +1,6 @@
 ---
-title: "Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données | Microsoft Docs"
-description: "Effectuez diverses tâches de modélisation et d&quot;exploration des données sur la machine virtuelle pour la science des données."
+title: "Dix choses que vous pouvez effectuer sur la machine virtuelle Science des données | Microsoft Docs"
+description: "Effectuez diverses tâches de modélisation et d'exploration des données sur la machine virtuelle pour la science des données."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: gokuma;weig;bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 467626354cff5643f5f6e602b9d7b72c6c1281ec
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b154bd42c0f8bc6e185fa871b21249cad2869e72
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données
@@ -45,7 +44,7 @@ Dans cet article, nous vous guidons dans l'utilisation de votre DSVM afin d'effe
 
 **Configuration requise**
 
-* Vous aurez besoin d’un abonnement Azure. Vous pouvez vous inscrire à un essai gratuit [ici](https://azure.microsoft.com/free/).
+* Vous avez besoin d’un abonnement Azure. Vous pouvez vous inscrire à un essai gratuit [ici](https://azure.microsoft.com/free/).
 * Des instructions d’approvisionnement d’une machine virtuelle pour la science des données sur le Portail Azure sont disponibles dans [Création d’une machine virtuelle](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-r-server-or-python"></a>1. Explorer les données et développer des modèles à l'aide de Microsoft R Server ou de Python
@@ -72,7 +71,7 @@ Le Notebook Jupyter est un environnement puissant qui fournit un « IDE » de 
 
 Pour lancer le notebook Jupyter, cliquez sur l’icône du menu Démarrer ou du bureau intitulée **Jupyter Notebook**. Sur la DSVM vous pouvez également aller à « https://localhost:9999/ » pour accéder au notebook Jupyter. Si un mot de passe vous est demandé, suivez les instructions fournies dans la section ***Création d’un mot de passe sur le serveur Jupyter Notebook*** de la rubrique [Approvisionner la machine virtuelle pour la science des données Microsoft](machine-learning-data-science-provision-vm.md) pour créer un mot de passe fort et ainsi accéder au Notebook Jupyter. 
 
-Une fois le notebook ouvert, vous verrez un répertoire contenant quelques exemples de notebooks pré-intégrés à la DSVM. Vous pouvez désormais :
+Une fois le notebook ouvert, vous devriez voir un répertoire contenant quelques exemples de notebooks pré-intégrés à la DSVM. Vous pouvez désormais :
 
 * cliquer sur le notebook pour visualiser le code ;
 * exécuter chaque cellule en appuyant sur **MAJ-ENTRÉE**;
@@ -138,7 +137,7 @@ Un client peut désormais effectuer des appels au service web. Il existe des wra
 ### <a name="build-and-operationalize-r-models"></a>Générer et rendre opérationnels des modèles R
 Vous pouvez déployer des modèles R générés sur la machine virtuelle pour la science des données ou ailleurs sur Azure Machine Learning de la même façon que pour Python. Voici la procédure à suivre :
 
-* Créez un fichier settings.json comme indiqué ci-dessous pour fournir votre ID d’espace de travail et votre jeton d’authentification.
+* Créez un fichier settings.json pour fournir votre ID d’espace de travail et votre jeton d’authentification, comme le montre l’exemple de code suivant.
 * Écrivez ensuite un wrapper pour la fonction de prédiction du modèle.
 * Appelez ```publishWebService``` dans la bibliothèque Azure Machine Learning pour transmettre le wrapper de la fonction.  
 
@@ -243,11 +242,11 @@ GitHub est un référentiel de code dans lequel vous trouverez beaucoup d’exem
 
 La DSVM est déjà livrée avec des outils clients en ligne de commande et avec une interface graphique utilisateur pour accéder au dépôt GitHub. L’outil de ligne de commande pour utiliser Git et GitHub est appelé Git Bash. La version de Visual Studio installée sur la DSVM comprend les extensions Git. Vous pouvez trouver les icônes de démarrage de ces outils dans le menu Démarrer et sur le bureau.
 
-Pour télécharger du code à partir d’un dépôt GitHub, vous allez utiliser la commande ```git clone```. Par exemple, pour télécharger le dépôt de science des données publié par Microsoft dans le répertoire actif, vous pouvez exécuter la commande suivante une fois dans ```git-bash```.
+Pour télécharger du code à partir d’un dépôt GitHub, utilisez la commande ```git clone```. Par exemple, pour télécharger le dépôt de science des données publié par Microsoft dans le répertoire actif, vous pouvez exécuter la commande suivante une fois dans ```git-bash```.
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Dans Visual Studio, vous pouvez effectuer la même opération de clonage. La capture d’écran ci-dessous indique comment accéder aux outils Git et GitHub dans Visual Studio.
+Dans Visual Studio, vous pouvez effectuer la même opération de clonage. La capture d’écran suivante indique comment accéder aux outils Git et GitHub dans Visual Studio.
 
 ![Git dans Visual Studio](./media/machine-learning-data-science-vm-do-ten-things/VSGit.PNG)
 
@@ -270,7 +269,7 @@ Les objets blob Azure constituent un stockage fiable et économique dans le clou
 
 **Déplacer des données de la machine virtuelle vers Azure Blob : AzCopy**
 
-Pour déplacer des données entre vos fichiers locaux et le stockage d’objets blob, vous pouvez utiliser AzCopy en ligne de commande ou PowerShell :
+Pour déplacer des données entre vos fichiers locaux et le stockage d’objets blob, vous pouvez utiliser AzCopy en ligne de commande ou PowerShell :
 
     AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
@@ -363,7 +362,7 @@ Azure Data Lake Storage est un référentiel hyperscale pour les charges de trav
 
 ![Azure_Data_Lake_Create_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
-* Les **outils Azure Data Lake** dans **Visual Studio** disponibles sur ce [lien](https://www.microsoft.com/download/details.aspx?id=49504) sont déjà installés dans Visual Studio Community Edition sur la machine virtuelle. Après avoir lancé Visual Studio et vous être connecté à votre abonnement Azure, vous verrez votre compte et votre stockage Azure Data Analytics dans le volet gauche de Visual Studio.
+* Les **outils Azure Data Lake** dans **Visual Studio** disponibles sur ce [lien](https://www.microsoft.com/download/details.aspx?id=49504) sont déjà installés dans Visual Studio Community Edition sur la machine virtuelle. Après avoir lancé Visual Studio et vous être connecté à votre abonnement Azure, vous devriez voir votre compte et votre stockage Azure Data Analytics dans le volet gauche de Visual Studio.
 
 ![Azure_Data_Lake_PlugIn_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
@@ -377,7 +376,7 @@ Vous pouvez également créer un pipeline de données pour déplacer les donnée
 
 **Lire des données à partir d'Azure Blob vers Data Lake : U-SQL**
 
-Si vos données se trouvent dans Stockage Blob Azure, vous pouvez les lire directement à partir de l'objet blob de stockage Azure dans la requête SQL-U. Avant de composer votre requête SQL-U, assurez-vous que votre compte de stockage d'objets blob soit lié à votre Azure Data Lake. Accédez au **portail Azure**, recherchez votre tableau de bord Azure Data Lake Analytics, cliquez sur **Ajouter une source de données**, sélectionnez le type de stockage **Azure Storage** et entrez votre nom et votre clé de compte de stockage Azure. Vous pourrez ensuite référencer les données stockées dans le compte de stockage.
+Si vos données se trouvent dans Stockage Blob Azure, vous pouvez les lire directement à partir de l'objet blob de stockage Azure dans la requête SQL-U. Avant de composer votre requête SQL-U, assurez-vous que votre compte de stockage d'objets blob soit lié à votre Azure Data Lake. Accédez au **portail Azure**, recherchez votre tableau de bord Azure Data Lake Analytics, cliquez sur **Ajouter une source de données**, sélectionnez le type de stockage **Azure Storage** et entrez votre nom et votre clé de compte de stockage Azure. Vous pouvez ensuite référencer les données stockées dans le compte de stockage.
 
 ![Saisie d'un compte de stockage et d'une clé](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
@@ -458,11 +457,11 @@ Azure HDInsight est un service Apache Hadoop, Spark, HBase et Storm géré dans 
 
 ![Liaison d'un compte de stockage créé avec un cluster HDInsight](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)
 
-* Vous devez activer **l’accès à distance** au nœud principal du cluster une fois celui-ci créé. N'oubliez pas les informations d'identification de l'accès à distance que vous spécifiez ici (différentes de celles qui sont spécifiées pour le cluster lors de sa création) : vous en aurez besoin juste après.
+* Vous devez activer **l’accès à distance** au nœud principal du cluster une fois celui-ci créé. N’oubliez pas les informations d’identification de l’accès à distance que vous spécifiez ici (différentes de celles qui sont spécifiées pour le cluster lors de sa création) : elles sont nécessaires pour effectuer les procédures suivantes.
 
 ![Activer l'accès à distance](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-* Créez un espace de travail Machine Learning. Vos expériences Machine Learning seront stockées dans cet espace de travail Machine Learning. Sélectionnez les options en surbrillance sur le portail, comme indiqué dans la capture d’écran ci-dessous.
+* Créez un espace de travail Machine Learning. Vos expériences Machine Learning sont stockées dans cet espace de travail Machine Learning. Sélectionnez les options en surbrillance sur le portail, comme indiqué dans la capture d’écran suivante :
 
 ![Création d’un espace de travail Microsoft Azure Machine Learning](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space.PNG)
 
@@ -687,7 +686,7 @@ Nous allons maintenant préparer le jeu de données sous-échantillonné (1 %) 
         """
         cursor.execute(queryString)
 
-        --- now insert contents of the join into the above internal table
+        --- now insert contents of the join into the preceding internal table
 
         queryString = """
         insert overwrite table nyctaxi_downsampled_dataset_testNEW
@@ -807,14 +806,14 @@ Vous devez suivre les étapes préalables suivantes pour accéder à Azure Cosm
 1. Installez le Kit de développement logiciel (SDK) Python DocumentDB (exécutez ```pip install pydocumentdb``` à partir de l’invite de commandes)
 2. Créez un compte Azure Cosmos DB et une base de données à partir du [portail Azure](https://portal.azure.com)
 3. Téléchargez [ici](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) « l’outil de migration Azure Cosmos DB » et extrayez-le dans le répertoire de votre choix
-4. Importez les données JSON (données sur le volcan) stockées sur un [objet blob public](https://cahandson.blob.core.windows.net/samples/volcano.json) dans Cosmos DB avec les paramètres de commande suivants pour l’outil de migration (dtui.exe à partir du répertoire où vous avez installé l’outil de migration Cosmos DB). Entrez les paramètres d'emplacement source et cible ci-dessous.
+4. Importez les données JSON (données sur le volcan) stockées sur un [objet blob public](https://cahandson.blob.core.windows.net/samples/volcano.json) dans Cosmos DB avec les paramètres de commande suivants pour l’outil de migration (dtui.exe à partir du répertoire où vous avez installé l’outil de migration Cosmos DB). Entrez les paramètres d'emplacement source et cible suivant :
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
 Une fois les données importées, vous pouvez accéder à Jupyter et ouvrir le Notebook intitulé *DocumentDBSample* qui contient le code Python pour accéder à DocumentDB et effectuer des requêtes de base. Pour en savoir plus sur Cosmos DB, consultez la [page de documentation](https://docs.microsoft.com/azure/cosmos-db/) du service.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Générer des rapports et des tableaux de bord à l'aide de Power BI Desktop
-Nous allons visualiser le fichier Volcan JSON, que nous avons vu dans l’exemple Cosmos DB ci-dessus, dans Power BI afin d’obtenir un aperçu visuel des données. Les étapes détaillées sont présentées dans [l’article Power BI](../cosmos-db/powerbi-visualize.md). Les étapes de haut niveau sont décrites ci-dessous :
+Nous allons visualiser le fichier Volcan JSON, que nous avons vu dans l’exemple Cosmos DB ci-dessus, dans Power BI afin d’obtenir un aperçu visuel des données. Les étapes détaillées sont présentées dans [l’article Power BI](../cosmos-db/powerbi-visualize.md). Les étapes principales sont les suivantes :
 
 1. Ouvrez Power BI Desktop et cliquez sur « obtenir les données ». Spécifiez l’URL comme : https://cahandson.blob.core.windows.net/samples/volcano.json
 2. Vous devez voir les enregistrements JSON importés sous forme de liste
@@ -824,7 +823,7 @@ Nous allons visualiser le fichier Volcan JSON, que nous avons vu dans l’exempl
 6. Ajoutez une nouvelle colonne pour convertir la colonne coordonnée de liste en une colonne LatLong séparée par des virgules et concaténant les deux éléments dans le champ de liste de coordonnées à l’aide de la formule ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```.
 7. Enfin, convertissez la colonne ```Elevation``` en Decimal et sélectionnez **Fermer** et **Appliquer**.
 
-À la place de la procédure ci-dessus, vous pouvez coller le code suivant qui exécute ces étapes dans l'éditeur avancé de Power BI, qui vous permet d'écrire les transformations de données dans un langage de requête.
+À la place de la procédure précédente, vous pouvez coller le code suivant qui exécute ces étapes dans l'éditeur avancé de Power BI, qui vous permet d'écrire les transformations de données dans un langage de requête.
 
     let
         Source = Json.Document(Web.Contents("https://cahandson.blob.core.windows.net/samples/volcano.json")),
@@ -838,7 +837,7 @@ Nous allons visualiser le fichier Volcan JSON, que nous avons vu dans l’exempl
 
 
 
-Vous disposez maintenant des données dans votre modèle de données Power BI. Votre Power BI Desktop doit se présenter ainsi.
+Vous disposez maintenant des données dans votre modèle de données Power BI. Votre Power BI Desktop doit apparaître comme suit :
 
 ![Power BI Desktop](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
@@ -850,7 +849,7 @@ Vous pouvez commencer à créer des rapports et des visualisations à l'aide du 
 Vous pouvez mettre à l'échelle la DSVM pour répondre aux besoins de votre projet. Si vous n’avez pas besoin d’utiliser la machine virtuelle le soir ou le week-end, vous pouvez simplement arrêter la machine virtuelle à partir du [Portail Azure](https://portal.azure.com).
 
 > [!NOTE]
-> Vous encourrez des frais de calcul si vous utilisez simplement le bouton d’arrêt du système d’exploitation sur la machine virtuelle.  
+> Vous encourez des frais de calcul si vous utilisez simplement le bouton d’arrêt du système d’exploitation sur la machine virtuelle.  
 > 
 > 
 

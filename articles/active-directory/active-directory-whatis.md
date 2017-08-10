@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 6e4c1cdac51664d83805252cf178e705042e76ca
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: b6746afd508832afbd54153851b6f2ae404af147
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="what-is-azure-active-directory"></a>Qu’est-ce qu’Azure Active Directory ?
@@ -68,7 +68,7 @@ Pour enrichir votre expérience Azure Active Directory, vous pouvez ajouter des 
 
 * [Faites un essai.](https://azure.microsoft.com/trial/get-started-active-directory/) Vous pouvez vous inscrire pour une période d’essai gratuit de 30 jours, puis déployer votre première solution cloud en moins de 5 minutes à l’aide de ce lien
 
-* Lisez la page « Prise en main d’Azure Active Directory » pour accélérer l’installation et la configuration d’un client Azure AD.
+* Lisez la page [Prise en main d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-get-started-premium) pour accélérer l’installation et la configuration d’un client Azure AD.
 
 **Si vous êtes un développeur :**
  

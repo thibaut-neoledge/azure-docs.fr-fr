@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 09de76a9147466f002ceb7faa5b1f9a10a2af75b
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: ab95c39a3b5c4ac2c07bf5de36abbdc22fde7e7d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS
@@ -36,7 +36,7 @@ Azure Disk Encryption pour les machines virtuelles Iaas Windows et Linux est dé
 Azure Disk Encryption prend en charge les scénarios client suivants :
 
 * Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir de disques durs virtuels déjà chiffrés et de clés de chiffrement
-* Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir d’images de la galerie Azure
+* Activation du chiffrement sur de nouvelles machines virtuelles IaaS créées à partir d’images de la galerie Azure prises en charge
 * Activation du chiffrement sur des machines virtuelles IaaS existantes et fonctionnant dans Azure
 * Désactivation du chiffrement sur les machines virtuelles IaaS Windows.
 * Désactivation du chiffrement sur les lecteurs de données pour les machines virtuelles IaaS Linux
@@ -48,7 +48,7 @@ La solution prend en charge les scénarios de machines virtuelles IaaS suivants 
 
 * Prise en main d’Azure Key Vault
 * Machines virtuelles de niveau standard : [Machines virtuelles IaaS des séries A, D, DS, G, GS, F, etc.](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* Activation du chiffrement sur des machines virtuelles IaaS Windows et Linux et des machines virtuelles avec disque managé
+* Activation du chiffrement sur les machines virtuelles IaaS Windows et Linux et les machines virtuelles de disques gérés créées à partir d’images de la galerie Azure prises en charge
 * Désactivation du chiffrement des lecteurs de système d’exploitation et de données pour des machines virtuelles IaaS Windows et des machines virtuelles avec disque managé
 * Désactivation du chiffrement des lecteurs de données pour des machines virtuelles IaaS Linux et des machines virtuelles avec disque managé
 * Activation du chiffrement sur les machines virtuelles IaaS exécutant le système d’exploitation du client Windows.
@@ -63,7 +63,9 @@ La solution ne prend pas en charge les scénarios, fonctionnalités et technolog
 
 * Machines virtuelles IaaS de niveau de base
 * Désactivation du chiffrement sur un lecteur de système d’exploitation pour les machines virtuelles IaaS Linux
+* Désactivation du chiffrement sur un lecteur de données lorsque le lecteur du système d’exploitation est chiffré pour les machines virtuelles Iaas Linux
 * Machines virtuelles IaaS créées à l’aide de la méthode classique de création de machines virtuelles
+* L’activation du chiffrement sur les images client personnalisées de machines virtuelles Iaas Windows et Linux n’est PAS prise en charge. L’activation du chiffrement sur des disques de système d’exploitation LVM Linux n’est pas prise en charge actuellement. Elles seront bientôt prise en charge.
 * Intégration à votre service de gestion de clés local
 * Azure Files (système de partage de fichiers), NFS (Network File System), volumes dynamiques et machines virtuelles Windows configurées avec des systèmes RAID logiciels
 * Sauvegarde et restauration de machines virtuelles chiffrées sans clé de chiffrement de clé
@@ -79,7 +81,7 @@ Lorsque vous activez et déployez Azure Disk Encryption pour les machines virtue
 * Chiffrement du volume du système d’exploitation pour protéger le volume de démarrage au repos dans votre espace de stockage
 * Chiffrement des volumes de données pour protéger les volumes de données au repos dans votre espace de stockage
 * Désactivation du chiffrement sur les systèmes d’exploitation et les lecteurs de données pour les machines virtuelles IaaS Windows
-* Désactivation du chiffrement sur les lecteurs de données pour les machines virtuelles IaaS Linux
+* Désactivation du chiffrement sur les lecteurs de données pour les machines virtuelles IaaS Linux (à condition que le lecteur de système d’exploitation NE SOIT PAS chiffré)
 * Sauvegarde des clés et clés secrètes de chiffrement dans votre abonnement Key Vault
 * Création de rapports concernant l’état du chiffrement des machines virtuelles IaaS chiffrées
 * Suppression des paramètres de configuration de chiffrement de disque à partir de la machine virtuelle IaaS
@@ -129,14 +131,15 @@ Pour désactiver le chiffrement de disque pour les machines virtuelles IaaS, sui
 
 1. Choisissez de désactiver le chiffrement (déchiffrement) sur une machine virtuelle IaaS en cours d’exécution dans Azure via le modèle Resource Manager Azure Disk Encryption ou via les applets de commande PowerShell, puis spécifiez la configuration de déchiffrement.
 
- Cette étape désactive le chiffrement du volume de système d’exploitation ou du volume de données (ou les deux) sur la machine virtuelle IaaS Windows en cours d’exécution. Toutefois, comme mentionné dans la section précédente, la désactivation du chiffrement du disque de système d’exploitation pour Linux n’est pas prise en charge. L’étape de déchiffrement est autorisée uniquement pour les lecteurs de données sur les machines virtuelles Linux.
+ Cette étape désactive le chiffrement du volume de système d’exploitation ou du volume de données (ou les deux) sur la machine virtuelle IaaS Windows en cours d’exécution. Toutefois, comme mentionné dans la section précédente, la désactivation du chiffrement du disque de système d’exploitation pour Linux n’est pas prise en charge. L’étape de déchiffrement est autorisée uniquement pour les lecteurs de données sur les machines virtuelles Linux tant que le disque du système d’exploitation n’est pas chiffré.
 2. Azure met à jour le modèle de service de machine virtuelle et la machine virtuelle Iaas est marquée comme déchiffrée. Le contenu de la machine virtuelle n’est plus chiffré au repos.
 
 > [!NOTE]
 > La désactivation du chiffrement ne supprime ni votre coffre de clés ni le support de clé de chiffrement (clés de chiffrement BitLocker pour Windows ou phrase secrète pour Linux).
  > La désactivation du chiffrement de disque de système d’exploitation pour Linux n’est pas prise en charge. L’étape de déchiffrement est autorisée uniquement pour les lecteurs de données sur les machines virtuelles Linux.
+La désactivation du chiffrement des disques de données pour Linux n’est pas prise en charge si le lecteur de système d’exploitation est chiffré.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 Voici les conditions requises pour activer Azure Disk Encryption sur les machines virtuelles IaaS Azure pour les scénarios pris en charge dans la section « Vue d’ensemble » :
 
 * Vous devez disposer d’un abonnement Azure actif valide pour créer des ressources dans Azure dans les régions prises en charge.
@@ -146,7 +149,7 @@ Voici les conditions requises pour activer Azure Disk Encryption sur les machine
 > [!NOTE]
 > Pour Windows Server 2008 R2, .NET Framework 4.5 doit être installé avant l’activation du chiffrement dans Azure. Vous pouvez l’installer à partir de Windows Update en installant la mise à jour facultative Microsoft .NET Framework 4.5.2 pour systèmes Windows Server 2008 R2 x64 ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption est pris en charge sur les versions et distributions de serveur Linux suivantes :
+* Azure Disk Encryption est pris en charge sur les versions et distributions de serveur Linux basées sur la Galerie Azure suivantes :
 
 | Distribution Linux | Version | Type de volume pris en charge pour le chiffrement|
 | --- | --- |--- |
@@ -229,7 +232,7 @@ Voici les conditions requises pour activer Azure Disk Encryption sur les machine
 
 * Les disques de données montés de façon récursive ne sont pas pris en charge par Azure Disk Encryption pour Linux. Par exemple, si le système cible a monté un disque sur /foo/bar, puis un autre sur /foo/bar/baz, le chiffrement de /foo/bar/baz réussit, mais le chiffrement de /foo/bar échoue. 
 
-* Azure Disk Encryption est uniquement pris en charge sur les images de la galerie qui remplissent les conditions préalables susmentionnées.  Les images personnalisées ne sont pas prises en charge en raison de comportements de processus et de schémas de partition personnalisés pouvant exister sur ces images.  De plus, même les machines virtuelles d’image de galerie, qui initialement remplissaient les conditions préalables demandées, mais qui ont été modifiées depuis leur création, peuvent être incompatibles.  Ainsi, la procédure suggérée pour chiffrer une machine virtuelle Linux consiste à démarrer depuis une nouvelle image de galerie, à chiffrer la machine virtuelle, puis à ajouter en fonction des besoins les données ou les logiciels personnalisés à cette machine virtuelle.  
+* Azure Disk Encryption est uniquement pris en charge sur les images de la galerie Azure prises en charge qui remplissent les conditions préalables susmentionnées. Les images client personnalisées ne sont pas prises en charge en raison de comportements de processus et de schémas de partition personnalisés pouvant exister sur ces images. De plus, même les machines virtuelles d’image de galerie, qui initialement remplissaient les conditions préalables demandées, mais qui ont été modifiées depuis leur création, peuvent être incompatibles.  Ainsi, la procédure suggérée pour chiffrer une machine virtuelle Linux consiste à démarrer depuis une nouvelle image de galerie, à chiffrer la machine virtuelle, puis à ajouter en fonction des besoins les données ou les logiciels personnalisés à cette machine virtuelle.  
 
 > [!NOTE]
 > La sauvegarde et la restauration de machines virtuelles chiffrées sont prises en charge uniquement pour les machines virtuelles chiffrées à l’aide de la configuration de clé de chiffrement à clé (KEK). Elles ne sont pas prises en charge pour les machines virtuelles chiffrées sans KEK. KEK est un paramètre facultatif qui active une machine virtuelle.
@@ -245,7 +248,7 @@ Les sections qui suivent vous expliquent comment configurer une authentification
 ##### <a name="create-an-azure-ad-application-by-using-azure-powershell"></a>Créer une application Azure AD à l’aide d’Azure PowerShell
 Pour créer une application Azure AD, utilisez l’applet de commande PowerShell suivante :
 
-    $aadClientSecret = “yourSecret”
+    $aadClientSecret = "yourSecret"
     $azureAdApplication = New-AzureRmADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password $aadClientSecret
     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
 
@@ -699,7 +702,7 @@ Vous pouvez désactiver le chiffrement sur une machine virtuelle IaaS Windows ou
 L’étape de désactivation du chiffrement désactive le chiffrement du volume de système d’exploitation ou du volume de données (ou les deux) sur la machine virtuelle IaaS Windows en cours d’exécution. Vous ne pouvez pas désactiver le volume de système d’exploitation et laisser le volume de données chiffré. Une fois le chiffrement désactivé,le modèle de déploiement Azure Classic met à jour le modèle de service de machine virtuelle et la machine virtuelle IaaS Windows est marquée comme déchiffrée. Le contenu de la machine virtuelle n’est plus chiffré au repos. Le déchiffrement ne supprime ni votre coffre de clés ni le support de clé de chiffrement (clés de chiffrement BitLocker pour Windows et phrase secrète pour Linux).
 
 ##### <a name="linux-vm"></a>Machine virtuelle Linux
-L’étape de désactivation du chiffrement désactive le chiffrement du volume de données sur la machine virtuelle IaaS Linux en cours d’exécution.
+L’étape de désactivation du chiffrement désactive le chiffrement du volume de données sur la machine virtuelle IaaS Linux en cours d’exécution. Cette étape fonctionne uniquement si le disque du système d’exploitation n’est pas chiffré.
 
 > [!NOTE]
 > La désactivation du chiffrement sur le lecteur du système d’exploitation n’est pas autorisée sur les machines virtuelles Linux.

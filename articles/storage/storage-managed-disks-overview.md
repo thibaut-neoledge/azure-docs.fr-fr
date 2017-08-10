@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 292a93bd1d355b8a39c59d220352ad465df46629
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 88a356e61c32f529d511aa1c9c68bdfa47acadb5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -48,12 +47,11 @@ Les disques gérés accroît la fiabilité des groupes à haute disponibilité e
 Utilisez le [contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-what-is.md) afin d’affecter à un ou plusieurs utilisateurs des autorisations spécifiques d’accès à un disque managé. Managed Disks expose différentes opérations, notamment la lecture, l’écriture (création/mise à jour), la suppression et la récupération d’un [URI de signature d’accès partagé](storage-dotnet-shared-access-signature-part-1.md) pour le disque. N’accordez l’accès qu’aux opérations dont une personne a besoin pour exécuter son travail. Par exemple, si vous voulez empêcher un utilisateur de copier un disque managé sur un compte de stockage, vous pouvez décider de lui interdire l’accès à l’action d’exportation sur ce disque managé. De la même manière, si vous voulez empêcher un utilisateur d’employer un URI de signature d’accès partagé pour copier un disque managé, vous pouvez décider de ne pas lui octroyer l’autorisation d’accès à ce disque managé.
 
 ### <a name="azure-backup-service-support"></a>Prise en charge du service Sauvegarde Azure
-Utilisez le service Azure Backup avec Managed Disks pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Les disques gérés prennent uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication. Ainsi, trois copies des données sont conservées dans une même région. Pour la récupération après sinistre régionale, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide du [service Azure Backup](../backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme archivage de sauvegarde. Pour en savoir plus sur ce point, consultez [Utilisation du service Sauvegarde Azure pour les machines virtuelles avec Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Utilisez le service Azure Backup avec Managed Disks pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Les disques gérés prennent uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication. Ainsi, trois copies des données sont conservées dans une même région. Pour la récupération après sinistre régionale, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide du [service Azure Backup](../backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme archivage de sauvegarde. Actuellement, Azure Backup prend en charge des tailles de disque de données jusqu'à 1 To pour la sauvegarde. Pour en savoir plus sur ce point, consultez [Utilisation du service Sauvegarde Azure pour les machines virtuelles avec Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
 Lorsque vous utilisez Managed Disks, les considérations de facturation suivantes s’appliquent :
-
 * Type de stockage
 
 * Taille du disque
@@ -89,17 +87,20 @@ Voici les tailles de disque disponible pour un disque managé Standard :
 
 **Transferts de données sortantes**: les [transferts de données sortantes](https://azure.microsoft.com/pricing/details/data-transfers/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
 
-**Captures instantanées des disques managés (copie de disque intégrale)** : une copie instantanée d’un disque managé est une copie en lecture seule d’un disque managé qui est stocké en tant que disque managé standard. Avec des captures instantanées, vous pouvez sauvegarder vos disques managés à tout moment dans le temps. Ces captures instantanées existent indépendamment du disque source et peuvent être utilisées pour créer des disques managés par la suite. Le coût d’une capture instantanée gérée est le même que celui d’un disque managé standard. Par exemple, si vous avez une capture instantanée d’un disque managé Premium de 128 Go, le coût de la capture instantanée managée équivaut à celui d’un disque managé Standard de 128 Go.
+Pour plus d’informations sur la tarification d’Azure Managed Disks, consultez la page [Managed Disks Tarification](https://azure.microsoft.com/pricing/details/managed-disks).
+
+
+## <a name="managed-disk-snapshots"></a>Captures instantanées de disque managé
+
+Une capture instantanée est une copie en lecture seule d’un disque géré qui est stockée comme un disque géré standard par défaut. Avec des captures instantanées, vous pouvez sauvegarder vos disques managés à tout moment dans le temps. Ces captures instantanées existent indépendamment du disque source et peuvent être utilisées pour créer des disques managés par la suite. Elles sont facturées en fonction de la taille utilisée. Par exemple, si vous créez une capture instantanée d’un disque géré avec une capacité approvisionnée de 64 Go et une taille des données utilisées réelle de 10 Go, la capture instantanée sera facturée uniquement pour la taille des données utilisées de 10 Go.  
 
 Pour le moment, les [captures instantanées incrémentielles](storage-incremental-snapshots.md) ne sont pas prises en charge pour les disques managés, mais elles le seront dans le futur.
 
 Pour en savoir plus sur la création de captures instantanées avec Managed Disks, consultez ces ressources :
 
 * [Créer une copie d’un disque dur virtuel stocké en tant que disque managé à l’aide de la fonction Instantanés dans Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Créer une copie d’un disque dur virtuel stocké en tant que disque managé à l’aide de la fonction Instantanés dans Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Créer une copie d’un disque dur virtuel stocké en tant que disque géré à l’aide de la fonction Instantanés dans Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-
-Pour plus d’informations sur la tarification d’Azure Managed Disks, consultez la page [Managed Disks Tarification](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ## <a name="images"></a>Images
 
