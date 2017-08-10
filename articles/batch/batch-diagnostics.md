@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 16a13909079306256ded06f2100815c46ff562a3
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/28/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Consigner des événements pour l’analyse et l’évaluation de diagnostic des solutions Batch
@@ -46,7 +45,7 @@ Comme de nombreux services Azure, le service Batch génère des événements de 
 ## <a name="enable-diagnostic-logging"></a>Activer la journalisation des diagnostics
 La journalisation des diagnostics n’est pas activée par défaut pour votre compte Batch. Vous devez activer explicitement la journalisation des diagnostics pour chaque compte Batch à analyser :
 
-[Comment activer la collecte des journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+[Comment activer la collecte des journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
 
 Nous vous recommandons de lire entièrement l’article [Présentation des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) pour comprendre non seulement comment activer la journalisation, mais aussi les catégories de journal prises en charge par les divers services Azure. Par exemple, Azure Batch prend actuellement en charge une seule catégorie de journal, celle des **journaux de service**.
 

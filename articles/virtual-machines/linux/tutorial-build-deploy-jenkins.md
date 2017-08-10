@@ -15,10 +15,10 @@ ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: da885141a18e9a862c6db1005805fca247b75f25
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 967cd38f0961cd11871c538d753cab9951c2f1f5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -194,7 +194,7 @@ La tâche **Déploiement de groupe de ressources Azure** est utilisée pour cré
 
 * **Activer les prérequis** : `Configure with Deployment Group agent`
 
-* **Point de terminaison TFS/VSTS** : choisissez **Ajouter** et, dans la boîte de dialogue « Add new Team Foundation Server/Team Services Connection » (Ajouter une connexion Team Foundation Server/Team Services), sélectionnez **Authentification basée sur un jeton**. Entrez un nom pour la connexion et l’URL de votre projet d’équipe. Ensuite, générez et saisissez un [jeton d’accès personnel (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md) pour authentifier la connexion à votre projet d’équipe.
+* **Point de terminaison TFS/VSTS** : choisissez **Ajouter** et, dans la boîte de dialogue « Add new Team Foundation Server/Team Services Connection » (Ajouter une connexion Team Foundation Server/Team Services), sélectionnez **Authentification basée sur un jeton**. Entrez un nom pour la connexion et l’URL de votre projet d’équipe. Ensuite, générez et saisissez un [jeton d’accès personnel (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) pour authentifier la connexion à votre projet d’équipe.
 
   ![Créer un jeton d’accès personnel](media/tutorial-build-deploy-jenkins/create-a-pat.png)
 
@@ -258,4 +258,4 @@ Dans ce didacticiel, vous avez automatisé le déploiement d’une application A
 Suivez ce lien pour consulter des exemples de scripts de machine virtuelle prédéfinis.
 
 > [!div class="nextstepaction"]
-> [Exemples de scripts de machine virtuelle Linux](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cli-samples.md)
+> [Exemples de scripts de machine virtuelle Linux](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)

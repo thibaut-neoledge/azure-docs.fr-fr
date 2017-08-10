@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 08/09/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: a7594c37a5d8b92144a1984d58ededd04927d189
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: f96b9b212b9322d0677e49ff95184d0feccca2df
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>Générer et exporter des certificats pour les connexions de point à site à l’aide de PowerShell sur Windows 10
@@ -29,7 +28,7 @@ Les connexions de point à site utilisent des certificats pour l’authentificat
 
 > [!div class="op_single_selector"]
 > * [Création de certificat auto-signés - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [Création de certificats auto-signés - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
+> * [Création de certificat auto-signés - Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 > * [Configuration d’une connexion de point à site à un réseau virtuel - Resource Manager - Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Configuration d’une connexion point à site à un réseau virtuel - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Configuration d’une connexion de point à site à un réseau virtuel - Classic - Portail Azure](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
@@ -39,7 +38,7 @@ Les connexions de point à site utilisent des certificats pour l’authentificat
 
 Vous devez suivre les étapes de cet article sur un ordinateur exécutant Windows 10. Les cmdlets PowerShell que vous utilisez pour générer des certificats font partie du système d’exploitation Windows 10 et ne fonctionnent pas sur d’autres versions de Windows. L’ordinateur Windows 10 est nécessaire uniquement pour générer les certificats. Une fois les certificats générés, vous pouvez les charger ou les installer sur n’importe quel système d’exploitation client pris en charge. 
 
-Si vous n’avez pas accès à un ordinateur Windows 10, vous pouvez utiliser [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) pour générer des certificats. Toutefois, MakeCert ne peut pas générer des certificats SHA-2, uniquement des certificats SHA-1. Les certificats SHA-1 restent valides pour les connexions point à site, mais SHA-1 utilise un hachage de chiffrement qui n’est pas aussi fort que SHA-2. C’est pourquoi il est recommandé de suivre les étapes PowerShell suivantes, dans la mesure du possible. Les certificats générés à l’aide de l’une de ces deux méthodes peuvent être installés sur n’importe quel système d’exploitation client [pris en charge](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
+Si vous n’avez pas accès à un ordinateur Windows 10, vous pouvez utiliser [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) pour générer des certificats. Les certificats générés à l’aide de l’une de ces deux méthodes peuvent être installés sur n’importe quel système d’exploitation client [pris en charge](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
 
 ## <a name="rootcert"></a>Créer un certificat racine auto-signé
 

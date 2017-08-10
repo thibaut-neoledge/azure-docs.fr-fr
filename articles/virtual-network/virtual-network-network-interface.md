@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 37405fb9e8b85040fbbd1e91efd44a80c4f87ff0
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 7dafb491cec908ffbb3683991919654f3d3eb452
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -97,7 +97,7 @@ Si une adresse IPv6 est assignée à une interface réseau, la sortie PowerShell
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az network nic list](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) pour afficher les interfaces réseau dans l’abonnement ; [az network nic show](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) pour afficher les paramètres d’une interface réseau|
-|PowerShell|[Get-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) pour afficher les interfaces réseau dans l’abonnement ou afficher les paramètres d’une interface réseau|
+|PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) pour afficher les interfaces réseau dans l’abonnement ou afficher les paramètres d’une interface réseau|
 
 ## <a name="change-dns-servers"></a>Modifier les serveurs DNS
 
@@ -117,7 +117,7 @@ Le serveur DHCP Azure assigne le serveur DNS à l’interface réseau au sein du
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Activer et désactiver le transfert IP
 
@@ -139,7 +139,7 @@ Le paramètre doit être activé pour chaque interface réseau attachée à la m
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet-assignment"></a>Modifier l’affectation de sous-réseau
 
@@ -160,7 +160,7 @@ Vous pouvez modifier le sous-réseau, mais pas le réseau virtuel auquel une int
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="delete-a-network-interface"></a>Supprimer une interface réseau
@@ -179,7 +179,7 @@ Lorsque vous supprimez une interface réseau, toutes les adresses MAC ou IP qui 
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az network nic delete](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour créer une machine virtuelle avec plusieurs interfaces réseau ou adresses IP, lisez les articles suivants :

@@ -71,6 +71,9 @@ ACU : 210-250
 <br>
 
 ## <a name="ds-series"></a>Série DS
+
+ACU : 160
+
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3,5 |7 |2 |4 000 / 32 (43) |3 200 / 32 |2 / 500 |
@@ -79,6 +82,7 @@ ACU : 210-250
 | Standard_DS4 |8 |28 |56 |16 |32 000 / 256 (344) |25 600 / 256 |8 / 4 000 |
 
 <br>
+
 ## <a name="d-series"></a>Série D 
 
 ACU : 160

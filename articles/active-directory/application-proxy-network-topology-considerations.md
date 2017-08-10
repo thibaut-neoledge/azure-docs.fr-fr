@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 62221d7d174de128bf0089fb79a143d73fbe550a
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -130,7 +130,7 @@ Il s’agit d’un modèle simple. Vous optimisez le tronçon 3 en plaçant le c
 
 **Scénario :** l’application se trouve dans un réseau d’entreprise aux États-Unis avec des utilisateurs répartis dans le monde. Aucun ExpressRoute ou VPN n’existe entre le centre de données Azure et le réseau d’entreprise.
 
-**Recommandation :** suivez le modèle 2, expliqué dans la section précédente. 
+**Recommandation :** suivez le modèle 1, expliqué dans la section précédente. 
 
 Là encore, le modèle courant consiste à optimiser le tronçon 3, où vous placez le connecteur à proximité de l’application. Le tronçon 3 n’est généralement pas coûteux, si le tout est contenu dans la même région. Toutefois, le tronçon 1 peut être plus coûteux selon l’emplacement de l’utilisateur, car les utilisateurs du monde entier doivent accéder à l’instance du proxy d’application aux États-Unis. Il est important de noter que toutes les solutions de proxy ont des caractéristiques similaires en ce qui concerne les utilisateurs répartis globalement.
 

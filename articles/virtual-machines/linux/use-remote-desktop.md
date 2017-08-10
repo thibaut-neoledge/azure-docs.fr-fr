@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 87d2509c8fc6a97f7d9e7e1257fe827e5926158f
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: d8d6130a270285c84c1dd057a3512cdeb39287f6
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/26/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure
-Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](http://www.xrdp)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
+Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](http://www.xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
 
 
 ## <a name="prerequisites"></a>Composants requis

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6683b116e5e42c0ba6f1d0f381143bf846bd9810
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: f06e02cb15532a4e0f6660ca3a88a7031d498632
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-faqs"></a>Azure Active Directory B2C : FAQ
@@ -52,7 +51,7 @@ Non, mais cette fonctionnalité est sur notre feuille de route. Les étendues pa
 Non, vous pouvez héberger votre application n'importe où (dans le cloud ou sur site). Pour interagir avec Azure AD B2C, il suffit qu’elle puisse envoyer et recevoir des requêtes HTTP sur les points de terminaison accessibles publiquement.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Je dispose de plusieurs locataires Azure AD B2C. Comment puis-je les gérer sur le portail Azure ?
-Chaque locataire Azure AD B2C a son propre panneau de fonctionnalités B2C sur le portail Azure. Consultez [Azure Active Directory B2C : inscription de votre application](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) pour savoir comment accéder au panneau de fonctionnalités B2C d’un client spécifique sur le portail Azure. Le basculement d’un annuaire Azure AD B2C à un autre sur le portail Azure ne garde pas le panneau de fonctionnalités B2C ouvert dans la plupart des navigateurs.
+Chaque locataire Azure AD B2C a son propre panneau de fonctionnalités B2C sur le portail Azure. Consultez [Azure Active Directory B2C : inscription de votre application](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) pour savoir comment accéder au panneau de fonctionnalités B2C d’un client spécifique sur le portail Azure. Le basculement d’un annuaire Azure AD B2C à un autre sur le portail Azure ne garde pas le panneau de fonctionnalités B2C ouvert dans la plupart des navigateurs.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Comment puis-je personnaliser les e-mails de vérification (le contenu et le champ « De: ») envoyés par Azure AD B2C ?
 Vous pouvez utiliser la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md) pour personnaliser le contenu des e-mails de vérification. Plus précisément, ces deux éléments du message peuvent être personnalisés :
@@ -109,7 +108,7 @@ Pas actuellement. Cette fonctionnalité est sur notre feuille de route. La véri
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Comment supprimer mon client Azure AD B2C ?
 Procédez comme suit pour supprimer votre client Azure AD B2C :
 
-1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sur le portail Azure.
+1. Suivez ces étapes pour [accéder au panneau de fonctionnalités B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) sur le portail Azure.
 1. Accédez aux panneaux **Applications**, **Fournisseurs d’identité** et **Toutes les stratégies**, puis supprimez toutes les entrées dans chacun d’eux.
 1. À présent, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements. (Utilisez le compte professionnel ou scolaire ou le compte Microsoft que vous avez utilisé pour vous inscrire à Azure.)
 1. Accédez à l’extension Active Directory sur la gauche, puis cliquez sur votre client B2C.

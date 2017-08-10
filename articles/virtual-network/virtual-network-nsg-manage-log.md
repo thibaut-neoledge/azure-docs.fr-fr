@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: f907f388ecb897c05e822f2abd5431b3976b7987
-ms.openlocfilehash: 10581234a4475d0d3b32c7891fcf97eed55f7a1d
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Analyse de journaux pour les groupes de sécurité réseau (NSG)
@@ -47,18 +47,18 @@ La journalisation des diagnostics doit être activée pour *chaque* groupe de s�
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour utiliser le portail pour activer la journalisation, connectez-vous au [portail](https://portal.azure.com). Cliquez sur **Plus de services**, puis tapez *groupes de sécurité réseau*. Sélectionnez le groupe de sécurité réseau pour lequel vous souhaitez activer la journalisation. Suivez les instructions pour les ressources hors calcul dans l’article [Activation des journaux de diagnostic dans le portail](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-in-the-portal). Sélectionnez **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, ou les deux catégories de journaux.
+Pour utiliser le portail pour activer la journalisation, connectez-vous au [portail](https://portal.azure.com). Cliquez sur **Plus de services**, puis tapez *groupes de sécurité réseau*. Sélectionnez le groupe de sécurité réseau pour lequel vous souhaitez activer la journalisation. Suivez les instructions pour les ressources hors calcul dans l’article [Activation des journaux de diagnostic dans le portail](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Sélectionnez **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, ou les deux catégories de journaux.
 
 ### <a name="powershell"></a>PowerShell
 
-Pour utiliser PowerShell pour activer la journalisation, suivez les instructions de l’article [Activation des journaux de diagnostic via PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-powershell). Évaluez les informations suivantes avant d’entrer une commande de l’article :
+Pour utiliser PowerShell pour activer la journalisation, suivez les instructions de l’article [Activation des journaux de diagnostic via PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Évaluez les informations suivantes avant d’entrer une commande de l’article :
 
 - Vous pouvez déterminer la valeur à utiliser pour le paramètre `-ResourceId` en remplaçant le texte suivant si nécessaire, puis en entrant la commande `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. La sortie de l’ID de la commande ressemble à */subscriptions/[ID d’abonnement]/resourceGroups/[groupe de ressources]/providers/Microsoft.Network/networkSecurityGroups/[nom du groupe]*.
 - Si vous souhaitez uniquement collecter les données de la catégorie journal, ajoutez `-Categories [category]` à la fin de la commande dans l’article, où la catégorie est soit *NetworkSecurityGroupEvent*, soit *NetworkSecurityGroupRuleCounter*. Si vous n’utilisez pas le paramètre `-Categories`, la collecte des données est activée pour les deux catégories de journaux.
 
 ### <a name="azure-command-line-interface-cli"></a>Interface de ligne de commande Microsoft Azure
 
-Pour utiliser l’interface CLI pour activer la journalisation, suivez les instructions de l’article [Activation des journaux de diagnostic via l’interface de ligne de commande](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-cli). Évaluez les informations suivantes avant d’entrer une commande de l’article :
+Pour utiliser l’interface CLI pour activer la journalisation, suivez les instructions de l’article [Activation des journaux de diagnostic via l’interface de ligne de commande](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Évaluez les informations suivantes avant d’entrer une commande de l’article :
 
 - Vous pouvez déterminer la valeur à utiliser pour le paramètre `-ResourceId` en remplaçant le texte suivant si nécessaire, puis en entrant la commande `azure network nsg show [resource-group-name] [nsg-name]`. La sortie de l’ID de la commande ressemble à */subscriptions/[ID d’abonnement]/resourceGroups/[groupe de ressources]/providers/Microsoft.Network/networkSecurityGroups/[nom du groupe]*.
 - Si vous souhaitez uniquement collecter les données de la catégorie journal, ajoutez `-Categories [category]` à la fin de la commande dans l’article, où la catégorie est soit *NetworkSecurityGroupEvent*, soit *NetworkSecurityGroupRuleCounter*. Si vous n’utilisez pas le paramètre `-Categories`, la collecte des données est activée pour les deux catégories de journaux.

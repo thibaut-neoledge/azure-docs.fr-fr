@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bb836357af6d006c18db578164f02fa7bd043b45
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 5e53bc714d89bf6204681349e7890e0b8fbc7046
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>Diagnostiquer les changements soudains dans la télémétrie de votre application
@@ -61,7 +61,7 @@ Maintenant que vous savez qu’une page spécifique de votre site web a un probl
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Smart Diagnostics utilise un algorithme Machine Learning non supervisé avancé basé sur l’opération [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns). Il recherche les modèles susceptibles d’expliquer la modification des données. Il analyse l’impact de chaque modèle sur la mesure et affiche le modèle qui correspond le mieux à la modification.
+Smart Diagnostics utilise un algorithme Machine Learning non supervisé avancé basé sur l’opération [DiffPatterns](app-insights-analytics-reference.md). Il recherche les modèles susceptibles d’expliquer la modification des données. Il analyse l’impact de chaque modèle sur la mesure et affiche le modèle qui correspond le mieux à la modification.
 
 ## <a name="no-diagnostic-points"></a>Aucun diagnostic n’est donné ?
 

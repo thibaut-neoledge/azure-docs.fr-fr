@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 8e6950fb44207824baf18d666db7ba26f0e360f0
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 53681c58ca1eff394d6a3db2d6a026845ac03df1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -137,19 +137,6 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
 Si une erreur survient lors de la conversion, ou si une machine virtuelle est dans un état d’échec en raison de problèmes dans une conversion précédente, exécutez l’applet de commande `ConvertTo-AzureRmVMManagedDisk` à nouveau. Généralement, une simple nouvelle tentative suffit à débloquer la situation.
-
-
-## <a name="managed-disks-and-azure-storage-service-encryption"></a>Disques gérés et chiffrement du service Stockage Azure
-
-Vous ne pouvez pas utiliser les étapes précédentes pour convertir un disque non géré en disque géré s’il se trouve dans un compte de stockage qui a déjà été chiffré à l’aide d’[Azure SSE (Storage Service Encryption)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Les étapes suivantes décrivent comment copier et utiliser des disques non gérés qui ont été dans un compte de stockage chiffré :
-
-1. Copiez le VHD à l’aide d’[AzCopy](../../storage/storage-use-azcopy.md) dans un compte de stockage pour lequel Azure Storage Service Encryption n’a jamais été activé.
-
-2. Utilisez la machine virtuelle copiée de l’une des manières suivantes :
-
-   * Créez une machine virtuelle qui utilise des disques gérés et spécifiez ce fichier VHD lors de la création à l’aide de la commande `New-AzureRmVm`.
-
-   * Attachez le VHD copié à l’aide de la commande `Add-AzureRmVmDataDisk` à une machine virtuelle en cours d’exécution qui utilise des disques gérés.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
