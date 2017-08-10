@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/15/2017
+ms.date: 07/22/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 509682297a3db090caa73bd9438f6434257d558f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: b60662cbe655eea11cba2aaaaa4671209bf018f4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -35,12 +35,12 @@ L’indexeur d’objets blob peut extraire du texte à partir des formats de doc
 * ZIP
 * EML
 * RTF
-* Fichiers de texte brut
-* JSON (voir la fonctionnalité de version préliminaire[Indexation d’objets blob JSON](search-howto-index-json-blobs.md))
+* Fichiers de texte brut (voir aussi [l’indexation de texte brut](#IndexingPlainText))
+* JSON (consultez [l’indexation d’objets JSON blobs](search-howto-index-json-blobs.md))
 * CSV (voir la fonctionnalité de version préliminaire[Indexation d’objets blob CSV](search-howto-index-csv-blobs.md))
 
 > [!IMPORTANT]
-> La prise en charge des tableaux CSV et JSON est actuellement en version préliminaire. Ces formats sont disponibles uniquement avec la version **2015-02-28-Preview** de l’API REST ou la version 2.x-preview du Kit de développement logiciel (SDK) .NET. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
+> La prise en charge des tableaux CSV et JSON est actuellement en version préliminaire. Ces formats sont disponibles uniquement avec la version **2016-09-01-Preview** de l’API REST ou la version 2.x-preview du Kit de développement logiciel (SDK) .NET. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
 >
 >
 
@@ -89,8 +89,8 @@ Pour plus d’informations sur l’API Créer une source de données, consultez 
 Vous pouvez fournir les informations d’identification du conteneur d’objets blob de l’une des manières suivantes :
 
 - **Chaîne de connexion au compte de stockage avec accès complet** : `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Vous pouvez obtenir la chaîne de connexion sur le portail Azure en sélectionnant le panneau du compte de stockage > Paramètres > Clés (pour les comptes de stockage Classic) ou en sélectionnant Paramètres > Clés d’accès (pour les comptes de stockage ARM).
-- Chaîne de connexion de la **signature d’accès partagé (SAP) au compte de stockage** : `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. La SAP doit avoir les autorisations de liste et de lecture sur les conteneurs et les objets (blob en l’occurrence).
--  **Signature d’accès partagé du conteneur** : `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. La SAP doit avoir les autorisations de liste et lecture sur le conteneur.
+- **Chaîne de connexion de signature d’accès partagé au compte de stockage** : `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` la signature d’accès partagé (SAS) doit disposer d’autorisations de liste et de lecture sur les conteneurs et les objets (blobs dans ce cas).
+-  **Signature d’accès partagé de conteneur**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` la signature d’accès partagé doit avoir les autorisations de liste et lecture sur le conteneur.
 
 Pour plus d’informations sur les signatures d’accès partagé au stockage, consultez [Utilisation des signatures d’accès partagé](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -340,13 +340,35 @@ L’indexation d’objets blob peut être un processus long. Dans le cas où vou
 
 - Créez un indexeur correspondant pour chaque source de données. Tous les indexeurs peuvent pointer vers le même index de recherche cible.  
 
+- Une unité de recherche dans votre service peut exécuter un indexeur à tout moment donné. La création de plusieurs indexeurs comme décrit ci-dessus est utile uniquement s’ils s’exécutent en parallèle. Pour exécuter plusieurs indexeurs en parallèle, augmentez la taille de votre service de recherche en créant un nombre approprié de partitions et réplicas. Par exemple, si votre service de recherche a 6 unités de recherche (2 partitions x 3 réplicas), 6 indexeurs peuvent s’exécuter simultanément, ce qui augmente le débit d’indexation par six. Pour plus d’informations sur la mise à l’échelle et la planification de capacité, consultez [Mettre à l’échelle des niveaux de ressources pour les requêtes et indexation des charges de travail dans Azure Search](search-capacity-planning.md).
+
 ## <a name="indexing-documents-along-with-related-data"></a>Indexation de documents et des données associées
 
-Vos documents peuvent être associés à des métadonnées (par exemple, le service qui a créé le document) qui sont stockées en tant que données structurées dans l’un des emplacements suivants.
--   Dans un magasin de données distinct, comme SQL Database ou Azure Cosmos DB.
--   Directement reliées à chaque document dans Stockage Blob Azure en tant que métadonnées personnalisées. (Pour plus d’informations, consultez [Définir et extraire les propriétés et métadonnées de ressources blob](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).)
+Vous pourriez souhaiter « rassembler » des documents provenant de plusieurs sources dans votre index. Par exemple, vous pourriez souhaiter fusionner des textes de blobs avec d’autres métadonnées stockées dans la base de données Cosmos. Vous pouvez même utiliser le push de l’indexation des API ainsi que plusieurs indexeurs pour générer des documents de recherche à partir de plusieurs parties. 
 
-Vous pouvez indexer les documents ainsi que leurs métadonnées en affectant la même valeur de clé unique à chaque document et à ses métadonnées, et en spécifiant l’action `mergeOrUpload` pour chaque indexeur. Pour obtenir une description détaillée de cette solution, consultez l’article externe : [Combine documents with other data in Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Associer des documents à d’autres données dans Recherche Azure).
+Pour ce faire, tous les indexeurs et les autres composants doivent s’accorder sur la clé de document. Pour obtenir une procédure détaillée, consultez l’article externe : [Associer des documents à d’autres données dans Recherche Azure](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)
+
+<a name="IndexingPlainText"></a>
+## <a name="indexing-plain-text"></a>Indexation en texte brut 
+
+Si tous vos objets BLOB contiennent du texte brut dans le même encodage, vous pouvez améliorer considérablement les performances d’indexation à l’aide du **mode d’analyse de texte**. Pour utiliser le mode d’analyse de texte, définissez la `parsingMode` propriété configuration à `text`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text" } }
+    }
+
+Par défaut, le `UTF-8` encodage est possible. Pour spécifier un encodage différent, utilisez la `encoding` propriété de configuration : 
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+    }
+
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Propriétés de métadonnées propres au type de contenu

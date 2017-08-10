@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 2f3203382c11004bad879709a03b44b6d12eb962
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: a9dfb0af80ef018e5e655e6e5c78fb0b7e426794
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -191,7 +191,7 @@ Un abonnement est un regroupement logique de services Azure, associé à un comp
 
 Avant de pouvoir utiliser les services Azure, vous devez vous abonner. Plusieurs types d’abonnements sont disponibles.
 
-**Comptes gratuits** : le lien pour s’abonner à un compte gratuit se trouve sur le [site web Azure](https://azure.microsoft.com/). Vous disposez d’un crédit de 200 USD, valable sur une période de 30 jours, pour essayer la combinaison de ressources de votre choix dans Azure. Si vous dépassez le montant du crédit alloué, votre compte est suspendu. À la fin de la période d’essai, vos services sont désactivés et ne fonctionnent plus. Vous pouvez à tout moment passer à un abonnement avec paiement à l’utilisation.
+**Comptes gratuits** : le lien pour s’abonner à un compte gratuit se trouve sur le [site web Azure](https://azure.microsoft.com/). Vous disposez d’un crédit valable sur une période de 30 jours, pour essayer la combinaison de ressources de votre choix dans Azure. Si vous dépassez le montant du crédit alloué, votre compte est suspendu. À la fin de la période d’essai, vos services sont désactivés et ne fonctionnent plus. Vous pouvez à tout moment passer à un abonnement avec paiement à l’utilisation.
 
 **Abonnements MSDN** : si vous avez un abonnement MSDN, vous disposez d’un crédit Azure d’un montant spécifique tous les mois. Par exemple, si vous utilisez une édition de Microsoft Visual Studio Enterprise avec un abonnement MSDN, vous bénéficiez d’un crédit Azure de \$150 USD par mois.
 

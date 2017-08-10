@@ -1,5 +1,5 @@
 ---
-title: "Résolution des problèmes d&quot;Application Insights dans un projet web Java"
+title: "Résolution des problèmes d'Application Insights dans un projet web Java"
 description: "Guide de dépannage : surveillance des applications Java en direct avec Application Insights."
 services: application-insights
 documentationcenter: java
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: cfreeman
+ms.author: sewhee
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: b95a52e1de176622907c338521da7b6885948118
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/13/2017
-
 
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Guide de dépannage et questions-réponses concernant Application Insights pour Java

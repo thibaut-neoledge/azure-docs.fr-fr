@@ -12,34 +12,32 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 8c02e911770577bd51bc2bebbb3e29b66ed0235b
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Traiter les messages appareil-à-cloud IoT Hub en utilisant les itinéraires (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-## <a name="introduction"></a>Introduction
-Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Les autres didacticiels ([Prise en main d’IoT Hub] et [Envoyer des messages cloud-à-appareil avec IoT Hub][lnk-c2d]) vous expliquent comment utiliser la fonctionnalité de base de messagerie appareil-à-cloud et cloud-à-appareil offerte par IoT Hub.
+Ce didacticiel s’appuie sur celui relatif à la [prise en main du IoT Hub]. Le didacticiel :
 
-Ce didacticiel s’appuie sur le code indiqué dans le didacticiel [Prise en main d’IoT Hub] et explique comment utiliser les règles de routage pour distribuer facilement les messages appareil-à-cloud. Ce didacticiel vous indique comment isoler les messages qui nécessitent une action immédiate du serveur principal de la solution pour un traitement ultérieur. Par exemple, un appareil peut envoyer un message d’alerte qui déclenche l’insertion d’un ticket dans un système CRM. Par opposition, les messages de point de données sont simplement chargés dans un moteur d’analyse. Par exemple, les données de télémétrie de température d’un appareil qui doivent être enregistrées pour analyse ultérieure constituent un message de point de données.
+* Explique comment utiliser les règles de routage pour dispatcher les messages de l’appareil au cloud suivant une configuration facile.
+* Indique comment isoler les messages interactifs qui nécessitent une action immédiate du serveur principal de la solution pour un traitement ultérieur. Par exemple, un appareil peut envoyer un message d’alerte qui déclenche l’insertion d’un ticket dans un système CRM. Par opposition, les messages de point de données tels que la télémétrie de température sont chargés dans un moteur d’analyse.
 
 À la fin de ce didacticiel, vous exécutez trois applications console .NET :
 
-* **SimulatedDevice**, une version modifiée de l’application créée dans le didacticiel [Prise en main d’IoT Hub] qui envoie des messages de point de données des appareils vers le cloud chaque seconde et des messages interactifs des appareils vers le cloud toutes les 10 secondes. Cette application utilise le protocole AMQPS pour communiquer avec IoT Hub.
+* **SimulatedDevice**, une version modifiée de l’application créée dans le didacticiel [prise en main du IoT Hub] qui envoie des messages de point de données des appareils vers le cloud chaque seconde et des messages interactifs des appareils vers le cloud toutes les 10 secondes.
 * **ReadDeviceToCloudMessages**, qui affiche les données non critiques de télémétrie envoyées par votre application d’appareil.
-* **ReadCriticalQueue**, qui enlève de la file d’attente Service Bus attachée au hub IoT les messages critiques envoyés par votre application d’appareil.
+* **ReadCriticalQueue** enlève de la file d’attente Service Bus les messages critiques envoyés par votre application d’appareil. Cette file d’attente est attachée à IoT hub.
 
 > [!NOTE]
-> IoT Hub offre la prise en charge de Kit de développement logiciel (SDK) de plusieurs plateformes d’appareils et de plusieurs langages (notamment C, Java et JavaScript). Pour savoir comment remplacer l’appareil simulé de ce didacticiel par un appareil physique, et comment connecter des appareils à IoT Hub, voir le [Centre de développement Azure IoT].
-> 
-> 
+> IoT Hub offre la prise en charge de Kit de développement logiciel (SDK) de plusieurs plateformes d’appareils et de plusieurs langages (notamment C, Java et JavaScript). Pour savoir comment remplacer l’appareil simulé de ce didacticiel par un appareil physique, voir le [Centre de développement Azure IoT].
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -48,12 +46,13 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Vous devez avoir une connaissance de base de [Stockage Azure] et d’[Azure Service Bus].
 
-## <a name="send-interactive-messages-from-a-device-app"></a>Envoyer des messages interactifs à partir d’une application d’appareil
-Dans cette section, vous allez modifier l’application d’appareil créée dans le didacticiel [Prise en main d’IoT Hub] de façon à envoyer occasionnellement des messages nécessitant un traitement immédiat.
+## <a name="send-interactive-messages"></a>Envoyer des messages interactifs
+
+Modifiez l’application d’appareil créée dans le didacticiel [prise en main du IoT Hub] de façon à envoyer occasionnellement des messages interactifs.
 
 Dans Visual Studio, dans le projet **SimulatedDevice**, remplacez la méthode `SendDeviceToCloudMessagesAsync` par le code suivant :
 
-```
+```csharp
 private static async void SendDeviceToCloudMessagesAsync()
 {
     double minTemperature = 20;
@@ -103,7 +102,8 @@ Cela ajoute au hasard la propriété `"level": "critical"` aux messages envoyés
 > [!NOTE]
 > Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling](Gestion des erreurs temporaires).
 
-## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>Ajouter une file d’attente à votre IoT Hub et y acheminer des messages
+## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Router les messages vers une file d’attente dans votre IoT hub
+
 Dans cette section, vous allez :
 
 * créer une file d’attente Service Bus ;
@@ -134,6 +134,7 @@ Pour plus d’informations sur la façon de traiter les messages des files d’a
     ![Itinéraire de secours][33]
 
 ## <a name="read-from-the-queue-endpoint"></a>Lecture à partir du point de terminaison de la file d’attente
+
 Dans cette section, vous allez lire les messages à partir du point de terminaison de la file d’attente.
 
 1. Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution actuelle en utilisant le modèle de projet **Application console (.NET Framework)**. Nommez le projet **ReadCriticalQueue**.
@@ -144,14 +145,14 @@ Dans cette section, vous allez lire les messages à partir du point de terminais
 
 4. Ajoutez les instructions **using** suivantes au début du fichier **Program.cs** :
    
-    ```
+    ```csharp
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
 
 5. Enfin, ajoutez les lignes suivantes à la méthode **Main** . Remplacez la chaîne de connexion par des autorisations **Listen** pour la file d’attente :
    
-    ```
+    ```csharp
     Console.WriteLine("Receive critical messages. Ctrl-C to exit.\n");
     var connectionString = "{service bus listen string}";
     var queueName = "{queue name}";
@@ -190,46 +191,20 @@ Pour en savoir plus sur le routage des messages dans IoT Hub, consultez [Envoyer
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
-[10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
-
 [30]: ./media/iot-hub-csharp-csharp-process-d2c/click-endpoints.png
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/endpoint-creation.png
 [32]: ./media/iot-hub-csharp-csharp-process-d2c/route-creation.png
 [33]: ./media/iot-hub-csharp-csharp-process-d2c/fallback-route.png
 
 <!-- Links -->
-
-[Azure blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-
-[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
-
 [Stockage Azure]: https://azure.microsoft.com/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
-
 [Guide du développeur IoT Hub]: iot-hub-devguide.md
-[Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[prise en main du IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Centre de développement Azure IoT]: https://azure.microsoft.com/develop/iot
-[lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
-[lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
-
-<!-- Links -->
-[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Get Started with Event Hubs]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
-[Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
-[Event Hubs]: ../event-hubs/event-hubs-overview.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Build multi-tier applications with Service Bus]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 

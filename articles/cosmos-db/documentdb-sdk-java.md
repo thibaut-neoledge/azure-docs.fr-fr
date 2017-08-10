@@ -1,6 +1,6 @@
 ---
-title: "API Java, Kit de développement logiciel (SDK) et ressources Azure DocumentsDB | Microsoft Docs"
-description: "Découvrez l'API et le Kit de développement logiciel (SDK) Java, y compris les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Java DocumentDB."
+title: "Azure Cosmos DB : API Java DocumentDB, Kit de développement logiciel (SDK) et ressources | Microsoft Docs"
+description: "Découvrez l'API et le Kit de développement logiciel (SDK) Java, y compris les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Java DocumentDB d’Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 423f841b82ced16b3bd338f1f38db9ec0250fa66
+ms.translationtype: HT
+ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
+ms.openlocfilehash: 089bb12b66e772b1fe62eeca9a306b5723fc8c06
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="documentdb-java-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java DocumentDB : notes de publication et ressources
+# <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB - Kit de développement logiciel (SDK) Java DocumentDB : notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Flux de modification .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.JS](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -46,12 +46,16 @@ ms.lasthandoff: 06/20/2017
 
 <tr><td>**Prise en main**</td><td>[Bien démarrer avec le Kit de développement logiciel (SDK) Java](documentdb-java-get-started.md)</td></tr>
 
-<tr><td>**Didacticiel d’application web**</td><td>[Développement d’une application web avec DocumentDB](documentdb-java-application.md)</td></tr>
+<tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](documentdb-java-application.md)</td></tr>
 
 <tr><td>**Runtime actuellement pris en charge**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
+* Correctifs de bogues critiques pour demander le traitement lors de fractionnements de partition.
+* Correction d’un problème avec les niveaux de cohérence Strong et BoundedStaleness.
 
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
 * Prise en charge ajoutée de la fonctionnalité Unité de requête par minute (RU/m).
@@ -156,10 +160,10 @@ Microsoft fournira une notification au moins **12 mois** avant le retrait d’u
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit de développement logiciel (SDK) actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du Kit de développement logiciel (SDK) dès que possible.
 
-Toute requête envoyée à Cosmos DB qui utilise un SDK supprimé est rejetée par le service.
+Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé.
 
 > [!WARNING]
-> Toutes les versions du Kit de développement logiciel (SDK) Azure DocumentDB pour Java antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
+> Toutes les versions du Kit de développement logiciel (SDK) DocumentDB pour Java antérieures à la version **1.0.0** seront supprimées le **29 février 2016**.
 > 
 > 
 
@@ -167,6 +171,7 @@ Toute requête envoyée à Cosmos DB qui utilise un SDK supprimé est rejetée p
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |11 juillet 2017 |--- |
 | [1.11.0](#1.11.0) |10 mai 2017 |--- |
 | [1.10.0](#1.10.0) |11 mars 2017 |--- |
 | [1.9.6](#1.9.6) |21 février 2017 |--- |
