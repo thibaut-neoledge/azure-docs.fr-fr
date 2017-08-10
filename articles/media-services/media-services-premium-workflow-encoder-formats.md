@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/09/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ef5db062ac320995ff8bfa64f38c89d860957868
 ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/28/2017
 
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs et formats de Media Encoder Premium Workflow
@@ -36,7 +37,7 @@ Ce document contient la liste des codecs et formats de fichiers d’entrée et d
 
 **Media Encoder Premium Workflow** prend en charge le sous-titrage décrit dans [cette](#closed_captioning) section 
 
-## <a name="a-idinputformatsamedia-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Codecs et formats d’entrée de Media Encoder Premium Workflow
+## <a id="input_formats"></a>Codecs et formats d’entrée de Media Encoder Premium Workflow
 La section suivante répertorie les codecs et les formats de fichiers que ce processeur multimédia prend en charge en entrée.
 
 ### <a name="input-containerfile-formats"></a>Formats de conteneurs/fichiers d’entrée
@@ -68,7 +69,7 @@ La section suivante répertorie les codecs et les formats de fichiers que ce pro
 * Windows Media Audio
 * WAV/PCM
 
-## <a name="a-idoutputformatamedia-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Codecs et formats de sortie de Media Encoder Premium Workflow
+## <a id="output_format"></a>Codecs et formats de sortie de Media Encoder Premium Workflow
 La section suivante répertorie les codecs et les formats de fichiers pris en charge en sortie avec ce processeur multimédia.
 
 ### <a name="output-containerfile-formats"></a>Formats de conteneurs/fichiers de sortie
@@ -103,7 +104,7 @@ La section suivante répertorie les codecs et les formats de fichiers pris en ch
 >[!NOTE]
 >Si vous encodez en Dolby® Digital (AC3), la sortie peut uniquement être écrite dans un fichier MP4 ISO.
 
-## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>Prise en charge du sous-titrage
+## <a id="closed_captioning"></a>Prise en charge du sous-titrage
 En entrée, **Media Encoder Premium Workflow** prend en charge :
 
 1. Fichiers sous contrôle de code source (SCC)
@@ -130,10 +131,5 @@ Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multim
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: eaa87671a90ab6b090fb04f346ef551edba4d173
+ms.contentlocale: fr-fr
 ms.lasthandoff: 03/15/2017
-
 
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Implémentation d’un basculement de diffusion en continu avec Azure Media Services
@@ -458,7 +458,6 @@ Dans cette section, vous allez créer un moyen de gérer la redondance.
             var targetContainer = targetBlobClient.GetContainerReference(targetContainerName);
             targetContainer.CreateIfNotExists();
 
-
             string blobToken = sourceContainer.GetSharedAccessSignature(new SharedAccessBlobPolicy()
             {
                 // Specify the expiration time for the signature.
@@ -466,7 +465,6 @@ Dans cette section, vous allez créer un moyen de gérer la redondance.
                 // Specify the permissions granted by the signature.
                 Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read
             });
-
 
             foreach (var sourceBlob in sourceContainer.ListBlobs())
             {
@@ -941,7 +939,6 @@ Dans cette section, vous allez créer un moyen de gérer la redondance.
             }
             return request;
         }
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez désormais utiliser un gestionnaire de trafic pour acheminer les demandes entre les deux centres de données et ainsi bénéficier d’un basculement en cas de panne.

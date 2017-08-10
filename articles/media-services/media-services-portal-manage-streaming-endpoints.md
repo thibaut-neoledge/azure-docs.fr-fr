@@ -1,5 +1,4 @@
 ---
-
 title: "Gérer les points de terminaison de streaming avec le Portail Azure | Microsoft Docs"
 description: "Cette rubrique montre comment gérer les points de terminaison de streaming avec le Portail Azure."
 services: media-services
@@ -14,12 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
 ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -62,7 +62,7 @@ Pour ajouter/supprimer un point de terminaison de streaming à l’aide du Porta
     ![point de terminaison de diffusion en continu](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a name="a-idconfigurestreamingendpointsaconfiguring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configuration du point de terminaison de diffusion en continu
+## <a id="configure_streaming_endpoints"></a>Configuration du point de terminaison de diffusion en continu
 Le point de terminaison de streaming vous permet de configurer les propriétés suivantes :
 
 * Contrôle d’accès
@@ -88,7 +88,7 @@ Vous trouverez une brève description des champs ci-dessous.
 
 Pour plus d’informations, consultez [cette rubrique](media-services-portal-scale-streaming-endpoints.md) .
 
-## <a name="a-idenablecdnaenable-azure-cdn-integration"></a><a id="enable_cdn"></a>Activer l’intégration au CDN Azure
+## <a id="enable_cdn"></a>Activer l’intégration au CDN Azure
 
 Lorsque vous créez un compte, l’intégration CDN Azure du point de terminaison de streaming par défaut est activée par défaut.
 
@@ -121,10 +121,5 @@ Consultez les parcours d’apprentissage de Media Services.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 08/10/2017
 ms.author: spelluru
 ms.translationtype: HT
 ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
@@ -83,7 +83,7 @@ Utilisez l’authentification par principal de service en spécifiant les propri
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
             "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+            "dataLakeAnalyticsUri": "azuredatalakeanalytics.net",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": "<service principal key>",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
@@ -110,7 +110,7 @@ Vous pouvez également utiliser l’authentification par informations d’identi
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
             "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+            "dataLakeAnalyticsUri": "azuredatalakeanalytics.net",
             "authorization": "<authcode>",
             "sessionId": "<session ID>", 
             "subscriptionId": "<optional, subscription id of ADLA>",
