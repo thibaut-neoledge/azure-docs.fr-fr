@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/08/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: ad47c198b98f235b5a75fed6c403493a33594429
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 3bc1023d084205171b6b405932cf80f3da59fe8b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès Juste à temps à la machine virtuelle
@@ -157,7 +157,7 @@ Modifiez les filtres et sélectionnez **Appliquer** pour créer une recherche et
 ## <a name="using-just-in-time-vm-access-via-powershell"></a>Utilisation de l’accès Juste à temps à la machine virtuelle par le biais de PowerShell
 
 Pour utiliser la solution Juste à temps par le biais de PowerShell, assurez-vous de disposer de la [dernière](/powershell/azure/install-azurerm-ps) version d’Azure PowerShell.
-Une fois cette vérification effectuée, vous devez installer la [dernière](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.10) version d’Azure Security Center à partir de la galerie PowerShell.
+Une fois cette vérification effectuée, vous devez installer la [dernière](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.12) version d’Azure Security Center à partir de la galerie PowerShell.
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configuration d’une stratégie Juste à temps pour une machine virtuelle
 

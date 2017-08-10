@@ -12,12 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 03c65775d7fe7eee0d14ca4551ae8a332dbc39b2
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 3c7c49ee5fbd98762da0eef6f02e7c2f036453cb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-using-language-customization"></a>Azure Active Directory B2C : utilisation de la personnalisation de la langue
@@ -40,7 +39,7 @@ La personnalisation de la langue vous permet de sélectionner les langues dans l
 
 ## <a name="support-uilocales-requested-languages"></a>Prendre en charge les langues demandées par le paramètre ui_locales 
 En activant la personnalisation de la langue sur une stratégie, vous pouvez désormais contrôler la langue du parcours utilisateur en ajoutant le paramètre ui_locales.
-1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-the-b2c-features-blade)
+1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings)
 2. Accédez à une stratégie pour laquelle vous souhaitez activer la traduction.
 3. Cliquez sur **Personnalisation de la langue**.
 4. Lisez attentivement l’avertissement.  Une fois activée, la personnalisation de la langue ne peut pas être désactivée.

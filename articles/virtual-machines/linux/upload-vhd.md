@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: bba753c4a4657a611503bb99aa8d714286ebcea5
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 9a91aedf452a391f23b1e5773ec12e2de5d4a288
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI 2.0
@@ -165,7 +165,7 @@ Le chargement du disque dur virtuel peut prendre un certain temps.
 ### <a name="create-a-managed-disk"></a>Créer un disque géré
 
 
-Créez un disque géré à partir du disque dur virtuel à l’aide de la commande [az disk create](/cli/azure/disk/create). L’exemple suivant crée un disque géré nommé *myManagedDisk* à partir du disque dur virtuel que vous avez chargé dans votre conteneur et votre compte de stockage nommés :
+Créez un disque géré à partir du disque dur virtuel à l’aide de la commande [az disk create](/cli/azure/disk#create). L’exemple suivant crée un disque géré nommé *myManagedDisk* à partir du disque dur virtuel que vous avez chargé dans votre conteneur et votre compte de stockage nommés :
 
 ```azurecli
 az disk create \

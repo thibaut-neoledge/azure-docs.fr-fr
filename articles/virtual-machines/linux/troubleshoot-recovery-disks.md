@@ -1,5 +1,4 @@
 ---
-
 title: "Utiliser une machine virtuelle de dépannage Linux avec Azure CLI 2.0 | Microsoft Docs"
 description: "Découvrez comment résoudre les problèmes de machines virtuelles Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération avec Azure CLI 2.0."
 services: virtual-machines-linux
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 518a21896ddfc34156615907b710b421bcea42c1
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 7a28accce1bd328b2b486b588c44d91b03e42122
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -169,7 +168,7 @@ Pour créer une machine virtuelle à partir de votre disque dur d’origine, uti
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-Le modèle déploie une machine virtuelle à l’aide de l’URI du disque dur virtuel, à partir de la commande précédente. Déployez ensuite le modèle avec la commande [az group deployment create](/cli/azure/vm/deployment#create). Indiquez l’URI de votre disque dur virtuel d’origine, puis spécifiez le type de système d’exploitation, la taille de la machine virtuelle et son nom, comme suit :
+Le modèle déploie une machine virtuelle à l’aide de l’URI du disque dur virtuel, à partir de la commande précédente. Déployez ensuite le modèle avec la commande [az group deployment create](/cli/azure/group/deployment#create). Indiquez l’URI de votre disque dur virtuel d’origine, puis spécifiez le type de système d’exploitation, la taille de la machine virtuelle et son nom, comme suit :
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \

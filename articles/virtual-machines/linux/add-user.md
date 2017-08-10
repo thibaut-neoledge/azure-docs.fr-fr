@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a95157f57c0cbd1f2a9ed68a0fe83140d7c9ec40
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: ddc5446fa6a43bfff05ec251b30175ddd24052c9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="add-a-user-to-an-azure-vm"></a>Ajouter un utilisateur à une machine virtuelle Azure
@@ -78,7 +78,7 @@ Une des premières tâches courantes à effectuer avec un nouveau serveur consis
 À l’aide de la commande `useradd` , nous ajoutons des comptes utilisateurs à la machine virtuelle Linux.  L’exécution de `useradd` modifie `/etc/passwd`, `/etc/shadow`, `/etc/group` et `/etc/gshadow`.  Nous ajoutons un indicateur de ligne de commande à la commande `useradd` pour ajouter également le nouvel utilisateur au groupe sudo approprié sur Linux.  Bien que `useradd` crée une entrée dans `/etc/passwd`, cela n’attribue pas de mot de passe au nouveau compte utilisateur.  Nous créons un mot de passe initial pour le nouvel utilisateur à l’aide de la commande `passwd` .  La dernière étape consiste à modifier les règles sudo pour permettre à cet utilisateur d’exécuter des commandes avec des privilèges sudo sans devoir entrer un mot de passe pour chaque commande.  En nous connectant à l’aide de la clé publique, nous supposons que ce compte utilisateur est à l’abri des attaques, et nous allons autoriser sudo à accéder sans mot de passe.  
 
 ### <a name="adding-a-single-sudo-user-to-an-azure-vm"></a>Ajout d’un utilisateur sudo unique à une machine virtuelle Azure
-Connectez-vous à la machine virtuelle Azure à l’aide des clés SSH.  Si vous n’avez pas configuré un accès par clé publique SSH, commencez par lire entièrement l’article [Utilisation d’une authentification par clé publique avec Azure](http://link.to/article).  
+Connectez-vous à la machine virtuelle Azure à l’aide des clés SSH.  Si vous n’avez pas configuré un accès par clé publique SSH, commencez par lire entièrement l’article [Utilisation d’une authentification par clé publique avec Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 La commande `useradd` effectue les tâches suivantes :
 

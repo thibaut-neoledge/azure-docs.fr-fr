@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 07/16/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 957fb7bf1bd646ae5e4d27350502bdf14b0f00c3
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: a6f417ea6575b81258998ae3b31c10e9df59b603
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
@@ -37,7 +36,7 @@ L’extension de script personnalisé pour Windows peut être exécutée sur Win
 
 ### <a name="script-location"></a>Emplacement du script
 
-Le script doit être stocké dans le stockage Azure ou tout autre emplacement accessible via une URL valide.
+Le script doit être stocké dans le stockage Azure Blob ou tout autre emplacement accessible via une URL valide.
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
@@ -63,7 +62,7 @@ Le JSON suivant illustre le schéma pour l’extension de script personnalisé. 
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.8",
+        "typeHandlerVersion": "1.9",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -86,7 +85,7 @@ Le JSON suivant illustre le schéma pour l’extension de script personnalisé. 
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |
 | type | extensions |
-| typeHandlerVersion | 1.8 |
+| typeHandlerVersion | 1.9 |
 | fileUris (p. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (p. ex.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 | storageAccountName (p. ex.) | examplestorageacct |
