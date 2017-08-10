@@ -157,7 +157,7 @@ Avec cette configuration, la fonction est désormais adressable avec l’itinér
 Cela permet au code de la fonction de prendre en charge deux paramètres dans l’adresse, « category » et « id ». Vous pouvez utiliser les [contraintes d’itinéraire des API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) de votre choix avec vos paramètres. Le code de la fonction C# suivant utilise les deux paramètres.
 
 ```csharp
-    public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
+    public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
                                                     TraceWriter log)
     {
         if (id == null)
