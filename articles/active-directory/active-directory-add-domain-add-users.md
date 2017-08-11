@@ -3,7 +3,7 @@ title: "Affecter des utilisateurs à un domaine personnalisé dans Azure Active 
 description: "Comment remplir un domaine personnalisé dans Azure Active Directory avec des comptes d'utilisateur."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 717b5a7c-7bc3-4ab1-98b5-4740b53338fe
