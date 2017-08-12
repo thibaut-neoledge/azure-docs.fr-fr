@@ -56,7 +56,8 @@ Les dossiers sont nommés d'après les attributs **Name** de chaque élément co
 
 Pour plus d’informations sur la configuration de **SetupEntryPoint**, consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md).
 
-## <a name="configure"></a>Configuration 
+<a id="Package-App"></a>
+## <a name="configure"></a>Configuration
 ### <a name="build-a-package-by-using-visual-studio"></a>Création d'un package à l'aide de Visual Studio
 Si vous utilisez Visual Studio 2015 pour créer votre application, vous pouvez utiliser la commande Package pour créer automatiquement un package qui correspond à la disposition décrite ci-dessus.
 
@@ -115,18 +116,19 @@ Si des [paramètres d’application](service-fabric-manage-multiple-environment-
 
 Si vous savez dans quel cluster l’application sera déployée, il est recommandé de transmettre le paramètre `ImageStoreConnectionString`. Dans ce cas, le package est également validé par rapport aux versions précédentes de l’application qui sont déjà exécutées dans le cluster. Par exemple, la validation permet de détecter si un package présentant la même version mais un contenu différent a déjà été déployé.  
 
-Une fois que l’application a été correctement empaquetée et a passé la validation avec succès, déterminez si une compression est nécessaire en fonction de la taille et du nombre de fichiers. 
+Une fois que l’application a été correctement empaquetée et a passé la validation avec succès, déterminez si une compression est nécessaire en fonction de la taille et du nombre de fichiers.
 
 ## <a name="compress-a-package"></a>Compresser un package
 Lorsqu’un package est volumineux ou contient de nombreux fichiers, vous pouvez le compresser afin d’accélérer le déploiement. La compression réduit le nombre de fichiers et la taille du package.
 Pour un package d’application compressé, le [chargement du package d’application](service-fabric-deploy-remove-applications.md#upload-the-application-package) peut prendre plus de temps que le chargement du package non compressé (surtout si la durée de compression est prise en compte), mais l’[enregistrement](service-fabric-deploy-remove-applications.md#register-the-application-package) et l’[annulation de l’enregistrement du type d’application](service-fabric-deploy-remove-applications.md#unregister-an-application-type) sont plus rapides pour un package d’application compressé.
 
 Le mécanisme de déploiement est le même pour les packages compressés et non compressés. Si le package est compressé, il est stocké tel quel dans le magasin d’images du cluster et il est décompressé sur le nœud avant l’exécution de l’application.
-La compression remplace le package Service Fabric valide par la version compressée. Le dossier doit autoriser l’accès en écriture. L’exécution d’une compression sur un package déjà compressé ne produit aucun effet. 
+La compression remplace le package Service Fabric valide par la version compressée. Le dossier doit autoriser l’accès en écriture. L’exécution d’une compression sur un package déjà compressé ne produit aucun effet.
 
 Vous pouvez compresser un package en exécutant la commande Powershell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) avec le commutateur `CompressPackage`. Vous pouvez décompresser le package avec la même commande, en utilisant le commutateur `UncompressPackage`.
 
-La commande suivante permet de compresser le package sans le copier dans le magasin d’images. Vous pouvez copier un package compressé dans un ou plusieurs clusters Service Fabric, selon vos besoins, en utilisant la commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sans l’indicateur `SkipCopy`. Le package inclut désormais les fichiers compressés pour les packages `code`, `config` et `data`. Le manifeste de l’application et les manifestes de service ne sont pas compressés, car ils sont requis pour de nombreuses opérations internes (comme le partage de package ou l’extraction du nom du type de l’application et de la version pour certaines validations).
+La commande suivante permet de compresser le package sans le copier dans le magasin d’images. Vous pouvez copier un package compressé dans un ou plusieurs clusters Service Fabric, selon vos besoins, en utilisant la commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sans l’indicateur `SkipCopy`.
+Le package inclut désormais les fichiers compressés pour les packages `code`, `config` et `data`. Le manifeste de l’application et les manifestes de service ne sont pas compressés, car ils sont requis pour de nombreuses opérations internes (comme le partage de package ou l’extraction du nom du type de l’application et de la version pour certaines validations).
 La compression des manifestes rendrait ces opérations inefficaces.
 
 ```
