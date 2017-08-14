@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
@@ -98,17 +98,18 @@ Pour déterminer le mode d’allocation de pool à utiliser, il convient de réf
 
 Le tableau suivant compare les modes d’allocation de pool Service Batch et d’Abonnement utilisateur.
 
-| **Mode d’allocation de pool :**                 | **Service Batch**                                                                                       | **Abonnement utilisateur**                                                              |
+| **Mode d’allocation de pool**                 | **Service Batch**                                                                                       | **Abonnement utilisateur**                                                              |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Les pools sont alloués dans :**               | Un abonnement Azure géré                                                                           | L’abonnement de l’utilisateur dans lequel le compte Batch est créé                        |
-| **Configurations prises en charge :**             | <ul><li>Configuration service cloud</li><li>Configuration de machines virtuelles (Linux et Windows)</li></ul> | <ul><li>Configuration de machines virtuelles (Linux et Windows)</li></ul>                |
-| **Images de VM prises en charge :**                  | <ul><li>Images de la Place de marché Azure</li></ul>                                                              | <ul><li>Images de la Place de marché Azure</li><li>Images personnalisées</li></ul>                   |
-| **Types de nœud de calcul pris en charge :**         | <ul><li>Nœuds dédiés</li><li>Nœuds de faible priorité</li></ul>                                            | <ul><li>Nœuds dédiés</li></ul>                                                  |
-| **Type d’authentification pris en charge :**             | <ul><li>Clé partagée</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault est nécessaire :**             | Non                                                                                                      | Oui                                                                                |
-| **Quota de cœurs :**                           | Déterminé par le quota de cœurs Batch                                                                          | Déterminé par le quota de cœurs Batch                                              |
-| **Support réseau virtuel Azure (Vnet) :** | Pools créés avec une configuration du service cloud                                                      | Pools créés avec une configuration de machines virtuelles                               |
-| **Modèle de déploiement de réseau virtuel pris en charge :**      | Vnets créés avec un modèle de déploiement classique                                                             | Réseaux virtuels créés avec le modèle de déploiement classique ou Azure Resource Manager |
+| **Les pools sont alloués dans**               | Un abonnement Azure géré                                                                           | L’abonnement de l’utilisateur dans lequel le compte Batch est créé                        |
+| **Configurations prises en charge**             | <ul><li>Configuration service cloud</li><li>Configuration de machines virtuelles (Linux et Windows)</li></ul> | <ul><li>Configuration de machines virtuelles (Linux et Windows)</li></ul>                |
+| **Images de machine virtuelle prises en charge**                  | <ul><li>Images de la Place de marché Azure</li></ul>                                                              | <ul><li>Images de la Place de marché Azure</li><li>Images personnalisées</li></ul>                   |
+| **Types de nœuds de calcul pris en charge**         | <ul><li>Nœuds dédiés</li><li>Nœuds de faible priorité</li></ul>                                            | <ul><li>Nœuds dédiés</li></ul>                                                  |
+| **Authentification prise en charge**             | <ul><li>Clé partagée</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Azure Key Vault requis**             | Non                                                                                                      | Oui                                                                                |
+| **Quota de cœurs**                           | Déterminé par le quota de cœurs Batch                                                                          | Déterminé par le quota de cœurs Batch                                              |
+| **Support réseau virtuel Azure (Vnet)** | Pools créés avec une configuration du service cloud                                                      | Pools créés avec une configuration de machines virtuelles                               |
+| **Modèle de déploiement de réseau virtuel pris en charge**      | Vnets créés avec un modèle de déploiement classique                                                             | Réseaux virtuels créés avec le modèle de déploiement classique ou Azure Resource Manager |
+
 ## <a name="azure-storage-account"></a>un compte Azure Storage.
 
 La plupart des solutions Batch utilisent Stockage Azure pour stocker les fichiers de ressources et les fichiers de sortie.  
@@ -171,6 +172,8 @@ Lorsque vous créez un pool Batch, vous pouvez spécifier la configuration de m
     * Comme avec les rôles de travail dans Services cloud, vous pouvez spécifier une *Version du système d’exploitation* (pour plus d’informations sur les rôles de travail, consultez la section [En savoir plus sur Services cloud](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) de l’article [Vue d’ensemble de Services cloud](../cloud-services/cloud-services-choose-me.md)).
     * Comme avec les rôles de travail, nous vous recommandons de spécifier `*` comme *version du système d’exploitation* afin que les nœuds soient automatiquement mis à niveau et qu’aucun travail supplémentaire ne soit requis pour gérer ces nouvelles versions. La principale raison de sélectionner une version de système d’exploitation spécifique est d’assurer la compatibilité des applications, ce qui permet aux tests de compatibilité descendante d’être réalisés avant d’autoriser la mise à jour de la version. Une fois validée, la *version du système d’exploitation* du pool peut être mise à jour et la nouvelle image du système d’exploitation peut être installée. Toutes les tâches en cours d’exécution sont interrompues et remises en file d’attente.
 
+Lorsque vous créez un pool, vous devez sélectionner la valeur **nodeAgentSkuId** appropriée, selon le système d’exploitation de l’image de base de votre VHD. Pour obtenir un mappage des ID de référence SKU d’agent de nœud disponible sur les références des images de système d’exploitation, appelez l’opération permettant de [répertorier les références SKU d’agent de nœud prises en charge](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
+
 Consultez la section relative au [compte](#account) pour en savoir plus sur la définition du mode d’allocation de pool lorsque vous créez un compte Batch.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Images personnalisées pour les pools de machines virtuelles
@@ -195,8 +198,6 @@ Assurez-vous que vos comptes de stockage répondent aux critères suivants :
 - Actuellement, seuls les comptes de stockage standards sont pris en charge. Nous prendrons prochainement en charge le stockage Azure Premium.
 - Vous pouvez spécifier un compte de stockage avec plusieurs blobs VHD personnalisés, ou plusieurs comptes de stockage incluant un seul blob. Nous vous recommandons d’utiliser plusieurs comptes de stockage, afin d’optimiser les performances.
 - Un seul blob VHD d’images personnalisées peut gérer jusqu’à 40 instances de machines virtuelles Linux, ou 20 instances de machines virtuelles Windows. Vous devez créer des copies des blobs VHD pour pouvoir générer des pools incluant plusieurs machines virtuelles. Par exemple, un pool incluant 200 machines virtuelles Windows requiert la spécification de 10 blobs VHD uniques pour la propriété **osDisk**.
-
-Lorsque vous créez un pool, vous devez sélectionner la valeur **nodeAgentSkuId** appropriée, selon le système d’exploitation de l’image de base de votre VHD. Pour obtenir un mappage des ID de référence SKU d’agent de nœud disponible sur les références des images de système d’exploitation, appelez l’opération permettant de [répertorier les références SKU d’agent de nœud prises en charge](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
 
 Pour créer un pool à partir d’une image personnalisée, à l’aide du portail Azure, procédez comme suit :
 

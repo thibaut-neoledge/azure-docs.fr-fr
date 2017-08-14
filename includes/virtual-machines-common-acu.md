@@ -11,7 +11,7 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour permettre de 
 
 <br>
 
-| Famille de références | ACU |
+| Famille de références | ACU \ Processeur virtuel |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |

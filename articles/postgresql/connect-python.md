@@ -1,6 +1,6 @@
 ---
 title: "Se connecter à la base de données Azure pour PostgreSQL à partir de Python | Microsoft Docs"
-description: "Ce guide de démarrage rapide fournit un exemple de code Python, que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour PostgreSQL."
+description: "Ce guide de démarrage rapide fournit un exemple de code Python que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour PostgreSQL."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -10,12 +10,12 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/07/2017
+ms.date: 08/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de Python pour se connecter et interroger des données
@@ -49,7 +49,7 @@ Obtenez les informations de connexion requises pour vous connecter à la base de
 5. Si vous avez oublié vos informations de connexion au serveur, accédez à la page **Vue d’ensemble** pour afficher le nom de connexion de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
 
 ## <a name="how-to-run-python-code"></a>Comment exécuter du code Python
-- Dans l’éditeur de texte de votre choix, créez un fichier nommé postgres.py et enregistrez-le dans un dossier de projet. Copiez-collez un exemple de code ci-dessous dans le fichier texte et enregistrez-le. Veillez à sélectionner l’encodage UTF-8 lors de l’enregistrement du fichier dans le système d’exploitation Windows. 
+- Dans l’éditeur de texte de votre choix, créez un fichier nommé postgres.py et enregistrez-le dans un dossier de projet. Copiez-collez un exemple de code ci-dessous dans le fichier texte. Remplacez les paramètres host, dbname, user et password par les valeurs spécifiées lors de la création du serveur et de la base de données. Puis enregistrez le fichier. Veillez à sélectionner l’encodage UTF-8 lors de l’enregistrement du fichier dans le système d’exploitation Windows. 
 - Pour exécuter le code, lancez l’invite de commandes ou l’interpréteur de commandes Bash. Basculez dans votre dossier de projet, par exemple `cd postgresql`. Ensuite, tapez la commande Python suivie du nom de fichier, par exemple `python postgres.py`.
 
 > [!NOTE]

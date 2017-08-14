@@ -15,6 +15,11 @@ Oui. Les NSA suivants sont réservés par Azure pour les homologations internes 
 
 Vous ne pouvez pas spécifier ces NSA pour vos périphériques VPN locaux lors de la connexion à des passerelles VPN Azure.
 
+### <a name="are-there-any-other-asns-that-i-cant-use"></a>Existe-t-il d’autres NSA que je ne peux pas utiliser ?
+Oui, les NSA ci-après sont [réservés par l’IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) et ne sont pas configurables sur votre passerelle VPN Azure :
+
+23456, 64496-64511, 65535-65551 et 429496729.
+
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>Puis-je utiliser le même NSA pour les réseaux VPN locaux et les réseaux virtuels Azure ?
 Non. Vous devez attribuer des NSA différents à vos réseaux locaux et vos réseaux virtuels Azure si vous les interconnectez avec le protocole BGP. Le NSA 65515 est attribué aux passerelles VPN Azure par défaut, et ce, que le protocole BGP soit activé ou non pour la connectivité entre les sites locaux. Vous pouvez remplacer cette valeur par défaut en attribuant un NSA différent lors de la création de la passerelle VPN, ou modifier le NSA après avoir créé la passerelle. Vous devez affecter vos NSA locaux aux passerelles de réseau local Azure correspondantes.
 

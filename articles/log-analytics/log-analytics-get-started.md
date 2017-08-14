@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>Prise en main d’un espace de travail Log Analytics
@@ -59,7 +58,12 @@ L’étape suivante consiste à créer un espace de travail.
 4. Sélectionnez un espace de travail pour en visualiser les détails dans le Portail Azure.       
     ![détails sur l’espace de travail](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-add-solutions-and-solution-offerings"></a>3 Ajouter des solutions et des offres de solutions
+## <a name="3-upgrade-workspace-to-new-log-search"></a>3 Mettre à niveau l’espace de travail vers la nouvelle fonctionnalité Recherche dans les journaux
+Un nouveau langage de requête Log Analytics a été mis en production. Pour en bénéficier, vous devez convertir votre espace de travail.  Si la région qui héberge votre espace de travail a été mise à niveau, une bannière violette doit apparaître dans la partie supérieure de votre espace de travail pour vous inviter à effectuer cette conversion. La mise à niveau est totalement facultative et n’a aucune incidence sur votre utilisation de Log Analytics ou des solutions que vous pourriez ajouter.  
+
+Pour plus d’informations sur les avantages, les points à prendre en compte et le processus de mise à niveau, consultez l’article [Mise à niveau d’Azure Log Analytics pour la nouvelle fonctionnalité de recherche dans les journaux](log-analytics-log-search-upgrade.md).  
+
+## <a name="4-add-solutions-and-solution-offerings"></a>4 Ajouter des solutions et des offres de solutions
 
 Ajoutez ensuite des solutions de gestion et des offres de solutions. Les solutions de gestion représentent une collection de règles logiques, de visualisation et d'acquisition des données qui fournissent des mesures cernant un domaine problématique en particulier. Une offre de solution est un ensemble de solutions de gestion.
 
@@ -95,11 +99,11 @@ Créez ensuite une machine virtuelle simple dans Azure. Après avoir créé une 
 
 - Suivez les instructions indiquées dans [Connecter des machines virtuelles Azure à Log Analytics](log-analytics-azure-vm-extension.md) pour connecter la machine virtuelle à Log Analytics à l’aide du portail Azure.
 
-## <a name="5-view-and-act-on-data"></a>5 Afficher et agir sur les données
+## <a name="6-view-and-act-on-data"></a>6 Visualiser et manipuler les données
 
 Précédemment, vous avez activé la solution Log Analytics des activités et les offres de services Security & Compliance et Automation & Control. Nous observons ensuite les données collectées par les solutions et les résultats des recherches dans les journaux.
 
-Pour commencer, examinez les données des solutions qui s’affichent. Examinez ensuite certaines recherches dans les journaux accessibles à partir de recherches dans les journaux. Les recherches de journal vous permettent de combiner et de mettre en corrélation toutes les données de l’ordinateur à partir de plusieurs sources dans votre environnement. Pour plus d’informations, consultez [Recherches de journal dans Log Analytics](log-analytics-log-searches.md). Enfin, agissez sur les données trouvées à l’aide du portail OMS, qui se trouve en dehors du portail Azure.
+Pour commencer, examinez les données des solutions qui s’affichent. Examinez ensuite certaines recherches dans les journaux accessibles à partir de recherches dans les journaux. Les recherches de journal vous permettent de combiner et de mettre en corrélation toutes les données de l’ordinateur à partir de plusieurs sources dans votre environnement. Pour plus d’informations, consultez l’article [Trouver des données avec les recherches de journaux dans Log Analytics](log-analytics-log-searches.md) ou, si vous avez converti votre espace de travail dans le nouveau langage de requête, l’article [Présentation des recherches dans les journaux dans Log Analytics](log-analytics-log-search-new.md). 
 
 ### <a name="to-view-antimalware-data"></a>Pour afficher les données de logiciel anti-programme malveillant
 

@@ -1,7 +1,7 @@
 
 ---
 title: Sauvegarde Azure - Forum aux questions | Microsoft Docs
-description: "Réponses aux questions courantes sur : le coffre Recovery Services, ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites."
+description: "Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. "
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -14,13 +14,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/10/2017
-ms.author: markgal;giridham;arunak;trinadhk;
+ms.date: 7/21/2017
+ms.author: markgal;arunak;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 865d8faef47e333e30c5d4084a93a52efc5eb2ad
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Questions sur le service de sauvegarde Azure
@@ -53,14 +53,22 @@ Malheureusement non, vous ne pouvez pas migrer le contenu d’un coffre Azure Ba
 Les points de récupération des machines virtuelles classiques dans un coffre Azure Backup ne sont pas migrés automatiquement vers un coffre Recovery Services lorsque vous déplacez les machines virtuelles du mode Classic vers le mode Resource Manager. Suivez ces étapes pour transférer vos sauvegardes de machines virtuelles :
 
 1. Dans le coffre de sauvegarde Azure, accédez à l’onglet **Éléments protégés** et sélectionnez la machine virtuelle. Cliquez sur [Arrêter la protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Laissez l’option *Supprimer les données de sauvegarde associées***non cochée**.
-2. Migrez la machine virtuelle du mode Classic vers le mode Resource Manager. Vérifiez que les informations relatives au stockage et au réseau correspondant à la machine virtuelle sont également migrées vers le mode Resource Manager.
-3. Créez un coffre Recovery Services et configurez la sauvegarde sur la machine virtuelle migrée à l’aide de l’action **Sauvegarder** en haut du tableau de bord du coffre. Pour plus d’informations sur la sauvegarde d’une machine virtuelle dans un coffre Recovery Services, consultez l’article [Protégez les machines virtuelles Azure avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md).
+2. Supprimez l’extension de sauvegarde/capture instantanée de la machine virtuelle.
+3. Migrez la machine virtuelle du mode Classic vers le mode Resource Manager. Vérifiez que les informations relatives au stockage et au réseau correspondant à la machine virtuelle sont également migrées vers le mode Resource Manager.
+4. Créez un coffre Recovery Services et configurez la sauvegarde sur la machine virtuelle migrée à l’aide de l’action **Sauvegarder** en haut du tableau de bord du coffre. Pour plus d’informations sur la sauvegarde d’une machine virtuelle dans un coffre Recovery Services, consultez l’article [Protégez les machines virtuelles Azure avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md).
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
 Liste détaillée des questions présentes dans le [Forum aux questions sur la sauvegarde de fichiers-dossiers Azure](backup-azure-file-folder-backup-faq.md)
 
 ## <a name="azure-vm-backup"></a>Sauvegarde des machines virtuelles Azure
 Liste détaillée des questions présentes dans le [Forum aux questions sur la sauvegarde des machines virtuelles Azure](backup-azure-vm-backup-faq.md)
+
+## <a name="back-up-vmware-servers"></a>Sauvegarder des serveurs VMware
+
+### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Puis-je sauvegarder des serveurs VMware vCenter dans Azure ?
+
+Oui. Vous pouvez utiliser Azure Backup Server pour sauvegarder VMware vCenter et ESXi dans Azure. Pour en savoir plus sur la version de VMware prise en charge, consultez l’article [Matrice de protection d’Azure Backup Server](backup-mabs-protection-matrix.md). Pour un guide pas à pas, consultez [Utiliser Azure Backup Server pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md).
+
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Microsoft Azure Backup et System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Puis-je utiliser Azure Backup Server pour créer une sauvegarde de la récupération complète (BMR) pour un serveur physique ? <br/>
