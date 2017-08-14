@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB : Créer une application avec Java et l’API DocumentDB | Microsoft Docs"
+title: "Créer une base de données de documents Azure Cosmos DB avec Java | Microsoft Docs"
 description: "Présente un exemple de code Java que vous pouvez utiliser pour vous connecter à l’API DocumentDB d’Azure Cosmos DB et pour interroger cette dernière."
 services: cosmos-db
 documentationcenter: 
@@ -13,51 +13,77 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 06/27/2017
+ms.date: 08/02/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c178646f0ec10cb08e90c1eda544a2488782187f
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: f22e886ab3e59e69607e572d05a9f01d3d57f181
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
-<a id="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal" class="xliff"></a>
+# <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB : créer une base de données de documents à l’aide de Java et du portail Azure
 
-# Azure Cosmos DB : Créer une application API DocumentDB avec Java et le portail Azure
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
-Azure Cosmos DB est le service de base de données multi-modèle mondialement distribué de Microsoft. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Ce guide de démarrage rapide crée une base de données de documents à l’aide des outils du portail Azure pour Azure Cosmos DB. Ce guide vous indique également comment créer rapidement une application console Java au moyen de [l’API Java DocumentDB](documentdb-sdk-java.md). Les instructions de ce guide de démarrage rapide s’appliquent à tous les systèmes d’exploitation pouvant exécuter Java. Après avoir suivi ce guide de démarrage rapide, vous saurez comment créer et modifier des ressources de base de données de documents dans l’interface utilisateur ou par programme, selon la méthode que vous préférez.
 
-Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite créer et exécuter une application console basée sur [l’API Java DocumentDB](documentdb-sdk-java.md).
+## <a name="prerequisites"></a>Composants requis
 
-<a id="prerequisites" class="xliff"></a>
-
-## Composants requis
-
-* Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
-   * JDK 1.7 + (exécutez `apt-get install default-jdk` si vous ne possédez pas JDK)
-   * Maven (exécutez `apt-get install maven` si vous ne possédez pas Maven)
+* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+    * Sur Ubuntu, exécutez `apt-get install default-jdk` pour installer le JDK.
+    * Veillez à définir la variable d’environnement JAVA_HOME pour qu’elle pointe vers le dossier dans lequel le JDK est installé.
+* [Téléchargement](http://maven.apache.org/download.cgi) et [installation](http://maven.apache.org/install.html) d’une archive binaire [Maven](http://maven.apache.org/)
+    * Sur Ubuntu, vous pouvez exécuter `apt-get install maven` pour installer Maven.
+* [Git](https://www.git-scm.com/)
+    * Sur Ubuntu, vous pouvez exécuter `sudo apt-get install git` pour installer Git.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-a-database-account" class="xliff"></a>
+## <a name="create-a-database-account"></a>Création d'un compte de base de données
 
-## Création d'un compte de base de données
+Pour être en mesure de créer une base de données de documents, vous devez avoir préalablement créé un compte de base de données (DocumentDB) SQL avec Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="add-a-collection" class="xliff"></a>
-
-## Ajouter une collection
+## <a name="add-a-collection"></a>Ajouter une collection
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-<a id="clone-the-sample-application" class="xliff"></a>
+<a id="add-sample-data"></a>
+## <a name="add-sample-data"></a>Ajouter un exemple de données
 
-## Clonage de l’exemple d’application
+Vous pouvez maintenant ajouter des données à votre nouvelle collection grâce à l’Explorateur de données.
 
-Nous allons maintenant cloner une application API DocumentDB à partir de GitHub, configurer la chaîne de connexion et l’exécuter. Vous pouvez constater à quel point il est facile de travailler par programmation avec des données. 
+1. Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet Collections. Développez la base de données **Tâches**, développez la collection **Éléments**, cliquez sur **Documents**, puis cliquez sur **Nouveaux documents**. 
+
+   ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+  
+2. À présent, ajoutez un document à la collection avec la structure suivante.
+
+     ```json
+     {
+         "id": "1",
+         "category": "personal",
+         "name": "groceries",
+         "description": "Pick up apples and strawberries.",
+         "isComplete": false
+     }
+     ```
+
+3. Une fois le fichier json ajouté à l’onglet **Documents**, cliquez sur **Enregistrer**.
+
+    ![Copiez dans les données json, puis cliquez sur Enregistrer dans l’Explorateur de données du portail Azure](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
+
+4.  Créez et enregistrez un document supplémentaire dans lequel vous insérez une valeur unique pour la propriété `id` et modifiez les autres propriétés selon vos besoins. Vos nouveaux documents peuvent avoir la structure de votre choix car Azure Cosmos DB n’impose aucun schéma pour vos données.
+
+     Vous pouvez à présent utiliser des requêtes dans l’Explorateur de données pour récupérer vos données en cliquant sur les boutons **Modifier le filtre** et **Appliquer un filtre**. Par défaut, l’Explorateur de données utilise `SELECT * FROM c` pour récupérer tous les documents dans la collection, mais vous pouvez remplacer cette requête par une autre [requête SQL](documentdb-sql-query.md), telle que `SELECT * FROM c ORDER BY c._ts DESC`, pour obtenir tous les documents dans l’ordre décroissant en fonction de leur horodateur. 
+ 
+     Vous pouvez également utiliser l’Explorateur de données pour créer des procédures stockées, des fonctions définies par l'utilisateur et des déclencheurs afin d’exécuter la logique métier côté serveur ainsi que la mise à l’échelle du débit. L’Explorateur de données affiche tous les accès aux données par programmation intégrés disponibles dans l’API, mais permet d’accéder facilement à vos données dans le portail Azure.
+
+## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
+
+À présent, travaillons sur le code. Nous allons cloner une application API DocumentDB à partir de GitHub, définir la chaîne de connexion et l’exécuter. Vous pouvez constater à quel point il est facile de travailler par programmation avec des données. 
 
 1. Ouvrez une fenêtre de terminal git, comme git bash, et accédez à un répertoire de travail à l’aide de la commande `CD`.  
 
@@ -67,11 +93,9 @@ Nous allons maintenant cloner une application API DocumentDB à partir de GitHub
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
-<a id="review-the-code" class="xliff"></a>
+## <a name="review-the-code"></a>Examiner le code
 
-## Examiner le code
-
-Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fichier `Program.java` et recherchez ces lignes de code, qui créent les ressources Azure Cosmos DB. 
+Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fichier `Program.java` du dossier \src\GetStarted et recherchez les lignes de code ci-après qui créent les ressources Azure Cosmos DB. 
 
 * Le `DocumentClient` est initialisé.
 
@@ -97,12 +121,7 @@ Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fich
     DocumentCollection collectionInfo = new DocumentCollection();
     collectionInfo.setId(collectionName);
 
-    // DocumentDB collections can be reserved with throughput
-    // specified in request units/second. 1 RU is a normalized
-    // request equivalent to the read of a 1KB document. Here we
-    // create a collection with 400 RU/s.
-    RequestOptions requestOptions = new RequestOptions();
-    requestOptions.setOfferThroughput(400);
+    ...
 
     this.client.createCollection(databaseLink, collectionInfo, requestOptions);
     ```
@@ -138,54 +157,47 @@ Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fich
     }
     ```    
 
-<a id="update-your-connection-string" class="xliff"></a>
+## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
 
-## Mise à jour de votre chaîne de connexion
+Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application. Cette opération permettra à votre application de communiquer avec votre base de données hébergée.
 
-Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
+1. Dans le [portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Clés**, puis sur **Clés en lecture-écriture**. Vous utiliserez les boutons de copie sur le côté droit de l’écran pour copier l’URI et la CLÉ PRIMAIRE dans le fichier `Program.java` à l’étape suivante.
 
-1. Dans le [portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, dans le volet de navigation de gauche, cliquez sur **Clés**, puis sur **Clés en lecture-écriture**. Vous utiliserez les boutons Copier sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier `Program.java` à l’étape suivante.
+    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-documentdb-dotnet/keys.png)
 
-    ![Affichage et copie d’une clé d’accès dans le portail Azure, panneau Clés](./media/create-documentdb-dotnet/keys.png)
-
-2. Ouvrez le fichier `Program.java`. 
-
-3. Copiez votre valeur URI à partir du portail (à l’aide du bouton Copier) et définissez-la comme valeur du point de terminaison du constructeur DocumentClient dans `Program.java`. 
+2. Dans le fichier `Program.java`, copiez votre valeur URI à partir du portail (à l’aide du bouton de copie) et définissez-la comme valeur du point de terminaison du constructeur DocumentClient dans `Program.java`. 
 
     `"https://FILLME.documents.azure.com"`
 
-4. Copiez ensuite votre valeur CLÉ PRIMAIRE à partir du portail et remplacer le deuxième paramètre « FILLME » par la clé du constructeur DocumentClient dans « Program.java ». Votre application est maintenant à jour avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
+4. Ensuite, copiez votre valeur CLÉ PRIMAIRE à partir du portail et collez-la à la place de « FILLME » afin de la définir comme second paramètre du constructeur DocumentClient. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
     
-<a id="run-the-app" class="xliff"></a>
+## <a name="run-the-app"></a>Exécution de l'application
 
-## Exécution de l'application
+1. Dans la fenêtre de terminal git, exécutez la commande `cd` pour accéder au dossier azure-cosmos-db-documentdb-java-getting-started.
 
-1. Exécutez `mvn package` sur un terminal pour installer les packages Java requis.
+2. Dans la fenêtre de terminal git, tapez `mvn package` pour installer les packages Java requis.
 
-2. Exécutez `mvn exec:java -D exec.mainClass=GetStarted.Program` sur un terminal pour démarrer votre application Java.
+3. Dans la fenêtre de terminal git, exécutez `mvn exec:java -D exec.mainClass=GetStarted.Program` pour démarrer votre application Java.
 
-Vous pouvez maintenant revenir à l’Explorateur de données et voir la requête, effectuer des modifications et travailler avec ces nouvelles données. 
+    Dans la fenêtre de terminal, une notification vous indique que la base de données FamilyDB a été créée et vous invite à appuyer sur une touche pour continuer. Appuyez sur une touche pour créer la base de données, puis basculez vers l’Explorateur de données et constatez qu’il contient désormais une base de données FamilyDB. Continuez à appuyer sur des touches pour créer la collection et les documents, puis exécutez une requête. Une fois le projet terminé, les ressources sont supprimées de votre compte. 
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-documentdb-java/console-output.png)
 
-## Examiner les SLA dans le Portail Azure
+
+## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante :
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
 2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Étapes suivantes
 
-## Étapes suivantes
-
-Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer une collection à l’aide de l’Explorateur de données, et à exécuter une application. Vous pouvez maintenant importer des données supplémentaires dans votre compte Cosmos DB. 
+Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, une base de données de documents et une collection à l’aide de l’Explorateur de données, puis à exécuter une application pour effectuer la même opération par programme. Vous pouvez maintenant importer des données supplémentaires à votre compte Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importer des données dans Azure Cosmos DB](import-data.md)

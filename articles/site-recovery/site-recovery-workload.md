@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
@@ -127,11 +126,12 @@ Site Recovery vous permet de protéger Exchange comme suit :
 ## <a name="protect-sap"></a>Protéger SAP
 Utilisez Site Recovery pour protéger votre déploiement SAP comme suit :
 
-* Assurez la protection du déploiement SAP entier en répliquant plusieurs couches de déploiement vers Azure ou un site secondaire.
+* Activez la protection des applications de production SAP NetWeaver et non-NetWeaver exécutées localement, par la réplication des composants sur Azure.
+* Activez la protection des applications de production SAP NetWeaver et non-NetWeaver exécutant Azure, par la réplication des composants sur un autre centre de données Azure.
 * Simplifiez la migration vers le cloud en utilisant Site Recovery pour migrer votre déploiement SAP vers Azure.
-* Simplifiez le développement et le test SAP en créant une copie de type production à la demande pour le test et le débogage des applications.
+* Simplifiez les mises à niveau, les tests et la création de prototypes du projet SAP, par la création d’un clone de production à la demande pour tester les applications SAP.
 
-[En savoir plus](http://aka.ms/asr-sap) sur la protection de SAP.
+[En savoir plus](site-recovery-sap.md) sur la protection de SAP.
 
 ## <a name="protect-iis"></a>Protection IIS
 Utilisez Site Recovery pour protéger votre déploiement IIS comme suit :
@@ -152,11 +152,11 @@ Site Recovery permet de protéger vos déploiements Citrix XenApp XenDesktop, 
 * Protégez votre déploiement Citrix XenApp et XenDesktop en répliquant différentes couches de déploiement (serveur DNS Active Directory, serveur de base de données SQL, Citrix Delivery Controller, serveur StoreFront, XenApp Master (VDA), serveur de licences de Citrix XenApp) sur Azure.
 * Simplifiez la migration vers le cloud en utilisant Site Recovery pour migrer votre déploiement Citrix XenApp et XenDesktop sur Azure.
 * Simplifiez le test de Citrix XenApp/XenDesktop en créant une copie de type production à la demande pour le test et le débogage.
-* Cette solution est uniquement applicable pour les bureaux virtuels du système d’exploitation Windows Server, et non pour les bureaux virtuels client. En effet, ces derniers ne sont pas encore pris en charge pour la gestion des licences dans Azure. 
+* Cette solution est uniquement applicable pour les bureaux virtuels du système d’exploitation Windows Server, et non pour les bureaux virtuels client. En effet, ces derniers ne sont pas encore pris en charge pour la gestion des licences dans Azure.
 [Apprenez-en plus](https://azure.microsoft.com/pricing/licensing-faq/) sur les licences pour les bureaux client/serveur dans Azure.
 
-[Apprenez-en plus](site-recovery-citrix-xenapp-and-xendesktop.md) sur la protection des déploiements de Citrix XenApp et XenDesktop. Vous pouvez également consulter le [livre blanc de Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) détaillant les mêmes informations. 
+[Apprenez-en plus](site-recovery-citrix-xenapp-and-xendesktop.md) sur la protection des déploiements de Citrix XenApp et XenDesktop. Vous pouvez également consulter le [livre blanc de Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) détaillant les mêmes informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Vérifiez les composants requis](site-recovery-prereq.md) 
+[Vérifiez les composants requis](site-recovery-prereq.md)
 

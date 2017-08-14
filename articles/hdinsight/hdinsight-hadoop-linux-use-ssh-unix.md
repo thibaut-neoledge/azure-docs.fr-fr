@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 3eb1d4df7ab87ec692716339eb0ecb9df4c58732
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Se connecter à HDInsight (Hadoop) à l’aide de SSH
@@ -134,7 +133,34 @@ Si vous utilisez un __cluster HDInsight joint à un domaine__, vous devez utilis
 
 Pour plus d’informations, consultez la section [Configurer des clusters HDInsight joints à un domaine (version préliminaire)](hdinsight-domain-joined-configure.md).
 
-## <a name="connect-to-worker-and-zookeeper-nodes"></a>Se connecter à des nœuds Zookeeper et Worker
+## <a name="connect-to-nodes"></a>Se connecter à des nœuds
+
+Les nœuds principaux et le nœud de périmètre (le cas échéant) sont accessibles sur Internet sur les ports 22 et 23.
+
+* Lorsque vous vous connectez aux __nœuds principaux__, utilisez le port __22__ pour vous connecter au nœud principal primaire et le port __23__ pour vous connecter au nœud principal secondaire. Le nom de domaine complet à utiliser est `clustername-ssh.azurehdinsight.net`, où `clustername` est le nom de votre cluster.
+
+    ```bash
+    # Connect to primary head node
+    # port not specified since 22 is the default
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+
+    # Connect to secondary head node
+    ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
+    ```
+    
+* Lorsque vous vous connectez au __nœud de périmètre__, utilisez le port 22. Le nom de domaine complet est `edgenodename.clustername-ssh.azurehdinsight.net`, où `edgenodename` est un nom que vous avez fourni lors de la création du nœud de périmètre. `clustername` est le nom du cluster.
+
+    ```bash
+    # Connect to edge node
+    ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
+    ```
+
+> [!IMPORTANT]
+> Les exemples précédents reposent sur l’hypothèse que vous utilisez l’authentification par mot de passe, ou que l’authentification par certificat s’effectue automatiquement. Si vous utilisez une paire de clés SSH pour l’authentification, et que le certificat n’est pas utilisé automatiquement, utilisez le paramètre `-i` pour spécifier la clé privée. Par exemple, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+
+Une fois que vous êtes connecté, l’invite change de façon à indiquer le nom d’utilisateur SSH et le nœud auquel vous êtes connecté. Par exemple, lorsque vous êtes connecté au nœud principal primaire sous le nom `sshuser`, l’invite est `sshuser@hn0-clustername:~$`.
+
+### <a name="connect-to-worker-and-zookeeper-nodes"></a>Se connecter à des nœuds Zookeeper et Worker
 
 Les nœuds Worker et Zookeeper ne sont pas directement accessibles depuis internet. Ils sont accessibles à partir des nœuds principaux ou des nœuds de périmètre du cluster. Pour vous connecter a d’autres nœuds, procédez comme suit :
 
@@ -188,6 +214,33 @@ Si le compte SSH est sécurisé à l’aide de __clés SSH__, assurez-vous que l
     Si votre clé privée est stockée dans un fichier différent, remplacez `~/.ssh/id_rsa` par le chemin d’accès au fichier.
 
 5. Connectez-vous aux nœuds principaux ou aux nœuds de périmètre du cluster à l’aide de SSH. Utilisez ensuite la commande SSH pour vous connecter à un nœud Worker ou Zookeeper. La connexion est établie à l’aide de la clé transmise.
+
+## <a name="copy-files"></a>Copie des fichiers
+
+L’utilitaire `scp` vous permet de copier des fichiers à partir ou à destination de nœuds spécifiques dans le cluster. Par exemple, la commande ci-après copie le fichier `test.txt` du système local vers le nœud principal primaire :
+
+```bash
+scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
+```
+
+Étant donné qu’aucun chemin d’accès n’est spécifié après le caractère `:`, le fichier est placé dans le répertoire de base `sshuser`.
+
+L’exemple ci-après copie le fichier `test.txt` du répertoire de base `sshuser` du nœud principal primaire vers le système local :
+
+```bash
+scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
+```
+
+> [!IMPORTANT]
+> La commande `scp` peut uniquement accéder au système de fichiers de nœuds spécifiques au sein du cluster. Elle ne permet pas d’accéder aux données du stockage compatible avec HDFS pour le cluster.
+>
+> Utilisez la commande `scp` lorsque vous avez besoin de charger une ressource en vue de son utilisation à partir d’une session SSH. Par exemple, chargez un script Python, puis exécutez le script à partir d’une session SSH.
+>
+> Pour plus d’informations sur le chargement direct de données dans le stockage compatible avec HDFS, consultez les documents suivants :
+>
+> * [HDInsight avec Stockage Azure](hdinsight-hadoop-use-blob-storage.md)
+>
+> * [HDInsight avec Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

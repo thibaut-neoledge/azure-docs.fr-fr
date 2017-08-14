@@ -1,5 +1,5 @@
 ---
-title: "Démarrage rapide : Réinitialisation de mot de passe en libre-service Azure AD | Microsoft Docs"
+title: "Démarrage rapide : Azure AD SSPR | Microsoft Docs"
 description: "Déployer rapidement la réinitialisation de mot de passe en libre-service Azure AD"
 services: active-directory
 keywords: 
@@ -13,17 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 52f89520fef8fc9ddb6e8e10a59ec35600affb2a
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="quick-start-azure-ad-self-service-password-reset"></a>Démarrage rapide : Réinitialisation de mot de passe en libre-service Azure AD
+# <a name="quickstart-azure-ad-self-service-password-reset"></a>Démarrage rapide : Réinitialisation de mot de passe en libre-service Azure AD
+
+> [!IMPORTANT]
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, [voici comment vous pouvez modifier et réinitialiser votre mot de passe](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="rapidly-deploy-self-service-password-reset"></a>Déployer rapidement la réinitialisation de mot de passe en libre-service
 
@@ -74,9 +77,15 @@ Pour activer la synchronisation d’identité locale avec Azure AD, vous devez 
 
 ## <a name="disabling-self-service-password-reset"></a>Désactivation de la réinitialisation de mot de passe en libre-service
 
-Pour désactiver la réinitialisation de mot de passe en libre-service, il vous suffit d’ouvrir votre locataire Azure AD, d’accéder à **Réinitialisation de mot de passe > Propriétés** > et de sélectionner **Personne** sous **Réinitialisation de mot de passe en libre-service activée**
+Pour désactiver la réinitialisation de mot de passe en libre-service, il vous suffit d’ouvrir votre client Azure AD, d’accéder à **Réinitialisation de mot de passe > Propriétés** > et de sélectionner **Aucune** sous **Réinitialisation de mot de passe en libre-service activée**
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Avec ce guide de démarrage rapide, vous avez appris à configurer la réinitialisation de mot de passe en libre-service pour vos utilisateurs. Pour continuer sur le portail Azure afin d’effectuer ces étapes, suivez le lien ci-dessous pour accéder au portail.
+
+> [!div class="nextstepaction"]
+> [Activer la réinitialisation du mot de passe libre-service](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
 * [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.

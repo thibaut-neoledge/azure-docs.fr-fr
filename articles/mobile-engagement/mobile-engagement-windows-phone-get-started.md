@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c05a3a24ea8cc663edb8232dc31d664be77a9597
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d2334a59d83c90bdd02c4fa29261d36aad292892
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Prise en main d'Azure Mobile Engagement pour les applications Windows Phone Silverlight
@@ -28,7 +28,10 @@ Cette rubrique vous explique comment utiliser Azure Mobile Engagement pour com
 Ce didacticiel montre un scénario de diffusion simple à l'aide de Mobile Engagement. Il vous apprend à créer une application Windows Phone Silverlight vide qui collecte des données de base et reçoit des notifications push au moyen du service de notifications push Microsoft (MPNS).
 
 > [!NOTE]
-> Windows Phone 8.1 et autres projets de version antérieure ne sont pas pris en charge dans Visual Studio 2017.  Pour en savoir plus, consultez [Plateforme cible et compatibilité dans Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+> Le service Azure Mobile Engagement ne sera plus disponible à partir de mars 2018. Actuellement, il reste uniquement accessible aux clients déjà abonnés à ce service. Pour plus d’informations, consultez la page [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+
+> [!NOTE]
+> Les projets du Windows Phone 8.1 et des versions antérieures ne sont pas pris en charge dans Visual Studio 2017.  Pour en savoir plus, consultez [Plateforme cible et compatibilité dans Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 > [!NOTE]
 > Si vous ciblez Windows Phone 8.1 (non-Silverlight), consultez le [didacticiel Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md).

@@ -1,5 +1,5 @@
 ---
-title: "Qu’est-ce qu’Apache Storm ? - Azure HDInsight | Microsoft Docs"
+title: "Présentation d’Apache Storm - Azure HDInsight | Microsoft Docs"
 description: "Apache Storm vous permet de traiter des flux de données en temps réel. Azure HDInsight vous permet de créer facilement des clusters Storm dans le cloud Azure. Avec Visual Studio, vous pouvez créer des solutions Storm en C#, puis les déployer sur vos clusters Storm HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 0d565c29767e778873dad2421c93b62455706f27
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 073672f1223313938baedee027072cb96062294b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Présentation d’Apache Storm sur Azure HDInsight
 
-[Apache Storm](http://storm.apache.org/) est un système de calcul distribué, à tolérance de panne et open source. Vous pouvez utiliser un cluster Storm pour traiter des flux de données en temps réel avec Hadoop. Les solutions Storm peuvent également permettre un traitement garanti des données, ainsi que la possibilité de relire les données dont le traitement a échoué une première fois.
+[Apache Storm](http://storm.apache.org/) est un système de calcul distribué, à tolérance de panne et open source. Vous pouvez utiliser Storm pour traiter des flux de données en temps réel avec Hadoop. Les solutions Storm peuvent également permettre un traitement garanti des données, ainsi que la possibilité de relire les données dont le traitement a échoué une première fois.
 
 Le logiciel Storm sur HDInsight offre les principaux avantages suivants :
 

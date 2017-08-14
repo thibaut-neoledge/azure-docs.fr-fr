@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: f66c4c0b7c391b3fc5ee042cc7a6643e46566d3f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapport de connexions à risque dans le portail Azure Active Directory
@@ -35,6 +35,19 @@ Les événements à risque détectés sont utilisés pour déterminer les valeur
 Dans le [portail Azure](https://portal.azure.com), vous trouverez les rapports de sécurité dans le panneau **Azure Active Directory** dans la section **Sécurité**. 
 
 ![les connexions risquées.](./media/active-directory-reporting-security-risky-sign-ins/10.png)
+
+
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>De quelle licence Azure AD avez-vous besoin pour accéder à un rapport de sécurité ?  
+
+Toutes les éditions d’Azure Active Directory vous indiquent les rapports de connexions risquées.  
+Toutefois, le niveau de granularité d’un rapport varie entre les éditions : 
+
+- Dans les **éditions Azure Active Directory Free et Basic**, vous obtenez déjà la liste des connexions risquées. 
+
+- L’édition **Azure Active Directory Premium 1** étend ce modèle en vous permettant également d’examiner certains événements à risque sous-jacent qui ont été détectés pour chaque rapport. 
+
+- L’édition **Azure Active Directory Premium 2** vous fournit les informations les plus détaillées sur les événements à risque sous-jacent. Elle vous permet également de configurer des stratégies de sécurité répondant automatiquement aux niveaux de risque configurés.
+
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Édition Azure Active Directory gratuite et de base

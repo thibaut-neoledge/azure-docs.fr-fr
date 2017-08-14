@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 08/07/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 5bed2616e15a2e5f52e79d0c28159b568e7a1de3
-ms.lasthandoff: 04/15/2017
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 804e05f596e1d6d5f650e4c94a18eff6b7c3ba4e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -25,31 +26,89 @@ ms.lasthandoff: 04/15/2017
 Une fois qu’un compte Automation est correctement créé, vous pouvez effectuer un test simple pour confirmer que vous êtes en mesure de vous authentifier dans Azure Resource Manager ou un déploiement classique Azure à l’aide de votre compte d’identification Automation nouvellement créé ou mis à jour.    
 
 ## <a name="automation-run-as-authentication"></a>Authentification d’identification Automation
+Utilisez l’exemple de code ci-dessous pour [créer un runbook PowerShell](automation-creating-importing-runbook.md) afin de vérifier l’authentification à l’aide d’un compte d’identification. Utilisez-le aussi sur votre runbook personnalisé pour vous authentifier et gérer les ressources du Gestionnaire des ressources avec un compte Automation.   
 
-1. Dans le portail Azure, ouvrez le compte Automation que vous avez créé.  
-2. Cliquez sur la vignette **Runbooks** pour ouvrir la liste des runbooks.
-3. Sélectionnez le Runbook **AzureAutomationTutorialScript**, puis cliquez sur **Démarrer** pour le lancer.  Vous allez recevoir une invite de confirmation de démarrage du Runbook.
-4. Un [travail du Runbook](automation-runbook-execution.md) est créé. Le panneau Travail s’affiche alors et l’état du travail est affiché dans la mosaïque **Résumé du travail**.  
-5. L’état initial du travail est *Mis en file d’attente* pour indiquer qu’il attend la disponibilité d’un Runbook Worker dans le cloud. La tâche prend ensuite l’état *Démarrage en cours* lorsqu’un Worker sélectionne la tâche, puis l’état *En cours d’exécution* lorsque le Runbook commence à s’exécuter.  
-6. À l’issue du travail du Runbook, l’état **Terminé** doit s’afficher.<br> ![Test de Runbook du principal de sécurité](media/automation-verify-runas-authentication/job-summary-automationtutorialscript.png)<br>
-7. Pour afficher les résultats détaillés du Runbook, cliquez sur la mosaïque **Sortie** .
-8. Le panneau **Sortie** doit indiquer qu’il a authentifié et retourné la liste de toutes les ressources disponibles dans le groupe de ressources.
-9. Fermez le panneau **Sortie** pour revenir au panneau **Résumé du travail**.
-10. Fermez le panneau **Résumé du travail** et le panneau du Runbook **AzureAutomationTutorialScript** correspondant.
+    $connectionName = "AzureRunAsConnection"
+    try
+    {
+        # Get the connection "AzureRunAsConnection "
+        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+        "Logging in to Azure..."
+        Add-AzureRmAccount `
+           -ServicePrincipal `
+           -TenantId $servicePrincipalConnection.TenantId `
+           -ApplicationId $servicePrincipalConnection.ApplicationId `
+           -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+    }
+    catch {
+       if (!$servicePrincipalConnection)
+       {
+          $ErrorMessage = "Connection $connectionName not found."
+          throw $ErrorMessage
+      } else{
+          Write-Error -Message $_.Exception
+          throw $_.Exception
+      }
+    }
+
+    #Get all ARM resources from all resource groups
+    $ResourceGroups = Get-AzureRmResourceGroup 
+
+    foreach ($ResourceGroup in $ResourceGroups)
+    {    
+       Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName)
+       $Resources = Find-AzureRmResource -ResourceGroupNameContains $ResourceGroup.ResourceGroupName | Select ResourceName, ResourceType
+       ForEach ($Resource in $Resources)
+       {
+          Write-Output ($Resource.ResourceName + " of type " +  $Resource.ResourceType)
+       }
+       Write-Output ("")
+    } 
+
+Notez que l’applet de commande utilisée pour l’authentification ( **Add-AzureRmAccount**) dans le Runbook, utilise le jeu de paramètres *ServicePrincipalCertificate* .  Elle effectue l’authentification à l’aide du certificat du principal du service et non des informations d’identification.  
+
+Lorsque vous [exécutez un runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) pour valider un compte d’identification, un [travail du runbook](automation-runbook-execution.md) est créé. Le panneau Travail s’affiche alors et l’état du travail est affiché dans la mosaïque **Résumé du travail**. L’état initial du travail est *Mis en file d’attente* pour indiquer qu’il attend la disponibilité d’un Runbook Worker dans le cloud. La tâche prend ensuite l’état *Démarrage en cours* lorsqu’un Worker sélectionne la tâche, puis l’état *En cours d’exécution* lorsque le Runbook commence à s’exécuter.  À l’issue du travail du Runbook, l’état **Terminé** doit s’afficher.
+
+Pour afficher les résultats détaillés du Runbook, cliquez sur la mosaïque **Sortie** .  Le panneau **Sortie** doit indiquer qu’il a authentifié et retourné la liste de toutes les ressources dans les groupes de ressources de votre abonnement.  
+
+Pensez à supprimer le bloc de code en commençant par le commentaire `#Get all ARM resources from all resource groups` lorsque vous réutiliser le code de vos runbooks.
 
 ## <a name="classic-run-as-authentication"></a>Authentification d’identification Classic
-Procédez comme suit si vous gérez les ressources dans le modèle de déploiement classique pour confirmer que vous êtes en mesure de vous authentifier à l’aide du nouveau compte d’identification Classic.     
+Utilisez l’exemple de code ci-dessous pour [créer un runbook PowerShell](automation-creating-importing-runbook.md) afin de vérifier l’authentification à l’aide d’un compte d’identification Classic. Utilisez-le aussi sur votre runbook personnalisé pour vous authentifier et gérer les ressources dans le modèle de déploiement Classic.  
 
-1. Dans le portail Azure, ouvrez le compte Automation que vous avez créé.  
-2. Cliquez sur la vignette **Runbooks** pour ouvrir la liste des runbooks.
-3. Sélectionnez le Runbook **AzureClassicAutomationTutorialScript**, puis cliquez sur **Démarrer** pour le lancer.  Vous allez recevoir une invite de confirmation de démarrage du Runbook.
-4. Un [travail du Runbook](automation-runbook-execution.md) est créé. Le panneau Travail s’affiche alors et l’état du travail est affiché dans la mosaïque **Résumé du travail**.  
-5. L’état initial du travail est *Mis en file d’attente* pour indiquer qu’il attend la disponibilité d’un Runbook Worker dans le cloud. La tâche prend ensuite l’état *Démarrage en cours* lorsqu’un Worker sélectionne la tâche, puis l’état *En cours d’exécution* lorsque le Runbook commence à s’exécuter.  
-6. À l’issue du travail du Runbook, l’état **Terminé** doit s’afficher.<br><br> ![Test de Runbook du principal de sécurité](media/automation-verify-runas-authentication/job-summary-automationclassictutorialscript.png)<br>  
-7. Pour afficher les résultats détaillés du Runbook, cliquez sur la mosaïque **Sortie** .
-8. Le panneau **Sortie** doit indiquer qu’il a authentifié et retourné la liste de toutes les machines virtuelles Classic de l’abonnement.
-9. Fermez le panneau **Sortie** pour revenir au panneau **Résumé du travail**.
-10. Fermez le panneau **Résumé du travail** et le panneau du Runbook **AzureClassicAutomationTutorialScript** correspondant.
+    $ConnectionAssetName = "AzureClassicRunAsConnection"
+    # Get the connection
+    $connection = Get-AutomationConnection -Name $connectionAssetName        
+
+    # Authenticate to Azure with certificate
+    Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
+    $Conn = Get-AutomationConnection -Name $ConnectionAssetName
+    if ($Conn -eq $null)
+    {
+       throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in the Automation account."
+    }
+
+    $CertificateAssetName = $Conn.CertificateAssetName
+    Write-Verbose "Getting the certificate: $CertificateAssetName" -Verbose
+    $AzureCert = Get-AutomationCertificate -Name $CertificateAssetName
+    if ($AzureCert -eq $null)
+    {
+       throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in the Automation account."
+    }
+
+    Write-Verbose "Authenticating to Azure with certificate." -Verbose
+    Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert
+    Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
+    
+    #Get all VMs in the subscription and return list with name of each
+    Get-AzureVM | ft Name
+
+Lorsque vous [exécutez un runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) pour valider un compte d’identification, un [travail du runbook](automation-runbook-execution.md) est créé. Le panneau Travail s’affiche alors et l’état du travail est affiché dans la mosaïque **Résumé du travail**. L’état initial du travail est *Mis en file d’attente* pour indiquer qu’il attend la disponibilité d’un Runbook Worker dans le cloud. La tâche prend ensuite l’état *Démarrage en cours* lorsqu’un Worker sélectionne la tâche, puis l’état *En cours d’exécution* lorsque le Runbook commence à s’exécuter.  À l’issue du travail du Runbook, l’état **Terminé** doit s’afficher.
+
+Pour afficher les résultats détaillés du Runbook, cliquez sur la mosaïque **Sortie** .  Le panneau **Sortie** doit indiquer qu’il a authentifié et retourné la liste de toutes les machines virtuelles Azure de VMName qui sont déployées dans votre abonnement.  
+
+N’oubliez pas de supprimer le cmdlet **Get-AzureVM** lorsque vous réutilisez le code de vos runbooks.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour une prise en main des Runbooks PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-powershell.md).

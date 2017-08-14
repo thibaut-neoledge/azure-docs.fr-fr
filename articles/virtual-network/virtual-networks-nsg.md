@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrer le trafic réseau avec les groupes de sécurité réseau
@@ -50,7 +49,7 @@ Les règles de groupe de sécurité réseau contiennent les propriétés suivant
 | --- | --- | --- | --- |
 | **Name** |Nom de la règle. |Doit être unique dans la région.<br/>Peut contenir des lettres, des chiffres, des traits de soulignement, des points et des traits d’union.<br/>Doit commencer par une lettre ou un chiffre.<br/>Doit se terminer par une lettre, un chiffre ou un trait de soulignement.<br/>Ne doit pas dépasser 80 caractères. |Un NSG pouvant contenir plusieurs règles, veillez à respecter une convention d’affectation de noms qui vous permet d’identifier la fonction de votre règle |
 | **Protocole** |Protocole à faire correspondre à la règle. |TCP, UDP ou * |L’utilisation de la valeur * en guise de protocole inclut ICMP (trafic est-ouest uniquement), ainsi qu’UDP et TCP, et peut réduire le nombre de règles dont vous avez besoin.<br/>Dans le même temps, l’utilisation de la valeur * peut constituer une approche trop large. Il est donc recommandé de ne l’utiliser qu’en cas de réelle nécessité. |
-| **Plage de ports source** |Plage de ports sources à faire correspondre à la règle. |Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 1-65635) ou * (pour tous les ports). |Les ports source peuvent être éphémères. Privilégiez l’utilisation de * dans la plupart des cas, sauf si votre programme client utilise un port spécifique.<br/>Dans la mesure du possible, essayez d’utiliser des plages de ports pour éviter d’avoir à disposer de plusieurs règles.<br/>Il est impossible de regrouper plusieurs ports ou plages de ports à l’aide d’une virgule. |
+| **Plage de ports source** |Plage de ports sources à faire correspondre à la règle. |Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 1-65535) ou * (pour tous les ports). |Les ports source peuvent être éphémères. Privilégiez l’utilisation de * dans la plupart des cas, sauf si votre programme client utilise un port spécifique.<br/>Dans la mesure du possible, essayez d’utiliser des plages de ports pour éviter d’avoir à disposer de plusieurs règles.<br/>Il est impossible de regrouper plusieurs ports ou plages de ports à l’aide d’une virgule. |
 | **Plage de ports de destination** |Plage de ports de destination à faire correspondre à la règle. |Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 1-65535) ou \* (pour tous les ports). |Dans la mesure du possible, essayez d’utiliser des plages de ports pour éviter d’avoir à disposer de plusieurs règles.<br/>Il est impossible de regrouper plusieurs ports ou plages de ports à l’aide d’une virgule. |
 | **Préfixe d’adresse source** |Préfixe d’adresse source ou balise à faire correspondre à la règle. |Adresse IP unique (par exemple, 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24), [balise par défaut](#default-tags) ou * (pour toutes les adresses). |Envisagez d’utiliser des plages, des balises par défaut et * pour réduire le nombre de règles. |
 | **Préfixe d’adresse de destination** |Préfixe d’adresse de destination ou balise à faire correspondre à la règle. | Adresse IP unique (par exemple, 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24), [balise par défaut](#default-tags) ou * (pour toutes les adresses). |Envisagez d’utiliser des plages, des balises par défaut et * pour réduire le nombre de règles. |

@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 06/19/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: d1b887e68b1040ea9340235cd215028300c14fac
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: a26477d692cc98ed16c195233ade5434cc536a36
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB : migrer une application web MongoDB Node.js existante 
@@ -101,6 +101,9 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 Le paramètre `--kind MongoDB` prend en charge les connexions clientes MongoDB.
 
 Une fois le compte Azure Cosmos DB créé, Azure CLI affiche des informations similaires à celles de l’exemple suivant. 
+
+> [!NOTE]
+> Cet exemple utilise JSON comme format de sortie de l’interface de ligne de commande Azure, qui constitue le format par défaut. Pour utiliser un autre format de sortie, consultez l’article [Formats de sortie pour les commandes Azure CLI 2.0](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
 
 ```json
 {

@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/06/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: f03181c727650eb0cfc8648cbe3d3838295cf6ad
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: fa13266993017374ba49709f8e22fbe6b03a28c7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Prise en main d'Azure Data Lake Store avec le portail Azure
+# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Prise en main d’Azure Data Lake Store à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Portail](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -35,23 +34,23 @@ ms.lasthandoff: 06/07/2017
 >
 > 
 
-Apprenez à utiliser le portail Azure pour créer un compte Azure Data Lake Store et effectuer des opérations de base comme créer des dossiers, télécharger des fichiers de données, supprimer votre compte, etc. Pour plus d’informations sur Data Lake Store, consultez [Vue d’ensemble d’Azure Data Lake Store](data-lake-store-overview.md).
+Apprenez à utiliser le portail Azure pour créer un compte Azure Data Lake Store et effectuer des opérations de base telles que la création de dossiers, le chargement et le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d’informations, consultez l’article [Présentation d’Azure Data Lake Store](data-lake-store-overview.md).
+
+Les deux vidéos ci-après contiennent les mêmes informations que celles décrites dans cet article :
+
+* [Créer un compte Data Lake Store](https://mix.office.com/watch/1k1cycy4l4gen)
+* [Manage data in Data Lake Store using the Data Explorer (Gérer les données dans Data Lake Store à l’aide de l’Explorateur de données)](https://mix.office.com/watch/icletrxrh6pc)
 
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="do-you-learn-faster-with-videos"></a>Les vidéos vous permettent-elles d’apprendre plus rapidement ?
-Regardez les vidéos suivantes pour vous familiariser avec Data Lake Store.
-
-* [Créer un compte Data Lake Store](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Manage data in Data Lake Store using the Data Explorer (Gérer les données dans Data Lake Store à l’aide de l’Explorateur de données)](https://mix.office.com/watch/icletrxrh6pc)
-
 ## <a name="create-an-azure-data-lake-store-account"></a>Créer un compte Azure Data Lake Store
+
 1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
 2. Cliquez sur **NOUVEAU**, puis sur **Données + Stockage** et enfin sur **Azure Data Lake Store**. Lisez les informations contenues dans le panneau **Azure Data Lake Store**, puis cliquez sur **Créer** dans le coin inférieur gauche du panneau.
-3. Dans le panneau **Nouveau Data Lake Store** , fournissez les valeurs comme l'indique la capture d'écran ci-dessous :
+3. Dans le panneau **Nouveau magasin Data Lake Store**, fournissez les valeurs indiquées dans la capture d’écran suivante :
    
     ![Créer un compte Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Créer un compte Azure Data Lake")
    
@@ -59,25 +58,27 @@ Regardez les vidéos suivantes pour vous familiariser avec Data Lake Store.
    * **Abonnement**. Sélectionnez l’abonnement sous lequel vous souhaitez créer un nouveau compte Data Lake Store.
    * **Groupe de ressources**. Sélectionnez un groupe de ressources existant ou sélectionnez l’option **Créer** pour en créer un. Un groupe de ressources est un conteneur réunissant les ressources associées d’une application. Pour plus d’informations, consultez [Groupes de ressources dans Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
    * **Emplacement**: sélectionnez l'emplacement où vous souhaitez créer le compte Data Lake Store.
-   * **Paramètres de chiffrement**. Vous pouvez choisir si vous souhaitez ou non chiffrer votre compte Data Lake Store. Si vous choisissez de le chiffrer, vous pouvez également spécifier comment gérer la clé de chiffrement principale que vous souhaitez utiliser pour chiffrer les données de votre compte.
+   * **Paramètres de chiffrement**. Vous disposez de trois options :
      
-     * (Facultatif) Sélectionnez **Ne pas activer le chiffrement** dans la liste déroulante pour désactiver le chiffrement.
-     * (Par défaut) Sélectionnez **Utiliser les clés gérées par Azure Data Lake** si vous souhaitez qu’Azure Data Lake Store gère vos clés de chiffrement.
+     * **Ne pas activer le chiffrement**.
+     * **Utiliser les clés gérées par Data Lake Store**.  Sélectionnez cette option si vous voulez qu’Azure Data Lake Store gère vos clés de chiffrement.
+     * **Choisir des clés dans Azure Key Vault**. Vous pouvez sélectionner un coffre Azure Key Vault existant ou en créer un. Pour utiliser les clés d’un coffre Key Vault, vous devez attribuer des autorisations permettant au compte Azure Data Lake Store d’accéder à Azure Key Vault. Pour obtenir les instructions correspondantes, reportez-vous à la section [Attribuer des autorisations à Azure Key Vault](#assign-permissions-to-azure-key-vault).
        
-         ![Chiffrement Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Chiffrement Data Lake Store")
-     * (Facultatif) Sélectionnez **Choisir les clés dans Azure Key Vault** si vous souhaitez utiliser vos propres clés présentes dans votre coffre Azure Key Vault. Avec cette option, vous pouvez également créer un compte et des clés Key Vault si ce n’est pas déjà fait.
+        ![Chiffrement Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Chiffrement Data Lake Store")
        
-         ![Chiffrement Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Chiffrement Data Lake Store")
-       
-       Cliquez sur **OK** dans le panneau **Paramètres de chiffrement**.
-       
-       > [!NOTE]
-       > Si vous utilisez les clés d’un coffre Azure Key Vault pour configurer le chiffrement du compte Data Lake Store, vous devez affecter des autorisations permettant au compte Azure Data Lake Store d’accéder au coffre Azure Key Vault. Pour savoir comment procéder, consultez [Affecter des autorisations au coffre Azure Key Vault](#assign-permissions-to-the-azure-key-vault)
-       > 
-       > 
+        Cliquez sur **OK** dans le panneau **Paramètres de chiffrement**.
+
+        Pour plus d’informations, consultez l’article [Chiffrement des données dans Azure Data Lake Store](./data-lake-store-encryption.md).
+
 4. Cliquez sur **Create**. Si vous choisissez d’épingler le compte au tableau de bord, vous serez renvoyé au tableau de bord et vous pourrez voir la progression de l’approvisionnement de votre compte Data Lake Store. Une fois le compte Data Lake Store approvisionné, le panneau du compte s'affiche.
 
-## <a name="assign-permissions-to-the-azure-key-vault"></a>Affecter des autorisations au coffre Azure Key Vault
+Vous pouvez également créer un compte Data Lake Store à l’aide de modèles Azure Resource Manager. Ces modèles sont accessibles à partir de la page [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?term=data+lake+store) :
+
+- Sans chiffrement des données : [Deploy Azure Data Lake Store account with no data encryption](https://azure.microsoft.com/en-us/resources/templates/101-data-lake-store-no-encryption/) (Déployer un compte Azure Data Lake Store sans chiffrement des données).
+- Avec chiffrement des données à l’aide de Data Lake Store : [Deploy Data Lake Store account with encryption(Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/) (Déployer un compte Data Lake Store avec chiffrement (Data Lake)).
+- Avec chiffrement des données à l’aide d’Azure Key Vault : [Deploy Data Lake Store account with encryption(Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/) (Déployer un compte Data Lake Store avec chiffrement (Key Vault)).
+
+### <a name="assign-permissions-to-azure-key-vault"></a>Attribuer des autorisations à Azure Key Vault
 Si vous avez utilisé des clés d’un coffre Azure Key Vault pour configurer le chiffrement sur le compte Data Lake Store, vous devez configurer l’accès entre le compte Data Lake Store et le compte Azure Key Vault. Pour ce faire, procédez comme suit.
 
 1. Si vous avez utilisé des clés du coffre Azure Key Vault, un avertissement s’affiche en haut du panneau du compte Data Lake Store. Cliquez dessus pour ouvrir le panneau **Configurer les autorisations de Key Vault**.
@@ -91,7 +92,7 @@ Si vous avez utilisé des clés d’un coffre Azure Key Vault pour configurer le
 ## <a name="createfolder"></a>Créer des dossiers dans un compte Azure Data Lake Store
 Vous pouvez créer des dossiers sous votre compte Data Lake Store pour gérer et stocker des données.
 
-1. Ouvrez le compte Data Lake Store que vous venez de créer. Dans le volet gauche, cliquez sur **Parcourir**, puis sur **Data Lake Store**. Ensuite, dans le panneau Data Lake Store, cliquez sur le nom du compte sous lequel vous souhaitez créer des dossiers. Si vous avez épinglé le compte au tableau d'accueil, cliquez sur la vignette de ce compte.
+1. Ouvrez le compte Data Lake Store que vous avez créé. Dans le volet gauche, cliquez sur **Parcourir**, puis sur **Data Lake Store**. Ensuite, dans le panneau Data Lake Store, cliquez sur le nom du compte sous lequel vous souhaitez créer des dossiers. Si vous avez épinglé le compte au tableau d'accueil, cliquez sur la vignette de ce compte.
 2. Dans le panneau de votre compte Data Lake Store, cliquez sur **Explorateur de données**.
    
     ![Créer des dossiers dans un compte Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Créer des dossiers dans un compte Data Lake Store")
@@ -99,19 +100,19 @@ Vous pouvez créer des dossiers sous votre compte Data Lake Store pour gérer et
    
     ![Créer des dossiers dans un compte Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Créer des dossiers dans un compte Data Lake Store")
    
-    Le nouveau dossier apparaît dans le panneau **Explorateur de données** . Vous pouvez créer des dossiers imbriqués jusqu'au niveau que vous souhaitez.
+    Le dossier que vous venez de créer apparaît dans le panneau **Explorateur de données**. Vous pouvez créer des dossiers imbriqués jusqu'au niveau que vous souhaitez.
    
     ![Créer des dossiers dans un compte Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Créer des dossiers dans un compte Data Lake")
 
 ## <a name="uploaddata"></a>Télécharger des données sur un compte Azure Data Lake Store
-Vous pouvez télécharger vos données sur un compte Azure Data Lake Store directement à la racine ou dans un dossier que vous avez créé dans le compte. Suivez les étapes de la capture d'écran ci-dessous pour télécharger un fichier vers un sous-dossier du panneau **Explorateur de données** . Dans cette capture d'écran, le fichier est téléchargé vers un sous-dossier visible dans l'arborescence de navigation (encadré en rouge).
+Vous pouvez télécharger vos données sur un compte Azure Data Lake Store directement à la racine ou dans un dossier que vous avez créé dans le compte. Suivez les étapes de la capture d’écran ci-après pour charger un fichier vers un sous-dossier du panneau **Explorateur de données**. Dans cette capture d’écran, le fichier est chargé vers un sous-dossier visible dans l’arborescence de navigation (encadré en rouge).
 
 Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ![Charger des données](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Charger des données")
 
 ## <a name="properties"></a>Propriétés et actions disponibles sur les données stockées
-Cliquez sur le fichier nouvellement ajouté pour ouvrir le panneau **Propriétés** . Les propriétés associées au fichier et les actions que vous pouvez effectuer sur le fichier sont disponibles dans ce panneau. Vous pouvez également copier la totalité du chemin d'accès dans le fichier dans votre compte Azure Data Lake Store, encadré en rouge dans la capture d'écran ci-dessous.
+Cliquez sur le fichier nouvellement ajouté pour ouvrir le panneau **Propriétés** . Les propriétés associées au fichier et les actions que vous pouvez effectuer sur le fichier sont disponibles dans ce panneau. Vous pouvez également copier la totalité du chemin d’accès au fichier dans votre compte Azure Data Lake Store, encadré en rouge dans la capture d’écran suivante :
 
 ![Propriétés sur les données](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Propriétés sur les données")
 
