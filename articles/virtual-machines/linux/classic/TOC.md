@@ -4,13 +4,13 @@
 ## [Availability](configure-availability.md)
 ## [FAQ](faq.md)
 
-# [Prise en main](../opensource-links.md)
+# Prise en main
 ## [Créer une machine virtuelle Linux à l’aide du portail](createportal.md)
 ## [Installation de l’interface de ligne de commande Azure](../../../cli-install-nodejs.md)
 ## [Créer des clés SSH](../mac-create-ssh-keys.md)
 
 # Procédures
-## [Calcul](../intro-on-azure.md)
+## Calcul
 ### [Créer une machine virtuelle personnalisée](create-custom.md)
 ### [Capturer une machine virtuelle](capture-image.md)
 ### [Utiliser le Bureau à distance avec une machine virtuelle Linux](remote-desktop.md)

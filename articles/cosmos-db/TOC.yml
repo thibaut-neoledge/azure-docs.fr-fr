@@ -105,9 +105,6 @@
       href: consistency-levels.md
     - name: Débit
       href: request-units.md
-      items:
-        - name: Unités de demande par minute
-          href: request-units-per-minute.md
     - name: API multi-modèles
       items:
         - name: Base de données de documents
