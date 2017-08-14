@@ -227,16 +227,16 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 > | Interroger | Description |
 |:--- |:--- |
 | Perf |Toutes les données de performances |
-| Perf &#124 ; où l’ordinateur == « MyComputer » |Toutes les données de performances d’un ordinateur particulier |
-| Perf &#124 ; où CounterName == « longueur de la file d’attente de disque actuelle » |Toutes les données de performances d’un compteur particulier |
-| Perf &#124 ; où ObjectName == « Processeur », CounterName == « % du temps processeur » et InstanceName == « _Total » &#124 ; résumer AVGCPU = avg(moyenne) par ordinateur |Utilisation moyenne du processeur entre tous les ordinateurs |
+| Perf &#124; où l’ordinateur == « MyComputer » |Toutes les données de performances d’un ordinateur particulier |
+| Perf &#124; où CounterName == « longueur de la file d’attente de disque actuelle » |Toutes les données de performances d’un compteur particulier |
+| Perf &#124; où ObjectName == « Processeur », CounterName == « % du temps processeur » et InstanceName == « _Total » &#124; résumer AVGCPU = avg(moyenne) par ordinateur |Utilisation moyenne du processeur entre tous les ordinateurs |
 | Perf &#124; où CounterName == « % du temps processeur » &#124; résumer AggregatedValue = max(Max) par ordinateur |Utilisation maximale du processeur entre tous les ordinateurs |
-| Perf &#124 ; où ObjectName == « LogicalDisk », CounterName == « longueur de la file d’attente de disque actuelle » et l’ordinateur == « MyComputerName » &#124 ; résumer AggregatedValue = avg(moyenne) par InstanceName |Longueur actuelle moyenne de file d’attente du disque pour toutes les instances d’un ordinateur donné |
-| Perf &#124 ; où CounterName == « DiskTransfers/sec » &#124 ; résumer AggregatedValue = centile(moyenne, 95) par ordinateur |95e centile de transferts disque/s entre tous les ordinateurs |
-| Perf &#124 ; où CounterName == « % du temps processeur » et InstanceName == « _Total » &#124 ; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), ordinateur |Moyenne horaire d’utilisation du processeur sur tous les ordinateurs |
-| Perf &#124 ; où l’ordinateur == « MyComputer », CounterName startswith_cs « % » et InstanceName == « _Total » &#124 ; résumer AggregatedValue = centile(CounterValue, 70) par emplacement (TimeGenerated, 1 h), CounterName | 70e centile horaire de chaque compteur de pourcentage pour un ordinateur particulier |
+| Perf &#124; où ObjectName == « LogicalDisk », CounterName == « longueur de la file d’attente de disque actuelle » et l’ordinateur == « MyComputerName » &#124; résumer AggregatedValue = avg(moyenne) par InstanceName |Longueur actuelle moyenne de file d’attente du disque pour toutes les instances d’un ordinateur donné |
+| Perf &#124; où CounterName == « DiskTransfers/sec » &#124; résumer AggregatedValue = centile(moyenne, 95) par ordinateur |95e centile de transferts disque/s entre tous les ordinateurs |
+| Perf &#124; où CounterName == « % du temps processeur » et InstanceName == « _Total » &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), ordinateur |Moyenne horaire d’utilisation du processeur sur tous les ordinateurs |
+| Perf &#124; où l’ordinateur == « MyComputer », CounterName startswith_cs « % » et InstanceName == « _Total » &#124; résumer AggregatedValue = centile(CounterValue, 70) par emplacement (TimeGenerated, 1 h), CounterName | 70e centile horaire de chaque compteur de pourcentage pour un ordinateur particulier |
 | Perf &#124; où CounterName == « % du temps processeur », InstanceName == « _Total » et l’ordinateur == « MyComputer » &#124; résumer [« min(CounterValue) »] = min(CounterValue), [« avg(CounterValue) »] = avg(CounterValue), [« percentile75(CounterValue) »] = centile (CounterValue, 75), [« max(CounterValue) »] = max(CounterValue) par emplacement (TimeGenerated, 1 h), ordinateur |Moyenne horaire, minimum, maximum et 75e centile d’utilisation du processeur pour un ordinateur spécifique |
-| Perf &#124 ; où ObjectName == « MSSQL$ INST2 : bases de données » et InstanceName == « maître » | Toutes les données de performances de l’objet de performance de base de données pour la base de données MASTER à partir de l’instance de SQL Server nommée INST2.  
+| Perf &#124; où ObjectName == « MSSQL$ INST2 : bases de données » et InstanceName == « maître » | Toutes les données de performances de l’objet de performance de base de données pour la base de données MASTER à partir de l’instance de SQL Server nommée INST2.  
 
 ## <a name="viewing-performance-data"></a>Affichage des données de performances
 Lorsque vous recherchez des données de performances dans les journaux, la vue **Liste** s’affiche par défaut.  Pour afficher les données sous forme graphique, cliquez sur **Mesures**.  Pour une vue graphique détaillée, cliquez sur le signe **+** en regard d’un compteur.  
