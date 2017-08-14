@@ -77,7 +77,7 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 >| Interroger | Description |
 |:---|:---|
 | Événement |Tous les événements Windows. |
-| Événement &#124 ; où valeur EventLevelName == « erreur » |Tous les événements Windows avec la gravité de l'erreur. |
+| Événement &#124; où valeur EventLevelName == « erreur » |Tous les événements Windows avec la gravité de l'erreur. |
 | Événement &#124; résumer count() par source |Nombre d’événements Windows par source. |
 | Événement &#124; où valeur EventLevelName == « erreur » &#124; résumer count() par source |Nombre d’événements d’erreur Windows par source. |
 
