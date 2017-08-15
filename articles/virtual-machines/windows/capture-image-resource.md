@@ -21,7 +21,6 @@ ms.openlocfilehash: e428b755f6696bd6d4047ad77579a8e9665dfbd8
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/09/2017
 
-
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
@@ -83,7 +82,8 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 Pour plus d’informations, consultez la page relative au [contrôle de version d’Azure PowerShell](/powershell/azure/overview).
 
 
-1. Définissez des variables. 
+1. Définissez des variables.
+
     ```powershell
     $vmName = "myVM"
     $rgName = "myResourceGroup"
