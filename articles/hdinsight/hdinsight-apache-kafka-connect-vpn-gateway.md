@@ -342,7 +342,8 @@ Pour valider la connectivité à Kafka, procédez comme suit pour créer et exé
   ```python
   from kafka import KafkaProducer
   # Replace the `ip_address` entries with the IP address of your worker nodes
-  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2','kafka_broker_3','kafka_broker_4'])
+  # NOTE: you don't need the full list of worker nodes, just one or two.
+  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
   for _ in range(50):
       producer.send('testtopic', b'test message')
   ```
@@ -361,9 +362,10 @@ Pour valider la connectivité à Kafka, procédez comme suit pour créer et exé
    ```python
    from kafka import KafkaConsumer
    # Replace the `ip_address` entries with the IP address of your worker nodes
+   # Again, you only need one or two, not the full list.
    # Note: auto_offset_reset='earliest' resets the starting offset to the beginning
    #       of the topic
-   consumer = KafkaConsumer(bootstrap_servers=['kafka_broker_1','kafka_broker_2','kafka_broker_3','kafka_broker_4'],auto_offset_reset='earliest')
+   consumer = KafkaConsumer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'],auto_offset_reset='earliest')
    consumer.subscribe(['testtopic'])
    for msg in consumer:
      print (msg)
