@@ -70,8 +70,8 @@ Cet article contient les notes de publication pour l’explorateur de stockage A
 
 * Mise à jour de la version Électron sur 1.7.2 afin de tirer parti de plusieurs mises à jour critiques
 * Vous pouvez maintenant accéder rapidement au guide de dépannage en ligne depuis le menu d’aide
-* Guide [de dépannage de l’explorateur de stockage][2]
-* [Instructions] [ 3] sur la connexion à un abonnement Azure Stack
+* [Guide][2] de dépannage de l’explorateur de stockage
+* [Instructions][3] sur la connexion à un abonnement Azure Stack
 
 ### <a name="known-issues"></a>Problèmes connus
 
@@ -110,8 +110,8 @@ Cet article contient les notes de publication pour l’explorateur de stockage A
 
 #### <a name="new"></a>Nouveau
 
-* Guide [de dépannage de l’explorateur de stockage][2]
-* [Instructions] [ 3] sur la connexion à un abonnement Azure Stack
+* [Guide][2] de dépannage de l’explorateur de stockage
+* [Instructions][3] sur la connexion à un abonnement Azure Stack
 
 #### <a name="fixes"></a>Correctifs
 
