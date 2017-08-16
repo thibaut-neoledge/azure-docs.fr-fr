@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 3fb0f6b26f36ef4044c9733ace05c4f59909ddda
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4f4ecd12bc26fcc44a20a193d73f952ed56f1a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -56,7 +55,7 @@ Si vous avez une question, commentez l’article ; nous vous répondrons dès q
 
 **Q :** Mon application web utilise toujours une ancienne image de conteneur Docker après la mise à jour de l’image sur DockerHub. Prenez-vous en charge l’intégration continue / le déploiement continu de conteneurs personnalisés ?
 
-**R :** Pour configurer l’intégration/le déploiement en continu des images DockerHub, consultez l’article [Docker Hub Continuous Deployment with Web App on Linux](./app-service-linux-ci-cd.md) (Déploiement continu DockerHub avec l’application web sur Linux). Pour les registres privés, vous pouvez actualiser le conteneur en arrêtant puis démarrant votre application web. Vous pouvez également modifier ou ajouter un paramètre d’application factice pour forcer une actualisation de votre conteneur.
+**R :** Pour configurer l’intégration/le déploiement en continu des images Azure Container Registry ou DockerHub, consultez l’article [Déploiement continu avec l’application web Azure sur Linux](./app-service-linux-ci-cd.md). Pour les registres privés, vous pouvez actualiser le conteneur en arrêtant puis démarrant votre application web. Vous pouvez également modifier ou ajouter un paramètre d’application factice pour forcer une actualisation de votre conteneur.
 
 **Q :** Prenez-vous en charge les environnements intermédiaires ?
 
@@ -64,7 +63,7 @@ Si vous avez une question, commentez l’article ; nous vous répondrons dès q
 
 **Q :** Puis-je utiliser le **déploiement web** pour déployer mon application web ?
 
-**R :** Oui, vous devez définir le paramètre d’application `UseWebDeployScm` sur `false`.
+**R :** Oui, vous devez définir le paramètre d’application `WEBSITE_WEBDEPLOY_USE_SCM` sur `false`.
 
 ## <a name="language-support"></a>Support multilingue
 
@@ -104,7 +103,7 @@ Si vous avez une question, commentez l’article ; nous vous répondrons dès q
 
 **Q :** Mon conteneur personnalisé écoute un autre port que le port 80. Comment puis-je configurer mon application pour acheminer les demandes vers ce port ?
 
-**R :** La détection automatique du port est activée, mais vous pouvez aussi spécifier un paramètre d’application appelé **PORT** et lui attribuer la valeur du numéro de port attendu.
+**R :** La détection automatique du port est activée, mais vous pouvez aussi spécifier un paramètre d’application appelé **WEBSITES_PORT** et lui attribuer la valeur du numéro de port attendu. Auparavant, la plateforme utilisait le paramètre d’application `PORT`, mais nous envisageons de déconseiller l’utilisation de ce paramètre d’application pour recommander une utilisation exclusive de `WEBSITES_PORT`.
 
 **Q :** Dois-je implémenter HTTPS dans mon conteneur personnalisé ?
 
@@ -131,5 +130,5 @@ Si vous avez une question, commentez l’article ; nous vous répondrons dès q
 * [Création d’applications web dans l’application web Azure sur Linux](app-service-linux-how-to-create-web-app.md)
 * [Prise en charge SSH pour l’application web Azure sur Linux](./app-service-linux-ssh-support.md)
 * [Configurer des environnements intermédiaires dans Azure App Service](./web-sites-staged-publishing.md)
-* [Déploiement continu Docker Hub avec l’application web Azure sur Linux](./app-service-linux-ci-cd.md)
+* [Déploiement continu avec l’application web Azure sur Linux](./app-service-linux-ci-cd.md)
 

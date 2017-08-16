@@ -1,6 +1,6 @@
 ---
 title: "Files d’attente Azure et files d’attente Service Bus : comparaison et différences | Microsoft Docs"
-description: "Analyse les différences et les similitudes entre les deux types de files d&quot;attente proposés par Azure."
+description: "Analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/26/2017
+ms.date: 08/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: b9421e4d899982af5e4caf9d23eebb73188a8db1
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 45fe7584c8b769113da9d287fea56d68d3d6c55a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
@@ -28,7 +27,7 @@ Cet article analyse les différences et les ressemblances entre les deux types d
 ## <a name="introduction"></a>Introduction
 Azure prend en charge deux types de mécanismes de file d’attente : les **files d’attente de stockage** et les **files d’attente Service Bus**.
 
-Les **files d’attente de stockage**, qui font partie de l’infrastructure de [stockage Azure](https://azure.microsoft.com/services/storage/), incluent une simple interface Get/Put/Peek basée sur REST, qui fournit une messagerie fiable et persistante au sein des services et entre ces derniers.
+Les **files d’attente de stockage**, qui font partie de l’infrastructure de [stockage Azure](https://azure.microsoft.com/services/storage/), incluent une simple interface GET/PUT/PEEK basée sur REST, qui fournit une messagerie fiable et persistante au sein des services et entre ces derniers.
 
 Les **files d’attente Service Bus** font partie d’une infrastructure de [messagerie Azure](https://azure.microsoft.com/services/service-bus/) plus large qui prend en charge la mise en file d’attente, ainsi que la publication/l’abonnement, l’accès distant au service Web et les modèles d’intégration. Pour plus d’informations sur les files d’attente, les rubriques et les abonnements Service Bus, consultez [Vue d’ensemble de Service Bus](service-bus-messaging-overview.md).
 
@@ -192,13 +191,12 @@ En ayant une meilleure compréhension des deux technologies, vous serez en mesur
 ## <a name="next-steps"></a>Étapes suivantes
 Les articles suivants fournissent des conseils et des informations sur l’utilisation des files d’attente de stockage ou Service Bus.
 
-* [Utilisation des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Utilisation du service de stockage de files d’attente](../storage/storage-dotnet-how-to-use-queues.md)
 * [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus](service-bus-performance-improvements.md)
-* [Présentation des files d’attente et des rubriques dans Azure Service Bus](http://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Présentation des files d’attente et des rubriques dans Azure Service Bus (blog)](http://www.code-magazine.com/article.aspx?quickid=1112041)
 * [Guide du développeur pour Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 * [Utilisation du service de mise en file d’attente dans Azure](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
-* [Présentation de la facturation du stockage Azure - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Azure portal]: https://portal.azure.com
 

@@ -12,19 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: b8a08eb8fd036ad07ee6ce4cf624e8b5bc4c3ddc
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: ded80330ad323a0019ad59ac54d076a78b70f521
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
 
 Dans cet article, nous répondons au forum aux questions sur l’authentification directe d’Azure Active Directory (Azure AD). N’hésitez pas à le consulter régulièrement, du contenu nouveau y est fréquemment ajouté.
+
+>[!IMPORTANT]
+>La fonctionnalité Authentification directe est actuellement en préversion.
 
 ## <a name="which-of-the-azure-ad-sign-in-methods---pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs---should-i-choose"></a>Parmi les nouvelles méthodes de connexion Azure AD - authentification directe, synchronisation de hachage de mot de passe et services de fédération Active Directory (AD FS) - laquelle dois-je choisir ?
 
@@ -48,7 +51,7 @@ Oui. L’authentification directe prend en charge `Alternate ID` comme nom d’u
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La synchronisation du hachage de mot de passe agit-elle comme solution de secours pour l’authentification directe ?
 
-Non, la synchronisation du hachage de mot de passe n’est pas une solution de secours générique pour l’authentification directe. Elle agit uniquement comme solution de secours pour les [scénarios que l’authentification directe ne prend pas en charge aujourd'hui](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+Non, la synchronisation du hachage de mot de passe n’est pas une solution de secours générique pour l’authentification directe. Elle agit uniquement comme solution de secours pour les [scénarios que l’authentification directe ne prend pas en charge aujourd'hui](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Pour éviter les échecs de connexion de l’utilisateur, vous devez configurer l’authentification directe pour une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Puis-je installer un connecteur de [proxy d’application Azure AD](../active-directory-application-proxy-get-started.md) sur le même serveur qu’un agent d’authentification directe ?
 
@@ -62,7 +65,7 @@ Vous devez utiliser la version 1.1.486.0 ou une version ultérieure pour Azure A
 
 Dans le cas où vous avez configuré [l’écriture différée du mot de passe](../active-directory-passwords-update-your-own-password.md) pour un utilisateur spécifique et que cet utilisateur se connecte à l’aide de l’authentification directe, leurs mots de passe peuvent être modifiés ou réinitialisés. Les mots de passe seront réécrits dans l’annuaire Active Directory local comme prévu.
 
-Toutefois, si l’écriture différée du mot de passe n’est pas configurée ou si l’utilisateur n’a aucune licence Azure AD valide attribuée, l’utilisateur ne peut pas mettre à jour son mot de passe dans le cloud. Il ne peut pas mettre à jour son mot de passe même si le mot de passe a expiré. À la place, l’utilisateur voit le message : « Votre organisation ne vous autorise pas à mettre à jour votre mot de passe sur ce site. Veuillez le mettre à jour en fonction de la méthode recommandée par votre organisation, ou contactez votre administrateur si vous avez besoin d’aide ». L’utilisateur ou l’administrateur doit réinitialiser son mot de passe dans Active Directory local.
+Toutefois, si l’écriture différée du mot de passe n’est pas configurée pour un utilisateur spécifique ou si l’utilisateur n’a aucune licence Azure AD valide attribuée, il ne peut pas mettre à jour son mot de passe dans le cloud. Il ne peut pas mettre à jour son mot de passe même si le mot de passe a expiré. À la place, l’utilisateur voit le message : « Votre organisation ne vous autorise pas à mettre à jour votre mot de passe sur ce site. Veuillez le mettre à jour en fonction de la méthode recommandée par votre organisation, ou contactez votre administrateur si vous avez besoin d’aide ». L’utilisateur ou l’administrateur doit réinitialiser son mot de passe dans Active Directory local.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Comment l’authentification directe vous protège-t-elle contre les attaques par recherche exhaustive de mot de passe ?
 
@@ -70,11 +73,11 @@ Pour plus d’informations, consultez [cet article](active-directory-aadconnect-
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Qu’est-ce que les agents de l’authentification directe communiquent via les ports 80 et 443 ?
 
-- Les agents de l’authentification établissent des requêtes HTTPS sur le port 443 pour toutes les opérations de fonctionnalités telles que l’activation de la fonctionnalité, le traitement des requêtes de connexion utilisateur et autres.
+- Les agents d’authentification établissent les requêtes HTTPS sur le port 443 pour toutes les opérations de fonctionnalité.
 - Les agents d’authentification établissent des requêtes HTTP sur le port 80 pour télécharger des listes de révocations de certificats SSL.
 
      >[!NOTE]
-     >Lors de nos mises à jour récentes, nous avons réduit le nombre de ports requis par les agents d’authentification pour communiquer avec Azure AD. Si vous exécutez des versions antérieures d’Azure AD Connect et/ou des agents d’authentification autonomes, vous devez laisser ces ports supplémentaires (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120) ouverts.
+     >Dans les mises à jour récentes, nous avons réduit le nombre de ports requis par la fonctionnalité. Si vous disposez de versions antérieures d’Azure AD Connect ou de l’agent d’authentification, laissez ces ports également ouverts : 5671, 8080, 9090, 9091, 9350, 9352 et 10100 à 10120.
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Les agents d’authentification directe peuvent-ils communiquer sur un serveur proxy web sortant ?
 
@@ -82,7 +85,7 @@ Oui. Si WPAD (Web Proxy Auto-Discovery) est activé dans votre environnement loc
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Puis-je installer deux ou plusieurs agents d’authentification directe sur le même serveur ?
 
-Non, vous ne pouvez installer qu’un seul agent d’authentification directe sur un serveur unique. Si vous souhaitez configurer l’authentification directe pour la haute disponibilité, suivez plutôt les instructions dans cet [article](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+Non, vous ne pouvez installer qu’un seul agent d’authentification directe sur un serveur unique. Si vous souhaitez configurer l’authentification directe pour la haute disponibilité, suivez plutôt les instructions dans cet [article](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## <a name="i-already-use-active-directory-federation-services-ad-fs-for-azure-ad-sign-in-how-do-i-switch-it-to-pass-through-authentication"></a>J’utilise déjà Active Directory Federation Services (AD FS) pour la connexion d’Azure AD. Comment basculer vers l’authentification directe ?
 
@@ -99,7 +102,7 @@ Oui. Les environnements à plusieurs forêts sont pris en charge s’il existe d
 
 ## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>Les agents d’authentification directe fournissent-ils une fonctionnalité d’équilibrage de charge ?
 
-Non, l’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability), mais pas l’équilibrage de charge. Un ou deux agents d’authentification peuvent mettre fin à la gestion de l’ensemble des requêtes de connexion.
+Non, l’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), mais pas l’équilibrage de charge. Un ou deux agents d’authentification peuvent mettre fin à la gestion de l’ensemble des requêtes de connexion.
 
 Les requêtes de validation du mot de passe que les Agents d’authentification doivent gérées sont légères. Par conséquent la charge de pointe et moyenne pour la plupart des clients est facilement gérée par deux ou trois agents d’authentification au total.
 
@@ -113,11 +116,12 @@ Non, ce scénario n’est _pas_ pris en charge.
 
 Nous vous recommandons :
 
-- d’installer deux ou trois agents d’authentification au total. Cela est suffisant pour la plupart des clients.
+- d’installer deux ou trois agents d’authentification au total. Cette configuration est suffisante pour la plupart des clients.
 - Installez des agents d’authentification sur vos contrôleurs de domaine (ou aussi près que possible) pour améliorer la latence de connexion.
 - Assurez-vous que les serveurs (où sont installés les agents d’authentification) sont ajoutés à la même forêt AD que les utilisateurs dont les mots de passe doivent être validés.
 
-Notez qu’il existe une limite du système de 12 agents d’authentification par client.
+>[!NOTE]
+>Il existe une limite système de 12 agents d’authentification par client.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Comment désactiver l’authentification directe ?
 

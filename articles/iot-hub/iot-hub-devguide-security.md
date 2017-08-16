@@ -12,19 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 6287fa716c708cf35a5d124756c488929a93b435
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: e4fe5400ffcf4446392015aada031dd4dfbf238a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
-
-## <a name="overview"></a>Vue d’ensemble
 
 Cet article décrit les options de sécurisation de votre hub IoT. IoT Hub utilise des *autorisations* pour accorder l’accès à chaque point de terminaison IoT Hub. Les autorisations limitent l’accès à un hub IoT selon la fonctionnalité.
 
@@ -117,15 +114,18 @@ Il s’agit d’un mécanisme semblable à la [Stratégie de publication d’Eve
 
 ## <a name="security-tokens"></a>Jetons de sécurité
 
-IoT Hub utilise des jetons de sécurité pour authentifier les appareils et les services afin d’éviter d’envoyer des clés sur le réseau. En outre, la validité et la portée des jetons sont limitées dans le temps. Les kits [Azure IoT SDK ][lnk-sdks] génèrent automatiquement les jetons sans configuration spéciale. Certains scénarios requièrent toutefois que vous générez et utilisez directement des jetons de sécurité. De tels scénarios incluent l’utilisation directe des surfaces HTTP, MQTT ou AMQP, ou l’implémentation du modèle de service de jeton, comme l’explique [Authentification d’appareil personnalisée][lnk-custom-auth].
+IoT Hub utilise des jetons de sécurité pour authentifier les appareils et les services afin d’éviter d’envoyer des clés sur le réseau. En outre, la validité et la portée des jetons sont limitées dans le temps. Les kits [Azure IoT SDK ][lnk-sdks] génèrent automatiquement les jetons sans configuration spéciale. Certains scénarios nécessitent toutefois que vous génériez et utilisiez directement des jetons de sécurité. Il s’agit entre autres des scénarios suivants :
 
-IoT Hub permet également aux appareils de s’authentifier avec IoT Hub à l’aide de [certificats X.509][lnk-x509]. 
+* Utilisation directe des surfaces MQTT, AMQP ou HTTP
+* Implémentation du modèle de service de jeton, comme expliqué dans [Authentification d’appareil personnalisée][lnk-custom-auth].
+
+IoT Hub permet également aux appareils de s’authentifier avec IoT Hub à l’aide de [certificats X.509][lnk-x509].
 
 ### <a name="security-token-structure"></a>Structure du jeton de sécurité
 
-Vous utilisez des jetons de sécurité pour accorder un accès limité dans le temps aux appareils et aux services à des fonctionnalités spécifiques dans IoT Hub. Pour vérifier que seuls les appareils et les services autorisés peuvent se connecter, les jetons de sécurité doivent être signés avec une clé d’accès partagé ou une clé symétrique. Ces clés sont stockée avec l’identité de l’appareil dans le registre de l’identité.
+Vous utilisez des jetons de sécurité pour accorder un accès limité dans le temps aux appareils et aux services à des fonctionnalités spécifiques dans IoT Hub. Pour obtenir l’autorisation de se connecter à IoT Hub, les appareils et services doivent envoyer des jetons de sécurité signés avec une clé symétrique ou d’accès partagé. Ces clés sont stockées avec l’identité de l’appareil dans le registre de l’identité.
 
-Un jeton signé avec une clé d’accès partagé accorde un accès à toutes les fonctionnalités associées aux autorisations de stratégie d’accès partagé. En revanche, un jeton signé uniquement avec la clé symétrique de l’identité de l’appareil accorde l’autorisation **DeviceConnect** à l’identité de l’appareil associé.
+Un jeton signé avec une clé d’accès partagé accorde un accès à toutes les fonctionnalités associées aux autorisations de stratégie d’accès partagé. Un jeton signé avec la clé symétrique de l’identité de l’appareil accorde uniquement l’autorisation **DeviceConnect** à l’identité de l’appareil associée.
 
 Le jeton de sécurité présente le format suivant :
 
@@ -242,14 +242,14 @@ Le résultat, qui accorde l’accès à toutes les fonctionnalités de device1, 
 
 ### <a name="use-a-shared-access-policy"></a>Utilisation d’une stratégie d’accès partagé
 
-Lorsque vous créez un jeton à partir d’une stratégie d’accès partagé, le champ `skn` du nom de la stratégie doit être défini sur le nom de la stratégie utilisée. Il est également nécessaire que la stratégie accorde l’autorisation **DeviceConnect** .
+Quand vous créez un jeton à partir d’une stratégie d’accès partagé, spécifiez le nom de la stratégie dans le champ `skn`. Cette stratégie doit accorder l’autorisation **DeviceConnect**.
 
 Les deux principaux scénarios pour l’utilisation de stratégies d’accès partagé pour accéder aux fonctionnalités de l’appareil sont :
 
 * [passerelles de protocole cloud][lnk-endpoints],
 * [services de jeton][lnk-custom-auth] utilisés pour implémenter des schémas d’authentification personnalisés.
 
-Étant donné que la stratégie d’accès partagé peut potentiellement accorder un accès pour se connecter comme n’importe quel appareil, il est important d’utiliser l’URI de ressource correct lors de la création de jetons de sécurité. Cela est particulièrement important pour les services de jeton dont il faut définir l’étendue pour un appareil spécifique à l’aide de l’URI de ressource. Ce point est moins important pour les passerelles de protocole, car elles interceptent déjà le trafic pour tous les appareils.
+Étant donné que la stratégie d’accès partagé peut potentiellement accorder un accès pour se connecter comme n’importe quel appareil, il est important d’utiliser l’URI de ressource correct lors de la création de jetons de sécurité. Ce paramètre est particulièrement important pour les services de jeton dont il faut définir l’étendue pour un appareil spécifique à l’aide de l’URI de ressource. Ce point est moins important pour les passerelles de protocole, car elles interceptent déjà le trafic pour tous les appareils.
 
 Par exemple, un service de jeton utilisant la stratégie d’accès partagé précréée appelée **device** crée un jeton avec les paramètres suivants :
 
@@ -312,7 +312,7 @@ Vous pouvez utiliser n’importe quel certificat X.509 pour authentifier un appa
 
 * **un certificat X.509 existant**. Un appareil peut être déjà associé à un certificat X.509. L’appareil peut utiliser ce certificat pour s’authentifier sur IoT Hub ;
 * **un certificat X-509 généré et signé automatiquement**. Un fabricant d’appareils ou un technicien de déploiement en interne peut générer ces certificats et stocker la clé privée correspondante (ainsi que le certificat) sur l’appareil. Vous pouvez utiliser des outils tels que [OpenSSL][lnk-openssl] ou l’utilitaire [Windows SelfSignedCertificate][lnk-selfsigned] à cette fin ;
-* **un certificat X.509 signé par une autorité de certification**. Vous pouvez également utiliser un certificat X.509 généré et signé par une autorité de certification (CA) pour identifier un appareil et l’authentifier sur IoT Hub. IoTHub vérifie seulement que l’empreinte présentée correspond à l’empreinte configurée. Il valide ensuite la chaîne de certificats.
+* **un certificat X.509 signé par une autorité de certification**. Pour identifier un appareil et l’authentifier auprès de IoT Hub, vous pouvez utiliser un certificat X.509 généré et signé par une autorité de certification. IoT Hub vérifie seulement que l’empreinte présentée correspond à l’empreinte configurée. Il valide ensuite la chaîne de certificats.
 
 Un appareil peut utiliser un certificat X.509 ou un jeton de sécurité pour l’authentification, mais pas les deux.
 
@@ -350,7 +350,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### <a name="c-support"></a>Prise en charge de C\#
 
-La classe **DeviceAuthenticationWithX509Certificate** prend en charge la création d’instances  **DeviceClient** à l’aide d’un certificat X.509. Le certificat X.509 doit être au format PFX (également appelé PKCS #12) qui inclut la clé privée.
+La classe **DeviceAuthenticationWithX509Certificate** prend en charge la création d’instances **DeviceClient** à l’aide d’un certificat X.509. Le certificat X.509 doit être au format PFX (également appelé PKCS #12) qui inclut la clé privée.
 
 Voici un exemple d’extrait de code :
 
@@ -362,7 +362,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 ## <a name="custom-device-authentication"></a>Authentification d'appareil personnalisée
 
-Vous pouvez utiliser le [registre des identités][lnk-identity-registry] IoT Hub pour configurer les informations d’identification de sécurité et le contrôle d’accès par appareil à l’aide de [jetons][lnk-sas-tokens]. Cependant, si une solution IoT représente déjà un investissement significatif dans un registre des identités personnalisé et/ou un schéma d’authentification, vous pouvez intégrer cette infrastructure existante à IoT Hub en créant un *service de jeton*. De cette façon, vous pouvez utiliser d'autres fonctionnalités IoT dans votre solution.
+Vous pouvez utiliser le [registre des identités][lnk-identity-registry] IoT Hub pour configurer les informations d’identification de sécurité et le contrôle d’accès par appareil à l’aide de [jetons][lnk-sas-tokens]. Si une solution IoT a déjà un registre des identités et/ou un schéma d’authentification personnalisé, vous pouvez créer un *service de jeton* pour intégrer cette infrastructure existante à IoT Hub. De cette façon, vous pouvez utiliser d'autres fonctionnalités IoT dans votre solution.
 
 Un service de jeton est un service cloud personnalisé. Il utilise une *stratégie d’accès partagé* IoT Hub avec des autorisations **DeviceConnect** pour créer des jetons *device-scoped*. Ces jetons permettent à un appareil de se connecter à votre hub IoT.
 
@@ -380,11 +380,11 @@ Voici les principales étapes du schéma de service de jeton :
 
 Le service de jetons peut définir l’expiration du jeton comme vous le souhaitez. Lorsque le jeton expire, le hub IoT interrompt la connexion. L’appareil doit ensuite demander un nouveau jeton au service de jeton. Un délai d'expiration court accroît la charge de l'appareil et du service de jeton.
 
-Pour qu’un appareil se connecte à votre hub, vous devez l’ajouter au registre des identités IoT Hub, même si l’appareil utilise un jeton et non une clé d’appareil pour se connecter. Par conséquent, vous pouvez continuer à utiliser le contrôle d’accès par appareil en activant ou désactivant les identités des appareils dans le [Registre des identités IoT Hub][lnk-identity-registry] lorsque l’appareil s’authentifie avec un jeton. Cette approche réduit les risques liés à l'utilisation de jetons avec des délais d'expiration longs.
+Pour qu’un appareil se connecte à votre hub, vous devez l’ajouter au registre des identités IoT Hub, même si l’appareil utilise un jeton et non une clé d’appareil pour se connecter. Ainsi, vous pouvez continuer à utiliser le contrôle d’accès par appareil en activant ou désactivant les identités des appareils dans le [Registre des identités][lnk-identity-registry]. Cette approche réduit les risques liés à l'utilisation de jetons avec des délais d'expiration longs.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Comparaison avec une passerelle personnalisée
 
-Le modèle de service de jeton est la méthode recommandée pour implémenter un schéma de registre d’identité/d’authentification avec IoT Hub. Il est recommandé, car il laisse IoT Hub gérer la plus grande partie du trafic de la solution. Cependant, il existe des cas où le schéma d’authentification personnalisé est si étroitement couplé au protocole qu’un service traitant l’ensemble du trafic (*passerelle personnalisée*) est requis. [Le protocole TLS (Transport Layer Security) et les clés prépartagées (PSK)][lnk-tls-psk] en sont un exemple. Pour plus d’informations, consultez la rubrique [Passerelle de protocole][lnk-protocols].
+Le modèle de service de jeton est la méthode recommandée pour implémenter un schéma de registre d’identité/d’authentification avec IoT Hub. Ce modèle est recommandé car il laisse IoT Hub gérer la plupart du trafic de la solution. Toutefois, si l’entrelacement entre le schéma d’authentification personnalisé et le protocole SSL est conséquent, vous aurez peut-être besoin d’une *passerelle personnalisée* pour traiter tout le trafic. [Le protocole TLS (Transport Layer Security) et les clés prépartagées (PSK)][lnk-tls-psk] en sont un exemple. Pour plus d’informations, consultez la rubrique [Passerelle de protocole][lnk-protocols].
 
 ## <a name="reference-topics"></a>Rubriques de référence :
 
@@ -406,9 +406,9 @@ Le tableau suivant répertorie les autorisations que vous pouvez utiliser pour c
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
 
 * La rubrique [Points de terminaison IoT Hub][lnk-endpoints] décrit les différents points de terminaison que chaque IoT Hub expose pour les opérations d’exécution et de gestion.
-* La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas appliqués au service IoT Hub, et le comportement de limitation auquel s’attendre en cas d’utilisation du service.
-* La section [Azure IoT device et service SDK][lnk-sdks] répertorie les kits SDK en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
-* L’article [Langage de requête d’IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer, à partir d’IoT Hub, des informations relatives à vos jumeaux d’appareil et à vos travaux.
+* La rubrique [Quotas et limitation][lnk-quotas] décrit les quotas et le comportement de limitation qui s’appliquent au service IoT Hub.
+* La section [Azure IoT device et service SDK][lnk-sdks] répertorie les Kits de développement logiciel (SDK) en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
+* La rubrique [Langage de requête d’IoT Hub][lnk-query] décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur des jumeaux d’appareil et des travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes

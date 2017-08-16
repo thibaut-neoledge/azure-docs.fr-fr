@@ -1,6 +1,6 @@
 ---
-title: "Conception de groupes de machines virtuelles identiques Azure pour la mise à l’échelle | Microsoft Docs"
-description: "En savoir plus sur la conception de vos groupes de machines virtuelles identiques Azure pour la mise à l’échelle"
+title: "Considérations relatives à la conception des groupes de machines virtuelles identiques Azure | Microsoft Docs"
+description: "En savoir plus sur les considérations relatives à la conception des groupes de machines virtuelles identiques Azure"
 keywords: machine virtuelle linux, groupes de machines virtuelles identiques
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -17,17 +17,17 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 88ab6322fed853c73af981a1de4cd2c2f480c959
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 615361975e2ee15ce80f6efb39f57cae381209e5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="designing-scale-sets-for-scale"></a>Conception de groupes identiques pour la mise à l’échelle
-Cette rubrique présente les considérations à prendre en compte pour créer des groupes identique de machines virtuelles. Pour plus d'informations sur les groupe identique de machines virtuelles, reportez-vous à la rubrique [Présentation des groupes de machines virtuelles identiques](virtual-machine-scale-sets-overview.md).
+# <a name="design-considerations-for-scale-sets"></a>Considérations relatives à la conception des groupes de machines virtuelles identiques
+Cette rubrique présente les considérations à prendre en compte pour créer des groupes de machines virtuelles identiques. Pour plus d'informations sur les groupes de machines virtuelles identiques, reportez-vous à la rubrique [Présentation des groupes de machines virtuelles identiques](virtual-machine-scale-sets-overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Quand utiliser des groupes identiques plutôt que des machines virtuelles individuelles ?
-En règle générale, les groupes identiques sont utiles pour le déploiement d’infrastructures hautement disponibles où un ensemble de machines a une configuration similaire. Toutefois, certaines fonctionnalités sont uniquement disponibles dans les groupes identiques, tandis que d’autres le sont seulement dans les machines virtuelles individuelles. Afin de prendre une décision informée et déterminer dans quel cas utiliser l’une ou l’autre de ces technologies, nous devons tout d’abord examiner certaines des fonctionnalités couramment utilisées disponibles avec les groupes identiques, mais pas avec les machines virtuelles individuelles :
+En règle générale, les groupes identiques sont utiles pour le déploiement d’infrastructures hautement disponibles où un ensemble de machines a une configuration similaire. Toutefois, certaines fonctionnalités sont uniquement disponibles dans les groupes identiques, tandis que d’autres le sont seulement dans les machines virtuelles individuelles. Afin de prendre une décision avisée et déterminer dans quel cas utiliser l’une ou l’autre de ces technologies, nous devons tout d’abord examiner certaines des fonctionnalités couramment utilisées disponibles avec les groupes identiques, mais pas avec les machines virtuelles individuelles :
 
 ### <a name="scale-set-specific-features"></a>Fonctionnalités spécifiques des groupes identiques
 
@@ -48,7 +48,7 @@ Au contraire, certaines fonctionnalités sont uniquement disponibles dans les ma
 - Vous pouvez migrer une machine virtuelle individuelle à partir de disques natifs vers des disques gérés, mais cela n’est pas possible dans un groupe identique.
 - Vous pouvez assigner des adresses IP publiques IPv6 aux cartes d’interface réseau des machines virtuelles individuelles, mais cela n’est pas possible dans un groupe identique. Notez que vous pouvez assigner des adresses IP publiques IPv6 aux équilibreurs de charge des machines virtuelles individuelles ou des machines de groupes identiques.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Stockage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Groupes identiques avec Azure Managed Disks
 Les groupes identiques peuvent être créés avec [Azure Managed Disks](../storage/storage-managed-disks-overview.md) plutôt qu’à partir des comptes de stockage Azure traditionnels. Managed Disks permet de bénéficier des avantages suivants :
@@ -69,8 +69,8 @@ Bien que le sur-approvisionnement améliore les taux de réussite de l’approvi
 
 Si votre groupe identique utilise le stockage géré par l’utilisateur et que vous désactivez le sur-approvisionnement, vous pouvez avoir plus de 20 machines virtuelles par compte de stockage, mais il n’est pas recommandé de dépasser 40 pour des raisons de performances d’E/S. 
 
-## <a name="limits"></a>limites
-Un groupe identique basé sur une image Place de marché (également appelée image de plateforme) et configuré pour utiliser Azure Managed Disks peut prendre en charge jusqu’à 1 000 machines virtuelles. Si vous configurez votre groupe identique pour prendre en charge plus de 100 machines virtuelles, tous les scénarios ne fonctionnent pas de la même manière (par exemple l’équilibrage de charge). Pour plus d’informations, voir [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md) (Utilisation de grands groupes de machines virtuelles identiques). 
+## <a name="limits"></a>Limites
+Un groupe identique, basé sur une image de la Place de marché (également appelée image de plateforme) et configuré pour utiliser Azure Managed Disks, peut prendre en charge jusqu’à 1 000 machines virtuelles. Si vous configurez votre groupe identique pour prendre en charge plus de 100 machines virtuelles, tous les scénarios ne fonctionnent pas de la même manière (par exemple l’équilibrage de charge). Pour plus d’informations, consultez [Utilisation de grands groupes de machines virtuelles identiques](virtual-machine-scale-sets-placement-groups.md). 
 
 Un groupe identique configuré avec des comptes de stockage gérés par l’utilisateur est actuellement limité à 100 machines virtuelles (et 5 comptes de stockage sont recommandés pour cette échelle).
 

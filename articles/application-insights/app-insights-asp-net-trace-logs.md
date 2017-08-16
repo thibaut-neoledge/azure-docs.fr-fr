@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/3/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: e562e6a1a6c2b8203f3d5a9a2ee5680372499693
+ms.author: sewhee
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 93808e617f33a5c78e5c89f4dac4680d44724d1c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Exploration des journaux .NET dans Application Insights
@@ -197,7 +196,7 @@ Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `Application
 Le passage des événements et des demandes dans le pipeline peut prendre un certain temps.
 
 ### <a name="limits"></a>Quelle est la quantité de données conservée ?
-Jusqu'à 500 événements par seconde pour chaque application. Les événements sont conservés pendant sept jours.
+Plusieurs facteurs affectent la quantité de données conservées. Consultez la section [Limites](app-insights-api-custom-events-metrics.md#limits) de la page sur les métriques d’événement client pour plus d’informations. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Certaines entrées du journal ne sont pas affichées
 Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)

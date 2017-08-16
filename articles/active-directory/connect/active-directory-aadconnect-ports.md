@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: adf358a130fd20674cbf2585de93005a9e1cb3ec
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: da79c2451463794f7a205182830b6be53134507f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Ports et protocoles nécessaires à l’identité hybride
@@ -35,6 +35,7 @@ Ce tableau décrit les ports et les protocoles nécessaires à la communication 
 | Kerberos |88 (TCP/UDP) |Authentification Kerberos auprès de la forêt AD. |
 | MS-RPC |135 (TCP/UDP) |Utilisé pendant la configuration initiale de l’Assistant Azure AD au moment d’établir une liaison avec la forêt AD, ainsi que pendant la synchronisation du mot de passe. |
 | LDAP |389 (TCP/UDP) |Utilisé pour l’importation de données à partir d’AD. Les données sont chiffrées à l’aide de Kerberos Sign & Seal. |
+| RPC | 445 (TCP/UDP) |Utilisé par l’authentification unique transparente pour créer un compte d’ordinateur dans la forêt AD. |
 | LDAP/SSL |636 (TCP/UDP) |Utilisé pour l’importation de données à partir d’AD. Le transfert de données est signé et chiffré. Utilisé uniquement si vous utilisez SSL. |
 | RPC |49152- 65535 (port RPC aléatoire élevé)(TCP/UDP) |Utilisé pendant la configuration initiale d’Azure AD Connect au moment d’établir une liaison avec les forêts AD, ainsi que pendant la synchronisation du mot de passe. Pour plus d’informations, consultez les sections [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) et [KB224196](https://support.microsoft.com/kb/224196). |
 

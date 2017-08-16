@@ -12,32 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 05fb966e3e18b8d5242a2795248b9b72352d894d
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 977108687734a5eb7f7a30419de2a6bdef184d0e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
+## <a name="how-to-deploy-seamless-sso"></a>Déploiement de l’authentification unique transparente
+
 L’authentification unique transparente Azure Active Directory connecte automatiquement les utilisateurs lorsque leurs ordinateurs d’entreprise sont connectés au réseau de l’entreprise. Elle offre à vos utilisateurs un accès facilité à vos applications dans le cloud sans nécessiter de composants locaux supplémentaires.
 
-## <a name="how-to-deploy-azure-ad-seamless-sso"></a>Comment déployer l’authentification unique transparente Azure AD
+>[!IMPORTANT]
+>La fonctionnalité Authentification unique transparente est en préversion.
 
 Pour déployer l’authentification unique transparente, vous devez procéder comme suit :
-1. *Vérifier les prérequis* : configurez convenablement votre environnement local et votre locataire avant d’activer la fonctionnalité.
-2. *Activer la fonctionnalité* : activez l’authentification unique transparente sur votre locataire au moyen d’Azure AD Connect.
-3. *Déployer la fonctionnalité*: utilisez la stratégie de groupe afin d’étendre la fonctionnalité à une partie ou à la totalité de vos utilisateurs.
-4. *Tester la fonctionnalité*: testez l’authentification de l’utilisateur à l’aide de l’authentification unique transparente.
-5. *{0}{0}{0}{0}{0}{0}{0}{0}{0} clés* : substituer fréquemment les clés de déchiffrement de comptes d’ordinateur Kerberos.
 
 ## <a name="step-1-check-prerequisites"></a>Étape 1 : Vérifier les prérequis
 
-Vérifiez que les conditions préalables suivantes sont remplies :
+Vérifiez que les prérequis suivants sont remplis :
 
 1. Configurez votre serveur Azure AD Connect : si vous utilisez l’[authentification directe](active-directory-aadconnect-pass-through-authentication.md) comme méthode de connexion, aucune action supplémentaire n’est nécessaire. Si vous utilisez la [synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) comme méthode de connexion, et s’il existe un pare-feu entre Azure AD Connect et Azure AD, vérifiez les points suivants :
 - Vous utilisez la version 1.1.484.0 ou une version ultérieure d’Azure AD Connect.
@@ -63,6 +61,15 @@ Suivez les instructions de l’Assistant jusqu’à ce que vous accédiez à la 
 
 >[!NOTE]
 > Les informations d’identification d’administrateur de domaine ne sont pas stockées dans Azure AD Connect ni dans Azure AD, elles sont uniquement utilisées pour activer la fonctionnalité.
+
+Suivez ces instructions pour vérifier que vous avez activé l’authentification unique transparente correctement :
+
+1. Connectez-vous au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) à l’aide des informations d’identification d’administrateur général de votre locataire.
+2. Sélectionnez **Azure Active Directory** dans le volet de navigation gauche.
+3. Sélectionnez ensuite **Azure AD Connect**.
+4. Vérifiez que la fonctionnalité **Authentification unique transparente** est **activée**.
+
+![Portail Azure - panneau Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
@@ -118,6 +125,9 @@ L’utilisation des extensions de stratégie de groupe Active Directory tierces 
 #### <a name="known-limitations"></a>Limites connues
 
 L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée.
+
+>[!IMPORTANT]
+>Nous avons récemment restauré la prise en charge de Edge afin d’examiner les problèmes signalés par le client.
 
 ## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
 

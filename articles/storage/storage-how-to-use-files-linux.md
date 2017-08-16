@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 03efe81383a6c2fdfe50551355c33dc7af3837e8
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: d93c82b9c2e66c7241ddd579c1be74396174fd65
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="use-azure-file-storage-with-linux"></a>Utilisation du stockage de fichiers Azure avec Linux
 Le [Stockage Fichier Azure](storage-dotnet-how-to-use-files.md) est le système de fichiers dans le cloud, facile à utiliser, de Microsoft. Les partages de fichiers Azure peuvent être montés dans des distributions Linux à l’aide du [package cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) à partir du [projet Samba](https://www.samba.org/). Cet article présente deux méthodes de montage d’un partage de fichiers Azure : à la demande avec la commande `mount` et au démarrage en créant une entrée dans `/etc/fstab`.
 
 > [!NOTE]  
-> Pour monter un partage de fichiers Azure en dehors de la région Azure dans laquelle il est hébergé, par exemple en local ou dans une région Azure différente, le système d’exploitation doit prendre en charge la fonctionnalité de chiffrement de SMB 3.0. La fonctionnalité de chiffrement pour SMB 3.0 pour Linux a été introduite dans le noyau 4.11. Cette fonctionnalité permet le montage du partage de fichiers Azure en local ou à partir d’une autre région Azure. Quand nous avons publié cet article, cette fonctionnalité a été rétroportée dans Ubuntu 17.04 et Ubuntu 16.10.
+> Pour monter un partage de fichiers Azure en dehors de la région Azure dans laquelle il est hébergé, par exemple en local ou dans une région Azure différente, le système d’exploitation doit prendre en charge la fonctionnalité de chiffrement de SMB 3.0. La fonctionnalité de chiffrement pour SMB 3.0 pour Linux a été introduite dans le noyau 4.11. Cette fonctionnalité permet le montage du partage de fichiers Azure en local ou à partir d’une autre région Azure. Quand nous avons publié cet article, cette fonctionnalité a été rétroportée dans Ubuntu à partir de 16.04 et versions ultérieures.
 
 
 ## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Conditions préalables au montage d’un partage de fichiers Azure avec Linux et le package cifs-utils
@@ -116,7 +116,7 @@ Le stockage de fichiers Azure pour le groupe d'utilisateurs Linux propose un for
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le stockage de fichiers Azure, consultez ces liens.
 * [Référence de l’API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-* [Utilisation d’Azure PowerShell avec Azure Storage](storage-powershell-guide-full.md)
+* [Utilisation d’Azure PowerShell avec Stockage Azure](storage-powershell-guide-full.md)
 * [Transférer des données avec AzCopy sur Windows](storage-use-azcopy.md)
 * [Utilisation d’Azure CLI 2.0 avec le stockage Azure](storage-azure-cli.md#create-and-manage-file-shares)
 * [FAQ](storage-files-faq.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 76dfd1c2b2f17e6bc798f4313c4dc4817d2136a4
-ms.lasthandoff: 04/04/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: ba756d3262b9780c5701e69faad860ba32bba08b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-an-application-gateway-using-path-based-routing"></a>Créer une passerelle Application Gateway à l’aide du routage basé sur le chemin
@@ -26,8 +26,9 @@ ms.lasthandoff: 04/04/2017
 > [!div class="op_single_selector"]
 > * [Portail Azure](application-gateway-create-url-route-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
+> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 
-Le routage basé sur le chemin d’URL vous permet d’associer des routes basées sur le chemin d’URL de la requête HTTP. Il vérifie s’il existe une route vers un pool principal configuré pour les listes d’URL dans la passerelle Application Gateway et envoie le trafic réseau vers le pool principal défini. Une utilisation courante du routage basé sur l’URL consiste à équilibrer la charge des demandes pour différents types de contenu entre différents pools de serveurs principaux.
+Le routage basé sur le chemin d’URL vous permet d’associer des routes basées sur le chemin d’URL de la requête HTTP. Il vérifie s’il existe une route vers un pool principal configuré pour les listes d’URL dans la passerelle Application Gateway. Il envoie ensuite le trafic réseau vers le pool principal défini. Une utilisation courante du routage basé sur l’URL consiste à équilibrer la charge des demandes pour différents types de contenu entre différents pools de serveurs principaux.
 
 Le routage basé sur l’URL introduit un nouveau type de règle pour la passerelle Application Gateway. La passerelle Application Gateway comporte deux types de règles : une règle de base et PathBasedRouting. Le type de règle de base fournit le service de tourniquet (round robin) pour les pools principaux alors que PathBasedRouting, en plus de la distribution de tourniquet, prend également en compte le modèle de chemin de l’URL de demande lors du choix du pool principal.
 
@@ -110,7 +111,7 @@ Vous pouvez également créer des balises pour un groupe de ressources pour la p
 $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway URL routing"} 
 ```
 
-Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour la création d'une passerelle Application Gateway utiliseront le même groupe de ressources.
+Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce groupe de ressources est utilisé comme emplacement par défaut pour les ressources de ce groupe. Assurez-vous que toutes les commandes pour la création d'une passerelle Application Gateway utiliseront le même groupe de ressources.
 
 Dans l’exemple ci-dessus, nous avons créé un groupe de ressources appelé « appgw-RG », ainsi que l’emplacement « West US ».
 
@@ -149,7 +150,7 @@ $subnet=$vnet.Subnets[0]
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Création d'une adresse IP publique pour la configuration frontale
 
-Créez une ressource IP publique **publicIP01** dans le groupe de ressources **appgw-rg** pour la région « West US ». Application Gateway peut utiliser une adresse IP publique, une adresse IP interne ou les deux pour recevoir les demandes d’équilibrage de charge.  Cet exemple utilise uniquement une adresse IP publique. Dans l’exemple suivant, aucun nom DNS n’est configuré pour la création de l’adresse IP publique.  Application Gateway ne prend pas en charge de noms DNS personnalisés sur des adresses IP publiques.  Si un nom personnalisé est requis pour le point de terminaison public, un enregistrement CNAME doit être créé pour pointer vers le nom DNS généré automatiquement pour l’adresse IP publique.
+Créez une ressource IP publique **publicIP01** dans le groupe de ressources **appgw-rg** pour la région « West US ». Application Gateway peut utiliser une adresse IP publique, l’adresse IP ou les deux pour recevoir les demandes d’équilibrage de charge.  Cet exemple utilise uniquement une adresse IP publique. Dans l’exemple suivant, aucun nom DNS n’est configuré pour la création de l’adresse IP publique.  Application Gateway ne prend pas en charge de noms DNS personnalisés sur des adresses IP publiques.  Si un nom personnalisé est requis pour le point de terminaison public, un enregistrement CNAME doit être créé pour pointer vers le nom DNS généré automatiquement pour l’adresse IP publique.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
@@ -171,7 +172,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 
 ### <a name="step-2"></a>Étape 2
 
-Configurez les pools d’adresses IP principaux nommés **pool01** et **pool2** avec les adresses IP pour **pool1** et **pool2**. Ces adresses IP sont les adresses IP des ressources qui hébergent l’application web devant être protégée par Application Gateway. L’intégrité des membres du pool principal est validée par des sondes de base ou personnalisées.  Le trafic est alors routé vers ces membres lorsque les demandes arrivent dans Application Gateway. Les pools principaux peuvent être utilisés par plusieurs règles au sein d’Application Gateway, ce qui signifie qu’un pool principal peut être utilisé pour plusieurs applications web résidant sur le même hôte.
+Configurez les pools d’adresses IP principaux nommés **pool01** et **pool2** avec les adresses IP pour **pool1** et **pool2**. Ces adresses IP sont les adresses IP des ressources qui hébergent l’application web devant être protégée par Application Gateway. L’intégrité des membres du pool principal est validée par des sondes de base ou personnalisées.  Le trafic est alors acheminé vers ces membres lorsque les demandes arrivent dans Application Gateway. Les pools principaux peuvent être utilisés par plusieurs règles au sein d’Application Gateway, ce qui signifie qu’un pool principal peut être utilisé pour plusieurs applications web résidant sur le même hôte.
 
 ```powershell
 $pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
@@ -209,7 +210,7 @@ $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
 
 ### <a name="step-6"></a>Étape 6
 
-Configurez l’écouteur. Cette étape configure l’écouteur pour l’adresse IP publique et le port utilisé pour recevoir le trafic réseau entrant. L’exemple suivant utilise la configuration de l’adresse IP frontale configurée précédemment, la configuration de port frontal et un protocole (http ou https) et configure l’écouteur. Dans cet exemple, l’écouteur écoute le trafic HTTP sur le port 80 sur l’adresse IP publique créée précédemment.
+Configurez l’écouteur. Cette étape configure l’écouteur pour l’adresse IP publique et le port utilisé pour recevoir le trafic réseau entrant. L’exemple suivant utilise la configuration de l’adresse IP frontale configurée précédemment, la configuration de port frontal et un protocole (http ou https), et il configure l’écouteur. Dans cet exemple, l’écouteur écoute le trafic HTTP sur le port 80 sur l’adresse IP publique créée précédemment.
 
 ```powershell
 $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01
@@ -217,12 +218,12 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 
 ### <a name="step-7"></a>Étape 7
 
-Configurez les chemins de règles d’URL pour les pools principaux. Cette étape configure le chemin relatif utilisé par la passerelle Application Gateway pour définir le mappage entre le chemin d’URL et le pool principal qui est affecté pour gérer le trafic entrant.
+Configurez les chemins de règles d’URL pour les pools principaux. Cette étape configure le chemin d’accès relatif utilisé par la passerelle d’application et définit le mappage entre le chemin d’URL et le pool principal qui est assigné pour gérer le trafic entrant.
 
 > [!IMPORTANT]
 > Chaque chemin d’accès doit commencer par le signe / et le seul endroit où un astérisque (\*) est autorisé est à la fin. /xyz, /xyz ou /xyz/ sont des exemples valides. La chaîne transmise à l’outil de correspondance de chemin n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés. 
 
-L’exemple suivant crée deux règles : une pour le chemin « /image » qui achemine le trafic vers le pool principal « pool1 » et une autre pour le chemin « /video » qui achemine le trafic vers le pool principal « pool2 ». Ces règles garantissent que le trafic de chaque jeu d’URL est routé vers le serveur principal. Par exemple, http://contoso.com/image/figure1.jpg accède à pool1 et http://contoso.com/video/example.mp4 à pool2.
+L’exemple suivant crée deux règles : une pour le chemin « /image/ » qui achemine le trafic vers le pool principal « pool1 » et une autre pour le chemin « /video/ » qui achemine le trafic vers le pool principal « pool2 ». Ces règles garantissent que le trafic de chaque jeu d’URL est routé vers le serveur principal. Par exemple, http://contoso.com/image/figure1.jpg accède à pool1 et http://contoso.com/video/example.mp4 à pool2.
 
 ```powershell
 $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
@@ -262,7 +263,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="get-application-gateway-dns-name"></a>Obtenir le nom DNS d’une passerelle Application Gateway
 
-Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, ce qui n’est pas convivial. Pour s’assurer que les utilisateurs finaux peuvent atteindre la passerelle Application Gateway, un enregistrement CNAME peut être utilisé pour pointer vers le point de terminaison public de la passerelle Application Gateway. [Configuration d’un nom de domaine personnalisé pour Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Pour configurer l’enregistrement CNAME d’adresses IP frontales, récupérez les détails de la passerelle Application Gateway et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress attaché à la passerelle Application Gateway. Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer un enregistrement CNAME qui pointe les deux applications web sur ce nom DNS. L’utilisation de A-records n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle Application Gateway.
+Une fois la passerelle créée, l’étape suivante consiste à configurer le serveur frontal pour la communication. Lorsque vous utilisez une adresse IP publique, la passerelle Application Gateway requiert un nom DNS attribué dynamiquement, ce qui n’est pas convivial. Pour s’assurer que les utilisateurs finaux peuvent atteindre la passerelle d’application, un enregistrement CNAME peut être utilisé pour pointer vers le point de terminaison public de la passerelle d’application. [Configuration d’un nom de domaine personnalisé pour Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Pour configurer l’enregistrement CNAME d’adresses IP frontales, récupérez les détails de la passerelle Application Gateway et de son nom IP/DNS associé à l’aide de l’élément PublicIPAddress attaché à la passerelle Application Gateway. Le nom DNS de la passerelle d’application doit être utilisé pour créer un enregistrement CNAME. L’utilisation de A-records n’est pas recommandée étant donné que l’adresse IP virtuelle peut changer lors du redémarrage de la passerelle Application Gateway.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01

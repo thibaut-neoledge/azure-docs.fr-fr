@@ -8,25 +8,29 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a648852fadfeb5c9a4ff61c85bbe0af856e445d4
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 4503234080e0bf737dad2e18907b47c3bf39d9da
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/08/2017
-
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Didacticiel sur l’intégration des journaux Azure : traiter les événements Azure Key Vault à l’aide d’Event Hubs
 
-Vous pouvez utiliser la solution d’intégration des journaux Azure (AzLog) pour récupérer des événements journalisés et les rendre accessibles à votre système de gestion des événements et des informations de sécurité (SIEM, Security Information and Event Management). Ce didacticiel vous guide tout au long de la procédure qui consiste à récupérer des activités Azure Key Vault journalisées dans un Event Hub et à mettre ces activités à la disposition de votre système SIEM sous la forme de fichiers JSON. Vous pouvez ensuite configurer votre système SIEM pour qu’il procède au traitement de ces fichiers JSON.
+Azure Log Integration (AzLog) vous permet de récupérer des événements journalisés et de les rendre accessibles à votre système SIEM. Ce didacticiel a pour objectif de vous montrer comment utiliser Azure Log Integration pour traiter les fichiers journaux qui sont acquis par le service Event Hubs. Cet article vous permet de mieux comprendre comment Azure Log Integration et Event Hubs peuvent être utilisés conjointement, et explique chacune des étapes impliquées. Vous pouvez ensuite vous appuyer sur ce que vous avez appris ici pour répondre aux besoins spécifiques de votre entreprise.
+
+>[!WARNING]
+Les étapes et les commandes utilisées dans ce didacticiel sont fournies à titre d’exemple et ne sont pas destinées à être copiées-collées. N’utilisez pas les commandes PowerShell telles quelles dans votre environnement de production. Elles doivent en effet être personnalisées en fonction de votre environnement.
+
+
+Ce didacticiel vous guide tout au long de la procédure qui consiste à récupérer des activités Azure Key Vault journalisées dans un Event Hub et à mettre ces activités à la disposition de votre système SIEM sous la forme de fichiers JSON. Vous pouvez ensuite configurer votre système SIEM pour qu’il procède au traitement de ces fichiers JSON.
 
 >[!NOTE]
->La plupart des étapes de ce didacticiel impliquent la configuration de coffres de clé, de comptes de stockage et d’Event Hubs. La procédure d’intégration des journaux Azure est décrite à la fin de ce didacticiel.
+>La plupart des étapes de ce didacticiel impliquent la configuration de coffres de clé, de comptes de stockage et d’Event Hubs. La procédure d’intégration des journaux Azure est décrite à la fin de ce didacticiel. Effectuez ces étapes uniquement dans un environnement lab et non dans un environnement de production. Elles doivent être adaptées avant d’être utilisées dans un environnement de production.
 
 Les informations fournies tout au long de la procédure vous expliquent la finalité de chaque étape. Les liens d’accès à d’autres articles offrent des détails complémentaires sur certains sujets.
 

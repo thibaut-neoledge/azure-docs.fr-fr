@@ -17,14 +17,14 @@ ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: abceba7d250622d8cf27e41d3bb37f3d8a995b5f
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 888d2b7b7c118fede82d39881570a3b3d7b09961
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
-# <a name="use-azure-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Utiliser Azure CLI pour mettre un pool élastique SQL à l’échelle dans Azure SQL Database
+# <a name="use-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Utiliser l’interface de ligne de commande pour mettre un pool élastique SQL à l’échelle dans Azure SQL Database
 
 Cet exemple de script Azure CLI crée des pools élastiques SQL, déplace des bases de données regroupées et modifie les niveaux de performances d’un pool élastique. 
 

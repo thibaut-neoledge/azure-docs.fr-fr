@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 5d1dc8caab804914ac7e94be7f080b713674bc0a
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 87b9da134bce20b037e2dce7e1c9f54454fafe9e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Présentation d’Azure Web App sur Linux
@@ -58,22 +57,22 @@ Les clients peuvent déployer leurs applications à l’aide de :
 
 Pour la mise à l’échelle des applications :
 
-* Les clients peuvent augmenter et diminuer la taille des applications web en modifiant le niveau dans leur plan App Service
+* Les clients peuvent faire monter ou descendre en puissance les applications web en modifiant le niveau dans leur plan App Service
 * Les clients peuvent augmenter la taille des instances de leurs applications et en exécuter plusieurs instances, dans les limites de leur référence (SKU)
 
 Pour Kudu, certaines fonctionnalités de base sont :
 
 * Environnements
 * Déploiements
-* Consoles de base
+* Console de base
 * SSH
 
 Pour DevOps :
 
 * Environnements intermédiaires
-* DockerHub CI/CD
+* ACR et DockerHub CI/CD
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 Le portail Azure affiche uniquement les fonctionnalités actuellement compatibles avec Web App sur Linux, et masque les autres. Les fonctionnalités seront visibles sur le portail au fur et à mesure de leur activation.
 
 Certaines fonctionnalités, telles que l’intégration de réseau virtuel, l’authentification Azure Active Directory/tierce, ou les extensions de site Kudu, ne sont pas encore disponibles. Dès qu’elles le seront, nous mettrons à jour notre documentation et nous annoncerons les modifications sur notre blog.
@@ -81,9 +80,13 @@ Certaines fonctionnalités, telles que l’intégration de réseau virtuel, l’
 Cette version préliminaire publique est actuellement disponible uniquement dans les régions suivantes :
 
 * Ouest des États-Unis
-* Europe de l'Ouest 
+* Est des États-Unis
+* Europe de l'Ouest
+* Europe du Nord
 * Asie du Sud-Est
 * Est de l’Australie
+* Est du Japon
+* Sud du Brésil
 
 Web Apps sur Linux est uniquement pris en charge dans les plans App Service dédiés et ne dispose pas d’un niveau Gratuit ou Partagé. En outre, les plans App Service pour les applications web standards et Linux s’excluent mutuellement : vous ne pouvez pas créer une application web Linux dans un plan App Service non Linux.
 

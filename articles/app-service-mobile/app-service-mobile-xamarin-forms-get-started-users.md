@@ -3,7 +3,7 @@ title: "Prise en main de l’authentification pour Mobile Apps dans l’applicat
 description: "Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Xamarin Forms via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
+author: panarasi
 manager: syntaxc4
 editor: 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: 30fac48cbacb26b03ce430987997c38c68368385
+ms.date: 08/07/2017
+ms.author: panarasi
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 9e14e95793bcc81ad46783fd50ba223eec4ea360
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Ajouter l’authentification à votre application Xamarin Forms
@@ -34,6 +34,20 @@ Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Inscription de votre application pour l'authentification et configuration d'App Services
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
+
+## <a name="redirecturl"></a>Ajouter votre application aux URL de redirection externes autorisées
+
+L’authentification sécurisée nécessite de définir un nouveau schéma d’URL pour votre application. Cela permet au système d’authentification de vous rediriger vers votre application une fois le processus d’authentification terminé. Dans ce didacticiel, nous utilisons le schéma d’URL _appname_. Toutefois, vous pouvez utiliser le schéma d’URL de votre choix. Il doit être propre à votre application mobile. Pour activer la redirection côté serveur, procédez comme suit :
+
+1. Dans le [portail Azure], sélectionnez votre instance App Service.
+
+2. Cliquez sur l’option de menu **Authentication/Authorisation**.
+
+3. Dans **URL de redirection externes autorisées**, saisissez `url_scheme_of_your_app://easyauth.callback`.  La chaîne **url_scheme_of_your_app** de cette chaîne est le schéma d’URL de votre application mobile.  Elle doit être conforme à la spécification d’URL normale pour un protocole (utiliser des lettres et des chiffres uniquement et commencer par une lettre).  Vous devez noter la chaîne que vous choisissez, dans la mesure où vous devez ajuster votre code d’application mobile avec le schéma d’URL à plusieurs endroits.
+
+4. Cliquez sur **OK**.
+
+5. Cliquez sur **Enregistrer**.
 
 ## <a name="restrict-permissions-to-authenticated-users"></a>Restriction des autorisations pour les utilisateurs authentifiés
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -128,8 +142,8 @@ Cette section montre comment implémenter l’interface **IAuthenticate** dans l
             try
             {
                 // Sign in with Facebook login using a server-managed flow.
-                user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(this,
-                    MobileServiceAuthenticationProvider.Facebook);
+                user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(this, 
+                    MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                 if (user != null)
                 {
                     message = string.Format("you are now signed-in as {0}.",
@@ -152,6 +166,19 @@ Cette section montre comment implémenter l’interface **IAuthenticate** dans l
         }
 
     Si vous utilisez un fournisseur d’identité différent de Facebook, choisissez une autre valeur pour [MobileServiceAuthenticationProvider][7].
+
+6. Ajoutez le code suivant à l’intérieur du nœud <application> de AndroidManifest.xml :
+
+```xml
+    <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
+      </intent-filter>
+    </activity>
+```
 
 1. Ajoutez le code suivant à la méthode **OnCreate** de la classe **MainActivity** avant l’appel à `LoadApplication()` :
 
@@ -189,7 +216,7 @@ Cette section montre comment implémenter l’interface **IAuthenticate** dans l
                 {
                     user = await TodoItemManager.DefaultManager.CurrentClient
                         .LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,
-                        MobileServiceAuthenticationProvider.Facebook);
+                        MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                     if (user != null)
                     {
                         message = string.Format("You are now signed-in as {0}.", user.UserId);
@@ -210,17 +237,28 @@ Cette section montre comment implémenter l’interface **IAuthenticate** dans l
         }
 
     Si vous utilisez un fournisseur d’identité différent de Facebook, choisissez une autre valeur pour [MobileServiceAuthenticationProvider].
+
+6. Mettre à jour la classe AppDelegate en ajoutant la surcharge de méthode OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
+        }
+
 6. Ajoutez la ligne de code suivante à la méthode **FinishedLaunching** avant l’appel à `LoadApplication()` :
 
         App.Init(this);
 
     Ce code permet de garantir que l’authentificateur sera initialisé avant le chargement de l’application.
+
+6. Ajoutez **{url_scheme_of_your_app}** aux schémas d’URL dans Info.plist.
+
 7. Recompilez et exécutez l’application, puis connectez-vous avec le fournisseur d’authentification choisi et vérifiez que vous êtes en mesure d’accéder aux données en tant qu’utilisateur authentifié.
 
-## <a name="add-authentication-to-windows-81-including-phone-app-projects"></a>Ajout de l’authentification à des projets d’application Windows 8.1 (y compris Windows Phone)
-Cette section montre comment implémenter l’interface **IAuthenticate** dans les projets d’application Windows 8.1 et Windows Phone 8.1. Les mêmes étapes s’appliquent aux projets de plateforme Windows universelle (UWP), mais en utilisant le projet **UWP** (comportant des modifications indiquées). Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils Windows.
+## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Ajout de l’authentification à des projets d’application Windows 10 (y compris Windows Phone)
+Cette section montre comment implémenter l’interface **IAuthenticate** dans les projets d’application Windows 10. Les mêmes étapes s’appliquent aux projets de plateforme Windows universelle (UWP), mais en utilisant le projet **UWP** (comportant des modifications indiquées). Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils Windows.
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet **WinApp** ou **WinPhone81**, puis cliquez sur **Définir comme projet de démarrage**.
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet **UWP**, puis cliquez sur **Définir comme projet de démarrage**.
 2. Appuyez sur F5 pour démarrer le projet dans le débogueur, puis vérifiez qu’une exception non prise en charge avec le code d’état 401 (Unauthorized) est déclenchée après le démarrage de l’application. Cette réponse 401 se produit car l’accès au serveur principal est limité aux seuls utilisateurs autorisés.
 3. Ouvrez MainPage.xaml.cs dans le projet d’application Windows et ajoutez l’instruction `using` suivante :
 
@@ -249,7 +287,7 @@ Cette section montre comment implémenter l’interface **IAuthenticate** dans l
                 if (user == null)
                 {
                     user = await TodoItemManager.DefaultManager.CurrentClient
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                     if (user != null)
                     {
                         success = true;
@@ -278,29 +316,24 @@ Cette section montre comment implémenter l’interface **IAuthenticate** dans l
 
     Remplacez `<your_Portable_Class_Library_namespace>` par l’espace de noms de votre bibliothèque de classes portable.
 
-    Si vous modifiez le projet WinApp, passez à l’étape 8. L’étape suivante s’applique uniquement au projet WinPhone81, qui suppose d’effectuer un rappel de connexion.
-2. (Facultatif) Dans le projet **WinPhone81**, ouvrez MainPage.xaml.cs et ajoutez les instructions `using` suivantes :
-
-        using Microsoft.WindowsAzure.MobileServices;
-        using <your_Portable_Class_Library_namespace>;
-
-    Remplacez `<your_Portable_Class_Library_namespace>` par l’espace de noms de votre bibliothèque de classes portable.
-3. Si vous utilisez **WinPhone81** ou **WinApp**, ajoutez la substitution de méthode **OnActivated** suivante à la classe **App** :
+3. Si vous utilisez **UWP**, ajoutez la substitution de méthode **OnActivated** suivante à la classe **App** :
 
        protected override void OnActivated(IActivatedEventArgs args)
        {
            base.OnActivated(args);
 
-           // We just need to handle activation that occurs after web authentication.
-           if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
-           {
-               // Get the client and call the LoginComplete method to complete authentication.
-               var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
-               client.LoginComplete(args as WebAuthenticationBrokerContinuationEventArgs);
-           }
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
+                TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
+            }
+
        }
 
    Si la substitution de méthode existe déjà, ajoutez le code conditionnel à partir de l’extrait de code précédent.  Ce code n’est pas requis pour les projets Windows universel.
+
+3. Ajoutez **{url_scheme_of_your_app}** dans Package.appxmanifest. 
+
 4. Recompilez et exécutez l’application, puis connectez-vous avec le fournisseur d’authentification choisi et vérifiez que vous êtes en mesure d’accéder aux données en tant qu’utilisateur authentifié.
 
 ## <a name="next-steps"></a>Étapes suivantes

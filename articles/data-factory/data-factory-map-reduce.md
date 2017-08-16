@@ -1,5 +1,5 @@
 ---
-title: "Appeler le programme MapReduce à partir d&quot;Azure Data Factory"
+title: "Appeler le programme MapReduce à partir d'Azure Data Factory"
 description: Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory.
 services: data-factory
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/24/2017
+ms.date: 08/14/2017
 ms.author: shlo
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: e5dfe0cf0ba7b77a5b23dddc5c5d784e0a0565cc
 ms.contentlocale: fr-fr
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Appeler des programmes MapReduce à partir de Data Factory

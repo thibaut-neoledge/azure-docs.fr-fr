@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 0781a06635219443e8ff794e72d77b967df52c40
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -38,7 +38,7 @@ Le verrouillage intelligent fait également la distinction entre les connexions 
 Étant donné que l’authentification directe transfère les requêtes de validation de mot de passe sur votre Active Directory (AD) local, vous devez empêcher les attaquants de verrouiller les comptes de vos utilisateurs AD. Étant donné que vous avez vos propres stratégies de verrouillage de compte Active Directory (en particulier, les stratégies[**Seuil de verrouillage de compte** ](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) et [ **Réinitialiser le compteur de verrouillage du compte après**](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)), vous devez configurer correctement les valeurs de seuil de verrouillage et de durée de verrouillage d’Azure AD pour filtrer les attaques dans le cloud avant qu’elles n’atteignent votre AD local.
 
 >[!NOTE]
->La fonctionnalité Smart Lockout est gratuite et _activée_ par défaut pour tous les clients. Toutefois, la modification des valeurs du seuil de verrouillage et de la durée de verrouillage d’Azure AD à l’aide de l’API Graph est une fonctionnalité d’Azure AD Premium P2.
+>La fonctionnalité Smart Lockout est gratuite et _activée_ par défaut pour tous les clients. Toutefois, la modification du seuil de verrouillage et des valeurs de durée de verrouillage d’Azure AD à l’aide de l’API Graph oblige votre locataire à avoir au moins une licence Azure AD Premium P2. Vous n’avez pas besoin d’une licence Azure AD Premium P2 _par utilisateur_ pour obtenir la fonctionnalité de verrouillage intelligent avec une authentification directe.
 
 Pour vous assurer que les comptes AD locaux de vos utilisateurs sont correctement protégés, vous devez vérifier que :
 

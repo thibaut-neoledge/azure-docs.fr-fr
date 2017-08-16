@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 08/02/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 791b7a22e5b7edd2e31f6ab01131530a8053ac2b
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: a80b207f591bd888d4749287527013c5e554fb6e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Créer des requêtes pour répertorier les ressources Batch efficacement
@@ -27,6 +27,13 @@ ms.lasthandoff: 02/28/2017
 Vous allez découvrir ici comment augmenter les performances de votre application Azure Batch en réduisant la quantité de données retournées par le service lorsque vous interrogez des travaux, des tâches et des nœuds de calcul à l’aide de la bibliothèque [Batch .NET][api_net].
 
 Presque toutes les applications Batch doivent effectuer un certain type de surveillance ou une autre opération qui interroge le service Batch, souvent à intervalles réguliers. Par exemple, pour déterminer s’il existe des tâches restant en file d’attente dans un travail, vous devez obtenir des données sur chaque tâche du travail. Pour déterminer l’état des nœuds dans le pool, vous devez obtenir des données sur chacun d’eux. Cet article explique comment exécuter ces requêtes de la manière la plus efficace.
+
+> [!NOTE]
+> Le service Batch fournit une prise en charge spéciale des API pour le scénario courant de comptage des tâches d’un travail. Au lieu d’utiliser une requête de liste, vous pouvez appeler l’opération [Obtenir le nombre de tâches][rest_get_task_counts]. L’opération Obtenir le nombre de tâches indique le nombre de tâches en attente, en cours d’exécution ou terminées, ainsi que le nombre de tâches ayant réussi ou échoué. L’opération Obtenir le nombre de tâches est plus efficace qu’une requête de liste. Pour plus d’informations, consultez [Compter les tâches d’un travail par état (préversion)](batch-get-task-counts.md). 
+>
+> L’opération Obtenir le nombre de tâches n’est pas disponible dans les versions du service Batch antérieures à 2017-06-01.5.1. Si vous utilisez une version antérieure du service, vous devez utiliser une requête de liste pour compter les tâches d’un travail.
+>
+> 
 
 ## <a name="meet-the-detaillevel"></a>Respecter le niveau de détail
 Dans une application Batch de production, les entités telles que les travaux, les tâches et les nœuds de calcul peuvent se compter par milliers. Lorsque vous demandez des informations sur ces ressources, une grande quantité potentielle de données doivent être transférées du service Batch vers votre application à chaque requête. En limitant le nombre d’éléments et le type d’informations retournés par une requête, vous pouvez augmenter la vitesse des requêtes et donc, les performances de votre application.
@@ -213,10 +220,10 @@ Adding 5000 tasks to job jobEffQuery...
 Sample complete, hit ENTER to continue...
 ```
 
-Comme indiqué dans les temps écoulés, vous pouvez réduire de façon significative les temps de réponse de requête en limitant les propriétés et le nombre d’éléments retournés. Cet exemple et d’autres exemples de projet sont disponibles dans le référentiel [azure-batch-samples][github_samples] sur GitHub.
+Comme indiqué dans les temps écoulés, vous pouvez réduire de façon significative les temps de réponse de requête en limitant les propriétés et le nombre d’éléments retournés. Cet exemple et d’autres exemples de projet sont disponibles dans le dépôt [azure-batch-samples][github_samples] sur GitHub.
 
 ### <a name="batchmetrics-library-and-code-sample"></a>Bibliothèque BatchMetrics et exemple de code
-Outre l’exemple de code EfficientListQueries ci-dessus, vous trouverez le projet [BatchMetrics][batch_metrics] dans le référentiel GitHub [azure-batch-samples][github_samples]. L’exemple de projet BatchMetrics montre comment surveiller efficacement la progression d’un travail Azure Batch à l’aide de l’API Batch.
+Outre l’exemple de code EfficientListQueries ci-dessus, vous trouverez le projet [BatchMetrics][batch_metrics] dans le dépôt GitHub [azure-batch-samples][github_samples]. L’exemple de projet BatchMetrics montre comment surveiller efficacement la progression d’un travail Azure Batch à l’aide de l’API Batch.
 
 L’exemple [BatchMetrics][batch_metrics] inclut un projet de bibliothèque de classes .NET que vous pouvez incorporer dans vos propres projets ainsi qu’un programme de ligne de commande simple pour tester et démontrer l’utilisation de la bibliothèque.
 
@@ -293,3 +300,4 @@ Le [Forum Azure Batch][forum] sur MSDN est l’endroit idéal pour discuter de B
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
+[rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job

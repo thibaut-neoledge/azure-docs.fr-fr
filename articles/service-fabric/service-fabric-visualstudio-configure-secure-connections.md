@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/08/2015
+ms.date: 8/04/2017
 ms.author: cawa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3a7f5a4afa8b00801f58776e2cf9d7bff9748925
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: dc07b2f38d6fd2de941ebbe99303f6e63cbf122d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/20/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configurer des connexions sécurisées à un cluster Service Fabric à partir de Visual Studio
@@ -31,13 +30,13 @@ Les connexions prises en charge par le cluster Azure Service Fabric sont de deux
 Les outils Visual Studio Service Fabric prennent en charge tous les types d’authentification permettant de se connecter à un cluster pour assurer la publication. Pour obtenir des instructions sur la configuration d’un cluster Service Fabric sécurisé, consultez [Configuration d’un cluster Service Fabric à partir du portail Azure](service-fabric-cluster-creation-via-portal.md) .
 
 ## <a name="configure-cluster-connections-in-publish-profiles"></a>Configurer des connexions au cluster dans les profils de publication
-Si vous publiez un projet Service Fabric à partir de Visual Studio, la boîte de dialogue **Publier l’application Service Fabric** vous permet de choisir un cluster Azure Service Fabric en cliquant sur le bouton **Sélectionner** dans la section **Point de terminaison de connexion**. Vous pouvez vous connecter à votre compte Azure, puis sélectionner un cluster existant sous vos abonnements.
+Si vous publiez un projet Service Fabric à partir de Visual Studio, la boîte de dialogue **Publier une application Service Fabric** vous permet de choisir un cluster Azure Service Fabric. Sous **Point de terminaison de connexion**, sélectionnez un cluster existant sous votre abonnement.
 
 ![La boîte de dialogue **Publier une application de Service Fabric** permet de configurer une connexion Service Fabric.][publishdialog]
 
-La boîte de dialogue **Sélectionner un cluster Service Fabric** valide automatiquement la connexion au cluster. Si la validation s’effectue correctement, cela signifie que votre système dispose des certificats appropriés pour se connecter au cluster en toute sécurité ou que votre cluster n’est pas sécurisé. La validation peut échouer en raison de problèmes réseau ou si votre système n’est pas correctement configuré pour se connecter à un cluster sécurisé.
+La boîte de dialogue **Publier une application Service Fabric** valide automatiquement la connexion au cluster. Si vous y êtes invité, connectez-vous à votre compte Azure. Si la validation s’effectue correctement, cela signifie que votre système dispose des certificats appropriés pour se connecter au cluster en toute sécurité ou que votre cluster n’est pas sécurisé. La validation peut échouer en raison de problèmes réseau ou si votre système n’est pas correctement configuré pour se connecter à un cluster sécurisé.
 
-![Dans la boîte de dialogue **Sélectionner un cluster Service Fabric**, vous pouvez configurer une connexion à un cluster Service Fabric existant ou établir une nouvelle connexion à un cluster.][selectsfcluster]
+![La boîte de dialogue **Publier une application Service Fabric** valide une connexion au cluster Service Fabric existant et correctement configuré.][selectsfcluster]
 
 ### <a name="to-connect-to-a-secure-cluster"></a>Pour se connecter à un cluster sécurisé
 1. Vérifiez que vous pouvez accéder à l’un des certificats clients approuvés par le cluster de destination. Le certificat est généralement partagé au format Personal Information Exchange (.pfx). Pour savoir comment configurer le serveur afin d’accorder l’accès à un client, consultez [Configuration d’un cluster Service Fabric à partir du portail Azure](service-fabric-cluster-creation-via-portal.md) .

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 08/03/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 3c59f777b8b42d67f85fb078c883f0b36a972ddb
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: b9aec6f8f293cdd31456a7f50e3efe792804c7c8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Didacticiel : Intégration d’Azure Active Directory avec Springer Link
@@ -87,9 +87,8 @@ Pour configurer et tester l’authentification unique Azure AD avec Springer Li
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test Springer Link](#create-a-springer-link-test-user)** pour avoir un équivalent de Britta Simon dans Springer Link lié à la représentation Azure AD de l’utilisateur.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+3. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -105,22 +104,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
     ![Boîte de dialogue Authentification unique](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_samlbase.png)
 
-3. Dans la section **Domaine et URL Springer Link**, procédez comme suit :
+3. Dans la section **Domaine et URL Springer Link**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
+
+    ![Informations d’authentification unique dans Domaine et URL Springer Link](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url1.png)
+
+    a. Dans la zone de texte **Identificateur**, saisissez l’URL : `https://fsso.springer.com`
+
+    b. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+
+4. Cliquez sur **Afficher les paramètres d’URL avancés**. Si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** :
 
     ![Informations d’authentification unique dans Domaine et URL Springer Link](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.live.cf.public.springer.com/athens-shibboleth-login?previousUrl=https%3A%2F%2Fcore-qa.live.cf.public.springer.com%2F`
+    Dans la zone de texte **URL de connexion**, entrez l’URL : `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<companyname>.springer.com`
-
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Springer Link](https://www.springer.com/gp/help/contact). 
-
-4. Cliquez sur le bouton **Enregistrer** .
+5. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-springerlink-tutorial/tutorial_general_400.png)
 
-5. Pour générer l’URL des **métadonnées**, effectuez les étapes suivantes :
+6. Pour générer l’URL des **métadonnées**, effectuez les étapes suivantes :
 
     a. Cliquez sur **Inscriptions des applications**.
     
@@ -140,11 +142,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     e. Générez l’**URL des métadonnées** en utilisant le format suivant : `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-6. Pour configurer l’authentification unique côté **Springer Link**, vous devez envoyer l’**URL de métadonnées** générée à l’[équipe de support Springer Link](http://www.springer.com/gp/help/contact).
+7. Pour configurer l’authentification unique côté **Springer Link**, vous devez envoyer l’**URL de métadonnées** générée à l’[équipe de support Springer Link](mailto:identity@springernature.com).
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -178,10 +180,6 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     d. Cliquez sur **Create**.
  
-### <a name="create-a-springer-link-test-user"></a>Créer un utilisateur de test Springer Link
-
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Springer Link. Pour ajouter des utilisateurs dans la plateforme Springer Link, collaborez avec l’[équipe de support Springer Link](http://www.springer.com/gp/help/contact). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
-
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Springer Link.

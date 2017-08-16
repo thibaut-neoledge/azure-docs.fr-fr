@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 08/03/2017
 ms.author: chrande; glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 31661e5840a6b65f54f9df027a7e3ecab8768055
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 256bc04684ba337fe8a403d977079c96b63ca61d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Choisir entre Flow, Logic Apps, Functions et WebJobs
@@ -76,21 +76,21 @@ Functions est l’évolution naturelle de WebJobs dans la mesure où il reprend 
 
 Le tableau suivant récapitule les différences entre Functions et WebJobs :
 
-|  | Fonctions | WebJobs |
+|  | Functions | WebJobs |
 | --- | --- | --- |
 | Mise à l'échelle |Mise à l’échelle sans configuration |Mise à l’échelle avec un plan App Service |
-| Tarification |Paiement à l’utilisation ou dans le cadre d’un plan App Service |Dans le cadre d’un plan App Service |
+| Tarifs |Paiement à l’utilisation ou dans le cadre d’un plan App Service |Dans le cadre d’un plan App Service |
 | Type d’exécution |Déclenchée, planifiée (par un déclencheur de minuteur) |Déclenchée, continue, planifiée |
 | Événements déclencheurs |[Minuteur](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Stockage Azure](functions-bindings-storage.md) |[Stockage Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
-| Développement dans le navigateur |x | |
-| Scripts Windows |Expérimental |x |
-| PowerShell |Expérimental |x |
-| C# |x |x |
-| F# |x | |
-| Bash |Expérimental |x |
-| PHP |Expérimental |x |
-| Python |Expérimental |x |
-| JavaScript |x |x |
+| Développement dans le navigateur |pris en charge | non pris en charge |
+| Scripts Windows |Expérimental |pris en charge |
+| PowerShell |Expérimental |pris en charge |
+| C# |pris en charge |pris en charge |
+| F# |pris en charge |non pris en charge |
+| Bash |Expérimental |pris en charge |
+| PHP |Expérimental |pris en charge |
+| Python |Expérimental |pris en charge |
+| JavaScript |pris en charge |pris en charge |
 
 Le choix entre Functions et WebJobs dépend en définitive de l’utilisation que vous faites d’App Service. Si vous avez une application App Service pour laquelle vous souhaitez exécuter des extraits de code et que vous souhaitez les gérer ensemble dans le même environnement DevOps, vous devez utiliser WebJobs. Si vous souhaitez exécuter des extraits de code pour d’autres services Azure ou même des applications tierces, si vous souhaitez gérer vos extraits de code d’intégration séparément de vos applications App Service ou encore si vous souhaitez appeler vos extraits de code depuis une application logique, vous devez tirer parti de toutes les améliorations offertes par Functions.  
 
@@ -101,12 +101,12 @@ Comme mentionné précédemment, le service qui vous convient le mieux dépend d
 
 * Pour une optimisation simple de votre activité, utilisez Flow.
 * Si votre scénario d’intégration est trop avancé pour Flow ou si vous avez besoin de fonctionnalités de développement et d’une conformité en matière de sécurité, utilisez Logic Apps.
-* Si une étape de votre scénario d’intégration nécessite une transformation hautement personnalisée ou du code spécialisé, écrivez une application Function App, puis déclenchez une fonction en tant qu’action dans votre application logique.
+* Si une étape de votre scénario d’intégration nécessite une transformation hautement personnalisée ou du code spécialisé, écrivez une application de fonction, puis déclenchez une fonction en tant qu’action dans votre application logique.
 
 Vous pouvez appeler une application logique dans un flux. Vous pouvez également appeler une fonction dans une application logique et une application logique dans une fonction. L’intégration entre Flow, Logic Apps et Functions continue de s’améliorer au fil du temps. Vous pouvez créer quelque chose dans un service et l’utiliser dans les autres services. Par conséquent, tout investissement dans ces trois technologies est pertinent.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Prenez en main chacun de ces services en créant votre premier flux, application logique, application Function App ou WebJob. Cliquez sur l’un des liens suivants :
+Prenez en main chacun de ces services en créant votre premier flux, application logique, application de fonction ou tâche web. Cliquez sur l’un des liens suivants :
 
 * [Prise en main de Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)

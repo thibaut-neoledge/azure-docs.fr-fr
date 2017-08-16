@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/04/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 5f500e1e0d3f9cafa67f255d1603e8db5716d469
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 67f7f5b8d411d11c97a8666d1bfc3c0c5f1174ce
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -66,15 +66,14 @@ Le connecteur est un agent léger qui se trouve sur un serveur Windows au sein 
 
 C’est par le point de terminaison externe que vos utilisateurs atteignent les applications hors de votre réseau. Ils peuvent accéder directement à une URL externe que vous déterminez, ou accéder à l’application via le portail MyApps. Lorsque les utilisateurs passent par l’un de ces points de terminaison, ils s’authentifient dans Azure AD, puis sont acheminés via le connecteur vers l’application locale.
 
- ![Diagramme du Proxy d’application Azure AD](./media/active-directory-appssoaccess-whatis/azureappproxxy.png)
+ ![Diagramme du Proxy d’application Azure AD](./media/active-directory-application-proxy-get-started/azureappproxxy.png)
 
-1. L’utilisateur accède à l’application via le Proxy d’application et est dirigé vers la page de connexion Azure AD pour s’identifier.
-2. Après la connexion, un jeton est généré et envoyé à l’utilisateur.
-3. L’utilisateur envoie le jeton au Proxy d’application qui récupère le nom d’utilisateur principal (UPN) et le nom de sécurité principal (SPN) du jeton, puis dirige la requête vers le connecteur.
-4. Le connecteur emprunte l'identité de l'utilisateur pour demander un ticket Kerberos qui peut être utilisé pour l'authentification (Windows) interne. Ce processus est appelé « délégation Kerberos contrainte ».
-5. Active Directory récupère le ticket Kerberos.
-6. Le ticket est envoyé au serveur d’applications puis vérifié.
-7. La réponse est envoyée à l’utilisateur via le Proxy d’application.
+1. L’utilisateur accède à l’application par le biais du service de proxy d’application et il est dirigé vers la page de connexion Azure AD pour s’identifier.
+2. Après la connexion, un jeton est généré et envoyé à l’appareil client.
+3. Le client envoie le jeton au service de proxy d’application qui récupère le nom d’utilisateur principal (UPN) et le nom de sécurité principal (SPN) du jeton, puis dirige la requête vers le connecteur du proxy d’application.
+4. Si vous avez configuré l’authentification unique, le connecteur effectue toute authentification supplémentaire requise pour le compte de l’utilisateur.
+5. Le connecteur envoie la requête à l’application locale.  
+6. La réponse est envoyée à l’utilisateur par le biais du service et du connecteur de proxy d’application.
 
 ### <a name="single-sign-on"></a>Authentification unique
 Le Proxy d’application Azure AD fournit l’authentification unique (SSO) aux applications qui utilisent l’authentification Windows intégrée (IWA) ou aux applications prenant en charge les revendications. Si votre application utilise l’authentification IWA, le Proxy d’application emprunte l’identité de l’utilisateur à l’aide de la délégation Kerberos contrainte pour fournir l’authentification unique. Si vous avez une application prenant en charge les revendications qui fait confiance à Azure Active Directory, l’authentification unique fonctionne, car l’utilisateur a déjà été authentifié par Azure AD.

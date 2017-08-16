@@ -46,6 +46,7 @@
 ### [Portails de recherche dans les journaux](log-analytics-log-search-portals.md)
 #### [Utiliser le portail de recherche dans les journaux](log-analytics-log-search-log-search-portal.md)
 ### [Transition à partir du langage hérité](log-analytics-log-search-transition.md)
+### [Connecteur de flux](log-analytics-flow-tutorial.md)
 
 ## Analyser des données
 ### [Tableaux de bord](log-analytics-dashboards.md)

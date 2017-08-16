@@ -1,132 +1,218 @@
 ---
 title: "Didacticiel : Intégration d’Azure Active Directory à TimeOffManager | Microsoft Docs"
-description: "Découvrez comment utiliser TimeOffManager avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et TimeOffManager."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 07/27/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: a028279bbc209b9bf9402813b687752f0320ce52
-ms.openlocfilehash: 55a13e90ed5f8fd59a93bba507769e56594de568
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 3f944ffbf704694b293b4b1e5bdb4f2c93ae35a1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Didacticiel : Intégration d’Azure AD à TimeOffManager
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et TimeOffManager.  
 
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+Dans ce didacticiel, vous allez apprendre à intégrer TimeOffManager dans Azure Active Directory (Azure AD).
 
-* Un abonnement Azure valide
-* Un abonnement TimeOffManager pour lequel l’authentification unique est activée
+L’intégration de TimeOffManager dans Azure AD vous offre les avantages suivants :
 
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à TimeOffManager pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise TimeOffManager (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+- Dans Azure AD, vous pouvez contrôler qui a accès à TimeOffManager
+- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à TimeOffManager (par le biais de l’authentification unique) avec leur compte Azure AD
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-* Activation de l’intégration d’applications pour TimeOffManager
-* Configuration de l’authentification unique
-* Configuration de l'approvisionnement des utilisateurs
-* Affectation d’utilisateurs
+## <a name="prerequisites"></a>Composants requis
 
-![Scénario](./media/active-directory-saas-timeoffmanager-tutorial/IC795909.png "Scénario")
+Pour configurer l’intégration d’Azure AD dans TimeOffManager, vous avez besoin des éléments suivants :
 
-## <a name="enable-the-application-integration-for-timeoffmanager"></a>Activer l’intégration d’applications pour TimeOffManager
-Cette section décrit l’activation de l’intégration d’applications pour TimeOffManager.
+- Un abonnement Azure AD
+- Un abonnement TimeOffManager pour lequel l’authentification unique est activée
 
-**Pour activer l’intégration d’applications pour TimeOffManager, procédez comme suit :**
+> [!NOTE]
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
-1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-timeoffmanager-tutorial/IC700993.png "Active Directory")
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
-   
-   ![Applications](./media/active-directory-saas-timeoffmanager-tutorial/IC700994.png "Applications")
-4. Cliquez sur **Ajouter** en bas de la page.
-   
-   ![Ajouter une application](./media/active-directory-saas-timeoffmanager-tutorial/IC749321.png "Ajouter une application")
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-   
-   ![Ajouter une application à partir de la galerie](./media/active-directory-saas-timeoffmanager-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
-6. Dans la **zone de recherche**, entrez **TimeOffManager**.
-   
-   ![Galerie d’applications](./media/active-directory-saas-timeoffmanager-tutorial/IC795910.png "Galerie d’applications")
-7. Dans le volet des résultats, sélectionnez **TimeOffManager**, puis cliquez sur **Terminer** pour ajouter l’application.
-   
-   ![TimeOffManager](./media/active-directory-saas-timeoffmanager-tutorial/IC795911.png "TimeOffManager")
+Vous devez en outre suivre les recommandations ci-dessous :
 
-## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur TimeOffManager avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
-Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base&64; sur votre locataire TimeOffManager. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+## <a name="scenario-description"></a>Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pour configurer l’authentification unique, procédez comme suit :
-1. Dans la page d’intégration d’applications **TimeOffManager** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1. Ajouter TimeOffManager à partir de la galerie
+2. Configurer et tester l’authentification unique Azure AD
+
+## <a name="add-timeoffmanager-from-the-gallery"></a>Ajouter TimeOffManager à partir de la galerie
+Pour configurer l’intégration de TimeOffManager avec Azure AD, vous devez ajouter TimeOffManager, disponible dans la galerie, à votre liste d’applications SaaS gérées.
+
+**Pour ajouter TimeOffManager à partir de la galerie, procédez comme suit :**
+
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+
+    ![Applications][2]
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+
+    ![Applications][3]
+
+4. Dans la zone de recherche, tapez **TimeOffManager**, sélectionnez **TimeOffManager** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+
+    ![Ajouter à partir de la galerie](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_addfromgallery.png)
+
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec TimeOffManager, avec un utilisateur de test appelé « Britta Simon ».
+
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur TimeOffManager équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur TimeOffManager associé doit être établie.
+
+Dans TimeOffManager, assignez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
+
+Pour configurer et tester l’authentification unique Azure AD avec TimeOffManager, vous devez vous conformer aux indications des sections suivantes :
+
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Créer un utilisateur de test TimeOffManager](#create-a-timeoffmanager-test-user)** pour avoir un équivalent de Britta Simon dans TimeOffManager lié à la représentation Azure AD associée.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier si la configuration fonctionne.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application TimeOffManager.
+
+**Pour configurer l’authentification unique Azure AD avec TimeOffManager, procédez comme suit :**
+
+1. Dans le portail Azure, sur la page d’intégration de l’application **TimeOffManager**, cliquez sur **Authentification unique**.
+
+    ![Configurer l’authentification unique][4]
+
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Authentification basée sur SAML](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_samlbase.png)
+
+3. Dans la section **Domaine et URL TimeOffManager**, procédez comme suit :
+
+     ![Section Domaine et URL TimeOffManager](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_url.png)
+
+    Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
+
+    > [!NOTE] 
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Vous pouvez obtenir cette valeur à partir de la **page des paramètres d’authentification unique**, décrite plus loin dans le didacticiel, ou contacter l’[équipe de support technique TimeOffManager](http://www.timeoffmanager.com/contact-us.aspx).
+ 
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+
+    ![Section Certificat de signature SAML](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_certificate.png) 
+
+5. Cette section explique comment permettre aux utilisateurs de s’authentifier sur TimeOffManager avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
+    
+    Votre application TimeOffManager s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre un exemple :
+
+    ![saml token attributes](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_attrb.png "saml token attributes")
+    
+    | Nom de l'attribut | Valeur de l’attribut |
+    | --- | --- |
+    | Firstname |User.givenname |
+    | Lastname |User.Surname |
+    | Email |User.mail |
+    
+    a.  Pour chaque ligne de données dans le tableau ci-dessus, cliquez sur **ajouter un attribut utilisateur**.
+    
+    ![saml token attributes](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_addattrb.png "saml token attributes")
+    
+    ![saml token attributes](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_addattrb1.png "saml token attributes")
+    
+    b.  Dans la zone de texte **Nom de l’attribut** , indiquez le nom d’attribut pour cette ligne.
+    
+    c.  Dans la zone de texte **Valeur de l’attribut**, sélectionnez la valeur d’attribut indiquée pour cette ligne.
+    
+    d.  Cliquez sur **OK**.
+    
+6. Cliquez sur le bouton **Enregistrer** .
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_400.png)
+
+7. Dans la section **Configuration de TimeOffManager**, cliquez sur **Configurer TimeOffManager** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+
+    ![Section Configuration de TimeOffManager](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_configure.png) 
+
+8. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise TimeOffManager en tant qu’administrateur.
+
+9. Accédez à **Account \> Account Options \> Single Sign-On Settings**.
    
-   ![Configurer l’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/IC795912.png "Configurer l’authentification unique")
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à TimeOffManager**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/IC795913.png "Configurer l’authentification unique")
-3. Dans la zone de texte **URL de réponse de TimeOffManager**de la page **Configurer l’URL de l’application**, indiquez l’URL de votre service ACS TimeOffManager (par exemple, *« https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216* », puis cliquez sur **Suivant**.
-   
-   ![Configurer l’URL de l’application](./media/active-directory-saas-timeoffmanager-tutorial/IC795914.png "Configurer l’URL de l’application")
-   
-   Vous pouvez obtenir l’URL de réponse dans la page de réglage de l’authentification unique de TimeOffManager.
-   
-   ![Paramètres d’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/IC795915.png "paramètres d’authentification unique")
-4. Dans la page **Configurer l’authentification unique sur TimeOffManager**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/IC795916.png "Configurer l’authentification unique")
-5. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise TimeOffManager en tant qu’administrateur.
-6. Accédez à **Account \> Account Options \> Single Sign-On Settings**.
-   
-   ![Paramètres d’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/IC795917.png "paramètres d’authentification unique")
+   ![Paramètres d’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/ic795917.png "paramètres d’authentification unique")
 7. Dans la section **Single Sign-On Settings** , procédez comme suit :
    
-   ![Paramètres d’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/IC795918.png "paramètres d’authentification unique")
-  1.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
+   ![Paramètres d’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/ic795918.png "paramètres d’authentification unique")
    
-       >[!TIP] 
-       >Pour plus d’informations, consultez [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
-       > 
-  2.  Ouvrez votre certificat codé en base&64; dans le bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **X.509 Certificate** .
-  3.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur TimeOffManager** de la boîte de dialogue, copiez la valeur de **URL de l’émetteur**, puis collez-la dans la zone de texte **Idp Issuer**.
-  4.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur TimeOffManager**, copiez la valeur de **URL de connexion distante**, puis collez-la dans la zone de texte **IdP Endpoint URL**.
-  5.  Dans **Enforce SAML**, sélectionnez **No**.
-  6.  Dans **Auto-Create Users**, sélectionnez **Yes**.
-  7.  Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur TimeOffManager**, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **Logout URL**, puis cliquez sur **Enregistrer les modifications**.
+   a. Ouvrez votre certificat codé en base 64 dans le bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **X.509 Certificate** .
+   
+   b. Dans la zone de texte **Émetteur IdP**, collez la valeur de **ID d’entité SAML** que vous avez copiée à partir du portail Azure.
+   
+   c. Dans la zone de texte **IdP Endpoint URL** (URL du point de terminaison IdP), collez la valeur de l’**URL du service d’authentification unique SAML** que vous avez copiée sur le portail Azure.
+   
+   d. Dans **Enforce SAML**, sélectionnez **No**.
+   
+   e. Dans **Auto-Create Users**, sélectionnez **Yes**.
+   
+   f. Dans la zone de texte **Logout URL (URL de déconnexion)**, collez la valeur **URL de déconnexion** que vous avez copiée à partir du portail Azure.
+   
+   g. Cliquez sur **Enregistrer les modifications**.
 
-1. Dans le portail Azure Classic, dans la page **Configurer l’authentification unique sur TimeOffManager**, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/IC795919.png "Configurer l’authentification unique")
-2. Dans le menu situé en haut, cliquez sur **Attributs** to open the **SAML Token Attributs** .
-   
-   ![Attributs](./media/active-directory-saas-timeoffmanager-tutorial/IC795920.png "Attributs")
-3. Pour ajouter les mappages d’attribut requis, procédez comme suit :
-   
-   ![saml token attributes](./media/active-directory-saas-timeoffmanager-tutorial/123.png "saml token attributes")
-   
-   | Nom de l'attribut | Valeur de l’attribut |
-   | --- | --- |
-   | Email |User.mail |
-   | Firstname |User.givenname |
-   | Lastname |User.Surname |
-  1.  Pour chaque ligne de données dans le tableau ci-dessus, cliquez sur **Ajouter un attribut utilisateur**.
-  2.  Dans la zone de texte **Nom de l’attribut** , tapez le nom d’attribut indiqué pour cette ligne.
-  3.  Dans la zone de texte **Valeur de l’attribut** , sélectionnez la valeur d’attribut indiquée pour cette ligne.
-  4.  Cliquez sur **Terminé**.
-4. Cliquez sur **Appliquer les modifications**.
+11. Sur la page **Paramètres de l’authentification unique**, copiez la valeur **URL Assertion Consumer Service**  et collez-la dans la zone de texte **URL de réponse** de la section **Domaine et URL TimeOffManager** dans le portail Azure. 
 
-## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
+      ![Paramètres d’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/ic795915.png "paramètres d’authentification unique")
+
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+
+![Créer un utilisateur Azure AD][100]
+
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-timeoffmanager-tutorial/create_aaduser_01.png) 
+
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Utilisateurs et groupes --> Tous les utilisateurs](./media/active-directory-saas-timeoffmanager-tutorial/create_aaduser_02.png) 
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+ 
+    ![Bouton Ajouter](./media/active-directory-saas-timeoffmanager-tutorial/create_aaduser_03.png) 
+
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+ 
+    ![Boîte de dialogue utilisateur](./media/active-directory-saas-timeoffmanager-tutorial/create_aaduser_04.png) 
+
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
+
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
+
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+
+    d. Cliquez sur **Create**.
+ 
+### <a name="create-a-timeoffmanager-test-user"></a>Créer un utilisateur de test TimeOffManager
+
 Pour se connecter à TimeOffManager, les utilisateurs d’Azure AD doivent être approvisionnés dans TimeOffManager.  
 
 TimeOffManager prend en charge l’approvisionnement juste-à-temps des utilisateurs. Vous n’avez rien à faire.  
@@ -134,22 +220,64 @@ TimeOffManager prend en charge l’approvisionnement juste-à-temps des utilisat
 Les utilisateurs sont ajoutés automatiquement lors de la première connexion à l’aide de l’authentification unique.
 
 >[!NOTE]
->Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par TimeOffManager, pour approvisionner des comptes d’utilisateur AAD.
+>Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par TimeOffManager, pour approvisionner des comptes d’utilisateur Azure AD.
 > 
 
-## <a name="assign-users"></a>Affecter des utilisateurs
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-**Pour affecter des utilisateurs à TimeOffManager, procédez comme suit :**
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à TimeOffManager.
 
-1. Dans le portail Azure Classic, créez un compte de test.
-2. Dans la page d’intégration d’applications **TimeOffManager**, cliquez sur **Affecter des utilisateurs**.
-   
-   ![Affecter des utilisateurs](./media/active-directory-saas-timeoffmanager-tutorial/IC795922.png "Affecter des utilisateurs")
-3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
-   
-   ![Oui](./media/active-directory-saas-timeoffmanager-tutorial/IC767830.png "Oui")
+![Affecter des utilisateurs][200] 
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+**Pour assigner Britta Simon à TimeOffManager, procédez comme suit :**
+
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+
+    ![Affecter des utilisateurs][201] 
+
+2. Dans la liste des applications, sélectionnez **TimeOffManager**.
+
+    ![TimeOffManager dans la liste des applications](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_app.png) 
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Affecter des utilisateurs][202] 
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
+    ![Affecter des utilisateurs][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
+
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Lorsque vous cliquez sur la vignette TimeOffManager dans le panneau d’accès, vous devez être connecté automatiquement à votre application TimeOffManager. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Ressources supplémentaires
+
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_203.png
 
 

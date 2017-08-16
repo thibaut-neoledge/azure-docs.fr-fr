@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 24f903c6b8b982599904b95f86d648927a3be5ce
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée
@@ -64,7 +63,7 @@ Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler jus
 ![Réinitialisation de la configuration SSH ou des informations d’identification dans le portail Azure](./media/troubleshoot-ssh-connection/reset-credentials-using-portal.png)
 
 ### <a name="reset-the-ssh-configuration"></a>Réinitialisation de la configuration SSH
-Dans un premier temps, sélectionnez `Reset SSH configuration only` dans le menu déroulant **Mode** comme illustré dans la capture d’écran précédente, puis cliquez sur le bouton **Réinitialiser**. Une fois cette opération terminée, essayez de nouveau d’accéder à votre machine Virtuelle.
+Dans un premier temps, sélectionnez `Reset configuration only` dans le menu déroulant **Mode** comme illustré dans la capture d’écran précédente, puis cliquez sur le bouton **Réinitialiser**. Une fois cette opération terminée, essayez de nouveau d’accéder à votre machine Virtuelle.
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Réinitialisation des informations d’identification SSH d’un utilisateur
 Pour réinitialiser les informations d’identification d’un utilisateur existant, sélectionnez `Reset SSH public key` ou `Reset password` dans le menu de **Mode** comme dans la capture d’écran précédente. Spécifiez le nom d’utilisateur et une clé SSH ou un nouveau mot de passe, puis cliquez sur le bouton **Réinitialiser**.
@@ -76,26 +75,34 @@ Si ce n’est déjà fait, installez la dernière version [d’Azure CLI 2.0](/
 
 Si vous avez créé et téléchargé une image de disque Linux personnalisée, assurez-vous que le [Microsoft Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 ou ultérieure est installé. Pour les machines virtuelles créées à l’aide d’images de la galerie, cette extension de l’accès est déjà installée et configurée.
 
-### <a name="reset-ssh-credentials-for-a-user"></a>Réinitialisation des informations d’identification SSH d’un utilisateur
-L’exemple suivant utilise [az vm access set-linux-user](/cli/azure/vm/access#set-linux-user) pour réinitialiser les informations d’identification pour `myUsername` sur la valeur spécifiée dans `myPassword`, sur la machine virtuelle `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+### <a name="reset-ssh-configuration"></a>Réinitialisation de la configuration SSH
+Vous pouvez initialement essayer de réinitialiser la configuration SSH aux valeurs par défaut et de redémarrer le serveur SSH sur la machine virtuelle. Notez que cela ne change pas le nom du compte d’utilisateur, le mot de passe, ou les clés SSH.
+L’exemple suivant utilise [az vm user reset-ssh](/cli/azure/vm/user#reset-ssh) pour réinitialiser la configuration SSH sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
-az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+az vm user reset-ssh --resource-group myResourceGroup --name myVM
+```
+
+### <a name="reset-ssh-credentials-for-a-user"></a>Réinitialisation des informations d’identification SSH d’un utilisateur
+L’exemple suivant utilise [az vm user update](/cli/azure/vm/user#update) pour réinitialiser les informations d’identification pour `myUsername` à la valeur spécifiée dans `myPassword`, sur la machine virtuelle `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+
+```azurecli
+az vm user update --resource-group myResourceGroup --name myVM \
      --username myUsername --password myPassword
 ```
 
 Si vous utilisez l’authentification par clé SSH, vous pouvez réinitialiser la clé SSH pour un utilisateur donné. L’exemple suivant utilise **az vm access set-linux-user** pour mettre à jour la clé SSH stockée dans `~/.ssh/id_rsa.pub` pour l’utilisateur `myUsername`, sur la machine virtuelle `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
-az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+az vm user update --resource-group myResourceGroup --name myVM \
     --username myUsername --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 ## <a name="use-the-vmaccess-extension"></a>Utilisation de l’extension VMAccess
-L’extension d’accès de machine virtuelle pour Linux lit dans un fichier json qui définit les actions à effectuer. Ces actions incluent la réinitialisation SSHD, la réinitialisation d’une clé SSH ou l’ajout d’un utilisateur. Vous utilisez toujours l’interface de ligne de commande Azure pour appeler l’extension VMAccess, mais vous pouvez réutiliser les fichiers json sur plusieurs machines virtuelles si vous le souhaitez. Cette approche vous permet de créer un référentiel´de fichiers json que vous pouvez ensuite appeler en fonction des scénarios.
+L’extension d’accès de machine virtuelle pour Linux lit dans un fichier json qui définit les actions à effectuer. Ces actions incluent la réinitialisation SSHD, la réinitialisation d’une clé SSH ou l’ajout d’un utilisateur. Vous utilisez toujours l’interface de ligne de commande Azure pour appeler l’extension VMAccess, mais vous pouvez réutiliser les fichiers json sur plusieurs machines virtuelles si vous le souhaitez. Cette approche vous permet de créer un référentiel de fichiers json que vous pouvez ensuite appeler en fonction des scénarios.
 
 ### <a name="reset-sshd"></a>Réinitialiser SSHD
-Créez un fichier nommé `PrivateConf.json` avec le contenu suivant :
+Créez un fichier nommé `settings.json` avec le contenu suivant :
 
 ```json
 {  
@@ -103,16 +110,15 @@ Créez un fichier nommé `PrivateConf.json` avec le contenu suivant :
 }
 ```
 
-À l’aide de l’interface de ligne de commande Azure, appelez ensuite l’extension `VMAccessForLinux` pour réinitialiser votre connexion SSHD en spécifiant votre fichier json. L’exemple suivant réinitialise le SSHD sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
+À l’aide de l’interface de ligne de commande Azure, appelez ensuite l’extension `VMAccessForLinux` pour réinitialiser votre connexion SSHD en spécifiant votre fichier json. L’exemple suivant utilise [az vm extension set](/cli/azure/vm/extension#set) pour réinitialiser SSHD sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-    VMAccessForLinux Microsoft.OSTCExtensions "1.2" \
-    --private-config-path PrivateConf.json
+az vm extension set --resource-group philmea --vm-name Ubuntu \
+    --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Réinitialisation des informations d’identification SSH d’un utilisateur
-Si SSHD semble fonctionner correctement, vous pouvez réinitialiser les informations d’identification d’un utilisateur donné. Pour réinitialiser le mot de passe pour un utilisateur, créez un fichier nommé `PrivateConf.json`. L’exemple suivant réinitialise les informations d’identification pour `myUsername` sur la valeur spécifiée dans `myPassword`. Entrez les lignes suivantes dans votre fichier `PrivateConf.json` en utilisant vos propres valeurs :
+Si SSHD semble fonctionner correctement, vous pouvez réinitialiser les informations d’identification d’un utilisateur donné. Pour réinitialiser le mot de passe pour un utilisateur, créez un fichier nommé `settings.json`. L’exemple suivant réinitialise les informations d’identification pour `myUsername` sur la valeur spécifiée dans `myPassword`. Entrez les lignes suivantes dans votre fichier `settings.json` en utilisant vos propres valeurs :
 
 ```json
 {
@@ -120,7 +126,7 @@ Si SSHD semble fonctionner correctement, vous pouvez réinitialiser les informat
 }
 ```
 
-Pour réinitialiser la clé SSH pour un utilisateur, créez tout d’abord un fichier nommé `PrivateConf.json`. L’exemple suivant réinitialise les informations d’identification pour `myUsername` sur la valeur spécifiée dans `myPassword` sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Entrez les lignes suivantes dans votre fichier `PrivateConf.json` en utilisant vos propres valeurs :
+Pour réinitialiser la clé SSH pour un utilisateur, créez tout d’abord un fichier nommé `settings.json`. L’exemple suivant réinitialise les informations d’identification pour `myUsername` sur la valeur spécifiée dans `myPassword` sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Entrez les lignes suivantes dans votre fichier `settings.json` en utilisant vos propres valeurs :
 
 ```json
 {
@@ -131,9 +137,8 @@ Pour réinitialiser la clé SSH pour un utilisateur, créez tout d’abord un fi
 Après avoir créé votre fichier json, utilisez l’interface de ligne de commande Azure pour appeler l’extension `VMAccessForLinux` pour réinitialiser vos informations d’identification d’utilisateur SSH en spécifiant votre fichier json. L’exemple suivant réinitialise les informations d’identification sur la machine virtuelle nommée `myVM` dans `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-    VMAccessForLinux Microsoft.OSTCExtensions "1.2" \
-    --private-config-path PrivateConf.json
+az vm extension set --resource-group philmea --vm-name Ubuntu \
+    --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
 ## <a name="use-the-azure-cli-10"></a>Utilisation de la CLI Azure 1.0
@@ -236,7 +241,7 @@ Procédez comme suit pour résoudre les problèmes de connexion SSH les plus cou
   * créer un nouveau compte utilisateur *sudo* ;
   * réinitialiser la configuration SSH.
 * Vérifiez l’intégrité des ressources de la ressource de machine virtuelle et recherchez s’il existe des problèmes liés à la plateforme.<br>
-     Sélectionnez votre machine virtuelle et faites défiler **Paramètres** > **Vérifier l’intégrité**.
+     Sélectionnez votre machine virtuelle et faites défiler jusqu’à **Paramètres** > **Vérifier l’intégrité**.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * Si vous ne parvenez toujours pas à établir une connexion SSH à votre machine virtuelle une fois ces étapes effectuées, suivez les [étapes supplémentaires de dépannage détaillées](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour découvrir des étapes supplémentaires susceptibles de résoudre votre problème.

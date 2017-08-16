@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f1ef6c3cc3ad2eda9fbcf79bf729918a847d27d7
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c6ead651133eb17fd55f7567cdb14dc3bcd64245
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -61,13 +61,15 @@ Tout le trafic est arrêté dans le cloud.
 
 Vous n’avez pas besoin d’ouvrir de connexion sortante sur le réseau d’entreprise.
 
-Les connecteurs Azure AD utilisent uniquement des connexions sortantes vers le service de proxy d’application Azure AD, ce qui signifie qu’il n’est pas nécessaire d’ouvrir des ports de pare-feu pour les connexions entrantes. Les proxys traditionnels exigeaient un réseau de périmètre (également appelé *DMZ*, *zone démilitarisée* et *sous-réseau filtré*) et autorisaient l’accès à des connexions non authentifiées sur le périmètre du réseau. Ce scénario nécessitait d’investir davantage dans des produits de pare-feu d’application web pour analyser le trafic et offrir des protections supplémentaires à l’environnement. Avec le proxy d’application, vous pouvez même vous passer de réseau de périmètre, car toutes les connexions sont sortantes et sur un canal sécurisé.
+Les connecteurs de proxy d’application utilisent uniquement des connexions sortantes vers le service de proxy d’application Azure AD, ce qui signifie qu’il n’est pas nécessaire d’ouvrir des ports de pare-feu pour les connexions entrantes. Les proxys traditionnels exigeaient un réseau de périmètre (également appelé *DMZ*, *zone démilitarisée* et *sous-réseau filtré*) et autorisaient l’accès à des connexions non authentifiées sur le périmètre du réseau. Ce scénario nécessitait d’investir davantage dans des produits de pare-feu d’application web pour analyser le trafic et offrir des protections supplémentaires à l’environnement. Avec le proxy d’application, vous pouvez même vous passer de réseau de périmètre, car toutes les connexions sont sortantes et sur un canal sécurisé.
+
+Pour plus d’informations sur les connecteurs, consultez [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md).
 
 ### <a name="cloud-scale-analytics-and-machine-learning"></a>Analyse à l’échelle du cloud et apprentissage automatique 
 
 Bénéficiez d’une protection de sécurité de pointe.
 
-[Azure AD Identity Protection](active-directory-identityprotection.md) avec un mécanisme intelligent basé sur l’apprentissage de flux de données de notre département Digital Crimes Unit et du Centre de réponse aux problèmes de sécurité Microsoft. Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection en temps réel contre les connexions à haut risque. Nous prenons en compte divers facteurs, dont l’accès à partir d’appareils infectés et à travers des réseaux anonymes, ainsi qu’à partir d’emplacements atypiques et peu probables.
+Comme il fait partie d’Azure Active Directory, le proxy d’application peut tirer parti [d’Azure AD Identity Protection](active-directory-identityprotection.md), grâce aux données et renseignements pilotés par apprentissage automatique du MSRC (Microsoft Security Response Center) et de la DCU (Digital Crimes Unit). Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection en temps réel contre les connexions à haut risque. Nous prenons en compte divers facteurs, dont l’accès à partir d’appareils infectés et à travers des réseaux anonymes, ainsi qu’à partir d’emplacements atypiques et peu probables.
 
 Nombre de ces rapports et événements sont déjà disponibles via une API pour l’intégration avec vos systèmes de gestion des événements et des informations de sécurité.
 
@@ -119,7 +121,7 @@ Chaque fois que le service de proxy d’application met à jour les paramètres 
 
 Lorsque les utilisateurs accèdent à une application publiée, les événements suivants se produisent entre le service de proxy d’application et le connecteur de proxy d’application :
 
-1. [Le service vérifie les paramètres de configuration de l’application.](#the-service-checks-the-configuration-settings-for-the-app)
+1. [Le service authentifie l’utilisateur pour l’application.](#the-service-checks-the-configuration-settings-for-the-app)
 2. [Le service place une demande dans la file d’attente du connecteur.](#The-service-places-a-request-in-the-connector-queue)
 3. [Un connecteur traite la demande provenant de la file d’attente.](#the-connector-receives-the-request-from-the-queue)
 4. [Le connecteur attend une réponse.](#the-connector-waits-for-a-response)
@@ -128,7 +130,7 @@ Lorsque les utilisateurs accèdent à une application publiée, les événements
 Pour plus d’informations sur ce qui se passe dans chacune de ces étapes, poursuivez votre lecture.
 
 
-#### <a name="1-the-service-checks-the-configuration-settings-for-the-app"></a>1. Le service vérifie les paramètres de configuration de l’application.
+#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. Le service authentifie l’utilisateur pour l’application.
 
 Si vous avez configuré l’application pour utiliser Passthrough comme méthode de préauthentification, les étapes décrites dans cette section sont ignorées.
 

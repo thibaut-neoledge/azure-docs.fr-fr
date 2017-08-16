@@ -1,6 +1,6 @@
 ---
-title: "Utilisation des méthodes directes Azure IoT Hub (.NET/Node) | Microsoft Docs"
-description: "Utilisation des méthodes directes Azure IoT Hub. Vous utilisez Azure IoT device SDK pour Node.js afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et Azure IoT service SDK pour .NET afin d’implémenter une application de service qui appelle la méthode directe."
+title: "Utiliser des méthodes directes Azure IoT Hub (Java) | Microsoft Docs"
+description: "Utilisation des méthodes directes Azure IoT Hub. Vous utilisez Azure IoT device SDK pour Java afin d’implémenter une application d’appareil simulé qui inclut une méthode directe et Azure IoT service SDK pour Java afin d’implémenter une application de service qui appelle la méthode directe."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: fe804cc01925cee58a1d694bdb94b85a8f994cef
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 5fa42c4fe7ad04bc74f70b023715bb61f81806ab
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="use-direct-methods-java"></a>Utilisation des méthodes directes (Java)
@@ -29,10 +28,10 @@ ms.lasthandoff: 05/19/2017
 Dans ce tutoriel, vous allez créer deux applications de console Java :
 
 * **invoke-direct-method**, une application principale Java qui appelle une méthode dans l’application d’appareil simulé et affiche la réponse.
-* **simulated-device**, une application Java qui simule un appareil connecté à votre IoT Hub avec l’identité de l’appareil que vous créez et qui répond à la méthode directe appelée à partir du serveur principal.
+* **simulated-device**, une application Java qui simule un appareil connecté à votre IoT Hub avec l’identité de l’appareil que vous créez. Cette application répond à la méthode directe appelée à partir du serveur principal.
 
 > [!NOTE]
-> L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks] fournit des informations sur les kits de développement logiciel Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
+> Pour plus d’informations sur les SDK que vous pouvez utiliser pour générer des applications qui s’exécutent sur les appareils et sur le serveur de solution principal, consultez l’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks].
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -48,9 +47,9 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 Dans cette section, vous allez créer une application de console Java qui répond à une méthode appelée par le serveur principal de la solution.
 
-1. Créez un dossier vide appelé iot-java-direct-method. Dans le dossier iot-java-direct-method, créez un projet Maven nommé **simulated-device** en entrant la commande suivante à l’invite de commandes. Il s’agit d’une commande unique et longue :
+1. Créez un dossier vide appelé iot-java-direct-method.
 
-1. Dans le dossier iot-java-direct-method, créez un projet Maven nommé **simulated-device** en entrant la commande suivante à l’invite de commandes. Il s’agit d’une commande unique et longue :
+1. Dans le dossier iot-java-direct-method, créez un projet Maven nommé **simulated-device** en entrant la commande suivante à l’invite de commandes. Il s’agit d’une commande unique et longue :
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -62,7 +61,7 @@ Dans cette section, vous allez créer une application de console Java qui répon
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -102,7 +101,7 @@ Dans cette section, vous allez créer une application de console Java qui répon
     import java.util.Scanner;
     ```
 
-1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez la chaîne **{youriothubname}** par le nom de votre IoT Hub, et **{yourdevicekey}** par la valeur clé d’appareil que vous avez générée dans la section *Création d’une identité d’appareil* :
+1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubname}` par le nom de votre IoT Hub, et `{yourdevicekey}` par la valeur de clé de l’appareil que vous avez générée dans la section *Créer une identité d’appareil* :
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -114,7 +113,7 @@ Dans cette section, vous allez créer une application de console Java qui répon
 
     Cet exemple d’application utilise la variable **protocol** lorsqu’il instancie un objet **DeviceClient**. Actuellement, pour utiliser les méthodes directes, vous devez utiliser le protocole MQTT.
 
-1. Ajoutez la classe imbriquée suivante à la classe **App** pour retourner un code d’état à votre IoT Hub :
+1. Pour retourner un code d’état à votre IoT Hub, ajoutez la classe imbriquée suivante à la classe **App** :
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -126,7 +125,7 @@ Dans cette section, vous allez créer une application de console Java qui répon
     }
     ```
 
-1. Ajoutez la classe imbriquée suivante à la classe **App** pour gérer les appels de méthode directe depuis le serveur de solution principal :
+1. Pour gérer les appels de méthode directe à partir du serveur de solution principal, ajoutez la classe imbriquée suivante à la classe **App** :
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -155,7 +154,7 @@ Dans cette section, vous allez créer une application de console Java qui répon
     }
     ```
 
-1. Ajoutez une méthode **principale** à la classe **App** pour créer un **DeviceClient** et écoutez les appels de méthode directe :
+1. Pour créer un **DeviceClient** et écouter les appels de méthode **main**, ajoutez une méthode principale à la classe **App** :
 
     ```java
     public static void main(String[] args)
@@ -195,9 +194,9 @@ Dans cette section, vous allez créer une application de console Java qui répon
 
 ## <a name="call-a-direct-method-on-a-device"></a>Appeler une méthode directe sur un appareil
 
-Dans cette section, vous allez créer une application de console Java qui appelle une méthode directe sur l’application d’appareil simulé, puis affiche la réponse. Cette application console se connecte à votre IoT Hub pour appeler la méthode directe.
+Dans cette section, vous allez créer une application console Java qui appelle une méthode directe puis affiche la réponse. Cette application console se connecte à votre IoT Hub pour appeler la méthode directe.
 
-1. Dans le dossier iot-java-direct-method, créez un projet Maven nommé **invoke-direct-method** en entrant la commande suivante à l’invite de commandes. Il s’agit d’une commande unique et longue :
+1. Dans le dossier iot-java-direct-method, créez un projet Maven nommé **invoke-direct-method** en entrant la commande suivante à l’invite de commandes. Il s’agit d’une commande unique et longue :
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=invoke-direct-method -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -209,7 +208,7 @@ Dans cette section, vous allez créer une application de console Java qui appell
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -250,7 +249,7 @@ Dans cette section, vous allez créer une application de console Java qui appell
     import java.util.concurrent.TimeUnit;
     ```
 
-1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez **{youriothubconnectionstring}** par la chaîne de connexion IoT Hub que vous avez notée dans la section *Créer un hub IoT* :
+1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubconnectionstring}` par la chaîne de connexion de votre IoT Hub, que vous avez notée dans la section *Créer un IoT Hub* :
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -262,7 +261,7 @@ Dans cette section, vous allez créer une application de console Java qui appell
     public static final String payload = "a line to be written";
     ```
 
-1. Ajoutez le code suivant à la méthode **main** pour appeler la méthode sur l’appareil simulé :
+1. Pour appeler la méthode sur l’appareil simulé, ajoutez le code suivant à la méthode **main** :
 
     ```java
     System.out.println("Starting sample...");

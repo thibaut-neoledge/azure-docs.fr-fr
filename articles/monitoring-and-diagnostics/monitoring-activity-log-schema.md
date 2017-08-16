@@ -26,7 +26,7 @@ Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous
 Cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès basé sur un rôle dans un abonnement.
 
 ### <a name="sample-event"></a>Exemple d’événement
-```
+```json
 {
   "authorization": {
     "action": "microsoft.support/supporttickets/write",
@@ -128,7 +128,7 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 Cette catégorie contient l’enregistrement de tout incident de l’état d’intégrité du service qui se sont produits dans Azure. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « SQL Azure dans l’est des États-Unis rencontre des temps d’arrêt. » Les événements de l’état d’intégrité du service se présentent sous cinq variétés : action requise, récupération assistée, incident, maintenance, informations ou sécurité et n’apparaissent que si une ressource de votre abonnement est affectée par l’événement.
 
 ### <a name="sample-event"></a>Exemple d’événement
-```
+```json
 {
   "channels": "Admin",
   "correlationId": "c550176b-8f52-4380-bdc5-36c1b59d3a44",
@@ -217,7 +217,7 @@ Cette catégorie contient l’enregistrement de toutes les activations des alert
 
 ### <a name="sample-event"></a>Exemple d’événement
 
-```
+```json
 {
   "caller": "Microsoft.Insights/alertRules",
   "channels": "Admin, Operation",
@@ -329,7 +329,7 @@ Le champ Propriétés contient des valeurs différentes en fonction de la source
 Cette catégorie contient l’enregistrement de tous les événements liés au fonctionnement du moteur de mise à l’échelle automatique selon les paramètres d’échelle automatique définis dans votre abonnement. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « Échec de l’action de monter en puissance de la mise à l’échelle automatique. » À l’aide de la mise à l’échelle automatique, vous pouvez automatiquement augmenter ou diminuer la taille des instances dans un type de ressource pris en charge basé sur l’heure du jour et/ou les données de charge (métriques) à l’aide d’un paramètre de mise à l’échelle automatique. Lorsque les conditions sont remplies pour monter ou descendre en puissance, les événements de démarrage réussis ou échoués sont enregistrés dans cette catégorie.
 
 ### <a name="sample-event"></a>Exemple d’événement
-```
+```json
 {
   "caller": "Microsoft.Insights/autoscaleSettings",
   "channels": "Admin, Operation",

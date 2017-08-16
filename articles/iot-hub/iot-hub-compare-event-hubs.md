@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 405dd2f8147c20ce7b96b228fdf417e86a86de92
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 12389b4be03b714d99edcf3fd621bd2d9c586540
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Comparaison entre Azure IoT Hub et Azure Event Hub
@@ -34,7 +33,7 @@ Toutefois, les services présentent de nombreuses différences répertoriées da
 | Prise en charge du protocole d’appareil |Prend en charge MQTT, MQTT sur WebSockets, AMQP, AMQP sur WebSocket et HTTP. En outre, IoT Hub fonctionne avec la [passerelle de protocole Azure IoT][lnk-azure-protocol-gateway], une implémentation de passerelle de protocole personnalisable pour prendre en charge les protocoles personnalisés. |Prend en charge AMQP, AMQP sur WebSocket et HTTP. |
 | Sécurité |Fournit une identité par appareil et le contrôle d’accès révocable. Consultez la [section Sécurité du guide du développeur IoT Hub]. |Fournit des [stratégies d’accès partagé][Event Hubs - security] à l’échelle d’Event Hubs, avec une prise en charge de révocation limitée par le biais de [stratégies de l’éditeur][Event Hubs publisher policies]. Les solutions IoT sont souvent nécessaires pour implémenter une solution personnalisée afin de prendre en charge les informations d’identification par appareil et les mesures de lutte contre l’usurpation d’identité. |
 | Surveillance des opérations |Permet aux solutions IoT de s’abonner à un vaste ensemble d’événements de gestion d’identité d’appareil et de connectivité tels que des erreurs d’authentification de chaque appareil, la limitation et les exceptions de format incorrect. Ces événements permettent d’identifier rapidement les problèmes de connectivité au niveau de chaque appareil. |Expose uniquement les mesures d’agrégation. |
-| Scale |est optimisé pour prendre en charge des millions d’appareils connectés simultanément. |Limite les connexions tel que défini dans [Quotas Azure Service Bus][Azure Service Bus quotas]. En revanche, Event Hubs vous permet de spécifier une partition pour chaque message envoyé. |
+| Scale |est optimisé pour prendre en charge des millions d’appareils connectés simultanément. |Limite les connexions tel que défini dans [Quotas Event Hubs][Azure Event Hubs quotas]. En revanche, Event Hubs vous permet de spécifier une partition pour chaque message envoyé. |
 | Kits de développement logiciel (SDK) d’appareil |fournissent des [appareils SDK][Azure IoT SDKs] pour une grande variété de plateformes et de langages, ainsi que MQTT direct, AMQP et les API HTTP. |sont pris en charge sur .NET, Java et C en plus des interfaces d’envoi HTTP et AMQP. |
 | Chargement de fichiers |Permet à des solutions IoT de charger des fichiers à partir d’appareils vers le cloud. Comprend un point de terminaison de notification de fichier pour l’intégration du workflow et une catégorie de surveillance des opérations pour le débogage de la prise en charge. | Non pris en charge. |
 | Router des messages vers plusieurs points de terminaison | Un maximum de 10 points de terminaison personnalisés sont pris en charge. Les règles déterminent la façon dont les messages sont routés vers les points de terminaison personnalisés. Pour plus d’informations, consultez [Envoyer et recevoir des messages avec IoT Hub][lnk-devguide-messaging]. | Nécessite l’écriture et l’hébergement de code supplémentaire pour la distribution des messages. |
@@ -59,7 +58,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [section Sécurité du guide du développeur IoT Hub]: iot-hub-devguide-security.md
 [Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
 [Event Hubs publisher policies]: ../event-hubs/event-hubs-features.md#event-publishers
-[Azure Service Bus quotas]: ../service-bus-messaging/service-bus-quotas.md
+[Azure Event Hubs quotas]: ../event-hubs/event-hubs-quotas.md
 [Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 

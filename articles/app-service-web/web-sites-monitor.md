@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: d779170030b61540de2c0459e574a72cdc77f342
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25d3776920d683fffedcd8ac6ed0e84dfe875974
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Surveillance des applications dans Azure App Service
@@ -38,7 +38,7 @@ Si l’application est hébergée dans un plan **De base**, **Standard** ou **Pr
 Les **quotas** des applications **gratuites** ou **partagées** sont les suivants :
 
 * **CPU(short)**
-  * Quantité d’UC autorisée pour cette application sur un intervalle de 3 minutes. Ce quota se réinitialise toutes les 3 minutes.
+  * Quantité d’UC autorisée pour cette application dans un intervalle de cinq minutes. Ce quota se réinitialise toutes les cinq minutes.
 * **CPU(Day)**
   * Quantité totale d’UC autorisée pour cette application sur une journée. Ce quota se réinitialise toutes les 24 heures à minuit en temps universel coordonné.
 * **Mémoire**

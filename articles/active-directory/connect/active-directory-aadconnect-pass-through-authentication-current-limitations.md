@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 40d07ce6e480924c7c1af601cc25e4a74280141f
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 37c0ea094d02208f2516a4a040f75894e046c670
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -34,13 +34,14 @@ Les scénarios suivants sont entièrement pris en charge dans la version prélim
 - L’utilisateur se connecte dans toutes les applications basées sur un navigateur web.
 - L’utilisateur se connecte dans les applications clientes Office 365 prenant en charge [l’authentification moderne](https://aka.ms/modernauthga).
 - Azure AD Join pour les appareils Windows 10.
+- Prise en charge d’Exchange ActiveSync.
 
 ## <a name="unsupported-scenarios"></a>Scénarios non pris en charge
 
 Les scénarios suivants ne sont _pas_ pris en charge dans la version préliminaire :
 
-- L’utilisateur se connecte dans des applications clientes Office héritées et à Exchange ActiveSync (c’est-à-dire les applications de messagerie natives sur des appareils mobiles). Nous recommandons aux entreprises de basculer si possible vers l’authentification moderne. L’authentification moderne permet non seulement de prendre en charge l’authentification directe, mais également de sécuriser les identités à l’aide des fonctionnalités [d’accès conditionnel](../active-directory-conditional-access.md), comme l’authentification multifacteur.
-- L’utilisateur se connecte dans les applications clientes de Skype Entreprise.
+- Connexions des utilisateurs dans les applications clientes Office héritées (Office 2013 ou version antérieure). Nous recommandons aux entreprises de basculer si possible vers l’authentification moderne. L’authentification moderne permet non seulement de prendre en charge l’authentification directe, mais également de sécuriser les comptes d’utilisateur à l’aide des fonctionnalités [d’accès conditionnel](../active-directory-conditional-access.md), comme l’authentification multifacteur.
+- Connexions des utilisateurs à des applications clientes Skype Entreprise, y compris Skype Entreprise 2016.
 - L’utilisateur se connecte dans PowerShell v1.0. Il est recommandé d’utiliser à la place PowerShell v2.0.
 
 >[!IMPORTANT]

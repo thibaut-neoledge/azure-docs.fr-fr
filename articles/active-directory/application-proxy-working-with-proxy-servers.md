@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ea928ba4d13970a32123a8ada8575658cecde5d8
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bdca442755507c4ffe8d43692c5b7f2aa3a746f3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -76,7 +75,7 @@ Veillez à faire des copies des fichiers d’origine, au cas où vous devriez re
 
 Certains environnements clients requièrent que tout le trafic sortant passe par un proxy sortant, sans exception. Par conséquent, le contournement du serveur proxy n’est pas une option.
 
-Vous pouvez configurer le trafic du connecteur pour passer par le serveur proxy sortant comme indiqué dans le diagramme suivant.
+Vous pouvez configurer le trafic du connecteur pour passer par le serveur proxy sortant comme indiqué dans le diagramme suivant :
 
  ![Configuration du trafic de connecteur pour passer par un proxy sortant vers un proxy d’application Azure AD](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
 
@@ -126,14 +125,10 @@ Pour l’inscription initiale, autorisez l’accès aux points de terminaison su
 * login.windows.net
 * login.microsoftonline.com
 
-Les canaux de contrôle Service Bus sous-jacents que le service du connecteur utilise nécessitent également une connectivité vers des adresses IP spécifiques. Jusqu’à ce que le Service Bus se déplace vers un nom de domaine complet, nous avons deux options :
+Si vous ne pouvez pas autoriser la connectivité par le nom de domaine complet et devez spécifier des plages d’adresses IP à la place, utilisez ces options :
 
 * Autoriser l’accès sortant du connecteur vers toutes les destinations.
-* Autoriser l’accès sortant du connecteur vers des [plages d’adresses IP de centre de données Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653).
-
->[!NOTE]
->Le problème lié à l’utilisation de la liste de plages d’adresses IP de centre de données Azure est qu’elle est mise à jour chaque semaine. Vous devrez mettre un processus en place pour garantir que vos règles d’accès sont mises à jour en conséquence.
->
+* Autoriser l’accès sortant du connecteur vers des [plages d’adresses IP de centre de données Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). Le problème lié à l’utilisation de la liste de plages d’adresses IP de centre de données Azure est qu’elle est mise à jour chaque semaine. Vous devez mettre un processus en place pour garantir que vos règles d’accès sont mises à jour en conséquence.
 
 #### <a name="proxy-authentication"></a>Authentification du proxy
 
@@ -141,18 +136,15 @@ L’authentification proxy n'est actuellement pas prise en charge. Notre recomma
 
 #### <a name="proxy-ports"></a>Ports du proxy
 
-Le connecteur établit les connexions sortantes SSL à l’aide de la méthode CONNECT. Cette méthode sert à définir un tunnel via le serveur proxy sortant. Certains serveurs proxy autorisent, par défaut, le tunneling sortant sur les ports SSL standard uniquement, 443 par exemple. Si c’est le cas, le serveur proxy doit être configuré pour autoriser le tunneling vers des ports supplémentaires.
-
-Configurez le serveur proxy pour autoriser le tunneling vers les ports SSL non standard 8080, 9090, 9091 et 10100-10120.
+Le connecteur établit les connexions sortantes SSL à l’aide de la méthode CONNECT. Cette méthode sert à définir un tunnel via le serveur proxy sortant. Configurez le serveur proxy pour autoriser le tunneling vers les ports 443 et 80.
 
 >[!NOTE]
 >Lorsque Service Bus s’exécute via le protocole HTTPS, il utilise le port 443. Toutefois, par défaut, Service Bus tente des connexions TCP directes et bascule sur HTTPS uniquement si la connectivité directe échoue.
->
 
 Pour vous assurer que le trafic Service Bus est également envoyé via le serveur proxy sortant, assurez-vous que le connecteur ne peut pas se connecter directement aux services Azure pour les ports 9350, 9352 et 5671.
 
 #### <a name="ssl-inspection"></a>Inspection SSL
-N’utilisez pas l’inspection SSL pour le trafic de connecteur, car cela entraînera des problèmes pour le trafic du connecteur.
+N’utilisez pas l’inspection SSL pour le trafic de connecteur, car cela entraîne des problèmes pour le trafic du connecteur.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Résoudre les problèmes courants de proxy de connecteur et de connectivité du service
 Vous devriez maintenant voir tout le trafic transitant par le proxy. Si vous rencontrez des problèmes, les informations de résolution des problèmes suivantes devraient vous aider.
@@ -193,7 +185,7 @@ Voici un filtre (où 8080 est le port du service proxy) :
 
 **(http.Request or http.Response) and tcp.port==8080**
 
-Si vous entrez ce filtre dans la fenêtre de **filtre d’affichage** et sélectionnez **Appliquer**, le trafic capturé sera filtré en fonction du filtre.
+Si vous entrez ce filtre dans la fenêtre de **filtre d’affichage** et sélectionnez **Appliquer**, le trafic capturé est filtré en fonction du filtre.
 
 Le filtre précédent affiche uniquement les requêtes et réponses HTTP vers/depuis le port du proxy. Pour un démarrage de connecteur sur lequel le connecteur est configuré pour utiliser un serveur proxy, ce filtre ressemblerait à ceci :
 

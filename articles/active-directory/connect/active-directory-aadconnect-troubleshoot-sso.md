@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/04/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4466a5aa1d55b178a584832d03f68d307767d167
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -29,16 +29,25 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 ## <a name="known-issues"></a>Problèmes connus
 
 - Si vous synchronisez 30 forêts AD ou plus, vous ne pouvez pas activer l’authentification unique transparente à l’aide d’Azure AD Connect. En guise de solution de contournement, vous pouvez [activer manuellement](#manual-reset-of-azure-ad-seamless-sso) la fonctionnalité pour votre locataire.
-- En ajoutant des URL de service Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) à la zone « Sites de confiance » et non à la zone « Intranet local », vous empêchez les utilisateurs de se connecter.
-- L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox.
+- L’ajout des URL du service Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) à la zone « Sites de confiance » plutôt qu’à la zone « Intranet local », **empêche les utilisateurs de se connecter**.
+- L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox et Edge. Il en va de même sur Internet Explorer lorsque le mode Protégé amélioré est activé.
+
+>[!IMPORTANT]
+>Nous avons récemment restauré la prise en charge de Edge afin d’examiner les problèmes signalés par le client.
+
+## <a name="check-status-of-the-feature"></a>Vérifiez l’état de la fonctionnalité
+
+Assurez-vous que la fonctionnalité Authentification unique transparente est toujours **activée** sur votre client. Vous pouvez vérifier l’état en accédant au panneau **Azure AD Connect** sur le [centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
+
+![Centre d’administration d’Azure Active Directory - panneau Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory
 
 Pour résoudre les problèmes de connexion utilisateur avec l’authentification unique transparente, commencez par examiner le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
 
-![Rapport de connexions](./media/active-directory-aadconnect-sso/sso9.png)
+![Centre d’administration d’Azure Active Directory - rapport de connexions](./media/active-directory-aadconnect-sso/sso9.png)
 
-Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/), puis cliquez sur l’activité de connexion d’un utilisateur déterminé. Recherchez le champ **CODE D’ERREUR DE CONNEXION**. Notez la valeur de ce champ et cherchez dans le tableau suivant la raison de l’échec et la solution à appliquer :
+Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/), puis cliquez sur une activité de connexion. Recherchez le champ **Code d’erreur de connexion**. Notez la valeur de ce champ et cherchez dans le tableau suivant la raison de l’échec et la solution à appliquer :
 
 |Code d’erreur de connexion|Raison de l’échec de connexion|Résolution :
 | --- | --- | ---
@@ -81,9 +90,9 @@ Si l’audit des réussites est activé sur votre contrôleur de domaine, chaque
     </QueryList>
 ```
 
-## <a name="manual-reset-of-azure-ad-seamless-sso"></a>Réinitialisation manuelle de l’authentification unique (SSO) transparente Azure AD
+## <a name="manual-reset-of-the-feature"></a>Réinitialisation manuelle de la fonctionnalité
 
-Si vous n’avez pas réussi à résoudre le problème, effectuez les étapes suivantes pour réinitialiser manuellement la fonctionnalité pour votre locataire :
+Si vous n’avez pas réussi à résoudre le problème, vous pouvez réinitialiser manuellement la fonctionnalité pour votre locataire. Effectuez les étapes suivantes sur le serveur local où vous exécutez Azure AD Connect :
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Étape 1 : Importer le module PowerShell Authentification unique (SSO) transparente
 
@@ -94,7 +103,7 @@ Si vous n’avez pas réussi à résoudre le problème, effectuez les étapes su
 
 ### <a name="step-2-get-the-list-of-ad-forests-on-which-seamless-sso-has-been-enabled"></a>Étape 2 : Obtenir la liste des forêts AD dans lesquelles l’authentification unique (SSO) transparente a été activée
 
-1. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Quand vous y êtes invité, entrez vos informations d’identification d’administrateur de locataire Azure AD.
+1. Exécutez PowerShell en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Lorsque vous y êtes invité, fournissez les informations d’identification de l’administrateur général de votre locataire.
 2. Appelez `Get-AzureADSSOStatus`. Cette commande vous fournit la liste des forêts AD (examinez la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée.
 
 ### <a name="step-3-disable-seamless-sso-for-each-ad-forest-that-it-was-set-it-up-on"></a>Étape 3 : Désactiver l’authentification unique (SSO) transparente pour chaque forêt AD dans laquelle elle a été configurée

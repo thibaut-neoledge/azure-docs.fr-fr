@@ -14,13 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/04/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 658c316d8d9d14ce11dbb92188afbf0e68c00493
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: c019ea9207379ea1b88ec5d990e1c2b8565092a2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Approvisionner de nouveaux locataires et les inscrire dans le catalogue
@@ -82,7 +82,7 @@ Une fois le script terminé, le nouveau locataire est approvisionné et son appl
 
 Cet exercice permet d’approvisionner un lot de locataires supplémentaires. Il est recommandé d’approvisionner un lot de locataires avant de réaliser d’autres didacticiels SaaS Wingtip afin que vous puissiez utiliser plusieurs bases de données.
 
-1. Ouvrez...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* dans l’*ISE PowerShell* et définissez le paramètre *$DemoScenario* sur 3 :
+1. Ouvrez...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* dans *l’ISE PowerShell* et définissez le paramètre *$DemoScenario* sur 3 :
    * **$DemoScenario** = **3**. Changez sur **3** pour *Approvisionner un lot de clients*.
 1. Appuyez sur **F5** pour exécuter le script.
 
@@ -95,24 +95,31 @@ Le script déploie un lot de locataires supplémentaires. Il utilise un [modèle
    ![liste de base de données](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
 
-## <a name="provision-and-catalog-details"></a>Approvisionner des détails et les inscrire dans le catalogue
+## <a name="stepping-through-the-provision-and-catalog-implementation-details"></a>Passage en revue des détails de l’implémentation de l’approvisionnement et du catalogue
 
 Pour mieux comprendre la façon dont l’application Wingtip implémente l’approvisionnement de nouveaux locataires, réexécutez le script *Demo-ProvisionAndCatalog* et approvisionnez un autre locataire. Cette fois-ci, ajoutez un point d’arrêt et suivez les étapes du flux de travail :
 
-1. Ouvrez ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_ et définissez les paramètres suivants :
+1. Ouvrez ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ et définissez les paramètres suivants :
    * **$TenantName** = comme les noms des locataires doivent être uniques, définissez-le sur un nom différent de celui des locataires existants (par exemple, *Hackberry Hitters*).
    * **$VenueType** = utilisez un des types de lieu prédéfinis (par exemple *judo*).
    * **$DemoScenario** = **1**. Définissez sur **1** pour *approvisionner un seul client*.
 
-1. Ajoutez un point d’arrêt en plaçant votre curseur n’importe où sur la ligne suivante : *New-Tenant `*, puis appuyez sur **F9**.
+1. Ajoutez un point d’arrêt en plaçant votre curseur n’importe où sur la ligne 48, celle qui indique *New-Tenant `*, puis appuyez sur **F9**.
 
    ![point d’arrêt](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. Pour exécuter le script, appuyez sur la touche **F5**. Lorsque le point d’arrêt est atteint, appuyez sur **F11** pour intervenir. Suivez l’exécution du script à l’aide des options du menu de débogage :**F10** et **F11** pour parcourir les fonctions invoquées. Pour plus d’informations sur le débogage des scripts PowerShell, consultez [Conseils sur l’utilisation et le débogage de scripts PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+1. Pour exécuter le script, appuyez sur la touche **F5**.
 
-### <a name="examine-the-provision-and-catalog-implementation-in-detail-by-stepping-through-the-script"></a>Examiner en détail l’implémentation de l’approvisionnement et du catalogue en parcourant le script
+1. Une fois que l’exécution du script s’arrête au point d’arrêt, appuyez sur **F11** pour effectuer un pas à pas détaillé du code.
 
-Le script approvisionne et inscrit au catalogue les nouveaux locataires en procédant comme suit :
+   ![point d’arrêt](media/sql-database-saas-tutorial-provision-and-catalog/debug.png)
+
+
+
+Suivez l’exécution du script à l’aide des options du menu **Débogage** **F10** et **F11** pour parcourir les fonctions invoquées. Pour plus d’informations sur le débogage des scripts PowerShell, consultez [Conseils sur l’utilisation et le débogage de scripts PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+
+
+Les points suivants ne sont pas des étapes à suivre explicitement, mais constituent une explication du flux de travail parcouru pendant le débogage du script :
 
 1. **Importe le module SubscriptionManagement.psm1** qui contient des fonctions pour la connexion à Azure et la sélection de l’abonnement Azure que vous utilisez.
 1. **Importe le module CatalogAndDatabaseManagement.psm1** qui fournit un catalogue et l’abstraction au niveau du locataire sur les fonctions de [gestion des partitions](sql-database-elastic-scale-shard-map-management.md). Il s’agit d’un module important qui encapsule une bonne partie du modèle de catalogue et que nous vous conseillons d’explorer.

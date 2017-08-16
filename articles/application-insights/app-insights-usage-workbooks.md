@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: cfreeman
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: ecd3d86db1d6b3b65015d1d560027cedb4f2df58
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 05e3246de51e1c092a7d8a15dddea3c99b6e5b15
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -118,9 +118,11 @@ Pour épingler un lien à un classeur dans un tableau de bord Azure :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble de l’utilisation](app-insights-usage-overview.md)
-* [Utilisateurs, Sessions et Événements](app-insights-usage-segmentation.md)
-* [Rétention](app-insights-usage-retention.md)
-* [Ajout d’événements personnalisés à votre application](app-insights-api-custom-events-metrics.md)
-
+## <a name="next-steps"></a>Étapes suivantes
+- Pour activer les expériences d’utilisation, commencez à envoyer des [événements personnalisés](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou des [affichages de page](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Si vous envoyez déjà des événements personnalisés ou des affichages de page, explorez les outils d’utilisation pour savoir comment les utilisateurs emploient votre service.
+    - [Utilisateurs, sessions, événements](app-insights-usage-segmentation.md)
+    - [Entonnoirs](usage-funnels.md)
+    - [Rétention](app-insights-usage-retention.md)
+    - [Ajouter du contexte utilisateur](app-insights-usage-send-user-context.md)
 

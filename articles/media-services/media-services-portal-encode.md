@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 50e9095d38c96323db3ccce4e3601eccbb9eb2ab
-ms.lasthandoff: 01/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: efe7db8a36273b4755dd057139bb1c673af868d3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="encode-an-asset-using-media-encoder-standard-with-the-azure-portal"></a>Encoder un élément multimédia à l’aide de Media Encoder Standard avec le Portail Azure
@@ -42,7 +42,7 @@ Cette section décrit les étapes à suivre pour encoder votre contenu avec Medi
 2. Dans la fenêtre **Paramètres**, sélectionnez **Éléments multimédias**.  
 3. Dans la fenêtre **Éléments multimédias** , sélectionnez l’élément que vous souhaitez encoder.
 4. Appuyez sur le bouton **Encoder** .
-5. Dans la fenêtre **Encoder un élément multimédia**, sélectionnez le processeur Media Encoder Standard et choisissez une présélection. Par exemple, si vous savez que votre vidéo d’entrée possède une résolution de 1920 x 1080 pixels, vous pouvez utiliser la présélection « H264 Multiple Bitrate 1080p ». Pour plus d’informations sur les présélections, consultez [cet article](media-services-mes-presets-overview.md). Il est important de choisir la présélection qui convient le mieux à votre vidéo. Si vous avez une vidéo de basse résolution (640 x 360), il est préférable de ne pas utiliser la présélection par défaut « H264 Multiple Bitrate1080p ».
+5. Dans la fenêtre **Encoder un élément multimédia**, sélectionnez le processeur Media Encoder Standard et choisissez une présélection. Pour plus d’informations sur les présélections, consultez [Utilisation d’Azure Media Encoder Standard pour générer automatiquement une échelle des vitesses de transmission](media-services-autogen-bitrate-ladder-with-mes.md) et [Présélections de travaux pour MES (Media Encoder Standard)](media-services-mes-presets-overview.md). Si vous envisagez de contrôler quelle préselection d’encodage est utilisée, n’oubliez pas qu’il est important de sélectionner la préselection qui convient le mieux à votre entrée vidéo. Par exemple, si vous savez que votre vidéo d’entrée possède une résolution de 1920 x 1080 pixels, vous pouvez utiliser la présélection « H264 Multiple Bitrate 1080p ». Si vous avez une vidéo de basse résolution (640 x 360), il est préférable de ne pas utiliser la présélection « H264 Multiple Bitrate1080p ».
    
    Pour des questions pratiques, vous avez la possibilité de modifier le nom de l’élément multimédia de sortie ainsi que le nom de la tâche.
    

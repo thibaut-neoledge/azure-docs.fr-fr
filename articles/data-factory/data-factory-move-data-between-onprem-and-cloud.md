@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ca8c94cfe6a76ba169b2ec1f7ab3f49caf562289
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 475c878e34a83d06cffca5e114ccd920c7956256
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
@@ -29,13 +29,18 @@ Cet article présente l’intégration des données entre les magasins de donné
 Vous devez installer la passerelle de gestion des données sur votre ordinateur local pour activer le déplacement des données vers/depuis un magasin de données local. La passerelle peut être installée sur le même ordinateur que le magasin de données ou sur un autre ordinateur, pourvu qu’elle puisse se connecter au magasin de données.
 
 > [!IMPORTANT]
-> Consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md) pour obtenir des informations détaillées sur la passerelle de gestion des données.   
->
->
+> Consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md) pour obtenir des informations détaillées sur la passerelle de gestion des données. 
 
 La procédure pas à pas suivante explique comment créer une fabrique de données avec un pipeline qui déplace les données d’une base de données **SQL Server** locale vers un Stockage Blob Azure. Dans le cadre de la procédure pas à pas, vous installez et configurez la passerelle de gestion des données sur votre ordinateur.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Procédure pas à pas : copier des données locales vers le cloud
+Dans cette procédure pas à pas, vous effectuez les étapes suivantes : 
+
+1. Créer une fabrique de données.
+2. Créer une passerelle de gestion des données. 
+3. Créer des services liés pour les magasins de données des sources et récepteurs.
+4. Créer des jeux de données pour représenter les données d’entrée et de sortie.
+5. Créer un pipeline avec une activité de copie pour déplacer les données.
 
 ## <a name="prerequisites-for-the-tutorial"></a>Configuration requise pour le didacticiel
 Avant de commencer ce guide, vous devez disposer des éléments suivants :
@@ -51,7 +56,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 2. Cliquez sur **+ NOUVEAU**, **Intelligence + analyse**, puis **Data Factory**.
 
    ![Nouveau -> DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
-3. Dans le panneau **Nouvelle fabrique de données**, dans le champ Nom, entrez **ADFTutorialOnPremDF**.
+3. Dans la page **Nouvelle fabrique de données**, dans le champ Nom, entrez **ADFTutorialOnPremDF**.
 
     ![Ajouter au Tableau d'accueil](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
@@ -63,27 +68,30 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
    >
 4. Sélectionnez l’ **abonnement Azure** où vous voulez que la fabrique de données soit créée.
 5. Sélectionnez un **groupe de ressources** existant ou créez-en un. Pour les besoins de ce didacticiel, créez un groupe de ressources nommé **ADFTutorialResourceGroup**.
-6. Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
+6. Cliquez sur **Créer** dans la page **Nouvelle fabrique de données**.
 
    > [!IMPORTANT]
    > Pour créer des instances Data Factory, vous devez avoir un rôle de [collaborateur de fabrique de données](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
    >
    >
-7. Une fois la création terminée, le panneau **Fabrique de données** s’affiche comme sur l’image suivante :
+7. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image suivante :
 
    ![Page d’accueil Data Factory](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ## <a name="create-gateway"></a>Créer une passerelle
-1. Dans le panneau **Data Factory**, cliquez sur la mosaïque **Créer et déployer** pour lancer l’**éditeur** de la fabrique de données.
+1. Dans la page **Data Factory**, cliquez sur la vignette **Créer et déployer** pour lancer l’**éditeur** de la fabrique de données.
 
     ![Vignette Créer et déployer](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
 2. Dans Data Factory Editor, dans la barre d’outils, cliquez sur **... Plus**, puis cliquez sur **Nouvelle passerelle de données**. Vous pouvez également cliquer avec le bouton droit sur **Passerelles de données** dans l’arborescence, puis cliquer sur **Nouvelle passerelle de données**.
 
    ![Nouvelle passerelle de données sur la barre d’outils](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
-3. Dans le panneau **Créer**, saisissez **adftutorialgateway** dans le champ **Nom**, puis cliquez sur **OK**.     
+3. Dans la page **Créer**, entrez **adftutorialgateway** dans le champ **Nom**, puis cliquez sur **OK**.     
 
-    ![Panneau Créer une passerelle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
-4. Dans le panneau **Configurer**, cliquez sur **Installer directement sur cet ordinateur**. Cette action télécharge le package d’installation de la passerelle, installe, configure et inscrit la passerelle sur l’ordinateur.  
+    ![Page Créer une passerelle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
+
+    > [!NOTE]
+    > Dans cette procédure pas à pas, vous créez la passerelle logique avec un seul nœud (ordinateur Windows local). Vous pouvez augmenter le nombre des instances d’une passerelle de gestion des données en associant plusieurs machines locales avec la passerelle. Vous pouvez monter en puissance une passerelle en augmentant le nombre de travaux de déplacement des données qui peuvent s’exécuter simultanément sur un nœud. Cette fonctionnalité est également disponible pour une passerelle logique à nœud unique. Consultez l’article [Mise à l’échelle de la passerelle de gestion des données dans Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) pour plus d’informations.  
+4. Dans la page **Configurer**, cliquez sur **Installer directement sur cet ordinateur**. Cette action télécharge le package d’installation de la passerelle, installe, configure et inscrit la passerelle sur l’ordinateur.  
 
    > [!NOTE]
    > Utilisez Internet Explorer ou un navigateur web compatible Microsoft ClickOnce.
@@ -94,11 +102,11 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
    >
    >
 
-    ![Passerelle - Panneau Configurer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
+    ![Passerelle - Page Configurer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
     Il s’agit de la méthode la plus simple (un clic) pour télécharger, installer, configurer et inscrire la passerelle en une seule étape. Vous pouvez voir que l’application **Gestionnaire de configuration de la passerelle de gestion de données Microsoft** est installée sur votre ordinateur. Vous pouvez également trouver l’exécutable **ConfigManager.exe** dans le dossier suivant : **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**.
 
-    Vous pouvez également télécharger et installer manuellement la passerelle en utilisant les liens de ce panneau et l’enregistrer à l’aide de la clé indiquée dans la zone de texte **NOUVELLE CLÉ** .
+    Vous pouvez également télécharger et installer manuellement la passerelle en utilisant les liens de cette page et l’inscrire à l’aide de la clé indiquée dans la zone de texte **NOUVELLE CLÉ**.
 
     Consultez l’article [Data Management Gateway](data-factory-data-management-gateway.md) (Passerelle de gestion des données) pour obtenir des informations détaillées sur la passerelle.
 
@@ -140,7 +148,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
    * Cliquez sur **Afficher les journaux** pour consulter le journal de la passerelle de gestion des données dans une fenêtre de l’Observateur d’événements.
    * Cliquez sur **Envoyer des journaux** pour charger un fichier zip contenant les journaux des sept derniers jours et l’envoyer à Microsoft pour faciliter le dépannage en cas de problèmes.
 10. Sous l’onglet **Diagnostics**, dans la section **Tester la connexion**, sélectionnez **SqlServer** pour le type de magasin de données, entrez le nom du serveur de base de données et le nom de la base de données, spécifiez le type d’authentification, entrez un nom d’utilisateur et un mot de passe, puis cliquez sur **Tester** pour tester si la passerelle peut se connecter à la base de données.
-11. Basculez vers le navigateur web, puis, dans le **portail Azure**, cliquez sur **OK** dans le panneau **Configurer**, puis sur le panneau **Nouvelle passerelle de données**.
+11. Basculez vers le navigateur web, puis, dans le **portail Azure**, cliquez sur **OK** dans la page **Configurer**, puis dans la page **Nouvelle passerelle de données**.
 12. Vous devez voir **adftutorialgateway** sous **Passerelles de données** dans l’arborescence de gauche.  Si vous cliquez dessus, vous devez voir le code JSON associé.
 
 ## <a name="create-linked-services"></a>Créez des services liés
@@ -157,7 +165,7 @@ Au cours de cette étape, vous créez deux services liés : **AzureStorageLinked
 
       1. Pour **servername**, entrez le nom du serveur qui héberge la base de données SQL Server.
       2. Pour **databasename**, entrez le nom de la base de données.
-      3. Cliquez sur le bouton **Chiffrer** dans la barre d’outils. Cela a pour effet de télécharger et lancer l’application Gestionnaire des informations d’identification.
+      3. Cliquez sur le bouton **Chiffrer** dans la barre d’outils. L’application Gestionnaire des informations d’identification apparaît.
 
          ![Application Gestionnaire des informations d’identification](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
       4. Dans la boîte de dialogue **Définition des informations d’identification**, spécifiez le type d’authentification, le nom d’utilisateur et le mot de passe, puis cliquez sur **OK**. Si la connexion est réussie, les informations d’identification chiffrées sont stockées dans le JSON, et la boîte de dialogue se ferme.
@@ -361,7 +369,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 
    Dans l’exemple ci-dessus, il existe 24 tranches de données, car une tranche est générée par heure.        
 3. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le jeu de données (la table est un jeu de données rectangulaire). Vérifiez que le pipeline s’affiche dans l’arborescence sous le nœud **Pipelines**.  
-4. Maintenant, cliquez sur **X** à deux reprises pour fermer les panneaux et revenir au panneau **Data Factory** pour le **ADFTutorialOnPremDF**.
+4. Maintenant, cliquez sur **X** à deux reprises pour fermer la page et revenir à la page **Data Factory** pour **ADFTutorialOnPremDF**.
 
 **Félicitations !** Vous avez correctement créé une fabrique de données Azure, des services liés, des jeux de données et un pipeline, et planifié le pipeline.
 
@@ -382,25 +390,25 @@ Dans cette étape, vous utilisez le portail Azure pour surveiller ce qui se pass
 
     ![Tranches EmpOnPremSQLTable](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
 2. Notez que toutes les tranches de données sont dans l’état **Prêt** parce que la durée du pipeline (de l’heure de début à l’heure de fin) s’inscrit dans le passé. Cela est dû au fait que vous avez inséré les données dans la base de données SQL Server et qu’elles y sont tout le temps. Vérifiez qu’aucune tranche n’apparaît dans la section **Tranches problématiques** , sur la partie inférieure de la fenêtre. Pour afficher toutes les tranches, cliquez sur **Afficher plus** en bas de la liste des tranches.
-3. Dans le panneau **Jeux de données**, cliquez sur **OutputBlobTable**.
+3. À présent, dans la page **Jeux de données**, cliquez sur **OutputBlobTable**.
 
     ![Tranches OputputBlobTable](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
-4. Cliquez sur une tranche de données dans la liste pour afficher le panneau **Tranche de données**. Les activités exécutées pour cette tranche s’affichent. Généralement, une seule activité exécutée s’affiche.  
+4. Cliquez sur une tranche de données dans la liste pour afficher la page **Tranche de données**. Les activités exécutées pour cette tranche s’affichent. Généralement, une seule activité exécutée s’affiche.  
 
     ![Panneau Tranche de données](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
     Si la tranche n’a pas l’état **Prêt**, vous pouvez voir les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**.
 5. Cliquez sur **l’exécution d’activité** dans la liste de la partie inférieure de la fenêtre pour afficher les **détails sur l’exécution d’activité**.
 
-   ![Panneau Détails sur l’exécution d’activité](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
+   ![Page Détails de l’exécution d’activité](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
 
    Vous devriez voir des informations telles que le débit, la durée et la passerelle utilisée pour transférer les données.
-6. Cliquez sur **X** pour fermer tous les panneaux jusqu’à ce que vous
-7. reveniez au panneau d’accueil de l’élément **ADFTutorialOnPremDF**.
+6. Cliquez sur **X** pour fermer toutes les pages jusqu’à ce que vous
+7. reveniez à la page d’accueil de l’élément **ADFTutorialOnPremDF**.
 8. (facultatif) Cliquez sur **Pipelines**, sur **ADFTutorialOnPremDF**, puis accédez aux tables d’entrée (**Consommé**) ou aux jeux de données de sortie (**Produit**).
 9. Utilisez des outils tels que [Microsoft Storage Explorer](http://storageexplorer.com/) pour vérifier qu’un objet blob/fichier est créé pour chaque heure.
 
-   ![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Explorateur de stockage Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez l’article [Data Management Gateway](data-factory-data-management-gateway.md) (Passerelle de gestion des données) pour obtenir des informations détaillées sur la passerelle de gestion des données.
