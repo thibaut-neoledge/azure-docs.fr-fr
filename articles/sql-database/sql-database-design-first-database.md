@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 07/31/2017
+ms.date: 08/03/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: ec3b2debcd65f733041462940196a61c109bf051
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 69cfffdae5ce2db53acc6d668dbe468c3ef22dc2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -43,7 +43,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 - La dernière version de [SSMS](https://msdn.microsoft.com/library/ms174173.aspx) (SQL Server Management Studio).
-- La version la plus récente de [BCP et SQLCMD] [https://www.microsoft.com/download/details.aspx?id=36433].
+- La dernière version de [BCP et SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 

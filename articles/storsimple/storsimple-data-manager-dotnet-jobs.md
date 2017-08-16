@@ -1,5 +1,5 @@
 ---
-title: "Utiliser le Kit de développement logiciel (SDK) pour les travaux Microsoft Azure StorSimple Data Manager | Microsoft Docs"
+title: "Utiliser le kit SDK .NET pour les travaux Microsoft Azure StorSimple Data Manager | Microsoft Docs"
 description: "Découvrez comment utiliser le Kit SDK .NET pour lancer les travaux StorSimple Data Manager (version préliminaire privée)"
 services: storsimple
 documentationcenter: NA
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 270f890b5ec58ffd009ff913a6df9d941889a6dc
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
-# <a name="use-the-net-sdk-to-initiate-data-transformation-private-preview"></a>Utiliser le Kit SDK .NET pour initier la transformation des données (version préliminaire privée)
+# <a name="use-the-net-sdk-to-initiate-data-transformation-private-preview"></a>Utiliser le kit SDK .NET pour initier la transformation des données (préversion privée)
 
 ## <a name="overview"></a>Vue d'ensemble
 
 Cet article vous explique comment utiliser la fonctionnalité de transformation des données au sein du service StorSimple Data Manager afin de transformer les données de l’appareil StorSimple. Les données transformées sont ensuite utilisées par d’autres services Azure dans le cloud. L’article comporte également une procédure pas à pas pour créer un exemple d’application console .NET pour initier un travail de transformation de données et effectuer son suivi.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
-*    Un système avec Visual Studio 2012, 2013 ou 2015 installé.
-*    Azure Powershell installé. [Téléchargez Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*    Les paramètres de configuration pour initialiser le travail de transformation des données (les instructions pour obtenir ces paramètres sont disponibles ici).
-*    Une définition de travail qui a été configurée correctement dans une ressource de données hybride dans un groupe de ressources.
-*    Toutes les DLL requises. Téléchargez ces DLL à partir du [référentiel GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*    `Get-ConfigurationParams.ps1` Le [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) du référentiel GitHub.
+*   Un système avec Visual Studio 2012, 2013, 2015 ou 2017 installé.
+*   Azure Powershell installé. [Téléchargez Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*   Les paramètres de configuration pour initialiser le travail de transformation des données (les instructions pour obtenir ces paramètres sont disponibles ici).
+*   Une définition de travail qui a été configurée correctement dans une ressource de données hybride dans un groupe de ressources.
+*   Toutes les DLL requises. Téléchargez ces DLL à partir du [dépôt GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
+*   `Get-ConfigurationParams.ps1` Le [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) du dépôt GitHub.
 
 ## <a name="step-by-step"></a>Procédure pas à pas
 
 Procédez comme suit pour utiliser .NET pour lancer un travail de transformation de données.
 
 1. Pour récupérer les paramètres de configuration, procédez comme suit :
-    1. Téléchargez l’élément `Get-ConfigurationParams.ps1` à partir du script du référentiel GitHub, dans l’emplacement `C:\DataTransformation`.
-    1. Exécutez le script `Get-ConfigurationParams.ps1` à partir du référentiel GitHub. Tapez la commande suivante :
+    1. Téléchargez l’élément `Get-ConfigurationParams.ps1` à partir du script du dépôt GitHub, dans l’emplacement `C:\DataTransformation`.
+    1. Exécutez le script `Get-ConfigurationParams.ps1` à partir du dépôt GitHub. Tapez la commande suivante :
 
         ```
         C:\DataTransformation\Get-ConfigurationParams.ps1 -SubscriptionName "AzureSubscriptionName" -ActiveDirectoryKey "AnyRandomPassword" -AppName "ApplicationName"
@@ -68,7 +68,7 @@ Procédez comme suit pour utiliser .NET pour lancer un travail de transformation
     5. Sélectionnez **C:\DataTransformation** pour l’**Emplacement**.
     6. Cliquez sur **OK** pour créer le projet.
 
-4.    Maintenant, ajoutez l’ensemble des DLL présentes dans le dossier [dédié](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) en tant que **Références**dans le projet que vous avez créé. Pour télécharger les fichiers DLL, procédez comme suit :
+4.  Maintenant, ajoutez l’ensemble des DLL présentes dans le dossier [dédié](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) en tant que **Références**dans le projet que vous avez créé. Pour télécharger les fichiers DLL, procédez comme suit :
 
     1. Dans Visual Studio, accédez à **Affichage > Explorateur de solutions**.
     1. Cliquez sur la flèche à gauche du projet de l’application de transformation des données. Cliquez sur **Références**, puis cliquez avec le bouton droit sur **Ajouter une référence**.

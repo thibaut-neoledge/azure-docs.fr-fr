@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 08/08/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 28eb505bf58943f7a687b79af3427a0ee74fe9bb
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 05538e1633d6e8353cc7980d081af3672a3f97d8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) .NET Core Azure Cosmos DB : notes de publication et ressources
@@ -57,6 +57,14 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 
 > [!NOTE] 
 > Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB n’est pas encore compatible avec les applications de plateforme Windows universelle (UWP). Si un Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+
+*   Correction d’un problème dans la classe JsonSerializable qui peut provoquer une exception de dépassement de la capacité de la pile.
+
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+
+*   Ajout de la prise en charge de la spécification des JsonSerializerSettings personnalisés lors de l’instanciation d’une instance [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 
@@ -125,6 +133,8 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.4.1](#1.4.1) |7 août 2017 |--- |
+| [1.4.0](#1.4.0) |2 août 2017 |--- |
 | [1.3.2](#1.3.2) |12 juin 2017 |--- |
 | [1.3.1](#1.3.1) |23 mai 2017 |--- |
 | [1.3.0](#1.3.0) |10 mai 2017 |--- |

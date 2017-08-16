@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: c528974951d3b4a83111cb92b931810a91f660f4
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: dda5ea77b35fa8491128135ea7709016781f2aea
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Déployer une application avec intégration et déploiement continus sur un cluster Service Fabric
-Ce didacticiel explique comment configurer l’intégration et le déploiement continus pour une application Service Fabric Azure à l’aide de Visual Studio Team Services.  Une application Service Fabric existante est requise. L’application créée dans le didacticiel [Générer une application .NET](service-fabric-tutorial-create-dotnet-app.md) est utilisée à titre d’exemple.
+Troisième d’une série, ce didacticiel explique comment configurer l’intégration et le déploiement continus d’une application Microsoft Azure Service Fabric à l’aide de Visual Studio Team Services.  Une application Service Fabric existante est requise. L’application créée dans le didacticiel [Générer une application .NET](service-fabric-tutorial-create-dotnet-app.md) est utilisée à titre d’exemple.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Dans ce troisième volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Ajouter le contrôle de code source à votre projet
@@ -33,7 +33,11 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Créer une définition de mise en production dans Team Services
 > * Déployer et mettre à niveau une application automatiquement
 
-Ce didacticiel est divisé en trois articles. Le présent article est le troisième de la série.
+Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
+> [!div class="checklist"]
+> * [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
+> * [Déployer l’application sur un cluster distant](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * Configurer l’intégration et le déploiement continus à l’aide de Visual Studio Team Services
 
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel :

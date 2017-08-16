@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 08/02/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 2e5dbaf595e3d3cd7dee09431fbb1cb6f2403ef4
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Utilisation de l’Explorateur de travaux et la Vue des travaux pour les travaux Azure Data Lake Analytics
@@ -31,7 +30,7 @@ Par défaut, le service Data Lake Analytics archive les travaux des 30 derniers 
 Voir [Data Lake Tools for Visual Studio - Composants requis](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Ouverture de l’Explorateur de travaux
-L’Explorateur de travaux est accessible via **Explorateur de serveurs>Azure>Data Lake Travaux** dans Visual Studio.  L’explorateur vous permet d’accéder au magasin de requêtes d’un compte Data Lake Analytics. L’Explorateur de travaux comporte le magasin de requêtes à gauche, qui affiche des informations de base sur les travaux, et la Vue des travaux à droite, qui fournit des informations détaillées sur un travail.
+Accédez à l’Explorateur de travaux via **Explorateur de serveurs>Azure>Data Lake Analytics>Travaux** dans Visual Studio.  L’explorateur de travaux vous permet d’accéder au magasin de requêtes d’un compte Data Lake Analytics. Il présente le magasin des requêtes sur la gauche, lequel indique des informations de base sur les travaux, et la vue du travail sur la droite, laquelle indique des informations détaillées sur les travaux.
 
 ## <a name="job-view"></a>Vue des travaux
 La Vue des travaux affiche des informations détaillées sur un travail. Pour ouvrir un travail, vous pouvez double-cliquer sur un travail dans l’Explorateur de travaux ou l’ouvrir à partir du menu Data Lake en cliquant sur Vue des travaux. Une boîte de dialogue indiquant l’URL du travail devrait apparaître.

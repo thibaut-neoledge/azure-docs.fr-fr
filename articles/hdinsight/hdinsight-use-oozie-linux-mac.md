@@ -14,20 +14,27 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 2327945b5f5fe6b6e63660fd5d607d3cc8092f8b
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: b43dd20be9f481270b782de3c889abac762bd9cc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Utilisation d’Oozie avec Hadoop pour définir et exécuter un flux de travail dans HDInsight
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Découvrez comment utiliser Apache Oozie avec Hadoop sur HDInsight. Apache Oozie est un système de workflow/coordination qui gère les tâches Hadoop. Il est intégré à la pile Hadoop et prend en charge les tâches Hadoop pour Apache MapReduce, Apache Pig, Apache Hive et Apache Sqoop. Il peut également être utilisé pour planifier des travaux propres à un système comme des programmes Java ou des scripts shell.
+Découvrez comment utiliser Apache Oozie avec Hadoop sur HDInsight. Apache Oozie est un système de workflow/coordination qui gère les tâches Hadoop. Oozie est intégré dans la pile Hadoop et prend en charge les travaux suivants :
+
+* Apache MapReduce
+* Apache Pig
+* Apache Hive
+* Apache Sqoop
+
+Oozie peut également être utilisé pour planifier des travaux propres à un système, comme des programmes Java ou des scripts de l’interpréteur de commandes
 
 > [!NOTE]
 > Une autre option pour définir des flux de travail avec HDInsight consiste à utiliser Azure Data Factory. Pour en savoir plus sur Azure Data Factory, consultez la page [Utilisation de Pig et Hive avec Data Factory][azure-data-factory-pig-hive].
@@ -136,7 +143,7 @@ Utilisez les étapes suivantes pour créer un script HiveQL qui définit une req
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    Ces commandes stockent le fichier **useooziewf.hql** sur le compte de stockage Azure associé à ce cluster, ce qui conserve le fichier même si le cluster est supprimé.
+    Ces commandes stockent le fichier **useooziewf.hql** sur le stockage compatible avec HDFS pour le cluster.
 
 ## <a name="define-the-workflow"></a>Définition du flux de travail
 
@@ -467,7 +474,7 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
     ------------------------------------------------------------------------------------------------------------------------------------
     ```
 
-    Ce travail a le statut `PREP`, ce qui indique qu’il a été envoyé, mais qu’il n’a pas encore été démarré.
+    Ce travail a le statut `PREP`, Cet état indique que le travail a été créé, mais qu’il n’a pas commencé.
 
 5. Utilisez la commande suivante pour démarrer le travail :
 
@@ -522,7 +529,7 @@ Pour plus d'informations sur l’utilisation de l’API REST Oozie, consultez la
 
 ## <a name="oozie-web-ui"></a>Interface utilisateur web Oozie
 
-L’interface utilisateur web Oozie fournit une vue web de l’état des travaux Oozie sur le cluster. L’interface utilisateur web vous permet d’afficher les éléments suivants :
+L’interface utilisateur web Oozie fournit une vue web de l’état des travaux Oozie sur le cluster. L’interface utilisateur web vous permet d’afficher les informations suivantes :
 
 * Statut de tâche
 * Définition du travail
@@ -568,9 +575,7 @@ Pour accéder à l'interface utilisateur web Oozie, procédez comme suit :
 
 ## <a name="scheduling-jobs"></a>Planification des travaux
 
-Le coordinateur vous permet de spécifier le début, la fin et la fréquence d’occurrence des travaux afin qu’ils puissent être planifiés pour certaines heures.
-
-Pour définir une planification pour le flux de travail, procédez comme suit :
+Le coordinateur vous permet de spécifier le début, la fin et la fréquence d’occurrence des travaux. Pour définir une planification pour le flux de travail, procédez comme suit :
 
 1. Utilisez la commande suivante pour créer un fichier nommé **coordinator.xml** :
 
@@ -615,9 +620,9 @@ Pour définir une planification pour le flux de travail, procédez comme suit :
 
     Effectuez les modifications suivantes :
 
-   * Remplacez `<name>oozie.wf.application.path</name>` par `<name>oozie.coord.application.path</name>`. Cette valeur ordonne à Oozie d’exécuter le fichier coordinateur au lieu du fichier de workflow.
+   * Pour ordonner à Oozie d’exécuter le fichier coordinateur au lieu du fichier de workflow, remplacez `<name>oozie.wf.application.path</name>` par `<name>oozie.coord.application.path</name>`.
 
-   * Ajoutez le code XML suivant qui définit une variable utilisée dans le fichier coordinator.xml pour pointer vers l’emplacement du fichier workflow.xml :
+   * Pour définir la variable `workflowPath` utilisée par le coordinateur, ajoutez le code XML suivant :
 
         ```xml
         <property>
@@ -628,7 +633,7 @@ Pour définir une planification pour le flux de travail, procédez comme suit :
 
        Remplacez le texte `wasb://mycontainer@mystorageaccount.blob.core.windows` par la valeur utilisée dans les autres entrées du fichier job.xml.
 
-   * Ajoutez le code XML suivant qui définit le début, la fin et la fréquence à utiliser pour le fichier coordinator.xml :
+   * Pour définir le début, la fin et la fréquence correspondant au coordinateur, ajoutez le code XML suivant :
 
         ```xml
         <property>
@@ -652,7 +657,7 @@ Pour définir une planification pour le flux de travail, procédez comme suit :
         </property>
         ```
 
-       Ces valeurs définissent l’heure de début sur 12:00 PM le 10 mai 2017 et l’heure de fin au 12 mai 2017. L’intervalle d’exécution de ce travail est quotidien. La fréquence est exprimée en minutes, par conséquent, 24 heures x 60 minutes = 1 440 minutes. Enfin, le fuseau horaire est défini au format UTC.
+       Ces valeurs définissent l’heure de début sur 12 h 00 le 10 mai 2017 et la fin sur le 12 mai 2017. L’intervalle d’exécution de ce travail est quotidien. La fréquence est exprimée en minutes, par conséquent, 24 heures x 60 minutes = 1 440 minutes. Enfin, le fuseau horaire est défini au format UTC.
 
 5. Utilisez Ctrl-X, puis **Y** et **Entrée** pour enregistrer le fichier.
 
@@ -675,7 +680,7 @@ Pour définir une planification pour le flux de travail, procédez comme suit :
     ![Informations sur les travaux du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
-    > Seules les exécutions réussies du travail s’affichent, pas les actions individuelles dans le workflow planifié. Pour voir ces dernières, sélectionnez l’une des entrées **Action** .
+    > L’image affiche uniquement les exécutions réussies du travail, et non les actions individuelles dans le workflow planifié. Pour voir ces dernières, sélectionnez l’une des entrées **Action** .
 
     ![Informations sur l’action](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 

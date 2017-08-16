@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 9d5a4bef0c22f637a35390c6a8a245967fb02118
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 270d79944465176d3df467f7145ff82594302c3d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
@@ -96,7 +96,7 @@ Utilisez les niveaux de durabilité Silver ou Gold pour tous les types de nœuds
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recommandations opérationnelles concernant le type de nœud que vous avez défini sur le niveau de durabilité Silver ou Gold
 
 1. Veillez à la permanence de l’intégrité de votre cluster et de vos applications, et assurez-vous que les applications répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (par exemple, le blocage de la création d’un réplica) en temps opportun.
-2. Adoptez des méthodes plus sûres pour modifier les références SKU de machine virtuelle (montée/descente en puissance) : la modification de la référence SKU de machine virtuelle pour un groupe de machines virtuelles identiques est une opération risquée et doit donc être évitée si possible. Voici la procédure à suivre pour éviter les problèmes les plus courants.
+2. Adoptez des méthodes plus sûres pour modifier les références SKU de machine virtuelle (montée/descente en puissance) : la modification de la référence SKU de machine virtuelle pour un groupe de machines virtuelles identiques est une opération risquée et doit donc être évitée si possible. Voici la procédure à suivre pour éviter les problèmes les plus courants.
     - **Pour les types de nœuds non principaux :** il est recommandé de créer un groupe de machines virtuelles identiques, de modifier la contrainte de positionnement de service pour inclure le nouveau groupe de machines virtuelles identiques/type de nœud, puis de réduire le nombre d’instances du groupe de machines virtuelles identiques à 0, un nœud à la fois pour être certain que la suppression des nœuds n’affecte pas la fiabilité du cluster.
     - **Pour le type de nœud principal :** notre recommandation est de ne pas modifier la référence SKU de machine virtuelle du type de nœud principal. Si la raison de la nouvelle référence (SKU) est la capacité, nous recommandons d’ajouter des instances ou, si possible, de créer un cluster. Si vous n’avez pas le choix, apportez les modifications à la définition du modèle de groupe de machines virtuelles identiques afin de refléter la nouvelle référence SKU. Si votre cluster n’a qu’un seul type de nœud, assurez-vous que toutes les applications avec état répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (par exemple, le blocage de la création d’un réplica) en temps opportun, et que la durée de recréation du réplica de service est inférieure à cinq minutes (pour le niveau de durabilité Silver). 
 3. Conservez au minimum cinq nœuds pour tout groupe de machines virtuelles identiques sur lequel MR est activé.

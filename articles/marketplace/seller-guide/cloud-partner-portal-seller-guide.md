@@ -12,13 +12,11 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: rupesk@microsoft.com
 ms.robots: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 59a0f0ec1b7b576339a45be26be8543ac0650a8a
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/03/2017
-
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guide du vendeur Place de marché Azure
@@ -31,7 +29,7 @@ Bienvenue dans le guide des vendeurs de la Place de marché Azure. Ce guide est 
 
 À la fin de ce guide, vous saurez où trouver des informations plus détaillées sur les points suivants :
 
-- Qu’est-ce qu’Azure Marketplace ?
+- Qu’est-ce que la Place de marché Azure ?
 - Comment déterminer si mon produit s’intègre avec la Place de marché ?
 - Quels avantages offre la vente de produits sur la Place de marché ?
 - Quelles sont les conditions préalables (techniques et autres) pour vendre sur la Place de marché ?
@@ -215,7 +213,7 @@ La Place de marché propose des rapports sur vos commandes, sur l’utilisation 
   - Offres tendance
   - Type de licence de la Place de marché
 
-Les rapports détaillés fournissent des informations sur le client, par exemple le nom de la société, l’emplacement géographique et même le code postal, afin que vous puissiez comparer vos vendeurs. La liste suivante répertorie les attributs spécifiques que nous fournissons à propos de vos clients :
+Les rapports détaillés fournissent des informations sur le client, par exemple le nom de la société, l’emplacement géographique et même le code postal, afin que vous puissiez comparer vos clients. La liste suivante répertorie les attributs spécifiques que nous fournissons à propos de vos clients :
 
 - Reseller
 - FirstName

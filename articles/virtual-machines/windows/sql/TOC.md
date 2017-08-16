@@ -4,7 +4,7 @@
 ## [FORUM AUX QUESTIONS](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Prise en main
-## [Provisionner une machine virtuelle dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md)
+## [Approvisionner une machine virtuelle dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md)
 ## [Provisionner une machine virtuelle avec Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
 ## [Se connecter à une machine virtuelle](virtual-machines-windows-sql-connect.md)
 ## [Migrer une base de données SQL Server](virtual-machines-windows-migrate-sql.md)

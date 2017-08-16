@@ -12,58 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 76c8feb077cca27dc96f43e708cdef4fbb0f824c
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 3d30ce72a3be298eba1f4e8f8d33b769971c96cb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Que sont les alertes dans Microsoft Azure ?
-Cet article décrit les alertes Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser. Cela s’applique plus particulièrement à Azure Monitor, mais propose des références vers d’autres services.  
+Cet article décrit les différentes sources d’alertes dans Microsoft Azure, les objectifs et avantages de ces alertes, ainsi que leur utilisation. Il s’applique plus particulièrement à Azure Monitor, mais fait toutefois référence à certains autres services d’alerte. Dans Azure, les alertes constituent une méthode de surveillance. Elles permettent de définir des conditions à propos de données et d’être informé lorsque les dernières données de surveillance répondent à ces conditions.
 
-Les alertes sont une méthode d’analyse des mesures des ressources événements ou journaux Azure, puis d’avertissement quand une condition spécifiée est remplie.  
+## <a name="taxonomy-of-azure-alerts"></a>Classification des alertes Azure
+Azure utilise les termes suivants pour décrire les alertes et leurs fonctions :
+* **Alerte** : définition de critères (une ou plusieurs règles ou conditions) qui est activée lorsque les critères sont remplis.
+* **Actif** : état indiquant que les critères définis sont remplis.
+* **Résolu** : état indiquant que les critères définis ne sont plus remplis après l’avoir été.
+* **Notification** : action entreprise lorsqu’une alerte devient active.
+* **Action** : appel émis vers le destinataire d’une notification (par exemple, en envoyant un e-mail ou en publiant une URL Webhook). Les notifications peuvent généralement déclencher plusieurs actions.
 
 ## <a name="alerts-in-different-azure-services"></a>Alertes dans différents services Azure
-Les alertes sont disponibles dans différents services, notamment les suivants :
+Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour plus d’informations sur l’utilisation de ces services, [consultez cet article](./monitoring-overview.md). Voici le détail des types d’alertes disponibles dans Azure :
 
-* **Application Insights** : prend en charge les tests web et les alertes de mesure. Consultez [Définir des alertes dans Application Insights](../application-insights/app-insights-alerts.md) et [Analyser la disponibilité et la réactivité d’un site web](../application-insights/app-insights-monitor-web-app-availability.md).
-* **Log Analytics (Operations Management Suite)** : prend en charge le routage des journaux de diagnostic et d’activité vers Log Analytics. Operations Management Suite autorise les alertes de mesure, de journal, etc. Pour plus d’informations, consultez [Alertes dans Log Analytics](../log-analytics/log-analytics-alerts.md).  
-* **Azure Monitor** : prend en charge les alertes sur la base de valeurs de mesures et d’événements de journal d’activité. Vous pouvez utiliser [l’API REST Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx) pour gérer les alertes.  Pour plus d’informations, consultez [Utilisation du portail Azure, de PowerShell ou de l’interface de ligne de commande pour créer des alertes](insights-alerts-portal.md).
+| Service | Type d’alerte | Services pris en charge | Description |
+|---|---|---|---|
+| Azure Monitor | [Alertes de métriques](./insights-alerts-portal.md) | [Métriques prises en charge d’Azure Monitor](./monitoring-supported-metrics.md) | Réception d’une notification lorsqu’une métrique de plateforme répond à une condition définie (par exemple, si le pourcentage d’UC d’une machine virtuelle est supérieur à 90 depuis cinq minutes). |
+| Azure Monitor | [Alertes de journal d’activité](./monitoring-activity-log-alerts.md) | Tous les types de ressources disponibles dans Azure Resource Manager | Réception d’une notification quand un nouvel événement du [Journal d’activité Azure](./monitoring-overview-activity-logs.md) répond aux conditions définies (par exemple, si une opération « Supprimer la machine virtuelle » se produit dans myProductionResourceGroup ou si un nouvel événement État du service actif s’affiche). |
+| Application Insights | [Alertes de métriques](../application-insights/app-insights-alerts.md) | Toute application instrumentée pour envoyer des données à Application Insights | Réception d’une notification lorsqu’une métrique d’application répond à une condition définie (par exemple, si le temps de réponse du serveur est supérieur à 2 secondes). |
+| Application Insights | [Alertes de test web](../application-insights/app-insights-monitor-web-app-availability.md) | Tout site web instrumenté pour envoyer des données à Application Insights | Réception d’une notification lorsque la réactivité ou la disponibilité d’un site web est inférieure aux attentes. |
+| Log Analytics | [Alertes Log Analytics](../log-analytics/log-analytics-alerts.md) | Tout service configuré pour envoyer des données vers Log Analytics | Réception d’une notification lorsqu’une requête de recherche Log Analytics concernant des métriques ou des données d’événement répond à certains critères. |
 
-## <a name="visual-summary"></a>Résumé visuel
-Le diagramme suivant récapitule les alertes et ce que vous pouvez en faire dans Azure Monitor. D’autres actions peuvent être disponibles pour les services répertoriés précédemment. Par exemple, seules les alertes sur les journaux de diagnostic sont disponibles actuellement dans Log Analytics.
+## <a name="alerts-on-azure-monitor-data"></a>Alertes pour des données Azure Monitor
+Il existe deux types d’alertes de données dans Azure Monitor : les alertes de métriques et les alertes du journal d’activité.
+
+* **Alertes de métrique** : ces alertes se déclenchent quand la valeur d’une métrique spécifiée dépasse le seuil défini. Ces alertes génèrent une notification lorsqu’elles sont activées (quand le seuil est atteint et que la condition d’alerte est remplie) et lorsqu’elles sont résolues (quand le seuil est de nouveau atteint et que la condition n’est plus remplie). Pour obtenir la liste croissante des mesures disponibles prises en charge par Azure Monitor, voir [Liste des mesures prises en charge sur Azure Monitor](monitoring-supported-metrics.md).
+* **Alertes du journal d’activité** : alertes du journal de streaming qui sont déclenchées lorsqu’un événement du journal d’activité généré répond aux critères de filtre que vous avez définis. Ces alertes ne peuvent être qu’à l’état actif, puisque le moteur d’alerte ne fait qu’appliquer les critères de filtre aux nouveaux événements. Ces alertes peuvent être utilisées pour être informé lorsqu’un nouvel incident d’état du service se produit ou lorsqu’un utilisateur ou une application effectue une opération dans votre abonnement (par exemple, « Supprimer la machine virtuelle »).
+
+Pour les données du journal de diagnostic disponible dans Azure Monitor, nous vous suggérons de router les données dans Log Analytics et d’utiliser une alerte Log Analytics. Le diagramme suivant récapitule les sources de données d’Azure Monitor, et explique comment créer des alertes à partir de ces données.
 
 ![Alertes expliquées](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
 
-## <a name="what-can-trigger-alerts-in-azure-monitor"></a>Quel élément peut déclencher les alertes dans Azure Monitor ?
+## <a name="how-do-i-receive-a-notification-on-an-azure-monitor-alert"></a>Comment faire pour recevoir une notification concernant une alerte Azure Monitor ?
+Auparavant, les alertes Azure des différents services utilisaient leurs propres méthodes de notification intégrées. À présent, Azure Monitor propose un regroupement de notifications réutilisable appelé « groupe d’actions ». Les groupes d’actions spécifient un ensemble de destinataires pour une notification (autant d’adresses e-mail, de numéros de téléphone (pour SMS) ou d’URL Webhook que souhaité), et dès qu’une alerte faisant référence au groupe d’actions est activée, tous les destinataires reçoivent la notification. Vous pouvez ainsi réutiliser un groupe de destinataires (par exemple, votre liste d’ingénieurs techniques) pour plusieurs objets d’alerte. Pour le moment, seules les alertes du journal d’activité utilisent les groupes d’actions. Toutefois, il est prévu que d’autres types d’alertes Azure utilisent ces groupes d’actions.
 
-Vous pouvez recevoir des alertes sur la base de :
-
-* **Valeurs de mesure** : l’alerte se déclenche quand la valeur d’une mesure spécifiée dépasse un seuil que vous attribuez dans un des deux sens. C’est-à-dire que le déclenchement se fait à la fois quand la condition est remplie et par la suite une fois que la condition n’est plus remplie. Pour obtenir la liste croissante des mesures disponibles prises en charge par Azure Monitor, voir [Liste des mesures prises en charge sur Azure Monitor](monitoring-supported-metrics.md).
-* **Événements de journal d’activité** : cette alerte peut se déclencher lorsqu’un événement particulier se produit sur une ressource ou lorsqu’une notification de service est publiée sur votre abonnement.
-
-## <a name="what-can-metric-alerts-do"></a>À quoi servent les alertes métriques ?
-Vous pouvez configurer une alerte pour effectuer les actions suivantes :
-
-* envoyer des notifications par courrier électronique à l’administrateur de service, aux coadministrateurs ou aux adresses e-mail supplémentaires que vous spécifiez ;
-* appeler un webhook, qui permet de lancer des actions d’automatisation supplémentaires. Voici quelques exemples d’appel :
+Les groupes d’actions prennent en charge les notifications par publication d’URL Webhook, en plus des notifications par adresse e-mail et numéro de téléphone. Vous pouvez ainsi utiliser l’automatisation et la correction avec, par exemple :
     - Runbook Azure Automation
     - Fonction Azure
     - Application logique Azure
-    - un service tiers
+    - Un service tiers
 
-## <a name="what-can-activity-log-alerts-do"></a>À quoi servent les alertes de journal d’activité ?
-Vous pouvez configurer une alerte pour effectuer les actions suivantes :
-* déclencher l’alerte lorsqu’un événement spécifique se produit sur une des ressources sous votre abonnement ;
-* déclencher l’alerte chaque fois qu’une notification de service est publiée dans votre abonnement ;
-* alerter les membres d’un groupe d’actions via
-    * sms
-    * Email
-    * webhook
+Les alertes de métriques n’utilisent pas encore les groupes d’actions. Dans une alerte de métrique, vous pouvez configurer des notifications pour :
+* envoyer des notifications par courrier électronique à l’administrateur de service, aux coadministrateurs ou aux adresses e-mail supplémentaires que vous spécifiez ;
+* appeler un webhook, qui permet de lancer des actions d’automatisation supplémentaires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez obtenir des informations sur les règles d’alerte et leur configuration avec :

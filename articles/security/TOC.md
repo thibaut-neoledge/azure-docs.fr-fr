@@ -5,10 +5,11 @@
 ## [Sécurité des calculs](security-virtual-machines-overview.md)
 ## [Sécurité opérationnelle](azure-operational-security-overview.md)
 ## [Gestion et surveillance de la sécurité](security-management-and-monitoring-overview.md)
+## [Sécurité de Service Fabric](azure-service-fabric-security-overview.md)
 ## [Gestion des identités](security-identity-management-overview.md)
 ## [Sécurité IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Architecture de la sécurité](azure-security-architecture-overview.md)
-### [Sécurité opérationnelle](azure-operational-security.md)
+### [Activer la sécurité opérationnelle](azure-operational-security.md)
 ### [Détection avancée des menaces](azure-threat-detection.md)
 ### [Journalisation et audit](azure-log-audit.md)
 ### [Isolation dans le cloud public](azure-isolation.md)
@@ -40,6 +41,9 @@
 #### [Résolution des problèmes de chiffrement de disque](azure-security-disk-encryption-tsg.md)
 ### [Chiffrer une machine virtuelle Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
+## Sécurité opérationnelle
+### [Bonnes pratiques pour une sécurité opérationnelle](azure-operational-security-best-practices.md)
+
 ## Gestion et surveillance de la sécurité
 ### [Gestion de la sécurité](azure-security-management.md)
 ### [Centre de sécurité Azure](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -49,6 +53,10 @@
 #### [Intégrer des alertes Azure Security Center](security-azure-log-integration-security-center.md)
 #### [Intégrer des journaux à partir de Key Vault à l’aide d’Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [FAQ](security-azure-log-integration-faq.md)
+
+## Service Fabric
+### [Bonnes pratiques Service Fabric](azure-service-fabric-security-best-practices.md)
+### [Liste de contrôle de Service Fabric](azure-service-fabric-security-checklist.md)
 
 ## Gestion des identités
 ### [Meilleures pratiques en matière de sécurité et de gestion des identités](azure-security-identity-management-best-practices.md)

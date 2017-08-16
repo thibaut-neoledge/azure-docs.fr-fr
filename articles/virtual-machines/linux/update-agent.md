@@ -1,6 +1,6 @@
 ---
 title: "Mettre à jour l’agent Linux Azure à partir de GitHub | Microsoft Docs"
-description: "Découvrez comment mettre à jour l’agent Linux Azure pour votre machine virtuelle Linux dans Azure vers la dernière version de GitHub"
+description: "Découvrez comment mettre à jour l’agent Linux Azure pour votre machine virtuelle Linux dans Azure vers la dernière version à partir de GitHub"
 services: virtual-machines-linux
 documentationcenter: 
 author: SuperScottz
@@ -13,43 +13,341 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2015
+ms.date: 08/02/2017
 ms.author: mingzhan
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: c9cea69fc6462f69c8627219aca11272bbdc493f
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: c79e37976a58ae5384b5856e0f7f258a773ef0fd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="how-to-update-the-azure-linux-agent-on-a-vm-to-the-latest-version-from-github"></a>Mise à jour de l’agent Linux Azure sur une machine virtuelle vers la dernière version de Github
+# <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Guide pratique pour mettre à jour l’agent Linux Azure sur une machine virtuelle
+
 Pour mettre à jour votre [agent Linux Azure](https://github.com/Azure/WALinuxAgent) sur une machine virtuelle Linux dans Azure vous devez déjà disposer des éléments suivants :
 
-1. Une machine virtuelle Linux en cours d'exécution dans Azure.
-2. Une connexion à cette machine virtuelle Linux à l'aide de SSH.
+- Une machine virtuelle Linux en cours d'exécution dans Azure.
+- Une connexion à cette machine virtuelle Linux à l'aide de SSH.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
+Vous devez toujours d’abord vérifier s’il existe un package dans le référentiel de distribution Linux. Il est possible que le package disponible ne soit pas la dernière version. Toutefois, l’activation de la mise à jour automatique permet de s’assurer que l’agent Linux obtiendra toujours la mise à jour la plus récente. Si vous avez des problèmes d’installation à partir des gestionnaires de package, contactez l’éditeur de distribution pour obtenir de l’aide.
 
-<br>
+## <a name="updating-the-azure-linux-agent"></a>Mise à jour de l’agent Linux Azure
 
-> [!NOTE]
-> Si vous exécutez cette tâche à partir d’un ordinateur Windows, vous pouvez utiliser PuTTY pour vous connecter au moyen du protocole SSH à votre machine Linux. Pour plus d’informations, consultez [Connexion à une machine virtuelle sous Linux](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-> 
-> 
+## <a name="ubuntu"></a>Ubuntu
 
-Les versions Linux approuvées dans Azure ont placé le package Azure Linux Agent dans leurs référentiels, c’est pourquoi il convient de vérifier et de commencer par installer la dernière version à partir de ce référentiel de version si possible.  
+#### <a name="check-your-current-package-version"></a>Vérifier votre version actuelle du package
 
-Pour Ubuntu, il suffit de taper :
+```bash
+apt list --installed | grep walinuxagent
+```
+
+#### <a name="update-package-cache"></a>Mettre à jour le cache du package
+
+```bash
+sudo apt-get -qq update
+```
+
+#### <a name="install-the-latest-package-version"></a>Installer la dernière version du package
 
 ```bash
 sudo apt-get install walinuxagent
 ```
 
-Et sur CentOS, tapez :
+#### <a name="ensure-auto-update-is-enabled"></a>Vérifier que la mise à jour automatique est activée
+
+Tout d’abord, vérifiez si elle est activée :
 
 ```bash
-sudo yum install waagent
+cat /etc/waagent.conf
 ```
+
+Recherchez « AutoUpdate.Enabled ». Si vous voyez cette sortie, cela signifie qu’elle est activée :
+
+```bash
+# AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+Pour l’activer, exécutez :
+
+```bash
+sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+```
+
+### <a name="restart-the-waagent-service"></a>Redémarrer le service waagent
+
+#### <a name="restart-agent-for-1404"></a>Redémarrer l’agent pour 14.04
+
+```bash
+initctl restart walinuxagent
+```
+
+#### <a name="restart-agent-for-1604--1704"></a>Redémarrer l’agent pour 16.04 / 17.04
+
+```bash
+systemctl restart walinuxagent.service
+```
+
+## <a name="debian"></a>Debian
+
+### <a name="debian-7-wheezy"></a>Debian 7 « Wheezy »
+
+#### <a name="check-your-current-package-version"></a>Vérifier votre version actuelle du package
+
+```bash
+dpkg -l | grep waagent
+```
+
+#### <a name="update-package-cache"></a>Mettre à jour le cache du package
+
+```bash
+sudo apt-get -qq update
+```
+
+#### <a name="install-the-latest-package-version"></a>Installer la dernière version du package
+
+```bash
+sudo apt-get install waagent
+```
+
+#### <a name="enable-agent-auto-update"></a>Activer la mise à jour automatique de l’agent
+Cette version de Debian n’a pas de version supérieure ou égale à 2.0.16. Par conséquent, AutoUpdate n’est pas disponible pour elle. La sortie de la commande ci-dessus indique si le package est à jour.
+
+### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8 « Jessie » / Debian 9 « Stretch »
+
+#### <a name="check-your-current-package-version"></a>Vérifier votre version actuelle du package
+
+```bash
+apt list --installed | grep walinuxagent
+```
+
+#### <a name="update-package-cache"></a>Mettre à jour le cache du package
+
+```bash
+sudo apt-get -qq update
+```
+
+#### <a name="install-the-latest-package-version"></a>Installer la dernière version du package
+
+```bash
+sudo apt-get install waagent
+```
+#### <a name="ensure-auto-update-is-enabled"></a>Vérifier que la mise à jour automatique est activée 
+
+Tout d’abord, vérifiez si elle est activée :
+
+```bash
+cat /etc/waagent.conf
+```
+
+Recherchez « AutoUpdate.Enabled ». Si vous voyez cette sortie, cela signifie qu’elle est activée :
+
+```bash
+# AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+Pour l’activer, exécutez :
+
+```bash
+sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+```
+
+### <a name="restart-the-waagent-service"></a>Redémarrer le service waagent
+
+```
+sudo systemctl restart walinuxagent.service
+```
+
+## <a name="redhat--centos"></a>Redhat / CentOS
+
+### <a name="rhelcentos-6"></a>RHEL/CentOS 6
+
+#### <a name="check-your-current-package-version"></a>Vérifier votre version actuelle du package
+
+```bash
+sudo yum list WALinuxAgent
+```
+
+#### <a name="check-available-updates"></a>Vérifier les mises à jour disponibles
+
+```bash
+sudo yum check-update WALinuxAgent
+```
+
+#### <a name="install-the-latest-package-version"></a>Installer la dernière version du package
+
+```bash
+sudo yum install WALinuxAgent
+```
+
+#### <a name="ensure-auto-update-is-enabled"></a>Vérifier que la mise à jour automatique est activée 
+
+Tout d’abord, vérifiez si elle est activée :
+
+```bash
+cat /etc/waagent.conf
+```
+
+Recherchez « AutoUpdate.Enabled ». Si vous voyez cette sortie, cela signifie qu’elle est activée :
+
+```bash
+# AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+Pour l’activer, exécutez :
+
+```bash
+sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+```
+
+### <a name="restart-the-waagent-service"></a>Redémarrer le service waagent
+
+```
+sudo service waagent restart
+```
+
+### <a name="rhelcentos-7"></a>RHEL/CentOS 7
+
+#### <a name="check-your-current-package-version"></a>Vérifier votre version actuelle du package
+
+```bash
+sudo yum list WALinuxAgent
+```
+
+#### <a name="check-available-updates"></a>Vérifier les mises à jour disponibles
+
+```bash
+sudo yum check-update WALinuxAgent
+```
+
+#### <a name="install-the-latest-package-version"></a>Installer la dernière version du package
+
+```bash
+sudo yum install WALinuxAgent  
+```
+
+#### <a name="ensure-auto-update-is-enabled"></a>Vérifier que la mise à jour automatique est activée 
+
+Tout d’abord, vérifiez si elle est activée :
+
+```bash
+cat /etc/waagent.conf
+```
+
+Recherchez « AutoUpdate.Enabled ». Si vous voyez cette sortie, cela signifie qu’elle est activée :
+
+```bash
+# AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+Pour l’activer, exécutez :
+
+```bash
+sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+```
+
+### <a name="restart-the-waagent-service"></a>Redémarrer le service waagent
+
+```bash
+sudo systemctl restart waagent.service
+```
+
+## <a name="suse-sles"></a>SUSE SLES
+
+### <a name="suse-sles-11-sp4"></a>SUSE SLES 11 SP4
+
+#### <a name="check-your-current-package-version"></a>Vérifier votre version actuelle du package
+
+```bash
+zypper info python-azure-agent
+```
+
+#### <a name="check-available-updates"></a>Vérifier les mises à jour disponibles
+
+La sortie ci-dessus indique si le package est à jour.
+
+#### <a name="install-the-latest-package-version"></a>Installer la dernière version du package
+
+```bash
+sudo zypper install python-azure-agent
+```
+
+#### <a name="ensure-auto-update-is-enabled"></a>Vérifier que la mise à jour automatique est activée 
+
+Tout d’abord, vérifiez si elle est activée :
+
+```bash
+cat /etc/waagent.conf
+```
+
+Recherchez « AutoUpdate.Enabled ». Si vous voyez cette sortie, cela signifie qu’elle est activée :
+
+```bash
+# AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+Pour l’activer, exécutez :
+
+```bash
+sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+```
+
+### <a name="restart-the-waagent-service"></a>Redémarrer le service waagent
+
+```bash
+sudo /etc/init.d/waagent restart
+```
+
+### <a name="suse-sles-12-sp2"></a>SUSE SLES 12 SP2
+
+#### <a name="check-your-current-package-version"></a>Vérifier votre version actuelle du package
+
+```bash
+zypper info python-azure-agent
+```
+
+#### <a name="check-available-updates"></a>Vérifier les mises à jour disponibles
+
+La sortie de la commande ci-dessus indique si le package est à jour.
+
+#### <a name="install-the-latest-package-version"></a>Installer la dernière version du package
+
+```bash
+sudo zypper install python-azure-agent
+```
+
+#### <a name="ensure-auto-update-is-enabled"></a>Vérifier que la mise à jour automatique est activée 
+
+Tout d’abord, vérifiez si elle est activée :
+
+```bash
+cat /etc/waagent.conf
+```
+
+Recherchez « AutoUpdate.Enabled ». Si vous voyez cette sortie, cela signifie qu’elle est activée :
+
+```bash
+# AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+Pour l’activer, exécutez :
+
+```bash
+sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+```
+
+### <a name="restart-the-waagent-service"></a>Redémarrer le service waagent
+
+```bash
+sudo systemctl restart waagent.service
+```
+
+## <a name="oracle-6-and-7"></a>Oracle 6 et 7
 
 Pour Oracle Linux, assurez-vous que le référentiel `Addons` est activé. Modifiez le fichier `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) ou `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux), modifiez la ligne `enabled=0` en `enabled=1` sous **[ol6_addons]** ou **[ol7_addons]** dans ce fichier.
 
@@ -91,77 +389,60 @@ sudo yum update WALinuxAgent
 
 Généralement, c’est tout ce qu’il vous est demandé de faire. Toutefois, si pour une raison quelconque vous devez l’installer directement à partir de https://github.com, procédez comme suit.
 
-## <a name="install-wget"></a>Installer wget
-Connectez-vous à votre machine virtuelle à l’aide du protocole SSH.
 
-Installez wget (certaines versions ne l’installent pas par défaut, telles que Redhat, CentOS, et Oracle Linux versions 6.4 et 6.5) en tapant `#sudo yum install wget` sur la ligne de commande.
+## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>Mettre à jour l’agent Linux quand il n’existe aucun package d’agent pour la distribution
 
-## <a name="download-the-latest-version"></a>Téléchargez la dernière version
-Ouvrez [la version de l’agent Linux Azure dans Github](https://github.com/Azure/WALinuxAgent/releases) dans une page web et cherchez le dernier numéro de version. (Vous pouvez rechercher votre version actuelle en tapant `#waagent --version`.)
+Installez wget (certaines versions, telles que Redhat, CentOS et Oracle Linux versions 6.4 et 6.5, ne l’installent pas par défaut) en tapant `sudo yum install wget` sur la ligne de commande.
 
-### <a name="for-version-20x-type"></a>Pour la version 2.0.x, tapez :
+### <a name="1-download-the-latest-version"></a>1. Téléchargez la dernière version
+Ouvrez [la version de l’agent Linux Azure dans Github](https://github.com/Azure/WALinuxAgent/releases) dans une page web et cherchez le dernier numéro de version. (Vous pouvez rechercher votre version actuelle en tapant `waagent --version`.)
 
+#### <a name="for-version-22x-or-later-type"></a>Pour la version 2.2.x ou ultérieure, tapez :
 ```bash
-wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent
+wget https://github.com/Azure/WALinuxAgent/archive/v2.2.x.zip
+unzip v2.2.x.zip.zip
+cd WALinuxAgent-2.2.x
 ```
 
-La ligne suivante utilise la version 2.0.14 comme exemple :
+La ligne suivante utilise la version 2.2.0 comme exemple :
 
 ```bash
-wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
+wget https://github.com/Azure/WALinuxAgent/archive/v2.2.14.zip
+unzip v2.2.14.zip  
+cd WALinuxAgent-2.2.14
 ```
 
-### <a name="for-version-21x-or-later-type"></a>Pour la version 2.1.x (ou version ultérieure), tapez :
-```bash
-wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
-unzip WALinuxAgent-[version].zip
-cd WALinuxAgent-[version]
-```
+### <a name="2-install-the-azure-linux-agent"></a>2. Installez l'agent Linux Azure.
 
-La ligne suivante utilise la version 2.1.0 comme exemple :
-
-```bash
-wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-2.1.0.zip
-unzip WALinuxAgent-2.1.0.zip  
-cd WALinuxAgent-2.1.0
-```
-
-## <a name="install-the-azure-linux-agent"></a>Installez l'agent Linux Azure.
-### <a name="for-version-20x-use"></a>Pour la version 2.0.x, utilisez :
-Rendre waagent exécutable :
-
-```bash
-chmod +x waagent
-```
-
-Copiez le nouveau fichier exécutable dans /usr/sbin /.
-
-Pour la plupart des versions Linux, utilisez :
-
-```bash
-sudo cp waagent /usr/sbin
-```
-
-Pour CoreOS, procédez comme suit :
-
-```bash
-sudo cp waagent /usr/share/oem/bin/
-```
-
-S'il s'agit d'une nouvelle installation de l'agent Linux Azure, exécutez :
-
-```bash
-sudo /usr/sbin/waagent -install -verbose
-```
-
-### <a name="for-version-21x-use"></a>Pour la version 2.1.x, tapez :
+#### <a name="for-version-22x-use"></a>Pour la version 2.2.x, tapez :
 Vous devrez peut-être installer d’abord le package `setuptools`. Consultez [ces informations](https://pypi.python.org/pypi/setuptools). Exécutez ensuite la commande suivante :
 
 ```bash
 sudo python setup.py install
 ```
 
-## <a name="restart-the-waagent-service"></a>Redémarrer le service waagent
+#### <a name="ensure-auto-update-is-enabled"></a>Vérifier que la mise à jour automatique est activée
+
+Tout d’abord, vérifiez si elle est activée :
+
+```bash
+cat /etc/waagent.conf
+```
+
+Recherchez « AutoUpdate.Enabled ». Si vous voyez cette sortie, cela signifie qu’elle est activée :
+
+```bash
+# AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+Pour l’activer, exécutez :
+
+```bash
+sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+```
+
+### <a name="3-restart-the-waagent-service"></a>3. Redémarrer le service waagent
 Pour la plupart des versions de linux :
 
 ```bash
@@ -180,7 +461,7 @@ Pour CoreOS, procédez comme suit :
 sudo systemctl restart waagent
 ```
 
-## <a name="confirm-the-azure-linux-agent-version"></a>Confirmer la version de l'agent Linux Azure
+### <a name="4-confirm-the-azure-linux-agent-version"></a>4. Confirmer la version de l'agent Linux Azure
     
 ```bash
 waagent -version
@@ -191,5 +472,3 @@ Pour CoreOS, la commande ci-dessus peut ne pas fonctionner.
 Vous verrez que la version de l'agent Linux Azure a été mise à jour vers la nouvelle version.
 
 Pour plus d’informations sur l’agent Linux Azure, consultez le fichier [Lisezmoi de l’agent Linux Azure](https://github.com/Azure/WALinuxAgent).
-
-

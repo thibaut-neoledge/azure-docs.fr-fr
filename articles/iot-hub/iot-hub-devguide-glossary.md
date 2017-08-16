@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c3646fef95bc06f8febe45718f4f9aeb9aefb42a
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 0e08557b126620a6c7dbbdb5dece423e7a0c2535
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
@@ -107,7 +106,7 @@ Fait référence aux informations d’état d’un appareil, telles que la méth
 Les données d’appareil font référence aux données stockées pour chaque appareil dans le [registre des identités](#identity-registry) d’IoT Hub. Il est possible d’importer et d’exporter ces données.
 
 ## <a name="device-explorer"></a>Explorateur d’appareils
-L’[Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) est un outil s’exécutant sur Windows, qui vous permet de gérer vos appareils dans la [registre des identités](#identity-registry), ainsi que d’échanger des messages avec vos appareils.
+[L’Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) est un outil s’exécutant sur Windows, qui vous permet de gérer vos appareils dans le [registre des identités](#identity-registry). Cet outil peut également échanger des messages avec vos appareils.
 
 ## <a name="device-identities-rest-api"></a>API REST des identités des appareils
 L’[API REST des identités des appareils](https://docs.microsoft.com/rest/api/iothub/iothubresource) vous permet de gérer vos appareils inscrits dans le [registre des identités](#identity-registry) à l’aide d’une API REST. En règle générale, vous devez utiliser l’un des kits [service SDK](#azure-iot-service-sdks) comme indiqué dans les didacticiels concernant IoT Hub.

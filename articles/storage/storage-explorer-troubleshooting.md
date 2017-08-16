@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/09/2017
 ms.author: delhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 470b2d87ffdc4769bb2963df7dea646901469e00
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -32,7 +32,7 @@ Ce guide résume les solutions aux problèmes couramment rencontrés dans l’Ex
 
 ## <a name="sign-in-issues"></a>Problèmes de connexion
 
-Avant de continuer, essayez de redémarrer votre application et de voir si les problèmes peuvent être résolus.
+Seuls les comptes Azure Active Directory (AAD) sont pris en charge. Si vous utilisez un compte ADFS, la connexion à l’Explorateur de stockage ne devrait pas fonctionner. Avant de continuer, essayez de redémarrer votre application et de voir si les problèmes peuvent être résolus.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Erreur : certificat auto-signé dans la chaîne d’approbation
 

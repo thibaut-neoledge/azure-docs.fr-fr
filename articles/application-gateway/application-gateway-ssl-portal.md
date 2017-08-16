@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: a9cb2d921d1be226661311d91367b2b6f44fa0dc
-ms.lasthandoff: 03/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: f61be0cc4c9274c9914f7c468ce48a2a3d0a4f4a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-portal"></a>Configurer une passerelle d’application pour le déchargement SSL en utilisant le portail
@@ -27,6 +27,7 @@ ms.lasthandoff: 03/24/2017
 > * [Portail Azure](application-gateway-ssl-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
+> * [Azure CLI 2.0](application-gateway-ssl-cli.md)
 
 Il est possible de configurer Azure Application Gateway de façon à mettre fin à la session SSL (Secure Sockets Layer) sur la passerelle pour éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie aussi la configuration de serveur principal et la gestion de l’application web.
 
@@ -70,7 +71,7 @@ Remplissez les informations requises pour l’écouteur, et téléchargez le cer
 
 ## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Créer une règle et l’associer à l’écouteur
 
-L’écouteur a été créé. Il est temps de créer une règle pour gérer le trafic de l’écouteur. Les règles définissent la façon dont le trafic est acheminé aux pools principaux en fonction de plusieurs paramètres de configuration, dont l’utilisation ou non de l’affinité de session basée sur les cookies, le protocole, le port et les sondes d’intégrité.
+L’écouteur a été créé. Il est temps de créer une règle pour gérer le trafic de l’écouteur. Les règles définissent la façon dont le trafic est acheminé vers les pools principaux en fonction de plusieurs paramètres de configuration, dont l’utilisation ou non de l’affinité de session basée sur les cookies, le protocole, le port et les sondes d’intégrité.
 
 ### <a name="step-1"></a>Étape 1
 

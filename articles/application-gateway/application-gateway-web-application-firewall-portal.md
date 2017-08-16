@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 224aa0db2feb7a83bec5b4ec46140046d10f012e
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 650f26d19615d27a94f3947aad7b7904b6c1fabc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -28,7 +27,8 @@ ms.lasthandoff: 05/04/2017
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](application-gateway-web-application-firewall-portal.md)
-> * [Commandes PowerShell pour Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
+> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
+> * [Interface de ligne de commande Azure](application-gateway-web-application-firewall-cli.md)
 
 Découvrez comment créer une passerelle d’application avec le pare-feu d’applications web activé.
 
@@ -66,7 +66,7 @@ Cet exemple met à jour une passerelle d’application existante afin de prendre
    | **Paramètre** | **Valeur** | **Détails**
    |---|---|---|
    |**Mise à niveau vers le niveau WAF**| Activé | Ceci définit le niveau de la passerelle d’application au niveau WAF.|
-   |**État du pare-feu**| Activé | Activé | Ce paramètre active le pare-feu sur le WAF.|
+   |**État du pare-feu**| Activé | Ce paramètre active le pare-feu sur le WAF.|
    |**Mode du pare-feu** | Prévention | Ce paramètre spécifique comment le pare-feu d’application web traite le trafic malveillant. Le mode de **Détection** consigne uniquement les événements, tandis que le mode de **Prévention** consigne les événements et bloque le trafic malveillant.|
    |**Ensemble de règles**|3.0|Ce paramètre détermine l’[ensemble de règles principal](application-gateway-web-application-firewall-overview.md#core-rule-sets) qui est utilisé pour protéger les membres du pool principal.|
    |**Configurer des règles désactivées**|varie|Pour éviter les faux positifs potentiels, ce paramètre vous permet de désactiver certaines [règles et certains groupes de règles](application-gateway-crs-rulegroups-rules.md).|
@@ -95,7 +95,7 @@ Ce scénario va :
 
     ![Création d’une passerelle Application Gateway][1]
 
-1. Dans le panneau **De base** qui s’affiche, entrez les valeurs suivantes et cliquez sur **OK** :
+1. Dans le panneau **De base** qui s’affiche, entrez les valeurs suivantes et cliquez sur **OK** :
 
    | **Paramètre** | **Valeur** | **Détails**
    |---|---|---|
@@ -109,26 +109,26 @@ Ce scénario va :
 
    ![panneau montrant les paramètres de base][2-2]
 
-1. Dans le panneau **Paramètres** qui s’affiche sous **Réseau virtuel**, cliquez sur **Choisir un réseau virtuel**. Vous accédez alors au panneau **Choisir un réseau virtuel**.  Cliquez sur **Créer un nouveau** pour ouvrir le panneau **Créer un réseau virtuel**.
+1. Dans le panneau **Paramètres** qui s’affiche sous **Réseau virtuel**, cliquez sur **Choisir un réseau virtuel**. Vous accédez alors au panneau **Choisir un réseau virtuel** .  Cliquez sur **Créer un nouveau** pour ouvrir le panneau **Créer un réseau virtuel**.
 
    ![choisir un réseau virtuel][2]
 
-1. Dans le panneau **Créer un réseau virtuel**, entrez les valeurs suivantes, puis cliquez sur **OK**. Les panneaux **Créer un réseau virtuel** et **Choisir un réseau virtuel** se ferment. Le champ **Sous-réseau** du panneau **Paramètres** est aussi automatiquement renseigné avec le nom du sous-réseau sélectionné.
+1. Dans le panneau **Créer un réseau virtuel**, entrez les valeurs suivantes, puis cliquez sur **OK**. Cette étape ferme les panneaux **Créer un réseau virtuel** et **Choisir un réseau virtuel** . Le champ **Sous-réseau** sur le panneau **Paramètres** est ainsi rempli avec le sous-réseau sélectionné.
 
    |**Paramètre** | **Valeur** | **Détails** |
    |---|---|---|
    |**Nom**|AdatumAppGatewayVNET|Nom de la passerelle Application Gateway|
-   |**Espace d’adressage**|10.0.0.0/16| Espace d’adressage du réseau virtuel|
+   |**Espace d’adressage**|10.0.0.0/16| Cette valeur correspond à l’espace d’adressage du réseau virtuel|
    |**Nom du sous-réseau**|AppGatewaySubnet|Nom du sous-réseau de la passerelle Application Gateway|
-   |**Plage d’adresses de sous-réseau**|10.0.0.0/28| Ce sous-réseau autorise plusieurs sous-réseaux supplémentaires dans le réseau virtuel pour les membres du pool principal|
+   |**Plage d’adresses de sous-réseau**|10.0.0.0/28 | Ce sous-réseau autorise plusieurs sous-réseaux supplémentaires dans le réseau virtuel pour les membres du pool principal|
 
-1. Dans le panneau **Paramètres**, sous **Configuration d’adresse IP frontale**, choisissez **Public** comme **Type d’adresse IP**.
+1. Dans le panneau **Paramètres**, sous **Configuration d’adresse IP frontale**, choisissez **Public** comme **Type d’adresse IP**
 
-1. Dans le panneau **Paramètres**, sous **Adresse IP publique**, cliquez sur **Choisir une adresse IP publique** pour accédez au panneau **Choisir une adresse IP publique**, puis cliquez sur **créer**.
+1. Dans le panneau **Paramètres**, sous **Adresse IP publique**, cliquez sur **Choisir une adresse IP publique** pour accéder au panneau **Choisir une adresse IP publique**, puis cliquez sur **Créer**.
 
    ![choisir une adresse ip publique][3]
 
-1. Dans le panneau **Créer une adresse IP publique**, acceptez la valeur par défaut et cliquez sur **OK**. Les panneaux **Choisir une adresse IP publique** et **Créer une adresse IP publique** se ferment et le champ **Adresse IP publique** est renseigné avec l’adresse IP publique choisie.
+1. Dans le panneau **Créer une adresse IP publique**, acceptez la valeur par défaut et cliquez sur **OK**. Cette étape ferme les panneaux **Choisir une adresse IP publique** et **Créer une adresse IP publique** et remplit **Adresse IP publique** avec l’adresse IP publique choisie.
 
 1. Dans le panneau **Paramètres**, sous **Configuration de l’écouteur**, cliquez sur **HTTP** sous **Protocole**. Un certificat est requis pour utiliser **https**. La clé privée du certificat est nécessaire de sorte qu’un export .pfx du certificat soit requis, ainsi que le mot de passer du fichier.
 
@@ -146,12 +146,14 @@ Ce scénario va :
 
     ![Vue des ressources de la passerelle Application Gateway][10]
 
-Ces étapes permettent de créer une passerelle Application Gateway de base avec les paramètres par défaut pour l’écouteur, le pool principal, les paramètres http principaux et les règles. Vous pouvez modifier ces paramètres en fonction de votre déploiement une fois l’approvisionnement réussi
+Ces étapes permettent de créer une passerelle Application Gateway de base avec les paramètres par défaut pour l’écouteur, le pool backend, les paramètres http backend et les règles. Vous pouvez modifier ces paramètres en fonction de votre déploiement une fois l’approvisionnement réussi
 
 > [!NOTE]
 > Les passerelles Application Gateway créées avec la configuration de pare-feu d’application web de base sont définies avec la solution CRS 3.0 dédiée aux protections.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Vous pouvez à présent apprendre à configurer un alias de domaine personnalisé pour [l’adresse IP publique](../dns/dns-custom-domain.md#public-ip-address) à l’aide de DNS Azure ou d’un autre fournisseur DNS.
 
 Apprenez à configurer la journalisation des diagnostics, à consigner les événements détectés ou bloqués par le pare-feu Application Gateway web en consultant la rubrique [Diagnostics de la passerelle Application Gateway](application-gateway-diagnostics.md)
 

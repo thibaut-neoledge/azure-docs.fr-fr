@@ -96,6 +96,7 @@
 #### [Utilisateurs, sessions, événements](app-insights-usage-segmentation.md)
 #### [Entonnoirs](usage-funnels.md)
 #### [Rétention](app-insights-usage-retention.md)
+#### [Flux](app-insights-usage-flows.md)
 #### [Classeurs](app-insights-usage-workbooks.md)
 
 ### Analyse

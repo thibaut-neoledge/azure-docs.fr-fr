@@ -12,35 +12,39 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 8f824e451abd2ca87875c416184e4d7265e8c72b
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 71d910bc0e459528805521ba991e5291396a3b8d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
-Ce didacticiel explique comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core et un service principal avec état pour stocker vos données.
+Premier d’une série, ce didacticiel vous montre comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core, et un service principal avec état pour stocker vos données. 
 
-![Diagramme d’application](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![Diagramme de l’application](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Dans ce premier volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Créer un service API Web ASP.NET Core en tant que service fiable
 > * Créer un service fiable avec état
 > * Implémenter la communication à distance des services et l’utilisation d’un proxy de service
 
-Ce didacticiel est divisé en trois articles. Le présent article est le premier de la série.
+Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
+> [!div class="checklist"]
+> * Créer une application .NET Service Fabric
+> * [Déployer l’application sur un cluster distant](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Configurer l’intégration et le déploiement continus à l’aide de Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Installez Visual Studio 2017](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
-- [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md).
+- [Installez le kit SDK Service Fabric](service-fabric-get-started.md).
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Créer un service API Web ASP.NET en tant que service fiable
 ASP.NET Core est une infrastructure légère de développement web inter-plateformes, que vous pouvez utiliser pour créer des API web et d’interfaces utilisateur web modernes. Pour bien comprendre comment ASP.NET Core s’intègre avec Service Fabric, il est vivement recommandé de lire l’article [ASP.NET Core dans le modèle Reliable Services de Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Pour l’instant, vous pouvez suivre ce didacticiel pour démarrer rapidement. Pour en savoir plus sur ASP.NET Core, consultez la [Documentation d’ASP.NET Core](https://docs.microsoft.com/aspnet/core/).

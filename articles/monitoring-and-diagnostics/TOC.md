@@ -39,6 +39,7 @@
 ### [Diffuser en continu le journal d’activité vers Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Créer des alertes de journal d’activité avec Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+### [Migrer vers les alertes de journal d’activité](monitoring-migrate-management-alerts.md)
 ## Utiliser les notifications de service
 ### [Afficher les notifications de service](monitoring-service-notifications.md)
 ### [Configurer des alertes sur les notifications de service](monitoring-activity-log-alerts-on-service-notifications.md)

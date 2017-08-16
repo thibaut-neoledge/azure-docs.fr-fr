@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 3a57646922236a10cf51ae3dd86c67c87c6d7f7f
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: bb3cf81c9b179e520e58a6fe5e455a136b9bb349
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -136,7 +136,7 @@ Les sondes personnalisées ne prennent pas en charge les caractères générique
 
 **Q. Comment les règles sont-elles traitées ?**
 
-Les règles sont traitées dans l’ordre où elles sont configurées. Nous vous recommandons de configurer les règles multi-sites avant les règles de base. En configurant les écouteurs multi-sites en premier, cette configuration réduit les risques que le trafic soit acheminé vers le serveur principal inapproprié. Ce problème d’acheminement peut se produire car la règle de base correspond au trafic basé sur le port avant que la règle multi-site ne soit évaluée.
+Les règles sont traitées dans leur ordre de création. Nous vous recommandons de configurer les règles multi-sites avant les règles de base. En configurant les écouteurs multi-sites en premier, cette configuration réduit les risques que le trafic soit acheminé vers le serveur principal inapproprié. Ce problème d’acheminement peut se produire car la règle de base correspond au trafic basé sur le port avant que la règle multi-site ne soit évaluée.
 
 **Q. À quoi correspond le champ Hôte pour les sondes personnalisées ?**
 

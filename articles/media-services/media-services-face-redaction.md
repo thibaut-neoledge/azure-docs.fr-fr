@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 6095135e49a6da3ef37fb566c2fb56702cfd70c9
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 74f38ae61d4a360cabe8a9fbd33d30a6b0751654
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Éditer les visages avec Azure Media Analytique
@@ -133,7 +133,37 @@ Exemple : foo_IDList.txt
      1
      2
      3
+
+## <a name="blur-types"></a>Types de flou
+
+Dans le mode **Combiné** ou **Rédiger**, 5 modes de flou sont disponibles par le biais de la configuration d’entrée JSON : **Faible**, **Med** (Moyen), **Élevé**, **Débogage** et **Noir**. Par défaut, **Med** (Moyen) est utilisé.
+
+Vous trouverez des exemples de types de flou ci-dessous.
+
+### <a name="example-json"></a>Exemple JSON :
+
+    {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+
+#### <a name="low"></a>Faible
+
+![Faible](./media/media-services-face-redaction/blur1.png)
  
+#### <a name="med"></a>Med (Moyen)
+
+![Med (Moyen)](./media/media-services-face-redaction/blur2.png)
+
+#### <a name="high"></a>Élevé
+
+![Élevé](./media/media-services-face-redaction/blur3.png)
+
+#### <a name="debug"></a>Déboguer
+
+![Déboguer](./media/media-services-face-redaction/blur4.png)
+
+#### <a name="black"></a>Noir
+
+![Noir](./media/media-services-face-redaction/blur5.png)
+
 ## <a name="elements-of-the-output-json-file"></a>Éléments du fichier de sortie JSON
 
 Le processeur multimédia de rédaction permet une détection d’emplacement et un suivi de visage très précis ; il peut détecter jusqu’à 64 visages humains dans une séquence vidéo. Les visages filmés de face donnent les meilleurs résultats ; les visages filmés de côté ou les visages de taille réduite (24 x 24 pixels ou moins) posent plus de problèmes.

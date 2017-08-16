@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 0cb70d36bd6e8d4cf5fcd5ed4a3e85c42f3cf81d
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: d4548c6f21d04effd57ea36e4fc0d15f77568903
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -57,8 +57,7 @@ ssh-keygen \
 
 `ssh-keygen` = programme utilisé pour créer les clés
 
-`-t rsa` = type de clé à créer qui est au format RSA [wikipédia] (https://fr.wikipedia.org/wiki/Chiffrement_RSA)
-
+`-t rsa` = type de clé à créer correspondant au format RSA [wikipedia][parenthèses à la fin](`https://en.wikipedia.org/wiki/RSA_(cryptosystem) `)
 `-b 2048` = bits de la clé
 
 `-C "azureuser@myserver"` = commentaire ajouté à la fin du fichier de la clé publique pour l’identifier facilement.  Un courrier électronique est généralement utilisé comme commentaire, mais vous pouvez utiliser le contenu le mieux adapté à votre infrastructure.

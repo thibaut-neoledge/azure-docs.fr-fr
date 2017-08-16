@@ -12,25 +12,29 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/03/2017
+ms.date: 08/09/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 1fde062d9673a48698b269d79e009c7b179e5934
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: c0546fd5b1398759ef98afa267146ced8a4084da
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Déployer une application sur un cluster tiers dans Azure
-Ce didacticiel vous montre comment déployer une application Azure Service Fabric sur un cluster tiers dans Azure.
+Deuxième d’une série, ce didacticiel vous montre comment déployer une application Azure Service Fabric sur un cluster tiers dans Azure.
 
-Cette partie du didacticiel vous montre comment effectuer les opérations suivantes :
+Dans ce deuxième volet, vous apprenez à :
 > [!div class="checklist"]
 > * Déployer une application sur un cluster distant à l’aide de Visual Studio
 > * Supprimer une application d’un cluster à l’aide de Service Fabric Explorer
 
-Ce didacticiel est divisé en trois articles. Le présent article est le deuxième de la série.
+Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
+> [!div class="checklist"]
+> * [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
+> * Déployer l’application sur un cluster distant
+> * [Configurer l’intégration et le déploiement continus à l’aide de Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel :

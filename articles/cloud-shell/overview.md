@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 72512e4dac8b51678e57d3550b9827ca81a304b0
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 7165633cd354eeea2e3619f839338e6af1524e56
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Vue d’ensemble d’Azure Cloud Shell (version préliminaire)
@@ -49,7 +49,7 @@ Un compte de stockage localement redondant (LRS) peut être créé en votre nom 
 
 Trois ressources sont créées en votre nom :
 1. Groupe de ressources nommé : `cloud-shell-storage-<region>`
-2. Compte de stockage nommé : `cs-uniqueGuid`
+2. Compte de stockage nommé : `cs<uniqueGuid>`
 3. Partage de fichiers nommé : `cs-<user>-<domain>-com-uniqueGuid`
 
 > [!Note]
@@ -58,7 +58,7 @@ Trois ressources sont créées en votre nom :
 #### <a name="use-existing-resources"></a>Utiliser les ressources existantes
 ![](media/advanced-storage.png)
 
-Vous disposez également d’une option avancée qui vous permet d’associer des ressources existantes à Cloud Shell. Lorsque l’invite de configuration du stockage s’affiche, cliquez sur « Afficher les paramètres avancés » pour sélectionner des options supplémentaires. Les listes déroulantes sont filtrées pour la région Cloud Shell qui vous a été attribuée et pour les comptes de stockage localement/globalement redondants.
+Vous disposez également d’une option avancée qui vous permet d’associer des ressources existantes à Cloud Shell. Lorsque l’invite de configuration du stockage s’affiche, cliquez sur « Afficher les paramètres avancés » pour sélectionner des options supplémentaires. Les listes déroulantes sont filtrées pour la région Cloud Shell qui vous a été attribuée et pour les comptes de stockage localement/globalement redondant.
 
 [Découvrez le stockage Cloud Shell, la mise à jour des partages de fichiers et le chargement/téléchargement de fichiers.] (persisting-shell-storage.md)
 
@@ -88,3 +88,4 @@ Cloud Shell est recommandé pour Chrome, Safari et Edge. Si Cloud Shell est pris
 1. Lorsque j’utilise un abonnement Azure Active Directory, je ne peux pas créer de stockage en raison de l’erreur : 400 DisallowedOperation. Pour résoudre ce problème, utilisez un abonnement Azure habilité à créer des ressources de stockage. Les abonnements AD ne peuvent pas créer de ressources Azure.
 
 Pour connaître les limitations spécifiques connues, consultez les [limitations de Cloud Shell](limitations.md).
+

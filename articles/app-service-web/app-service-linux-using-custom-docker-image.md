@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: d55cfc354ad5a9fc0f06b671f441ba4a0616bb9a
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: f51cacb33251d479f48a39014cc2db60a23358d5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -33,7 +32,7 @@ App Service fournit des piles d’applications prédéfinies sur Linux avec la p
 
 
 ## <a name="how-to-set-a-custom-docker-image-for-a-web-app"></a>Comment : définir une image Docker personnalisée pour une application web
-Vous pouvez définir une image Docker personnalisée pour les applications web nouvelles et existantes. Lorsque vous créez une application web sur Linux dans le [portail Azure](https://portal.azure.com), cliquez sur **Configurer le conteneur** pour définir une image Docker personnalisée :
+Vous pouvez définir une image Docker personnalisée pour les applications web nouvelles et existantes. Lorsque vous créez une application web sur Linux dans le [portail Azure](https://portal.azure.com/#create/Microsoft.AppSvcLinux), cliquez sur **Configurer le conteneur** pour définir une image Docker personnalisée :
 
 ![Image Docker personnalisée pour une nouvelle application web sur Linux][1]
 
@@ -65,18 +64,20 @@ Pour utiliser une image Docker personnalisée à partir d’un registre d’imag
 
 ## <a name="how-to-set-the-port-used-by-your-docker-image"></a>Comment : définir le port utilisé par votre image Docker ##
 
-Lorsque vous utilisez une image Docker personnalisée pour votre application web, vous pouvez utiliser la variable d’environnement `PORT` dans votre ficher Docker, qui est ajoutée au conteneur généré. Prenons l’exemple suivant d’un fichier Docker pour une application Ruby :
+Lorsque vous utilisez une image Docker personnalisée pour votre application web, vous pouvez utiliser la variable d’environnement `WEBSITES_PORT` dans votre ficher Docker, qui est ajoutée au conteneur généré. Prenons l’exemple suivant d’un fichier Docker pour une application Ruby :
 
     FROM ruby:2.2.0
     RUN mkdir /app
     WORKDIR /app
     ADD . /app
     RUN bundle install
-    CMD bundle exec puma config.ru -p $PORT -e production
+    CMD bundle exec puma config.ru -p WEBSITES_PORT -e production
 
-Sur la dernière ligne de commande, la variable d’environnement PORT est transmise au moment de l’exécution. N’oubliez pas les commandes sont sensibles à la casse.
+Sur la dernière ligne de commande, la variable d’environnement WEBSITES_PORT est transmise au moment de l’exécution. N’oubliez pas les commandes sont sensibles à la casse.
 
-Si vous utilisez une image Docker existante créée par une autre personne, vous devrez peut-être spécifier un port autre que le port 80 pour l’application. Pour configurer le port, ajoutez un paramètre d’application nommé `PORT` avec la valeur, comme indiqué ci-dessous :
+Auparavant, la plateforme utilisait le paramètre d’application `PORT`, mais nous envisageons de déconseiller l’utilisation de ce paramètre d’application pour recommander une utilisation exclusive de `WEBSITES_PORT`.
+
+Si vous utilisez une image Docker existante créée par une autre personne, vous devrez peut-être spécifier un port autre que le port 80 pour l’application. Pour configurer le port, ajoutez un paramètre d’application nommé `WEBSITES_PORT` avec la valeur, comme indiqué ci-dessous :
 
 ![Configuration du paramètre d’application PORT pour une image Docker personnalisée][6]
 
@@ -92,10 +93,10 @@ Pour passer d’une image personnalisée à une image intégrée :
 ![Configuration de l’image Docker intégrée][5]
 
 
-## <a name="troubleshooting"></a>Résolution des problèmes ##
+## <a name="troubleshooting"></a>Résolution de problèmes ##
 
-Si le démarrage de l’application échoue avec une image Docker personnalisée, consultez les journaux Docker dans le répertoire LogFiles/docker. Vous pouvez accéder à ce répertoire par le biais de votre site SCM ou d’un FTP.
-Pour journaliser `stdout` et `stderr` à partir de votre conteneur, vous devez activer **Journalisation du serveur web** sous **Journaux de diagnostic**.
+Si le démarrage de l’application échoue avec une image Docker personnalisée, consultez les journaux Docker dans le répertoire LogFiles. Vous pouvez accéder à ce répertoire par le biais de votre site SCM ou d’un FTP.
+Pour journaliser `stdout` et `stderr` à partir de votre conteneur, vous devez activer **Journalisation de conteneur Docker** sous **Journaux de diagnostic**.
 
 ![Activation de la journalisation][8]
 

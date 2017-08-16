@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: f4690097da1b56a7688754294ab63ec88a457761
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 5abf1d80a62344f93d4c5491adba65a3e7400258
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -48,7 +47,7 @@ Ce didacticiel vous explique les procédures suivantes :
 * affiche les propriétés signalées mises à jour.
 
 > [!NOTE]
-> L’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks] fournit des informations sur les kits de développement logiciel Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal.
+> Pour plus d’informations sur les SDK que vous pouvez utiliser pour générer des applications qui s’exécutent sur les appareils et sur le serveur de solution principal, consultez l’article [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks].
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -62,11 +61,17 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Déclencher un redémarrage à distance sur l’appareil à l’aide d’une méthode directe
 
-Dans cette section, vous allez créer une application de console Java qui appelle la méthode directe de redémarrage sur l’application d’appareil simulé, puis affiche la réponse. L’application interroge ensuite les propriétés signalées envoyées par l’appareil pour déterminer si le redémarrage est terminé. Cette application console se connecte à votre hub IoT pour appeler la méthode directe et lire les propriétés signalées.
+Dans cette section, vous allez créer une application console Java qui :
+
+1. Appelle la méthode directe de redémarrage dans l’application d’appareil simulé
+1. Affiche la réponse
+1. Interroge les propriétés signalées envoyées par l’appareil pour déterminer si le redémarrage est terminé
+
+Cette application console se connecte à votre hub IoT pour appeler la méthode directe et lire les propriétés signalées.
 
 1. Créez un dossier vide appelé dm-get-started.
 
-1. Dans le dossier dm-get-started, créez un projet Maven nommé **trigger-reboot** en entrant la commande suivante à l’invite de commandes. Il s’agit d’une commande unique et longue :
+1. Dans le dossier dm-get-started, créez un projet Maven nommé **trigger-reboot** en entrant la commande suivante à l’invite de commandes. Il s’agit d’une commande unique et longue :
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -78,7 +83,7 @@ Dans cette section, vous allez créer une application de console Java qui appell
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -123,7 +128,7 @@ Dans cette section, vous allez créer une application de console Java qui appell
     import java.util.concurrent.ExecutorService;
     ```
 
-1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez **{youriothubconnectionstring}** par la chaîne de connexion IoT Hub que vous avez notée dans la section *Créer un hub IoT* :
+1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubconnectionstring}` par la chaîne de connexion de votre IoT Hub, que vous avez notée dans la section *Créer un IoT Hub* :
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -207,7 +212,7 @@ Dans cette section, vous allez créer une application de console Java qui appell
 
 Dans cette section, vous créez une application console Java qui simule un appareil. L’application écoute l’appel de méthode directe de redémarrage à partir de votre hub IoT et répond immédiatement à cet appel. L’application se met ensuite en veille pendant un certain temps pour simuler le processus de redémarrage, puis utilise une propriété signalée pour indiquer à l’application principale **trigger-reboot** que le redémarrage est terminé.
 
-1. Dans le dossier dm-get-started, créez un projet Maven nommé **simulated-device** en entrant la commande suivante à l’invite de commandes. Il s’agit d’une commande unique et longue :
+1. Dans le dossier dm-get-started, créez un projet Maven nommé **simulated-device** en entrant la commande suivante à l’invite de commandes. Il s’agit d’une commande unique et longue :
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -219,7 +224,7 @@ Dans cette section, vous créez une application console Java qui simule un appar
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -262,7 +267,7 @@ Dans cette section, vous créez une application console Java qui simule un appar
     import java.util.HashSet;
     ```
 
-1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez **{yourdeviceconnectionstring}** par la chaîne de connexion de l’appareil que vous avez notée dans la section *Créer une identité d’appareil* :
+1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{yourdeviceconnectionstring}` par la chaîne de connexion de l’appareil que vous avez notée dans la section *Créer une identité d’appareil* :
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -369,14 +374,14 @@ Dans cette section, vous créez une application console Java qui simule un appar
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-1. Ajoutez le code suivant à la méthode **main** pour instancier un **DeviceClient** :
+1. Pour instancier un **DeviceClient**, ajoutez le code suivant à la méthode **main** :
 
     ```java
     System.out.println("Starting device client sample...");
     client = new DeviceClient(connString, protocol);
     ```
 
-1. Ajoutez le code suivant à la méthode **main** pour commencer à écouter les appels de méthode directe :
+1. Pour commencer à écouter les appels de méthode directe, ajoutez le code suivant à la méthode **main** :
 
     ```java
     try
@@ -394,7 +399,7 @@ Dans cette section, vous créez une application console Java qui simule un appar
     }
     ```
 
-1. Ajoutez le code suivant à la méthode **main** pour arrêter le simulateur d’appareil :
+1. Pour arrêter le simulateur d’appareil, ajoutez le code suivant à la méthode **main** :
 
     ```java
     System.out.println("Press any key to exit...");

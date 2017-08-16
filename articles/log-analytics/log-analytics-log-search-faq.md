@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/08/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: b4031e5ec5ab38863e1e74f5b6ebb117f23a327e
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 2de9a87390da11a034c6cebaa37d4cc89edf3cad
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -52,7 +52,6 @@ Pas de problème.  Nous créons une capture instantanée de votre espace de trav
 Vous pouvez utiliser l’outil de conversion de langage dans la page de recherche de journal pour convertir chacune d’elles.  Il n’existe aucune méthode pour la conversion automatique de plusieurs recherches sans mise à niveau de l’espace de travail.
 
 
-
 ## <a name="alerts"></a>Alertes
 
 ### <a name="i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>J’ai un grand nombre de règles d’alerte. Dois-je les recréer dans la nouvelle langue après la mise à niveau ?  
@@ -63,7 +62,10 @@ Non, vos règles d’alerte sont automatiquement converties en nouveau langage d
 ### <a name="does-anything-change-with-powerbi-integration"></a>Existe-t-il des changements suite à l’intégration de Power BI ?
 Oui.  Une fois votre espace de travail mis à niveau, puis le processus d’exportation des données de Log Analytics à Power BI ne fonctionne plus.  Toutes les planifications existantes que vous avez créées avant la mise à niveau sont alors désactivées.  Après la mise à niveau, Azure Log Analytics utilise la même plateforme qu’Application Insights et vous devez utiliser le même processus vous permettant d’exporter des requêtes de Log Analytics vers Power BI comme [processus d’exportation des requêtes d’Application Insights vers Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
 
+## <a name="dashboards"></a>Tableaux de bord
 
+### <a name="can-i-still-use-dashboards"></a>Puis-je continuer à utiliser les tableaux de bord ?
+Vous pouvez continuer à utiliser les tableaux de bord que vous avez créés avant la mise à niveau de votre espace de travail. Toutefois, vous ne pouvez pas les modifier ni en créer de nouveaux.  Vous pouvez continuer à créer et à modifier des vues à l’aide du [Concepteur de vues](log-analytics-view-designer.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

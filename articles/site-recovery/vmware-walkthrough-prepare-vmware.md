@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 88f7460c5414e7c33adbe86928fd6b56b22b3ad7
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 3e1c589030210c2eae1ad9c02811775d9d6365d4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="step-6-prepare-on-premises-vmware-replication-to-azure"></a>Étape 6 : Préparer la réplication VMware local vers Azure
@@ -28,7 +27,7 @@ Pour préparer l’interaction des serveurs VMware locaux avec Azure Site Recov
 
 ## <a name="prepare-for-automatic-discovery"></a>Préparation pour la détection automatique
 
-Site Recovery détecte les machines virtuelles situées dans les hôtes vSphere ESXi et/ou gérées par les serveurs vCenter.  Pour cela, Site Recovery a besoin des informations d’identification permettant d’accéder aux serveurs vCenter et aux hôtes vSphere ESXi. Créez-les comme suit :
+Site Recovery détecte automatiquement les machines virtuelles s’exécutant sur des hôtes ESXi vSphere (avec ou sans serveur vCenter). Pour la détection automatique, Site Recovery a besoin d’un compte pour accéder aux hôtes et aux serveurs :
 
 1. Pour utiliser un compte dédié, définissez un rôle (au niveau du serveur vCenter, avec les autorisations indiquées dans le tableau ci-dessous). Donnez-lui un nom, tel que **Azure_Site_Recovery**.
 2. Créez ensuite un utilisateur sur l’hôte vSphere/le serveur vCenter et attribuez le rôle à l’utilisateur. Vous spécifiez ce compte d’utilisateur pendant le déploiement de Site Recovery.
@@ -58,12 +57,12 @@ Si vous souhaitez utiliser l’installation push, vous devez préparer un compte
 
 - Vous pouvez utiliser un compte local ou de domaine
 - Pour Windows, si vous n’utilisez pas un compte de domaine, vous devez désactiver le contrôle d’accès utilisateur distant sur la machine locale. Pour cela, dans le registre situé sous **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, ajoutez l’entrée DWORD **LocalAccountTokenFilterPolicy** avec une valeur de 1.
-- Si vous souhaitez ajouter l’entrée de registre pour Windows à partir d’une interface CLI, saisissez :      ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Si vous souhaitez ajouter l’entrée de Registre pour Windows à partir d’une interface CLI, tapez :       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Pour Linux, le compte doit être un utilisateur racine sur le serveur Linux source.
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Aller à [Étape 7 : Créer un coffre](vmware-walkthrough-create-vault.md)
+Aller à l’[Étape 7 : créer un coffre](vmware-walkthrough-create-vault.md)
 

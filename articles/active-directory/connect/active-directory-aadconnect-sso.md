@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c4cd80c50dca5b97c36f1c9785d8ea347b35285c
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 5a390208f4b7c22e96d7888bcbbd14d8b27667eb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -32,8 +32,8 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 
 ![Authentification unique transparente](./media/active-directory-aadconnect-sso/sso1.png)
 
->[!NOTE]
->Cette fonctionnalité _n’est pas_ applicable à Active Directory Federation Services (ADFS), qui fournit déjà cette possibilité.
+>[!IMPORTANT]
+>L’authentification unique transparente est actuellement en préversion. Cette fonctionnalité n’est _pas_ applicable aux services de fédération Active Directory (AD FS).
 
 ## <a name="key-benefits"></a>Principaux avantages
 
@@ -44,26 +44,29 @@ L’authentification unique transparente peut être combinée avec la [synchroni
   - Aucun composant local supplémentaire n’est nécessaire pour que cela fonctionne.
   - Fonctionne avec n’importe quelle méthode d’authentification cloud - [Synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) ou [Authentification directe](active-directory-aadconnect-pass-through-authentication.md).
   - Peut être déployée pour certains utilisateurs ou pour l’ensemble de vos utilisateurs à l’aide d’une stratégie de groupe.
-  - Permet d’inscrire les appareils non Windows 10 dans Azure AD. Le [client Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554) version 2.1 ou ultérieure est nécessaire.
+  - Inscrivez des appareils non-Windows 10 auprès d’Azure AD sans avoir besoin d’une infrastructure AD FS. Cette fonctionnalité exige que vous utilisiez la version 2.1 ou supérieure du [client workplace-join](https://www.microsoft.com/download/details.aspx?id=53554).
 
 ## <a name="feature-highlights"></a>Présentation des fonctionnalités
 
-- Le nom d’utilisateur peut être soit le nom d’utilisateur local par défaut (`userPrincipalName`), soit un autre attribut configuré dans Azure AD Connect (`Alternate ID`).
+- Le nom d’utilisateur peut être soit le nom d’utilisateur local par défaut (`userPrincipalName`), soit un autre attribut configuré dans Azure AD Connect (`Alternate ID`). Les deux cas d’utilisation fonctionnent car l’authentification unique transparente utilise la revendication `securityIdentifier` dans le ticket Kerberos pour rechercher l’objet utilisateur correspondant dans Azure AD.
 - L’authentification unique transparente est une fonctionnalité opportuniste. Si elle échoue pour une raison quelconque, l’expérience de connexion utilisateur retrouve son comportement normal (l’utilisateur doit alors entrer son mot de passe dans la page de connexion).
-- Si une application transfère un `domain_hint` (correspondant à votre locataire) ou le paramètre `login_hint` (correspondant à l’utilisateur) dans sa demande de connexion Azure AD, les utilisateurs sont automatiquement connectés, sans qu’ils n’aient à entrer leurs nom d’utilisateur et mot de passe.
+- Si une application transfère un paramètre `domain_hint` (OpenID Connect) ou `whr` (SAML), correspondant à votre locataire, ou encore un paramètre `login_hint`, correspondant à l’utilisateur, dans sa demande de connexion Azure AD, les utilisateurs sont automatiquement connectés, sans qu’ils n’aient à entrer leurs nom d’utilisateur et mot de passe.
 - L’authentification unique transparente peut être activée par le biais d’Azure AD Connect.
 - Cette fonctionnalité est gratuite et il est inutile de disposer des éditions payantes d’Azure AD pour l’utiliser.
 - L’authentification unique est prise en charge par les clients basés sur le navigateur web et les clients Office qui prennent en charge [l’authentification moderne](https://aka.ms/modernauthga) sur les plateformes et navigateurs compatibles avec l’authentification Kerberos :
 
 | Système d’exploitation\Navigateur |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Oui|Oui|Oui|Oui\*|N/A
+|Windows 10|Oui|Non|Oui|Oui\*|N/A
 |Windows 8.1|Oui|N/A|Oui|Oui\*|N/A
 |Windows 8|Oui|N/A|Oui|Oui\*|N/A 
 |Windows 7|Oui|N/A|Oui|Oui\*|N/A
 |Mac OS X|N/A|N/A|Oui\*|Oui\*|Oui\*
 
 \*Nécessite une [configuration supplémentaire](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
+
+>[!IMPORTANT]
+>Nous avons récemment restauré la prise en charge de Edge afin d’examiner les problèmes signalés par le client.
 
 >[!NOTE]
 >Concernant Windows 10, il est recommandé d’utiliser [Azure AD Join](../active-directory-azureadjoin-overview.md) pour une expérience optimale d’authentification unique dans Azure AD.

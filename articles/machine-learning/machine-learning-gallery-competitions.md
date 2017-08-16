@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 6c76311b8ba36ea5dba1c2cd63ee05e1048ca9de
-ms.openlocfilehash: 6ceb50b05075ea9d056a873cf70b13ff85dc6094
-ms.lasthandoff: 02/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25ec625c1f32fd1477685196ea21ad6f582bc7ce
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Découvrez les concours de la galerie Cortana Intelligence
@@ -34,8 +34,7 @@ Pour obtenir des réponses aux questions fréquemment posées sur les concours, 
 
 ![Sélectionnez Competitions (Concours) sur la page d’accueil de la Galerie](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
 
- La page **[Competitions (Concours)](https://gallery.cortanaintelligence.com/competitions)**
- affiche une liste des concours les plus populaires.
+ La page **[Competitions](https://gallery.cortanaintelligence.com/competitions)** (Concours) affiche la liste des concours les plus populaires.
 Cliquez sur **Afficher tout** pour afficher tous les concours.
 Sur cette page, vous pouvez parcourir tous les concours de la galerie. Vous pouvez également effectuer une recherche en sélectionnant les critères de filtre sur la gauche de la page et en entrant les termes de la recherche en haut.
 
@@ -48,11 +47,9 @@ Sur cette page, vous pouvez parcourir tous les concours de la galerie. Vous pouv
 ## <a name="enter-a-competition"></a>Participer à un concours
 Si le concours est ouvert, l’état de la page détaillée est défini sur **Actif**. Pour participer, cliquez sur **Enter Competition (Participer au concours)**. Vous recevrez des instructions relatives aux ressources nécessaires et aux étapes à entreprendre.
 
-![Le concours est terminé](media/machine-learning-gallery-competitions/open-competition.png)
+![Concours actif](media/machine-learning-gallery-competitions/open-competition.png)
 
-Si le concours est terminé, son état sur la page détaillée est défini sur **Terminé** et le lien **Enter Competition (Participer au concours)** est remplacé par le mot **Terminé**.
-
-![Le concours est terminé](media/machine-learning-gallery-competitions/completed-competition.png)
+Si le concours est terminé, la liste des gagnants est affichée.
 
 **[ALLER À LA GALERIE >>](http://gallery.cortanaintelligence.com)**
 

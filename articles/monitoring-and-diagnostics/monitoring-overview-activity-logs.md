@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 08/02/2017
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 522960b63048d02140ca9c8eca1f30e6217ec888
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 8ff9f73fc0732cd2227b7e0cc1091e04d69014eb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="overview-of-the-azure-activity-log"></a>Présentation du journal d’activité Azure
-Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cela inclut une plage de données, à partir de données opérationnelles d’Azure Resource Manager pour les mises à jour des événements de l’état d’intégrité du service. Le journal d’activité était précédemment appelé « journaux d’audit » ou « journaux des opérations », car la catégorie administrative indique les événements de plan de contrôle pour vos abonnements. Avec le journal d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état de l’opération et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations pour les ressources qui utilisent le modèle Classic/« RDFE ».
+# <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Surveiller l’activité d’abonnement avec le journal d’activité Azure
+Le **Journal d’activité Azure** est un journal d’abonnement qui fournit un aperçu de tous les événements relatifs aux abonnements qui se sont produits dans Azure. Cela inclut une plage de données, à partir de données opérationnelles d’Azure Resource Manager pour les mises à jour des événements de l’état d’intégrité du service. Le journal d’activité était précédemment appelé « journaux d’audit » ou « journaux des opérations », car la catégorie administrative indique les événements de plan de contrôle pour vos abonnements. Avec le journal d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état de l’opération et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations pour les ressources qui utilisent le modèle Classic/« RDFE ».
 
 ![Journaux d’activité et autres types de journaux ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
@@ -52,32 +52,58 @@ Le journal d’activité contient plusieurs catégories de données. Pour plus d
 * **Recommandation** : cette catégorie contient les événements de recommandation de certains types de ressources, telles que les sites Web et les serveurs SQL. Ces événements proposent des recommandations sur la manière de mieux utiliser vos ressources. Vous ne recevez que les événements de ce type si vous disposez de ressources qui émettent des recommandations.
 * **Stratégie, sécurité et état d’intégrité du service** : ces catégories ne contiennent pas d’événements ; elles sont réservées à un usage ultérieur.
 
+## <a name="event-schema-per-category"></a>Schéma d’événements par catégorie
+[Consultez cet article pour comprendre le schéma d’événements de journal d’activité par catégorie.](monitoring-activity-log-schema.md)
+
 ## <a name="what-you-can-do-with-the-activity-log"></a>Ce que vous pouvez faire avec le journal d’activité
 Voici ce que vous pouvez faire avec le journal d’activité :
 
 ![Journal d’activité Azure](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
-* [Créez une alerte qui déclenche un événement de journal d’activité.](monitoring-activity-log-alerts.md)
+* Interrogez-le et affichez-le dans le **portail Azure**.
+* [Créer une alerte basée sur un événement du journal d’activité](monitoring-activity-log-alerts.md)
 * [Diffusez-le en continu vers un **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) pour qu’un service tiers ou une solution d’analyse personnalisée (p. ex. PowerBI) l’ingère.
 * Analysez-le dans PowerBI à l’aide du [**pack de contenu PowerBI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Enregistrez-le dans un **compte de stockage** pour l’archivage ou l’inspection manuelle](monitoring-archive-activity-log.md). Vous pouvez spécifier la durée de rétention (en jours) à l’aide des **profils de journal**.
-* Interrogez-le et affichez-le dans le **portail Azure**.
+* [Enregistrez-le dans un **compte de stockage** pour l’archivage ou l’inspection manuelle](monitoring-archive-activity-log.md). Vous pouvez spécifier la durée de rétention (en jours) à l’aide du **Profil de journal**.
 * Interrogez-le via l’applet de commande PowerShell, l’interface de ligne de commande ou l’API REST.
 
+## <a name="query-the-activity-log-in-the-azure-portal"></a>Interroger le journal d’activité dans le portail Azure
+Vous pouvez accéder au journal d’activité à différents endroits du portail Azure :
+* Le **Panneau Journal d’activité**, auquel vous pouvez accéder en cliquant sur « Plus de services » dans le volet de navigation de gauche.
+* Le **Panneau Surveillance**, qui s’affiche par défaut dans le volet de navigation gauche. Le journal d’activité est l’une des sections de ce panneau.
+* Le **Panneau des ressources** de n’importe quelle ressource (par exemple, le panneau de configuration d’une machine virtuelle). Le journal d’activité se trouve dans la plupart des panneaux de ressources. Quand vous cliquez dessus, les événements associés à la ressource sont automatiquement affichés.
 
-Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hub qui n’est pas dans le même abonnement que celui générant des journaux. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements.
+Dans le portail Azure, vous pouvez filtrer le journal d’activités à l’aide des champs suivants :
+* Intervalle de temps : heure de début et de fin des événements.
+* Catégorie : catégorie d’événement comme décrit ci-dessus.
+* Abonnement : un ou plusieurs noms d’abonnements Azure.
+* Groupe de ressources : un ou plusieurs groupes de ressources au sein de ces abonnements.
+* Ressource (nom) : nom d’une ressource.
+* Type de ressource : type de ressource, par exemple, Microsoft.Compute/virtualmachines.
+* Nom de l’opération : nom d’une opération Azure Resource Manager, par exemple, Microsoft.SQL/servers/Write.
+* Gravité : niveau de gravité de l’événement (information, avertissement, erreur, critique).
+* Événement lancé par : « appelant » ou utilisateur ayant effectué l’opération.
+* Recherche libre : zone de recherche textuelle libre qui permet de rechercher une chaîne dans les champs de tous les événements.
 
-## <a name="export-the-activity-log-with-log-profiles"></a>Export du journal d’activité avec les profils de journal
+Une fois ces filtres définis, vous pouvez enregistrer l’ensemble des filtres sous la forme d’une requête persistante afin de l’utiliser dans les autres sessions si besoin. Vous pouvez également épingler une requête à votre tableau de bord Azure afin de toujours avoir un œil sur certains événements.
+
+Cliquez sur Appliquer pour exécuter votre requête et afficher tous les événements correspondants. Quand vous cliquez sur un événement de la liste, un récapitulatif de l’événement est affiché, ainsi que ses données JSON brutes complètes.
+
+Pour encore plus de puissance, vous pouvez cliquer sur l’icône **Recherche dans les journaux** pour afficher les données du journal d’activité dans la [solution Activity Log Analytics](../log-analytics/log-analytics-activity.md). Le panneau Journal d’activité offre des fonctionnalités de base pour filtrer et parcourir les journaux, tandis que Log Analytics vous permet d’interroger et de visualiser vos données, ainsi que d’ajouter un tableau croisé dynamique.
+
+## <a name="export-the-activity-log-with-a-log-profile"></a>Exporter le journal d’activité avec un profil de journal
 Un **profil de journal** contrôle comment votre journal d’activité est exporté. À l’aide d’un profil de journal, vous pouvez configurer :
 
 * L’emplacement où le journal d’activité doit être envoyé (compte de stockage ou Event Hubs).
 * Les catégories d’événements (Write, Delete, Action) qui doivent être envoyées. *La signification de « catégorie » est différente dans les événements de profil de journal et de journal d’activité. Dans le profil de journal, « catégorie » désigne le type d’opération (Write, Delete, Action). Dans un événement de journal d’activité, la propriété « catégorie » représente la source ou le type d’événement (par exemple, Administration, ServiceHealth, Alert, etc.).*
-* Les régions (emplacements) qui doivent être exportées.
+* Les régions (emplacements) qui doivent être exportées. Veillez à inclure la catégorie « global », car de nombreux événements du journal d’activité sont des événements globaux.
 * Durée pendant laquelle le journal d’activité doit être conservé dans un compte de stockage.
     - Une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647.
     - Si des stratégies de rétention sont définies, mais que le stockage des journaux dans un compte de stockage est désactivé (par exemple si seules les options Event Hubs ou OMS sont sélectionnées), les stratégies de rétention n’ont aucun effet.
     - Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés.
+
+Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hub qui n’est pas dans le même abonnement que celui générant des journaux. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements.
 
 Ces paramètres peuvent être configurés via l’option « Exporter » dans le panneau Journal d’activité dans le portail. Ils peuvent également être configurés par programme [à l’aide de l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), d’applets de commande PowerShell ou de l’interface de ligne de commande. Un abonnement ne peut avoir qu’un seul profil de journal.
 
@@ -152,9 +178,6 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 ```
 azure insights logprofile delete --name my_log_profile
 ```
-
-## <a name="event-schema-per-category"></a>Schéma d’événements par catégorie
-[Consultez cet article pour comprendre le schéma d’événements de journal d’activité par catégorie.](monitoring-activity-log-schema.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../azure-resource-manager/resource-group-audit.md)

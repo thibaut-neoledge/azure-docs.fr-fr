@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0e3998f806aae71002e65ad79079a1bef448cfe6
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 9dc50a101384bb40ad3a878245b80dcb31a7c08e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export
-Le service Azure Import/Export vous permet de transférer en toute sécurité des volumes importants de données vers Azure Blob Storage en expédiant des disques durs vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données depuis Azure Blob Storage vers les disques durs et les expédier vers votre site local. Ce service est utile lorsque vous souhaitez transférer plusieurs téraoctets (To) de données vers ou depuis Azure, mais le transfert ou le téléchargement via le réseau est impossible à cause d’une bande passante limitée et de coûts de réseau élevés.
+Le service Azure Import/Export vous permet de transférer en toute sécurité des volumes importants de données vers Stockage Blob Azure en expédiant des disques durs vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données depuis Stockage Blob Azure vers les disques durs et les expédier vers votre site local. Ce service est utile lorsque vous souhaitez transférer plusieurs téraoctets (To) de données vers ou depuis Azure, mais le transfert ou le téléchargement via le réseau est impossible à cause d’une bande passante limitée et de coûts de réseau élevés.
 
 Ce service nécessite que les disques durs soient chiffrés par BitLocker pour garantir la sécurité des données. Ce service prend en charge les comptes de stockage classiques et Azure Resource Manager (niveau standard et froid) présents dans toutes les régions de la version publique d’Azure. Vous devez expédier les disques durs à l’un des emplacements pris en charge spécifiés plus loin dans cet article.
 
-Dans cet article, vous allez découvrir le service Azure Import/Export et apprendre comment expédier des disques pour copier des données vers et depuis Azure Blob Storage.
+Dans cet article, vous allez découvrir le service Azure Import/Export et apprendre comment expédier des disques pour copier des données vers et depuis Stockage Blob Azure.
 
 ## <a name="when-should-i-use-the-azure-importexport-service"></a>À quel moment dois-je utiliser le service Azure Import/Export ?
 Envisagez d’utiliser le service Azure Import/Export lorsque le chargement ou le téléchargement de données sur le réseau est trop lent ou lorsque l’obtention d’une bande passante réseau supplémentaire est coûteuse.
@@ -35,10 +35,10 @@ Vous pouvez utiliser ce service dans des scénarios tels que :
 
 * Migration de données vers le cloud : déplacez de grandes quantités de données vers Azure rapidement et à moindre coût.
 * Distribution de contenu : envoyez rapidement des données aux sites de vos clients.
-* Sauvegarde : sauvegardez vos données locales dans Azure Blob Storage.
-* Récupération des données : récupérez les grandes quantités de données stockées dans Blob Storage pour les transférer vers votre site local.
+* Sauvegarde : sauvegardez vos données locales dans Stockage Blob Azure.
+* Récupération des données : récupérez les grandes quantités de données stockées dans Stockage Blob pour les transférer vers votre site local.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Dans cette section, nous répertorions les composants requis pour utiliser ce service. Vérifiez-les soigneusement avant d’expédier vos disques.
 
 ### <a name="storage-account"></a>Compte de stockage
@@ -154,7 +154,7 @@ Lorsque vous expédiez vos colis, vous devez respecter les [conditions d'utilisa
 > 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Fonctionnement du service Azure Import/Export
-Vous pouvez transférer des données entre votre site local et Azure Blob Storage à l’aide du service Azure Import/Export en créant des travaux et en expédiant des disques durs à un centre de données Azure. Chaque disque dur expédié est associé à un seul travail. Chaque travail est associé à un seul compte de stockage. Consultez la section [Conditions préalables](#pre-requisites) pour en savoir plus sur les particularités de ce service, comme les types d’objet blob pris en charge, les types de disque, les emplacements et l’expédition.
+Vous pouvez transférer des données entre votre site local et Stockage Blob Azure à l’aide du service Azure Import/Export en créant des travaux et en expédiant des disques durs à un centre de données Azure. Chaque disque dur expédié est associé à un seul travail. Chaque travail est associé à un seul compte de stockage. Consultez la section [Conditions préalables](#pre-requisites) pour en savoir plus sur les particularités de ce service, comme les types d’objet blob pris en charge, les types de disque, les emplacements et l’expédition.
 
 Dans cette section, nous décrivons globalement la procédure permettant d’importer et d’exporter des travaux. Ensuite, dans la section [Démarrage rapide](#quick-start), nous expliquons comment créer un travail d’importation et d’exportation.
 
@@ -177,7 +177,7 @@ Globalement, un travail d’importation comprend les opérations suivantes :
 Globalement, un travail d’exportation comprend les opérations suivantes :
 
 * Déterminez les données à exporter et le nombre de disques dont vous avez besoin.
-* Identifiez les objets blob source ou les chemins d’accès au conteneur de vos données dans Blob Storage.
+* Identifiez les objets blob source ou les chemins d’accès au conteneur de vos données dans Stockage Blob.
 * Créez une tâche d’exportation dans votre compte de stockage source à l’aide du portail Azure ou de l’API REST Import/Export.
 * Indiquez les objets blob source ou les chemins d’accès au conteneur de vos données dans le travail d’exportation.
 * Indiquez l’adresse de retour et le numéro de compte de transporteur à utiliser pour le retour des disques.
@@ -244,9 +244,9 @@ Lorsque vous envoyez des disques à Azure, vous payez le coût d’expédition a
 
 **Frais de transaction**
 
-Aucun frais de transaction ne s’applique pour l’importation de données dans Blob Storage. Des frais de sortie standard s’appliquent lorsque les données sont exportées depuis Blob Storage. Pour plus d’informations sur les frais de transaction, consultez [Tarification - Transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)
+Aucuns frais de transaction ne s’appliquent pour l’importation de données dans Stockage Blob. Des frais de sortie standard s’appliquent lorsque les données sont exportées depuis Stockage Blob. Pour plus d’informations sur les frais de transaction, consultez [Tarification - Transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-## <a name="quick-start"></a>Quick Start
+## <a name="quick-start"></a>Démarrage rapide
 Cette section vous explique en détail comment créer un travail d’importation et d’exportation. Vérifiez que vous remplissez toutes les [conditions préalables](#pre-requisites) avant de poursuivre.
 
 > [!IMPORTANT]
@@ -460,6 +460,7 @@ L’état des travaux terminés est visible pendant 90 jours. Au-delà de ce dé
 **Que faire si je souhaite importer ou exporter plus de 10 lecteurs ?**
 
 Le service Import/Export limite chaque tâche d’importation ou d’exportation au référencement de 10 lecteurs. Si vous souhaitez en expédier plus, vous pouvez créer plusieurs tâches. Les disques associés au même travail doivent être expédiés ensemble dans le même colis.
+Microsoft propose des conseils et une assistance quand la capacité de données s’étend sur plusieurs travaux d’importation de disques. Pour plus d’informations, contactez bulkimport@microsoft.com.
 
 **Le service formate-t-il les disques avant de les renvoyer ?**
 
@@ -508,9 +509,9 @@ Le numéro de téléphone et l’adresse du centre de données sont fournis dans
 
 Consultez la rubrique [Importer des fichiers PST ou des données SharePoint dans Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
 
-**Puis-je utiliser le service Azure Import/Export pour copier mes sauvegardes en mode hors connexion sur le service Azure Backup ?**
+**Puis-je utiliser le service Azure Import/Export pour copier mes sauvegardes en mode hors connexion sur le service Sauvegarde Azure ?**
 
-Consultez la rubrique [Flux de travail de la sauvegarde hors connexion dans Azure Backup](../backup/backup-azure-backup-import-export.md).
+Consultez la rubrique [Flux de travail de la sauvegarde hors connexion dans Sauvegarde Azure](../backup/backup-azure-backup-import-export.md).
 
 **Quel est le nombre maximal de disques durs par livraison ?**
 

@@ -12,29 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
-ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: cfe528021f2d069146fc7a34d9ea83b2681ffbf2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/06/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
-# <a name="working-with-claims-aware-apps-in-application-proxy"></a>Utiliser des applications prenant en charge les revendications dans le proxy d’application
-Les applications prenant en charge les revendications effectuent une redirection vers le service d’émission de jeton de sécurité (STS), qui à son tour demande les informations d’identification de l’utilisateur en échange d’un jeton avant de rediriger l’utilisateur vers l’application. Pour permettre au proxy d’application de travailler avec ces redirections, les étapes suivantes sont nécessaires.
+# <a name="working-with-claims-aware-apps-in-application-proxy"></a>Utilisation d’applications prenant en charge les revendications dans le proxy d’application
+[Les applications prenant en charge les revendications](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) effectuent une redirection vers le service d’émission de jeton de sécurité (STS). Le service d’émission de jeton de sécurité demande des informations d’identification à l’utilisateur en échange d’un jeton, puis redirige l’utilisateur vers l’application. Il existe plusieurs façons d’activer le proxy d’application pour utiliser ces redirections. Utilisez cet article pour configurer votre déploiement pour les applications prenant en charge les revendications. 
 
 ## <a name="prerequisites"></a>Composants requis
-Avant d’effectuer cette procédure, vérifiez que le service STS vers lequel l’application prenant en charge les revendications effectue la redirection est disponible en dehors de votre réseau local.
+Vérifiez que le service d’émission de jeton de sécurité vers lequel l’application prenant en charge les revendications effectue la redirection est disponible en dehors de votre réseau local. Vous pouvez rendre le service d’émission de jeton de sécurité disponible en l’exposant par le biais d’un proxy ou en autorisant les connexions externes. 
 
-## <a name="azure-classic-portal-configuration"></a>Configuration du portail Azure Classic
-1. Publiez votre application en suivant les instructions décrites dans [Publier des applications avec le proxy d’application](active-directory-application-proxy-publish.md).
-2. Dans la liste des applications, sélectionnez l’application prenant en charge les revendications, puis cliquez sur **Configurer**.
-3. Si vous avez choisi **Direct** comme **méthode de préauthentification**, assurez-vous de sélectionner **HTTPS** comme schéma **d’URL externe**.
-4. Si vous choisissez **Azure Active Directory** comme **méthode de préauthentification**, sélectionnez **Aucune** comme **méthode d’authentification interne**.
+## <a name="publish-your-application"></a>Publication de votre application
 
-## <a name="adfs-configuration"></a>Configuration d’AD FS
+1. Publiez votre application en suivant les instructions décrites dans [Publier des applications avec le proxy d’application](application-proxy-publish-azure-portal.md).
+2. Accédez à la page de l’application dans le portail et sélectionnez **Authentification unique**.
+3. Si vous choisissez **Azure Active Directory** comme **méthode de préauthentification**, sélectionnez **Authentification unique Azure AD désactivée** comme **méthode d’authentification interne**. Si vous avez choisi **Directe** comme **méthode de préauthentification**, vous n’avez rien à modifier.
+
+## <a name="configure-adfs"></a>Configurer AD FS
+
+Vous pouvez configurer AD FS pour les applications prenant en charge les revendications de deux façons. La première consiste à utiliser des domaines personnalisés. La seconde consiste à utiliser WS-Federation. 
+
+### <a name="option-1-custom-domains"></a>Option 1 : domaines personnalisés
+
+Si toutes les URL internes de vos applications sont des noms de domaines complets (FQDN), alors vous pouvez configurer des [domaines personnalisés](active-directory-application-proxy-custom-domains.md) pour vos applications. Utilisez ces domaines personnalisés pour créer des URL externes identiques aux URL internes. Avec cette configuration, les redirections que le service d’émission de jeton de sécurité crée fonctionnent de la même façon que vos utilisateurs soient locaux ou distants. 
+
+### <a name="option-2-ws-federation"></a>Option 2 : WS-Federation
+
 1. Ouvrez Gestion AD FS.
 2. Accédez à **Approbations de la partie de confiance**, cliquez avec le bouton droit sur l’application que vous publiez avec le proxy d’application, puis choisissez **Propriétés**.  
 
@@ -46,8 +54,7 @@ Avant d’effectuer cette procédure, vérifiez que le service STS vers lequel l
    ![Ajouter un point de terminaison, définition de la valeur de l’URL approuvée – capture d’écran](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
-* [Résoudre les problèmes rencontrés avec le proxy d’application](active-directory-application-proxy-troubleshoot.md)
+* [Activer l’authentification unique](application-proxy-sso-overview.md) pour les applications qui ne prennent pas en charge les revendications
 * [Activation d’applications clientes natives de manière à ce qu’elles interagissent avec des applications proxy](active-directory-application-proxy-native-client.md)
 
 

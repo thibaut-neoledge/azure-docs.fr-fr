@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 9ac6ed0d6171b572e0d5729a4fe7c8bd7869525d
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 33aebd002458d40a5a09b6fe334ad43ec578df83
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -41,6 +41,10 @@ La meilleure expérience est obtenue en installant Application Insights à la fo
 
     Publiez votre application pour surveiller les performances de votre application et découvrir ce que vos utilisateurs font avec votre application.
 
+## <a name="include-user-and-session-id-in-your-telemetry"></a>Inclure l’ID d’utilisateur et l’ID de session dans votre télémétrie
+Pour effectuer le suivi des utilisateurs au fil du temps, Application Insights nécessite un moyen de les identifier. L’outil Événements est le seul outil d’utilisation qui ne nécessite pas d’ID d’utilisateur ni d’ID de session.
+
+Commencez à envoyer ces ID [ici](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Explorer des données démographiques et des statistiques de l’utilisation
 Découvrez quand des personnes utilisent votre application, les pages qui les intéressent le plus, où vos utilisateurs se trouvent, les navigateurs et les systèmes d’exploitation qu’ils utilisent. 
@@ -116,7 +120,7 @@ Ou sur le côté serveur de l’application web :
     tc.TrackEvent("CompletedPurchase");
 ```
 
-Vous pouvez joindre des valeurs de propriété à ces événements, afin de pouvoir filtrer ou fractionner les événements lorsque vous les étudiez dans le portail. Un ensemble standard de propriétés est également associé à chaque événement, comme des ID utilisateur anonymes, vous permettant ainsi de suivre la séquence d’activités d’un utilisateur.
+Vous pouvez joindre des valeurs de propriété à ces événements, afin de pouvoir filtrer ou fractionner les événements lorsque vous les étudiez dans le portail. Un ensemble standard de propriétés est également associé à chaque événement, comme des ID d’utilisateur anonymes, vous permettant ainsi de suivre la séquence d’activités d’un utilisateur.
 
 En savoir plus sur les [événements personnalisés](app-insights-api-custom-events-metrics.md#trackevent) et les [propriétés](app-insights-api-custom-events-metrics.md#properties).
 
@@ -166,9 +170,9 @@ Dans l’initialiseur de l’application web, par exemple Global.asax.cs :
 Tous les nouveaux TelemetryClients ajoutent automatiquement la valeur de propriété que vous spécifiez. Les événements de télémétrie individuels peuvent remplacer les valeurs par défaut.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-* [Utilisateurs et sessions](app-insights-usage-segmentation.md)
-* [Rétention](app-insights-usage-retention.md)
-* [Codage des événements personnalisés](app-insights-api-custom-events-metrics.md)
-
+   - [Utilisateurs, sessions, événements](app-insights-usage-segmentation.md)
+   - [Entonnoirs](usage-funnels.md)
+   - [Rétention](app-insights-usage-retention.md)
+   - [Classeurs](app-insights-usage-workbooks.md)
+   - [Ajouter du contexte utilisateur](app-insights-usage-send-user-context.md)
 

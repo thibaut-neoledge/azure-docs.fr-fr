@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f86d37e32b77dc8411138542de573ee840bf9a64
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c18d0a2bff654573e6e28a7cd7fad853b3a11346
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -41,7 +41,8 @@ Pour plus d’informations sur la configuration réseau requise pour le serveur 
 Les connecteurs et le service se chargent de toutes les tâches de haut niveau de disponibilité. Vous pouvez les ajouter ou supprimer de manière dynamique. Chaque fois qu’une nouvelle requête arrive, elle est acheminée vers un des connecteurs actuellement disponibles. Si un connecteur est temporairement indisponible, il ne répond pas à ce trafic.
 
 Les connecteurs sont sans état et ne disposent d’aucune donnée de configuration sur l’ordinateur. Les seules données qu’ils stockent sont les paramètres de connexion au service et le certificat d’authentification. Lorsqu’ils se connectent au service, ils extraient toutes les données de configuration requises et les actualisent toutes les deux minutes.
-Ils interrogent également le serveur pour déterminer s’il existe une version plus récente du connecteur. S’il en existe une, les connecteurs se mettent à jour.
+
+Les connecteurs interrogent également le serveur pour déterminer s’il existe une version plus récente du connecteur. S’il en existe une, les connecteurs se mettent à jour.
 
 Vous pouvez surveiller vos connecteurs à partir de l’ordinateur sur lequel ils s’exécutent à l’aide du journal d’événements et des compteurs de performances. Ou vous pouvez afficher leur état à partir de la page du proxy d’application du portail Azure :
 
@@ -63,13 +64,11 @@ Vous pouvez rencontrer des temps d’arrêt lors de la mise à jour de votre con
 
 ## <a name="creating-connector-groups"></a>Créer des groupe de connecteurs
 
-Vous avez de nombreuses raisons de créer des groupes de connecteurs, par exemple :
+Les groupes de connecteurs vous permettent d’assigner des connecteurs spécifiques afin de servir des applications spécifiques. Vous pouvez regrouper plusieurs connecteurs, puis assigner chaque application à un groupe. 
 
-* Une haute disponibilité
-* Une meilleure latence pour les locataires disposant d’applications dans plusieurs régions
-* Des ressources organisées plus faciles à gérer
+Les groupes de connecteurs facilitent la gestion de déploiements à grande échelle. Ils améliorent aussi la latence pour les locataires dont les applications sont hébergées dans différentes régions, car vous pouvez créer des groupes de connecteurs basés sur un emplacement pour servir uniquement des applications locales. 
 
-Pour en savoir plus sur les avantages des groupes de connecteurs, consultez [Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs](active-directory-application-proxy-connectors-azure-portal.md).
+Pour en savoir plus sur les groupes de connecteurs, consultez [Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs](active-directory-application-proxy-connectors-azure-portal.md).
 
 ## <a name="security-and-networking"></a>Sécurité et mise en réseau
 
@@ -141,7 +140,7 @@ Les connecteurs ont des journaux de session et admin. Les journaux admin incluen
 
 Pour afficher les journaux, accédez l’Observateur d’événements, ouvrez le menu **Affichage**, puis activez **Afficher les journaux d’analyse et de débogage**. Ensuite, permettez-leur de lancer la collecte d’événements. Ces journaux n’apparaissent pas dans le proxy d’application web dans Windows Server 2012 R2, car les connecteurs sont basés sur une version plus récente.
 
-Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecteur compose de deux services Windows : le connecteur lui-même et l’outil de mise à jour. Les deux doivent toujours être en cours d’exécution.
+Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecteur compose de deux services Windows : le connecteur lui-même et l’outil de mise à jour. Tous deux doivent s’exécuter en permanence.
 
  ![AzureAD Services Local](./media/application-proxy-understand-connectors/aad-connector-services.png)
 

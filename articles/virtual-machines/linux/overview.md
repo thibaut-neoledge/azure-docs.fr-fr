@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c82459bfddc2755a56fdad6eb8ab4c8bb41862f6
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: abddbe6b78c5c15d4deac68ff8c2504d2321fab0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
@@ -100,7 +100,7 @@ Pour commencer à utiliser Azure, vous avez besoin d’un compte Azure, de l’i
 La première étape pour utiliser Azure Cloud consiste à créer un compte Azure.  Accédez sur la page [Création d’un compte Azure](https://azure.microsoft.com/pricing/free-trial/) pour commencer.
 
 ### <a name="install-the-cli"></a>Installer l’interface de ligne de commande
-Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web.  Pour gérer Azure Cloud via la ligne de commande, installez l’ `azure-cli`.  Installez [l’interface de ligne de commande Azure 2.0 ](/cli/azure/install)sur votre station de travail Mac ou Linux.
+Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web.  Pour gérer Azure Cloud via la ligne de commande, installez l’ `azure-cli`.  Installez [Azure CLI 2.0](/cli/azure/install-azure-cli) sur votre station de travail Mac ou Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Création d’une paire de clés SSH
 Vous avez maintenant un compte Azure, le portail web Azure et l’interface de ligne de commande Azure.  L’étape suivante consiste à créer une paire de clés SSH utilisée pour exécuter SSH dans Linux sans utiliser de mot de passe.  [Créez des clés SSH sur Linux et Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour activer les connexions sans mot de passe et améliorer la sécurité.

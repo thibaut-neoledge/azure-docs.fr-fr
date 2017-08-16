@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b9cd83e6891c723f843825b99dce0e0158fc6ef6
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -49,7 +49,7 @@ Voici la structure de base d’une définition de flux de travail :
 |$schema|Non|Spécifie l’emplacement du fichier de schéma JSON qui décrit la version du langage de définition. Cet emplacement est requis si vous référencez une définition en externe. Pour ce document, l’emplacement est le suivant : <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
 |contentVersion|Non|Spécifie la version de la définition. Lorsque vous déployez un flux de travail à l’aide de la définition, vous pouvez utiliser cette valeur pour vous assurer que la définition appropriée est utilisée.|  
 |parameters|Non|Spécifie les paramètres utilisés pour entrer des données dans la définition. Il est possible de définir 50 paramètres maximum.|  
-|Déclencheurs|Non|Spécifie des informations pour les déclencheurs qui lancent le flux de travail. Il est possible de définir 250 déclencheurs au maximum.|  
+|Déclencheurs|Non|Spécifie des informations pour les déclencheurs qui lancent le flux de travail. Il est possible de définir 10 déclencheurs au maximum.|  
 |actions|Non|Spécifie les actions qui sont effectuées pendant l’exécution du flux. Il est possible de définir 250 actions au maximum.|  
 |outputs|Non|Spécifie des informations sur la ressource déployée. Il est possible de définir 10 sorties au maximum.|  
   
@@ -75,7 +75,7 @@ L’exemple suivant illustre la structure d’une définition de sortie :
 |type|Oui|**Type** : string <p> **Déclaration** : `"parameters": {"parameter1": {"type": "string"}` <p> **Spécification** : `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Type** : securestring <p> **Déclaration** : `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Spécification** : `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Type** : int <p> **Déclaration** : `"parameters": {"parameter1": {"type": "int"}}` <p> **Spécification** : `"parameters": {"parameter1": {"value" : 5}}` <p> **Type** : bool <p> **Déclaration** : `"parameters": {"parameter1": {"type": "bool"}}` <p> **Spécification** : `"parameters": {"parameter1": { "value": true }}` <p> **Type** : array <p> **Déclaration** : `"parameters": {"parameter1": {"type": "array"}}` <p> **Spécification** : `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Type** : object <p> **Déclaration** : `"parameters": {"parameter1": {"type": "object"}}` <p> **Spécification** : `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Type** : secureobject <p> **Déclaration** : `"parameters": {"parameter1": {"type": "object"}}` <p> **Spécification** : `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Remarque :** les types `securestring` et `secureobject` ne sont pas retournés dans les opérations `GET`. L’ensemble des mots de passe, clés et secrets doivent utiliser ce type.|  
 |defaultValue|Non|Spécifie la valeur par défaut du paramètre lorsque aucune valeur n’est spécifiée à la création de la ressource.|  
 |allowedValues|Non|Spécifie un tableau de valeurs autorisées pour le paramètre.|  
-|métadonnées|Non|Spécifie des informations supplémentaires sur le paramètre, comme une description lisible ou des données design-time utilisées par Visual Studio ou d’autres outils.|  
+|metadata|Non|Spécifie des informations supplémentaires sur le paramètre, comme une description lisible ou des données design-time utilisées par Visual Studio ou d’autres outils.|  
   
 Cet exemple montre comment vous pouvez utiliser un paramètre dans la section du corps d’une action :  
   
@@ -151,11 +151,11 @@ Le résultat est toujours une chaîne, ce qui rend cette fonctionnalité semblab
 |« @concat('Answer is: ', string(parameters('myNumber'))) »|Retourne la chaîne `Answer is: 42`.|  
 |« Answer is: @@{parameters('myNumber')} »|Retourne la chaîne `Answer is: @{parameters('myNumber')}`.|  
   
-## <a name="operators"></a>Opérateurs  
+## <a name="operators"></a>Operators  
 
 Les opérateurs sont les caractères que vous pouvez utiliser dans des expressions ou fonctions. 
   
-|opérateur|Description|  
+|Operator|Description|  
 |--------------|-----------------|  
 |.|L’opérateur point vous permet de référencer les propriétés d’un objet.|  
 |?|L’opérateur point d’interrogation vous permet de référencer les propriétés Null d’un objet sans erreur d’exécution. Par exemple, vous pouvez utiliser cette expression pour gérer les sorties de déclencheur Null : <p>`@coalesce(trigger().outputs?.body?.property1, 'my default value')`|  
@@ -265,12 +265,12 @@ Ces fonctions permettent de convertir chacun des types natifs du langage :
 |string|Convertit le paramètre en chaîne. Par exemple, cette fonction retourne `'10'` : <p>`string(10)` <p>Vous pouvez également convertir un objet en chaîne. Par exemple, si le paramètre `myPar` est un objet pourvu d’une propriété `abc : xyz`, cette fonction retourne `{"abc" : "xyz"}` : <p>`string(parameters('myPar'))` <p> **Numéro du paramètre** : 1 <p> **Nom** : valeur <p> **Description** : obligatoire. Valeur qui est convertie en chaîne.|  
 |json|Convertit le paramètre en valeur de type JSON. Est l’opposé de `string()`. Par exemple, cette fonction retourne `[1,2,3]` sous forme de tableau plutôt que sous forme de chaîne : <p>`json('[1,2,3]')` <p>Vous pouvez également convertir une chaîne en objet. Par exemple, cette fonction retourne `{ "abc" : "xyz" }` : <p>`json('{"abc" : "xyz"}')` <p> **Numéro du paramètre** : 1 <p> **Nom** : chaîne <p> **Description** : obligatoire. Chaîne qui est convertie en valeur de type natif. <p>La fonction `json()` prend également en charge les entrées XML. Par exemple, la valeur du paramètre : <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>est convertie en cette valeur JSON : <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|Convertit l’argument de paramètre en nombre à virgule flottante. Par exemple, cette fonction retourne `10.333` : <p>`float('10.333')` <p> **Numéro du paramètre** : 1 <p> **Nom** : valeur <p> **Description** : obligatoire. Valeur qui est convertie en nombre à virgule flottante.|  
-|valeur booléenne|Convertit le paramètre en booléen. Par exemple, cette fonction retourne `false` : <p>`bool(0)` <p> **Numéro du paramètre** : 1 <p> **Nom** : valeur <p> **Description** : obligatoire. Valeur qui est convertie en booléen.|  
+|bool|Convertit le paramètre en booléen. Par exemple, cette fonction retourne `false` : <p>`bool(0)` <p> **Numéro du paramètre** : 1 <p> **Nom** : valeur <p> **Description** : obligatoire. Valeur qui est convertie en booléen.|  
 |coalesce|Retourne le premier objet non Null dans les arguments transmis. **Remarque** : une chaîne vide n’a pas la valeur Null. Par exemple, si les paramètres 1 et 2 ne sont pas définis, cette fonction retourne `fallback` :  <p>`coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')` <p> **Numéro du paramètre** : 1 ... *n* <p> **Nom** : objet *n* <p> **Description** : obligatoire. Objets dans lesquels rechercher la valeur Null.|  
 |base64|Retourne la représentation en base 64 de la chaîne d'entrée. Par exemple, cette fonction retourne `c29tZSBzdHJpbmc=` : <p>`base64('some string')` <p> **Numéro du paramètre** : 1 <p> **Nom** : chaîne 1 <p> **Description** : obligatoire. Chaîne à encoder en représentation en base64.|  
 |base64ToBinary|Retourne une représentation binaire d’une chaîne encodée en base64. Par exemple, cette fonction retourne la représentation binaire de `some string` : <p>`base64ToBinary('c29tZSBzdHJpbmc=')` <p> **Numéro du paramètre** : 1 <p> **Nom** : chaîne <p> **Description** : obligatoire. Chaîne encodée en Base64.|  
 |base64ToString|Retourne une représentation de chaîne d’une chaîne encodée en base64. Par exemple, cette fonction retourne `some string` : <p>`base64ToString('c29tZSBzdHJpbmc=')` <p> **Numéro du paramètre** : 1 <p> **Nom** : chaîne <p> **Description** : obligatoire. Chaîne encodée en Base64.|  
-|Fichier binaire|Retourne une représentation binaire d’une valeur.  Par exemple, cette fonction retourne une représentation binaire de `some string` : <p>`binary('some string')` <p> **Numéro du paramètre** : 1 <p> **Nom** : valeur <p> **Description** : obligatoire. Valeur qui est convertie au format binaire.|  
+|Binary|Retourne une représentation binaire d’une valeur.  Par exemple, cette fonction retourne une représentation binaire de `some string` : <p>`binary('some string')` <p> **Numéro du paramètre** : 1 <p> **Nom** : valeur <p> **Description** : obligatoire. Valeur qui est convertie au format binaire.|  
 |dataUriToBinary|Retourne une représentation binaire d’un URI de données. Par exemple, cette fonction retourne la représentation binaire de `some string` : <p>`dataUriToBinary('data:;base64,c29tZSBzdHJpbmc=')` <p> **Numéro du paramètre** : 1 <p> **Nom** : chaîne <p> **Description** : obligatoire. URI de données à convertir en représentation binaire.|  
 |dataUriToString|Retourne une représentation de chaîne d’un URI de données. Par exemple, cette fonction retourne `some string` : <p>`dataUriToString('data:;base64,c29tZSBzdHJpbmc=')` <p> **Numéro du paramètre** : 1 <p> **Nom** : chaîne<p> **Description** : obligatoire. URI de données à convertir en représentation de chaîne.|  
 |dataUri|Retourne un URI de données d’une valeur. Par exemple, cette fonction retourne cet URI de données `text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=` : <p>`dataUri('some string')` <p> **Numéro du paramètre** : 1<p> **Nom** : valeur<p> **Description** : obligatoire. Valeur à convertir en URI de données.|  
@@ -298,7 +298,7 @@ Ces fonctions peuvent être utilisées pour les deux types de nombre : **entie
   
 |Nom de la fonction|Description|  
 |-------------------|-----------------|  
-|ajouter|Retourne le résultat de l’ajout de deux nombres. Par exemple, cette fonction retourne `20.333` : <p>`add(10,10.333)` <p> **Numéro du paramètre** : 1 <p> **Nom** : opérande 1 <p> **Description** : obligatoire. Nombre à ajouter à **Opérande 2**. <p> **Numéro du paramètre** : 2 <p> **Nom** : opérande 2 <p> **Description** : obligatoire. Nombre à ajouter à **Opérande 1**.|  
+|add|Retourne le résultat de l’ajout de deux nombres. Par exemple, cette fonction retourne `20.333` : <p>`add(10,10.333)` <p> **Numéro du paramètre** : 1 <p> **Nom** : opérande 1 <p> **Description** : obligatoire. Nombre à ajouter à **Opérande 2**. <p> **Numéro du paramètre** : 2 <p> **Nom** : opérande 2 <p> **Description** : obligatoire. Nombre à ajouter à **Opérande 1**.|  
 |sub|Retourne le résultat de la soustraction de deux nombres. Par exemple, cette fonction retourne `-0.333` : <p>`sub(10,10.333)` <p> **Numéro du paramètre** : 1 <p> **Nom** : diminuende <p> **Description** : obligatoire. Nombre duquel le **diminuteur** est soustrait. <p> **Numéro du paramètre** : 2 <p> **Nom** : diminuteur <p> **Description** : obligatoire. Nombre à soustraire du **diminuende**.|  
 |mul|Retourne le résultat de la multiplication de deux nombres. Par exemple, cette fonction retourne `103.33` : <p>`mul(10,10.333)` <p> **Numéro du paramètre** : 1 <p> **Nom** : multiplicande 1 <p> **Description** : obligatoire. Nombre à multiplier avec le **multiplicande 2**. <p> **Numéro du paramètre** : 2 <p> **Nom** : multiplicande 2 <p> **Description** : obligatoire. Nombre à multiplier avec le **multiplicande 1**.|  
 |div|Retourne le résultat de la division de deux nombres. Par exemple, cette fonction retourne `1.0333` : <p>`div(10.333,10)` <p> **Numéro du paramètre** : 1 <p> **Nom** : dividende <p> **Description** : obligatoire. Nombre à diviser par le **diviseur**. <p> **Numéro du paramètre** : 2 <p> **Nom** : diviseur <p> **Description** : obligatoire. Nombre par lequel diviser le **dividende**.|  

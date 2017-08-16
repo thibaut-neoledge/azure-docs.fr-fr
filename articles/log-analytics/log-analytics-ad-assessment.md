@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/03/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 5dbb669d9f78ef7ba3f2668855b08750b7447040
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimisez votre environnement Active Directory avec la solution d’évaluation Active Directory dans Log Analytics
@@ -53,11 +53,25 @@ Utilisez les informations suivantes pour installer et configurer les solutions.
   >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Détails de la collecte de données d’évaluation Active Directory
-L’évaluation Active Directory collecte les données WMI, les données du registre et les données de performances à l’aide des agents que vous avez activés.
+
+Active Directory Assessment collecte les données provenant des sources suivantes à l’aide des agents que vous avez activés :
+
+- Collecteurs du Registre
+- Collecteurs LDAP
+- .NET Framework
+- Collecteurs de journaux des événements
+- Interfaces ADSI (Active Directory Service Interface)
+- Windows PowerShell
+- Collecteurs de données de fichier
+- Windows Management Instrumentation (WMI)
+- API de l’outil DCDIAG
+- API de service de réplication de fichiers (NTFRS)
+- Code C# personnalisé
+
 
 Le tableau suivant présente les méthodes de collecte de données pour les agents, indique si Operations Manager (SCOM) est requis, et précise la fréquence à laquelle les données sont collectées par un agent.
 
-| plateforme | Agent direct | Agent SCOM | Azure Storage | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
+| plateforme | Agent direct | Agent SCOM | Stockage Azure | SCOM requis ? | Données de l’agent SCOM envoyées via un groupe d’administration | fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Oui](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Oui](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Non](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Non](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Oui](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 jours |
 

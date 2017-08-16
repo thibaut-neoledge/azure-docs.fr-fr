@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/26/2017
+ms.date: 8/3/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: cd61a785c415e945a33b0727004338e01c67f3ec
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: acb22517cb1ce3fe166ae149d4d5bfb867b5ab99
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
@@ -38,6 +38,10 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les publications du SE invité ? Lisez [cette](#how-it-works) section.
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+
+###### <a name="august-3-2017"></a>**3 août 2017**
+Publication du SE invité juillet.
+
 ###### <a name="july-19-2017"></a>**19 juillet 2017**
 Début du déploiement du SE invité de juillet le 19 juillet et publication projetée le 8 août.
 
@@ -80,9 +84,10 @@ Le SE invité de janvier contient des correctifs qui affectent uniquement la fam
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.9_201707-01 |3 août 2017 |Post 5.11 |TBD |
 | WA-GUEST-OS-5.8_201706-01 |7 juillet 2017 |Post 5.10 |TBD |
 | WA-GUEST-OS-5.7_201705-01 |5 juin 2017 |Post 5.9 |TBD |
-| WA-GUEST-OS-5.6_201704-01 |9 mai 2017 |Post 5.8 |TBD |
+|~~WA-GUEST-OS-5.6_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
 |~~WA-GUEST-OS-5.4_201612-01~~ |10 janvier 2017 |5 juin 2017|TBD |
 |~~WA-GUEST-OS-5.3_201611-01~~ |14 décembre 2016 |9 mai 2017 |TBD |
@@ -100,9 +105,10 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.44_201707-01 |3 août 2017 |Post 4.46 |TBD |
 | WA-GUEST-OS-4.43_201706-01 |7 juillet 2017 |Post 4.45 |TBD |
 | WA-GUEST-OS-4.42_201705-01 |5 juin 2017 |Post 4.44 |TBD |
-| WA-GUEST-OS-4.41_201704-01 |9 mai 2017 |Post 4.43 |TBD |
+|~~WA-GUEST-OS-4.41_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
 |~~WA-GUEST-OS-4.39_201612-01~~ |10 janvier 2017 |5 juin 2017 |TBD |
 |~~WA-GUEST-OS-4.38_201611-01~~ |14 décembre 2016 |9 mai 2017 |TBD |
@@ -124,9 +130,10 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.51_201707-01 |3 août 2017 |Post 3.53 |TBD |
 | WA-GUEST-OS-3.50_201706-01 |7 juillet 2017 |Post 3.52 |TBD |
 | WA-GUEST-OS-3.49_201705-01 |5 juin 2017 |Post 3.51 |TBD |
-| WA-GUEST-OS-3.48_201704-01 |9 mai 2017 |Post 3.50 |TBD |
+|~~WA-GUEST-OS-3.48_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
 |~~WA-GUEST-OS-3.46_201612-01~~ |10 janvier 2017 |5 juin 2017 |TBD |
 |~~WA-GUEST-OS-3.45_201611-01~~ |14 décembre 2016 |9 mai 2017 |TBD |
@@ -148,9 +155,10 @@ Prend en charge .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.64_201707-01 |3 août 2017 |Post 2.66 |TBD |
 | WA-GUEST-OS-2.63_201706-01 |7 juillet 2017 |Post 2.65 |TBD |
 | WA-GUEST-OS-2.62_201705-01 |5 juin 2017 |Post 2.64 |TBD |
-| WA-GUEST-OS-2.61_201704-01 |9 mai 2017 |Post 2.63 |TBD |
+|~~WA-GUEST-OS-2.61_201704-01~~ |9 mai 2017 |3 août 2017 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 avril 2017 |7 juillet 2017 |TBD |
 |~~WA-GUEST-OS-2.59_201701-01~~ |10 janvier 2017 |5 juin 2017 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |10 janvier 2017 |9 mai 2017|TBD |

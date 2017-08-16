@@ -13,7 +13,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/12/2017
+ms.date: 8/16/2017
 ms.author: xshi
 ms.translationtype: HT
 ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
@@ -161,7 +161,7 @@ L’exemple d’application est hébergé sur GitHub. Clonez l’exemple de réf
 1. Cliquez sur **Fichier** > **Préférences** (Windows/Linux) ou sur **Arduino** > **Préférences** (Mac), puis copiez et collez le lien ci-dessous dans le champ de l’option **URL de gestionnaire de cartes supplémentaires**.
    
    ```
-   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
 1. Cliquez sur **Outils** > **Carte** > **Gestionnaire de cartes**, puis installez `Arduino SAMD Boards` version `1.6.2` ou ultérieure. 

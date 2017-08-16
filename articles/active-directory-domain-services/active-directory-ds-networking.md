@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/04/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0749a73569286daf9bbbe2c4064db472f41d7171
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 8306c1ff72d348f5f327b79617e1422a78e26bdb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considérations relatives à la mise en réseau pour les services de domaine Azure AD
@@ -75,6 +75,16 @@ Les ports suivants sont requis pour les services de domaine Azure AD pour l’en
 | 5986 |Gestion de votre domaine |
 | 636 |Sécuriser l’accès LDAP (LDAPS) à votre domaine géré |
 
+### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Exemple de groupe de sécurité réseau pour les réseaux virtuels avec Azure AD Domain Services
+Le tableau suivant illustre un exemple de groupe de sécurité réseau que vous pouvez configurer pour un réseau virtuel avec un domaine managé Azure AD Domain Services. Cette règle autorise le trafic entrant à partir des ports spécifiés ci-dessus pour garantir que votre domaine managé reste corrigé, mis à jour et peut être surveillé par Microsoft. La règle « DenyAll » par défaut s’applique à tout autre trafic entrant en provenance d’internet.
+
+En outre, le groupe de sécurité réseau illustre comment verrouiller l’accès LDAP sécurisé sur Internet. Ignorez cette règle si vous n’avez pas activé l’accès LDAP sécurisé à votre domaine managé sur Internet. Le groupe de sécurité réseau contient un ensemble de règles qui autorisent l’accès LDAPS entrant sur le port TCP 636 uniquement à partir d’un ensemble spécifique d’adresses IP. La règle de groupe de sécurité réseau pour autoriser l’accès LDAPS via Internet à partir d’adresses IP spécifiées prend le pas sur la règle DenyAll NSG.
+
+![Exemple de groupe de sécurité réseau pour l’accès LDAP sécurisé via internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+
+**Informations supplémentaires** - [Créer un groupe de sécurité réseau](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+
+
 ## <a name="network-connectivity"></a>Connectivité réseau
 Un domaine géré par les services de domaine Azure AD peut être activé uniquement au sein d’un seul réseau virtuel Classic dans Azure. Les réseaux virtuels créés à l’aide d’Azure Resource Manager ne sont pas pris en charge.
 
@@ -109,4 +119,5 @@ Vous pouvez connecter un réseau virtuel basé sur Resource Manager au réseau v
 * [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Configurer une connexion de réseau virtuel à réseau virtuel pour le modèle de déploiement classique](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Groupes de sécurité réseau Azure](../virtual-network/virtual-networks-nsg.md)
+* [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 

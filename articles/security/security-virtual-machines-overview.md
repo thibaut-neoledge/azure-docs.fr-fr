@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 9307b1688ed9e3dc412d044e72bdf88b7bb4d1ec
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: f1fb7f876c7dc010c03f01a4f6698ddc18da1100
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Vue d’ensemble de la sécurité des machines virtuelles Azure
@@ -77,12 +76,12 @@ En savoir plus : pour en savoir plus sur les logiciels anti-programme malveillan
 * [Solutions de sécurité dans Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
 ## <a name="hardware-security-module"></a>Module de sécurité matériel
-Le chiffrement et l’authentification n’améliorent pas la sécurité, sauf si les clés elles-mêmes sont protégées. Vous pouvez simplifier la gestion et la sécurité de vos clés et secrets critiques en les stockant dans Azure Key Vault. Key Vault permet de stocker les clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Vos clés de chiffrement SQL Server pour la sauvegarde ou le [chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx) peuvent toutes être stockées dans Key Vault avec les clés ou secrets de vos applications. Les autorisations et l’accès à ces éléments protégés sont gérés via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Les protections par chiffrement et authentification peuvent être améliorées grâce à une meilleure clé de sécurité. Vous pouvez simplifier la gestion et la sécurité de vos clés et secrets critiques en les stockant dans Azure Key Vault. Key Vault permet de stocker les clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Vos clés de chiffrement SQL Server pour la sauvegarde ou le [chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx) peuvent toutes être stockées dans Key Vault avec les clés ou secrets de vos applications. Les autorisations et l’accès à ces éléments protégés sont gérés via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 En savoir plus :
 
 * [Qu’est-ce qu’Azure Key Vault ?](../key-vault/key-vault-whatis.md)
-* [Prise en main du coffre de clés Azure](../key-vault/key-vault-get-started.md)
+* [Bien démarrer avec Azure Key Vault](../key-vault/key-vault-get-started.md)
 * [Blog Azure Key Vault](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Chiffrement du disque de machine virtuelle
@@ -92,18 +91,18 @@ La solution est intégrée à Azure Key Vault pour vous aider à contrôler et �
 
 En savoir plus :
 
-* [Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Azure Disk Encryption pour des machines virtuelles Windows et Linux IaaS](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 * [Azure Disk Encryption pour les machines virtuelles Windows et Linux](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
 * [Chiffrement d’une machine virtuelle](../security-center/security-center-disk-encryption.md)
 
 ## <a name="virtual-machine-backup"></a>Sauvegarde de machine virtuelle
-Azure Backup est une solution évolutive qui protège les données de vos applications, sans investissement en capital et avec des frais de fonctionnement minimaux. Les erreurs rencontrées par les applications peuvent endommager vos données et les erreurs humaines peuvent introduire des bogues dans vos applications. Avec Azure Backup, vos machines virtuelles exécutant Windows et Linux sont protégées.
+Sauvegarde Azure est une solution scalable qui protège les données de vos applications, sans aucun investissement en capital et avec des frais de fonctionnement minimaux. Les erreurs rencontrées par les applications peuvent endommager vos données et les erreurs humaines peuvent introduire des bogues dans vos applications. Avec Sauvegarde Azure, vos machines virtuelles exécutant Windows et Linux sont protégées.
 
 En savoir plus :
 
-* [Qu’est-ce qu’Azure Backup ?](../backup/backup-introduction-to-azure-backup.md)
-* [Parcours d’apprentissage Azure Backup](https://azure.microsoft.com/documentation/learning-paths/backup/)
-* [Service Azure Backup – Forum aux questions](../backup/backup-azure-backup-faq.md)
+* [Qu’est-ce que Sauvegarde Azure ?](../backup/backup-introduction-to-azure-backup.md)
+* [Parcours d’apprentissage Sauvegarde Azure](https://azure.microsoft.com/documentation/learning-paths/backup/)
+* [Service Sauvegarde Azure – Forum aux questions](../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 Une partie importante de la stratégie de continuité des activités et de récupération d’urgence de votre organisation consiste à savoir comment maintenir les charges de travail et les applications d’entreprise opérationnelles lorsque des interruptions planifiées et non planifiées se produisent. Azure Site Recovery aide à coordonner la réplication, le basculement et la récupération des charges de travail et des applications afin qu’elles soient disponibles à partir d’un site secondaire si votre site principal tombe en panne.

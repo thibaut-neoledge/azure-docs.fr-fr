@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4a687e1edbb2c9b3db3079a70162886092ede521
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 72bd39bcf720cf5704274fcdfa0f2b8fc44a77bc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -33,11 +33,11 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 
 ### <a name="check-status-of-the-feature-and-authentication-agents"></a>Vérifiez l’état de la fonctionnalité et des agents d’authentification
 
-Assurez-vous que la fonctionnalité d’authentification directe est toujours **activée** sur votre locataire et l’état de l’agent d’authentification indique **actif**et non **inactif**. Vous pouvez avoir ces informations en accédant au panneau **Azure AD Connect** sur le [portail Azure](https://portal.azure.com/).
+Assurez-vous que la fonctionnalité d’authentification directe est toujours **activée** sur votre locataire et l’état de l’agent d’authentification indique **actif**et non **inactif**. Vous pouvez vérifier l’état en accédant au panneau **Azure AD Connect** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
 
-![Portail Azure - panneau Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+![Centre d’administration Azure Active Directory - panneau Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
 
-![Portail Azure - panneau d’authentification directe](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
+![Centre d’administration Azure Active Directory - panneau Authentification directe](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### <a name="user-facing-sign-in-error-messages"></a>Message d’erreur lors de la connexion utilisateur
 
@@ -51,13 +51,13 @@ Si l’utilisateur ne peut pas se connecter avec l’authentification directe, l
 |AADSTS80005|La validation a rencontré une WebException imprévisible|Erreur temporaire. relancez la requête. Si l’erreur se reproduit, contactez le Support Microsoft.
 |AADSTS80007|Une erreur s’est produite lors de la communication avec Active Directory|Consultez les journaux de l’agent pour plus d’informations, et vérifiez qu’Active Directory fonctionne comme prévu.
 
-### <a name="sign-in-failure-reasons-on-the-azure-portal"></a>Raisons de l’échec de connexion sur le portail Azure
+### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory
 
-Commencez le dépannage des problèmes de connexion de l’utilisateur en examinant le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) sur le [portail Azure](https://portal.azure.com/).
+Commencez le dépannage des problèmes de connexion de l’utilisateur en examinant le [rapport d’activité de connexion](../active-directory-reporting-activity-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
 
-![Rapport de connexions](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
+![Centre d’administration Azure Active Directory - rapport de connexions](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Accédez à **Azure Active Directory** -> **Connexions** dans le [portail Azure](https://portal.azure.com/), puis cliquez sur une activité spécifique de connexion de l’utilisateur. Recherchez le champ **Code d’erreur de connexion**. Notez la valeur de ce champ et cherchez dans le tableau suivant la raison de l’échec et la solution à appliquer :
+Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/), puis cliquez sur une activité de connexion. Recherchez le champ **Code d’erreur de connexion**. Notez la valeur de ce champ et cherchez dans le tableau suivant la raison de l’échec et la solution à appliquer :
 
 |Code d’erreur de connexion|Raison de l’échec de connexion|Résolution :
 | --- | --- | ---
@@ -97,7 +97,7 @@ Veillez à utiliser un compte d’administrateur général cloud pour toutes les
 
 Si l’authentification directe est activée sur votre locataire et que vous tentez de désinstaller Azure AD Connect, le message d’avertissement suivant apparaît : « Users will not be able to sign-in to Azure AD unless you have other pass-through authentication agents installed on other servers » (Les utilisateurs ne seront pas en métrique de se connecter, sauf si d’autres agents d’authentification directe sont installés sur d’autres serveurs).
 
-Vous devez avoir configuré la [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) avant de désinstaller Azure AD Connect pour éviter d’interrompre la connexion utilisateur.
+Vous devez avoir configuré la [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) avant de désinstaller Azure AD Connect pour éviter d’interrompre la connexion utilisateur.
 
 ## <a name="issues-with-enabling-the-feature"></a>Problèmes liés à l’activation de la fonctionnalité
 
@@ -112,6 +112,18 @@ Assurez-vous que le serveur sur lequel Azure AD Connect est installé peut commu
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>L’activation de la fonctionnalité a échoué en raison d’erreurs d’autorisations liées au jeton ou au compte
 
 Veillez à utiliser un compte d’administrateur général pour le cloud uniquement lors de l’activation de la fonctionnalité. Il existe un problème connu avec les comptes d’administrateur général compatibles MFA (Multi-Factor Authentication) ; désactivez MFA temporairement (uniquement pour effectuer l’opération) comme solution de contournement.
+
+## <a name="exchange-activesync-configuration-issues"></a>Problèmes de configuration Exchange ActiveSync
+
+Voici les problèmes courants liés à la configuration de la prise en charge Exchange ActiveSync de l’authentification directe.
+
+### <a name="exchange-powershell-issue"></a>Problème lié à Exchange PowerShell
+
+Si le message d’erreur « **Impossible de trouver un paramètre correspondant au nom « PerTenantSwitchToESTSEnabled »\.** » quand vous exécutez la commande Exchange PowerShell `Set-OrganizationConfig`, contactez le support Microsoft.
+
+### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync ne fonctionne ne pas
+
+La configuration prend un certain temps pour entrer en vigueur : ce délai dépend de votre environnement. Si la situation dure longtemps, contactez le support Microsoft.
 
 ## <a name="collecting-pass-through-authentication-agent-logs"></a>Collecte des journaux des agents d’authentification directe
 
@@ -150,4 +162,13 @@ Si la journalisation d’audit est activée, des informations complémentaires s
     </Query>
     </QueryList>
 ```
+
+### <a name="performance-monitor-counters"></a>Compteurs Analyseur de performances
+
+Un autre moyen de surveiller les agents d’authentification consiste à effectuer un suivi de compteurs Analyseur de performances spécifiques sur chaque serveur où est installé l’agent d’authentification. Utilisez les compteurs globaux suivants (**#PTA Authentifications**, **#PTA Authentifications ayant échoué** et **#PTA Authentifications réussies**), ainsi que les compteurs d’erreurs (**#PTA Erreurs d’authentification**) :
+
+![Compteurs Analyseur de performances de l’authentification directe](./media/active-directory-aadconnect-pass-through-authentication/pta12.png)
+
+>[!IMPORTANT]
+>L’authentification directe assure la haute disponibilité à l’aide de plusieurs agents d’authentification, et _non_ de l’équilibrage de charge. Selon votre configuration, les agents d’authentification ne reçoivent _pas_ tous le _même_ nombre exact de demandes. Il est possible qu’un agent d’authentification spécifique ne reçoive aucun trafic du tout.
 
