@@ -1,6 +1,6 @@
 ---
-title: Cas d&quot;utilisation Data Factory - Recommandations de produits
-description: "Découvrez un cas d&quot;utilisation implémenté à l&quot;aide d’Azure Data Factory et d&quot;autres services."
+title: Cas d'utilisation Data Factory - Recommandations de produits
+description: "Découvrez un cas d'utilisation implémenté à l'aide d’Azure Data Factory et d'autres services."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/24/2017
+ms.date: 08/14/2017
 ms.author: shlo
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -20,23 +20,16 @@ ms.openlocfilehash: deda1cc7be197fc3d59b71038224dc6e8089267b
 ms.contentlocale: fr-fr
 ms.lasthandoff: 11/17/2016
 
-
 ---
-<a id="use-case---product-recommendations" class="xliff"></a>
-
-# Cas d’utilisation - Recommandations de produits
+# <a name="use-case---product-recommendations"></a>Cas d’utilisation - Recommandations de produits
 Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Consultez la page [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) pour plus de détails. Dans ce document, nous décrivons un cas d’utilisation courant que les utilisateurs Azure ont déjà résolu et implémenté à l’aide d’Azure Data Factory et d’autres services Cortana Intelligence.
 
-<a id="scenario" class="xliff"></a>
-
-## Scénario
+## <a name="scenario"></a>Scénario
 Les détaillants en ligne souhaitent généralement inciter leurs clients à acheter des produits en leur présentant les articles qu’ils sont les plus susceptibles d’apprécier et par conséquent d’acheter. Pour ce faire, les détaillants en ligne doivent personnaliser l’expérience en ligne des utilisateurs à l’aide des recommandations de produits personnalisées pour chaque utilisateur particulier. Ces recommandations personnalisées portent sur leurs données de comportement d’achat historiques et actuelles, les informations produit, les marques récemment ajoutées, et les données de segmentation produit et utilisateur.  En outre, les détaillants peuvent fournir des recommandations de produits basées sur l'analyse des habitudes d'utilisation globale de tous leurs utilisateurs.
 
 L'objectif est d'optimiser le processus de conversion des visites en ventes effectives et d’augmenter ainsi le chiffre d’affaires.  Ils parviennent à effectuer cette conversion en proposant des recommandations de produits contextuelles basées sur les habitudes, les centres d’intérêt et les actions du client. Pour ce cas d’utilisation, nous prenons des détaillants en ligne comme exemple d’entreprises qui souhaitent optimiser pour leurs clients. Cependant, ces principes s'appliquent à toute entreprise cherchant à fidéliser ses clients autour de ses produits et services et à améliorer leur expérience d’achat grâce à des recommandations de produits personnalisées.
 
-<a id="challenges" class="xliff"></a>
-
-## Défis
+## <a name="challenges"></a>Défis
 Les détaillants en ligne doivent relever de nombreux défis lorsqu’elles tentent d’implémenter ce type de cas d'utilisation. 
 
 Tout d’abord, des données de différentes tailles et formes doivent être ingérées depuis plusieurs sources de données locales et dans le cloud. Ces données comprennent les données de produit, les données historiques de comportement client, et les données utilisateur lorsque ce dernier navigue sur le site du détaillant. 
@@ -47,9 +40,7 @@ Troisièmement, les recommandations doivent être immédiatement communiquées �
 
 Enfin, les détaillants doivent mesurer l'efficacité de leur approche par un suivi des ventes croisées et incitatives réalisées, et ajuster leurs prochaines recommandations.
 
-<a id="solution-overview" class="xliff"></a>
-
-## Vue d’ensemble de la solution
+## <a name="solution-overview"></a>Vue d’ensemble de la solution
 Cet exemple de cas d’utilisation a été résolu et implémenté par de vrais utilisateurs Azure avec Azure Data Factory et d’autres services Cortana Intelligence, notamment [HDInsight](https://azure.microsoft.com/services/hdinsight/) et [Power BI](https://powerbi.microsoft.com/).
 
 Le détaillant en ligne utilise un magasin d'objets blob Azure, un serveur SQL local, une base de données SQL Azure et un mini-Data Warehouse relationnel options de stockage des données tout au long du flux de travail.  Le magasin d'objets blob contient des informations sur les clients, des données sur les habitudes des clients et des informations sur les produits. Les informations sur les produits incluent des informations sur les marques de produits ainsi qu’un catalogue de produits stocké localement dans un SQL Data Warehouse. 
@@ -64,9 +55,7 @@ Le système de recommandation utilisé pour Machine Learning dans cet exemple es
 
 Enfin, le jeu de résultats des recommandations de produits personnalisées est déplacé vers un mini-Data Warehouse relationnel afin d’être utilisé par le site web du détaillant.  Le jeu de résultats peut également être accessible directement depuis le stockage d’objets blob par une autre application, ou déplacé vers des magasins supplémentaires pour d'autres consommateurs et cas d'utilisation.
 
-<a id="benefits" class="xliff"></a>
-
-## Avantages
+## <a name="benefits"></a>Avantages
 En optimisant leur stratégie de recommandation de produits et en l’alignant sur les objectifs commerciaux, la solution répond aux besoins de merchandising et de marketing du détaillant en ligne. En outre, ils peuvent faire fonctionner et gérer le flux de travail de recommandation de produits de manière efficace, fiable et économique. L’approche leur permet de mettre à jour facilement leur modèle et d’optimiser son efficacité sur la base des mesures de ventes concrétisées. Grâce à Azure Data Factory, ils ont pu se débarrasser de leur système de gestion manuelle des ressources de cloud, à la fois long et coûteux, pour passer à une gestion des ressources de cloud à la demande. Ainsi, ils ont été en mesure de gagner du temps et de l’argent, et de réduire le temps de déploiement de la solution. Ils ont pu visualiser et dépanner facilement les vues de lignage des données et l'intégrité du service opérationnel grâce à une interface utilisateur de surveillance et gestion Data Factory intuitive, disponible sur le portail Azure. Leur solution peut maintenant être planifiée et gérée de sorte que les données terminées sont produites et transmises de façon fiable aux utilisateurs. Par ailleurs, les données et les dépendances de traitement sont gérées automatiquement, sans intervention humaine.
 
 Grâce à cette expérience d'achat personnalisée, le détaillant en ligne a créé une expérience client plus compétitive et plus attrayante, augmentant ainsi les ventes et la satisfaction globale des clients.
