@@ -2,7 +2,7 @@
 1. [Installez Git][install-git]. Notez que sous Windows, vous devez aussi ajouter l’exécutable Git à votre variable d’environnement PATH. 
 2. Créez un fichier nommé **composer.json** à la racine de votre projet et ajoutez-y le code suivant :
    
-    ```
+    ```json
     {
       "require": {
         "microsoft/windowsazure": "^0.4"

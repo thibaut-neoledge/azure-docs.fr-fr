@@ -12,7 +12,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
     ID de la collection|Éléments|Nom de votre nouvelle collection. Les noms de collection sont soumis aux mêmes exigences de caractères que les ID de base de données.
     Capacité de stockage| Fixe (10 Go)|Utilisez la valeur par défaut. Cette valeur correspond à la capacité de stockage de la base de données.
     Débit|400 RU|Utilisez la valeur par défaut. Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.
-    RU/m|Off|Conservez la valeur par défaut. Si, par la suite, vous avez besoin de gérer des charges de travail imprévisibles, vous pouvez activer la fonctionnalité [RU/m](../articles/cosmos-db/request-units-per-minute.md) à ce moment-là.
+    RU/m|Off|Conservez la valeur par défaut.
     Clé de partition|/category|Clé de partition qui distribue les données uniformément à chaque partition. Il est important de sélectionner la clé de partition correcte pour obtenir une collection performante. Pour plus d’informations, consultez la section [Conception du partitionnement](../articles/cosmos-db/partition-data.md#designing-for-partitioning).    
 3. Une fois le formulaire rempli, cliquez sur **OK**.
 

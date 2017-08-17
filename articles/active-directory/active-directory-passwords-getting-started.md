@@ -17,10 +17,10 @@ ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="quickstart-azure-ad-self-service-password-reset"></a>Démarrage rapide : Réinitialisation de mot de passe en libre-service Azure AD
@@ -79,13 +79,7 @@ Pour activer la synchronisation d’identité locale avec Azure AD, vous devez 
 
 Pour désactiver la réinitialisation de mot de passe en libre-service, il vous suffit d’ouvrir votre client Azure AD, d’accéder à **Réinitialisation de mot de passe > Propriétés** > et de sélectionner **Aucune** sous **Réinitialisation de mot de passe en libre-service activée**
 
-## <a name="next-steps"></a>Étapes suivantes
-
-Avec ce guide de démarrage rapide, vous avez appris à configurer la réinitialisation de mot de passe en libre-service pour vos utilisateurs. Pour continuer sur le portail Azure afin d’effectuer ces étapes, suivez le lien ci-dessous pour accéder au portail.
-
-> [!div class="nextstepaction"]
-> [Activer la réinitialisation du mot de passe libre-service](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
-
+### <a name="learn-more"></a>En savoir plus
 Les liens suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD.
 
 * [**Licences**](active-directory-passwords-licensing.md) : configurez vos licences Azure AD.
@@ -97,4 +91,12 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [**Présentation technique approfondie**](active-directory-passwords-how-it-works.md) : découvrez ce qui se passe sous le capot pour mieux comprendre le fonctionnement.
 * [**Forum Aux Questions (FAQ)**](active-directory-passwords-faq.md) : Comment ? Pourquoi ? Quoi ? Où ? Qui ? Quand ? - Les réponses aux questions que vous vouliez poser depuis toujours.
 * [**Résolution des problèmes**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec la réinitialisation de mot de passe en libre-service.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Avec ce guide de démarrage rapide, vous avez appris à configurer la réinitialisation de mot de passe en libre-service pour vos utilisateurs. Pour continuer sur le portail Azure afin d’effectuer ces étapes, suivez le lien ci-dessous pour accéder au portail.
+
+> [!div class="nextstepaction"]
+> [Activer la réinitialisation du mot de passe libre-service](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 

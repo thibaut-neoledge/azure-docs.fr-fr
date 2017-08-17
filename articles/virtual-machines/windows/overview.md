@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 4d8e3f1252bc71cbf4bbbd30a16897bf4a0444d7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Vue d’ensemble des machines virtuelles Windows dans Azure
@@ -38,7 +38,7 @@ Les Machines Virtuelles Azure peuvent être utilisées de différentes manières
 Le nombre de machines virtuelles utilisées par votre application peut varier (montée en puissance et augmentation de la charge) pour répondre à vos besoins.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>À quoi dois-je penser avant de créer une machine virtuelle ?
-Il existe toujours une multitude de [considérations liées à la conception](infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) lorsque vous générez une infrastructure d’application dans Azure. Il est important de réfléchir à ces aspects des machines virtuelles avant de commencer :
+Il existe toujours une multitude de [considérations liées à la conception](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) lorsque vous générez une infrastructure d’application dans Azure. Il est important de réfléchir à ces aspects des machines virtuelles avant de commencer :
 
 * le nom de vos ressources d’application,
 * l’emplacement de stockage des ressources,
@@ -49,7 +49,7 @@ Il existe toujours une multitude de [considérations liées à la conception](in
 * et les ressources liées dont a besoin la machine virtuelle.
 
 ### <a name="naming"></a>Dénomination
-Une machine virtuelle se voit affecter un [nom](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et possède un nom d’ordinateur configuré au sein du système d’exploitation. Le nom d’une machine virtuelle peut comprendre jusqu’à 15 caractères.
+Une machine virtuelle se voit affecter un [nom](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et possède un nom d’ordinateur configuré au sein du système d’exploitation. Le nom d’une machine virtuelle peut comprendre jusqu’à 15 caractères.
 
 Si vous utilisez Azure pour créer le disque du système d’exploitation, le nom de l’ordinateur et celui de la machine virtuelle sont identiques. Si vous [chargez et utilisez votre propre image](upload-generalized-managed.md) qui contient un système d’exploitation précédemment configuré et que vous l’utilisez pour créer une machine virtuelle, les noms peuvent être différents. Nous vous recommandons de faire en sorte que le nom d’ordinateur dans le système d’exploitation et celui de la machine virtuelle soient identiques lorsque vous chargez votre propre fichier d’image.
 
@@ -106,7 +106,7 @@ Les ressources de cette table sont utilisées par la machine virtuelle et doiven
 | [Réseau virtuel](../../virtual-network/virtual-networks-overview.md) |Oui |La machine virtuelle doit faire partie d’un réseau virtuel. |
 | [Adresse IP publique](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Non |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance. |
 | [Interface réseau](../../virtual-network/virtual-network-network-interface.md) |Oui |La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau. |
-| [Disques de données](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Non |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage. |
+| [Disques de données](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Non |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Comment créer sa première machine virtuelle ?
 Vous avez plusieurs possibilités pour la création de votre machine virtuelle. Votre choix dépend de votre environnement. 
@@ -142,7 +142,7 @@ Vous utilisez le bouton [Connecter](connect-logon.md?toc=%2fazure%2fvirtual-mach
 ### <a name="manage-availability"></a>Gérer la disponibilité
 Il est important de comprendre comment [garantir la haute disponibilité](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de votre application. Cette configuration implique la création de plusieurs machines virtuelles afin qu’il y en ait au moins une en cours d’exécution.
 
-Afin que votre déploiement puisse bénéficier de notre contrat de niveau de service de 99,95 % pour les machines virtuelles, vous devez déployer au moins deux machines virtuelles exécutant votre charge de travail à l’intérieur d’un [groupe à haute disponibilité](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Grâce à cette configuration, vos machines virtuelles sont réparties sur plusieurs domaines d’erreur et déployées sur des hôtes ayant des fenêtres de maintenance distinctes. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explique la disponibilité garantie d’Azure dans son ensemble.
+Afin que votre déploiement puisse bénéficier de notre contrat de niveau de service de 99,95 % pour les machines virtuelles, vous devez déployer au moins deux machines virtuelles exécutant votre charge de travail à l’intérieur d’un [groupe à haute disponibilité](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Grâce à cette configuration, vos machines virtuelles sont réparties sur plusieurs domaines d’erreur et déployées sur des hôtes ayant des fenêtres de maintenance distinctes. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explique la disponibilité garantie d’Azure dans son ensemble.
 
 ### <a name="back-up-the-vm"></a>Sauvegarder la machine virtuelle
 Un [coffre Recovery Services](../../backup/backup-introduction-to-azure-backup.md) est utilisé pour protéger les données et les actifs dans la Sauvegarde Azure et Azure Site Recovery Services. Vous pouvez utiliser un coffre Recovery Services pour [déployer et gérer les sauvegardes des machines virtuelles déployées avec le modèle Resource Manager à l’aide de PowerShell](../../backup/backup-azure-vms-automation.md). 
@@ -150,6 +150,3 @@ Un [coffre Recovery Services](../../backup/backup-introduction-to-azure-backup.m
 ## <a name="next-steps"></a>Étapes suivantes
 * Si votre objectif est d’utiliser des machines virtuelles Linux, consultez [Azure et Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Pour en savoir plus sur les instructions de configuration de votre infrastructure, consultez [Exploration d’un exemple d’infrastructure Azure](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Veillez à suivre les [meilleures pratiques d’exécution d’une machine virtuelle Windows sur Azure](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
