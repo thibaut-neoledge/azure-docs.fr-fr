@@ -3,7 +3,7 @@ title: "Gérer Azure Data Lake Analytics à l’aide du portail Azure | Microsof
 description: "Apprenez à gérer des comptes Data Lake Analytics, des sources de données, des utilisateurs et des travaux."
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
+author: saveenr
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
@@ -14,242 +14,227 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 86711ba89442c3569b570bbf3ea2d1661a469011
-ms.openlocfilehash: 34be29749075b9953950ffd64d2526430307d33e
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 43bb5a1aa246004346765d1be4aea236ca17abd2
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-portal"></a>Gestion d’Azure Data Lake Analytics à l’aide du portail Azure
+# <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Gérer Azure Data Lake Analytics à l’aide du portail Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données de compte, des utilisateurs et des travaux à l’aide du portail Azure. Pour afficher les rubriques de gestion à l’aide d’autres outils, cliquez sur l’onglet de sélection en haut de la page.
-
-**Configuration requise**
-
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
-
-* **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+Apprenez à gérer des comptes Azure Data Lake Analytics, des sources de données de compte, des utilisateurs et des travaux à l’aide du portail Azure. Pour afficher les rubriques de gestion sur l’utilisation d’autres outils, cliquez sur un onglet en haut de la page.
 
 <!-- ################################ -->
 <!-- ################################ -->
-## <a name="manage-accounts"></a>Gérer les comptes
-Avant d'exécuter des travaux Data Lake Analytics, vous devez avoir un compte Data Lake Analytics. Contrairement à Azure HDInsight, vous ne payez que pour un compte Data Lake Analytics quand vous exécutez un travail.  Vous payez uniquement lorsqu'il exécute un travail.  Pour plus d'informations, consultez [Présentation d'Azure Data Lake Analytics](data-lake-analytics-overview.md).  
 
-**Pour créer un compte Analytique Data Lake**
+## <a name="manage-data-lake-analytics-accounts"></a>Gérer les comptes Data Lake Analytics
+
+### <a name="create-an-account"></a>Créer un compte
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Cliquez sur **Nouveau**, **Données + Analyse**, puis sur **Data Lake Analytics**.
-3. Tapez ou sélectionnez les valeurs suivantes :
-   
-    ![Volet du portail Azure Data Lake Analytics](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
-   
-   * **Nom** : nom du compte Data Lake Analytics.
-   * **Abonnement**: choisissez l’abonnement Azure utilisé pour le compte Analytics.
-   * **Groupe de ressources**. Sélectionnez un groupe de ressources Azure existant ou créez-en un. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
-   * **Emplacement**. Sélectionnez un centre de données Azure pour le compte Data Lake Analytics. 
-   * **Data Lake Store**: chaque compte Data Lake Analytics possède un compte Data Lake Store dépendant. Le compte Data Lake Analytics et le compte Data Lake Store dépendant doivent se trouver dans le même centre de données Azure. Suivez les instructions pour créer un compte Data Lake Store ou sélectionnez-en un existant.
-4. Cliquez sur **Create**. L'écran d'accueil du portail s'affiche. Une nouvelle vignette est ajoutée au Tableau d'accueil indiquant « Déploiement d'Azure Data Lake Analytics ». La création d'un compte Data Lake Analytics prend plusieurs minutes. Lorsque le compte est créé, le portail ouvre le compte dans un nouveau volet.
+2. Cliquez sur **Nouveau** > **Intelligence + analyse** > **Data Lake Analytics**.
+3. Sélectionnez des valeurs pour les éléments suivants : 
+   1. **Nom** : nom du compte Data Lake Analytics.
+   2. **Abonnement** : abonnement Azure utilisé pour le compte.
+   3. **Groupe de ressources** : groupe de ressources Azure dans lequel créer le compte. 
+   4. **Emplacement** : centre de données Azure pour le compte Data Lake Analytics. 
+   5. **Data Lake Store** : Store par défaut à utiliser pour le compte Data Lake Analytics. Le compte Azure Data Lake Store et le compte Data Lake Analytics doivent se trouver dans le même emplacement.
+4. Cliquez sur **Create**. 
 
-Après la création d'un compte Data Lake Analytics, vous pouvez ajouter des comptes Data Lake Store et des comptes Azure Storage supplémentaires. Pour obtenir des instructions, consultez [Gestion des sources de données du compte Data Lake Analytics](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
+### <a name="delete-a-data-lake-analytics-account"></a>Supprimer un compte Data Lake Analytics
 
-<a name="access-adla-account"></a> **Pour accéder à/ouvrir un compte Data Lake Analytics**
+Avant de supprimer un compte Data Lake Analytics, vous devez supprimer le compte Data Lake Store dépendant.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur **Data Lake Analytics** dans le menu de gauche.  Si vous ne le voyez pas, cliquez sur **Autres services**, puis cliquez sur **Data Lake Analytics** sous ** Intelligence + analyse**.
-3. Cliquez sur le compte Data Lake Analytics auquel vous souhaitez accéder. Le compte s’ouvre dans un nouveau panneau.
-
-**Pour supprimer un compte Data Lake Analytics**
-
-1. Ouvrez le compte Data Lake Analytics que vous voulez supprimer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account).
-2. Cliquez sur **Supprimer** à partir du menu du bouton en haut du volet.
-3. Tapez le nom du compte, puis cliquez sur **Supprimer**.
-
-Supprimer un compte Data Lake Analytics ne supprime pas les comptes Data Lake Store dépendants. Pour obtenir des instructions sur la suppression de comptes de stockage Data Lake, consultez [Supprimer un compte Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md#delete-azure-data-lake-store-account).
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
+2. Cliquez sur **Supprimer**.
+3. Entez le nom du compte.
+4. Cliquez sur **Supprimer**.
 
 <!-- ################################ -->
 <!-- ################################ -->
-## <a name="manage-account-data-sources"></a>Gestion des sources de données du compte
-Data Lake Analytics prend actuellement en charge les sources de données suivantes :
 
-* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/storage-introduction.md)
+## <a name="manage-data-sources"></a>Gérer les sources de données
 
-Lorsque vous créez un compte Data Lake Analytics, vous devez désigner un compte Azure Data Lake Store comme compte de stockage par défaut. Le compte Data Lake Store par défaut est utilisé pour stocker les métadonnées du travail et les journaux d'audit du travail. Après la création d'un compte Data Lake Analytics, vous pouvez ajouter des comptes Data Lake Store et/ou des comptes Azure Storage supplémentaires. 
+Data Lake Analytics prend en charge les sources de données suivantes :
 
-<a name="default-adl-account"></a>**Pour rechercher le compte de stockage Data Lake par défaut**
+* Data Lake Store
+* Azure Storage
 
-* Ouvrez le compte Data Lake Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account). Le compte Data Lake Store par défaut est affiché sous **Essential**:
-  
-    ![Azure Data Lake Analytics ajoute une source de données](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-default-adl-storage-account.png)
+Vous pouvez utiliser l’Explorateur de données pour parcourir les sources de données et effectuer des opérations de gestion des fichiers de base. 
 
-**Pour ajouter des sources de données supplémentaires**
+### <a name="add-a-data-source"></a>Ajouter une source de données
 
-1. Ouvrez le compte Data Lake Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account).
-2. Cliquez sur **Paramètres**, puis sur **Sources de données**. Le compte Data Lake Store par défaut doit être répertorié à cet endroit. 
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
+2. Cliquez sur **Sources de données**.
 3. Cliquez sur **Ajouter une source de données**.
-   
-    ![Ajouter une source de données Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-add-data-source.png)
-   
-    Pour ajouter un compte Azure Data Lake Store, vous avez besoin du nom du compte et de l’accès au compte pour pouvoir l’interroger.
-    Pour ajouter un stockage d’objets Blob Azure, vous avez besoin du compte de stockage et de la clé de compte, que vous trouverez en accédant au compte de stockage dans le portail.
+    
+   * Pour ajouter un compte Data Lake Store, vous avez besoin du nom du compte et de l’accès au compte pour pouvoir l’interroger.
+   * Pour ajouter du stockage Blob Azure, vous avez besoin du compte de stockage et de la clé du compte. Pour les trouver, accédez au compte de stockage dans le portail.
 
-<a name="explore-data-sources"></a>**Pour explorer les sources de données**    
+## <a name="set-up-firewall-rules"></a>Configurer des règles de pare-feu
 
-1. Ouvrez le compte Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account).
-2. Cliquez sur **Paramètres**, puis sur **Explorateur de données**. 
-   
-    ![Explorateur de données Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-data-explorer.png)
-3. Cliquez sur un compte Data Lake Store pour l’ouvrir.
-   
-    ![Compte de stockage Explorateur de données Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-explore-adls.png)
-   
-    Pour chaque compte Data Lake Store, vous pouvez
-   
-   * **Nouveau dossier**: ajouter un nouveau dossier.
-   * **Télécharger**: télécharger des fichiers vers le compte de stockage à partir de votre poste de travail.
-   * **Accès**: configurer les autorisations d'accès.
-   * **Renommer le dossier**: renommer un dossier.
-   * **Propriétés du dossier**: afficher les propriétés du fichier ou du dossier, comme le chemin WASB, le chemin WEBHDFS, l'heure de la dernière modification, et ainsi de suite.
-   * **Supprimer le dossier**: supprimer un dossier.
+Vous pouvez utiliser Data Lake Analytics pour mieux verrouiller l’accès à votre compte Data Lake Analytics au niveau du réseau. Vous pouvez activer un pare-feu, spécifier une adresse IP ou définir une plage d’adresses IP pour vos clients approuvés. Une fois ces mesures activées, seuls les clients possédant des adresses IP dans la plage définie peuvent se connecter au Store.
 
-<a name="upload-data-to-adls"></a> **Pour télécharger des fichiers vers le compte Data Lake Store**
+Si d’autres services Azure, comme Azure Data Factory ou des machines virtuelles, se connectent au compte Data Lake Analytics, vérifiez que l’option **Autoriser les services Azure** est **activée**. 
 
-1. À partir du portail, cliquez sur **Parcourir** dans le menu de gauche, puis cliquez sur **Data Lake Store**.
-2. Cliquez sur le compte Data Lake Store vers lequel vous souhaitez télécharger des données. Pour trouver le compte de stockage Data Lake par défaut, consultez [ceci](#default-adl-account).
-3. Cliquez sur **Explorateur de données** dans le menu supérieur.
-4. Cliquez sur **Nouveau répertoire** pour créer un nouveau dossier ou cliquez sur le nom d'un dossier pour modifier le dossier.
-5. Cliquez sur **Télécharger** dans le menu supérieur pour télécharger le fichier.
+### <a name="set-up-a-firewall-rule"></a>Configurer une règle de pare-feu
 
-<a name="upload-data-to-wasb"></a> **Pour télécharger des fichiers vers le compte de stockage d'objets blob Azure**
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
+2. Dans le menu de gauche, cliquez sur **Pare-feu**.
 
-Consultez [Téléchargement de données pour les tâches Hadoop dans HDInsight](../hdinsight/hdinsight-upload-data.md).  Les informations s'appliquent à Data Lake Analytics.
+## <a name="add-a-new-user"></a>Ajouter un nouvel utilisateur
 
-## <a name="manage-users"></a>Gestion des utilisateurs
-Data Lake Analytics utilise un contrôle d'accès basé sur le rôle avec Azure Active Directory. Lorsque vous créez un compte Data Lake Analytics, un rôle « Administrateurs d’abonnements » est ajouté au compte. Vous pouvez ajouter des utilisateurs et des groupes de sécurité supplémentaires avec les rôles suivants :
+Vous pouvez utiliser **l’Assistant Ajout d’un utilisateur** pour configurer facilement de nouveaux utilisateurs Data Lake.
 
-| Rôle | Description |
-| --- | --- |
-| Propriétaire |Vous permet de gérer tout, y compris l'accès aux ressources. |
-| Collaborateur |Accéder au portail ; soumettre et contrôler les travaux. Pour être en mesure de soumettre des travaux, un collaborateur a besoin de l’autorisation de lecture ou d’écriture sur les comptes Data Lake Store. |
-| DataLakeAnalyticsDeveloper |Envoyer, surveiller et annuler des travaux.  Cet utilisateur peut uniquement annuler ses propres travaux. Il ne peut pas gérer son propre compte, par exemple, ajouter des utilisateurs, modifier les autorisations ou supprimer le compte. Pour pouvoir exécuter des travaux, l'utilisateur a besoin de l'accès en lecture ou en écriture aux comptes Data Lake Store |
-| Lecteur |Vous permet de tout afficher, mais sans apporter de modifications. |
-| Utilisateur de DevTest Labs |Vous permet de tout afficher et connecter, démarrer, redémarrer et arrêter les machines virtuelles. |
-| Administrateur de l'accès utilisateur |Vous permet de gérer l'accès utilisateur aux ressources Azure. |
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
+2. Sur la gauche, sous **Prise en main**, cliquez sur **Assistant Ajout d’un utilisateur**.
+3. Sélectionnez un utilisateur, puis cliquez sur **Enregistrer**.
+4. Sélectionnez un rôle, puis cliquez sur **Enregistrer**. Pour configurer un nouveau développeur qui utilisera Azure Data Lake, sélectionnez le rôle **Développeur Data Lake Analytics**.
+5. Sélectionnez les listes de contrôle d’accès (ACL) pour les bases de données U-SQL. Lorsque vous êtes satisfait de vos choix, cliquez sur **Sélectionner**.
+6. Sélectionnez les listes de contrôle d’accès pour les fichiers. Pour le Store par défaut, ne modifiez pas les listes de contrôle d’accès pour le dossier racine « / » et pour le dossier /system. Cliquez sur **Sélectionner**.
+7. Passez en revue toutes vos sélections, puis cliquez sur **Exécuter**.
+8. Une fois l’Assistant exécuté, cliquez sur **Terminé**.
 
-Pour plus d'informations sur la création d'utilisateurs et de groupes de sécurité Azure Active Directory, consultez [Qu'est-ce qu'Azure Active Directory ?](../active-directory/active-directory-whatis.md).
+## <a name="manage-role-based-access-control"></a>Gérer le contrôle d’accès en fonction du rôle
 
-**Pour ajouter des utilisateurs ou des groupes de sécurité à un compte Data Lake Analytics**
+Comme d’autres services Azure, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour contrôler la façon dont les utilisateurs interagissent avec le service.
 
-1. Ouvrez le compte Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account).
-2. Cliquez sur **Paramètres**, puis sur **Utilisateurs**. Vous pouvez également cliquer sur **Accès** dans la barre de titre **Essentials**, comme illustré dans la capture d’écran suivante :
-   
-    ![Ajouter des utilisateurs au compte Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-access-button.png)
-3. Dans le panneau **Utilisateur**, cliquez sur **Ajouter**.
-4. Sélectionnez un rôle et ajoutez un utilisateur, puis cliquez sur **OK**.
+Les rôles RBAC standard ont les fonctionnalités suivantes :
+* **Propriétaire** : peut envoyer des travaux, surveiller des travaux, annuler des travaux de n’importe quel utilisateur et configurer le compte.
+* **Contributeur** : peut envoyer des travaux, surveiller des travaux, annuler des travaux de n’importe quel utilisateur et configurer le compte.
+* **Lecteur** : peut surveiller des travaux.
+
+Utilisez le rôle Développeur Data Lake Analytics pour permettre aux développeurs U-SQL d’utiliser le service Data Lake Analytics. Vous pouvez utiliser le rôle Développeur Data Lake Analytics pour les tâches suivantes :
+* Envoyer des travaux.
+* Surveiller l’état du travail et la progression des travaux soumis par les utilisateurs.
+* Afficher les scripts U-SQL à partir des travaux soumis par les utilisateurs.
+* Annuler uniquement vos propres travaux.
+
+### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Ajouter des utilisateurs ou des groupes de sécurité à un compte Data Lake Analytics
+
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
+2. Cliquez sur **Contrôle d’accès (IAM)** > **Ajouter**.
+3. Sélectionnez un rôle
+4. Ajoutez un utilisateur.
+5. Cliquez sur **OK**.
 
 >[!NOTE]
->Si ce groupe de sécurité ou utilisateur doit envoyer des travaux, il doit avoir l’autorisation d’accéder à Data Lake Store également. Pour plus d’informations, consultez [Sécuriser les données stockées dans Data Lake Store](../data-lake-store/data-lake-store-secure-data.md)
+>Si un utilisateur ou un groupe de sécurité doit envoyer des travaux, ils doivent également être autorisés sur le compte du Store. Pour plus d’informations, consultez [Sécuriser les données stockées dans Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).
 >
 
 <!-- ################################ -->
 <!-- ################################ -->
+
 ## <a name="manage-jobs"></a>Gestion des travaux
-Vous devez disposer d’un compte Data Lake Analytics avant de pouvoir exécuter un travail U-SQL quelconque.  Pour plus d'informations, consultez [Gestion des comptes Data Lake Analytics](#manage-data-lake-analytics-accounts).
 
-<a name="create-job"></a>**Pour créer un travail**
+### <a name="submit-a-job"></a>Soumettre un travail
 
-1. Ouvrez le compte Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account).
-2. Cliquez sur **Nouveau travail**.
-   
-    ![créer des travaux U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-create-job-button.png)
-   
-    Un nouveau panneau semblable à ce qui suit doit s’afficher :
-   
-    ![créer des travaux U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-new-job.png)
-   
-    Pour chaque travail, vous pouvez configurer
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
 
-    |Nom|Description|
-    |----|-----------|
-    |Nom du travail|Entrez le nom du travail.|
-    |Priorité|Un numéro inférieur a une priorité plus élevée. Si deux travaux sont en file d’attente, celui dont la priorité est la plus faible s’exécute en premier|
-    |Parallélisme |Nombre maximal de processus de calcul qui peuvent se produire en même temps. L'augmentation de cette valeur peut améliorer les performances, mais peut également augmenter le coût.|
-    |Script|Entrez le script U-SQL pour le travail.|
+2. Cliquez sur **Nouveau travail**. Pour chaque travail, configurez les éléments suivants :
 
-    À l’aide de la même interface, vous pouvez également explorer les sources de données du lien et ajouter des fichiers aux sources de données liées. 
-1. Cliquez sur **Soumettre le travail** si vous souhaitez soumettre le travail.
+    1. **Nom du travail** : nom du travail.
+    2. **Priorité** : les nombres inférieurs ont une priorité supérieure. Si deux travaux sont en file d’attente, celui dont la valeur de la priorité est la plus faible s’exécute en premier.
+    3. **Parallélisme** : nombre maximal de processus de calcul à réserver pour ce travail.
 
-**Pour soumettre un travail**
+3. Cliquez sur **Envoyer le travail**.
 
-Consultez [Créer des travaux Data Lake Analytics](#create-job).
+### <a name="monitor-jobs"></a>Surveiller des travaux
 
-<a name="monitor-jobs"></a>**Pour surveiller les travaux**
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
+2. Cliquez sur **Afficher tous les travaux**. Une liste de tous les travaux actifs et récemment terminés dans le compte s’affiche.
+3. Si vous le souhaitez, cliquez sur **Filtrer** pour rechercher les travaux par **Intervalle de temps**, **Nom du travail** et **Auteur**. 
 
-1. Ouvrez le compte Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account). Le volet Gestion des travaux affiche les informations de base du travail :
-   
-    ![gérer des travaux U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-manage-jobs.png)
-2. Cliquez sur **Gestion des travaux** comme le montre la capture d'écran précédente.
-   
-    ![gérer des travaux U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-manage-jobs-details.png)
-3. Cliquez sur un travail dans la liste. Ou cliquez sur **Filtre** pour vous aider à trouver les travaux :
-   
-    ![filtrer des travaux U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-filter-jobs.png)
-   
-    Vous pouvez filtrer les travaux par **Période**, **Nom du travail** et **Auteur**.
-4. Cliquez sur **Renvoyer** si vous souhaitez soumettre à nouveau le travail.
+## <a name="manage-policies"></a>Gérer les stratégies
 
-**Pour renvoyer un travail**
+### <a name="account-level-policies"></a>Stratégies au niveau du compte
 
-Consultez [Surveiller les travaux Data Lake Analytics](#monitor-jobs).
+Ces stratégies s’appliquent à tous les travaux dans un compte Data Lake Analytics.
 
-## <a name="monitor-account-usage"></a>Surveillance de l'utilisation du compte
-**Pour surveiller l'utilisation du compte**
+#### <a name="maximum-number-of-aus-in-a-data-lake-analytics-account"></a>Nombre maximal d’unités Analytics dans un compte Data Lake Analytics
+Une stratégie contrôle le nombre total d’unités Analytics que votre compte Data Lake Analytics peut utiliser. Par défaut, la valeur est définie sur 250. Par exemple, si cette valeur est définie sur 250 unités Analytics, vous pouvez avoir un travail qui s’exécute avec 250 unités Analytics assignées ou 10 travaux exécutant chacun 25 unités Analytics. Les travaux supplémentaires qui sont envoyés sont placés en file d’attente jusqu'à ce que les travaux en cours d’exécution soient terminés. Lorsque les travaux en cours d’exécution sont terminés, des unités Analytics sont libérées pour l’exécution des travaux dans la file d’attente.
 
-1. Ouvrez le compte Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account). Le panneau d'utilisation affiche l'utilisation :
-   
-    ![surveiller l'utilisation Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-monitor-usage.png)
-2. Double-cliquez sur le volet pour afficher plus de détails.
+Pour modifier le nombre d’unités Analytics pour votre compte Data Lake Analytics :
 
-## <a name="view-u-sql-catalog"></a>Affichage du catalogue U-SQL
-Le [catalogue U-SQL](data-lake-analytics-use-u-sql-catalog.md) est utilisé pour structurer les données et le code afin que les scripts U-SQL puissent les partager. Le catalogue permet les meilleures performances possibles avec les données comprises dans Azure Data Lake. À partir du portail Azure, vous êtes en mesure d’afficher le catalogue U-SQL.
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
+2. Cliquez sur **Propriétés**.
+3. Sous **Nombre maximale d’unités Analytics**, déplacez le curseur pour sélectionner une valeur ou entrez la valeur dans la zone de texte. 
+4. Cliquez sur **Save**.
 
-**Pour parcourir le catalogue U-SQL**
+> [!NOTE]
+> Si vous avez besoin de plus d’unités Analytics que la valeur par défaut (250), cliquez sur **Aide + support** dans le portail pour envoyer une demande de support. Il est possible d’augmenter le nombre d’unités Analytics disponibles dans votre compte Data Lake Analytics.
+>
 
-1. Ouvrez le compte Analytics que vous voulez gérer. Pour obtenir des instructions, consultez [Accès aux comptes Data Lake Analytics](#access-adla-account).
-2. Cliquez sur **Explorateur de données** dans le menu supérieur.
-3. Développez **Catalogue**, **master**, **Tables ou **Fonctions table** ou **Assemblys**. La capture d'écran suivante montre une fonction table.
-   
-    ![Compte de stockage Explorateur de données Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-explore-catalog.png)
+#### <a name="maximum-number-of-jobs-that-can-run-simultaneously"></a>Nombre maximal de travaux pouvant s’exécuter simultanément
+Une stratégie contrôle le nombre de travaux qui peuvent s’exécuter simultanément. Par défaut, cette valeur est définie sur 20. Si des unités Analytics sont disponibles dans votre Data Lake Analytics, de nouveaux travaux sont planifiés pour s’exécuter immédiatement jusqu’à ce que le nombre total de travaux en cours d’exécution atteigne la valeur de cette stratégie. Lorsque vous atteignez le nombre maximal de travaux pouvant s’exécuter simultanément, les travaux suivants sont placés en file d’attente par ordre de priorité jusqu’à ce qu’un ou plusieurs des travaux en cours d’exécution se termine (selon la disponibilité des unités Analytics).
 
-<!-- ################################ -->
-<!-- ################################ -->
-## <a name="use-azure-resource-manager-groups"></a>Utilisation des groupes Azure Resource Manager
-Les applications sont généralement constituées de nombreux composants, par exemple une application web, base de données, serveur de base de données, stockage et services tiers. Azure Resource Manager vous permet de manipuler les ressources de votre application sous la forme d’un groupe, nommé groupe de ressources Azure. Vous pouvez déployer, mettre à jour, surveiller ou supprimer toutes les ressources de votre application dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Vous pouvez clarifier la facturation pour votre organisation en visualisant les coûts cumulés pour l’ensemble du groupe. Pour plus d'informations, consultez [Présentation d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
+Pour modifier le nombre maximal de travaux pouvant s’exécuter simultanément :
 
-Un service Data Lake Analytics peut inclure les composants suivants :
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
+2. Cliquez sur **Propriétés**.
+3. Sous **Nombre maximal de travaux en cours d’exécution**, déplacez le curseur pour sélectionner une valeur ou entrez la valeur dans la zone de texte. 
+4. Cliquez sur **Save**.
 
-* Compte Azure Data Lake Analytics
-* Compte Azure Data Lake Store par défaut requis
-* Comptes Azure Data Lake Store supplémentaires
-* Comptes Azure Storage supplémentaires
+> [!NOTE]
+> Si vous avez besoin d’exécuter plus de travaux que la valeur par défaut (20), cliquez sur **Aide + support** dans le portail pour envoyer une demande de support. Il est possible d’augmenter le nombre de travaux pouvant s’exécuter simultanément dans votre compte Data Lake Analytics.
+>
 
-Vous pouvez créer tous ces composants dans un groupe Resource Management pour les rendre plus facile à gérer.
+#### <a name="how-long-to-keep-job-metadata-and-resources"></a>Durée de conservation des métadonnées et des ressources d’un travail 
+Lorsque vos utilisateurs exécutent des travaux U-SQL, le service Data Lake Analytics conserve tous les fichiers associés. Les fichiers associés incluent le script U-SQL, les fichiers DLL référencés dans le script U-SQL, les ressources compilées et les statistiques. Les fichiers se trouvent dans le dossier /system/ du compte de stockage Azure Data Lake par défaut. Cette stratégie contrôle la durée pendant laquelle ces ressources sont stockées avant d’être automatiquement supprimées (la valeur par défaut est de 30 jours). Vous pouvez utiliser ces fichiers pour le débogage et pour régler les performances des travaux que vous exécuterez à nouveau à l’avenir.
 
-![Compte et stockage Azure Data Lake Analytics](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
+Pour modifier la durée de conservation des métadonnées et des ressources d’un travail :
 
-Un compte Data Lake Analytics et les compte de stockage dépendants doivent se trouver dans le même centre de données Azure.
-Le groupe Resource Management peut cependant se trouver dans un autre centre de données.  
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
+2. Cliquez sur **Propriétés**.
+3. Sous **Jours de rétention des requêtes de tâche**, déplacez le curseur pour sélectionner une valeur ou entrez la valeur dans la zone de texte.  
+4. Cliquez sur **Save**.
 
-## <a name="see-also"></a>Voir aussi
-* [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+### <a name="job-level-policies"></a>Stratégies au niveau du travail
+Avec les stratégies au niveau du travail, vous pouvez contrôler les unités Analytics maximales et la priorité maximale que les utilisateurs individuels (ou les membres de groupes de sécurité spécifiques) peuvent définir sur les travaux qu’ils soumettent. Cela vous permet de contrôler les coûts générés par les utilisateurs. Cela vous permet également de contrôler l’effet que les travaux planifiés peuvent avoir sur des travaux de production à priorité élevée qui s’exécutent dans le même compte Data Lake Analytics.
+
+Data Lake Analytics inclut deux stratégies que vous pouvez définir au niveau du travail :
+
+* **Limite d’unités Analytics par travail** : les utilisateurs peuvent uniquement soumettre des travaux dont le nombre maximal d’unités Analytics est inférieur ou égal à cette valeur. Par défaut, cette limite est identique à la limite maximale d’unités Analytics du compte.
+* **Priorité** : les utilisateurs peuvent uniquement soumettre les travaux dont la priorité est inférieure ou égale à cette valeur. Notez qu’un nombre plus élevé signifie une priorité plus faible. Par défaut, elle est définie sur 1, qui est la priorité la plus élevée.
+
+Chaque compte contient une stratégie par défaut. La stratégie par défaut s’applique à tous les utilisateurs du compte. Vous pouvez définir des stratégies supplémentaires pour des utilisateurs et des groupes spécifiques. 
+
+> [!NOTE]
+> Les stratégies au niveau du compte et les stratégies au niveau du travail s’appliquent simultanément.
+>
+
+#### <a name="add-a-policy-for-a-specific-user-or-group"></a>Ajouter une stratégie pour un utilisateur ou un groupe spécifique
+
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
+2. Cliquez sur **Propriétés**.
+3. Sous **Limites d’envoi de tâches**, cliquez sur le bouton **Ajouter une stratégie**. Puis, sélectionnez ou saisissez les paramètres suivants :
+    1. **Nom de la stratégie de calcul** : entrez un nom de stratégie, pour vous rappeler de l’objectif de la stratégie.
+    2. **Sélectionner un utilisateur ou un groupe** : sélectionnez l’utilisateur ou le groupe auquel la stratégie s’applique.
+    3. **Définir la limite d’unités Analytics du travail** : définissez la limite d’unités Analytics qui s’applique à l’utilisateur ou au groupe sélectionné.
+    4. **Définir la limite de priorité** : définissez la limite de priorité qui s’applique à l’utilisateur ou au groupe sélectionné.
+
+4. Cliquez sur **OK**.
+
+5. La nouvelle stratégie est répertoriée dans la table des stratégies **Par défaut**, sous **Limites d’envoi de tâches**. 
+
+#### <a name="delete-or-edit-an-existing-policy"></a>Supprimer ou modifier une stratégie existante
+
+1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
+2. Cliquez sur **Propriétés**.
+3. Sous **Limites d’envoi de tâches**, recherchez la stratégie que vous souhaitez modifier.
+4.  Pour voir les options **Supprimer** et **Modifier**, dans la colonne la plus à droite de la table, cliquez sur **...**.
+
+### <a name="additional-resources-for-job-policies"></a>Ressources supplémentaires relatives aux stratégies de travail
+* [Post de blog Vue d’ensemble de la stratégie](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)
+* [Post de blog Stratégies au niveau du compte](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
+* [Post de blog Stratégies au niveau du travail](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Présentation d’Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Prise en main de Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md)
-* [Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Surveiller et résoudre les problèmes des tâches Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
+* [Gestion d’Azure Data Lake Analytics à l’aide d’Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 
 
