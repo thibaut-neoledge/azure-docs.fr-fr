@@ -71,7 +71,7 @@ Pour configurer l’intégration de à partir de la galerie avec Azure AD, vous
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Greenhouse**, sélectionnez **** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Greenhouse**, sélectionnez **dans le panneau** de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Greenhouse dans la liste des résultats](./media/active-directory-saas-greenhouse-tutorial/tutorial_greenhouse_addfromgallery.png)
 

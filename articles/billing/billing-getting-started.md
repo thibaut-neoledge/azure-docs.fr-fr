@@ -3,7 +3,7 @@ title: "Éviter les coûts imprévus, gérer la facturation - Azure | Microsoft 
 description: "Découvrez comment éviter des frais inattendus sur votre facture Azure. Utilisez les fonctionnalités de gestion et de suivi des coûts pour un abonnement Microsoft Azure."
 services: 
 documentationcenter: 
-author: jlian
+author: tonguyen10
 manager: tonguyen
 editor: 
 tags: billing
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
-ms.author: jlian
+ms.date: 08/10/2017
+ms.author: tonguyen
+experimental_id: a2b2579c-cd2e-41
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
 ms.contentlocale: fr-fr
 ms.lasthandoff: 04/26/2017
 
-
 ---
+
 # <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure
 
 Lorsque vous vous inscrivez à Azure, il y a plusieurs choses que vous pouvez faire pour avoir une meilleure idée de vos dépenses. Dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), lorsque vous sélectionnez l’abonnement, vous pouvez voir la répartition des coûts et le taux d’avancement actuels. Vous pouvez également [télécharger vos anciennes factures et vos anciens fichiers d’utilisation détaillée](billing-download-azure-invoice-daily-usage-date.md). Si vous souhaitez regrouper les coûts associés à des ressources utilisées pour différents projets ou équipes, tournez-vous vers le [balisage des ressources](../azure-resource-manager/resource-group-using-tags.md). Si votre organisation dispose d’un système de création de rapports que vous préférez utiliser, regardez du côté des [API de facturation](billing-usage-rate-card-overview.md). 
@@ -39,7 +40,7 @@ Si votre abonnement est un essai gratuit, [Visual Studio](https://azure.microsof
 
 Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) et la [calculatrice du coût total de possession](https://aka.ms/azure-tco-calculator) pour obtenir une estimation du coût mensuel du service qui vous intéresse. Par exemple, le coût d’une machine virtuelle A1 Windows en heures de calcul est estimé à 66,96 USD par mois si vous la laissez s’exécuter en permanence :
 
-![Capture d’écran de la calculatrice de prix montrant que le coût d’une machine virtuelle A1 Windows est estimé à 66,96 USD par mois](./media/billing-getting-started/pricing-calc.PNG)
+![Capture d’écran de la calculatrice de prix montrant que le coût d’une machine virtuelle A1 Windows est estimé à 66,96 USD par mois](./media/billing-getting-started/pricing-calcVM.png)
 
 Pour plus d’informations, consultez le [FAQ sur la tarification](https://azure.microsoft.com/pricing/faq/). Si vous voulez parler directement à quelqu’un de notre équipe, appelez le 1-800-867-1389.
 
@@ -136,7 +137,7 @@ Une fois que vos services sont actifs, vérifiez régulièrement combien ils vou
 
 7. Cliquez sur une ressource pour afficher l’historique des dépenses et savoir combien elle vous a coûté chaque jour.
 
-    ![Capture d’écran de la vue de l’historique des dépenses dans le portail Azure](./media/billing-getting-started/spend-history.PNG)
+    ![Capture d’écran de la vue de l’historique des dépenses dans le portail Azure](./media/billing-getting-started/costhistory.PNG)
 
 Nous vous recommandons de comparer les coûts affichés avec les estimations qui vous ont été données lors de la sélection des services. Si vous constatez une différence importante, vérifiez le plan de tarification (machine virtuelle A1 ou A0, par exemple) que vous avez sélectionné pour vos ressources. 
 
@@ -187,3 +188,4 @@ Si vous êtes responsable informatique d’une grande organisation, nous vous re
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
 Si vous avez toujours besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+
