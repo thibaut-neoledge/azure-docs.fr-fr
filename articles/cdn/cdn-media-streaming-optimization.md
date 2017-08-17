@@ -1,6 +1,6 @@
 ---
-title: "Optimisation de la diffusion multimédia en continu via Azure CDN"
-description: "Optimisation de la diffusion des fichiers multimédia en continu pour la distribution lisse"
+title: "Optimisation de la diffusion multimédia en continu via le réseau Azure Content Delivery Network"
+description: "Optimisation de la diffusion en continu de fichiers multimédias pour une distribution lisse"
 services: cdn
 documentationcenter: 
 author: smcevoy
@@ -14,88 +14,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 582eb69ccd2830643644760753cca1c96d72128d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1221f4f50b8b9c4b9f9f88be4d04a65375c36062
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="media-streaming-optimization-via-azure-cdn"></a>Optimisation de la diffusion multimédia en continu via Azure CDN 
+# <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Optimisation de la diffusion multimédia en continu via le réseau Azure Content Delivery Network 
  
-La vidéo haute définition devient une partie en constante évolution d’internet, créant alors différents problèmes relatifs à une distribution efficace de fichiers aussi volumineux sur internet. Les clients attendent une lecture fluide des ressources en direct ou en VOD sur des réseaux et des clients variés dans le monde entier. Il est essentiel de fournir un mécanisme de distribution plus rapide et efficace de ces fichiers de diffusion multimédia pour garantir une expérience client continue et agréable.  
+L’utilisation de la vidéo haute définition augmente sur Internet, ce qui crée des difficultés pour une distribution efficace de fichiers volumineux. Les clients attendent une lecture fluide de ressources de vidéo en direct ou à la demande sur toutes sortes de réseaux, et une clientèle mondiale. Un mécanisme de distribution rapide et efficace pour la diffusion multimédia de ces fichiers est essentiel pour garantir au consommateur une expérience fluide et agréable.  
 
-La diffusion en continu multimédia en direct est particulièrement difficile à distribuer, non seulement en raison des grandes tailles et du grand nombre d’utilisateurs simultanés, mais également en raison des retards qui représentent une rupture de contrat pour les utilisateurs. Les flux en direct ne peuvent pas être mis en cache en avance et d’importantes latences ne sont pas acceptables pour les utilisateurs. C’est pour cette raison que les fragments vidéo doivent être distribués dans les délais impartis. 
+La diffusion multimédia en continu en direct est particulièrement difficile à distribuer en raison des tailles importantes des fichiers et du grand nombre d’utilisateurs simultanés. Des délais d’attente prolongés découragent les utilisateurs. Les flux temps réel ne peuvent pas être mis en cache en avance et d’importantes latences ne sont pas acceptables pour les utilisateurs. C’est pourquoi les fragments vidéo doivent être distribués en temps opportun. 
 
-Les modèles de requêtes de diffusion en continu présentent également certains défis. Qu’il s’agisse d’une diffusion en continu en direct ou de la sortie d’une nouvelle série de vidéo à la demande (VOD), des millions d’utilisateurs peuvent tenter de demander la diffusion en même temps. Dans ce cas, une consolidation des requêtes actives intelligente est essentielle pour ne pas surcharger les serveurs d’origine lorsque les ressources ne sont pas encore mises en cache.
+Les modèles de requêtes de diffusion en continu présentent également certains défis. Quand un flux temps réel populaire ou une nouvelle série sont publiés pour la vidéo à la demande, des millions d’utilisateurs peuvent demander ce flux simultanément. Dans ce cas, une consolidation des requêtes actives intelligente est essentielle pour ne pas surcharger les serveurs d’origine lorsque les ressources ne sont pas encore mises en cache.
  
-Azure CDN d’Akamai propose désormais une fonctionnalité adaptée à la distribution efficace de ressources de diffusion multimédia en continu aux utilisateurs finaux dans le monde entier à des latences à l’échelle et réduites tout en diminuant la charge sur les serveurs d’origine. Cette fonctionnalité est disponible via la fonctionnalité « Optimisé pour » sur le point de terminaison Azure CDN créé sous un profil Azure CDN avec un niveau de tarification « Akamai Standard ». Vous devez utiliser l’optimisation « Diffusion multimédia de vidéo à la demande » pour les ressources VOD et le type d’optimisation « Diffusion multimédia en continu général » si vous effectuez une combinaison de diffusion en continu en direct et en VOD.
+Le réseau Azure Content Delivery Network d’Akamai offre désormais une fonctionnalité qui fournit du contenu multimédia en flux continu efficacement, à grande échelle, à des utilisateurs dans le monde entier. La fonctionnalité réduit les latences, car elle réduit la charge sur les serveurs d’origine. Cette fonctionnalité est disponible au niveau de tarification Standard d’Akamai. 
 
-Azure CDN de Verizon peut offrir la diffusion multimédia en continu directement dans le type d’optimisation « distribution générale sur le Web ».
+Le réseau Azure Content Delivery Network de Verizon distribue le contenu multimédia en diffusion continue directement dans le type d’optimisation de livraison web générale.
  
-## <a name="configuring-cdn-endpoint-to-optimize-delivery-of-media-streaming-in-azure-cdn-from-akamai"></a>Configuration de point de terminaison CDN pour optimiser la diffusion multimédia en continu dans Azure CDN d’Akamai
+## <a name="configure-an-endpoint-to-optimize-media-streaming-in-the-azure-content-delivery-network-from-akamai"></a>Configurer un point de terminaison pour optimiser la diffusion multimédia en continu dans le réseau Azure Content Delivery Network d’Akamai
  
-Vous pouvez configurer votre point de terminaison CDN pour optimiser la distribution des fichiers volumineux via le portail Azure en sélectionnant simplement l’option « Diffusion multimédia en continu générale » ou « Diffusion multimédia en continu de la vidéo à la demande » sous la propriété « Optimisé pour » au cours de la création du point terminal. Pour ce faire, vous pouvez également utiliser nos API REST ou un des kits de développement logiciel client. Les captures d’écran ci-dessous illustrent le processus via le portail Azure. 
+Vous pouvez configurer votre point de terminaison CDN pour optimiser la distribution de fichiers volumineux via le portail Azure. Pour ce faire, vous pouvez également utiliser nos API REST ou tout SDK client. Les étapes suivantes montrent le processus via le portail Azure :
+
+1. Pour ajouter un nouveau point de terminaison, dans la page **Profil CDN**, sélectionnez **Point de terminaison**.
   
-![Ajouter un nouveau point de terminaison](./media/cdn-media-streaming-optimization/01_Adding.png)
+    ![Nouveau point de terminaison](./media/cdn-media-streaming-optimization/01_Adding.png)
 
-*Figure 1 : ajout d’un nouveau point de terminaison CDN à partir du profil CDN*
+2. Dans la liste déroulante **Optimisé pour**, sélectionnez **Streaming de vidéo à la demande** pour les ressources de vidéo à la demande. Si vous offrez une combinaison de diffusion en continu en direct et de vidéo à la demande, sélectionnez **Streaming de contenu général**.
 
-![Diffusion en continu sélectionné](./media/cdn-media-streaming-optimization/02_Creating.png) 
-  
-*Figure 2 : création d’un point de terminaison CDN avec la diffusion multimédia en continu de la vidéo à la demande sélectionnée* 
+    ![Diffusion en continu sélectionné](./media/cdn-media-streaming-optimization/02_Creating.png) 
  
-Une fois le point de terminaison CDN créé, l’optimisation de tous les fichiers qui correspondent à certains critères est appliquée. La section suivante décrit cela en détail. 
+Une fois le point de terminaison créé, il applique les optimisations pour tous les fichiers correspondant à certains critères. La section suivante décrit ce processus. 
  
-## <a name="media-streaming-optimizations-for-azure-cdn-from-akamai"></a>Optimisations de la diffusion multimédia en continu pour Azure CDN d’Akamai
+## <a name="media-streaming-optimizations-for-the-azure-content-delivery-network-from-akamai"></a>Optimisations de la diffusion multimédia en continu pour le réseau Azure Content Delivery Network d’Akamai
  
-L’optimisation de la diffusion multimédia en continu d’Akamai est efficace pour la diffusion multimédia en continu en direct et en VOD qui utilise des fragments multimédias individuels pour la distribution, contrairement au transfert d’une ressource volumineuse via le téléchargement progressif ou au moyen de requêtes de plages d’octets. Pour ce style de distribution multimédia, consultez [l’optimisation de fichiers volumineux](cdn-large-file-optimization.md).
+L’optimisation de la diffusion multimédia en continu d’Akamai est efficace pour la diffusion multimédia en continu en direct ou en vidéo à la demande, qui utilise des fragments multimédias individuels pour la remise. Ce processus diffère du transfert d’une seule ressource volumineuse via un téléchargement progressif ou en utilisant des demandes de plage d’octets. Pour plus d’informations sur ce style de livraison de données multimédia, voir [Optimisation des fichiers volumineux](cdn-large-file-optimization.md).
 
-À l’aide de la distribution multimédia générale ou en VOD, le type d’optimisation utilise un réseau CDN avec des optimisations principales pour distribuer des ressources multimédias plus rapidement, ainsi que des configurations pour des ressources multimédias basées sur les meilleures pratiques acquises au fil du temps.
+
+L’optimisation des livraisons de données multimédias générale ou en vidéo à la demande utilise un CDN avec des optimisations du serveur principal pour distribuer plus rapidement des ressources multimédias. Elle utilisent également des configurations pour les ressources multimédias, basées sur les meilleures pratiques apprises au fil du temps.
 
 ### <a name="caching"></a>Mise en cache
 
-Si Azure CDN d’Akamai détecte que la ressource est un manifeste ou un fragment de la diffusion en continu (consultez la liste complète ci-dessous), le CDN utilise différents délais d’expiration mis en cache à partir de la distribution générale. Les en-têtes Cache-Control ou Expires envoyés depuis l’origine sont toujours respectés et, si la ressource n’est pas une ressource multimédia, la mise en cache est effectuée au moyen du délai d’expiration de la distribution générale sur le Web.
+Si le réseau Azure Content Delivery Network d’Akamai détecte que la ressource est un manifeste ou un fragment de diffusion en continu, il utilise des délais d’expiration de mise en cache différents de la livraison web générale (voir la liste complète dans le tableau suivant). Comme toujours, les en-têtes Cache-control ou Expires en provenance de l’origine sont respectés. Si la ressource n’est pas une ressource multimédia, elle est mise en cache dans le respect des délais d’expiration pour la livraison web générale.
 
-Le court délai de mise en cache négatif est utile pour le déchargement de l’origine lorsque de nombreux utilisateurs demandent un fragment qui n’existe pas encore, comme dans une diffusion en continu en direct où les paquets ne sont pas disponibles dans la seconde depuis l’origine. L’intervalle de mise en cache plus long permet également de décharger des requêtes depuis l’origine lorsque le contenu vidéo n’est pas généralement modifié.
+Le temps de mise en cache négatif court est utile pour le déchargement de l’origine lorsque de nombreux utilisateurs demandent un fragment qui n’existe pas encore. Un exemple est un flux temps réel où les paquets ne sont pas disponibles à l’origine à cette seconde. L’intervalle de mise en cache plus long facilite également les demandes de déchargement de l’origine, car le contenu vidéo n’est généralement pas modifié.
  
 
-|    | Généralités<br> web<br>livraison continue | Généralités<br> Médias<br> diffusion en continu | VOD<br>Médias<br> diffusion en continu  
+|    | Généralités<br> web<br>livraison continue | Généralités<br> Médias<br> diffusion en continu | Vidéo à la demande <br>Médias<br> diffusion en continu  
 --- | --- | --- | ---
-Mise en cache - positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |365 jours | 365 jours   
-Mise en cache - négative <br> HTTP 204, 305, 404, <br> et 405 | Aucun | 1 seconde | 1 seconde
+Mise en cache : positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |365 jours | 365 jours   
+Mise en cache : négative <br> HTTP 204, 305, 404, <br> et 405 | Aucune | 1 seconde | 1 seconde
  
-### <a name="dealing-with-origin-failure"></a>Traitement des défaillances d’origine  
+### <a name="deal-with-origin-failure"></a>Traitement des défaillances de l’origine  
 
-La distribution multimédia générale et la distribution multimédia en VOD ont aussi un délai d’expiration d’origine et relancent le journal basé sur les meilleures pratiques pour les modèles de requêtes standard. Par exemple, étant donné que la distribution multimédia générale est destinée à la fois à la distribution multimédia en direct et en VOD, elle utilise un délai de connexion beaucoup plus court en raison de l’importance du temps dans le cadre de la diffusion en continu en direct.
+Les livraisons de données multimédias générale et en vidéo à la demande ont aussi un délai d’expiration d’origine et un journal des tentatives basé sur les meilleures pratiques pour les modèles de demande standard. Par exemple, étant donné que la livraison de données multimédias générale est destinée la distribution en direct et en vidéo à la demande, elle utilise un délai d'expiration de connexion plus court parce que la diffusion en continu en direct est, par nature, soumise à une contrainte de temps.
 
-Lorsqu’une connexion expire, le CDN retente la connexion un certain nombres de fois avant d’envoyer une erreur de délai d’attente de la passerelle 504 au client. 
+Quand une connexion arrive à expiration, le CDN retente de l’établir un certain nombre de fois avant d’envoyer une erreur « 504 - Dépassement du délai de la passerelle » au client. 
 
-Lorsqu’un fichier correspond à la liste des conditions de types de fichiers et de tailles, le CDN utilise le comportement pour la diffusion multimédia en continu, sinon celui de la distribution générale sur le Web. 
+Quand un fichier correspond à la liste des types de fichiers et des conditions de taille, le CDN utilise le comportement applicable à la diffusion multimédia en continu. Autrement, il utilise une livraison web générale.
    
 ### <a name="conditions-for-media-streaming-optimization"></a>Conditions d’optimisation de la diffusion multimédia en direct 
 
-Le tableau suivant répertorie l’ensemble des critères à satisfaire pour cette optimisation 
+Le tableau suivant répertorie l’ensemble des critères à satisfaire pour cette optimisation de la diffusion multimédia en continu : 
  
-Types de diffusion en direct pris en charge | Extensions de fichiers  
+Types de diffusions en continu pris en charge | Extensions de fichier  
 --- | ---  
 Apple HLS | m3u8, m3u, m3ub, key, ts, aac
 Adobe HDS | f4m, f4x, drmmeta, bootstrap, f4f,<br>Structure de l’URL seg-frag <br> (expression régulière correspondante : ^(/.*)Seq(\d+)-Frag(\d+)
 DASH | mpd, dash, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
-Smooth Streaming | /manifest/,/QualityLevels/Fragments/
+Diffusion en continu lisse | /manifest/,/QualityLevels/Fragments/
   
 
  
-## <a name="media-streaming-optimizations-for-azure-cdn-from-verizon"></a>Optimisations de la diffusion multimédia en continu pour Azure CDN de Verizon
+## <a name="media-streaming-optimizations-for-the-azure-content-delivery-network-from-verizon"></a>Optimisations de la diffusion multimédia en continu pour le réseau Azure Content Delivery Network de Verizon
 
-Azure CDN de Verizon peut distribuer des ressources multimédias en continu directement à l’aide du type d’optimisation « distribution générale sur le Web ». Quelques fonctionnalités sur le CDN par défaut assistent directement la distribution de ressources multimédias.
+Le réseau Azure Content Delivery Network de Verizon distribue les ressources multimédia en diffusion continue directement en utilisant le type d’optimisation de livraison web générale. Quelques fonctionnalités du CDN contribuent directement à la distribution de ressources multimédias par défaut.
 
 ### <a name="partial-cache-sharing"></a>Partage de cache partiel
 
-Ceci permet la diffusion de contenu partiellement mis en cache à partir du CDN vers de nouvelles requêtes. Par exemple, la première requête au CDN se traduit par une absence de cache et la requête est alors envoyée à l’origine. Tandis que ce contenu est toujours chargé dans le cache du CDN (mais est toujours incomplet), les autres requêtes envoyées vers le CDN peuvent démarrer l’obtention de ces données. 
+Le partage de cache partiel permet au CDN de servir du contenu partiellement mis en cache aux nouvelles demandes. Par exemple, si la première demande adressée au CDN aboutit à une absence dans le cache, la demande est envoyée à l’origine. Bien que ce contenu incomplet soit chargé dans le cache du CDN, d’autres demandes adressées au CDN peuvent commencer à obtenir ces données. 
 
 ### <a name="cache-fill-wait-time"></a>Temps d’attente de remplissage du cache
 
-En association avec le partage du cache partiel, la fonctionnalité du temps d’attente de remplissage du cache est utile car elle oblige le serveur Edge à retenir toutes les requêtes suivantes pour la même ressource jusqu'à ce que les en-têtes de réponse HTTP arrivent du serveur d’origine. Si les en-têtes de réponse HTTP du serveur d’origine arrivent avant l’expiration du délai, toutes les requêtes mises en attente sont sorties de la mémoire cache croissante (en même temps qu’elle est rempli par les données de l’origine). Le temps d’attente de remplissage du cache est défini sur 3 000 millisecondes, par défaut. 
+ La fonctionnalité de temps d’attente de remplissage du cache oblige le serveur de périphérie à mettre en attente toutes les demandes suivantes pour la même ressource jusqu'à ce que les en-têtes de réponse HTTP arrivent en provenance du serveur d’origine. Si les en-têtes de réponse HTTP en provenance de l’origine arrivent avant l’expiration du minuteur, toutes les demandes mises en attente sont servies à partir du cache croissant. En même temps, le cache est rempli par des données en provenance de l’origine. Par défaut, le temps d’attente de remplissage du cache est défini sur 3 000 millisecondes. 
 
 
