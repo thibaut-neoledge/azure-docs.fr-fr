@@ -31,8 +31,9 @@
 ### [.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
 ### [Informations d’identification du client OAuth 2.0](active-directory-protocols-oauth-service-to-service.md)
 # Guides
-## [Inscription d’application](active-directory-integrating-applications.md)
+## [Inscription de l’application](active-directory-integrating-applications.md)
 ## [Applications multi-locataires](active-directory-devhowto-multi-tenant-overview.md)
+## [Accès conditionnel](active-directory-conditional-access-developer.md)
 ## OAuth et OpenID Connect
 ### [Protocole OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Octroi du code d’authentification OAuth 2.0](active-directory-protocols-oauth-code.md)
@@ -48,9 +49,9 @@
 ### [Activer l’authentification unique sur Android](active-directory-sso-android.md)
 ### [Activer l’authentification unique sur iOS](active-directory-sso-ios.md)
 ## [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md)
-## [Approvisionnement d’utilisateurs avec SCIM](../active-directory-scim-provisioning.md)
+## [Attribution d’utilisateurs avec SCIM](../active-directory-scim-provisioning.md)
 ## [API Graph Azure AD](active-directory-graph-api.md)
-### [Prise en main de Graph AAD](active-directory-graph-api-quickstart.md)
+### [Prise en main d’AAD Graph](active-directory-graph-api-quickstart.md)
 ## [Certification AppSource](active-directory-devhowto-appsource-certified.md)
 ## [Galerie d’applications Azure AD](active-directory-app-gallery-listing.md)
 ## [Mon tableau de bord vendeur Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
@@ -90,7 +91,7 @@
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
 ### les applications web
-#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
+#### [SPA JavaScript](guidedsetups/active-directory-javascriptspa.md)
 #### [Serveur web ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [Application web NodeJS](active-directory-v2-devquickstarts-node-web.md)
 ## Guides
