@@ -85,7 +85,7 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 | W3CIISLog |Tous les enregistrements de journaux IIS. |
 | W3CIISLog &#124; où scStatus==500 |Tous les enregistrements de journaux IIS dont l’état renvoyé est 500. |
 | W3CIISLog &#124; résumer count() par cIP |Nombre d’entrées de journaux IIS par adresse IP du client. |
-| W3CIISLog &#124; où csHost==« www.contoso.com » &#124 ; résumer count() par csUriStem |Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
+| W3CIISLog &#124; où csHost==« www.contoso.com » &#124; résumer count() par csUriStem |Nombre d’entrées de journaux IIS par URL pour l'hôte www.contoso.com. |
 | W3CIISLog &#124; résumer sum(csBytes) par ordinateur &#124 ; prendre 500000 |Nombre total d'octets reçus par chaque ordinateur IIS. |
 
 ## <a name="next-steps"></a>Étapes suivantes
