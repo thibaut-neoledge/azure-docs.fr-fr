@@ -1,5 +1,4 @@
 ---
-
 title: "Autres scénarios de licence basée sur le groupe Azure Active Directory | Microsoft Docs"
 description: "Plus de scénarios pour la licence basée sur le groupe Azure Active Directory"
 services: active-directory
@@ -7,42 +6,50 @@ keywords: Gestion des licences Azure AD
 documentationcenter: 
 author: curtand
 manager: femila
-editor: 
+editor: piotrci
 ms.assetid: 
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/05/2017
+ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: d4c509c43ff647f3d9b96ffd136073312a81049b
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="scenarios-limitations-and-known-issues-with-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
+# <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
 Utilisez les informations et exemples suivants pour approfondir vos connaissances sur la gestion des licences par groupe Azure Active Directory (Azure AD).
+
+## <a name="usage-location"></a>Emplacement d’utilisation
+
+Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété **Emplacement d’utilisation** sur l’utilisateur. Dans le [portail Azure](https://portal.azure.com), vous pouvez le spécifier dans **Utilisateur** &gt; **Profil** &gt; **Paramètres**.
+
+Pour l’affectation d’une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si vos utilisateurs se trouvent dans plusieurs emplacements, assurez-vous de bien prendre en compte cette situation dans vos objets utilisateur avant d’ajouter des utilisateurs à des groupes avec licences.
+
+> [!NOTE]
+> L’affectation d’une licence de groupe n’a jamais pour effet de modifier une valeur d’emplacement d’utilisation existante sur un utilisateur. Nous vous recommandons de toujours définir l’emplacement d’utilisation dans le cadre de votre flux de création d’utilisateur dans Azure AD (par exemple, via une Configuration AAD Connect). Cela garantit que le résultat de l’affectation de licence est toujours correct et que les utilisateurs ne reçoivent pas de services dans des emplacements non autorisés.
 
 ## <a name="use-group-based-licensing-with-dynamic-groups"></a>Utilisation de la gestion des licences par groupe avec des groupes dynamiques
 
 Vous pouvez utiliser la gestion des licences par groupe avec n’importe quel groupe de sécurité, ce qui signifie que vous pouvez la combiner avec des groupes dynamiques Azure AD. Les groupes dynamiques exécutent des règles sur les attributs d’objet utilisateur pour ajouter et supprimer des utilisateurs de groupes automatiquement.
 
-Par exemple, vous pouvez créer plusieurs groupes dynamiques, un pour chaque ensemble de produits que vous souhaitez attribuer aux utilisateurs. Chaque groupe contient une règle examinant un attribut spécifique sur un utilisateur, décrivant l’ensemble de licences qu’il doit recevoir. Vous pouvez affecter l’attribut en local puis le synchroniser avec Azure AD, ou bien vous pouvez gérer l’attribut directement dans le cloud.
+Par exemple, vous pouvez créer un groupe dynamique pour un jeu de produits que vous souhaitez attribuer à des utilisateurs. Chaque groupe est rempli par une règle qui ajoute des utilisateurs par leurs attributs, et chaque groupe reçoit les licences que vous décidez de lui attribuer. Vous pouvez affecter l’attribut en local puis le synchroniser avec Azure AD, ou bien vous pouvez gérer l’attribut directement dans le cloud.
 
-Lorsque vous spécifiez l’attribut, l’utilisateur est ajouté à un ou plusieurs de ces groupes de licences dynamiques. Les licences sont affectées à l’utilisateur peu de temps après. Lorsque l’attribut est supprimé, l’utilisateur quitte les groupes et les licences sont supprimées.
+Les licences sont attribuées aux utilisateurs peu de temps après leur ajout au groupe. En cas de modification de son attribut, l’utilisateur quitte les groupes et les licences sont supprimées.
 
 ### <a name="example"></a>Exemple
 
-Supposons que vous disposez d’une solution de gestion des identités locale qui détermine quels utilisateurs doivent pouvoir accéder à quels services web Microsoft. Elle utilise **extensionAttribute1** pour stocker une valeur de chaîne représentant les licences que l’utilisateur doit avoir. Azure AD Connect la synchronise avec Azure AD.
+Considérez l’exemple d’une solution locale de gestion des identités, qui détermine quels utilisateurs doivent pouvoir accéder aux services web Microsoft. Elle utilise **extensionAttribute1** pour stocker une valeur de chaîne représentant les licences que l’utilisateur doit avoir. Azure AD Connect la synchronise avec Azure AD.
 
-Dans cet exemple, l’objectif est de distribuer des licences Office 365 Entreprise E5 et Enterprise Mobility + Security aux utilisateurs. Dans Azure AD, créez deux groupes dynamiques, un pour chaque produit. Certains utilisateurs peuvent en effet avoir besoin de l’un des produits, mais pas des deux. Ensuite, spécifiez les paramètres de règle d’appartenance et de licence dynamiques sur chaque groupe. Voici à quoi ils ressemblent :
+Des utilisateurs peuvent avoir besoin d’une licence mais pas d’une autre, ou avoir besoin des deux. Voici un exemple dans lequel vous distribuez des licences Office 365 Entreprise E5 et Entreprise Mobility + Security à des utilisateurs dans des groupes :
 
 #### <a name="office-365-enterprise-e5-base-services"></a>Office 365 Enterprise E5 : services de base
 
@@ -52,24 +59,20 @@ Dans cet exemple, l’objectif est de distribuer des licences Office 365 Entrep
 
 ![Capture d’écran des utilisateurs sous licence Enterprise Mobility + Security](media/active-directory-licensing-group-advanced/o365-e5-licensed-users.png)
 
-Dans cet exemple, modifiez un utilisateur et définissez extensionAttribute1 sur la valeur de `EMS;E5_baseservices;`. Vous procédez ainsi pour que cet utilisateur dispose des deux licences. Notez que vous pouvez effectuer cette modification en local. Une fois la modification synchronisée avec le cloud, l’utilisateur est ajouté automatiquement aux deux groupes et les licences sont affectées.
+Pour cet exemple, modifiez un utilisateur et définissez son attribut extensionAttribute1 sur la valeur `EMS;E5_baseservices;` si vous souhaitez que l’utilisateur dispose des deux licences. Vous pouvez effectuer cette modification localement. Une fois la modification synchronisée avec le cloud, l’utilisateur est ajouté automatiquement aux deux groupes et les licences sont affectées.
 
 ![Capture d’écran montrant comment définir extensionAttribute1 de l’utilisateur](media/active-directory-licensing-group-advanced/user-set-extensionAttribute1.png)
 
-### <a name="modify-a-dynamic-group-membership-rule"></a>Modification d’une règle d’appartenance au groupe dynamique
+> [!WARNING]
+> Faites preuve de vigilance lorsque vous modifiez la règle d’appartenance au groupe existante. Lors de la modification d’une règle, l’appartenance du groupe est réévaluée et les utilisateurs qui ne correspondent pas à la nouvelle règle sont supprimés (ceux qui y correspondent ne sont pas affectés par ce processus). Les licences de ces utilisateurs sont supprimées au cours du processus, ce qui peut occasionner une perte de service ou, dans certains cas, une perte de données.
 
-Faites preuve de vigilance lorsque vous modifiez la règle d’appartenance au groupe existante. Lorsqu’une règle est modifiée, tous les utilisateurs sont supprimés du groupe. La règle est évaluée, puis les utilisateurs sont ajoutés au groupe en fonction des nouvelles conditions.
-
-Si des licences sont affectées au groupe, elles sont supprimées pour tous les utilisateurs pendant le processus. Les nouvelles licences ne sont appliquées qu’une fois la nouvelle règle évaluée et les utilisateurs rajoutés. Cela signifie que les utilisateurs peuvent rencontrer une perte de service voire, dans certains cas, une perte de données.
-
-Il est préférable de ne pas modifier la règle d’appartenance à un groupe utilisé pour l’attribution de licence. Au lieu de cela, créez un nouveau groupe avec la nouvelle règle et spécifiez les mêmes paramètres de licence que sur le groupe d’origine. Attendez que les membres aient été ajoutés et que les licences aient été appliquées à tous les utilisateurs. Vous pouvez ensuite supprimer le groupe d’origine. Cette approche permet de garantir une transition intermédiaire sans échec vers la nouvelle règle d’appartenance sans perte d’accès ou de données pour les utilisateurs.
-
+> Si vous avez un grand groupe dynamique dont vous dépendez pour l’attribution des licences, songez à valider des changements majeurs sur un groupe de test plus petit avant de les appliquer au groupe principal.
 
 ## <a name="multiple-groups-and-multiple-licenses"></a>Plusieurs groupes et plusieurs licences
 
 Un utilisateur peut être membre de plusieurs groupes avec des licences. Voici quelques possibilités d’opérations à prendre en considération :
 
-- Plusieurs licences pour le même produit peuvent se chevaucher et entraîner l’application de tous les services activés à l’utilisateur. L’exemple suivant montre deux groupes de licences : *E3 - Services de base* contient les services de base à déployer en premier, pour tous les utilisateurs. *E3 - Services étendus* contient les services supplémentaires (Sway et Planner) à déployer uniquement pour certains utilisateurs. Notez que Yammer reste désactivé pour un déploiement ultérieur. Dans cet exemple, l’utilisateur a été ajouté aux deux groupes :
+- Plusieurs licences pour le même produit peuvent se chevaucher, avec pour effet que tous les services activés sont appliqués à l’utilisateur. L’exemple suivant montre deux groupes de licences : *E3 - Services de base* contient les services de base à déployer en premier, pour tous les utilisateurs. *E3 - Services étendus* contient les services supplémentaires (Sway et Planner) à déployer uniquement pour certains utilisateurs. Dans cet exemple, l’utilisateur a été ajouté aux deux groupes :
 
   ![Capture d’écran des services activés](media/active-directory-licensing-group-advanced/view-enabled-services.png)
 
@@ -81,42 +84,60 @@ Un utilisateur peut être membre de plusieurs groupes avec des licences. Voici q
 
 ## <a name="direct-licenses-coexist-with-group-licenses"></a>Coexistence de licences directes avec des licences de groupe
 
-Lorsqu’un utilisateur hérite d’une licence d’un groupe, il n’est pas possible de supprimer ou de modifier directement cette attribution de licence sur l’objet utilisateur. Au lieu de cela, toutes les modifications doivent être apportées dans le groupe puis propagées par le système sur tous les utilisateurs.
+Quand un utilisateur hérite d’une licence d’un groupe, vous ne pouvez pas supprimer ou modifier directement cette attribution de licence dans les propriétés de l’utilisateur. Les modifications doivent être effectuées dans le groupe et propagées à tous les utilisateurs.
 
-Il est toutefois possible d’affecter la même licence de produit directement à l’utilisateur en plus de la licence héritée. Ceci peut être utilisé, par exemple, pour activer des services supplémentaires à partir du produit pour un utilisateur, sans affecter d’autres utilisateurs.
+Il est toutefois possible d’affecter la même licence de produit directement à l’utilisateur en plus de la licence héritée. Vous pouvez activer des services supplémentaires à partir du produit pour un utilisateur individuel, sans affecter les autres utilisateurs.
 
-Les licences affectées directement peuvent être supprimées, mais ceci n’affectera pas la licence héritée. Prenons l’utilisateur suivant qui hérite d’une licence Office 365 Enterprise E3 d’un groupe.
+Des licences attribuées directement peuvent être supprimées sans que cela affecte les licences héritées. Prenons l’utilisateur qui hérite d’une licence Office 365 Entreprise E3 d’un groupe.
 
-1. Initialement, l’utilisateur hérite de la licence du groupe *E3 - Services de base* uniquement. Cela active 4 plans de service, comme illustré dans l’image suivante.
+1. Initialement, l’utilisateur hérite uniquement de la licence du groupe *E3 - Services de base*, qui active quatre plans de service, comme indiqué :
 
   ![Capture d’écran des services activés par groupe E3](media/active-directory-licensing-group-advanced/e3-group-enabled-services.png)
 
-2. En cliquant sur **Affecter**, vous pouvez affecter directement une licence E3 à l’utilisateur. Dans ce cas, vous désactivez tous les plans de service, à l’exception de Yammer Enterprise.
+2. Vous pouvez sélectionner **Attribuer** pour attribuer directement une licence E3 à l’utilisateur. Dans ce cas, vous désactivez tous les plans de service à l’exception de Yammer Entreprise :
 
   ![Capture d’écran montrant comment affecter une licence directement à un utilisateur](media/active-directory-licensing-group-advanced/assign-license-to-user.png)
 
-3. Par conséquent, l’utilisateur n’utilise toujours qu’une seule licence du produit E3. L’affectation directe active le service Yammer Enterprise pour cet utilisateur uniquement. L’image suivante montre quels services sont activés par l’appartenance au groupe et l’affectation directe.
+3. Par conséquent, l’utilisateur n’utilise toujours qu’une seule licence du produit E3. L’affectation directe active le service Yammer Enterprise pour cet utilisateur uniquement. Vous pouvez voir les services activés par l’appartenance au groupe et ceux qui le sont par l’attribution directe :
 
   ![Capture d’écran de l’affectation héritée et directe](media/active-directory-licensing-group-advanced/direct-vs-inherited-assignment.png)
 
 4. Lorsque vous utilisez une affectation directe, les opérations suivantes sont autorisées :
 
-  a. Yammer Enterprise peut être désactivé sur l’objet utilisateur directement. Notez que le bouton **Activé/Désactivé** est activé pour ce service, ce qui n’est pas le cas des autres services. Ceci est dû au fait que ce service est activé directement sur l’utilisateur et peut donc être modifié.
-
-  b. Des services supplémentaires peuvent également être activés dans le cadre de la licence affectée directement.
-
-  c. Le bouton **Supprimer** peut être utilisé pour supprimer la licence directe de l’utilisateur. Vous pouvez constater que l’utilisateur ne dispose maintenant que de la licence de groupe héritée et que seuls les services d’origine restent activés.
+  - Yammer Enterprise peut être désactivé sur l’objet utilisateur directement. Notez que le bouton bascule **Activé/Désactivé** dans l’illustration est activé pour ce service, contrairement aux autres services. Étant donné que le service est activé directement sur l’utilisateur, il est possible de le modifier.
+  - Des services supplémentaires peuvent également être activés dans le cadre de la licence affectée directement.
+  - Le bouton **Supprimer** peut être utilisé pour supprimer la licence directe de l’utilisateur. Vous pouvez constater que l’utilisateur ne dispose à présent que de la licence de groupe héritée et que seuls les services d’origine restent activés :
 
     ![Capture d’écran montrant comment supprimer une affectation directe](media/active-directory-licensing-group-advanced/remove-direct-license.png)
 
-## <a name="usage-location"></a>Emplacement d’utilisation
+## <a name="managing-new-services-added-to-products"></a>Gestion des nouveaux services ajoutés aux produits
+Lorsque Microsoft ajoute un nouveau service à un produit, ce service est activé par défaut dans tous les groupes auxquels vous avez attribué la licence du produit. Les utilisateurs de votre client qui sont abonnés aux notifications relatives aux modifications apportées au produit reçoivent des e-mails à l’avance, les informant des ajouts de service à venir.
 
-Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété **Emplacement d’utilisation** sur l’utilisateur. Pour ce faire, il doit accéder au [portail Azure](https://portal.azure.com) et se rendre à la section **Utilisateur** &gt; **Profil** &gt; **Paramètres**.
+En tant qu’administrateur, vous pouvez passer en revue tous les groupes affectés par la modification et prendre des mesures telles que la désactivation du nouveau service dans tous les groupes. Par exemple, si vous avez créé des groupes ciblant uniquement des services spécifiques pour le déploiement, vous pouvez réexaminer ces groupes pour vous assurer que les nouveaux services ajoutés sont désactivés.
 
-Pour l’affectation d’une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si vos utilisateurs se trouvent à différents emplacements, assurez-vous de bien prendre en compte cette situation dans vos objets utilisateur avant d’ajouter des utilisateurs à des groupes avec licences.
+Voici un exemple de ce à quoi ce processus peut ressembler :
+
+1. À l’origine, vous avez affecté le produit *Office 365 Enterprise E5* à plusieurs groupes. L’un de ces groupes, nommé *O365 E5 - Exchange uniquement* a été conçu pour activer uniquement le service *Exchange Online (Plan 2)* pour ses membres.
+
+2. Vous avez reçu de Microsoft une notification signalant que le produit E5 va être étendu avec un nouveau service, *Microsoft Stream*. Lorsque le service devient disponible dans votre client, vous pouvez procéder comme suit :
+
+3. Accédez au panneau [**Azure Active Directory > Licences > Tous les produits**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products), sélectionnez *Office 365 Entreprise E5*, puis **Groupes sous licence** pour afficher la liste de tous les groupes disposant de ce produit.
+
+4. Cliquez sur le groupe que vous souhaitez examiner (dans ce cas, *O365 E5 - Exchange uniquement*). Cela a pour effet d’ouvrir l’onglet **Licences**. Cliquez sur la licence E5 a pour effet d’ouvrir un panneau répertoriant tous les services activés.
+> [!NOTE]
+> Le service *Microsoft Stream* a été automatiquement ajouté et activé dans ce groupe, en plus du service *Exchange Online*:
+
+  ![Capture d’écran du nouveau service ajouté à une licence de groupe](media/active-directory-licensing-group-advanced/manage-new-services.png)
+
+5. Si vous souhaitez désactiver le nouveau service dans ce groupe, cliquez sur le bouton bascule **Activé/Désactivé** en regard du service, puis sur le bouton **Enregistrer** pour confirmer la modification. Azure AD va maintenant traiter tous les utilisateurs du groupe pour appliquer la modification. Le service *Microsoft Stream* ne sera pas activé pour les nouveaux utilisateurs ajoutés au groupe.
+
+  > [!NOTE]
+  > Il se peut néanmoins que le service soit activé pour ces utilisateurs par le biais d’une autre attribution de licence (un autre groupe dont ils sont membres ou une attribution directe de licence).
+
+6. Si nécessaire, procédez de même pour d’autres groupes auxquels ce produit des attribué.
 
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Utiliser PowerShell pour voir qui dispose de licences héritées et directes
-Si la gestion des licences est effectuée dans la préversion publique, PowerShell ne peut pas être utilisé pour contrôler entièrement les affectations de licence de groupe. Il peut toutefois être utilisé pour consulter des informations de base sur l’état de l’utilisateur et déterminer si des licences sont héritées d’un groupe ou affectées directement. L’exemple de code suivant montre comment un administrateur peut produire un rapport de base sur les affectations de licences.
+Vous pouvez utiliser un script PowerShell pour vérifier si les utilisateurs disposent d’une licence attribuée directement ou héritée d’un groupe.
 
 1. Exécutez l’applet de commande `connect-msolservice` pour vous authentifier et vous connecter à votre locataire.
 
@@ -124,101 +145,80 @@ Si la gestion des licences est effectuée dans la préversion publique, PowerShe
 
   ![Capture d’écran de l’applet de commande Get-Msolaccountsku](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
-3. Dans cet exemple, vous souhaitez savoir à quels utilisateurs la licence Enterprise Mobility + Security est affectée directement, à partir d’un groupe, ou les deux. Vous pouvez utiliser le script PowerShell suivant.
-  
-  ```
-  #Returns TRUE if the user has the license assigned directly
-  function UserHasLicenseAssignedDirectly
-  {
-      Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
-      foreach($license in $user.Licenses)
-      {
-          #we look for the specific license SKU in all licenses assigned to the user
-          if ($license.AccountSkuId -ieq $skuId)
-          {
-              #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-              #This could be a group object or a user object (contrary to what the name suggests)
-              #If the collection is empty, this means the license is assigned directly. This is the case for users who have never been licensed via groups in the past
-              if ($license.GroupsAssigningLicense.Count -eq 0)
-              {
-                  return $true
-              }
-              #If the collection contains the ID of the user object, this means the license is assigned directly
-              #Note: the license may also be assigned through one or more groups in addition to being assigned directly
-              foreach ($assignmentSource in $license.GroupsAssigningLicense)
-              {
-                  if ($assignmentSource -ieq $user.ObjectId)
-                  {
-                      return $true
-                  }
-              }
-              return $false
-          }
-      }
-      return $false
-  }
-  #Returns TRUE if the user is inheriting the license from a group
-  function UserHasLicenseAssignedFromGroup
-  {
-    Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
-     foreach($license in $user.Licenses)
-     {
-        #we look for the specific license SKU in all licenses assigned to the user
-        if ($license.AccountSkuId -ieq $skuId)
-        {
-          #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-          #This could be a group object or a user object (contrary to what the name suggests)
-            foreach ($assignmentSource in $license.GroupsAssigningLicense)
-          {
-                  #If the collection contains at least one ID not matching the user ID this means that the license is inherited from a group.
-                  #Note: the license may also be assigned directly in addition to being inherited
-                  if ($assignmentSource -ine $user.ObjectId)
+3. Utilisez avec ce [script PowerShell](./active-directory-licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) la valeur *AccountSkuId* correspondant à la licence qui vous intéresse. Cela génère la liste des utilisateurs disposant de cette licence, avec les informations concernant la manière dont la licence a été attribuée.
 
-            {
-                      return $true
-            }
-          }
-              return $false
-        }
-      }
-      return $false
-  }
-  ```
+## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Utiliser les journaux d’audit pour surveiller l’activité de gestion des licences par groupe
 
-4. Le reste du script permet d’obtenir tous les utilisateurs et d’exécuter ces fonctions sur chacun d’eux. Ensuite il met en forme la sortie dans une table.
-    
-  ```
-  #the license SKU we are interested in
-  $skuId = "reseller-account:EMS"
-  #find all users that have the SKU license assigned
-  Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID -eq $skuId} | select `
-      ObjectId, `
-      @{Name="SkuId";Expression={$skuId}}, `
-      @{Name="AssignedDirectly";Expression={(UserHasLicenseAssignedDirectly $_ $skuId)}}, `
-      @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
-  ```
+Vous pouvez utiliser les [Journaux d’audit AD Azure](./active-directory-reporting-activity-audit-logs.md#audit-logs) pour voir toutes les activités relatives à la gestion des licences par groupe, à savoir :
+- qui a modifié les licences attribuées aux groupes ;
+- quand le système a démarré le traitement d’une modification de licence de groupe et quand il a terminé ;
+- quelles modifications de licence ont été apportées à un utilisateur à la suite d’une attribution de licence de groupe.
 
-5. La sortie du script terminé s’affiche comme suit :
+>[!NOTE]
+> Des journaux d’audit sont disponibles sur la plupart des panneaux dans la section Azure Active Directory du portail. Selon l’emplacement où vous accédez à ceux-ci, des filtres peuvent être préappliqués pour afficher uniquement l’activité pertinente dans le contexte du panneau. Si vous ne voyez pas les résultats attendus, examinez les [options de filtrage](./active-directory-reporting-activity-audit-logs.md#filtering-audit-logs) ou accédez aux journaux d’audit non filtrés sous [**Azure Active Directory > Activité > Journaux d’audit**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
 
-  ![Capture d’écran de la sortie de script PowerShell](media/active-directory-licensing-group-advanced/powershell-script-output.png)
+### <a name="find-out-who-modified-a-group-license"></a>Déterminer qui a modifié une licence de groupe
+
+1. Définissez le filtre **Activité** sur *Définition d’une licence de groupe*, puis cliquez sur **Appliquer**.
+2. Les résultats incluent tous les cas de définition ou de modification de licences sur les groupes.
+>[!TIP]
+> Vous pouvez également taper le nom du groupe dans le filtre *Cible* afin de délimiter l’étendue des résultats.
+
+3. Cliquez sur un élément dans la liste pour afficher les détails de ce qui a changé. Sous *Propriétés modifiées* sont répertoriées les valeurs tant anciennes que nouvelles d’attribution de licence.
+
+Voici un exemple de modifications récentes de licence groupe, avec des détails :
+
+![Capture d’écran de modifications de licence de groupe](media/active-directory-licensing-group-advanced/audit-group-license-change.png)
+
+### <a name="find-out-when-group-changes-started-and-finished-processing"></a>Déterminer quand le traitement de modifications de groupe a commencé et s’est terminé
+
+Quand une licence change pour un groupe, Azure AD commence à appliquer les modifications à tous les utilisateurs.
+
+1. Pour voir quand le traitement des groupes a commencé, définissez le filtre **Activité** sur *Commencer à appliquer une licence basée sur un groupe à des utilisateurs*. Notez que l’acteur pour l’opération est *Microsoft Azure AD Group-Based Licensing*, un compte système utilisé pour exécuter toutes les modifications de licence de groupe.
+>[!TIP]
+> Cliquez sur un élément dans la liste pour afficher le champ *Propriétés modifiées*. Celui-ci affiche les modifications de licence sélectionnées pour traitement. Cela est utile si vous avez apporté plusieurs modifications à un groupe et n’êtes certain de celles qui ont été traitées.
+
+2. De même, pour voir quand le traitement des groupes s’est terminé, utilisez la valeur de filtre *Terminer l’application d’une licence basée sur le groupe à des utilisateurs*.
+>[!TIP]
+> Dans ce cas, le champ *Propriétés modifiées* contient une synthèse des résultats, qui est utile pour vérifier rapidement si le traitement a généré des erreurs. Exemple de sortie :
+> ```
+Modified Properties
+...
+Name : Result
+Old Value : []
+New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
+> ```
+
+3. Pour afficher le journal complet indiquant la manière dont un groupe a été traité, y compris toutes les modifications utilisateur, définissez les filtres suivants :
+  - **Initié par (acteur)** : « Microsoft Azure AD Group-Based Licensing ».
+  - **Plage de dates** (facultatif) : plage personnalisée indiquant quand, à votre connaissance, le traitement d’un groupe spécifique a commencé et s’est terminé.
+
+Cet exemple de sortie indique le début du traitement, les modifications utilisateur opérées, et la fin du traitement.
+
+![Capture d’écran de modifications de licence de groupe](media/active-directory-licensing-group-advanced/audit-group-processing-log.png)
+
+>[!TIP]
+> Cliquer sur des éléments liés à une *Modification de la licence d’un utilisateur* a pour effet d’afficher les détails des changements de licence appliqués à chaque utilisateur.
 
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 
 Si vous utilisez la gestion des licences par groupe, il est conseillé de vous familiariser avec la liste suivante des limitations et problèmes connus.
 
-- La licence basée sur le groupe ne prend actuellement pas en charge les « groupes imbriqués » (groupes contenant d’autres groupes). Si vous appliquez une licence à un groupe imbriqué, les licences ne sont appliquées qu’aux membres utilisateurs de premier niveau immédiat du groupe.
+- Actuellement, la gestion des licences par groupe ne prend pas en charge les groupes contenant d’autres groupes. Si vous appliquez une licence à un groupe imbriqué, les licences ne sont appliquées qu’aux membres utilisateurs de premier niveau immédiat du groupe.
 
-- Une ou plusieurs licences n’ont pas pu être modifiées, car elles ont hérité d’une appartenance à un groupe. Pour afficher ou modifier des licences basées sur le groupe, visitez le portail d’administration d’Azure.
+- La fonctionnalité peut être utilisée uniquement avec des groupes de sécurité. Actuellement, les groupes Office ne sont pas pris en charge et vous ne pouvez pas les utiliser dans le processus d’attribution de licence.
 
-- Le [portail d’administration Office 365](https://portal.office.com ) ne prend actuellement pas en charge la licence basée sur le groupe. Si un utilisateur hérite d’une licence d’un groupe, cette licence apparaît dans le portail d’administration Office comme une licence utilisateur normale. Si vous essayez de modifier cette licence (par exemple, pour désactiver un service dans la licence, ou essayez de supprimer la licence), le portail renvoie un message d’erreur. Les licences de groupe héritées ne peuvent pas être modifiées directement sur un utilisateur.
+- Le [portail d’administration Office 365](https://portal.office.com ) ne prend actuellement pas en charge la licence basée sur le groupe. Si un utilisateur hérite d’une licence d’un groupe, cette licence apparaît dans le portail d’administration Office comme une licence utilisateur normale. Si vous tentez de modifier ou de supprimer cette licence, le portail renvoie un message d’erreur. Les licences de groupe héritées ne peuvent pas être modifiées directement sur un utilisateur.
 
-- Lorsqu’un utilisateur est supprimé d’un groupe et perd la licence, les plans de services provenant de cette licence (par exemple, Exchange Online ou SharePoint Online) sont définis sur un état « suspendu ». Les plans de service ne sont pas définis sur un état final « désactivé ». Cette précaution permet d’éviter une suppression accidentelle de données utilisateur si un administrateur commet une erreur dans la gestion de l’appartenance au groupe.
+- Quand un utilisateur est supprimé d’un groupe et perd la licence, les plans de services de cette licence (par exemple, SharePoint Online) sont définis sur un état **Suspendu**. Les plans de service ne sont pas définis sur un état final « désactivé ». Cette précaution permet d’éviter une suppression accidentelle de données utilisateur si un administrateur commet une erreur dans la gestion de l’appartenance au groupe.
 
-- Lorsque les licences sont affectées ou modifiées pour un très grand groupe (par exemple, 100 000 utilisateurs), cela peut affecter les performances. Plus précisément, le volume de modifications générées par Azure AD Automation peut affecter les performances de synchronisation de votre annuaire entre Azure AD et les systèmes locaux. Cela peut entraîner des retards de synchronisation d’annuaire dans votre environnement.
+- Lorsque des licences sont attribuées ou modifiées pour un groupe de grande taille (par exemple, 100 000 utilisateurs), cela peut affecter les performances. Plus précisément, le volume de modifications générées par Azure AD Automation peut affecter les performances de synchronisation de votre annuaire entre Azure AD et les systèmes locaux.
 
 - L’automatisation de la gestion des licences ne réagit pas automatiquement à tous les types de modifications dans l’environnement. Par exemple, il se peut que vous manquiez de licences et que certains utilisateurs se retrouvent dans un état d’erreur. Pour libérer le nombre de sièges disponibles, vous pouvez supprimer des licences affectées directement d’autres utilisateurs. Le système ne réagit toutefois pas automatiquement à cette modification et ne corrige pas les utilisateurs dans cet état d’erreur.
 
-  Pour résoudre ces types de limitations, vous pouvez accéder au panneau **Groupe** dans Azure AD et cliquer sur **Retraiter**. Tous les utilisateurs de ce groupe sont traités et, si cela est possible, les états d’erreur sont résolus.
+  Pour résoudre ces types de limitations, vous pouvez accéder au panneau **Groupe** dans Azure AD et cliquer sur **Retraiter**. Cette commande traite tous les utilisateurs de ce groupe et résout les états d’erreur, si cela est possible.
+
+- La gestion des licences par groupe n’enregistre pas d’erreurs quand une licence n’a pas pu être attribuée à un utilisateur en raison d’une configuration d’adresse proxy en double dans Exchange Online. Ces utilisateurs sont ignorés durant l’attribution de licence. Pour plus d’informations sur la façon d’identifier et de résoudre ce problème, voir [cette section](./active-directory-licensing-group-problem-resolution-azure-portal.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

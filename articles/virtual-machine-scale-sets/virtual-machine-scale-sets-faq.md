@@ -13,15 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/03/2017
+ms.date: 7/20/2017
 ms.author: negat
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 718732df4455831454245ea1a80d49e042c20f09
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f320dd5d1f8c99317792f4ae9e09bc5adaf79e25
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -511,7 +510,7 @@ Oui. Un groupe de sécurité réseau peut être appliqué directement à un grou
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Comment effectuer un échange d’adresses IP virtuelles pour les groupes de machines virtuelles identiques dans le même abonnement et la même région ?
 
-Si vous disposez de deux groupes de machines virtuelles identiques avec serveurs frontaux Azure Load Balancer, et qu’ils font partie d’une région et d’un abonnement identique, vous pouvez libérer l’adresse IP publique d’un groupe pour l’assigner à l’autre. Consultez [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Échange d’adresse IP virtuelle (VIP) : Déploiement Bleu/vert dans Azure Resource Manager) pour avoir un exemple. À noter que cela implique un délai, car les ressources doivent être libérées/allouées au niveau du réseau. Une autre option consiste à héberger votre application avec [Azure App service](https://azure.microsoft.com/en-us/services/app-service/), qui fournit une assistance pour basculer rapidement entre emplacements intermédiaires et emplacements de production.
+Si vous disposez de deux groupes de machines virtuelles identiques avec serveurs frontaux Azure Load Balancer, et qu’ils font partie d’une région et d’un abonnement identique, vous pouvez libérer l’adresse IP publique d’un groupe pour l’assigner à l’autre. Consultez [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Échange d’adresse IP virtuelle (VIP) : Déploiement Bleu/vert dans Azure Resource Manager) pour avoir un exemple. À noter que cela implique un délai, car les ressources doivent être libérées/allouées au niveau du réseau. Une option plus rapide consiste à utiliser la passerelle Azure Application Gateway avec deux pools backend et une règle de routage. Une autre option consiste à héberger votre application avec [Azure App service](https://azure.microsoft.com/en-us/services/app-service/), qui fournit une assistance pour basculer rapidement entre emplacements intermédiaires et emplacements de production.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Comment spécifier une plage d’adresses IP privées à utiliser pour l’allocation d’adresse IP privée statique ?
 
@@ -571,7 +570,11 @@ Pour créer un groupe de machine virtuelle identique qui attribue une adresse IP
     }
 ```
 
-## <a name="scale"></a>Mettre à l'échelle
+### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Puis-je configurer un groupe identique à utiliser avec plusieurs passerelles Application Gateway ?
+
+Oui. Vous pouvez ajouter l’ID de ressource de plusieurs pools d’adresses backend Application Gateway à la liste _applicationGatewayBackendAddressPools_ dans la section _ipConfigurations_ du profil réseau du groupe identique.
+
+## <a name="scale"></a>Scale
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>Dans quel cas dois-je créer un groupe de machines virtuelles identiques avec moins de deux machines virtuelles ?
 

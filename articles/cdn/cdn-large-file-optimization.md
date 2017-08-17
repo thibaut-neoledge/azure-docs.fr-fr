@@ -1,6 +1,6 @@
 ---
-title: "Optimisation via Azure CDN de téléchargement de fichiers volumineux"
-description: "Optimisation de téléchargements approfondis de fichiers volumineux"
+title: "Optimisation du téléchargement de fichiers volumineux via Azure Content Delivery Network"
+description: "Optimisation des téléchargements de fichiers volumineux expliquée en profondeur"
 services: cdn
 documentationcenter: 
 author: smcevoy
@@ -14,67 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 27e202b05f86eeee7071f3fae145caeba3d66827
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="large-file-download-optimization-via-azure-cdn"></a>Optimisation via Azure CDN de téléchargement de fichiers volumineux
+# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Optimisation du téléchargement de fichiers volumineux via Azure Content Delivery Network
 
-Les tailles des fichiers de contenu fournis via internet ont progressivement augmenté en raison de l’amélioration des fonctionnalités, des graphiques et d’un contenu multimédia riche. De nombreux facteurs en sont la cause, notamment la pénétration des bandes passantes, des périphériques de stockage économiques supérieurs, la prolifération de vidéos haute définition, des périphériques connectés à internet (IoT), etc.  Fournir un mécanisme de remise plus rapide et efficace de ces fichiers volumineux est essentiel pour garantir une expérience du consommateur continue et plus agréable. 
+Les tailles des fichiers distribués sur Internet ne cessent de croître en raison du perfectionnement des fonctionnalités, de l’amélioration des graphismes et de l’enrichissement des contenus multimédias. Cette croissance résulte de divers facteurs : pénétration de la large bande, augmentation de la capacité des périphériques de stockage bon marché, prolifération des vidéos haute définition et objets connectés à Internet (IoT). Un mécanisme de distribution rapide et efficace des fichiers volumineux est essentiel pour garantir au consommateur une expérience fluide et agréable.
 
-Il existe plusieurs défis inhérents à la distribution de fichiers volumineux. Tout d’abord, le temps moyen de téléchargement d’un fichier volumineux peut être important, de nombreuses applications ne peuvent pas télécharger toutes les données de manière séquentielle. Dans certains cas, les applications peuvent télécharger la dernière partie d’un fichier avant la première. Par conséquent, lorsqu’une petite partie d’un fichier est requise ou lorsqu’un utilisateur interrompt un téléchargement, cela peut entraîner l’échec ou le retardement du téléchargement jusqu'à ce que l’intégralité du fichier soit récupérée à partir de l’origine par le CDN. 
+La distribution de fichiers volumineux présente plusieurs difficultés. Premièrement, le temps moyen de téléchargement d’un fichier volumineux peut être important parce que certaines applications peuvent ne pas télécharger pas toutes les données de manière séquentielle. Certaines applications peuvent télécharger la dernière partie d’un fichier avant la première. Lorsque la demande ne porte que sur une petite partie d’un fichier ou quand un utilisateur suspend un téléchargement, le téléchargement peut échouer. Le téléchargement peut également être retardé jusqu'au moment où le réseau de distribution de contenu (CDN) a récupéré la totalité du fichier à partir du serveur d’origine. 
 
-Ensuite, avec la prolifération des fichiers volumineux sur Internet, les utilisateurs observent souvent que la latence entre l’utilisateur et le fichier dicte finalement le débit ou la vitesse d’affichage du contenu. En outre, des problèmes de capacité et de congestion du réseau impactent le débit et ces problèmes, associés à la distance supérieure entre serveur et l’utilisateur final, créent des risques supplémentaires de perte de paquets, ce qui réduit encore la qualité. La réduction de la qualité causée par le débit limité et une perte de paquets accrue peut se manifester en un délai d’attente considérablement accru jusqu’à la fin du téléchargement. 
+Deuxièmement, la latence entre l’ordinateur d’un utilisateur et le fichier détermine la vitesse à laquelle le contenu peut s’afficher. Par ailleurs, des problèmes de surcharge et de capacité du réseau affectent également le débit. Les distances plus importantes entre les serveurs et les utilisateurs créent des possibilités supplémentaires de perte de paquets, ce qui affecte la qualité. La réduction de la qualité due à débit limité et à une perte accrue de paquets peut augmenter le temps d’attente pour que le téléchargement d’un fichier s’achève. 
 
-Enfin, de nombreux fichiers volumineux ne sont pas livrés dans leur intégralité. Les utilisateurs peuvent annuler un téléchargement en plein milieu ou ne regarder que les premières minutes d’une longue vidéo MP4. Par conséquent, il est utile pour de nombreuses sociétés de distribution de logiciels et de supports de fournir uniquement la partie d’un fichier demandée par l’utilisateur final. De cette manière, seules les parties demandées seront distribuées efficacement aux points les plus reculés d’Internet, réduisant ainsi le trafic de sortie à partir de l’origine et par conséquent, la pression de la mémoire et des e/s sur le serveur d’origine. 
+Troisièmement, de nombreux fichiers volumineux ne sont pas distribués dans leur intégralité. Les utilisateurs peuvent annuler un téléchargement en plein milieu ou ne regarder que les premières minutes d’une longue vidéo MP4. Par conséquent, les sociétés de distribution de logiciels et de contenus multimédias souhaitent distribuer uniquement la portion demandée d’un fichier. Une distribution efficace des portions demandées réduit le trafic sortant du serveur d’origine. Une distribution efficace réduit également la mémoire et la pression d’E/S sur le serveur d’origine. 
 
-Azure CDN d’Akamai propose désormais une fonctionnalité adaptée à la distribution efficace de fichiers volumineux aux utilisateurs finaux dans le monde entier à des latences à l’échelle et réduite tout en diminuant la charge sur les serveurs d’origine. Cette fonctionnalité est disponible via la fonctionnalité « Optimisé pour » sur le point de terminaison Azure CDN créé sous un profil Azure CDN avec un niveau de tarification « Akamai Standard ».
+Le réseau Azure Content Delivery Network d’Akamai offre désormais une fonctionnalité qui distribue des fichiers volumineux efficacement à des utilisateurs dans le monde entier à grande échelle. La fonctionnalité réduit les latences, car elle réduit la charge sur les serveurs d’origine. Cette fonctionnalité est disponible au niveau de tarification Standard d’Akamai.
 
-## <a name="configuring-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configuration de point de terminaison CDN pour optimiser la distribution de fichiers volumineux
+## <a name="configure-a-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configurer un Point de terminaison CDN pour optimiser la distribution de fichiers volumineux
 
-Vous pouvez configurer votre point de terminaison CDN pour optimiser la distribution des fichiers volumineux via le portail Azure en sélectionnant simplement l’option « Téléchargement de fichier volumineux » en sélectionnant la propriété « Optimisé pour » lors de la création du point de terminaison. Pour ce faire, vous pouvez également utiliser nos API REST ou un des kits de développement logiciel client. Les captures d’écran ci-dessous illustrent le processus via le portail Azure.
+Vous pouvez configurer votre point de terminaison CDN pour optimiser la distribution de fichiers volumineux via le portail Azure. Pour ce faire, vous pouvez également utiliser nos API REST ou tout SDK client. Les étapes suivantes montrent le processus via le portail Azure.
 
-![Nouveau point de terminaison CDN](./media/cdn-large-file-optimization/01_Adding.png)  
+1. Pour ajouter un nouveau point de terminaison, dans la page **Profil CDN**, sélectionnez **Point de terminaison**.
+
+    ![Nouveau point de terminaison](./media/cdn-large-file-optimization/01_Adding.png)  
  
-*Figure 1 : ajout d’un nouveau point de terminaison CDN à partir du profil CDN*
- 
-![LFO sélectionné](./media/cdn-large-file-optimization/02_Creating.png)
+2. Dans la liste déroulante **Optimisé pour**, sélectionnez **Téléchargement de fichiers volumineux**.
 
-*Figure 2 : création d’un point de terminaison CDN avec l’optimisation du téléchargement de fichiers volumineux sélectionnée*
+    ![Optimisation des fichiers volumineux sélectionnée](./media/cdn-large-file-optimization/02_Creating.png)
 
-Une fois le point de terminaison CDN créé, les optimisations de fichiers volumineux seront appliquées pour tous les fichiers qui correspondent à certains critères. La section suivante décrit cela en détail.
 
-## <a name="optimizing-for-delivery-of-large-files-with-azure-cdn-from-akamai"></a>Optimisation pour la distribution de fichiers volumineux avec Azure CDN d’Akamai
+Une fois le point de terminaison CDN créé, il applique les optimisations de fichiers volumineux pour tous les fichiers correspondant à certains critères. La section suivante décrit ce processus.
 
-Pour Azure CDN d’Akamai, vous pouvez utiliser la fonctionnalité de type d’optimisation de fichiers volumineux pour activer les optimisations et les configurations de réseaux qui rendent la distribution de fichiers volumineux plus rapide et plus réactive. La distribution générale sur le Web avec Akamai ne peut que mettre en cache des fichiers en-dessous de 1,8 Go et peut tunneler (pas mettre en cache) les fichiers jusqu'à 150 Go, tandis que l’optimisation de fichiers volumineux permet la mise en cache de fichiers jusqu'à 150 Go.
+## <a name="optimize-for-delivery-of-large-files-with-the-azure-content-delivery-network-from-akamai"></a>Optimiser pour la distribution de fichiers volumineux avec le réseau Azure Content Delivery Network d’Akamai
 
-L’optimisation de fichiers volumineux est efficace lorsque certaines conditions sont remplies en ce qui concerne la façon dont le serveur d’origine fonctionne, les types de fichiers requis et la taille des fichiers demandés. Avant d’entrer dans les détails pour chacune d’entre elles, il est important de comprendre dans son ensemble le fonctionnement de l’optimisation. 
+La fonctionnalité de type d’optimisation des fichiers volumineux active les optimisations et les configurations de réseaux pour distribuer les fichiers volumineux plus rapidement et de façon plus réactive. La distribution web générale avec Akamai met en cache uniquement les fichiers d’une taille inférieure à 1,8 Go et peut « tunneler » (sans mise en cache) des fichiers jusqu'à 150 Go. L’optimisation des fichiers volumineux met en cache les fichiers jusqu'à 150 Go.
 
-### <a name="object-chunking"></a>Segmentation des objets 
+L’optimisation des fichiers volumineux est efficace lorsque certaines conditions sont réunies. Ces conditions incluent la manière dont le serveur d’origine opère, ainsi que les tailles et types de fichiers demandés. Avant de passer aux détails sur ces sujets, vous devez comprendre fonctionne l’optimisation. 
 
-Azure CDN d’Akamai utilise une technique appelée segmentation d’objets où le CDN récupère des éléments plus petits du fichier à partir de l’origine lorsqu’un fichier volumineux est demandé. Lorsque le serveur Edge / POP CDN reçoit une demande de fichiers de plage d’octets ou entier d’un utilisateur final, il vérifie tout d’abord si le type de fichier appartient à la liste des types de fichiers pris en charge pour cette optimisation et s’il répond aux exigences de tailles de fichier. Si la taille du fichier est supérieure à 10 Mo, le serveur Edge CDN démarre la demande du fichier à partir du serveur d’origine par segments de 2 Mo. Une fois que le segment arrive à la périphérie CDN, il est mis en cache et est immédiatement livré à l’utilisateur final, tandis que le CDN procède à une lecture anticipée du segment suivant en parallèle. Cette « lecture anticipée » garantit que le contenu est disponible plus tôt en laissant un segment devant l’utilisateur tout en réduisant la latence pour l’utilisateur final. Ce processus se poursuit jusqu'à ce que l’intégralité du fichier soit téléchargé (si l’utilisateur final a demandé l’intégralité du fichier), jusqu'à ce que toutes les plages d’octets demandées soient disponibles (si l’utilisateur final a demandé des plages d’octets) ou le client quitte la connexion. 
+### <a name="object-chunking"></a>Segmentation d’objet 
 
-Vous trouverez les détails de la demande de plage d’octets dans le [RFC 7233](https://tools.ietf.org/html/rfc7233).
+Le réseau Azure Content Delivery Network d’Akamai utilise une technique appelée segmentation des objets. Quand un fichier volumineux est demandé, le CDN récupère des éléments plus petits du fichier à partir de l’origine. Lorsque le serveur de périphérie/POP du CDN reçoit une demande de fichier complet ou de plage d’octets de fichier, il vérifie si le type de fichier est pris en charge pour cette optimisation. Il vérifie également si le type de fichier satisfait les exigences de taille de fichier. Si la taille du fichier est supérieure à 10 Mo, le serveur de périphérie du CDN demande à recevoir le fichier de l’origine en blocs de 2 Mo. 
 
-Le CDN met en cache les segments lorsqu’ils sont reçus et ne demande pas que l’intégralité du fichier soit mise en cache sur le cache CDN. Les demandes suivantes pour les plages d’octets ou de fichiers seront traitées par le cache CDN et utiliseront une « lecture anticipée » pour demander des segments à partir de l’origine si tous les segments ne sont pas mis en cache sur le CDN. Comme vous pouvez le constater, cette optimisation s’appuie sur le serveur d’origine qui prend en charge les demandes de plages d’octets. _Si le serveur d’origine ne prend pas en charge les demandes de plages d’octets, cette optimisation ne sera pas effective._ 
+Quand un segment arrive à la périphérie du CDN, il est mis en cache et immédiatement servi à l’utilisateur. Le CDN prérécupère alors le bloc suivant en parallèle. Cette prérécupération garantit que le contenu a un bloc d’avance sur l’utilisateur, ce qui a réduit la latence. Ce processus se poursuit jusqu'à ce que le fichier entier soit téléchargé (si nécessaire), que toutes les plages d’octets soient disponibles (si nécessaire), ou que le client mette fin à la connexion. 
+
+Pour plus d’informations sur la demande de plage d’octets, voir [RFC 7233](https://tools.ietf.org/html/rfc7233).
+
+Le CDN met en cache les blocs au fur et à mesure de leur réception. Le fichier entier ne doit être mis en cache sur le cache du CDN. Les demandes suivantes du fichier ou des plages d’octets sont servies à partir du cache du CDN. Si tous les blocs sont mis en cache sur le CDN, une prérécupération est utilisée pour demander des blocs de l’origine. Cette optimisation s’appuie sur la capacité du serveur d’origine à prendre en charge des demandes de plages d’octets. _Si le serveur d’origine ne prend pas en charge les demandes de plages d’octets, cette optimisation n’est pas effective._ 
 
 ### <a name="caching"></a>Mise en cache
-Les fichiers volumineux utilisent des délais d’expiration de mise en cache par défaut différent pour la distribution générale. Il établit la distinction entre la mise en cache positive et négative basée sur les codes de réponse HTTP. Si l’origine spécifie une heure à l’aide d’un délai d’expiration via l’en-tête Cache-Control ou Expires dans la réponse, le CDN respecte toujours cette valeur. Lorsque l’origine ne spécifie pas l’origine et que le fichier correspond à la liste des conditions de types de fichiers et de tailles de fichiers pour ce type d’optimisation, le CDN utilise les valeurs par défaut pour l’optimisation des fichiers volumineux. Sinon, le CDN utilise par défaut pour la distribution générale sur le Web.
+L’optimisation des fichiers volumineux utilise des temps d’expiration de mise en cache par défaut différents de ceux d’une livraison web générale. Il établit la distinction entre la mise en cache positive et négative basée sur les codes de réponse HTTP. Si le serveur d’origine spécifie un délai d’expiration via un en-tête Cache-control ou Expires dans la réponse, le CDN respecte cette valeur. Lorsque le serveur d’origine ne spécifie rien de tel et que le fichier remplit les conditions de type et de taille de fichier pour ce type d’optimisation, le CDN utilise les valeurs par défaut pour l’optimisation des fichiers volumineux. Autrement, le CDN utilise les paramètres par défaut pour une livraison web générale.
 
- 
-|    | Web générale | Optimisation des fichiers volumineux 
+
+|    | Livraison web générale | Optimisation des fichiers volumineux 
 --- | --- | --- 
-Mise en cache - positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |1 jour  
-Mise en cache - négative <br> HTTP 204, 305, 404, <br> et 405 | Aucun | 1 seconde 
+Mise en cache : positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |1 jour  
+Mise en cache : négative <br> HTTP 204, 305, 404, <br> et 405 | Aucune | 1 seconde 
 
-### <a name="dealing-with-origin-failure"></a>Traitement des défaillances d’origine
+### <a name="deal-with-origin-failure"></a>Traitement des défaillances de l’origine
 
-Dans le type d’optimisation de fichiers volumineux, la longueur du délai d’attente de lecture d’origine est augmentée de 2 secondes dans la distribution générale sur le Web à 2 minutes pour prendre en compte les tailles de fichiers supérieures pour que la connexion n’expire pas prématurément.
+La longueur du délai d'expiration de lecture de l’origine augmente de deux secondes pour une livraison web générale, à deux minutes pour le type d’optimisation des fichiers volumineux. Cette augmentation s’explique pour les fichiers plus volumineux afin d’éviter une expiration prématurée de connexion.
 
-Comme pour la distribution générale sur le Web, lorsqu’une connexion expire, nous allons réessayer un certain nombre de fois avant l’envoi d’une erreur de délai d’attente de la passerelle 504 au client. 
+Quand une connexion arrive à expiration, le CDN retente de l’établir un certain nombre de fois avant d’envoyer une erreur « 504 - Dépassement du délai de la passerelle » au client. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Conditions d’optimisation des fichiers volumineux
 
@@ -87,38 +90,41 @@ Taille minimale du fichier | 10 Mo
 Taille maximale du fichier | 150 Go 
 Caractéristiques du serveur d’origine | Doit prendre en charge des demandes de plages d’octets 
 
-## <a name="optimizing-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Optimisation pour la distribution de fichiers volumineux avec Azure CDN de Verizon
+## <a name="optimize-for-delivery-of-large-files-with-the-azure-content-delivery-network-from-verizon"></a>Optimiser pour la distribution de fichiers volumineux avec le réseau Azure Content Delivery Network de Verizon
 
-Azure CDN de Verizon est capable de distribuer des fichiers volumineux sans limite de la taille des fichiers et a différentes fonctionnalités qui activent la distribution de fichiers volumineux plus rapidement par défaut.
+Le réseau Azure Content Delivery Network de Verizon distribue des fichiers volumineux sans limite de taille. Des fonctionnalités supplémentaires sont activées par défaut pour accélérer la distribution de fichiers volumineux.
 
-### <a name="complete-cache-fill"></a>Remplissage de cache complet
+### <a name="complete-cache-fill"></a>Remplissage du cache complet
 
-Azure CDN de Verizon dispose d’une fonctionnalité par défaut appelée Remplissage de cache complet dans laquelle le CDN extrait un fichier dans le cache lorsque la demande initiale est abandonnée ou perdue. 
+La fonctionnalité de remplissage du cache complet par défaut permet au CDN d’extraire un fichier dans le cache en cas d’abandon ou de perte d’une demande initiale. 
 
-Cette fonctionnalité est particulièrement utile pour les ressources volumineuses que les utilisateurs ne téléchargent pas généralement du début à la fin (par exemple, le téléchargement progressif des vidéos). Par conséquent, cette fonctionnalité est activée par défaut avec Azure CDN de Verizon. Le comportement par défaut consiste à forcer le serveur Edge à lancer une récupération en arrière-plan de la ressource à partir du serveur d’origine. Après quoi, la ressource se trouvera dans le cache local du serveur Edge. Une fois l’objet complet dans le cache, la périphérie peut répondre aux demandes de plages d’octets dans le CDN pour l’objet mis en cache.
+Le remplissage du cache complet est très utile pour les ressources volumineuses. En règle générale, les utilisateurs ne téléchargent pas celles-ci du début à la fin. Ils utilisent un téléchargement progressif. Le comportement par défaut consiste à forcer le serveur de périphérie à lancer une récupération en arrière-plan de la ressource à partir du serveur d’origine. Ensuite, la ressource se trouve dans le cache local du serveur de périphérie. Une fois l’objet complet dans le cache, le serveur de périphérie satisfait les demandes de plages d’octets adressées au CDN pour l’objet mis en cache.
 
-Le comportement de remplissage de cache complet par défaut peut être désactivé via le moteur de règles dans le niveau premium de Verizon.
+Le comportement par défaut peut être désactivé via le moteur de règles dans le niveau Premium de Verizon.
 
-### <a name="peer-cache-fill-hotfiling"></a>Remplissage à chaud du cache homologue
+### <a name="peer-cache-fill-hot-filing"></a>Remplissage à chaud du cache d'homologue
 
-Il s’agit d’une fonctionnalité par défaut de Azure CDN de Verizon, dans laquelle un algorithme propriétaire sophistiqué peut tirer parti de serveurs Edge de mise en cache basés sur des mesures telles que la bande passante et des requêtes d’agrégation pour répondre aux demandes du client pour des objets volumineux, très populaires. Cela empêche une situation dans laquelle un grand nombre de demandes supplémentaires seraient envoyées au serveur d’origine d’un client. 
+La fonctionnalité de remplissage à chaud du cache d'homologue par défaut utilise un algorithme propriétaire sophistiqué. Elle utilise des serveurs de mise en cache de périphérie supplémentaires en fonction de la bande passante et des métriques de demandes agrégées pour répondre aux demandes de clients pour des objets très populaires volumineux. Cette fonctionnalité empêche une situation dans laquelle de grands nombres de demandes supplémentaires seraient envoyées au serveur d’origine d’un client. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Conditions d’optimisation des fichiers volumineux
 
-Les fonctionnalités d’optimisation pour Verizon sont activées par défaut et il n’existe aucune limite de taille de fichier maximale. 
+Les fonctionnalités d’optimisation pour Verizon sont activées par défaut. Il n’existe aucune limite à la taille de fichier maximale. 
 
 ## <a name="additional-considerations"></a>Considérations supplémentaires
 
-Il existe quelques aspects supplémentaires à prendre en compte lors de l’utilisation de ce type d’optimisation.
+Prenez en considération les aspects supplémentaires suivants pour ce type d’optimisation.
  
-### <a name="azure-cdn-from-akamai"></a>Azure CDN d’Akamai
+### <a name="azure-content-delivery-network-from-akamai"></a>Réseau Azure Content Delivery Network d’Akamai
 
-- Le processus de segmentation aboutit à des requêtes supplémentaires pour le serveur d’origine, mais le volume total de données transmises à partir de l’origine sera beaucoup plus petit, puisque la segmentation entraîne de meilleures caractéristiques de mise en cache sur le CDN.
-- Il y aura également un avantage supplémentaire de réduction de la pression de la mémoire et des e/s à l’origine en raison de la distribution d’éléments plus petits du fichier. 
-- Pour les segments mis en cache dans le CDN, il n’y aura pas d’autres demandes à l’origine jusqu'à ce que le contenu expire à partir du cache ou soit supprimé du cache pour d’autres raisons. 
-- L’utilisateur peut effectuer des demandes de plages pour le CDN et elles seront traités simplement comme tout fichier normal. L’optimisation s’applique uniquement s’il s’agit d’un type de fichier valide et que la plage d’octets est entre 10 Mo et 150 Go. Si la taille moyenne de fichier demandée est inférieure à 10 Mo, vous pouvez souhaiter utiliser la distribution générale sur le Web à la place.
+- Le processus de segmentation génère des demandes supplémentaires au serveur d’origine. Toutefois, le volume total de données distribuées à partir de l’origine est beaucoup plus petit. La segmentation entraîne de meilleures caractéristiques de mise en cache au niveau du CDN.
 
-### <a name="azure-cdn-from-verizon"></a>Azure CDN de Verizon
+- La pression sur les E/S et la mémoire est réduite au niveau de l’origine, car des éléments plus petits du fichier sont distribués.
 
-L’optimisation de la distribution générale sur le Web peut distribuer des fichiers volumineux.
+- Pour les blocs mis en cache au niveau du CDN, il n’y a pas de demande supplémentaire adressée à l’origine jusqu'à ce que le contenu expire ou soit supprimé du cache.
+
+- Les utilisateurs peuvent adresser au CDN des demandes de plages qui sont traitées comme tout fichier normal. L’optimisation s’applique uniquement si le type de fichier est valide et si la taille de la plage d’octets est comprise entre 10 Mo et 150 Go. Si la taille moyenne des fichiers demandés est inférieure à 10 Mo, vous pouvez utiliser une livraison web générale à la place.
+
+### <a name="azure-content-delivery-network-from-verizon"></a>Réseau Azure Content Delivery Network de Verizon
+
+Le type d’optimisation de livraison web générale permet de distribuer des fichiers volumineux.
 
