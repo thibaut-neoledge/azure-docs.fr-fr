@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 571c31b9e6514b44d6a8a69fe8a6a0806e4b80e3
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 88f4a23f89a1c8fd88db1df3a7ff03ae5df64c0f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -37,7 +36,7 @@ Les principaux objectifs de la surveillance et des diagnostics sont de :
 
 Le flux de travail global de la surveillance et des diagnostics se compose de trois étapes :
 
-1. **Génération des événements** : cela inclut les événements (journaux, traces, événements personnalisés) au niveau de l’infrastructure (cluster) et de l’application/du service
+1. **Génération des événements** : cela inclut les événements (journaux, traces, événements personnalisés) au niveau de l’infrastructure (cluster), de la plateforme et de l’application/du service.
 2. **Agrégation d’événements** : les événements générés doivent être collectés et agrégés avant de pouvoir être affichés
 3. **Analyse** : les événements doivent être visualisé et accessibles dans un certain format, pour permettre l’analyse et l’affichage comme souhaité
 
@@ -45,9 +44,9 @@ Plusieurs produits couvrant ces trois domaines sont disponibles, et vous êtes l
 
 ## <a name="event-generation"></a>Génération d’événement
 
-La première étape du flux de travail de surveillance et de diagnostics consiste à créer et à générer des événements et des journaux. Ces événements, journaux et traces sont générés à deux niveaux : la couche d’infrastructure (tout ce qui provient du cluster, des machines ou des actions de Service Fabric) ou la couche Application (n’importe quelle instrumentation ajoutée aux applications et services déployés sur le cluster). Les événements à chacun de ces niveaux sont personnalisables, bien que Service Fabric ne fournisse pas certaines instrumentations par défaut.
+La première étape du flux de travail de surveillance et de diagnostics consiste à créer et à générer des événements et des journaux. Ces événements, journaux et traces sont générés à deux niveaux : la couche de plate-forme (y compris le cluster, les machines ou les actions Service Fabric) ou la couche Application (n’importe quelle instrumentation ajoutée aux applications et services déployés sur le cluster). Les événements à chacun de ces niveaux sont personnalisables, bien que Service Fabric ne fournisse pas certaines instrumentations par défaut.
 
-Pour comprendre ce qui est fourni et comment ajouter une instrumentation, vous pouvez poursuivre votre lecture sur les [événements de niveau infrastructure](service-fabric-diagnostics-event-generation-infra.md) et les [événements de niveau application](service-fabric-diagnostics-event-generation-app.md).
+Pour comprendre ce qui est fourni et comment ajouter une instrumentation, vous pouvez poursuivre votre lecture sur les [événements de niveau plateforme](service-fabric-diagnostics-event-generation-infra.md) et les [événements de niveau application](service-fabric-diagnostics-event-generation-app.md).
 
 Après avoir choisi le fournisseur de journalisation à utiliser, vous devez vérifier que vos journaux sont agrégés et stockés correctement.
 
@@ -69,7 +68,7 @@ Grâce à [EventFlow](https://github.com/Azure/diagnostics-eventflow), vous pouv
 * Accès aux données d’application internes et contexte
     * Le sous-système de diagnostic exécuté à l’intérieur du processus d’application/service peut facilement enrichir les traces d’informations contextuelles.
 
-Notez que ces deux options ne sont pas mutuellement exclusives, et que bien que vous puissiez effectuer un travail aussi bien avec l’une qu’avec l’autre, vous pouvez configurer les deux si cela vous semble pertinent. Dans la plupart des cas, combiner un agent dans la collection In-process peut aboutir à un flux de travail de surveillance plus fiable. Vous pouvez choisir l’extension Azure Diagnostics (agent) pour les journaux de niveau infrastructure et utiliser EventFlow (collection In-process) pour les journaux de niveau application. Après avoir déterminé ce qui vous convient le mieux, vous pouvez vous pencher sur l’affichage et l’analyse de vos données.
+Notez que ces deux options ne sont pas mutuellement exclusives, et que bien que vous puissiez effectuer un travail aussi bien avec l’une qu’avec l’autre, vous pouvez configurer les deux si cela vous semble pertinent. Dans la plupart des cas, combiner un agent dans la collection In-process peut aboutir à un flux de travail de surveillance plus fiable. Vous pouvez choisir l’extension Azure Diagnostics (agent) pour les journaux de niveau plateforme et EventFlow (collection In-process) pour les journaux de niveau application. Après avoir déterminé ce qui vous convient le mieux, vous pouvez vous pencher sur l’affichage et l’analyse de vos données.
 
 ## <a name="event-analysis"></a>Analyse des événements
 
@@ -85,7 +84,7 @@ Vous pouvez utiliser [Azure Monitor](../monitoring-and-diagnostics/monitoring-ov
 
 ![Vue des informations de mesure collectées sur le portail Azure](media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
 
-Pour personnaliser les graphiques, suivez les instructions présentées dans la [vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). Vous pouvez également créer des alertes basées sur ces mesures, comme décrit dans l’article [Créer des alertes dans Azure Monitor pour les services Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Vous pouvez envoyer des alertes à un service de notification à l’aide de webhooks, comme décrit dans l’article [Configurer un webhook sur une alerte de métrique Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure Monitor ne prend en charge qu’un seul abonnement. Si vous avez besoin de la prise en charge de surveiller plusieurs abonnements, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), composant de Microsoft Operations Management Suite, offre une solution de gestion informatique globale aussi bien pour les infrastructures locales que pour les solutions basées sur le cloud. Vous pouvez acheminer les données d’Azure Monitor directement dans Log Analytics afin d’afficher les mesures et les journaux pour l’ensemble de votre environnement dans un seul et même emplacement.
+Pour personnaliser les graphiques, suivez les instructions présentées dans la [vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). Vous pouvez également créer des alertes basées sur ces mesures, comme décrit dans l’article [Créer des alertes dans Azure Monitor pour les services Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Vous pouvez envoyer des alertes à un service de notification à l’aide de webhooks, comme décrit dans l’article [Configurer un webhook sur une alerte de métrique Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure Monitor ne prend en charge qu’un seul abonnement. Si vous avez besoin de surveiller plusieurs abonnements ou de fonctionnalités supplémentaires, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), composant de Microsoft Operations Management Suite, offre une solution de gestion informatique holistique aussi bien pour les infrastructures locales que cloud. Vous pouvez acheminer les données d’Azure Monitor directement dans Log Analytics afin d’afficher les mesures et les journaux pour l’ensemble de votre environnement dans un seul et même emplacement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -93,4 +92,4 @@ Pour personnaliser les graphiques, suivez les instructions présentées dans la 
 
 Un agent de surveillance est un service distinct qui peut surveiller l’intégrité et la charge des services, et créer des rapports d’intégrité pour n’importe quel élément de la hiérarchie du modèle d’intégrité. Cela permet d’éviter des erreurs qui ne seraient pas détectées à partir de l’affichage d’un service unique. Les agents de surveillance sont également un bon emplacement pour héberger du code qui exécute des actions correctives sans intervention de l’utilisateur (par exemple, le nettoyage de fichiers journaux dans le stockage à intervalles réguliers). Vous trouverez un exemple d’implémentation de service d’agent de surveillance [ici](https://github.com/Azure-Samples/service-fabric-watchdog-service).
 
-Découvrez comment les événements et les journaux sont générés au [niveau infrastructure](service-fabric-diagnostics-event-generation-infra.md) et au [niveau application](service-fabric-diagnostics-event-generation-app.md).
+Découvrez comment les événements et les journaux sont générés au [niveau plateforme](service-fabric-diagnostics-event-generation-infra.md) et au [niveau application](service-fabric-diagnostics-event-generation-app.md).

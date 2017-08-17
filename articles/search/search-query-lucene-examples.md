@@ -13,50 +13,53 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 07/21/2017
 ms.author: liamca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: bfb6fc04d3aa4937336083d04137e22694e5146c
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: bfd044f333087d8e3e9526820196be6eaec2f18f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
-<a id="lucene-query-syntax-examples-for-building-queries-in-azure-search" class="xliff"></a>
+# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemples de syntaxe de requête Lucene pour créer des requêtes dans Azure Search
+Lors de la construction de requêtes pour la Recherche Azure, vous pouvez utiliser la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) par défaut ou bien [l’analyseur de requêtes Lucene de la Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). L’analyseur de requêtes Lucene prend en charge des constructions de requêtes plus complexes, telles que des requêtes portant sur des champs, la recherche partielle, la recherche de proximité, la promotion de termes et la recherche d’expression régulière.
 
-# Exemples de syntaxe de requête Lucene pour créer des requêtes dans Azure Search
-Lors de la construction de requêtes pour la Recherche Azure, vous pouvez utiliser la [syntaxe de requête simple](https://msdn.microsoft.com/library/azure/dn798920.aspx) par défaut ou bien [l’analyseur de requêtes Lucene de la Recherche Azure](https://msdn.microsoft.com/library/azure/mt589323.aspx). L’Analyseur de requêtes Lucene prend en charge des constructions de requêtes plus complexes, telles que les requêtes portant sur des champs, la recherche partielle, la recherche de proximité, la promotion de termes et la recherche d’expression régulière.
+Dans cet article, vous pouvez parcourir des exemples décrivant les opérations de requête disponibles lors de l’utilisation de la syntaxe complète.
 
-Cet article contient des exemples qui affichent la syntaxe de requête Lucene et les résultats côte à côte. Les exemples s’exécutent sur un index de recherche préchargé dans [JSFiddle](https://jsfiddle.net), éditeur de code en ligne pour le test de script et HTML. Pour des informations sur le traitement des requêtes, consultez [Fonctionnement de la recherche en texte intégral dans Recherche Azure](search-lucene-query-architecture.md).
+## <a name="viewing-the-examples-in-jsfiddle"></a>Affichage des exemples dans JSFiddle
 
-Cliquez avec le bouton droit sur les URL des exemples de requêtes pour ouvrir JSFiddle dans une nouvelle fenêtre de navigateur.
+Tous les exemples de cet article sont des requêtes exécutables qui s’exécutent sur un index de recherche préchargé dans [JSFiddle](https://jsfiddle.net), éditeur de code en ligne pour le script de test et HTML. 
+
+Pour les exécuter, cliquez avec le bouton droit sur les URL des exemples de requêtes afin d’ouvrir JSFiddle dans une nouvelle fenêtre de navigateur.
 
 > [!NOTE]
 > Les exemples suivants utilisent un index de recherche composé de postes à pourvoir sur la base d’un jeu de données fourni par l’initiative [City of New York OpenData](https://nycopendata.socrata.com/) . Ces données ne doivent pas être considérées comme étant à jour ou complètes. L’index est sur un service de bac à sable (sandbox) fourni par Microsoft. Vous n’avez pas besoin d’abonnement Azure ou d’Azure Search pour essayer ces requêtes.
 >
->
 
-<a id="viewing-the-examples-in-this-article" class="xliff"></a>
 
-## Affichage des exemples de cet article
-Tous les exemples de cet article spécifient l’analyseur de requêtes Lucene dans le paramètre de recherche**queryType** . Lorsque vous utilisez l’analyseur de requêtes Lucene à partir de votre code, vous devez spécifier le **queryType** à chaque requête.  Les valeurs valides sont **simple**|**full**, **simple** étant la valeur par défaut et **full** la valeur faisant référence à l’analyseur de requêtes Lucene. Pour plus d’informations sur la spécification des paramètres de requêtes, consultez [Rechercher des documents (API REST du service Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx) .
+## <a name="how-to-invoke-full-lucene-parsing"></a>Appel de l’analyse Lucene complète
+
+Tous les exemples de cet article spécifient le paramètre de requête **queryType=full**, ce qui indique la syntaxe complète, traitée par l’analyseur de requêtes Lucene. 
 
 **Exemple 1** -- Cliquez avec le bouton droit sur l’extrait de requête suivant pour l’ouvrir sur une nouvelle page de navigateur qui charge JSFiddle et exécute la requête :
 
 * [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
-Cette requête retourne des documents à partir de notre index Jobs (chargé sur un service de bac à sable (sandbox))
+Dans la nouvelle fenêtre de navigateur, le JavaScript source et la sortie HTML sont présentés côte à côte. Le script fait référence à une requête complète (pas seulement à l’extrait, comme indiqué dans le lien). La requête complète est indiquée dans l’URL de chaque exemple. 
 
-Dans la nouvelle fenêtre de navigateur, vous verrez le JavaScript source et la sortie HTML côte à côte. Le script fait référence à une requête, qui est fournie par les exemples d’URL dans cet article. Par exemple, dans **l’exemple 1**, la requête sous-jacente est la suivante :
+Cette requête retourne des documents à partir de notre index New York City Jobs (nycjobs, chargé sur un service de bac à sable (sandbox)). Par souci de concision, la requête spécifie que seuls les titres de fonctions sont retournés. La requête sous-jacente complète est la suivante :
 
     http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
 
-Notez que la requête utilise un index Azure Search préconfiguré appelé nycjobs. Le paramètre **searchFields** restreint la recherche au champ de titre d’entreprise. Le **queryType** est défini sur **full**, qui donne l’instruction à la Recherche Azure d’utiliser l’analyseur de requêtes Lucene pour cette requête.
+Le paramètre **searchFields** restreint la recherche au champ de titre d’entreprise. Le **queryType** est défini sur **full**, qui donne l’instruction à la Recherche Azure d’utiliser l’analyseur de requêtes Lucene pour cette requête.
 
-<a id="fielded-query-operation" class="xliff"></a>
+> [!NOTE]
+> Pour des informations sur le traitement des requêtes, consultez [Fonctionnement de la recherche en texte intégral dans Recherche Azure](search-lucene-query-architecture.md). Pour plus d’informations sur les paramètres de recherche, consultez [Rechercher des documents (API REST du service Recherche Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+>
 
-### Opération de requête portant sur un champ
+### <a name="fielded-query-operation"></a>Opération de requête portant sur un champ
 Vous pouvez modifier les exemples de cet article en spécifiant une construction **fieldname:searchterm** pour définir une opération de requête portant sur un champ, où le champ est un mot unique et le terme de recherche est également un mot ou une expression unique, éventuellement avec des opérateurs booléens. Voici quelques exemples :
 
 * business_title:(senior NOT junior)
@@ -64,27 +67,27 @@ Vous pouvez modifier les exemples de cet article en spécifiant une construction
 
 Veillez à placer les chaînes entre guillemets si vous souhaitez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux villes distinctes sont recherchées dans le champ d’emplacement. Vérifiez également que l’opérateur est en majuscules, comme c’est le cas ici avec NOT et AND.
 
-Le champ spécifié dans **fieldname:searchterm** doit être un champ pouvant faire l’objet d’une recherche. Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index (API REST du service Azure Search)](https://msdn.microsoft.com/library/azure/dn798941.aspx) .
+Le champ spécifié dans **fieldname:searchterm** doit être un champ pouvant faire l’objet d’une recherche. Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index (API REST du service Azure Search)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
 
-<a id="fuzzy-search" class="xliff"></a>
-
-## Recherche partielle
-Une recherche partielle recherche des correspondances dans les termes qui ont une construction similaire. D’après la [documentation Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), les recherches partielles sont basées sur la [Distance Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
-
-Pour effectuer une recherche partielle, utilisez le signe tilde « ~ » à la fin d’un mot avec un paramètre facultatif, une valeur comprise entre 0 et 2, qui spécifie la distance de modification. Par exemple, "blue~" ou "blue~1" retournent blue, blues et glue.
-
-**Exemple 2** -- Cliquez avec le bouton droit sur l’extrait de requête suivant pour l’essayer. Cette requête recherche les titres de fonctions contenant le terme « senior » mais pas « junior » :
+**Exemple 2** - Cliquez avec le bouton droit sur l’extrait de requête suivant. Cette requête recherche les titres de fonctions contenant le terme « senior » mais pas « junior » :
 
 * [&queryType=full&search= business_title:senior NOT junior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
 
-<a id="proximity-search" class="xliff"></a>
+## <a name="fuzzy-search-example"></a>Exemple de recherche partielle
+Une recherche partielle recherche des correspondances dans les termes qui ont une construction similaire. D’après la [documentation Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), les recherches partielles sont basées sur la [Distance Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-## Recherche de proximité
-Les recherches de proximité servent à rechercher des termes qui sont proches les uns des autres dans un document. Insérez un signe tilde « ~ » à la fin d’une expression, suivi du nombre de mots qui créent la limite de proximité. Par exemple, "hotel airport"~5 recherche les termes hotel et airport distants de cinq mots ou moins dans un document.
+Pour effectuer une recherche partielle, ajoutez le signe tilde « ~ » à la fin d’un mot avec un paramètre facultatif, une valeur comprise entre 0 et 2, qui spécifie la distance de modification. Par exemple, "blue~" ou "blue~1" retournent blue, blues et glue.
 
 **Exemple 3** -- Cliquez avec le bouton droit sur l’extrait de requête suivant. Cette requête recherche les postes à pourvoir contenant le terme « associate » (où il est mal orthographié) :
 
 * [&queryType=full&search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+
+> [!Note]
+> Les requêtes partielles ne sont pas [analysées](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), ce qui peut être surprenant si vous vous attendez à une racinisation ou lemmatisation. L’analyse lexicale est effectuée uniquement sur des termes complets (requête sur un terme ou une expression). Les types de requête avec des termes incomplets (requête de préfixe, de caractère générique, d’expression régulière, partielle) sont ajoutés directement à l’arborescence de requête, en ignorant la phase d’analyse. La seule transformation effectuée sur les termes de requête incomplets est l’utilisation de minuscules.
+>
+
+## <a name="proximity-search-example"></a>Exemple Recherche de proximité
+Les recherches de proximité servent à rechercher des termes qui sont proches les uns des autres dans un document. Insérez un signe tilde « ~ » à la fin d’une expression, suivi du nombre de mots qui créent la limite de proximité. Par exemple, "hotel airport"~5 recherche les termes hotel et airport distants de cinq mots ou moins dans un document.
 
 **Exemple 4** -- Cliquez avec le bouton droit sur la requête. Recherchez les postes contenant le terme « senior analyst » où les deux mots sont séparés au plus par un mot :
 
@@ -94,9 +97,7 @@ Les recherches de proximité servent à rechercher des termes qui sont proches l
 
 * [&queryType=full&search=business_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
 
-<a id="term-boosting" class="xliff"></a>
-
-## Promotion de termes
+## <a name="term-boosting-examples"></a>Exemple Promotion de termes
 La promotion de termes signifie que vous pouvez accorder à un document un rang plus élevé s’il contient le terme promu, par rapport aux documents qui ne contiennent pas ce terme. À ne pas confondre avec les profils de score qui promeuvent certains champs, plutôt que des termes spécifiques. L’exemple suivant permet d’illustrer les différences entre les deux.
 
 Prenez un profil de score qui promeut les correspondances figurant dans un certain champ, par exemple **genre** dans l’exemple musicstoreindex. En utilisant la promotion de termes, vous pouvez promouvoir encore plus certains termes de recherche. Par exemple, "rock^2 electronic" promeut les documents qui contiennent les termes de recherche dans le champ **genre** , par rapport aux autres champs de recherche de l’index. Par ailleurs, les documents qui contiennent le terme de recherche « rock » bénéficient d’un classement plus élevé que ceux qui contiennent le terme de recherche « electronic » en raison de la valeur de promotion du terme (2).
@@ -111,20 +112,16 @@ Pour promouvoir un terme, utilisez le signe « ^ » avec un facteur de promoti
 
 * [&queryType=full&search=business_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
-<a id="regular-expression" class="xliff"></a>
-
-## Expression régulière
+## <a name="regular-expression-example"></a>Exemple Expression régulière
 Une recherche d’expression régulière trouve une correspondance en fonction du contenu placé entre des barres obliques « / », comme le décrit la [classe RegExp](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
 **Exemple 8** -- Cliquez avec le bouton droit sur la requête. Recherchez les postes à pourvoir contenant le terme « Senior » ou « Junior ».
 
 * `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-L’URL de cet exemple ne s’affiche pas correctement dans la page. En guise d’alternative, copiez l’URL ci-dessous et collez-la dans la barre d’adresse URL du navigateur :     `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+L’URL de cet exemple ne s’affiche pas correctement dans la page. En guise d’alternative, copiez l’URL ci-dessous et collez-la dans la barre d’adresse URL du navigateur : `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
-<a id="wildcard-search" class="xliff"></a>
-
-## Recherche par caractères génériques
+## <a name="wildcard-search-example"></a>Exemple Recherche par caractères génériques
 Vous pouvez utiliser la syntaxe généralement reconnue pour effectuer des recherches avec plusieurs caractères génériques (\*) ou un caractère générique unique (?). Notez que l’Analyseur de requêtes Lucene prend en charge l’utilisation de ces symboles avec un terme unique, et non une expression.
 
 **Exemple 9** -- Cliquez avec le bouton droit sur la requête. Recherchez les postes à pourvoir qui contiennent le préfixe « prog », par exemple ceux contenant les termes « programmation » et « programmeur ».
@@ -133,11 +130,12 @@ Vous pouvez utiliser la syntaxe généralement reconnue pour effectuer des reche
 
 Vous ne pouvez pas utiliser un signe * ou ? comme premier caractère d’une recherche.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Essayez de spécifier l’Analyseur de requêtes Lucene dans votre code. Les liens suivants expliquent comment configurer des requêtes de recherche pour .NET et l’API REST. Ces liens utilisent la syntaxe simple par défaut. Vous devrez donc appliquer ce que vous avez appris dans cet article pour spécifier le **queryType**.
 
 * [Interroger un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-query-dotnet.md)
 * [Interroger votre index Azure Search à l’aide de l’API REST](search-query-rest-api.md)
 
+## <a name="see-also"></a>Voir aussi
+
+ [Fonctionnement de la recherche en texte intégral dans la Recherche Azure](search-lucene-query-architecture.md)

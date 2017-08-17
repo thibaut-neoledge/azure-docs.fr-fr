@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: ac019d5393e9e9b7edb7960aa50edd5af3b49ebc
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -32,12 +32,6 @@ Pour les ordinateurs de votre cluster, veuillez collecter les compteurs de perfo
 
 | Catégorie de compteur | Nom de compteur |
 | --- | --- |
-| PhysicalDisk(Total) | Avg. de file d’attente lecture disque |
-| PhysicalDisk(Total) | Avg. de file d’attente écriture disque |
-| PhysicalDisk(Total) | Nb d’opérations de lectures de disque/s  |
-| PhysicalDisk(Total) | Nb d’octets de lecture de disque/s  |
-| PhysicalDisk(Total) | Nb d’opération d’écriture de disque/s |
-| PhysicalDisk(Total) | Nb d’octets d’écriture de disque/s |
 | PhysicalDisk(per Disk) | Avg. de file d’attente lecture disque |
 | PhysicalDisk(per Disk) | Avg. de file d’attente écriture disque |
 | PhysicalDisk(per Disk) | Avg. Disk sec/Read |
@@ -85,6 +79,6 @@ Si vous utilisez Reliable Collections, nous vous recommandons d’ajouter `Avg. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la [génération d’événements au niveau de l’infrastructure](service-fabric-diagnostics-event-generation-infra.md) dans Service Fabric
+* En savoir plus sur la [génération d’événements au niveau de la plateforme](service-fabric-diagnostics-event-generation-infra.md) dans Service Fabric
 * Collecter des mesures de performances via [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)
 

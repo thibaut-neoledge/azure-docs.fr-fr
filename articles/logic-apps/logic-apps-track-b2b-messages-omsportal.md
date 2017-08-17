@@ -1,6 +1,6 @@
 ---
-title: Suivi de messages B2B dans le portail Operations Management Suite - Azure | Microsoft Docs
-description: Guide pratique pour le suivi de messages B2B dans le portail Operations Management Suite
+title: Suivre les messages B2B dans Operations Management Suite - Azure | Microsoft Docs
+description: "Suivre la communication B2B pour votre compte d’intégration et vos applications logiques dans Operations Management Suite (OMS) avec Azure Log Analytics"
 author: padmavc
 manager: anneta
 editor: 
@@ -12,21 +12,19 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: d1c61ba220b4334f053428a23e620e8004fc60f7
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="track-b2b-messages-in-the-operations-management-suite-portal"></a>Suivi de messages B2B dans le portail Operations Management Suite
 
-![Symbole Logic Apps B2B](./media/logic-apps-track-b2b-messages-omsportal/logic-apps-b2b-symbol.png)
+# <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Suivre la communication B2B Microsoft Operations Management Suite (OMS)
 
-La communication B2B implique des échanges de messages entre deux processus ou applications métier en cours d’exécution. Utilisez les fonctionnalités de suivi web suivantes dans le portail Operations Management Suite pour vérifier si les messages sont traités correctement :
+Une fois la communication B2B configurée entre deux processus ou applications d’entreprise en cours d’exécution via votre compte d’intégration, ces entités peuvent échanger des messages entre elles. Pour vérifier si ces messages sont traités correctement, vous pouvez effectuer le suivi des messages AS2, X12, et EDIFACT avec [Azure Log Analytics](../log-analytics/log-analytics-overview.md) dans [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Par exemple, vous pouvez utiliser ces fonctionnalités de suivi basées sur le web pour suivre des messages :
 
 * Nombre et état des messages
 * État des accusés de réception
@@ -34,124 +32,217 @@ La communication B2B implique des échanges de messages entre deux processus ou 
 * Descriptions détaillées des erreurs en cas d’échec
 * Fonctionnalités de recherche
 
-## <a name="prerequisites"></a>Composants requis
-* Un compte Azure. Vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
-* Un compte d’intégration. Vous pouvez créer un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) et configurer la journalisation. Pour configurer la journalisation, consultez [Surveiller des messages B2B](logic-apps-monitor-b2b-message.md).
-* Une application logique. Vous pouvez créer une [application logique](../logic-apps/logic-apps-create-a-logic-app.md) et configurer la journalisation. Pour configurer la journalisation, consultez [Diagnostics et alertes Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts).
+## <a name="requirements"></a>Configuration requise
 
-## <a name="add-logic-apps-b2b-solution-to-the-operations-management-suite-portal"></a>Ajouter une solution B2B d’applications logiques au portail Operations Management Suite
+* Une application logique configurée avec une journalisation des diagnostics. Découvrez comment [créer une application logique](logic-apps-create-a-logic-app.md) et comment [configurer la journalisation pour cette application logique](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-1. Dans le portail Azure, sélectionnez **Plus de services**, recherchez et sélectionnez **Log Analytics**.   
-![Recherche de Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)  
+* Un compte d’intégration configuré avec une surveillance et une journalisation. Découvrez comment [créer un compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) et comment [configurer une surveillance et une journalisation pour ce compte](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-2. Sélectionnez **Log Analytics**.  
-![Sélection de Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+* Si ce n’est déjà fait, [publiez des données de diagnostic sur Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) dans OMS.
 
-3. Sélectionnez **Portail OMS**. La page d’accueil du portail Operations Management Suite s’affiche.   
-![Parcourir le portail Operations Management Suite](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+> [!NOTE]
+> Une fois les conditions précédentes réunies, vous devez disposer d’un espace de travail dans [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Vous devez utiliser l’espace de travail OMS que vous utilisez pour le suivi de votre communication B2B dans OMS. 
+>  
+> Si vous n’avez pas d’espace de travail OMS, découvrez comment [créer un espace de travail OMS](../log-analytics/log-analytics-get-started.md).
 
-4. Sélectionnez **Galerie de solutions**.    
-![Sélectionnez Galerie de solutions](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
+## <a name="add-the-logic-apps-b2b-solution-to-the-operations-management-suite-oms"></a>Ajouter la solution Logic Apps B2B à Operations Management Suite (OMS)
 
-5. Sélectionnez **Logic Apps B2B**.     
-![Sélection de Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
+Pour qu’OMS effectue le suivi des messages B2B pour votre application logique, vous devez ajouter la solution **Logic Apps B2B** au portail OMS. En savoir plus sur l’[Ajout de solutions à OMS](../log-analytics/log-analytics-get-started.md).
 
-6. Sélectionnez **Ajouter** pour ajouter des messages **Logic Apps B2B** à la page d’accueil.  
-![Sélection de l’option Ajouter](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+1. Dans le [portail Azure](https://portal.azure.com), choisissez **Autres services**. Recherchez « log analytics », puis choisissez **Log Analytics** comme illustré ici :
 
-7. **Messages Logic Apps B2B** s’affiche sur la page d’accueil.   
-![Sélectionner la page d’accueil](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+   ![Rechercher Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-## <a name="track-data-in-the-operations-management-suite-portal"></a>Suivi des données dans le portail Operations Management Suite
+2. Sous **Log Analytics**, recherchez et sélectionnez votre espace de travail OMS. 
 
-1. Une fois le traitement des messages terminé, le nombre de messages mis à jour s’affiche.   
-![Messages mis à jour](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![Sélectionner votre espace de travail OMS](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-2. Sélectionnez **Messages Logic Apps B2B** dans la page d’accueil pour afficher les états de message AS2 et X12.  Les données sont basées sur un seul jour.
-![Sélection des messages Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
+3. Sous **Gestion**, choisissez **Portail OMS**.
 
-3. Sélectionnez un message AS2, X12 ou EDIFACT par état pour accéder à la liste des messages. La capture d’écran suivante affiche le statut du message AS2. Les descriptions des propriétés des messages AS2 et X12 s’affichent plus loin sous « Descriptions des propriétés de la liste des messages ».  
-![Sélectionner l’état de message AS2](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
+   ![Choisir le portail OMS](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Sélectionnez une ligne dans la liste des messages AS2, X12 ou EDIFACT pour accéder à la recherche dans les journaux.  La recherche dans les journaux répertorie toutes les actions avec le même ID d’exécution.
-![Sélectionner l’état du message](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
+4. Une fois la page d’accueil d’OMS ouverte, choisissez **Galerie de solutions**.    
 
-## <a name="message-list-property-descriptions"></a>Description des propriétés de la liste des messages
+   ![Choisir Galerie de solutions](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
-#### <a name="as2-message-list-property-descriptions"></a>Description des propriétés de la liste des messages AS2
+5. Sous **Toutes les solutions**, recherchez et choisissez **Logic Apps B2B**.     
+
+   ![Choisir Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
+
+6. Sous **Logic Apps B2B**, choisissez **Ajouter**.
+
+   ![Choisir Ajouter](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+
+   Dans la page d’accueil d’OMS, la vignette **Messages B2B Logic Apps** s’affiche à présent. 
+   Cette vignette met à jour le nombre de messages lors du traitement de vos messages B2B.
+
+   ![Page d’accueil d’OMS, vignette Messages B2B Logic Apps](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+
+<a name="message-status-details"></a>
+
+## <a name="track-message-status-and-details-in-the-operations-management-suite"></a>Suivre l’état et les détails des messages dans Operations Management Suite
+
+1. Une fois vos messages B2B traités, vous pouvez afficher l’état et les détails de ces messages. Dans la page d’accueil d’OMS, cliquez sur la vignette **Messages B2B Logic Apps**.
+
+   ![Nombre de messages mis à jour](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+
+   > [!NOTE]
+   > Par défaut, la vignette **Messages B2B Logic Apps** affiche des données d’une journée. Pour modifier l’étendue des données en définissant un intervalle différent, sélectionnez le contrôle de l’étendue en haut de la page d’OMS :
+   > 
+   > ![Modifier l’étendue des données](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   >
+
+2. Un fois le tableau de bord de l’état du message affiché, vous pouvez afficher davantage de détails sur un type de message spécifique qui affiche des données d’une journée. Choisissez la vignette **AS2**, **X12** ou **EDIFACT**.
+
+   ![Afficher l’état du message](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
+
+   Une liste de messages s’affiche pour la vignette choisie. 
+   Pour en savoir plus sur les propriétés de chaque type de message, consultez les descriptions de propriété de message suivantes :
+
+   * [Propriétés de message AS2](#as2-message-properties)
+   * [Propriétés de message X12](#x12-message-properties)
+   * [Propriétés de message EDIFACT](#EDIFACT-message-properties)
+
+   Par exemple, voici comment peut se présenter une liste de messages AS2 :
+
+   ![Afficher les messages AS2](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
+
+3. Pour afficher ou exporter les entrées et sorties de messages spécifiques, sélectionnez ceux-ci, puis choisissez **Télécharger**. Lorsque vous y êtes invité, enregistrez le fichier .zip sur votre ordinateur local, puis extrayez son contenu. 
+
+   Le dossier extrait inclut un dossier pour chaque message sélectionné. 
+   Si vous définissez des accusés de réception, le dossier de message comprend également des fichiers avec les détails de l’accusé de réception. 
+   Chaque dossier de message comprend au moins les fichiers suivants : 
+   
+   * fichiers contrôlables de visu avec les détails des charges utiles d’entrée et de sortie ;
+   * fichiers encodés avec les entrées et sorties.
+
+   Pour chaque type de message, vous pouvez trouver les formats de noms de dossier et de fichier ici :
+
+   * [Formats de nom de dossier et de fichier AS2](#as2-folder-file-names)
+   * [Formats de nom de dossier et de fichier X12](#x12-folder-file-names)
+   * [ EDIFACT](#edifact-folder-file-names)
+
+   ![Télécharger les fichiers de message](media/logic-apps-track-b2b-messages-omsportal/download-messages.png)
+
+4. Pour afficher toutes les actions qui ont le même ID d'exécution, dans la page **Recherche dans les journaux**, choisissez un message dans la liste des messages.
+
+   Vous pouvez trier ces actions par colonne, ou rechercher des résultats spécifiques.
+
+   ![Actions avec le même ID d'exécution](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
+
+   * Pour rechercher des résultats avec des requêtes prédéfinies, sélectionnez **Favoris**.
+
+   * Découvrez comment [Générer des requêtes en ajoutant des filtres](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
+   Ou apprenez-en davantage sur la manière de [Rechercher des données avec Recherche dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md).
+
+   * Pour modifier une requête dans la zone de recherche, mettez à jour la requête avec les colonnes et valeurs que vous souhaitez utiliser comme filtres.
+
+<a name="message-list-property-descriptions"></a>
+
+## <a name="property-descriptions-and-name-formats-for-as2-x12-and-edifact-messages"></a>Formats de noms et descriptions de propriétés pour les messages AS2, X 12 et EDIFACT
+
+Pour chaque type de message, voici les formats de noms et descriptions de propriétés pour les fichiers de message téléchargés.
+
+<a name="as2-message-properties"></a>
+
+### <a name="as2-message-property-descriptions"></a>Description de propriétés des messages AS2
+
+Voici les descriptions de propriété pour chaque message AS2.
 
 | Propriété | Description |
 | --- | --- |
-| Sender | Partenaire invité configuré dans les paramètres de réception ou partenaire hôte configuré dans les paramètres d’envoi pour un contrat AS2. |
-| Receiver | Partenaire hôte configuré dans les paramètres de réception ou partenaire invité configuré dans les paramètres d’envoi pour un contrat AS2. |
-| Application logique | Application logique dans laquelle les actions AS2 sont configurées. |
-| État | État du message AS2 <br>Success = a reçu ou envoyé un message AS2 correct, aucun MDN n’est configuré <br>Success = a reçu ou envoyé un message AS2 correct, le MDN est configuré et reçu ou un MDN est envoyé <br>Failed = a reçu un message AS2 incorrect, aucun MDN n’est configuré <br>Pending = a reçu ou envoyé un message AS2 correct, la notification de réception du message (MDN) est configurée et attendue |
-| Ack | État du message de notification d’état du message <br>Accepted = a reçu ou envoyé un MDN positif <br>Pending = en attente de réception ou d’envoi d’un MDN <br>Rejected = a reçu ou envoyé un MDN négatif <br>Not Required = le MDN n’est pas configuré dans l’accord |
-| Direction | Direction du message AS2. |
-| ID de corrélation : | ID pour mettre en corrélation l’ensemble des déclencheurs et des actions au sein d’une application logique. |
-| ID de message |  ID du message AS2 dans les en-têtes du message AS2. |
-| Timestamp | Heure à laquelle l’action AS2 traite le message. |
+| Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord AS2 |
+| Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord AS2 |
+| Application logique | Application logique dans laquelle les actions AS2 sont configurées |
+| État | État du message AS2 <br>Success = a reçu ou envoyé un message AS2 valide. Aucun MDN n’est configuré. <br>Success = a reçu ou envoyé un message AS2 valide. MDN est configuré et reçu ou envoyé. <br>Failed = a reçu un message AS2 non valide. Aucun MDN n’est configuré. <br>Pending = a reçu ou envoyé un message AS2 valide. Un MDN est configuré et attendu. |
+| Ack | État du message MDN <br>Accepted = a reçu ou envoyé un MDN positif. <br>Pending = en attente de réception ou d’envoi d’un MDN. <br>Rejected = a reçu ou envoyé un MDN négatif. <br>Not Required = aucun MDN n’est configuré dans l’accord. |
+| Direction | Direction du message AS2 |
+| ID de corrélation : | ID qui établit la corrélation de l’ensemble des déclencheurs et actions dans une application logique |
+| ID de message | ID de message AS2 extrait des en-têtes de message AS2 |
+| Timestamp | Heure à laquelle l’action AS2 a traité le message |
+|          |             |
 
-#### <a name="x12-message-list-property-descriptions"></a>Description des propriétés de la liste des messages X12
+<a name="as2-folder-file-names"></a>
+
+### <a name="as2-name-formats-for-downloaded-message-files"></a>Formats de noms AS2 pour les fichiers de message téléchargés
+
+Voici les formats de noms pour chaque dossier et fichier de message AS2 téléchargé.
+
+| Fichier ou dossier | Format du nom |
+| :------------- | :---------- |
+| Dossier de message | [expéditeur] \_[récepteur]\_AS2\_[ID de corrélation]\_[ID de message]\_[horodatage] |
+| Entrée, sortie et, si configurés, fichiers d’accusé de réception | **Charge utile d’entrée** : [expéditeur]\_[récepteur]\_AS2\_[ID de corrélation]\_input_payload.txt </p>**Charge utile de sortie** : [expéditeur]\_[récepteur]\_AS2\_[ID de corrélation]\_sortie\_payload.txt </p></p>**Entrées** : [expéditeur]\_[récepteur]\_AS2\_[ID de corrélation]\_inputs.txt </p></p>**Sorties** : [expéditeur]\_[récepteur]\_AS2\_[ID de corrélation]\_outputs.txt |
+|          |             |
+
+<a name="x12-message-properties"></a>
+
+### <a name="x12-message-property-descriptions"></a>Description de propriétés des messages X12
+
+Voici les descriptions de propriété pour chaque message X12.
 
 | Propriété | Description |
 | --- | --- |
-| Sender | Partenaire invité configuré dans les paramètres de réception ou partenaire hôte configuré dans les paramètres d’envoi pour un contrat X12. |
-| Receiver | Partenaire hôte configuré dans les paramètres de réception ou partenaire invité configuré dans les paramètres d’envoi pour un contrat X12. |
-| Application logique | Application logique dans laquelle les actions AS2 sont configurées. |
-| État | État du message X12 <br>Success = a reçu ou envoyé un message X12 correct, aucun accusé de réception fonctionnel n’est configuré <br>Success = a reçu ou envoyé un message X12 correct, un accusé de réception fonctionnel est configuré et reçu ou un accusé de réception fonctionnel est envoyé <br>Failed = a reçu ou envoyé un message X12 incorrect <br>Pending = a reçu ou envoyé un message X12 correct, un accusé de réception fonctionnel est configuré et un accusé de réception fonctionnel est attendu. |
-| Ack | État de l’accusé de réception fonctionnel (997) <br>Accepted = a reçu ou envoyé un accusé de réception positif <br>Rejected = a reçu ou envoyé un accusé de réception négatif <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu <br>Pending = a généré un accusé de réception fonctionnel mais ne l’a pas envoyé au partenaire <br>Not Required = l’accusé de réception fonctionnel n’est pas configuré |
-| Direction | Direction du message X12. |
-| ID de corrélation : | ID pour mettre en corrélation l’ensemble des déclencheurs et des actions au sein d’une application logique. |
-| Type de message |  Type de message X12 EDI. |
-| ICN | Numéro de contrôle de l’échange du message X12. |
-| TSCN | Numéro de contrôle de document automatisé du message X12. |
-| Timestamp | Heure à laquelle l’action X12 traite le message. |
+| Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord X12 |
+| Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord X12 |
+| Application logique | Application logique dans laquelle les actions X12 sont configurées |
+| État | État du message X12 <br>Success = a reçu ou envoyé un message X12 valide. Aucun accusé de réception fonctionnel configuré. <br>Success = a reçu ou envoyé un message X12 valide. Accusé de réception fonctionnel configuré et reçu ou envoyé. <br>Failed = a reçu ou envoyé un message X12 non valide. <br>Pending = a reçu ou envoyé un message X12 valide. Accusé de réception fonctionnel configuré et attendu. |
+| Ack | État de l’accusé de réception fonctionnel (997) <br>Accepted = a reçu ou envoyé un accusé de réception positif. <br>Rejected = a reçu ou envoyé un accusé de réception négatif. <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu. <br>Pending = a généré un accusé de réception fonctionnel mais ne peut pas l’envoyer au partenaire. <br>Not Required = accusé de réception fonctionnel non configuré. |
+| Direction | Direction du message X12 |
+| ID de corrélation : | ID qui établit la corrélation de l’ensemble des déclencheurs et actions dans une application logique |
+| Type de message | Type de message X12 EDI |
+| ICN | Numéro de contrôle d’échange pour le message X12 |
+| TSCN | Numéro de contrôle de document informatisé pour le message X12 |
+| Timestamp | Heure à laquelle l’action X12 a traité le message |
+|          |             |
 
+<a name="x12-folder-file-names"></a>
 
-#### <a name="edifact-message-list-property-descriptions"></a>Description des propriétés de la liste des messages EDIFACT
+### <a name="x12-name-formats-for-downloaded-message-files"></a>Formats de noms X12 pour les fichiers de message téléchargés
+
+Voici les formats de noms pour chaque dossier et fichier de message X12 téléchargé.
+
+| Fichier ou dossier | Format du nom |
+| :------------- | :---------- |
+| Dossier de message | [expéditeur] \_[récepteur]\_X12\_[numéro de contrôle d’échange]\_[numéro de contrôle global]\_[numéro de contrôle de document informatisé]\_[horodatage] |
+| Entrée, sortie et, si configurés, fichiers d’accusé de réception | **Charge utile d’entrée**: [expéditeur]\_[récepteur]\_X12\_[numéro de contrôle d’échange]\_input_payload.txt </p>**Charge utile de sortie**: [expéditeur]\_[récepteur]\_X12\_[numéro de contrôle d’échange]\_sortie\_payload.txt </p></p>**Entrées**: [expéditeur]\_[récepteur]\_X12\_[numéro de contrôle d’échange]\_inputs.txt </p></p>**Sorties**: [expéditeur]\_[récepteur]\_X12\_[numéro de contrôle d’échange]\_outputs.txt |
+|          |             |
+
+<a name="EDIFACT-message-properties"></a>
+
+### <a name="edifact-message-property-descriptions"></a>Description de propriétés des messages EDIFACT
+
+Voici les descriptions de propriété pour chaque message EDIFACT.
 
 | Propriété | Description |
 | --- | --- |
-| Sender | Partenaire invité configuré dans les paramètres de réception ou partenaire hôte configuré dans les paramètres d’envoi pour un contrat EDIFACT. |
-| Receiver | Partenaire hôte configuré dans les paramètres de réception ou partenaire invité configuré dans les paramètres d’envoi pour un contrat EDIFACT. |
-| Application logique | Application logique dans laquelle les actions AS2 sont configurées. |
-| État | État du message EDIFACT <br>Success = a reçu ou envoyé un message X12 correct, aucun accusé de réception fonctionnel n’est configuré <br>Success = a reçu ou envoyé un message X12 correct, un accusé de réception fonctionnel est configuré et reçu ou un accusé de réception fonctionnel est envoyé <br>Failed = a reçu ou envoyé un message X12 incorrect <br>Pending = a reçu ou envoyé un message X12 correct, un accusé de réception fonctionnel est configuré et un accusé de réception fonctionnel est attendu. |
-| Ack | État de l’accusé de réception fonctionnel (997) <br>Accepted = a reçu ou envoyé un accusé de réception positif <br>Rejected = a reçu ou envoyé un accusé de réception négatif <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu <br>Pending = a généré un accusé de réception fonctionnel mais ne l’a pas envoyé au partenaire <br>Not Required = l’accusé de réception fonctionnel n’est pas configuré |
+| Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
+| Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
+| Application logique | Application logique dans laquelle les actions EDIFACT sont configurées |
+| État | État du message EDIFACT <br>Success = a reçu ou envoyé un message EDIFACT valide. Aucun accusé de réception fonctionnel configuré. <br>Success = a reçu ou envoyé un message EDIFACT valide. Accusé de réception fonctionnel configuré et reçu ou envoyé. <br>Failed = a reçu ou envoyé un message EDIFACT non valide. <br>Pending = a reçu ou envoyé un message EDIFACT valide. Accusé de réception fonctionnel configuré et attendu. |
+| Ack | État de l’accusé de réception fonctionnel (997) <br>Accepted = a reçu ou envoyé un accusé de réception positif. <br>Rejected = a reçu ou envoyé un accusé de réception négatif. <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu. <br>Pending = a généré un accusé de réception fonctionnel mais ne peut pas l’envoyer au partenaire. <br>Not Required = accusé de réception fonctionnel non configuré. |
 | Direction | Direction du message EDIFACT |
-| ID de corrélation : | ID pour mettre en corrélation l’ensemble des déclencheurs et des actions au sein d’une application logique. |
-| Type de message |  Type de message EDIFACT |
-| ICN | Numéro de contrôle de l’échange du message EDIFACT |
-| TSCN | Numéro de contrôle de document automatisé du message EDIFACT |
-| Timestamp | Heure à laquelle l’action EDIFACT traite le message |
+| ID de corrélation : | ID qui établit la corrélation de l’ensemble des déclencheurs et actions dans une application logique |
+| Type de message | Type de message EDIFACT |
+| ICN | Numéro de contrôle de l’échange pour le message EDIFACT |
+| TSCN | Numéro de contrôle de document informatisé pour le message EDIFACT |
+| Timestamp | Heure à laquelle l’action EDIFACT a traité le message |
+|          |               |
 
+<a name="edifact-folder-file-names"></a>
 
-## <a name="queries-in-the-operations-management-suite-portal"></a>Requêtes dans le portail Operations Management Suite
+### <a name="edifact-name-formats-for-downloaded-message-files"></a>Formats de noms EDIFACT pour les fichiers de message téléchargés
 
-Sur la page de recherche, vous pouvez créer une requête. Lorsque vous effectuez une recherche, vous pouvez filtrer les résultats à l’aide des contrôles de facette.
+Voici les formats de noms pour chaque dossier et fichier de message EDIFACT téléchargé.
 
-### <a name="create-a-query"></a>Créer une requête
-
-1. Dans la recherche de journaux, écrivez une requête et sélectionnez **Enregistrer**. La fenêtre **Enregistrer la recherche** s’affiche. Pour écrire une requête, consultez [Suivi des messages B2B dans le portail Operations Management Suite à l’aide d’une requête](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md).
-![Sélectionner la page d’accueil](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery.png)
-
-2. Dans **Enregistrer la recherche**, ajoutez un **nom** et une **catégorie**, puis sélectionnez **Enregistrer**.   
-![Sélectionner la page d’accueil](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery1.png)
-
-3. Pour afficher la requête, sélectionnez **Favoris**.    
-![Sélectionner la page d’accueil](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery3.png)
-
-    ![Sélectionner la page d’accueil](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery4.png)
-
-### <a name="use-a-saved-query"></a>Utiliser une requête enregistrée
-
-* Dans la recherche de journaux, sélectionnez **favoris** pour afficher les requêtes enregistrées.  Pour afficher les résultats de la requête, sélectionnez une requête.
-![Sélectionner la page d’accueil](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery5.png)
-
+| Fichier ou dossier | Format du nom |
+| :------------- | :---------- |
+| Dossier de message | [expéditeur] \_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_[numéro de contrôle global]\_[numéro de contrôle de document informatisé]\_[horodatage] |
+| Entrée, sortie et, si configurés, fichiers d’accusé de réception | **Charge utile d’entrée**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_input_payload.txt </p>**Charge utile de sortie**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_sortie\_payload.txt </p></p>**Entrées**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_inputs.txt </p></p>**Sorties**: [expéditeur]\_[récepteur]\_EDIFACT\_[numéro de contrôle d’échange]\_outputs.txt |
+|          |             |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Schéma de suivi personnalisé](logic-apps-track-integration-account-custom-tracking-schema.md "Learn about Custom Tracking Schema")   
-[Schéma de suivi AS2](logic-apps-track-integration-account-as2-tracking-schemas.md "Learn about AS2 Tracking Schema")    
-[Schéma de suivi X12](logic-apps-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")  
-[En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
 
+* [Interroger des messages B2B dans Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Schémas de suivi AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
+* [Schémas de suivi X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
+* [Schémas de suivi personnalisé](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: sewhee
+ms.author: bwren
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 68820f9c018b1076bae8dc0195906d0f34590748
@@ -161,3 +161,4 @@ Pas de données ? Si votre application se trouve dans un réseau protégé : l
 * [Utilisation de Diagnostic Search](app-insights-diagnostic-search.md)
 * [Profileur](app-insights-profiler.md)
 * [Débogueur de capture instantanée](app-insights-snapshot-debugger.md)
+

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c88b2b5cff70e7a4b3642c53502f348f2e789e81
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -75,7 +74,7 @@ Dans l’élément « WadCfg » du modèle Resource Manager, ajoutez un récep
 
 Dans les deux extraits de code ci-dessus, le nom « applicationInsights » a été utilisé pour décrire le récepteur. Cela n’est pas obligatoire, et tant que le nom du récepteur est inclus dans l’élément « sinks », vous pouvez définir n’importe quelle chaîne comme nom.
 
-Actuellement, les journaux du cluster s’affichent sous forme de traces dans la visionneuse du journal d’AI. Étant donné que les traces provenant du niveau infrastructure sont de type « Informations », vous pouvez également envisager de modifier la configuration du récepteur pour envoyer uniquement des journaux de type « Critique » ou « Erreur ». Pour ce faire, ajoutez « Channels » à votre récepteur, comme illustré dans [cet article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Actuellement, les journaux du cluster s’affichent sous forme de traces dans la visionneuse du journal d’AI. Étant donné que les traces provenant du niveau plateforme sont de type « Informations », vous pouvez également envisager de modifier la configuration du récepteur pour envoyer uniquement des journaux de type « Critique » ou « Erreur ». Pour ce faire, ajoutez « Channels » à votre récepteur, comme illustré dans [cet article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 >[!NOTE]
 >Si vous utilisez une clé iKey AI incorrecte dans le portail ou dans votre modèle Resource Manager, vous devrez modifier manuellement la clé et mettre à jour/redéployer le cluster. 
