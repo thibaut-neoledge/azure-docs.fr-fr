@@ -7,6 +7,7 @@
 ## [Routage](application-gateway-url-route-overview.md)
 ## [Multi-sites](application-gateway-multi-site-overview.md)
 ## [scénario ssl de bout en bout](application-gateway-backend-ssl.md)
+## [Stratégie SSL](application-gateway-ssl-policy-overview.md)
 ## [Redirection](application-gateway-redirect-overview.md)
 ## [Assistance multi-locataires](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
@@ -31,12 +32,13 @@
 ## Personnaliser les règles du pare-feu des applications web
 ### [Portail](application-gateway-customize-waf-rules-portal.md)
 ### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
-## Configurer le déchargement SSL
+## Configuration du chiffrement SSL
 ### [Portail](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (classique)](application-gateway-ssl.md)
 ### [Azure CLI 2.0](application-gateway-ssl.md)
-### [Stratégie et bout en bout](application-gateway-end-to-end-ssl-powershell.md)
+### [Bout en bout](application-gateway-end-to-end-ssl-powershell.md)
+### [Stratégie SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Configurer le routage basé sur le chemin d’accès de l’URL
 ### [Portail](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)

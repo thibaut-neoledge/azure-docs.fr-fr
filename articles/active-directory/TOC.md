@@ -9,6 +9,7 @@
 # Prise en main
 ## [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md)
 ## [Ajouter un nom de domaine personnalisé](add-custom-domain.md)
+## [Configurer la marque de la société](customize-branding.md)
 ## [Configurer la réinitialisation du mot de passe libre-service](active-directory-passwords-getting-started.md)
 ## Gérer les licences Azure AD
 ### [Portail Azure](active-directory-licensing-get-started-azure-portal.md)
@@ -142,6 +143,7 @@
 
 
 ## Gérer des appareils
+### [Introduction](device-management-introduction.md)
 ### [Inscrire des appareils](active-directory-device-registration-overview.md)
 #### [Paramétrage](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
@@ -241,10 +243,6 @@
 #### Gérer les noms de domaine
 ##### [portail Azure](active-directory-domains-manage-azure-portal.md)
 ##### [Portail classique](active-directory-add-manage-domain-names.md)
-### Personnaliser la page de connexion
-#### [portail Azure](active-directory-branding-custom-signon-azure-portal.md)
-#### [Spécifiques au langage](active-directory-branding-localize-azure-portal.md)
-#### [Portail classique](active-directory-add-company-branding.md)
 ### [Administration de votre annuaire](active-directory-administer.md)
 ### [Plusieurs répertoires](active-directory-licensing-directory-independence.md)
 ### [Répertoires O365](active-directory-manage-o365-subscription.md)

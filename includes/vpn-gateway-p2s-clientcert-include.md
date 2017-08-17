@@ -7,7 +7,7 @@ Vous pouvez générer des certificats clients à l’aide des méthodes suivante
 - **Certificat d’entreprise :**
 
   - Si vous utilisez une solution de certificat d’entreprise, générez un certificat client avec le format de valeur de nom commun « name@yourdomain.com », plutôt que le format « nom_domaine\nom_utilisateur ».
-  - Assurez-vous que le certificat client repose sur le modèle de certificat « Utilisateur » qui indique « Authentification client » comme premier élément dans la liste d’usages, plutôt que la mention « Ouverture de session par carte à puce » ou autre. Vous pouvez vérifier le certificat en double-cliquant sur le certificat client et en affichant *Détails > Utilisation avancée de la clé*.
+  - Assurez-vous que le certificat client repose sur le modèle de certificat « Utilisateur » qui indique « Authentification client » comme premier élément dans la liste d’usages, plutôt que la mention « Ouverture de session par carte à puce » ou autre. Vous pouvez vérifier le certificat en double-cliquant sur le certificat client et en affichant **Détails > Utilisation avancée de la clé**.
 
 - **Certificat racine auto-signé :** il est important que vous suiviez les procédures décrites dans l’un des articles de certificat P2S ci-dessous. Dans le cas contraire, les certificats clients que vous créez ne seront pas compatibles avec les connexions P2S, et les clients recevront une erreur lorsqu’ils essaieront de se connecter. Les procédures décrites dans les articles ci-après génèrent un certificat client compatible : 
 

@@ -16,10 +16,10 @@ ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f892ec7bd61124f7958a50ebdfb49c7310d4ee18
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 06d6d305eb9711768dc62a04726359e6280d1b69
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -48,7 +48,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Les modèles de démarrage rapide Azure vous permettent de déployer rapidement et de façon fiable des technologies complexes sur Azure.  Azure Resource Manager vous donne la possibilité d’approvisionner vos applications à l’aide d’un [modèle déclaratif](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins). Dans un modèle unique, vous pouvez déployer plusieurs services ainsi que leurs dépendances. Le même modèle vous permet de déployer plusieurs fois votre application à chaque phase du cycle de vie de l’application.
 
-Pour comprendre les différentes options de coût, consultez les informations sur [les abonnements et la tarification](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins?tab=PlansAndPrice) de ce modèle.
+Pour comprendre les différentes options de coût, consultez les informations sur [les abonnements et la tarification](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) de ce modèle.
 
 Accédez à [l’image Place de marché de Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) et cliquez sur **OBTENIR MAINTENANT**.  
 

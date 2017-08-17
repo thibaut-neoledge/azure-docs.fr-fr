@@ -133,11 +133,12 @@
 ### Générer un service de conteneur
 #### [Créer une application de conteneur Windows](service-fabric-get-started-containers.md)
 #### [Créer une application de conteneur Linux](service-fabric-get-started-containers-linux.md)
-#### [Déployer un conteneur Linux](service-fabric-deploy-container-linux.md)
+#### [Sécurité du conteneur](service-fabric-securing-containers.md)
 #### [Docker Compose (version préliminaire)](service-fabric-docker-compose.md)
 #### [Gestion des ressources pour les conteneurs et les services](service-fabric-resource-governance.md)
 #### [Pilotes de journalisation et de volume](service-fabric-containers-volume-logging-drivers.md)
 #### [Services à l’intérieur des conteneurs](service-fabric-services-inside-containers.md)
+#### [Modes de mise en réseau du conteneur](service-fabric-networking-modes.md)
 
 ### Générer un service Reliable Services
 #### [Vue d'ensemble](service-fabric-reliable-services-introduction.md)

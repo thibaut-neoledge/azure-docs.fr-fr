@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 08/07/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: afa4fe6cdef298e4504ddcf3e344ee6a5c181653
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f29e9dcc2bed968937627d48f1a98e3b084853b9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB : créer une base de données de graphiques à l’aide de Java et du portail Azure
@@ -32,7 +32,7 @@ Ce guide de démarrage rapide crée une base de données de graphiques à l’ai
 
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     * Sur Ubuntu, exécutez `apt-get install default-jdk` pour installer le JDK.
-    * Prenez soin de définir la variable d’environnement JAVA_HOME pour qu’elle pointe vers le dossier dans lequel le JDK est installé.
+    * Veillez à définir la variable d’environnement JAVA_HOME pour qu’elle pointe vers le dossier dans lequel le JDK est installé.
 * [Téléchargement](http://maven.apache.org/download.cgi) et [installation](http://maven.apache.org/install.html) d’une archive binaire [Maven](http://maven.apache.org/)
     * Sur Ubuntu, vous pouvez exécuter `apt-get install maven` pour installer Maven.
 * [Git](https://www.git-scm.com/)
@@ -61,7 +61,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
     ID du graphique|sample-graph|L’ID de votre nouveau graphique. Les noms de graphiques sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données.
     Capacité de stockage| 10 Go|Conservez la valeur par défaut. Il s’agit de la capacité de stockage de la base de données.
     Débit|400 unités de requête|Conservez la valeur par défaut. Vous pourrez augmenter le débit ultérieurement si vous souhaitez réduire la latence.
-    RU/m|Off|Conservez la valeur par défaut. Si, par la suite, vous avez besoin de gérer des charges de travail imprévisibles, vous pouvez activer la fonctionnalité [RU/m](request-units-per-minute.md) à ce moment-là.
+    RU/m|Off|Conservez la valeur par défaut.
     Clé de partition|Laisser vide|Pour les besoins de ce guide de démarrage rapide, ne renseignez pas la clé de partition.
 
 3. Une fois le formulaire rempli, cliquez sur **OK**.
