@@ -1,5 +1,5 @@
 ---
-title: "Connecter une passerelle à Azure IoT Suite à l’aide d’un appareil Intel NUC | Microsoft Docs"
+title: "Connecter une passerelle à Azure IoT Suite à l’aide d’un Intel NUC | Documents Microsoft"
 description: "Utilisez le kit de passerelle commerciale Microsoft IoT et la solution préconfigurée de surveillance à distance. Utilisez la passerelle Azure IoT Edge pour vous connecter à la solution de surveillance à distance, envoyer la télémétrie simulée dans le cloud et répondre aux méthodes appelées à partir du tableau de bord de la solution."
 services: 
 suite: iot-suite
@@ -12,21 +12,20 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2017
+ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 128832c6353a9c4501bcbeeaa7c3b61e6a7929b7
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 42e82793b73a941df08e438d9e04669a386a8368
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 06/08/2017
 
 ---
 # <a name="connect-your-azure-iot-edge-gateway-to-the-remote-monitoring-preconfigured-solution-and-send-simulated-telemetry"></a>Connecter votre passerelle Azure IoT Edge à la solution préconfigurée de surveillance à distance et envoyer la télémétrie simulée
 
 [!INCLUDE [iot-suite-gateway-kit-selector](../../includes/iot-suite-gateway-kit-selector.md)]
 
-Ce tutoriel vous montre comment utiliser Azure IoT Edge pour simuler des données de température et d’humidité à envoyer à la solution préconfigurée de surveillance à distance. Le tutoriel utilise :
+Ce didacticiel montre comment utiliser Azure IoT Edge pour simuler des données de température et d’humidité à envoyer à la solution préconfigurée de surveillance à distance. Le tutoriel utilise :
 
 - Azure IoT Edge pour implémenter un exemple de passerelle.
 - la solution préconfigurée de surveillance à distance Azure IoT Suite comme serveur principal basé sur le cloud.
@@ -56,9 +55,9 @@ Répétez les étapes précédentes pour ajouter un deuxième appareil à l’ai
 
 ## <a name="build-the-custom-iot-edge-module"></a>Créer le module IoT Edge personnalisé
 
-Vous pouvez maintenant créer le module IoT Edge personnalisé qui permet à la passerelle d’envoyer des messages à la solution de surveillance à distance. Pour plus d’informations sur la configuration d’une passerelle et des modules IoT Edge, consultez [Concepts Azure IoT Edge][lnk-gateway-concepts].
+Vous pouvez maintenant générer le module IoT personnalisé qui permet à la passerelle d’envoyer des messages à la solution de surveillance à distance. Pour plus d’informations sur la configuration d’une passerelle et des modules IoT Edge, voir [Concepts relatifs à Azure IoT Edge][lnk-gateway-concepts].
 
-Téléchargez le code source des modules IoT Edge personnalisés de GitHub à l’aide des commandes suivantes :
+Téléchargez le code source pour les modules IoT Edge personnalisés à partir de GitHub à l’aide des commandes suivantes :
 
 ```bash
 cd ~
@@ -81,7 +80,7 @@ Le script de génération place le module IoT Edge personnalisé libsimulator.so
 Vous pouvez maintenant configurer la passerelle IoT Edge pour qu’elle envoie la télémétrie simulée au tableau de bord de la solution de surveillance à distance. Pour plus d’informations sur la configuration d’une passerelle et des modules IoT Edge, consultez [Concepts Azure IoT Edge][lnk-gateway-concepts].
 
 > [!TIP]
-> Dans ce tutoriel, vous utilisez l’éditeur de texte `vi` standard sur l’appareil Intel NUC. Si vous n’avez pas utilisé `vi` précédemment, vous devez suivre un tutoriel d’introduction, comme [Unix - Éditeur vi][lnk-vi-tutorial] pour vous familiariser avec cet éditeur. Vous pouvez également installer l’éditeur [nano](https://www.nano-editor.org/) plus convivial à l’aide de la commande `smart install nano -y`.
+> Dans ce didacticiel, vous utilisez l’éditeur de texte `vi` standard sur l’Intel Nuc. Si vous n’avez pas utilisé `vi` précédemment, vous devez suivre un didacticiel d’introduction, tel que [Unix - Didacticiel de l’éditeur vi][lnk-vi-tutorial], pour vous familiariser avec cet éditeur. Vous pouvez également installer l’éditeur [nano](https://www.nano-editor.org/), plus convivial, à l’aide de la commande `smart install nano -y`.
 
 Ouvrez l’exemple de fichier de configuration dans l’éditeur **vi** à l’aide de la commande suivante :
 
@@ -89,7 +88,7 @@ Ouvrez l’exemple de fichier de configuration dans l’éditeur **vi** à l’a
 vi ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/simulator/remote_monitoring.json
 ```
 
-Recherchez les lignes suivantes dans la configuration du module IoTHub :
+Recherchez les lignes suivantes dans la configuration pour le module IoTHub :
 
 ```json
 "args": {
@@ -108,7 +107,7 @@ args": [
   {
     "macAddress": "AA:BB:CC:DD:EE:FF",
     "deviceId": "<<Azure IoT Hub Device ID>>",
-    "deviceKey": "<<Azure IoT Hub Device Key>>>"
+    "deviceKey": "<<Azure IoT Hub Device Key>>"
   },
   {
     "macAddress": "AA:BB:CC:DD:EE:FF",

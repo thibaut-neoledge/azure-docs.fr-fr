@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 06/02/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 187fe8af432d2521e3b9efa59b788280c32692a9
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 7af33cae7448a212734d327570b5082d0278fa0d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -28,7 +29,7 @@ L’intégration de Convercent à Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Convercent.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Convercent (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à un emplacement central : le nouveau portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -39,30 +40,26 @@ Pour configurer l’intégration d’Azure AD à Convercent, vous avez besoin de
 - Un abonnement Azure AD
 - Un abonnement Convercent pour lequel l’authentification unique est activée
 
->[!NOTE]
->Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
->
+> [!NOTE]
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
-- Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
-
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. 
-
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Convercent à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="add-convercent-from-the-gallery"></a>Ajouter Convercent à partir de la galerie
+## <a name="adding-convercent-from-the-gallery"></a>Ajout de Convercent à partir de la galerie
 Pour configurer l’intégration de Convercent à Azure AD, vous devez ajouter Convercent à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Convercent à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
     ![Active Directory][1]
 
@@ -70,104 +67,115 @@ Pour configurer l’intégration de Convercent à Azure AD, vous devez ajouter 
 
     ![Applications][2]
     
-3. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Applications][3]
 
 4. Dans la zone de recherche, tapez **Convercent**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_001.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_search.png)
 
 5. Dans le volet des résultats, sélectionnez **Convercent**, puis cliquez sur **Ajouter** pour ajouter l’application.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_0001.png)
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Convercent sur un utilisateur de test nommé « Britta Simon ».
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Convercent avec un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Convercent équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Convercent associé doit être établie.
 
 Pour cela, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur de **Username** dans Convercent.
 
-Pour configurer et tester l’authentification unique Azure AD avec Convercent, vous devez suivre les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Convercent, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Convercent](#creating-a-works-mobile-test-user)** : pour avoir un équivalent de Britta Simon dans Convercent lié à la représentation Azure AD associée.
+3. **[Création d’un utilisateur de test Convercent](#creating-a-convercent-test-user)** : pour avoir un équivalent de Britta Simon dans Convercent lié à la représentation Azure AD de l’utilisateur.
 4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le nouveau portail Azure et configurer l’authentification unique dans votre application Convercent.
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Convercent.
 
 **Pour configurer l’authentification unique Azure AD avec Convercent, procédez comme suit :**
 
-1. Dans le nouveau portail Azure, sur la page d’intégration de l’application **Convercent**, cliquez sur **Authentification unique**.
+1. Dans le portail Azure, dans la page d’intégration de l’application **Convercent**, cliquez sur **Authentification unique**.
 
     ![Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Authentification unique**, sous **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_01.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_samlbase.png)
 
 3. Dans la section **Domaines et URL Convercent**, si vous souhaitez configurer l’application en **Mode initié par IDP**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_02.png)
-  1. Dans la zone de texte **Identificateur**, tapez : `https://sts.convercent.com/`
-  2. Cliquez sur **Afficher les paramètres d’URL avancés**.
-  3. Dans la zone de texte **Relay State** (État du relais), entrez : `https://app.convercent.com/`
-    
+    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_url.png)
+
+    Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<instancename>.convercent.com/`
+ 
 4. Si vous souhaitez configurer l’application en **Mode initié par SP**, dans la section **Domaine et URL Convercent**, procédez comme suit :
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_03.png)
-  * Dans la zone de texte **URL d’authentification**, tapez : `https://app.convercent.com/`
-    >[!NOTE] 
-    >Ici, nous vous recommandons d’utiliser l’identificateur unique spécifié. Contactez l’[équipe de support Convercent](mailTo:support@convercent.com) pour obtenir cette valeur.
-    >
+    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_url1.png)
 
-5. Dans la section **Configuration de Convercent** , cliquez sur **Configurer Convercent** pour ouvrir la boîte de dialogue **Configurer l’authentification**. Puis cliquez sur **SAML XML Metadate**(Métadonnées XML SAML) et enregistrez le fichier de métadonnées sur votre ordinateur.
+     a. Cliquez sur **Afficher les paramètres d’URL avancés**. 
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_04.png) 
+     b. Dans la zone de texte **URL de connexion**, tapez la valeur au format suivant : `https://<instancename>.convercent.com/`
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_05.png)
+     c. Dans la zone de texte **État de relais**, tapez une valeur en respectant le format suivant : `https://<instancename>.convercent.com/`
 
-6. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’[équipe de support Convercent](mailTo:support@convercent.com) en lui fournissant les **métadonnées** téléchargées.
+    > [!NOTE] 
+    > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’état de relais réels. Pour obtenir ces valeurs, contactez [l’équipe du support client Convercent](http://support.convercent.com).
 
-7. Dans le nouveau portail Azure, cliquez sur le bouton **Enregistrer**.  
-  
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le nouveau portail.
+5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_certificate.png) 
+
+6. Cliquez sur le bouton **Enregistrer** .
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_general_400.png)
+
+7. Pour obtenir la configuration de l’authentification unique pour votre application, contactez [l’équipe de support Convercent](mailto:support@convercent.com) en lui fournissant les **métadonnées XML** téléchargées.
+
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
 ![Créer un utilisateur Azure AD][100]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le panneau de navigation gauche du **Portail de gestion Azure**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
 
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_01.png) 
 
-2. Accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs** pour afficher la liste des utilisateurs.
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
     
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_02.png) 
 
-3. En haut de la boîte de dialogue, cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Utilisateur**.
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
  
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_03.png) 
 
 4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
  
     ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_04.png) 
- 1. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
- 2. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
- 3. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
- 4. Cliquez sur **Create**. 
 
-### <a name="create-a-convercent-test-user"></a>Créer un utilisateur de test Convercent
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Convercent. Collaborez avec [l’équipe de support Convercent](emailto:support@convercent.com) pour ajouter des utilisateurs dans la plateforme Convercent.
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+
+    d. Cliquez sur **Create**.
+ 
+### <a name="creating-a-convercent-test-user"></a>Création d’un utilisateur de test Convercent
+
+Collaborez avec [l’équipe de support Convercent](mailto:support@convercent.com) pour ajouter les utilisateurs dans la plateforme Convercent.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Convercent.
 
@@ -175,13 +183,13 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à Convercent, procédez comme suit :**
 
-1. Dans le portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
 2. Dans la liste des applications, sélectionnez **Convercent**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_50.png) 
+    ![Configurer l’authentification unique](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -197,12 +205,12 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
-Dans cette section, vous allez tester la configuration SSO Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque Convercent dans le volet d’accès, vous devez être connecté automatiquement à votre application Convercent.
-
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
@@ -224,3 +232,5 @@ Lorsque vous cliquez sur la mosaïque Convercent dans le volet d’accès, vous 
 [201]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_203.png
+
+

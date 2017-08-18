@@ -1,5 +1,5 @@
 ---
-title: Effectuer la migration de HDInsight Windows vers HDInsight Linux | Microsoft Docs
+title: Effectuer la migration de HDInsight Windows vers HDInsight Linux - Azure | Microsoft Docs
 description: "Apprenez à effectuer la migration d’un cluster HDInsight Windows vers un cluster HDInsight Linux."
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/12/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f2c4956ba296781907498226a18708684281692b
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 2efd8e9981ac5d8f2ff28df9ffe1e6b5c01ba953
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/10/2017
 
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Effectuer la migration d’un cluster HDInsight Windows vers un cluster Linux
@@ -85,7 +85,7 @@ Utilisez les étapes suivantes pour copier des données à partir du cluster de 
 6. Dans la session SSH, utilisez la commande suivante pour copier les fichiers à partir du compte de stockage lié vers le nouveau compte de stockage par défaut. Remplacez CONTAINER par les informations du conteneur retournées par PowerShell. Remplacez __ACCOUNT__ par le nom du compte. Remplacez le chemin d’accès aux données par le chemin d’accès à un fichier de données.
 
     ```bash
-    hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
+    hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
     ```
 
     > [!NOTE]
@@ -280,9 +280,9 @@ Si vous savez que les scripts ne contiennent pas de chaînes avec des caractère
 * **Après avoir chargé sur le cluster** : utilisez la commande suivante à partir d’une session SSH pour le cluster basé sur Linux pour modifier le script.
 
     ```bash
-    hdfs dfs -get wasbs:///path/to/script.py oldscript.py
+    hdfs dfs -get wasb:///path/to/script.py oldscript.py
     tr -d '\r' < oldscript.py > script.py
-    hdfs dfs -put -f script.py wasbs:///path/to/script.py
+    hdfs dfs -put -f script.py wasb:///path/to/script.py
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes

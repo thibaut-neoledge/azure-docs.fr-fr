@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: c5813341f0d70a3c04e915d243d2a9717cad1fc9
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 6cfd1c1e7b22f5460b78687c815d149e6c6deac9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -73,8 +73,7 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-
 
     Par conséquent, vous n’avez pas à exécuter d’instructions telles que les suivantes pour définir les contextes :
 
-          sc = SparkContext('yarn-client')
-          sqlContext = HiveContext(sc)
+        sc = SparkContext('yarn-client')    sqlContext = HiveContext(sc)
 
     En revanche, vous pouvez utiliser directement les contextes prédéfinis dans votre application.
 
@@ -172,7 +171,7 @@ Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec 
 ### <a name="tools-and-extensions"></a>Outils et extensions
 * [Utilisation du plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 

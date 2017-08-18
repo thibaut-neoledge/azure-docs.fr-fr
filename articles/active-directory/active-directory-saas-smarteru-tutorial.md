@@ -1,116 +1,189 @@
 ---
 title: "Didacticiel : Intégration d’Azure Active Directory à SmarterU | Microsoft Docs"
-description: "Découvrez comment utiliser SmarterU avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et SmarterU."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 95fe3212-d052-4ac8-87eb-ac5305227e85
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 3/10/2017
+ms.date: 06/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 6b6419694f20f50658d3c0c6de4c22e4a752278e
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 129d08c8a7b4228d4d5f1a3b7938ab649b2747a7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Didacticiel : Intégration d’Azure AD à SmarterU
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et SmarterU.  
+# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Didacticiel : Intégration d’Azure Active Directory à SmarterU
 
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+Dans ce didacticiel, vous allez apprendre à intégrer SmarterU à Azure Active Directory (Azure AD).
 
-* Un abonnement Azure valide
-* Un locataire SmarterU
+L’intégration de SmarterU dans Azure AD vous offre les avantages suivants :
 
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à SmarterU pourront se connecter à l’application à l’aide de l’authentification unique (SSO) sur votre site d’entreprise SmarterU (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
+- Dans Azure AD, vous pouvez contrôler qui a accès à SmarterU.
+- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SmarterU (par le biais de l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
 
-Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-1. Activation de l’intégration d’applications pour SmarterU
-2. Configuration de l’authentification unique (SSO)
-3. Configuration de l'approvisionnement des utilisateurs
-4. Affectation d’utilisateurs
+## <a name="prerequisites"></a>Composants requis
 
-![Scénario](./media/active-directory-saas-smarteru-tutorial/IC777320.png "Scénario")
+Pour configurer l’intégration d’Azure AD à SmarterU, vous avez besoin des éléments suivants :
 
-## <a name="enable-the-application-integration-for-smarteru"></a>Activer l’intégration d’applications pour SmarterU
-Cette section décrit l’activation de l’intégration d’applications pour SmarterU.
+- Un abonnement Azure AD
+- Un abonnement SmarterU pour lequel l’authentification unique est activée
 
-**Pour activer l’intégration d’applications pour SmarterU, procédez comme suit :**
+> [!NOTE]
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
-1. Dans le volet de navigation gauche du portail Azure Classic, cliquez sur **Active Directory**.
-   
-    ![Active Directory](./media/active-directory-saas-smarteru-tutorial/IC700993.png "Active Directory")
+Vous devez en outre suivre les recommandations ci-dessous :
 
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
-   
-    ![Applications](./media/active-directory-saas-smarteru-tutorial/IC700994.png "Applications")
+## <a name="scenario-description"></a>Description du scénario
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-4. Cliquez sur **Ajouter** en bas de la page.
-   
-    ![Ajouter une application](./media/active-directory-saas-smarteru-tutorial/IC749321.png "Ajouter une application")
+1. Ajout de SmarterU à partir de la galerie
+2. Configuration et test de l’authentification unique Azure AD
 
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-   
-    ![Ajouter une application à partir de la galerie](./media/active-directory-saas-smarteru-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
+## <a name="adding-smarteru-from-the-gallery"></a>Ajout de SmarterU à partir de la galerie
+Pour configurer l’intégration de SmarterU à Azure AD, vous devez ajouter SmarterU à partir de la galerie à votre liste d’applications SaaS gérées.
 
-6. Dans la **zone de recherche**, entrez **SmarterU**.
-   
-    ![Galerie d’applications](./media/active-directory-saas-smarteru-tutorial/IC777321.png "Galerie d’applications")
+**Pour ajouter SmarterU à partir de la galerie, procédez comme suit :**
 
-7. Dans le volet des résultats, sélectionnez **SmarterU**, puis cliquez sur **Terminer** pour ajouter l’application.
-   
-    ![SmarterU](./media/active-directory-saas-smarteru-tutorial/IC777322.png "SmarterU")
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-## <a name="configure-single-sign-on"></a>Configurer l’authentification unique
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur SmarterU avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.
+    ![Active Directory][1]
 
-**Pour configurer l’authentification unique, procédez comme suit :**
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-1. Sur la page d’intégration d’application **SmarterU** du portail Azure Classic, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-smarteru-tutorial/IC777323.png "Configurer l’authentification unique")
+    ![Applications][2]
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à SmarterU ?**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-smarteru-tutorial/IC777324.png "Configurer l’authentification unique")
+    ![Applications][3]
 
-3. Dans la page **Configurer l’authentification unique sur SmarterU**, pour télécharger vos métadonnées, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de données en local sous le nom **c:\\SmarterUMetaData.cer**.
-   
-    ![Configurer l’authentification unique](./media/active-directory-saas-smarteru-tutorial/IC777325.png "Configurer l’authentification unique")
+4. Dans la zone de recherche, entrez **SmarterU**.
 
-4. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise SmarterU en tant qu’administrateur.
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-smarteru-tutorial/tutorial_smarteru_search.png)
 
-5. Dans la barre d’outils située en haut, cliquez sur **Account Settings**.
+5. Dans le volet de résultats, sélectionnez **SmarterU**, puis cliquez sur **Ajouter** pour ajouter l’application.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-smarteru-tutorial/tutorial_smarteru_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec SmarterU, avec un utilisateur de test appelé « Britta Simon ».
+
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur SmarterU correspondant dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur SmarterU associé doit être établie.
+
+Dans SmarterU, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
+
+Pour configurer et tester l’authentification unique Azure AD avec SmarterU, vous devez suivre les indications des sections suivantes :
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test SmarterU](#creating-a-smarteru-test-user)** pour avoir un équivalent de Britta Simon dans SmarterU lié à la représentation Azure AD de l’utilisateur.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application SmarterU.
+
+**Pour configurer l’authentification unique Azure AD avec SmarterU, procédez comme suit :**
+
+1. Dans le portail Azure, sur la page d’intégration de l’application **SmarterU**, cliquez sur **Authentification unique**.
+
+    ![Configurer l’authentification unique][4]
+
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Configurer l’authentification unique](./media/active-directory-saas-smarteru-tutorial/tutorial_smarteru_samlbase.png)
+
+3. Dans la section **Domaine et URL SmarterU**, procédez comme suit : 
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-smarteru-tutorial/tutorial_smarteru_url.png)
+
+    Dans la zone de texte **Identificateur**, saisissez l’URL : `https://www.smarteru.com/`
+
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-smarteru-tutorial/tutorial_smarteru_certificate.png) 
+
+5. Cliquez sur le bouton **Enregistrer** .
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-smarteru-tutorial/tutorial_general_400.png)
+
+6. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise SmarterU en tant qu’administrateur.
+
+7. Dans la barre d’outils située en haut, cliquez sur **Account Settings**.
    
     ![Paramètres de compte](./media/active-directory-saas-smarteru-tutorial/IC777326.png "Paramètres de compte")
 
-6. Dans la page de configuration du compte, procédez comme suit :
+8. Dans la page de configuration du compte, procédez comme suit :
    
     ![Autorisation externe](./media/active-directory-saas-smarteru-tutorial/IC777327.png "Autorisation externe") 
-  1. Sélectionnez **Enable External Authorization**.
-  2. Dans la section **Master Login Control**, cliquez sur l’onglet **SmarterU**.
-  3. Dans la section **User Default Login**, cliquez sur l’onglet **SmarterU**.
-  4. Sélectionnez **Enable Okta**.
-  5. Copiez le contenu du fichier de métadonnées téléchargé et collez-le dans la zone de texte **Okta Metadata** .
-  6. Cliquez sur **Save**.
+ 
+      a. Sélectionnez **Enable External Authorization**.
+  
+      b. Dans la section **Master Login Control**, cliquez sur l’onglet **SmarterU**.
+  
+      c. Dans la section **User Default Login**, cliquez sur l’onglet **SmarterU**.
+  
+      d. Sélectionnez **Enable Okta**.
+  
+      e. Copiez le contenu du fichier de métadonnées téléchargé et collez-le dans la zone de texte **Okta Metadata** .
+  
+      f. Cliquez sur **Save**.
 
-7. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
-   
-   ![Configurer l’authentification unique](./media/active-directory-saas-smarteru-tutorial/IC777328.png "Configurer l’authentification unique")
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-## <a name="configure-user-provisioning"></a>Configurer l'approvisionnement de l'utilisateur
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+
+![Créer un utilisateur Azure AD][100]
+
+**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-smarteru-tutorial/create_aaduser_01.png) 
+
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-smarteru-tutorial/create_aaduser_02.png) 
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-smarteru-tutorial/create_aaduser_03.png) 
+
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-smarteru-tutorial/create_aaduser_04.png) 
+
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
+
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
+
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+
+    d. Cliquez sur **Create**.
+ 
+### <a name="creating-a-smarteru-test-user"></a>Création d’un utilisateur de test SmarterU
+
 Pour se connecter à SmarterU, les utilisateurs d’Azure AD doivent être approvisionnés dans SmarterU.
 
-Dans le cas de SmarterU, l’approvisionnement est une tâche manuelle.
+Pour SmarterU, l’approvisionnement est une tâche manuelle.
 
 **Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
@@ -120,31 +193,75 @@ Dans le cas de SmarterU, l’approvisionnement est une tâche manuelle.
 
 3. Dans la section Users, procédez comme suit :
    
-    ![Nouvel utilisateur](./media/active-directory-saas-smarteru-tutorial/IC777329.png "Nouvel utilisateur")   
-  1. Cliquez sur **+User**.
-  2. Saisissez les valeurs d’attribut associées au compte d’utilisateur Azure AD dans les zones de texte **Primary Email**, **Employee ID**, **Password**, **Verify Password**, **Given Name** et **Surname**.
-  3. Cliquez sur **Active**. 
-  4. Cliquez sur **Enregistrer**.
+    ![Nouvel utilisateur](./media/active-directory-saas-smarteru-tutorial/IC777329.png "Nouvel utilisateur")  
+
+    a. Cliquez sur **+User**.
+    
+    b. Saisissez les valeurs d’attribut associées au compte d’utilisateur Azure AD dans les zones de texte **Primary Email**, **Employee ID**, **Password**, **Verify Password**, **Given Name** et **Surname**.
+    
+    c. Cliquez sur **Active**. 
+    
+    d. Cliquez sur **Enregistrer**.
 
 >[!NOTE]
 >Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par SmarterU, pour approvisionner des comptes utilisateur AAD.
 > 
 
-## <a name="assign-users"></a>Affecter des utilisateurs
-Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure AD concernés à accéder à votre application.
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
-**Pour affecter des utilisateurs à SmarterU, procédez comme suit :**
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SmarterU.
 
-1. Dans le portail Azure Classic, créez un compte de test.
+![Affecter des utilisateurs][200] 
 
-2. Sur la page d’intégration d’applications **SmarterU**, cliquez sur **Affecter des utilisateurs**.
-   
-    ![Affecter des utilisateurs](./media/active-directory-saas-smarteru-tutorial/IC777330.png "Affecter des utilisateurs")
+**Pour affecter Britta Simon à SmarterU, procédez comme suit :**
 
-3. Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
-   
-    ![Oui](./media/active-directory-saas-smarteru-tutorial/IC767830.png "Oui")
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+    ![Affecter des utilisateurs][201] 
+
+2. Dans la liste des applications, sélectionnez **SmarterU**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-smarteru-tutorial/tutorial_smarteru_app.png) 
+
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+
+    ![Affecter des utilisateurs][202] 
+
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+
+    ![Affecter des utilisateurs][203]
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+    
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+ 
+Quand vous cliquez sur la vignette SmarterU dans le volet d’accès, vous devez être connecté automatiquement à votre application SmarterU.
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md). 
+
+
+## <a name="additional-resources"></a>Ressources supplémentaires
+
+* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-smarteru-tutorial/tutorial_general_203.png
 
 

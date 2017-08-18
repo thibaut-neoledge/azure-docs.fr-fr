@@ -1,6 +1,6 @@
 ---
-title: "Créer une application Scala à exécuter sur des clusters Spark HDInsight Azure | Documents Microsoft"
-description: "Découvrez comment créer une application Spark autonome à exécuter sur des clusters HDInsight Spark."
+title: "Créer une application Scala à exécuter sur des clusters Spark - HDInsight Azure | Microsoft Docs"
+description: "Créez une application Spark écrite en Scala avec Apache Maven comme système de génération et un archétype Maven existant pour Scala fourni par IntelliJ IDEA."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,11 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 3cc921bdd6c9b374bda7bbfc3781f7a1327ae438
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: be2f356886c0c9b5f47b2336870bb6232482a1fb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Créer une application Scala Maven à exécuter sur un cluster Apache Spark sur HDInsight
@@ -66,7 +65,7 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
    * Spécifiez un **projet SDK**. Cliquez sur Nouveau, puis accédez au répertoire d'installation Java, généralement `C:\Program Files\Java\jdk1.8.0_66`.
    * Sélectionnez l’option **Créer à partir d'un archétype** .
    * Dans la liste des archétypes, sélectionnez **org.scala-tools.archetypes:scala-archetype-simple**. Cela créera la structure de répertoire appropriée et téléchargera les dépendances requises par défaut pour écrire le programme Scala.
-2. Indiquez les valeurs appropriées pour **GroupId**, **ArtifactId** et **Version**. Cliquez sur **Suivant**.
+2. Indiquez les valeurs appropriées pour **GroupId**, **ArtifactId** et **Version**. Cliquez sur **Next**.
 3. Dans la boîte de dialogue suivante, où vous spécifiez le répertoire de base Maven et d'autres paramètres utilisateur, acceptez les valeurs par défaut et cliquez sur **Suivant**.
 4. Dans la dernière boîte de dialogue, spécifiez un nom de projet et un emplacement, puis cliquez sur **Terminer**.
 5. Supprimez le fichier **MySpec.Scala** dans **src\test\scala\com\microsoft\spark\example**. Ce fichier est inutile pour l'application.
@@ -96,12 +95,12 @@ Si l’installation d’IntelliJ IDEA ne vous invite pas à activer le plug-in S
             val conf = new SparkConf().setAppName("WASBIOTest")
             val sc = new SparkContext(conf)
    
-            val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+            val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
    
             //find the rows which have only one digit in the 7th column in the CSV
             val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
    
-            rdd1.saveAsTextFile("wasbs:///HVACout")
+            rdd1.saveAsTextFile("wasb:///HVACout")
           }
         }
 9. Mettez à jour le fichier pom.xml.
@@ -164,7 +163,7 @@ Pour exécuter l'application sur le cluster, procédez comme suit :
 ### <a name="tools-and-extensions"></a>Outils et extensions
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

@@ -1,6 +1,6 @@
 ---
-title: "Utiliser les bibliothèques Python pour analyser des journaux de site web dans un cluster Azure Spark | Microsoft Docs"
-description: "Utiliser des bibliothèques personnalisées avec un cluster Spark HDInsight pour analyser des journaux de site web"
+title: "Analyser des journaux de site web avec des bibliothèques Python dans Spark - Azure | Microsoft Docs"
+description: "Ce bloc-notes montre comment analyser les données de journal à l’aide d’une bibliothèque personnalisée avec Spark sur Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,11 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: d55005ecea7ba6b31c638af3d26c44932e3d12bc
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 41275f8264353e7158ca42e5cfc089b2fbaa556d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Analyser des journaux de site web en utilisant une bibliothèque Python personnalisée avec un cluster Spark sur HDInsight
@@ -69,7 +68,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 1. Créez un RDD à l’aide de l’exemple de données de journal déjà disponible sur le cluster. Vous pouvez accéder aux données dans le compte de stockage par défaut associé au cluster dans **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
-        logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
+        logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
 
 1. Récupérez un exemple de jeu de journal pour vérifier que l'étape précédente a été correctement effectuée.
@@ -93,7 +92,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
     Toutefois, cette bibliothèque n'est pas dans le `PYTHONPATH`. Par conséquent, nous ne pouvons pas l'utiliser à l'aide d'une instruction d'importation telle que `import iislogparser`. Pour utiliser cette bibliothèque, nous devons la distribuer à tous les nœuds de travail. Exécutez l'extrait de code suivant.
 
-        sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
+        sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
 1. `iislogparser` fournit une fonction `parse_log_line` qui retourne `None` si une ligne de journal est une ligne d'en-tête et retourne une instance de la classe `LogLine` si elle rencontre une ligne de journal. Utilisez la classe `LogLine` pour extraire uniquement les lignes de journal du RDD :
@@ -120,7 +119,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
        numLines = logLines.count()
        numErrors = errors.count()
        print 'There are', numErrors, 'errors and', numLines, 'log entries'
-       errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
+       errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
    Un résultat similaire à ce qui suit s’affiche normalement :
 
@@ -220,9 +219,9 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 * [Exécuter des tâches à distance avec Livy sur un cluster Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Outils et extensions
-* [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Utilisation du plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Utiliser des packages externes avec les blocs-notes Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

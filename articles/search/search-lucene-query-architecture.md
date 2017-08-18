@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 9e09425b0143c1907d1af167782d1e4b1457d626
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 9b7adf78271407963ed1d4b34a7760d707b5fc3a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/11/2017
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -263,28 +263,28 @@ Pour le champ **Description**, l’index est le suivant :
 
 | Terme | Liste de documents |
 |------|---------------|
-| air |    3
-| and |    4
+| air | 3
+| and | 4
 | plage | 1
-| conditionné |    3
-| confortable |    3
+| conditionné | 3
+| confortable | 3
 | distance | 1
 | île | 2
 | kauaʻi | 2
-| situé |    2
+| situé | 2
 | Nord | 2
 | mer | 1, 2, 3
 | sur | 2
 | sur |2
 | calme | 4
-| chambres     | 1, 3
+| chambres  | 1, 3
 | isolé | 4
-| rive    | 2
+| rive | 2
 | spacieux | 1
 | le | 1, 2
 | to | 1
 | view | 1, 2, 3
-| marche |    1
+| marche | 1
 | par | 3
 
 
@@ -386,6 +386,8 @@ Cet article a présenté la recherche en texte intégral dans le contexte de la 
 + Découvrez comment appliquer des [analyseurs lexicaux propres au langage](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configurez des analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) pour un traitement minimal ou pour un traitement spécialisé sur des champs spécifiques.
+
++ [Comparez les analyseurs standards et les analyseurs anglais](http://alice.unearth.ai/) côte à côte sur ce site web de démonstration. 
 
 ## <a name="see-also"></a>Voir aussi
 

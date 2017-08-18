@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: adhurwit
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2a7f2cb27cb4ed2d23fee09d53f85283a8592b3a
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: d095bcfe37baefa90cf79bb48bff3f703ce1dad7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -135,13 +136,15 @@ Il est également possible d'authentifier une application Azure AD à l'aide d
 4. ajouter un certificat à votre application Web.
 
 **Obtenir ou créer un certificat** Dans notre cas, nous utiliserons un certificat de test. Voici quelques exemples de commandes que vous pouvez utiliser dans une invite de commandes de développeur pour créer un certificat. Accédez au répertoire dans lequel vous souhaitez créer les fichiers de certificat.  En outre, pour les dates de début et de fin du certificat, utilisez la date actuelle plus un an.
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
+
+    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+    pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 Prenez note de la date de fin et du mot de passe pour le fichier .pfx (dans cet exemple : 31/07/2016 et test123). Vous en aurez besoin ultérieurement.
 
 Pour plus d’informations sur la création d’un certificat de test, consultez [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 
-**Associer le certificat à une application Azure AD** Maintenant que vous disposez d'un certificat, vous devez l'associer à une application Azure AD. Actuellement, le portail ne prend pas en charge ce worklfow ; par contre, PowerShell, oui. Exécutez les commandes suivantes pour associer le certificat à l’application Azure AD :
+**Associer le certificat à une application Azure AD** Maintenant que vous disposez d'un certificat, vous devez l'associer à une application Azure AD. Actuellement, le Portail Azure ne prend pas en charge ce worklfow ; en revanche, PowerShell, oui. Exécutez les commandes suivantes pour associer le certificat à l’application Azure AD :
 
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
     $x509.Import("C:\data\KVWebApp.cer")

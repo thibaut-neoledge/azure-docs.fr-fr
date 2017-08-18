@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/19/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 9c7ce71674a851d598ef48eb430127c9a6bddb84
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 3ae4701914fb759efe7a890d5906f231c1def2e2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduction à la résolution des problèmes des ressources dans Azure Network Watcher
 
-Les passerelles de réseau virtuel assurent une connectivité entre les ressources locales et d’autres réseaux virtuels dans Azure. L’analyse de ces passerelles et de leurs connexions est essentielle pour assurer la non-interruption de la communication. Network Watcher permet de résoudre les problèmes des connexions et des passerelles de réseau virtuel. Cette fonctionnalité de résolution peut être appelée par l’API REST, l’interface de ligne de commande ou PowerShell. Lorsque cette fonctionnalité est appelée, Network Watcher diagnostique l’intégrité de la passerelle de réseau virtuel ou de la connexion et retourne les résultats appropriés. Cette demande est une transaction à long terme, et les résultats sont retournés à l’issue du diagnostic.
+Les passerelles de réseau virtuel assurent une connectivité entre les ressources locales et d’autres réseaux virtuels dans Azure. L’analyse de ces passerelles et de leurs connexions est essentielle pour assurer la non-interruption de la communication. Network Watcher permet de résoudre les problèmes des connexions et des passerelles de réseau virtuel. Il est possible de l’appeler par le biais du portail, de PowerShell, de l’interface de ligne de commande ou de l’API REST. Lorsque cette fonctionnalité est appelée, Network Watcher diagnostique l’intégrité de la passerelle de réseau virtuel ou de la connexion et retourne les résultats appropriés. Cette demande est une transaction à long terme, et les résultats sont retournés à l’issue du diagnostic.
+
+![portail][2]
 
 ## <a name="results"></a>Résultats
 
@@ -79,6 +81,24 @@ Les tableaux suivants présentent les différents types d’erreur (« id » dan
 | IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | Oui|
 | WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |Oui|
 
+## <a name="supported-gateway-types"></a>Types de passerelles pris en charge
+
+La liste suivante montre quelles passerelles et quelles connexions sont prises en charge avec la résolution des problèmes de Network Watcher.
+|  |  |
+|---------|---------|
+|**Types de passerelles**   |         |
+|VPN      | Pris en charge        |
+|ExpressRoute | Non pris en charge |
+|Hypernet | Non pris en charge|
+|**Types de VPN** | |
+|Route-based | Pris en charge|
+|Policy-based | Non pris en charge|
+|**Types de connexions**||
+|IPsec| Pris en charge|
+|Vnet2Vnet| Pris en charge|
+|ExpressRoute| Non pris en charge|
+|Hypernet| Non pris en charge|
+|VPNClient| Non pris en charge|
 
 ## <a name="log-files"></a>Fichiers journaux
 
@@ -194,8 +214,9 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment diagnostiquer les connexions avec PowerShell et les passerelles VPN en consultant l’article [Gateway troubleshooting - PowerShell (Dépannage de la passerelle - PowerShell)](network-watcher-troubleshoot-manage-powershell.md).
+Découvrez comment diagnostiquer les passerelles VPN et les connexions par le biais du portail en consultant l’article [Résolution des problèmes de passerelle - Portail Azure](network-watcher-troubleshoot-manage-portal.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
+[2]: ./media/network-watcher-troubleshoot-overview/portal.png
 

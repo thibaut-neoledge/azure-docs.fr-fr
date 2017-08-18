@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 858769130eed5c996bca151855bfc09d4832a314
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 33390532cc4fc1129a4f960d589f41bc95e5a1ff
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/15/2017
 
 ---
 
@@ -88,7 +88,7 @@ Les propriétés suivantes peuvent être définies dans une capture de paquets 
 - **Chemin de fichier local** : chemin d’accès local sur une machine virtuelle pour enregistrer la capture des paquets. (Activé uniquement si **Fichier** est sélectionné.) Un chemin d’accès valide doit être fourni.
 - **Nombre maximal d’octets par paquet** : nombre d’octets capturés dans chaque paquet. Si ce champ est vide, tous les octets sont capturés.
 - **Nombre maximal d’octets par session** : nombre total d’octets capturés. Une fois cette valeur atteinte, la capture de paquets s’arrête.
-- **Délai imparti (secondes)** : définit une limite de temps pour arrêter la capture de paquets. La valeur par défaut est 1 800 secondes.
+- **Délai imparti (secondes)** : définit une limite de temps pour arrêter la capture de paquets. La valeur par défaut est de 18 000 secondes.
 
 > [!NOTE]
 > Les comptes de stockage Premium ne sont actuellement pas pris en charge pour le stockage des captures de paquets.

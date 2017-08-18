@@ -15,9 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 259c59133499a4a3beb0e5f6f3700944df5ab8a9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -83,14 +85,14 @@ Le tableau suivant est un sous-ensemble des [Limites de service dans Azure Searc
 | Réplicas maximales |N/A |3 |12 |12 |12 |12 |
 | Requêtes par seconde |N/A |~3 par réplica |~15 par réplica |~60 par réplica |Moins de 60 par réplica |Moins de 60 par réplica |
 
-<sup>1</sup> Les références (SKU) gratuites et les versions préliminaires ne sont pas fournies avec les contrats de niveau de service. Des contrats de niveau de service sont mis en œuvre dès qu’une référence (SKU) est généralement disponible.
+<sup>1</sup> Les fonctionnalités de niveau Gratuit et d’évaluation ne sont pas fournies avec des Contrats de niveau de service (SLA). Pour tous les niveaux facturables, les SLA entrent en vigueur lorsque vous approvisionnez une redondance suffisante pour votre service. Un SLA de requête (lecture) requiert au moins deux réplicas. Un SLA de requête et d’indexation (lecture-écriture) nécessite au moins trois réplicas. Le nombre de partitions n’est pas pris en compte dans les SLA. 
 
 <sup>2</sup> Les niveaux S3 et S3 HD sont soutenus par une infrastructure haute capacité identique, mais chacun d’eux atteint sa limite maximale de différentes façons. S3 permet de cibler un plus petit nombre d’index très volumineux. Par conséquent, sa limite maximale est liée à la ressource (2,4 To pour chaque service). S3 HD cible un grand nombre de très petits index. Avec 1 000 index, S3 HD atteint ses limites sous la forme de contraintes d’index. Si vous êtes un client S3 HD qui nécessite plus de 1 000 index, contactez le Support Microsoft pour plus d’informations sur la marche à suivre.
 
 ## <a name="eliminate-skus-that-dont-meet-requirements"></a>Éliminer les références qui ne répondent pas aux exigences
 Les questions suivantes peuvent vous aider à mieux choisir la référence (SKU) adaptée à votre charge de travail.
 
-1. Avez-vous des exigences en matière de **contrat de niveau de service (SLA)** ? Affinez votre choix de référence (SKU) sur De base ou Standard sans version préliminaire.
+1. Avez-vous des exigences en matière de **contrat de niveau de service (SLA)** ? Vous pouvez utiliser n’importe quel niveau facturable (De base et plus), mais vous devez configurer votre service pour assurer la redondance. Un SLA de requête (lecture) requiert au moins deux réplicas. Un SLA de requête et d’indexation (lecture-écriture) nécessite au moins trois réplicas. Le nombre de partitions n’est pas pris en compte dans les SLA.
 2. **De combien d’index** avez-vous besoin ? L’un des principaux éléments à prendre en compte lorsque vous choisissez une référence (SKU) est le nombre d’index pris en charge par chaque référence. La prise en charge de l’index est sensiblement différente dans les niveaux de tarification inférieurs. Les exigences en matière de nombre d’index sont déterminantes dans le choix d’une référence (SKU).
 3. **Combien de documents** seront chargés dans chaque index ? Le nombre et la taille des documents déterminent la taille finale de l’index. En supposant que vous puissiez estimer la taille prévue de l’index, vous pouvez comparer ce nombre avec la taille de partition par référence (SKU), étendue par le nombre de partitions nécessaires pour stocker un index de cette taille.
 4. **Quelle est la charge de requête attendue**? Une fois que les besoins de stockage sont compris, penchez-vous sur les charges de travail de requête. Les références (SKU) S2 et S3 offrent un débit presque équivalent, mais les exigences du contrat SLA écartent toute référence (SKU) de version préliminaire.
@@ -113,9 +115,4 @@ Une fois que vous avez déterminé la référence (SKU) qui convient le mieux, p
 
 * [Créer un service de recherche dans le portail](search-create-service-portal.md)
 * [Modifier l’allocation des partitions et des réplicas à l’échelle de votre service](search-capacity-planning.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

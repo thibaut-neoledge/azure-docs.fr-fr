@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 06/01/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: db9f2174e9928083957f160be8c268fe21cd4169
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e44f04b3492ac07822b0842864f84a5f16dc3f5b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 
@@ -57,23 +57,23 @@ Variable | Description|
 Runbook **SendMailO365-MS-Mgmt** ||
 SendMailO365-IsSendEmail-MS-Mgmt | Indique si les runbooks StartByResourceGroup-MS-Mgmt-VM et StopByResourceGroup-MS-Mgmt-VM peuvent envoyer une notification par courrier électronique une fois l’opération associée terminée.  Sélectionnez **True** pour activer et **False** pour désactiver les alertes par courrier électronique. La valeur par défaut est **False**.| 
 Runbook **StartByResourceGroup-MS-Mgmt-VM** ||
-StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Entrez les noms des machines virtuelles à exclure de l’opération de gestion ; séparez leurs noms à l’aide de points-virgules (;). Les valeurs respectent la casse et le caractère générique (astérisque) est pris en charge.|
+StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Entrez les noms des machines virtuelles à exclure de l’opération de gestion ; séparez leurs noms à l’aide de points-virgules (;), sans espaces. Les valeurs respectent la casse et le caractère générique (astérisque) est pris en charge.|
 StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Texte qui peut être ajouté au début du corps du message électronique.|
 StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Spécifie le nom du compte Automation qui contient le runbook de courrier électronique.  **Ne modifiez pas cette variable.**|
 StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | Spécifie le nom du runbook de courrier électronique.  Cette variable est utilisée par les runbooks StartByResourceGroup-MS-Mgmt-VM et StopByResourceGroup-MS-Mgmt-VM pour l’envoi de courrier électronique.  **Ne modifiez pas cette variable.**|
 StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Spécifie le nom du groupe de ressources qui contient le runbook de courrier électronique.  **Ne modifiez pas cette variable.**|
 StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Spécifie le texte de la ligne d’objet du message électronique.|  
-StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Spécifie le ou les destinataires du message électronique.  Séparez les noms à l’aide de points-virgules (;).|
-StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Entrez les noms des machines virtuelles à exclure de l’opération de gestion ; séparez leurs noms à l’aide de points-virgules (;). Les valeurs respectent la casse et le caractère générique (astérisque) est pris en charge.  La valeur par défaut (astérisque) inclut tous les groupes de ressources de l’abonnement.|
+StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Spécifie le ou les destinataires du message électronique.  Séparez les noms à l’aide de points-virgules (;), sans espaces.|
+StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Entrez les noms des machines virtuelles à exclure de l’opération de gestion ; séparez leurs noms à l’aide de points-virgules (;), sans espaces. Les valeurs respectent la casse et le caractère générique (astérisque) est pris en charge.  La valeur par défaut (astérisque) inclut tous les groupes de ressources de l’abonnement.|
 StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Spécifie l’abonnement qui contient les machines virtuelles à gérer par cette solution.  Il doit s’agir du même abonnement que celui où le compte Automation de cette solution se trouve.|
 Runbook **StopByResourceGroup-MS-Mgmt-VM** ||
-StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Entrez les noms des machines virtuelles à exclure de l’opération de gestion ; séparez leurs noms à l’aide de points-virgules (;). Les valeurs respectent la casse et le caractère générique (astérisque) est pris en charge.|
+StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Entrez les noms des machines virtuelles à exclure de l’opération de gestion ; séparez leurs noms à l’aide de points-virgules (;), sans espaces. Les valeurs respectent la casse et le caractère générique (astérisque) est pris en charge.|
 StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Texte qui peut être ajouté au début du corps du message électronique.|
 StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Spécifie le nom du compte Automation qui contient le runbook de courrier électronique.  **Ne modifiez pas cette variable.**|
 StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Spécifie le nom du groupe de ressources qui contient le runbook de courrier électronique.  **Ne modifiez pas cette variable.**|
 StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Spécifie le texte de la ligne d’objet du message électronique.|  
-StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Spécifie le ou les destinataires du message électronique.  Séparez les noms à l’aide de points-virgules (;).|
-StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Entrez les noms des machines virtuelles à exclure de l’opération de gestion ; séparez leurs noms à l’aide de points-virgules (;). Les valeurs respectent la casse et le caractère générique (astérisque) est pris en charge.  La valeur par défaut (astérisque) inclut tous les groupes de ressources de l’abonnement.|
+StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Spécifie le ou les destinataires du message électronique.  Séparez les noms à l’aide de points-virgules (;), sans espaces.|
+StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Entrez les noms des machines virtuelles à exclure de l’opération de gestion ; séparez leurs noms à l’aide de points-virgules (;), sans espaces. Les valeurs respectent la casse et le caractère générique (astérisque) est pris en charge.  La valeur par défaut (astérisque) inclut tous les groupes de ressources de l’abonnement.|
 StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Spécifie l’abonnement qui contient les machines virtuelles à gérer par cette solution.  Il doit s’agir du même abonnement que celui où le compte Automation de cette solution se trouve.|  
 <br>
 

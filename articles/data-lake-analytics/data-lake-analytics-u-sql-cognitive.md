@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-translationtype: Human Translation
-ms.sourcegitcommit: 21b4d574705d589406f50cac106a47ada71d24cd
-ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -26,13 +28,13 @@ ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
 Les fonctionnalités cognitives de U-SQL permettent aux développeurs d’utiliser l’intelligence PUT dans leurs programmes de Big Data. Le processus général est simple :
 
 * Utilisation de l’instruction REFERENCE ASSEMBLY pour activer les fonctionnalités cognitives pour le script SQL-U
-* Utilisation de l’opération Process pour utiliser les fonctionnalités cognitives 
+* Appel de l’opération PROCESS pour utiliser les fonctionnalités cognitives 
 
-## <a name="imaging-scenarios"></a>Scénarios de création d’images
+## <a name="imaging-scenarios"></a>Scénarios d’acquisition d’images
 
-### <a name="a-simple-example-image-tagging"></a>Voici un exemple simple : le balisage des images
+### <a name="example-image-tagging"></a>Exemple : balisage d’images
 
-L’exemple suivant montre une utilisation de bout en bout des fonctionnalités d’imagerie pour détecter des objets dans des images.
+L’exemple suivant illustre une utilisation de bout en bout des fonctionnalités d’acquisition d’images pour détecter des objets dans des images.
 
     REFERENCE ASSEMBLY ImageCommon;
     REFERENCE ASSEMBLY FaceSdk;
@@ -104,7 +106,7 @@ Supposons que nous disposons d’une entrée composée de « Guerre et paix » d
         FROM @"/usqlext/samples/cognition/war_and_peace.csv"
         USING Extractors.Csv();
 
-### <a name="extract-key-phrases-for-each-paragraph"></a>Extraction d’expressions clés de chaque paragraphe.
+### <a name="extract-key-phrases-for-each-paragraph"></a>Extraire des expressions clés dans chaque paragraphe
 
     @keyphrase =
         PROCESS @WarAndPeace
@@ -133,7 +135,7 @@ Supposons que nous disposons d’une entrée composée de « Guerre et paix » d
             CROSS APPLY
                 new Cognition.Text.Splitter("KeyPhrase") AS T(KeyPhrase);
     
-### <a name="perform-sentiment-analysis-on-each-paragraph"></a>Exécution d’une analyse des sentiments de chaque paragraphe
+### <a name="perform-sentiment-analysis-on-each-paragraph"></a>Effectuer une analyse des sentiments dans chaque paragraphe
 
     @sentiment =
         PROCESS @WarAndPeace
@@ -150,10 +152,5 @@ Supposons que nous disposons d’une entrée composée de « Guerre et paix » d
                 Chapter,
                 Text
         USING new Cognition.Text.SentimentAnalyzer(true);
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

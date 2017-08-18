@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b4d3d114f6947639ef865861337ce9f2a6452e76
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: b8c189865c27566e3265f14eb54cb5ea4a005dc5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -51,7 +51,7 @@ Pour connaître les modèles préconfigurés pour l’application :
 
 5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
-   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications**.
+   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
 6.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
@@ -85,7 +85,7 @@ Azure AD sélectionne le format de l’attribut NameID (identificateur d’utili
 
 Pour télécharger le certificat ou les métadonnées de l’application à partir d’Azure AD, effectuez les étapes suivantes :
 
-1.  Ouvrez le [**Portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou **Coadministrateur**.
+1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’**administrateur général** ou **coadministrateur**
 
 2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Autres services** en bas du menu de navigation principal de gauche.
 
@@ -95,7 +95,7 @@ Pour télécharger le certificat ou les métadonnées de l’application à part
 
 5.  Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
 
-   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications**.
+   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
 
 6.  Sélectionnez l’application pour laquelle vous avez configuré l’authentification unique.
 
@@ -104,6 +104,10 @@ Pour télécharger le certificat ou les métadonnées de l’application à part
 8.  Accédez à la section **Certificat de signature SAML**, puis cliquez sur la valeur de colonne **Télécharger**. En fonction de ce que l’application nécessite pour configurer l’authentification unique, vous voyez soit l’option de téléchargement des métadonnées XML, soit le certificat.
 
 Azure AD ne fournit pas d’URL permettant d’obtenir les métadonnées. Les métadonnées peuvent uniquement être récupérées sous forme de fichier XML.
+
+## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Vous ne savez pas comment personnaliser les revendications SAML envoyées à une application
+
+Pour savoir comment personnaliser les revendications d’attribut SAML envoyées à votre application, consultez [Claims mapping in Azure Active Directory (public preview)](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) (Mappage de revendications dans Azure Active Directory (préversion)) pour plus d’informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Gestion des applications avec Azure Active Directory](active-directory-enable-sso-scenario.md)

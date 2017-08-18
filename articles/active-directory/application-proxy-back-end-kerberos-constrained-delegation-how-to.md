@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 209d4f3874123b3f630d3648264e9afc438da184
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 0651f497de446bd6b66f8eaccd7114d262925afd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 ---
 
@@ -47,7 +47,7 @@ Par conséquent, nous vous recommandons de vérifier systématiquement que vous 
 
 Consultez notamment la section sur la configuration de KCD sur 2012 R2. En effet, il convient d’adopter une approche radicalement différente pour la configuration de KCD avec les versions précédentes de Windows, et ce, tout en tenant compte de plusieurs considérations :
 
--   Il n’est pas rare qu’un serveur membre du domaine ouvre un dialogue sur un canal sécurisé avec un contrôleur de domaine spécifique, puis passe à un autre ultérieurement. Ainsi, en règle générale, les hôtes de connecteur ne doivent pas être limités à une communication avec des contrôleurs de domaine spécifiques du site local.
+-   Il n’est pas rare qu’un serveur membre de domaine ouvre une boîte de dialogue sur un canal sécurisé avec un contrôleur de domaine spécifique, puis passe à une autre boîte de dialogue sans prévenir. Ainsi, en règle générale, les hôtes de connecteur ne doivent pas être limités à une communication avec des contrôleurs de domaine spécifique du site local.
 
 -   De même, les scénarios inter-domaines s’appuient sur des références qui dirigent un hôte de connecteur vers des contrôleurs de domaine pouvant résider en dehors du périmètre du réseau local. Dans ce scénario, il est tout aussi important de vous assurer que vous autorisez également le trafic vers les contrôleurs de domaine qui représentent d’autres domaines respectifs. Sinon, la délégation échouera.
 
@@ -65,7 +65,7 @@ Alors quels aspects caractérisent effectivement un problème avec KCD ? On peu
 
    ![Échec de l’autorisation en raison d’autorisations manquantes](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-Ces erreurs entraînent toutes le même symptôme, à savoir l’échec de l’authentification SSO et, par conséquent, le refus de l’accès de utilisateur à l’application.
+Ces erreurs entraînent toutes le même symptôme, à savoir l’échec de l’authentification SSO et, par conséquent, le refus de l’accès de l’utilisateur à l’application.
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 

@@ -1,5 +1,5 @@
 ---
-title: "Installation ou mise à jour de Mono sur HDInsight | Microsoft Docs"
+title: "Installer ou mettre à jour Mono sur HDInsight - Azure | Microsoft Docs"
 description: "Découvrez comment utiliser une version particulière de Mono avec le cluster HDInsight. Mono permet d’exécuter des applications .NET sur des clusters HDInsight sous Linux."
 services: hdinsight
 documentationCenter: 
@@ -12,15 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/01/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: dc303b5386d48cd7daad1630a35c8b8366a9c19f
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 2721b41e8736c9ebd75cd098ad376018b4563d3f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 06/10/2017
 
 ---
 

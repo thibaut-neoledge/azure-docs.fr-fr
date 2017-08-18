@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 06/14/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ddf4affe72c6413501ffa00747c110f8761ed70e
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: ef26a16e79d9c9b0654634960b57dc59827b2c24
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -122,7 +122,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
-    a. Dans la zone de texte **Identificateur**, entrez l’**ID d’entité** copié à partir du portail LinkedIn 
+    a. Dans la zone de texte **Identificateur**, entrez **l’ID d’entité** copié à partir de LinkedIn Portal 
 
     b. Dans la zone de texte **URL de réponse**, entrez l’**URL ACS** copiée à partir du portail LinkedIn
 
@@ -136,17 +136,22 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-linkedinsalesnavigator-tutorial/updateusermail.png)
     
-9. Dans **Attributs utilisateur**, cliquez sur **Afficher et modifier tous les autres attributs utilisateur** et définissez les attributs. L’utilisateur doit ajouter une autre revendication nommée **service**, et la valeur doit être mappée à **user.department**.
+9. Dans **Attributs utilisateur**, cliquez sur **Afficher et modifier tous les autres attributs utilisateur** et définissez les attributs. L’utilisateur doit ajouter quatre revendications nommées **email**, **department**, **firstname** et **lastname** et la valeur doit être mappée respectivement à **user.mail**, **user.department**, **user.givenname** et **user.surname**.
 
     | Nom de l'attribut | Valeur de l’attribut |
     | --- | --- |    
+    | email| user.mail |
     | department| user.department |
-
-   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
-
-    a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue associée
-
-   ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+    | firstname| user.givenname |
+    | lastname| user.surname |
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+    
+    a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue associée.
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_05.png)
    
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -154,19 +159,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     d. Cliquez sur **OK**.
 
-10. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
+10. Effectuez les étapes suivantes au niveau de l’attribut **name**.
+
+    a. Cliquez sur l’attribut pour ouvrir la fenêtre **Modifier l’attribut**.
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-linkedinsalesnavigator-tutorial/url_update.png)
+
+    b. Supprimez la valeur d’URL dans **namespace**.
+    
+    c. Cliquez sur **OK** pour enregistrer le paramètre.
+
+11. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier XML sur votre ordinateur.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
 
-11. Cliquez sur le bouton **Enregistrer** .
+12. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l’authentification unique](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
-12. Accédez à la section **Paramètres de l’administrateur LinkedIn**. Cliquez sur **Télécharger fichier XML** pour charger le fichier XML de métadonnées que vous avez téléchargé à partir du portail Azure.
+13. Accédez à la section **Paramètres de l’administrateur LinkedIn**. Cliquez sur **Télécharger fichier XML** pour charger le fichier XML de métadonnées que vous avez téléchargé à partir du portail Azure.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. Cliquez sur **Activer** pour activer l’authentification unique. L’état de l’authentification unique passe de **Non connecté** à **Connecté**
+14. Cliquez sur **Activer** pour activer l’authentification unique. L’état de l’authentification unique passe de **Non connecté** à **Connecté**
 
     ![Configurer l’authentification unique](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
@@ -246,7 +261,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la mosaïque LinkedIn Sales Navigator dans le volet d’accès, vous êtes normalement redirigé vers page d’organisation où vous devez fournir vos informations de compte personnelles LinkedIn. Votre compte personnel est ainsi lié à votre compte professionnel LinkedIn. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586). 
+Lorsque vous cliquez sur la vignette LinkedIn Sales Navigator dans le volet d’accès, vous êtes normalement redirigé vers page d’organisation où vous devez fournir vos informations de compte personnelles LinkedIn. Votre compte personnel est ainsi lié à votre compte professionnel LinkedIn. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
