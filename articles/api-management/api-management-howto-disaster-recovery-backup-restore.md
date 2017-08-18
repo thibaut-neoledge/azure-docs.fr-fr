@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c0413f9c83fd6dceb4a1d956c0f32712e29bdc58
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c0265490cfae733133b6e0c938f90f9b392da4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
-<a id="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management" class="xliff"></a>
-
-# Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
+# <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 En choisissant de publier et de gérer vos API via la Gestion des API Azure, vous bénéficiez de nombreuses fonctionnalités de tolérance de panne et d'infrastructure que vous auriez à concevoir, implémenter et gérer sans ce service. La plateforme Azure permet de limiter une grande partie des risques de défaillance à moindres frais.
 
 Pour récupérer à la suite de problèmes de disponibilité affectant la région où votre service Gestion des API est hébergé, vous devez être prêt à reconstituer votre service dans une autre région à tout moment. En fonction de vos objectifs de disponibilité et de temps de récupération, vous pouvez réserver un service de sauvegarde dans une ou plusieurs régions et tenter de maintenir la synchronisation de leur configuration et de leur contenu avec le service actif. La fonctionnalité de sauvegarde et de récupération de service fournit le bloc de construction nécessaire pour implémenter votre stratégie de récupération d'urgence.
@@ -37,9 +35,7 @@ Ce guide montre comment authentifier des demandes Azure Resource Manager et comm
 >
 >
 
-<a id="authenticating-azure-resource-manager-requests" class="xliff"></a>
-
-## Demandes d'authentification Azure Resource Manager
+## <a name="authenticating-azure-resource-manager-requests"></a>Demandes d'authentification Azure Resource Manager
 > [!IMPORTANT]
 > L'API REST pour la sauvegarde et la restauration utilise Azure Resource Manager et dispose d'un autre mécanisme d'authentification que pour les API REST pour la gestion de vos entités de gestion des API. Les étapes de cette section décrivent comment authentifier les requêtes Azure Resource Manager. Pour plus d’informations, consultez [Demandes d'authentification Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 >
@@ -54,9 +50,7 @@ Toutes les tâches que vous effectuez sur les ressources à l'aide d’Azure Res
 La première étape consiste à créer une application Azure Active Directory. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com/) à l’aide de l’abonnement qui contient votre instance de service Gestion des API et accédez à l’onglet **Applications** pour votre annuaire Azure Active Directory par défaut.
 
 > [!NOTE]
-> Si le répertoire par défaut de Azure Active Directory n'est pas visible sur votre compte, contactez l'administrateur de l'abonnement Azure pour accorder les autorisations requises de votre compte. Pour plus d’informations sur l’emplacement de votre répertoire par défaut, consultez « Localiser votre répertoire par défaut sur le portail Azure Classic » dans [Création d’une identité professionnelle ou scolaire dans Azure Active Directory à utiliser avec des machines virtuelles Windows](../virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
->
->
+> Si le répertoire par défaut de Azure Active Directory n'est pas visible sur votre compte, contactez l'administrateur de l'abonnement Azure pour accorder les autorisations requises de votre compte.
 
 ![Création d’une application Azure Active Directory][api-management-add-aad-application]
 
@@ -193,9 +187,7 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les blogs Microsoft suivants pour les deux procédures pas à pas différent du processus de sauvegarde et de restauration.
 
 * [Répliquer des comptes de gestion des API Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)

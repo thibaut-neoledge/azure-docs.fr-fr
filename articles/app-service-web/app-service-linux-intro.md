@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 87b9da134bce20b037e2dce7e1c9f54454fafe9e
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 69156ec555b34d066a65bdc202267cfc53de47a0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Présentation d’Azure Web App sur Linux
@@ -83,10 +83,14 @@ Cette version préliminaire publique est actuellement disponible uniquement dans
 * Est des États-Unis
 * Europe de l'Ouest
 * Europe du Nord
+* Centre-Sud des États-Unis
+* États-Unis - partie centrale septentrionale
 * Asie du Sud-Est
+* Est de l'Asie
 * Est de l’Australie
 * Est du Japon
 * Sud du Brésil
+* Inde du Sud
 
 Web Apps sur Linux est uniquement pris en charge dans les plans App Service dédiés et ne dispose pas d’un niveau Gratuit ou Partagé. En outre, les plans App Service pour les applications web standards et Linux s’excluent mutuellement : vous ne pouvez pas créer une application web Linux dans un plan App Service non Linux.
 

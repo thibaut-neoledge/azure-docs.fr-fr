@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 09b4a34a45ad676a5279dad85fc84578f40a212a
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 1ce0eebd2585c9457d7f922898d7f2fa3e7ffad7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
@@ -40,7 +40,6 @@ Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliq
 
 En plus des extensions propres à des processus, une extension de script personnalisé est disponible pour les machines virtuelles Windows et Linux. L’extension de script personnalisé pour Windows permet d’exécuter n’importe quel script PowerShell sur une machine virtuelle. Cela s’avère utile pour concevoir des déploiements Azure qui nécessitent une configuration plus avancée que celle permise par les outils Azure. Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles Windows, consultez [cet article](extensions-customscript.md).
 
-Pour étudier un exemple d’utilisation d’une extension de machine virtuelle dans le cadre d’un déploiement d’application de bout en bout, consultez [Automatisation des déploiements d’applications sur Machines Virtuelles Azure](dotnet-core-1-landing.md).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -159,7 +158,7 @@ Pour plus d’informations, consultez le [modèle Resource Manager complet](http
 }
 ```
 
-Pour plus d’informations, consultez l’article [Création de modèles Azure Resource Manager avec des extensions de machine virtuelle Windows](extensions-authoring-templates.md).
+Pour plus d’informations, consultez l’article [Création de modèles Azure Resource Manager avec des extensions de machine virtuelle Windows](template-description.md#extensions).
 
 ## <a name="secure-vm-extension-data"></a>Sécuriser les données des extensions de machine virtuelle
 

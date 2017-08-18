@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
-ms.openlocfilehash: 089bb12b66e772b1fe62eeca9a306b5723fc8c06
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 15e3f7ef3bfd6b1f61fe6081a378bdb29e0a1aa2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB - Kit de développement logiciel (SDK) Java DocumentDB : notes de publication et ressources
@@ -58,7 +58,6 @@ ms.lasthandoff: 07/26/2017
 * Correction d’un problème avec les niveaux de cohérence Strong et BoundedStaleness.
 
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
-* Prise en charge ajoutée de la fonctionnalité Unité de requête par minute (RU/m).
 * Prise en charge ajoutée pour un nouveau niveau de cohérence nommé ConsistentPrefix.
 * Correction d’un bogue de lecture de collection en mode de session.
 

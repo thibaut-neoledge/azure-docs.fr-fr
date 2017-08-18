@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: a1e385c235c3530744a83527574880c5f37caadd
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 93cb0baeab8f13f81257ed1bd32ed08561c54b72
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latences de création de rapports Azure Active Directory
@@ -72,7 +72,7 @@ Le tableau suivant répertorie les informations de latence pour les événements
 | Connexions depuis des adresses IP anonymes |5 minutes |15 minutes |2 heures |
 | Connexions depuis des emplacements non connus |5 minutes |15 minutes |2 heures |
 | Utilisateurs avec des informations d’identification volées |2 heures |4 heures |8 heures |
-| Voyage impossible vers des emplacements inhabituels |2 heures |4 heures |8 heures  |
+| Voyage impossible vers des emplacements inhabituels |5 minutes |1 heure |8 heures  |
 | Connexions depuis des appareils infectés |2 heures |4 heures |8 heures  |
 | Connexions depuis des adresses IP avec des activités suspectes |2 heures |4 heures |8 heures  |
 

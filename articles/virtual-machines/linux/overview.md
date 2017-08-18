@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: abddbe6b78c5c15d4deac68ff8c2504d2321fab0
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
@@ -117,8 +117,6 @@ La création d’une machine virtuelle sur le portail web Azure consiste à faci
 
 ### <a name="login-using-ssh-without-a-password"></a>Connexion avec SSH sans mot de passe
 La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vous connecter.  L’utilisation de mots de passe pour vous connecter via le protocole SSH est peu sûre et prend du temps.  L’utilisation de clés SSH est la méthode la plus sûre et la plus rapide pour vous connecter.  Lorsque vous créez vos machines virtuelles Linux via le portail ou l’interface de ligne de commande, vous avez deux possibilités pour l’authentification.  Si vous choisissez un mot de passe pour SSH, Azure configure la machine virtuelle pour autoriser les connexions via les mots de passe.  Si vous choisissez d’utiliser une clé publique SSH, Azure configure la machine virtuelle pour autoriser uniquement les connexions via les clés SSH et désactive les connexions de mot de passe. Pour sécuriser votre machine virtuelle Linux en autorisant uniquement les connexions par clé SSH, utilisez l’option de clé SSH publique lors de la création de machines virtuelles sur le portail ou dans l’interface de ligne de commande.
-
-* [Désactiver les mots de passe SSH sur votre machine virtuelle Linux en configurant SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="related-azure-components"></a>Composants Azure connexes
 ## <a name="storage"></a>Stockage

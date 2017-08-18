@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: dd75685c2373f65965248656137f1551fa765b7b
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 047eae178d31797fc1b6969cce43da06290955ca
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Commandes PowerShell courantes permettant de créer et de gérer des machines virtuelles Azure
@@ -67,7 +67,7 @@ Ces variables peuvent être utiles si vous utilisez plusieurs des commandes de c
 | Mettre à jour une machine virtuelle |[Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) -ResourceGroupName $myResourceGroup -VM $vm<BR></BR><BR></BR>Obtenez la configuration de machine virtuelle actuelle à l’aide de la commande Get-AzureRmVM, modifiez les paramètres de configuration sur l’objet de machine virtuelle, puis exécutez cette commande. |
 | Ajouter un disque de données à une machine virtuelle |[Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk) -VM $vm -Name "myDataDisk" -VhdUri "https://mystore1.blob.core.windows.net/vhds/myDataDisk.vhd" -LUN # -Caching ReadWrite -DiskSizeinGB # -CreateOption Empty<BR></BR><BR></BR>Utilisez la commande Get-AzureRmVM pour obtenir l’objet de machine virtuelle. Spécifiez le numéro de LUN et la taille du disque. Exécutez la commande Update-AzureRmVM pour appliquer les modifications apportées à la configuration à la machine virtuelle. Le disque que vous ajoutez n’est pas initialisé. |
 | Supprimer un disque de données à partir d'une machine virtuelle |[Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk) -VM $vm -Name "myDataDisk"<BR></BR><BR></BR>Utilisez la commande Get-AzureRmVM pour obtenir l’objet de machine virtuelle. Exécutez la commande Update-AzureRmVM pour appliquer les modifications apportées à la configuration à la machine virtuelle. |
-| Ajouter une extension à une machine virtuelle |[Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) -ResourceGroupName $myResourceGroup -Location $location -VMName $myVM -Name "extensionName" -Publisher "publisherName" -Type "extensionType" -TypeHandlerVersion "#.#" -Settings $Settings -ProtectedSettings $ProtectedSettings<BR></BR><BR></BR>Exécutez cette commande avec les [informations de configuration](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) appropriées pour l’extension que vous souhaitez installer. |
+| Ajouter une extension à une machine virtuelle |[Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) -ResourceGroupName $myResourceGroup -Location $location -VMName $myVM -Name "extensionName" -Publisher "publisherName" -Type "extensionType" -TypeHandlerVersion "#.#" -Settings $Settings -ProtectedSettings $ProtectedSettings<BR></BR><BR></BR>Exécutez cette commande avec les [informations de configuration](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) appropriées pour l’extension que vous souhaitez installer. |
 | Supprimer une extension de machine virtuelle |[Remove-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmextension) -ResourceGroupName $myResourceGroup -Name "extensionName" -VMName $myVM |
 
 ## <a name="next-steps"></a>Étapes suivantes
