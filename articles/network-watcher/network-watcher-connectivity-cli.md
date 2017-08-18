@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 81b0f76538b74edf1ebdfb40ff9190e5072e71c8
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: c1deaa40bfda0bf3858ad56d3d6a90df34351278
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -29,13 +29,6 @@ ms.lasthandoff: 07/13/2017
 > - [API REST Azure](network-watcher-connectivity-rest.md)
 
 Découvrez comment utiliser la connectivité pour vérifier si une connexion TCP directe entre une machine virtuelle et un point de terminaison donné peut être établie.
-
-Cet article vous guide tout au long de plusieurs scénarios de vérification de connectivité.
-
-* [Vérifier la connectivité à une machine virtuelle](#check-connectivity-to-a-virtual-machine)
-* [Valider les problèmes de routage](#validate-routing-issues)
-* [Vérifier la latence du site Web](#check-website-latency)
-* [Vérifier la connectivité à un point de terminaison de stockage](#check-connectivity-to-a-storage-endpoint)
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

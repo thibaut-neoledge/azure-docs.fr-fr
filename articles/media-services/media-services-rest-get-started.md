@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 93481fe9c3920ea4c578f3da326de9f9e8531a71
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 731c32970941c6a3963dcb48bf03ee0f53e0c7af
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Prendre en main la diffusion de contenus à la demande avec REST
@@ -54,8 +54,10 @@ Ce document de démarrage rapide présente les tâches suivantes.
 >[!NOTE]
 >Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
-
 Pour plus d’informations sur les entités REST AMS utilisées dans cette rubrique, consultez [Informations de référence sur l’API REST de Media Services](/rest/api/media/services/azure-media-services-rest-api-reference). Consultez également [Concepts Azure Media Services](media-services-concepts.md).
+
+>[!NOTE]
+>Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 
 ## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Démarrer les points de terminaison de streaming à l’aide du portail Azure
 
@@ -76,147 +78,18 @@ Pour démarrer le point de terminaison de streaming, procédez comme suit :
 5. Cliquez sur le bouton Enregistrer pour enregistrer vos modifications.
 
 ## <a id="connect"></a>Connexion à un compte Media Services à l’aide de l’API REST
-Vous avez besoin de deux choses pour accéder à Azure Media Services : un jeton d’accès fourni par les Services de contrôle d’accès (ACS) Azure et l’URI de Media Services. Vous pouvez utiliser la méthode de votre choix lors de la création de ces demandes, tant que vous spécifiez les valeurs d’en-têtes appropriées et transmettez le jeton d’accès correctement lors de l’appel dans Media Services.
 
-Les étapes suivantes décrivent le flux de travail habituel lors de l’utilisation de l’API REST Media Services pour se connecter à Media Services :
+Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-1. Obtention d’un jeton d’accès
-2. Connexion à l’URI Media Services  
+>[!NOTE]
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI.
 
-    N’oubliez pas qu’après vous être connecté à https://media.windows.net, vous recevez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI. Vous pouvez également recevoir une réponse HTTP/1.1 200 qui contient la description des métadonnées de l’API ODATA.
-3. Envoi de vos appels d’API suivants vers la nouvelle URL.
-
-    Par exemple, si après avoir essayé de vous connecter, vous avez les éléments suivants :
-
-        HTTP/1.1 301 Moved Permanently
-        Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
-
-    Vous devez enregistrer vos appels d’API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
-
-### <a name="getting-an-access-token"></a>Obtention d’un jeton d’accès
-Pour accéder à Media Services directement par le biais de l’API REST, obtenez un jeton d’accès ACS et utilisez-le lors de chaque demande HTTP adressée au service. Il n’existe pas d’autre condition préalable pour vous connecter directement à Media Services.
-
-L’exemple suivant montre l’en-tête et le corps de demande HTTP qui permet de récupérer un jeton.
-
-**En-tête**:
-
-    POST https://wamsprodglobal001acs.accesscontrol.windows.net/v2/OAuth2-13 HTTP/1.1
-    Content-Type: application/x-www-form-urlencoded
-    Host: wamsprodglobal001acs.accesscontrol.windows.net
-    Content-Length: 120
-    Expect: 100-continue
-    Connection: Keep-Alive
-    Accept: application/json
-
-
-**Corps**:
-
-Il convient de fournir les valeurs client_id et client_secret dans le corps de cette demande ; client_id et client_secret correspondent aux valeurs AccountName et AccountKey, respectivement. Ces valeurs sont fournies par Media Services pour vous lorsque vous configurez votre compte.
-
-La valeur AccountKey de votre compte Media Services doit être encodée dans l’URL quand vous l’utilisez comme valeur client_secret dans votre demande de jeton d’accès.
-
-    grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
-
-
-Par exemple :
-
-    grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
-
-
-L’exemple suivant montre la réponse HTTP qui contient le jeton d’accès dans le corps de réponse.
-
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache, no-store
-    Pragma: no-cache
-    Content-Type: application/json; charset=utf-8
-    Expires: -1
-    request-id: a65150f5-2784-4a01-a4b7-33456187ad83
-    X-Content-Type-Options: nosniff
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Thu, 15 Jan 2015 08:07:20 GMT
-    Content-Length: 670
-
-    {  
-       "token_type":"http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0",
-       "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
-       "expires_in":"21600",
-       "scope":"urn:WindowsAzureMediaServices"
-    }
-
-
-> [!NOTE]
-> Il est recommandé de mettre en cache les valeurs « access_token » et « expires_in » (durée pendant laquelle le jeton d’accès est valide, en secondes) sur un stockage externe. Les données du jeton peuvent être récupérées ultérieurement à partir du stockage et réutilisées dans vos appels d’API REST Media Services. Ceci est particulièrement utile pour les scénarios où le jeton peut être partagé en toute sécurité entre plusieurs processus ou ordinateurs.
->
->
-
-Veillez à analyser la valeur « expires_in » du jeton d’accès et à mettre à jour vos appels d’API REST avec de nouveaux jetons le cas échéant.
-
-### <a name="connecting-to-the-media-services-uri"></a>Connexion à l’URI Media Services
-
-L’URI racine pour Media Services est https://media.windows.net/. Pour commencer, connectez-vous à cet URI. Si vous obtenez une redirection 301 en réponse, adressez les appels suivants au nouvel URI. En outre, n’utilisez pas de logique de redirection automatique/de suivi dans vos demandes. Les verbes HTTP et les corps de demande ne seront pas transférés au nouvel URI.
-
-L’URI racine pour le téléchargement des fichiers de ressource est https://votrecomptedestockage.blob.core.windows.net/, où le nom du compte de stockage est le même que celui utilisé lors de la configuration de votre compte Media Services.
-
-L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services (https://media.windows.net/). La demande obtient une redirection 301 en réponse. La requête suivante utilise le nouvel URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
-
-**Demande HTTP**:
-
-    GET https://media.windows.net/ HTTP/1.1
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-    x-ms-version: 2.11
-    Accept: application/json
-    Host: media.windows.net
-
-
-**Réponse HTTP**:
+Par exemple, si après avoir essayé de vous connecter, vous avez les éléments suivants :
 
     HTTP/1.1 301 Moved Permanently
     Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
-    Server: Microsoft-IIS/8.5
-    request-id: 987d7652-497a-44e5-b815-f492e02aef97
-    x-ms-request-id: 987d7652-497a-44e5-b815-f492e02aef97
-    X-Powered-By: ASP.NET
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Sat, 17 Jan 2015 07:44:53 GMT
-    Content-Length: 164
 
-    <html><head><title>Object moved</title></head><body>
-    <h2>Object moved to <a href="https://wamsbayclus001rest-hs.cloudapp.net/api/">here</a>.</h2>
-    </body></html>
-
-
-**Demande HTTP** (à l’aide du nouvel URI) :
-
-    GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-    x-ms-version: 2.11
-    Accept: application/json
-    Host: wamsbayclus001rest-hs.cloudapp.net
-
-
-**Réponse HTTP**:
-
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Content-Length: 1250
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Server: Microsoft-IIS/8.5
-    request-id: 5f52ea9d-177e-48fe-9709-24953d19f84a
-    x-ms-request-id: 5f52ea9d-177e-48fe-9709-24953d19f84a
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    X-Powered-By: ASP.NET
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Sat, 17 Jan 2015 07:44:52 GMT
-
-    {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata","value":[{"name":"AccessPolicies","url":"AccessPolicies"},{"name":"Locators","url":"Locators"},{"name":"ContentKeys","url":"ContentKeys"},{"name":"ContentKeyAuthorizationPolicyOptions","url":"ContentKeyAuthorizationPolicyOptions"},{"name":"ContentKeyAuthorizationPolicies","url":"ContentKeyAuthorizationPolicies"},{"name":"Files","url":"Files"},{"name":"Assets","url":"Assets"},{"name":"AssetDeliveryPolicies","url":"AssetDeliveryPolicies"},{"name":"IngestManifestFiles","url":"IngestManifestFiles"},{"name":"IngestManifestAssets","url":"IngestManifestAssets"},{"name":"IngestManifests","url":"IngestManifests"},{"name":"StorageAccounts","url":"StorageAccounts"},{"name":"Tasks","url":"Tasks"},{"name":"NotificationEndPoints","url":"NotificationEndPoints"},{"name":"Jobs","url":"Jobs"},{"name":"TaskTemplates","url":"TaskTemplates"},{"name":"JobTemplates","url":"JobTemplates"},{"name":"MediaProcessors","url":"MediaProcessors"},{"name":"EncodingReservedUnitTypes","url":"EncodingReservedUnitTypes"},{"name":"Operations","url":"Operations"},{"name":"StreamingEndpoints","url":"StreamingEndpoints"},{"name":"Channels","url":"Channels"},{"name":"Programs","url":"Programs"}]}
-
-
-
-> [!NOTE]
-> Désormais, le nouvel URI sera utilisé dans ce didacticiel.
->
->
+Vous devez enregistrer vos appels d’API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ## <a id="upload"></a>Création d’une ressource et téléchargement d’un fichier vidéo à l’aide de l’API REST
 

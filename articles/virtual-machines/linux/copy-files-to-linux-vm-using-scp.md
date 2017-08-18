@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 8eb958bb5c8450baecb0b7b4c24db1778a1dec1d
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 736f7c11ec3de04f1ad52ee29d0a4c952c9b0545
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -78,5 +78,3 @@ L’indicateur de l’interface de ligne de commande `-r` indique à SCP de copi
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Azure Linux à l'aide de l’extension VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Désactiver les mots de passe SSH sur votre machine virtuelle Linux en configurant SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

@@ -1,6 +1,6 @@
 ---
 title: "Réinitialiser l’accès sur des machines virtuelles Azure Linux à l’aide de l’extension VMAccess | Microsoft Docs"
-description: "Réinitialisez l&quot;accès sur des machines virtuelles Azure Linux à l&quot;aide de l’extension VMAccess."
+description: "Réinitialisez l'accès sur des machines virtuelles Azure Linux à l'aide de l’extension VMAccess."
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d58bf287284673c0767a25289660db06aa8e5863
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 278bf1785aac71068ab94cf9916af69a204c44be
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-10"></a>Gérer les utilisateurs, SSH et vérifier ou réparer les disques de machines virtuelles Azure Linux à l'aide de l’extension VMAccess avec Azure CLI 1.0
@@ -268,7 +268,7 @@ La mise à jour de Linux à l’aide d’extensions Azure VMAccess est une méth
 
 [À propos des extensions et des fonctionnalités des machines virtuelles](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Création de modèles Azure Resource Manager avec des extensions de machine virtuelle Linux](../windows/extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Création de modèles Azure Resource Manager avec des extensions de machine virtuelle Linux](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Utilisation de cloud-init pour personnaliser une machine virtuelle Linux lors de la création](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

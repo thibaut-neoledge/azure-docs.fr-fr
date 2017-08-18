@@ -16,11 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 8d884d660d4124e8eafdf3690fe8956904f50827
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: a8740f3b78de37c09ff7a9250682d47fa9bec1e3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure
@@ -127,7 +126,7 @@ Pour tirer parti de plusieurs instances de machine virtuelle d’un niveau, vous
 
 Nous vous recommandons de toujours vous assurer que toutes les connexions Internet vont d’abord vers le niveau de présentation. La couche de présentation accède au niveau métier, puis le niveau métier accède au niveau de données. Pour plus d’informations sur la façon d’autoriser l’accès à la couche de présentation, voir [Autoriser l’accès externe à votre machine virtuelle à l’aide du portail Azure](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Notez que l’équilibreur de charge dans Azure fonctionne de la même manière que les équilibreurs de charge dans un environnement local. Pour plus d’informations, consultez la page [Équilibrage de charge pour les services d’infrastructure Azure](../load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Notez que l’équilibreur de charge dans Azure fonctionne de la même manière que les équilibreurs de charge dans un environnement local. Pour plus d’informations, consultez la page [Équilibrage de charge pour les services d’infrastructure Azure](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 De plus, nous vous recommandons de configurer un réseau privé pour vos machines virtuelles en utilisant Azure Virtual Network. Cela leur permet de communiquer entre elles via l’adresse IP privée. Pour plus d’informations, consultez [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md).
 
@@ -160,7 +159,7 @@ Ce modèle d’application est utile dans les cas suivants :
 
 Le schéma suivant illustre un scénario local et sa solution cloud. Dans ce scénario, vous montez en puissance les composants du niveau de présentation et du niveau métier dans plusieurs machines virtuelles dans Azure. De plus, vous implémentez des techniques de haute disponibilité et de récupération d’urgence (HADR) pour les bases de données SQL Server dans Azure.
 
-L’exécution de plusieurs copies d’une application dans différentes machines virtuelles garantit l’équilibrage de la charge des demandes entre ces dernières. Lorsque vous avez plusieurs machines virtuelles, vous devez vous assurer qu’elles sont accessibles et en cours d’exécution à un moment donné. Si vous configurez l’équilibrage de charge, Azure Load Balancer surveille l’intégrité des machines virtuelles et dirige les appels entrants vers les nœuds de machines virtuelles fonctionnant correctement. Pour plus d’informations sur la méthode de configuration de l’équilibrage de charge des machines virtuelles, consultez la page [Équilibrage de charge pour les services d’infrastructure Azure](../load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). La présence de plusieurs instances des serveurs web et d’application derrière un équilibreur de charge garantit la haute disponibilité des niveaux de présentation et métier.
+L’exécution de plusieurs copies d’une application dans différentes machines virtuelles garantit l’équilibrage de la charge des demandes entre ces dernières. Lorsque vous avez plusieurs machines virtuelles, vous devez vous assurer qu’elles sont accessibles et en cours d’exécution à un moment donné. Si vous configurez l’équilibrage de charge, Azure Load Balancer surveille l’intégrité des machines virtuelles et dirige les appels entrants vers les nœuds de machines virtuelles fonctionnant correctement. Pour plus d’informations sur la méthode de configuration de l’équilibrage de charge des machines virtuelles, consultez la page [Équilibrage de charge pour les services d’infrastructure Azure](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). La présence de plusieurs instances des serveurs web et d’application derrière un équilibreur de charge garantit la haute disponibilité des niveaux de présentation et métier.
 
 ![Montée en puissance parallèle et haute disponibilité](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728012.png)
 

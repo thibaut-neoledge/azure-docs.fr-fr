@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 907e5b80aeeee4ab2eb0466490ba9ef9b0348144
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 61e9cab7ba0b1b86a54b5282662bef3bdfba6e7d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -281,7 +281,7 @@ Pour définir cette propriété, l’interface réseau doit exister. Vous avez d
 Plusieurs éléments de profil sont utilisés lors de la définition d’une ressource de machine virtuelle. Certains sont obligatoires, et d’autres facultatifs. Par exemple, les éléments hardwareProfile, osProfile, storageProfile et networkProfile sont requis, mais diagnosticsProfile est facultatif. Ces profils définissent des paramètres tels que :
    
 - [taille](sizes.md)
-- [nom](../linux/infrastructure-naming-guidelines.md) et informations d’identification
+- [nom](/architecture/best-practices/naming-conventions) et informations d’identification
 - disque et [paramètres du système d’exploitation](cli-ps-findimage.md)
 - [interface réseau](../../virtual-network/virtual-networks-multiple-nics.md) 
 - diagnostics de démarrage

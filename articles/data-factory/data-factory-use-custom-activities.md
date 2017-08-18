@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 662db10a30d4581a77c75204f49e7f5c731342ac
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 78945ec210c56106833291167ecaf920794f717f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
@@ -54,7 +53,7 @@ La procédure suivante fournit des instructions pas à pas pour créer une activ
 ## <a name="walkthrough-create-a-custom-activity"></a>Procédure pas à pas : création d’une activité personnalisée
 ### <a name="prerequisites"></a>Conditions préalables
 * Visual Studio 2012/2013/2015
-* Téléchargez et installez le kit [Azure .NET SDK][azure-developer-center]
+* Téléchargez et installez le [Kit de développement logiciel (SDK) Azure .NET](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Configuration requise pour Azure Batch
 Dans la procédure pas à pas, vous allez exécuter vos activités .NET personnalisées à l’aide de la ressource de calcul Azure Batch. **Azure Batch** est une plateforme qui permet d’exécuter efficacement des applications de calcul haute performance (HPC) en parallèle et à grande échelle dans le cloud. Azure Batch planifie les travaux nécessitant une grande quantité de ressources système à exécuter sur une **collection gérée de machines virtuelles**. Il peut mettre automatiquement à l’échelle les ressources de calcul pour répondre aux besoins de vos travaux. Consultez l’article [Notions de base d’Azure Batch][batch-technical-overview] pour une présentation détaillée du service Azure Batch.
@@ -1174,7 +1173,6 @@ L’exemple [Azure Data Factory - Environnement local](https://github.com/gbruec
 [azure-batch-blog]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 

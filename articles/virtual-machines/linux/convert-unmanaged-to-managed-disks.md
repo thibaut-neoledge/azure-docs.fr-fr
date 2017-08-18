@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3109da1dac6ebb6564c94b5c6635ded77ea9be8d
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f7ba456a0d23560ee70f14ecb61c0d016e24e7e1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -96,17 +96,6 @@ Toutes les machines virtuelles dans le groupe à haute disponibilité doivent ê
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
-
-## <a name="managed-disks-and-azure-storage-service-encryption"></a>Disques gérés et chiffrement du service Stockage Azure
-Vous ne pouvez pas utiliser les étapes précédentes pour convertir un disque non géré en disque géré s’il se trouve dans un compte de stockage qui a déjà été chiffré à l’aide d’[Azure SSE (Storage Service Encryption)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Les étapes suivantes décrivent comment copier et utiliser des disques non gérés qui ont été dans un compte de stockage chiffré :
-
-1. Copiez le VHD à l’aide de la commande [az storage blob copy start](/cli/azure/storage/blob/copy#start) dans un compte de stockage pour lequel Azure Storage Service Encryption n’a jamais été activé.
-
-2. Utilisez la machine virtuelle copiée de l’une des manières suivantes :
-
-   * Créez une machine virtuelle qui utilise des disques gérés et spécifiez ce fichier VHD lors de la création à l’aide de la commande [az vm create](/cli/azure/vm#create).
-
-   * Attachez le VHD copié à l’aide de la commande [az vm disk attach](/cli/azure/vm/disk#attach) à une machine virtuelle en cours d’exécution qui utilise des disques gérés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les options de stockage, voir la page [Vue d’ensemble d’Azure Managed Disks](../../storage/storage-managed-disks-overview.md).

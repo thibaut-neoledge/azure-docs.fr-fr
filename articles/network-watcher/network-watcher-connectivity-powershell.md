@@ -14,28 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 036902801189c71eb336900107f07319dfe817f2
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: a8f936cd23838759dc30b04688d3c6544e4895cc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Vérifier la connectivité avec Azure Network Watcher à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
+> - [Portail](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [API REST Azure](network-watcher-connectivity-rest.md)
 
-Découvrez comment utiliser la connectivité pour vérifier si une connexion TCP directe entre une machine virtuelle et un point de terminaison peut être établie.
-
-Cet article vous guide tout au long de plusieurs scénarios de vérification de connectivité.
-
-* [Vérifier la connectivité à une machine virtuelle](#check-connectivity-to-a-virtual-machine)
-* [Valider les problèmes de routage](#validate-routing-issues)
-* [Vérifier la latence du site Web](#check-website-latency)
-* [Vérifier la connectivité à un point de terminaison de stockage](#check-connectivity-to-a-storage-endpoint)
+Découvrez comment utiliser la connectivité pour vérifier si une connexion TCP directe entre une machine virtuelle et un point de terminaison donné peut être établie.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

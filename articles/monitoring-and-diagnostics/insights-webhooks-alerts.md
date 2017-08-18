@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7282de704a1053e2052a189990fb2b30b2adad6f
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurer un webhook sur une alerte de métrique Azure
@@ -31,7 +31,7 @@ Vous pouvez ajouter ou mettre à jour l’URI du webhook dans l’écran Créer/
 
 ![Ajouter une règle d’alerte](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-Vous pouvez également configurer une alerte à publier vers un URI de webhook à l’aide des [applets de commande Azure PowerShell](insights-powershell-samples.md#create-alert-rules), de [l’interface de ligne de commande multiplateforme](insights-cli-samples.md#work-with-alerts) ou de [l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Vous pouvez également configurer une alerte à publier vers un URI de webhook à l’aide des [applets de commande Azure PowerShell](insights-powershell-samples.md#create-metric-alerts), de [l’interface de ligne de commande multiplateforme](insights-cli-samples.md#work-with-alerts) ou de [l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticating-the-webhook"></a>Authentification du webhook
 Le webhook peut s’authentifier à l’aide de l’autorisation basée sur un jeton. L’URI du webhook est enregistré avec un ID de jeton, par exemple `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
