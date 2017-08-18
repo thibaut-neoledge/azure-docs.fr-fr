@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: fc9b84d151144ae9cb49beacdf525fdc356818a6
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/11/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services
@@ -73,5 +72,5 @@ Une fois que le Bureau à distance est activé sur les rôles, vous pouvez initi
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 [Configuration des services cloud](cloud-services-how-to-configure.md)
-[FAQ relatif aux services cloud : Bureau à distance](cloud-services-faq.md#remote-desktop)
+[FAQ relatif aux services cloud : Bureau à distance](cloud-services-faq.md)
 

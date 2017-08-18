@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: abc3f5ee70130b6be093e63afb495c86b921ba26
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -171,7 +171,7 @@ Une fois les plages d’adresses IP définies, vous devez procéder comme suit 
      - PeerID ExpressRoute
 - Données d’accès aux grandes instances HANA une fois le circuit ExpressRoute et le réseau virtuel Azure établis.
 
-Vous trouverez également la séquence de connexion de grandes instances HANA dans le document [Installation de bout en bout des grandes instances SAP HANA](https://msdnshared.blob.core.windows.net/media/2017/06/End-to-End-Setup-of-SAP-HANA-Large-Instances.pdf). Bon nombre des étapes suivantes sont illustrées par un exemple de déploiement dans ce document. 
+Vous trouverez également la séquence de connexion de grandes instances HANA dans le document [Installation de bout en bout des grandes instances SAP HANA](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Bon nombre des étapes suivantes sont illustrées par un exemple de déploiement dans ce document. 
 
 
 ## <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>Connexion d’un réseau virtuel à une grande instance HANA ExpressRoute

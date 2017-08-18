@@ -13,10 +13,10 @@ ms.topic: landing - page
 ms.date: 7/06/2017
 ms.author: arijitt
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 29aa2510fc04f24c437d6bb6142eebb8859569c0
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 9313f0713818f80bae99c32a438d97ba544a7a6b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -38,7 +38,7 @@ Pour obtenir des informations supplémentaires en vue de résoudre vos problème
 | Pour obtenir des informations sur | Consultez |
 | --- | --- |
 | HDInsight sur Linux et optimisation | [Informations sur l’utilisation de HDInsight sous Linux](hdinsight-hadoop-linux-information.md)<br>[Performances et mémoire Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)<br>[Performances des requêtes Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
-| Journaux et dumps | [Accéder aux journaux d’applications YARN Hadoop sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[Activer les dumps de tas pour les services Hadoop](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>[Analyse des journaux de HDInsight](hdinsight-debug-jobs.md)|
+| Journaux et dumps | [Accéder aux journaux d’applications YARN Hadoop sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[Activer les dumps de tas pour les services Hadoop](hdinsight-hadoop-collect-debug-heap-dump-linux.md)|
 | Erreurs | [Comprendre et résoudre les erreurs WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>[Paramètres Hive pour résoudre les erreurs de mémoire insuffisante](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Outils | [Utiliser les vues Ambari pour déboguer les travaux Tez](hdinsight-debug-ambari-tez-view.md)<br>[Optimiser les requêtes Hive](hdinsight-hadoop-optimize-hive-query.md) |
 
