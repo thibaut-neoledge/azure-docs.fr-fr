@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 30d02322f302ca58e6c1b2b674d9f242b7c40518
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: e690e87df92bd3614e575010d90b7a40521dadc9
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -87,7 +87,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
 
 1. Connectez-vous au [portail Azure](http://portal.azure.com) avec votre abonnement.
 
-1. [Créez un groupe à haute disponibilité Azure](../create-availability-set.md).
+1. [Créez un groupe à haute disponibilité Azure](../tutorial-availability-sets.md).
 
    Le groupe à haute disponibilité regroupe les machines virtuelles entre les domaines d’erreur et les domaines de mise à jour. Le groupe à haute disponibilité garantit que votre application n’est pas affectée par les points de défaillance uniques, comme le commutateur réseau ou l’unité d’alimentation d’un rack de serveurs.
 
@@ -223,14 +223,14 @@ Pour valider le cluster avec l’interface utilisateur, effectuez les étapes su
 
 1. Dans le **Gestionnaire de serveur**, cliquez sur **Outils**, puis cliquez sur **Gestionnaire du cluster de basculement**.
 1. Dans le **Gestionnaire du cluster de basculement**, cliquez sur **Action**, puis cliquez sur **Valider la configuration...**.
-1. Cliquez sur **Next**.
+1. Cliquez sur **Suivant**.
 1. Sous **Sélectionner des serveurs ou un cluster**, entrez le nom des deux machines virtuelles.
-1. Sous **Options de test**, choisissez **Exécuter uniquement les tests que je sélectionne**. Cliquez sur **Next**.
+1. Sous **Options de test**, choisissez **Exécuter uniquement les tests que je sélectionne**. Cliquez sur **Suivant**.
 1. Sous **Sélection du test**, incluez tous les tests sauf **Stockage**. Consultez l’illustration suivante :
 
    ![Valider les tests](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. Cliquez sur **Next**.
+1. Cliquez sur **Suivant**.
 1. Sous **Confirmation**, cliquez sur **Suivant**.
 
 **L’Assistant Validation d’une configuration** exécute les tests de validation.

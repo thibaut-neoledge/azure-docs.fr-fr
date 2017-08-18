@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 4ee65a10616fff81044c181fce8708a596e9e6de
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 341ab32ad0ec691285fbf1537ee298ab30156a5d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 01/31/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Appeler un webhook sur une alerte de journal d’activité Azure
@@ -29,7 +29,7 @@ Les webhooks vous permettent d’acheminer une notification d’alerte Azure ver
 >
 >
 
-Vous pouvez configurer une alerte de journal d’activité à l’aide des [applets de commande Azure PowerShell](insights-powershell-samples.md#create-alert-rules), de [l’interface de ligne de commande multiplateforme](insights-cli-samples.md#work-with-alerts) ou de [l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx). Il n’est pas possible de configurer un webhook à l’aide du portail Azure.
+Vous pouvez configurer une alerte de journal d’activité à l’aide des [applets de commande Azure PowerShell](insights-powershell-samples.md#create-metric-alerts), de [l’interface de ligne de commande multiplateforme](insights-cli-samples.md#work-with-alerts) ou de [l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx). Il n’est pas possible de configurer un webhook à l’aide du portail Azure.
 
 ## <a name="authenticating-the-webhook"></a>Authentification du webhook
 Le webhook peut s’authentifier à l’aide de l’une des méthodes suivantes :

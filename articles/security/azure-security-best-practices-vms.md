@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c306000e898f5fe0260ef3347988923266ed096e
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Meilleures pratiques pour la sécurité des machines virtuelles Azure
@@ -65,7 +65,7 @@ Les organisations qui n’appliquent aucun contrôle d’accès aux données gr�
 
 ## <a name="vm-availability-and-network-access"></a>Disponibilité des machines virtuelles et accès au réseau
 
-Si votre machine virtuelle exécute des applications critiques qui requièrent une haute disponibilité, il est vivement recommandé d’utiliser plusieurs machines virtuelles. Pour une meilleure disponibilité, créez au moins deux machines virtuelles dans le [groupe à haute disponibilité](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+Si votre machine virtuelle exécute des applications critiques qui requièrent une haute disponibilité, il est vivement recommandé d’utiliser plusieurs machines virtuelles. Pour une meilleure disponibilité, créez au moins deux machines virtuelles dans le [groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md).
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) requiert également que les machines virtuelles dont la charge est équilibrée appartiennent au même groupe à haute disponibilité. Si ces machines virtuelles doivent être accessibles à partir d’Internet, vous devez configurer un [équilibrage de charge sur Internet](../load-balancer/load-balancer-internet-overview.md).
 
