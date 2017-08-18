@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 06/01/2017
 ms.author: sethm;babanisa
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: fa0d49498db74ec81c98f3df9317d42cdd31ab46
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: b3af61ec0923a0d9d207cee790d59aa9254a578b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -55,13 +56,13 @@ Les avantages suivants sont disponibles lorsque vous utilisez Event Hubs Dedicat
 * Aucune maintenance : nous gérons l’équilibrage de la charge, les mises à jour du système d’exploitation, les correctifs de sécurité et le partitionnement.
 * Tarification mensuelle fixe.
 
-Les Event Hubs Dedicated suppriment également certaines des limites de débit de l’offre Standard. Les unités de débit des niveaux De base et Standard autorisent 1000 événements par seconde ou 1 Mbit/s en entrée par unité de débit, et deux fois cette quantité en sortie. L’offre de mise à l’échelle Dedicated n’impose aucune restriction sur le nombre d’événements d’entrée et de sortie. Ces limites sont uniquement régies par la capacité de traitement des concentrateurs d’événements achetés.
+Les Event Hubs Dedicated suppriment également certaines des limites de débit de l’offre Standard. Les unités de débit des niveaux De base et Standard autorisent 1 000 événements par seconde ou 1 Mo par seconde en entrée par unité de débit, et deux fois cette quantité en sortie. L’offre de mise à l’échelle Dedicated n’impose aucune restriction sur le nombre d’événements d’entrée et de sortie. Ces limites sont uniquement régies par la capacité de traitement des concentrateurs d’événements achetés.
 
 Ce service est destiné aux grands utilisateurs de télémétrie et est disponible pour les clients disposant d’un contrat d’entreprise.
 
 ## <a name="how-to-onboard"></a>Intégration : mode d’emploi
 
-La plateforme Event Hubs Dedicated est proposée au public via un contrat d’entreprise dans différentes tailles d’unités de capacité. Chaque unité de capacité fournit environ l’équivalent de 200 unités de débit. Vous pouvez faire évoluer votre capacité à la hausse ou à la baisse au cours du mois pour répondre à vos besoins en ajoutant ou en supprimant des unités de capacité. Le plan Dedicated est unique dans la mesure où vous bénéficiez d’une intégration plus pratique de la part de l’équipe produit Event Hubs pour obtenir le déploiement flexible qui vous convient. 
+La plateforme Event Hubs Dedicated est proposée via un contrat Entreprise avec différentes tailles d’unités de capacité. Chaque unité de capacité fournit environ l’équivalent de 200 unités de débit. Vous pouvez faire évoluer votre capacité à la hausse ou à la baisse au cours du mois pour répondre à vos besoins en ajoutant ou en supprimant des unités de capacité. Le plan Dedicated est unique dans la mesure où vous bénéficiez d’une intégration plus pratique de la part de l’équipe produit Event Hubs pour obtenir le déploiement flexible qui vous convient. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Contactez votre représentant commercial Microsoft ou le support technique Microsoft pour obtenir des informations supplémentaires sur la capacité des Event Hubs Dedicated. Vous pouvez également en apprendre plus sur Event Hubs en consultant les liens suivants :

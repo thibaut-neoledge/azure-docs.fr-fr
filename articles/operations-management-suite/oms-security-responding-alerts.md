@@ -4,7 +4,7 @@ description: "Ce document vous aide à utiliser l’option d’informations sur 
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -83,7 +84,19 @@ La carte d’**informations sur les menaces** vous indique les endroits du monde
 > [!NOTE]
 > Vous pourrez voir une démonstration de l’utilisation de cette fonctionnalité au cours d’un processus de réponse aux incidents dans la présentation [Réduire les menaces de sécurité du centre de données grâce à une investigation interactive avec Microsoft Operations Management Suite](https://myignite.microsoft.com/videos/5000) donnée à l’occasion de Microsoft Ignite.
 > 
-> 
+
+### <a name="responding-to-distinct-malicious-ip-accessed"></a>Réagir en cas d’accès à des adresses IP malveillantes distinctes
+Dans certains scénarios, vous pouvez remarquer qu’un ordinateur surveillé a accédé à une adresse IP potentiellement malveillante :
+
+![carte d’informations sur les menaces](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Cette alerte, et d’autres de la même catégorie, sont générées par le biais de la solution de sécurité d’OMS en tirant profit des [informations sur les menaces fournies par Microsoft](https://youtu.be/O4WtxgUrDc8). Les informations sur les menaces sont collectées par Microsoft ou achetées auprès des principaux fournisseurs d’informations de ce type. Ces données sont fréquemment mises à jour et adaptées à l’évolution rapide des menaces. Du fait de leur nature, elles doivent être associées à d’autres sources d’informations de sécurité lors de [l’examen](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) d’une alerte de sécurité. 
+
+## <a name="customize-alerts-received-via-e-mail"></a>Personnaliser les alertes reçues par e-mail
+
+Vous pouvez choisir quels utilisateurs de votre organisation seront informés en cas de déclenchement d’alertes de sécurité par la sécurité OMS. Cette option est disponible sous Vue d’ensemble / Paramètres sur le tableau de bord OMS :
+
+![Email](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig7.png)
 
 ## <a name="see-also"></a>Voir aussi
 Dans ce document, vous avez appris à utiliser l’option **Informations sur les menaces** de la solution de sécurité et d’audit d’OMS pour répondre aux alertes de sécurité. Pour plus d’informations sur la sécurité OMS, consultez les articles suivants :

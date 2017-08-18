@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/17/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
-ms.openlocfilehash: 19e934895279adb3a32096fffafd567b294c3009
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 6ca2fdc9c68ea0030d938eeaebd57aafa0e2790f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -29,34 +29,27 @@ Microsoft Azure AD prend en charge l’approvisionnement d’utilisateurs pour l
 Il existe un ensemble préconfiguré de mappages d’attributs entre les objets utilisateur Azure AD et les objets utilisateur de chaque application SaaS. Certaines applications gèrent d’autres types d’objets, tels que des groupes ou des contacts. <br> 
  Vous pouvez personnaliser les mappages d’attributs par défaut en fonction des besoins de votre entreprise. Cela signifie que vous pouvez modifier ou supprimer des mappages d’attributs existants ou en créer de nouveaux.
 
-Dans le portail Azure AD, vous pouvez accéder à cette fonctionnalité en cliquant sur Attributs dans la barre d’outils d’une application SaaS.
+Dans le portail Azure AD, vous pouvez accéder à cette fonctionnalité en cliquant sur une configuration **Mappages** sous **Approvisionnement**, dans la section **Gérer** d’une **Application d’entreprise**.
 
-> [!NOTE]
-> Le lien **Attributs** est disponible uniquement si vous avez activé l’approvisionnement d’utilisateurs pour une application SaaS. 
-> 
-> 
 
-![Salesforce][1] 
+![Salesforce][5] 
 
-Quand vous cliquez sur Attributs dans la barre d’outils, la liste des mappages actuels configurés pour une application SaaS s’affiche.
+Cliquer sur une configuration **Mappages** permet d’ouvrir le panneau **Mappage d’attributs**.  
+Des applications SaaS nécessitent certains mappages d’attributs pour fonctionner correctement. Pour les attributs requis, la fonctionnalité **Supprimer** n’est pas disponible.
 
-La capture d’écran suivante montre un exemple :
 
-![Salesforce][2]  
+![Salesforce][6]  
 
-Dans l’exemple ci-dessus, vous pouvez voir que l’attribut **firstName** d’un objet géré dans Salesforce est rempli avec la valeur **givenName** de l’objet Azure AD lié.
+Dans l’exemple ci-dessus, vous pouvez voir que l’attribut **Nom d’utilisateur** d’un objet géré dans Salesforce est renseigné avec la valeur **userPrincipalName** de l’objet Azure Active Directory lié.
 
-Si vous souhaitez personnaliser les mappages d’attributs ou rétablir la configuration par défaut des paramètres personnalisés, cliquez sur le bouton correspondant dans la barre d’outils en bas d’une application.
+Vous pouvez personnaliser des **mappages d’attributs** existants en cliquant sur un mappage. Cette opération ouvre le panneau **Modifier l’attribut**.
 
-![Salesforce][3]  
+![Salesforce][7]  
 
-Des applications SaaS nécessitent certains mappages d’attributs pour fonctionner correctement. Dans la table d’attributs, les mappages d’attributs associés ont **Oui** comme valeur pour l’attribut **Requis**. Si un mappage d’attributs est requis, vous ne pouvez pas le supprimer. Dans ce cas, l’option **Supprimer** n’est pas disponible.
 
-Pour modifier un mappage d’attribut existant, sélectionnez le mappage, puis cliquez sur **Modifier**. Ceci affiche une page de boîte de dialogue qui vous permet de modifier le mappage d’attribut sélectionné.
+  
 
-![Modifier le mappage d’attribut][4]  
-
-## <a name="understanding-attribute-mapping-types"></a>Présentation des types de mappages d’attributs
+## <a name="understanding-attribute-mapping-types"></a>Présentation des types de mappage d’attributs
 Avec les mappages d’attributs, vous contrôlez la façon dont les attributs sont renseignés dans une application SaaS tierce. Quatre différents types de mappages sont pris en charge :
 
 * **Direct** : l’attribut cible est renseigné avec la valeur d’un attribut de l’objet lié dans Azure AD.
@@ -65,11 +58,29 @@ Avec les mappages d’attributs, vous contrôlez la façon dont les attributs so
   Pour plus d’informations, consultez l’article [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 * **Aucun** : l’attribut cible reste inchangé. Toutefois, si l’attribut cible est vide, il est renseigné avec la valeur par défaut que vous spécifiez.
 
-Outre ces quatre types de mappages d’attributs de base, les mappages d’attributs personnalisés prennent en charge le concept d’affectation de valeur **par défaut** . L’affectation de valeur par défaut garantit qu’un attribut cible est renseigné avec une valeur s’il n’existe aucune valeur ni dans Azure AD, ni sur l’objet cible.
+Outre ces quatre types de mappage d’attributs de base, les mappages d’attributs personnalisés prennent en charge le concept d’affectation de valeur **par défaut** facultative. L’affectation de valeur par défaut garantit qu’un attribut cible est renseigné avec une valeur s’il n’existe aucune valeur ni dans Azure AD, ni sur l’objet cible. La configuration la plus courante consiste à laisser ce champ vide.
+
+
+## <a name="understanding-attribute-mapping-properties"></a>Présentation des propriétés de mappage d’attributs
+
+La section précédente vous a présenté la propriété de type de mappage attributs.
+Outre cette propriété, les mappages d’attributs prennent en charge les attributs suivants :
+
+- **Attribut source** : attribut utilisateur du système source (par exemple, Azure Active Directory).
+- **Attribut cible** : attribut utilisateur dans le système cible (par exemple, ServiceNow).
+- **Trouver les objets utilisant cet attribut** : indique si ce mappage doit être utilisé ou pas pour identifier les utilisateurs de manière unique entre les systèmes source et cible. Ce champ est généralement défini sur l’attribut userPrincipalName ou mail dans Azure AD, qui est généralement mappé à un champ de nom d’utilisateur dans une application cible.
+- **Priorité de correspondance** : vous pouvez définir plusieurs attributs de correspondance. Si tel est le cas, ils sont évalués dans l’ordre défini par ce champ. Dès qu’une correspondance est trouvée, aucun autre attribut correspondant n’est évalué.
+- **Appliquer ce mappage**
+    - **Toujours** : applique ce mappage à la création de l’utilisateur et des actions de mise à jour.
+    - **Lors de la création uniquement** : applique ce mappage uniquement aux actions de création d’utilisateur.
+
+
+## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
 Microsoft Azure AD fournit une implémentation efficace d’un processus de synchronisation. Dans un environnement initialisé, seuls les objets nécessitant des mises à jour sont traités pendant un cycle de synchronisation. La mise à jour des mappages d’attributs a un impact sur les performances d’un cycle de synchronisation. Une mise à jour de la configuration des mappages d’attributs nécessite une réévaluation de tous les objets gérés. Il est recommandé de limiter au minimum le nombre de modifications consécutives de vos mappages d’attributs.
 
-## <a name="related-articles"></a>Articles connexes
+## <a name="next-steps"></a>Étapes suivantes
+
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
 * [Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
 * [Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
@@ -83,4 +94,8 @@ Microsoft Azure AD fournit une implémentation efficace d’un processus de sync
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
+[5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
+[6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
+[7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
+
 

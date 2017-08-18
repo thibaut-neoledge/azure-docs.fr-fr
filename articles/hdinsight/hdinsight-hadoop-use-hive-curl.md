@@ -1,6 +1,6 @@
 ---
-title: "Utiliser Hadoop Hive avec Curl dans HDInsight | Microsoft Docs"
-description: "Découvrez comment transmettre à distance des tâches Pig vers HDInsight à l&quot;aide de Curl."
+title: "Utiliser Hadoop Hive avec Curl dans HDInsight - Azure | Microsoft Docs"
+description: "Découvrez comment transmettre à distance des tâches Pig vers HDInsight à l'aide de Curl."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5953a4d15af087b30c8bd17245108894791bdf15
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: afd0bc8c19456fd123f53de7d1704619405bed67
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/10/2017
 
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Exécuter des requêtes Hive avec Hadoop dans HDInsight à l’aide de REST

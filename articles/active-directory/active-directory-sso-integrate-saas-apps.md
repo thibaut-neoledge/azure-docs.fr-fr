@@ -1,7 +1,6 @@
 ---
-
 title: "Intégrer l’authentification unique Azure Active Directory aux applications SaaS | Microsoft Docs"
-description: "Activer l&quot;authentification unique, l&quot;approvisionnement de l&quot;utilisateur et la gestion centralisée de l&quot;accès aux applications SaaS dans Azure Active Directory Vue d’ensemble de l’intégration d’Azure Active Directory dans des applications SaaS."
+description: "Activer l'authentification unique, l'approvisionnement de l'utilisateur et la gestion centralisée de l'accès aux applications SaaS dans Azure Active Directory Vue d’ensemble de l’intégration d’Azure Active Directory dans des applications SaaS."
 services: active-directory
 keywords: "intégrer Azure AD avec des applications SaaS"
 documentationcenter: 
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
+ms.reviewer: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/08/2017
-
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Intégrer l’authentification unique Azure Active Directory aux applications SaaS

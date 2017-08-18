@@ -1,6 +1,6 @@
 ---
 title: Didacticiel Azure Service Bus WCF Relay | Microsoft Docs
-description: "Créez une application et un service client Service Bus à l’aide de Service Bus WCF Relay."
+description: "Créez une application cliente et un service Service Bus à l’aide de WCF Relay."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 06/02/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: fee43f1e3fa50758870ffbe5b70c20fba517485e
-ms.openlocfilehash: 70fc05f57b66fd14f047fe52f50fd3479a9f2d3d
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 5347bf85cad32b59677369d51a1f36529aef6662
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/05/2017
 
 
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Didacticiel Azure WCF Relay
+
 Ce didacticiel vous montre comment créer une application cliente et un service WCF Relay simples à l’aide d’Azure Relay. Pour obtenir un didacticiel similaire utilisant la [messagerie Service Bus](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), consultez [Bien démarrer avec les files d’attente Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Ce didacticiel vous offre une présentation des étapes requises pour créer une application cliente et une application de service WCF Relay. À l’instar de leurs homologues WCF d’origine, un service est une construction qui expose un ou plusieurs points de terminaison, chacun d’entre eux exposant une ou plusieurs opérations de service. Le point de terminaison de service spécifie une adresse où le service peut être trouvé, une liaison contenant les informations qu’un client doit communiquer avec le service et le contrat qui définit la fonctionnalité fournie par le service à ses clients. La principale différence entre WCF et WCF Relay est que le point de terminaison est exposé dans le cloud et non localement sur votre ordinateur.
@@ -30,23 +32,31 @@ Lorsque vous avez exécuté la suite des rubriques présentes dans ce tutoriel, 
 
 Les trois dernières étapes expliquent comment créer une application cliente, la configurer et créer et utiliser un client pouvant accéder à la fonctionnalité de l’hôte.
 
-Toutes les rubriques de cette section supposent que vous utilisez Visual Studio comme environnement de développement.
+## <a name="prerequisites"></a>Composants requis
+
+Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
+
+* [Microsoft Visual Studio 2015 ou une version ultérieure](http://visualstudio.com). Ce didacticiel utilise Visual Studio 2017.
+* Un compte Azure actif. Si vous n’en avez pas, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-service-namespace"></a>Création d'un espace de noms de service
 
 La première étape consiste à créer un espace de noms et à obtenir une clé de [signature d’accès partagé (SAP)](../service-bus-messaging/service-bus-sas.md). Un espace de noms fournit une limite d’application pour chaque application exposée via le service de relais. Une clé SAP est automatiquement générée par le système lors de la création d’un espace de noms de service. La combinaison de l’espace de noms de service et de la clé SAP fournit à Azure des informations d’identification permettant d’authentifier l’accès à une application. Suivez les [instructions fournies ici](relay-create-namespace-portal.md) pour créer un espace de noms Relay.
 
 ## <a name="define-a-wcf-service-contract"></a>Définition d’un contrat de service WCF
+
 Le contrat de service spécifie les opérations (terminologie du service web pour les fonctions ou méthodes) que le service prend en charge. Les contrats sont créés en définissant une interface C++, C# ou Visual Basic. Chaque méthode dans l'interface correspond à une opération de service spécifique. L’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) doit être appliqué à chaque interface et l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) doit être appliqué à chaque opération. Si une méthode présente dans une interface contenant l’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) ne comporte pas l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), cette méthode n’est pas exposée. Le code servant à effectuer ces tâches est fourni dans l’exemple qui suit la procédure. Pour une description plus approfondie des contrats et des services, consultez [Conception et implémentation de services](https://msdn.microsoft.com/library/ms729746.aspx) dans la documentation WCF.
 
-### <a name="to-create-a-relay-contract-with-an-interface"></a>Création d’un contrat de relais avec une interface
+### <a name="create-a-relay-contract-with-an-interface"></a>Création d’un contrat de relais avec une interface
+
 1. Ouvrez Visual Studio en tant qu’administrateur en cliquant avec le bouton droit sur le programme dans le menu **Démarrer**, puis sur **Exécuter en tant qu’administrateur**.
-2. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sélectionnez **Nouveau**, puis cliquez sur **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez dans **Autres langages**). Cliquez sur le modèle **Application Console** et nommez-le **EchoService**. Cliquez sur **OK** pour créer le projet.
+2. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sélectionnez **Nouveau**, puis cliquez sur **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez dans **Autres langages**). Cliquez sur le modèle **Application Console (.NET Framework)** et nommez-le **EchoService**. Cliquez sur **OK** pour créer le projet.
 
     ![][2]
+
 3. Installez le package NuGet Service Bus. Ce package ajoute automatiquement des références aux bibliothèques Service Bus, ainsi qu’au **System.ServiceModel** de WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) est l’espace de noms qui vous permet d’accéder par programme aux fonctionnalités WCF de base. Service Bus utilise la plupart des objets et attributs de WCF pour définir des contrats de service.
 
-    Dans l’Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution**. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Vérifiez que le nom du projet est spécifié dans la zone **Version(s)**. Cliquez sur **Installer**et acceptez les conditions d’utilisation.
+    Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Gérer les packages NuGet...**. Cliquez sur l’onglet **Parcourir**, puis recherchez `Microsoft Azure Service Bus`. Vérifiez que le nom du projet est spécifié dans la zone **Version(s)**. Cliquez sur **Installer**et acceptez les conditions d’utilisation.
 
     ![][3]
 4. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs pour l’ouvrir dans l’éditeur, si celui-ci n’est pas déjà ouvert.
@@ -59,10 +69,10 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
 6. Changez le nom de l’espace de noms du nom par défaut **EchoService** en **Microsoft.ServiceBus.Samples**.
 
    > [!IMPORTANT]
-   > Ce didacticiel utilise l’espace de noms C# **Microsoft.ServiceBus.Samples**, qui est l’espace de noms du contrat géré type utilisé dans le fichier de configuration à l’étape [Configurer le client WCF](#configure-the-wcf-client). Vous pouvez spécifier n’importe quel espace de noms lorsque vous générez cet exemple ; toutefois, le didacticiel ne fonctionnera que si vous modifiez les espaces de noms du contrat et le service en conséquence, dans le fichier de configuration d’application de service. L’espace de noms spécifié dans le fichier App.config doit être identique à l’espace de noms spécifié dans vos fichiers C#.
+   > Ce didacticiel utilise l’espace de noms C# **Microsoft.ServiceBus.Samples**, qui est l’espace de noms du type géré par contrat utilisé dans le fichier de configuration à l’étape [Configurer le client WCF](#configure-the-wcf-client). Vous pouvez spécifier n’importe quel espace de noms lorsque vous générez cet exemple ; toutefois, le didacticiel ne fonctionnera que si vous modifiez les espaces de noms du contrat et le service en conséquence, dans le fichier de configuration d’application de service. L’espace de noms spécifié dans le fichier App.config doit être identique à l’espace de noms spécifié dans vos fichiers C#.
    >
    >
-7. Définissez directement après la déclaration d’espace de noms `Microsoft.ServiceBus.Samples`, mais à l’intérieur de l’espace de noms, une nouvelle interface nommée `IEchoContract` et appliquez l’attribut `ServiceContractAttribute` à cette interface avec une valeur d’espace de noms de `http://samples.microsoft.com/ServiceModel/Relay/`. La valeur de l'espace de noms diffère de l'espace de noms que vous utilisez dans l’ensemble de votre code. En revanche, la valeur de l’espace de noms est utilisée comme identificateur unique pour ce contrat. Spécifier explicitement l'espace de noms empêche l'ajout au nom du contrat de la valeur d'espace de noms par défaut.
+7. Définissez directement après la déclaration d’espace de noms `Microsoft.ServiceBus.Samples`, mais à l’intérieur de l’espace de noms, une nouvelle interface nommée `IEchoContract` et appliquez l’attribut `ServiceContractAttribute` à cette interface avec une valeur d’espace de noms de `http://samples.microsoft.com/ServiceModel/Relay/`. La valeur de l'espace de noms diffère de l'espace de noms que vous utilisez dans l’ensemble de votre code. En revanche, la valeur de l’espace de noms est utilisée comme identificateur unique pour ce contrat. Spécifier explicitement l'espace de noms empêche l'ajout au nom du contrat de la valeur d'espace de noms par défaut. Collez le code suivant après la déclaration de l’espace de noms :
 
     ```csharp
     [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
@@ -75,7 +85,7 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
    > En règle générale, l’espace de noms de contrat de service contient un schéma d’affectation de noms qui inclut des informations de version. L’inclusion des informations de version dans l’espace de noms de contrat de service permet aux services d’isoler les modifications majeures en définissant un contrat de service avec un nouvel espace de noms et en l’exposant sur un point de terminaison. De cette manière, les clients peuvent continuer à utiliser l’ancien contrat de service sans avoir à procéder à la mise à jour. Les informations de version peuvent se composer d’une date ou un numéro de version. Pour plus d’informations, consultez la rubrique [Contrôle de version des services](http://go.microsoft.com/fwlink/?LinkID=180498). Dans le cadre de ce didacticiel, le schéma d’affectation de noms de l’espace de noms de contrat de service ne contient pas les informations de version.
    >
    >
-8. Dans l’interface `IEchoContract`, déclarez une méthode pour une seule opération que le contrat `IEchoContract` expose dans l’interface, puis appliquez l’attribut `OperationContractAttribute` à la méthode que vous souhaitez exposer dans le cadre du contrat WCF Relay public.
+8. Dans l’interface `IEchoContract`, déclarez une méthode pour l’unique opération exposée par le contrat `IEchoContract` dans l’interface, puis appliquez l’attribut `OperationContractAttribute` à la méthode que vous souhaitez exposer dans le cadre du contrat WCF Relay public, de la façon suivante :
 
     ```csharp
     [OperationContract]
@@ -91,6 +101,7 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
 10. Dans le menu **Générer**, cliquez sur **Générer la solution** ou appuyez sur **Ctrl+Maj+B** pour confirmer que votre travail est correct jusqu’à présent.
 
 ### <a name="example"></a>Exemple
+
 Le code suivant montre une interface de base qui définit un contrat WCF Relay.
 
 ```csharp
@@ -120,6 +131,7 @@ namespace Microsoft.ServiceBus.Samples
 Maintenant que l’interface est créée, vous pouvez implémenter l’interface.
 
 ## <a name="implement-the-wcf-contract"></a>Implémentation du contrat WCF
+
 La création d’un relais Azure nécessite la création au préalable du contrat défini à l’aide d’une interface. Pour plus d’informations sur la création de l’interface, consultez l’étape précédente. L'étape suivante consiste à implémenter l'interface. Cela implique la création d’une classe nommée `EchoService` qui met en œuvre l’interface `IEchoContract` définie par l’utilisateur. Une fois l’interface implémentée, vous configurez l’interface à l’aide d’un fichier de configuration App.config. Le fichier de configuration contient les informations nécessaires à l’application, notamment le nom du service, le nom du contrat et le type de protocole utilisé pour communiquer avec le service de relais. Le code utilisé pour effectuer ces tâches est fourni dans l'exemple suivant la procédure. Pour obtenir une description plus générale sur la manière d’implémenter un contrat de service, consultez [Implémentation de contrats de service](https://msdn.microsoft.com/library/ms733764.aspx) dans la documentation WCF.
 
 1. Créez une classe nommée `EchoService` directement après la définition de l’interface `IEchoContract`. La classe `EchoService` implémente l’interface `IEchoContract`.
@@ -150,7 +162,8 @@ La création d’un relais Azure nécessite la création au préalable du contra
     ```
 4. Cliquez sur **Générer**, puis sur **Générer la solution** pour confirmer que votre travail est correct.
 
-### <a name="to-define-the-configuration-for-the-service-host"></a>Pour définir la configuration de l’hôte de service
+### <a name="define-the-configuration-for-the-service-host"></a>Définition de la configuration de l’hôte de service
+
 1. Le fichier de configuration est très similaire à un fichier de configuration WCF. Il contient le nom du service, le point de terminaison (c’est-à-dire l’emplacement qu’Azure Relay expose aux clients et aux ordinateurs hôtes afin qu’ils communiquent entre eux) et la liaison (type de protocole utilisé pour communiquer). La principale différence réside dans le fait que le point de terminaison de service configuré fait référence à la liaison [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding), qui ne fait pas partie de .NET Framework. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) est l’une des liaisons définies par le service.
 2. Dans **l’Explorateur de solutions**, double-cliquez sur le fichier App.config pour l’ouvrir dans l’éditeur de Visual Studio.
 3. Dans l’élément `<appSettings>`, remplacez les espaces réservés par le nom de votre espace de noms de service et par la clé SAP que vous avez copiée à l’étape précédente.
@@ -182,6 +195,7 @@ La création d’un relais Azure nécessite la création au préalable du contra
 7. Dans le menu **Générer**, cliquez sur **Générer la solution** pour confirmer que votre travail est correct.
 
 ### <a name="example"></a>Exemple
+
 Le code suivant illustre l’implémentation du contrat de service.
 
 ```csharp
@@ -219,9 +233,11 @@ L’exemple suivant montre le format de case du fichier App.config associé à l
 ```
 
 ## <a name="host-and-run-a-basic-web-service-to-register-with-the-relay-service"></a>Hébergement et exécution d’un service web de base pour s’enregistrer auprès du service de relais
+
 Cette étape décrit comment exécuter un service Azure Relay.
 
-### <a name="to-create-the-relay-credentials"></a>Création des informations d’identification du relais
+### <a name="create-the-relay-credentials"></a>Création des informations d’identification du relais
+
 1. Dans `Main()`, créez deux variables dans lesquelles stocker l’espace de noms et la clé SAS qui sont lues à partir de la fenêtre de console.
 
     ```csharp
@@ -239,7 +255,8 @@ Cette étape décrit comment exécuter un service Azure Relay.
     sasCredential.TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", sasKey);
     ```
 
-### <a name="to-create-a-base-address-for-the-service"></a>Création d’une adresse de base pour le service
+### <a name="create-a-base-address-for-the-service"></a>Création d’une adresse de base pour le service
+
 Après le code ajouté à l’étape précédente, créez une instance `Uri` pour l’adresse de base du service. Cette URI spécifie le schéma Service Bus, l’espace de noms et le chemin d’accès de l’interface de service.
 
 ```csharp
@@ -250,7 +267,8 @@ Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "Ec
 
 Pour ce didacticiel, l’URI est `sb://putServiceNamespaceHere.windows.net/EchoService`.
 
-### <a name="to-create-and-configure-the-service-host"></a>Création et configuration de l’hôte de service
+### <a name="create-and-configure-the-service-host"></a>Création et configuration de l’hôte de service
+
 1. Définissez le mode connectivité sur `AutoDetect`.
 
     ```csharp
@@ -290,7 +308,8 @@ Pour ce didacticiel, l’URI est `sb://putServiceNamespaceHere.windows.net/EchoS
 
     Comme indiqué à l’étape précédente, il se peut que vous ayez déclaré plusieurs services et points de terminaison dans le fichier de configuration. Si c’est le cas, ce code traverse le fichier de configuration et recherche chaque point de terminaison auquel vos informations d’identification doivent être appliquées. Toutefois, pour ce didacticiel, le fichier de configuration n’a qu’un seul point de terminaison.
 
-### <a name="to-open-the-service-host"></a>Pour ouvrir l’hôte de service
+### <a name="open-the-service-host"></a>Ouverture de l’hôte de service
+
 1. Ouvrez le service.
 
     ```csharp
@@ -311,7 +330,8 @@ Pour ce didacticiel, l’URI est `sb://putServiceNamespaceHere.windows.net/EchoS
 4. Appuyez sur **Ctrl+Maj+B** pour générer le projet.
 
 ### <a name="example"></a>Exemple
-L’exemple suivant inclut le contrat de service et l’implémentation des étapes précédentes du didacticiel et héberge le service dans une application de console. Compilez le code qui suit dans un fichier exécutable nommé EchoService.exe.
+
+Une fois terminé, votre code de service doit se présenter ainsi. Il comprend le contrat de service et l’implémentation des étapes précédentes du didacticiel, et héberge le service dans une application console.
 
 ```csharp
 using System;
@@ -388,12 +408,13 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="create-a-wcf-client-for-the-service-contract"></a>Créer un client WCF pour le contrat de service
+
 L’étape suivante consiste à créer une application cliente et à définir le contrat de service que vous allez implémenter au cours des étapes ultérieures. Notez que plusieurs de ces étapes ressemblent aux étapes utilisées pour créer un service : définition d’un contrat, modification d’un fichier App.config à l’aide des informations d’identification servant à se connecter au service de relais et ainsi de suite. Le code utilisé pour effectuer ces tâches est fourni dans l'exemple suivant la procédure.
 
 1. Créer un nouveau projet dans la solution Visual Studio en cours pour le client en procédant comme suit :
 
    1. Dans l’Explorateur de solutions, dans la solution qui contient le service, cliquez avec le bouton droit sur la solution actuelle (et non sur le projet), puis cliquez sur **Ajouter**. Puis cliquez sur **Nouveau projet**.
-   2. Dans la boîte de dialogue **Ajouter un nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez dans **Autres langages**), sélectionnez le modèle **Application Console** et nommez-le **EchoClient**.
+   2. Dans la boîte de dialogue **Ajouter un nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez dans **Autres langages**), sélectionnez le modèle **Application console (.NET Framework)** et nommez-le **EchoClient**.
    3. Cliquez sur **OK**.
       <br />
 2. Dans l’Explorateur de solutions, double-cliquez sur le fichier Program.cs dans le projet **EchoClient** pour l’ouvrir dans l’éditeur, si celui-ci n’est pas déjà ouvert.
@@ -421,6 +442,7 @@ L’étape suivante consiste à créer une application cliente et à définir le
 7. Appuyez sur **Ctrl+Maj+B** pour générer le client.
 
 ### <a name="example"></a>Exemple
+
 Le code suivant montre l’état actuel du fichier Program.cs dans le projet **EchoClient**.
 
 ```csharp
@@ -451,6 +473,7 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="configure-the-wcf-client"></a>Configurer le client WCF
+
 Dans cette étape, vous allez créer une application cliente de base qui accède au service que vous avez créé précédemment dans ce didacticiel. Ce fichier App.config définit le contrat, la liaison et le nom du point de terminaison. Le code utilisé pour effectuer ces tâches est fourni dans l'exemple suivant la procédure.
 
 1. Dans l’Explorateur de solutions, dans le projet **EchoClient**, double-cliquez sur **App.config** pour ouvrir le fichier dans l’éditeur de Visual Studio.
@@ -480,6 +503,7 @@ Dans cette étape, vous allez créer une application cliente de base qui accède
 5. Cliquez sur **Fichier**, puis sur **Tout enregistrer**.
 
 ## <a name="example"></a>Exemple
+
 Le code suivant montre le fichier App.config correspondant au client Echo.
 
 ```xml
@@ -514,7 +538,7 @@ Dans cette étape, vous allez mettre en oeuvre une application cliente de base q
 
 Toutefois, une des principales différences réside dans le fait que l’application cliente utilise un canal pour se connecter au service de relais, tandis que le service utilise un appel à **ServiceHost**. Le code utilisé pour effectuer ces tâches est fourni dans l'exemple suivant la procédure.
 
-### <a name="to-implement-a-client-application"></a>Pour implémenter une application cliente
+### <a name="implement-a-client-application"></a>Implémentation d’une application cliente
 1. Définissez le mode de connectivité sur **AutoDetect**. Ajoutez le code suivant à la méthode `Main()` de l’application **EchoClient**.
 
     ```csharp
@@ -584,46 +608,9 @@ Toutefois, une des principales différences réside dans le fait que l’applica
     channelFactory.Close();
     ```
 
-## <a name="to-run-the-applications"></a>Pour exécuter les applications
-1. Appuyez sur **Ctrl+Maj+B** pour générer la solution. Ceci génère le projet client et le projet de service que vous avez créés aux étapes précédentes.
-2. Avant d’exécuter l’application cliente, assurez-vous que l’application de service est en cours d’exécution. Dans l’Explorateur de solutions dans Visual Studio, cliquez sur la solution **EchoService**, puis sur **Propriétés**.
-3. Dans la boîte de dialogue Propriétés de la solution, cliquez sur **Projet de démarrage**, puis sur le bouton **Plusieurs projets de démarrage**. Assurez-vous que **EchoService** apparaît en premier dans la liste.
-4. Définissez le champ **Action** sur **Démarrer** pour les projets **EchoService** et **EchoClient**.
-
-    ![][5]
-5. Cliquez sur **Dépendances du projet**. Dans le champ **Projets**, sélectionnez **EchoClient**. Dans le champ **Dépend de**, assurez-vous que l’option **EchoService** est activée.
-
-    ![][6]
-6. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés**.
-7. Appuyez sur **F5** pour exécuter les deux projets.
-8. Les deux fenêtres de console s’ouvrent et vous invitent à renseigner le nom de l’espace de noms. Le service doit d’abord s’exécuter. Dans la fenêtre de console **EchoService**, entrez l’espace de noms, puis appuyez sur **Entrée**.
-9. Ensuite, vous êtes invité à fournir votre clé SAS. Entrez la clé SAS et appuyez sur ENTRÉE.
-
-    Voici un exemple de sortie de la fenêtre de console. Notez que les valeurs indiquées ici sont fournies à titre d’exemple uniquement.
-
-    `Your Service Namespace: myNamespace`
-    `Your SAS Key: <SAS key value>`
-
-    L’application de service imprime l’adresse sur laquelle il écoute dans la fenêtre de console, comme indiqué dans l’exemple suivant.
-
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-    `Press [Enter] to exit`
-10. Dans la fenêtre de console **EchoClient**, entrez les mêmes informations que celles que vous avez entrées précédemment pour l’application de service. Suivez les étapes précédentes pour saisir des valeurs identiques pour l’espace de noms de service et la clé SAP pour l’application cliente
-11. Après avoir saisi ces valeurs, le client ouvre un canal au service et vous invite à saisir du texte, comme indiqué dans l’exemple de sortie de console suivante.
-
-    `Enter text to echo (or [Enter] to exit):`
-
-    Saisissez du texte à envoyer à l’application de service, puis appuyez sur Entrée. Ce texte est envoyé au service via l’opération de service Echo et apparaît dans la fenêtre de console de service comme dans l’exemple de sortie suivant.
-
-    `Echoing: My sample text`
-
-    L’application cliente reçoit la valeur de retour de l’opération `Echo`, qui est le texte d’origine, et l’imprime sur la fenêtre de console. Voici un exemple de sortie de la fenêtre de console du client.
-
-    `Server echoed: My sample text`
-12. Vous pouvez continuer d’envoyer des messages texte du client au service de cette manière. Une fois que vous avez terminé, appuyez sur Entrée dans les fenêtres du client et de la console de service pour arrêter les des deux applications.
-
 ## <a name="example"></a>Exemple
-L’exemple qui suit montre comment créer une application client, comment appeler les opérations du service et comment fermer le client une fois l’appel d’opération terminé.
+
+Une fois terminé, votre code doit se présenter ainsi : il montre comment créer une application client, comment appeler les opérations du service et comment fermer le client une fois l’appel d’opération terminé.
 
 ```csharp
 using System;
@@ -690,21 +677,59 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
+## <a name="run-the-applications"></a>Exécution des applications
+
+1. Appuyez sur **Ctrl+Maj+B** pour générer la solution. Ceci génère le projet client et le projet de service que vous avez créés aux étapes précédentes.
+2. Avant d’exécuter l’application cliente, assurez-vous que l’application de service est en cours d’exécution. Dans l’Explorateur de solutions dans Visual Studio, cliquez sur la solution **EchoService**, puis sur **Propriétés**.
+3. Dans la boîte de dialogue Propriétés de la solution, cliquez sur **Projet de démarrage**, puis sur le bouton **Plusieurs projets de démarrage**. Assurez-vous que **EchoService** apparaît en premier dans la liste.
+4. Définissez le champ **Action** sur **Démarrer** pour les projets **EchoService** et **EchoClient**.
+
+    ![][5]
+5. Cliquez sur **Dépendances du projet**. Dans le champ **Projets**, sélectionnez **EchoClient**. Dans le champ **Dépend de**, assurez-vous que l’option **EchoService** est activée.
+
+    ![][6]
+6. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés**.
+7. Appuyez sur **F5** pour exécuter les deux projets.
+8. Les deux fenêtres de console s’ouvrent et vous invitent à renseigner le nom de l’espace de noms. Le service doit d’abord s’exécuter. Dans la fenêtre de console **EchoService**, entrez l’espace de noms, puis appuyez sur **Entrée**.
+9. Ensuite, vous êtes invité à fournir votre clé SAS. Entrez la clé SAS et appuyez sur ENTRÉE.
+
+    Voici un exemple de sortie de la fenêtre de console. Notez que les valeurs indiquées ici sont fournies à titre d’exemple uniquement.
+
+    `Your Service Namespace: myNamespace`
+    `Your SAS Key: <SAS key value>`
+
+    L’application de service imprime l’adresse sur laquelle il écoute dans la fenêtre de console, comme indiqué dans l’exemple suivant.
+
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
+    `Press [Enter] to exit`
+10. Dans la fenêtre de console **EchoClient**, entrez les mêmes informations que celles que vous avez entrées précédemment pour l’application de service. Suivez les étapes précédentes pour saisir des valeurs identiques pour l’espace de noms de service et la clé SAP pour l’application cliente
+11. Après avoir saisi ces valeurs, le client ouvre un canal au service et vous invite à saisir du texte, comme indiqué dans l’exemple de sortie de console suivante.
+
+    `Enter text to echo (or [Enter] to exit):`
+
+    Saisissez du texte à envoyer à l’application de service, puis appuyez sur Entrée. Ce texte est envoyé au service via l’opération de service Echo et apparaît dans la fenêtre de console de service comme dans l’exemple de sortie suivant.
+
+    `Echoing: My sample text`
+
+    L’application cliente reçoit la valeur de retour de l’opération `Echo`, qui est le texte d’origine, et l’imprime sur la fenêtre de console. Voici un exemple de sortie de la fenêtre de console du client.
+
+    `Server echoed: My sample text`
+12. Vous pouvez continuer d’envoyer des messages texte du client au service de cette manière. Une fois que vous avez terminé, appuyez sur Entrée dans les fenêtres du client et de la console de service pour arrêter les des deux applications.
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 Ce didacticiel vous a montré comment créer une application cliente et un service Azure Relay à l’aide des fonctionnalités WCF Relay de Service Bus. Pour obtenir un didacticiel similaire utilisant la [messagerie Service Bus](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), consultez [Bien démarrer avec les files d’attente Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Pour en savoir plus sur Azure Relay, consultez les rubriques suivantes.
 
 * [Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Vue d’ensemble d’Azure Relay](relay-what-is-it.md)
-* [Guide pratique pour utiliser le service WCF Relay avec .NET](service-bus-dotnet-how-to-use-relay.md)
+* [Guide pratique pour utiliser le service WCF Relay avec .NET](relay-wcf-dotnet-get-started.md)
 
 [Azure classic portal]: http://manage.windowsazure.com
 
-[1]: ./media/service-bus-relay-tutorial/service-bus-policies.png
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png
-[4]: ./media/service-bus-relay-tutorial/create-ns.png
 [5]: ./media/service-bus-relay-tutorial/set-projects.png
 [6]: ./media/service-bus-relay-tutorial/set-depend.png
 

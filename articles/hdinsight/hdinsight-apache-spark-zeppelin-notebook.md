@@ -16,11 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: bc1b22b6269dc42add45a63d12c6c733e9d8c6ab
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 9a588a28312388a524d91df7363234e0f609660e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser des blocs-notes Zeppelin avec un cluster Apache Spark sur HDInsight
@@ -28,8 +27,7 @@ ms.lasthandoff: 05/18/2017
 Les clusters HDInsight Spark incluent des blocs-notes Zeppelin que vous pouvez utiliser pour exécuter des tâches Spark. Dans cet article, vous allez apprendre à utiliser le bloc-notes Zeppelin sur un cluster HDInsight.
 
 > [!NOTE]
-> Par défaut, les blocs-notes Zeppelin sont disponibles uniquement pour Spark 1.6.2 sur un cluster HDInsight version 3.5. Si vous souhaitez utiliser Zeppelin sur d’autres versions de clusters HDInsight Spark, vous pouvez installer Zeppelin à l’aide d’une action de script. Pour obtenir des instructions, consultez [Installer des blocs-notes Zeppelin pour un cluster Apache Spark sur HDInsight Linux](hdinsight-apache-spark-use-zeppelin-notebook.md).
-> 
+> Les blocs-notes Zeppelin sont disponibles uniquement pour Spark 1.6.3 sur HDInsight 3.5 et Spark 2.1.0 sur HDInsight 3.6.
 >
 
 **Configuration requise :**
@@ -62,7 +60,7 @@ Les clusters HDInsight Spark incluent des blocs-notes Zeppelin que vous pouvez u
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
-        val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        val hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
    
         // Define a schema
         case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)

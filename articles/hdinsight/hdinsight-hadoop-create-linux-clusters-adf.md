@@ -1,5 +1,5 @@
 ---
-title: "Créer Azure HDInsight (Hadoop) à l’aide de Data Factory | Microsoft Docs"
+title: "Créer des clusters Hadoop à la demande à l’aide de Data Factory - Azure HDInsight | Microsoft Docs"
 description: "Découvrez comment créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factory."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 07/20/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b515ffeebb2ebb4455c48b98d085acef7556291b
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 657c436cc45bb3818f89b922d74e03cae894778e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factor
@@ -313,12 +312,12 @@ Dans la définition du service lié HDInsight à la demande, vous spécifiez les
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "osType": "linux",
-            "version": "3.2",
+            "version": "3.5",
             "clusterSize": 1,
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
             "sshUserName": "myuser",                            
             "sshPassword": "MyPassword!",
-            "timeToLive": "00:30:00",
             "linkedServiceName": "[variables('storageLinkedServiceName')]"
         }
     }
@@ -551,12 +550,12 @@ Si vous ne souhaitez pas supprimer le compte de stockage en même temps que le g
         "properties": {
             "type": "HDInsightOnDemand",
             "typeProperties": {
-                "osType": "linux",
-                "version": "3.2",
+                "version": "3.5",
                 "clusterSize": 1,
+                "timeToLive": "00:05:00",
+                "osType": "Linux",
                 "sshUserName": "myuser",                            
                 "sshPassword": "MyPassword!",
-                "timeToLive": "00:30:00",
                 "linkedServiceName": "[variables('storageLinkedServiceName')]",
                 "additionalLinkedServiceNames": "[variables('defaultStorageLinkedServiceName')]"
             }
@@ -574,7 +573,9 @@ Dans cet article, vous avez appris comment utiliser Azure Data Factory pour cré
 ## <a name="appendix"></a>Annexe
 
 ### <a name="azure-cli-script"></a>Script d’interface de ligne de commande Azure
-Pour suivre ce didacticiel, vous pouvez utiliser l’interface de ligne de commande Azure plutôt qu’Azure PowerShell. Pour utiliser l’interface de ligne de commande Azure, commencez par installer cette interface en suivant les instructions suivantes : [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+Pour suivre ce didacticiel, vous pouvez utiliser l’interface de ligne de commande Azure plutôt qu’Azure PowerShell. Pour utiliser l’interface de ligne de commande Azure, commencez par installer cette interface en suivant les instructions suivantes :
+
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 #### <a name="use-azure-cli-to-prepare-the-storage-and-copy-the-files"></a>Utiliser l’interface de ligne de commande Azure pour préparer le stockage et copier les fichiers
 

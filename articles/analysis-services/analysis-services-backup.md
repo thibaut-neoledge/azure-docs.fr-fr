@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: ba842028ecda47b8011cba948d7c92417214c2d0
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: db04507d50b6dfe767ede4479fe0b02af2461576
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -32,7 +32,7 @@ La sauvegarde de bases de données de modèles tabulaires dans Azure Analysis Se
 > 
 > 
 
-Les sauvegardes sont enregistrées avec l’extension .abf. Pour les modèles tabulaires en mémoire, les données et les métadonnées de modèle sont enregistrées. Pour les modèles tabulaires Direct Query, seules les métadonnées de modèle sont enregistrées. Les sauvegardes peuvent être compressées et chiffrées, en fonction des options que vous avez choisies. 
+Les sauvegardes sont enregistrées avec l’extension .abf. Pour les modèles tabulaires en mémoire, les données et les métadonnées de modèle sont enregistrées. Pour les modèles tabulaires DirectQuery, seules les métadonnées de modèle sont stockées. Les sauvegardes peuvent être compressées et chiffrées, en fonction des options que vous avez choisies. 
 
 
 
@@ -55,7 +55,7 @@ Avant de procéder à la sauvegarde, vous devez configurer les paramètres de st
 
     ![Sélectionner un conteneur](./media/analysis-services-backup/aas-backup-container.png)
 
-5. Enregistrez vos paramètres de sauvegarde. Vous devez enregistrer vos modifications chaque fois que vous modifiez vos paramètres de stockage, ou activez ou désactivez la sauvegarde.
+5. Enregistrez vos paramètres de sauvegarde.
 
     ![Enregistrer les paramètres de sauvegarde](./media/analysis-services-backup/aas-backup-save.png)
 
@@ -67,7 +67,7 @@ Avant de procéder à la sauvegarde, vous devez configurer les paramètres de st
 
 2. Dans **Sauvegarder une base de données** > **Fichier de sauvegarde**, cliquez sur **Parcourir**.
 
-3. Dans la boîte de dialogue **Enregistrer le fichier sous**, vérifiez le chemin d’accès au dossier, puis saisissez le nom du fichier de sauvegarde. Par défaut, le nom du fichier reçoit une extension .abf. 
+3. Dans la boîte de dialogue **Enregistrer le fichier sous**, vérifiez le chemin d’accès au dossier, puis saisissez le nom du fichier de sauvegarde. 
 
 4. Dans la boîte de dialogue **Sauvegarder une base de données**, sélectionnez les options.
 
@@ -89,7 +89,7 @@ Lors de la restauration, votre fichier de sauvegarde doit être dans le compte d
 
 
 > [!NOTE]
-> Si vous restaurez une base de données de modèle tabulaire à partir d’un serveur SQL Server Analysis Services local, vous devez d’abord supprimer tous les utilisateurs de domaine des rôles du modèle, puis les rajouter aux rôles en tant qu’utilisateurs Azure Active Directory. Les rôles doivent être identiques.
+> Si vous procédez à une restauration à partir d’un serveur local, vous devez supprimer tous les utilisateurs de domaine des rôles du modèle, puis les rajouter aux rôles en tant qu’utilisateurs Azure Active Directory.
 > 
 > 
 

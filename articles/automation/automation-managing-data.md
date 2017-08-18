@@ -3,7 +3,7 @@ title: "Gestion des données Azure Automation | Microsoft Docs"
 description: "Cet article contient plusieurs rubriques concernant la gestion d’un environnement Azure Automation.  Il inclut actuellement Conservation des données, Sauvegarde Azure Automation et Récupération d&quot;urgence dans Azure Automation."
 services: automation
 documentationcenter: 
-author: SnehaGunda
+author: mgoedtel
 manager: stevenka
 editor: tysonn
 ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2016
-ms.author: bwren;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d8ac93de19685c11dd25fd746e69ba1066fb35af
+ms.date: 06/02/201
+ms.author: magoedte;bwren;sngun
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 92893edc4e02de148f6585e83c6861fd751401bb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -42,6 +44,8 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 | Rapports sur le nœud |Supprimés définitivement 90 jours après la création d'un nouveau rapport pour le nœud en question. |
 
 La stratégie de rétention s’applique à tous les utilisateurs et ne peut actuellement pas être personnalisée.
+
+Toutefois, si vous souhaitez conserver les données pendant une période plus longue, vous pouvez transférer les journaux de travail de runbook vers Log Analytics.  Pour plus d’informations, consultez [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Sauvegarde d’Azure Automation
 Lorsque vous supprimez un compte Automation dans Microsoft Azure, tous les objets du compte sont supprimés, notamment les Runbooks, les modules, les configurations, les paramètres, les tâches et les éléments multimédia. Il est impossible de récupérer les objets une fois que le compte a été supprimé.  Vous pouvez utiliser les informations suivantes pour sauvegarder le contenu de votre compte Automation avant de le supprimer. 
@@ -78,10 +82,5 @@ Le tableau suivant montre les paires de régions primaires et secondaires dispon
 | Est du Japon |Ouest du Japon |
 
 Dans l’éventualité peu probable que les données d’une région primaire soient perdues, Microsoft tente de les récupérer. Si les données primaires sont irrécupérables, un basculement géographique est effectué et les clients concernés en sont informés via leur abonnement.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

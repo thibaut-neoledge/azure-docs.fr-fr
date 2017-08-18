@@ -15,17 +15,15 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 31582a87354bf915f058090add02d837f835a77c
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 35cddba38c364dfb2f6a8646b0014d48ca4cb795
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
 # <a name="installing-the-azure-toolkit-for-eclipse"></a>Installation du kit de ressources Azure pour Eclipse
-Le kit de ressources Azure pour Eclipse contient des modèles et des fonctionnalités qui vous permettent de créer, de développer, de tester et de déployer des applications Azure avec l’environnement de développement Eclipse. Le kit de ressources Azure pour Eclipse est un projet Open Source, dont le code source est disponible sous licence MIT sur le site du projet sur GitHub à l’adresse suivante :
-
-<https://github.com/microsoft/azure-tools-for-java>
+Le kit de ressources Azure pour Eclipse contient des modèles et des fonctionnalités qui vous permettent de créer, de développer, de tester et de déployer des applications Azure avec l’environnement de développement Eclipse. Le kit de ressources Azure pour Eclipse est un projet Open Source. Le code source est disponible sous la licence du MIT à partir de <https://github.com/microsoft/azure-tools-for-java>.
 
 Les étapes suivantes vous montrent comment installer le kit de ressources Azure pour Eclipse.
 
@@ -33,10 +31,10 @@ Les étapes suivantes vous montrent comment installer le kit de ressources Azure
 
 ## <a name="to-install-the-azure-toolkit-for-eclipse"></a>Pour installer le Kit de ressources Azure pour Eclipse
 1. Démarrez Eclipse.
-2. Quand Eclipse s’ouvre, cliquez sur le menu **Help** (Aide), puis sur **Install New Software** (Installer un nouveau logiciel), comme indiqué dans l’illustration suivante.
+2. Cliquez sur le menu **Help** (Aide), puis sur **Install New Software** (Installer un nouveau logiciel), comme indiqué dans l’illustration suivante.
    
     ![Installation du kit de ressources Azure pour Eclipse][01]
-3. Dans la boîte de dialogue **Available Software** (Logiciels disponibles), dans la zone de texte **Work with** (Fonctionnement avec), tapez **http://dl.microsoft.com/eclipse**, puis appuyez sur la touche **Entrée**.
+3. Dans la boîte de dialogue **Available Software** (Logiciels disponibles), dans la zone de texte **Work with** (Fonctionnement avec), tapez `http://dl.microsoft.com/eclipse`, puis appuyez sur la touche **Entrée**.
 4. Dans le volet **Name** (Nom), cochez **Azure Toolkit for Eclipse** (Kit de ressources Azure pour Eclipse) et décochez **Contact all update sites during install to find required software** (Contacter tous les sites de mise à jour durant l'installation pour trouver le logiciel requis). Votre écran doit se présenter comme suit :
    
     ![Installation du kit de ressources Azure pour Eclipse][02]
@@ -51,7 +49,7 @@ Les étapes suivantes vous montrent comment installer le kit de ressources Azure
    * **Microsoft JDBC Driver 4.2 for SQL Server**: ce composant fournit l’API JDBC pour SQL Server et Microsoft Azure SQL Database pour Java Platform Enterprise Edition 8.
    * **Package for Apache Qpid Client Libraries for JMS**: ce composant fournit le composant client JMS du projet Apache Qpid pour permettre à votre application d’utiliser la messagerie AMQP dans Microsoft Azure.
    * **Package for Microsoft Azure Libraries for Java**: ce composant fournit des API pour accéder aux services Microsoft Azure, tels que Storage, Service Bus, le runtime de service, etc.
-6. Cliquez sur **Next**. (Si vous rencontrez des délais d'attente inhabituels lors de l'installation du kit de ressources, assurez-vous que l'option **Contact all update sites during install to find required software** est désactivée.)
+6. Cliquez sur **Suivant**. (Si vous rencontrez des délais d'attente inhabituels lors de l'installation du kit de ressources, assurez-vous que l'option **Contact all update sites during install to find required software** est désactivée.)
 7. Dans la boîte de dialogue **Install Details** (Détails d’installation), cliquez sur **Next** (Suivant).
    
     ![Passer en revue les détails de l’installation][03]
@@ -77,7 +75,7 @@ Pour plus d’informations sur les boîtes à outils Azure pour les environnemen
 * [Kit de ressources Azure pour IntelliJ]
   * [Nouveautés du Kit de ressources Azure pour IntelliJ]
   * [Installation du kit de ressources Azure pour IntelliJ]
-  * [Azure Sign In Instructions for the Azure Toolkit for IntelliJ] (Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ)
+  * [Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ]
   * [Créer une application web « Hello World » pour Azure dans IntelliJ]
 
 Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure].
@@ -90,8 +88,8 @@ Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le
 [Créer une application web « Hello World » pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installation du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Azure Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md (Instructions de connexion à Azure pour le kit de ressources Azure pour Eclipse)
-[Azure Sign In Instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md (Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ)
+[Azure Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Instructions de connexion à Azure pour le kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Nouveautés du Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 

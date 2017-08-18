@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 06/01/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dd6b2fa2a1ca003578eaee82ef42741b9b1bf2a4
-ms.openlocfilehash: b509629ba0d6bbaea3de979a4e67f5c444e5e9e0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e859aef473b433fbf4efb639962f3a3ce0a23d7b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -51,9 +53,9 @@ Les Runbooks PowerShell sont basés sur Windows PowerShell.  Vous modifiez direc
 
 ### <a name="advantages"></a>Avantages
 * Implémentez tout type de la logique complexe avec le code PowerShell sans la complexité supplémentaire liée au workflow PowerShell. 
-* Le Runbook démarre plus rapidement que les Runbooks graphiques ou de workflow PowerShell dans la mesure où il n'a pas besoin d'être compilé avant l'exécution.
+* Le Runbook démarre plus rapidement que les Runbooks de workflow PowerShell dans la mesure où il n'a pas besoin d'être compilé avant l'exécution.
 
-### <a name="limitations"></a>Limitations
+### <a name="limitations"></a>Limites
 * Doit être familiarisé avec les scripts PowerShell.
 * Impossible d'utiliser un [traitement en parallèle](automation-powershell-workflow.md#parallel-processing) pour effectuer plusieurs actions en parallèle.
 * Impossible d'utiliser des [points de contrôle](automation-powershell-workflow.md#checkpoints) pour reprendre le Runbook en cas d'erreur.
@@ -85,17 +87,12 @@ Les Runbooks de workflow PowerShell sont des Runbooks texte basés sur un [workf
 ## <a name="considerations"></a>Considérations
 Vous devez prendre en compte les considérations supplémentaires suivantes pour déterminer le type à utiliser pour un Runbook donné.
 
-* Vous ne peut pas convertir de Runbooks du type graphique au type textuel ou vice-versa.
+* Vous ne pouvez pas convertir de Runbooks du type graphique au type textuel ou vice-versa.
 * Il existe des limitations à l’utilisation de Runbooks de différents types comme un Runbook enfant.  Consultez la page [Runbooks enfants dans Azure Automation](automation-child-runbooks.md) pour plus d’informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur la création de Runbooks graphiques, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 * Pour comprendre les différences entre PowerShell et les workflows PowerShell pour les Runbooks, consultez [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md)
 * Pour en savoir plus sur la création ou l’importation d’un Runbook, consultez [Création ou importation d’un Runbook](automation-creating-importing-runbook.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

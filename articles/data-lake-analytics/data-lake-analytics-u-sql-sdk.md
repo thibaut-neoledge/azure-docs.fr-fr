@@ -1,5 +1,5 @@
 ---
-title: "Mettre à l’échelle l’exécution et les tests U-SQL locaux avec le Kit de développement logiciel (SDK) Azure Data Lake U-SQL | Microsoft Docs"
+title: "Mettre à l’échelle l’exécution et les tests U-SQL locaux avec le kit SDK Azure Data Lake U-SQL | Microsoft Docs"
 description: "Découvrez comment utiliser le Kit SDK Azure Data Lake U-SQL pour mettre à l’échelle l’exécution et les tests locaux de travaux U-SQL avec les interfaces de ligne de commande et de programmation de votre station de travail locale."
 services: data-lake-analytics
 documentationcenter: 
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: c40d7107e407a089ea1515357cf9f47d5833edc9
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 
 ---
 
-# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Mettre à l’échelle l’exécution et les tests U-SQL locaux avec le Kit de développement logiciel (SDK) Azure Data Lake U-SQL
+# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Mettre à l’échelle l’exécution et les tests U-SQL locaux avec le kit SDK Azure Data Lake U-SQL
 
 Lorsque vous développez un script U-SQL, il est courant de l’exécuter et de le tester localement avant de l’envoyer dans le cloud. Azure Data Lake fournit un package NuGet appelé Kit SDK SQL Azure Data Lake U-SQL pour ce scénario, par le biais duquel vous pouvez facilement mettre à l’échelle l’exécution et les tests U-SQL locaux. Il est également possible d’intégrer ce test U-SQL avec le système CI (intégration continue) pour automatiser la compilation et les tests.
 
@@ -34,16 +35,16 @@ Vous pouvez obtenir le Kit SDK Azure Data Lake U-SQL [ici](https://www.nuget.org
 
 ### <a name="dependencies"></a>Dépendances
 
-Le Kit de développement logiciel (SDK) U-SQL Data Lake requiert les dépendances suivantes :
+Le kit SDK U-SQL Data Lake requiert les dépendances suivantes :
 
 - [Microsoft .NET Framework 4.6 ou une version ultérieure](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 et le Kit SDK Windows 10.0.10240.0 ou une version plus récente (appelé CppSDK dans cet article). Il existe deux façons d’obtenir CppSDK :
 
-    - Installez [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Vous devez disposer d’un sous-dossier \Windows Kits\10 dans le dossier Program Files, par exemple C:\Program Files (x86)\Windows Kits\10\.. Vous trouverez également la version du Kit de développement logiciel (SDK) Windows 10 sous \Windows Kits\10\Lib. Si vous ne voyez pas ces dossiers, réinstallez Visual Studio et veillez à sélectionner le Kit de développement logiciel (SDK) Windows 10 lors de l’installation. S’il est installé avec Visual Studio, le compilateur local U-SQL le trouvera automatiquement.
+    - Installez [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Vous devez disposer d’un sous-dossier \Windows Kits\10 dans le dossier Program Files, par exemple C:\Program Files (x86)\Windows Kits\10\. Vous trouverez également la version du SDK Windows 10 sous \Windows Kits\10\Lib. Si vous ne voyez pas ces dossiers, réinstallez Visual Studio et veillez à sélectionner le kit SDK Windows 10 lors de l’installation. S’il est installé avec Visual Studio, le compilateur local U-SQL le trouvera automatiquement.
 
     ![Data Lake Tools pour Visual Studio exécution locale Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Installez [Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs). Vous trouverez les fichiers Visual C++ et le Kit de développement logiciel (SDK) Windows préconfigurés sous C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. Dans ce cas, le compilateur U-SQL local ne trouve pas ces dépendances automatiquement. Vous devez spécifier le chemin d’accès CppSDK pour lui. Vous pouvez copier les fichiers vers un autre emplacement ou les utiliser tels quels.
+    - Installez [Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs). Vous trouverez les fichiers Visual C++ et le kit SDK Windows préconfigurés sous C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. Dans ce cas, le compilateur U-SQL local ne trouve pas ces dépendances automatiquement. Vous devez spécifier le chemin d’accès CppSDK pour lui. Vous pouvez copier les fichiers vers un autre emplacement ou les utiliser tels quels.
 
 ## <a name="understand-basic-concepts"></a>Comprendre les concepts de base
 
@@ -119,7 +120,7 @@ L’exécution U-SQL locale requiert une racine de données spécifiée comme co
 
 - Définissez la variable d’environnement **SCOPE_CPP_SDK**.
 
-    Si vous obtenez Microsoft Visual C++ et le Kit de développement logiciel (SDK) Windows en installant Data Lake Tools pour Visual Studio, vérifiez que vous disposez du dossier suivant :
+    Si vous obtenez Microsoft Visual C++ et le kit SDK Windows en installant Data Lake Tools pour Visual Studio, vérifiez que vous disposez du dossier suivant :
 
         C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK
 
@@ -144,21 +145,21 @@ La commande **run** sert à compiler le script, puis à exécuter les résultats
 Voici les arguments facultatifs de **run** :
 
 
-|Argument|Description|
-|--------|-----------|
-|-CodeBehind [valeur par défaut 'False']|Le script a du code-behind .cs|
-|-CppSDK [valeur par défaut '']|Répertoire CppSDK|
-|-DataRoot [valeur par défaut ’DataRoot environment variable’]|DataRoot pour l’exécution locale, par défaut la variable d’environnement « LOCALRUN_DATAROOT »|
-|-MessageOut [valeur par défaut '']|Vidage des messages de la console dans un fichier|
-|-Parallel [valeur par défaut '1']|Exécuter le plan avec le parallélisme spécifié|
-|-References [valeur par défaut '']|Liste des chemins d’accès vers des assemblys de référence supplémentaires ou des fichiers de données de code-behind, séparés par ';'|
-|-UdoRedirect [valeur par défaut 'False']|Générer la configuration de redirection d’assembly Udo|
-|-UseDatabase [valeur par défaut 'master']|Base de données à utiliser pour l’inscription temporaire des assemblys et du code-behind|
-|-Verbose [valeur par défaut 'False']|Afficher les sorties détaillées du runtime|
-|-WorkDir [valeur par défaut ’Current Directory’]|Répertoire des sorties et de l’utilisation du compilateur|
-|-RunScopeCEP [valeur par défaut ’0’]|Mode ScopeCEP à utiliser|
-|-ScopeCEPTempPath [valeur par défaut ’temp’]|Chemin d’accès temporaire à utiliser pour la diffusion en continu de données|
-|-OptFlags [valeur par défaut ’’]|Liste séparée par des virgules d’indicateurs d’optimiseur|
+|Argument|Valeur par défaut|Description|
+|--------|-------------|-----------|
+|-CodeBehind|False|Le script a du code-behind .cs|
+|-CppSDK| |Répertoire CppSDK|
+|-DataRoot| Variable d’environnement DataRoot|DataRoot pour l’exécution locale, par défaut la variable d’environnement « LOCALRUN_DATAROOT »|
+|-MessageOut| |Vidage des messages de la console dans un fichier|
+|-Parallel|1|Exécuter le plan avec le parallélisme spécifié|
+|-References| |Liste des chemins d’accès vers des assemblys de référence supplémentaires ou des fichiers de données de code-behind, séparés par ';'|
+|-UdoRedirect|False|Générer la configuration de redirection d’assembly Udo|
+|-UseDatabase|master|Base de données à utiliser pour l’inscription temporaire des assemblys et du code-behind|
+|-Verbose|False|Afficher les sorties détaillées du runtime|
+|-WorkDir|Répertoire actif|Répertoire des sorties et de l’utilisation du compilateur|
+|-RunScopeCEP|0|Mode ScopeCEP à utiliser|
+|-ScopeCEPTempPath|temp|Chemin d’accès temporaire à utiliser pour la diffusion en continu de données|
+|-OptFlags| |Liste séparée par des virgules d’indicateurs d’optimiseur|
 
 
 Voici un exemple :
@@ -226,9 +227,9 @@ Voici un exemple d’utilisation :
     LocalRunHelper execute -Algebra d:\test\workdir\C6A101DDCB470506\Script_66AE4909AA0ED06C\__script__.abr –DataRoot c:\DataRoot –Parallel 5
 
 
-## <a name="use-the-sdk-with-programming-interfaces"></a>Utiliser le Kit de développement logiciel (SDK) avec des interfaces de programmation
+## <a name="use-the-sdk-with-programming-interfaces"></a>Utiliser le kit SDK avec des interfaces de programmation
 
-Les interfaces de programmation se trouvent toutes dans LocalRunHelper.exe. Vous pouvez les utiliser pour intégrer les fonctionnalités du Kit de développement logiciel (SDK) U-SQL, et l’infrastructure de test C# pour mettre à l’échelle votre test local du script SQL-U. Dans cet article, je vais utiliser le projet de test unitaire C# standard pour montrer comment utiliser ces interfaces afin de tester un script U-SQL.
+Les interfaces de programmation se trouvent toutes dans LocalRunHelper.exe. Vous pouvez les utiliser pour intégrer les fonctionnalités du kit SDK U-SQL, et l’infrastructure de test C# pour mettre à l’échelle votre test local du script SQL-U. Dans cet article, je vais utiliser le projet de test unitaire C# standard pour montrer comment utiliser ces interfaces afin de tester un script U-SQL.
 
 ### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Étape 1 : Créer une configuration et un projet de test unitaire C#
 
@@ -392,10 +393,7 @@ Vérifiez les éléments suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une vue d'ensemble de Data Lake Analytics, consultez [Vue d'ensemble de Data Lake Analytics Azure](data-lake-analytics-overview.md).
-* Pour commencer à développer des applications U-SQL, consultez [Développer des scripts U-SQL avec Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Pour connaître U-SQL, voir [Prise en main du langage U-SQL d’Analytique Data Lake Azure](data-lake-analytics-u-sql-get-started.md).
-* Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 * Pour consigner les informations de diagnostic, voir [Accès aux journaux de diagnostic d’Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 * Pour consulter une requête plus complexe, voir [Analyse de journaux des sites web à l’aide d’Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Pour afficher les détails d’un travail, voir [Utilisation de l’Explorateur de travaux et de la Vue des travaux pour les travaux Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).

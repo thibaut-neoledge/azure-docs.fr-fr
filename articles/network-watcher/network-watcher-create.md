@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 7d8eb5972d35eac6cb55fc393090cfcc21ec341c
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 2aeaffdd5ab552e18677cbd1a24a748dd14bf172
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -33,6 +34,12 @@ Network Watcher est un service régional qui vous permet de surveiller et de dia
 Accédez à **Plus de services** > **Mise en réseau** > **Network Watcher**. Vous pouvez sélectionner tous les abonnements pour lesquels vous souhaitez activer Network Watcher. Cette action crée un Network Watcher dans chaque région disponible.
 
 ![créer un Network Watcher][1]
+
+Lorsque Network Watcher est activé à l’aide du portail, le nom de l’instance de Network Watcher est automatiquement défini comme NetworkWatcher_nom_région, où nom_région correspond à la région Azure dans laquelle l’instance a été activée.  Par exemple, une instance de Network Watcher activée dans la région États-Unis Centre-Ouest sera nommée NetworkWatcher_westcentralus.
+
+En outre, l’instance de Network Watcher sera automatiquement ajoutée à un groupe de ressources nommé NetworkWatcherRG.  Il sera créé s’il n’existe pas.
+
+Si vous souhaitez personnaliser le nom d’une instance de Network Watcher et le groupe de ressources dans lequel elle est placée, vous pouvez utiliser les méthodes PowerShell, API REST et ARMClient décrites ci-dessous.  Dans chacune des options, le groupe de ressources doit déjà exister pour que vous puissiez y placer l’instance de Network Watcher.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>Créer un Network Watcher avec PowerShell
 

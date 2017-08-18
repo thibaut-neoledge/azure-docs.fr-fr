@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 06/06/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
-ms.openlocfilehash: 091ab246826c96b9d816c87b27014c1e54039429
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 8c7a2e6ca061bbfa077592efb73d592906c3d070
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/01/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -29,14 +29,14 @@ ms.lasthandoff: 02/01/2017
 > * [Kit SDK .NET](data-lake-store-get-started-net-sdk.md)
 > * [Kit SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
-> * [Interface de ligne de commande Azure](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 > 
 
 > [!NOTE]
-> Pour charger et télécharger de grandes quantités de données (des fichiers volumineux, un grand nombre de fichiers ou les deux), nous vous recommandons d’utiliser le [SDK Python](data-lake-store-get-started-python.md), le [SDK .NET](data-lake-store-get-started-net-sdk.md) ou [Azure PowerShell](data-lake-store-get-started-powershell.md). Ces options offrent de meilleures performances, car elles utilisent plusieurs threads pour paralléliser le déplacement des données.
+> Pour charger et télécharger de grandes quantités de données (des fichiers volumineux, un grand nombre de fichiers ou les deux), nous vous recommandons d’utiliser le [SDK Python](data-lake-store-get-started-python.md), le [SDK .NET](data-lake-store-get-started-net-sdk.md), [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md) ou [Azure PowerShell](data-lake-store-get-started-powershell.md). Ces options offrent de meilleures performances, car elles utilisent plusieurs threads pour paralléliser le déplacement des données.
 > 
 > 
 
@@ -50,7 +50,7 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) Azure pour Node.js 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Créez une application Azure Active Directory**. Vous utilisez l’application Azure AD pour authentifier l’application Data Lake Store auprès d’Azure AD. Il existe différentes approches pour l’authentification auprès d’Azure AD : **authentification de l’utilisateur final** ou **authentification de service à service**. Pour plus d’informations sur l’authentification et la procédure associée, consultez [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md)(Authentification auprès de Data Lake Store à l’aide d’Azure Active Directory).
+* **Créez une application Azure Active Directory**. Vous utilisez l’application Azure AD pour authentifier l’application Data Lake Store auprès d’Azure AD. Il existe différentes approches pour l’authentification auprès d’Azure AD : **authentification de l’utilisateur final** ou **authentification de service à service**. Pour obtenir des instructions et plus d’informations sur l’authentification, consultez [l’authentification de l’utilisateur final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [l’authentification de service à service](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="how-to-install"></a>Procédure d’installation
 ```bash

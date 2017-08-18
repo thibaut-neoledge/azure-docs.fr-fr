@@ -13,12 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/05/2017
+ms.date: 06/18/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: ab914153df01c6d8135732bc772b78066e14d1d1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -37,17 +38,18 @@ Azure Search est un service de recherche entièrement géré, basé sur le cloud
 
 **Non compris** 
 
-*gestion de contenu* (ou gestion des index) fait référence à des opérations telles que l’analyse de la recherche du trafic pour comprendre le volume de requêtes, détecter les conditions recherchées par les personnes et déterminer dans quelle mesure les résultats de recherche réussissent à guider les clients vers des documents spécifiques de votre index. La gestion de contenu dépasse le cadre de cet article. Pour obtenir des instructions sur la façon d’obtenir un aperçu des opérations internes au niveau de l’index, consultez la page [Fonctionnalité Rechercher l’analyse du trafic pour Azure Search](search-traffic-analytics.md).
+*gestion de contenu* (ou gestion des index) fait référence à des opérations telles que l’analyse de la recherche du trafic pour comprendre le volume de requêtes, détecter les conditions recherchées par les personnes et déterminer dans quelle mesure les résultats de recherche réussissent à guider les clients vers des documents spécifiques de votre index. Pour obtenir de l’aide dans ce domaine, consultez [Recherche de l’analyse du trafic pour la Recherche Azure](search-traffic-analytics.md).
 
-*performances des requêtes* dépassent le cadre de cet article. Pour plus d’informations, consultez [Surveiller l’utilisation et les statistiques](search-monitor-usage.md) et [Performances et optimisation](search-performance-optimization.md).
+Les *performances des requêtes* dépassent le cadre de cet article. Pour plus d’informations, consultez [Surveiller l’utilisation et les statistiques](search-monitor-usage.md) et [Performances et optimisation](search-performance-optimization.md).
 
+La *mise à niveau* n’est pas une tâche d’administration. Sachant que les ressources sont allouées pendant l’approvisionnement du service, le passage à un autre niveau nécessite de créer un nouveau service. Pour plus d’informations, consultez [Création d’un service Azure Search](search-create-service-portal.md).
 
 <a id="admin-rights"></a>
 
 ## <a name="administrator-rights"></a>Droits d’administrateur
 L’approvisionnement ou le retrait du service lui-même peut être effectué par un administrateur d’abonnement Azure ou un coadministrateur.
 
-Au sein d’un service, toute personne ayant accès à l’URL du service et à une clé API d’administration a accès en lecture-écriture au service, avec une possibilité proportionnée d’ajouter, de supprimer ou de modifier des objets de serveur telles que des clés API, des index, des indexeurs, des sources de données, des planifications et des attributions, tels qu’implémentés dans les [rôles définis par RBAC](#rbac).
+Au sein d’un service, quiconque ayant accès à l’URL du service et disposant d’une clé API d’administration bénéficie d’un accès en lecture-écriture au service. L’accès en lecture-écriture permet d’ajouter, de supprimer ou de modifier des objets serveur, notamment des clés API, des index, des indexeurs, des sources de données, des planifications et des attributions de rôles, tels qu’implémentés via les [rôles définis par RBAC](#rbac).
 
 Toutes les interactions utilisateur avec Azure Search sont soumises à un de ces modes : accès en lecture-écriture au service (droits d’administrateur) ou un accès en lecture seule au service (droits de requête). Pour plus d’informations, consultez la page [Gestion des clés API](#manage-keys).
 
@@ -64,7 +66,7 @@ Pour Azure Search, les autorisations RBAC déterminent les tâches administrativ
 | Collaborateur |Même niveau d’accès que le Propriétaire, à l’exception de la gestion des rôles RBAC. Par exemple, un Collaborateur peut visualiser et régénérer `api-key`, mais il ne peut pas modifier les appartenances aux rôles. |
 | Lecteur |Affichage de l'état du service et des clés Requête. Les membres de ce rôle ne peuvent pas modifier la configuration du service, ni afficher des clés Admin. |
 
-Notez que les rôles n'accordent pas de droits d'accès au point de terminaison de service. Les opérations du service Search telles que la gestion ou le remplissage d'index, tout comme les requêtes de données de recherche, sont contrôlées via des clés api, et non par des rôles. Pour en savoir plus, consultez la section « Autorisation pour les opérations de gestion et les opérations de données » de la page [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md).
+Les rôles n’accordent pas de droits d’accès au point de terminaison de service. Les opérations du service Search telles que la gestion ou le remplissage d'index, tout comme les requêtes de données de recherche, sont contrôlées via des clés api, et non par des rôles. Pour en savoir plus, consultez la section « Autorisation pour les opérations de gestion et les opérations de données » de la page [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md).
 
 <a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Journalisation et informations système
@@ -81,7 +83,7 @@ En termes d’informations générales relatives à votre service, vous pouvez o
 ## <a name="manage-api-keys"></a>Gérer les clés API
 Toutes les demandes adressées à votre service de recherche ont besoin d’une clé API générée spécialement pour votre service. Cette clé API constitue le seul mécanisme d’authentification de l’accès au point de terminaison de votre service de recherche. 
 
-Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Elle est générée uniquement par votre service. Via [les autorisations RBAC](#rbac), vous pouvez supprimer ou lire les clés, mais vous ne pouvez pas remplacer une clé générée avec une chaîne définie par l’utilisateur (en particulier, si vous avez des mots de passe que vous utilisez régulièrement, vous ne pouvez pas remplacer une clé API par un mot de passe défini par l’utilisateur). 
+Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Les [autorisations RBAC](#rbac) vous permettent de supprimer ou de lire les clés, mais pas de remplacer une clé par un mot de passe défini par l’utilisateur. 
 
 Deux types de clés sont utilisés pour accéder à votre service de recherche :
 
@@ -127,9 +129,11 @@ L'API du service Search vous permet d'obtenir le nombre de documents et d'index.
 
 Bien que nous puissions récupérer vos données, la Recherche Azure ne fournit pas de basculement instantané du service en cas de panne au niveau du centre de données ou du cluster. Si un cluster tombe en panne dans le centre de données, l’équipe d’exploitation le détecte et tente de restaurer le service. Vous subirez un temps d’arrêt lors de la restauration du service. Vous pouvez demander des crédits de service pour compenser une indisponibilité du service selon le [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Pour garantir un service continu, y compris en cas de défaillances catastrophiques qui échappent au contrôle de Microsoft, vous devez [approvisionner un service supplémentaire](search-create-service-portal.md) dans une autre région et mettre en œuvre une stratégie de géoréplication pour que les index soient entièrement redondants sur tous les services.
+Si le service ne doit pas être interrompu même en cas de défaillances catastrophiques qui échappent au contrôle de Microsoft, vous pouvez [approvisionner un service supplémentaire](search-create-service-portal.md) dans une autre région et mettre en œuvre une stratégie de géoréplication pour assurer une redondance complète des index sur tous les services.
 
-Les clients qui utilisent des indexeurs pour remplir et actualiser les index gèrent la récupération d’urgence par le biais d’indexeurs propres à la région et exploitant la même source de données. À la place d’indexeurs, vous pouvez utiliser le code de votre application pour effectuer une transmission de type push des objets et des données vers différents services en parallèle. Pour plus d’informations, consultez [Performance and optimization in Azure Search](search-performance-optimization.md)(Performances et optimisation dans Azure Search).
+Les clients qui utilisent des [indexeurs](search-indexer-overview.md) pour remplir et actualiser les index peuvent gérer la récupération d’urgence par le biais d’indexeurs propres à la région qui exploitent la même source de données. Deux services situés dans des régions différentes, chacun exécutant un indexeur, peuvent indexer à partir d’une même source pour accéder à la géo-redondance. Si vous indexez à partir de sources de données qui sont aussi géo-redondantes, sachez que les indexeurs du service Recherche Azure ne peuvent assurer qu’une indexation incrémentielle à partir de réplicas principaux. À l’occasion d’un basculement, veillez à refaire pointer l’indexeur vers le nouveau réplica principal. 
+
+Si vous n’utilisez pas d’indexeurs, vous devez utiliser le code de votre application pour effectuer une transmission de type push des objets et des données vers différents services de recherche en parallèle. Pour plus d’informations, consultez [Performance and optimization in Azure Search](search-performance-optimization.md)(Performances et optimisation dans Azure Search).
 
 ## <a name="backup-and-restore"></a>Sauvegarde et restauration
 
@@ -141,9 +145,9 @@ Pour reconstruire un index, vous devez le supprimer (s’il existe), recréer l�
 <a id="scale"></a>
 
 ## <a name="scale-up-or-down"></a>Augmentation ou réduction d'échelle
-Au départ, chaque service de recherche comporte, au minimum, un réplica et une partition. Si vous vous êtes inscrit pour bénéficier de ressources dédiées à l’aide des niveaux de tarification [De base et Standard](search-limits-quotas-capacity.md), vous pouvez cliquer sur la vignette **SCALE** (MISE À L’ÉCHELLE) sur le tableau de bord des services pour réajuster le nombre de partitions et de réplicas utilisés par votre service.
+Au départ, chaque service de recherche comporte, au minimum, un réplica et une partition. Si vous avez souscrit à un [niveau qui fournit des ressources dédiées](search-limits-quotas-capacity.md), cliquez sur la vignette **METTRE À L’ÉCHELLE** dans le tableau de bord du service pour ajuster l’utilisation des ressources.
 
-Lorsque vous ajoutez des capacités à travers l’une des ressources, le service les utilise automatiquement. Aucune autre action n'est requise de votre part. Il y aura cependant un léger décalage avant que l'effet de la nouvelle ressource ne soit perceptible. L’approvisionnement des ressources supplémentaires demande au moins 15 minutes.
+Lorsque vous ajoutez des capacités à travers l’une des ressources, le service les utilise automatiquement. Aucune autre action n’est nécessaire de votre part. Cependant, un léger décalage est à prévoir avant que l’effet de la nouvelle ressource soit perceptible. L’approvisionnement des ressources supplémentaires demande au moins 15 minutes.
 
  ![][10]
 
@@ -160,7 +164,7 @@ La plupart des applications de service intègrent le besoin de plusieurs réplic
 Au niveau Standard, les partitions sont ajoutées par multiples de 12 (notamment 1, 2, 3, 4, 6 ou 12). Il s’agit d’un artefact de partitionnement. Un index est créé dans 12 fragments (ou shards) qui peuvent tous être stockés dans 1 partition ou répartis équitablement dans 2, 3, 4, 6 ou 12 partitions (un fragment par partition).
 
 ### <a name="remove-replicas"></a>Suppression de réplicas
-Après une période de volume de requêtes intense, il est probable que vous supprimiez des réplicas lorsque la charge des requêtes de recherche est revenue à la normale (à la fin d’une période de vente, par exemple).
+Après une période de traitement de requêtes intensive, vous pouvez réduire le nombre de réplicas une fois la charge de requêtes de recherche revenue à la normale (à la fin d’une période de soldes, par exemple).
 
 Pour ce faire, il vous suffit de faire coulisser le curseur des réplicas sur une valeur plus faible. Rien de plus ! La réduction du nombre de réplicas entraîne l'abandon des machines virtuelles dans le centre de données. Désormais, vos opérations de requête et d'ingestion de données s'exécuteront sur un nombre moins élevé de machines virtuelles. La limite minimale est de 1 réplica.
 
@@ -183,11 +187,11 @@ Cette vidéo de 30 minutes passe en revue les meilleures pratiques pour les scé
 <a id="next-steps"></a>
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois que vous avez compris les types d’opérations relatives à l’administration du service, prenez en compte les différentes approches de gestion des services :
+Dès lors que vous avez assimilé les concepts à la base de l’administration des services, envisagez d’utiliser [PowerShell](search-manage-powershell.md) pour automatiser les tâches.
 
-* [PowerShell](search-manage-powershell.md)
+Nous vous recommandons aussi de consulter l’[article relatif aux performances et à l’optimisation](search-performance-optimization.md).
 
-En outre, si ce n’est pas déjà fait, examinez l’ [article sur les performances et l’optimisation](search-performance-optimization.md), et regardez la vidéo indiquée dans la section précédente pour voir plus de démonstrations des techniques recommandées et les découvrir de manière plus approfondie.
+Par ailleurs, nous vous conseillons de regarder la vidéo indiquée dans la section précédente. Elle décrit plus en détail les techniques mentionnées dans cette section.
 
 <!--Image references-->
 [7]: ./media/search-manage/rbac-icon.png

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 0ca7382ed64fd548f8a086893ea2e3187dd26929
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 392c814b7d3ff6b4f0f7850a51960576775e0307
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -26,11 +26,11 @@ ms.lasthandoff: 05/09/2017
 Cet article vous aide à prendre rapidement en main Azure Security Center en vous guidant à travers les composants de surveillance de sécurité et de gestion des stratégies de sécurité d’Azure Security Center.
 
 > [!NOTE]
-> Cet article présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
+> Depuis début juin 2017, Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour plus d’informations, consultez l’article [Migration de plateforme Azure Security Center](security-center-platform-migration.md). Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
 >
 >
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Composants requis
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 Le niveau Gratuit d’Azure Security Center est activé automatiquement avec votre abonnement et offre une visibilité de l’état de sécurité de vos ressources Azure. Il fournit une gestion des stratégies de sécurité de base, des recommandations de sécurité et une intégration avec les produits et services de sécurité des partenaires Azure.
@@ -41,9 +41,16 @@ Le Centre de sécurité est accessible à partir du [portail Azure](https://azur
 Dans Security Center, vous ne voyez les informations relatives à une ressource Azure que lorsque vous avez reçu le rôle de propriétaire, de collaborateur ou de lecteur pour l’abonnement ou le groupe de ressources auquel appartient la ressource. Pour plus d’informations sur les rôles et les actions autorisées dans Security Center, consultez l’article [Permissions in Azure Security Center (Autorisations dans Azure Security Center)](security-center-permissions.md).
 
 ## <a name="data-collection"></a>Collecte des données
-Azure Security Center collecte les données de vos machines virtuelles afin d’évaluer l’état de leur sécurité, de fournir des recommandations en matière de sécurité et de vous avertir des menaces. Lorsque vous accédez à Azure Security Center pour la première fois, la collecte de données est activée sur toutes les machines virtuelles de votre abonnement. La collecte de données est recommandée, mais vous pouvez refuser cette fonctionnalité en la désactivant dans la stratégie d’Azure Security Center.
+Azure Security Center collecte les données de vos machines virtuelles afin d’évaluer l’état de leur sécurité, de fournir des recommandations en matière de sécurité et de vous avertir des menaces. Lorsque vous accédez à Azure Security Center pour la première fois, la collecte de données est activée sur toutes les machines virtuelles de votre abonnement. Security Center approvisionne Microsoft Monitoring Agent sur toutes les machines virtuelles Azure prises en charge existantes et sur toutes celles nouvellement créées. Consultez [Activer la collecte de données](security-center-enable-data-collection.md) pour en savoir plus sur le fonctionnement de la collecte de données.
+
+La collecte de données est recommandée. Si vous utilisez le niveau Gratuit de Security Center, vous pouvez désactiver la collecte de données sur les machines virtuelles dans la stratégie de sécurité. La collecte de données est obligatoire pour les abonnements Security Center du niveau Standard. Consultez [Tarification de Security Center](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires Gratuit et Standard.
 
 Les étapes suivantes décrivent comment accéder aux composants d’Azure Security Center et les utiliser. Dans ces étapes, nous vous montrons comment désactiver la collecte des données si vous la refusez.
+
+> [!NOTE]
+> Cet article présente le service à l’aide d’un exemple de déploiement. Il ne s’agit pas d’un guide pas à pas.
+>
+>
 
 ## <a name="access-security-center"></a>Accéder au Centre de sécurité
 Dans le portail, procédez comme suit pour accéder au Centre de sécurité :
@@ -60,18 +67,10 @@ Dans le portail, procédez comme suit pour accéder au Centre de sécurité :
 Vous pouvez configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure. Configurons une stratégie de sécurité pour votre abonnement :
 
 1. Cliquez sur la mosaïque **Stratégie** dans le panneau **Security Center**.
-   ![Stratégie de sécurité][3]
-2. Dans le panneau **Stratégie de sécurité - Définir une stratégie par abonnement ou groupe de ressources**, sélectionnez un abonnement.
-3. Dans le panneau **Stratégie de sécurité**, l’option **Collecte des données** est activée pour la collecte automatique des journaux. L’extension de la surveillance est approvisionnée sur toutes les machines virtuelles actuelles et nouvelles dans l’abonnement. (Vous pouvez refuser la collecte de données en **désactivant** l’option **Collecte des données**, mais cette opération empêchera Security Center de vous fournir des recommandations et alertes en matière de sécurité.)
-4. Sur le panneau **Stratégie de sécurité**, sélectionnez **Choisir un compte de stockage par région**. Pour chaque région où s’exécutent des machines virtuelles, vous devez choisir le compte de stockage où doivent être stockées les données collectées à partir de ces machines virtuelles. Si vous ne choisissez pas un compte de stockage pour chaque région, un compte de stockage est créé pour vous et placé dans le groupe de ressources securitydata. Pour des raisons de sécurité, les données collectées sont isolées logiquement des autres données clients.
-
-   > [!NOTE]
-   > Nous vous recommandons d’activer la collecte de données et de choisir en premier un compte de stockage au niveau de l’abonnement. Bien que vous puissiez définir les stratégies de sécurité au niveau du groupe de ressources et au niveau de l’abonnement Azure, la configuration de la collecte des données et du compte de stockage intervient uniquement au niveau de l’abonnement.
-   >
-   >
-5. Sur le panneau **Stratégie de sécurité**, sélectionnez **Stratégie de prévention**. Cette opération ouvre le panneau **Stratégie de prévention**.
-   ![Stratégie de prévention][4]
-6. Sur le panneau **Stratégie de prévention**, activez les recommandations que vous souhaitez voir dans le cadre de votre stratégie de sécurité. Exemples :
+2. Dans le panneau **Stratégie de sécurité - Définir la stratégie par abonnement**, sélectionnez un abonnement.
+3. Dans le panneau **Stratégie de sécurité**, l’option **Collecte des données** est activée pour la collecte automatique des journaux. L’extension de la surveillance est approvisionnée sur toutes les machines virtuelles actuelles et nouvelles dans l’abonnement. (Dans le niveau Gratuit de Security Center, vous pouvez désactiver la collecte de données en définissant **Collecte des données** sur **Désactivée**. Le fait de **désactiver** la **collecte de données** empêche Security Center de vous fournir des recommandations et des alertes en matière de sécurité.)
+4. Sur le panneau **Stratégie de sécurité**, sélectionnez **Stratégie de prévention**. Cette opération ouvre le panneau **Stratégie de prévention**.
+5. Sur le panneau **Stratégie de prévention**, activez les recommandations que vous souhaitez voir dans le cadre de votre stratégie de sécurité. Exemples :
 
    * **L’activation** de l’option **Mises à jour du système** permet d’analyser toutes les machines virtuelles prises en charge pour y détecter des mises à jour de système d’exploitation manquantes.
    * **L’activation** de l’option **Vulnérabilités du système d’exploitation** permet d’analyser toutes les machines virtuelles prises en charge afin d’identifier toute configuration du système d’exploitation risquant de rendre la machine virtuelle plus vulnérable aux attaques.
@@ -85,8 +84,8 @@ Vous pouvez configurer des stratégies de sécurité pour vos groupes de ressour
 1. Retournez au panneau **Centre de sécurité** . La section **Prévention** du tableau de bord contient des indicateurs de l’état de sécurité pour les machines virtuelles, la mise en réseau, les données et les applications.
 2. Sélectionnez **Compute** pour afficher plus d’informations. Le panneau **Compute** s’ouvre affichant trois onglets :
 
-  - **Vue d’ensemble** : contient des recommandations relatives aux machines virtuelles et à la surveillance.
-  - **Machines virtuelles** : liste toutes les machines virtuelles et les informations relatives à l’intégrité de leur sécurité.
+  - **Vue d’ensemble** : contient des recommandations relatives aux machines virtuelles et au monitoring.
+  - **Machines virtuelles** : répertorie toutes les machines virtuelles et les informations relatives à l’intégrité de leur sécurité.
   - **Services cloud** : liste les rôles web et de travail contrôlés par Security Center.
 
     ![La mosaïque d’intégrité des ressources dans le Centre de sécurité Azure][6]
@@ -117,6 +116,7 @@ Cet article vous a présenté les composants de surveillance de sécurité et de
 * Configurez une stratégie de sécurité pour votre abonnement Azure. Pour en savoir plus, consultez [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md).
 * Suivez les recommandations d’Azure Security Center pour protéger vos ressources Azure. Pour en savoir plus, consultez [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 * Passez en revue et gérez vos alertes de sécurité actuelles. Pour en savoir plus, consultez [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
+- [Sécurité des données Azure Security Center](security-center-data-security.md) : découvrez comment les données sont gérées et protégées dans Security Center.
 * Apprenez-en plus sur les [fonctionnalités avancées de détection des menaces](security-center-detection-capabilities.md) fournies avec le [niveau Standard](security-center-pricing.md) d’Azure Security Center. Le niveau Standard est gratuit les 60 premiers jours.
 * Si vous avez des questions sur l’utilisation d’Azure Security Center, consultez le [FAQ d’Azure Security Center](security-center-faq.md).
 

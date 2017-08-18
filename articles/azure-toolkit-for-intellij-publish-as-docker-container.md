@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 37a9de5909cf4d6b4568e40de001861d083a85df
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 96680319a6c4c0f0a4673cd6303a5b172f428797
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -57,7 +57,7 @@ Les conteneurs Docker constituent une méthode largement utilisée pour déploye
 
    ![Assistant Deploy Docker Container on Azure (Déploiement d’un conteneur Docker sur Azure)][PUB03]
 
-3. Dans la fenêtre **Type an image name, select the artifact's path and check a Docker host to be used** (Tapez un nom d’image, sélectionnez le chemin de l’artefact et indiquez un hôte Docker à utiliser), procédez comme suit : 
+3. Dans la fenêtre **Type an image name, select the artifact’s path and check a Docker host to be used** (Tapez un nom d’image, sélectionnez le chemin de l’artefact et indiquez un hôte Docker à utiliser), procédez comme suit : 
 
    a. Dans la zone **Docker image name** (Nom de l’image Docker), entrez un nom unique pour votre hôte Docker. (L’Assistant crée automatiquement un nom, mais vous pouvez le modifier.) 
 
@@ -106,12 +106,14 @@ Les conteneurs Docker constituent une méthode largement utilisée pour déploye
 
       * **New log in credentials** (Nouvelles informations d’identification de connexion) : créez un nouvel ensemble d’informations d’identification de connexion. Si vous sélectionnez cette option, procédez comme suit :
 
-        a. Sous l’onglet **VM Credentials** (Informations de connexion de la machine virtuelle), fournissez les informations suivantes pour les informations d’identification de connexion de la machine virtuelle de votre hôte Docker :      *  **Username** (Nom d’utilisateur) : entrez le nom d’utilisateur pour les informations d’identification de connexion de votre machine virtuelle.
+        a. Sous l’onglet **Informations d’identification de la machine virtuelle**, renseignez les informations suivantes pour les informations d’identification de connexion de la machine virtuelle de votre hôte Docker : * **Nom d’utilisateur** : entrez le nom d’utilisateur pour les informations d’identification de connexion de votre machine virtuelle.
              * **Password** (Mot de passe) et **Confirm** (Confirmer) : entrez le mot de passe pour les informations d’identification de connexion de votre machine virtuelle.
-             * **SSH** : entrez les paramètres SSH (Secure Shell) pour votre hôte Docker. Vous pouvez sélectionner une des options suivantes :         * **None** (Aucun) : spécifie que votre machine virtuelle n’autorise pas les connexions SSH.
+             * **SSH** : entrez les paramètres SSH (Secure Shell) pour votre hôte Docker. Vous pouvez sélectionner une des options suivantes : * **Aucun** : spécifie que votre machine virtuelle n’autorise pas les connexions SSH.
                 * **Auto-generate** (Générer automatiquement) : crée automatiquement les paramètres nécessaires pour la connexion via SSH.
-                * **Import from directory** (Importer à partir du répertoire) : vous permet de spécifier un répertoire qui contient un jeu de paramètres SSH précédemment enregistrés. Le répertoire doit contenir les deux fichiers suivants :            * *id_rsa* : contient l’identification de RSA d’un utilisateur.
-                   * *id_rsa.pub* : contient la clé publique RSA qui est utilisée pour l’authentification.
+                * **Import from directory** (Importer à partir du répertoire) : vous permet de spécifier un répertoire qui contient un jeu de paramètres SSH précédemment enregistrés. Le répertoire doit contenir les deux fichiers suivants :
+                
+                  * *id_rsa*: Contains the RSA identification for a user.
+                  * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
             
         b. Sous l’onglet **Docker Daemon Access** (Accès au démon Docker), fournissez les informations suivantes :
 
@@ -182,17 +184,17 @@ Pour créer un artefact prêt pour le déploiement, procédez comme suit :
 Pour plus d’informations sur la création d’artefacts dans IntelliJ, consultez [Configuring artifacts] sur le site web de JetBrains.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les boîtes à outils Azure pour les environnements de développement Java, consultez les ressources suivantes :
+Pour plus d’informations sur les kits d’outils Azure pour les environnements de développement Java, consultez les ressources suivantes :
 
 * [Kit de ressources Azure pour Eclipse]
-  * [Nouveautés du kit de ressources Azure pour Eclipse]
+  * [Nouveautés du Kit de ressources Azure pour Eclipse]
   * [Installation du kit de ressources Azure pour Eclipse]
-  * [Instructions de connexion pour le kit de ressources Azure pour Eclipse]
+  * [Instructions de connexion pour le Kit de ressources Azure pour Eclipse]
   * [Créer une application web Hello World pour Azure dans Eclipse]
 * [Kit de ressources Azure pour IntelliJ]
-  * [Nouveautés du kit de ressources Azure pour IntelliJ]
+  * [Nouveautés du Kit de ressources Azure pour IntelliJ]
   * [Installation du kit de ressources Azure pour IntelliJ]
-  * [Instructions de connexion pour le kit de ressources Azure pour IntelliJ]
+  * [Instructions de connexion pour le Kit de ressources Azure pour IntelliJ]
   * [Créer une application web Hello World pour Azure dans IntelliJ]
 
 Pour plus d’informations sur l’utilisation d’Azure avec Java, consultez le [Centre de développement Java pour Azure] et les [outils Java pour Visual Studio Team Services].
@@ -207,10 +209,10 @@ Pour obtenir des ressources supplémentaires pour Docker, consultez le [site web
 [Créer une application web Hello World pour Azure dans IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installation du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installation du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Instructions de connexion pour le kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Instructions de connexion pour le kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Nouveautés du kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[Nouveautés du kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Instructions de connexion pour le Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Instructions de connexion pour le Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Nouveautés du Kit de ressources Azure pour Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Nouveautés du Kit de ressources Azure pour IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Centre de développement Java pour Azure]: https://azure.microsoft.com/develop/java/
 [outils Java pour Visual Studio Team Services]: https://java.visualstudio.com/

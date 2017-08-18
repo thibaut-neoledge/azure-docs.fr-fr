@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/01/2017
+ms.date: 06/20/2017
 ms.author: saveenr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 3728d81243a1ac9f501bd8d7d538c1f73b954405
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: d479af515566f497d9611e75426f6acb8f8276d9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -26,14 +26,14 @@ ms.lasthandoff: 05/05/2017
 # <a name="tutorial-get-started-with-extending-u-sql-with-r"></a>Tutoriel : Get started with extending U-SQL with R (Bien démarrer avec l’extension de U-SQL avec R)
 
 L’exemple suivant illustre les étapes de base pour déployer un code R :
-* Utiliser l’instruction REFERENCE ASSEMBLY pour activer les extensions R pour le script U-SQL.
-* Utiliser l’opération REDUCE pour partitionner les données d’entrée sur une clé.
-* Les extensions R pour U-SQL comprennent un réducteur intégré (Extension.R.Reducer) qui exécute le code R sur chaque vertex affecté au réducteur. 
-* Utilisation de trames de données nommées dédiées, respectivement intitulées inputFromUSQL et outputToUSQL, pour transférer des données entre USQL et R. Les noms des identificateurs des trames de données d’entrée et de sortie sont fixes. Autrement dit, les utilisateurs ne peuvent pas modifier les noms prédéfinis des identificateurs des trames de données d’entrée et de sortie.
+* Utilisation de l’instruction `REFERENCE ASSEMBLY` pour activer les extensions R pour le script U-SQL.
+* Utilisation de l’opération ` REDUCE` pour partitionner les données d’entrée sur une clé.
+* Les extensions R pour U-SQL comprennent un réducteur intégré (`Extension.R.Reducer`) qui exécute le code R sur chaque vertex affecté au réducteur. 
+* Utilisation de tableaux de données nommés dédiés, respectivement intitulés `inputFromUSQL` et `outputToUSQL `, pour transférer des données entre USQL et R. Les noms des identificateurs des tableaux de données d’entrée et de sortie sont fixes. Autrement dit, les utilisateurs ne peuvent pas modifier les noms prédéfinis des identificateurs des tableaux de données d’entrée et de sortie.
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>Incorporation de code R dans le script U-SQL
 
-Vous pouvez incorporer du code R à votre script U-SQL à l’aide du paramètre de commande d’Extension.R.Reducer. Par exemple, vous pouvez déclarer le script R comme une variable de chaîne et le passer en tant que paramètre au raccord de réduction.
+Vous pouvez incorporer du code R à votre script U-SQL à l’aide du paramètre de commande du réducteur `Extension.R.Reducer`. Par exemple, vous pouvez déclarer le script R comme une variable de chaîne et le passer en tant que paramètre au raccord de réduction.
 
 
     REFERENCE ASSEMBLY [ExtR];
@@ -98,20 +98,20 @@ Utilisez un script U-SQL pour déployer ce script R avec l’instruction DEPLOY 
 ## <a name="how-r-integrates-with-u-sql"></a>Intégration de R à U-SQL
 
 ### <a name="datatypes"></a>Types de données
-* Les colonnes de chaîne et numériques de U-SQL sont converties en l’état entre une trame de données R et U-SQL [types pris en charge : double, chaîne, booléen, entier, octets].
-* Le type de données facteur n’est pas pris en charge dans U-SQL.
-* byte[] doit être sérialisé sous forme de chaîne codée en base64.
-* Les chaînes U-SQL peuvent être converties en facteurs dans le code R lorsque U-SQL crée une trame de données d’entrée R ou en définissant le paramètre du réducteur stringsAsFactors sur true.
+* Les colonnes de chaîne et numériques de U-SQL sont converties en l’état entre un tableau de données R et U-SQL [types pris en charge : `double`, `string`, `bool`, `integer`, `byte`].
+* Le type de données `Factor` n’est pas pris en charge dans U-SQL.
+* `byte[]` doit être sérialisé sous forme de `string` codé en base64.
+* Les chaînes U-SQL peuvent être converties en facteurs dans le code R quand U-SQL crée un tableau de données d’entrée R ou en définissant le paramètre du réducteur sur `stringsAsFactors: true`.
 
 ### <a name="schemas"></a>Schémas
 * Les jeux de données U-SQL ne peuvent pas avoir de noms de colonnes en double.
 * Les noms de colonnes des jeux de données U-SQL doivent être des chaînes.
 * Les noms de colonnes doivent être identiques dans U-SQL et dans les scripts R.
-* Les colonnes en lecture seule ne peuvent pas faire partie de la trame de données de sortie. Car les colonnes en lecture seule sont automatiquement réinjectées dans la table U-SQL si elles font partie du schéma de sortie de l’opérateur défini par l’utilisateur (UDO).
+* Les colonnes en lecture seule ne peuvent pas faire partie du tableau de données de sortie. Car les colonnes en lecture seule sont automatiquement réinjectées dans la table U-SQL si elles font partie du schéma de sortie de l’opérateur défini par l’utilisateur (UDO).
 
 ### <a name="functional-limitations"></a>Limitations fonctionnelles
 * Le moteur R ne peut pas être instancié deux fois dans le même processus. 
-* Pour la prédiction, l’utilisation d’opérateurs de combinateur définis par l’utilisateur avec des modèles partitionnés générés à l’aide d’opérateurs de réducteur définis par l’utilisateur n’est pas prise en charge par U-SQL. Les utilisateurs peuvent déclarer les modèles partitionnés comme des ressources et les utiliser dans leur script R (voir l’exemple de code ExtR_PredictUsingLMRawStringReducer.usql)
+* Pour la prédiction, l’utilisation d’opérateurs de combinateur définis par l’utilisateur avec des modèles partitionnés générés à l’aide d’opérateurs de réducteur définis par l’utilisateur n’est pas prise en charge par U-SQL. Les utilisateurs peuvent déclarer les modèles partitionnés comme des ressources et les utiliser dans leur script R (voir l’exemple de code `ExtR_PredictUsingLMRawStringReducer.usql`)
 
 ### <a name="r-versions"></a>Versions de R
 Seul R 3.2.2 est pris en charge.
@@ -170,11 +170,11 @@ Seul R 3.2.2 est pris en charge.
 Chaque vertex possède une quantité limitée de mémoire qui lui est assignée. Étant donné que les tableaux de données d’entrée et de sortie doivent exister dans la mémoire dans le code R, la taille totale de l’entrée et de la sortie ne peut pas dépasser 500 Mo.
 
 ### <a name="sample-code"></a>Exemple de code
-Des exemples de code supplémentaires sont mis à disposition dans votre compte Data Lake Store après l’installation des extensions analytiques avancées U-SQL. Le chemin permettant d’accéder à ces exemples de code est le suivant : <adresse_de_votre_compte>/usqlext/samples/r. 
+Des exemples de code supplémentaires sont mis à disposition dans votre compte Data Lake Store après l’installation des extensions analytiques avancées U-SQL. Pour obtenir des exemples de code supplémentaires, suivez ce chemin : `<your_account_address>/usqlext/samples/R`. 
 
 ## <a name="deploying-custom-r-modules-with-u-sql"></a>Déploiement des modules R personnalisés avec U-SQL
 
-Tout d’abord, créez un module R personnalisé, incluez-le dans un fichier zip, puis chargez le fichier de module R personnalisé zippé dans votre magasin ADL. Dans l’exemple, nous allons charger magittr_1.5.zip vers la racine du compte ADLS par défaut pour le compte ADLA que nous utilisons. Une fois le module chargé dans le magasin ADL, déclarez-le à l’aide de DEPLOY RESOURCE pour le rendre disponible dans votre script U-SQL, puis appelez « install.packages » pour l’installer.
+Tout d’abord, créez un module R personnalisé, incluez-le dans un fichier zip, puis chargez le fichier de module R personnalisé zippé dans votre magasin ADL. Dans l’exemple, nous allons charger magittr_1.5.zip vers la racine du compte ADLS par défaut pour le compte ADLA que nous utilisons. Une fois le module chargé dans le magasin ADL, déclarez-le à l’aide de DEPLOY RESOURCE pour le rendre disponible dans votre script U-SQL, puis appelez `install.packages` pour l’installer.
 
     REFERENCE ASSEMBLY [ExtR];
     DEPLOY RESOURCE @"/magrittr_1.5.zip";
@@ -212,7 +212,6 @@ Tout d’abord, créez un module R personnalisé, incluez-le dans un fichier zip
     USING new Extension.R.Reducer(command:@myRScript, rReturnType:"charactermatrix");
 
     OUTPUT @RScriptOutput TO @OutputFileModelSummary USING Outputters.Tsv();
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
