@@ -70,7 +70,7 @@ Pour obtenir des rapports d’intégrité, utilisez un code similaire à ceci :
 Pour obtenir des rapports sur une mesure, utilisez un code similaire à ceci :
 
   ```csharp
-    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+    this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
   ```
 
 ### <a name="service-fabric-support-logs"></a>Journaux de support Service Fabric

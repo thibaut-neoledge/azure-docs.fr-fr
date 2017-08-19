@@ -41,7 +41,8 @@ Cette rubrique montre comment configurer Azure App Service pour utiliser un comp
    > 
 7. Sous « Secrets de l’application », cliquez sur **Générer un nouveau mot de passe**. Prenez note de la valeur qui s’affiche. Une fois que vous quittez cette page, le mot de passe ne s’affiche plus.
 
-    > [AZURE.IMPORTANT] Le mot de passe est une information d’identification de sécurité importante. Ne partagez le mot de passe avec personne et ne le distribuez pas dans une application cliente.
+    > [!IMPORTANT]
+    > Le mot de passe est une information d’identification de sécurité importante. Ne partagez le mot de passe avec personne et ne le distribuez pas dans une application cliente.
 
 ## <a name="secrets"> </a>Ajout des informations de compte Microsoft à votre application App Service
 1. Dans le [portail Azure], accédez à votre application et cliquez sur **Paramètres** > **Authentification / Autorisation**.
