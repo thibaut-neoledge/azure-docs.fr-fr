@@ -1,5 +1,5 @@
 ---
-title: "Analyse des données sur les retards de vol avec Hive dans HDInsight basé sur Linux | Microsoft Docs"
+title: "Analyse des données sur les retards de vol avec Hive dans HDInsight - Azure | Microsoft Docs"
 description: "Découvrez comment utiliser Hive pour analyser les données sur les retards de vol à l’aide de HDInsight basé sur Linux, puis exporter les données vers une base de données SQL à l’aide de Sqoop."
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6c92292a67d14ac43c0fe5dbe7e14672c74b216b
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 88031b3698ec575eb48531b118c45f11ef7f19c0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analyse des données sur les retards de vol avec Hive dans HDInsight basé sur Linux
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/11/2017
 Découvrez comment analyser les données sur les retards de vol à l'aide de Hive sur HDInsight Linux, puis exporter les données vers Azure SQL Database à l'aide de Sqoop.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### <a name="prerequisites"></a>Composants requis
 
@@ -157,12 +158,12 @@ Suivez la procédure suivante pour importer des données à partir du fichier CS
     FROM delays_raw;
     ```
 
-2. Appuyez sur **Ctrl + X**, puis sur **Y** pour enregistrer le fichier.
+2. Pour enregistrer le fichier, appuyez sur **Ctrl + X**, puis sur **Y**.
 
 3. Pour démarrer Hive et exécuter le fichier **flightdelays.hql**, utilisez la commande suivante :
 
     ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
    > [!NOTE]
@@ -171,7 +172,7 @@ Suivez la procédure suivante pour importer des données à partir du fichier CS
 4. Une fois l’exécution du script __flightdelays.hql__ terminée, utilisez la commande suivante pour ouvrir une session Beeline interactive :
 
     ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
 5. Lorsque vous recevrez l’invite `jdbc:hive2://localhost:10001/>`, utilisez la requête suivante pour récupérer les données à partir des données relatives aux retards de vol qui ont été importées.
@@ -194,7 +195,7 @@ Suivez la procédure suivante pour importer des données à partir du fichier CS
 
 Si vous disposez déjà d’une base de données SQL, vous devez obtenir le nom du serveur. Vous trouverez le nom du serveur sur le [portail Azure](https://portal.azure.com) en sélectionnant **Bases de données SQL**, puis en filtrant sur le nom de la base de données que vous souhaitez utiliser. Le nom du serveur est répertorié dans la colonne **SERVEUR** .
 
-Si vous n’avez pas de base de données SQL, consultez les informations dans le [Didacticiel sur la base de données SQL : Création d’une base de données SQL en quelques minutes](../sql-database/sql-database-get-started.md) pour en créer une. Vous devez enregistrer le nom du serveur utilisé pour la base de données.
+Si vous n’avez pas de base de données SQL, consultez les informations dans le [Didacticiel sur la base de données SQL : Création d’une base de données SQL en quelques minutes](../sql-database/sql-database-get-started.md) pour en créer une. Enregistrer le nom du serveur utilisé pour la base de données.
 
 ## <a name="create-a-sql-database-table"></a>Création d’une table de base de données SQL
 
@@ -237,16 +238,16 @@ Si vous n’avez pas de base de données SQL, consultez les informations dans le
     GO
     ```
 
-    Une fois l’instruction `GO` entrée, les instructions précédentes sont évaluées. Ceci crée une table nommée **delays** avec un index cluster.
+    Une fois l’instruction `GO` entrée, les instructions précédentes sont évaluées. Cette requête crée une table nommée **delays** avec un index cluster.
 
-    Vérifiez que la table a été créée à l’aide des éléments suivants :
+    Utilisez la requête suivante pour vérifier que la table a été créée :
 
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    Le résultat ressemble à ce qui suit :
+    Le résultat ressemble au texte suivant :
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE

@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2017
+ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 68155ebaa6af36500bfe856c9bcd49f5efb6cbc2
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bfa951a897c9b383072c0d29c9a4266c163fe753
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,7 +34,26 @@ Lorsque vous affectez directement des licences à des utilisateurs individuels, 
 
 Lorsque vous utilisez un système de licence basée sur le groupe, les mêmes erreurs peuvent se produire, mais elles apparaissent en arrière-plan lorsque le service Azure AD affecte les licences. C’est pourquoi les erreurs ne peuvent pas vous être communiquées immédiatement. Au lieu de cela, elles sont enregistrées sur l’objet utilisateur et signalées par le biais du portail d’administration. Notez que l’intention initiale d’attribuer une licence à l’utilisateur perdure, mais qu’elle est enregistrée dans un état d’erreur et fera l’objet d’un examen et d’une résolution ultérieurs.
 
-Pour rechercher les utilisateurs qui se trouvent à l’état d’erreur pour chaque groupe, ouvrez le panneau correspondant à chaque groupe. Sous **Licences**, une notification s’affiche si des utilisateurs se trouvent à l’état d’erreur. Sélectionnez la notification pour ouvrir la liste de tous les utilisateurs concernés. Vous pouvez afficher les utilisateurs individuellement afin de comprendre le problème sous-jacent. Cet article décrit les problèmes potentiels et explique comment les résoudre.
+## <a name="how-to-find-license-assignment-errors"></a>Comment rechercher des erreurs d’affectation de licence
+
+1. Pour rechercher des utilisateurs en état d’erreur dans un groupe spécifique, ouvrez le panneau pour le groupe. Sous **Licences**, une notification s’affiche si des utilisateurs se trouvent à l’état d’erreur.
+
+![Groupe, notification d’erreur](media/active-directory-licensing-group-problem-resolution-azure-portal/group-error-notification.png)
+
+2. Cliquez sur la notification pour ouvrir la liste de tous les utilisateurs concernés. Vous pouvez cliquer sur chaque utilisateur individuellement pour afficher plus de détails.
+
+![Groupe, liste des utilisateurs en état d’erreur](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-users-with-errors.png)
+
+3. Pour rechercher tous les groupes contenant au moins une erreur, dans le panneau **Azure Active Directory**, sélectionnez **Licences**, puis **Vue d’ensemble**. Une fenêtre d’information s’affiche lorsque des groupes nécessitent votre attention.
+
+![Vue d’ensemble, informations sur les groupes en état d’erreur](media/active-directory-licensing-group-problem-resolution-azure-portal/group-errors-widget.png)
+
+4. Cliquez sur la zone pour afficher la liste de tous les groupes contenant des erreurs. Vous pouvez cliquer sur chaque groupe pour plus de détails.
+
+![Vue d’ensemble, liste des groupes contenant des erreurs](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-groups-with-errors.png)
+
+
+Vous trouverez ci-dessous une description de chaque problème potentiel et de la manière de le résoudre.
 
 ## <a name="not-enough-licenses"></a>Nombre insuffisant de licences
 
@@ -88,6 +108,20 @@ Vous pouvez attribuer plusieurs licences produit à un même groupe. Par exemple
 Azure AD tente d’attribuer toutes les licences spécifiées dans le groupe à chaque utilisateur. Si Azure AD ne peut pas attribuer l’un des produits en raison de problèmes de logique métier (par exemple, nombre insuffisant de licences pour l’ensemble du groupe ou conflits avec d’autres services activés pour l’utilisateur), les autres licences ne pourront pas non plus être attribuées au groupe.
 
 Vous pourrez voir les utilisateurs pour lesquels l’attribution a échoué et vérifier les produits concernés.
+
+## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>L’attribution de licence échoue sans avertissement pour un utilisateur en raison de la présence d’adresses proxy en double dans Exchange Online
+
+Si vous utilisez Exchange Online, certains utilisateurs de votre locataire peuvent être mal configurés avec la même valeur d’adresse proxy. Lorsque la fonction de gestion des licences basée sur des groupes tente d’attribuer une licence à un tel utilisateur, elle échoue sans enregistrer d’erreur (contrairement aux autres cas d’erreur décrits ci-dessus). Il s’agit d’une limitation de la préversion de cette fonctionnalité, que nous allons résoudre avant la *disponibilité générale*.
+
+> [!TIP]
+> Si vous remarquez que certains utilisateurs n’ont pas reçu de licence et qu’aucune erreur n’est enregistrée les concernant, vérifiez tout d’abord s’ils ont une adresse proxy en double.
+> Pour ce faire, exécutez l’applet de commande PowerShell suivante sur Exchange Online :
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> [Cet article](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online) contient plus de détails sur ce problème, notamment des informations sur [la connexion à Exchange Online en utilisant PowerShell à distance](https://technet.microsoft.com/library/jj984289.aspx).
+
+Une fois les problèmes d’adresse de proxy résolus pour les utilisateurs concernés, veillez à forcer le traitement des licences sur le groupe pour vous assurer que les licences peuvent être appliquées à nouveau.
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Comment faire pour forcer le traitement des licences dans un groupe afin de résoudre les erreurs ?
 

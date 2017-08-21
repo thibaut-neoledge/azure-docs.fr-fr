@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 40eb1d80830818a492c78d5091aaa9cca8d48f16
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 38c8cb00b21416add28eeb06187b89f64518dc92
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Applications et navigateurs qui utilisent des règles d’accès conditionnel dans Azure Active Directory
@@ -38,21 +38,30 @@ Il est important de connaître les applications qui peuvent utiliser les règles
 
 Les applications suivantes prennent en charge l’accès conditionnel pour Office 365 et les autres applications de service connectées à Azure AD :
 
-| Service cible | Plateforme | Application |
+
+| Service cible| Plateforme| Application |
 | --- | --- | --- |
-| Office 365 Exchange Online |Windows 10 |Messagerie/Calendrier/Contacts, Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne) |
-| Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne) |
-| Office 365 Exchange Online |iOS, Android |Application Outlook Mobile |
-| Office 365 Exchange Online |Mac OS X |Outlook 2016 pour l’authentification multifacteur et l’emplacement uniquement ; prise en charge à venir de la stratégie en fonction de l’appareil, prise en charge à venir de Skype Entreprise |
-| Office 365 SharePoint Online |Windows 10 |Applications Office 2016, applications Office Universal, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), prise en charge à venir des groupes Office, prise en charge à venir de l’application SharePoint |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Applications Office 2016, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
-| Office 365 SharePoint Online |iOS, Android |Applications mobiles Office |
-| Office 365 SharePoint Online |Mac OS X |Applications Office 2016 pour l’authentification multifacteur et l’emplacement uniquement ; prise en charge à venir de la stratégie en fonction de l’appareil |
-| Office 365 Yammer |Windows 10, iOS ; prise en charge d’Android prévue |Application Yammer Office |
-| Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS, Android |Application Dynamics CRM |
-| Service PowerBI |Windows 10, Windows 8.1, Windows 7, iOS, Android |Application PowerBI |
-| Service Application distante Azure |Windows 10, Windows 8.1, Windows 7, iOS, Android et MAC OS X |Application distante Azure |
-| Tout service d’application Mes applications |Android et iOS |Tout service d’application Mes applications |
+| Tout service d’application Mes applications| Android et iOS| Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge. |
+| Service Application distante Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android et MAC OS X| Application distante Azure|
+| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, Android| Application Dynamics CRM|
+| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android et MAC OS X| Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, MAC OS X, iOS, Android, WP et client web|
+| Office 365 Exchange Online| Windows 10| Messagerie/Calendrier/Contacts, Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne)|
+| Office 365 Exchange Online| Windows 8.1, Windows 7| Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne)|
+| Office 365 Exchange Online| iOS| Application Outlook Mobile|
+| Office 365 Exchange Online| Mac OS X| Outlook 2016 pour l’authentification multifacteur et l’emplacement uniquement ; prise en charge à venir de la stratégie en fonction de l’appareil, prise en charge à venir de Skype Entreprise|
+| Office 365 SharePoint Online| Windows 10| Applications Office 2016, applications Office Universal, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), prise en charge à venir des groupes Office, prise en charge à venir de l’application SharePoint|
+| Office 365 SharePoint Online| Windows 8.1, Windows 7| Applications Office 2016, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|
+| Office 365 SharePoint Online| iOS, Android| Applications mobiles Office|
+| Office 365 SharePoint Online| Mac OS X| Applications Office 2016 pour l’authentification multifacteur et l’emplacement uniquement ; prise en charge à venir de la stratégie en fonction de l’appareil|
+| Office 365 Yammer| Windows 10, iOS, Android| Application Yammer Office|
+| Service PowerBI| Windows 10, Windows 8.1, Windows 7 et iOS| Application PowerBI. L’application Power BI pour Android ne prend pas en charge actuellement l’accès conditionnel en fonction de l’appareil.|
+| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, Android| Application Visual Studio Team Services|
+
+
+
+
+
+
 
 ## <a name="applications-that-do-not-use-modern-authentication"></a>Applications qui n’utilisent pas l’authentification moderne
 Actuellement, vous devez utiliser d’autres méthodes pour bloquer l’accès aux applications qui n’emploient pas l’authentification moderne. Les règles d’accès pour les applications qui n’utilisent pas l’authentification moderne ne sont pas appliquées par l’accès conditionnel. Cela concerne principalement l’accès Exchange et SharePoint. La plupart des versions antérieures des applications utilisent d’anciens protocoles de contrôle d’accès.
@@ -60,7 +69,7 @@ Actuellement, vous devez utiliser d’autres méthodes pour bloquer l’accès a
 ### <a name="control-access-in-office-365-sharepoint-online"></a>Contrôle d’accès dans Office 365 SharePoint Online
 Vous pouvez désactiver les protocoles hérités pour l’accès SharePoint à l’aide de l’applet de commande Set-SPOTenant. Utilisez cette applet de commande pour empêcher les clients Office qui utilisent des protocoles d’authentification non moderne d’accéder aux ressources SharePoint Online.
 
-**Exemple de commande** :    `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
+**Exemple de commande** :`Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
 
 ### <a name="control-access-in-office-365-exchange-online"></a>Contrôle d’accès dans Office 365 Exchange Online
 Exchange propose deux catégories principales de protocoles. Passez en revue les options suivantes, puis sélectionnez la stratégie appropriée pour votre organisation.
@@ -113,12 +122,14 @@ En appliquant les trois règles suivantes à la partie de confiance AD FS de la 
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-## <a name="supported-browsers"></a>Navigateurs pris en charge
+## <a name="supported-browsers-for-device-based-policies"></a>Navigateurs pris en charge pour les stratégies basées sur les appareils 
+
+Vous pouvez obtenir l’accès aux stratégies basées sur les appareils qui vérifient la conformité de l’appareil et la jonction de domaine uniquement quand Azure AD peut identifier et authentifier l’appareil. Si la plupart des contrôles, par exemple de l’emplacement et de MFA, fonctionnent sur la plupart des appareils et navigateurs, les stratégies d’appareils requièrent les versions de système d’exploitation et les navigateurs répertoriés ci-dessous. Quand une stratégie d’appareil est en place, l’accès est bloqué pour les utilisateurs de navigateurs ou systèmes d’exploitation non pris en charge. 
 
 | SE                     | Navigateurs                 | Support     |
 | :--                    | :--                      | :-:         |
 | Win 10                 | IE, Edge                 | ![Vérification][1] |
-| Win 10                 | Chrome                   | Bientôt disponible |
+| Win 10                 | Chrome                   | VERSION PRÉLIMINAIRE     |
 | Win 8/8.1            | IE, Chrome               | ![Vérification][1] |
 | Win 7                  | IE, Chrome               | ![Vérification][1] |
 | iOS                    | Safari                   | ![Vérification][1] |
@@ -131,10 +142,15 @@ En appliquant les trois règles suivantes à la partie de confiance AD FS de la 
 | Mac OS                 | Safari                   | ![Vérification][1] |
 | Mac OS                 | Chrome                   | Bientôt disponible |
 
+> [!NOTE]
+> Pour la prise en charge de Chrome, vous devez utiliser Windows 10 Creators Update et installer l’extension disponible [ici](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+>
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access.md)
+
 
 
 

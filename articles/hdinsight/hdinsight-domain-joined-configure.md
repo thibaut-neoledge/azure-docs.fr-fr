@@ -1,5 +1,5 @@
 ---
-title: "Configuration des clusters HDInsight joints à un domaine | Microsoft Docs"
+title: "Configurer les clusters HDInsight joints à un domaine - Azure | Documents Microsoft"
 description: "Découvrez comment configurer les clusters HDInsight joints à un domaine"
 services: hdinsight
 documentationcenter: 
@@ -16,15 +16,19 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1fb13d60eebbaf45ca9cb394c073c834bbe59bb9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Configurer des clusters HDInsight joints à un domaine (version préliminaire)
+
 Découvrez comment configurer un cluster Azure HDInsight avec Azure Active Directory (Azure AD) et [Apache Ranger](http://hortonworks.com/apache/ranger/)pour valoriser les stratégies d’authentification forte et de contrôle de l’accès enrichi basé sur les rôles.  Le cluster HDInsight peut être configuré uniquement sur les clusters Linux. Pour plus d’informations, consultez [Introduire des clusters HDInsight joints à un domaine](hdinsight-domain-joined-introduction.md).
+
+> [!IMPORTANT]
+> Oozie n’est pas activé sur HDInsight joint à un domaine.
 
 Cet article est le premier didacticiel d’une série :
 
@@ -72,8 +76,8 @@ Ce didacticiel vous indique la procédure de configuration d’un cluster HDInsi
 
 Il existe un script PowerShell qui automatise les étapes 3 à 7.  Pour plus d’informations, consultez la section [Configurer des clusters HDInsight joints à un domaine à l’aide d’Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md).
 
-## <a name="create-an-azure-classic-vnet"></a>Créer un réseau virtuel Azure Classic
-Dans cette section, vous créez un réseau virtuel classique à l’aide du portail Azure. Dans la section suivante, vous activez l’instance Azure AD DS pour Azure AD dans le réseau virtuel Classic. Pour plus d’informations sur la procédure suivante et l’utilisation d’autres méthodes de création de réseaux virtuels, consultez la section [Créer un réseau virtuel (classique) à l’aide du portail Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+## <a name="create-an-azure-virtual-network-classic"></a>Création d'un réseau virtuel Azure (classique)
+Dans cette section, vous créez un réseau virtuel (classique) à l’aide du portail Azure. Dans la section suivante, vous activez Azure AD DS pour Azure AD dans le réseau virtuel. Pour plus d’informations sur la procédure suivante et l’utilisation d’autres méthodes de création de réseaux virtuels, consultez la section [Créer un réseau virtuel (classique) à l’aide du portail Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 **Pour créer un réseau virtuel classique**
 
@@ -251,7 +255,7 @@ Dans cette section, vous créez un cluster Hadoop Linux dans HDInsight à l’
      
      * **Type de cluster** : Hadoop Actuellement, le cluster HDInsight joint au domaine est uniquement pris en charge sur les clusters Hadoop.
      * **Système d’exploitation** : Linux  Le cluster HDInsight joint au domaine est pris en charge uniquement sur les clusters HDInsight Linux.
-     * **Version** : Hadoop 2.7.3 (HDI 3.5). Le cluster HDInsight joint au domaine est pris en charge uniquement sur le cluster HDInsight version 3.5.
+     * **Version** : HDI 3.6. HDInsight joint au domaine est pris en charge uniquement sur le cluster HDInsight version 3.6.
      * **Type de cluster** : PREMIUM
        
        Pour enregistrer les modifications, cliquez sur **Sélectionner**.
@@ -308,7 +312,7 @@ Pour créer le cluster HDInsight joint au domaine, vous pouvez également utili
    * **LDAPUrls** : ["ldaps://contoso.onmicrosoft.com:636"]
    * **DomainAdminUserName**: (saisissez le nom d’utilisateur de l’administrateur du domaine)
    * **DomainAdminPassword** : (saisissez le mot de passe utilisateur de l’administrateur du domaine)
-   * **J’accepte les termes et conditions mentionnés ci-dessus**: (vérification)
+   * **J’accepte les termes et conditions mentionnés ci-dessus** : (vérification)
    * **Épingler au tableau de bord** : (vérification)
 3. Cliquez sur **Achat**. Vous verrez une nouvelle vignette intitulée **Déploiement du déploiement de modèle**. La création d’un cluster prend environ 20 minutes. Une fois le cluster créé, vous pouvez cliquer sur le panneau du cluster dans le portail pour l’ouvrir.
 

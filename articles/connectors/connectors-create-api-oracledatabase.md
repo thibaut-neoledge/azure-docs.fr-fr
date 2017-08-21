@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 014b726c2e960029cf5896e07063e807e9ae1915
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 05/10/2017
 
 Cette rubrique décrit comment utiliser le connecteur de base de données Oracle dans une application logique.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Versions d’Oracle prises en charge : 
     * Oracle 9 et versions ultérieures
@@ -71,7 +71,7 @@ Cette rubrique décrit comment utiliser le connecteur de base de données Oracle
     > [!TIP]
     > C’est également le moyen le plus rapide de voir les déclencheurs et les actions disponibles pour n’importe quel connecteur. Entrez une partie du nom du connecteur, comme `oracle`. Le concepteur répertorie tous les déclencheurs et toutes les actions. 
 
-5. Sélectionnez l’une des actions, comme **Base de données Oracle - Obtenir une ligne**. Sélectionnez **Se connecter via une passerelle de données locale**. Entrez le nom du serveur Oracle, la méthode d’authentification, le nom d’utilisateur et le mot de passe, puis sélectionnez la passerelle :
+5. Sélectionnez l’une des actions, comme **Base de données Oracle - Obtenir une ligne**. Sélectionnez l’option **Se connecter via la passerelle de données locale**. Entrez le nom du serveur Oracle, la méthode d’authentification, le nom d’utilisateur et le mot de passe, puis sélectionnez la passerelle :
 
     ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -124,8 +124,9 @@ Cette rubrique décrit comment utiliser le connecteur de base de données Oracle
 * Toute table avec des clés composites
 * Types d’objet imbriqués dans des tables
  
-## <a name="view-the-swagger"></a>Afficher Swagger
-Consultez les [détails sur Swagger](/connectors/oracle/). 
+## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
+
+Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/oracle/). 
 
 ## <a name="get-some-help"></a>Obtenir de l’aide
 

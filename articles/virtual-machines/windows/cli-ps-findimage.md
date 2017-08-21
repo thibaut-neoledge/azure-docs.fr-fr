@@ -1,6 +1,6 @@
 ---
-title: "Parcourir et sélectionner des images de machines virtuelles Windows | Microsoft Docs"
-description: "Découvrez comment déterminer l’éditeur, l’offre et la référence SKU pour des images quand vous créez une machine virtuelle Windows avec le modèle de déploiement de Resource Manager."
+title: "Sélectionner des images de machine virtuelle Windows dans Azure | Microsoft Docs"
+description: "Découvrez comment utiliser Azure PowerShell pour déterminer l’éditeur, l’offre, la référence (SKU) et la version d’images de machine virtuelle de la Place de marché."
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -13,43 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/23/2016
+ms.date: 07/12/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 28bb214570fcca94c5ceb6071c4851b81ec00c8d
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 630f555b003b0efc45b372a7009dbf036aa8c737
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="navigate-and-select-windows-virtual-machine-images-in-azure-with-powershell" class="xliff"></a>
+# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Comment rechercher des images de machine virtuelle Windows sur la Place de marché Microsoft Azure avec Azure PowerShell
 
-# Parcourir et sélectionner des images de machines virtuelles Windows dans Azure avec PowerShell
-Cette rubrique décrit comment rechercher des éditeurs d’images de machines virtuelles, des offres, des références et des versions pour chaque emplacement vers lequel vous souhaitez effectuer un déploiement. À titre d’exemple, voici certaines images de machines virtuelles Windows couramment utilisées :
+Cette rubrique décrit comment utiliser Azure PowerShell pour rechercher des images de machine virtuelle sur la Place de marché Microsoft Azure. Ces informations permettent de spécifier une image de Place de marché lorsque vous créez une machine virtuelle Windows.
 
-<a id="table-of-commonly-used-windows-images" class="xliff"></a>
+Vérifiez que le dernier [module Azure PowerShell](/powershell/azure/install-azurerm-ps) est installé et configuré.
 
-## Tableau des images système Windows couramment utilisées
+
+
+## <a name="table-of-commonly-used-windows-images"></a>Tableau des images système Windows couramment utilisées
 | PublisherName | Offer | Sku |
 |:--- |:--- |:--- |:--- |
-| MicrosoftDynamicsNAV |DynamicsNAV |2015 |
-| MicrosoftSharePoint |MicrosoftSharePointServer |2013 |
-| MicrosoftSQLServer |SQL2014-WS2012R2 |Entreprise, optimisé pour l’entrepôt de données |
-| MicrosoftSQLServer |SQL2014-WS2012R2 |Entreprise, optimisé pour le traitement transactionnel en ligne |
+| MicrosoftWindowsServer |WindowsServer |2016-centre-de-données |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer |WindowsServer |2016-centre-de-données-avec-conteneurs |
+| MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
-| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
-| MicrosoftWindowsServer |WindowsServer |Windows Server Technical Preview |
-| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
+| MicrosoftDynamicsNAV |DynamicsNAV |2017 |
+| MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
+| MicrosoftSQLServer |SQL2016-WS2016 |Entreprise |
+| MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Entreprise |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
+| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
 
-<a id="find-azure-images-with-powershell" class="xliff"></a>
+## <a name="find-specific-images"></a>Recherche d’images spécifiques
 
-## Rechercher des images Azure avec PowerShell
-> [!NOTE]
-> Installez et configurez la [dernière version d’Azure PowerShell](/powershell/azure/overview). Si vous utilisez des modules Azure PowerShell antérieurs à la version 1.0, vous vous servez des commandes suivantes, mais devez d’abord `Switch-AzureMode AzureResourceManager`. 
-> 
-> 
 
 Lorsque vous créez une machine virtuelle avec le gestionnaire des ressources Azure, vous devez, dans certains cas, spécifier une image en combinant les propriétés d'image suivantes :
 
@@ -57,9 +55,9 @@ Lorsque vous créez une machine virtuelle avec le gestionnaire des ressources Az
 * Offer
 * SKU
 
-Par exemple, ces valeurs sont nécessaires pour l’applet de commande PowerShell `Set-AzureRMVMSourceImage` ou avec un fichier de modèle de groupe de ressources dans lequel vous devez spécifier le type de machine virtuelle à créer.
+Par exemple, ces valeurs sont nécessaires pour l’applet de commande PowerShell [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) ou avec un modèle de groupe de ressources dans lequel vous devez spécifier le type de machine virtuelle à créer.
 
-Si vous devez déterminer ces valeurs, vous pouvez parcourir les images à cette fin en procédant ainsi :
+Si vous avez besoin de déterminer ces valeurs, vous pouvez exécuter les applets de commande [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) et [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) pour naviguer dans les images. Vous déterminez ces valeurs :
 
 1. en répertoriant les éditeurs d’images ;
 2. pour un éditeur donné, en répertoriant ses offres ;
@@ -86,14 +84,19 @@ $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-L’affichage de la commande `Get-AzureRMVMImageSku` comprend toutes les informations dont vous avez besoin pour spécifier l’image pour une nouvelle machine virtuelle.
+La sortie de la commande `Get-AzureRMVMImageSku` comprend toutes les informations dont vous avez besoin pour spécifier l’image pour une nouvelle machine virtuelle.
 
 Vous trouverez ci-dessous un exemple complet :
 
 ```powershell
-PS C:\> $locName="West US"
-PS C:\> Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
+$locName="West US"
+Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
+```
+
+Output:
+
+```
 PublisherName
 -------------
 a10networks
@@ -112,34 +115,48 @@ Canonical
 Pour l'éditeur « MicrosoftWindowsServer » :
 
 ```powershell
-PS C:\> $pubName="MicrosoftWindowsServer"
-PS C:\> Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+$pubName="MicrosoftWindowsServer"
+Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+```
 
+Output:
+
+```
 Offer
 -----
+Windows-HUB
 WindowsServer
+WindowsServer-HUB
 ```
 
 Pour l'offre « WindowsServer » :
 
 ```powershell
-PS C:\> $offerName="WindowsServer"
-PS C:\> Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+$offerName="WindowsServer"
+Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+```
 
+Output:
+
+```
 Skus
 ----
 2008-R2-SP1
+2008-R2-SP1-smalldisk
 2012-Datacenter
+2012-Datacenter-smalldisk
 2012-R2-Datacenter
-2016-Nano-Server-Technical-Previe
-2016-Technical-Preview-with-Conta
-Windows-Server-Technical-Preview
+2012-R2-Datacenter-smalldisk
+2016-Datacenter
+2016-Datacenter-Server-Core
+2016-Datacenter-Server-Core-smalldisk
+2016-Datacenter-smalldisk
+2016-Datacenter-with-Containers
+2016-Nano-Server
 ```
 
 Dans cette liste, copiez le nom de référence SKU choisi. Vous disposez de toutes les informations pour l’applet de commande PowerShell `Set-AzureRMVMSourceImage` ou pour un modèle de groupe de ressources.
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
-Vous pouvez maintenant choisir précisément l'image que vous voulez utiliser. Pour créer rapidement une machine virtuelle en utilisant les informations d’image que vous venez de trouver, ou pour utiliser un modèle avec ces informations d’image, consultez [Création d'une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="next-steps"></a>Étapes suivantes
+Vous pouvez maintenant choisir précisément l'image que vous voulez utiliser. Pour créer rapidement une machine virtuelle en utilisant les informations d’image que vous venez de trouver, consultez [Créer une machine virtuelle Windows avec PowerShell](quick-create-powershell.md).
 

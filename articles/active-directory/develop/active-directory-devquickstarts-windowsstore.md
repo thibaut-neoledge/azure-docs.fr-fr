@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3a78fe76119d1c748b5b75c00148a3e2a6f4a2b8
-ms.openlocfilehash: adfc28c7e41f49ce65309a316703fba57463040f
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: 6b5189dc06d7f8b0ed4426944948b904feba847e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/17/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="integrate-azure-ad-with-windows-store-apps"></a>Intégration d’Azure AD avec des applications Windows Store
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+> [!NOTE]
+> Les projets du Windows Store 8.1 et des versions antérieures ne sont pas pris en charge dans Visual Studio 2017.  Pour en savoir plus, consultez [Ciblage et compatibilité de la plateforme Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 Si vous développez des applications pour Windows Store, Azure Active Directory (Azure AD) facilite l’authentification de vos utilisateurs avec leurs comptes Active Directory. Grâce à l’intégration avec Azure AD, une application peut utiliser en toute sécurité une API web qui est protégée par Azure AD, telle que les API Office 365 ou l’API Azure.
 
@@ -46,7 +48,7 @@ Lorsque vous êtes prêt, suivez les procédures des trois sections qui suivent.
 Pour autoriser l’application à obtenir des jetons, vous devez tout d’abord l’inscrire dans votre locataire Azure AD et lui accorder l’autorisation d’accéder à l’API Graph Azure AD. Voici comment procéder :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans la barre supérieure, cliquez sur votre compte. Dans la liste **Répertoire**, sélectionnez le locataire Active Directory dans lequel vous voulez inscrire l’application.
+2. Dans la barre supérieure, cliquez sur votre compte. Puis, dans la liste **Annuaire**, sélectionnez le client Active Directory dans lequel vous voulez inscrire l’application.
 3. Dans le volet gauche, cliquez sur **Plus de services**, puis sélectionnez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
 5. Suivez les invites à l’écran pour créer une **application cliente native**.
@@ -58,7 +60,7 @@ Pour autoriser l’application à obtenir des jetons, vous devez tout d’abord 
 9. Sous **Autorisations déléguées**, ajoutez l’autorisation **Accéder au répertoire en tant qu’utilisateur actuellement connecté**. Cela permet à l’application d’interroger l’API Graph pour les utilisateurs.
 
 ## <a name="step-2-install-and-configure-adal"></a>Étape 2 : Installer et configurer la bibliothèque ADAL
-Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité. Pour que la bibliothèque ADAL puisse communiquer avec Azure AD, fournissez-les des informations sur l’inscription des applications.
+Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité. Pour que la bibliothèque ADAL puisse communiquer avec Azure AD, fournissez-lui des informations sur l’inscription des applications.
 
 1. Ajoutez ADAL au projet DirectorySearcher à l’aide de la console du gestionnaire de package.
 
@@ -68,7 +70,7 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
 
 2. Dans le projet DirectorySearcher, ouvrez MainPage.xaml.cs.
 3. Remplacez les valeurs dans la région **Valeurs de configuration** par les valeurs que vous avez entrées dans le portail Azure. Votre code se réfère à ces valeurs chaque fois qu’il utilise la bibliothèque ADAL.
-  * Le *locataire* est le domaine de votre locataire Azure AD, par exemple, contoso.onmicrosoft.com).
+  * *tenant* est le domaine de votre client Azure AD (par exemple, contoso.onmicrosoft.com).
   * Le *clientId* est l’ID client de l’application, que vous avez copié à partir du portail.
 4. Vous devez maintenant découvrir l’URI de rappel pour votre application Windows Store. Définissez un point d’arrêt sur cette ligne dans la méthode `MainPage` :
     ```
@@ -154,11 +156,11 @@ Si vous n’avez pas encore rempli votre locataire avec des utilisateurs, il est
 3. Fermez l’application et réexécutez-la. Observez que la session utilisateur reste identique.
 4. Déconnectez-vous par un clic droit pour afficher la barre inférieure, puis reconnectez-vous sous le nom d’un autre utilisateur.
 
-La bibliothèque ADAL facilite l’intégration de toutes ces fonctionnalités d’identité communes dans l’application. Elle effectue les tâches ingrates pour vous, telles que gestion du cache, prise en charge du protocole OAuth, présentation d’une interface utilisateur de connexion à l’utilisateur et actualisation des jetons expirés. Vous ne devez connaître qu’un seul appel d’API, `authContext.AcquireToken*(…)`.
+La bibliothèque ADAL facilite l’intégration de toutes ces fonctionnalités d’identité communes dans l’application. Elle effectue les tâches ingrates pour vous, telles que gestion du cache, prise en charge du protocole OAuth, présentation d’une interface utilisateur de connexion à l’utilisateur et actualisation des jetons expirés. Vous n’avez besoin de connaître qu’un seul appel d’API, `authContext.AcquireToken*(…)`.
 
-Pour référence, téléchargez l’[exemple terminé](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip) (sans vos valeurs de configuration).
+Pour référence, téléchargez [l’exemple terminé](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip) (sans vos valeurs de configuration).
 
-Vous pouvez à présent aborder d’autres scénarios d’identité. Par exemple, essayez [Sécurisation d’une API web .NET avec Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+Vous pouvez à présent aborder d’autres scénarios d’identité. Par exemple, essayez de [Sécuriser une API web .NET avec Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

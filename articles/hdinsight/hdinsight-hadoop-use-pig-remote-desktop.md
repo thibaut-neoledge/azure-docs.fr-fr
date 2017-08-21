@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de Hadoop Pig avec le Bureau à distance dans HDInsight | Microsoft Docs"
-description: "Apprenez à utiliser la commande Pig pour exécuter les instructions Pig Latin à partir d&quot;une connexion Bureau à distance vers un cluster Windows Hadoop sur HDInsight."
+title: "Utiliser Hadoop Pig avec le Bureau à distance dans HDInsight - Azure | Documents Microsoft"
+description: "Apprenez à utiliser la commande Pig pour exécuter les instructions Pig Latin à partir d'une connexion Bureau à distance vers un cluster Windows Hadoop sur HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,11 +16,11 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 543483b08b32b7a280979502c5548702995f90af
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9ab67d21b65323b7f927cb2197c0e123ebe3351e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Exécution de tâches Pig depuis une connexion Bureau à distance
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/12/2017
 Ce document fournit une procédure pas à pas de l'utilisation de la commande Pig pour exécuter les instructions Pig Latin à partir d'une connexion Bureau à distance vers un cluster HDInsight Windows. Pig Latin permet de créer des applications MapReduce en décrivant les transformations de données, plutôt que de mapper et de réduire les fonctions.
 
 > [!IMPORTANT]
-> Le Bureau à distance n’est disponible que sur les clusters HDInsight qui utilisent Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Le Bureau à distance n’est disponible que sur les clusters HDInsight qui utilisent Windows comme système d’exploitation. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Pour HDInsight 3.4 ou les versions ultérieures, consultez l’article [Utiliser Pig avec HDInsight et SSH](hdinsight-hadoop-use-pig-ssh.md) pour plus d’informations sur l’exécution interactive de travaux Pig directement sur le cluster à partir d’une ligne de commande.
 
@@ -51,7 +51,7 @@ Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à 
     Une invite `grunt>` s’affiche.
 3. Entrez l’instruction suivante :
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
 
     Cette commande charge le contenu du fichier sample.log dans les JOURNAUX. Vous pouvez afficher le contenu du fichier à l’aide de la commande suivante :
 
@@ -80,9 +80,9 @@ Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à 
     <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Trie les niveaux du journal par décompte (décroissant) et stocke ces informations dans RESULT</td>
     </tr>
     </table>
-6. Vous pouvez également enregistrer les résultats d’une transformation à l’aide de l’instruction `STORE` . Par exemple, la commande suivante enregistre `RESULT` dans le répertoire **/example/data/pigout** sur le conteneur de stockage par défaut de votre cluster :
+6. Vous pouvez également enregistrer les résultats d’une transformation à l’aide de l’instruction `STORE`. Par exemple, la commande suivante enregistre `RESULT` dans le répertoire **/example/data/pigout** sur le conteneur de stockage par défaut de votre cluster :
 
-        STORE RESULT into 'wasbs:///example/data/pigout'
+        STORE RESULT into 'wasb:///example/data/pigout'
 
    > [!NOTE]
    > Les données sont stockées dans le répertoire spécifié dans des fichiers nommés **part-nnnnn**. Si le répertoire existe déjà, vous recevrez un message d’erreur.
@@ -98,7 +98,7 @@ Vous pouvez également utiliser la commande Pig pour exécuter le Pig Latin cont
 1. Après avoir quitté l’invite Grunt, ouvrez le **bloc-notes** et créez un nouveau fichier nommé **pigbatch.pig** dans le répertoire **%PIG_HOME%**.
 2. Tapez ou collez les lignes suivantes dans le fichier **pigbatch.pig** , puis enregistrez-le.
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
         GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;

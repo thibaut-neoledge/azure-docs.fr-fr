@@ -1,6 +1,6 @@
 ---
-title: "Requête Hive via JDBC - Azure HDInsight | Documents Microsoft"
-description: "Découvrez comment utiliser JDBC pour vous connecter à Hive sur des clusters Hadoop dans Azure HDInsight."
+title: "Requête Hive via le pilote JDBC - Azure HDInsight | Documents Microsoft"
+description: "Utilisez le pilote JDBC depuis une application Java pour soumettre des requêtes Hive à Hadoop sur HDInsight. Se connecter à partir du client SQL SQuirrel et par programme."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -9,26 +9,25 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 928f8d2a-684d-48cb-894c-11c59a5599ae
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 08/14/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: dd76e2450be2b05d011de7ded49bfa9630190e71
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 14bfdd8554b075b0c19a75bb572f1214a45ff471
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
-# <a name="query-hive-through-jdbc"></a>Requête Hive via JDBC
+# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Requête Hive via le pilote JDBC dans HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Découvrez comment utiliser JDBC dans une application Java pour envoyer des requêtes Hive à Hadoop dans Azure HDInsight. Les informations contenues dans ce document montrent comment se connecter par programme à partir du client SQuirreL SQL.
+Découvrez comment utiliser le pilote JDBC dans une application Java pour soumettre des requêtes Hive à Hadoop dans Azure HDInsight. Les informations contenues dans ce document montrent comment se connecter par programme à partir du client SQuirreL SQL.
 
 Pour plus d’informations sur l’interface JDBC pour Hive, consultez [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
@@ -37,7 +36,7 @@ Pour plus d’informations sur l’interface JDBC pour Hive, consultez [HiveJDB
 * Un cluster Hadoop sur HDInsight. Les clusters basés tant sur Linux que sur Windows fonctionnent.
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, voir [Obsolescence de HDInsight 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, reportez-vous à la rubrique [Déclassement de HDInsight 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL est une application cliente JDBC.
 
@@ -49,7 +48,7 @@ Pour plus d’informations sur l’interface JDBC pour Hive, consultez [HiveJDB
 
 Les connexions JDBC à un cluster HDInsight sur Azure sont établies sur le port 443, et le trafic est sécurisé à l’aide de SSL. La passerelle publique derrière laquelle se trouvent les clusters redirige le trafic vers le port d’écoute réel d’HiveServer2. Voici un exemple de chaîne de connexion :
 
-    jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
+    jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
 Remplacez `CLUSTERNAME` par le nom de votre cluster HDInsight :
 
@@ -117,7 +116,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
 4. Dans la boîte de dialogue Ajouter un pilote, ajoutez les informations suivantes :
 
     * **Nom** : Hive
-    * **Exemple d’URL** : `jdbc:hive2://localhost:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`
+    * **Exemple d’URL** : `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **Chemin d’accès à la classe supplémentaire** : utilisez le bouton Ajouter pour ajouter les fichiers jar téléchargé précédemment
     * **Nom de la classe** : org.apache.hive.jdbc.HiveDriver
 
@@ -135,7 +134,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
 
     * **Pilote** : sélectionnez le pilote **Hive** dans la liste déroulante
 
-    * **URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
+    * **URL** : jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
         Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight.
 
@@ -143,7 +142,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
 
     * **Mot de passe** : mot de passe du compte de connexion du cluster.
 
-    ![boîte de dialogue ajouter un alias](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
+ ![boîte de dialogue ajouter un alias](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
     Utilisez le bouton **Test** pour vérifier que la connexion fonctionne. Quand la boîte de dialogue **Se connecter à : Hive sur HDInsight** s’affiche, sélectionnez **Connexion** pour effectuer le test. Si le test réussit, la boîte de dialogue **Connexion réussie** s’affiche.
 

@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5f804920e85bf3aecee93ed486dea8f03d561f08
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: a82c283df688d36cd284973312e276f30ed893c0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="explaining-compute-units-in-azure-database-for-mysql"></a>Présentation des unités de calcul dans Azure Database pour MySQL
@@ -29,7 +29,7 @@ Par exemple, 800 unités de calcul Standard fournissent 8 fois plus de débit d�
 ## <a name="how-can-i-determine-the-number-of-compute-units-needed-for-my-workload"></a>Comment puis-je déterminer le nombre d’unités de calcul requises pour ma charge de travail ?
 Si vous cherchez à migrer un serveur MySQL existant s’exécutant localement ou sur une machine virtuelle, vous pouvez déterminer le nombre d’unités de calcul en estimant le nombre de cœurs de débit de traitement dont votre charge de travail a besoin. 
 
-Si votre serveur existant local ou sur machine virtuelle utilise actuellement 4 cœurs (sans compter l’hyperthread d’UC), commencez par configurer 400 unités de calcul pour votre serveur Azure Database pour MySQL. Les unités de calcul peuvent être augmentées ou diminuées dynamiquement en fonction des besoins de votre charge de travail, pratiquement sans interruption des applications. 
+Si votre serveur actuel local ou sur machine virtuelle utilise actuellement 4 cœurs (sans compter l’hyperthread d’UC), commencez par configurer 400 unités de calcul pour votre serveur Azure Database pour serveur MySQL. Les unités de calcul peuvent être augmentées ou diminuées dynamiquement en fonction des besoins de votre charge de travail, pratiquement sans interruption des applications. 
 
 Surveillez le graphe des métriques dans le portail Azure ou lancez des commandes Azure CLI pour mesurer les unités de calcul. Les métriques pertinentes à surveiller sont Pourcentage d’unités de calcul et Limite d’unités de calcul.
 

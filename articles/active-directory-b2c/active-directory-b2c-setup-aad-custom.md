@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory B2C : Ajout du fournisseur Azure AD à l’aide de stratégies personnalisées | Microsoft Docs"
-description: "Une rubrique sur les stratégies personnalisées Azure Active Directory B2C"
+title: "Azure Active Directory B2C : Ajouter un fournisseur Azure AD à l’aide de stratégies personnalisées | Microsoft Docs"
+description: "Découvrir les stratégies personnalisées Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,78 +14,78 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 652a2eb0db0e41c4706e06cd0cb2e97ce1eb6ab2
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 976c4752cc3c3cc1c74adf7d57c3539d39aef556
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="azure-active-directory-b2c-log-in-using-azure-ad-accounts"></a>Azure Active Directory B2C : Connexion à l’aide de comptes Azure AD
+# <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C : se connecter à l’aide de comptes Azure AD
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Cet article vous montre comment activer la connexion pour les utilisateurs à partir d’une organisation Azure AD spécifique à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md).
+Cet article explique comment autoriser la connexion d’utilisateurs d’une organisation Azure Active Directory (Azure AD) spécifique en utilisant des [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
-Assurez-vous d’avoir effectué toutes les étapes qui vous montrent comment [prendre en main les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
+Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
-notamment :
+Ces étapes sont les suivantes :
 
-1. Création d’un client Azure AD B2C.
-1. Création d’une application Azure AD B2C.
-1. Inscription de deux applications de moteur de stratégie.
-1. Configuration des clés.
-1. Configuration du pack de démarrage.
+1. Création d’un locataire Azure Active Directory B2C (Azure AD B2C).
+2. Création d’une application Azure AD B2C.
+3. Inscription de deux applications de moteur de stratégie.
+4. Configuration des clés.
+5. Configuration du pack de démarrage.
 
 ## <a name="create-an-azure-ad-app"></a>Création d’une application Azure AD
 
-Pour activer la connexion pour les utilisateurs d’une organisation Azure AD spécifique, vous devez inscrire une application au sein du client Azure AD de l’organisation.
+Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spécifique, vous devez inscrire une application au sein du locataire Azure AD de l’organisation.
 
 >[!NOTE]
-> Nous appellerons le client Azure AD du client `contoso.com` et celui d’Azure AD B2C `fabrikamb2c.onmicrosoft.com`.
+> Nous utilisons « contoso.com » pour l’organisation (locataire) Azure AD et « fabrikamb2c.onmicrosoft.com » comme locataire Azure AD B2C dans les instructions suivantes.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Dans la barre supérieure, cliquez sur votre compte et, dans la liste **Répertoire**, choisissez le client Active Directory de l’organisation auprès duquel vous voulez inscrire votre application (par ex. contoso.com).
-1. Cliquez sur **Autres services** dans le volet de navigation gauche et recherchez**Inscriptions d’applications**.
-1. Choisissez **Inscription d’une nouvelle application**.
-1. Tapez un **Nom** pour votre application (par exemple, application Azure AD B2C)
-1. Sélectionnez **Application web/API** pour Type d’application.
-1. Pour « URL de connexion », entrez l’URL ci-dessous, où `yourtenant` doit être remplacé par le nom de votre client Azure AD B2C (p. ex. fabrikamb2c.onmicrosoft.com).
+1. Dans le menu supérieur, sélectionnez votre compte. Dans la liste **Répertoire**, choisissez l’organisation (locataire) Azure AD auprès de laquelle vous voulez inscrire votre application (contoso.com).
+1. Cliquez sur **Autres services** dans le volet gauche, puis recherchez « Inscriptions d’applications ».
+1. Sélectionnez **Nouvelle inscription d’application**.
+1. Entrez un nom pour votre application (par exemple, `Azure AD B2C App`).
+1. Pour le type d’application, sélectionnez **Application web/API**.
+1. Pour **URL de connexion**, entrez l’URL suivante où `yourtenant` est remplacé par le nom de votre locataire Azure AD B2C (`fabrikamb2c.onmicrosoft.com`) :
 
     ```
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Enregistrez **l’ID de l’application**.
-1. Cliquez sur l’application nouvellement créée.
-1. Dans le panneau Paramètres, cliquez sur **Clés**.
-1. Créez une nouvelle clé et enregistrez-la pour la section suivante.
+1. Enregistrez l’ID de l’application.
+1. Sélectionnez l’application que vous venez de créer.
+1. Dans le panneau **Paramètres**, sélectionnez **Clés**.
+1. Créez une clé et enregistrez-la. Vous allez l’utiliser dans les étapes de la prochaine section.
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Ajouter la clé d’Azure AD à Azure AD B2C
 
-Vous devez stocker la clé d’application `contoso.com` dans votre client Azure AD B2C. Pour ce faire :
-
-1. Accédez à votre client Azure AD B2C et ouvrez B2C Settings (Paramètres B2C)>Identity Experience Framework (Infrastructure d’expérience d’identité)> Clés de stratégie.
-1. Cliquez sur +Ajouter.
-1. Options :
- * Sélectionnez Option >`Manual`.
- * Nom : > `ContosoAppSecret`. Choisissez un nom qui correspond au nom de votre client Azure AD.  Le préfixe B2C_1A_ est ajouté automatiquement au nom de votre clé.
- * Collez votre clé d’application dans la zone de texte `Secret`.
- * Sélectionnez Signature.
-1. Cliquez sur `Create`
-1. Confirmez que vous avez créé la clé : `B2C_1A_ContosoAppSecret`.
+Vous devez stocker la clé d’application contoso.com dans votre locataire Azure AD B2C. Pour ce faire :
+1. Accédez à votre locataire Azure AD B2C, puis sélectionnez **Paramètres Azure AD B2C** > **Infrastructure d’expérience d’identité** > **Clés de stratégie**.
+1. Sélectionnez **+Ajouter**.
+1. Sélectionnez ou entrez les options suivantes :
+   * Sélectionnez **Manuel**.
+   * Pour **Nom**, choisissez un nom correspondant au nom de votre locataire Azure AD (par exemple, `ContosoAppSecret`).  Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
+   * Collez votre clé d’application dans la zone **Secret**.
+   * Sélectionnez **Signature**.
+1. Sélectionnez **Créer**.
+1. Vérifiez que vous avez créé la clé `B2C_1A_ContosoAppSecret`.
 
 
 ## <a name="add-a-claims-provider-in-your-base-policy"></a>Ajoutez un fournisseur de revendications dans votre stratégie de base
 
-Afin de permettre aux utilisateurs de se connecter à l’aide d’Azure AD, vous devez définir Azure AD comme fournisseur de revendications. En d’autres termes, vous devez spécifier un point de terminaison avec lequel Azure AD B2C communiquera. Le point de terminaison *fournira* un ensemble de *revendications* utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié. Vous pouvez le faire en ajoutant Azure AD en tant que `<ClaimsProvider>` dans le fichier d’extension de votre stratégie.
+Si vous souhaitez que les utilisateurs se connectent à l’aide d’Azure AD, vous devez définir Azure AD comme fournisseur de revendications. En d’autres termes, vous devez spécifier un point de terminaison avec lequel Azure AD B2C communiquera. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié. 
 
-1. Ouvrez le fichier d’extension à partir de votre répertoire de travail (TrustFrameworkExtensions.xml).
+Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Azure AD au nœud `<ClaimsProvider>` dans le fichier d’extension de votre stratégie :
+
+1. Ouvrez le fichier d’extension (TrustFrameworkExtensions.xml) à partir de votre répertoire de travail.
 1. Recherchez la section `<ClaimsProviders>`. Si elle n’existe pas, ajoutez-la sous le nœud racine.
-1. Ajoutez un nouveau `<ClaimsProvider>` comme suit :
+1. Ajoutez un nœud `<ClaimsProvider>` comme suit :
 
     ```XML
     <ClaimsProvider>
@@ -129,96 +129,95 @@ Afin de permettre aux utilisateurs de se connecter à l’aide d’Azure AD, vou
     </ClaimsProvider>
     ```
 
-1. Sous le nœud `<ClaimsProvider>`, mettez à jour la valeur de `<Domain>` sur une valeur unique qui peut être utilisée pour la distinguer des autres fournisseurs d’identité.
+1. Sous le nœud `<ClaimsProvider>`, mettez à jour la valeur de `<Domain>` sur une valeur unique utilisable pour la distinguer d’autres fournisseurs d’identité.
 1. Sous le nœud `<ClaimsProvider>`, mettez à jour la valeur de `<DisplayName>` sur un nom convivial pour le fournisseur de revendications. Cette valeur n’est pas utilisée actuellement.
 
 ### <a name="update-the-technical-profile"></a>Mise à jour du profil technique
 
-Pour obtenir un jeton à partir du point de terminaison Azure AD, vous devez définir les protocoles que Azure AD B2C doit utiliser pour communiquer avec Azure AD. Cela est effectué à l’intérieur de l’élément `<TechnicalProfile>` du `<ClaimsProvider>`.
-
-1. Mettez à jour l’ID du nœud `<TechnicalProfile>`. Cet ID est utilisé pour faire référence à ce profil technique depuis les autres parties de la stratégie.
-1. Mettez à jour la valeur pour `<DisplayName>`. Cette valeur s’affichera sur le bouton de connexion dans votre écran de connexion.
+Pour obtenir un jeton à partir du point de terminaison Azure AD, vous devez définir les protocoles qu’Azure AD B2C doit utiliser pour communiquer avec Azure AD. Cela s’effectue à l’intérieur de l’élément `<TechnicalProfile>` de `<ClaimsProvider>`.
+1. Mettez à jour l’ID du nœud `<TechnicalProfile>`. Cet ID est utilisé pour faire référence à ce profil technique à partir d’autres parties de la stratégie.
+1. Mettez à jour la valeur pour `<DisplayName>`. Cette valeur s’affiche sur le bouton Se connecter dans votre écran de connexion.
 1. Mettez à jour la valeur pour `<Description>`.
-1. Azure AD utilise le protocole OpenID Connect, assurez-vous donc que `<Protocol>` est « OpenIDConnect ».
+1. Azure AD utilisant le protocole OpenID Connect, vérifiez que la valeur de `<Protocol>` est bien `"OpenIdConnect"`.
 
-Vous devez mettre à jour la section `<Metadata>` dans le XML ci-dessus pour refléter les paramètres de configuration de votre client Azure AD spécifique. Dans le XML, mettez à jour les valeurs de métadonnées comme suit :
+Vous devez mettre à jour la section `<Metadata>` dans le XML évoqué précédemment pour refléter les paramètres de configuration de votre locataire Azure AD spécifique. Dans le fichier XML, mettez à jour les valeurs des métadonnées comme suit :
 
-1. Définissez `<Item Key="METADATA">` sur `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, où `yourAzureADtenant` est le nom de votre client Azure AD (par exemple, contoso.com).
-1. Ouvrez votre navigateur et accédez à l’URL `Metadata` que vous venez de mettre à jour.
-1. Dans le navigateur, recherchez l’objet « issuer » et copiez sa valeur. Vous devriez obtenir quelque chose semblable à ce qui suit : `https://sts.windows.net/{tenantId}/`.
-1. Collez la valeur de `<Item Key="ProviderName">` dans le XML.
-1. Définissez `<Item Key="client_id">` sur la valeur `Application ID` de l’inscription de l’application.
-1. Définissez `<Item Key="IdTokenAudience">` sur la valeur `Application ID` de l’inscription de l’application.
+1. Définissez `<Item Key="METADATA">` sur `https://login.microsoftonline.com/yourAzureADtenant/.well-known/openid-configuration`, où `yourAzureADtenant` est le nom de votre locataire Azure AD (contoso.com).
+1. Ouvrez votre navigateur, puis accédez à l’URL `METADATA` que vous venez de mettre à jour.
+1. Dans le navigateur, recherchez l’objet « issuer » et copiez sa valeur. Elle doit ressembler à ceci : `https://sts.windows.net/{tenantId}/`.
+1. Collez la valeur de `<Item Key="ProviderName">` dans le fichier XML.
+1. Définissez `<Item Key="client_id">` sur l’ID d’application de l’inscription de l’application.
+1. Définissez `<Item Key="IdTokenAudience">` sur l’ID d’application de l’inscription de l’application.
 1. Vérifiez que `<Item Key="response_types">` est défini sur `id_token`.
 1. Vérifiez que `<Item Key="UsePolicyInRedirectUri">` est défini sur `false`.
 
-Vous devez également lier le secret Azure AD que vous avez inscrit auprès de votre client Azure AD B2C au `<ClaimsProvider>` d’Azure AD.
+Vous devez également lier le secret Azure AD que vous avez inscrit dans votre locataire Azure AD B2C aux informations `<ClaimsProvider>` d’Azure AD :
 
-* Dans la section `<CryptographicKeys>` dans le XML ci-dessus, mettez à jour la valeur pour `StorageReferenceId` sur l’ID de référence de la clé secrète que vous avez définie (par exemple, ContosoAppSecret).
+* Dans la section `<CryptographicKeys>` du fichier XML ci-dessus, mettez à jour la valeur pour `StorageReferenceId` sur l’ID de référence du secret que vous avez défini (par exemple, `ContosoAppSecret`).
 
 ### <a name="upload-the-extension-file-for-verification"></a>Télécharger le fichier d’extension pour la vérification
 
-À ce stade, vous avez configuré votre stratégie afin qu’Azure AD B2C sache comment communiquer avec votre annuaire Azure AD. Essayez de télécharger le fichier d’extension de votre stratégie juste pour confirmer qu’il ne présente aucun problème pour le moment. Pour ce faire :
+À ce stade, vous avez configuré votre stratégie afin qu’Azure AD B2C sache comment communiquer avec votre répertoire Azure AD. Essayez de télécharger le fichier d’extension de votre stratégie juste pour confirmer qu’il ne présente aucun problème pour le moment. Pour ce faire :
 
-1. Accédez au panneau **Toutes les stratégies** dans votre client Azure AD B2C.
+1. Accédez au panneau **Toutes les stratégies** dans votre locataire Azure AD B2C.
 1. Cochez la case **Remplacer la stratégie si elle existe**.
-1. Téléchargez le fichier d’extension (TrustFrameworkExtensions.xml) et assurez-vous qu’il n’échoue pas à la validation.
+1. Téléchargez le fichier d’extension (TrustFrameworkExtensions.xml) et vérifiez que sa validation n’échoue pas.
 
-## <a name="register-the-azure-ad-claims-provider-to-a-user-journey"></a>Enregistrer le fournisseur de revendications AD Azure pour un parcours utilisateur
+## <a name="register-the-azure-ad-claims-provider-to-a-user-journey"></a>Inscrire le fournisseur de revendications AD Azure dans un parcours utilisateur
 
-Vous devez maintenant ajouter le fournisseur d’identité Azure AD dans un de vos parcours utilisateur. À ce stade, le fournisseur d’identité a été défini, mais il n’est disponible dans aucun des écrans d’inscription/de connexion. Pour ce faire, nous créons un doublon d’un modèle de parcours utilisateur existant et le modifions afin qu’il dispose également du fournisseur d’identité Azure AD.
+Vous devez maintenant ajouter le fournisseur d’identité Azure AD à l’un de vos parcours utilisateur. À ce stade, le fournisseur d’identité a été configuré, mais il n’est disponible dans aucun des écrans d’inscription ou de connexion. Pour changer cela, nous créons un doublon d’un modèle de parcours utilisateur et le modifions afin qu’il dispose également du fournisseur d’identité Azure AD :
 
-1. Ouvrez le fichier de base de votre stratégie (par exemple, TrustFrameworkBase.xml)
-1. Recherchez l’élément `<UserJourneys>` et copiez l’intégralité de `<UserJourney>` avec ID = « SignUpOrSignIn ».
-1. Ouvrez le fichier d’extension (par exemple, TrustFrameworkExtensions.xml) et recherchez l’élément `<UserJourneys>`. Si l’élément n’existe pas, ajoutez-en un.
-1. Collez l’intégralité de `<UserJourney>` que vous avez copié en tant qu’enfant de l’élément `<UserJourneys>`.
-1. Renommez l’ID du nouveau `<UserJourney>` (par exemple, SignUpOrSignUsingContoso).
+1. Ouvrez le fichier de base de votre stratégie (par exemple, TrustFrameworkBase.xml).
+1. Recherchez l’élément `<UserJourneys>` et copiez l’ensemble du nœud `<UserJourney>` qui inclut `Id="SignUpOrSignIn"`.
+1. Ouvrez le fichier d’extension (par exemple, TrustFrameworkExtensions.xml), puis recherchez l’élément `<UserJourneys>`. Si l’élément n’existe pas, ajoutez-en un.
+1. Collez l’intégralité du nœud `<UserJourney>` que vous avez copié en tant qu’enfant de l’élément `<UserJourneys>`.
+1. Renommez l’ID du nouveau parcours utilisateur (par exemple, en `SignUpOrSignUsingContoso`).
 
 ### <a name="display-the-button"></a>Afficher le « bouton »
 
-L’élément `<ClaimsProviderSelection>` est analogue à un bouton de fournisseur d’identité sur un écran d’inscription/de connexion. En ajoutant un élément `<ClaimsProviderSelection>` pour Azure AD, un nouveau bouton apparaît quand un utilisateur arrive sur la page. Pour ce faire :
+L’élément `<ClaimsProviderSelection>` est analogue à un bouton de fournisseur d’identité sur un écran d’inscription/de connexion. Si vous ajoutez un élément `<ClaimsProviderSelection>` pour Azure AD, un nouveau bouton apparaît quand un utilisateur accède à la page. Pour ajouter cet élément :
 
-1. Recherchez `<OrchestrationStep>` avec `Order="1"` dans le `<UserJourney>` que vous venez de créer.
+1. Recherchez le nœud `<OrchestrationStep>` incluant `Order="1"` dans le parcours utilisateur que vous venez de créer.
 1. Ajoutez ce qui suit :
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
     ```
 
-1. Définissez `TargetClaimsExchangeId` sur une valeur appropriée. Nous vous recommandons de suivre la même convention que pour les autres : *\[ClaimProviderName\]Exchange*.
+1. Définissez `TargetClaimsExchangeId` sur une valeur appropriée. Nous vous recommandons de suivre la même convention que pour les autres : *\[ClaimProviderName\]Exchange*.
 
-### <a name="link-the-button-to-an-action"></a>Lier le « bouton » à une action
+### <a name="link-the-button-to-an-action"></a>Lier le bouton à une action
 
-Maintenant que vous avez un « bouton » en place, vous devez le lier à une action. L’action est, dans ce cas, la communication d’Azure AD B2C avec Azure AD pour recevoir un jeton. Vous pouvez faire cela en liant le profil technique de votre fournisseur de revendications Azure AD.
+Maintenant que vous avez un bouton en place, vous devez le lier à une action. L’action est, dans ce cas, la communication d’Azure AD B2C avec Azure AD pour recevoir un jeton. Liez le bouton à une action en liant le profil technique de votre fournisseur de revendications Azure AD :
 
-1. Recherchez les `<OrchestrationStep>` avec `Order="2"` dans le nœud `<UserJourney>`
+1. Recherchez l’élément `<OrchestrationStep>` qui inclut `Order="2"` dans le nœud `<UserJourney>`.
 1. Ajoutez ce qui suit :
 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
     ```
 
-1. Mettez à jour `Id` à la même valeur que celle de `TargetClaimsExchangeId` ci-dessus.
-1. Mettez à jour `TechnicalProfileReferenceId` avec la valeur `Id` du profil technique créé précédemment (par exemple, ContosoProfile).
+1. Mettez à jour `Id` sur la même valeur que celle de `TargetClaimsExchangeId` dans la section précédente.
+1. Mettez à jour `TechnicalProfileReferenceId` sur l’ID du profil technique créé précédemment (ContosoProfile).
 
 ### <a name="upload-the-updated-extension-file"></a>Téléchargez le fichier d’extension mis à jour
 
-Vous avez terminé la modification du fichier d’extension. Enregistrez et téléchargez ce fichier et assurez-vous que toutes les validations réussissent.
+Vous avez terminé la modification du fichier d’extension. Enregistrez-le. Chargez ensuite le fichier et vérifiez que toutes les validations réussissent.
 
 ### <a name="update-the-rp-file"></a>Mise à jour du fichier RP
 
-Vous devez maintenant mettre à jour le fichier RP qui initialisera le parcours utilisateur que vous venez de créer.
+Vous devez maintenant mettre à jour le fichier de partie de confiance qui initialisera le parcours utilisateur que vous venez de créer :
 
 1. Effectuez une copie de SignUpOrSignIn.xml dans votre répertoire de travail et renommez-le (par exemple, SignUpOrSignInWithAAD.xml).
-1. Ouvrez le nouveau fichier et mettez à jour l’attribut `PolicyId` pour `<TrustFrameworkPolicy>` avec une valeur unique (par exemple SignUpOrSignInWithAAD). Ce sera le nom de votre stratégie (par exemple, B2C\_1A\_SignUpOrSignInWithAAD).
-1. Modifiez l’attribut `ReferenceId` dans `<DefaultUserJourney>` pour faire correspondre l’ID du nouveau parcours utilisateur que vous avez créé (par exemple, SignUpOrSignUsingContoso).
-1. Enregistrez vos modifications et téléchargez le fichier.
+1. Ouvrez le nouveau fichier et mettez à jour l’attribut `PolicyId` pour `<TrustFrameworkPolicy>` avec une valeur unique (par exemple, SignUpOrSignInWithAAD). <br> Celle-ci correspond au nom de votre stratégie (par exemple, B2C\_1A\_SignUpOrSignInWithAAD).
+1. Modifiez l’attribut `ReferenceId` dans `<DefaultUserJourney>` pour qu’il corresponde à l’ID du nouveau parcours utilisateur que vous avez créé (SignUpOrSignUsingContoso).
+1. Enregistrez vos modifications et chargez le fichier.
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
-Testez la stratégie personnalisée que vous venez de télécharger en ouvrant son panneau et en cliquant sur « Exécuter maintenant ». En cas d’échec quelconque, consultez le guide de [résolution des problèmes](active-directory-b2c-troubleshoot-custom.md).
+Testez la stratégie personnalisée que vous venez de charger en ouvrant son panneau et en cliquant sur **Exécuter maintenant**. Pour diagnostiquer des problèmes, consultez la page sur la [résolution des problèmes](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Fournissez des commentaires à AADB2CPreview@microsoft.com.
+Envoyez vos commentaires à l’adresse [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).
 
