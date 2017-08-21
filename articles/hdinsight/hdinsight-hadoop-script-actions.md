@@ -1,5 +1,5 @@
 ---
-title: "Développement d’une action de script avec HDInsight | Microsoft Docs"
+title: "Développement d’une action de script avec HDInsight - Azure | Documents Microsoft"
 description: "Découvrez comment personnaliser des clusters Hadoop avec une action de script. L’action de script permet d’installer des logiciels supplémentaires s’exécutant sur un cluster Hadoop ou de modifier la configuration des applications installées sur un cluster."
 services: hdinsight
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 989f45eed033409b1ade183827719acdd9a4b0b4
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 04f79442b72a58abb0eba9c2162e0b7b9d390e41
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Développer des scripts d’action de script pour des clusters HDInsight Windows
@@ -29,7 +29,7 @@ Découvrez comment écrire des scripts d’action de script pour HDInsight. Pour
 
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document fonctionnent uniquement pour les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Pour plus d’informations sur l’utilisation des actions de script avec les clusters basés sur Linux, consultez [Développement d’action de script avec HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
+> Les étapes décrites dans ce document fonctionnent uniquement pour les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d’informations sur l’utilisation des actions de script avec les clusters basés sur Linux, consultez [Développement d’action de script avec HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
 >
 >
 
@@ -46,7 +46,7 @@ L’action de script permet d’installer des logiciels supplémentaires s’ex�
 >
 
 ## <a name="sample-scripts"></a>Exemples de scripts
-Pour créer des clusters HDInsight sur le système d’exploitation Windows, l’action de script est un script Azure PowerShell. L’exemple de script suivant montre comment configurer les fichiers de configuration de site :
+Pour créer des clusters HDInsight sur un système d’exploitation Windows, l’action de script est le script Azure PowerShell. Le script suivant est un exemple pour configurer les fichiers de configuration de site :
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -118,7 +118,7 @@ L’action de script peut être déployée à partir du portail Azure, d’Azure
 >
 
 ## <a name="helper-methods-for-custom-scripts"></a>Méthodes d’assistance pour les scripts personnalisés
-L’action de script fournit des méthodes d’assistance que vous pouvez utiliser lors de l’écriture de scripts personnalisés. Ceux-ci sont définis dans [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), et peuvent être inclus dans vos scripts à l’aide des éléments suivants :
+L’action de script fournit des méthodes d’assistance que vous pouvez utiliser lors de l’écriture de scripts personnalisés. Ces méthodes sont définies dans [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1) et peuvent être inclues dans vos scripts à l’aide des éléments suivants :
 
     # Download config action module from a well-known directory.
     $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
@@ -179,16 +179,16 @@ Quand vous développez un script personnalisé pour un cluster HDInsight, tenez 
 
     HDInsight possède une architecture actif/passif pour la haute disponibilité, dans laquelle un nœud principal est en mode actif (où les services HDInsight sont en cours d'exécution) et l'autre nœud principal est en mode veille (dans lequel les services HDInsight ne sont pas en cours d’exécution). Les nœuds basculent entre les modes actif et passif si les services HDInsight sont interrompus. Si une action de script est utilisée pour installer les services sur les deux nœuds principaux pour la haute disponibilité, notez que le mécanisme de basculement HDInsight n’est pas en mesure de basculer automatiquement ces services installés par l'utilisateur. Ainsi, les services installés par l'utilisateur sur les nœuds principaux HDInsight qui sont censés être hautement disponibles doivent soit avoir leur propre mécanisme de basculement en mode actif/passif soit être en mode actif-actif.
 
-    Une commande d’action de script HDInsight s’exécute sur les deux nœuds principaux si le rôle de nœud principal est spécifié en tant que valeur dans le paramètre *ClusterRoleCollection* . Par conséquent, lorsque vous concevez des scripts personnalisés, vérifiez qu'il est au fait de cette configuration. Vous devez vous assurer que des services identiques ne sont pas installés et démarrés sur les deux nœuds principaux pour éviter les conflits. Sachez, par ailleurs, que les données seront perdues lors des réimageages ; les logiciels installés à l'aide d'actions de script ne doivent donc pas être affectés par de tels événements. Les applications doivent être conçues pour fonctionner avec des données hautement disponibles qui sont distribuées sur de nombreux nœuds. Notez que jusqu'à 20 % des nœuds d'un cluster peuvent être réimagés en même temps.
+    Une commande d’action de script HDInsight s’exécute sur les deux nœuds principaux si le rôle de nœud principal est spécifié en tant que valeur dans le paramètre *ClusterRoleCollection* . Par conséquent, lorsque vous concevez des scripts personnalisés, vérifiez qu'il est au fait de cette configuration. Vous devez vous assurer que des services identiques ne sont pas installés et démarrés sur les deux nœuds principaux pour éviter les conflits. Sachez, par ailleurs, que les données seront perdues lors des réimageages ; les logiciels installés à l'aide d'actions de script ne doivent donc pas être affectés par de tels événements. Les applications doivent être conçues pour fonctionner avec des données hautement disponibles qui sont distribuées sur de nombreux nœuds. Notez que jusqu'à 1/5 des nœuds d'un cluster peuvent être réimagés en même temps.
 * Configurer les composants personnalisés pour utiliser le stockage d’objets blob Azure
 
-    Les composants personnalisés que vous installez sur les nœuds de cluster peuvent être configurés par défaut pour utiliser le stockage HDFS (Hadoop Distributed File System). Vous devez modifier la configuration de façon à utiliser plutôt le stockage d'objets blob Azure. Sur un réimageage de cluster, le système de fichiers HDFS est formaté et vous perdrez alors toutes les données qui y sont stockées. L'utilisation du stockage d'objets blob Azure au lieu du stockage HDFS garantit que vos données seront conservées.
+    Les composants personnalisés que vous installez sur les nœuds de cluster peuvent être configurés par défaut pour utiliser le stockage HDFS (Hadoop Distributed File System). Vous devez modifier la configuration de façon à utiliser plutôt le stockage d'objets blob Azure. Sur un réimageage de cluster, le système de fichiers HDFS est formaté et vous perdez alors toutes les données qui y sont stockées. L'utilisation du stockage d'objets blob Azure au lieu du stockage HDFS garantit que vos données sont conservées.
 
 ## <a name="common-usage-patterns"></a>Modes d’utilisation courants
 Cette section fournit des conseils sur l'implémentation de certains des modèles d'utilisation courants que vous pouvez rencontrer lors de l'écriture de votre propre script personnalisé.
 
 ### <a name="configure-environment-variables"></a>Configuration des variables d’environnement
-Dans le développement d'actions de script, vous aurez souvent besoin de définir des variables d'environnement. Par exemple, la situation suivante correspond à un scénario très probable : vous téléchargez un fichier binaire à partir d'un site externe, l’installez sur le cluster et ajoutez l'emplacement où il est installé à votre variable d'environnement « PATH ». L'extrait de code suivant montre comment définir des variables d'environnement dans le script personnalisé.
+Dans le développement d'actions de script, il est souvent nécessaire de définir des variables d'environnement. Par exemple, la situation suivante correspond à un scénario très probable : vous téléchargez un fichier binaire à partir d'un site externe, l’installez sur le cluster et ajoutez l'emplacement où il est installé à votre variable d'environnement « PATH ». L'extrait de code suivant montre comment définir des variables d'environnement dans le script personnalisé.
 
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
@@ -205,7 +205,7 @@ Dans cet exemple, vous devez vous assurer que le conteneur « somecontainer »
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Transmettez les paramètres à l’applet de commande Add-AzureRmHDInsightScriptAction
 Pour transmettre plusieurs paramètres à l’applet de commande Add-AzureRmHDInsightScriptAction, vous devez mettre en forme la valeur de chaîne pour qu’elle contienne tous les paramètres du script. Par exemple :
 
-    "-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+    "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 
 or
 
@@ -241,7 +241,7 @@ Voici les étapes à suivre avant de déployer des scripts :
 2. Ajoutez des contrôles dans les scripts pour vous assurer qu'ils s'exécutent de manière idempotente, ce qui permet d'exécuter le script plusieurs fois sur le même nœud.
 3. Utilisez l’applet de commande Azure PowerShell **Write-Output** pour imprimer dans STDOUT et dans STDERR. N'utilisez pas **Write-Host**.
 4. Utilisez un dossier de fichiers temporaires, tel que $env:TEMP, pour conserver le fichier téléchargé utilisé par les scripts, puis nettoyez-le au terme de l'exécution des scripts.
-5. 5.Installez des logiciels personnalisés uniquement aux emplacements suivants : D:\ ou C:\apps. N'utilisez pas d'autres emplacements sur le lecteur C:, car ceux-ci sont réservés. Notez que l'installation de fichiers sur le lecteur C: dans des emplacements autres que dans le dossier C:/apps peut entraîner des erreurs d'installation lors des opérations de réimageage du nœud.
+5. 5.Installez des logiciels personnalisés uniquement aux emplacements suivants : D:\ ou C:\apps. N'utilisez pas d'autres emplacements sur le lecteur C:, car ceux-ci sont réservés. Notez que l'installation de fichiers sur le lecteur C: à l’extérieur du dossier C:/apps peut entraîner des erreurs d'installation lors des opérations de réimageage du nœud.
 6. En cas de modification des paramètres au niveau du système d'exploitation ou des fichiers de configuration du service Hadoop, vous pouvez redémarrer les services HDInsight pour qu'ils récupèrent des paramètres au niveau du système d'exploitation, tels que les variables d'environnement définies dans les scripts.
 
 ## <a name="debug-custom-scripts"></a>Déboguer des scripts personnalisés

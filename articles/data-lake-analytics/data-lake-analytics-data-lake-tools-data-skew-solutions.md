@@ -1,6 +1,6 @@
 ---
-title: "Résolution de problèmes d&quot;asymétrie des données à l’aide d&quot;Azure Data Lake Tools pour Visual Studio | Microsoft Docs"
-description: "Solutions de dépannage potentielles pour les problèmes d&quot;asymétrie des données à l’aide d’Azure Data Lake Tools pour Visual Studio."
+title: "Résolution de problèmes d'asymétrie des données à l’aide d'Azure Data Lake Tools pour Visual Studio | Microsoft Docs"
+description: "Solutions de dépannage potentielles pour les problèmes d'asymétrie des données à l’aide d’Azure Data Lake Tools pour Visual Studio."
 services: data-lake-analytics
 documentationcenter: 
 author: yanancai
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: 4ed240c0e636bb0b482c103bbe8462d86769ecc3
-ms.openlocfilehash: 13fa1bc8278460c1195ec553c32ff79d11240be3
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -34,27 +35,27 @@ Dans notre scénario, les données sont distribuées de manière inégale entre 
 
 Azure Data Lake Tools pour Visual Studio peut aider à détecter un éventuel problème d'asymétrie des données dans votre tâche. En cas de problème, les solutions présentées dans cette section peuvent vous aider à les résoudre.
 
-### <a name="solution-1-improve-table-partitioning"></a>Solution 1 : Améliorer le partitionnement de tables
+## <a name="solution-1-improve-table-partitioning"></a>Solution 1 : Améliorer le partitionnement de tables
 
-#### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Option 1 : Filtrer la valeur de clé décalée à l’avance
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Option 1 : Filtrer la valeur de clé décalée à l’avance
 
 Si cela n’affecte pas votre logique métier, vous pouvez filtrer les valeurs plus fréquentes à l’avance. Par exemple, si la colonne GUID comprend un grand nombre de 000-000-000, vous n'agrégerez pas cette valeur. Avant l’agrégation, vous pouvez écrire “WHERE GUID != “000-000-000”” pour filtrer la valeur la plus fréquente.
 
-#### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Option 2 : Sélectionner une clé de distribution ou de partition différente
+### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Option 2 : Sélectionner une clé de distribution ou de partition différente
 
 Dans l’exemple précédent, si vous souhaitez uniquement vérifier la charge de travail des contrôles fiscaux partout dans le pays, vous pouvez améliorer la distribution des données en sélectionnant le numéro d’ID comme clé. La sélection d'une clé de distribution ou partition différente permet parfois de distribuer les données de façon plus uniforme, mais vous devez vous assurer que cela n’affecte pas votre logique métier. Par exemple, pour calculer la somme des taxes pour chaque état, vous pouvez désigner _l'état_ comme clé de partition. Si vous continuez à rencontrer ce problème, essayez d’utiliser l’option 3.
 
-#### <a name="option-3-add-more-partition-or-distribution-keys"></a>Option 3 : Ajouter plus de clés de distribution ou de partition
+### <a name="option-3-add-more-partition-or-distribution-keys"></a>Option 3 : Ajouter plus de clés de distribution ou de partition
 
 Au lieu d’utiliser uniquement _l'état_ comme clé de partition, vous pouvez utiliser plusieurs clés pour le partitionnement. Par exemple, vous pouvez envisager le _code postal_ comme clé de partition supplémentaire pour réduire la taille des partitions de données et répartir les données de manière plus homogène.
 
-#### <a name="option-4-use-round-robin-distribution"></a>Option 4 : Utiliser la distribution par tourniquet (round robin)
+### <a name="option-4-use-round-robin-distribution"></a>Option 4 : Utiliser la distribution par tourniquet (round robin)
 
 Si vous ne trouvez pas de clé appropriée pour la partition et la distribution, vous pouvez essayer d’utiliser la distribution par tourniquet (round robin). La distribution par tourniquet (round robin) traite toutes les lignes de manière égale et les place au hasard dans des compartiments correspondants. Les données sont distribuées de façon égale, mais perdent les informations relatives à la localité, ce qui peut aussi réduire les performances de travail pour certaines opérations. De plus, si vous effectuez malgré tout une agrégation pour la clé décalée, le problème d'asymétrie des données persistera. Pour en savoir plus sur la distribution par tourniquet (round robin), consultez la section Distribution de table U-SQL dans [CREATE TABLE (SQL-U) : création d’une table avec un schéma](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch).
 
-### <a name="solution-2-improve-the-query-plan"></a>Solution 2 : Améliorer le plan de requête
+## <a name="solution-2-improve-the-query-plan"></a>Solution 2 : Améliorer le plan de requête
 
-#### <a name="option-1-use-the-create-statistics-statement"></a>Option 1 : Utiliser l’instruction CREATE STATISTICS
+### <a name="option-1-use-the-create-statistics-statement"></a>Option 1 : Utiliser l’instruction CREATE STATISTICS
 
 U-SQL fournit l’instruction CREATE STATISTICS dans des tables. Cette instruction donne plus d’informations à l’optimiseur de requête sur les caractéristiques des données, notamment la distribution de la valeur, qui sont stockées dans une table. Pour la plupart des requêtes, l’optimiseur de requête génère déjà les statistiques nécessaires pour un plan de requête de haute qualité. Parfois, vous devrez peut-être améliorer les performances des requêtes en créant des statistiques supplémentaires avec CREATE STATISTICS ou en modifiant la conception des requêtes. Pour plus d’informations, consultez la page [CREATE STATISTICS (SQL-U)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx).
 
@@ -65,7 +66,7 @@ Exemple de code :
 >[!NOTE]
 >Les informations statistiques ne sont pas mises à jour automatiquement. Si vous mettez à jour les données dans une table sans recréer les statistiques, les performances des requêtes peuvent décliner.
 
-#### <a name="option-2-use-skewfactor"></a>Option 2 : Utiliser SKEWFACTOR
+### <a name="option-2-use-skewfactor"></a>Option 2 : Utiliser SKEWFACTOR
 
 Si vous souhaitez additionner les taxes pour chaque état, vous devez utiliser l'instruction GROUP BY, une approche qui n’évite pas le problème d'asymétrie des données. Toutefois, vous pouvez fournir un indicateur de données dans votre requête pour identifier l'asymétrie des données dans les clés, afin que l’optimiseur puisse préparer un plan d’exécution.
 
@@ -103,6 +104,7 @@ Exemple de code :
                 ON @Sessions.Query == @Campaigns.Query
         ;   
 
+### <a name="option-3-use-rowcount"></a>Option 3 : Utiliser ROWCOUNT  
 Outre SKEWFACTOR, pour les cas de jonction de clés de décalage spécifiques, vous pouvez déterminer l’optimiseur en ajoutant un indicateur ROWCOUNT dans l’instruction U-SQL avant la jointure si vous savez que l’autre ensemble de lignes jointes est peu volumineux. De cette manière, l'optimiseur peut choisir une stratégie de diffusion conjointe pour améliorer les performances. N’oubliez pas que ROWCOUNT ne résout pas le problème d'asymétrie des données, mais peut proposer une aide supplémentaire.
 
     OPTION(ROWCOUNT = n)
@@ -127,11 +129,11 @@ Exemple de code :
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-### <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Solution 3 : Améliorer le réducteur et le combinateur définis par l’utilisateur
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Solution 3 : Améliorer le réducteur et le combinateur définis par l’utilisateur
 
 Parfois, vous écrivez l’opérateur défini par l’utilisateur pour gérer une logique de processus complexe, et un combinateur et un réducteur bien écrits peuvent, dans certains cas, réduire les problèmes d'asymétrie des données.
 
-#### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Option 1 : Utiliser un réducteur récursif si possible
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Option 1 : Utiliser un réducteur récursif si possible
 
 Par défaut, le réducteur défini par l’utilisateur s’exécute en mode non récursif, ce qui signifie que le travail de réduction pour une clé est distribué dans un seul vertex. Mais, si vos données sont asymétriques, les ensembles de données volumineux peuvent être traités dans un seul vertex et cette exécution peut prendre un certain temps.
 
@@ -155,7 +157,7 @@ Exemple de code :
         }
     }
 
-#### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Option 2 : Utiliser le mode de combinateur au niveau des lignes si possible
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Option 2 : Utiliser le mode de combinateur au niveau des lignes si possible
 
 À l’instar de l’indicateur ROWCOUNT pour les cas de jonction de clés de décalage spécifiques, le mode de combinateur essaie de distribuer les ensembles de valeurs de clés de décalage dans plusieurs vertex pour que le travail puisse être exécuté simultanément. Le mode de combinateur ne permet pas de résoudre le problème d'asymétrie des données, mais peut être utile pour traiter les ensembles de valeurs de clés de décalage volumineux.
 
@@ -189,9 +191,4 @@ Exemple de code :
         //Your combiner code goes here.
         }
     }
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

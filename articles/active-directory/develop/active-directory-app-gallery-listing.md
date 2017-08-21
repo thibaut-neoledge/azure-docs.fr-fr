@@ -1,6 +1,6 @@
 ---
 title: "Affichage de votre application dans la galerie d’applications Azure AD"
-description: "Comment répertorier une application qui prend en charge l&quot;authentification unique dans la galerie Azure Active Directory | Microsoft Azure"
+description: "Comment répertorier une application qui prend en charge l'authentification unique dans la galerie Azure Active Directory | Microsoft Azure"
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 28712a9898bf2449de53d21fd87f1ce53da71ff8
-ms.openlocfilehash: df60c4737954e79ff860601412dffa58d4dbb471
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: cf25772bd9d92b59401aa5da76e6bbd5fa5ee3e5
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/11/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Affichage de votre application dans la galerie d’applications Azure AD
@@ -45,7 +44,7 @@ Pour intégrer votre application dans Azure AD, suivez les [instructions pour d�
 > 
 > Nom de l’application :
 > 
-> Description de l’application (256 caractères maximum) :
+> Description de l’application (200 caractères maximum) :
 > 
 > Site web de l’application (pour informatif) :
 > 
@@ -79,7 +78,7 @@ Toute application prenant en charge SAML 2.0 peut être intégrée directement d
 > 
 > Nom de l’application :
 > 
-> Description de l’application (256 caractères maximum) :
+> Description de l’application (200 caractères maximum) :
 > 
 > Site web de l’application (pour informatif) :
 > 

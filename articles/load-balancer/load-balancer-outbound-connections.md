@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 5/31/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: bb490e7ba64f4db454e1bd7171d600ed9dd9e257
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 03cb14b5710b6dd17599a3c4eab21380c76c2b40
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -72,7 +72,9 @@ Vous devez vous assurer que la machine virtuelle peut recevoir des demandes d’
 
 ## <a name="limitations"></a>Limitations
 
-Le nombre maximal de ports SNAT disponible actuellement est de 64 511 (65 535 - 1 024 ports privilégiés). Toutefois, ce nombre n’est pas garanti.  Cela ne se traduit pas directement par un nombre de connexions disponibles. Pour savoir à quel moment et de quelle manière des ports SNAT sont alloués, et comment gérer cette ressource qui n’est pas inépuisable, voir ci-dessus.
-
 Si [plusieurs adresses IP (publiques) sont associées à un équilibreur de charge](load-balancer-multivip-overview.md), toutes ces adresses IP publiques sont candidates pour des flux sortants.
+
+Azure utilise un algorithme pour déterminer le nombre de ports SNAT disponibles en fonction de la taille du pool.  Ce n’est pas configurable pour l’instant.
+
+Il est à noter que le nombre de ports SNAT disponibles n’est pas directement lié au nombre de connexions. Voir ci-dessus pour savoir à quel moment et de quelle manière des ports SNAT sont alloués, et comment gérer cette ressource qui n’est pas inépuisable.
 

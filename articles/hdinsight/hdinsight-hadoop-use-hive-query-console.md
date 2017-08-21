@@ -1,5 +1,5 @@
 ---
-title: "Utilisation de Hadoop Hive sur la console de requêtes dans HDInsight | Microsoft Docs"
+title: "Utiliser Hadoop Hive sur la console de requêtes dans HDInsight - Azure | Documents Microsoft"
 description: "Découvrez comment utiliser la console de requêtes Web pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur."
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,10 @@ ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3000f8db8357793c68f49b47cb5a1df16bb8df51
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9e3b4dbda4ba753ac93540d121b3831a6ed3b75e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Exécution de requêtes Hive à l'aide de la console de requêtes
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/18/2017
 Dans cet article, vous découvrirez comment utiliser la console de requêtes HDInsight pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
 
 > [!IMPORTANT]
-> La console de requêtes HDInsight n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> La console de requêtes HDInsight n’est disponible que sur les clusters HDInsight Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Pour HDInsight 3.4 ou version supérieure, consultez [Run Hive queries in Ambari Hive View (Exécution de requêtes Hive dans la vue Hive d’Ambari)](hdinsight-hadoop-use-hive-ambari-view.md) pour plus d’informations sur l’exécution de requêtes Hive à partir d’un navigateur web.
 
@@ -52,7 +51,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     Ces instructions effectuent les opérations suivantes :

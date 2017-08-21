@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/27/2017
+ms.date: 06/27/2017
 ms.author: sethm;babanisa
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: bb8679b733e9ebd8d6a95a618d4ab8deab18ece4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -30,27 +30,25 @@ Vous pouvez afficher deux types de journaux pour Azure Event Hubs :
 * **[Journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Vous pouvez configurer les journaux de diagnostic pour obtenir des informations plus détaillées sur tous les événements associés à un travail. Les journaux de diagnostic couvrent les activités qui se déroulent entre la création du travail et sa suppression, notamment les mises à jour et les activités durant l’exécution du travail.
 
 ## <a name="turn-on-diagnostic-logs"></a>Activer les journaux de diagnostic
-Les journaux de diagnostic sont **désactivés** par défaut. Pour activer les journaux de diagnostic, procédez comme suit :
+Les journaux de diagnostic sont désactivés par défaut. Pour activer les journaux de diagnostic, procédez comme suit :
 
-1.    Dans le portail Azure, accédez au panneau de diffusion en continu du travail.
+1.  Dans le [portail Azure](https://portal.azure.com), sous **Surveillance + gestion**, cliquez sur **Journaux de diagnostic**.
 
-2.    Sous **Analyse**, accédez au panneau **Journaux de diagnostic**.
+    ![Navigation dans le panneau jusqu’aux journaux de diagnostic](./media/event-hubs-diagnostic-logs/image1.png)
 
-    ![Navigation dans le panneau jusqu’aux journaux de diagnostic](./media/event-hubs-diagnostic-logs/image1.png)  
+2.  Cliquez sur la ressource que vous souhaitez surveiller.
 
-3.    Sélectionnez **Activer les diagnostics**.
+3.  Cliquez sur **Activer les diagnostics**.
 
     ![Activer les journaux de diagnostic](./media/event-hubs-diagnostic-logs/image2.png)
 
-4.    Sélectionnez **l’État** **Actif**.
+4.  Pour l’**état**, cliquez sur **ACTIVÉ**.
 
     ![Modifier l’état des journaux de diagnostic](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.    Définissez la cible d’archivage de votre choix, par exemple un compte de stockage, un Event Hub ou Azure Log Analytics.
+5.  Définissez la cible d’archivage de votre choix, par exemple un compte de stockage, un Event Hub ou Azure Log Analytics.
 
-6.    Sélectionnez les catégories de journaux à collecter, par exemple **Exécution** ou **Création**.
-
-7.    Enregistrez les nouveaux paramètres de diagnostic.
+6.  Enregistrez les nouveaux paramètres de diagnostic.
 
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux apparaissent dans la cible d’archivage configurée, dans le panneau **Journaux de diagnostic**.
 
@@ -59,11 +57,11 @@ Pour plus d’informations sur la configuration des diagnostics, consultez la [v
 ## <a name="diagnostic-logs-categories"></a>Catégories de journaux de diagnostic
 Event Hubs capture les journaux de diagnostic pour deux catégories :
 
-* **ArchivalLogs** : journaux liés aux archives Event Hubs, en particulier aux erreurs d’archivage.
+* **ArchiveLogs** : journaux liés aux archives Event Hubs, en particulier aux erreurs d’archivage.
 * **OperationalLogs** : informations relatives à ce qui se passe lors des opérations Event Hubs, en particulier le type d’opération tel que la création d’un Event Hub, les ressources utilisées et l’état de l’opération.
 
 ## <a name="diagnostic-logs-schema"></a>Schéma des journaux de diagnostic
-Tous les journaux sont stockés au format JSON (JavaScript Object Notation). Chaque entrée comporte des champs de type chaîne qui utilisent le format décrit dans les exemples suivants.
+Tous les journaux sont stockés au format JSON (JavaScript Object Notation). Chaque entrée comporte des champs de type chaîne au format décrit dans les sections suivantes.
 
 ### <a name="archive-logs-schema"></a>Schéma des journaux d’archivage
 
@@ -84,7 +82,7 @@ durationInSeconds | Durée de la défaillance.
 Message | Message d’erreur.
 category | ArchiveLogs
 
-Voici un exemple de chaîne JSON de journal d’archivage :
+Le code suivant est un exemple de chaîne JSON de journal d’archivage :
 
 ```json
 {
@@ -103,14 +101,14 @@ Voici un exemple de chaîne JSON de journal d’archivage :
 }
 ```
 
-### <a name="operation-logs-schema"></a>Schéma des journaux des opérations
+### <a name="operational-logs-schema"></a>Schéma des journaux des opérations
 
-Les chaînes JSON du journal des opérations incluent les éléments listés dans le tableau suivant :
+Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
 
 Nom | Description
 ------- | -------
 ActivityId | ID interne, utilisé à des fins de suivi.
-EventName | Nom d’opération.     
+EventName | Nom d’opération.  
 resourceId | ID de ressource Azure Resource Manager.
 SubscriptionId | l'ID d'abonnement.
 EventTimeString | Durée de l’opération.
@@ -119,7 +117,7 @@ Statut | État de l’opération.
 Appelant | Appelant de l’opération (portail Azure ou client de gestion).
 category | OperationalLogs
 
-Voici un exemple de chaîne JSON de journal des opérations :
+Le code suivant est un exemple de chaîne JSON de journal des opérations :
 
 ```json
 Example:

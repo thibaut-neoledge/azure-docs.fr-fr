@@ -1,5 +1,5 @@
 ---
-title: Utilisation de Hadoop Pig avec .NET dans HDInsight | Microsoft Docs
+title: "Exécuter des travaux Apache Pig avec le Kit de développement .NET pour Hadoop - Azure HDInsight | Documents Microsoft"
 description: "Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig vers Hadoop sur HDInsight."
 services: hdinsight
 documentationcenter: .net
@@ -14,19 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 08/15/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 10e2f35bdaf1b6e00e3d8dde34dd5809a89cde30
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c0c120a457e9eaf0e7ea44f3fc6502fa71d673e7
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Exécution de tâches Pig à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight
+
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-Ce document fournit un exemple d’utilisation du Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig à un Hadoop sur un cluster HDInsight.
+Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des travaux Pig vers Hadoop sur Azure HDInsight.
 
 Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation des clusters HDInsight à partir de .NET. Pig permet de créer des opérations MapReduce en modélisant une série de transformations de données. Dans ce document, vous apprenez à utiliser une application de base C# pour soumettre un travail Pig sur un cluster HDInsight.
 
@@ -37,7 +38,7 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 * Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux.
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour en savoir plus, consultez le paragraphe [Obsolescence de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio 2012, 2013, 2015 ou 2017.
 

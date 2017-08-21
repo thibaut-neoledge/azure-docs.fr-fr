@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/22/2017
+ms.date: 07/12/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 9cecbfd1fd5db8fffc9fbdfb2d6ca949b6ff385a
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques l’accès conditionnel dans Azure Active Directory
@@ -29,11 +29,28 @@ Cette rubrique vous fournit des informations sur les éléments à connaître ce
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
-### <a name="do-i-need-to-assign-a-user-to-my-policy"></a>Dois-je affecter un utilisateur à ma stratégie ?
+### <a name="whats-required-to-make-a-policy-work"></a>Qu’est-ce qui est nécessaire pour faire fonctionner une stratégie ?
 
-Lorsque vous configurez une stratégie d’accès conditionnel, vous devez lui affecter au moins un groupe. Une stratégie d’accès conditionnel, à laquelle aucun utilisateur ou groupe n’est affecté, n’est jamais déclenchée.
+Lorsque vous créez une stratégie, aucun utilisateur, groupe, application ou contrôle d’accès n’est sélectionné.
 
-Lorsque vous prévoyez d’affecter plusieurs utilisateurs et groupes à une stratégie, vous devez y aller progressivement en n’affectant qu’un utilisateur ou groupe, puis en testant votre configuration. Si votre stratégie fonctionne comme prévu, ajoutez-lui d’autres affectations.  
+![Applications cloud](./media/active-directory-conditional-access-best-practices/02.png)
+
+
+Pour que votre stratégie fonctionne, vous devez configurer ce qui suit :
+
+
+|Quoi           | Comment                                  | Pourquoi|
+|:--            | :--                                  | :-- |
+|**Applications cloud** |Vous devez sélectionner une ou plusieurs applications.  | L’objectif d’une stratégie d’accès conditionnel est de vous permettre d’ajuster la manière dont les utilisateurs autorisés peuvent accéder à vos applications.|
+| **Utilisateurs et groupes** | Vous devez sélectionner au moins un utilisateur ou groupe autorisé à accéder aux applications cloud sélectionnées. | Une stratégie d’accès conditionnel, à laquelle aucun utilisateur ou groupe n’est affecté, n’est jamais déclenchée. |
+| **Contrôles d’accès** | Vous devez sélectionner au moins un contrôle d'accès. | Votre processeur de stratégies doit savoir que faire si vos conditions sont remplies.|
+
+
+En plus de ces exigences de base, dans de nombreux cas, vous devez également configurer une condition. Si une stratégie peut fonctionner sans condition configurée, les conditions constituent un facteur déterminant pour l’ajustement précis de l’accès à vos applications.
+
+
+![Applications cloud](./media/active-directory-conditional-access-best-practices/04.png)
+
 
 
 ### <a name="how-are-assignments-evaluated"></a>Comment les affectations sont-elles évaluées ?

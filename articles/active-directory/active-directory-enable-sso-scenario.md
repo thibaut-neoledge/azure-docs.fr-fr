@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f6bceb2fd03230e4a39c22605ad1fea8dd422be1
+ms.reviewer: asteen
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: b8f0cfdb468094bc761d6b939ca318fcfbea3ea4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/28/2016
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestion des applications avec Azure Active Directory
@@ -55,7 +55,7 @@ Azure Active Directory est une solution Microsoft de type IDaaS (Identity as a 
 * assure la centralisation de la gestion de l’accès, l’authentification unique et le compte-rendu ; 
 * prend en charge la gestion intégrée de l’accès à des [milliers d’applications](https://azure.microsoft.com/marketplace/active-directory/) dans la galerie d’applications, notamment à Salesforce, Google Apps, Box, Concur et bien d’autres encore. 
 
-Avec Azure Active Directory, toutes les applications que vous publiez pour vos partenaires et clients (professionnels et particuliers) présentent des fonctionnalités identiques de gestion de l’identité et de l’accès.<br>  Vous êtes ainsi en mesure de réduire de manière significative vos coûts opérationnels.
+Avec Azure Active Directory, toutes les applications que vous publiez pour vos partenaires et clients (professionnels et particuliers) présentent des fonctionnalités identiques de gestion de l’identité et de l’accès.<br> Vous êtes ainsi en mesure de réduire de manière significative vos coûts opérationnels.
 
 Que se passe-t-il si vous devez implémenter une application qui ne figure pas encore dans la galerie d’applications ? Bien que l’opération soit un peu plus longue que la configuration de l’authentification unique pour les applications de la galerie d’applications, Azure AD vous propose un assistant qui vous aide à effectuer la configuration.
 

@@ -1,5 +1,5 @@
 ---
-title: "Ports utilisés par HDInsight | Microsoft Docs"
+title: "Ports utilisés par les services Hadoop sur HDInsight - Azure | Documents Microsoft"
 description: "Liste des ports utilisés par les services Hadoop sur HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/17/2017
+ms.date: 06/02/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 3bf5ff732b03a1ecffb4e149d7805a6216ab0019
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: b1a4ca17a53a6d337d704bc4eef6d441de1f32d8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-# <a name="ports-and-uris-used-by-hdinsight"></a>Ports et URI utilisés par HDInsight
+# <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Ports utilisés par les services Hadoop sur HDInsight
 
 Ce document fournit une liste des ports utilisés par les services Hadoop exécutés sur des clusters HDInsight sous Linux. Il fournit également des informations sur les ports utilisés pour se connecter au cluster à l’aide de SSH.
 
@@ -76,6 +75,14 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 > [!NOTE]
 > Certains services sont disponibles uniquement sur certains types de clusters. Par exemple, HBase est disponible uniquement sur les clusters de type HBase.
 
+### <a name="ambari"></a>Ambari
+
+| Service | Nœuds | Port | Chemin | Protocole | 
+| --- | --- | --- | --- | --- |
+| Interface utilisateur Web d'Ambari | Nœuds principaux | 8080 | / | HTTP |
+| API Ambari REST | Nœuds principaux | 8080 | /api/v1 | HTTP |
+
+
 ### <a name="hdfs-ports"></a>Ports HDFS
 
 | Service | Nœuds | Port | Protocole | Description |
@@ -105,8 +112,8 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 
 | Service | Nœuds | Port | Protocole | Description |
 | --- | --- | --- | --- | --- |
-| HiveServer2 |Nœuds principaux |10001 |Thrift |Service pour se connecter par programme à Hive (Thrift/JDBC) |
-| Metastore Hive |Nœuds principaux |9083 |Thrift |Service de connexion par programme aux métadonnées Hive (Thrift/JDBC) |
+| HiveServer2 |Nœuds principaux |10001 |Thrift |Service pour se connecter à Hive (Thrift/JDBC) |
+| Metastore Hive |Nœuds principaux |9083 |Thrift |Service pour se connecter aux métadonnées Hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Ports WebHCat
 
@@ -152,4 +159,8 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 | Service Broker |Nœuds de travail |9092 |[Protocole Kafka](http://kafka.apache.org/protocol.html) |Utilisé pour la communication client |
 | &nbsp; |Nœuds Zookeeper |2181 |&nbsp; |Le port que les clients utilisent pour se connecter à ZooKeeper |
 
+### <a name="spark-ports"></a>Ports Spark
 
+| Service | Nœuds | Port | Protocole | Description |
+| --- | --- | --- | --- | --- |
+| Serveurs Thrift Spark |Nœuds principaux |10002 |Thrift |Service pour se connecter à Spark SQL (Thrift/JDBC) |

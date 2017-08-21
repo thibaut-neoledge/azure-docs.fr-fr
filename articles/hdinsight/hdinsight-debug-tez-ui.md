@@ -1,6 +1,6 @@
 ---
-title: "Utiliser l&quot;interface utilisateur Tez avec HDInsight basé sur Windows | Microsoft Docs"
-description: "Apprenez à utiliser l&quot;interface utilisateur Tez pour déboguer les travaux Tez dans HDInsight sous Windows."
+title: "Utiliser l'interface utilisateur Tez avec HDInsight basé sur Windows - Azure | Microsoft Docs"
+description: "Apprenez à utiliser l'interface utilisateur Tez pour déboguer les travaux Tez dans HDInsight sous Windows."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,10 +16,10 @@ ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 870d8001b67b43d09427a626761ede1833101ddf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3889fa1c3523eb0330cbe3b7640fd8590a5ceadf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/18/2017
 L’interface utilisateur Tez est une page web qui peut servir à comprendre et à déboguer les travaux utilisant Tez comme moteur d’exécution pour les clusters HDInsight basés sur Windows. L’interface utilisateur Tez vous permet de visualiser le travail sous forme de graphique d’éléments connectés, d’explorer chacun d’entre eux, ainsi que d’extraire des statistiques et des informations de journalisation.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Composants requis
 * Un cluster HDInsight Windows Pour plus d’informations sur la création d’un cluster, consultez [Prise en main de HDInsight sur Windows](hdinsight-hadoop-tutorial-get-started-windows.md).

@@ -11,15 +11,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 2d6e1ba60d1f81aa1a9d3afde4ac9b621b01f04d
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: ec6f0b10e68e024292384e9b45891ccd905372ff
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services
@@ -67,7 +67,7 @@ Le tableau suivant compare les fonctionnalités d’Azure App Service, Azure Clo
 ## <a name="scenarios"></a>Scénarios et recommandations
 Voici quelques scénarios d'application courants avec des recommandations sur l'option d'hébergement web Azure la plus appropriée.
 
-* [J’ai besoin d’un site web frontal avec traitement en arrière-plan et base de données principale pour exécuter des applications métier intégrées à des ressources locales.](#onprem)
+* [J’ai besoin d’un site web frontal avec traitement en arrière-plan et base de données backend pour exécuter des applications métiers intégrées à des ressources locales.](#onprem)
 * [J’ai besoin d’un hébergement pour le site web de ma société, qui soit fiable, extensible et de portée mondiale.](#corp)
 * [J’ai une application IIS6 qui s’exécute sur Windows Server 2003.](#iis6)
 * [Je dirige une PME et je recherche une méthode peu onéreuse pour héberger mon site web, tout en gardant à l’esprit la future croissance de mon entreprise.](#smallbusiness)
@@ -78,7 +78,7 @@ Voici quelques scénarios d'application courants avec des recommandations sur l'
 * [Je possède une application métier qui doit se connecter au réseau de l’entreprise.](#lob)
 * [Je souhaite héberger une API REST ou un service web pour des clients mobiles.](#mobile)
 
-### <a id="onprem"></a> J’ai besoin d’un site web frontal avec traitement en arrière-plan et base de données principale pour exécuter des applications métier intégrées à des ressources locales.
+### <a id="onprem"></a>J’ai besoin d’un site web frontal avec traitement en arrière-plan et base de données backend pour exécuter des applications métiers intégrées à des ressources locales.
 Azure App Service est une excellente solution pour l’hébergement d’applications métier complexes. Elle vous permet de développer des applications automatiquement mises à l'échelle sur les plateformes avec équilibrage de la charge. Elles sont aussi sécurisées grâce à Active Directory et se connectent à vos ressources locales. Elle simplifie la gestion de ces applications grâce au portail et aux API et vous permet de savoir comment vos clients les utilisent avec les outils d'analyse. La fonctionnalité [Webjobs][Webjobs] vous permet d’exécuter des processus et des tâches en arrière-plan dans la couche web. La connectivité hybride et les fonctionnalités VNET simplifient la connexion aux ressources locales. Azure App Service offre des contrats SLA pour des applications web à 0,001 % d’erreur et offre les possibilités suivantes :
 
 * Exécution fiable de vos applications sur une plateforme cloud avec corrections et mises à jour automatiques.

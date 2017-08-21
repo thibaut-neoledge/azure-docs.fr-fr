@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
+ms.date: 07/12/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2234924251447bb32d7cca0623a4e8d4f8d4e7ff
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Utilisation de iothub-explorer pour la gestion des appareils Azure IoT Hub
@@ -58,7 +58,8 @@ Exécutez iothub-diverses avec diverses options de gestion.
   - Un abonnement Azure actif.
   - Une instance Azure IoT Hub associée à votre abonnement.
   - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
-- iothub-explorer. ([Installer iothub-explorer](https://github.com/azure/iothub-explorer) sur votre ordinateur de développement)
+- Vérifiez que votre appareil exécute l’application cliente tout au long de ce didacticiel.
+- iothub-explorer, [Installez iothub-explorer](https://github.com/azure/iothub-explorer) sur votre ordinateur de développement.
 
 ## <a name="connect-to-your-iot-hub"></a>Connexion à votre IoT Hub
 
@@ -113,7 +114,8 @@ iothub-explorer get-twin <your device id>
 Ajoutez un champ role = temperature&humidity à l’appareil en exécutant la commande suivante :
 
 ```bash
-iothub-explorer update-twin <your device id> {\"tags\":{\"role\":\"temperature&humidity\"}}
+iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
+
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Utiliser iothub-explorer avec les messages cloud vers appareil
