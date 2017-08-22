@@ -19,6 +19,8 @@
       items:
         - name: Minuteur
           href: functions-create-scheduled-function.md
+        - name: Webhook générique
+          href: functions-create-generic-webhook-triggered-function.md
         - name: webhook GitHub
           href: functions-create-github-webhook-triggered-function.md
         - name: Stockage d'objets blob

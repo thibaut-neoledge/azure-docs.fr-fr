@@ -54,14 +54,12 @@
 ### [Application web avec Visual Studio](web-app-visual-studio.md)
 ### [Cluster RDMA pour exécuter des applications MPI](rdma-cluster.md)
 ### [Utilisation du plug-in subordonné Azure avec la solution d'intégration continue Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC Pack
-### [Cluster RDMA Windows pour exécuter des applications MPI](hpcpack-cluster.md)
-### [Cluster HPC Windows avec le script de déploiement HPC Pack IaaS](hpcpack-cluster-starccm.md)
-### [Gérer le nombre et la disponibilité des nœuds de calcul](hpcpack-cluster-powershell-script.md)
-### [Ajouter des nœuds à la demande](hpcpack-cluster-openfoam.md)
-### [Mettre à l’échelle automatiquement des ressources](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [Créer un cluster pour les charges de travail Linux](hpcpack-cluster-powershell-script.md)
+#### [Gérer un cluster avec les nœuds Linux](hpcpack-cluster.md)
+#### [Exécuter STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [Exécuter OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [Exécuter NAMD](hpcpack-cluster-namd.md)
 
 ## Résolution des problèmes
 ### [Déploiements de machines virtuelles](troubleshoot-deployment-new-vm.md)

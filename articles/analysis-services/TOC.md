@@ -2,6 +2,7 @@
 ## [Qu’est-ce qu’Azure Analysis Services ?](analysis-services-overview.md)
 ## [Sources de données prises en charge](analysis-services-datasource.md)
 ## [Authentification et autorisations utilisateur](analysis-services-manage-users.md)
+## [Connexion à des sources de données locales](analysis-services-gateway.md)
 ## [Niveau de compatibilité](analysis-services-compat-level.md)
 ## [Haute disponibilité](analysis-services-bcdr.md)
 
@@ -15,7 +16,7 @@
 ## [Gérer un serveur](analysis-services-manage.md)
 ## [Gérer les utilisateurs de base de données](analysis-services-database-users.md)
 ## [Gérer les administrateurs de serveur](analysis-services-server-admins.md)
-## [Installer la passerelle de données locale](analysis-services-gateway.md)
+## [Installer et configurer une passerelle de données locale](analysis-services-gateway-install.md)
 ## [Obtenir les bibliothèques clientes](analysis-services-data-providers.md)
 ## [Sauvegarde et restauration](analysis-services-backup.md)
 ## [Connexion avec Excel](analysis-services-connect-excel.md)
