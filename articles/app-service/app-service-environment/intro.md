@@ -1,6 +1,6 @@
 ---
-title: "Présentation de l’environnement Azure App Service Environment"
-description: "Brève vue d’ensemble de l’environnement Azure App Service Environment"
+title: "Présentation des environnements Azure App Service"
+description: "Vue d’ensemble rapide des environnements Azure App Service"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,73 +13,71 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 0d078aefbf73a45298f397d02ab24b2c8232ecef
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: e21c4c3e2c212d86a0dbe2211564c2e3a1acf819
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/03/2017
 
 ---
-# <a name="introduction-to-the-app-service-environment"></a>Présentation de l’environnement App Service Environment #
+# <a name="introduction-to-app-service-environments"></a>Présentation des environnements App Service #
  
 ## <a name="overview"></a>Vue d'ensemble ##
 
-L’environnement App Service Environment est une fonctionnalité d’Azure App Service qui fournit un environnement totalement isolé et dédié pour l’exécution sécurisée de vos applications Azure App Service à grande échelle. Il permet d’héberger les éléments créés avec [Web Apps][webapps], [Mobile Apps][mobileapps], [API Apps][APIapps] et [Functions][Functions].
+Azure App Service Environment est une fonctionnalité d’Azure App Service qui fournit un environnement totalement isolé et dédié pour l’exécution sécurisée de vos applications App Service à grande échelle. Cette fonctionnalité peut héberger vos [applications web][webapps], [applications mobiles][mobileapps], [applications d’API][APIapps] et [fonctions][Functions].
 
-Les environnements App Service Environment constituent le meilleur choix pour les charges de travail applicatives présentant les exigences suivantes :
+Les environnements App Service (ASE) conviennent aux charges de travail d’application qui nécessitent :
 
-- Très grande échelle
-- Isolation et accès réseau sécurisé
-- Utilisation important de la mémoire
+- Une très grande échelle.
+- Une isolation et un accès réseau sécurisé.
+- Une utilisation élevée de la mémoire.
 
-Les clients peuvent créer plusieurs environnements App Service au sein d’une même région Azure, ainsi que dans plusieurs régions Azure. Les environnements App Service sont donc parfaits pour l’évolution horizontale des applications sans état pour la prise en charge de lourdes charges de travail RPS.
+Les clients peuvent créer plusieurs environnements App Service au sein d’une même région Azure ou dans plusieurs régions Azure. Grâce à cette souplesse, les environnements ASE sont parfaits pour l’évolution horizontale des niveaux d’application sans état pour la prise en charge de lourdes charges de travail RPS.
 
-Les environnements App Service sont isolés de façon à exécuter les applications d’un seul client et ils sont toujours déployés dans un réseau virtuel. Les clients ont un contrôle affiné sur le trafic réseau entrant et sortant des applications, et les applications peuvent établir des connexions sécurisées à haut débit sur les réseaux privés virtuels avec les ressources d’entreprise locales.
+Les environnements ASE sont isolés de façon à exécuter les applications d’un seul client et sont toujours déployés dans un réseau virtuel. Les clients peuvent contrôler précisément le trafic réseau entrant et sortant des applications. Les applications peuvent établir des connexions sécurisées à haute vitesse aux ressources d’entreprise locales par le biais de réseaux privés virtuels.
 
-Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service][ASEReadme].
+Tous les articles et procédures concernant les environnements App Service sont disponibles dans le [fichier Lisez-moi des environnements App Service][ASEReadme] :
 
-Pour avoir une idée générale de la façon dont les environnements App Service permettent l’accès réseau sécurisé à grande échelle, voir la vidéo [AzureCon Deep Dive](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) sur les environnements App Service Environments (ASE).
-
-Pour une exploration approfondie de la mise à l’échelle horizontale à l’aide de plusieurs environnements App Service, voir l’article sur la configuration d’une [empreinte d’application géo-distribuée](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/).
-
-Pour afficher la configuration de l’architecture de sécurité illustrée dans AzureCon Deep Dive, consultez l’article sur l’implémentation d’une [architecture de sécurité en couches](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security) avec les environnements App Service.
-
-L’accès aux applications qui s’exécutent sur des environnements App Service peut être contrôlé par des appareils en amont tels que les pare-feu d’applications web (WAF). Ce scénario est traité dans l’article sur la [configuration d’un pare-feu d’application web pour les environnements App Service](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall) .
+* Les environnements App Service autorisent l’hébergement d’application à grande échelle avec un accès réseau sécurisé. Pour plus d’informations, consultez l’[Immersion AzureCon](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) sur les environnements App Service.
+* Vous pouvez utiliser plusieurs environnements App Service pour une mise à l’échelle horizontale. Pour plus d’informations, consultez [Mise à l’échelle géolocalisée avec les environnements App Service](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/).
+* Vous pouvez utiliser des environnements App Service pour configurer l’architecture de sécurité, comme indiqué dans l’Immersion AzureCon. Pour découvrir comment a été configurée l’architecture de sécurité illustrée dans l’Immersion AzureCon, consultez l’[article sur l’implémentation d’une architecture de sécurité en couches](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security) avec les environnements App Service.
+* L’accès aux applications qui s’exécutent sur des environnements App Service peut être contrôlé par des appareils en amont tels que les pare-feu d’applications web (WAF). Pour plus d’informations, consultez [Configuration d’un pare-feu d’applications Web (WAF) pour un environnement App Service](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall).
 
 ## <a name="dedicated-environment"></a>Environnement dédié ##
 
 Un environnement App Service est dédié exclusivement à un abonnement et peut héberger 100 instances. Il peut s’agir de 100 instances d’un même plan App Service ou de 100 plans App Service à instance unique, ou de toutes les combinaisons possibles des deux.
 
-Un environnement App Service Environment se compose de serveurs frontaux et de workers. Les serveurs frontaux sont responsables de l’arrêt du protocole HTTP/HTTPS ainsi que de l’équilibrage de charge automatique des demandes d’application dans un environnement App Service Environment. Des serveurs frontaux sont automatiquement ajoutés à mesure que les plans App Service dans l’environnement App Service Environment montent en charge.
+Un environnement App Service est composé de frontends et de workers. Les frontends sont responsables de la terminaison du protocole HTTP/HTTPS et de l’équilibrage de charge automatique des demandes d’application dans un environnement App Service. Ils sont ajoutés automatiquement à mesure que les plans App Service dans l’environnement App Service augmentent leur échelle.
 
-Les workers sont des rôles qui hébergent des applications clientes. Les workers sont disponibles dans des 3 tailles fixes :
-* 1 cœur/3,5 Go de RAM
-* 2 cœurs/7 Go de RAM
-* 4 cœurs/14 Go de RAM
+Les workers sont des rôles qui hébergent des applications clientes. Ils sont disponibles dans trois tailles fixes :
 
-Les clients n’ont pas besoin de gérer les serveurs frontaux et les workers. Toute infrastructure est automatiquement ajoutée à mesure que les clients augmentent l’échelle de leurs plans App Service. À mesure que des plans App Service sont créés ou mis à l’échelle dans un environnement App Service Environment, l’infrastructure requise est augmentée ou réduite en conséquence.
+* Un cœur /3,5 Go de RAM
+* Deux cœurs/7 Go de RAM
+* Quatre cœurs/14 Go de RAM
 
-Il existe un taux mensuel fixe pour un environnement App Service Environment, qui couvre l’infrastructure et ne change pas avec la taille de l’environnement App Service Environment. En plus de cela, il existe un coût par cœur de plan App Service. Toutes les applications hébergées dans un environnement App Service Environment sont dans la référence (SKU) de tarification isolée. Pour plus d’informations sur la tarification d’un environnement App Service Environment, visitez la page [Tarification d’App Service][Pricing], et passez en revue les options disponibles pour les environnements App Service Environment.
+Les clients n’ont pas besoin de gérer les frontends et les workers. Toute infrastructure est automatiquement ajoutée à mesure que les clients augmentent l’échelle de leurs plans App Service. À mesure que des plans App Service sont créés ou mis à l’échelle dans un environnement App Service, l’infrastructure requise est ajoutée ou supprimée en conséquence.
+
+Un tarif fixe mensuel couvre l’infrastructure d’un environnement App Service et ne change pas avec la taille de l’environnement. Chaque cœur de plan App Service présente aussi un coût. Toutes les applications hébergées dans un environnement App Service sont dans la référence (SKU) de prix Isolée. Pour plus d’informations sur les tarifs d’un environnement App Service, consultez la page de [tarification App Service][Pricing] et passez en revue les options disponibles pour les environnements App Service.
 
 ## <a name="virtual-network-support"></a>Prise en charge des réseaux virtuels ##
 
-Un environnement App Service Environment peut être créé uniquement dans un réseau virtuel Azure Resource Manager. Pour en savoir plus sur les réseaux virtuels Azure, voir [FAQ sur les réseaux virtuels Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Étant donné qu’il existe toujours un environnement App Service Environment sur un réseau virtuel, et plus précisément sur un sous-réseau d’un réseau virtuel, vous pouvez exploiter les fonctionnalités de sécurité des réseaux virtuels pour contrôler les communications réseau entrantes et sortantes pour vos applications.
+Un environnement App Service peut être créé uniquement dans un réseau virtuel Azure Resource Manager. Pour en savoir plus sur les réseaux virtuels Azure, consultez le [FAQ sur les réseaux virtuels Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Un environnement App Service existe toujours dans un réseau virtuel, et plus précisément un sous-réseau d’un réseau virtuel. Vous pouvez utiliser les fonctionnalités de sécurité des réseaux virtuels pour contrôler les communications réseau entrantes et sortantes de vos applications.
 
-Un environnement App Service peut être soit accessible sur Internet avec une adresse IP publique, soit accessible en interne avec uniquement une adresse d’Équilibreur de charge interne (ILB) Azure.
+Un environnement App Service peut être soit accessible sur Internet avec une adresse IP publique, soit accessible en interne avec uniquement une adresse d’équilibreur de charge interne (ILB) Azure.
 
-Vous pouvez utiliser des [groupes de sécurité réseau][NSGs] pour restreindre les communications réseau entrantes vers le sous-réseau sur lequel réside un environnement App Service. Cela vous permet d'exécuter des applications derrière des appareils et services en amont tels des pare-feu d'applications web, ainsi que des fournisseurs SaaS réseau.
+Les [groupes de sécurité réseau][NSGs] limitent les communications réseau entrantes vers le sous-réseau sur lequel réside l’environnement App Service. Vous pouvez utiliser des groupes de sécurité réseau pour exécuter des applications derrière des appareils et services en amont tels que des pare-feu d’applications web et des fournisseurs SaaS réseau.
 
-Les applications doivent souvent accéder à des ressources d'entreprise telles que des bases de données internes et des services web. Si l’environnement App Service Environment est déployé dans un réseau virtuel Azure qui a une connexion VPN au réseau local, les applications dans l’environnement App Service Environment peuvent accéder aux ressources locales. Cela est vrai même que le réseau privé virtuel soit un VPN [de site à site](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) ou un VPN [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+Les applications doivent souvent accéder à des ressources d'entreprise telles que des bases de données internes et des services web. Si vous déployez l’environnement App Service sur un réseau virtuel qui a une connexion VPN au réseau local, les applications de l’environnement App Service peuvent accéder aux ressources locales. Cela est vrai, que le réseau privé virtuel soit un VPN [de site à site](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) ou un VPN [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
-Pour plus d’informations sur le fonctionnement des environnements App Service Environment avec des réseaux virtuels et des réseaux locaux, voir [Considérations en matière de réseau pour un environnement App Service Environment][ASENetwork].
+Pour plus d’informations sur le fonctionnement des environnements App Service avec des réseaux virtuels et des réseaux locaux, consultez [Considérations sur les réseaux d’environnement App Service][ASENetwork].
 
-## <a name="asev1"></a>ASEv1 ##
+## <a name="app-service-environment-v1"></a>Environnement App Service v1 ##
 
-L’environnement App Service Environment est disponible en deux versions : ASEv1 et ASEv2. Les informations précédentes sont centrées sur ASEv2. Cette section montre les différences entre ASEv1 et ASEv2. 
+L’environnement App Service est disponible en deux versions : ASEv1 et ASEv2. Les informations précédentes sont basées sur ASEv2. Cette section montre les différences entre ASEv1 et ASEv2. 
 
-Dans ASEv1, vous devez gérer toutes les ressources manuellement. Celles-ci incluent les serveurs frontaux, les rôles de travail et les adresses IP utilisées pour le protocole SSL basé sur IP. Pour pouvoir augmenter l’échelle de votre plan App Service, vous devez d’abord augmenter celle du pool de workers dans lequel vous voulez héberger le plan.
+Dans ASEv1, vous devez gérer toutes les ressources manuellement. Celles-ci incluent les frontends, les workers et les adresses IP utilisées pour le protocole SSL basé sur IP. Pour pouvoir augmenter l’échelle de votre plan App Service, vous devez d’abord augmenter celle du pool de workers où vous voulez héberger le plan.
 
-Les versions ASEv1 et ASEv2 utilisent un modèle de tarification différent. Dans ASEv1, vous devez payer pour chaque cœur alloué. Cela inclut les cœurs utilisés pour les serveurs frontaux ou les workers qui n’hébergent pas de charges de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service Environment correspond à un total de 55 hôtes, dont les workers et les serveurs frontaux. L’un des avantages d’un environnement ASEv1 est qu’il peut être déployé dans un réseau virtuel classique ainsi que dans un réseau virtuel Resource Manager. Pour plus d’informations sur la version ASEv1, voir [Présentation de l’environnement App Service v1][ASEv1Intro].
+Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASEv1, vous payez pour chaque cœur alloué. Cela inclut les cœurs utilisés pour les frontends ou les workers qui n’hébergent pas de charges de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service correspond à un total de 55 hôtes, dont les workers et les frontends. L’un des avantages d’un environnement ASEv1 est qu’il peut être déployé sur un réseau virtuel classique et sur un réseau virtuel Resource Manager. Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnement App Service v1][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

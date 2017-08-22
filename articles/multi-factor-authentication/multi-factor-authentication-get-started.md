@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 8c3cc27f1fa708371d415d00cdff59f77712cd41
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 6f8ee3449244b12d2c8b5714e6ad893e2f0b10ee
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Choisissez la solution Azure Multi-Factor Authentication qui vous convient
@@ -39,7 +39,7 @@ Afin de déterminer la solution de vérification en deux étapes appropriée, no
 | Applications SaaS dans la galerie d’applications |● |  |
 | Applications Web publiées via le proxy d’application Azure AD |● |  |
 | Applications IIS non publiées via le proxy d'application Azure AD | |● |
-| Accès à distance comme VPN, RDG | |● |
+| Accès à distance comme VPN, RDG | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>l’emplacement des utilisateurs
 Ensuite, selon l’emplacement de nos utilisateurs, nous pouvons déterminer la solution appropriée à utiliser, que ce soit dans le cloud ou en local avec le serveur MFA.
@@ -53,7 +53,7 @@ Ensuite, selon l’emplacement de nos utilisateurs, nous pouvons déterminer la 
 | Active Directory local | |● |
 
 ## <a name="what-features-do-i-need"></a>Quelles sont les fonctionnalités nécessaires ?
-Le tableau suivant présente une comparaison des fonctionnalités disponibles de Multi-Factor Authentication dans le cloud et du serveur Multi-Factor Authentication.
+Le tableau suivant compare les fonctionnalités disponibles de Multi-Factor Authentication dans le cloud et du serveur Multi-Factor Authentication.
 
 | Fonctionnalité | MFA dans le cloud | Serveur MFA |
 | --- |:---:|:---:|
@@ -76,13 +76,14 @@ Le tableau suivant présente une comparaison des fonctionnalités disponibles de
 | Accès conditionnel | ● | ● |
 | Cache |  | ● |
 
-Maintenant que nous avons déterminé s'il faut utiliser l'authentification multifacteur de cloud ou le serveur MFA local, nous pouvons commencer à configurer et à utiliser Azure Multi-Factor Authentication. **Sélectionnez l'icône qui représente votre scénario !**
+## <a name="next-steps"></a>Étapes suivantes
+
+Maintenant que nous avons déterminé s'il faut utiliser l'authentification multifacteur de cloud ou le serveur MFA local, nous pouvons commencer à configurer et à utiliser Azure Multi-Factor Authentication. **Sélectionnez l’icône qui représente votre scénario**
 
 <center>
 
 
 
 
-[![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Vérification](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</center>
+[![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Serveur](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
 

@@ -3,9 +3,10 @@
 ## [Présentation de Machine Learning](machine-learning-what-is-machine-learning.md)
 
 ## TDSP (Team Data Science Process)
-### [Vue d'ensemble](http://aka.ms/datascienceprocess)
-### [Cycle de vie](data-science-process-overview.md)
+### [Vue d'ensemble](data-science-process-overview.md)
+### [Cycle de vie](data-science-process-lifecycle.md)
 ### [Procédures pas à pas](data-science-process-walkthroughs.md)
+### [Avec Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [Présentation de Studio](machine-learning-what-is-ml-studio.md)

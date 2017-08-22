@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 83d357bd046814c690b8b11841e5c8ebebd0df0e
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b09bfa8a5bc22a092e963f351e99c16d0e9a57ba
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Déployer et explorer une application mutualisée qui utilise Azure SQL Database - Wingtip SaaS
@@ -44,9 +43,9 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 Pour explorer les différents modèles de gestion et de conception SaaS, une [série de didacticiels associés](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) reposant sur ce déploiement initial est disponible. Tout en parcourant les didacticiels, découvrez plus en détail les scripts fournis et examinez la façon dont les différents modèles de SaaS sont implémentés. Parcourez les scripts de chaque didacticiel pour mieux comprendre comment implémenter les nombreuses fonctionnalités SQL Database qui simplifient le développement des applications SaaS.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
+Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -54,7 +53,9 @@ Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont
 
 Déployer l’application Wingtip SaaS :
 
-1. Cliquez sur le bouton **Déployer vers Azure** pour ouvrir le portail Azure sur le modèle de déploiement Wingtip SaaS. Le modèle nécessite deux valeurs de paramètre ; le nom d’un nouveau groupe de ressources et un nom d’utilisateur qui distingue ce déploiement des autres déploiements de l’application Wingtip SaaS. L’étape suivante fournit des détails sur la définition de ces valeurs. Veillez à noter les valeurs exactes que vous utilisez car vous devrez les entrer plus tard dans un fichier de configuration.
+1. Cliquez sur le bouton **Déployer vers Azure** pour ouvrir le portail Azure sur le modèle de déploiement Wingtip SaaS. Le modèle nécessite deux valeurs de paramètre ; le nom d’un nouveau groupe de ressources et un nom d’utilisateur qui distingue ce déploiement des autres déploiements de l’application Wingtip SaaS. L’étape suivante fournit des détails sur la définition de ces valeurs.
+
+   Veillez à noter les valeurs exactes que vous utilisez car vous devrez les entrer plus tard dans un fichier de configuration.
 
    <a href="http://aka.ms/deploywtpapp" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
@@ -63,7 +64,7 @@ Déployer l’application Wingtip SaaS :
     > [!IMPORTANT]
     > Certaines authentifications et pare-feu de serveur sont volontairement non sécurisés à des fins de démonstration. **Créez un nouveau groupe de ressources** et n’utilisez pas de groupes de ressources, serveurs ou pools existants. N’utilisez pas cette application, ni les ressources qu’elle crée, pour la production. Supprimez ce groupe de ressources lorsque vous en avez terminé avec l’application pour interrompre la facturation associée.
 
-    * **Groupe de ressources** : sélectionnez **Créer un nouveau** et indiquez un **nom** et un **emplacement**.
+    * **Groupe de ressources** : sélectionnez **Création** et indiquez un **Nom** pour le groupe de ressources. Sélectionnez un **Emplacement** dans la liste déroulante.
     * **Utilisateur** : certaines ressources nécessitent des noms globalement uniques. Pour garantir l’unicité, chaque fois que vous déployez l’application, fournissez une valeur pour différencier les ressources que vous créez de celles créées par d’autres déploiements de l’application Wingtip. Nous vous recommandons d’utiliser un nom **Utilisateur** court, tel que vos initiales plus un chiffre (par exemple, *bg1*) et de l’utiliser ensuite dans le nom du groupe de ressources (par exemple, *wingtip-bg1*). Le paramètre **Utilisateur** peut contenir uniquement des lettres, des chiffres et des traits d’union (sans espaces). Le premier et le dernier caractère doivent être une lettre ou un chiffre (l’utilisation de minuscules est recommandée).
 
 
@@ -109,7 +110,7 @@ L’application présente des lieux, telles que des salles de concert, des clubs
 
 Un **concentrateur d’événements** central fournit une liste d’URL de locataires spécifiques à votre déploiement.
 
-1. Ouvrez le _concentrateur d’événements_ : http://events.wtp.&lt;USER&gt;.trafficmanager.net.(à remplacer par le nom d’utilisateur de votre déploiement) :
+1. Ouvrez _l’Event Hub_ dans votre navigateur web : http://events.wtp.&lt;UTILISATEUR&gt;.trafficmanager.net.(à remplacer par le nom d’utilisateur de votre déploiement) :
 
     ![events hub](media/sql-database-saas-tutorial/events-hub.png)
 
@@ -130,7 +131,7 @@ Maintenant que l’application est déployée, nous allons l’exécuter ! Le sc
 1. Appuyez sur **F5** pour exécuter le script et démarrer le générateur de charge (laissez les valeurs de paramètre par défaut pour l’instant).
 
 > [!IMPORTANT]
-> Le générateur de charge exécute une série de travaux dans votre session PowerShell locale. Le script *Demo-LoadGenerator.ps1* lance le script de générateur de charge réel, qui s’exécute comme une tâche de premier plan, ainsi qu’une série de tâches de génération de charge en arrière-plan. Une tâche de générateur de charge est appelée pour chaque base de données enregistrée dans le catalogue. Les tâches sont en cours d’exécution dans votre session PowerShell locale, de sorte que la fermeture de la session PowerShell interrompt tous les travaux. Si vous mettez en veille l’ordinateur, la génération de la charge est interrompue et reprendra dès la sortie de veille de votre ordinateur.
+> Pour exécuter d’autres scripts, ouvrez une nouvelle fenêtre PowerShell ISE. Le générateur de charge exécute une série de travaux dans votre session PowerShell locale. Le script *Demo-LoadGenerator.ps1* lance le script de générateur de charge réel, qui s’exécute comme une tâche de premier plan, ainsi qu’une série de tâches de génération de charge en arrière-plan. Une tâche de générateur de charge est appelée pour chaque base de données enregistrée dans le catalogue. Les tâches sont en cours d’exécution dans votre session PowerShell locale, de sorte que la fermeture de la session PowerShell interrompt tous les travaux. Si vous mettez en veille l’ordinateur, la génération de la charge est interrompue et reprendra dès la sortie de veille de votre ordinateur.
 
 Lorsque le générateur de charge appelle des tâches de génération de charge pour chaque locataire, la tâche de premier plan reste à un état d’appel de tâche, dans lequel elle démarre d’autres tâches en arrière-plan pour les nouveaux locataires configurés par la suite. Vous pouvez utiliser *Ctrl-C* ou appuyer sur le bouton *Stop* pour arrêter la tâche de premier plan, mais les tâches en arrière-plan existantes continueront de générer de la charge sur chaque base de données. Si vous avez besoin de surveiller et de contrôler les tâches en arrière-plan, utilisez *Get-Job*, *Receive-Job* et *Stop-Job*. Pendant l’exécution de la tâche de premier plan, vous ne pouvez pas utiliser la même session PowerShell pour exécuter d’autres scripts. Pour exécuter d’autres scripts, ouvrez une nouvelle fenêtre PowerShell ISE.
 
@@ -160,11 +161,11 @@ Actualisez le *concentrateur d’événements* : le nouveau locataire apparaît 
 
 Maintenant que vous avez démarré une charge dans le regroupement de locataires, examinons quelques-unes des ressources qui ont été déployées :
 
-1. Dans le [portail Azure](http://portal.azure.com), ouvrez le serveur **catalog-&lt;UTILISATEUR&gt;**. Le serveur de catalogue contient deux bases de données : **tenantcatalog** et **basetenantdb** (une base de données vide version *gold* ou un modèle de base de données copié pour créer de nouveaux locataires).
+1. Dans le [portail Azure](http://portal.azure.com), accédez à la liste des serveurs SQL et ouvrez le serveur **catalog-&lt;UTILISATEUR&gt;**. Le serveur de catalogue contient deux bases de données : **tenantcatalog** et **basetenantdb** (une base de données vide version *gold* ou un modèle de base de données copié pour créer de nouveaux locataires).
 
    ![bases de données](./media/sql-database-saas-tutorial/databases.png)
 
-1. Ouvrez le serveur **tenants1-&lt;UTILISATEUR&gt;** qui contient les bases de données de locataires. Chaque base de données de locataires est une base de données _élastique standard_ dans un pool standard de 50 eDTU. Notez également la présence d’une base de données _Red Maple Racing_, la base de données de locataires que vous avez approvisionnée précédemment.
+1. Revenez à la liste des serveurs SQL et ouvrez le serveur **tenants1-&lt;UTILISATEUR&gt;** qui contient les bases de données de locataires. Chaque base de données de locataires est une base de données _élastique standard_ dans un pool standard de 50 eDTU. Notez également la présence d’une base de données _Red Maple Racing_, la base de données de locataires que vous avez approvisionnée précédemment.
 
    ![server](./media/sql-database-saas-tutorial/server.png)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0092496ea13c862a1717f4fdcb882139cbd8a177
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Authentification des Runbooks avec le déploiement Azure Classic et Resource Manager
@@ -68,7 +68,7 @@ Dans cette section, vous effectuez les étapes suivantes pour créer un compte A
 3. Dans le panneau Comptes Automation, cliquez sur **Ajouter**.<br><br>![Ajouter un compte Automation](media/automation-create-aduser-account/add-automation-acct-properties.png)
 4. Dans le panneau **Ajouter un compte Automation**, entrez le nom de votre nouveau compte Automation dans la zone **Nom**.
 5. Si vous disposez de plusieurs abonnements, spécifiez celui du nouveau compte, ainsi qu’un **groupe de ressources** nouveau ou existant et un **emplacement** de centre de données Azure.
-6. Vérifiez que l’option **Créer un compte d’authentification Azure** est bien définie sur la valeur **Non**, puis cliquez sur le bouton **Créer**.  
+6. Sélectionnez la valeur **Yes** dans l’option **Créer un compte d’authentification Azure**, puis cliquez sur le bouton **Créer**.  
    
     > [!NOTE]
     > Si vous choisissez de ne pas créer de compte d’identification en sélectionnant l’option **Non**, un message d’avertissement s’affiche dans le panneau **Ajouter un compte Automation**.  Bien que le compte soit créé avec le rôle de **contributeur** dans l’abonnement, il n’aura pas d’identité d’authentification correspondante au sein de votre service de répertoire d’abonnements et, par conséquent, il n’aura pas accès aux ressources de votre abonnement.  Cela empêchera tous les Runbooks faisant référence à ce compte de pouvoir authentifier et effectuer des tâches sur les ressources Azure Resource Manager.

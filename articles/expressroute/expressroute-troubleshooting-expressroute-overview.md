@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
-ms.author: rambala
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: a13c74b9490811e61328414b6a375bc9c9f7cdb0
+ms.date: 08/01/2017
+ms.author: cherylmc
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 5a6360b56963d219ab576fb3e2636b6c51dd72ac
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
@@ -179,8 +178,9 @@ Une fois que le fournisseur de services a terminé l'approvisionnement du circui
 >
 
 <p/>
->[!NOTE] Si la couche 3 est fournie par le fournisseur de services et si les homologations sont vides dans le portail, PowerShell permet de voir les paramètres configurés du fournisseur du service.
->>
+>[!NOTE]
+>Si la couche 3 est fournie par le fournisseur de services et si les homologations sont vides dans le portail, vous pouvez utiliser PowerShell pour voir les paramètres configurés du fournisseur du service.
+>
 >
 
 Dans le portail Azure, l’état d’un circuit ExpressRoute peut être vérifié en sélectionnant ![2][2] dans la barre de menu de gauche, puis en sélectionnant le circuit ExpressRoute. Sélectionner un circuit ExpressRoute répertorié sous « Toutes les ressources » permet d'ouvrir le panneau de circuit ExpressRoute. Dans la section ![3][3] du panneau, les informations essentielles d'ExpressRoute sont indiquées comme illustré dans la capture d’écran suivante :
@@ -238,14 +238,11 @@ Si aucune homologation n’est configurée, un message d’erreur est généré.
             + CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
             + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
->[!IMPORTANT]
->Si les homologations de couche 3 ont été définies par le fournisseur de services, la définition d'homologations ExpressRoute par le biais du portail ou de PowerShell remplace les paramètres du fournisseur de service. La réinitialisation des paramètres d’homologation côté fournisseur nécessite le support du fournisseur de services. Modifiez uniquement les homologations ExpressRoute si vous êtes certain que le fournisseur de services fournit uniquement des services de couche 2 !
->
->
 
 <p/>
->[!NOTE] Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et PE-MSEE. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].  
->>
+>[!NOTE]
+>Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et PE-MSEE. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].  
+>
 >
 
 ### <a name="verification-via-powershell-classic"></a>Vérification par le biais de PowerShell (classique)
@@ -284,8 +281,9 @@ Pour obtenir les détails sur la configuration de l'homologation Microsoft, util
 >
 
 <p/>
->[!NOTE] Si une homologation n’est pas activée, vérifiez si les sous-réseaux d’homologation principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
->>
+>[!NOTE]
+>Si une homologation n’est pas activée, vérifiez si les sous-réseaux d’homologation principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
+>
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Validation de l'ARP entre Microsoft et le fournisseur de service
@@ -348,8 +346,9 @@ Comme indiqué dans l’exemple précédent, la commande est utile pour détermi
 >
 
 <p/>
->[!NOTE] Si certaines destinations ne sont pas accessibles par le biais d'une homologation particulière, vérifiez la table d’itinéraires des MSEE appartenant au contexte d’homologation spécifique. Si aucun préfixe correspondant (éventuellement NATed IP) n'est présent dans la table de routage, vérifiez s’il existe des pare-feu/NSG/ACL sur le chemin d’accès et si elles autorisent le trafic.
->>
+>[!NOTE]
+>Si certaines destinations ne sont pas accessibles par le biais d’une homologation particulière, vérifiez la table d’itinéraires des MSEE appartenant au contexte d’homologation spécifique. Si aucun préfixe correspondant (éventuellement NATed IP) n'est présent dans la table de routage, vérifiez s’il existe des pare-feu/NSG/ACL sur le chemin d’accès et si elles autorisent le trafic.
+>
 >
 
 Pour obtenir la table de routage complète à partir du MSEE sur le chemin d’accès *principal* pour le contexte de routage *privé* spécifique, utilisez la commande suivante :

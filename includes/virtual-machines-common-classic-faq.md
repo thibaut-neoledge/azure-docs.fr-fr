@@ -125,7 +125,7 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 ## <a name="additional-resources"></a>Ressources supplémentaires
 [À propos de Machines virtuelles Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Différentes façons de créer une machine virtuelle Linux](../articles/virtual-machines/linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Les différentes façons de créer une machine virtuelle Windows](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

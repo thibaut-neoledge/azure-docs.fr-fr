@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 07/27/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 88ed466053efd62370afd31f68c9617e79936267
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-redis-cache-faq"></a>Forum aux questions sur le Cache Redis Azure
@@ -130,8 +129,8 @@ Le tableau suivant présente les valeurs maximales de bande passante observées 
 
 De ce tableau, nous pouvons tirer les conclusions suivantes :
 
-* Le débit des caches de taille identique est plus élevé dans le niveau Premium que dans le niveau Standard. Par exemple, pour un cache de 6 Go, le débit de P1 est de 140 000 demandes par seconde (RPS), contre 49 000 dans le cas de C3.
-* Avec le clustering Redis, le débit augmente de façon linéaire à mesure que vous augmentez le nombre de partitions (nœuds) dans le cluster. Par exemple, si vous créez un cluster P4 de 10 partitions, le débit disponible est alors de 250 000 * 10 = 2,5 millions de demandes par seconde.
+* Le débit des caches de taille identique est plus élevé dans le niveau Premium que dans le niveau Standard. Par exemple, pour un cache de 6 Go, le débit de P1 est de 180 000 demandes par seconde (RPS), contre 49 000 dans le cas de C3.
+* Avec le clustering Redis, le débit augmente de façon linéaire à mesure que vous augmentez le nombre de partitions (nœuds) dans le cluster. Par exemple, si vous créez un cluster P4 de 10 partitions, le débit disponible est alors de 400 000 *10 = 4 millions de demandes par seconde.
 * Pour les tailles de clé supérieures, le débit du niveau Premium est plus élevé que celui du niveau Standard.
 
 | Niveau tarifaire | Taille | Cœurs d’unité centrale | Bande passante disponible | Taille de la valeur 1 Ko |
@@ -143,12 +142,12 @@ De ce tableau, nous pouvons tirer les conclusions suivantes :
 | C3 |6 Go |4 |400 / 50 |49 000 |
 | C4 |13 Go |2 |500 / 62,5 |61 000 |
 | C5 |26 Go |4 |1 000 / 125 |115 000 |
-| C6 |53 Go |8 |2 000 / 250 |150 000 |
-| **Tailles de cache Premium** | |**Cœurs de processeur par partition** | |**Demandes par seconde (RPS), par partition** |
-| P1 |6 Go |2 |1 000 / 125 |140 000 |
-| P2 |13 Go |4 |2 000 / 250 |220 000 |
-| P3 |26 Go |4 |2 000 / 250 |220 000 |
-| P4 |53 Go |8 |4 000 / 500 |250 000 |
+| C6 |53 Go |8 |2 000 / 250 |150 000 |
+| **Tailles de cache Premium** | |**Cœurs de processeur par partition** | **Mégabits par seconde (Mbit/s) / mégaoctets par seconde (Mo/s)** |**Demandes par seconde (RPS), par partition** |
+| P1 |6 Go |2 |1 500 / 187,5 |180 000 |
+| P2 |13 Go |4 |3 000 / 375 |360 000 |
+| P3 |26 Go |4 |3 000 / 375 |360 000 |
+| P4 |53 Go |8 |6 000 / 750 |400 000 |
 
 Pour obtenir des instructions sur le téléchargement des outils Redis comme `redis-benchmark.exe`, consultez la section [Comment exécuter des commandes Redis ?](#cache-commands) .
 

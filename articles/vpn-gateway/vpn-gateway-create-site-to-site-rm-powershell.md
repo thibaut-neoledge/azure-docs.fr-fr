@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 9edaa81111d9439bfbad4775e49c3e29454ad31f
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27f4a8fb9a83b98e99df635bf4c80f6048ce348c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Créer un réseau virtuel avec une connexion VPN de site à site à l’aide de PowerShell
@@ -40,7 +40,7 @@ Une connexion de passerelle VPN de site à site permet de connecter votre résea
 
 ![Schéma de connexion intersite d’une passerelle VPN site à site](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="before"></a>Avant de commencer
 
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
@@ -49,7 +49,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 * Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, vous devez contacter une personne en mesure de vous aider. Lorsque vous créez cette configuration, vous devez spécifier les préfixes des plages d’adresses IP qu’Azure acheminera vers votre emplacement local. Aucun des sous-réseaux de votre réseau local ne peut chevaucher les sous-réseaux du réseau virtuel auquel vous souhaitez vous connecter.
 * Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Les applets de commande PowerShell sont fréquemment mises à jour, et vous devez généralement mettre à jour les vôtres pour obtenir les toutes dernières fonctionnalités. Si vous ne mettez pas à jour vos applets de commande PowerShell, les valeurs spécifiées peuvent échouer. Pour plus d’informations sur le téléchargement et l’installation des applets de commande PowerShell, voir [How to install and configure Azure PowerShell (Guide pratique d’installation et de configuration d’Azure PowerShell)](/powershell/azure/overview).
 
-### <a name="example-values"></a>Valeurs utilisées dans l’exemple
+### <a name="example"></a>Exemples de valeurs
 
 Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y référer pour mieux comprendre les exemples de cet article.
 
@@ -88,7 +88,7 @@ Si vous n’avez pas de réseau virtuel, créez-en un. Lorsque vous créez un r�
 
 [!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="to-create-a-virtual-network-and-a-gateway-subnet"></a>Pour créer un réseau virtuel et un sous-réseau de passerelle
+### <a name="vnet"></a>Création d’un réseau virtuel et d’un sous-réseau de passerelle
 
 Cet exemple permet de créer un réseau virtuel et un sous-réseau de passerelle. Si vous disposez déjà d’un réseau virtuel auquel vous devez ajouter un sous-réseau de passerelle, consultez [Pour ajouter un sous-réseau de passerelle à un réseau virtuel que vous avez déjà créé](#gatewaysubnet).
 

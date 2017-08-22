@@ -4,7 +4,7 @@ description: "Découvrez Stream Analytics, un service géré qui vous permet d�
 keywords: "analyse en tant que service, services gérés, traitement des données de diffusion en continu, analyse de diffusion en continu, qu’est-ce que Stream Analytics"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: jenniehubbard
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/16/2017
-ms.author: jeffstok
+ms.date: 08/08/2017
+ms.author: jhubbard
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 2fda07b8444b196d831e5e9fe7ade3e5017d36f9
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 07/19/2017
 
 Azure Stream Analytics est un moteur de traitement des événements entièrement géré qui vous permet de définir des calculs analytiques en temps réel sur la diffusion des données. Les données peuvent provenir d’appareils, de capteurs, de sites web, de flux issus des réseaux sociaux, d’applications, de systèmes d’infrastructure et bien plus encore. 
 
-## <a name="what-can-i-use-stream-analytics-for"></a>Dans quels cas puis-je utiliser Stream Analytics ?
+## <a name="what-can-i-do-with-stream-analytics"></a>Dans quels cas puis-je utiliser Stream Analytics ?
 
-À l’aide de Stream Analytics, vous pouvez examiner des volumes importants de données issus d’appareils ou de processus, extraire des informations à partir du flux de données et rechercher des modèles, des tendances et des relations. Vous pouvez effectuer les tâches de l’application en vous basant sur le contenu des données. Par exemple, vous pouvez déclencher des alertes, lancer des flux de travail d’automatisation, alimenter un outil de création de rapports en informations, tel que Power BI, ou stocker des données pour un examen ultérieur. 
+Utilisez Stream Analytics pour examiner des volumes importants de données issus d’appareils ou de processus, extraire des informations à partir du flux de données et rechercher des modèles, des tendances et des relations. Vous pouvez effectuer les tâches de l’application en vous basant sur le contenu des données. Par exemple, vous pouvez déclencher des alertes, lancer des flux de travail d’automatisation, alimenter un outil de création de rapports en informations, tel que Power BI, ou stocker des données pour un examen ultérieur. 
 
-Voici quelques exemples de scénarios Stream Analytics :
+Exemples :
 
 * Analyse en temps réel et personnalisée de transactions en actions et propositions d’alertes par des sociétés de services financiers.
 * Détection des fraudes en temps réel basée sur l’examen des données relatives aux transactions. 
@@ -57,7 +57,7 @@ Enfin, le travail spécifie une sortie vers laquelle envoyer les données transf
 * Envoyer des données à un tableau de bord Power BI pour la création de rapports.
 * Envoyer des données vers un dispositif de stockage, tel que Data Lake Store, une base de données SQL Server ou Stockage Blob ou Table Azure.
 
-Lors de l’exécution d’un travail, vous pouvez surveiller et régler le nombre d’événements traités par seconde. Vous pouvez également faire en sorte que des travaux produisent des journaux de diagnostic pour la résolution de problèmes.
+Vous pouvez surveiller et régler le nombre d’événements traités par seconde lors de l’exécution d’un travail. Vous pouvez également faire en sorte que des travaux produisent des journaux de diagnostic pour la résolution de problèmes.
 
 ## <a name="key-capabilities-and-benefits"></a>Avantages et fonctionnalités clés
 
@@ -69,7 +69,7 @@ Stream Analytics se connecte directement à [Azure Event Hubs](https://azure.mic
 
 L’entrée de travail peut également inclure des données de référence (données statiques ou à variation lente). Vous pouvez joindre des données de diffusion à ces données de référence pour effectuer des opérations de recherche de la même façon que vous le feriez avec des requêtes de base de données.
 
-La sortie d’un travail Stream Analytics peut être acheminée dans plusieurs directions. Elle peut être écrite dans le stockage, de type objets Blob ou tables du stockage Azure, Azure SQL DB, Azure Data Lake Store ou Azure Cosmos DB. À partir de là, les données peuvent être transmises pour une analyse de lots via Azure HDInsight. Vous pouvez envoyer la sortie vers un autre service pour une utilisation par un autre processus, tels que des concentrateurs d’événements, des rubriques de Service Bus ou des files d’attente. Vous pouvez envoyer la sortie à Power BI pour visualisation.
+Acheminez la sortie du travail Stream Analytics dans plusieurs directions. Vous pouvez écrire dans le stockage, de type objets Blob ou tables du stockage Azure, Azure SQL DB, Azure Data Lake Store ou Azure Cosmos DB. À partir de là, les données peuvent être transmises pour une analyse de lots via Azure HDInsight. Vous pouvez envoyer la sortie vers un autre service pour une utilisation par un autre processus, tels que des concentrateurs d’événements, des rubriques de Service Bus ou des files d’attente. Vous pouvez envoyer la sortie à Power BI pour visualisation.
 
 ### <a name="ease-of-use"></a>Simplicité d'utilisation
 

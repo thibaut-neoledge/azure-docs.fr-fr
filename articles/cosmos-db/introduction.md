@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 600894bffe367ee1412df6a82f668143829688cc
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -50,7 +50,7 @@ En tant que service de base de données distribué mondialement, Azure Cosmos DB
         * Des modèles de données supplémentaires seront bientôt disponibles 
 
 * **Mettre à l’échelle le débit et le stockage de façon élastique et à la demande, dans le monde entier**
-    * Faites évoluer facilement le débit de la base de données avec une granularité au niveau de la [seconde](request-units.md) et de la [minute](request-units-per-minute.md) et modifiez-le à tout moment. 
+    * Faites évoluer facilement le débit de la base de données avec une granularité [par seconde](request-units.md) et modifiez-le à tout moment. 
     * Mettez à l’échelle la taille de stockage de façon [automatique et transparente](partition-data.md) pour gérer vos besoins en taille aujourd’hui et pour toujours.
 
 * **Créer des applications hautement réactives et stratégiques**

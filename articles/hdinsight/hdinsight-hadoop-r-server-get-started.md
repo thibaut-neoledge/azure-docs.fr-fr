@@ -13,13 +13,13 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/13/2017
+ms.date: 08/14/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f0ee0d23f28df2824ea41f7c9f7490e1ec62d041
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 14e2a14c74e00709e18a80325fbdd3cbcd71da37
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Commencer à utiliser R Server sur HDInsight
@@ -670,6 +670,26 @@ Vous pouvez éventuellement effectuer les vérifications de diagnostic en exécu
 6. Quittez SSH.
 
 ![Diagnostics pour l’opérationnalisation](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
+
+
+>[!NOTE]
+>**Retards importants lors de l’utilisation d’un service web sur Spark**
+>
+>Si vous rencontrez d’importants retards lorsque vous utilisez un service web créé avec des fonctions mrsdeploy dans un contexte d’exécution Spark, vous devrez peut-être ajouter des dossiers manquants. L’application Spark appartient à un utilisateur nommé « *rserve2* » à chaque fois qu’elle est appelée depuis un service web à l’aide de fonctions mrsdeploy. Pour contourner ce problème :
+
+    # Create these required folders for user 'rserve2' in local and hdfs:
+
+    hadoop fs -mkdir /user/RevoShare/rserve2
+    hadoop fs -chmod 777 /user/RevoShare/rserve2
+
+    mkdir /var/RevoShare/rserve2
+    chmod 777 /var/RevoShare/rserve2
+
+
+    # Next, create a new Spark compute context:
+ 
+    rxSparkConnect(reset = TRUE)
+
 
 À ce stade, la configuration de l’opérationnalisation est terminée. Vous pouvez désormais utiliser le package « mrsdeploy » sur votre RClient pour vous connecter à l’opérationnalisation sur le nœud de périmètre et commencer à utiliser ses fonctionnalités, telles que [l’exécution à distance](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) et les [services web](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Selon que votre cluster est configuré sur un réseau virtuel ou non, vous devrez peut-être configurer le tunneling de réacheminement du port via une connexion SSH. Les sections suivantes expliquent comment configurer ce tunnel.
 

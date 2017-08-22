@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: jdial;narayan;annahar
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: eee5ba0b57dd62e34303b92a564e1cb6070dbdd8
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 84bbf90257f038fb5f3e964b7b35419acd77fc6d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer une homologation de réseaux virtuels - Resource Manager - Abonnements différents 
 
 Dans ce didacticiel, vous allez découvrir comment créer une homologation de réseaux virtuels entre des réseaux virtuels créés par le biais de Resource Manager. Les réseaux virtuels existent dans des abonnements différents. Homologuer deux réseaux virtuels permet aux ressources de différents réseaux virtuels de communiquer entre elles avec la même bande passante et latence, comme si les ressources se trouvaient sur le même réseau virtuel. En savoir plus sur l’[homologation de réseaux virtuels](virtual-network-peering-overview.md). 
 
-Les étapes de création d’une homologation de réseaux virtuels sont différentes selon que les réseaux virtuels sont dans le même abonnement ou dans des abonnements différents, et selon le [modèle de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) utilisé pour les créer. Découvrez comment créer une homologation de réseaux virtuels dans d’autres scénarios en cliquant sur le scénario souhaité dans le tableau suivant :
+Les étapes de création d’une homologation de réseaux virtuels sont différentes, selon que les réseaux virtuels sont dans le même abonnement ou dans des abonnements différents, et selon le [modèle de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) utilisé pour les créer. Découvrez comment créer une homologation de réseaux virtuels dans d’autres scénarios en cliquant sur le scénario souhaité dans le tableau suivant :
 
 |Modèle de déploiement Azure  | Abonnement Azure  |
 |--------- |---------|
@@ -84,7 +84,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
      - **Je connais mon ID de ressource** : cochez cette case.
      - **ID de ressource** : entrez l’ID de ressource noté à l’étape 14.
      - **Autoriser l’accès au réseau virtuel :** vérifiez que l’option **Activé** est sélectionnée.
-    Il n’y aucun autre paramètre utilisé dans ce didacticiel. Pour en savoir plus sur tous les paramètres d’homologation, consultez [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md#create-peering) (Créer, modifier ou supprimer une homologation de réseaux virtuels).
+    Il n’y aucun autre paramètre utilisé dans ce didacticiel. Pour en savoir plus sur tous les paramètres d’homologation, consultez [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md#create-a-peering) (Créer, modifier ou supprimer une homologation de réseaux virtuels).
 22. Après avoir cliqué sur **OK** à l’étape précédente, le panneau **Ajouter l’homologation** se ferme et vous pouvez à nouveau voir le panneau **myVnetA - Homologations**. Après quelques secondes, l’homologation que vous avez créée apparaît dans le panneau. **Lancé** est indiqué dans la colonne **ÉTAT D’APPAIRAGE** pour l’homologation **myVnetAToMyVnetB** que vous avez créée. Vous avez homologué myVnetA à myVnetB, mais vous devez maintenant homologuer myVnetB à myVnetA. L’homologation doit être créée dans les deux directions pour permettre aux ressources des réseaux virtuels de communiquer entre elles.
 23. Déconnectez-vous du portail en tant que UserA, puis connectez-vous en tant que UserB.
 24. Répétez les étapes 17 à 21 pour MyVnetB. À l’étape 21, nommez l’homologation *myVnetBToMyVnetA*, sélectionnez *myVnetA* pour **Réseau virtuel** et entrez l’ID noté à l’étape 10 dans la zone **ID de ressource**.
@@ -294,7 +294,7 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Familiarisez-vous bien avec les [comportements et contraintes importants de l’homologation de réseaux virtuels](virtual-network-manage-peering.md#about-peering) avant d’en créer une pour une utilisation en production.
-- Apprenez-en davantage sur tous les [paramètres d’homologation de réseaux virtuels](virtual-network-manage-peering.md#create-peering).
+- Familiarisez-vous bien avec les [comportements et contraintes importants de l’homologation de réseaux virtuels](virtual-network-manage-peering.md#requirements-and-constraints) avant d’en créer une pour une utilisation en production.
+- Apprenez-en davantage sur tous les [paramètres d’homologation de réseaux virtuels](virtual-network-manage-peering.md#create-a-peering).
 - Découvrez comment [créer une topologie de réseau de type hub et spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec l’homologation de réseaux virtuels.
 

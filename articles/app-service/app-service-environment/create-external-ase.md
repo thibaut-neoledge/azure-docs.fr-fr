@@ -1,6 +1,6 @@
 ---
-title: "Créer un environnement Azure App Service Environment externe"
-description: "Explique comment créer un environnement Azure App Service Environment lors de la création d’une application ou en mode autonome"
+title: "Créer un environnement Azure App Service externe"
+description: "Explique comment créer un environnement App Service dans le cadre d’un plan App Service ou de manière autonome."
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 3f1418b71a7327264e29e3f08ef97b254ee9930d
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 2dfe531facbe84aac65c5f787851c015de719fee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/03/2017
 
 ---
-# <a name="create-an-external-app-service-environment"></a>Créer un environnement App Service Environment externe #
+# <a name="create-an-external-app-service-environment"></a>Créer un environnement App Service externe #
 
-L’ASE (App Service Environment) est un déploiement d’Azure App Service dans un sous-réseau de votre réseau virtuel Azure. Vous pouvez déployer un ASE de deux façons :
+Un environnement Azure App Service est un déploiement d’Azure App Service dans un sous-réseau d’un réseau virtuel Azure. Il existe deux façons de déployer un environnement App Service :
 
-- avec une adresse IP virtuelle sur une adresse IP externe, pour un environnement souvent appelé _ASE externe_ ;
-- avec l’adresse IP virtuelle sur une adresse IP interne, pour un environnement souvent appelé _ASE ILB_, car le point de terminaison interne est un équilibreur de charge interne (ILB, Internal Load Balancer).
+- À l’aide d’une adresse IP virtuelle définie sur une adresse IP externe. On parle alors d’environnement App Service externe.
+- À l’aide d’une adresse IP virtuelle définie sur une adresse IP interne. On parle alors d’environnement App Service ILB, car le point de terminaison interne est un équilibreur de charge interne (ILB, Internal Load Balancer).
 
-Cet article vous explique comment créer un ASE externe. Pour une vue d’ensemble de l’ASE, consultez [An Introduction to the App Service Environment (Présentation de l’environnement ASE)][Intro]. Pour plus d’informations sur la création d’un ASE ILB, consultez [Create and use an ILB ASE (Créer et utiliser un ASE ILB)][MakeILBASE].
+Cet article vous explique comment créer un ASE externe. Pour une présentation de l’environnement App Service, consultez [Présentation de l’environnement App Service Environment][Intro]. Pour plus d’informations sur la création d’un environnement App Service ILB, consultez [Créer et utiliser un équilibreur de charge interne avec un environnement Azure App Service Environment][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>Avant de créer votre ASE ##
 
-Il est important de savoir ce que vous ne pouvez plus modifier après la création de l’ASE :
+Une fois l’environnement App Service créé, les éléments suivants ne peuvent plus être modifiés :
 
-- Emplacement
+- Lieu
 - Abonnement
 - Groupe de ressources
 - Réseau virtuel utilisé
@@ -41,66 +41,90 @@ Il est important de savoir ce que vous ne pouvez plus modifier après la créati
 - Taille du sous-réseau
 
 > [!NOTE]
-> Lors de la sélection d’un réseau virtuel et de la spécification d’un sous-réseau, vérifiez que leur taille leur permet de prendre en compte les évolutions futures. La taille recommandée est un `/25` avec 128 adresses.
+> Quand vous choisissez un réseau virtuel et spécifiez un sous-réseau, vérifiez que leur taille leur permet de prendre en compte les évolutions futures. Nous vous recommandons une taille de `/25` avec 128 adresses.
 >
 
 ## <a name="three-ways-to-create-an-ase"></a>Trois façons de créer un ASE ##
 
-Il existe 3 façons de créer un ASE. Vous pouvez créer un ASE :
+Il existe trois façons de créer un environnement App Service :
 
-- Lors de la création d’un plan App Service, ce qui crée l’ASE et le plan App Service en une seule étape.
-- À partir de l’interface utilisateur de création d’ASE autonome, ce qui crée un ASE vide. Ce mode de création plus avancé s’utilise pour créer un ASE avec un équilibreur de charge interne (ILB).
-- À l’aide d’un modèle Resource Manager. Ce mode convient à un utilisateur avancé et est détaillé dans [Create an ASE from a template (Créer un ASE à partir d’un modèle)][MakeASEfromTemplate].
+- **Dans le cadre d’un plan App Service**. Avec cette méthode, l’environnement App Service et le plan App Service sont créés lors de la même étape.
+- **De façon autonome**. Avec cette méthode, seul l’environnement App Service est créé. Le processus de création est plus avancé et permet de créer un environnement App Service avec un équilibreur de charge interne (ILB).
+- **À l’aide d’un modèle Azure Resource Manager**. Cette méthode est destinée aux utilisateurs expérimentés. Pour plus d’informations, consultez [Création d’un environnement ASE à l’aide des modèles Azure Resource Manager][MakeASEfromTemplate].
 
-Un ASE créé sans équilibreur de charge interne possède une adresse IP virtuelle publique. Cela signifie que tout le trafic HTTP destiné aux applications dans l’ASE sera envoyé à une adresse IP accessible par Internet. Un ASE avec un ILB a un point de terminaison sur une adresse IP de réseau virtuel. Ces applications ne sont pas exposées directement à Internet.
+Un environnement App Service externe a une adresse IP virtuelle publique, ce qui signifie que le trafic HTTP/HTTPS entrant dans les applications de l’environnement App Service atteint une adresse IP accessible via Internet. Un environnement App Service avec un équilibreur de charge interne (ILB) a une adresse IP issue du sous-réseau utilisé par l’environnement App Service. Les applications hébergées dans un environnement App Service ILB ne sont pas exposées directement à Internet.
 
 ## <a name="create-an-ase-and-an-app-service-plan-together"></a>Créer un ASE et un plan App Service ensemble ##
 
-Le plan App Service est un conteneur d’applications. Lorsque vous créez une application dans App Service, vous devez toujours choisir ou créer un plan App Service. Le modèle de conteneur est le suivant : les environnements contiennent les plans App Service et les plans App Service contiennent les applications.
+Le plan App Service est un conteneur d’applications. Lorsque vous créez une application dans App Service, vous devez sélectionner ou créer un plan App Service. Les environnements du modèle de conteneur contiennent les plans App Service, et les plans App Service contiennent les applications.
 
-Pour créer un ASE lors de la création du plan App Service :
+Pour créer un environnement App Service en même temps que le plan App Service :
 
-1. Dans le [Portail Azure](https://portal.azure.com/), cliquez sur **Nouveau &gt; Web + mobile &gt; Application web**.
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Nouveau** > **Web + Mobile** > **Application web**.
 
-    ![][1]
-1. Sélectionnez votre abonnement. Si vous avez plusieurs abonnements, sachez que pour créer une application dans votre ASE, vous devez utiliser le même abonnement que celui utilisé lors de la création de l’ASE.
-1. Sélectionnez ou créez un groupe de ressources. Les *groupes de ressources* vous permettent de gérer les ressources Azure connexes en tant qu’unité et sont utiles lors de l’établissement de règles de *contrôle d’accès en fonction du rôle* (RBAC) pour vos applications. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager][ARMOverview].
-1. Cliquez sur le plan App Service, puis sélectionnez **Créer un nouveau**.
+    ![Création d’une application web][1]
 
-    ![][2]
-1. Dans la liste déroulante **Emplacement**, choisissez la région où vous souhaitez créer l’ASE. Si vous sélectionnez un ASE, vous ne pourrez pas en créer un. Vous ne pourrez que créer le plan App Service dans l’ASE sélectionné.
-1. Cliquez sur l’interface utilisateur **Plan de tarification** et choisissez l’une des références SKU de tarification **Isolé**. La sélection d’une carte de référence SKU **Isolé** et d’un emplacement qui n’est pas un ASE indique que vous souhaitez créer un ASE dans cet emplacement. L’interface utilisateur de création d’ASE s’affiche lorsque vous cliquez sur **Sélectionner** dans la page de la carte de tarification. La référence SKU **Isolé** n’est disponible qu’avec un ASE. Vous ne pouvez pas utiliser une autre référence SKU de tarification dans un ASE qui n’est pas **Isolé**.
+2. Sélectionnez votre abonnement. L’application et l’environnement App Service sont créés dans les mêmes abonnements.
 
-    ![][3]
-1. Indiquez le nom de votre ASE. Le nom de votre ASE est utilisé dans le nom adressable de vos applications. Si le nom de l’ASE est _appsvcenvdemo_, le nom du sous-domaine est *.appsvcenvdemo.p.azurewebsites.net*. Donc, si vous créez une application nommée *mytestapp*, elle est adressable à l’adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d’espace blanc dans le nom de votre ASE. Si vous utilisez des caractères en majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules.
+3. Sélectionnez ou créez un groupe de ressources. Vous pouvez utiliser des groupes de ressources pour gérer des ressources Azure connexes en tant qu’unité. Les groupes de ressources sont également utiles lorsque vous souhaitez établir des règles de contrôle d’accès en fonction du rôle (RBAC) pour vos applications. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager][ARMOverview].
 
-    ![][4]
-1. Choisissez **Créer un nouveau** ou **sélectionner**. L’option permettant de sélectionner un réseau virtuel n’est disponible que si vous avez un réseau virtuel dans la région sélectionnée. Si vous sélectionnez **Créer un nouveau**, indiquez le nom du réseau virtuel. Un réseau virtuel Resource Manager portant ce nom sera créé avec l’espace d’adressage `192.168.250.0/23` dans la région sélectionnée. Si vous choisissez **Sélectionner**, vous devez :
-    1. sélectionner le bloc d’adresses du réseau virtuel si vous avez plusieurs ;
-    2. indiquer le nom d’un nouveau sous-réseau ;
-    3. sélectionner la taille du sous-réseau. **Rappel : prévoyez une taille suffisante pour la croissance future de votre ASE.** La taille recommandée est un `/25` qui comprend 128 adresses et peut gérer un ASE d’une taille maximale. `/28` est déconseillé, par exemple, car 16 adresses seulement sont disponibles. L’infrastructure utilise au moins 5 adresses, ce qui vous laisserait au maximum 11 instances dans un sous-réseau `/28`.
-    4. Sélectionnez la plage IP du sous-réseau.
+4. Cliquez sur le plan App Service, puis sélectionnez **Créer un nouveau**.
 
-Le processus de création d’ASE commence lorsque vous sélectionnez **Créer**. Cette opération crée également le plan App Service et l’application. L’ASE, le plan App Service et l’application seront regroupés dans le même abonnement et le même groupe de ressources. Si vous devez placer votre ASE dans un groupe de ressources autre que celui de votre plan App Service et de l’application, ou si vous avez besoin d’un ASE ILB, utilisez le mode de création d’ASE autonome.
+    ![Nouveau plan App Service][2]
+
+5. Dans la liste déroulante **Emplacement**, sélectionnez la région où vous souhaitez créer l’environnement App Service. Si vous sélectionnez un environnement App Service existant, aucun environnement App Service n’est créé. Le plan App Service est créé dans l’environnement App Service que vous avez sélectionné. 
+
+6. Sélectionnez **Niveau tarifaire**, puis choisissez l’une des références SKU de tarification **Isolé**. Si vous choisissez une carte de référence SKU **Isolé** et un emplacement autre qu’un environnement App Service, un nouvel environnement App Service est créé à cet emplacement. Pour démarrer le processus de création d’un environnement App Service, cliquez sur **Sélectionner**. La référence SKU **Isolé** n’est disponible qu’avec un environnement App Service. Vous ne pouvez pas utiliser une autre référence SKU de tarification dans un environnement App Service qui n’est pas **Isolé**.
+
+    ![Sélection du niveau tarifaire][3]
+
+7. Indiquez le nom de votre ASE. Ce nom est utilisé dans le nom adressable de vos applications. Si le nom de l’environnement App Service est _appsvcenvdemo_, le nom du domaine est *.appsvcenvdemo.p.azurewebsites.net*. Si vous créez une application nommée *mytestapp*, elle est adressable à l’adresse mytestapp.appsvcenvdemo.p.azurewebsites.net. Vous ne pouvez pas utiliser d’espace blanc dans le nom. Si vous utilisez des majuscules dans le nom, le nom de domaine correspond à la version complète de ce nom en minuscules.
+
+    ![Nom du nouveau plan App Service][4]
+
+8. Spécifiez les informations concernant votre réseau virtuel Azure. Choisissez **Créer un nouveau** ou **Sélectionner**. L’option permettant de sélectionner un réseau virtuel existant est disponible uniquement si un réseau virtuel se trouve dans la région sélectionnée. Si vous sélectionnez **Créer un nouveau**, entrez un nom pour le réseau virtuel. Un nouveau réseau virtuel Resource Manager portant ce nom est alors créé. Il utilise l’espace d’adressage `192.168.250.0/23` dans la région sélectionnée. Si vous choisissez **Sélectionner**, vous devez :
+
+    a. Sélectionner le bloc d’adresses du réseau virtuel, si vous en avez plusieurs
+
+    b. Entrer un nom pour le nouveau sous-réseau
+
+    c. Sélectionner la taille du sous-réseau. *Veillez à définir une taille de sous-réseau suffisamment grande pour s’adapter à toute future croissance de votre environnement App Service.* Nous recommandons `/25`, qui comprend 128 adresses et peut gérer un environnement App Service de taille maximale. Par exemple, `/28` est déconseillé, car 16 adresses seulement sont disponibles. L’infrastructure utilise au moins cinq adresses. Dans un sous-réseau `/28`, vous vous retrouvez avec une mise à l’échelle maximale de 11 instances.
+
+    d. Sélectionner la plage IP du sous-réseau
+
+9. Sélectionnez **Créer** pour créer l’environnement App Service. Ce processus crée également le plan App Service et l’application. L’environnement App Service, le plan App Service et l’application sont regroupés au sein du même abonnement et du même groupe de ressources. Si votre environnement App Service a besoin d’un groupe de ressources distinct, ou si vous avez besoin d’un environnement App Service ILB, procédez aux étapes permettant de créer un environnement App Service de manière autonome.
 
 ## <a name="create-an-ase-by-itself"></a>Créer un ASE autonome ##
 
-Le mode de création autonome crée un ASE vide. Même vide, un ASE occasionne des frais mensuels pour l’infrastructure. L’intérêt de ce mode est de créer un ASE avec un ILB ou dans son propre groupe de ressources. Une fois l’ASE créé, vous pouvez y créer des applications en utilisant le processus normal et en sélectionnant votre nouvel ASE comme emplacement.
+Lorsque vous créez un environnement App Service autonome, celui-ci est vide. Même vide, un environnement App Service occasionne des frais mensuels pour l’infrastructure. Effectuez les étapes permettant de créer un environnement App Service ILB ou un environnement App Service dans son propre groupe de ressources. Une fois l’environnement App Service créé, vous pouvez y créer des applications à l’aide de la procédure normale. Sélectionnez votre nouvel environnement App Service comme emplacement.
 
-Pour accéder à l’interface utilisateur de création d’ASE, recherchez ***App Service Environment*** dans Azure Marketplace ou sélectionnez Nouveau -&gt; Web et mobilité -&gt; App Service Environment. Pour créer un ASE en mode de création autonome :
+1. Recherchez **App Service Environment** dans la Place de marché, ou sélectionnez **Nouveau** > **Web + mobile** > **App Service Environment**. 
 
-1. Indiquez le nom de votre ASE. Le nom spécifié pour l’ASE sera utilisé pour les applications créées dans l’ASE. Si le nom de l’ASE est *mynewdemoase*, le nom du sous-domaine est *.mynewdemoase.p.azurewebsites.net*. Si, ensuite, vous créez une application nommée *mytestapp*, elle est adressable à l’adresse *mytestapp.mynewdemoase.p.azurewebsites.net*. Vous ne pouvez pas utiliser d’espace blanc dans le nom de votre ASE. Si vous utilisez des majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules. Si vous utilisez un ILB, le nom de votre ASE n’est pas utilisé dans votre sous-domaine mais explicitement indiqué lors de la création de l’ASE.
+2. Entrez le nom de votre environnement App Service. Ce nom est utilisé pour les applications créées dans l’environnement App Service. Si le nom est *mynewdemoase*, le nom du sous-domaine est *.mynewdemoase.p.azurewebsites.net*. Si vous créez une application nommée *mytestapp*,celle-ci est adressable à l’adresse mytestapp.mynewdemoase.p.azurewebsites.net. Vous ne pouvez pas utiliser d’espace blanc dans le nom. Si vous utilisez des majuscules dans le nom, le nom de domaine correspond à la version complète de ce nom en minuscules. Si vous utilisez un équilibreur de charge interne (ILB), le nom de votre environnement App Service n’est pas utilisé dans votre sous-domaine, mais il est explicitement indiqué lors de la création de l’environnement App Service.
 
-    ![][5]
-1.  Sélectionnez votre abonnement. L’abonnement utilisé pour votre ASE est également celui avec lequel toutes les applications dans cet ASE seront créées. Vous ne pouvez pas placer votre ASE dans un réseau virtuel qui se trouve dans un autre abonnement.
-1.  Sélectionnez ou spécifiez un nouveau groupe de ressources. Le groupe de ressources utilisé pour votre ASE doit être le même que celui utilisé pour votre réseau virtuel. Si vous sélectionnez un réseau virtuel, le groupe de ressources choisi pour votre ASE sera mis à jour en fonction de celui de votre réseau virtuel.
+    ![Attribution d’un nom à l’environnement App Service][5]
 
-    ![][6]
-1. Effectuez vos sélections de réseau virtuel et d’emplacement. Vous pouvez choisir entre créer ou sélectionner un réseau virtuel. Si vous sélectionnez un nouveau réseau virtuel, vous pouvez indiquer un nom et un emplacement. Le nouveau réseau virtuel reçoit la plage d’adresses 192.168.250.0/23 et un sous-réseau nommé **default** et défini sur la plage 192.168.250.0/24. Vous ne pouvez sélectionner qu’un réseau virtuel Resource Manager. La sélection du **type d’adresse IP virtuelle** détermine si votre ASE est accessible directement à partir d’Internet (externe) ou s’il utilise un équilibreur de charge interne (ILB). Pour en savoir plus, consultez [Create and Use an Internal Load Balancer with an App Service Environment (Créer et utiliser un équilibreur de charge interne avec un ASE)][MakeILBASE]. Si vous sélectionnez un type d’adresse IP virtuelle **Externe**, vous pouvez sélectionner le nombre d’adresses IP externes avec lesquelles le système est créé, pour le protocole SSL basé sur IP. Si vous sélectionnez **Interne**, vous devez spécifier le sous-domaine que votre ASE va utiliser. Les ASE peuvent être déployés dans les réseaux virtuels qui utilisent *soit* des plages d’adresses publiques, *soit* des espaces d’adressage RFC1918 (par exemple, des adresses privées). Pour utiliser un réseau virtuel avec une plage d’adresses publiques, vous devez créer le réseau virtuel à l’avance. Lorsque vous sélectionnez un réseau virtuel, vous devez créer un sous-réseau lors de la création de l’ASE. **Vous ne pouvez pas utiliser un sous-réseau créé au préalable dans le portail. Vous pouvez créer un ASE avec un sous-réseau existant si vous utilisez un modèle Resource Manager.** Pour créer un ASE à partir d’un modèle, consultez [Create an App Service Environment from template (Créer un ASE à partir d’un modèle)][MakeASEfromTemplate].
+3. Sélectionnez votre abonnement. Cet abonnement est également celui que toutes les applications de l’environnement App Service utilisent. Vous ne pouvez pas placer votre environnement App Service dans un réseau virtuel se trouvant dans un autre abonnement.
 
-## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
+4. Sélectionnez ou spécifiez un nouveau groupe de ressources. Le groupe de ressources utilisé pour votre environnement App Service doit être le même que celui utilisé pour votre réseau virtuel. Si vous sélectionnez un réseau virtuel existant, la sélection du groupe de ressources pour votre environnement App Service est mise à jour pour refléter celle de votre réseau virtuel. *Si vous utilisez un modèle Resource Manager, vous pouvez créer un environnement App Service avec un groupe de ressources différent de celui du réseau virtuel.* Pour créer un environnement App Service à partir d’un modèle, consultez [Création d’un environnement ASE à l’aide des modèles Azure Resource Manager][MakeASEfromTemplate].
 
-Vous pouvez toujours créer des instances de la première version de la fonctionnalité ASE (ASEv1). Pour ce faire, recherchez **App Service Environment v1** dans MarketPlace. Ce mode de création est identique au mode de création d’ASE autonome. Votre ASEv1 est créé avec deux serveurs frontaux et deux rôles de travail. Avec ASEv1, vous devez gérer les serveurs frontaux et les rôles de travail. Ils ne sont pas ajoutés automatiquement lors de la création de vos plans App Service. Les serveurs frontaux se comportent comme des points de terminaison HTTP/HTTPS et envoient le trafic aux rôles de travail qui hébergent vos applications. Vous pouvez en ajuster la quantité après la création de l’ASE. Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnement App Service v1][ASEv1Intro]. Pour plus d’informations sur la mise à l’échelle, la gestion et la surveillance d’ASEv1, consultez [Configuration d’un environnement App Service][ConfigureASEv1].
+    ![Sélection du groupe de ressources][6]
+
+5. Sélectionnez le réseau virtuel et l’emplacement. Vous pouvez créer un réseau virtuel ou sélectionner un réseau virtuel existant : 
+
+    * Si vous sélectionnez un nouveau réseau virtuel, vous pouvez spécifier un nom et un emplacement. Le nouveau réseau virtuel se voit affecter la plage d’adresses 192.168.250.0/23 et un sous-réseau nommé default. Le sous-réseau reçoit la plage d’adresses 192.168.250.0/24. Vous pouvez uniquement sélectionner un réseau virtuel Resource Manager. La sélection du **type d’adresse IP virtuelle** détermine si votre environnement App Service est accessible directement à partir d’Internet (externe) ou s’il utilise un équilibreur de charge interne (ILB). Pour plus d’informations, consultez [Créer et utiliser un équilibreur de charge interne avec un environnement Azure App Service Environment][MakeILBASE]. 
+
+      * Si vous sélectionnez un **Type d’adresse IP virtuelle** **Externe**, vous pouvez choisir le nombre d’adresses IP externes avec lesquelles est créé le système, en vue d’une utilisation du protocole SSL basé sur IP. 
+    
+      * Si vous sélectionnez un **Type d’adresse IP virtuelle** **Interne**, vous devez spécifier le domaine que votre environnement App Service utilise. Vous pouvez déployer un environnement App Service dans un réseau virtuel qui utilise des plages d’adresses publiques ou privées. Pour utiliser un réseau virtuel avec une plage d’adresses publiques, vous devez créer le réseau virtuel à l’avance. 
+    
+    * Si vous sélectionnez un réseau virtuel existant, un nouveau sous-réseau est créé en même temps que l’environnement App Service. *Vous ne pouvez pas utiliser un sous-réseau créé au préalable dans le portail. Si vous utilisez un modèle Resource Manager, vous pouvez créer un environnement App Service avec un sous-réseau existant.* Pour créer un environnement App Service à partir d’un modèle, consultez [Création d’un environnement ASE à l’aide des modèles Azure Resource Manager][MakeASEfromTemplate].
+
+## <a name="app-service-environment-v1"></a>Environnement App Service v1 ##
+
+Vous pouvez toujours créer des instances de la première version d’App Service Environment (ASEv1). Pour commencer, recherchez **App Service Environment v1** dans la Place de marché. Créez l’environnement App Service de la même façon que pour un environnement App Service autonome. Une fois créée, votre instance d’ASEv1 comprend deux front-ends et deux Workers. Avec ASEv1, vous devez gérer les front-ends et les Workers. Ils ne sont pas ajoutés automatiquement lors de la création de vos plans App Service. Les front-ends servent de points de terminaison HTTP/HTTPS et envoient le trafic aux Workers. Les Workers correspondent aux rôles qui hébergent vos applications. Vous pouvez ajuster la quantité de front-ends et de Workers après la création de l’environnement App Service. 
+
+Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnement App Service v1][ASEv1Intro]. Pour plus d’informations sur la mise à l’échelle, la gestion et la surveillance d’ASEv1, consultez [Configuration d’un environnement App Service][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

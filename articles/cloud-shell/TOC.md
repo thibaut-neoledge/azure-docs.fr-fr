@@ -14,6 +14,7 @@
 
 # Référence
 ## [Azure CLI 2.0](/cli/azure) 
+
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)

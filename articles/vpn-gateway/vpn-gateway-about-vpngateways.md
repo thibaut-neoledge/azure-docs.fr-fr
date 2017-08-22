@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0f26a9b62a376daf2b1314ff5972293a2bc7f379
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: db280ff801c6e501e7ab7890f67d22ae16444491
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="about-vpn-gateway"></a>À propos de la passerelle VPN
@@ -28,7 +28,7 @@ Une passerelle VPN est un type de passerelle de réseau virtuel qui envoie le tr
 
 Chaque réseau virtuel ne peut avoir qu’une seule passerelle VPN, toutefois, vous pouvez créer plusieurs connexions à la même passerelle VPN. La configuration d’une connexion sur plusieurs sites en est un bon exemple. Lorsque vous créez plusieurs connexions à une même passerelle VPN, tous les tunnels VPN, y compris les VPN de Point à site, partagent la bande passante disponible pour la passerelle.
 
-### <a name="what-is-a-virtual-network-gateway"></a>Qu’est-ce qu’une passerelle de réseau virtuel ?
+### <a name="whatis"></a>Qu’est-ce qu’une passerelle de réseau virtuel ?
 
 Une passerelle de réseau virtuel est composée de deux ou plusieurs machines virtuelles déployées sur un sous-réseau spécifique, appelé GatewaySubnet. Les machines virtuelles qui se trouvent dans GatewaySubnet sont créées lors de la création de la passerelle de réseau virtuel. Les machines virtuelles de la passerelle de réseau virtuel sont configurées de manière à contenir les tables de routage et les services de passerelle spécifiques de la passerelle. Vous ne pouvez pas configurer directement les machines virtuelles qui font partie de la passerelle de réseau virtuel et vous ne devez jamais déployer de ressources supplémentaires sur GatewaySubnet.
 
@@ -38,7 +38,7 @@ Lorsque vous créez une passerelle de réseau virtuel à l’aide du type de pas
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## <a name="configuring-a-vpn-gateway"></a>Configuration d’une passerelle VPN
+## <a name="configuring"></a>Configuration d’une passerelle VPN
 
 Une connexion par passerelle VPN s’appuie sur plusieurs ressources qui sont configurées avec des paramètres spécifiques. La plupart des ressources peuvent être configurées séparément, mais elles doivent être configurées dans un certain ordre dans certains cas.
 
@@ -46,11 +46,11 @@ Une connexion par passerelle VPN s’appuie sur plusieurs ressources qui sont co
 
 Les paramètres que vous avez choisis pour chaque ressource sont essentiels à la création d’une connexion réussie. Pour plus d’informations sur les ressources et paramètres spécifiques pour la passerelle VPN, consultez [À propos des paramètres de passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md). L’article contient des informations pour vous aider à comprendre les types de passerelle, les types de VPN, les types de connexion, les sous-réseaux de passerelle, les passerelles de réseau local et divers autres paramètres de ressource que vous pouvez vouloir prendre en compte.
 
-### <a name="deployment-tools"></a>Outils de déploiement
+### <a name="tools"></a>Outils de déploiement
 
 Vous pouvez commencer par créer et configurer des ressources à l’aide de l’un des outils de configuration, comme le portail Azure. Vous pouvez décider de passer à un autre outil, tel que PowerShell, pour configurer des ressources supplémentaires ou pour modifier les ressources existantes, le cas échéant. Il n’est pour le moment pas possible de configurer toutes les ressources et tous les paramètres des ressources dans le portail Azure. Les instructions fournies dans les articles dédiés à chaque topologie de connexion indiquent si un outil de configuration spécifique est requis. 
 
-### <a name="deployment-model"></a>Modèle de déploiement
+### <a name="models"></a>Modèle de déploiement
 
 Lorsque vous configurez votre passerelle VPN, les étapes à suivre varient en fonction du modèle de déploiement que vous avez utilisé pour créer votre réseau virtuel. Par exemple, si vous avez créé votre réseau virtuel à l’aide du modèle de déploiement classique, vous utilisez les recommandations et les instructions pour le modèle de déploiement classique afin de créer et configurer les paramètres de votre passerelle VPN. Pour plus d’informations sur les modèles de déploiement, voir [Comprendre les modèles de déploiement Resource Manager et de déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -64,7 +64,7 @@ Il est important de savoir qu’il existe différentes configurations disponible
 
 Utilisez les graphiques et les descriptions pour sélectionner la topologie de connexion répondant à vos besoins. Le graphique présente les principales topologies de base, mais il est possible de créer des configurations plus complexes à l’aide des diagrammes.
 
-## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site à site et multi-sites (tunnel VPN IPsec/IKE)
+## <a name="s2smulti"></a>Site à site et multi-sites (tunnel VPN IPsec/IKE)
 
 ### <a name="S2S"></a>Site à site
 

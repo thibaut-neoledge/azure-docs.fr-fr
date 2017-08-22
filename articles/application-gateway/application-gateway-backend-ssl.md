@@ -1,5 +1,5 @@
 ---
-title: "Activation d’une stratégie SSL de bout en bout sur la passerelle Application Gateway | Microsoft Docs"
+title: Activation du chiffrement SSL de bout en bout sur la passerelle Azure Application Gateway | Microsoft Docs
 description: "Cette page fournit une vue d’ensemble de la prise en charge du chiffrement SSL de bout en bout pour la passerelle Application Gateway."
 documentationcenter: na
 services: application-gateway
@@ -13,16 +13,16 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 07/19/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 40368e31790a7ffa2d34a51a13e78d028cd0a1eb
-ms.lasthandoff: 04/05/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 689ee54dc1db2ea371b08270718278fd98c65bb5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Présentation de la stratégie SSL et SSL de bout en bout sur la passerelle Application Gateway
+# <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Présentation du chiffrement SSL de bout en bout sur la passerelle Application Gateway
 
 La passerelle Application Gateway prend en charge la terminaison SSL au niveau de la passerelle, après laquelle le trafic transite généralement de façon non chiffrée vers les serveurs principaux. Grâce à cette fonctionnalité, les serveurs web ne sont plus chargés des opérations coûteuses de chiffrement et de déchiffrement. Mais pour certains clients, une communication non chiffrée vers les serveurs principaux n’est pas une option acceptable. Cette communication non chiffrée peut être due à des exigences de sécurité ou de conformité, ou au fait que l’application n’accepte qu’une connexion sécurisée. Pour de telles applications, la passerelle Application Gateway prend désormais en charge le chiffrement SSL de bout en bout.
 
@@ -40,17 +40,9 @@ Dans cet exemple, les demandes utilisant TLS1.2 sont acheminées vers les serveu
 
 La passerelle Application Gateway communique uniquement avec les instances de serveur principal identifiées dont le certificat figure sur la liste approuvée par la passerelle Application Gateway. Pour approuver des certificats, vous devez télécharger la clé publique des certificats du serveur principal pour la passerelle Application Gateway (non le certificat racine). Seules les connexions aux serveurs principaux connus et sur liste blanche sont alors autorisées. Les autres serveurs principaux renvoient une erreur de passerelle. Les certificats auto-signés sont uniquement destinés à des fins de test et ne sont pas recommandés pour les charges de travail de production. Pour être utilisables, ces certificats doivent figurer dans la liste approuvée par la passerelle Application Gateway, comme décrit dans les étapes précédentes.
 
-## <a name="application-gateway-ssl-policy"></a>Stratégie SSL de la passerelle Application Gateway
-
-La passerelle Application Gateway prend en charge les stratégies de négociation SSL configurables par l’utilisateur, offrant aux clients un meilleur contrôle des connexions SSL au niveau de la passerelle Application Gateway.
-
-1. Les protocoles SSL 2.0 et 3.0 sont désactivés par défaut pour toutes les passerelles Application Gateway. Ces stratégies ne sont pas configurables.
-2. La définition de la stratégie SSL vous permet de désactiver les trois protocoles suivants : **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2**.
-3. Si aucune stratégie SSL n’est définie, les trois protocoles (TLSv1\_0, TLSv1\_1, TLSv1_2) sont activés.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir découvert le chiffrement SSL de bout en bout et la stratégie SSL, consultez l’article indiquant comment [activer le chiffrement SSL de bout en bout sur la passerelle Application Gateway](application-gateway-end-to-end-ssl-powershell.md) pour créer une passerelle d’application à l’aide du chiffrement SSL de bout en bout.
+Après avoir découvert le chiffrement SSL de bout en bout, consultez l’article indiquant comment [activer le chiffrement SSL de bout en bout sur la passerelle Application Gateway](application-gateway-end-to-end-ssl-powershell.md) pour créer une passerelle d’application à l’aide du chiffrement SSL de bout en bout.
 
 <!--Image references-->
 

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 22f5dda489f94ebb5a22e017b72c2524a8f22d6a
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: b382e545e47353a177b3b02b3931001ab22d53c8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
+
 
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Déplacer une machine virtuelle Windows à partir de Amazon Web Services (AWS) vers Azure à l’aide de PowerShell
 
@@ -57,7 +57,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-Une fois le disque dur virtuel exporté, suivez les instructions de la section [Comment télécharger un objet à partir d’un compartiment S3 ?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) pour télécharger le fichier du disque dur virtuel depuis le compartiment S3. 
+Une fois le VHD exporté, suivez les instructions de la section [Comment télécharger un objet à partir d’un compartiment S3 ?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) pour télécharger le fichier du VHD depuis le compartiment S3. 
 
 > [!IMPORTANT]
 > AWS facture des frais de transfert de données lors du téléchargement du disque dur virtuel. Pour en savoir plus, consultez la page [Tarification Amazon S3](https://aws.amazon.com/s3/pricing/).

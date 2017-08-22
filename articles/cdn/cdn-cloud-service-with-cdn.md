@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
-ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="intro"></a> Intégration d’un service cloud à Azure CDN
@@ -163,11 +162,11 @@ En effet, avec la configuration précédente, vous pouvez héberger l’ensemble
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
-Cependant, cela ne signifie pas que c'est toujours (ou généralement) une bonne idée pour traiter l'ensemble du service cloud via Azure CDN. Mises en garde éventuelles :
+Cependant, cela ne signifie pas que ce soit toujours une bonne idée de traiter l’ensemble du service cloud par l’intermédiaire d’Azure CDN. 
 
-* Cette approche nécessite que l'ensemble de votre site soit public, car Azure CDN ne peut pas traiter du contenu privé pour le moment.
-* Si le point de terminaison CDN passe hors connexion quelle qu’en soit la raison (maintenance prévue ou erreur utilisateur), l’ensemble de votre service cloud passe hors connexion à moins qu’il soit possible de rediriger les clients vers l’URL d’origine **http://*&lt;nom_service>*.cloudapp.net/**.
-* Même avec les paramètres Cache-Control personnalisés (voir [Configuration des options de mise en cache des fichiers statiques dans votre service cloud](#caching)), un point de terminaison CDN n'améliore pas les performances des contenus très dynamiques. Si vous avez essayé de charger la page d'accueil depuis votre point de terminaison CDN (voir ci-dessus), notez qu'il faut environ 5 secondes pour charger la page d'accueil par défaut la première fois, alors qu'il s'agit d'une page relativement simple. Imaginez ce qui se passe du côté client si cette page comporte un contenu dynamique qui doit s'actualiser toutes les minutes. Le traitement du contenu dynamique depuis un point de terminaison CDN nécessite une brève expiration du cache qui se traduit en fréquentes erreurs dans le cache au niveau du point de terminaison. Cela nuit aux performances ou à votre service cloud, et va à l'encontre de la fonction d'un réseau de distribution de contenu (CDN).
+Un CDN avec optimisation de la remise statique n’accélère pas forcément la distribution des ressources dynamiques qui ne sont pas censées être mises en cache, ou qui sont mises à jour très fréquemment, étant donné que le CDN doit extraire très souvent une nouvelle version de la ressource à partir du serveur d’origine. Pour ce scénario, vous pouvez activer l’optimisation [Accélération de site dynamique](cdn-dynamic-site-acceleration.md) sur votre point de terminaison CDN, qui utilise diverses techniques pour accélérer la distribution des ressources dynamiques ne pouvant pas être mises en cache. 
+
+Si vous avez un site avec un mélange de contenu statique et dynamique, vous pouvez choisir de traiter votre contenu statique à partir de CDN avec un type d’optimisation statique (par exemple la livraison web générale) et de traiter le contenu dynamique directement à partir du serveur d’origine ou par le biais d’un point de terminaison CDN avec l’optimisation Accélération de site dynamique activée au cas par cas. À cette fin, vous avez déjà vu comment accéder à des fichiers de contenu individuels depuis le point de terminaison CDN. Je vais vous montrer comment traiter une action sur un contrôleur donné par le biais d’un point de terminaison CDN spécifique dans la section Distribution de contenu à partir d’actions de contrôleur via Azure CDN.
 
 La solution alternative consiste à déterminer au cas par cas le contenu à traiter à partir d'Azure CDN dans votre service cloud. À cette fin, vous avez déjà vu comment accéder à des fichiers de contenu individuels depuis le point de terminaison CDN. Je vais vous montrer comment traiter une action sur un contrôleur donné via le point de terminaison CDN dans la section [Distribution de contenu à partir d'actions de contrôleur via Azure CDN](#controller).
 

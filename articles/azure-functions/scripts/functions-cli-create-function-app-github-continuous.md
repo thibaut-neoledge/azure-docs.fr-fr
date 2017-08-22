@@ -2,7 +2,9 @@
 title: "Créer une Function App et déployer le code de fonction à partir de GitHub | Microsoft Docs"
 description: "Créer une Function App et déployer le code de fonction à partir de GitHub"
 services: functions
+ms.service: functions
 keywords: 
+ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017

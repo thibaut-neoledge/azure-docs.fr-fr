@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 07/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 93b36891c960582563a4ff9c622cd5ac3198dfeb
-ms.lasthandoff: 04/17/2017
-
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 97eeec3b3936bcbef6ac3966b890332901bcb153
+ms.contentlocale: fr-fr
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -29,13 +31,11 @@ Pour activer l’accès à distance à SharePoint avec le proxy d’application 
 
 ## <a name="prerequisites"></a>Composants requis
 
-Cet article suppose que SharePoint 2013 ou une version plus récente est déjà configuré et en cours d’exécution dans votre environnement. En outre, prenez en compte les conditions préalables suivantes :
+Cet article suppose que vous avez déjà SharePoint 2013 ou une version plus récente dans votre environnement. En outre, prenez en compte les conditions préalables suivantes :
 
-* La fonctionnalité Proxy d’application est disponible uniquement si vous effectuez une mise à niveau vers l’édition Premium ou Standard d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+* SharePoint comprend la prise en charge native de Kerberos. Ainsi, les utilisateurs qui accèdent à des sites internes à distance à l’aide du proxy d’application Azure AD peuvent s’attendre à une expérience d’authentification unique (SSO).
 
-* SharePoint comprend la prise en charge native de Kerberos. Par conséquent, les utilisateurs qui accèdent à des sites internes à distance à l’aide du proxy d’application Azure AD peuvent s’attendre à une expérience d’authentification unique (SSO) sans interruption.
-
-* Vous devrez apporter quelques modifications de configuration sur votre serveur SharePoint. Nous vous recommandons d’utiliser un environnement intermédiaire. Ainsi, vous pouvez d’abord mettre à jour votre serveur de test, puis faciliter un cycle de test avant de passer en production.
+* Vous devez apporter quelques modifications de configuration sur votre serveur SharePoint. Nous vous recommandons d’utiliser un environnement intermédiaire. Ainsi, vous pouvez d’abord mettre à jour votre serveur de test, puis faciliter un cycle de test avant de passer en production.
 
 * Nous partons du principe que vous avez déjà configuré SSL pour SharePoint, car nous exigeons SSL sur l’URL publiée. SSL doit être activé sur votre site interne, afin de garantir que les liens sont envoyés/mappés correctement. Si vous n’avez pas configuré SSL, consultez le blog [Configure SSL for SharePoint 2013](https://blogs.msdn.microsoft.com/fabdulwahab/2013/01/20/configure-ssl-for-sharepoint-2013) pour obtenir des instructions. En outre, assurez-vous que l’ordinateur du connecteur approuve le certificat que vous émettez. (Ce certificat doit pas nécessairement être émis publiquement.)
 
@@ -45,13 +45,13 @@ Nos clients veulent bénéficier de la meilleure expérience SSO pour leurs appl
 
 Pour les applications locales qui exigent ou utilisent l’authentification Windows, vous pouvez obtenir l’authentification unique (SSO) à l’aide du protocole d’authentification Kerberos et d’une fonctionnalité appelée « délégation Kerberos contrainte (KCD) ». Quand elle est configurée, la délégation KCD permet au connecteur de proxy d’application d’obtenir un ticket/jeton Windows pour un utilisateur, même si ce dernier ne s’est pas connecté directement à Windows. Pour en savoir plus sur la KCD, consultez [Présentation de la délégation Kerberos contrainte](https://technet.microsoft.com/library/jj553400.aspx).
 
-Pour configurer la délégation KCD pour un serveur SharePoint, utilisez les procédures décrites dans les sections séquentielles suivantes.
+Pour configurer la délégation KCD pour un serveur SharePoint, utilisez les procédures décrites dans les sections séquentielles suivantes :
 
 ### <a name="ensure-that-sharepoint-is-running-under-a-service-account"></a>Vérifier que SharePoint s’exécute sous un compte de service
 
-Tout d’abord, vérifiez que SharePoint s’exécute sous un compte de service défini, et non sous le système local, le service local ou le service réseau. Vous devez effectuer cette opération afin de pouvoir attacher les noms de principal de service (SPN) à un compte valide. Les SPN sont la façon dont le protocole Kerberos identifie les différents services. De plus, vous aurez besoin de ce compte plus tard pour configurer la délégation KCD.
+Tout d’abord, vérifiez que SharePoint s’exécute sous un compte de service défini, et non sous le système local, le service local ou le service réseau. Effectuez cette opération afin de pouvoir attacher les noms de principal de service (SPN) à un compte valide. Les SPN sont la façon dont le protocole Kerberos identifie les différents services. De plus, vous aurez besoin de ce compte plus tard pour configurer la délégation KCD.
 
-Pour vous assurer que vos sites sont en cours d’exécution sous un compte de service défini, procédez comme suit :
+Pour vous assurer que vos sites sont en cours d’exécution sous un compte de service défini, effectuez les étapes suivantes :
 
 1. Ouvrez le site **Administration centrale de SharePoint 2013**.
 2. Accédez à **Sécurité**, puis sélectionnez **Configurer les comptes de service**.
@@ -99,7 +99,7 @@ Dans le format du nom de principal de service :
 
 * _service class_ est un nom unique pour le service. Pour SharePoint, vous utilisez **HTTP**.
 
-* _host_ est le nom de domaine complet ou le nom NetBIOS de l’hôte sur lequel le service est en cours d’exécution. Dans le cas d’un site SharePoint, ce nom peut devoir être l’URL du site, en fonction de la version d’IIS que vous utilisez.
+* _host_ est le nom de domaine complet ou le nom NetBIOS de l’hôte sur lequel le service est en cours d’exécution. Pour un site SharePoint, ce texte peut devoir être l’URL du site, en fonction de la version d’IIS que vous utilisez.
 
 * _port_ est facultatif.
 
@@ -183,13 +183,13 @@ Pour effectuer les étapes suivantes, vous devez être membre du rôle Administr
 
  SharePoint utilise la valeur _En-tête d’hôte_ pour rechercher le site. Il génère également des liens en fonction de cette valeur. L’effet immédiat est de vérifier que tout lien généré par SharePoint est une URL publiée correctement définie pour utiliser l’URL externe. Définir la valeur sur **OUI** permet également au connecteur de transférer la demande à l’application principale. Toutefois, la valeur **NON** signifie que le connecteur n’envoie pas le nom d’hôte interne. Au lieu de cela, il envoie l’en-tête d’hôte comme URL publiée à l’application principale.
 
- De plus, pour garantir que SharePoint accepte cette URL, vous devez effectuer des configurations supplémentaires sur le serveur SharePoint. Vous le ferez dans la section suivante.
+ En outre, pour vous assurer que SharePoint accepte cette URL, vous devez effectuer une configuration supplémentaire sur le serveur SharePoint. Vous le ferez dans la section suivante.
 
 7. Définissez **Méthode d’authentification interne** sur **Authentification Windows intégrée**. Si votre client Azure AD utilise un nom d’utilisateur principal (UPN) dans le cloud différent de l’UPN local, n’oubliez pas de mettre également à jour **Identité de connexion déléguée**.
 8. Définissez l’option **SPN d’application interne** sur la valeur que vous avez définie précédemment. Par exemple, utilisez **http/sharepoint.demo.o365identity.us**.
 9. Affectez l’application à vos utilisateurs cibles.
 
-Votre application doit ressembler à l’écran suivant :
+Votre application doit ressembler à l’exemple suivant :
 
   ![Application achevée](./media/application-proxy-remote-sharepoint/remote-sharepoint-internal-application-spn.png)
 

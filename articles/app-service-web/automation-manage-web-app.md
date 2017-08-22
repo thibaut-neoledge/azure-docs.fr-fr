@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
-ms.author: magoedte;csand
-translationtype: Human Translation
+ms.author: magoedte
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
 ms.openlocfilehash: 4fcfa2e7ec2e8257407026ed4cca0e15fd0b5bb6
-
+ms.contentlocale: fr-fr
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="managing-azure-web-app-using-azure-automation"></a>Gestion d’une application web Azure à l’aide d’Azure Automation
@@ -41,10 +42,5 @@ Voici quelques exemples de gestion d’App Services avec Automation :
 Maintenant que vous connaissez les bases d’Azure Automation et que vous savez l’utiliser pour gérer une application web Azure, cliquez sur les liens ci-dessous pour en savoir plus.
 
 * Consultez le [Didacticiel de prise en main](../automation/automation-first-runbook-graphical.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
