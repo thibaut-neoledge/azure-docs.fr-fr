@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 396d8b9532eb55341670ad61bd4c2a16882b35e4
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Vue d’ensemble de la passerelle Application Gateway
@@ -42,6 +42,7 @@ Application Gateway offre actuellement les fonctionnalités suivantes :
 * **[Routage multi-sites](application-gateway-multi-site-overview.md)** : la passerelle Application Gateway permet de consolider jusqu’à 20 sites web sur une passerelle unique.
 * **[Prise en charge de WebSocket](application-gateway-websocket.md)** : une autre fonctionnalité intéressante de la passerelle Application Gateway est la prise en charge native de WebSocket.
 * **[Analyse du fonctionnement](application-gateway-probe-overview.md)** - la passerelle Application Gateway fournit par défaut une analyse du fonctionnement des ressources principales et intègre des sondes personnalisées pour surveiller des scénarios plus spécifiques.
+* **[Stratégie SSL et chiffrements](application-gateway-ssl-policy-overview.md)** : cette fonctionnalité permet de limiter les versions du protocole SSL et les suites de chiffrements prises en charge, ainsi que l’ordre dans lequel elles sont traitées.
 * **[Demande de redirection](application-gateway-redirect-overview.md)** : cette fonctionnalité permet de rediriger les demandes HTTP vers un écouteur HTTPS.
 * **[Prise en charge de serveurs principaux multilocataires](application-gateway-web-app-overview.md)** : Application Gateway prend en charge la configuration de services de serveurs principaux multilocataires comme Azure Web Apps et la passerelle d’API en tant que membres de pool principal. 
 * **[Diagnostics avancés](application-gateway-diagnostics.md)** - Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux de pare-feu sont disponibles pour les ressources de passerelle d’application avec WAF activé.
@@ -105,5 +106,5 @@ Pour les questions fréquemment posées sur Application Gateway, consultez [Foru
 
 Pour savoir comment créer une passerelle d’application avec le routage de contenu basé sur une URL, consultez [Créer une passerelle d’application à l’aide du routage en fonction de l’URL](application-gateway-create-url-route-arm-ps.md) .
 
-Pour en savoir plus sur les autres fonctionnalités clés de mise en réseau de Azure, consultez la [Mise en réseau Azure]((../networking/networking-overview.md).
+Pour en savoir plus sur les autres fonctionnalités de réseau clés d’Azure, consultez [Mise en réseau Azure](../networking/networking-overview.md).
 

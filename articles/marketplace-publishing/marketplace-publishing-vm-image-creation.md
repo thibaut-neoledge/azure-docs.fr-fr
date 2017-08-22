@@ -20,7 +20,6 @@ ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide à la création d’une image de machine virtuelle pour Azure Marketplace
 Cet article, **étape 2**, vous guide dans la préparation des disques durs virtuels (VHD) que vous allez déployer dans Azure Marketplace. Vos disques durs virtuels constituent le fondement de votre référence SKU. Le processus varie selon que vous fournissez une référence SKU Linux ou Windows. Cet article aborde ces deux scénarios. Ce processus peut être exécuté parallèlement à la procédure de [création de compte et d’enregistrement][link-acct-creation].
@@ -299,9 +298,9 @@ L’URI de signature d’accès partagé créé doit respecter les exigences sui
 L’URL SAS peut être générée de plusieurs manières pour partager votre disque dur virtuel sur Azure Marketplace.
 Voici les 3 outils recommandés :
 
-1.    Azure Storage Explorer
-2.    Explorateur de stockage Microsoft
-3.    Interface de ligne de commande Azure
+1.  Azure Storage Explorer
+2.  Explorateur de stockage Microsoft
+3.  Interface de ligne de commande Azure
 
 **Azure Storage Explorer (recommandé pour les utilisateurs Windows)**
 
@@ -332,15 +331,15 @@ Voici les étapes pour générer des URL SAS à l’aide d’Azure Storage Explo
 
     ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
-8.    Après avoir sélectionné le fichier .vhd dans le conteneur, cliquez sur l’onglet **Security** (Sécurité).
+8.  Après avoir sélectionné le fichier .vhd dans le conteneur, cliquez sur l’onglet **Security** (Sécurité).
 
     ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
-9.    Dans la boîte de dialogue **Blob Container Security** (Sécurité du conteneur d’objets blob), conservez les valeurs par défaut de l’onglet **Access Level** (Niveau d’accès), puis cliquez sur l’onglet **Shared Access Signatures** (Signatures d’accès partagé).
+9.  Dans la boîte de dialogue **Blob Container Security** (Sécurité du conteneur d’objets blob), conservez les valeurs par défaut de l’onglet **Access Level** (Niveau d’accès), puis cliquez sur l’onglet **Shared Access Signatures** (Signatures d’accès partagé).
 
     ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 
-10.    Suivez les étapes ci-dessous pour générer une signature d’accès partagé URI de l’image .vhd :
+10. Suivez les étapes ci-dessous pour générer une signature d’accès partagé URI de l’image .vhd :
 
     ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
@@ -360,45 +359,45 @@ Voici les étapes pour générer des URL SAS à l’aide d’Azure Storage Explo
        - À la fin de la signature, assurez-vous que **« =rl »** s’affiche. Cela montre qu’un accès en lecture seule et de liste a été fourni avec succès.
        - Au milieu de la signature, assurez-vous que **« sr=c »** s’affiche. Cela montre que vous avez l’accès de niveau conteneur
 
-11.    Pour vous assurer que l’URI de signature d’accès partagé fonctionne, cliquez sur **Test in Browser**(Test dans le navigateur). Le téléchargement doit normalement démarrer.
+11. Pour vous assurer que l’URI de signature d’accès partagé fonctionne, cliquez sur **Test in Browser**(Test dans le navigateur). Le téléchargement doit normalement démarrer.
 
-12.    Copiez l’URI de signature d’accès partagé. Cet URI doit être copié dans le Portail de publication.
+12. Copiez l’URI de signature d’accès partagé. Cet URI doit être copié dans le Portail de publication.
 
-13.    Répétez les étapes 6 à 10 pour chaque disque dur virtuel de la référence SKU.
+13. Répétez les étapes 6 à 10 pour chaque disque dur virtuel de la référence SKU.
 
 **Explorateur de stockage Microsoft Azure (Windows/MAC/Linux)**
 
 Voici les étapes pour générer des URL SAS à l’aide de Microsoft Azure Storage Explorer
 
-1.    Téléchargez Microsoft Azure Storage Explorer depuis le site web [http://storageexplorer.com/](http://storageexplorer.com/). Accédez à [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) et cliquez sur **Download for Windows**.
+1.  Téléchargez Microsoft Azure Storage Explorer depuis le site web [http://storageexplorer.com/](http://storageexplorer.com/). Accédez à [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) et cliquez sur **Download for Windows**.
 
     ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
-2.    Après l’installation, ouvrez l’application.
+2.  Après l’installation, ouvrez l’application.
 
-3.    Cliquez sur **Ajouter un compte**.
+3.  Cliquez sur **Ajouter un compte**.
 
-4.    Configurez Microsoft Azure Storage Explorer pour votre abonnement en vous connectant à votre compte
+4.  Configurez Microsoft Azure Storage Explorer pour votre abonnement en vous connectant à votre compte
 
     ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
-5.    Accédez au compte de stockage et sélectionnez le conteneur
+5.  Accédez au compte de stockage et sélectionnez le conteneur
 
-6.    Sélectionnez **« Obtenir la signature de partage d’accès... »** en cliquant avec le bouton droit de la souris sur le **conteneur**
+6.  Sélectionnez **« Obtenir la signature de partage d’accès... »** en cliquant avec le bouton droit de la souris sur le **conteneur**
 
     ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
 
-7.    Date de début, date d’expiration et autorisations de la mise à jour comme suit
+7.  Date de début, date d’expiration et autorisations de la mise à jour comme suit
 
     ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
-    a.    **Start Time** (Date de début) : Afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 6 octobre 2014, sélectionnez 5/10/2014.
+    a.  **Start Time** (Date de début) : Afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 6 octobre 2014, sélectionnez 5/10/2014.
 
-    b.    **Date d’expiration :** sélectionnez une date au moins 3 semaines après la **Date de début**.
+    b.  **Date d’expiration :** sélectionnez une date au moins 3 semaines après la **Date de début**.
 
-    c.    **Permissions** (Autorisations) : sélectionnez les autorisations **List** (Lister) et **Read** (Lire)
+    c.  **Permissions** (Autorisations) : sélectionnez les autorisations **List** (Lister) et **Read** (Lire)
 
-8.    Copiez l’URI de signature d’accès partagé du conteneur
+8.  Copiez l’URI de signature d’accès partagé du conteneur
 
     ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
 
@@ -418,21 +417,21 @@ Voici les étapes pour générer des URL SAS à l’aide de Microsoft Azure Stor
     - Au milieu de la signature, assurez-vous que **« sp=rl »** s’affiche. Cela montre qu’un accès en lecture seule et de liste a été fourni avec succès.
     - Au milieu de la signature, assurez-vous que **« sr=c »** s’affiche. Cela montre que vous avez l’accès de niveau conteneur
 
-9.    Pour vous assurer que l’URI de signature d’accès partagé fonctionne, testez-la dans le navigateur. Le téléchargement doit normalement démarrer
+9.  Pour vous assurer que l’URI de signature d’accès partagé fonctionne, testez-la dans le navigateur. Le téléchargement doit normalement démarrer
 
-10.    Copiez l’URI de signature d’accès partagé. Cet URI doit être copié dans le Portail de publication.
+10. Copiez l’URI de signature d’accès partagé. Cet URI doit être copié dans le Portail de publication.
 
-11.    Répétez ces étapes pour chaque disque dur virtuel de la référence SKU.
+11. Répétez ces étapes pour chaque disque dur virtuel de la référence SKU.
 
 **Interface de ligne de commande Azure (méthode recommandée pour l’intégration continue/non Windows)**
 
 Voici les étapes pour générer des URL SAS à l’aide de l’interface de ligne de commande Azure
 
-1.    Téléchargez l’interface de ligne de commande Microsoft Azure [ici](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Vous y trouverez également les différents liens pour  **[Windows](http://aka.ms/webpi-azure-cli)**  et  **[Mac OS](http://aka.ms/mac-azure-cli)**.
+1.  Téléchargez l’interface de ligne de commande Microsoft Azure [ici](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Vous y trouverez également les différents liens pour  **[Windows](http://aka.ms/webpi-azure-cli)**  et  **[Mac OS](http://aka.ms/mac-azure-cli)**.
 
-2.    Après le téléchargement, veuillez effectuer l’installation
+2.  Après le téléchargement, veuillez effectuer l’installation
 
-3.    Créez un fichier PowerShell avec le code suivant et enregistrez-le en local
+3.  Créez un fichier PowerShell avec le code suivant et enregistrez-le en local
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -454,21 +453,21 @@ Voici les étapes pour générer des URL SAS à l’aide de l’interface de lig
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.    Ouvrez l’éditeur PowerShell avec le mode « Exécuter en tant qu’administrateur » et ouvrez le fichier de l’étape 3.
+4.  Ouvrez l’éditeur PowerShell avec le mode « Exécuter en tant qu’administrateur » et ouvrez le fichier de l’étape 3.
 
-5.    Exécutez le script, il vous fournira l’URL SAS pour l’accès au niveau conteneur
+5.  Exécutez le script, il vous fournira l’URL SAS pour l’accès au niveau conteneur
 
     La sortie de la signature SAS suivra. Copiez la partie en surbrillance dans un bloc-notes
 
     ![dessin](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
 
-6.    Maintenant, vous obtenez l’URL SAS au niveau conteneur et vous devez lui ajouter le nom du disque dur virtuel.
+6.  Maintenant, vous obtenez l’URL SAS au niveau conteneur et vous devez lui ajouter le nom du disque dur virtuel.
 
     URL SAS de niveau de conteneur
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.    Insérez le nom du disque dur virtuel après le nom du conteneur dans l’URL SAS comme indiqué ci-dessous`https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+7.  Insérez le nom du disque dur virtuel après le nom du conteneur dans l’URL SAS comme indiqué ci-dessous`https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Exemple :
 
@@ -477,14 +476,14 @@ Voici les étapes pour générer des URL SAS à l’aide de l’interface de lig
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     - Assurez-vous que votre nom de fichier d’image et le « .vhd » sont dans l’URI.
-    -    Au milieu de la signature, assurez-vous que « sp=rl » s’affiche. Cela montre qu’un accès en lecture seule et de liste a été fourni avec succès.
-    -    Au milieu de la signature, assurez-vous que « sr=c » s’affiche. Cela montre que vous avez l’accès de niveau conteneur
+    -   Au milieu de la signature, assurez-vous que « sp=rl » s’affiche. Cela montre qu’un accès en lecture seule et de liste a été fourni avec succès.
+    -   Au milieu de la signature, assurez-vous que « sr=c » s’affiche. Cela montre que vous avez l’accès de niveau conteneur
 
-8.    Pour vous assurer que l’URI de signature d’accès partagé fonctionne, testez-la dans le navigateur. Le téléchargement doit normalement démarrer
+8.  Pour vous assurer que l’URI de signature d’accès partagé fonctionne, testez-la dans le navigateur. Le téléchargement doit normalement démarrer
 
-9.    Copiez l’URI de signature d’accès partagé. Cet URI doit être copié dans le Portail de publication.
+9.  Copiez l’URI de signature d’accès partagé. Cet URI doit être copié dans le Portail de publication.
 
-10.    Répétez ces étapes pour chaque disque dur virtuel de la référence SKU.
+10. Répétez ces étapes pour chaque disque dur virtuel de la référence SKU.
 
 
 ### <a name="53-provide-information-about-the-vm-image-and-request-certification-in-the-publishing-portal"></a>5.3 Fournir des informations sur l’image de machine virtuelle et demander une certification dans le Portail de publication
@@ -547,8 +546,8 @@ Une fois que vous avez terminé avec les détails de la référence SKU, vous po
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
 [link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
-[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2.md
-[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[link-azure-2]:../storage/blobs/storage-dotnet-shared-access-signature-part-2.md
+[link-azure-1]:../storage/common/storage-dotnet-shared-access-signature-part-1.md
 [link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
 [link-technet-3]:https://technet.microsoft.com/library/hh846766.aspx
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx

@@ -192,7 +192,7 @@ Dans ce cas, vous devez effectuer les étapes suivantes avant de commencer à ex
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-create-storageaccount]: storage-create-storage-account.md 
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md 
 
 
 

@@ -7,8 +7,8 @@ Un nouveau serveur principal ASP.NET WebAPI est créé dans les sections qui sui
 
 Les étapes suivantes montrent comment créer le serveur principal ASP.NET WebAPI : 
 
-> [!NOTE]
-> **Important** : si vous utilisez Visual Studio 2015 ou une version antérieure, avant d’entamer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installée. Pour ce faire, lancez Visual Studio. Dans le menu **Tools**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet** pour votre version de Visual Studio et vérifiez que vous disposez de la dernière version. Si ce n’est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
+> [!IMPORTANT]
+> Si vous utilisez Visual Studio 2015 ou une version antérieure, avant de commencer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installée. Pour ce faire, lancez Visual Studio. Dans le menu **Tools**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet** pour votre version de Visual Studio et vérifiez que vous disposez de la dernière version. Si ce n’est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
 > 
 > ![][B4]
 > 

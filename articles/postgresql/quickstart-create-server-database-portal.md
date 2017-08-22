@@ -9,24 +9,23 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 08/04/2017
+ms.date: 08/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: e89058a500aeb542ae4c7dc6bb4a9b9ae54db7f2
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 8bba5a97fdc4bbc15fe996ee68daf5b796d1bfac
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
 # <a name="create-an-azure-database-for-postgresql-in-the-azure-portal"></a>Créer une base de données Azure pour PostgreSQL dans le portail Azure
 
-Base de données Azure pour PostgreSQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données PostgreSQL hautement disponibles dans le cloud. Ce guide de démarrage rapide vous montre comment créer un serveur de base de données Azure pour PostgreSQL à l’aide du portail Azure.
+Base de données Azure pour PostgreSQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données PostgreSQL hautement disponibles dans le cloud. Ce guide de démarrage rapide vous montre comment créer en quelques minutes un serveur de base de données Azure pour PostgreSQL à l’aide du portail Azure.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-
-Connectez-vous au [portail Azure](https://portal.azure.com).
+Ouvrez votre navigateur web et accédez au [portail Microsoft Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
 
 ## <a name="create-an-azure-database-for-postgresql"></a>Créer une base de données Azure pour PostgreSQL
 
@@ -67,9 +66,9 @@ Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les ét
 
 Le service Base de données Azure pour PostgreSQL crée un pare-feu au niveau du serveur. Le pare-feu empêche les applications et les outils externes de se connecter au serveur et à toute base de données sur le serveur, sauf si une règle de pare-feu est créée pour ouvrir le pare-feu à des adresses IP spécifiques. 
 
-1.  Localisez votre serveur après le déploiement. Si nécessaire, vous pouvez le rechercher. Par exemple, cliquez sur **Toutes les ressources** dans le menu de gauche, puis tapez le nom du serveur (tel que mypgserver-20170401) pour rechercher le serveur que vous venez de créer. Cliquez sur le nom de votre serveur dans les résultats de la recherche. La page Présentation correspondant à votre serveur s’ouvre et propose des options pour poursuivre la configuration de la page.
+1.  Localisez votre serveur après le déploiement. Si nécessaire, vous pouvez le rechercher. Par exemple, cliquez sur **Toutes les ressources** dans le menu de gauche, puis tapez le nom du serveur (tel que *mypgserver-20170401*) pour rechercher le serveur que vous venez de créer. Cliquez sur le nom de votre serveur dans les résultats de la recherche. La page **Présentation** correspondant à votre serveur s’ouvre et propose des options pour poursuivre la configuration de la page.
  
-    ![Base de données Azure pour PostgreSQL - Rechercher le serveur ](./media/quickstart-create-database-portal/4-locate.png)
+    ![Base de données Azure pour PostgreSQL - Rechercher le nom du serveur](./media/quickstart-create-database-portal/4-locate.png)
 
 2.  Sur la page du serveur, sélectionnez **Sécurité de la connexion**. 
     ![Base de données Azure pour PostgreSQL - Créer une règle de pare-feu](./media/quickstart-create-database-portal/5-firewall-2.png)
@@ -82,15 +81,15 @@ Le service Base de données Azure pour PostgreSQL crée un pare-feu au niveau du
     ---|---|---
     AllowAllIps |  0.0.0.0 | 255.255.255.255
 
-4. Dans la barre d’outils supérieure de la page Sécurité de la connexion, cliquez sur **Enregistrer**. Puis cliquez sur **X** pour fermer la page Sécurité de la connexion.
+4. Dans la barre d’outils supérieure de la page Sécurité de la connexion, cliquez sur **Enregistrer**. Avant de continuer, attendez quelques instants que la notification indiquant que la mise à jour de la sécurité de la connexion est terminée avec succès.
 
     > [!NOTE]
-    > Le serveur Azure PostgreSQL communique sur le port 5432. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 5432.
-  >
+    > Les connexions à votre serveur de base de données Azure pour PostgreSQL communiquent via le port 5432. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pourrez pas vous connecter à votre serveur, sauf si votre service informatique ouvre le port 5432.
+    >
 
 ## <a name="get-the-connection-information"></a>Obtenir les informations de connexion
 
-Lorsque nous avons créé notre serveur de base de données Azure pour PostgreSQL, une base de données par défaut nommée **postgres** a été créée. Pour vous connecter à votre serveur de base de données, vous devez rappeler le nom de serveur complet et les informations d’identification de connexion d’administrateur. Il est possible que vous ayez noté ces valeurs précédemment dans le cadre de ce guide de démarrage rapide. Si vous ne l’avez pas fait, localisez facilement le nom du serveur et les informations de connexion sur la page Vue d’ensemble du serveur sur le portail Azure.
+Lorsque nous avons créé notre serveur de base de données Azure pour PostgreSQL, une base de données par défaut nommée **postgres** a été créée. Pour vous connecter à votre serveur de base de données, vous devez rappeler le nom de serveur complet et les informations d’identification de connexion d’administrateur. Il est possible que vous ayez noté ces valeurs précédemment dans le cadre de ce guide de démarrage rapide. Si vous ne l’avez pas fait, vous pouvez facilement localiser le nom du serveur et les informations de connexion sur la page Vue d’ensemble du serveur sur le portail Azure.
 
 1. Ouvrez la page **Vue d’ensemble** de votre serveur. Prenez note du **nom du serveur** et du **nom de connexion d’administrateur du serveur**.
     Placez le curseur sur chaque champ afin de faire apparaître l’icône de copie à droite du texte. Cliquez sur l’icône de copie appropriée pour copier les valeurs qui vous intéressent.
@@ -129,23 +128,44 @@ Vous pouvez utiliser différentes applications pour vous connecter à votre serv
     --username | *nom de connexion d’administrateur du serveur* |Tapez le nom d’utilisateur de connexion d’administrateur du serveur fourni lorsque vous avez créé la base de données Azure pour PostgreSQL. Si vous ne vous souvenez pas du nom d’utilisateur, suivez les instructions de la section précédente pour obtenir les informations de connexion.  Le format correct est *username@servername*.
     --dbname | **postgres** | Pour la première connexion, utilisez le nom de base de données *postgres* généré par défaut par le système. Par la suite, vous créerez votre propre base de données.
 
-    Après avoir exécuté la commande psql avec vos propres valeurs de paramètre, vous serez invité à taper le mot de passe d’administrateur du serveur. Il s’agit du mot de passe que vous avez fourni lorsque vous avez créé le serveur. 
+    Après avoir exécuté la commande psql avec vos propres valeurs de paramètre, vous êtes invité à taper le mot de passe d’administrateur du serveur. Il s’agit du mot de passe que vous avez fourni lorsque vous avez créé le serveur. 
 
     Paramètre psql |Valeur suggérée|Description
     ---|---|---
     password | *votre mot de passe d’administrateur* | Notez que les caractères du mot de passe que vous tapez ne sont pas visibles au niveau de l’invite bash. Après avoir tapé tous les caractères, appuyez sur Entrée pour vous authentifier et vous connecter.
 
-4.  Une fois connecté au serveur, créez une base de données vide à l’invite en tapant la commande suivante :
+    Une fois connecté, l’utilitaire psql affiche une invite de commandes postgres dans laquelle vous pouvez taper des commandes sql. Au niveau de la sortie de connexion initiale, un avertissement peut s’afficher si la version de l’utilitaire psql dans Azure Cloud Shell est différente de la version du serveur de base de données Azure pour PostgreSQL. 
+    
+    Exemple de sortie psql :
+    ```bash
+    psql (9.5.7, server 9.6.2)
+    WARNING: psql major version 9.5, server major version 9.6.
+        Some psql features might not work.
+    SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
+    Type "help" for help.
+   
+    postgres=> 
+    ```
+
+    > [!TIP]
+    > Si le pare-feu n’est pas configuré pour autoriser l’adresse IP d’Azure Cloud Shell, l’erreur suivante se produit :
+    > 
+    > "psql: FATAL:  aucune entrée pg_hba.conf pour l’hôte "138.91.195.82", utilisateur "mylogin", base de données "postgres", SSL sur FATAL :  Connexion SSL nécessaire. Veuillez spécifier les options SSL puis réessayez.
+    > 
+    > Pour résoudre l’erreur, veillez à ce que la configuration du serveur corresponde à celle détaillée dans la section *Configurer une règle de pare-feu au niveau du serveur* de l’article.
+
+4.  Créez une base de données vide à l’invite en tapant la commande suivante :
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
+    La commande peut prendre quelques instants. 
 
 5.  À l’invite, exécutez la commande suivante pour basculer la connexion sur la base de données **mypgsqldb** nouvellement créée.
     ```bash
     \c mypgsqldb
     ```
 
-6.  Tapez \q, puis appuyez sur ENTRÉE pour quitter l’utilitaire psql. Vous pouvez fermer Azure Cloud Shell.
+6.  Tapez \q, puis appuyez sur ENTRÉE pour quitter l’utilitaire psql. Une fois terminé, vous pouvez fermer Azure Cloud Shell.
 
 Vous venez de vous connecter à la base de données Azure pour PostgreSQL et de créer une base de données utilisateur vide. Pour vous connecter à l’aide d’un autre outil courant, pgAdmin, passez à la section suivante.
 
@@ -153,45 +173,48 @@ Vous venez de vous connecter à la base de données Azure pour PostgreSQL et de 
 
 Pour se connecter au serveur Azure PostgreSQL à l’aide de l’outil d’interface graphique _pgAdmin_
 1.  Lancez l’application _pgAdmin_ sur votre ordinateur client. Vous pouvez installer _pgAdmin_ à partir de http://www.pgadmin.org/.
-2.  Choisissez **Ajouter un nouveau serveur** dans le menu **Liens rapides**.
+2.  Cliquez sur l’icône **Ajouter nouveau serveur** à partir de la section **Liens rapides** au milieu de la page Tableau de bord.
 3.  Dans l’onglet **Général** de la boîte de dialogue **Créer - Serveur**, entrez un nom convivial unique pour le serveur comme **Serveur Azure PostgreSQL**.
 ![Outil pgAdmin - Créer - Serveur](./media/quickstart-create-database-portal/9-pgadmin-create-server.png)
 4.  Dans l’onglet **Connexion** de la boîte de dialogue **Créer - Serveur**, utilisez les paramètres comme indiqué et cliquez sur **Enregistrer**.
    ![pgAdmin - Créer - Serveur](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
-    - **Nom d’hôte/adresse** : mypgserver-20170401.postgres.database.azure.com 
-        - Nom complet du serveur.
-    - **Port :**  5432
-        - Le numéro du port utilisé par ce serveur de base de données est 5432.
-    - **Maintenance Database** (Base de données de maintenance) : postgres 
-        - Nom de la base de données par défaut générée par le système.
-    - **Nom d’utilisateur :** mylogin@mypgserver-20170401 
-        - La connexion d’administrateur du serveur (user@mypgserver) obtenue précédemment dans ce démarrage rapide.
-    - **Mot de passe** : le mot de passe que vous avez choisi lorsque vous avez créé le serveur plus tôt dans ce démarrage rapide.
-    - **Mode SSL** : Exiger
-        - Par défaut, tous les serveurs Azure PostgreSQL sont créés avec l’application du SSL activée. Pour désactiver l’application du SSL, consultez les détails dans [Configure SSL connectivity in Azure Database for PostgreSQL](./concepts-ssl-connection-security.md) (Configurer la connectivité SSL dans Base de données Azure pour PostgreSQL).
-5.  Cliquez sur **Save**.
-6.  Dans le volet gauche Navigateur, développez **Groupes de serveurs**. Choisissez votre serveur **Serveur Azure PostgreSQL**.
-7.  Choisissez le **serveur** auquel vous vous êtes connecté, puis choisissez **Bases de données** sous ce dernier. 
-8.  Cliquez avec le bouton droit sur **Bases de données** pour créer une base de données.
-9.  Choisissez un nom de base de données **mypgsqldb** et son propriétaire en tant qu’administrateur serveur **mylogin**.
-10. Cliquez sur **Enregistrer** pour créer une base de données vide.
-11. Dans le volet **Navigateur**, développez **Serveur**. Développez le serveur que vous avez créé, et consultez la base de données **mypgsqldb** se trouvant en dessous.
+
+    Paramètre pgAdmin |Valeur suggérée|Description
+    ---|---|---
+    Nom/adresse de l’hôte | *nom du serveur* | Spécifiez la valeur de nom de serveur utilisée lorsque vous avez créé la base de données Azure pour PostgreSQL. L’exemple de serveur que nous utilisons ici est mypgserver-20170401.postgres.database.azure.com. Utilisez le nom de domaine complet (\*.postgres.database.azure.com), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, suivez les instructions de la section précédente pour obtenir les informations de connexion. 
+    Port | **5432** | Utilisez toujours le port 5432 lorsque vous vous connectez au service Base de données Azure pour PostgreSQL.  
+    Base de données de maintenance | **postgres** | Utilisez le nom de la base de données par défaut générée par le système *postgres*.
+    User Name | *nom de connexion d’administrateur du serveur* | Tapez le nom d’utilisateur de connexion d’administrateur du serveur fourni lorsque vous avez créé la base de données Azure pour PostgreSQL. Si vous ne vous souvenez pas du nom d’utilisateur, suivez les instructions de la section précédente pour obtenir les informations de connexion. Le format correct est *username@servername*.
+    Mot de passe | *votre mot de passe d’administrateur* |  Le mot de passe que vous avez choisi lorsque vous avez créé le serveur précédemment dans ce démarrage rapide.
+    Rôle | *Laisser vide* | Il est inutile de fournir un nom de rôle à ce stade. Laissez le champ vide.
+    Mode SSL | Require | Par défaut, tous les serveurs Azure PostgreSQL sont créés avec l’application du SSL activée. Pour désactiver l’application du SSL, consultez les détails dans [Configure SSL connectivity in Azure Database for PostgreSQL](./concepts-ssl-connection-security.md) (Configurer la connectivité SSL dans Base de données Azure pour PostgreSQL).
+    
+5.  Cliquez sur **Enregistrer**.
+6.  Dans le volet gauche Navigateur, développez le nœud **Serveurs**. Sélectionnez votre serveur, par exemple **Serveur Azure PostgreSQL** et cliquez pour vous y connecter.
+7. Développez le nœud serveur, puis **Bases de données** situé en-dessous. La liste doit inclure votre base de données *postgres* existante, ainsi que toute base de données utilisateur récemment créée, telle que la base *mypgsqldb*, que nous avons créée dans la section précédente. Remarque : vous pouvez créer plusieurs bases de données par serveur avec la base de données Azure pour PostgreSQL.
+8. Faites un clic droit sur **Bases de données**, choisissez le menu **Créer**, puis cliquez sur **Base de données**.
+9.  Tapez le nom de base de données de votre choix dans le champ **Base de données**, tel que *mypgsqldb*, comme indiqué dans l’exemple. 
+10. Sélectionnez le **Propriétaire** de la base de données dans la liste déroulante. Choisissez le nom de connexion d’administrateur du serveur, par exemple *mylogin*.
+10. Cliquez sur **Enregistrer** pour créer une nouvelle base de données vide.
+11. Dans le volet **Navigateur**, consultez la base de données que vous avez créée dans la liste des bases de données qui se trouve sous votre nom de serveur.
  ![pgAdmin - Créer - Base de données](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-Nettoyez toutes les ressources vous avez créées au cours de ce démarrage rapide en supprimant le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md).
+Supprimez les ressources créées lors du démarrage rapide en supprimant le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md), qui comprend toutes les ressources du groupe de ressources, ou bien en supprimant une seule ressource du serveur, si vous souhaitez conserver les autres ressources.
 
 > [!TIP]
-> Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. Si vous souhaitez continuer à utiliser d’autres démarrages rapides, ne nettoyez pas les ressources créées au cours de ce démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées au cours de ce démarrage rapide dans le portail Azure.
+> Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. Si vous souhaitez continuer à utiliser d’autres démarrages rapides, ne nettoyez pas les ressources créées au cours de ce démarrage rapide. Sinon, procédez comme suit pour supprimer les ressources créées au cours de ce démarrage rapide dans le portail Azure.
 
-1.  Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur **myresourcegroup**.
-2.  Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez **myresourcegroup** dans la zone de texte, puis cliquez sur Supprimer.
+Pour supprimer l’intégralité du groupe de ressources, y compris le serveur nouvellement créé :
+1.  Localisez votre groupe de ressources dans le portail Azure. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom du groupe de ressources, **myresourcegroup** dans notre exemple.
+2.  Sur la page de votre groupe de ressources, cliquez sur **Supprimer**. Tapez ensuite le nom de votre groupe de ressources, **myresourcegroup** dans notre exemple, dans la zone de texte pour confirmer la suppression, et cliquez sur **Supprimer**.
 
-Si vous souhaitez simplement supprimer le serveur nouvellement créé :
-1.  Dans le menu de gauche du portail Azure, cliquez sur PostgreSQL servers (Serveurs PostgreSQL), puis recherchez le serveur que vous venez de créer.
-2.  Sur la page Présentation, cliquez sur le bouton Supprimer dans le volet supérieur ![Base de données Azure pour PostgreSQL - Supprimer un serveur](./media/quickstart-create-database-portal/12-delete.png).
-3.  Vérifiez le nom du serveur à supprimer et affichez les bases de données sous celui-ci qui seront affectées. Tapez **mypgserver-20170401** dans la zone de texte, puis cliquez sur Supprimer.
+Autrement, vous pouvez supprimer le serveur nouvellement créé :
+1.  Localisez votre serveur dans le portail Azure, s’il n’est pas ouvert. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous avez créé.
+2.  Sur la page **Présentation**, cliquez sur le bouton **Supprimer** dans le volet supérieur.
+![Base de données Azure pour PostgreSQL : Supprimer le serveur](./media/quickstart-create-database-portal/12-delete.png)
+3.  Vérifiez le nom du serveur à supprimer et affichez les bases de données affectées situées sous celui-ci. Tapez le nom de serveur dans la zone de texte, **mypgserver-20170401** dans notre exemple, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/08/2017
+ms.date: 08/14/2017
 ms.author: jroth
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 98e307bc3b2dd876b74d64fbdeec162827a2e86e
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: c923f9aae4c7a1b8bd4f5760d0ec4f33923b9321
 ms.contentlocale: fr-fr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Approvisionner une machine virtuelle SQL Server dans le portail Azure
@@ -46,17 +46,17 @@ Ce didacticiel présente les procédures suivantes :
    > [!NOTE]
    > Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-2. Dans le portail Azure, cliquez sur **Nouveau**. Le portail ouvre le panneau **Nouveau** .
+2. Dans le portail Azure, cliquez sur **Nouveau**. Le portail ouvre la fenêtre **Nouveau**.
 
-3. Dans le panneau **Nouveau**, cliquez sur **Calcul** , puis sur **Afficher tout**.
+3. Dans la fenêtre **Nouveau**, cliquez sur **Calcul** , puis sur **Afficher tout**.
 
-   ![Panneau de nouveau calcul Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
+   ![Fenêtre Nouveau calcul](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
 4. Dans le champ de recherche, tapez **SQL Server**, puis appuyez sur ENTRÉE.
 
-5. Cliquez sur l’icône **Filtre**, puis sélectionnez **Microsoft** en tant qu’éditeur. Dans le panneau de filtre, cliquez sur **Terminé** pour filtrer les résultats et ne visualiser que les images SQL Server publiées par Microsoft.
+5. Cliquez sur l’icône **Filtre**, puis sélectionnez **Microsoft** en tant qu’éditeur. Dans la fenêtre du filtre, cliquez sur **Terminé** pour filtrer les résultats et ne visualiser que les images SQL Server publiées par Microsoft.
 
-   ![Panneau Machines virtuelles Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+   ![Fenêtre Machines virtuelles Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
 5. Passez en revue les images SQL Server disponibles. Chaque image identifie une version de SQL Server et un système d’exploitation.
 
@@ -77,7 +77,7 @@ Ce didacticiel présente les procédures suivantes :
     ![Créer une machine virtuelle avec Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a name="configure-the-vm"></a>Configurer la machine virtuelle
-Il existe cinq panneaux de configuration d’une machine virtuelle SQL Server.
+Il existe cinq fenêtres de configuration d’une machine virtuelle SQL Server.
 
 | Étape | Description |
 | --- | --- |
@@ -89,7 +89,7 @@ Il existe cinq panneaux de configuration d’une machine virtuelle SQL Server.
 
 ## <a name="1-configure-basic-settings"></a>1. Configurer les paramètres de base
 
-Dans le panneau **De base** , fournissez les informations suivantes :
+Dans la fenêtre **Informations de base** , fournissez les informations suivantes :
 
 * Entrez un **nom**de machine virtuelle unique.
 
@@ -110,14 +110,14 @@ Dans le panneau **De base** , fournissez les informations suivantes :
 
 * Cliquez sur **OK** pour enregistrer les paramètres.
 
-    ![Panneau SQL Basics (Informations de base SQL)](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
+    ![Fenêtre SQL Basics (Informations de base SQL)](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Choisir la taille de machine virtuelle
 
-Lors de l’étape de **dimensionnement**, choisissez une taille de machine virtuelle dans le panneau **Choisir une taille**. Le panneau affiche d’abord les tailles de machine virtuelle recommandées en fonction de l’image que vous avez sélectionnée.
+Lors de l’étape de **Dimensionnement**, choisissez une taille de machine virtuelle dans la fenêtre **Choisir une taille**. La fenêtre affiche d’abord les tailles de machine virtuelle recommandées en fonction de l’image que vous avez sélectionnée.
 
 > [!IMPORTANT]
-> Le coût mensuel estimé affiché sur le panneau **Choisir une taille** n’inclut pas les coûts de licence SQL Server. Il s’agit uniquement du coût de la machine virtuelle. Pour les éditions Express et Developer de SQL Server, il s’agit du coût total estimé. Pour les autres éditions, consultez la [page de tarification des machines virtuelles Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) et sélectionnez votre édition de SQL Server. Consultez également l’article [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Tarification des machines virtuelles SQL Server Azure).
+> Le coût mensuel estimé affiché sur la fenêtre **Choisir une taille** n’inclut pas les coûts de licence SQL Server. Il s’agit uniquement du coût de la machine virtuelle. Pour les éditions Express et Developer de SQL Server, il s’agit du coût total estimé. Pour les autres éditions, consultez la [page de tarification des machines virtuelles Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) et sélectionnez votre édition de SQL Server. Consultez également l’article [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Tarification des machines virtuelles SQL Server Azure).
 
 ![Options de taille de machine virtuelle SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -130,7 +130,7 @@ Choisissez la taille de votre machine, puis cliquez sur **Sélectionner**.
 
 ## <a name="3-configure-optional-features"></a>3. Configurer des fonctionnalités facultatives
 
-Dans le panneau **Paramètres** , configurez le stockage Azure, la mise en réseau et la surveillance de la machine virtuelle.
+Dans la fenêtre **Paramètres**, configurez le stockage Azure, la mise en réseau et la surveillance de la machine virtuelle.
 
 * Dans la section **Stockage**, sélectionnez **Oui** sous **Utiliser Managed Disks**.
 
@@ -146,7 +146,7 @@ Dans le panneau **Paramètres** , configurez le stockage Azure, la mise en rése
 Une fois que vous avez terminé la configuration des paramètres, cliquez sur **OK**.
 
 ## <a name="4-configure-sql-server-settings"></a>4. Configurer les paramètres du serveur SQL
-Dans le panneau **Paramètres SQL Server** , configurez des paramètres spécifiques et des optimisations pour SQL Server. Les paramètres que vous pouvez configurer pour SQL Server sont les suivants :
+Dans la fenêtre **Paramètres SQL Server**, configurez des paramètres spécifiques et des optimisations pour SQL Server. Les paramètres que vous pouvez configurer pour SQL Server sont les suivants :
 
 | Paramètre |
 | --- |
@@ -259,7 +259,7 @@ Pour plus d’informations, consultez [Configurer l’intégration d’Azure Key
 
 ### <a name="r-services"></a>R Services
 
-Vous avez la possibilité d’activer [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). Cela vous permet d’exécuter des analyses avancées avec SQL Server 2016. Cliquez sur **Activer** on the **SQL Server Settings** .
+Vous avez la possibilité d’activer [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). Cela vous permet d’exécuter des analyses avancées avec SQL Server 2016. Cliquez sur **Activer** dans la fenêtre **Paramètres SQL Server**.
 
 > [!NOTE]
 > Dans le cas de SQL Server 2016 Édition Développeur, cette option est désactivée de manière incorrecte par le portail. Pour l’Édition Développeur, vous devez activer R Services manuellement après avoir créé votre machine virtuelle.
@@ -270,7 +270,7 @@ Une fois la configuration des paramètres de SQL Server terminée, cliquez sur *
 
 ## <a name="5-review-the-summary"></a>5. Passer en revue le résumé
 
-Dans le panneau **Résumé**, examinez le résumé correspondant, puis cliquez sur **Acheter** pour créer l’instance SQL Server, le groupe de ressources et les ressources spécifiées pour cette machine virtuelle.
+Dans la fenêtre **Résumé**, examinez le résumé correspondant, puis cliquez sur **Acheter** pour créer l’instance SQL Server, le groupe de ressources et les ressources spécifiées pour cette machine virtuelle.
 
 Vous pouvez surveiller le déploiement à partir du portail Azure. Le bouton **Notifications** en haut de l’écran affiche l’état de base du déploiement.
 
@@ -279,26 +279,33 @@ Vous pouvez surveiller le déploiement à partir du portail Azure. Le bouton **N
 
 ## <a name="open-the-vm-with-remote-desktop"></a>Ouvrir la machine virtuelle à l’aide du Bureau à distance
 
+Pour vous connecter à la machine virtuelle SQL Server à l’aide du Bureau à distance, procédez comme suit.
+
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+
+Une fois que vous vous connectez à la machine virtuelle SQL Server, vous pouvez lancer SQL Server Management Studio et vous connecter avec l’authentification Windows à l’aide de vos informations d’identification d’administrateur local. Si vous avez activé l’authentification SQL Server, vous pouvez également vous connecter avec l’authentification SQL à l’aide de la connexion SQL et du mot de passe configuré lors de l’approvisionnement.
+
+L’accès à la machine permet de modifier directement les paramètres SQL Server et ceux de la machine en fonction de vos besoins. Par exemple, vous pourriez configurer les paramètres du pare-feu ou modifier les paramètres de configuration SQL Server.
+
+## <a name="enable-tcpip-for-developer-and-express-editions"></a>Activer TCP/IP pour les éditions Developer et Express
+
+Lors de la configuration d’une machine virtuelle SQL Server, Azure n’active pas automatiquement le protocole TCP/IP pour les éditions SQL Server Developer et Express. Les étapes ci-dessous expliquent comment activer manuellement TCP/IP pour vous connecter à distance via une adresse IP.
+
+Les étapes suivantes utilisent le **Gestionnaire de Configuration SQL Server** pour activer le protocole TCP/IP pour les éditions SQL Server Developer et Express.
+
+> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a name="connect-to-sql-server-remotely"></a>Se connecter à SQL Server à distance
 
 Dans ce didacticiel, nous avons sélectionné l’accès **Public** pour la machine virtuelle et **l’authentification SQL Server**. Ces paramètres ont configuré automatiquement la machine virtuelle pour autoriser les connexions SQL Server à partir de n’importe quel client sur internet (en supposant qu’il dispose de la connexion SQL qui convient).
 
 > [!NOTE]
-> Si vous n’avez pas sélectionné Public lors de l’approvisionnement, des étapes supplémentaires sont nécessaires pour accéder à votre instance SQL Server via Internet. Pour plus d’informations, consultez [Se connecter à une machine virtuelle SQL Server](virtual-machines-windows-sql-connect.md).
-> 
-> 
+> Si vous n’avez pas sélectionné Public lors de l’approvisionnement, vous pouvez modifier vos paramètres de connectivité SQL via le portail après l’approvisionnement. Pour plus d’informations, consultez la page [Modifier vos paramètres de connectivité SQL](virtual-machines-windows-sql-connect.md#change).
 
 Les sections suivantes montrent comment se connecter à l’instance SQL Server sur votre machine virtuelle à partir d’une autre machine via Internet.
 
 > [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
-> 
-> 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [Présentation de SQL Server sur les machines virtuelles](virtual-machines-windows-sql-server-iaas-overview.md) Azure et le [Forum Aux Questions](virtual-machines-windows-sql-server-iaas-faq.md) associé.
-
-Pour une présentation vidéo de SQL Server sur les machines virtuelles Azure, regardez [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)(Machines virtuelles Azure : Une excellente plateforme pour SQL Server 2016).
-
-[Découvrez le parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) pour SQL Server sur les machines virtuelles Azure.

@@ -1,5 +1,3 @@
-Pour vous connecter à la machine virtuelle SQL Server à l’aide du Bureau à distance, procédez comme suit.
-
 1. Une fois la machine virtuelle créée et en cours d’exécution, cliquez sur l’icône Machines virtuelles dans le portail Azure pour visualiser vos machines virtuelles.
 
 1. Cliquez sur les points de suspension, **...**, en regard de votre nouvelle machine virtuelle.
@@ -16,6 +14,4 @@ Pour vous connecter à la machine virtuelle SQL Server à l’aide du Bureau à 
 
    ![Authentification Bureau à distance](./media/virtual-machines-sql-server-remote-desktop-connect/remote-desktop-connect.png)
 
-Une fois que vous vous connectez à la machine virtuelle SQL Server, vous pouvez lancer SQL Server Management Studio et vous connecter avec l’authentification Windows à l’aide de vos informations d’identification d’administrateur local. Si vous avez activé l’authentification SQL Server, vous pouvez également vous connecter avec l’authentification SQL à l’aide de la connexion SQL et du mot de passe configuré lors de l’approvisionnement.
-
-L’accès à la machine permet de modifier directement les paramètres SQL Server et ceux de la machine en fonction de vos besoins. Par exemple, vous pourriez configurer les paramètres du pare-feu ou modifier les paramètres de configuration SQL Server.
+1. Cliquez sur **OK** pour vous connecter.
