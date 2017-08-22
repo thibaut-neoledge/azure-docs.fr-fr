@@ -1,6 +1,6 @@
 ---
 title: "Concevoir des modèles Azure pour des solutions complexes | Microsoft Docs"
-description: "Présente les meilleures pratiques relatives à la conception des modèles Azure Resource Manager pour les scénarios complexes"
+description: "Présente les bonnes pratiques de conception des modèles Azure Resource Manager pour les scénarios complexes"
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: e2bfbdd5ca8ec178c2c32c7b52637a8ec7e88a4c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Concevoir des modèles pour les modèles Azure Resource Manager lors du déploiement de solutions complexes
@@ -34,7 +33,7 @@ Les modèles associent les avantages du gestionnaire Azure Resource Manager so
 * appliquer le contrôle d’accès en fonction du rôle (RBAC) pour accorder un accès approprié aux utilisateurs, groupes et services ;
 * utiliser le marquage des associations pour rationaliser des tâches telles que la facturation des cumuls.
 
-Cet article fournit des détails sur les scénarios de consommation, l’architecture et les modèles d’implémentation identifiés au cours de nos sessions de conception et pendant les implémentations de modèle dans le monde réel auprès des clients AzureCAT (Azure Customer Advisory Team). Ces approches reposent sur des pratiques éprouvées qui, loin d’être théoriques, sont documentées par le développement de modèles pour 12 des principales technologies OSS basées sur Linux, notamment : Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise optimisé par Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis et Nagios. 
+Cet article fournit des détails sur les scénarios de consommation, l’architecture et les modèles d’implémentation identifiés au cours de nos sessions de conception et pendant les implémentations de modèle dans le monde réel auprès des clients AzureCAT (Azure Customer Advisory Team). Ces approches reposent sur des pratiques éprouvées qui, loin d’être théoriques, sont documentées par le développement de modèles pour 12 des principales technologies OSS basées sur Linux, notamment : Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise optimisé par Apache Cassandra, Elasticsearch, Jenkins, MongoDB, PostgreSQL, Redis et Nagios. 
 
 Cet article partage ces pratiques éprouvées pour vous aider à concevoir des modèles Azure Resource Manager de premier ordre.  
 
@@ -77,11 +76,11 @@ Il se peut que vous souhaitiez déployer vos logiciels dans les abonnements poss
 
 Ces déploiements utilisent le contrôle RBAC afin que vous puissiez mettre à jour et gérer le déploiement dans le compte du client.
 
-### <a name="azure-marketplace"></a>Azure Marketplace
-Si vous souhaitez promouvoir et vendre vos offres par le biais d’un Marketplace, par exemple la Place de marché Microsoft Azure, vous pouvez développer des modèles pour fournir des types distincts de déploiement exécutés dans le compte Azure d’un client. Ces déploiements distincts sont décrits en général d’après leur taille (petite, moyenne, grande), le type de produit/public (communauté, développeur, entreprise) ou le type de fonctionnalité (de base, haute disponibilité).  Dans certains cas, ces types vous permettent de spécifier certains attributs du déploiement, tels que le type de machine virtuelle ou le nombre de disques.
+### <a name="azure-marketplace"></a>Place de marché Azure
+Si vous souhaitez promouvoir et vendre vos offres sur une place de marché, par exemple la Place de marché Microsoft Azure, vous pouvez développer des modèles pour fournir des types distincts de déploiement exécutés dans le compte Azure d’un client. Ces déploiements distincts sont décrits en général d’après leur taille (petite, moyenne, grande), le type de produit/public (communauté, développeur, entreprise) ou le type de fonctionnalité (de base, haute disponibilité).  Dans certains cas, ces types vous permettent de spécifier certains attributs du déploiement, tels que le type de machine virtuelle ou le nombre de disques.
 
 ## <a name="oss-projects"></a>Projets OSS
-Dans les projets open source, les modèles Resource Manager permettent à une communauté de déployer rapidement une solution à l’aide des pratiques éprouvées. Vous pouvez stocker des modèles dans un référentiel GitHub afin que la communauté puisse les réviser au fil du temps. Les utilisateurs déploient ces modèles dans leur propre abonnement Azure.
+Dans les projets open source, les modèles Resource Manager permettent à une communauté de déployer rapidement une solution à l’aide des pratiques éprouvées. Vous pouvez stocker des modèles dans un dépôt GitHub afin que la communauté puisse les réviser au fil du temps. Les utilisateurs déploient ces modèles dans leur propre abonnement Azure.
 
 Les sections suivantes identifient les éléments à prendre en compte avant de concevoir votre solution.
 

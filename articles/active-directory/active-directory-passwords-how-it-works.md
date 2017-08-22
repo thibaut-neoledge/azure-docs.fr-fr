@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 44426571e3fd8aed090ccccc0dcc46dca8098906
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD
@@ -225,7 +225,7 @@ L’outil Azure AD Connect envoie des pings/appels keepalives périodiques aux p
 
 Le compte spécifié dans l’utilitaire Azure AD Connect doit avoir des autorisations de réinitialisation de mot de passe, de modification de mot de passe, d’écriture sur lockoutTime et des autorisations d’écriture sur pwdLastSet, des droits étendus sur l’objet racine de **chaque domaine** de cette forêt **OU** sur les unités d’organisation utilisateur que vous souhaitez intégrer à la réinitialisation du mot de passe libre-service.
 
-Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface utilisateur de configuration d’Azure Active Directory Connect, puis cliquez sur l’option Vérification de votre solution. Le compte auquel vous devez ajouter l’autorisation est répertorié sous « Annuaires synchronisés ».
+Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface utilisateur de configuration d’Azure Active Directory Connect, puis cliquez sur l’option Afficher la configuration actuelle. Le compte auquel vous devez ajouter l’autorisation est répertorié sous « Annuaires synchronisés ».
 
 La définition de ces autorisations permet au compte de service de l’agent de gestion de chaque forêt de gérer les mots de passe pour les comptes d’utilisateur de cette forêt. **Sans ces autorisations, même si l’écriture différée semble configurée correctement, les utilisateurs rencontreront des erreurs en essayant de gérer leurs mots de passe locaux à partir du cloud.**
 

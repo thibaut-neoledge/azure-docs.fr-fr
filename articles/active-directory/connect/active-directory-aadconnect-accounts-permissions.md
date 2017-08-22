@@ -6,28 +6,29 @@ documentationcenter:
 author: billmath
 manager: femila
 editor: 
+ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/27/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 44859d5368a954aee6939f6a6060738aa97c9c05
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: fdd90721b6823c20c1ff27383769bfff24e80eae
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Autorisations et comptes Azure AD Connect
 L’Assistant d’installation d’Azure AD Connect offre deux chemins d’accès différents :
 
-* Dans Configuration rapide, l’Assistant a besoin de davantage de privilèges pour configurer votre configuration facilement, sans que vous deviez créer des utilisateurs ou configurer des autorisations séparément.
-* Dans Configuration personnalisée, l’Assistant vous propose davantage d’options, mais certaines situations exigent que vous disposiez vous-même des autorisations appropriées.
+* Dans les paramètres Express, l’Assistant exige davantage de privilèges.  Cela facilitera la configuration, car vous n’aurez pas à créer d’utilisateurs ni à définir des autorisations.
+* Dans les paramètres personnalisés, l’Assistant vous propose davantage d’options. Toutefois, dans certains cas, vous devrez vérifier que vous disposez des autorisations nécessaires.
 
-## <a name="related-documentation"></a>Documentation connexe
+## <a name="related-documentation"></a>documentation connexe
 Si vous n’avez pas lu la documentation sur [l’Intégration de vos identités locales à Azure Active Directory](../active-directory-aadconnect.md), le tableau suivant fournit des liens vers des rubriques connexes.
 
 |Rubrique |Lien|  
@@ -39,7 +40,7 @@ Si vous n’avez pas lu la documentation sur [l’Intégration de vos identités
 |Après l’installation | [Vérification de l’installation et affectation des licences ](active-directory-aadconnect-whats-next.md)|
 
 ## <a name="express-settings-installation"></a>Installation à l’aide de la configuration rapide
-Dans la configuration rapide, l’Assistant d’installation demande des informations d’identification d’administrateur d’entreprise AD DS pour que votre annuaire Active Directory local puisse être configuré avec les autorisations nécessaires pour Azure AD Connect. Si vous effectuez une mise à niveau à partir de DirSync, les informations d’identification d’administrateur d’entreprise AD DS sont utilisées pour réinitialiser le mot de passe pour le compte utilisé par DirSync. Vous avez également besoin de vos informations d’identification d’administrateur général Azure AD.
+Dans les paramètres Express, l’Assistant Installation vous demande des informations d’identification d’administrateur AD DS Enterprise.  De cette façon, votre instance locale d’Active Directory peut être configurée avec les autorisations nécessaires pour Azure AD Connect. Si vous effectuez une mise à niveau à partir de DirSync, les informations d’identification d’administrateur d’entreprise AD DS sont utilisées pour réinitialiser le mot de passe pour le compte utilisé par DirSync. Vous avez également besoin de vos informations d’identification d’administrateur général Azure AD.
 
 | Page de l’Assistant | Informations d’identification collectées | Autorisations requises | Utilisation |
 | --- | --- | --- | --- |
@@ -66,7 +67,7 @@ Le [compte](#active-directory-account) destiné à la lecture et à l’écritur
 | Réinitialiser le mot de passe |Préparation pour l’activation de l’écriture différée du mot de passe |
 
 ## <a name="custom-settings-installation"></a>Installation à l’aide des paramètres personnalisés
-Précédemment, quand vous recourriez à des paramètres personnalisés, le compte utilisé pour la connexion à Active Directory devait être créé avant l’installation. Les autorisations que vous devez accorder à ce compte se trouvent sous [Créer le compte AD DS](#create-the-ad-ds-account). Avec Azure AD Connect version 1.1.524.0 et ultérieure, vous pouvez laisser l’Assistant Azure AD Connect créer le compte.
+Azure AD Connect 1.1.524.0 ou version ultérieure comprend une option permettant à l’Assistant Azure AD Connect de créer le compte utilisé pour se connecter à Active Directory.  Les versions antérieures nécessitent que le compte soit créé avant l’installation. Les autorisations que vous devez accorder à ce compte se trouvent sous [Créer le compte AD DS](#create-the-ad-ds-account). 
 
 | Page de l’Assistant | Informations d’identification collectées | Autorisations requises | Utilisation |
 | --- | --- | --- | --- |
@@ -80,7 +81,7 @@ Précédemment, quand vous recourriez à des paramètres personnalisés, le comp
 | Page Compte de service AD FS, option Utilisation d’un compte d’utilisateur de domaine |Informations d’identification du compte d’utilisateur AD |Utilisateur de domaine |Le compte d’utilisateur AD dont les informations d’identification sont fournies est utilisé comme compte de connexion au service AD FS. |
 
 ### <a name="create-the-ad-ds-account"></a>Créer le compte AD DS
-Quand vous installez Azure AD Connect, le compte que vous spécifiez dans la page **Connexion de vos annuaires** doit être présent dans Active Directory et disposer des autorisations nécessaires. L’Assistant d’installation ne vérifie pas les autorisations, et les problèmes éventuels ne sont détectés que pendant la synchronisation.
+Le compte que vous spécifiez dans la page **Connexion de vos annuaires** doit exister dans Active Directory avant l’installation.  Il doit également disposer des autorisations nécessaires. L’Assistant d’installation ne vérifie pas les autorisations, et les problèmes éventuels ne sont détectés que pendant la synchronisation.
 
 Les autorisations dont vous avez besoin dépendent des fonctionnalités facultatives que vous activez. Si vous avez plusieurs domaines, les autorisations doivent être accordées pour tous les domaines de la forêt. Si vous n’activez pas ces fonctionnalités, les autorisations **Utilisateur de domaine** par défaut sont suffisantes.
 
@@ -92,7 +93,7 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
 | Écriture différée du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../active-directory-passwords-writeback.md) pour les utilisateurs. |
 | Écriture différée des appareils |Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md). |
-| Écriture différée de groupe |Lire, créer, mettre à jour et supprimer des objets de groupe dans l’unité d’organisation où les groupes de distributions doivent se trouver. |
+| Écriture différée de groupe |Lire, créer, mettre à jour et supprimer des objets de groupe pour les **groupes Office 365** synchronisés.  Pour plus d’informations, consultez [Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback).|
 
 ## <a name="upgrade"></a>Mise à niveau
 Lors de la mise à niveau vers une nouvelle version d’Azure AD Connect, vous devez disposer des autorisations suivantes :
@@ -155,16 +156,18 @@ VSA est destiné à être utilisé dans les scénarios où le moteur de synchron
 Cette fonctionnalité nécessite Windows Server 2008 R2 ou version ultérieure. Si vous installez Azure AD Connect sur Windows Server 2008, l’installation bascule sur l’utilisation d’un [compte d’utilisateur](#user-account) à la place.
 
 #### <a name="group-managed-service-account"></a>Compte de service géré de groupe
-Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un **compte de service géré de groupe**. Pour plus d’informations sur la préparation de votre annuaire Active Directory pour le compte de service géré de groupe, consultez [Présentation des comptes de service géré de groupe](https://technet.microsoft.com/library/hh831782.aspx).
+Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un **compte de service administré de groupe**. Pour plus d’informations sur la préparation de votre annuaire Active Directory pour le compte de service géré de groupe, consultez [Présentation des comptes de service géré de groupe](https://technet.microsoft.com/library/hh831782.aspx).
 
 Pour utiliser cette option, sur la page [Installer les composants requis](active-directory-aadconnect-get-started-custom.md#install-required-components), sélectionnez **Utiliser un compte de service existant**, puis sélectionnez **Compte de service administré**.  
 ![VSA](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
-Il est également possible d’utiliser un [Compte de service géré autonome](https://technet.microsoft.com/library/dd548356.aspx). Toutefois, dans la mesure où vous pouvez uniquement les utiliser sur la machine locale, il n’existe aucun avantage pratique à les utiliser à la place du compte de service virtuel par défaut.
+Il est également possible d’utiliser un [Compte de service géré autonome](https://technet.microsoft.com/library/dd548356.aspx). Toutefois, dans la mesure où vous pouvez uniquement les utiliser sur l’ordinateur local, il n’existe aucun avantage à les utiliser à la place du compte de service virtuel par défaut.
 
 Cette fonctionnalité nécessite Windows Server 2012 ou version ultérieure. Si vous devez utiliser un ancien système d’exploitation et SQL à distance, vous devez utiliser un [compte d’utilisateur](#user-account).
 
 #### <a name="user-account"></a>Compte d’utilisateur
-Un compte de service local est créé par l’Assistant d’installation (sauf si vous spécifiez le compte à utiliser dans les paramètres personnalisés). Le compte a pour préfixe **AAD_** et est associé au service de synchronisation à utiliser. Si vous installez Azure AD Connect sur un contrôleur de domaine, le compte est créé dans le domaine. Si vous utilisez un serveur distant exécutant SQL Server ou bien un proxy qui nécessite une authentification, le compte de service **AAD_** doit se trouver dans le domaine.
+Un compte de service local est créé par l’Assistant d’installation (sauf si vous spécifiez le compte à utiliser dans les paramètres personnalisés). Le compte a pour préfixe **AAD_** et est associé au service de synchronisation à utiliser. Si vous installez Azure AD Connect sur un contrôleur de domaine, le compte est créé dans le domaine. Le compte de service **AAD_** doit se trouver dans le domaine si :
+   - Vous utilisez un serveur distant exécutant SQL Server.
+   - Vous utilisez un proxy qui nécessite une authentification.
 
 ![Compte de service de synchronisation](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
@@ -183,7 +186,7 @@ Un compte dans Azure AD est créé en vue de son utilisation par le service de s
 
 Le nom du serveur sur lequel le compte est utilisé peut être identifié dans la deuxième partie du nom d’utilisateur. Sur l’image, le nom du serveur est FABRIKAMCON. Si vous disposez de serveurs intermédiaires, chaque serveur a son propre compte.
 
-Le compte de service est créé avec un mot de passe long et complexe qui n’expire pas. Il se voit octroyer le rôle de **Compte de synchronisation de répertoires**. À ce titre, il est uniquement autorisé à effectuer des tâches de synchronisation de répertoires. Ce rôle intégré spécial ne peut pas être accordé en dehors de l’Assistant Azure AD Connect, et le portail Azure affiche ce compte avec le rôle **Utilisateur**.
+Le compte de service est créé avec un mot de passe long et complexe qui n’expire pas. Il se voit octroyer le rôle de **Compte de synchronisation de répertoires**. À ce titre, il est uniquement autorisé à effectuer des tâches de synchronisation de répertoires. Ce rôle intégré ne peut pas être accordé en dehors de l’Assistant Azure AD Connect. Le portail Azure affiche ce compte avec le rôle **Utilisateur**.
 
 Il existe une limite de 20 comptes de service de synchronisation dans Azure AD. Pour obtenir la liste des comptes de service Azure AD existants dans Azure AD, exécutez l’applet de commande Azure AD PowerShell suivante : `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 

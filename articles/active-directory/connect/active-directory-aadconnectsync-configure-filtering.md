@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 635affebf9130c2bfb38e84cc144ee4838504777
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 064642ebb9cafb0c6e1b3ff306241182a95215cc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -297,6 +297,8 @@ Lorsque vous êtes satisfait, exportez les modifications vers Azure AD.
 
 ## <a name="group-based-filtering"></a>Filtrage de groupe
 Vous pouvez configurer le filtrage basé sur un groupe la première fois que vous installez Azure AD Connect à l’aide de [l’installation personnalisée](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Ce filtrage est conçu pour un déploiement pilote dans lequel vous ne souhaitez synchroniser qu’un petit ensemble d’objets. Lorsque vous désactivez le filtrage basé sur un groupe, vous ne pouvez plus le réactiver. L’utilisation du filtrage basé sur un groupe dans une configuration personnalisée n’est *pas prise en charge*. La configuration de cette fonctionnalité n’est possible que par le biais de l’Assistant Installation. Lorsque vous avez terminé votre pilote, utilisez l’une des autres options de filtrage indiquées dans cet article. Si vous utilisez le filtrage basé sur l’unité d’organisation avec le filtrage basé sur les groupes, l’unité d’organisation dans laquelle se trouvent les objets de groupe et de membre doit être incluse.
+
+Lors de la synchronisation de plusieurs forêts Active Directory, vous pouvez configurer le filtrage basé sur les groupes en spécifiant un groupe différent pour chaque connecteur Active Directory. Si vous voulez synchroniser un utilisateur dans une forêt Active Directory, alors que cet utilisateur dispose d’un ou de plusieurs objets FSP correspondants dans d’autres forêts Active Directory, vous devez veiller à ce que l’objet utilisateur et tous ses objets FSP correspondants soient compris dans l’étendue du filtrage basé sur les groupes. Si un ou plusieurs objets FSP sont exclus par filtrage basé sur les groupes, l’objet utilisateur ne sera pas synchronisé avec Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Apprenez-en davantage sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).

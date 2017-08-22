@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 0a0d91d622ed72ed22cfaaa0350b31ca653de483
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 33f62a33ea7a3fadb6e7b045de10df25f5edbe83
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C : stratégies personnalisées
@@ -41,7 +41,7 @@ Les stratégies personnalisées sont des fichiers de configuration qui définiss
 | Personnalisation des attributs | Attributs standard et personnalisés | Identique |
 |Gestion des jetons et des sessions | Options de jetons personnalisés et de sessions multiples | Identique |
 |Identity Providers| **Aujourd'hui** : fournisseur social local prédéfini<br><br>**À l’avenir** : OIDC basé sur les normes, SAML, OAuth | **Aujourd'hui** : OIDC basé sur les normes, OAuth, SAML<br><br>**À l’avenir** : WS-Fed |
-|Tâches d’identité (exemples) | Inscription ou connexion avec des comptes locaux et de nombreux comptes sociaux<br><br>Réinitialisation de mot de passe<br><br>Modification de profil<br><br>Scénarios d’authentification multifacteur<br><br>Personnalisation des jetons et des sessions<br><br>Flux de jetons d’accès | Réalisation des mêmes tâches que les stratégies prédéfinies à l’aide de fournisseurs d’identité personnalisés ou utilisation des étendues personnalisées<br><br>Approvisionnement de l’utilisateur dans un autre système au moment de l’inscription<br><br>Envoi d’un courrier électronique de bienvenue avec votre propre fournisseur de service de messagerie<br><br>Utilisation d’un magasin d’utilisateurs en dehors de B2C<br><br>Validation des informations fournies par l’utilisateur avec un système approuvé via une API |
+|Tâches d’identité (exemples) | Inscription ou connexion avec des comptes locaux et de nombreux comptes sociaux<br><br>Réinitialisation du mot de passe en libre-service<br><br>Modification de profil<br><br>Scénarios d’authentification multifacteur<br><br>Personnalisation des jetons et des sessions<br><br>Flux de jetons d’accès | Réalisation des mêmes tâches que les stratégies prédéfinies à l’aide de fournisseurs d’identité personnalisés ou utilisation des étendues personnalisées<br><br>Approvisionnement de l’utilisateur dans un autre système au moment de l’inscription<br><br>Envoi d’un courrier électronique de bienvenue avec votre propre fournisseur de service de messagerie<br><br>Utilisation d’un magasin d’utilisateurs en dehors de B2C<br><br>Validation des informations fournies par l’utilisateur avec un système approuvé via une API |
 
 ## <a name="policy-files"></a>Fichiers de stratégie
 
@@ -97,7 +97,7 @@ Une stratégie personnalisée est représentée par un ou plusieurs fichiers au 
 |---------------------|--------------------|-----------------|---------------|
 | BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Comprend le schéma de revendications principal, les transformations de revendications, les fournisseurs de revendications et les parcours utilisateur configurés par Microsoft.<br><br>Apportez aussi peu de modifications que possible à ce fichier. | Aucun |
 | Extension (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Consolidez ici vos modifications au fichier de BASE.<br><br>Fournisseurs de revendications modifiés.<br><br>Parcours utilisateur modifiés.<br><br>Vos propres définitions de schéma personnalisées. | Fichier de BASE |
-| Partie de confiance (RP) | | | Fichier d’extensions |
+| Partie de confiance (RP) | B2C_1A_sign_up_sign_in.xml| Modifiez les paramètres de jeton, de forme et de session ici| Fichier Extensions(EXT) |
 
 ### <a name="inheritance-model"></a>Modèle d’héritage
 

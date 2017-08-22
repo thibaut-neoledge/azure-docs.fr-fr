@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 20ca0abab5e17f82b94a31c1b2c9a0942ba9508a
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: d9ec4556d57ff1975a93d806237ad0c7416b9988
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Options et performances d’Azure Database pour MySQL : comprendre ce qui est disponible dans chaque niveau tarifaire
@@ -52,17 +52,20 @@ Pour choisir un niveau tarifaire, commencez par déterminer si votre charge de t
 
 Pendant la phase de préversion, vous ne pouvez pas changer le niveau tarifaire une fois que le serveur est créé. Ultérieurement, il sera possible de faire passer un serveur d’un niveau tarifaire à l’autre.
 
+## <a name="understand-the-price"></a>Comprendre les tarifs
+Lorsque vous créez une base de données Azure pour MySQL à l’intérieur du [portail Azure](https://portal.azure.com/#create/Microsoft.MySQLServer), cliquez sur le panneau **Niveau tarifaire** pour afficher le coût mensuel en fonction des options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, utilisez la calculatrice de prix Azure pour obtenir un prix estimé. Pour personnaliser les options, visitez le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), cliquez sur **Ajouter des produits à votre estimation**, développez la catégorie **Bases de données**, puis choisissez **Base de données Azure pour MySQL**.
+
 ## <a name="choose-a-performance-level-compute-units"></a>Choisir un niveau de performances (unités de calcul)
 Une fois que vous avez déterminé le niveau tarifaire de votre serveur Azure Database pour MySQL, vous êtes prêt à déterminer le niveau de performances en sélectionnant le nombre d’unités de calcul nécessaires. Un bon point de départ est 200 ou 400 unités de calcul pour les applications qui ont besoin d’accès concurrentiels en nombre plus élevé pour leurs charges de travail web ou d’analyse, puis d’ajuster par palier au fil des besoins. 
 
-Les unités de calcul sont une mesure du débit de traitement du processeur, dont la disponibilité est garantie pour un serveur Azure Database pour MySQL. Une unité de calcul est une mesure mélangée de ressources processeur et mémoire.  Pour plus d’informations, consultez [Présentation des unités de calcul](concepts-compute-unit-and-storage.md)
+Les unités de calcul sont une mesure du débit de traitement du processeur, dont la disponibilité est garantie pour un serveur Azure Database pour MySQL. Une unité de calcul est une mesure mélangée de ressources processeur et mémoire.  Pour plus d’informations, voir [Présentation des unités de calcul](concepts-compute-unit-and-storage.md)
 
 ### <a name="basic-pricing-tier-performance-levels"></a>Niveaux de performances du niveau tarifaire De base :
 
 | **Niveau de performances** | **50** | **100** |
 | :-------------------- | :----- | :------ |
 | Nombre maximal d’unités de calcul | 50 | 100 |
-| Taille du stockage inclus | 50 Go | 50 Go |
+| Taille du stockage inclus | 50 Go | 50 Go |
 | Taille maximale de stockage du serveur\* | 1 To | 1 To |
 
 ### <a name="standard-pricing-tier-performance-levels"></a>Niveaux de performances du niveau tarifaire Standard :
@@ -80,7 +83,7 @@ Les unités de calcul sont une mesure du débit de traitement du processeur, don
 ## <a name="storage"></a>Stockage 
 La configuration du stockage définit la quantité de stockage disponible pour un serveur Azure Database pour MySQL. Le stockage utilisé par le service inclut les fichiers de base de données, les journaux de transaction et les journaux du serveur MySQL. Lors de la sélection de la configuration du stockage, prenez en compte la taille du stockage nécessaire pour héberger vos bases de données et les besoins en performances (E/S par seconde).
 
-Un minimum de capacité de stockage est inclus avec chaque niveau tarifaire, indiqué dans le tableau précédent par « Taille du stockage inclus ». Une capacité de stockage supplémentaires peut être ajoutée lors de la création du serveur, par incréments de 125 Go, jusqu’au stockage maximal autorisé. La capacité de stockage supplémentaires peut être configurée indépendamment de la configuration des unités de calcul. Le prix change en fonction de la quantité de stockage sélectionnée.
+Un minimum de capacité de stockage est inclus avec chaque niveau tarifaire, indiqué dans le tableau précédent par « Taille du stockage inclus ». Une capacité de stockage supplémentaire peut être ajoutée lors de la création du serveur, par incréments de 125 Go, jusqu’au stockage maximal autorisé. La capacité de stockage supplémentaire peut être configurée indépendamment de la configuration des unités de calcul. Le prix change en fonction de la quantité de stockage sélectionnée.
 
 La configuration des E/S par seconde dans chaque niveau de performances est relative au niveau tarifaire et à la taille de stockage choisis. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans le niveau tarifaire Standard, les E/S par seconde augmentent proportionnellement à la taille maximale de stockage, selon un ratio fixe de 3:1. Le stockage de 125 Go inclus garantit 375 E/S par seconde approvisionnées, chaque E/S pouvant atteindre 256 Ko. Vous pouvez choisir un stockage supplémentaire jusqu’à un maximum de 1 To, avec une garantie de 3 000 E/S par seconde approvisionnés.
 

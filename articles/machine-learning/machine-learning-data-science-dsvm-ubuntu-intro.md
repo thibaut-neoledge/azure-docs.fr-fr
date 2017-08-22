@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 548b4af7619521e4b61b99b94c1d40f835e6efdb
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 148603618a7da05d250a6c4f789a212e98791e53
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)
@@ -151,6 +150,13 @@ Pour plus d’informations, voir la section CNTK de [GitHub](https://github.com/
 
 #### <a name="caffe"></a>Caffe
 Caffe est une infrastructure d’apprentissage approfondi de Berkeley Vision et Learning Center. Elle est disponible dans /opt/caffe. Vous en trouverez des exemples dans /opt/caffe/examples.
+
+#### <a name="caffe2"></a>Caffe2
+Caffe2 est un framework de formation approfondie de Facebook qui repose sur Caffe. Elle est disponible dans Python 2.7 dans l’environnement racine Conda. Pour l’activer, exécutez la commande suivante à partir de l’interpréteur de commandes :
+
+    source /anaconda/bin/activate root
+
+Quelques exemples de bloc-notes sont disponibles dans JupyterHub.
 
 #### <a name="h2o"></a>H2O
 H2O est une plateforme d’analyse prédictive et d’apprentissage automatique rapide, en mémoire et distribuée. Un package Python est installé dans les environnements Anaconda racine et py35. Un package R est également installé. Pour démarrer H2O à partir de la ligne de commande, exécutez `java -jar /dsvm/tools/h2o/current/h2o.jar` ; il existe différentes [options de ligne de commande](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que vous pouvez configurer. L’interface utilisateur Flow Web est disponible en accédant à http://localhost:54321 pour commencer. Des exemples de bloc-notes sont également disponibles dans JupyterHub.

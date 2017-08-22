@@ -5,7 +5,7 @@ keywords: "didacticiel sur les bases de données SQL"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,23 +14,22 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: a76b1fc1e3fad5f47ffc550833bf34937e62163d
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 42f727aa40e744916b1a8adf634c10d55880bef0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="monitor-performance-of-the-wingtip-saas-application"></a>Surveiller les performances de l’application SaaS Wingtip
 
 Ce didacticiel aborde plusieurs scénarios de gestion de performance clés utilisés dans les applications SaaS. Les fonctionnalités intégrées de surveillance et d’alerte de base de données de SQL Database, ainsi que les pools élastiques sont illustrés à l’aide d’un générateur de charge destiné à simuler l’activité de toutes les bases de données client.
 
-L’application SaaS Wingtip utilise un modèle de données à client unique, où chaque lieu (locataire) possède sa propre base de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation typique, les bases de données de locataire sont déployées dans des pools de bases de données élastiques. Les pools élastiques optimisent le coût d’une solution en partageant des ressources entre de nombreuses bases de données. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données et des pools pour veiller à ce que les charges soient raisonnablement équilibrées entre les pools. Vous devez également vous assurer que les bases de données ont des ressources appropriées et que les pools n’atteignent pas les limites d’[eDTU](sql-database-what-is-a-dtu.md). Ce tutoriel explore plusieurs moyens de surveiller et de gérer des bases de données et des pools et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
+L’application SaaS Wingtip utilise un modèle de données à client unique, où chaque lieu (locataire) possède sa propre base de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation typique, les bases de données de locataire sont déployées dans des pools de bases de données élastiques. Les pools élastiques optimisent le coût d’une solution en partageant des ressources entre de nombreuses bases de données. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données et des pools pour veiller à ce que les charges soient raisonnablement équilibrées entre les pools. Vous devez également vous assurer que les bases de données ont des ressources appropriées et que les pools n’atteignent pas les limites d’[eDTU](sql-database-what-is-a-dtu.md). Ce didacticiel explore plusieurs moyens de surveiller et de gérer des bases de données et des pools et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 
@@ -40,7 +39,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Approvisionner un deuxième pool élastique pour équilibrer la charge de l’activité des bases de données
 
 
-Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
+Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont bien remplis :
 
 * L’application SaaS Wingtip est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer une application SaaS Wingtip](sql-database-saas-tutorial.md)
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
@@ -70,11 +69,11 @@ Les scripts et le code source de l’application SaaS Wingtip sont disponibles 
 
 ## <a name="provision-additional-tenants"></a>Approvisionner des locataires supplémentaires
 
-Bien que les pools puissent être économiques avec seulement deux bases de données S3, plus le nombre de bases de données du pool est élevé, plus les économies sont notables. Pour une bonne compréhension du fonctionnement de la gestion et de la surveillance des performances à grande échelle, ce tutoriel requiert le déploiement d’au moins 20 bases de données.
+Bien que les pools puissent être économiques avec seulement deux bases de données S3, plus le nombre de bases de données du pool est élevé, plus les économies sont notables. Pour une bonne compréhension du fonctionnement de la gestion et de la surveillance des performances à grande échelle, ce didacticiel requiert le déploiement d’au moins 20 bases de données.
 
 Si vous avez déjà configuré un lot de clients dans le cadre d’un didacticiel précédent, passez à la section [Simuler l’utilisation sur toutes les bases de données client](#simulate-usage-on-all-tenant-databases).
 
-1. Ouvrez... \\Modules d’apprentissage\\Analyse et gestion des performances\\*Demo-PerformanceMonitoringAndManagement.ps1* dans *PowerShell ISE*. Gardez ce script ouvert, car vous exécuterez plusieurs scénarios au cours de ce tutoriel.
+1. Ouvrez... \\Modules d’apprentissage\\Analyse et gestion des performances\\*Demo-PerformanceMonitoringAndManagement.ps1* dans *PowerShell ISE*. Gardez ce script ouvert, car vous exécuterez plusieurs scénarios au cours de ce didacticiel.
 1. Définissez **$DemoScenario** = **1**, **Approvisionner un lot de locataires**
 1. Appuyez sur **F5** pour exécuter le script.
 
@@ -96,7 +95,7 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simulant une charge de t
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en eDTU), la durée et les intervalles varient selon les bases de données afin de simuler l’activité d’un locataire imprévisible.
 
-1. Ouvrez... \\Modules d’apprentissage\\Analyse et gestion des performances\\*Demo-PerformanceMonitoringAndManagement.ps1* dans *PowerShell ISE*. Gardez ce script ouvert, car vous exécuterez plusieurs scénarios au cours de ce tutoriel.
+1. Ouvrez... \\Modules d’apprentissage\\Analyse et gestion des performances\\*Demo-PerformanceMonitoringAndManagement.ps1* dans *PowerShell ISE*. Gardez ce script ouvert, car vous exécuterez plusieurs scénarios au cours de ce didacticiel.
 1. Définissez **$DemoScenario** = **2**, *Générer une charge d’intensité normale*.
 1. Appuyez sur **F5** pour appliquer une charge à toutes vos bases de données de locataire.
 
@@ -143,7 +142,6 @@ Définissez une alerte sur le pool, qui se déclenche quand \>l’utilisation at
    ![définir une alerte](media/sql-database-saas-tutorial-performance-monitoring/alert-rule.png)
 
 
-
 ## <a name="scale-up-a-busy-pool"></a>Augmenter la taille d’un pool occupé
 
 Si le niveau de charge global d’un pool augmente jusqu’à atteindre la limite maximale du pool et l’utilisation de 100 % des eDTU, les performances de chaque base de données sont affectées, ce qui peut ralentir les temps de réponse pour l’ensemble des bases de données du pool.
@@ -157,12 +155,12 @@ Vous pouvez simuler un pool occupé en augmentant la charge produite par le gén
 1. Définissez *$DemoScenario* = **3**, _Générer une charge avec des pics plus longs et plus fréquents par base de données_ pour augmenter l’intensité de la charge globale sur le pool sans modifier le pic de charge requis par chaque base de données.
 1. Appuyez sur **F5** pour appliquer une charge à toutes vos bases de données de locataire.
 
-1. Accédez à **Pool1** dans le portail.
+1. Accédez à **Pool1** dans le portail Azure.
 
 Surveillez l’augmentation de l’utilisation d’eDTU du pool sur le graphique du haut. L’affichage de la nouvelle charge supérieure peut prendre quelques minutes, mais vous devez rapidement voir que le pool commence à atteindre une utilisation maximale, et qu’à mesure que la charge se stabilise dans le nouveau modèle, le pool est rapidement surchargé.
 
-1. Pour augmenter la taille du pool, cliquez sur **Configurer le pool**
-1. Réglez le curseur **eDTU du Pool** sur **100**. La modification du nombre d’eDTU du pool ne modifie pas les paramètres de chaque base de données (qui est toujours de 50 eDTU par base de données). Vous pouvez voir les paramètres de chaque base de données sur le côté droit de la page **Configurer le pool**.
+1. Pour augmenter la taille du pool, cliquez sur **Configurer le pool** en haut de la page **Pool1**.
+1. Réglez le paramètre **eDTU du pool** sur **100**. La modification du nombre d’eDTU du pool ne modifie pas les paramètres de chaque base de données (qui est toujours de 50 eDTU par base de données). Vous pouvez voir les paramètres de chaque base de données sur le côté droit de la page **Configurer le pool**.
 1. Cliquez sur **Enregistrer** pour envoyer la demande de mise à l’échelle du pool.
 
 Revenez à **Pool1** > **Vue d’ensemble** pour afficher les graphiques de surveillance. Surveillez l’effet produit par la fourniture de davantage de ressources au pool (bien qu’avec quelques bases de données et une charge aléatoire, il n’est pas toujours facile de voir l’effet de façon concluante avant un certain temps d’exécution). Lorsque vous examinez les graphiques, gardez à l’esprit le fait que 100 % sur le graphique du haut représente maintenant 100 eDTU, alors que sur le graphique du bas, 100 % correspond toujours à 50 eDTU, car la valeur maximale par base de données est toujours de 50 eDTU.
@@ -234,7 +232,7 @@ Lorsque l’utilisation globale du locataire suit des modèles d’utilisation p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Simuler l’utilisation sur les bases de données de locataire en exécutant un générateur de charge fourni
@@ -242,7 +240,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Augmenter la taille du pool élastique en réponse à la charge accrue sur les bases de données
 > * Approvisionner un deuxième pool élastique pour équilibrer la charge de l’activité de la base de données
 
-[Tutoriel Restaurer un locataire unique](sql-database-saas-tutorial-restore-single-tenant.md)
+[Didacticiel Restaurer un locataire unique](sql-database-saas-tutorial-restore-single-tenant.md)
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
@@ -250,5 +248,5 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 * Autres [didacticiels reposant sur le déploiement de l’application SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Pools élastiques SQL](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
-* [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Tutoriel Configuration et utilisation de Log Analytics
+* [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Didacticiel Configuration et utilisation de Log Analytics
 

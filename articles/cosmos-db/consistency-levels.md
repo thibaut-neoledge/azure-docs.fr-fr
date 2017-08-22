@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: abca1eff9d0b79420e70da5a4c551eceda478491
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: a1ebec2285982c70aa9dc49950769fe18e2e2d0d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence des données paramétrables dans Azure Cosmos DB
@@ -48,7 +47,7 @@ Le tableau suivant illustre les garanties spécifiques que chaque niveau de coh�
 | Préfixe cohérent | Les mises à jour retournées sont un préfixe de toutes les mises à jour, sans interruption |
 | Eventual (Éventuel)  | Lectures en désordre |
 
-Vous pouvez configurer le niveau de cohérence par défaut de votre compte Cosmos DB (et remplacer ultérieurement la cohérence sur une demande de lecture spécifique). En interne, le niveau de cohérence par défaut s’applique aux données au sein des groupes de partitions qui peuvent s’étendre dans différentes régions. Environ 73 % de nos clients utilisent la cohérence de session et 20 % y préfèrent l’obsolescence limitée. Nous observons qu’environ 3 % de nos clients expérimentent initialement différents niveaux de cohérence avant de choisir une cohérence spécifique pour leur application. Nous observons également que seuls 2 % de nos clients modifient les niveaux de cohérence sur demande. 
+Vous pouvez configurer le niveau de cohérence par défaut de votre compte Cosmos DB (et remplacer ultérieurement la cohérence sur une demande de lecture spécifique). En interne, le niveau de cohérence par défaut s’applique aux données au sein des groupes de partitions qui peuvent chevaucher différentes régions. Environ 73 % de nos clients utilisent la cohérence de session et 20 % y préfèrent l’obsolescence limitée. Nous observons qu’environ 3 % de nos clients expérimentent initialement différents niveaux de cohérence avant de choisir une cohérence spécifique pour leur application. Nous observons également que seuls 2 % de nos clients modifient les niveaux de cohérence sur demande. 
 
 Dans DB Cosmos, les lectures au niveaux de cohérence session, préfixe cohérent et cohérence éventuelle sont deux fois meilleur marché que les lectures aux niveaux de cohérence fort ou obsolescence limitée. Cosmos DB offre des SLA à 99,99 % exhaustifs de pointe, incluant des garanties de cohérence en plus de la disponibilité, du débit et de la latence. Nous utilisons un [vérificateur de linéarisabilité](http://dl.acm.org/citation.cfm?id=1806634) qui opère en permanence sur nos résultats de télémétrie de service et vous signale ouvertement toutes les violations de cohérence. Pour le niveau de cohérence obsolescence limitée, nous surveillons et signalons toute violation des limites k et t. Pour les cinq niveaux de cohérence souple, nous vous signalons aussi directement la [métrique probabiliste d’obsolescence limitée](http://dl.acm.org/citation.cfm?id=2212359).  
 
