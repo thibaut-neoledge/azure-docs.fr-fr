@@ -6,10 +6,10 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/23/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
@@ -19,14 +19,10 @@ ms.lasthandoff: 06/26/2017
 
 ---
 
-<a id="azure-database-for-postgresql-use-java-to-connect-and-query-data" class="xliff"></a>
-
-# Base de données Azure pour PostgreSQL : Utilisation de Java pour se connecter et interroger des données
+# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de Java pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application Java. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Les étapes de cet article supposent que vous connaissez le développement avec Java et que vous ne savez pas utiliser la base de données Azure pour PostgreSQL.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Composants requis
+## <a name="prerequisites"></a>Composants requis
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
 - [Créer une base de données - Portail](quickstart-create-server-database-portal.md)
 - [Créer une base de données - Interface de ligne de commande Azure](quickstart-create-server-database-azure-cli.md)
@@ -35,9 +31,7 @@ Il vous faudra également :
 - Télécharger le [pilote de PostgreSQL JDBC](https://jdbc.postgresql.org/download.html) correspondant à votre version de Java et le kit de développement Java.
 - Inclure le fichier .jar de PostgreSQL JDBC (postgresql-42.1.1.jar, par exemple) dans le chemin de classe de votre application. Pour plus d'informations, consultez la rubrique [Classpath](https://jdbc.postgresql.org/documentation/head/classpath.html) (Chemin de classe).
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Obtenir des informations de connexion
+## <a name="get-connection-information"></a>Obtenir des informations de connexion
 Obtenez les informations de connexion requises pour vous connecter à la base de données Azure pour PostgreSQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
@@ -47,9 +41,7 @@ Obtenez les informations de connexion requises pour vous connecter à la base de
  ![Base de données Azure pour PostgreSQL - Connexion d’administrateur du serveur](./media/connect-java/1-connection-string.png)
 5. Si vous avez oublié vos informations de connexion au serveur, accédez à la page **Vue d’ensemble** pour afficher le nom de connexion de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
 
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
-
-## Se connecter, créer des tables et insérer des données
+## <a name="connect-create-table-and-insert-data"></a>Se connecter, créer des tables et insérer des données
 Utilisez le code suivant pour vous connecter et charger les données à l’aide d’une instruction SQL **INSERT**. Les méthodes [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), et [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) permettent de se connecter, de déposer et de créer une table. L’objet [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) permet de générer les commandes d’insertion, en utilisant les méthodes setString() et setInt() pour lier les valeurs des paramètres. La méthode [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) exécute la commande pour chaque ensemble de paramètres. 
 
 Remplacez les paramètres d’hôte, de la base de données, d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de votre serveur et de votre base de données.
@@ -149,9 +141,7 @@ public class CreateTableInsertRows {
 }
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Lire les données
+## <a name="read-data"></a>Lire les données
 Utilisez le code suivant pour lire des données à l’aide d’une instruction SQL **SELECT**. Les méthodes [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), et [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) permettent de se connecter, de créer et d’exécuter l’instruction sélectionnée. Les résultats sont traités à l’aide de l’objet [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html). 
 
 Remplacez les paramètres d’hôte, de la base de données, d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de votre serveur et de votre base de données.
@@ -238,9 +228,7 @@ public class ReadTable {
 
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Mettre à jour des données
+## <a name="update-data"></a>Mettre à jour des données
 Utilisez le code suivant pour modifier les données à l’aide d’une instruction SQL **UPDATE**. Les méthodes [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), et [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) permettent de se connecter, de préparer et d’exécuter l’instruction de mise à jour. 
 
 Remplacez les paramètres d’hôte, de la base de données, d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de votre serveur et de votre base de données.
@@ -320,9 +308,7 @@ public class UpdateTable {
     }
 }
 ```
-<a id="delete-data" class="xliff"></a>
-
-## Suppression de données
+## <a name="delete-data"></a>Suppression de données
 Utilisez le code suivant pour supprimer des données à l’aide d’une instruction SQL **DELETE**. Les méthodes [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), et [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) permettent de se connecter, de préparer et d’exécuter l’instruction de suppression. 
 
 Remplacez les paramètres d’hôte, de la base de données, d’utilisateur et du mot de passe par les valeurs spécifiées lors de la création de votre serveur et de votre base de données.
@@ -402,9 +388,7 @@ public class DeleteTable {
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Migration de votre base de données PostgreSQL par exportation et importation](./howto-migrate-using-export-and-import.md)
 
