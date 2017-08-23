@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 976c4752cc3c3cc1c74adf7d57c3539d39aef556
+ms.sourcegitcommit: 495a695466c47c6030716d97c52b3bbf5ce9bf99
+ms.openlocfilehash: 6c073d70debfdc3560405955d65fa9ccaa7d8b1f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C : se connecter à l’aide de comptes Azure AD
@@ -142,7 +142,7 @@ Pour obtenir un jeton à partir du point de terminaison Azure AD, vous devez dé
 
 Vous devez mettre à jour la section `<Metadata>` dans le XML évoqué précédemment pour refléter les paramètres de configuration de votre locataire Azure AD spécifique. Dans le fichier XML, mettez à jour les valeurs des métadonnées comme suit :
 
-1. Définissez `<Item Key="METADATA">` sur `https://login.microsoftonline.com/yourAzureADtenant/.well-known/openid-configuration`, où `yourAzureADtenant` est le nom de votre locataire Azure AD (contoso.com).
+1. Définissez `<Item Key="METADATA">` sur `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, où `yourAzureADtenant` est le nom de votre locataire Azure AD (contoso.com).
 1. Ouvrez votre navigateur, puis accédez à l’URL `METADATA` que vous venez de mettre à jour.
 1. Dans le navigateur, recherchez l’objet « issuer » et copiez sa valeur. Elle doit ressembler à ceci : `https://sts.windows.net/{tenantId}/`.
 1. Collez la valeur de `<Item Key="ProviderName">` dans le fichier XML.
